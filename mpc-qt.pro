@@ -23,4 +23,5 @@ RESOURCES += \
     res.qrc
 
 OTHER_FILES += \
-    LICENSE
+    LICENSE \
+    README.md
