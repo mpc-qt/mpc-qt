@@ -20,4 +20,4 @@ Nothing. It's just a mock-up. Feel free to fork.
 [Media Player Classic Home Cinema]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
 [bomi]:https://github.com/xylosper/bomi
-[baka]:https://github.com/u8sand/Baka-MPlayer6
+[baka]:https://github.com/u8sand/Baka-MPlayer
