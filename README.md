@@ -3,19 +3,15 @@
 A clone of Media Player Classic reimplimented in Qt.
 
 [Media Player Classic Home Cinema] is considered by many to be the
-quintessential media player for the Windows desktop.  To encourage migration
-away from the Windows desktop, mpc-qt intends to reproduce most of the
-interface and functionality of mpc-hc while using [libmpv] to play video
-instead of DirectShow.
-
-That's said, you're probably better off using [bomi] or [baka] because they
-are far more mature.  And I don't feel like I can faithfully invest the
-required time for a ambitious project like this.
+quintessential media player for the Windows desktop.  I would like mpc-qt to
+reproduce most of the interface and functionality of mpc-hc while using
+[libmpv] to play video instead of DirectShow.
 
 
 ## What works
 
-Nothing. It's just a mock-up. Feel free to fork.
+Nothing. It's just a mock-up right now. Feel free to fork or do whatever you
+want with it.
 
 [Media Player Classic Home Cinema]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
