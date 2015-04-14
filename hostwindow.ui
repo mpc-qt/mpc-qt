@@ -142,7 +142,7 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
        <number>6</number>
       </property>
       <item>
-       <widget class="QSlider" name="horizontalSlider">
+       <widget class="QSlider" name="position">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -151,7 +151,7 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0,0,0,0,0,0,0,1,0,0">
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="play">
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/play.png</normaloff>:/images/controls/play.png</iconset>
@@ -159,7 +159,7 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="pause">
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/pause.png</normaloff>:/images/controls/pause.png</iconset>
@@ -167,7 +167,7 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_3">
+         <widget class="QPushButton" name="stop">
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/stop.png</normaloff>:/images/controls/stop.png</iconset>
@@ -191,7 +191,7 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_7">
+         <widget class="QPushButton" name="skipBackward">
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/back1.png</normaloff>:/images/controls/back1.png</iconset>
@@ -199,7 +199,7 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_4">
+         <widget class="QPushButton" name="speedDecrease">
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/back2.png</normaloff>:/images/controls/back2.png</iconset>
@@ -207,7 +207,7 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_5">
+         <widget class="QPushButton" name="speedIncrease">
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/forward1.png</normaloff>:/images/controls/forward1.png</iconset>
@@ -215,7 +215,7 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_6">
+         <widget class="QPushButton" name="skipForward">
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/forward2.png</normaloff>:/images/controls/forward2.png</iconset>
@@ -239,7 +239,7 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_8">
+         <widget class="QPushButton" name="stepBackward">
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/back3.png</normaloff>:/images/controls/back3.png</iconset>
@@ -247,7 +247,7 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_10">
+         <widget class="QPushButton" name="stepForward">
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/forward3.png</normaloff>:/images/controls/forward3.png</iconset>
@@ -268,7 +268,7 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_11">
+         <widget class="QPushButton" name="mute">
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/speaker1.png</normaloff>:/images/controls/speaker1.png</iconset>
@@ -279,7 +279,7 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
          </widget>
         </item>
         <item>
-         <widget class="QSlider" name="horizontalSlider_2">
+         <widget class="QSlider" name="volume">
           <property name="minimumSize">
            <size>
             <width>64</width>
@@ -328,14 +328,14 @@ background-color: rgb(0, 0, 0);</string>
        <widget class="QWidget" name="info_stats" native="true">
         <layout class="QFormLayout" name="formLayout">
          <item row="0" column="0">
-          <widget class="QLabel" name="label_4">
+          <widget class="QLabel" name="info">
            <property name="text">
             <string>Information</string>
            </property>
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLabel" name="label_5">
+          <widget class="QLabel" name="stat">
            <property name="text">
             <string>Statistic</string>
            </property>
@@ -353,28 +353,28 @@ background-color: rgb(0, 0, 0);</string>
          <number>6</number>
         </property>
         <item>
-         <widget class="QLabel" name="label">
+         <widget class="QLabel" name="tinyicon">
           <property name="pixmap">
            <pixmap resource="res.qrc">:/images/bitmaps/icon16.png</pixmap>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_2">
+         <widget class="QLabel" name="status">
           <property name="text">
            <string>Stopped</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_3">
+         <widget class="QLabel" name="time">
           <property name="text">
            <string>00:00 / 00:00</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_9">
+         <widget class="QPushButton" name="cornerthing">
           <property name="styleSheet">
            <string notr="true">border: none;</string>
           </property>
