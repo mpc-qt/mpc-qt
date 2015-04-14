@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/controls/back1.png</file>
+        <file>images/controls/back2.png</file>
+        <file>images/controls/back3.png</file>
+        <file>images/controls/forward1.png</file>
+        <file>images/controls/forward2.png</file>
+        <file>images/controls/forward3.png</file>
+        <file>images/controls/pause.png</file>
+        <file>images/controls/play.png</file>
+        <file>images/controls/speaker1.png</file>
+        <file>images/controls/speaker2.png</file>
+        <file>images/controls/stop.png</file>
+        <file>images/bitmaps/blank-screen.png</file>
+        <file>images/bitmaps/icon.png</file>
+        <file>images/bitmaps/icon16.png</file>
+    </qresource>
+</RCC>
