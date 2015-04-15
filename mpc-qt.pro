@@ -11,6 +11,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = mpc-qt
 TEMPLATE = app
 
+CONFIG += c++11
+CONFIG += largefile qt link_pkgconfig
+PKGCONFIG += mpv
 
 SOURCES += main.cpp\
         hostwindow.cpp

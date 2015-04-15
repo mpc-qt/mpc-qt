@@ -31,10 +31,11 @@ QPushButton:hover {
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(192, 192, 192, 255), stop:1 rgba(128, 128, 128, 255));
 }
 
-QPushButton:pressed {
+QPushButton:pressed, QPushButton:checked {
 background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(64, 64, 64, 128), stop:1 rgba(0, 0, 0, 128));;
 }
 QPushButton:checked {
+/*background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(64, 64, 64, 128), */
 border: 1px solid rgba(0,0,0,64);
 }
 
@@ -143,6 +144,9 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
       </property>
       <item>
        <widget class="QSlider" name="position">
+        <property name="tracking">
+         <bool>false</bool>
+        </property>
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -163,6 +167,9 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/pause.png</normaloff>:/images/controls/pause.png</iconset>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -286,6 +293,15 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
             <height>0</height>
            </size>
           </property>
+          <property name="maximum">
+           <number>100</number>
+          </property>
+          <property name="value">
+           <number>100</number>
+          </property>
+          <property name="tracking">
+           <bool>false</bool>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -369,7 +385,7 @@ background-color: rgb(0, 0, 0);</string>
         <item>
          <widget class="QLabel" name="time">
           <property name="text">
-           <string>00:00 / 00:00</string>
+           <string>0:00:00.00 / 0:00:00.00</string>
           </property>
          </widget>
         </item>

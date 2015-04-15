@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include <mpv/client.h>
+
 namespace Ui {
 class HostWindow;
 }
@@ -15,8 +17,69 @@ public:
     explicit HostWindow(QWidget *parent = 0);
     ~HostWindow();
 
+private slots:
+    void menu_file_open();
+    void menu_file_close();
+
+    void mpv_events();
+
+    void on_position_sliderMoved(int position);
+
+    void on_pause_clicked();
+
+    void on_pause_clicked(bool checked);
+
+    void on_play_clicked();
+
+    void on_stop_clicked();
+
+    void on_speedDecrease_clicked();
+
+    void on_speedIncrease_clicked();
+
+    void on_skipBackward_clicked();
+
+    void on_skipForward_clicked();
+
+    void on_stepBackward_clicked();
+
+    void on_stepForward_clicked();
+
+    void on_volume_valueChanged(int position);
+
+    void on_mute_clicked(bool checked);
+
+signals:
+    void fire_mpv_events();
+
 private:
     Ui::HostWindow *ui;
+    mpv_handle *mpv;
+    int video_width;
+    int video_height;
+    double play_time;
+    double play_length;
+    bool is_playing;
+    bool is_paused;
+    double speed;
+    bool is_muted;
+
+    void handle_mpv_event(mpv_event *event);
+
+    void addMenu();
+    void bootMpv();
+    void update_time();
+    void update_status();
+    void mpv_show_message(const char* text);
+    void mpv_set_speed(double speed);
+
+    void me_play_time(double time);
+    void me_length(double time);
+    void me_started();
+    void me_pause(bool yes);
+    void me_finished();
+    void me_title();
+    void me_chapter(QVariant v);
 };
 
 #endif // HOSTWINDOW_H
