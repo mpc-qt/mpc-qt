@@ -10,8 +10,8 @@ reproduce most of the interface and functionality of mpc-hc while using
 
 ## What works
 
-Nothing. It's just a mock-up right now. Feel free to fork or do whatever you
-want with it.
+You can play back files and control them from the ui.  The menu is largely
+empty, however.
 
 [Media Player Classic Home Cinema]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
