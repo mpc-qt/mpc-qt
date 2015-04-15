@@ -21,6 +21,12 @@ private slots:
     void menu_file_open();
     void menu_file_close();
 
+    void menu_view_zoom_50();
+    void menu_view_zoom_100();
+    void menu_view_zoom_200();
+    void menu_view_zoom_auto();
+    void menu_view_zoom_autolarger();
+
     void mpv_events();
 
     void on_position_sliderMoved(int position);
@@ -63,6 +69,7 @@ private:
     bool is_paused;
     double speed;
     bool is_muted;
+    double size_factor;
 
     void handle_mpv_event(mpv_event *event);
 
@@ -70,6 +77,7 @@ private:
     void bootMpv();
     void update_time();
     void update_status();
+    void update_size();
     void mpv_show_message(const char* text);
     void mpv_set_speed(double speed);
 
@@ -80,6 +88,8 @@ private:
     void me_finished();
     void me_title();
     void me_chapter(QVariant v);
+
+    void me_size(int64_t width, int64_t height);
 };
 
 #endif // HOSTWINDOW_H

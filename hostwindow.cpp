@@ -3,6 +3,8 @@
 
 #include "hostwindow.h"
 #include "ui_hostwindow.h"
+#include <QScreen>
+#include <QWindow>
 #include <QMenuBar>
 #include <QJsonDocument>
 #include <QFileDialog>
@@ -25,6 +27,7 @@ HostWindow::HostWindow(QWidget *parent) :
     is_playing = false;
     speed = 1.0;
     is_muted = false;
+    size_factor = 1;
     ui->setupUi(this);
     ui->info_stats->setVisible(false);
 
@@ -53,6 +56,40 @@ void HostWindow::menu_file_open()
 void HostWindow::menu_file_close()
 {
     on_stop_clicked();
+}
+
+void HostWindow::menu_view_zoom_50()
+{
+    size_factor = 0.5;
+    update_size();
+}
+
+void HostWindow::menu_view_zoom_100()
+{
+    size_factor = 1.0;
+    update_size();
+}
+
+void HostWindow::menu_view_zoom_200()
+{
+    size_factor = 2.0;
+    update_size();
+}
+
+void HostWindow::menu_view_zoom_auto()
+{
+    // TODO: work out the logic for this.  In the meantime, set to manual
+    // sized.
+    size_factor = 0.0;
+    update_size();
+}
+
+void HostWindow::menu_view_zoom_autolarger()
+{
+    // TODO: work out the logic for this.  In the meantime, set to manual
+    // sized.
+    size_factor = 0.0;
+    update_size();
 }
 
 void HostWindow::mpv_events()
@@ -114,8 +151,8 @@ void HostWindow::handle_mpv_event(mpv_event *event)
     case MPV_EVENT_VIDEO_RECONFIG: {
         // Retrieve the new video size.
         int64_t w, h;
-        if (mpv_get_property(mpv, "dwidth", MPV_FORMAT_INT64, &w) >= 0 &&
-            mpv_get_property(mpv, "dheight", MPV_FORMAT_INT64, &h) >= 0 &&
+        if (mpv_get_property(mpv, "width", MPV_FORMAT_INT64, &w) >= 0 &&
+            mpv_get_property(mpv, "height", MPV_FORMAT_INT64, &h) >= 0 &&
             w > 0 && h > 0)
         {
             // Note that the MPV_EVENT_VIDEO_RECONFIG event doesn't
@@ -125,8 +162,11 @@ void HostWindow::handle_mpv_event(mpv_event *event)
             // videos.
             // mpv itself will scale/letter box the video to the container size
             // if the video doesn't fit.
-            video_width = w;
-            video_height = h;
+            me_size(w,h);
+            //video_width = w;
+            //video_height = h;
+            //ui->mpv_container->setMaximumSize(w,h);
+            //ui->mpv_container->setMinimumSize(w,h);
         }
         break;
     }
@@ -152,18 +192,50 @@ void HostWindow::addMenu()
 {
     // TODO: create relevant entires similar from mpc-hc.
     QMenuBar *bar = new QMenuBar(this);
-    QMenu *menu = bar->addMenu(tr("&File"));
-    QAction *on_open = new QAction(tr("&Open"), this);
-    on_open->setShortcuts(QKeySequence::Open);
-    on_open->setStatusTip(tr("Open a file"));
-    connect(on_open, &QAction::triggered, this, &HostWindow::menu_file_open);
-    menu->addAction(on_open);
+    QMenu *menu, *submenu, *subsubmenu;
+    QAction *action;
+    menu = bar->addMenu(tr("&File"));
+        action = new QAction(tr("&Open"), this);
+        action->setShortcuts(QKeySequence::Open);
+        action->setStatusTip(tr("Open a file"));
+        connect(action, &QAction::triggered, this, &HostWindow::menu_file_open);
+        menu->addAction(action);
 
-    QAction *on_close = new QAction(tr("&Close file"), this);
-    connect(on_close, &QAction::triggered, this, &HostWindow::menu_file_close);
-    menu->addAction(on_close);
+        action = new QAction(tr("&Close file"), this);
+        action->setShortcuts(QKeySequence::Close);
+        connect(action, &QAction::triggered, this, &HostWindow::menu_file_close);
+        menu->addAction(action);
+
+    menu = bar->addMenu(tr("&View"));
+        submenu = menu->addMenu(tr("&Zoom"));
+            action = new QAction(tr("&50%"), this);
+            action->setShortcut(QKeySequence("Alt+1"));
+            connect(action, &QAction::triggered, this, &HostWindow::menu_view_zoom_50);
+            submenu->addAction(action);
+
+            action = new QAction(tr("&100%"), this);
+            action->setShortcut(QKeySequence("Alt+2"));
+            connect(action, &QAction::triggered, this, &HostWindow::menu_view_zoom_100);
+            submenu->addAction(action);
+
+            action = new QAction(tr("&200%"), this);
+            action->setShortcut(QKeySequence("Alt+3"));
+            connect(action, &QAction::triggered, this, &HostWindow::menu_view_zoom_200);
+            submenu->addAction(action);
+
+            action = new QAction(tr("Auto &Fit"), this);
+            action->setShortcut(QKeySequence("Alt+4"));
+            connect(action, &QAction::triggered, this, &HostWindow::menu_view_zoom_auto);
+            submenu->addAction(action);
+
+            action = new QAction(tr("Auto Fit (&Larger Only)"), this);
+            action->setShortcut(QKeySequence("Alt+5"));
+            connect(action, &QAction::triggered, this, &HostWindow::menu_view_zoom_autolarger);
+            submenu->addAction(action);
 
     layout()->setMenuBar(bar);
+
+    (void)subsubmenu;
 }
 
 void HostWindow::bootMpv()
@@ -223,10 +295,29 @@ void HostWindow::update_status()
     ui->status->setText(is_playing ? is_paused ? "Paused" : "Playing" : "Stopped");
 }
 
+void HostWindow::update_size()
+{
+    if (size_factor <= 0) {
+        ui->mpv_container->setMaximumSize(16777215, 16777215);
+        ui->mpv_container->setMinimumSize(0,0);
+        return;
+    }
+    QSize sz_wanted(video_width*size_factor + 0.5, video_height*size_factor + 0.5);
+    QSize sz_current = ui->mpv_container->size();
+    QSize sz_window = size();
+    QSize sz_desired = sz_wanted + sz_window - sz_current;
+    emit resize(sz_desired);
+
+    QScreen *scr = windowHandle()->screen();
+    QSize sz_boundary = scr->availableSize();
+    QSize pt_where = (sz_boundary - sz_desired)/2;
+    emit move(pt_where.width(), pt_where.height());
+}
+
 void HostWindow::mpv_show_message(const char *text)
 {
     const char *array[4] = { "show_text", text, "1000", NULL };
-    qDebug() << mpv_command(mpv, array);
+    mpv_command(mpv, array);
 }
 
 void HostWindow::mpv_set_speed(double speed)
@@ -287,6 +378,19 @@ void HostWindow::me_chapter(QVariant v)
     // foreach item in v
     //   set position.tick at item[time] with item[title]
     (void)v;
+}
+
+void HostWindow::me_size(int64_t width, int64_t height)
+{
+    video_width = width;
+    video_height = height;
+    update_size();
+    /*
+    if (size_factor <= 0.0)
+        return;
+    QSize sz(video_width*size_factor + 0.5, video_height*size_factor + 0.5);
+    ui->mpv_container->setMaximumSize(sz);
+    ui->mpv_container->setMinimumSize(sz);*/
 }
 
 void HostWindow::on_position_sliderMoved(int position)
