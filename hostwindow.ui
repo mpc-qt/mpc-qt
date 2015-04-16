@@ -118,9 +118,6 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
          <property name="bottomMargin">
           <number>0</number>
          </property>
-         <item>
-          <widget class="QWidget" name="mpv_container" native="true"/>
-         </item>
         </layout>
        </widget>
       </item>

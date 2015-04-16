@@ -16,9 +16,11 @@ CONFIG += largefile qt link_pkgconfig
 PKGCONFIG += mpv
 
 SOURCES += main.cpp\
-        hostwindow.cpp
+        hostwindow.cpp \
+    mpvwidget.cpp
 
-HEADERS  += hostwindow.h
+HEADERS  += hostwindow.h \
+    mpvwidget.h
 
 FORMS    += hostwindow.ui
 
