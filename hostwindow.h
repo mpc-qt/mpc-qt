@@ -63,6 +63,8 @@ private:
     mpv_handle *mpv;
     int video_width;
     int video_height;
+    int no_video_width;
+    int no_video_height;
     double play_time;
     double play_length;
     bool is_playing;
@@ -78,6 +80,8 @@ private:
     void update_time();
     void update_status();
     void update_size();
+    void viewport_shrink_size();
+    void mpv_stop(bool dry_run = false);
     void mpv_show_message(const char* text);
     void mpv_set_speed(double speed);
 
@@ -88,6 +92,7 @@ private:
     void me_finished();
     void me_title();
     void me_chapter(QVariant v);
+    void me_track(QVariant v);
 
     void me_size(int64_t width, int64_t height);
 };

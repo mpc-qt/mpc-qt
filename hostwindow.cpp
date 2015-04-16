@@ -12,6 +12,7 @@
 #include <mpv/qthelper.hpp>
 #include <QDebug>
 
+
 static void wakeup(void *ctx)
 {
     // Notify the Qt GUI thread to wake up so that it can process events with
@@ -33,6 +34,9 @@ HostWindow::HostWindow(QWidget *parent) :
 
     addMenu();
     bootMpv();
+
+    video_width = no_video_width = 500;
+    video_height = no_video_height = 270;
 }
 
 HostWindow::~HostWindow()
@@ -128,6 +132,10 @@ void HostWindow::handle_mpv_event(mpv_event *event)
             me_title();
         } else if (strcmp(prop->name, "chapter-list") == 0) {
             me_chapter(mpv::qt::node_to_variant((mpv_node*)prop->data));
+        } else if (strcmp(prop->name, "track-list") == 0) {
+            if (prop->format != MPV_FORMAT_NODE)
+                break;
+            me_track(mpv::qt::node_to_variant((mpv_node *)prop->data));
         } else {
             // Dump other properties as JSON for development purposes.
             // Eventually this will never be called as more control features
@@ -160,13 +168,10 @@ void HostWindow::handle_mpv_event(mpv_event *event)
             // the video dimensions really changed.  This would happen for
             // example when playing back an mkv file that refers to other
             // videos.
-            // mpv itself will scale/letter box the video to the container size
-            // if the video doesn't fit.
+            // mpv itself will scale/letter box the video to the container
+            // size if the video doesn't fit and automatic zooming is not
+            // active.
             me_size(w,h);
-            //video_width = w;
-            //video_height = h;
-            //ui->mpv_container->setMaximumSize(w,h);
-            //ui->mpv_container->setMinimumSize(w,h);
         }
         break;
     }
@@ -178,9 +183,9 @@ void HostWindow::handle_mpv_event(mpv_event *event)
         break;
     }
     case MPV_EVENT_SHUTDOWN: {
-        me_finished();
         mpv_terminate_destroy(mpv);
         mpv = NULL;
+        mpv_stop(true);
         break;
     }
     default: ;
@@ -314,6 +319,22 @@ void HostWindow::update_size()
     emit move(pt_where.width(), pt_where.height());
 }
 
+void HostWindow::viewport_shrink_size()
+{
+    video_width = no_video_width;
+    video_height = no_video_height;
+    update_size();
+}
+
+void HostWindow::mpv_stop(bool dry_run)
+{
+    if (!dry_run)
+        mpv_command_string(mpv, "stop");
+    is_playing = false;
+    update_status();
+    viewport_shrink_size();
+}
+
 void HostWindow::mpv_show_message(const char *text)
 {
     const char *array[4] = { "show_text", text, "1000", NULL };
@@ -380,6 +401,15 @@ void HostWindow::me_chapter(QVariant v)
     (void)v;
 }
 
+void HostWindow::me_track(QVariant v)
+{
+    if (!v.canConvert<QVariantList>())
+        return;
+    QVariantList vl = v.toList();
+    if (vl.empty())
+        mpv_stop(true);
+}
+
 void HostWindow::me_size(int64_t width, int64_t height)
 {
     video_width = width;
@@ -427,9 +457,7 @@ void HostWindow::on_play_clicked()
 
 void HostWindow::on_stop_clicked()
 {
-    mpv_command_string(mpv, "stop");
-    is_playing = false;
-    update_status();
+    mpv_stop();
 }
 
 void HostWindow::on_speedDecrease_clicked()
@@ -464,7 +492,7 @@ void HostWindow::on_skipForward_clicked()
     if (mpv_set_property(mpv, "chapter", MPV_FORMAT_INT64, &chapter) != 0) {
         // most likely the reason why we're here is because the requested
         // chapter number is a past-the-end value.
-        on_stop_clicked();
+        mpv_stop();
     }
 }
 
