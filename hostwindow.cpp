@@ -53,7 +53,6 @@ void HostWindow::menu_file_open()
         const QByteArray c_filename = filename.toUtf8();
         const char *args[] = {"loadfile", c_filename.data(), NULL};
         mpv_command_async(mpv, 0, args);
-        me_started();
     }
 }
 
@@ -185,7 +184,7 @@ void HostWindow::handle_mpv_event(mpv_event *event)
     case MPV_EVENT_SHUTDOWN: {
         mpv_terminate_destroy(mpv);
         mpv = NULL;
-        mpv_stop(true);
+        me_finished();
         break;
     }
     default: ;
@@ -377,8 +376,7 @@ void HostWindow::me_pause(bool yes)
 
 void HostWindow::me_finished()
 {
-    is_playing = false;
-    update_status();
+    mpv_stop(true);
 }
 
 void HostWindow::me_title()
@@ -408,6 +406,8 @@ void HostWindow::me_track(QVariant v)
     QVariantList vl = v.toList();
     if (vl.empty())
         mpv_stop(true);
+    else
+        me_started();
 }
 
 void HostWindow::me_size(int64_t width, int64_t height)
