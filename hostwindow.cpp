@@ -140,6 +140,26 @@ void HostWindow::addMenu()
     (void)subsubmenu;
 }
 
+void HostWindow::ui_reset_state(bool enabled)
+{
+    ui->position->setEnabled(enabled);
+
+    ui->play->setEnabled(enabled);
+    ui->pause->setEnabled(enabled);
+    ui->stop->setEnabled(enabled);
+    ui->stepBackward->setEnabled(enabled);
+    ui->speedDecrease->setEnabled(enabled);
+    ui->speedIncrease->setEnabled(enabled);
+    ui->stepForward->setEnabled(enabled);
+    ui->skipBackward->setEnabled(enabled);
+    ui->skipForward->setEnabled(enabled);
+
+    ui->mute->setEnabled(enabled);
+    ui->volume->setEnabled(enabled);
+
+    ui->pause->setChecked(false);
+}
+
 static QString to_date_fmt(double secs) {
     int hr = secs/3600;
     int mn = fmod(secs/60, 60);
@@ -254,10 +274,13 @@ void HostWindow::me_track(QVariant v)
     if (!v.canConvert<QVariantList>())
         return;
     QVariantList vl = v.toList();
-    if (vl.empty())
+    bool finished = vl.empty();
+    if (finished) {
         mpv_stop(true);
-    else
+    } else {
         me_started();
+    }
+    ui_reset_state(!finished);
 }
 
 void HostWindow::me_size(int64_t width, int64_t height)
@@ -265,12 +288,6 @@ void HostWindow::me_size(int64_t width, int64_t height)
     video_width = width;
     video_height = height;
     update_size();
-    /*
-    if (size_factor <= 0.0)
-        return;
-    QSize sz(video_width*size_factor + 0.5, video_height*size_factor + 0.5);
-    ui->mpv_container->setMaximumSize(sz);
-    ui->mpv_container->setMinimumSize(sz);*/
 }
 
 void HostWindow::on_position_sliderMoved(int position)
@@ -338,7 +355,9 @@ void HostWindow::on_skipForward_clicked()
     chapter++;
     if (!mpvw->property_chapter_set(chapter)) {
         // most likely the reason why we're here is because the requested
-        // chapter number is a past-the-end value.
+        // chapter number is a past-the-end value, so halt playback.  If mpv
+        // was playing back a playlist, this stops it.  But we intend to do
+        // our own playlist parsing anyway, so no biggie.
         mpv_stop();
     }
 }
@@ -365,6 +384,8 @@ void HostWindow::on_volume_valueChanged(int position)
 
 void HostWindow::on_mute_clicked(bool checked)
 {
+    if (!is_playing)
+        return;
     mpvw->property_mute_set(checked);
     ui->mute->setIcon(QIcon(checked ? ":/images/controls/speaker2.png" :
                                       ":/images/controls/speaker1.png"));

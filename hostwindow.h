@@ -79,6 +79,7 @@ private:
     double size_factor;
 
     void addMenu();
+    void ui_reset_state(bool enabled);
     void update_time();
     void update_status();
     void update_size();

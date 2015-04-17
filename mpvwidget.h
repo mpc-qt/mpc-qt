@@ -50,9 +50,7 @@ private slots:
 private:
     mpv_handle *mpv;
 
-    void bootMpv();
     void handle_mpv_event(mpv_event *event);
-
 };
 
 #endif // MPVWIDGET_H

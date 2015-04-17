@@ -141,6 +141,9 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
       </property>
       <item>
        <widget class="QSlider" name="position">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="tracking">
          <bool>false</bool>
         </property>
@@ -153,6 +156,9 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
        <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0,0,0,0,0,0,0,1,0,0">
         <item>
          <widget class="QPushButton" name="play">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/play.png</normaloff>:/images/controls/play.png</iconset>
@@ -161,6 +167,9 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
         </item>
         <item>
          <widget class="QPushButton" name="pause">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/pause.png</normaloff>:/images/controls/pause.png</iconset>
@@ -172,6 +181,9 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
         </item>
         <item>
          <widget class="QPushButton" name="stop">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/stop.png</normaloff>:/images/controls/stop.png</iconset>
@@ -196,6 +208,9 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
         </item>
         <item>
          <widget class="QPushButton" name="skipBackward">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/back1.png</normaloff>:/images/controls/back1.png</iconset>
@@ -204,6 +219,9 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
         </item>
         <item>
          <widget class="QPushButton" name="speedDecrease">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/back2.png</normaloff>:/images/controls/back2.png</iconset>
@@ -212,6 +230,9 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
         </item>
         <item>
          <widget class="QPushButton" name="speedIncrease">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/forward1.png</normaloff>:/images/controls/forward1.png</iconset>
@@ -220,6 +241,9 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
         </item>
         <item>
          <widget class="QPushButton" name="skipForward">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/forward2.png</normaloff>:/images/controls/forward2.png</iconset>
@@ -244,6 +268,9 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
         </item>
         <item>
          <widget class="QPushButton" name="stepBackward">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/back3.png</normaloff>:/images/controls/back3.png</iconset>
@@ -252,6 +279,9 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
         </item>
         <item>
          <widget class="QPushButton" name="stepForward">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/forward3.png</normaloff>:/images/controls/forward3.png</iconset>
@@ -273,6 +303,9 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
         </item>
         <item>
          <widget class="QPushButton" name="mute">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/images/controls/speaker1.png</normaloff>:/images/controls/speaker1.png</iconset>
@@ -284,6 +317,9 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
         </item>
         <item>
          <widget class="QSlider" name="volume">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="minimumSize">
            <size>
             <width>64</width>
