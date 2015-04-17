@@ -17,8 +17,9 @@ HostWindow::HostWindow(QWidget *parent) :
 {
     is_playing = false;
     speed = 1.0;
-    is_muted = false;
     size_factor = 1;
+    no_video_size = QSize(500,270);
+
     ui->setupUi(this);
     ui->info_stats->setVisible(false);
 
@@ -34,9 +35,6 @@ HostWindow::HostWindow(QWidget *parent) :
     connect(mpvw, &MpvWidget::me_track, this, &HostWindow::me_track);
     connect(mpvw, &MpvWidget::me_size, this, &HostWindow::me_size);
     ui->mpv_host->layout()->addWidget(mpvw);
-
-    video_width = no_video_width = 500;
-    video_height = no_video_height = 270;
 }
 
 HostWindow::~HostWindow()
@@ -173,6 +171,8 @@ static QString to_date_fmt(double secs) {
 
 void HostWindow::update_time()
 {
+    double play_time = mpvw->state_play_time_get();
+    double play_length = mpvw->state_play_length_get();
     ui->time->setText(QString("%1 / %2").arg(to_date_fmt(play_time),to_date_fmt(play_length)));
 }
 
@@ -185,7 +185,9 @@ void HostWindow::update_size()
 {
     if (size_factor <= 0)
         return;
-    QSize sz_wanted(video_width*size_factor + 0.5, video_height*size_factor + 0.5);
+
+    QSize sz_player = is_playing ? mpvw->state_video_size_get() : no_video_size;
+    QSize sz_wanted(sz_player.width()*size_factor + 0.5, sz_player.height()*size_factor + 0.5);
     QSize sz_current = mpvw->size();
     QSize sz_window = size();
     QSize sz_desired = sz_wanted + sz_window - sz_current;
@@ -197,20 +199,13 @@ void HostWindow::update_size()
     emit move(pt_where.width(), pt_where.height());
 }
 
-void HostWindow::viewport_shrink_size()
-{
-    video_width = no_video_width;
-    video_height = no_video_height;
-    update_size();
-}
-
 void HostWindow::mpv_stop(bool dry_run)
 {
     if (!dry_run)
         mpvw->command_stop();
     is_playing = false;
     update_status();
-    viewport_shrink_size();
+    update_size();
 }
 
 void HostWindow::mpv_set_speed(double speed)
@@ -219,17 +214,17 @@ void HostWindow::mpv_set_speed(double speed)
     mpvw->show_message(QString("Speed: %1").arg(speed));
 }
 
-void HostWindow::me_play_time(double time)
+void HostWindow::me_play_time()
 {
-    play_time = time >= 0 ? time: 0;
-    ui->position->setValue(time);
+    double time = mpvw->state_play_time_get();
+    ui->position->setValue(time >= 0 ? time : 0);
     update_time();
 }
 
-void HostWindow::me_length(double time)
+void HostWindow::me_length()
 {
-    play_length = time >= 0 ? time : 0;
-    ui->position->setMaximum(time);
+    double length = mpvw->state_play_length_get();
+    ui->position->setMaximum(length >= 0 ? length : 0);
     update_time();
 }
 
@@ -283,10 +278,8 @@ void HostWindow::me_track(QVariant v)
     ui_reset_state(!finished);
 }
 
-void HostWindow::me_size(int64_t width, int64_t height)
+void HostWindow::me_size()
 {
-    video_width = width;
-    video_height = height;
     update_size();
 }
 

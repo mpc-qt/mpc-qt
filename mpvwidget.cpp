@@ -141,6 +141,21 @@ void MpvWidget::property_volume_set(int64_t volume)
     mpv_set_property(mpv, "volume", MPV_FORMAT_INT64, &volume);
 }
 
+double MpvWidget::state_play_length_get()
+{
+    return play_length;
+}
+
+double MpvWidget::state_play_time_get()
+{
+    return play_time;
+}
+
+QSize MpvWidget::state_video_size_get()
+{
+    return video_size;
+}
+
 void MpvWidget::mpv_events()
 {
     // Process all events, until the event queue is empty.
@@ -161,18 +176,19 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
         mpv_event_property *prop = (mpv_event_property *)event->data;
         if (strcmp(prop->name, "time-pos") == 0) {
             if (prop->format == MPV_FORMAT_DOUBLE) {
-                double time = *(double *)prop->data;
-                me_play_time(time);
+                play_time = *(double *)prop->data;
+                me_play_time();
             } else if (prop->format == MPV_FORMAT_NONE) {
                 // The property is unavailable, which probably means playback
                 // was stopped.
-                me_play_time(-1);
+                play_time = -1;
+                me_play_time();
             }
         } else if (strcmp(prop->name, "length") == 0) {
-            double time = prop->format == MPV_FORMAT_DOUBLE ?
+            play_length = prop->format == MPV_FORMAT_DOUBLE ?
                         *(double*)prop->data :
                         -1;
-            me_length(time);
+            me_length();
         } else if (strcmp(prop->name, "media-title") == 0) {
             me_title();
         } else if (strcmp(prop->name, "chapter-list") == 0) {
@@ -208,6 +224,9 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
             mpv_get_property(mpv, "height", MPV_FORMAT_INT64, &h) >= 0 &&
             w > 0 && h > 0)
         {
+            video_size.setWidth(w);
+            video_size.setHeight(h);
+
             // Note that the MPV_EVENT_VIDEO_RECONFIG event doesn't
             // necessarily imply a resize, and you should check yourself if
             // the video dimensions really changed.  This would happen for
@@ -216,7 +235,7 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
             // mpv itself will scale/letter box the video to the container
             // size if the video doesn't fit and automatic zooming is not
             // active.
-            me_size(w,h);
+            me_size();
         }
         break;
     }

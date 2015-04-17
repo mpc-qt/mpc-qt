@@ -13,12 +13,13 @@ public:
     ~MpvWidget();
     void show_message(QString message);
 
+    // These are straightforward calls to libmpv
     void command_file_open(QString filename);
-
     void command_stop();
     void command_step_backward();
     void command_step_forward();
 
+    // These are straightforward queries to libmpv
     int64_t property_chapter_get();
     bool property_chapter_set(int64_t chapter);
     QString property_media_title_get();
@@ -28,19 +29,32 @@ public:
     void property_time_set(double position);
     void property_volume_set(int64_t volume);
 
+    // These query the tracked video state
+    double state_play_length_get();
+    double state_play_time_get();
+    QSize state_video_size_get();
+
 signals:
     void fire_mpv_events();
 
+    // For the most part we do not pass the value of property changes over
+    // during an event, we just notify that something happened.  If the
+    // receiver really does want a property value or state information, they
+    // can ask for it.  The UI should not be keeping that much track of player
+    // state anyway, it should be communicating with its widgets.  Do not
+    // fret, at worst it adds a single pointer redirection and a function
+    // call.
+
     // Pronounce 'me' as 'mpv event'.
-    void me_play_time(double time);
-    void me_length(double time);
+    void me_play_time();
+    void me_length();
     void me_started();
     void me_pause(bool yes);
     void me_finished();
     void me_title();
     void me_chapter(QVariant v);
     void me_track(QVariant v);
-    void me_size(int64_t width, int64_t height);
+    void me_size();
 
 public slots:
 
@@ -49,6 +63,9 @@ private slots:
 
 private:
     mpv_handle *mpv;
+    QSize video_size;
+    double play_time;
+    double play_length;
 
     void handle_mpv_event(mpv_event *event);
 };

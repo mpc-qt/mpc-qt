@@ -25,15 +25,15 @@ private slots:
     void menu_view_zoom_auto();
     void menu_view_zoom_autolarger();
 
-    void me_play_time(double time);
-    void me_length(double time);
+    void me_play_time();
+    void me_length();
     void me_started();
     void me_pause(bool yes);
     void me_finished();
     void me_title();
     void me_chapter(QVariant v);
     void me_track(QVariant v);
-    void me_size(int64_t width, int64_t height);
+    void me_size();
 
     void on_position_sliderMoved(int position);
 
@@ -66,16 +66,10 @@ signals:
 private:
     Ui::HostWindow *ui;
     MpvWidget* mpvw;
-    int video_width;
-    int video_height;
-    int no_video_width;
-    int no_video_height;
-    double play_time;
-    double play_length;
+    QSize no_video_size;
     bool is_playing;
     bool is_paused;
     double speed;
-    bool is_muted;
     double size_factor;
 
     void addMenu();
