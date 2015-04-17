@@ -31,8 +31,8 @@ private slots:
     void me_pause(bool yes);
     void me_finished();
     void me_title();
-    void me_chapter(QVariant v);
-    void me_track(QVariant v);
+    void me_chapters();
+    void me_tracks();
     void me_size();
 
     void on_position_sliderMoved(int position);

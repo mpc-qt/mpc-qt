@@ -141,6 +141,11 @@ void MpvWidget::property_volume_set(int64_t volume)
     mpv_set_property(mpv, "volume", MPV_FORMAT_INT64, &volume);
 }
 
+QVariantList MpvWidget::state_chapters_get()
+{
+    return chapters;
+}
+
 double MpvWidget::state_play_length_get()
 {
     return play_length;
@@ -149,6 +154,11 @@ double MpvWidget::state_play_length_get()
 double MpvWidget::state_play_time_get()
 {
     return play_time;
+}
+
+QVariantList MpvWidget::state_tracks_get()
+{
+    return tracks;
 }
 
 QSize MpvWidget::state_video_size_get()
@@ -192,11 +202,19 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
         } else if (strcmp(prop->name, "media-title") == 0) {
             me_title();
         } else if (strcmp(prop->name, "chapter-list") == 0) {
-            me_chapter(mpv::qt::node_to_variant((mpv_node*)prop->data));
+            if (prop->format != MPV_FORMAT_NODE)
+                break;
+            chapters = mpv::qt::node_to_variant((mpv_node*)prop->data).toList();
+            me_chapters();
+            if (chapters.empty())
+                me_finished();
+            else
+                me_started();
         } else if (strcmp(prop->name, "track-list") == 0) {
             if (prop->format != MPV_FORMAT_NODE)
                 break;
-            me_track(mpv::qt::node_to_variant((mpv_node *)prop->data));
+            tracks = mpv::qt::node_to_variant((mpv_node *)prop->data).toList();
+            me_tracks();
         } else {
             // Dump other properties as JSON for development purposes.
             // Eventually this will never be called as more control features

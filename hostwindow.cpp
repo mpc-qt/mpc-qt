@@ -31,8 +31,8 @@ HostWindow::HostWindow(QWidget *parent) :
     connect(mpvw, &MpvWidget::me_pause, this, &HostWindow::me_pause);
     connect(mpvw, &MpvWidget::me_finished, this, &HostWindow::me_finished);
     connect(mpvw, &MpvWidget::me_title, this, &HostWindow::me_title);
-    connect(mpvw, &MpvWidget::me_chapter, this, &HostWindow::me_chapter);
-    connect(mpvw, &MpvWidget::me_track, this, &HostWindow::me_track);
+    connect(mpvw, &MpvWidget::me_chapters, this, &HostWindow::me_chapters);
+    connect(mpvw, &MpvWidget::me_tracks, this, &HostWindow::me_tracks);
     connect(mpvw, &MpvWidget::me_size, this, &HostWindow::me_size);
     ui->mpv_host->layout()->addWidget(mpvw);
 }
@@ -232,6 +232,7 @@ void HostWindow::me_started()
 {
     is_playing = true;
     me_pause(false);
+    ui_reset_state(true);
 }
 
 void HostWindow::me_pause(bool yes)
@@ -243,6 +244,7 @@ void HostWindow::me_pause(bool yes)
 void HostWindow::me_finished()
 {
     mpv_stop(true);
+    ui_reset_state(false);
 }
 
 void HostWindow::me_title()
@@ -255,27 +257,21 @@ void HostWindow::me_title()
     setWindowTitle(window_title);
 }
 
-void HostWindow::me_chapter(QVariant v)
+void HostWindow::me_chapters()
 {
+    QVariantList chapters = mpvw->state_chapters_get();
     // Here we add (named) ticks to the position slider.
     // I'm going to have to reimplement QSlider for this. fml.
-    // foreach item in v
+    // foreach item in chapters
     //   set position.tick at item[time] with item[title]
-    (void)v;
+    qDebug() << chapters;
+    (void)chapters;
 }
 
-void HostWindow::me_track(QVariant v)
+void HostWindow::me_tracks()
 {
-    if (!v.canConvert<QVariantList>())
-        return;
-    QVariantList vl = v.toList();
-    bool finished = vl.empty();
-    if (finished) {
-        mpv_stop(true);
-    } else {
-        me_started();
-    }
-    ui_reset_state(!finished);
+    QVariantList tracks = mpvw->state_tracks_get();
+    (void)tracks;
 }
 
 void HostWindow::me_size()

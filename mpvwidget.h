@@ -30,8 +30,10 @@ public:
     void property_volume_set(int64_t volume);
 
     // These query the tracked video state
+    QVariantList state_chapters_get();
     double state_play_length_get();
     double state_play_time_get();
+    QVariantList state_tracks_get();
     QSize state_video_size_get();
 
 signals:
@@ -52,8 +54,8 @@ signals:
     void me_pause(bool yes);
     void me_finished();
     void me_title();
-    void me_chapter(QVariant v);
-    void me_track(QVariant v);
+    void me_chapters();
+    void me_tracks();
     void me_size();
 
 public slots:
@@ -66,6 +68,8 @@ private:
     QSize video_size;
     double play_time;
     double play_length;
+    QVariantList tracks;
+    QVariantList chapters;
 
     void handle_mpv_event(mpv_event *event);
 };
