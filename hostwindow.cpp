@@ -159,6 +159,8 @@ void HostWindow::ui_reset_state(bool enabled)
 }
 
 static QString to_date_fmt(double secs) {
+    if (secs < 0.0)
+        secs = 0;
     int hr = secs/3600;
     int mn = fmod(secs/60, 60);
     int se = fmod(secs, 60);
