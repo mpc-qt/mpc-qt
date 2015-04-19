@@ -76,7 +76,7 @@ private:
     void ui_reset_state(bool enabled);
     void update_time();
     void update_status();
-    void update_size();
+    void update_size(bool first_run = false);
     void viewport_shrink_size();
     void mpv_stop(bool dry_run = false);
     void mpv_show_message(const char* text);

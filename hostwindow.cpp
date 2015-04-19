@@ -3,7 +3,7 @@
 
 #include "hostwindow.h"
 #include "ui_hostwindow.h"
-#include <QScreen>
+#include <QDesktopWidget>
 #include <QWindow>
 #include <QMenuBar>
 #include <QJsonDocument>
@@ -35,6 +35,18 @@ HostWindow::HostWindow(QWidget *parent) :
     connect(mpvw, &MpvWidget::me_tracks, this, &HostWindow::me_tracks);
     connect(mpvw, &MpvWidget::me_size, this, &HostWindow::me_size);
     ui->mpv_host->layout()->addWidget(mpvw);
+
+    // Guarantee that the layout has been calculated.  It seems pointless, but
+    // Without it the window will temporarily display at a larger size than
+    // it needs to.
+    setAttribute (Qt::WA_DontShowOnScreen, true);
+    show();
+    QEventLoop EventLoop (this);
+    while (EventLoop.processEvents()) {}
+    hide();
+    setAttribute (Qt::WA_DontShowOnScreen, false);
+
+    update_size(true);
 }
 
 HostWindow::~HostWindow()
@@ -183,7 +195,7 @@ void HostWindow::update_status()
     ui->status->setText(is_playing ? is_paused ? "Paused" : "Playing" : "Stopped");
 }
 
-void HostWindow::update_size()
+void HostWindow::update_size(bool first_run)
 {
     if (size_factor <= 0)
         return;
@@ -193,12 +205,16 @@ void HostWindow::update_size()
     QSize sz_current = mpvw->size();
     QSize sz_window = size();
     QSize sz_desired = sz_wanted + sz_window - sz_current;
-    emit resize(sz_desired);
 
-    QScreen *scr = windowHandle()->screen();
-    QSize sz_boundary = scr->availableSize();
-    QSize pt_where = (sz_boundary - sz_desired)/2;
-    emit move(pt_where.width(), pt_where.height());
+    QDesktopWidget *desktop = qApp->desktop();
+    if (first_run)
+        setGeometry(QStyle::alignedRect(
+                    Qt::LeftToRight, Qt::AlignCenter, sz_desired,
+                    desktop->availableGeometry(desktop->screenNumber(QCursor::pos()))));
+    else
+        setGeometry(QStyle::alignedRect(
+                    Qt::LeftToRight, Qt::AlignCenter, sz_desired,
+                    desktop->availableGeometry(this)));
 }
 
 void HostWindow::mpv_stop(bool dry_run)
