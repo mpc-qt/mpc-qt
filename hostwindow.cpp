@@ -88,7 +88,6 @@ void HostWindow::menu_view_zoom_auto()
     // TODO: work out the logic for this.  In the meantime, set to manual
     // sized.
     size_factor = 0.0;
-    update_size();
 }
 
 void HostWindow::menu_view_zoom_autolarger()
@@ -96,7 +95,11 @@ void HostWindow::menu_view_zoom_autolarger()
     // TODO: work out the logic for this.  In the meantime, set to manual
     // sized.
     size_factor = 0.0;
-    update_size();
+}
+
+void HostWindow::menu_view_zoom_disable()
+{
+    size_factor = 0.0;
 }
 
 
@@ -143,6 +146,13 @@ void HostWindow::addMenu()
             action = new QAction(tr("Auto Fit (&Larger Only)"), this);
             action->setShortcut(QKeySequence("Alt+5"));
             connect(action, &QAction::triggered, this, &HostWindow::menu_view_zoom_autolarger);
+            submenu->addAction(action);
+
+            submenu->addSeparator();
+
+            action = new QAction(tr("Disable snapping"), this);
+            action->setShortcut(QKeySequence("Alt+0"));
+            connect(action, &QAction::triggered, this, &HostWindow::menu_view_zoom_disable);
             submenu->addAction(action);
 
     layout()->setMenuBar(bar);
