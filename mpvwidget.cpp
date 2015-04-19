@@ -26,6 +26,7 @@ MpvWidget::MpvWidget(QWidget *parent) :
 
     // Let us receive property change events with MPV_EVENT_PROPERTY_CHANGE if
     // this property changes.
+    //mpv_observe_property(mpv, 0, )
     mpv_observe_property(mpv, 0, "time-pos", MPV_FORMAT_DOUBLE);
     mpv_observe_property(mpv, 0, "media-title", MPV_FORMAT_STRING);
     mpv_observe_property(mpv, 0, "track-list", MPV_FORMAT_NODE);
@@ -206,10 +207,6 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
                 break;
             chapters = mpv::qt::node_to_variant((mpv_node*)prop->data).toList();
             me_chapters();
-            if (chapters.empty())
-                me_finished();
-            else
-                me_started();
         } else if (strcmp(prop->name, "track-list") == 0) {
             if (prop->format != MPV_FORMAT_NODE)
                 break;
@@ -260,6 +257,14 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
     case MPV_EVENT_LOG_MESSAGE: {
         struct mpv_event_log_message *msg = (struct mpv_event_log_message *)event->data;
         qDebug() << QString("[%1] %2: %3").arg(msg->prefix, msg->level, msg->text);
+        break;
+    }
+    case MPV_EVENT_START_FILE: {
+        me_started();
+        break;
+    }
+    case MPV_EVENT_END_FILE: {
+        me_finished();
         break;
     }
     case MPV_EVENT_SHUTDOWN: {
