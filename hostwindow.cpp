@@ -90,9 +90,9 @@ void HostWindow::menu_view_hide_menu(bool checked)
 void HostWindow::menu_view_hide_seekbar(bool checked)
 {
     if (checked)
-        ui->position->show();
+        ui->seekbar->show();
     else
-        ui->position->hide();
+        ui->seekbar->hide();
     update_size();
 }
 

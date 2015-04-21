@@ -126,46 +126,67 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
    </item>
    <item>
     <widget class="QFrame" name="control_section">
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="verticalLayout_6">
+      <property name="spacing">
+       <number>0</number>
+      </property>
       <property name="leftMargin">
-       <number>6</number>
+       <number>0</number>
       </property>
       <property name="topMargin">
-       <number>6</number>
+       <number>0</number>
       </property>
       <property name="rightMargin">
-       <number>6</number>
+       <number>0</number>
       </property>
       <property name="bottomMargin">
-       <number>6</number>
+       <number>0</number>
       </property>
       <item>
-       <widget class="QSlider" name="position">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="tracking">
-         <bool>false</bool>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
+       <widget class="QWidget" name="seekbar" native="true">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="leftMargin">
+          <number>6</number>
+         </property>
+         <property name="topMargin">
+          <number>3</number>
+         </property>
+         <property name="rightMargin">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
+          <number>3</number>
+         </property>
+         <item>
+          <widget class="QSlider" name="position">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="tracking">
+            <bool>false</bool>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
       <item>
        <widget class="QWidget" name="controlbar" native="true">
         <layout class="QHBoxLayout" name="_3" stretch="0,0,0,0,0,0,0,0,0,0,0,1,0,0">
          <property name="leftMargin">
-          <number>0</number>
+          <number>6</number>
          </property>
          <property name="topMargin">
-          <number>0</number>
+          <number>3</number>
          </property>
          <property name="rightMargin">
-          <number>0</number>
+          <number>6</number>
          </property>
          <property name="bottomMargin">
-          <number>0</number>
+          <number>3</number>
          </property>
          <item>
           <widget class="QPushButton" name="play">
