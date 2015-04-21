@@ -312,11 +312,6 @@ void HostWindow::on_position_sliderMoved(int position)
     mpvw->property_time_set(position);
 }
 
-void HostWindow::on_pause_clicked()
-{
-    me_pause(true);
-}
-
 void HostWindow::on_pause_clicked(bool checked)
 {
     mpvw->property_pause_set(checked);

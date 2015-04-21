@@ -38,8 +38,6 @@ private slots:
 
     void on_position_sliderMoved(int position);
 
-    void on_pause_clicked();
-
     void on_pause_clicked(bool checked);
 
     void on_play_clicked();
