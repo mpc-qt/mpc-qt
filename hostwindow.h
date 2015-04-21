@@ -19,6 +19,17 @@ private slots:
     void menu_file_open();
     void menu_file_close();
 
+    void menu_view_hide_menu();
+    void menu_view_hide_seekbar();
+    void menu_view_hide_controls();
+    void menu_view_hide_information();
+    void menu_view_hide_statistics();
+    void menu_view_hide_status();
+    void menu_view_hide_subresync();
+    void menu_view_hide_playlist();
+    void menu_view_hide_capture();
+    void menu_view_hide_navigation();
+
     void menu_view_zoom_50();
     void menu_view_zoom_100();
     void menu_view_zoom_200();

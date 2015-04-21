@@ -65,6 +65,56 @@ void HostWindow::menu_file_close()
     on_stop_clicked();
 }
 
+void HostWindow::menu_view_hide_menu()
+{
+
+}
+
+void HostWindow::menu_view_hide_seekbar()
+{
+
+}
+
+void HostWindow::menu_view_hide_controls()
+{
+
+}
+
+void HostWindow::menu_view_hide_information()
+{
+
+}
+
+void HostWindow::menu_view_hide_statistics()
+{
+
+}
+
+void HostWindow::menu_view_hide_status()
+{
+
+}
+
+void HostWindow::menu_view_hide_subresync()
+{
+
+}
+
+void HostWindow::menu_view_hide_playlist()
+{
+
+}
+
+void HostWindow::menu_view_hide_capture()
+{
+
+}
+
+void HostWindow::menu_view_hide_navigation()
+{
+
+}
+
 void HostWindow::menu_view_zoom_50()
 {
     size_factor = 0.5;
@@ -105,23 +155,183 @@ void HostWindow::menu_view_zoom_disable()
 
 void HostWindow::addMenu()
 {
-    // TODO: create relevant entires similar from mpc-hc.
     QMenuBar *bar = new QMenuBar(this);
     QMenu *menu, *submenu, *subsubmenu;
     QAction *action;
     menu = bar->addMenu(tr("&File"));
-        action = new QAction(tr("&Open"), this);
+        action = new QAction(tr("&Quick Open File..."), this);
+        action->setShortcut(QKeySequence("Ctrl+Q"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        menu->addSeparator();
+
+        action = new QAction(tr("&Open File..."), this);
         action->setShortcuts(QKeySequence::Open);
-        action->setStatusTip(tr("Open a file"));
         connect(action, &QAction::triggered, this, &HostWindow::menu_file_open);
         menu->addAction(action);
+
+        action = new QAction(tr("Open &DVD/BD..."), this);
+        action->setShortcut(QKeySequence("Ctrl+D"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("Open De&vice..."), this);
+        action->setShortcut(QKeySequence("Ctrl+V"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("Open Dir&ectory"), this);
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        submenu = menu->addMenu(tr("O&pen Disc"));
+            submenu->setEnabled(false);
+
+        submenu = menu->addMenu(tr("Recent &Files"));
+            action = new QAction(tr("&Clear list"), this);
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            submenu->addSeparator();
 
         action = new QAction(tr("&Close file"), this);
         action->setShortcuts(QKeySequence::Close);
         connect(action, &QAction::triggered, this, &HostWindow::menu_file_close);
         menu->addAction(action);
 
+        menu->addSeparator();
+
+        action = new QAction(tr("&Save a Copy..."), this);
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("Save &Image..."), this);
+        action->setShortcut(QKeySequence("Alt+I"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("Save &Thumbnails"), this);
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        menu->addSeparator();
+
+        action = new QAction(tr("&Load Subtitle..."), this);
+        action->setShortcut(QKeySequence("Ctrl+L"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("Save S&ubtitle..."), this);
+        action->setShortcut(QKeySequence("Ctrl+S"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        submenu = menu->addMenu(tr("Subtitle Data&base"));
+            action = new QAction(tr("&Search..."), this);
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            action = new QAction(tr("&Upload..."), this);
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            action = new QAction(tr("&Download..."), this);
+            action->setShortcut(QKeySequence("D"));
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+        menu->addSeparator();
+
+        action = new QAction(tr("P&roperties"), this);
+        action->setShortcut(QKeySequence("Shift+F10"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        menu->addSeparator();
+
+        action = new QAction(tr("E&xit"), this);
+        action->setShortcut(QKeySequence::Quit);
+        connect(action, &QAction::triggered, this, &HostWindow::close);
+        menu->addAction(action);
+
     menu = bar->addMenu(tr("&View"));
+        action = new QAction(tr("Hide &Menu"), this);
+        action->setShortcut(QKeySequence("Ctrl+0"));
+        connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_menu);
+        menu->addAction(action);
+
+        action = new QAction(tr("See&k Bar"), this);
+        action->setShortcut(QKeySequence("Ctrl+1"));
+        connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_seekbar);
+        menu->addAction(action);
+
+        action = new QAction(tr("&Controls"), this);
+        action->setShortcut(QKeySequence("Ctrl+2"));
+        connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_controls);
+        menu->addAction(action);
+
+        action = new QAction(tr("&Information"), this);
+        action->setShortcut(QKeySequence("Ctrl+3"));
+        connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_information);
+        menu->addAction(action);
+
+        action = new QAction(tr("&Statistics"), this);
+        action->setShortcut(QKeySequence("Ctrl+4"));
+        connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_statistics);
+        menu->addAction(action);
+
+        action = new QAction(tr("S&tatus"), this);
+        action->setShortcut(QKeySequence("Ctrl+5"));
+        connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_status);
+        menu->addAction(action);
+
+        action = new QAction(tr("Su&bresync"), this);
+        action->setShortcut(QKeySequence("Ctrl+6"));
+        action->setEnabled(false);
+        connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_subresync);
+        menu->addAction(action);
+
+        action = new QAction(tr("Play&list"), this);
+        action->setShortcut(QKeySequence("Ctrl+7"));
+        connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_playlist);
+        menu->addAction(action);
+
+        action = new QAction(tr("Captu&re"), this);
+        action->setShortcut(QKeySequence("Ctrl+8"));
+        action->setEnabled(false);
+        connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_capture);
+        menu->addAction(action);
+
+        action = new QAction(tr("Na&vigation"), this);
+        action->setShortcut(QKeySequence("Ctrl+9"));
+        action->setEnabled(false);
+        connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_navigation);
+        menu->addAction(action);
+
+        submenu = menu->addMenu(tr("&Presets"));
+            action = new QAction(tr("&Minimal"), this);
+            action->setShortcut(QKeySequence("1"));
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            action = new QAction(tr("&Compact"), this);
+            action->setShortcut(QKeySequence("2"));
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            action = new QAction(tr("&Normal"), this);
+            action->setShortcut(QKeySequence("3"));
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+        menu->addSeparator();
+
+        action = new QAction(tr("F&ullscreen"), this);
+        action->setShortcuts(QKeySequence::FullScreen);
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
         submenu = menu->addMenu(tr("&Zoom"));
             action = new QAction(tr("&50%"), this);
             action->setShortcut(QKeySequence("Alt+1"));
@@ -150,13 +360,220 @@ void HostWindow::addMenu()
 
             submenu->addSeparator();
 
-            action = new QAction(tr("Disable snapping"), this);
+            action = new QAction(tr("&Disable snapping"), this);
             action->setShortcut(QKeySequence("Alt+0"));
             connect(action, &QAction::triggered, this, &HostWindow::menu_view_zoom_disable);
             submenu->addAction(action);
 
-    layout()->setMenuBar(bar);
+        menu->addSeparator();
 
+        submenu = menu->addMenu(tr("On &Top"));
+            action = new QAction(tr("&Default"), this);
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            action = new QAction(tr("&Always"), this);
+            action->setShortcut(QKeySequence("Ctrl+A"));
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            action = new QAction(tr("While &Playing"), this);
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            action = new QAction(tr("While Playing &Video"), this);
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+        action = new QAction(tr("&Options..."), this);
+        action->setShortcut(QKeySequence("O"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+    menu = bar->addMenu(tr("&Play"));
+        action = new QAction(tr("&Pause"), this);
+        action->setShortcut(QKeySequence("Space"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("&Stop"), this);
+        action->setShortcut(QKeySequence("Period"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("F&rame Step Forward"), this);
+        action->setShortcut(QKeySequence("Ctrl+Right"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("Fra&me Step Backward"), this);
+        action->setShortcut(QKeySequence("Ctrl+Right"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        menu->addSeparator();
+
+        action = new QAction(tr("&Decrease Rate"), this);
+        action->setShortcut(QKeySequence("Ctrl+Down"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("&Increase Rate"), this);
+        action->setShortcut(QKeySequence("Ctrl+Up"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("R&eset Rate"), this);
+        action->setShortcut(QKeySequence("Ctrl+R"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        menu->addSeparator();
+
+        submenu = menu->addMenu(tr("&Audio"));
+            submenu->setEnabled(false);
+
+        submenu = menu->addMenu(tr("Su&bitles"));
+            submenu->setEnabled(false);
+
+        submenu = menu->addMenu(tr("&Video Stream"));
+            submenu->setEnabled(false);
+
+        menu->addSeparator();
+
+        submenu = menu->addMenu(tr("&Volume"));
+            action = new QAction(tr("&Up"), this);
+            action->setShortcut(QKeySequence("Up"));
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            action = new QAction(tr("&Down"), this);
+            action->setShortcut(QKeySequence("Down"));
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            action = new QAction(tr("&Mute"), this);
+            action->setShortcut(QKeySequence("Ctrl+M"));
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+        submenu = menu->addMenu(tr("Af&ter Playback"));
+            submenu->addSection(tr("Once"));
+
+            action = new QAction(tr("&Exit"), this);
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            action = new QAction(tr("&Stand By"), this);
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            action = new QAction(tr("&Hibernate"), this);
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            action = new QAction(tr("Shut&down"), this);
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            action = new QAction(tr("Log &Off"), this);
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            action = new QAction(tr("&Lock"), this);
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            submenu->addSection(tr("Every time"));
+
+            action = new QAction(tr("E&xit"), this);
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            action = new QAction(tr("Do &Nothing"), this);
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+            action = new QAction(tr("Play next in the &folder"), this);
+            //connect(action, &QAction::triggered, this, &HostWindow::);
+            submenu->addAction(action);
+
+    menu = bar->addMenu(tr("&Navigate"));
+        action = new QAction(tr("&Previous"), this);
+        action->setShortcut(QKeySequence("PgUp"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("&Next"), this);
+        action->setShortcut(QKeySequence("PgDn"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("&Go To..."), this);
+        action->setShortcut(QKeySequence("Ctrl+G"));
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        submenu = menu->addMenu(tr("&Chapters"));
+            submenu->setEnabled(false);
+
+        menu->addSeparator();
+
+        action = new QAction(tr("&Title Menu"), this);
+        action->setShortcut(QKeySequence("Alt+T"));
+        action->setEnabled(false);
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("&Root Menu"), this);
+        action->setShortcut(QKeySequence("Alt+R"));
+        action->setEnabled(false);
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("&Subtitle Menu"), this);
+        action->setEnabled(false);
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("&Audio Menu"), this);
+        action->setEnabled(false);
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("An&gle Menu"), this);
+        action->setEnabled(false);
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("&Chapter Menu"), this);
+        action->setEnabled(false);
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+    menu = bar->addMenu(tr("F&avorites"));
+        action = new QAction(tr("&Add to Favorites..."), this);
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        action = new QAction(tr("&Organize Favorites..."), this);
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        menu->addSeparator();
+
+    menu = bar->addMenu(tr("&Help"));
+        action = new QAction(tr("&Home Page"), this);
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+        menu->addSeparator();
+
+        action = new QAction(tr("&About..."), this);
+        //connect(action, &QAction::triggered, this, &HostWindow::);
+        menu->addAction(action);
+
+    layout()->setMenuBar(bar);
     (void)subsubmenu;
 }
 
