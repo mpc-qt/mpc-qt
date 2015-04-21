@@ -33,6 +33,8 @@ private slots:
     void menu_view_hide_capture(bool checked);
     void menu_view_hide_navigation(bool checked);
 
+    void menu_view_fullscreen(bool checked);
+
     void menu_view_zoom_50();
     void menu_view_zoom_100();
     void menu_view_zoom_200();
@@ -80,6 +82,10 @@ private:
     Ui::HostWindow *ui;
     MpvWidget* mpvw;
     QMenuBar *menubar;
+
+    QAction *action_view_hide_menu;
+
+    bool is_fullscreen;
 
     QSize no_video_size;
     bool is_playing;

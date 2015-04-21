@@ -15,6 +15,7 @@ HostWindow::HostWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::HostWindow)
 {
+    is_fullscreen = false;
     is_playing = false;
     speed = 1.0;
     size_factor = 1;
@@ -75,11 +76,15 @@ void HostWindow::menu_file_close()
 
 void HostWindow::menu_view_hide_menu(bool checked)
 {
-    if (checked) {
+    // View/hide are unmanaged when in fullscreen mode
+    if (is_fullscreen)
+        return;
+
+    if (checked)
         menubar->show();
-    } else {
+    else
         menubar->hide();
-    }
+    update_size();
 }
 
 void HostWindow::menu_view_hide_seekbar(bool checked)
@@ -88,6 +93,7 @@ void HostWindow::menu_view_hide_seekbar(bool checked)
         ui->position->show();
     else
         ui->position->hide();
+    update_size();
 }
 
 void HostWindow::menu_view_hide_controls(bool checked)
@@ -96,6 +102,7 @@ void HostWindow::menu_view_hide_controls(bool checked)
         ui->controlbar->show();
     else
         ui->controlbar->hide();
+    update_size();
 }
 
 void HostWindow::menu_view_hide_information(bool checked)
@@ -104,6 +111,7 @@ void HostWindow::menu_view_hide_information(bool checked)
         ui->info_stats->show();
     else
         ui->info_stats->hide();
+    update_size();
 }
 
 void HostWindow::menu_view_hide_statistics(bool checked)
@@ -112,6 +120,8 @@ void HostWindow::menu_view_hide_statistics(bool checked)
     // by the same widget.  We're going to manage what's shown by it
     // ourselves, and turn that on or off depending upon the settings here.
     (void)checked;
+
+    update_size();
 }
 
 void HostWindow::menu_view_hide_status(bool checked)
@@ -120,6 +130,8 @@ void HostWindow::menu_view_hide_status(bool checked)
         ui->statusbar->show();
     else
         ui->statusbar->hide();
+
+    update_size();
 }
 
 void HostWindow::menu_view_hide_subresync(bool checked)
@@ -128,22 +140,48 @@ void HostWindow::menu_view_hide_subresync(bool checked)
         ui->statusbar->show();
     else
         ui->statusbar->hide();
+
+    update_size();
 }
 
 void HostWindow::menu_view_hide_playlist(bool checked)
 {
     // playlist window is unimplemented for now
     (void)checked;
+
+    update_size();
 }
 
 void HostWindow::menu_view_hide_capture(bool checked)
 {
     (void)checked;
+
+    update_size();
 }
 
 void HostWindow::menu_view_hide_navigation(bool checked)
 {
     (void)checked;
+
+    update_size();
+}
+
+void HostWindow::menu_view_fullscreen(bool checked)
+{
+    is_fullscreen = checked;
+
+    if (checked) {
+        showFullScreen();
+        menubar->hide();
+        ui->control_section->hide();
+        ui->info_section->hide();
+    } else {
+        showNormal();
+        if (action_view_hide_menu->isChecked())
+            menubar->show();
+        ui->control_section->show();
+        ui->info_section->show();
+    }
 }
 
 void HostWindow::menu_view_zoom_50()
@@ -310,6 +348,7 @@ void HostWindow::build_menu()
         connect(action, &QAction::toggled, this, &HostWindow::menu_view_hide_menu);
         menu->addAction(action);
         addAction(action);
+        action_view_hide_menu = action;
 
         action = new QAction(tr("See&k Bar"), this);
         action->setShortcut(QKeySequence("Ctrl+1"));
@@ -403,7 +442,8 @@ void HostWindow::build_menu()
 
         action = new QAction(tr("F&ullscreen"), this);
         action->setShortcuts(QKeySequence::FullScreen);
-        //connect(action, &QAction::triggered, this, &HostWindow::);
+        action->setCheckable(true);
+        connect(action, &QAction::toggled, this, &HostWindow::menu_view_fullscreen);
         menu->addAction(action);
         addAction(action);
 
@@ -742,7 +782,7 @@ void HostWindow::update_status()
 
 void HostWindow::update_size(bool first_run)
 {
-    if (size_factor <= 0)
+    if (size_factor <= 0 || is_fullscreen)
         return;
 
     QSize sz_player = is_playing ? mpvw->state_video_size_get() : no_video_size;
