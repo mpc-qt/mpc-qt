@@ -54,6 +54,12 @@ HostWindow::~HostWindow()
     delete ui;
 }
 
+void HostWindow::menu_file_quick_open()
+{
+    // Do nothing special for the moment, call menu_file_open instead
+    menu_file_open();
+}
+
 void HostWindow::menu_file_open()
 {
     QString filename = QFileDialog::getOpenFileName(this, "Open file");
@@ -161,7 +167,7 @@ void HostWindow::addMenu()
     menu = bar->addMenu(tr("&File"));
         action = new QAction(tr("&Quick Open File..."), this);
         action->setShortcut(QKeySequence("Ctrl+Q"));
-        //connect(action, &QAction::triggered, this, &HostWindow::);
+        connect(action, &QAction::triggered, this, &HostWindow::menu_file_quick_open);
         menu->addAction(action);
 
         menu->addSeparator();
@@ -258,53 +264,66 @@ void HostWindow::addMenu()
     menu = bar->addMenu(tr("&View"));
         action = new QAction(tr("Hide &Menu"), this);
         action->setShortcut(QKeySequence("Ctrl+0"));
+        action->setCheckable(true);
         connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_menu);
         menu->addAction(action);
 
         action = new QAction(tr("See&k Bar"), this);
         action->setShortcut(QKeySequence("Ctrl+1"));
+        action->setCheckable(true);
+        action->setChecked(true);
         connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_seekbar);
         menu->addAction(action);
 
         action = new QAction(tr("&Controls"), this);
         action->setShortcut(QKeySequence("Ctrl+2"));
+        action->setCheckable(true);
+        action->setChecked(true);
         connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_controls);
         menu->addAction(action);
 
         action = new QAction(tr("&Information"), this);
         action->setShortcut(QKeySequence("Ctrl+3"));
+        action->setCheckable(true);
         connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_information);
         menu->addAction(action);
 
         action = new QAction(tr("&Statistics"), this);
         action->setShortcut(QKeySequence("Ctrl+4"));
+        action->setCheckable(true);
         connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_statistics);
         menu->addAction(action);
 
         action = new QAction(tr("S&tatus"), this);
         action->setShortcut(QKeySequence("Ctrl+5"));
+        action->setCheckable(true);
+        action->setChecked(true);
         connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_status);
         menu->addAction(action);
 
         action = new QAction(tr("Su&bresync"), this);
         action->setShortcut(QKeySequence("Ctrl+6"));
+        action->setCheckable(true);
         action->setEnabled(false);
         connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_subresync);
         menu->addAction(action);
 
         action = new QAction(tr("Play&list"), this);
         action->setShortcut(QKeySequence("Ctrl+7"));
+        action->setCheckable(true);
         connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_playlist);
         menu->addAction(action);
 
         action = new QAction(tr("Captu&re"), this);
         action->setShortcut(QKeySequence("Ctrl+8"));
+        action->setCheckable(true);
         action->setEnabled(false);
         connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_capture);
         menu->addAction(action);
 
         action = new QAction(tr("Na&vigation"), this);
         action->setShortcut(QKeySequence("Ctrl+9"));
+        action->setCheckable(true);
         action->setEnabled(false);
         connect(action, &QAction::triggered, this, &HostWindow::menu_view_hide_navigation);
         menu->addAction(action);

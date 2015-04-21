@@ -16,6 +16,7 @@ public:
     ~HostWindow();
 
 private slots:
+    void menu_file_quick_open();
     void menu_file_open();
     void menu_file_close();
 
