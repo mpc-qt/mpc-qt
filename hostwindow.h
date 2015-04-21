@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include <mpvwidget.h>
+#include <QMenuBar>
+
 namespace Ui {
 class HostWindow;
 }
@@ -20,16 +22,16 @@ private slots:
     void menu_file_open();
     void menu_file_close();
 
-    void menu_view_hide_menu();
-    void menu_view_hide_seekbar();
-    void menu_view_hide_controls();
-    void menu_view_hide_information();
-    void menu_view_hide_statistics();
-    void menu_view_hide_status();
-    void menu_view_hide_subresync();
-    void menu_view_hide_playlist();
-    void menu_view_hide_capture();
-    void menu_view_hide_navigation();
+    void menu_view_hide_menu(bool checked);
+    void menu_view_hide_seekbar(bool checked);
+    void menu_view_hide_controls(bool checked);
+    void menu_view_hide_information(bool checked);
+    void menu_view_hide_statistics(bool checked);
+    void menu_view_hide_status(bool checked);
+    void menu_view_hide_subresync(bool checked);
+    void menu_view_hide_playlist(bool checked);
+    void menu_view_hide_capture(bool checked);
+    void menu_view_hide_navigation(bool checked);
 
     void menu_view_zoom_50();
     void menu_view_zoom_100();
@@ -77,13 +79,15 @@ signals:
 private:
     Ui::HostWindow *ui;
     MpvWidget* mpvw;
+    QMenuBar *menubar;
+
     QSize no_video_size;
     bool is_playing;
     bool is_paused;
     double speed;
     double size_factor;
 
-    void addMenu();
+    void build_menu();
     void ui_reset_state(bool enabled);
     void update_time();
     void update_status();
