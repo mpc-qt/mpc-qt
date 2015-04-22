@@ -1,4 +1,4 @@
-## Media Player Classic Qute Cinema
+## Media Player Classic Qute Theater
 
 A clone of Media Player Classic reimplimented in Qt.
 
