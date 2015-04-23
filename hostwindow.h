@@ -53,27 +53,16 @@ private slots:
     void me_size();
 
     void on_position_sliderMoved(int position);
-
     void on_pause_clicked(bool checked);
-
     void on_play_clicked();
-
     void on_stop_clicked();
-
     void on_speedDecrease_clicked();
-
     void on_speedIncrease_clicked();
-
     void on_skipBackward_clicked();
-
     void on_skipForward_clicked();
-
     void on_stepBackward_clicked();
-
     void on_stepForward_clicked();
-
     void on_volume_valueChanged(int position);
-
     void on_mute_clicked(bool checked);
 
 signals:
