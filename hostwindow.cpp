@@ -540,7 +540,7 @@ void HostWindow::build_menu()
         action_play_frame_forward = action;
 
         action = new QAction(tr("Fra&me Step Backward"), this);
-        action->setShortcut(QKeySequence("Ctrl+Right"));
+        action->setShortcut(QKeySequence("Ctrl+Left"));
         connect(action, &QAction::triggered, this, &HostWindow::on_skipBackward_clicked);
         menu->addAction(action);
         addAction(action);
