@@ -42,6 +42,8 @@ private slots:
     void menu_view_zoom_autolarger();
     void menu_view_zoom_disable();
 
+    void menu_play_rate_reset();
+
     void me_play_time();
     void me_length();
     void me_started();

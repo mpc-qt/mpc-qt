@@ -222,6 +222,14 @@ void HostWindow::menu_view_zoom_disable()
     size_factor = 0.0;
 }
 
+void HostWindow::menu_play_rate_reset()
+{
+    if (speed == 1.0)
+        return;
+    speed = 1.0;
+    mpv_set_speed(speed);
+}
+
 
 void HostWindow::build_menu()
 {
@@ -562,10 +570,9 @@ void HostWindow::build_menu()
         addAction(action);
         action_play_rate_increase = action;
 
-
         action = new QAction(tr("R&eset Rate"), this);
         action->setShortcut(QKeySequence("Ctrl+R"));
-        //connect(action, &QAction::triggered, this, &HostWindow::);
+        connect(action, &QAction::triggered, this, &HostWindow::menu_play_rate_reset);
         menu->addAction(action);
         addAction(action);
         action_play_rate_reset = action;
