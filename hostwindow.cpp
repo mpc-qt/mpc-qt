@@ -527,21 +527,21 @@ void HostWindow::build_menu()
 
         action = new QAction(tr("&Stop"), this);
         action->setShortcut(QKeySequence("Period"));
-        //connect(action, &QAction::triggered, this, &HostWindow::);
+        connect(action, &QAction::triggered, this, &HostWindow::on_stop_clicked);
         menu->addAction(action);
         addAction(action);
         action_play_stop = action;
 
         action = new QAction(tr("F&rame Step Forward"), this);
         action->setShortcut(QKeySequence("Ctrl+Right"));
-        //connect(action, &QAction::triggered, this, &HostWindow::);
+        connect(action, &QAction::triggered, this, &HostWindow::on_stepForward_clicked);
         menu->addAction(action);
         addAction(action);
         action_play_frame_forward = action;
 
         action = new QAction(tr("Fra&me Step Backward"), this);
         action->setShortcut(QKeySequence("Ctrl+Right"));
-        //connect(action, &QAction::triggered, this, &HostWindow::);
+        connect(action, &QAction::triggered, this, &HostWindow::on_skipBackward_clicked);
         menu->addAction(action);
         addAction(action);
         action_play_frame_backward = action;
@@ -550,14 +550,14 @@ void HostWindow::build_menu()
 
         action = new QAction(tr("&Decrease Rate"), this);
         action->setShortcut(QKeySequence("Ctrl+Down"));
-        //connect(action, &QAction::triggered, this, &HostWindow::);
+        connect(action, &QAction::triggered, this, &HostWindow::on_speedDecrease_clicked);
         menu->addAction(action);
         addAction(action);
         action_play_rate_decrease = action;
 
         action = new QAction(tr("&Increase Rate"), this);
         action->setShortcut(QKeySequence("Ctrl+Up"));
-        //connect(action, &QAction::triggered, this, &HostWindow::);
+        connect(action, &QAction::triggered, this, &HostWindow::on_speedIncrease_clicked);
         menu->addAction(action);
         addAction(action);
         action_play_rate_increase = action;
@@ -600,7 +600,8 @@ void HostWindow::build_menu()
 
             action = new QAction(tr("&Mute"), this);
             action->setShortcut(QKeySequence("Ctrl+M"));
-            //connect(action, &QAction::triggered, this, &HostWindow::);
+            action->setCheckable(true);
+            connect(action, &QAction::toggled, this, &HostWindow::on_mute_clicked);
             submenu->addAction(action);
             addAction(action);
             action_play_volume_mute = action;
@@ -1000,4 +1001,6 @@ void HostWindow::on_mute_clicked(bool checked)
     mpvw->property_mute_set(checked);
     ui->mute->setIcon(QIcon(checked ? ":/images/controls/speaker2.png" :
                                       ":/images/controls/speaker1.png"));
+    action_play_volume_mute->setChecked(checked);
+    ui->mute->setChecked(checked);
 }
