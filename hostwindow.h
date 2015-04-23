@@ -84,6 +84,16 @@ private:
     QMenuBar *menubar;
 
     QAction *action_view_hide_menu;
+    QAction *action_play_pause;
+    QAction *action_play_stop;
+    QAction *action_play_frame_backward;
+    QAction *action_play_frame_forward;
+    QAction *action_play_rate_decrease;
+    QAction *action_play_rate_increase;
+    QAction *action_play_rate_reset;
+    QAction *action_play_volume_up;
+    QAction *action_play_volume_down;
+    QAction *action_play_volume_mute;
 
     bool is_fullscreen;
 

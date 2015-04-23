@@ -26,6 +26,7 @@ HostWindow::HostWindow(QWidget *parent) :
 
     build_menu();
     layout()->setMenuBar(menubar);
+    ui_reset_state(false);
 
     mpvw = new MpvWidget(this);
     connect(mpvw, &MpvWidget::me_play_time, this, &HostWindow::me_play_time);
@@ -522,24 +523,28 @@ void HostWindow::build_menu()
         //connect(action, &QAction::triggered, this, &HostWindow::);
         menu->addAction(action);
         addAction(action);
+        action_play_pause = action;
 
         action = new QAction(tr("&Stop"), this);
         action->setShortcut(QKeySequence("Period"));
         //connect(action, &QAction::triggered, this, &HostWindow::);
         menu->addAction(action);
         addAction(action);
+        action_play_stop = action;
 
         action = new QAction(tr("F&rame Step Forward"), this);
         action->setShortcut(QKeySequence("Ctrl+Right"));
         //connect(action, &QAction::triggered, this, &HostWindow::);
         menu->addAction(action);
         addAction(action);
+        action_play_frame_forward = action;
 
         action = new QAction(tr("Fra&me Step Backward"), this);
         action->setShortcut(QKeySequence("Ctrl+Right"));
         //connect(action, &QAction::triggered, this, &HostWindow::);
         menu->addAction(action);
         addAction(action);
+        action_play_frame_backward = action;
 
         menu->addSeparator();
 
@@ -548,18 +553,22 @@ void HostWindow::build_menu()
         //connect(action, &QAction::triggered, this, &HostWindow::);
         menu->addAction(action);
         addAction(action);
+        action_play_rate_decrease = action;
 
         action = new QAction(tr("&Increase Rate"), this);
         action->setShortcut(QKeySequence("Ctrl+Up"));
         //connect(action, &QAction::triggered, this, &HostWindow::);
         menu->addAction(action);
         addAction(action);
+        action_play_rate_increase = action;
+
 
         action = new QAction(tr("R&eset Rate"), this);
         action->setShortcut(QKeySequence("Ctrl+R"));
         //connect(action, &QAction::triggered, this, &HostWindow::);
         menu->addAction(action);
         addAction(action);
+        action_play_rate_reset = action;
 
         menu->addSeparator();
 
@@ -580,18 +589,21 @@ void HostWindow::build_menu()
             //connect(action, &QAction::triggered, this, &HostWindow::);
             submenu->addAction(action);
             addAction(action);
+            action_play_volume_up = action;
 
             action = new QAction(tr("&Down"), this);
             action->setShortcut(QKeySequence("Down"));
             //connect(action, &QAction::triggered, this, &HostWindow::);
             submenu->addAction(action);
             addAction(action);
+            action_play_volume_down = action;
 
             action = new QAction(tr("&Mute"), this);
             action->setShortcut(QKeySequence("Ctrl+M"));
             //connect(action, &QAction::triggered, this, &HostWindow::);
             submenu->addAction(action);
             addAction(action);
+            action_play_volume_mute = action;
 
         submenu = menu->addMenu(tr("Af&ter Playback"));
             submenu->addSection(tr("Once"));
@@ -753,6 +765,18 @@ void HostWindow::ui_reset_state(bool enabled)
     ui->volume->setEnabled(enabled);
 
     ui->pause->setChecked(false);
+
+    action_view_hide_menu->setEnabled(enabled);
+    action_play_pause->setEnabled(enabled);
+    action_play_stop->setEnabled(enabled);
+    action_play_frame_backward->setEnabled(enabled);
+    action_play_frame_forward->setEnabled(enabled);
+    action_play_rate_decrease->setEnabled(enabled);
+    action_play_rate_increase->setEnabled(enabled);
+    action_play_rate_reset->setEnabled(enabled);
+    action_play_volume_up->setEnabled(enabled);
+    action_play_volume_down->setEnabled(enabled);
+    action_play_volume_mute->setEnabled(enabled);
 }
 
 static QString to_date_fmt(double secs) {
