@@ -774,7 +774,6 @@ void HostWindow::ui_reset_state(bool enabled)
 
     ui->pause->setChecked(false);
 
-    action_view_hide_menu->setEnabled(enabled);
     action_play_pause->setEnabled(enabled);
     action_play_stop->setEnabled(enabled);
     action_play_frame_backward->setEnabled(enabled);
