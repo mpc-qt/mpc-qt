@@ -25,30 +25,30 @@ exposed as the developer sees fit.
 ## I don't know git, how do I run this?
 You'll have to perform a little bit of footwork beforehand.
 
-1. `cd` into your general source-code directory. If one does not exist, `mkdir` one.
+* `cd` into your general source-code directory. If one does not exist, `mkdir` one.
 ```
 tux@oniichan ~> mkdir src
 tux@oniichan ~> cd ~/src
 ```
-2. Make a directory to checkout this git into.
+* Make a directory to checkout this git into.
 ```
 tux@oniichan ~/src> mkdir mpc-qt
 ```
-3. `cd` into it.
+* `cd` into it.
 ```
 tux@oniichan ~/src> cd mpc-qt
 ```
-4. Checkout this git repository.
+* Checkout this git repository.
 ```
 tux@oniichan ~/s/mpc-qt> git checkout https://github.com/cmdrkotori/mpc-qt.git
 ```
-5. `cd` into the checked-out repository and run qtcreator.
+* `cd` into the checked-out repository and run qtcreator.
 ```
 tux@oniichan ~/s/mpc-qt> cd mpc-qt
 tux@oniichan ~/s/m/mpc-qt> qtcreator mpc-qt.pro
 ```
-6. Use qtcreator's suggested build setup and press the big arrow button in the bottom-left corner.
-7. After this, the executable should be in `~/src/mpc-qt/build-mpc-qt...`. Look for the `mpc-qt` binary and run that whenever you want to, or stick a shortcut to that on your taskbar/desktop.
+* Use qtcreator's suggested build setup and press the big arrow button in the bottom-left corner.
+* After this, the executable should be in `~/src/mpc-qt/build-mpc-qt...`. Look for the `mpc-qt` binary and run that whenever you want to, or stick a shortcut to that on your taskbar/desktop.
 
 [Media Player Classic Home Cinema]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
