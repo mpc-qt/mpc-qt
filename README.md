@@ -32,9 +32,10 @@ If you want Qt5 documentation in Qt Creator, add *qt5-doc* to that command.
 
 However, I recommend compiling libmpv from git head due to the fast
 development pace of mpv and old packages in package repositories. (I develop
-against mpv's head.) So you'll want to follow the instructions at [mpv-build]
+against mpv's head.) So you may want to follow the instructions at [mpv-build]
 while making sure to place the line `--enable-libmpv-shared` inside the
-`mpv_options` file before building as it says.
+`mpv_options` file before building as it says.  The libmpv api does not change
+much however, so you should be okay if you don't feel like doing this.
 
 ## I don't know git, how do I run this?
 You'll have to perform a little bit of footwork beforehand.  What you're going
