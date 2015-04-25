@@ -46,7 +46,7 @@ border: 1px solid rgba(0,0,0,64);
 }
 
 QFrame {
-background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(96, 96, 96, 255), stop:1 rgba(64, 64, 64, 255));
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(48, 48, 48, 255), stop:1 rgba(32, 32, 32, 255));
 }
 
 Line {
@@ -57,6 +57,22 @@ background-color: black;
 Line::groove {
 color: black;
 background-color: black;
+}
+
+QSlider {
+margin: 0px 5px;
+}
+QSlider::groove {
+background: rgb(32,32,32);
+height: 4px;
+border: 1px solid rgb(48,48,48);
+border-radius: 2px;
+}
+QSlider::handle {
+background: none;
+border: 2px groove rgb(64,64,64);
+margin: -3px -3px;
+width: 4px;
 }</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1,0,0">
