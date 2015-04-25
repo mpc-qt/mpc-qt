@@ -28,6 +28,8 @@ install them with
 
 >sudo apt-get install qtcreator libmpv-dev
 
+If you want Qt5 documentation in Qt Creator, add *qt5-doc* to that command.
+
 However, I recommend compiling libmpv from git head due to the fast
 development pace of mpv and old packages in package repositories. (I develop
 against mpv's head.) So you'll want to follow the instructions at [mpv-build]
