@@ -26,7 +26,7 @@ exposed as the developer sees fit.
 You need the Qt5 sdk installed and an edition of libmpv.  On ubuntu you can
 install them with
 
-    sudo apt-get install qtcreator libmpv-dev
+>sudo apt-get install qtcreator libmpv-dev
 
 However, I recommend compiling libmpv from git head due to the fast
 development pace of mpv and old packages in package repositories. (I develop
