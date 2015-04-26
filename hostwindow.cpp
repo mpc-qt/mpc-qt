@@ -671,13 +671,13 @@ void HostWindow::build_menu()
     menu = bar->addMenu(tr("&Navigate"));
         action = new QAction(tr("&Previous"), this);
         action->setShortcut(QKeySequence("PgUp"));
-        //connect(action, &QAction::triggered, this, &HostWindow::);
+        connect(action, &QAction::triggered, this, &HostWindow::on_skipBackward_clicked);
         menu->addAction(action);
         addAction(action);
 
         action = new QAction(tr("&Next"), this);
-        action->setShortcut(QKeySequence("PgDn"));
-        //connect(action, &QAction::triggered, this, &HostWindow::);
+        action->setShortcut(QKeySequence("PgDown"));
+        connect(action, &QAction::triggered, this, &HostWindow::on_skipForward_clicked);
         menu->addAction(action);
         addAction(action);
 
