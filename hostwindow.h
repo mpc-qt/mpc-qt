@@ -44,6 +44,8 @@ private slots:
 
     void menu_play_rate_reset();
 
+    void menu_navigate_chapters(int data);
+
     void me_play_time();
     void me_length();
     void me_started();
@@ -73,6 +75,7 @@ private:
     Ui::HostWindow *ui;
     MpvWidget* mpvw;
     QMenuBar *menubar;
+    QMenu *submenu_navigate_chapters;
 
     QAction *action_view_hide_menu;
     QAction *action_play_pause;
@@ -104,5 +107,21 @@ private:
     void mpv_show_message(const char* text);
     void mpv_set_speed(double speed);
 };
+
+// Helper class for emitting data
+class data_emitter : public QObject
+{
+    Q_OBJECT
+public:
+    int data;
+    data_emitter(QObject *parent) : QObject(parent) {}
+
+public slots:
+    void got_something() { heres_something(data); }
+
+signals:
+    void heres_something(int data);
+};
+
 
 #endif // HOSTWINDOW_H

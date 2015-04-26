@@ -230,6 +230,10 @@ void HostWindow::menu_play_rate_reset()
     mpv_set_speed(speed);
 }
 
+void HostWindow::menu_navigate_chapters(int data)
+{
+    mpvw->property_chapter_set(data);
+}
 
 void HostWindow::build_menu()
 {
@@ -685,6 +689,7 @@ void HostWindow::build_menu()
 
         submenu = menu->addMenu(tr("&Chapters"));
             submenu->setEnabled(false);
+        submenu_navigate_chapters = submenu;
 
         menu->addSeparator();
 
@@ -786,6 +791,8 @@ void HostWindow::ui_reset_state(bool enabled)
     action_play_volume_up->setEnabled(enabled);
     action_play_volume_down->setEnabled(enabled);
     action_play_volume_mute->setEnabled(enabled);
+
+    submenu_navigate_chapters->setEnabled(enabled);
 }
 
 static QString to_date_fmt(double secs) {
@@ -900,8 +907,25 @@ void HostWindow::me_chapters()
     // I'm going to have to reimplement QSlider for this. fml.
     // foreach item in chapters
     //   set position.tick at item[time] with item[title]
-    qDebug() << chapters;
-    (void)chapters;
+
+    // Here we populate the chapters menu with the chapters.
+    QAction *action;
+    data_emitter *emitter;
+    submenu_navigate_chapters->clear();
+    int index = 0;
+    for (QVariant v : chapters) {
+        QMap<QString, QVariant> node = v.toMap();
+        action = new QAction(this);
+        action->setText(QString("[%1] - %2").arg(
+                            to_date_fmt(node["time"].toDouble()),
+                            node["title"].toString()));
+        emitter = new data_emitter(action);
+        emitter->data = index;
+        connect(action, &QAction::triggered, emitter, &data_emitter::got_something);
+        connect(emitter, &data_emitter::heres_something, this, &HostWindow::menu_navigate_chapters);
+        submenu_navigate_chapters->addAction(action);
+        index++;
+    }
 }
 
 void HostWindow::me_tracks()
