@@ -44,6 +44,11 @@ MpvWidget::MpvWidget(QWidget *parent) :
             Qt::QueuedConnection);
     mpv_set_wakeup_callback(mpv, wakeup, this);
 
+    // For me.
+    mpv_set_option_string(mpv, "vo","opengl-hq:"
+                          "scale=ewa_lanczossharp:cscale=ewa_lanczossharp:"
+                          "tscale=mitchell:interpolation:waitvsync");
+
     if (mpv_initialize(mpv) < 0)
         throw std::runtime_error("mpv failed to initialize");
 }
