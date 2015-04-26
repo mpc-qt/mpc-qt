@@ -528,7 +528,8 @@ void HostWindow::build_menu()
     menu = bar->addMenu(tr("&Play"));
         action = new QAction(tr("&Pause"), this);
         action->setShortcut(QKeySequence("Space"));
-        //connect(action, &QAction::triggered, this, &HostWindow::);
+        action->setCheckable(true);
+        connect(action, &QAction::triggered, this, &HostWindow::on_pause_clicked);
         menu->addAction(action);
         addAction(action);
         action_play_pause = action;
@@ -921,7 +922,10 @@ void HostWindow::on_position_sliderMoved(int position)
 void HostWindow::on_pause_clicked(bool checked)
 {
     mpvw->property_pause_set(checked);
-    me_pause(checked);
+    me_pause(checked);    
+
+    ui->pause->setChecked(checked);
+    action_play_pause->setChecked(checked);
 }
 
 void HostWindow::on_play_clicked()
