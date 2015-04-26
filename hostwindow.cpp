@@ -774,6 +774,7 @@ void HostWindow::ui_reset_state(bool enabled)
     ui->volume->setEnabled(enabled);
 
     ui->pause->setChecked(false);
+    action_play_pause->setChecked(false);
 
     action_play_pause->setEnabled(enabled);
     action_play_stop->setEnabled(enabled);
