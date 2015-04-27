@@ -12,7 +12,7 @@ TARGET = mpc-qt
 TEMPLATE = app
 
 CONFIG += c++11
-CONFIG += largefile qt link_pkgconfig
+CONFIG += link_pkgconfig
 PKGCONFIG += mpv
 
 SOURCES += main.cpp\
