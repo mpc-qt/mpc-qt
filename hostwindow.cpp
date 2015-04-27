@@ -230,6 +230,20 @@ void HostWindow::menu_play_rate_reset()
     mpv_set_speed(speed);
 }
 
+void HostWindow::menu_play_volume_up()
+{
+    int newvol = std::min(ui->volume->value() + 10, 100);
+    mpv_set_volume(newvol);
+    ui->volume->setValue(newvol);
+}
+
+void HostWindow::menu_play_volume_down()
+{
+    int newvol = std::max(ui->volume->value() - 10, 0);
+    mpv_set_volume(newvol);
+    ui->volume->setValue(newvol);
+}
+
 void HostWindow::menu_navigate_chapters(int data)
 {
     mpvw->property_chapter_set(data);
@@ -598,14 +612,14 @@ void HostWindow::build_menu()
         submenu = menu->addMenu(tr("&Volume"));
             action = new QAction(tr("&Up"), this);
             action->setShortcut(QKeySequence("Up"));
-            //connect(action, &QAction::triggered, this, &HostWindow::);
+            connect(action, &QAction::triggered, this, &HostWindow::menu_play_volume_up);
             submenu->addAction(action);
             addAction(action);
             action_play_volume_up = action;
 
             action = new QAction(tr("&Down"), this);
             action->setShortcut(QKeySequence("Down"));
-            //connect(action, &QAction::triggered, this, &HostWindow::);
+            connect(action, &QAction::triggered, this, &HostWindow::menu_play_volume_down);
             submenu->addAction(action);
             addAction(action);
             action_play_volume_down = action;
@@ -857,6 +871,12 @@ void HostWindow::mpv_set_speed(double speed)
     mpvw->show_message(QString("Speed: %1").arg(speed));
 }
 
+void HostWindow::mpv_set_volume(int volume)
+{
+    mpvw->property_volume_set(volume);
+    mpvw->show_message(QString("Volume :%1%").arg(volume));
+}
+
 void HostWindow::me_play_time()
 {
     double time = mpvw->state_play_time_get();
@@ -1025,8 +1045,7 @@ void HostWindow::on_stepForward_clicked()
 
 void HostWindow::on_volume_valueChanged(int position)
 {
-    mpvw->property_volume_set(position);
-    mpvw->show_message(QString("Volume :%1%").arg(position));
+    mpv_set_volume(position);
 }
 
 void HostWindow::on_mute_clicked(bool checked)

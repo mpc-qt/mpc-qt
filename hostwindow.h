@@ -44,6 +44,9 @@ private slots:
 
     void menu_play_rate_reset();
 
+    void menu_play_volume_up();
+    void menu_play_volume_down();
+
     void menu_navigate_chapters(int data);
 
     void me_play_time();
@@ -106,6 +109,7 @@ private:
     void mpv_stop(bool dry_run = false);
     void mpv_show_message(const char* text);
     void mpv_set_speed(double speed);
+    void mpv_set_volume(int volume);
 };
 
 // Helper class for emitting data
