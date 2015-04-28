@@ -94,6 +94,7 @@ void HostWindow::menu_view_hide_seekbar(bool checked)
         ui->seekbar->show();
     else
         ui->seekbar->hide();
+    ui->control_section->adjustSize();
     update_size();
 }
 
@@ -103,6 +104,7 @@ void HostWindow::menu_view_hide_controls(bool checked)
         ui->controlbar->show();
     else
         ui->controlbar->hide();
+    ui->control_section->adjustSize();
     update_size();
 }
 
@@ -112,6 +114,7 @@ void HostWindow::menu_view_hide_information(bool checked)
         ui->info_stats->show();
     else
         ui->info_stats->hide();
+    ui->info_section->adjustSize();
     update_size();
 }
 
@@ -131,7 +134,7 @@ void HostWindow::menu_view_hide_status(bool checked)
         ui->statusbar->show();
     else
         ui->statusbar->hide();
-
+    ui->info_section->adjustSize();
     update_size();
 }
 
@@ -838,6 +841,9 @@ void HostWindow::update_size(bool first_run)
 {
     if (size_factor <= 0 || is_fullscreen)
         return;
+
+    if (!first_run)
+        adjustSize();
 
     QSize sz_player = is_playing ? mpvw->state_video_size_get() : no_video_size;
     QSize sz_wanted(sz_player.width()*size_factor + 0.5, sz_player.height()*size_factor + 0.5);
