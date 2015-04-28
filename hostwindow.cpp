@@ -839,7 +839,7 @@ void HostWindow::update_status()
 
 void HostWindow::update_size(bool first_run)
 {
-    if (size_factor <= 0 || is_fullscreen)
+    if (size_factor <= 0 || is_fullscreen || isMaximized())
         return;
 
     if (!first_run)
