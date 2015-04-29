@@ -49,6 +49,8 @@ private slots:
 
     void menu_navigate_chapters(int data);
 
+    void menu_help_about();
+
     void me_play_time();
     void me_length();
     void me_started();

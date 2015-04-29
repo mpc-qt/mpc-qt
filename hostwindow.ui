@@ -47,6 +47,7 @@ border: 1px solid rgba(0,0,0,64);
 
 QFrame {
 background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(48, 48, 48, 255), stop:1 rgba(32, 32, 32, 255));
+color: rgb(128,128,128);
 }
 
 Line {
@@ -73,7 +74,9 @@ background: none;
 border: 2px groove rgb(64,64,64);
 margin: -3px -3px;
 width: 4px;
-}</string>
+}
+
+QMessageBox, QMessageBox * { background: #202020; color: #808080 }</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_4">
    <property name="spacing">
