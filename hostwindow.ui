@@ -23,9 +23,6 @@
    <iconset resource="res.qrc">
     <normaloff>:/images/bitmaps/icon.png</normaloff>:/images/bitmaps/icon.png</iconset>
   </property>
-  <property name="styleSheet">
-   <string notr="true"/>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout_4">
    <property name="spacing">
     <number>0</number>

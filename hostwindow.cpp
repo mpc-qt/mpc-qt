@@ -260,6 +260,7 @@ void HostWindow::menu_help_about()
       "<h2>Media Player Classic Qute Theater</h2>"
       "<p>A clone of Media Player Classic written in Qt"
       "<p>Based on Qt " QT_VERSION_STR
+      "<p>Built on " __DATE__ " at " __TIME__
       "<h3>LICENSE</h3>"
       "<p>    Copyright (C) 2015"
       "<p>"
