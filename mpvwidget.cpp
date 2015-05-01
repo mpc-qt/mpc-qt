@@ -107,14 +107,7 @@ bool MpvWidget::property_chapter_set(int64_t chapter)
 
 QString MpvWidget::property_media_title_get()
 {
-    QString text;
-    char *media_title;
-    if (mpv_get_property(mpv, "media-title", MPV_FORMAT_STRING,
-                         &media_title) == 0) {
-        text = QString::fromUtf8(QByteArray(media_title));
-        mpv_free(media_title);
-    }
-    return text;
+    return get_property_string("media-title");
 }
 
 void MpvWidget::property_mute_set(bool yes)
@@ -139,6 +132,11 @@ void MpvWidget::property_time_set(double position)
 {
     if (!mpv) return;
     mpv_set_property(mpv, "time-pos", MPV_FORMAT_DOUBLE, &position);
+}
+
+QString MpvWidget::property_version_get()
+{
+    return get_property_string("mpv-version");
 }
 
 void MpvWidget::property_volume_set(int64_t volume)
@@ -282,3 +280,16 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
         // Ignore uninteresting or unknown events.
     }
 }
+
+QString MpvWidget::get_property_string(char *property)
+{
+    QString text;
+    char *value;
+    if (mpv_get_property(mpv, property, MPV_FORMAT_STRING,
+                         &value) == 0) {
+        text = QString::fromUtf8(QByteArray(value));
+        mpv_free(value);
+    }
+    return text;
+}
+

@@ -27,6 +27,7 @@ public:
     void property_pause_set(bool yes);
     void property_speed_set(double speed);
     void property_time_set(double position);
+    QString property_version_get();
     void property_volume_set(int64_t volume);
 
     // These query the tracked video state
@@ -72,6 +73,7 @@ private:
     QVariantList chapters;
 
     void handle_mpv_event(mpv_event *event);
+    QString get_property_string(char *property);
 };
 
 #endif // MPVWIDGET_H

@@ -259,7 +259,7 @@ void HostWindow::menu_help_about()
     QMessageBox::about(this, "About Media Player Classic Qute Theater",
       "<h2>Media Player Classic Qute Theater</h2>"
       "<p>A clone of Media Player Classic written in Qt"
-      "<p>Based on Qt " QT_VERSION_STR
+      "<p>Based on Qt " QT_VERSION_STR " and " + mpvw->property_version_get() +
       "<p>Built on " __DATE__ " at " __TIME__
       "<h3>LICENSE</h3>"
       "<p>    Copyright (C) 2015"
@@ -277,7 +277,6 @@ void HostWindow::menu_help_about()
       "You should have received a copy of the GNU General Public License along "
       "with this program; if not, write to the Free Software Foundation, Inc., "
       "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.");
-
 }
 
 void HostWindow::build_menu()
