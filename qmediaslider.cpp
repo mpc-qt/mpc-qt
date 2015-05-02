@@ -66,14 +66,13 @@ QString QMediaSlider::valueToTickname(int value)
 {
     QString last_text;
     int last_tick = -1;
-    QMap<int, QString>::const_iterator i = ticks.constBegin();
-    do {
+    for (QMap<int, QString>::const_iterator i = ticks.constBegin();
+         i != ticks.constEnd(); i++) {
         last_tick = i.key();
         if (last_tick > value)
             break;
         last_text = i.value();
-        i++;
-    } while(i != ticks.constEnd());
+    }
     return last_text;
 }
 
