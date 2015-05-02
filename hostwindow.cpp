@@ -961,9 +961,11 @@ void HostWindow::me_chapters()
 {
     QVariantList chapters = mpvw->state_chapters_get();
     // Here we add (named) ticks to the position slider.
-    // I'm going to have to reimplement QSlider for this. fml.
-    // foreach item in chapters
-    //   set position.tick at item[time] with item[title]
+    ui_position->clearTicks();
+    for (QVariant v : chapters) {
+        QMap<QString, QVariant> node = v.toMap();
+        ui_position->setTick(node["time"].toDouble(), node["title"].toString());
+    }
 
     // Here we populate the chapters menu with the chapters.
     QAction *action;
