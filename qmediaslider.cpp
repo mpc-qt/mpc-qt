@@ -45,7 +45,7 @@ void QMediaSlider::paintEvent(QPaintEvent *pe)
         pos = valueToX(i.key());
         if (pos != drawnGroove.left() && pos != drawnGroove.right())
             p.drawLine(QPoint(pos,drawnGroove.top() + 1),
-                       QPoint(pos, drawnGroove.bottom() - 1));
+                       QPoint(pos, drawnGroove.bottom()));
     }
 
     pos = valueToX(value());
