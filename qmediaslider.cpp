@@ -27,11 +27,13 @@ void QMediaSlider::paintEvent(QPaintEvent *pe)
     QColor grooveBorder, grooveFill, handleBorder, handleFill;
     QPainter p(this);
 
-    QPalette::ColorGroup cg = isEnabled() ? QPalette::Normal : QPalette::Disabled;
+    QPalette::ColorGroup cg = QPalette::Normal;
     grooveBorder = palette().color(cg,QPalette::Shadow);
     grooveFill = palette().color(cg,QPalette::Base);
     handleBorder = palette().color(cg,QPalette::Dark);
     handleFill = palette().color(cg,QPalette::Button);
+
+    p.setOpacity(isEnabled() ? 1.0 : 0.333);
 
     p.setPen(grooveBorder);
     p.setBrush(grooveFill);
