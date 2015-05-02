@@ -262,7 +262,7 @@ void HostWindow::menu_help_about()
       "<p>Based on Qt " QT_VERSION_STR " and " + mpvw->property_version_get() +
       "<p>Built on " __DATE__ " at " __TIME__
       "<h3>LICENSE</h3>"
-      "<p>    Copyright (C) 2015"
+      "<p>   Copyright (C) 2015"
       "<p>"
       "This program is free software; you can redistribute it and/or modify "
       "it under the terms of the GNU General Public License as published by "

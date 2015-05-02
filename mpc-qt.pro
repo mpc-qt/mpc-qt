@@ -17,10 +17,12 @@ PKGCONFIG += mpv
 
 SOURCES += main.cpp\
         hostwindow.cpp \
-    mpvwidget.cpp
+    mpvwidget.cpp \
+    qmediaslider.cpp
 
 HEADERS  += hostwindow.h \
-    mpvwidget.h
+    mpvwidget.h \
+    qmediaslider.h
 
 FORMS    += hostwindow.ui
 
