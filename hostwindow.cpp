@@ -26,9 +26,9 @@ HostWindow::HostWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->info_stats->setVisible(false);
 
-    build_menu();
-    layout()->setMenuBar(menubar);
-    ui_reset_state(false);
+    ui_position = new QMediaSlider(this);
+    ui->seekbar->layout()->addWidget(ui_position);
+    connect(ui_position, &QMediaSlider::sliderMoved, this, &HostWindow::position_sliderMoved);
 
     mpvw = new MpvWidget(this);
     connect(mpvw, &MpvWidget::me_play_time, this, &HostWindow::me_play_time);
@@ -41,6 +41,10 @@ HostWindow::HostWindow(QWidget *parent) :
     connect(mpvw, &MpvWidget::me_tracks, this, &HostWindow::me_tracks);
     connect(mpvw, &MpvWidget::me_size, this, &HostWindow::me_size);
     ui->mpv_host->layout()->addWidget(mpvw);
+
+    build_menu();
+    layout()->setMenuBar(menubar);
+    ui_reset_state(false);
 
     // Guarantee that the layout has been calculated.  It seems pointless, but
     // Without it the window will temporarily display at a larger size than
@@ -807,7 +811,7 @@ void HostWindow::build_menu()
 
 void HostWindow::ui_reset_state(bool enabled)
 {
-    ui->position->setEnabled(enabled);
+    ui_position->setEnabled(enabled);
 
     ui->play->setEnabled(enabled);
     ui->pause->setEnabled(enabled);
@@ -913,14 +917,14 @@ void HostWindow::mpv_set_volume(int volume)
 void HostWindow::me_play_time()
 {
     double time = mpvw->state_play_time_get();
-    ui->position->setValue(time >= 0 ? time : 0);
+    ui_position->setValue(time >= 0 ? time : 0);
     update_time();
 }
 
 void HostWindow::me_length()
 {
     double length = mpvw->state_play_length_get();
-    ui->position->setMaximum(length >= 0 ? length : 0);
+    ui_position->setMaximum(length >= 0 ? length : 0);
     update_time();
 }
 
@@ -992,7 +996,7 @@ void HostWindow::me_size()
     update_size();
 }
 
-void HostWindow::on_position_sliderMoved(int position)
+void HostWindow::position_sliderMoved(int position)
 {
     mpvw->property_time_set(position);
 }

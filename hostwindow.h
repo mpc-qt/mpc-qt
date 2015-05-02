@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <mpvwidget.h>
 #include <QMenuBar>
+#include "qmediaslider.h"
 
 namespace Ui {
 class HostWindow;
@@ -61,7 +62,7 @@ private slots:
     void me_tracks();
     void me_size();
 
-    void on_position_sliderMoved(int position);
+    void position_sliderMoved(int position);
     void on_pause_clicked(bool checked);
     void on_play_clicked();
     void on_stop_clicked();
@@ -79,6 +80,7 @@ signals:
 private:
     Ui::HostWindow *ui;
     MpvWidget* mpvw;
+    QMediaSlider *ui_position;
     QMenuBar *menubar;
     QMenu *submenu_navigate_chapters;
 

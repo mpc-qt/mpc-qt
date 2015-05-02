@@ -124,28 +124,9 @@ background: center url(:/images/bitmaps/blank-screen.png) no-repeat;</string>
          <property name="leftMargin">
           <number>6</number>
          </property>
-         <property name="topMargin">
-          <number>3</number>
-         </property>
          <property name="rightMargin">
           <number>6</number>
          </property>
-         <property name="bottomMargin">
-          <number>3</number>
-         </property>
-         <item>
-          <widget class="QSlider" name="position">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="tracking">
-            <bool>false</bool>
-           </property>
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-          </widget>
-         </item>
         </layout>
        </widget>
       </item>
