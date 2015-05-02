@@ -116,12 +116,12 @@ void QMediaSlider::leaveEvent(QEvent *event)
 int QMediaSlider::valueToX(int value)
 {
     return drawnGroove.left() + (((value-minimum()) * drawnGroove.width())
-                                 / (maximum() - minimum()));
+                                 / std::max(1, maximum() - minimum()));
 }
 
 double QMediaSlider::xToValue(int x)
 {
-    double val = ((x-drawnGroove.left()) * (maximum() - minimum()))
+    double val = ((x-drawnGroove.left()) * std::max(1, maximum() - minimum()))
             / drawnGroove.width();
     if (val < minimum()) return minimum();
     if (val > maximum()) return maximum();
