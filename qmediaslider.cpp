@@ -27,12 +27,13 @@ void QMediaSlider::paintEvent(QPaintEvent *pe)
     QColor grooveBorder, grooveFill, handleBorder, handleFill, tickColor;
     QPainter p(this);
 
+    QPalette pal = reinterpret_cast<QWidget*>(parent())->palette();
     QPalette::ColorGroup cg = QPalette::Normal;
-    grooveBorder = palette().color(cg,QPalette::Dark);
-    grooveFill = palette().color(cg,QPalette::Base);
-    handleBorder = palette().color(cg,QPalette::Shadow);
-    handleFill = palette().color(cg,QPalette::Button);
-    tickColor = palette().color(cg,QPalette::Shadow);
+    grooveBorder = pal.color(cg,QPalette::Dark);
+    grooveFill = pal.color(cg,QPalette::Base);
+    handleBorder = pal.color(cg,QPalette::Shadow);
+    handleFill = pal.color(cg,QPalette::Button);
+    tickColor = pal.color(cg,QPalette::Shadow);
 
     p.setOpacity(isEnabled() ? 1.0 : 0.333);
 
