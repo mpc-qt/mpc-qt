@@ -285,6 +285,48 @@ void HostWindow::menu_help_about()
 
 void HostWindow::build_menu()
 {
+    /*
+                         =          , ,=   =@,   ==  <,    ,=          ,
+               '    ,   4       '  @'Af  <668   @8   6J    [{  {   `   1,
+              l{l  A   @l/    <l  @ {f  @S A   A{'  Akl    l$  { |  ,   T
+             A}I  /   @[7    <l  } {f  &f A  ,'<l  {@]    { %  { ]  !    Y
+             '/  '  <%@ '   <[  }'{h =$NPZ  &==j  A~$/   @[}{  &j]  {    ,,
+            {A A   <6&[]    8l  [/A AY;pz @p[8&  A  !'   &.h@  +j}  {    |{
+            (Uf   }R@"l[   6{  6/,U6%%[6@@[[%"l f   $   6U%u} &z[$  } {  }+
+            6    ,?{Vy$j  $ { /w`{y """"""Y[[@<'   {[  "/0@@@A~{[[  @ {  f,,
+           f    ^,}l $[[ <[ {}{'   '    [   `k`    [ ,JA ~$1@k@@[j }} { }'!j
+         ,'    ',+/ [ '[ &[ {/`@  {     l         ^/r {   Y,"<@D8' [} [ k {'
+        A    ,  }Wj "k/{,[%       /    {          +'   ;   { j &{ @<[/'{  {
+       A    A  <l'! <#@(Y%{      {     l             =R    {{}" '&[W7^#'  /
+      A,   ^   %/ {V U]j;^\j  n, ],   {  ,,,,,             [l` /}j%k<^
+     #,  `'   Ak  {J".}"  Th+' ] @ \  &@""   , `"*~=,,    {  '  'lA\\
+     .  /'    l   {l  @s,+f /  ! [ + @C,@@@@@@@@@@@@, ^[  A M  / } {
+    @' }l    +        )'<' <   l '  @@@@@@@@@@@@@@@k[U{[  '   }'!'u  ,
+    l  &     K     [~' ^   '~ + {   k@8%"%%@@@@@@@@[@@@l A    'j/  ,,j
+   {  @"    \{    /   {   {   { {   [ ? X===,;;`"$k@@@[ }   =Y h    |l
+   !  [[\   ^ [   )   %   +[   [{   "*~~~~==,,;``""'%h    =' {6   ! }
+   ) {j$;,   V+   ^,  ^[   $   T$   }      ,.  ``"*<R  ;j@  e"`   j !
+   ) Jj^%+    .\   Y   1   ^    "    ,    ^      ,   ~`,-^
+   1 j[ VY^    ,\  .,   l            Tv,         ;=F^`          -` `
+    \'T  V"(.   :\  !    j            Y `'=, ,;-`<l           -    ,
+    ^[ V  };Y;,  YV  V,   .            \    ^A   '          ^
+     1[`@` ^v;~;,  %p Tk,               ;   }[        ,==@@u
+   .^ ^u^k,  S%@]Y, ^%,T[u,             {   '^;,,===A"' #8% "@
+r`      X,"[@j"u`"zW@,^y%j Y;     `    ,{= [ +[`  6k"     [   ' '-,  '
+         T[^@^[*s@, 'tU,Y[  1Yu=@==;,@h'  }'  ^[     `""~'{        `~,
+
+    "Why is this function so huge," the developer laments.  "Perhaps it
+    should be in a separate module... no, that would be wrong, it belongs
+    here."
+
+    As she thought about it some more, it slowly occurs to her that its
+    ugliness would be there forever.  Qt Creator would not let her add
+    menus to QWidgets in the designer.  Her only hope was making the
+    module so huge that the function was not so obviously large, and she
+    hates code that looks like that.
+
+    She holds her face in her hands and cries in front of the computer.
+    */
     QMenuBar *bar = new QMenuBar(this);
     QMenu *menu, *submenu, *subsubmenu;
     QAction *action;
