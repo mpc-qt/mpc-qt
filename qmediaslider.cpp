@@ -24,14 +24,15 @@ void QMediaSlider::paintEvent(QPaintEvent *pe)
 {
     (void)pe;
 
-    QColor grooveBorder, grooveFill, handleBorder, handleFill;
+    QColor grooveBorder, grooveFill, handleBorder, handleFill, tickColor;
     QPainter p(this);
 
     QPalette::ColorGroup cg = QPalette::Normal;
-    grooveBorder = palette().color(cg,QPalette::Shadow);
+    grooveBorder = palette().color(cg,QPalette::Dark);
     grooveFill = palette().color(cg,QPalette::Base);
-    handleBorder = palette().color(cg,QPalette::Dark);
+    handleBorder = palette().color(cg,QPalette::Shadow);
     handleFill = palette().color(cg,QPalette::Button);
+    tickColor = palette().color(cg,QPalette::Shadow);
 
     p.setOpacity(isEnabled() ? 1.0 : 0.333);
 
@@ -39,6 +40,7 @@ void QMediaSlider::paintEvent(QPaintEvent *pe)
     p.setBrush(grooveFill);
     p.drawRect(drawnGroove);
 
+    p.setPen(tickColor);
     int pos;
     for(QMap<int, QString>::const_iterator i = ticks.constBegin();
         i != ticks.constEnd(); i++) {
@@ -56,6 +58,9 @@ void QMediaSlider::paintEvent(QPaintEvent *pe)
     p.drawRect(slider);
 
     p.setPen(handleFill);
+    slider.adjust(1,1,-1,-1);
+    p.drawRect(slider);
+
     slider.adjust(1,1,-1,-1);
     p.drawRect(slider);
 
