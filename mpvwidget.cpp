@@ -21,6 +21,7 @@ MpvWidget::MpvWidget(QWidget *parent) :
     // Force Qt to create a native window, and pass the window ID to the mpv
     // wid option. Works on: X11, win32, Cocoa
     setAttribute(Qt::WA_NativeWindow);
+    setAttribute(Qt::WA_DontCreateNativeAncestors);
     int64_t wid = static_cast<int64_t>(winId());
     mpv_set_option(mpv, "wid", MPV_FORMAT_INT64, &wid);
 
