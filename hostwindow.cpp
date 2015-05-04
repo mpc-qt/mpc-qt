@@ -942,7 +942,7 @@ void HostWindow::update_size(bool first_run)
     else
         setGeometry(QStyle::alignedRect(
                     Qt::LeftToRight, Qt::AlignCenter, sz_desired,
-                             desktop->availableGeometry(this)));
+                    desktop->availableGeometry(this)));
 }
 
 void HostWindow::mpv_stop(bool dry_run)
