@@ -25,6 +25,8 @@ HostWindow::HostWindow(QWidget *parent) :
 
     ui->setupUi(this);
     ui->info_stats->setVisible(false);
+    connect(this, &HostWindow::fire_update_size, this, &HostWindow::send_update_size,
+            Qt::QueuedConnection);
 
     ui_position = new QMediaSlider(this);
     ui->seekbar->layout()->addWidget(ui_position);
@@ -47,6 +49,7 @@ HostWindow::HostWindow(QWidget *parent) :
     mpv_host->setStyleSheet("background-color: black; background: center url("
                             ":/images/bitmaps/blank-screen.png) no-repeat;");
     mpv_host->setCentralWidget(mpvw);
+    mpv_host->setSizePolicy(QSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred));
     ui->mpv_widget->layout()->addWidget(mpv_host);
 
     build_menu();
@@ -98,7 +101,7 @@ void HostWindow::menu_view_hide_menu(bool checked)
         menubar->show();
     else
         menubar->hide();
-    emit update_size();
+    fire_update_size();
 }
 
 void HostWindow::menu_view_hide_seekbar(bool checked)
@@ -108,7 +111,7 @@ void HostWindow::menu_view_hide_seekbar(bool checked)
     else
         ui->seekbar->hide();
     ui->control_section->adjustSize();
-    update_size();
+    fire_update_size();
 }
 
 void HostWindow::menu_view_hide_controls(bool checked)
@@ -118,7 +121,7 @@ void HostWindow::menu_view_hide_controls(bool checked)
     else
         ui->controlbar->hide();
     ui->control_section->adjustSize();
-    update_size();
+    fire_update_size();
 }
 
 void HostWindow::menu_view_hide_information(bool checked)
@@ -128,7 +131,7 @@ void HostWindow::menu_view_hide_information(bool checked)
     else
         ui->info_stats->hide();
     ui->info_section->adjustSize();
-    update_size();
+    fire_update_size();
 }
 
 void HostWindow::menu_view_hide_statistics(bool checked)
@@ -138,7 +141,7 @@ void HostWindow::menu_view_hide_statistics(bool checked)
     // ourselves, and turn that on or off depending upon the settings here.
     (void)checked;
 
-    update_size();
+    fire_update_size();
 }
 
 void HostWindow::menu_view_hide_status(bool checked)
@@ -148,7 +151,7 @@ void HostWindow::menu_view_hide_status(bool checked)
     else
         ui->statusbar->hide();
     ui->info_section->adjustSize();
-    update_size();
+    fire_update_size();
 }
 
 void HostWindow::menu_view_hide_subresync(bool checked)
@@ -158,7 +161,7 @@ void HostWindow::menu_view_hide_subresync(bool checked)
     else
         ui->statusbar->hide();
 
-    update_size();
+    fire_update_size();
 }
 
 void HostWindow::menu_view_hide_playlist(bool checked)
@@ -166,21 +169,21 @@ void HostWindow::menu_view_hide_playlist(bool checked)
     // playlist window is unimplemented for now
     (void)checked;
 
-    update_size();
+    fire_update_size();
 }
 
 void HostWindow::menu_view_hide_capture(bool checked)
 {
     (void)checked;
 
-    update_size();
+    fire_update_size();
 }
 
 void HostWindow::menu_view_hide_navigation(bool checked)
 {
     (void)checked;
 
-    update_size();
+    fire_update_size();
 }
 
 void HostWindow::menu_view_fullscreen(bool checked)
@@ -922,9 +925,6 @@ void HostWindow::update_size(bool first_run)
     if (size_factor <= 0 || is_fullscreen || isMaximized())
         return;
 
-    if (!first_run)
-        adjustSize();
-
     QSize sz_player = is_playing ? mpvw->state_video_size_get() : no_video_size;
     QSize sz_wanted(sz_player.width()*size_factor + 0.5, sz_player.height()*size_factor + 0.5);
     QSize sz_current = mpvw->size();
@@ -939,7 +939,7 @@ void HostWindow::update_size(bool first_run)
     else
         setGeometry(QStyle::alignedRect(
                     Qt::LeftToRight, Qt::AlignCenter, sz_desired,
-                    desktop->availableGeometry(this)));
+                             desktop->availableGeometry(this)));
 }
 
 void HostWindow::mpv_stop(bool dry_run)
@@ -1145,4 +1145,9 @@ void HostWindow::on_mute_clicked(bool checked)
                                       ":/images/controls/speaker1.png"));
     action_play_volume_mute->setChecked(checked);
     ui->mute->setChecked(checked);
+}
+
+void HostWindow::send_update_size()
+{
+    update_size();
 }

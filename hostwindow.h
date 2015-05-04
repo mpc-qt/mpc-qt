@@ -75,7 +75,10 @@ private slots:
     void on_volume_valueChanged(int position);
     void on_mute_clicked(bool checked);
 
+    void send_update_size();
+
 signals:
+    void fire_update_size();
 
 private:
     Ui::HostWindow *ui;
