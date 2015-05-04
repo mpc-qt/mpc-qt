@@ -926,7 +926,9 @@ void HostWindow::update_size(bool first_run)
         return;
 
     QSize sz_player = is_playing ? mpvw->state_video_size_get() : no_video_size;
-    QSize sz_wanted(sz_player.width()*size_factor + 0.5, sz_player.height()*size_factor + 0.5);
+    double factor_to_use = is_playing ? size_factor : std::max(1.0, size_factor);
+    QSize sz_wanted(sz_player.width()*factor_to_use + 0.5,
+                    sz_player.height()*factor_to_use + 0.5);
     QSize sz_current = mpvw->size();
     QSize sz_window = size();
     QSize sz_desired = sz_wanted + sz_window - sz_current;
