@@ -1,7 +1,7 @@
 #ifndef HOSTWINDOW_H
 #define HOSTWINDOW_H
 
-#include <QWidget>
+#include <QMainWindow>
 #include <mpvwidget.h>
 #include <QMenuBar>
 #include "qmediaslider.h"
@@ -10,7 +10,7 @@ namespace Ui {
 class HostWindow;
 }
 
-class HostWindow : public QWidget
+class HostWindow : public QMainWindow
 {
     Q_OBJECT
 

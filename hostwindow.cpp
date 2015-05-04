@@ -14,7 +14,7 @@
 #include <QDebug>
 
 HostWindow::HostWindow(QWidget *parent) :
-    QWidget(parent),
+    QMainWindow(parent),
     ui(new Ui::HostWindow)
 {
     is_fullscreen = false;
@@ -43,7 +43,7 @@ HostWindow::HostWindow(QWidget *parent) :
     ui->mpv_host->layout()->addWidget(mpvw);
 
     build_menu();
-    layout()->setMenuBar(menubar);
+    setMenuBar(menubar);
     ui_reset_state(false);
 
     // Guarantee that the layout has been calculated.  It seems pointless, but
