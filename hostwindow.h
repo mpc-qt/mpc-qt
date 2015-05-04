@@ -79,7 +79,8 @@ signals:
 
 private:
     Ui::HostWindow *ui;
-    MpvWidget* mpvw;
+    QMainWindow *mpv_host;
+    MpvWidget *mpvw;
     QMediaSlider *ui_position;
     QMenuBar *menubar;
     QMenu *submenu_navigate_chapters;

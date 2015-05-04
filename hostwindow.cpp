@@ -40,7 +40,14 @@ HostWindow::HostWindow(QWidget *parent) :
     connect(mpvw, &MpvWidget::me_chapters, this, &HostWindow::me_chapters);
     connect(mpvw, &MpvWidget::me_tracks, this, &HostWindow::me_tracks);
     connect(mpvw, &MpvWidget::me_size, this, &HostWindow::me_size);
-    ui->mpv_host->layout()->addWidget(mpvw);
+
+    // Wrap mpvw in a special QMainWindow widget so that the playlist window
+    // will dock around it rather than ourselves
+    mpv_host = new QMainWindow(this);
+    mpv_host->setStyleSheet("background-color: black; background: center url("
+                            ":/images/bitmaps/blank-screen.png) no-repeat;");
+    mpv_host->setCentralWidget(mpvw);
+    ui->mpv_widget->layout()->addWidget(mpv_host);
 
     build_menu();
     setMenuBar(menubar);
@@ -91,7 +98,7 @@ void HostWindow::menu_view_hide_menu(bool checked)
         menubar->show();
     else
         menubar->hide();
-    update_size();
+    emit update_size();
 }
 
 void HostWindow::menu_view_hide_seekbar(bool checked)
