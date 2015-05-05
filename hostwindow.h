@@ -19,38 +19,38 @@ public:
     ~HostWindow();
 
 private slots:
-    void menu_file_quick_open();
-    void menu_file_open();
-    void menu_file_close();
+    void on_action_file_open_quick_triggered();
+    void on_action_file_open_triggered();
+    void on_action_file_close_triggered();
 
-    void menu_view_hide_menu(bool checked);
-    void menu_view_hide_seekbar(bool checked);
-    void menu_view_hide_controls(bool checked);
-    void menu_view_hide_information(bool checked);
-    void menu_view_hide_statistics(bool checked);
-    void menu_view_hide_status(bool checked);
-    void menu_view_hide_subresync(bool checked);
-    void menu_view_hide_playlist(bool checked);
-    void menu_view_hide_capture(bool checked);
-    void menu_view_hide_navigation(bool checked);
+    void on_action_view_hide_menu_toggled(bool checked);
+    void on_action_view_hide_seekbar_toggled(bool checked);
+    void on_action_view_hide_controls_toggled(bool checked);
+    void on_action_view_hide_information_toggled(bool checked);
+    void on_action_view_hide_statistics_toggled(bool checked);
+    void on_action_view_hide_status_toggled(bool checked);
+    void on_action_view_hide_subresync_toggled(bool checked);
+    void on_action_view_hide_playlist_toggled(bool checked);
+    void on_action_view_hide_capture_toggled(bool checked);
+    void on_action_view_hide_navigation_toggled(bool checked);
 
-    void menu_view_fullscreen(bool checked);
+    void on_action_view_fullscreen_toggled(bool checked);
 
-    void menu_view_zoom_50();
-    void menu_view_zoom_100();
-    void menu_view_zoom_200();
-    void menu_view_zoom_auto();
-    void menu_view_zoom_autolarger();
-    void menu_view_zoom_disable();
+    void on_action_view_zoom_050_triggered();
+    void on_action_view_zoom_100_triggered();
+    void on_action_view_zoom_200_triggered();
+    void on_action_view_zoom_autofit_triggered();
+    void on_action_view_zoom_autofit_larger_triggered();
+    void on_action_view_zoom_disable_triggered();
 
-    void menu_play_rate_reset();
+    void on_action_play_rate_reset_triggered();
 
-    void menu_play_volume_up();
-    void menu_play_volume_down();
+    void on_action_play_volume_up_triggered();
+    void on_action_play_volume_down_triggered();
 
     void menu_navigate_chapters(int data);
 
-    void menu_help_about();
+    void on_action_help_about_triggered();
 
     void me_play_time();
     void me_length();
@@ -63,17 +63,17 @@ private slots:
     void me_size();
 
     void position_sliderMoved(int position);
-    void on_pause_clicked(bool checked);
+    void on_action_play_pause_toggled(bool checked);
     void on_play_clicked();
-    void on_stop_clicked();
-    void on_speedDecrease_clicked();
-    void on_speedIncrease_clicked();
+    void on_action_play_stop_triggered();
+    void on_action_play_rate_decrease_triggered();
+    void on_action_play_rate_increase_triggered();
     void on_skipBackward_clicked();
     void on_skipForward_clicked();
-    void on_stepBackward_clicked();
-    void on_stepForward_clicked();
+    void on_action_play_frame_backward_triggered();
+    void on_action_play_frame_forward_triggered();
     void on_volume_valueChanged(int position);
-    void on_mute_clicked(bool checked);
+    void on_action_play_volume_mute_toggled(bool checked);
 
     void send_update_size();
 

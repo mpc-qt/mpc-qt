@@ -72,24 +72,24 @@ HostWindow::~HostWindow()
     delete ui;
 }
 
-void HostWindow::menu_file_quick_open()
+void HostWindow::on_action_file_open_quick_triggered()
 {
     // Do nothing special for the moment, call menu_file_open instead
-    menu_file_open();
+    on_action_file_open_triggered();
 }
 
-void HostWindow::menu_file_open()
+void HostWindow::on_action_file_open_triggered()
 {
     QString filename = QFileDialog::getOpenFileName(this, "Open file");
     mpvw->command_file_open(filename);
 }
 
-void HostWindow::menu_file_close()
+void HostWindow::on_action_file_close_triggered()
 {
-    on_stop_clicked();
+    on_action_play_stop_triggered();
 }
 
-void HostWindow::menu_view_hide_menu(bool checked)
+void HostWindow::on_action_view_hide_menu_toggled(bool checked)
 {
     // View/hide are unmanaged when in fullscreen mode
     if (is_fullscreen)
@@ -102,7 +102,7 @@ void HostWindow::menu_view_hide_menu(bool checked)
     fire_update_size();
 }
 
-void HostWindow::menu_view_hide_seekbar(bool checked)
+void HostWindow::on_action_view_hide_seekbar_toggled(bool checked)
 {
     if (checked)
         ui->seekbar->show();
@@ -112,7 +112,7 @@ void HostWindow::menu_view_hide_seekbar(bool checked)
     fire_update_size();
 }
 
-void HostWindow::menu_view_hide_controls(bool checked)
+void HostWindow::on_action_view_hide_controls_toggled(bool checked)
 {
     if (checked)
         ui->controlbar->show();
@@ -122,7 +122,7 @@ void HostWindow::menu_view_hide_controls(bool checked)
     fire_update_size();
 }
 
-void HostWindow::menu_view_hide_information(bool checked)
+void HostWindow::on_action_view_hide_information_toggled(bool checked)
 {
     if (checked)
         ui->info_stats->show();
@@ -132,7 +132,7 @@ void HostWindow::menu_view_hide_information(bool checked)
     fire_update_size();
 }
 
-void HostWindow::menu_view_hide_statistics(bool checked)
+void HostWindow::on_action_view_hide_statistics_toggled(bool checked)
 {
     // this currently does nothing, because info and statistics are controlled
     // by the same widget.  We're going to manage what's shown by it
@@ -142,7 +142,7 @@ void HostWindow::menu_view_hide_statistics(bool checked)
     fire_update_size();
 }
 
-void HostWindow::menu_view_hide_status(bool checked)
+void HostWindow::on_action_view_hide_status_toggled(bool checked)
 {
     if (checked)
         ui->statusbar->show();
@@ -152,7 +152,7 @@ void HostWindow::menu_view_hide_status(bool checked)
     fire_update_size();
 }
 
-void HostWindow::menu_view_hide_subresync(bool checked)
+void HostWindow::on_action_view_hide_subresync_toggled(bool checked)
 {
     if (checked)
         ui->statusbar->show();
@@ -162,7 +162,7 @@ void HostWindow::menu_view_hide_subresync(bool checked)
     fire_update_size();
 }
 
-void HostWindow::menu_view_hide_playlist(bool checked)
+void HostWindow::on_action_view_hide_playlist_toggled(bool checked)
 {
     // playlist window is unimplemented for now
     (void)checked;
@@ -170,21 +170,21 @@ void HostWindow::menu_view_hide_playlist(bool checked)
     fire_update_size();
 }
 
-void HostWindow::menu_view_hide_capture(bool checked)
+void HostWindow::on_action_view_hide_capture_toggled(bool checked)
 {
     (void)checked;
 
     fire_update_size();
 }
 
-void HostWindow::menu_view_hide_navigation(bool checked)
+void HostWindow::on_action_view_hide_navigation_toggled(bool checked)
 {
     (void)checked;
 
     fire_update_size();
 }
 
-void HostWindow::menu_view_fullscreen(bool checked)
+void HostWindow::on_action_view_fullscreen_toggled(bool checked)
 {
     is_fullscreen = checked;
 
@@ -202,44 +202,44 @@ void HostWindow::menu_view_fullscreen(bool checked)
     }
 }
 
-void HostWindow::menu_view_zoom_50()
+void HostWindow::on_action_view_zoom_050_triggered()
 {
     size_factor = 0.5;
     update_size();
 }
 
-void HostWindow::menu_view_zoom_100()
+void HostWindow::on_action_view_zoom_100_triggered()
 {
     size_factor = 1.0;
     update_size();
 }
 
-void HostWindow::menu_view_zoom_200()
+void HostWindow::on_action_view_zoom_200_triggered()
 {
     size_factor = 2.0;
     update_size();
 }
 
-void HostWindow::menu_view_zoom_auto()
+void HostWindow::on_action_view_zoom_autofit_triggered()
 {
     // TODO: work out the logic for this.  In the meantime, set to manual
     // sized.
     size_factor = 0.0;
 }
 
-void HostWindow::menu_view_zoom_autolarger()
+void HostWindow::on_action_view_zoom_autofit_larger_triggered()
 {
     // TODO: work out the logic for this.  In the meantime, set to manual
     // sized.
     size_factor = 0.0;
 }
 
-void HostWindow::menu_view_zoom_disable()
+void HostWindow::on_action_view_zoom_disable_triggered()
 {
     size_factor = 0.0;
 }
 
-void HostWindow::menu_play_rate_reset()
+void HostWindow::on_action_play_rate_reset_triggered()
 {
     if (speed == 1.0)
         return;
@@ -247,14 +247,14 @@ void HostWindow::menu_play_rate_reset()
     mpv_set_speed(speed);
 }
 
-void HostWindow::menu_play_volume_up()
+void HostWindow::on_action_play_volume_up_triggered()
 {
     int newvol = std::min(ui->volume->value() + 10, 100);
     mpv_set_volume(newvol);
     ui->volume->setValue(newvol);
 }
 
-void HostWindow::menu_play_volume_down()
+void HostWindow::on_action_play_volume_down_triggered()
 {
     int newvol = std::max(ui->volume->value() - 10, 0);
     mpv_set_volume(newvol);
@@ -266,7 +266,7 @@ void HostWindow::menu_navigate_chapters(int data)
     mpvw->property_chapter_set(data);
 }
 
-void HostWindow::menu_help_about()
+void HostWindow::on_action_help_about_triggered()
 {
     QMessageBox::about(this, "About Media Player Classic Qute Theater",
       "<h2>Media Player Classic Qute Theater</h2>"
@@ -485,7 +485,7 @@ void HostWindow::position_sliderMoved(int position)
     mpvw->property_time_set(position);
 }
 
-void HostWindow::on_pause_clicked(bool checked)
+void HostWindow::on_action_play_pause_toggled(bool checked)
 {
     mpvw->property_pause_set(checked);
     me_pause(checked);    
@@ -509,12 +509,12 @@ void HostWindow::on_play_clicked()
     }
 }
 
-void HostWindow::on_stop_clicked()
+void HostWindow::on_action_play_stop_triggered()
 {
     mpv_stop();
 }
 
-void HostWindow::on_speedDecrease_clicked()
+void HostWindow::on_action_play_rate_decrease_triggered()
 {
     if (speed <= 0.125)
         return;
@@ -522,7 +522,7 @@ void HostWindow::on_speedDecrease_clicked()
     mpv_set_speed(speed);
 }
 
-void HostWindow::on_speedIncrease_clicked()
+void HostWindow::on_action_play_rate_increase_triggered()
 {
     if (speed >= 8.0)
         return;
@@ -550,14 +550,14 @@ void HostWindow::on_skipForward_clicked()
     }
 }
 
-void HostWindow::on_stepBackward_clicked()
+void HostWindow::on_action_play_frame_backward_triggered()
 {
     mpvw->command_step_backward();
     is_paused = true;
     update_status();
 }
 
-void HostWindow::on_stepForward_clicked()
+void HostWindow::on_action_play_frame_forward_triggered()
 {
     mpvw->command_step_forward();
     is_paused = true;
@@ -569,7 +569,7 @@ void HostWindow::on_volume_valueChanged(int position)
     mpv_set_volume(position);
 }
 
-void HostWindow::on_mute_clicked(bool checked)
+void HostWindow::on_action_play_volume_mute_toggled(bool checked)
 {
     if (!is_playing)
         return;

@@ -492,7 +492,7 @@
     <addaction name="action_file_open_directory"/>
     <addaction name="action_file_open_disc"/>
     <addaction name="menu_file_recent"/>
-    <addaction name="action_file_close_file"/>
+    <addaction name="action_file_close"/>
     <addaction name="separator"/>
     <addaction name="action_file_save_copy"/>
     <addaction name="action_file_save_image"/>
@@ -701,7 +701,7 @@
     <string>&amp;Clear list</string>
    </property>
   </action>
-  <action name="action_file_close_file">
+  <action name="action_file_close">
    <property name="text">
     <string>&amp;Close File</string>
    </property>
