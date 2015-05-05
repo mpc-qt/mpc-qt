@@ -497,6 +497,7 @@
     <addaction name="action_file_save_copy"/>
     <addaction name="action_file_save_image"/>
     <addaction name="action_file_save_thumbnails"/>
+    <addaction name="separator"/>
     <addaction name="action_file_load_subtitle"/>
     <addaction name="action_file_save_subtitle"/>
     <addaction name="menu_subtitle_database"/>
