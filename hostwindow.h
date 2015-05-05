@@ -95,7 +95,7 @@ private:
     double size_factor;
 
     void action_connect_buttons();
-    void globalize_actions();
+    void action_globalize_all();
     void ui_reset_state(bool enabled);
     void update_time();
     void update_status();

@@ -13,6 +13,8 @@
 #include <QLibraryInfo>
 #include <QDebug>
 
+static QString to_date_fmt(double time);
+
 HostWindow::HostWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::HostWindow)
@@ -53,7 +55,7 @@ HostWindow::HostWindow(QWidget *parent) :
     ui->mpv_widget->layout()->addWidget(mpv_host);
 
     action_connect_buttons();
-    globalize_actions();
+    action_globalize_all();
     ui_reset_state(false);
 
     // Guarantee that the layout has been calculated.  It seems pointless, but
@@ -498,7 +500,7 @@ void HostWindow::action_connect_buttons()
     connect(ui->mute, &QPushButton::toggled, ui->action_play_volume_mute, &QAction::toggled);
 }
 
-void HostWindow::globalize_actions()
+void HostWindow::action_globalize_all()
 {
     for (QAction *a : ui->menubar->actions()) {
         addAction(a);
@@ -539,20 +541,6 @@ void HostWindow::ui_reset_state(bool enabled)
     ui->action_navigate_chapters_next->setEnabled(enabled);
 
     ui->menu_navigate_chapters->setEnabled(enabled);
-}
-
-static QString to_date_fmt(double secs) {
-    int t = secs*1000 + 0.5;
-    if (t < 0)
-        t = 0;
-    int hr = t/3600000;
-    int mn = t/60000 % 60;
-    int se = t%60000 / 1000;
-    int fr = t % 1000;
-    return QString("%1:%2:%3.%4").arg(QString().number(hr))
-            .arg(QString().number(mn),2,'0')
-            .arg(QString().number(se),2,'0')
-            .arg(QString().number(fr),3,'0');
 }
 
 void HostWindow::update_time()
@@ -610,5 +598,19 @@ void HostWindow::mpv_set_volume(int volume)
 {
     mpvw->property_volume_set(volume);
     mpvw->show_message(QString("Volume :%1%").arg(volume));
+}
+
+static QString to_date_fmt(double time) {
+    int t = time*1000 + 0.5;
+    if (t < 0)
+        t = 0;
+    int hr = t/3600000;
+    int mn = t/60000 % 60;
+    int se = t%60000 / 1000;
+    int fr = t % 1000;
+    return QString("%1:%2:%3.%4").arg(QString().number(hr))
+            .arg(QString().number(mn),2,'0')
+            .arg(QString().number(se),2,'0')
+            .arg(QString().number(fr),3,'0');
 }
 
