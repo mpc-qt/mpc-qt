@@ -241,6 +241,50 @@ void HostWindow::on_action_view_zoom_disable_triggered()
     size_factor = 0.0;
 }
 
+void HostWindow::on_action_play_pause_toggled(bool checked)
+{
+    mpvw->property_pause_set(checked);
+    me_pause(checked);
+
+    ui->pause->setChecked(checked);
+    ui->action_play_pause->setChecked(checked);
+}
+
+void HostWindow::on_action_play_stop_triggered()
+{
+    mpv_stop();
+}
+
+void HostWindow::on_action_play_frame_backward_triggered()
+{
+    mpvw->command_step_backward();
+    is_paused = true;
+    update_status();
+}
+
+void HostWindow::on_action_play_frame_forward_triggered()
+{
+    mpvw->command_step_forward();
+    is_paused = true;
+    update_status();
+}
+
+void HostWindow::on_action_play_rate_decrease_triggered()
+{
+    if (speed <= 0.125)
+        return;
+    speed /= 2;
+    mpv_set_speed(speed);
+}
+
+void HostWindow::on_action_play_rate_increase_triggered()
+{
+    if (speed >= 8.0)
+        return;
+    speed *= 2;
+    mpv_set_speed(speed);
+}
+
 void HostWindow::on_action_play_rate_reset_triggered()
 {
     if (speed == 1.0)
@@ -261,6 +305,37 @@ void HostWindow::on_action_play_volume_down_triggered()
     int newvol = std::max(ui->volume->value() - 10, 0);
     mpv_set_volume(newvol);
     ui->volume->setValue(newvol);
+}
+
+void HostWindow::on_action_play_volume_mute_toggled(bool checked)
+{
+    if (!is_playing)
+        return;
+    mpvw->property_mute_set(checked);
+    ui->mute->setIcon(QIcon(checked ? ":/images/controls/speaker2.png" :
+                                      ":/images/controls/speaker1.png"));
+    ui->action_play_volume_mute->setChecked(checked);
+    ui->mute->setChecked(checked);
+}
+
+void HostWindow::on_action_navigate_chapters_previous_triggered()
+{
+    int64_t chapter = mpvw->property_chapter_get();
+    if (chapter > 0) chapter--;
+    mpvw->property_chapter_set(chapter);
+}
+
+void HostWindow::on_action_navigate_chapters_next_triggered()
+{
+    int64_t chapter = mpvw->property_chapter_get();
+    chapter++;
+    if (!mpvw->property_chapter_set(chapter)) {
+        // most likely the reason why we're here is because the requested
+        // chapter number is a past-the-end value, so halt playback.  If mpv
+        // was playing back a playlist, this stops it.  But we intend to do
+        // our own playlist parsing anyway, so no biggie.
+        mpv_stop();
+    }
 }
 
 void HostWindow::menu_navigate_chapters(int data)
@@ -512,15 +587,6 @@ void HostWindow::position_sliderMoved(int position)
     mpvw->property_time_set(position);
 }
 
-void HostWindow::on_action_play_pause_toggled(bool checked)
-{
-    mpvw->property_pause_set(checked);
-    me_pause(checked);    
-
-    ui->pause->setChecked(checked);
-    ui->action_play_pause->setChecked(checked);
-}
-
 void HostWindow::on_play_clicked()
 {
     if (!is_playing)
@@ -536,75 +602,9 @@ void HostWindow::on_play_clicked()
     }
 }
 
-void HostWindow::on_action_play_stop_triggered()
-{
-    mpv_stop();
-}
-
-void HostWindow::on_action_play_rate_decrease_triggered()
-{
-    if (speed <= 0.125)
-        return;
-    speed /= 2;
-    mpv_set_speed(speed);
-}
-
-void HostWindow::on_action_play_rate_increase_triggered()
-{
-    if (speed >= 8.0)
-        return;
-    speed *= 2;
-    mpv_set_speed(speed);
-}
-
-void HostWindow::on_action_navigate_chapters_previous_triggered()
-{
-    int64_t chapter = mpvw->property_chapter_get();
-    if (chapter > 0) chapter--;
-    mpvw->property_chapter_set(chapter);
-}
-
-void HostWindow::on_action_navigate_chapters_next_triggered()
-{
-    int64_t chapter = mpvw->property_chapter_get();
-    chapter++;
-    if (!mpvw->property_chapter_set(chapter)) {
-        // most likely the reason why we're here is because the requested
-        // chapter number is a past-the-end value, so halt playback.  If mpv
-        // was playing back a playlist, this stops it.  But we intend to do
-        // our own playlist parsing anyway, so no biggie.
-        mpv_stop();
-    }
-}
-
-void HostWindow::on_action_play_frame_backward_triggered()
-{
-    mpvw->command_step_backward();
-    is_paused = true;
-    update_status();
-}
-
-void HostWindow::on_action_play_frame_forward_triggered()
-{
-    mpvw->command_step_forward();
-    is_paused = true;
-    update_status();
-}
-
 void HostWindow::on_volume_valueChanged(int position)
 {
     mpv_set_volume(position);
-}
-
-void HostWindow::on_action_play_volume_mute_toggled(bool checked)
-{
-    if (!is_playing)
-        return;
-    mpvw->property_mute_set(checked);
-    ui->mute->setIcon(QIcon(checked ? ":/images/controls/speaker2.png" :
-                                      ":/images/controls/speaker1.png"));
-    ui->action_play_volume_mute->setChecked(checked);
-    ui->mute->setChecked(checked);
 }
 
 void HostWindow::send_update_size()

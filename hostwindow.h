@@ -43,6 +43,12 @@ private slots:
     void on_action_view_zoom_autofit_larger_triggered();
     void on_action_view_zoom_disable_triggered();
 
+    void on_action_play_pause_toggled(bool checked);
+    void on_action_play_stop_triggered();
+    void on_action_play_frame_backward_triggered();
+    void on_action_play_frame_forward_triggered();
+    void on_action_play_rate_decrease_triggered();
+    void on_action_play_rate_increase_triggered();
     void on_action_play_rate_reset_triggered();
 
     void on_action_play_volume_up_triggered();
@@ -63,15 +69,9 @@ private slots:
     void me_size();
 
     void position_sliderMoved(int position);
-    void on_action_play_pause_toggled(bool checked);
     void on_play_clicked();
-    void on_action_play_stop_triggered();
-    void on_action_play_rate_decrease_triggered();
-    void on_action_play_rate_increase_triggered();
     void on_action_navigate_chapters_previous_triggered();
     void on_action_navigate_chapters_next_triggered();
-    void on_action_play_frame_backward_triggered();
-    void on_action_play_frame_forward_triggered();
     void on_volume_valueChanged(int position);
     void on_action_play_volume_mute_toggled(bool checked);
 
