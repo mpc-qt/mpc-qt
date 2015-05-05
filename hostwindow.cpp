@@ -346,6 +346,8 @@ void HostWindow::ui_reset_state(bool enabled)
     ui->action_play_volume_up->setEnabled(enabled);
     ui->action_play_volume_down->setEnabled(enabled);
     ui->action_play_volume_mute->setEnabled(enabled);
+    ui->action_navigate_chapters_previous->setEnabled(enabled);
+    ui->action_navigate_chapters_next->setEnabled(enabled);
 
     ui->menu_navigate_chapters->setEnabled(enabled);
 }
