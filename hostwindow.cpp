@@ -368,6 +368,120 @@ void HostWindow::on_action_help_about_triggered()
       "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.");
 }
 
+void HostWindow::position_sliderMoved(int position)
+{
+    mpvw->property_time_set(position);
+}
+
+void HostWindow::on_play_clicked()
+{
+    if (!is_playing)
+        return;
+    if (is_paused) {
+        mpvw->property_pause_set(false);
+        me_pause(false);
+        ui->pause->setChecked(false);
+    }
+    if (speed != 1.0) {
+        speed = 1.0;
+        mpv_set_speed(speed);
+    }
+}
+
+void HostWindow::on_volume_valueChanged(int position)
+{
+    mpv_set_volume(position);
+}
+
+void HostWindow::me_play_time()
+{
+    double time = mpvw->state_play_time_get();
+    ui_position->setValue(time >= 0 ? time : 0);
+    update_time();
+}
+
+void HostWindow::me_length()
+{
+    double length = mpvw->state_play_length_get();
+    ui_position->setMaximum(length >= 0 ? length : 0);
+    update_time();
+}
+
+void HostWindow::me_started()
+{
+    is_playing = true;
+    me_pause(false);
+    ui_reset_state(true);
+}
+
+void HostWindow::me_pause(bool yes)
+{
+    is_paused = yes;
+    update_status();
+}
+
+void HostWindow::me_finished()
+{
+    mpv_stop(true);
+    ui_reset_state(false);
+}
+
+void HostWindow::me_title()
+{
+    QString window_title("Media Player Classic Qute Theater");
+    QString media_title = mpvw->property_media_title_get();
+
+    if (!media_title.isEmpty())
+        window_title.append(" - ").append(media_title);
+    setWindowTitle(window_title);
+}
+
+void HostWindow::me_chapters()
+{
+    QVariantList chapters = mpvw->state_chapters_get();
+    // Here we add (named) ticks to the position slider.
+    ui_position->clearTicks();
+    for (QVariant v : chapters) {
+        QMap<QString, QVariant> node = v.toMap();
+        ui_position->setTick(node["time"].toDouble(), node["title"].toString());
+    }
+
+    // Here we populate the chapters menu with the chapters.
+    QAction *action;
+    data_emitter *emitter;
+    ui->menu_navigate_chapters->clear();
+    int index = 0;
+    for (QVariant v : chapters) {
+        QMap<QString, QVariant> node = v.toMap();
+        action = new QAction(this);
+        action->setText(QString("[%1] - %2").arg(
+                            to_date_fmt(node["time"].toDouble()),
+                            node["title"].toString()));
+        emitter = new data_emitter(action);
+        emitter->data = index;
+        connect(action, &QAction::triggered, emitter, &data_emitter::got_something);
+        connect(emitter, &data_emitter::heres_something, this, &HostWindow::menu_navigate_chapters);
+        ui->menu_navigate_chapters->addAction(action);
+        index++;
+    }
+}
+
+void HostWindow::me_tracks()
+{
+    QVariantList tracks = mpvw->state_tracks_get();
+    (void)tracks;
+}
+
+void HostWindow::me_size()
+{
+    update_size();
+}
+
+void HostWindow::send_update_size()
+{
+    update_size();
+}
+
 void HostWindow::action_connect_buttons()
 {
     connect(ui->pause, &QPushButton::toggled, ui->action_play_pause, &QAction::toggled);
@@ -498,116 +612,3 @@ void HostWindow::mpv_set_volume(int volume)
     mpvw->show_message(QString("Volume :%1%").arg(volume));
 }
 
-void HostWindow::me_play_time()
-{
-    double time = mpvw->state_play_time_get();
-    ui_position->setValue(time >= 0 ? time : 0);
-    update_time();
-}
-
-void HostWindow::me_length()
-{
-    double length = mpvw->state_play_length_get();
-    ui_position->setMaximum(length >= 0 ? length : 0);
-    update_time();
-}
-
-void HostWindow::me_started()
-{
-    is_playing = true;
-    me_pause(false);
-    ui_reset_state(true);
-}
-
-void HostWindow::me_pause(bool yes)
-{
-    is_paused = yes;
-    update_status();
-}
-
-void HostWindow::me_finished()
-{
-    mpv_stop(true);
-    ui_reset_state(false);
-}
-
-void HostWindow::me_title()
-{
-    QString window_title("Media Player Classic Qute Theater");
-    QString media_title = mpvw->property_media_title_get();
-
-    if (!media_title.isEmpty())
-        window_title.append(" - ").append(media_title);
-    setWindowTitle(window_title);
-}
-
-void HostWindow::me_chapters()
-{
-    QVariantList chapters = mpvw->state_chapters_get();
-    // Here we add (named) ticks to the position slider.
-    ui_position->clearTicks();
-    for (QVariant v : chapters) {
-        QMap<QString, QVariant> node = v.toMap();
-        ui_position->setTick(node["time"].toDouble(), node["title"].toString());
-    }
-
-    // Here we populate the chapters menu with the chapters.
-    QAction *action;
-    data_emitter *emitter;
-    ui->menu_navigate_chapters->clear();
-    int index = 0;
-    for (QVariant v : chapters) {
-        QMap<QString, QVariant> node = v.toMap();
-        action = new QAction(this);
-        action->setText(QString("[%1] - %2").arg(
-                            to_date_fmt(node["time"].toDouble()),
-                            node["title"].toString()));
-        emitter = new data_emitter(action);
-        emitter->data = index;
-        connect(action, &QAction::triggered, emitter, &data_emitter::got_something);
-        connect(emitter, &data_emitter::heres_something, this, &HostWindow::menu_navigate_chapters);
-        ui->menu_navigate_chapters->addAction(action);
-        index++;
-    }
-}
-
-void HostWindow::me_tracks()
-{
-    QVariantList tracks = mpvw->state_tracks_get();
-    (void)tracks;
-}
-
-void HostWindow::me_size()
-{
-    update_size();
-}
-
-void HostWindow::position_sliderMoved(int position)
-{
-    mpvw->property_time_set(position);
-}
-
-void HostWindow::on_play_clicked()
-{
-    if (!is_playing)
-        return;
-    if (is_paused) {
-        mpvw->property_pause_set(false);
-        me_pause(false);
-        ui->pause->setChecked(false);
-    }
-    if (speed != 1.0) {
-        speed = 1.0;
-        mpv_set_speed(speed);
-    }
-}
-
-void HostWindow::on_volume_valueChanged(int position)
-{
-    mpv_set_volume(position);
-}
-
-void HostWindow::send_update_size()
-{
-    update_size();
-}

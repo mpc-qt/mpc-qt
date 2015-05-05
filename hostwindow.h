@@ -53,10 +53,17 @@ private slots:
 
     void on_action_play_volume_up_triggered();
     void on_action_play_volume_down_triggered();
+    void on_action_play_volume_mute_toggled(bool checked);
 
+    void on_action_navigate_chapters_previous_triggered();
+    void on_action_navigate_chapters_next_triggered();
     void menu_navigate_chapters(int data);
 
     void on_action_help_about_triggered();
+
+    void position_sliderMoved(int position);
+    void on_play_clicked();
+    void on_volume_valueChanged(int position);
 
     void me_play_time();
     void me_length();
@@ -67,13 +74,6 @@ private slots:
     void me_chapters();
     void me_tracks();
     void me_size();
-
-    void position_sliderMoved(int position);
-    void on_play_clicked();
-    void on_action_navigate_chapters_previous_triggered();
-    void on_action_navigate_chapters_next_triggered();
-    void on_volume_valueChanged(int position);
-    void on_action_play_volume_mute_toggled(bool checked);
 
     void send_update_size();
 
