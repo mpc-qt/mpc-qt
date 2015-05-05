@@ -301,8 +301,10 @@ void HostWindow::action_connect_buttons()
     connect(ui->speedDecrease, &QPushButton::clicked, ui->action_play_rate_decrease, &QAction::triggered);
     connect(ui->speedIncrease, &QPushButton::clicked, ui->action_play_rate_increase, &QAction::triggered);
 
+    connect(ui->skipBackward, &QPushButton::clicked, ui->action_navigate_chapters_previous, &QAction::triggered);
     connect(ui->stepBackward, &QPushButton::clicked, ui->action_play_frame_backward, &QAction::triggered);
     connect(ui->stepForward, &QPushButton::clicked, ui->action_play_frame_forward, &QAction::triggered);
+    connect(ui->skipForward, &QPushButton::clicked, ui->action_navigate_chapters_next, &QAction::triggered);
 
     connect(ui->mute, &QPushButton::toggled, ui->action_play_volume_mute, &QAction::toggled);
 }
@@ -553,14 +555,14 @@ void HostWindow::on_action_play_rate_increase_triggered()
     mpv_set_speed(speed);
 }
 
-void HostWindow::on_skipBackward_clicked()
+void HostWindow::on_action_navigate_chapters_previous_triggered()
 {
     int64_t chapter = mpvw->property_chapter_get();
     if (chapter > 0) chapter--;
     mpvw->property_chapter_set(chapter);
 }
 
-void HostWindow::on_skipForward_clicked()
+void HostWindow::on_action_navigate_chapters_next_triggered()
 {
     int64_t chapter = mpvw->property_chapter_get();
     chapter++;

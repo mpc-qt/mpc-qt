@@ -68,8 +68,8 @@ private slots:
     void on_action_play_stop_triggered();
     void on_action_play_rate_decrease_triggered();
     void on_action_play_rate_increase_triggered();
-    void on_skipBackward_clicked();
-    void on_skipForward_clicked();
+    void on_action_navigate_chapters_previous_triggered();
+    void on_action_navigate_chapters_next_triggered();
     void on_action_play_frame_backward_triggered();
     void on_action_play_frame_forward_triggered();
     void on_volume_valueChanged(int position);
@@ -94,7 +94,7 @@ private:
     double speed;
     double size_factor;
 
-    void action_connect();
+    void action_connect_buttons();
     void globalize_actions();
     void ui_reset_state(bool enabled);
     void update_time();

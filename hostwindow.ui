@@ -624,8 +624,8 @@
       <string>&amp;Chapters</string>
      </property>
     </widget>
-    <addaction name="action_navigate_previous"/>
-    <addaction name="action_navigate_next"/>
+    <addaction name="action_navigate_chapters_previous"/>
+    <addaction name="action_navigate_chapters_next"/>
     <addaction name="action_navigate_goto"/>
     <addaction name="menu_navigate_chapters"/>
     <addaction name="separator"/>
@@ -781,6 +781,9 @@
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Hide &amp;Menu</string>
    </property>
@@ -792,6 +795,9 @@
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>See&amp;k Bar</string>
    </property>
@@ -801,6 +807,9 @@
   </action>
   <action name="action_view_hide_controls">
    <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
     <bool>true</bool>
    </property>
    <property name="text">
@@ -834,6 +843,9 @@
   </action>
   <action name="action_view_hide_status">
    <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
     <bool>true</bool>
    </property>
    <property name="text">
@@ -1132,7 +1144,7 @@
     <string>Play next in the &amp;folder</string>
    </property>
   </action>
-  <action name="action_navigate_previous">
+  <action name="action_navigate_chapters_previous">
    <property name="text">
     <string>&amp;Previous</string>
    </property>
@@ -1140,7 +1152,7 @@
     <string>PgUp</string>
    </property>
   </action>
-  <action name="action_navigate_next">
+  <action name="action_navigate_chapters_next">
    <property name="text">
     <string>&amp;Next</string>
    </property>
