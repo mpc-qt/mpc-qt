@@ -52,6 +52,7 @@ HostWindow::HostWindow(QWidget *parent) :
     mpv_host->setSizePolicy(QSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred));
     ui->mpv_widget->layout()->addWidget(mpv_host);
 
+    globalize_actions();
     ui_reset_state(false);
 
     // Guarantee that the layout has been calculated.  It seems pointless, but
@@ -289,6 +290,13 @@ void HostWindow::on_action_help_about_triggered()
       "You should have received a copy of the GNU General Public License along "
       "with this program; if not, write to the Free Software Foundation, Inc., "
       "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.");
+}
+
+void HostWindow::globalize_actions()
+{
+    for (QAction *a : ui->menubar->actions()) {
+        addAction(a);
+    }
 }
 
 void HostWindow::ui_reset_state(bool enabled)

@@ -94,6 +94,7 @@ private:
     double speed;
     double size_factor;
 
+    void globalize_actions();
     void ui_reset_state(bool enabled);
     void update_time();
     void update_status();
