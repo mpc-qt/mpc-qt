@@ -451,6 +451,767 @@
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>590</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_file">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <widget class="QMenu" name="action_file_open_disc">
+     <property name="title">
+      <string>O&amp;pen Disc</string>
+     </property>
+    </widget>
+    <widget class="QMenu" name="menu_file_recent">
+     <property name="title">
+      <string>Recent &amp;Files</string>
+     </property>
+     <addaction name="action_file_recent_clear"/>
+     <addaction name="separator"/>
+    </widget>
+    <widget class="QMenu" name="menu_subtitle_database">
+     <property name="title">
+      <string>Subtitle Data&amp;base</string>
+     </property>
+     <addaction name="action_subtitle_search"/>
+     <addaction name="action_subtitle_upload"/>
+     <addaction name="action_subtitle_download"/>
+    </widget>
+    <addaction name="action_file_open_quick"/>
+    <addaction name="separator"/>
+    <addaction name="action_file_open"/>
+    <addaction name="action_file_open_dvdbd"/>
+    <addaction name="action_file_open_device"/>
+    <addaction name="action_file_open_directory"/>
+    <addaction name="action_file_open_disc"/>
+    <addaction name="menu_file_recent"/>
+    <addaction name="action_file_close_file"/>
+    <addaction name="separator"/>
+    <addaction name="action_file_save_copy"/>
+    <addaction name="action_file_save_image"/>
+    <addaction name="action_file_save_thumbnails"/>
+    <addaction name="action_file_load_subtitle"/>
+    <addaction name="action_file_save_subtitle"/>
+    <addaction name="menu_subtitle_database"/>
+    <addaction name="separator"/>
+    <addaction name="action_file_properties"/>
+    <addaction name="separator"/>
+    <addaction name="action_file_exit"/>
+   </widget>
+   <widget class="QMenu" name="menu_View">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <widget class="QMenu" name="menu_view_presets">
+     <property name="title">
+      <string>&amp;Presets</string>
+     </property>
+     <addaction name="action_view_presets_minimal"/>
+     <addaction name="action_view_presets_compact"/>
+     <addaction name="action_view_presets_normal"/>
+    </widget>
+    <widget class="QMenu" name="menu_view_zoom">
+     <property name="title">
+      <string>&amp;Zoom</string>
+     </property>
+     <addaction name="action_view_zoom_050"/>
+     <addaction name="action_view_zoom_100"/>
+     <addaction name="action_view_zoom_200"/>
+     <addaction name="action_view_zoom_autofit"/>
+     <addaction name="action_view_zoom_autofit_larger"/>
+     <addaction name="separator"/>
+     <addaction name="action_view_zoom_disable"/>
+    </widget>
+    <widget class="QMenu" name="menu_view_ontop">
+     <property name="title">
+      <string>On &amp;Top</string>
+     </property>
+     <addaction name="action_view_ontop_default"/>
+     <addaction name="action_view_ontop_always"/>
+     <addaction name="action_view_ontop_playing"/>
+     <addaction name="action_view_ontop_video"/>
+    </widget>
+    <addaction name="action_view_hide_media"/>
+    <addaction name="action_view_hide_seekbar"/>
+    <addaction name="action_view_hide_controls"/>
+    <addaction name="action_view_hide_information"/>
+    <addaction name="action_view_hide_statistics"/>
+    <addaction name="action_view_hide_status"/>
+    <addaction name="action_view_hide_subresync"/>
+    <addaction name="action_view_hide_playlist"/>
+    <addaction name="action_view_hide_capture"/>
+    <addaction name="action_view_hide_navigation"/>
+    <addaction name="menu_view_presets"/>
+    <addaction name="separator"/>
+    <addaction name="action_view_fullscreen"/>
+    <addaction name="menu_view_zoom"/>
+    <addaction name="separator"/>
+    <addaction name="menu_view_ontop"/>
+    <addaction name="action_view_options"/>
+   </widget>
+   <widget class="QMenu" name="menu_play">
+    <property name="title">
+     <string>&amp;Play</string>
+    </property>
+    <widget class="QMenu" name="menu_play_audio">
+     <property name="title">
+      <string>&amp;Audio</string>
+     </property>
+    </widget>
+    <widget class="QMenu" name="menu_play_subtitles">
+     <property name="title">
+      <string>Su&amp;btitles</string>
+     </property>
+    </widget>
+    <widget class="QMenu" name="menu_play_video">
+     <property name="title">
+      <string>&amp;Video Stream</string>
+     </property>
+    </widget>
+    <widget class="QMenu" name="menu_play_volume">
+     <property name="title">
+      <string>V&amp;olume</string>
+     </property>
+     <addaction name="action_play_volume_up"/>
+     <addaction name="action_play_volume_down"/>
+     <addaction name="action_play_volume_mute"/>
+    </widget>
+    <widget class="QMenu" name="menu_play_after">
+     <property name="title">
+      <string>Af&amp;ter Playback</string>
+     </property>
+     <addaction name="separator"/>
+     <addaction name="action_play_after_once_exit"/>
+     <addaction name="action_play_after_once_standby"/>
+     <addaction name="action_play_after_once_hibernate"/>
+     <addaction name="action_play_after_once_shutdown"/>
+     <addaction name="action_play_after_once_logoff"/>
+     <addaction name="action_play_after_once_lock"/>
+     <addaction name="separator"/>
+     <addaction name="action_play_after_always_exit"/>
+     <addaction name="action_play_after_always_nothing"/>
+     <addaction name="action_play_after_always_next"/>
+    </widget>
+    <addaction name="action_play_pause"/>
+    <addaction name="action_play_stop"/>
+    <addaction name="action_play_step_forward"/>
+    <addaction name="action_play_step_backward"/>
+    <addaction name="separator"/>
+    <addaction name="action_play_rate_decrease"/>
+    <addaction name="action_play_rate_increase"/>
+    <addaction name="action_play_rate_reset"/>
+    <addaction name="separator"/>
+    <addaction name="menu_play_audio"/>
+    <addaction name="menu_play_subtitles"/>
+    <addaction name="menu_play_video"/>
+    <addaction name="separator"/>
+    <addaction name="menu_play_volume"/>
+    <addaction name="menu_play_after"/>
+   </widget>
+   <widget class="QMenu" name="menu_navigate">
+    <property name="title">
+     <string>&amp;Navigate</string>
+    </property>
+    <widget class="QMenu" name="menu_navigate_chapters">
+     <property name="title">
+      <string>&amp;Chapters</string>
+     </property>
+    </widget>
+    <addaction name="action_navigate_previous"/>
+    <addaction name="action_navigate_next"/>
+    <addaction name="action_navigate_goto"/>
+    <addaction name="menu_navigate_chapters"/>
+    <addaction name="separator"/>
+    <addaction name="action_navigate_menu_title"/>
+    <addaction name="action_navigate_menu_root"/>
+    <addaction name="action_navigate_menu_subtitle"/>
+    <addaction name="action_navigate_menu_audio"/>
+    <addaction name="action_navigate_menu_angle"/>
+    <addaction name="action_navigate_menu_chapter"/>
+   </widget>
+   <widget class="QMenu" name="menu_favorites">
+    <property name="title">
+     <string>Favo&amp;rites</string>
+    </property>
+    <addaction name="action_favorites_add"/>
+    <addaction name="action_favorites_organize"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menu_help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="action_help_homepage"/>
+    <addaction name="separator"/>
+    <addaction name="action_help_about"/>
+   </widget>
+   <addaction name="menu_file"/>
+   <addaction name="menu_View"/>
+   <addaction name="menu_play"/>
+   <addaction name="menu_navigate"/>
+   <addaction name="menu_favorites"/>
+   <addaction name="menu_help"/>
+  </widget>
+  <action name="action_file_open_quick">
+   <property name="text">
+    <string>&amp;Quick Open File...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="action_file_open">
+   <property name="text">
+    <string>&amp;Open File...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action_file_open_dvdbd">
+   <property name="text">
+    <string>Open &amp;DVD/BD...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="action_file_open_device">
+   <property name="text">
+    <string>Open De&amp;vice...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="action_file_open_directory">
+   <property name="text">
+    <string>Open Dir&amp;ectory</string>
+   </property>
+  </action>
+  <action name="action_file_recent_clear">
+   <property name="text">
+    <string>&amp;Clear list</string>
+   </property>
+  </action>
+  <action name="action_file_close_file">
+   <property name="text">
+    <string>&amp;Close File</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="action_file_save_copy">
+   <property name="text">
+    <string>&amp;Save a Copy...</string>
+   </property>
+  </action>
+  <action name="action_file_save_image">
+   <property name="text">
+    <string>Save &amp;Image...</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+I</string>
+   </property>
+  </action>
+  <action name="action_file_save_thumbnails">
+   <property name="text">
+    <string>Save &amp;Thumbnails</string>
+   </property>
+  </action>
+  <action name="action_file_load_subtitle">
+   <property name="text">
+    <string>&amp;Load Subtitle</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="action_file_save_subtitle">
+   <property name="text">
+    <string>Save S&amp;ubtitle</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="action_subtitle_upload">
+   <property name="text">
+    <string>&amp;Upload...</string>
+   </property>
+  </action>
+  <action name="action_subtitle_download">
+   <property name="text">
+    <string>&amp;Download...</string>
+   </property>
+   <property name="shortcut">
+    <string>D</string>
+   </property>
+  </action>
+  <action name="action_subtitle_search">
+   <property name="text">
+    <string>&amp;Search...</string>
+   </property>
+  </action>
+  <action name="action_file_properties">
+   <property name="text">
+    <string>P&amp;roperties</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+F10</string>
+   </property>
+  </action>
+  <action name="action_file_exit">
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="action_view_hide_media">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Hide &amp;Menu</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+0</string>
+   </property>
+  </action>
+  <action name="action_view_hide_seekbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>See&amp;k Bar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+1</string>
+   </property>
+  </action>
+  <action name="action_view_hide_controls">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Controls</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+2</string>
+   </property>
+  </action>
+  <action name="action_view_hide_information">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Information</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+3</string>
+   </property>
+  </action>
+  <action name="action_view_hide_statistics">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Statistics</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+4</string>
+   </property>
+  </action>
+  <action name="action_view_hide_status">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>S&amp;tatus</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+5</string>
+   </property>
+  </action>
+  <action name="action_view_hide_subresync">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Su&amp;bresync</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+6</string>
+   </property>
+  </action>
+  <action name="action_view_hide_playlist">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Play&amp;list</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+7</string>
+   </property>
+  </action>
+  <action name="action_view_hide_capture">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Captu&amp;re</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+8</string>
+   </property>
+  </action>
+  <action name="action_view_hide_navigation">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Na&amp;vigation</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+9</string>
+   </property>
+  </action>
+  <action name="action_view_presets_minimal">
+   <property name="text">
+    <string>&amp;Minimal</string>
+   </property>
+   <property name="shortcut">
+    <string>1</string>
+   </property>
+  </action>
+  <action name="action_view_presets_compact">
+   <property name="text">
+    <string>&amp;Compact</string>
+   </property>
+   <property name="shortcut">
+    <string>2</string>
+   </property>
+  </action>
+  <action name="action_view_presets_normal">
+   <property name="text">
+    <string>&amp;Normal</string>
+   </property>
+   <property name="shortcut">
+    <string>3</string>
+   </property>
+  </action>
+  <action name="action_view_fullscreen">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>F&amp;ullscreen</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Return</string>
+   </property>
+  </action>
+  <action name="action_view_zoom_050">
+   <property name="text">
+    <string>&amp;50%</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+1</string>
+   </property>
+  </action>
+  <action name="action_view_zoom_100">
+   <property name="text">
+    <string>&amp;100%</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+2</string>
+   </property>
+  </action>
+  <action name="action_view_zoom_200">
+   <property name="text">
+    <string>&amp;200%</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+3</string>
+   </property>
+  </action>
+  <action name="action_view_zoom_autofit">
+   <property name="text">
+    <string>Auto &amp;Fit</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+4</string>
+   </property>
+  </action>
+  <action name="action_view_zoom_autofit_larger">
+   <property name="text">
+    <string>Auto Fit (&amp;Larger Only)</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+5</string>
+   </property>
+  </action>
+  <action name="action_view_zoom_disable">
+   <property name="text">
+    <string>&amp;Disable snapping</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+0</string>
+   </property>
+  </action>
+  <action name="action_view_ontop_default">
+   <property name="text">
+    <string>&amp;Default</string>
+   </property>
+  </action>
+  <action name="action_view_ontop_always">
+   <property name="text">
+    <string>&amp;Always</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="action_view_ontop_playing">
+   <property name="text">
+    <string>While &amp;Playing</string>
+   </property>
+  </action>
+  <action name="action_view_ontop_video">
+   <property name="text">
+    <string>While Playing &amp;Video</string>
+   </property>
+  </action>
+  <action name="action_view_options">
+   <property name="text">
+    <string>&amp;Options...</string>
+   </property>
+   <property name="shortcut">
+    <string>O</string>
+   </property>
+  </action>
+  <action name="action_play_pause">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Pause</string>
+   </property>
+   <property name="shortcut">
+    <string>Space</string>
+   </property>
+  </action>
+  <action name="action_play_stop">
+   <property name="text">
+    <string>&amp;Stop</string>
+   </property>
+   <property name="shortcut">
+    <string>.</string>
+   </property>
+  </action>
+  <action name="action_play_step_forward">
+   <property name="text">
+    <string>F&amp;rame Step Forward</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Right</string>
+   </property>
+  </action>
+  <action name="action_play_step_backward">
+   <property name="text">
+    <string>Fra&amp;me Step Backward</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Left</string>
+   </property>
+  </action>
+  <action name="action_play_rate_decrease">
+   <property name="text">
+    <string>&amp;Decrease Rate</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Down</string>
+   </property>
+  </action>
+  <action name="action_play_rate_increase">
+   <property name="text">
+    <string>&amp;Increase Rate</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Up</string>
+   </property>
+  </action>
+  <action name="action_play_rate_reset">
+   <property name="text">
+    <string>R&amp;eset Rate</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="action_play_volume_up">
+   <property name="text">
+    <string>&amp;Up</string>
+   </property>
+   <property name="shortcut">
+    <string>Up</string>
+   </property>
+  </action>
+  <action name="action_play_volume_down">
+   <property name="text">
+    <string>&amp;Down</string>
+   </property>
+   <property name="shortcut">
+    <string>Down</string>
+   </property>
+  </action>
+  <action name="action_play_volume_mute">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Mute</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
+  </action>
+  <action name="action_play_after_once_exit">
+   <property name="text">
+    <string>&amp;Exit</string>
+   </property>
+  </action>
+  <action name="action_play_after_once_standby">
+   <property name="text">
+    <string>&amp;Stand by</string>
+   </property>
+  </action>
+  <action name="action_play_after_once_hibernate">
+   <property name="text">
+    <string>&amp;Hibernate</string>
+   </property>
+  </action>
+  <action name="action_play_after_once_shutdown">
+   <property name="text">
+    <string>Shut&amp;down</string>
+   </property>
+  </action>
+  <action name="action_play_after_once_logoff">
+   <property name="text">
+    <string>Log &amp;Off</string>
+   </property>
+  </action>
+  <action name="action_play_after_once_lock">
+   <property name="text">
+    <string>&amp;Lock</string>
+   </property>
+  </action>
+  <action name="action_play_after_always_exit">
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+  </action>
+  <action name="action_play_after_always_nothing">
+   <property name="text">
+    <string>Do &amp;Nothing</string>
+   </property>
+  </action>
+  <action name="action_play_after_always_next">
+   <property name="text">
+    <string>Play next in the &amp;folder</string>
+   </property>
+  </action>
+  <action name="action_navigate_previous">
+   <property name="text">
+    <string>&amp;Previous</string>
+   </property>
+   <property name="shortcut">
+    <string>PgUp</string>
+   </property>
+  </action>
+  <action name="action_navigate_next">
+   <property name="text">
+    <string>&amp;Next</string>
+   </property>
+   <property name="shortcut">
+    <string>PgDown</string>
+   </property>
+  </action>
+  <action name="action_navigate_goto">
+   <property name="text">
+    <string>&amp;Go To...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="action_navigate_menu_title">
+   <property name="text">
+    <string>&amp;Title Menu</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+T</string>
+   </property>
+  </action>
+  <action name="action_navigate_menu_root">
+   <property name="text">
+    <string>&amp;Root Menu</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+R</string>
+   </property>
+  </action>
+  <action name="action_navigate_menu_subtitle">
+   <property name="text">
+    <string>&amp;Subtitle Menu</string>
+   </property>
+  </action>
+  <action name="action_navigate_menu_audio">
+   <property name="text">
+    <string>&amp;Audio Menu</string>
+   </property>
+  </action>
+  <action name="action_navigate_menu_angle">
+   <property name="text">
+    <string>Angle &amp;Menu</string>
+   </property>
+  </action>
+  <action name="action_navigate_menu_chapter">
+   <property name="text">
+    <string>Chapt&amp;er Menu</string>
+   </property>
+  </action>
+  <action name="action_favorites_add">
+   <property name="text">
+    <string>&amp;Add to Favorites...</string>
+   </property>
+  </action>
+  <action name="action_favorites_organize">
+   <property name="text">
+    <string>&amp;Organize Favorites...</string>
+   </property>
+  </action>
+  <action name="action_help_homepage">
+   <property name="text">
+    <string>&amp;Home Page</string>
+   </property>
+  </action>
+  <action name="action_help_about">
+   <property name="text">
+    <string>&amp;About...</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="res.qrc"/>
