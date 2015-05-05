@@ -538,7 +538,7 @@
      <addaction name="action_view_ontop_playing"/>
      <addaction name="action_view_ontop_video"/>
     </widget>
-    <addaction name="action_view_hide_media"/>
+    <addaction name="action_view_hide_menu"/>
     <addaction name="action_view_hide_seekbar"/>
     <addaction name="action_view_hide_controls"/>
     <addaction name="action_view_hide_information"/>
@@ -601,8 +601,8 @@
     </widget>
     <addaction name="action_play_pause"/>
     <addaction name="action_play_stop"/>
-    <addaction name="action_play_step_forward"/>
-    <addaction name="action_play_step_backward"/>
+    <addaction name="action_play_frame_forward"/>
+    <addaction name="action_play_frame_backward"/>
     <addaction name="separator"/>
     <addaction name="action_play_rate_decrease"/>
     <addaction name="action_play_rate_increase"/>
@@ -777,7 +777,7 @@
     <string>Ctrl+Q</string>
    </property>
   </action>
-  <action name="action_view_hide_media">
+  <action name="action_view_hide_menu">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -1020,7 +1020,7 @@
     <string>.</string>
    </property>
   </action>
-  <action name="action_play_step_forward">
+  <action name="action_play_frame_forward">
    <property name="text">
     <string>F&amp;rame Step Forward</string>
    </property>
@@ -1028,7 +1028,7 @@
     <string>Ctrl+Right</string>
    </property>
   </action>
-  <action name="action_play_step_backward">
+  <action name="action_play_frame_backward">
    <property name="text">
     <string>Fra&amp;me Step Backward</string>
    </property>

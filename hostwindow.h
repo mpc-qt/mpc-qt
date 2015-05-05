@@ -85,20 +85,6 @@ private:
     QMainWindow *mpv_host;
     MpvWidget *mpvw;
     QMediaSlider *ui_position;
-    QMenuBar *menubar;
-    QMenu *submenu_navigate_chapters;
-
-    QAction *action_view_hide_menu;
-    QAction *action_play_pause;
-    QAction *action_play_stop;
-    QAction *action_play_frame_backward;
-    QAction *action_play_frame_forward;
-    QAction *action_play_rate_decrease;
-    QAction *action_play_rate_increase;
-    QAction *action_play_rate_reset;
-    QAction *action_play_volume_up;
-    QAction *action_play_volume_down;
-    QAction *action_play_volume_mute;
 
     bool is_fullscreen;
 
@@ -108,7 +94,6 @@ private:
     double speed;
     double size_factor;
 
-    void build_menu();
     void ui_reset_state(bool enabled);
     void update_time();
     void update_status();
