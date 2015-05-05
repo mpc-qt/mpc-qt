@@ -52,6 +52,7 @@ HostWindow::HostWindow(QWidget *parent) :
     mpv_host->setSizePolicy(QSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred));
     ui->mpv_widget->layout()->addWidget(mpv_host);
 
+    action_connect_buttons();
     globalize_actions();
     ui_reset_state(false);
 
@@ -290,6 +291,20 @@ void HostWindow::on_action_help_about_triggered()
       "You should have received a copy of the GNU General Public License along "
       "with this program; if not, write to the Free Software Foundation, Inc., "
       "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.");
+}
+
+void HostWindow::action_connect_buttons()
+{
+    connect(ui->pause, &QPushButton::toggled, ui->action_play_pause, &QAction::toggled);
+    connect(ui->stop, &QPushButton::clicked, ui->action_play_stop, &QAction::triggered);
+
+    connect(ui->speedDecrease, &QPushButton::clicked, ui->action_play_rate_decrease, &QAction::triggered);
+    connect(ui->speedIncrease, &QPushButton::clicked, ui->action_play_rate_increase, &QAction::triggered);
+
+    connect(ui->stepBackward, &QPushButton::clicked, ui->action_play_frame_backward, &QAction::triggered);
+    connect(ui->stepForward, &QPushButton::clicked, ui->action_play_frame_forward, &QAction::triggered);
+
+    connect(ui->mute, &QPushButton::toggled, ui->action_play_volume_mute, &QAction::toggled);
 }
 
 void HostWindow::globalize_actions()
