@@ -158,10 +158,7 @@ void HostWindow::on_action_view_hide_status_toggled(bool checked)
 
 void HostWindow::on_action_view_hide_subresync_toggled(bool checked)
 {
-    if (checked)
-        ui->statusbar->show();
-    else
-        ui->statusbar->hide();
+    (void)checked;
 
     fire_update_size();
 }
