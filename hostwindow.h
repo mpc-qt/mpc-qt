@@ -7,16 +7,16 @@
 #include "qmediaslider.h"
 
 namespace Ui {
-class HostWindow;
+class MainWindow;
 }
 
-class HostWindow : public QMainWindow
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit HostWindow(QWidget *parent = 0);
-    ~HostWindow();
+    explicit MainWindow(QWidget *parent = 0);
+    ~MainWindow();
 
 private slots:
     void on_action_file_open_quick_triggered();
@@ -81,7 +81,7 @@ signals:
     void fire_update_size();
 
 private:
-    Ui::HostWindow *ui;
+    Ui::MainWindow *ui;
     QMainWindow *mpv_host;
     MpvWidget *mpvw;
     QMediaSlider *ui_position;

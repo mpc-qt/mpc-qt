@@ -15,9 +15,9 @@
 
 static QString to_date_fmt(double time);
 
-HostWindow::HostWindow(QWidget *parent) :
+MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::HostWindow)
+    ui(new Ui::MainWindow)
 {
     is_fullscreen = false;
     is_playing = false;
@@ -27,23 +27,23 @@ HostWindow::HostWindow(QWidget *parent) :
 
     ui->setupUi(this);
     ui->info_stats->setVisible(false);
-    connect(this, &HostWindow::fire_update_size, this, &HostWindow::send_update_size,
+    connect(this, &MainWindow::fire_update_size, this, &MainWindow::send_update_size,
             Qt::QueuedConnection);
 
     ui_position = new QMediaSlider(this);
     ui->seekbar->layout()->addWidget(ui_position);
-    connect(ui_position, &QMediaSlider::sliderMoved, this, &HostWindow::position_sliderMoved);
+    connect(ui_position, &QMediaSlider::sliderMoved, this, &MainWindow::position_sliderMoved);
 
     mpvw = new MpvWidget(this);
-    connect(mpvw, &MpvWidget::me_play_time, this, &HostWindow::me_play_time);
-    connect(mpvw, &MpvWidget::me_length, this, &HostWindow::me_length);
-    connect(mpvw, &MpvWidget::me_started, this, &HostWindow::me_started);
-    connect(mpvw, &MpvWidget::me_pause, this, &HostWindow::me_pause);
-    connect(mpvw, &MpvWidget::me_finished, this, &HostWindow::me_finished);
-    connect(mpvw, &MpvWidget::me_title, this, &HostWindow::me_title);
-    connect(mpvw, &MpvWidget::me_chapters, this, &HostWindow::me_chapters);
-    connect(mpvw, &MpvWidget::me_tracks, this, &HostWindow::me_tracks);
-    connect(mpvw, &MpvWidget::me_size, this, &HostWindow::me_size);
+    connect(mpvw, &MpvWidget::me_play_time, this, &MainWindow::me_play_time);
+    connect(mpvw, &MpvWidget::me_length, this, &MainWindow::me_length);
+    connect(mpvw, &MpvWidget::me_started, this, &MainWindow::me_started);
+    connect(mpvw, &MpvWidget::me_pause, this, &MainWindow::me_pause);
+    connect(mpvw, &MpvWidget::me_finished, this, &MainWindow::me_finished);
+    connect(mpvw, &MpvWidget::me_title, this, &MainWindow::me_title);
+    connect(mpvw, &MpvWidget::me_chapters, this, &MainWindow::me_chapters);
+    connect(mpvw, &MpvWidget::me_tracks, this, &MainWindow::me_tracks);
+    connect(mpvw, &MpvWidget::me_size, this, &MainWindow::me_size);
 
     // Wrap mpvw in a special QMainWindow widget so that the playlist window
     // will dock around it rather than ourselves
@@ -71,29 +71,29 @@ HostWindow::HostWindow(QWidget *parent) :
     update_size(true);
 }
 
-HostWindow::~HostWindow()
+MainWindow::~MainWindow()
 {
     delete ui;
 }
 
-void HostWindow::on_action_file_open_quick_triggered()
+void MainWindow::on_action_file_open_quick_triggered()
 {
     // Do nothing special for the moment, call menu_file_open instead
     on_action_file_open_triggered();
 }
 
-void HostWindow::on_action_file_open_triggered()
+void MainWindow::on_action_file_open_triggered()
 {
     QString filename = QFileDialog::getOpenFileName(this, "Open file");
     mpvw->command_file_open(filename);
 }
 
-void HostWindow::on_action_file_close_triggered()
+void MainWindow::on_action_file_close_triggered()
 {
     on_action_play_stop_triggered();
 }
 
-void HostWindow::on_action_view_hide_menu_toggled(bool checked)
+void MainWindow::on_action_view_hide_menu_toggled(bool checked)
 {
     // View/hide are unmanaged when in fullscreen mode
     if (is_fullscreen)
@@ -106,7 +106,7 @@ void HostWindow::on_action_view_hide_menu_toggled(bool checked)
     fire_update_size();
 }
 
-void HostWindow::on_action_view_hide_seekbar_toggled(bool checked)
+void MainWindow::on_action_view_hide_seekbar_toggled(bool checked)
 {
     if (checked)
         ui->seekbar->show();
@@ -116,7 +116,7 @@ void HostWindow::on_action_view_hide_seekbar_toggled(bool checked)
     fire_update_size();
 }
 
-void HostWindow::on_action_view_hide_controls_toggled(bool checked)
+void MainWindow::on_action_view_hide_controls_toggled(bool checked)
 {
     if (checked)
         ui->controlbar->show();
@@ -126,7 +126,7 @@ void HostWindow::on_action_view_hide_controls_toggled(bool checked)
     fire_update_size();
 }
 
-void HostWindow::on_action_view_hide_information_toggled(bool checked)
+void MainWindow::on_action_view_hide_information_toggled(bool checked)
 {
     if (checked)
         ui->info_stats->show();
@@ -136,7 +136,7 @@ void HostWindow::on_action_view_hide_information_toggled(bool checked)
     fire_update_size();
 }
 
-void HostWindow::on_action_view_hide_statistics_toggled(bool checked)
+void MainWindow::on_action_view_hide_statistics_toggled(bool checked)
 {
     // this currently does nothing, because info and statistics are controlled
     // by the same widget.  We're going to manage what's shown by it
@@ -146,7 +146,7 @@ void HostWindow::on_action_view_hide_statistics_toggled(bool checked)
     fire_update_size();
 }
 
-void HostWindow::on_action_view_hide_status_toggled(bool checked)
+void MainWindow::on_action_view_hide_status_toggled(bool checked)
 {
     if (checked)
         ui->statusbar->show();
@@ -156,14 +156,14 @@ void HostWindow::on_action_view_hide_status_toggled(bool checked)
     fire_update_size();
 }
 
-void HostWindow::on_action_view_hide_subresync_toggled(bool checked)
+void MainWindow::on_action_view_hide_subresync_toggled(bool checked)
 {
     (void)checked;
 
     fire_update_size();
 }
 
-void HostWindow::on_action_view_hide_playlist_toggled(bool checked)
+void MainWindow::on_action_view_hide_playlist_toggled(bool checked)
 {
     // playlist window is unimplemented for now
     (void)checked;
@@ -171,21 +171,21 @@ void HostWindow::on_action_view_hide_playlist_toggled(bool checked)
     fire_update_size();
 }
 
-void HostWindow::on_action_view_hide_capture_toggled(bool checked)
+void MainWindow::on_action_view_hide_capture_toggled(bool checked)
 {
     (void)checked;
 
     fire_update_size();
 }
 
-void HostWindow::on_action_view_hide_navigation_toggled(bool checked)
+void MainWindow::on_action_view_hide_navigation_toggled(bool checked)
 {
     (void)checked;
 
     fire_update_size();
 }
 
-void HostWindow::on_action_view_fullscreen_toggled(bool checked)
+void MainWindow::on_action_view_fullscreen_toggled(bool checked)
 {
     is_fullscreen = checked;
 
@@ -203,44 +203,44 @@ void HostWindow::on_action_view_fullscreen_toggled(bool checked)
     }
 }
 
-void HostWindow::on_action_view_zoom_050_triggered()
+void MainWindow::on_action_view_zoom_050_triggered()
 {
     size_factor = 0.5;
     update_size();
 }
 
-void HostWindow::on_action_view_zoom_100_triggered()
+void MainWindow::on_action_view_zoom_100_triggered()
 {
     size_factor = 1.0;
     update_size();
 }
 
-void HostWindow::on_action_view_zoom_200_triggered()
+void MainWindow::on_action_view_zoom_200_triggered()
 {
     size_factor = 2.0;
     update_size();
 }
 
-void HostWindow::on_action_view_zoom_autofit_triggered()
+void MainWindow::on_action_view_zoom_autofit_triggered()
 {
     // TODO: work out the logic for this.  In the meantime, set to manual
     // sized.
     size_factor = 0.0;
 }
 
-void HostWindow::on_action_view_zoom_autofit_larger_triggered()
+void MainWindow::on_action_view_zoom_autofit_larger_triggered()
 {
     // TODO: work out the logic for this.  In the meantime, set to manual
     // sized.
     size_factor = 0.0;
 }
 
-void HostWindow::on_action_view_zoom_disable_triggered()
+void MainWindow::on_action_view_zoom_disable_triggered()
 {
     size_factor = 0.0;
 }
 
-void HostWindow::on_action_play_pause_toggled(bool checked)
+void MainWindow::on_action_play_pause_toggled(bool checked)
 {
     mpvw->property_pause_set(checked);
     me_pause(checked);
@@ -249,26 +249,26 @@ void HostWindow::on_action_play_pause_toggled(bool checked)
     ui->action_play_pause->setChecked(checked);
 }
 
-void HostWindow::on_action_play_stop_triggered()
+void MainWindow::on_action_play_stop_triggered()
 {
     mpv_stop();
 }
 
-void HostWindow::on_action_play_frame_backward_triggered()
+void MainWindow::on_action_play_frame_backward_triggered()
 {
     mpvw->command_step_backward();
     is_paused = true;
     update_status();
 }
 
-void HostWindow::on_action_play_frame_forward_triggered()
+void MainWindow::on_action_play_frame_forward_triggered()
 {
     mpvw->command_step_forward();
     is_paused = true;
     update_status();
 }
 
-void HostWindow::on_action_play_rate_decrease_triggered()
+void MainWindow::on_action_play_rate_decrease_triggered()
 {
     if (speed <= 0.125)
         return;
@@ -276,7 +276,7 @@ void HostWindow::on_action_play_rate_decrease_triggered()
     mpv_set_speed(speed);
 }
 
-void HostWindow::on_action_play_rate_increase_triggered()
+void MainWindow::on_action_play_rate_increase_triggered()
 {
     if (speed >= 8.0)
         return;
@@ -284,7 +284,7 @@ void HostWindow::on_action_play_rate_increase_triggered()
     mpv_set_speed(speed);
 }
 
-void HostWindow::on_action_play_rate_reset_triggered()
+void MainWindow::on_action_play_rate_reset_triggered()
 {
     if (speed == 1.0)
         return;
@@ -292,21 +292,21 @@ void HostWindow::on_action_play_rate_reset_triggered()
     mpv_set_speed(speed);
 }
 
-void HostWindow::on_action_play_volume_up_triggered()
+void MainWindow::on_action_play_volume_up_triggered()
 {
     int newvol = std::min(ui->volume->value() + 10, 100);
     mpv_set_volume(newvol);
     ui->volume->setValue(newvol);
 }
 
-void HostWindow::on_action_play_volume_down_triggered()
+void MainWindow::on_action_play_volume_down_triggered()
 {
     int newvol = std::max(ui->volume->value() - 10, 0);
     mpv_set_volume(newvol);
     ui->volume->setValue(newvol);
 }
 
-void HostWindow::on_action_play_volume_mute_toggled(bool checked)
+void MainWindow::on_action_play_volume_mute_toggled(bool checked)
 {
     if (!is_playing)
         return;
@@ -317,14 +317,14 @@ void HostWindow::on_action_play_volume_mute_toggled(bool checked)
     ui->mute->setChecked(checked);
 }
 
-void HostWindow::on_action_navigate_chapters_previous_triggered()
+void MainWindow::on_action_navigate_chapters_previous_triggered()
 {
     int64_t chapter = mpvw->property_chapter_get();
     if (chapter > 0) chapter--;
     mpvw->property_chapter_set(chapter);
 }
 
-void HostWindow::on_action_navigate_chapters_next_triggered()
+void MainWindow::on_action_navigate_chapters_next_triggered()
 {
     int64_t chapter = mpvw->property_chapter_get();
     chapter++;
@@ -337,12 +337,12 @@ void HostWindow::on_action_navigate_chapters_next_triggered()
     }
 }
 
-void HostWindow::menu_navigate_chapters(int data)
+void MainWindow::menu_navigate_chapters(int data)
 {
     mpvw->property_chapter_set(data);
 }
 
-void HostWindow::on_action_help_about_triggered()
+void MainWindow::on_action_help_about_triggered()
 {
     QMessageBox::about(this, "About Media Player Classic Qute Theater",
       "<h2>Media Player Classic Qute Theater</h2>"
@@ -367,12 +367,12 @@ void HostWindow::on_action_help_about_triggered()
       "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.");
 }
 
-void HostWindow::position_sliderMoved(int position)
+void MainWindow::position_sliderMoved(int position)
 {
     mpvw->property_time_set(position);
 }
 
-void HostWindow::on_play_clicked()
+void MainWindow::on_play_clicked()
 {
     if (!is_playing)
         return;
@@ -387,45 +387,45 @@ void HostWindow::on_play_clicked()
     }
 }
 
-void HostWindow::on_volume_valueChanged(int position)
+void MainWindow::on_volume_valueChanged(int position)
 {
     mpv_set_volume(position);
 }
 
-void HostWindow::me_play_time()
+void MainWindow::me_play_time()
 {
     double time = mpvw->state_play_time_get();
     ui_position->setValue(time >= 0 ? time : 0);
     update_time();
 }
 
-void HostWindow::me_length()
+void MainWindow::me_length()
 {
     double length = mpvw->state_play_length_get();
     ui_position->setMaximum(length >= 0 ? length : 0);
     update_time();
 }
 
-void HostWindow::me_started()
+void MainWindow::me_started()
 {
     is_playing = true;
     me_pause(false);
     ui_reset_state(true);
 }
 
-void HostWindow::me_pause(bool yes)
+void MainWindow::me_pause(bool yes)
 {
     is_paused = yes;
     update_status();
 }
 
-void HostWindow::me_finished()
+void MainWindow::me_finished()
 {
     mpv_stop(true);
     ui_reset_state(false);
 }
 
-void HostWindow::me_title()
+void MainWindow::me_title()
 {
     QString window_title("Media Player Classic Qute Theater");
     QString media_title = mpvw->property_media_title_get();
@@ -435,7 +435,7 @@ void HostWindow::me_title()
     setWindowTitle(window_title);
 }
 
-void HostWindow::me_chapters()
+void MainWindow::me_chapters()
 {
     QVariantList chapters = mpvw->state_chapters_get();
     // Here we add (named) ticks to the position slider.
@@ -459,29 +459,29 @@ void HostWindow::me_chapters()
         emitter = new data_emitter(action);
         emitter->data = index;
         connect(action, &QAction::triggered, emitter, &data_emitter::got_something);
-        connect(emitter, &data_emitter::heres_something, this, &HostWindow::menu_navigate_chapters);
+        connect(emitter, &data_emitter::heres_something, this, &MainWindow::menu_navigate_chapters);
         ui->menu_navigate_chapters->addAction(action);
         index++;
     }
 }
 
-void HostWindow::me_tracks()
+void MainWindow::me_tracks()
 {
     QVariantList tracks = mpvw->state_tracks_get();
     (void)tracks;
 }
 
-void HostWindow::me_size()
+void MainWindow::me_size()
 {
     update_size();
 }
 
-void HostWindow::send_update_size()
+void MainWindow::send_update_size()
 {
     update_size();
 }
 
-void HostWindow::action_connect_buttons()
+void MainWindow::action_connect_buttons()
 {
     connect(ui->pause, &QPushButton::toggled, ui->action_play_pause, &QAction::toggled);
     connect(ui->stop, &QPushButton::clicked, ui->action_play_stop, &QAction::triggered);
@@ -497,14 +497,14 @@ void HostWindow::action_connect_buttons()
     connect(ui->mute, &QPushButton::toggled, ui->action_play_volume_mute, &QAction::toggled);
 }
 
-void HostWindow::action_globalize_all()
+void MainWindow::action_globalize_all()
 {
     for (QAction *a : ui->menubar->actions()) {
         addAction(a);
     }
 }
 
-void HostWindow::ui_reset_state(bool enabled)
+void MainWindow::ui_reset_state(bool enabled)
 {
     ui_position->setEnabled(enabled);
 
@@ -540,19 +540,19 @@ void HostWindow::ui_reset_state(bool enabled)
     ui->menu_navigate_chapters->setEnabled(enabled);
 }
 
-void HostWindow::update_time()
+void MainWindow::update_time()
 {
     double play_time = mpvw->state_play_time_get();
     double play_length = mpvw->state_play_length_get();
     ui->time->setText(QString("%1 / %2").arg(to_date_fmt(play_time),to_date_fmt(play_length)));
 }
 
-void HostWindow::update_status()
+void MainWindow::update_status()
 {
     ui->status->setText(is_playing ? is_paused ? "Paused" : "Playing" : "Stopped");
 }
 
-void HostWindow::update_size(bool first_run)
+void MainWindow::update_size(bool first_run)
 {
     if (size_factor <= 0 || is_fullscreen || isMaximized())
         return;
@@ -576,7 +576,7 @@ void HostWindow::update_size(bool first_run)
                     desktop->availableGeometry(this)));
 }
 
-void HostWindow::mpv_stop(bool dry_run)
+void MainWindow::mpv_stop(bool dry_run)
 {
     if (!dry_run)
         mpvw->command_stop();
@@ -585,13 +585,13 @@ void HostWindow::mpv_stop(bool dry_run)
     update_size();
 }
 
-void HostWindow::mpv_set_speed(double speed)
+void MainWindow::mpv_set_speed(double speed)
 {
     mpvw->property_speed_set(speed);
     mpvw->show_message(QString("Speed: %1").arg(speed));
 }
 
-void HostWindow::mpv_set_volume(int volume)
+void MainWindow::mpv_set_volume(int volume)
 {
     mpvw->property_volume_set(volume);
     mpvw->show_message(QString("Volume :%1%").arg(volume));

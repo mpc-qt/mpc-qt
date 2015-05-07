@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     // the LC_NUMERIC category to be set to "C", so change it back.
     std::setlocale(LC_NUMERIC, "C");
 
-    HostWindow w;
+    MainWindow w;
     w.show();
 
     return a.exec();
