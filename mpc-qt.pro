@@ -16,15 +16,17 @@ CONFIG += link_pkgconfig
 PKGCONFIG += mpv
 
 SOURCES += main.cpp\
-        hostwindow.cpp \
     mpvwidget.cpp \
-    qmediaslider.cpp
+    qmediaslider.cpp \
+    mainwindow.cpp
 
-HEADERS  += hostwindow.h \
+HEADERS  += \
     mpvwidget.h \
-    qmediaslider.h
+    qmediaslider.h \
+    mainwindow.h
 
-FORMS    += hostwindow.ui
+FORMS    += \
+    mainwindow.ui
 
 RESOURCES += \
     res.qrc

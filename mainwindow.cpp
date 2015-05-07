@@ -1,8 +1,8 @@
 #include <sstream>
 #include <stdexcept>
 
-#include "hostwindow.h"
-#include "ui_hostwindow.h"
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
 #include <QDesktopWidget>
 #include <QWindow>
 #include <QMenuBar>
@@ -337,9 +337,9 @@ void MainWindow::on_action_navigate_chapters_next_triggered()
     }
 }
 
-void MainWindow::menu_navigate_chapters(int data)
+void MainWindow::menu_navigate_chapters(QVariant data)
 {
-    mpvw->property_chapter_set(data);
+    mpvw->property_chapter_set(data.toInt());
 }
 
 void MainWindow::on_action_help_about_triggered()

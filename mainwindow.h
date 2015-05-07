@@ -57,7 +57,7 @@ private slots:
 
     void on_action_navigate_chapters_previous_triggered();
     void on_action_navigate_chapters_next_triggered();
-    void menu_navigate_chapters(int data);
+    void menu_navigate_chapters(QVariant data);
 
     void on_action_help_about_triggered();
 
@@ -112,14 +112,14 @@ class data_emitter : public QObject
 {
     Q_OBJECT
 public:
-    int data;
+    QVariant data;
     data_emitter(QObject *parent) : QObject(parent) {}
 
 public slots:
     void got_something() { heres_something(data); }
 
 signals:
-    void heres_something(int data);
+    void heres_something(QVariant data);
 };
 
 
