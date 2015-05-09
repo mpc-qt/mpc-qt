@@ -93,6 +93,11 @@ void MainWindow::on_action_file_close_triggered()
     on_action_play_stop_triggered();
 }
 
+void MainWindow::on_action_file_exit_triggered()
+{
+    close();
+}
+
 void MainWindow::on_action_view_hide_menu_toggled(bool checked)
 {
     // View/hide are unmanaged when in fullscreen mode
@@ -610,4 +615,5 @@ static QString to_date_fmt(double time) {
             .arg(QString().number(se),2,'0')
             .arg(QString().number(fr),3,'0');
 }
+
 

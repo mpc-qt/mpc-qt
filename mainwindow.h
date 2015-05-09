@@ -22,6 +22,7 @@ private slots:
     void on_action_file_open_quick_triggered();
     void on_action_file_open_triggered();
     void on_action_file_close_triggered();
+    void on_action_file_exit_triggered();
 
     void on_action_view_hide_menu_toggled(bool checked);
     void on_action_view_hide_seekbar_toggled(bool checked);
