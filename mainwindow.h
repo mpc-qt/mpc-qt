@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <mpvwidget.h>
 #include <QMenuBar>
-#include "qmediaslider.h"
+#include "qdrawnslider.h"
 
 namespace Ui {
 class MainWindow;

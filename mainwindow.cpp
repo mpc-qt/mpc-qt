@@ -30,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this, &MainWindow::fire_update_size, this, &MainWindow::send_update_size,
             Qt::QueuedConnection);
 
-    ui_position = new QMediaSlider(this);
+    ui_position = new QMediaSlider();
     ui->seekbar->layout()->addWidget(ui_position);
     connect(ui_position, &QMediaSlider::sliderMoved, this, &MainWindow::position_sliderMoved);
 
