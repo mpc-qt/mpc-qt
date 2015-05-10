@@ -48,6 +48,7 @@ void QDrawnSlider::setSliderGeometry(int handleWidth, int handleHeight,
     this->handleHeight = handleHeight;
     this->marginX = marginX;
     this->marginY = marginY;
+    setMinimumHeight(handleHeight);
     setMaximumHeight(handleHeight);
 }
 
