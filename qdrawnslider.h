@@ -15,9 +15,9 @@ class QDrawnSlider : public QWidget {
 
 public:
     explicit QDrawnSlider(QWidget *parent, QSize handle, QSize margin);
-    void setValue(double v) { vValue= v; }
-    void setMaximum(double v) { vMaximum = v; }
-    void setMinimum(double v) { vMinimum = v; }
+    void setValue(double v) { vValue= v; update(); }
+    void setMaximum(double v) { vMaximum = v; update(); }
+    void setMinimum(double v) { vMinimum = v; update(); }
     double value() { return vValue; }
     double maximum() { return vMaximum; }
     double minimum() { return vMinimum; }
