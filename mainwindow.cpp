@@ -40,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui_volume->setMaximum(100);
     ui_volume->setValue(100);
     ui->controlbar->layout()->addWidget(ui_volume);
-    connect(ui_volume, &QVolumeSlider::sliderMoved, this, &MainWindow::volume_valueChanged);
+    connect(ui_volume, &QVolumeSlider::sliderMoved, this, &MainWindow::volume_sliderMoved);
 
     mpvw = new MpvWidget(this);
     connect(mpvw, &MpvWidget::me_play_time, this, &MainWindow::me_play_time);
@@ -400,7 +400,7 @@ void MainWindow::on_play_clicked()
     }
 }
 
-void MainWindow::volume_valueChanged(double position)
+void MainWindow::volume_sliderMoved(double position)
 {
     mpv_set_volume(position);
 }

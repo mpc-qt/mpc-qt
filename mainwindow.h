@@ -64,7 +64,7 @@ private slots:
 
     void position_sliderMoved(int position);
     void on_play_clicked();
-    void volume_valueChanged(double position);
+    void volume_sliderMoved(double position);
 
     void me_play_time();
     void me_length();
