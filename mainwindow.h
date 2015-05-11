@@ -64,7 +64,7 @@ private slots:
 
     void position_sliderMoved(int position);
     void on_play_clicked();
-    void on_volume_valueChanged(int position);
+    void volume_valueChanged(double position);
 
     void me_play_time();
     void me_length();
@@ -86,6 +86,7 @@ private:
     QMainWindow *mpv_host;
     MpvWidget *mpvw;
     QMediaSlider *ui_position;
+    QVolumeSlider *ui_volume;
 
     bool is_fullscreen;
 

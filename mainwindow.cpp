@@ -34,6 +34,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->seekbar->layout()->addWidget(ui_position);
     connect(ui_position, &QMediaSlider::sliderMoved, this, &MainWindow::position_sliderMoved);
 
+    ui_volume = new QVolumeSlider();
+    ui_volume->setMinimumWidth(100);
+    ui_volume->setMinimum(0);
+    ui_volume->setMaximum(100);
+    ui_volume->setValue(100);
+    ui->controlbar->layout()->addWidget(ui_volume);
+    connect(ui_volume, &QVolumeSlider::sliderMoved, this, &MainWindow::volume_valueChanged);
+
     mpvw = new MpvWidget(this);
     connect(mpvw, &MpvWidget::me_play_time, this, &MainWindow::me_play_time);
     connect(mpvw, &MpvWidget::me_length, this, &MainWindow::me_length);
@@ -299,16 +307,16 @@ void MainWindow::on_action_play_rate_reset_triggered()
 
 void MainWindow::on_action_play_volume_up_triggered()
 {
-    int newvol = std::min(ui->volume->value() + 10, 100);
+    int newvol = std::min(ui_volume->value() + 10, 100.0);
     mpv_set_volume(newvol);
-    ui->volume->setValue(newvol);
+    ui_volume->setValue(newvol);
 }
 
 void MainWindow::on_action_play_volume_down_triggered()
 {
-    int newvol = std::max(ui->volume->value() - 10, 0);
+    int newvol = std::max(ui_volume->value() - 10, 0.0);
     mpv_set_volume(newvol);
-    ui->volume->setValue(newvol);
+    ui_volume->setValue(newvol);
 }
 
 void MainWindow::on_action_play_volume_mute_toggled(bool checked)
@@ -392,7 +400,7 @@ void MainWindow::on_play_clicked()
     }
 }
 
-void MainWindow::on_volume_valueChanged(int position)
+void MainWindow::volume_valueChanged(double position)
 {
     mpv_set_volume(position);
 }
@@ -524,7 +532,7 @@ void MainWindow::ui_reset_state(bool enabled)
     ui->skipForward->setEnabled(enabled);
 
     ui->mute->setEnabled(enabled);
-    ui->volume->setEnabled(enabled);
+    ui_volume->setEnabled(enabled);
 
     ui->pause->setChecked(false);
     ui->action_play_pause->setChecked(false);
