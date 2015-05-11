@@ -35,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui_position, &QMediaSlider::sliderMoved, this, &MainWindow::position_sliderMoved);
 
     ui_volume = new QVolumeSlider();
-    ui_volume->setMinimumWidth(100);
+    ui_volume->setMinimumWidth(50);
     ui_volume->setMinimum(0);
     ui_volume->setMaximum(100);
     ui_volume->setValue(100);
