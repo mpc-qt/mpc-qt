@@ -481,6 +481,44 @@ void MainWindow::me_chapters()
 void MainWindow::me_tracks()
 {
     QVariantList tracks = mpvw->state_tracks_get();
+    auto str = [](QVariantMap map, QString key) {
+        return map[key].toString();
+    };
+    auto formatter = [&str](QVariantMap track) {
+        QString output;
+        output.append(QString("%1: ").arg(str(track,"id")));
+        if (track.contains("codec"))
+            output.append(QString("[%1] ").arg(str(track,"codec")));
+        if (track.contains("lang"))
+            output.append(QString("%1 ").arg(str(track,"lang")));
+        if (track.contains("title"))
+            output.append(QString("- %1 ").arg(str(track,"title")));
+        return output;
+    };
+
+    ui->menu_play_audio->clear();
+    ui->menu_play_subtitles->clear();
+    ui->menu_play_video->clear();
+    for (QVariant track : tracks) {
+        QVariantMap t = track.toMap();
+        QAction *action = new QAction(this);
+        data_emitter *de = new data_emitter(action);
+        action->setText(formatter(t));
+        de->data = t;
+        connect(action, &QAction::triggered, de, &data_emitter::got_something);
+        if (str(t,"type") == "audio") {
+            ui->menu_play_audio->addAction(action);
+        } else if (str(t,"type") == "sub") {
+            ui->menu_play_subtitles->addAction(action);
+        } else if (str(t,"type") == "video") {
+            ui->menu_play_video->addAction(action);
+        } else {
+            // the track is unused by us for now, so delete the stuff we were
+            // going to associate with it
+            delete de;
+            delete action;
+        }
+    }
     (void)tracks;
 }
 
