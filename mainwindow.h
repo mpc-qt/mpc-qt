@@ -52,6 +52,8 @@ private slots:
     void on_action_play_rate_increase_triggered();
     void on_action_play_rate_reset_triggered();
 
+    void action_play_audio_selected(QVariant data);
+
     void on_action_play_volume_up_triggered();
     void on_action_play_volume_down_triggered();
     void on_action_play_volume_mute_toggled(bool checked);

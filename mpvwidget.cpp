@@ -135,6 +135,11 @@ void MpvWidget::property_time_set(double position)
     mpv_set_property(mpv, "time-pos", MPV_FORMAT_DOUBLE, &position);
 }
 
+void MpvWidget::property_track_audio_set(int64_t id)
+{
+    mpv_set_property(mpv, "aid", MPV_FORMAT_INT64, &id);
+}
+
 QString MpvWidget::property_version_get()
 {
     return get_property_string("mpv-version");

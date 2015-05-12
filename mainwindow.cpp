@@ -305,6 +305,12 @@ void MainWindow::on_action_play_rate_reset_triggered()
     mpv_set_speed(speed);
 }
 
+void MainWindow::action_play_audio_selected(QVariant data)
+{
+    int64_t id = data.toMap()["id"].toInt();
+    mpvw->property_track_audio_set(id);
+}
+
 void MainWindow::on_action_play_volume_up_triggered()
 {
     int newvol = std::min(ui_volume->value() + 10, 100.0);
@@ -507,6 +513,7 @@ void MainWindow::me_tracks()
         de->data = t;
         connect(action, &QAction::triggered, de, &data_emitter::got_something);
         if (str(t,"type") == "audio") {
+            connect(de, &data_emitter::heres_something, this, &MainWindow::action_play_audio_selected);
             ui->menu_play_audio->addAction(action);
         } else if (str(t,"type") == "sub") {
             ui->menu_play_subtitles->addAction(action);
