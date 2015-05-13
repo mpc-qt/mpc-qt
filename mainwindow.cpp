@@ -307,19 +307,19 @@ void MainWindow::on_action_play_rate_reset_triggered()
 
 void MainWindow::action_play_audio_selected(QVariant data)
 {
-    int64_t id = data.toMap()["id"].toInt();
+    int64_t id = data.toLongLong();
     mpvw->property_track_audio_set(id);
 }
 
 void MainWindow::action_play_subtitles_selected(QVariant data)
 {
-    int64_t id = data.toMap()["id"].toLongLong();
+    int64_t id = data.toLongLong();
     mpvw->property_track_subtitle_set(id);
 }
 
 void MainWindow::action_play_video_tracks_selected(QVariant data)
 {
-    int64_t id = data.toMap()["id"].toLongLong();
+    int64_t id = data.toLongLong();
     mpvw->property_track_video_set(id);
 }
 
@@ -522,7 +522,7 @@ void MainWindow::me_tracks()
         QAction *action = new QAction(this);
         data_emitter *de = new data_emitter(action);
         action->setText(formatter(t));
-        de->data = t;
+        de->data = t["id"];
         connect(action, &QAction::triggered, de, &data_emitter::got_something);
         if (str(t,"type") == "audio") {
             connect(de, &data_emitter::heres_something, this, &MainWindow::action_play_audio_selected);
