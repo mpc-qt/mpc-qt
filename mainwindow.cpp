@@ -609,7 +609,7 @@ void MainWindow::ui_reset_state(bool enabled)
     ui->action_file_save_thumbnails->setEnabled(enabled);
     ui->action_file_load_subtitle->setEnabled(enabled);
     ui->action_file_save_subtitle->setEnabled(enabled);
-    ui->action_subtitle_download->setEnabled(enabled);
+    ui->action_file_subtitle_database_download->setEnabled(enabled);
     ui->action_play_pause->setEnabled(enabled);
     ui->action_play_stop->setEnabled(enabled);
     ui->action_play_frame_backward->setEnabled(enabled);

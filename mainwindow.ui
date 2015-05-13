@@ -451,13 +451,13 @@
      <addaction name="action_file_recent_clear"/>
      <addaction name="separator"/>
     </widget>
-    <widget class="QMenu" name="menu_subtitle_database">
+    <widget class="QMenu" name="menu_file_subtitle_database">
      <property name="title">
       <string>Subtitle Data&amp;base</string>
      </property>
-     <addaction name="action_subtitle_search"/>
-     <addaction name="action_subtitle_upload"/>
-     <addaction name="action_subtitle_download"/>
+     <addaction name="action_file_subtitle_database_search"/>
+     <addaction name="action_file_subtitle_database_upload"/>
+     <addaction name="action_file_subtitle_database_download"/>
     </widget>
     <addaction name="action_file_open_quick"/>
     <addaction name="separator"/>
@@ -475,7 +475,7 @@
     <addaction name="separator"/>
     <addaction name="action_file_load_subtitle"/>
     <addaction name="action_file_save_subtitle"/>
-    <addaction name="menu_subtitle_database"/>
+    <addaction name="menu_file_subtitle_database"/>
     <addaction name="separator"/>
     <addaction name="action_file_properties"/>
     <addaction name="separator"/>
@@ -717,12 +717,12 @@
     <string>Ctrl+S</string>
    </property>
   </action>
-  <action name="action_subtitle_upload">
+  <action name="action_file_subtitle_database_upload">
    <property name="text">
     <string>&amp;Upload...</string>
    </property>
   </action>
-  <action name="action_subtitle_download">
+  <action name="action_file_subtitle_database_download">
    <property name="text">
     <string>&amp;Download...</string>
    </property>
@@ -730,7 +730,7 @@
     <string>D</string>
    </property>
   </action>
-  <action name="action_subtitle_search">
+  <action name="action_file_subtitle_database_search">
    <property name="text">
     <string>&amp;Search...</string>
    </property>
