@@ -76,7 +76,7 @@ private:
     QVariantList chapters;
 
     void handle_mpv_event(mpv_event *event);
-    QString get_property_string(char *property);
+    QString get_property_string(const char *property);
 };
 
 #endif // MPVWIDGET_H

@@ -297,7 +297,7 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
     }
 }
 
-QString MpvWidget::get_property_string(char *property)
+QString MpvWidget::get_property_string(const char *property)
 {
     QString text;
     char *value;
