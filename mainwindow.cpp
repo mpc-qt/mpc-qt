@@ -603,6 +603,13 @@ void MainWindow::ui_reset_state(bool enabled)
     ui->pause->setChecked(false);
     ui->action_play_pause->setChecked(false);
 
+    ui->action_file_close->setEnabled(enabled);
+    ui->action_file_save_copy->setEnabled(enabled);
+    ui->action_file_save_image->setEnabled(enabled);
+    ui->action_file_save_thumbnails->setEnabled(enabled);
+    ui->action_file_load_subtitle->setEnabled(enabled);
+    ui->action_file_save_subtitle->setEnabled(enabled);
+    ui->action_subtitle_download->setEnabled(enabled);
     ui->action_play_pause->setEnabled(enabled);
     ui->action_play_stop->setEnabled(enabled);
     ui->action_play_frame_backward->setEnabled(enabled);
@@ -615,7 +622,11 @@ void MainWindow::ui_reset_state(bool enabled)
     ui->action_play_volume_mute->setEnabled(enabled);
     ui->action_navigate_chapters_previous->setEnabled(enabled);
     ui->action_navigate_chapters_next->setEnabled(enabled);
+    ui->action_favorites_add->setEnabled(enabled);
 
+    ui->menu_play_audio->setEnabled(enabled);
+    ui->menu_play_subtitles->setEnabled(enabled);
+    ui->menu_play_video->setEnabled(enabled);
     ui->menu_navigate_chapters->setEnabled(enabled);
 }
 
