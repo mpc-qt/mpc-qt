@@ -54,6 +54,7 @@ private slots:
 
     void action_play_audio_selected(QVariant data);
     void action_play_subtitles_selected(QVariant data);
+    void action_play_video_tracks_selected(QVariant data);
 
     void on_action_play_volume_up_triggered();
     void on_action_play_volume_down_triggered();

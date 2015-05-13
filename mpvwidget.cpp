@@ -145,6 +145,11 @@ void MpvWidget::property_track_subtitle_set(int64_t id)
     mpv_set_property(mpv, "sid", MPV_FORMAT_INT64, &id);
 }
 
+void MpvWidget::property_track_video_set(int64_t id)
+{
+    mpv_set_property(mpv, "vid", MPV_FORMAT_INT64, &id);
+}
+
 QString MpvWidget::property_version_get()
 {
     return get_property_string("mpv-version");

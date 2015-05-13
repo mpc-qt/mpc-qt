@@ -29,6 +29,7 @@ public:
     void property_time_set(double position);
     void property_track_audio_set(int64_t id);
     void property_track_subtitle_set(int64_t id);
+    void property_track_video_set(int64_t id);
     QString property_version_get();
     void property_volume_set(int64_t volume);
 
