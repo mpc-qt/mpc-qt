@@ -26,6 +26,14 @@ MainWindow::MainWindow(QWidget *parent) :
     no_video_size = QSize(500,270);
 
     ui->setupUi(this);
+
+    // Work around separators with text in the designer not showing as
+    // sections
+    ui->menu_play_after->insertSection(ui->action_play_after_once_exit,
+                                       tr("Once"));
+    ui->menu_play_after->insertSection(ui->action_play_after_always_exit,
+                                       tr("Every time"));
+
     ui->info_stats->setVisible(false);
     connect(this, &MainWindow::fire_update_size, this, &MainWindow::send_update_size,
             Qt::QueuedConnection);

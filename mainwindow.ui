@@ -563,14 +563,12 @@
      <property name="title">
       <string>Af&amp;ter Playback</string>
      </property>
-     <addaction name="separator"/>
      <addaction name="action_play_after_once_exit"/>
      <addaction name="action_play_after_once_standby"/>
      <addaction name="action_play_after_once_hibernate"/>
      <addaction name="action_play_after_once_shutdown"/>
      <addaction name="action_play_after_once_logoff"/>
      <addaction name="action_play_after_once_lock"/>
-     <addaction name="separator"/>
      <addaction name="action_play_after_always_exit"/>
      <addaction name="action_play_after_always_nothing"/>
      <addaction name="action_play_after_always_next"/>
