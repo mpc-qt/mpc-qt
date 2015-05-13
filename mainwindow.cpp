@@ -540,7 +540,6 @@ void MainWindow::me_tracks()
             delete action;
         }
     }
-    (void)tracks;
 }
 
 void MainWindow::me_size()
