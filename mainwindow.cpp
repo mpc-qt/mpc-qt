@@ -206,6 +206,45 @@ void MainWindow::on_action_view_hide_navigation_toggled(bool checked)
     fire_update_size();
 }
 
+void MainWindow::on_action_view_presets_minimal_triggered()
+{
+    ui->action_view_hide_menu->setChecked(false);
+    ui->action_view_hide_seekbar->setChecked(false);
+    ui->action_view_hide_controls->setChecked(false);
+    ui->action_view_hide_information->setChecked(false);
+    ui->action_view_hide_statistics->setChecked(false);
+    ui->action_view_hide_status->setChecked(false);
+    ui->action_view_hide_subresync->setChecked(false);
+    ui->action_view_hide_capture->setChecked(false);
+    ui->action_view_hide_navigation->setChecked(false);
+}
+
+void MainWindow::on_action_view_presets_compact_triggered()
+{
+    ui->action_view_hide_menu->setChecked(true);
+    ui->action_view_hide_seekbar->setChecked(true);
+    ui->action_view_hide_controls->setChecked(false);
+    ui->action_view_hide_information->setChecked(false);
+    ui->action_view_hide_statistics->setChecked(false);
+    ui->action_view_hide_status->setChecked(false);
+    ui->action_view_hide_subresync->setChecked(false);
+    ui->action_view_hide_capture->setChecked(false);
+    ui->action_view_hide_navigation->setChecked(false);
+}
+
+void MainWindow::on_action_view_presets_normal_triggered()
+{
+    ui->action_view_hide_menu->setChecked(true);
+    ui->action_view_hide_seekbar->setChecked(true);
+    ui->action_view_hide_controls->setChecked(true);
+    ui->action_view_hide_information->setChecked(true);
+    ui->action_view_hide_statistics->setChecked(false);
+    ui->action_view_hide_status->setChecked(true);
+    ui->action_view_hide_subresync->setChecked(false);
+    ui->action_view_hide_capture->setChecked(false);
+    ui->action_view_hide_navigation->setChecked(false);
+}
+
 void MainWindow::on_action_view_fullscreen_toggled(bool checked)
 {
     is_fullscreen = checked;
@@ -700,5 +739,7 @@ static QString to_date_fmt(double time) {
             .arg(QString().number(se),2,'0')
             .arg(QString().number(fr),3,'0');
 }
+
+
 
 

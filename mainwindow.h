@@ -35,6 +35,10 @@ private slots:
     void on_action_view_hide_capture_toggled(bool checked);
     void on_action_view_hide_navigation_toggled(bool checked);
 
+    void on_action_view_presets_minimal_triggered();
+    void on_action_view_presets_compact_triggered();
+    void on_action_view_presets_normal_triggered();
+
     void on_action_view_fullscreen_toggled(bool checked);
 
     void on_action_view_zoom_050_triggered();
