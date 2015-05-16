@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
     speed = 1.0;
     size_factor = 1;
     no_video_size = QSize(500,270);
-    menu_state = msShown;
+    decoration_state = dsShown;
 
     ui->setupUi(this);
 
@@ -121,8 +121,8 @@ void MainWindow::on_action_view_hide_menu_triggered()
     if (is_fullscreen)
         return;
 
-    menuState nextState[] = { msNoMenu, msNothing, msShown };
-    ui_set_menu_state(nextState[static_cast<int>(menu_state)]);
+    QDecorationState nextState[] = { dsNoMenu, dsNothing, dsShown };
+    ui_set_decoration_state(nextState[static_cast<int>(decoration_state)]);
     fire_update_size();
 }
 
@@ -207,7 +207,7 @@ void MainWindow::on_action_view_hide_navigation_toggled(bool checked)
 
 void MainWindow::on_action_view_presets_minimal_triggered()
 {
-    ui_set_menu_state(msNothing);
+    ui_set_decoration_state(dsNothing);
     ui->action_view_hide_seekbar->setChecked(false);
     ui->action_view_hide_controls->setChecked(false);
     ui->action_view_hide_information->setChecked(false);
@@ -220,9 +220,9 @@ void MainWindow::on_action_view_presets_minimal_triggered()
 
 void MainWindow::on_action_view_presets_compact_triggered()
 {
-    // we should set our menu state to something like msFramed, but we can't
+    // we should set our menu state to something like dsFramed, but we can't
     // reliably do that across window managers.
-    ui_set_menu_state(msNothing);
+    ui_set_decoration_state(dsNothing);
     ui->action_view_hide_menu->setChecked(true);
     ui->action_view_hide_seekbar->setChecked(true);
     ui->action_view_hide_controls->setChecked(false);
@@ -236,7 +236,7 @@ void MainWindow::on_action_view_presets_compact_triggered()
 
 void MainWindow::on_action_view_presets_normal_triggered()
 {
-    ui_set_menu_state(msShown);
+    ui_set_decoration_state(dsShown);
     ui->action_view_hide_menu->setChecked(true);
     ui->action_view_hide_seekbar->setChecked(true);
     ui->action_view_hide_controls->setChecked(true);
@@ -625,7 +625,7 @@ void MainWindow::action_globalize_all()
     }
 }
 
-void MainWindow::ui_set_menu_state(MainWindow::menuState state)
+void MainWindow::ui_set_decoration_state(MainWindow::QDecorationState state)
 {
     QString actionTexts[] = { tr("Hide &Menu"), tr("Hide &Borders"),
                               tr("Sho&w Caption and Menu") };
@@ -636,13 +636,13 @@ void MainWindow::ui_set_menu_state(MainWindow::menuState state)
         defaults,
         defaults,
         Qt::Window|Qt::FramelessWindowHint };
-    if (state == msShown)
+    if (state == dsShown)
         menuBar()->show();
     else
         menuBar()->hide();
     ui->action_view_hide_menu->setText(actionTexts[static_cast<int>(state)]);
     setWindowFlags(winFlags[static_cast<int>(state)]);
-    this->menu_state = state;
+    this->decoration_state = state;
     show();
 }
 
