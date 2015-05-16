@@ -14,7 +14,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-    typedef enum { dsShown = 0, dsNoMenu = 1, dsNothing = 2 } QDecorationState;
+    enum DecorationState { AllDecorations, NoMenu, NoDecorations };
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -98,7 +98,7 @@ private:
     QMediaSlider *ui_position;
     QVolumeSlider *ui_volume;
 
-    QDecorationState decoration_state;
+    DecorationState decoration_state;
     bool is_fullscreen;
 
     QSize no_video_size;
@@ -109,7 +109,7 @@ private:
 
     void action_connect_buttons();
     void action_globalize_all();
-    void ui_set_decoration_state(QDecorationState state);
+    void ui_set_decoration_state(DecorationState state);
     void ui_reset_state(bool enabled);
     void update_time();
     void update_status();
