@@ -14,6 +14,8 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+    typedef enum { msShown = 0, msNoMenu = 1, msNothing = 2 } menuState;
+
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
@@ -24,7 +26,7 @@ private slots:
     void on_action_file_close_triggered();
     void on_action_file_exit_triggered();
 
-    void on_action_view_hide_menu_toggled(bool checked);
+    void on_action_view_hide_menu_triggered();
     void on_action_view_hide_seekbar_toggled(bool checked);
     void on_action_view_hide_controls_toggled(bool checked);
     void on_action_view_hide_information_toggled(bool checked);
@@ -96,6 +98,7 @@ private:
     QMediaSlider *ui_position;
     QVolumeSlider *ui_volume;
 
+    menuState menu_state;
     bool is_fullscreen;
 
     QSize no_video_size;
@@ -106,6 +109,7 @@ private:
 
     void action_connect_buttons();
     void action_globalize_all();
+    void ui_set_menu_state(menuState state);
     void ui_reset_state(bool enabled);
     void update_time();
     void update_status();
