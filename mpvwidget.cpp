@@ -203,50 +203,55 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
     case MPV_EVENT_PROPERTY_CHANGE: {
         // TODO: Refactor this by looking up a map of functions to supported
         // property changes.
-        mpv_event_property *prop = (mpv_event_property *)event->data;
+        mpv_event_property *prop = reinterpret_cast<mpv_event_property*>(event->data);
         if (strcmp(prop->name, "time-pos") == 0) {
             if (prop->format == MPV_FORMAT_DOUBLE) {
-                play_time = *(double *)prop->data;
-                me_play_time();
+                play_time = *reinterpret_cast<double*>(prop->data);
+                me_play_time(play_time);
             } else if (prop->format == MPV_FORMAT_NONE) {
                 // The property is unavailable, which probably means playback
                 // was stopped.
                 play_time = -1;
-                me_play_time();
+                me_play_time(play_time);
             }
         } else if (strcmp(prop->name, "length") == 0) {
             play_length = prop->format == MPV_FORMAT_DOUBLE ?
-                        *(double*)prop->data :
+                        *reinterpret_cast<double*>(prop->data) :
                         -1;
-            me_length();
+            me_length(play_length);
         } else if (strcmp(prop->name, "media-title") == 0) {
-            me_title();
+            char **str = reinterpret_cast<char**>(prop->data);
+            me_title(QString(str ? *str : NULL));
         } else if (strcmp(prop->name, "chapter-list") == 0) {
             if (prop->format != MPV_FORMAT_NODE)
                 break;
-            chapters = mpv::qt::node_to_variant((mpv_node*)prop->data).toList();
-            me_chapters();
+            chapters = mpv::qt::node_to_variant(reinterpret_cast<mpv_node*>(prop->data)).toList();
+            me_chapters(chapters);
         } else if (strcmp(prop->name, "track-list") == 0) {
             if (prop->format != MPV_FORMAT_NODE)
                 break;
-            tracks = mpv::qt::node_to_variant((mpv_node *)prop->data).toList();
-            me_tracks();
+            tracks = mpv::qt::node_to_variant(reinterpret_cast<mpv_node*>(prop->data)).toList();
+            me_tracks(tracks);
         } else {
-            // Dump other properties as JSON for development purposes.
+            // Dump other properties as various formats for development purposes.
             // Eventually this will never be called as more control features
             // are implemented.
-            if (prop->format == MPV_FORMAT_NODE) {
+            QString msg = QString("Change property %1: %2").
+                    arg(QString(prop->name));
+            if (prop->data == NULL) {
+                qDebug() << msg.arg("NULL");
+            } else if (prop->format == MPV_FORMAT_NODE) {
                 QVariant v = mpv::qt::node_to_variant((mpv_node *)prop->data);
                 QJsonDocument d = QJsonDocument::fromVariant(v);
-                qDebug() << "Change property " + QString(prop->name) + ":\n"
-                            << d.toJson().data();
+                qDebug() << "\n" + msg.arg(d.toJson().data());
+            } else if (prop->format == MPV_FORMAT_INT64) {
+                qDebug() << msg.arg(QString::number(*reinterpret_cast<int64_t*>(prop->data)));
             } else if (prop->format == MPV_FORMAT_DOUBLE) {
-                qDebug() << "double change:" + QString::number(*(double*)prop->data) + "\n";
+                qDebug() << msg.arg(QString::number(*reinterpret_cast<double*>(prop->data)));
+            } else if (prop->format == MPV_FORMAT_STRING) {
+                qDebug() << msg.arg(*reinterpret_cast<char**>(prop->data));
             } else {
-                qDebug() << QString("Change property: %1 (%2)").arg(prop->name, QString::number(prop->format));
-                if (prop->format == MPV_FORMAT_STRING) {
-                    qDebug() << QString("%1 %2").arg(QString::number((long long)prop->data,16),reinterpret_cast<char*>(prop->data));
-                }
+                qDebug() << msg.arg(QString::number(prop->format));
             }
         }
         break;

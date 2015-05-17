@@ -43,23 +43,15 @@ public:
 signals:
     void fire_mpv_events();
 
-    // For the most part we do not pass the value of property changes over
-    // during an event, we just notify that something happened.  If the
-    // receiver really does want a property value or state information, they
-    // can ask for it.  The UI should not be keeping that much track of player
-    // state anyway, it should be communicating with its widgets.  Do not
-    // fret, at worst it adds a single pointer redirection and a function
-    // call.
-
     // Pronounce 'me' as 'mpv event'.
-    void me_play_time();
-    void me_length();
+    void me_play_time(double time);
+    void me_length(double length);
     void me_started();
     void me_pause(bool yes);
     void me_finished();
-    void me_title();
-    void me_chapters();
-    void me_tracks();
+    void me_title(QString title);
+    void me_chapters(QVariantList chapters);
+    void me_tracks(QVariantList tracks);
     void me_size();
 
 public slots:
