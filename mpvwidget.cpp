@@ -210,42 +210,47 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
         // TODO: Refactor this by looking up a map of functions to supported
         // property changes.
         mpv_event_property *prop = reinterpret_cast<mpv_event_property*>(event->data);
+        auto asDouble = [&](double dflt = -1) {
+            return (prop->format != MPV_FORMAT_DOUBLE || prop->data == NULL) ?
+                        dflt : *reinterpret_cast<double*>(prop->data);
+        };
+        auto asInt64 = [&](int64_t dflt = -1) {
+            return (prop->format != MPV_FORMAT_INT64 || prop->data == NULL) ?
+                        dflt : *reinterpret_cast<int64_t*>(prop->data);
+        };
+        auto asString = [&](QString dflt = QString()) {
+            return (!(prop->format == MPV_FORMAT_STRING ||
+                      prop->format == MPV_FORMAT_OSD_STRING) ||
+                    prop->data == NULL) ?
+                        dflt : QString(*reinterpret_cast<char**>(prop->data));
+        };
+        auto asNode = [&](QVariant dflt = QVariant()) {
+            return (prop->format != MPV_FORMAT_NODE || prop->data == NULL) ?
+                        dflt : mpv::qt::node_to_variant(reinterpret_cast<mpv_node*>(prop->data));
+        };
+
         if (strcmp(prop->name, "time-pos") == 0) {
-            if (prop->format == MPV_FORMAT_DOUBLE) {
-                play_time = *reinterpret_cast<double*>(prop->data);
-                me_play_time(play_time);
-            } else if (prop->format == MPV_FORMAT_NONE) {
-                // The property is unavailable, which probably means playback
-                // was stopped.
-                play_time = -1;
-                me_play_time(play_time);
-            }
+            play_time = asDouble();
+            me_play_time(play_time);
         } else if (strcmp(prop->name, "length") == 0) {
-            play_length = prop->format == MPV_FORMAT_DOUBLE ?
-                        *reinterpret_cast<double*>(prop->data) :
-                        -1;
+            play_length = asDouble();
             me_length(play_length);
         } else if (strcmp(prop->name, "media-title") == 0) {
-            char **str = reinterpret_cast<char**>(prop->data);
-            me_title(QString(str ? *str : NULL));
+            me_title(asString());
         } else if (strcmp(prop->name, "chapter-list") == 0) {
-            if (prop->format != MPV_FORMAT_NODE)
-                break;
-            chapters = mpv::qt::node_to_variant(reinterpret_cast<mpv_node*>(prop->data)).toList();
+            chapters = asNode().toList();
             me_chapters(chapters);
         } else if (strcmp(prop->name, "track-list") == 0) {
-            if (prop->format != MPV_FORMAT_NODE)
-                break;
-            tracks = mpv::qt::node_to_variant(reinterpret_cast<mpv_node*>(prop->data)).toList();
+            tracks = asNode().toList();
             me_tracks(tracks);
         } else if (strcmp(prop->name, "estimated-vf-fps") == 0) {
-            me_fps(prop->data ? *reinterpret_cast<double*>(prop->data) : -1);
+            me_fps(asDouble());
         } else if (strcmp(prop->name, "avsync") == 0) {
-            me_avsync(prop->data ? *reinterpret_cast<double*>(prop->data) : -1);
+            me_avsync(asDouble());
         } else if (strcmp(prop->name, "vo-drop-frame-count") == 0) {
-            me_framedrop_display(prop->data ? *reinterpret_cast<int64_t*>(prop->data) : -1);
+            me_framedrop_display(asInt64());
         } else if (strcmp(prop->name, "drop-frame-count") == 0) {
-            me_framedrop_decoder(prop->data ? *reinterpret_cast<int64_t*>(prop->data) : -1);
+            me_framedrop_decoder(asInt64());
         } else {
             // Dump other properties as various formats for development purposes.
             // Eventually this will never be called as more control features
@@ -255,16 +260,15 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
             if (prop->data == NULL) {
                 qDebug() << msg.arg("NULL");
             } else if (prop->format == MPV_FORMAT_NODE) {
-                QVariant v = mpv::qt::node_to_variant((mpv_node *)prop->data);
-                QJsonDocument d = QJsonDocument::fromVariant(v);
+                QJsonDocument d = QJsonDocument::fromVariant(asNode());
                 qDebug() << msg.arg(d.toJson().data());
             } else if (prop->format == MPV_FORMAT_INT64) {
-                qDebug() << msg.arg(QString::number(*reinterpret_cast<int64_t*>(prop->data)));
+                qDebug() << msg.arg(asInt64());
             } else if (prop->format == MPV_FORMAT_DOUBLE) {
-                qDebug() << msg.arg(QString::number(*reinterpret_cast<double*>(prop->data)));
+                qDebug() << msg.arg(asDouble());
             } else if (prop->format == MPV_FORMAT_STRING ||
                        prop->format == MPV_FORMAT_OSD_STRING) {
-                qDebug() << msg.arg(*reinterpret_cast<char**>(prop->data));
+                qDebug() << msg.arg(asString());
             } else {
                 qDebug() << msg.arg(QString::number(prop->format));
             }
