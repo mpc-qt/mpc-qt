@@ -243,7 +243,7 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
             } else if (prop->format == MPV_FORMAT_NODE) {
                 QVariant v = mpv::qt::node_to_variant((mpv_node *)prop->data);
                 QJsonDocument d = QJsonDocument::fromVariant(v);
-                qDebug() << "\n" + msg.arg(d.toJson().data());
+                qDebug() << msg.arg(d.toJson().data());
             } else if (prop->format == MPV_FORMAT_INT64) {
                 qDebug() << msg.arg(QString::number(*reinterpret_cast<int64_t*>(prop->data)));
             } else if (prop->format == MPV_FORMAT_DOUBLE) {
