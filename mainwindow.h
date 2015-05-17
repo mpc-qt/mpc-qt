@@ -76,14 +76,14 @@ private slots:
     void on_play_clicked();
     void volume_sliderMoved(double position);
 
-    void me_play_time();
-    void me_length();
+    void me_play_time(double time);
+    void me_length(double length);
     void me_started();
     void me_pause(bool yes);
     void me_finished();
-    void me_title();
-    void me_chapters();
-    void me_tracks();
+    void me_title(QString title);
+    void me_chapters(QVariantList chapters);
+    void me_tracks(QVariantList tracks);
     void me_size();
 
     void send_update_size();

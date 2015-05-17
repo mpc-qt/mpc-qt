@@ -473,16 +473,14 @@ void MainWindow::volume_sliderMoved(double position)
     mpv_set_volume(position);
 }
 
-void MainWindow::me_play_time()
+void MainWindow::me_play_time(double time)
 {
-    double time = mpvw->state_play_time_get();
     ui_position->setValue(time >= 0 ? time : 0);
     update_time();
 }
 
-void MainWindow::me_length()
+void MainWindow::me_length(double length)
 {
-    double length = mpvw->state_play_length_get();
     ui_position->setMaximum(length >= 0 ? length : 0);
     update_time();
 }
@@ -506,19 +504,17 @@ void MainWindow::me_finished()
     ui_reset_state(false);
 }
 
-void MainWindow::me_title()
+void MainWindow::me_title(QString title)
 {
     QString window_title("Media Player Classic Qute Theater");
-    QString media_title = mpvw->property_media_title_get();
 
-    if (!media_title.isEmpty())
-        window_title.append(" - ").append(media_title);
+    if (!title.isEmpty())
+        window_title.append(" - ").append(title);
     setWindowTitle(window_title);
 }
 
-void MainWindow::me_chapters()
+void MainWindow::me_chapters(QVariantList chapters)
 {
-    QVariantList chapters = mpvw->state_chapters_get();
     // Here we add (named) ticks to the position slider.
     ui_position->clearTicks();
     for (QVariant v : chapters) {
@@ -546,9 +542,8 @@ void MainWindow::me_chapters()
     }
 }
 
-void MainWindow::me_tracks()
+void MainWindow::me_tracks(QVariantList tracks)
 {
-    QVariantList tracks = mpvw->state_tracks_get();
     auto str = [](QVariantMap map, QString key) {
         return map[key].toString();
     };
