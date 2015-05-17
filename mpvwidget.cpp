@@ -207,8 +207,6 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
 {
     switch (event->event_id) {
     case MPV_EVENT_PROPERTY_CHANGE: {
-        // TODO: Refactor this by looking up a map of functions to supported
-        // property changes.
         mpv_event_property *prop = reinterpret_cast<mpv_event_property*>(event->data);
         auto asDouble = [&](double dflt = -1) {
             return (prop->format != MPV_FORMAT_DOUBLE || prop->data == NULL) ?
@@ -229,6 +227,8 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
                         dflt : mpv::qt::node_to_variant(reinterpret_cast<mpv_node*>(prop->data));
         };
 
+        // TODO: Refactor this by looking up a map of functions to supported
+        // property changes.
         if (strcmp(prop->name, "time-pos") == 0) {
             play_time = asDouble();
             me_play_time(play_time);
