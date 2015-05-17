@@ -33,6 +33,12 @@ MpvWidget::MpvWidget(QWidget *parent) :
     mpv_observe_property(mpv, 0, "track-list", MPV_FORMAT_NODE);
     mpv_observe_property(mpv, 0, "chapter-list", MPV_FORMAT_NODE);
     mpv_observe_property(mpv, 0, "length", MPV_FORMAT_DOUBLE);
+    mpv_observe_property(mpv, 0, "estimated-vf-fps", MPV_FORMAT_DOUBLE);
+    mpv_observe_property(mpv, 0, "avsync", MPV_FORMAT_DOUBLE);
+    mpv_observe_property(mpv, 0, "vo-drop-frame-count", MPV_FORMAT_INT64);
+    mpv_observe_property(mpv, 0, "drop-frame-count", MPV_FORMAT_INT64);
+    mpv_observe_property(mpv, 0, "audio-bitrate", MPV_FORMAT_DOUBLE);
+    mpv_observe_property(mpv, 0, "video-bitrate", MPV_FORMAT_DOUBLE);
 
     // Request log messages with level "info" or higher.
     // They are received as MPV_EVENT_LOG_MESSAGE.
@@ -232,6 +238,14 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
                 break;
             tracks = mpv::qt::node_to_variant(reinterpret_cast<mpv_node*>(prop->data)).toList();
             me_tracks(tracks);
+        } else if (strcmp(prop->name, "estimated-vf-fps") == 0) {
+            me_fps(prop->data ? *reinterpret_cast<double*>(prop->data) : -1);
+        } else if (strcmp(prop->name, "avsync") == 0) {
+            me_avsync(prop->data ? *reinterpret_cast<double*>(prop->data) : -1);
+        } else if (strcmp(prop->name, "vo-drop-frame-count") == 0) {
+            me_framedrop_display(prop->data ? *reinterpret_cast<int64_t*>(prop->data) : -1);
+        } else if (strcmp(prop->name, "drop-frame-count") == 0) {
+            me_framedrop_decoder(prop->data ? *reinterpret_cast<int64_t*>(prop->data) : -1);
         } else {
             // Dump other properties as various formats for development purposes.
             // Eventually this will never be called as more control features
@@ -248,7 +262,8 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
                 qDebug() << msg.arg(QString::number(*reinterpret_cast<int64_t*>(prop->data)));
             } else if (prop->format == MPV_FORMAT_DOUBLE) {
                 qDebug() << msg.arg(QString::number(*reinterpret_cast<double*>(prop->data)));
-            } else if (prop->format == MPV_FORMAT_STRING) {
+            } else if (prop->format == MPV_FORMAT_STRING ||
+                       prop->format == MPV_FORMAT_OSD_STRING) {
                 qDebug() << msg.arg(*reinterpret_cast<char**>(prop->data));
             } else {
                 qDebug() << msg.arg(QString::number(prop->format));

@@ -53,6 +53,10 @@ signals:
     void me_chapters(QVariantList chapters);
     void me_tracks(QVariantList tracks);
     void me_size();
+    void me_fps(double fps);
+    void me_avsync(double sync);
+    void me_framedrop_display(int64_t count);
+    void me_framedrop_decoder(int64_t cout);
 
 public slots:
 
