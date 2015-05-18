@@ -86,39 +86,37 @@ private slots:
     void mpvw_tracksChanged(QVariantList tracks);
     void mpvw_videoSizeChanged(QSize size);
 
-    void send_update_size();
+    void sendUpdateSize();
 
 signals:
-    void fire_update_size();
+    void fireUpdateSize();
 
 private:
     Ui::MainWindow *ui;
-    QMainWindow *mpv_host;
+    QMainWindow *mpvHost_;
     MpvWidget *mpvw;
-    QMediaSlider *ui_position;
-    QVolumeSlider *ui_volume;
+    QMediaSlider *positionSlider_;
+    QVolumeSlider *volumeSlider_;
 
-    DecorationState decoration_state;
-    bool is_fullscreen;
+    DecorationState decorationState_;
+    bool fullscreenMode_;
 
-    QSize no_video_size;
-    bool is_playing;
-    bool is_paused;
-    double speed;
-    double size_factor;
+    QSize noVideoSize_;
+    bool isPlaying_;        // TODO: move to mpvwidget
+    bool isPaused_;         // TODO: move to mpvwidget
+    double playbackSpeed_;  // TODO: move to mpvwidget
+    double sizeFactor_;
 
-    void action_connect_buttons();
-    void action_globalize_all();
-    void ui_set_decoration_state(DecorationState state);
-    void ui_reset_state(bool enabled);
-    void update_time();
-    void update_status();
-    void update_size(bool first_run = false);
-    void viewport_shrink_size();
-    void mpv_stop(bool dry_run = false);
-    void mpv_show_message(const char* text);
-    void mpv_set_speed(double speed);
-    void mpv_set_volume(int volume);
+    void connectButtonsToActions();
+    void globalizeAllActions();
+    void setUiDecorationState(DecorationState state);
+    void setUiEnabledState(bool enabled);
+    void updateTime();
+    void updatePlaybackStatus();
+    void updateSize(bool first_run = false);
+    void doMpvStopPlayback(bool dry_run = false);
+    void doMpvSetSpeed(double speed);
+    void doMpvSetVolume(int volume);
 };
 
 // Helper class for emitting data

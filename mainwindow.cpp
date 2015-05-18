@@ -19,12 +19,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    is_fullscreen = false;
-    is_playing = false;
-    speed = 1.0;
-    size_factor = 1;
-    no_video_size = QSize(500,270);
-    decoration_state = AllDecorations;
+    fullscreenMode_ = false;
+    isPlaying_ = false;
+    playbackSpeed_ = 1.0;
+    sizeFactor_ = 1;
+    noVideoSize_ = QSize(500,270);
+    decorationState_ = AllDecorations;
 
     ui->setupUi(this);
 
@@ -36,20 +36,20 @@ MainWindow::MainWindow(QWidget *parent) :
                                        tr("Every time"));
 
     ui->info_stats->setVisible(false);
-    connect(this, &MainWindow::fire_update_size, this, &MainWindow::send_update_size,
+    connect(this, &MainWindow::fireUpdateSize, this, &MainWindow::sendUpdateSize,
             Qt::QueuedConnection);
 
-    ui_position = new QMediaSlider();
-    ui->seekbar->layout()->addWidget(ui_position);
-    connect(ui_position, &QMediaSlider::sliderMoved, this, &MainWindow::position_sliderMoved);
+    positionSlider_ = new QMediaSlider();
+    ui->seekbar->layout()->addWidget(positionSlider_);
+    connect(positionSlider_, &QMediaSlider::sliderMoved, this, &MainWindow::position_sliderMoved);
 
-    ui_volume = new QVolumeSlider();
-    ui_volume->setMinimumWidth(50);
-    ui_volume->setMinimum(0);
-    ui_volume->setMaximum(100);
-    ui_volume->setValue(100);
-    ui->controlbar->layout()->addWidget(ui_volume);
-    connect(ui_volume, &QVolumeSlider::sliderMoved, this, &MainWindow::volume_sliderMoved);
+    volumeSlider_ = new QVolumeSlider();
+    volumeSlider_->setMinimumWidth(50);
+    volumeSlider_->setMinimum(0);
+    volumeSlider_->setMaximum(100);
+    volumeSlider_->setValue(100);
+    ui->controlbar->layout()->addWidget(volumeSlider_);
+    connect(volumeSlider_, &QVolumeSlider::sliderMoved, this, &MainWindow::volume_sliderMoved);
 
     mpvw = new MpvWidget(this);
     connect(mpvw, &MpvWidget::playTimeChanged, this, &MainWindow::mpvw_playTimeChanged);
@@ -64,16 +64,16 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Wrap mpvw in a special QMainWindow widget so that the playlist window
     // will dock around it rather than ourselves
-    mpv_host = new QMainWindow(this);
-    mpv_host->setStyleSheet("background-color: black; background: center url("
+    mpvHost_ = new QMainWindow(this);
+    mpvHost_->setStyleSheet("background-color: black; background: center url("
                             ":/images/bitmaps/blank-screen.png) no-repeat;");
-    mpv_host->setCentralWidget(mpvw);
-    mpv_host->setSizePolicy(QSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred));
-    ui->mpv_widget->layout()->addWidget(mpv_host);
+    mpvHost_->setCentralWidget(mpvw);
+    mpvHost_->setSizePolicy(QSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred));
+    ui->mpv_widget->layout()->addWidget(mpvHost_);
 
-    action_connect_buttons();
-    action_globalize_all();
-    ui_reset_state(false);
+    connectButtonsToActions();
+    globalizeAllActions();
+    setUiEnabledState(false);
 
     // Guarantee that the layout has been calculated.  It seems pointless, but
     // Without it the window will temporarily display at a larger size than
@@ -85,7 +85,7 @@ MainWindow::MainWindow(QWidget *parent) :
     hide();
     setAttribute (Qt::WA_DontShowOnScreen, false);
 
-    update_size(true);
+    updateSize(true);
 }
 
 MainWindow::~MainWindow()
@@ -118,12 +118,12 @@ void MainWindow::on_action_file_exit_triggered()
 void MainWindow::on_action_view_hide_menu_triggered()
 {
     // View/hide are unmanaged when in fullscreen mode
-    if (is_fullscreen)
+    if (fullscreenMode_)
         return;
 
     DecorationState nextState[] = { NoMenu, NoDecorations, AllDecorations };
-    ui_set_decoration_state(nextState[static_cast<int>(decoration_state)]);
-    fire_update_size();
+    setUiDecorationState(nextState[static_cast<int>(decorationState_)]);
+    fireUpdateSize();
 }
 
 void MainWindow::on_action_view_hide_seekbar_toggled(bool checked)
@@ -133,7 +133,7 @@ void MainWindow::on_action_view_hide_seekbar_toggled(bool checked)
     else
         ui->seekbar->hide();
     ui->control_section->adjustSize();
-    fire_update_size();
+    fireUpdateSize();
 }
 
 void MainWindow::on_action_view_hide_controls_toggled(bool checked)
@@ -143,7 +143,7 @@ void MainWindow::on_action_view_hide_controls_toggled(bool checked)
     else
         ui->controlbar->hide();
     ui->control_section->adjustSize();
-    fire_update_size();
+    fireUpdateSize();
 }
 
 void MainWindow::on_action_view_hide_information_toggled(bool checked)
@@ -153,7 +153,7 @@ void MainWindow::on_action_view_hide_information_toggled(bool checked)
     else
         ui->info_stats->hide();
     ui->info_section->adjustSize();
-    fire_update_size();
+    fireUpdateSize();
 }
 
 void MainWindow::on_action_view_hide_statistics_toggled(bool checked)
@@ -163,7 +163,7 @@ void MainWindow::on_action_view_hide_statistics_toggled(bool checked)
     // ourselves, and turn that on or off depending upon the settings here.
     (void)checked;
 
-    fire_update_size();
+    fireUpdateSize();
 }
 
 void MainWindow::on_action_view_hide_status_toggled(bool checked)
@@ -173,14 +173,14 @@ void MainWindow::on_action_view_hide_status_toggled(bool checked)
     else
         ui->statusbar->hide();
     ui->info_section->adjustSize();
-    fire_update_size();
+    fireUpdateSize();
 }
 
 void MainWindow::on_action_view_hide_subresync_toggled(bool checked)
 {
     (void)checked;
 
-    fire_update_size();
+    fireUpdateSize();
 }
 
 void MainWindow::on_action_view_hide_playlist_toggled(bool checked)
@@ -188,26 +188,26 @@ void MainWindow::on_action_view_hide_playlist_toggled(bool checked)
     // playlist window is unimplemented for now
     (void)checked;
 
-    fire_update_size();
+    fireUpdateSize();
 }
 
 void MainWindow::on_action_view_hide_capture_toggled(bool checked)
 {
     (void)checked;
 
-    fire_update_size();
+    fireUpdateSize();
 }
 
 void MainWindow::on_action_view_hide_navigation_toggled(bool checked)
 {
     (void)checked;
 
-    fire_update_size();
+    fireUpdateSize();
 }
 
 void MainWindow::on_action_view_presets_minimal_triggered()
 {
-    ui_set_decoration_state(NoDecorations);
+    setUiDecorationState(NoDecorations);
     ui->action_view_hide_seekbar->setChecked(false);
     ui->action_view_hide_controls->setChecked(false);
     ui->action_view_hide_information->setChecked(false);
@@ -222,7 +222,7 @@ void MainWindow::on_action_view_presets_compact_triggered()
 {
     // we should set our menu state to something like Framed, but we can't
     // reliably do that across window managers.
-    ui_set_decoration_state(NoDecorations);
+    setUiDecorationState(NoDecorations);
     ui->action_view_hide_menu->setChecked(true);
     ui->action_view_hide_seekbar->setChecked(true);
     ui->action_view_hide_controls->setChecked(false);
@@ -236,7 +236,7 @@ void MainWindow::on_action_view_presets_compact_triggered()
 
 void MainWindow::on_action_view_presets_normal_triggered()
 {
-    ui_set_decoration_state(AllDecorations);
+    setUiDecorationState(AllDecorations);
     ui->action_view_hide_menu->setChecked(true);
     ui->action_view_hide_seekbar->setChecked(true);
     ui->action_view_hide_controls->setChecked(true);
@@ -250,7 +250,7 @@ void MainWindow::on_action_view_presets_normal_triggered()
 
 void MainWindow::on_action_view_fullscreen_toggled(bool checked)
 {
-    is_fullscreen = checked;
+    fullscreenMode_ = checked;
 
     if (checked) {
         showFullScreen();
@@ -268,39 +268,39 @@ void MainWindow::on_action_view_fullscreen_toggled(bool checked)
 
 void MainWindow::on_action_view_zoom_050_triggered()
 {
-    size_factor = 0.5;
-    update_size();
+    sizeFactor_ = 0.5;
+    updateSize();
 }
 
 void MainWindow::on_action_view_zoom_100_triggered()
 {
-    size_factor = 1.0;
-    update_size();
+    sizeFactor_ = 1.0;
+    updateSize();
 }
 
 void MainWindow::on_action_view_zoom_200_triggered()
 {
-    size_factor = 2.0;
-    update_size();
+    sizeFactor_ = 2.0;
+    updateSize();
 }
 
 void MainWindow::on_action_view_zoom_autofit_triggered()
 {
     // TODO: work out the logic for this.  In the meantime, set to manual
     // sized.
-    size_factor = 0.0;
+    sizeFactor_ = 0.0;
 }
 
 void MainWindow::on_action_view_zoom_autofit_larger_triggered()
 {
     // TODO: work out the logic for this.  In the meantime, set to manual
     // sized.
-    size_factor = 0.0;
+    sizeFactor_ = 0.0;
 }
 
 void MainWindow::on_action_view_zoom_disable_triggered()
 {
-    size_factor = 0.0;
+    sizeFactor_ = 0.0;
 }
 
 void MainWindow::on_action_play_pause_toggled(bool checked)
@@ -314,45 +314,45 @@ void MainWindow::on_action_play_pause_toggled(bool checked)
 
 void MainWindow::on_action_play_stop_triggered()
 {
-    mpv_stop();
+    doMpvStopPlayback();
 }
 
 void MainWindow::on_action_play_frame_backward_triggered()
 {
     mpvw->stepBackward();
-    is_paused = true;
-    update_status();
+    isPaused_ = true;
+    updatePlaybackStatus();
 }
 
 void MainWindow::on_action_play_frame_forward_triggered()
 {
     mpvw->stepForward();
-    is_paused = true;
-    update_status();
+    isPaused_ = true;
+    updatePlaybackStatus();
 }
 
 void MainWindow::on_action_play_rate_decrease_triggered()
 {
-    if (speed <= 0.125)
+    if (playbackSpeed_ <= 0.125)
         return;
-    speed /= 2;
-    mpv_set_speed(speed);
+    playbackSpeed_ /= 2;
+    doMpvSetSpeed(playbackSpeed_);
 }
 
 void MainWindow::on_action_play_rate_increase_triggered()
 {
-    if (speed >= 8.0)
+    if (playbackSpeed_ >= 8.0)
         return;
-    speed *= 2;
-    mpv_set_speed(speed);
+    playbackSpeed_ *= 2;
+    doMpvSetSpeed(playbackSpeed_);
 }
 
 void MainWindow::on_action_play_rate_reset_triggered()
 {
-    if (speed == 1.0)
+    if (playbackSpeed_ == 1.0)
         return;
-    speed = 1.0;
-    mpv_set_speed(speed);
+    playbackSpeed_ = 1.0;
+    doMpvSetSpeed(playbackSpeed_);
 }
 
 void MainWindow::action_play_audio_selected(QVariant data)
@@ -375,21 +375,21 @@ void MainWindow::action_play_video_tracks_selected(QVariant data)
 
 void MainWindow::on_action_play_volume_up_triggered()
 {
-    int newvol = std::min(ui_volume->value() + 10, 100.0);
-    mpv_set_volume(newvol);
-    ui_volume->setValue(newvol);
+    int newvol = std::min(volumeSlider_->value() + 10, 100.0);
+    doMpvSetVolume(newvol);
+    volumeSlider_->setValue(newvol);
 }
 
 void MainWindow::on_action_play_volume_down_triggered()
 {
-    int newvol = std::max(ui_volume->value() - 10, 0.0);
-    mpv_set_volume(newvol);
-    ui_volume->setValue(newvol);
+    int newvol = std::max(volumeSlider_->value() - 10, 0.0);
+    doMpvSetVolume(newvol);
+    volumeSlider_->setValue(newvol);
 }
 
 void MainWindow::on_action_play_volume_mute_toggled(bool checked)
 {
-    if (!is_playing)
+    if (!isPlaying_)
         return;
     mpvw->setMute(checked);
     ui->mute->setIcon(QIcon(checked ? ":/images/controls/speaker2.png" :
@@ -414,7 +414,7 @@ void MainWindow::on_action_navigate_chapters_next_triggered()
         // chapter number is a past-the-end value, so halt playback.  If mpv
         // was playing back a playlist, this stops it.  But we intend to do
         // our own playlist parsing anyway, so no biggie.
-        mpv_stop();
+        doMpvStopPlayback();
     }
 }
 
@@ -455,53 +455,53 @@ void MainWindow::position_sliderMoved(int position)
 
 void MainWindow::on_play_clicked()
 {
-    if (!is_playing)
+    if (!isPlaying_)
         return;
-    if (is_paused) {
+    if (isPaused_) {
         mpvw->setPaused(false);
         mpvw_pausedChanged(false);
         ui->pause->setChecked(false);
     }
-    if (speed != 1.0) {
-        speed = 1.0;
-        mpv_set_speed(speed);
+    if (playbackSpeed_ != 1.0) {
+        playbackSpeed_ = 1.0;
+        doMpvSetSpeed(playbackSpeed_);
     }
 }
 
 void MainWindow::volume_sliderMoved(double position)
 {
-    mpv_set_volume(position);
+    doMpvSetVolume(position);
 }
 
 void MainWindow::mpvw_playTimeChanged(double time)
 {
-    ui_position->setValue(time >= 0 ? time : 0);
-    update_time();
+    positionSlider_->setValue(time >= 0 ? time : 0);
+    updateTime();
 }
 
 void MainWindow::mpvw_playLengthChanged(double length)
 {
-    ui_position->setMaximum(length >= 0 ? length : 0);
-    update_time();
+    positionSlider_->setMaximum(length >= 0 ? length : 0);
+    updateTime();
 }
 
 void MainWindow::mpvw_playbackStarted()
 {
-    is_playing = true;
+    isPlaying_ = true;
     mpvw_pausedChanged(false);
-    ui_reset_state(true);
+    setUiEnabledState(true);
 }
 
 void MainWindow::mpvw_pausedChanged(bool yes)
 {
-    is_paused = yes;
-    update_status();
+    isPaused_ = yes;
+    updatePlaybackStatus();
 }
 
 void MainWindow::mpvw_playbackFinished()
 {
-    mpv_stop(true);
-    ui_reset_state(false);
+    doMpvStopPlayback(true);
+    setUiEnabledState(false);
 }
 
 void MainWindow::mpvw_mediaTitleChanged(QString title)
@@ -516,10 +516,10 @@ void MainWindow::mpvw_mediaTitleChanged(QString title)
 void MainWindow::mpvw_chaptersChanged(QVariantList chapters)
 {
     // Here we add (named) ticks to the position slider.
-    ui_position->clearTicks();
+    positionSlider_->clearTicks();
     for (QVariant v : chapters) {
         QMap<QString, QVariant> node = v.toMap();
-        ui_position->setTick(node["time"].toDouble(), node["title"].toString());
+        positionSlider_->setTick(node["time"].toDouble(), node["title"].toString());
     }
 
     // Here we populate the chapters menu with the chapters.
@@ -590,15 +590,15 @@ void MainWindow::mpvw_tracksChanged(QVariantList tracks)
 void MainWindow::mpvw_videoSizeChanged(QSize size)
 {
     (void)size;
-    update_size();
+    updateSize();
 }
 
-void MainWindow::send_update_size()
+void MainWindow::sendUpdateSize()
 {
-    update_size();
+    updateSize();
 }
 
-void MainWindow::action_connect_buttons()
+void MainWindow::connectButtonsToActions()
 {
     connect(ui->pause, &QPushButton::toggled, ui->action_play_pause, &QAction::toggled);
     connect(ui->stop, &QPushButton::clicked, ui->action_play_stop, &QAction::triggered);
@@ -614,14 +614,14 @@ void MainWindow::action_connect_buttons()
     connect(ui->mute, &QPushButton::toggled, ui->action_play_volume_mute, &QAction::toggled);
 }
 
-void MainWindow::action_globalize_all()
+void MainWindow::globalizeAllActions()
 {
     for (QAction *a : ui->menubar->actions()) {
         addAction(a);
     }
 }
 
-void MainWindow::ui_set_decoration_state(DecorationState state)
+void MainWindow::setUiDecorationState(DecorationState state)
 {
     QString actionTexts[] = { tr("Hide &Menu"), tr("Hide &Borders"),
                               tr("Sho&w Caption and Menu") };
@@ -638,13 +638,13 @@ void MainWindow::ui_set_decoration_state(DecorationState state)
         menuBar()->hide();
     ui->action_view_hide_menu->setText(actionTexts[static_cast<int>(state)]);
     setWindowFlags(winFlags[static_cast<int>(state)]);
-    this->decoration_state = state;
+    this->decorationState_ = state;
     show();
 }
 
-void MainWindow::ui_reset_state(bool enabled)
+void MainWindow::setUiEnabledState(bool enabled)
 {
-    ui_position->setEnabled(enabled);
+    positionSlider_->setEnabled(enabled);
 
     ui->play->setEnabled(enabled);
     ui->pause->setEnabled(enabled);
@@ -657,7 +657,7 @@ void MainWindow::ui_reset_state(bool enabled)
     ui->skipForward->setEnabled(enabled);
 
     ui->mute->setEnabled(enabled);
-    ui_volume->setEnabled(enabled);
+    volumeSlider_->setEnabled(enabled);
 
     ui->pause->setChecked(false);
     ui->action_play_pause->setChecked(false);
@@ -689,25 +689,25 @@ void MainWindow::ui_reset_state(bool enabled)
     ui->menu_navigate_chapters->setEnabled(enabled);
 }
 
-void MainWindow::update_time()
+void MainWindow::updateTime()
 {
     double play_time = mpvw->playTime();
     double play_length = mpvw->playLength();
     ui->time->setText(QString("%1 / %2").arg(toDateFormat(play_time),toDateFormat(play_length)));
 }
 
-void MainWindow::update_status()
+void MainWindow::updatePlaybackStatus()
 {
-    ui->status->setText(is_playing ? is_paused ? "Paused" : "Playing" : "Stopped");
+    ui->status->setText(isPlaying_ ? isPaused_ ? "Paused" : "Playing" : "Stopped");
 }
 
-void MainWindow::update_size(bool first_run)
+void MainWindow::updateSize(bool first_run)
 {
-    if (size_factor <= 0 || is_fullscreen || isMaximized())
+    if (sizeFactor_ <= 0 || fullscreenMode_ || isMaximized())
         return;
 
-    QSize sz_player = is_playing ? mpvw->videoSize() : no_video_size;
-    double factor_to_use = is_playing ? size_factor : std::max(1.0, size_factor);
+    QSize sz_player = isPlaying_ ? mpvw->videoSize() : noVideoSize_;
+    double factor_to_use = isPlaying_ ? sizeFactor_ : std::max(1.0, sizeFactor_);
     QSize sz_wanted(sz_player.width()*factor_to_use + 0.5,
                     sz_player.height()*factor_to_use + 0.5);
     QSize sz_current = mpvw->size();
@@ -725,22 +725,22 @@ void MainWindow::update_size(bool first_run)
                     desktop->availableGeometry(this)));
 }
 
-void MainWindow::mpv_stop(bool dry_run)
+void MainWindow::doMpvStopPlayback(bool dry_run)
 {
     if (!dry_run)
         mpvw->stopPlayback();
-    is_playing = false;
-    update_status();
-    update_size();
+    isPlaying_ = false;
+    updatePlaybackStatus();
+    updateSize();
 }
 
-void MainWindow::mpv_set_speed(double speed)
+void MainWindow::doMpvSetSpeed(double speed)
 {
     mpvw->setSpeed(speed);
     mpvw->showMessage(QString("Speed: %1").arg(speed));
 }
 
-void MainWindow::mpv_set_volume(int volume)
+void MainWindow::doMpvSetVolume(int volume)
 {
     mpvw->setVolume(volume);
     mpvw->showMessage(QString("Volume :%1%").arg(volume));
