@@ -27,53 +27,14 @@ MainWindow::MainWindow(QWidget *parent) :
     decorationState_ = AllDecorations;
 
     ui->setupUi(this);
+    setupMenu();
+    setupPositionSlider();
+    setupVolumeSlider();
+    setupMpvWidget();
+    setupMpvHost();
 
-    // Work around separators with text in the designer not showing as
-    // sections
-    ui->menu_play_after->insertSection(ui->action_play_after_once_exit,
-                                       tr("Once"));
-    ui->menu_play_after->insertSection(ui->action_play_after_always_exit,
-                                       tr("Every time"));
-
-    ui->info_stats->setVisible(false);
     connect(this, &MainWindow::fireUpdateSize, this, &MainWindow::sendUpdateSize,
             Qt::QueuedConnection);
-
-    positionSlider_ = new QMediaSlider();
-    ui->seekbar->layout()->addWidget(positionSlider_);
-    connect(positionSlider_, &QMediaSlider::sliderMoved, this, &MainWindow::position_sliderMoved);
-
-    volumeSlider_ = new QVolumeSlider();
-    volumeSlider_->setMinimumWidth(50);
-    volumeSlider_->setMinimum(0);
-    volumeSlider_->setMaximum(100);
-    volumeSlider_->setValue(100);
-    ui->controlbar->layout()->addWidget(volumeSlider_);
-    connect(volumeSlider_, &QVolumeSlider::sliderMoved, this, &MainWindow::volume_sliderMoved);
-
-    mpvw = new MpvWidget(this);
-    connect(mpvw, &MpvWidget::playTimeChanged, this, &MainWindow::mpvw_playTimeChanged);
-    connect(mpvw, &MpvWidget::playLengthChanged, this, &MainWindow::mpvw_playLengthChanged);
-    connect(mpvw, &MpvWidget::playbackStarted, this, &MainWindow::mpvw_playbackStarted);
-    connect(mpvw, &MpvWidget::pausedChanged, this, &MainWindow::mpvw_pausedChanged);
-    connect(mpvw, &MpvWidget::playbackFinished, this, &MainWindow::mpvw_playbackFinished);
-    connect(mpvw, &MpvWidget::mediaTitleChanged, this, &MainWindow::mpvw_mediaTitleChanged);
-    connect(mpvw, &MpvWidget::chaptersChanged, this, &MainWindow::mpvw_chaptersChanged);
-    connect(mpvw, &MpvWidget::tracksChanged, this, &MainWindow::mpvw_tracksChanged);
-    connect(mpvw, &MpvWidget::videoSizeChanged, this, &MainWindow::mpvw_videoSizeChanged);
-
-    // Wrap mpvw in a special QMainWindow widget so that the playlist window
-    // will dock around it rather than ourselves
-    mpvHost_ = new QMainWindow(this);
-    mpvHost_->setStyleSheet("background-color: black; background: center url("
-                            ":/images/bitmaps/blank-screen.png) no-repeat;");
-    mpvHost_->setCentralWidget(mpvw);
-    mpvHost_->setSizePolicy(QSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred));
-    ui->mpv_widget->layout()->addWidget(mpvHost_);
-
-    connectButtonsToActions();
-    globalizeAllActions();
-    setUiEnabledState(false);
 
     // Guarantee that the layout has been calculated.  It seems pointless, but
     // Without it the window will temporarily display at a larger size than
@@ -665,6 +626,66 @@ void MainWindow::setPlaybackSpeed(double speed)
 void MainWindow::setSizeFactor(double factor)
 {
     sizeFactor_ = factor;
+}
+
+void MainWindow::setupMenu()
+{
+    // Work around separators with text in the designer not showing as
+    // sections
+    ui->menu_play_after->insertSection(ui->action_play_after_once_exit,
+                                       tr("Once"));
+    ui->menu_play_after->insertSection(ui->action_play_after_always_exit,
+                                       tr("Every time"));
+
+    ui->info_stats->setVisible(false);
+}
+
+void MainWindow::setupPositionSlider()
+{
+    positionSlider_ = new QMediaSlider();
+    ui->seekbar->layout()->addWidget(positionSlider_);
+    connect(positionSlider_, &QMediaSlider::sliderMoved, this, &MainWindow::position_sliderMoved);
+}
+
+void MainWindow::setupVolumeSlider()
+{
+    volumeSlider_ = new QVolumeSlider();
+    volumeSlider_->setMinimumWidth(50);
+    volumeSlider_->setMinimum(0);
+    volumeSlider_->setMaximum(100);
+    volumeSlider_->setValue(100);
+    ui->controlbar->layout()->addWidget(volumeSlider_);
+    connect(volumeSlider_, &QVolumeSlider::sliderMoved, this, &MainWindow::volume_sliderMoved);
+}
+
+void MainWindow::setupMpvWidget()
+{
+    mpvw = new MpvWidget(this);
+    connect(mpvw, &MpvWidget::playTimeChanged, this, &MainWindow::mpvw_playTimeChanged);
+    connect(mpvw, &MpvWidget::playLengthChanged, this, &MainWindow::mpvw_playLengthChanged);
+    connect(mpvw, &MpvWidget::playbackStarted, this, &MainWindow::mpvw_playbackStarted);
+    connect(mpvw, &MpvWidget::pausedChanged, this, &MainWindow::mpvw_pausedChanged);
+    connect(mpvw, &MpvWidget::playbackFinished, this, &MainWindow::mpvw_playbackFinished);
+    connect(mpvw, &MpvWidget::mediaTitleChanged, this, &MainWindow::mpvw_mediaTitleChanged);
+    connect(mpvw, &MpvWidget::chaptersChanged, this, &MainWindow::mpvw_chaptersChanged);
+    connect(mpvw, &MpvWidget::tracksChanged, this, &MainWindow::mpvw_tracksChanged);
+    connect(mpvw, &MpvWidget::videoSizeChanged, this, &MainWindow::mpvw_videoSizeChanged);
+}
+
+void MainWindow::setupMpvHost()
+{
+    // Wrap mpvw in a special QMainWindow widget so that the playlist window
+    // will dock around it rather than ourselves
+    mpvHost_ = new QMainWindow(this);
+    mpvHost_->setStyleSheet("background-color: black; background: center url("
+                            ":/images/bitmaps/blank-screen.png) no-repeat;");
+    mpvHost_->setCentralWidget(mpvw);
+    mpvHost_->setSizePolicy(QSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred));
+    ui->mpv_widget->layout()->addWidget(mpvHost_);
+
+    connectButtonsToActions();
+    globalizeAllActions();
+    setUiEnabledState(false);
 }
 
 void MainWindow::connectButtonsToActions()

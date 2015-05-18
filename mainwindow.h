@@ -126,6 +126,11 @@ private:
     void setPlaybackSpeed(double speed);
     void setSizeFactor(double factor);
 
+    void setupMenu();
+    void setupPositionSlider();
+    void setupVolumeSlider();
+    void setupMpvWidget();
+    void setupMpvHost();
     void connectButtonsToActions();
     void globalizeAllActions();
     void setUiDecorationState(DecorationState state);
