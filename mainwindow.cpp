@@ -250,15 +250,13 @@ void MainWindow::on_action_view_presets_normal_triggered()
 
 void MainWindow::on_action_view_fullscreen_toggled(bool checked)
 {
-    fullscreenMode_ = checked;
+    setFullscreenMode(checked);
 
     if (checked) {
-        showFullScreen();
         menuBar()->hide();
         ui->control_section->hide();
         ui->info_section->hide();
     } else {
-        showNormal();
         if (ui->action_view_hide_menu->isChecked())
             menuBar()->show();
         ui->control_section->show();
@@ -320,39 +318,32 @@ void MainWindow::on_action_play_stop_triggered()
 void MainWindow::on_action_play_frame_backward_triggered()
 {
     mpvw->stepBackward();
-    isPaused_ = true;
+    setPaused(true);
     updatePlaybackStatus();
 }
 
 void MainWindow::on_action_play_frame_forward_triggered()
 {
     mpvw->stepForward();
-    isPaused_ = true;
+    setPaused(true);
     updatePlaybackStatus();
 }
 
 void MainWindow::on_action_play_rate_decrease_triggered()
 {
-    if (playbackSpeed_ <= 0.125)
-        return;
-    playbackSpeed_ /= 2;
-    doMpvSetSpeed(playbackSpeed_);
+    setPlaybackSpeed(playbackSpeed() / 2);
 }
 
 void MainWindow::on_action_play_rate_increase_triggered()
 {
-    if (playbackSpeed_ >= 8.0)
-        return;
-    playbackSpeed_ *= 2;
-    doMpvSetSpeed(playbackSpeed_);
+    setPlaybackSpeed(playbackSpeed() * 2);
 }
 
 void MainWindow::on_action_play_rate_reset_triggered()
 {
-    if (playbackSpeed_ == 1.0)
+    if (playbackSpeed() == 1.0)
         return;
-    playbackSpeed_ = 1.0;
-    doMpvSetSpeed(playbackSpeed_);
+    setPlaybackSpeed(1.0);
 }
 
 void MainWindow::action_play_audio_selected(QVariant data)
@@ -455,17 +446,14 @@ void MainWindow::position_sliderMoved(int position)
 
 void MainWindow::on_play_clicked()
 {
-    if (!isPlaying_)
+    if (!isPlaying())
         return;
-    if (isPaused_) {
+    if (isPaused()) {
         mpvw->setPaused(false);
         mpvw_pausedChanged(false);
         ui->pause->setChecked(false);
     }
-    if (playbackSpeed_ != 1.0) {
-        playbackSpeed_ = 1.0;
-        doMpvSetSpeed(playbackSpeed_);
-    }
+    on_action_play_rate_reset_triggered();
 }
 
 void MainWindow::volume_sliderMoved(double position)
@@ -475,26 +463,26 @@ void MainWindow::volume_sliderMoved(double position)
 
 void MainWindow::mpvw_playTimeChanged(double time)
 {
-    positionSlider_->setValue(time >= 0 ? time : 0);
+    positionSlider()->setValue(time >= 0 ? time : 0);
     updateTime();
 }
 
 void MainWindow::mpvw_playLengthChanged(double length)
 {
-    positionSlider_->setMaximum(length >= 0 ? length : 0);
+    positionSlider()->setMaximum(length >= 0 ? length : 0);
     updateTime();
 }
 
 void MainWindow::mpvw_playbackStarted()
 {
-    isPlaying_ = true;
+    setPlaying(true);
     mpvw_pausedChanged(false);
     setUiEnabledState(true);
 }
 
 void MainWindow::mpvw_pausedChanged(bool yes)
 {
-    isPaused_ = yes;
+    setPaused(yes);
     updatePlaybackStatus();
 }
 
@@ -516,10 +504,10 @@ void MainWindow::mpvw_mediaTitleChanged(QString title)
 void MainWindow::mpvw_chaptersChanged(QVariantList chapters)
 {
     // Here we add (named) ticks to the position slider.
-    positionSlider_->clearTicks();
+    positionSlider()->clearTicks();
     for (QVariant v : chapters) {
         QMap<QString, QVariant> node = v.toMap();
-        positionSlider_->setTick(node["time"].toDouble(), node["title"].toString());
+        positionSlider()->setTick(node["time"].toDouble(), node["title"].toString());
     }
 
     // Here we populate the chapters menu with the chapters.
@@ -598,6 +586,87 @@ void MainWindow::sendUpdateSize()
     updateSize();
 }
 
+QMediaSlider *MainWindow::positionSlider()
+{
+    return positionSlider_;
+}
+
+QVolumeSlider *MainWindow::volumeSlider()
+{
+    return volumeSlider_;
+}
+
+MainWindow::DecorationState MainWindow::decorationState()
+{
+    return decorationState_;
+}
+
+bool MainWindow::fullscreenMode()
+{
+    return fullscreenMode_;
+}
+
+QSize MainWindow::noVideoSize()
+{
+    return noVideoSize_;
+}
+
+bool MainWindow::isPlaying()
+{
+    return isPlaying_;
+}
+
+bool MainWindow::isPaused()
+{
+    return isPaused_;
+}
+
+double MainWindow::playbackSpeed()
+{
+    return playbackSpeed_;
+}
+
+double MainWindow::sizeFactor()
+{
+    return sizeFactor_;
+}
+
+void MainWindow::setFullscreenMode(bool fullscreenMode)
+{
+    fullscreenMode_ = fullscreenMode;
+    if (fullscreenMode)
+        showFullScreen();
+    else
+        showNormal();
+}
+
+void MainWindow::setNoVideoSize(QSize size)
+{
+    noVideoSize_ = size;
+}
+
+void MainWindow::setPlaying(bool yes)
+{
+    isPlaying_ = yes;
+}
+
+void MainWindow::setPaused(bool yes)
+{
+    isPaused_ = yes;
+}
+
+void MainWindow::setPlaybackSpeed(double speed)
+{
+    playbackSpeed_ = std::max(0.125, std::min(8.0, speed));
+    mpvw->setSpeed(speed);
+    mpvw->showMessage(QString("Speed: %1").arg(speed));
+}
+
+void MainWindow::setSizeFactor(double factor)
+{
+    sizeFactor_ = factor;
+}
+
 void MainWindow::connectButtonsToActions()
 {
     connect(ui->pause, &QPushButton::toggled, ui->action_play_pause, &QAction::toggled);
@@ -644,7 +713,7 @@ void MainWindow::setUiDecorationState(DecorationState state)
 
 void MainWindow::setUiEnabledState(bool enabled)
 {
-    positionSlider_->setEnabled(enabled);
+    positionSlider()->setEnabled(enabled);
 
     ui->play->setEnabled(enabled);
     ui->pause->setEnabled(enabled);
@@ -657,7 +726,7 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->skipForward->setEnabled(enabled);
 
     ui->mute->setEnabled(enabled);
-    volumeSlider_->setEnabled(enabled);
+    volumeSlider()->setEnabled(enabled);
 
     ui->pause->setChecked(false);
     ui->action_play_pause->setChecked(false);
@@ -698,16 +767,16 @@ void MainWindow::updateTime()
 
 void MainWindow::updatePlaybackStatus()
 {
-    ui->status->setText(isPlaying_ ? isPaused_ ? "Paused" : "Playing" : "Stopped");
+    ui->status->setText(isPlaying() ? isPaused() ? "Paused" : "Playing" : "Stopped");
 }
 
 void MainWindow::updateSize(bool first_run)
 {
-    if (sizeFactor_ <= 0 || fullscreenMode_ || isMaximized())
+    if (sizeFactor() <= 0 || fullscreenMode() || isMaximized())
         return;
 
-    QSize sz_player = isPlaying_ ? mpvw->videoSize() : noVideoSize_;
-    double factor_to_use = isPlaying_ ? sizeFactor_ : std::max(1.0, sizeFactor_);
+    QSize sz_player = isPlaying() ? mpvw->videoSize() : noVideoSize();
+    double factor_to_use = isPlaying() ? sizeFactor() : std::max(1.0, sizeFactor());
     QSize sz_wanted(sz_player.width()*factor_to_use + 0.5,
                     sz_player.height()*factor_to_use + 0.5);
     QSize sz_current = mpvw->size();
@@ -729,15 +798,9 @@ void MainWindow::doMpvStopPlayback(bool dry_run)
 {
     if (!dry_run)
         mpvw->stopPlayback();
-    isPlaying_ = false;
+    setPlaying(false);
     updatePlaybackStatus();
     updateSize();
-}
-
-void MainWindow::doMpvSetSpeed(double speed)
-{
-    mpvw->setSpeed(speed);
-    mpvw->showMessage(QString("Speed: %1").arg(speed));
 }
 
 void MainWindow::doMpvSetVolume(int volume)
@@ -759,7 +822,3 @@ static QString toDateFormat(double time) {
             .arg(QString().number(se),2,'0')
             .arg(QString().number(fr),3,'0');
 }
-
-
-
-

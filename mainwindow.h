@@ -107,6 +107,25 @@ private:
     double playbackSpeed_;  // TODO: move to mpvwidget
     double sizeFactor_;
 
+    QMediaSlider *positionSlider();
+    QVolumeSlider *volumeSlider();
+
+    DecorationState decorationState();
+    bool fullscreenMode();
+    QSize noVideoSize();
+    bool isPlaying();
+    bool isPaused();
+    double playbackSpeed();
+    double sizeFactor();
+
+    void setFullscreenMode(bool fullscreenMode);
+    void setDecorationState(DecorationState decorationState);
+    void setNoVideoSize(QSize size);
+    void setPlaying(bool yes);
+    void setPaused(bool yes);
+    void setPlaybackSpeed(double speed);
+    void setSizeFactor(double factor);
+
     void connectButtonsToActions();
     void globalizeAllActions();
     void setUiDecorationState(DecorationState state);
@@ -115,7 +134,6 @@ private:
     void updatePlaybackStatus();
     void updateSize(bool first_run = false);
     void doMpvStopPlayback(bool dry_run = false);
-    void doMpvSetSpeed(double speed);
     void doMpvSetVolume(int volume);
 };
 
