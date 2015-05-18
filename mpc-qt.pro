@@ -33,4 +33,5 @@ RESOURCES += \
 
 OTHER_FILES += \
     LICENSE \
-    README.md
+    README.md \
+    DOCS/codebase.svg
