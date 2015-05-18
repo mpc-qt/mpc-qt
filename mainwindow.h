@@ -84,7 +84,7 @@ private slots:
     void me_title(QString title);
     void me_chapters(QVariantList chapters);
     void me_tracks(QVariantList tracks);
-    void me_size();
+    void me_size(QSize size);
 
     void send_update_size();
 

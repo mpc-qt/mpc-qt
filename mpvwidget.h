@@ -34,10 +34,8 @@ public:
     void setVolume(int64_t volume);
 
     // These query the tracked video state
-    QVariantList chapters();
     double playLength();
     double playTime();
-    QVariantList tracks();
     QSize videoSize();
 
 signals:
@@ -52,7 +50,7 @@ signals:
     void mediaTitleChanged(QString title);
     void chaptersChanged(QVariantList chapters);
     void tracksChanged(QVariantList tracks);
-    void videoSizeChanged();
+    void videoSizeChanged(QSize size);
     void fpsChanged(double fps);
     void avsyncChanged(double sync);
     void displayFramedropsChanged(int64_t count);
@@ -68,8 +66,6 @@ private:
     QSize videoSize_;
     double playTime_;
     double playLength_;
-    QVariantList tracks_;
-    QVariantList chapters_;
 
     void handleMpvEvent(mpv_event *event);
     QString getPropertyString(const char *property);

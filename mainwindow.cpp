@@ -587,8 +587,9 @@ void MainWindow::me_tracks(QVariantList tracks)
     }
 }
 
-void MainWindow::me_size()
+void MainWindow::me_size(QSize size)
 {
+    (void)size;
     update_size();
 }
 

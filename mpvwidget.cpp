@@ -167,11 +167,6 @@ void MpvWidget::setVolume(int64_t volume)
     mpv_set_property(mpv, "volume", MPV_FORMAT_INT64, &volume);
 }
 
-QVariantList MpvWidget::chapters()
-{
-    return chapters_;
-}
-
 double MpvWidget::playLength()
 {
     return playLength_;
@@ -180,11 +175,6 @@ double MpvWidget::playLength()
 double MpvWidget::playTime()
 {
     return playTime_;
-}
-
-QVariantList MpvWidget::tracks()
-{
-    return tracks_;
 }
 
 QSize MpvWidget::videoSize()
@@ -291,7 +281,7 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
             // mpv itself will scale/letter box the video to the container
             // size if the video doesn't fit and automatic zooming is not
             // active.
-            videoSizeChanged();
+            videoSizeChanged(videoSize_);
         }
         break;
     }
