@@ -13,7 +13,7 @@
 #include <QLibraryInfo>
 #include <QDebug>
 
-static QString to_date_fmt(double time);
+static QString toDateFormat(double time);
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -52,15 +52,15 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui_volume, &QVolumeSlider::sliderMoved, this, &MainWindow::volume_sliderMoved);
 
     mpvw = new MpvWidget(this);
-    connect(mpvw, &MpvWidget::playTimeChanged, this, &MainWindow::me_play_time);
-    connect(mpvw, &MpvWidget::playLengthChanged, this, &MainWindow::me_length);
-    connect(mpvw, &MpvWidget::playbackStarted, this, &MainWindow::me_started);
-    connect(mpvw, &MpvWidget::pausedChanged, this, &MainWindow::me_pause);
-    connect(mpvw, &MpvWidget::playbackFinished, this, &MainWindow::me_finished);
-    connect(mpvw, &MpvWidget::mediaTitleChanged, this, &MainWindow::me_title);
-    connect(mpvw, &MpvWidget::chaptersChanged, this, &MainWindow::me_chapters);
-    connect(mpvw, &MpvWidget::tracksChanged, this, &MainWindow::me_tracks);
-    connect(mpvw, &MpvWidget::videoSizeChanged, this, &MainWindow::me_size);
+    connect(mpvw, &MpvWidget::playTimeChanged, this, &MainWindow::mpvw_playTimeChanged);
+    connect(mpvw, &MpvWidget::playLengthChanged, this, &MainWindow::mpvw_playLengthChanged);
+    connect(mpvw, &MpvWidget::playbackStarted, this, &MainWindow::mpvw_playbackStarted);
+    connect(mpvw, &MpvWidget::pausedChanged, this, &MainWindow::mpvw_pausedChanged);
+    connect(mpvw, &MpvWidget::playbackFinished, this, &MainWindow::mpvw_playbackFinished);
+    connect(mpvw, &MpvWidget::mediaTitleChanged, this, &MainWindow::mpvw_mediaTitleChanged);
+    connect(mpvw, &MpvWidget::chaptersChanged, this, &MainWindow::mpvw_chaptersChanged);
+    connect(mpvw, &MpvWidget::tracksChanged, this, &MainWindow::mpvw_tracksChanged);
+    connect(mpvw, &MpvWidget::videoSizeChanged, this, &MainWindow::mpvw_videoSizeChanged);
 
     // Wrap mpvw in a special QMainWindow widget so that the playlist window
     // will dock around it rather than ourselves
@@ -306,7 +306,7 @@ void MainWindow::on_action_view_zoom_disable_triggered()
 void MainWindow::on_action_play_pause_toggled(bool checked)
 {
     mpvw->setPaused(checked);
-    me_pause(checked);
+    mpvw_pausedChanged(checked);
 
     ui->pause->setChecked(checked);
     ui->action_play_pause->setChecked(checked);
@@ -459,7 +459,7 @@ void MainWindow::on_play_clicked()
         return;
     if (is_paused) {
         mpvw->setPaused(false);
-        me_pause(false);
+        mpvw_pausedChanged(false);
         ui->pause->setChecked(false);
     }
     if (speed != 1.0) {
@@ -473,38 +473,38 @@ void MainWindow::volume_sliderMoved(double position)
     mpv_set_volume(position);
 }
 
-void MainWindow::me_play_time(double time)
+void MainWindow::mpvw_playTimeChanged(double time)
 {
     ui_position->setValue(time >= 0 ? time : 0);
     update_time();
 }
 
-void MainWindow::me_length(double length)
+void MainWindow::mpvw_playLengthChanged(double length)
 {
     ui_position->setMaximum(length >= 0 ? length : 0);
     update_time();
 }
 
-void MainWindow::me_started()
+void MainWindow::mpvw_playbackStarted()
 {
     is_playing = true;
-    me_pause(false);
+    mpvw_pausedChanged(false);
     ui_reset_state(true);
 }
 
-void MainWindow::me_pause(bool yes)
+void MainWindow::mpvw_pausedChanged(bool yes)
 {
     is_paused = yes;
     update_status();
 }
 
-void MainWindow::me_finished()
+void MainWindow::mpvw_playbackFinished()
 {
     mpv_stop(true);
     ui_reset_state(false);
 }
 
-void MainWindow::me_title(QString title)
+void MainWindow::mpvw_mediaTitleChanged(QString title)
 {
     QString window_title("Media Player Classic Qute Theater");
 
@@ -513,7 +513,7 @@ void MainWindow::me_title(QString title)
     setWindowTitle(window_title);
 }
 
-void MainWindow::me_chapters(QVariantList chapters)
+void MainWindow::mpvw_chaptersChanged(QVariantList chapters)
 {
     // Here we add (named) ticks to the position slider.
     ui_position->clearTicks();
@@ -531,7 +531,7 @@ void MainWindow::me_chapters(QVariantList chapters)
         QMap<QString, QVariant> node = v.toMap();
         action = new QAction(this);
         action->setText(QString("[%1] - %2").arg(
-                            to_date_fmt(node["time"].toDouble()),
+                            toDateFormat(node["time"].toDouble()),
                             node["title"].toString()));
         emitter = new data_emitter(action);
         emitter->data = index;
@@ -542,7 +542,7 @@ void MainWindow::me_chapters(QVariantList chapters)
     }
 }
 
-void MainWindow::me_tracks(QVariantList tracks)
+void MainWindow::mpvw_tracksChanged(QVariantList tracks)
 {
     auto str = [](QVariantMap map, QString key) {
         return map[key].toString();
@@ -587,7 +587,7 @@ void MainWindow::me_tracks(QVariantList tracks)
     }
 }
 
-void MainWindow::me_size(QSize size)
+void MainWindow::mpvw_videoSizeChanged(QSize size)
 {
     (void)size;
     update_size();
@@ -693,7 +693,7 @@ void MainWindow::update_time()
 {
     double play_time = mpvw->playTime();
     double play_length = mpvw->playLength();
-    ui->time->setText(QString("%1 / %2").arg(to_date_fmt(play_time),to_date_fmt(play_length)));
+    ui->time->setText(QString("%1 / %2").arg(toDateFormat(play_time),toDateFormat(play_length)));
 }
 
 void MainWindow::update_status()
@@ -746,7 +746,7 @@ void MainWindow::mpv_set_volume(int volume)
     mpvw->showMessage(QString("Volume :%1%").arg(volume));
 }
 
-static QString to_date_fmt(double time) {
+static QString toDateFormat(double time) {
     int t = time*1000 + 0.5;
     if (t < 0)
         t = 0;
