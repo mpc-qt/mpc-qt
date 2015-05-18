@@ -11,68 +11,68 @@ class MpvWidget : public QWidget
 public:
     explicit MpvWidget(QWidget *parent = 0);
     ~MpvWidget();
-    void show_message(QString message);
+    void showMessage(QString message);
 
     // These are straightforward calls to libmpv
-    void command_file_open(QString filename);
-    void command_stop();
-    void command_step_backward();
-    void command_step_forward();
+    void fileOpen(QString filename);
+    void stopPlayback();
+    void stepBackward();
+    void stepForward();
 
     // These are straightforward queries to libmpv
-    int64_t property_chapter_get();
-    bool property_chapter_set(int64_t chapter);
-    QString property_media_title_get();
-    void property_mute_set(bool yes);
-    void property_pause_set(bool yes);
-    void property_speed_set(double speed);
-    void property_time_set(double position);
-    void property_track_audio_set(int64_t id);
-    void property_track_subtitle_set(int64_t id);
-    void property_track_video_set(int64_t id);
-    QString property_version_get();
-    void property_volume_set(int64_t volume);
+    int64_t chapter();
+    bool setChapter(int64_t chapter);
+    QString mediaTitle();
+    void setMute(bool yes);
+    void setPaused(bool yes);
+    void setSpeed(double speed);
+    void setTime(double position);
+    void setAudioTrack(int64_t id);
+    void setSubtitleTrack(int64_t id);
+    void setVideoTrack(int64_t id);
+    QString mpvVersion();
+    void setVolume(int64_t volume);
 
     // These query the tracked video state
-    QVariantList state_chapters_get();
-    double state_play_length_get();
-    double state_play_time_get();
-    QVariantList state_tracks_get();
-    QSize state_video_size_get();
+    QVariantList chapters();
+    double playLength();
+    double playTime();
+    QVariantList tracks();
+    QSize videoSize();
 
 signals:
-    void fire_mpv_events();
+    void fireMpvEvents();
 
     // Pronounce 'me' as 'mpv event'.
-    void me_play_time(double time);
-    void me_length(double length);
-    void me_started();
-    void me_pause(bool yes);
-    void me_finished();
-    void me_title(QString title);
-    void me_chapters(QVariantList chapters);
-    void me_tracks(QVariantList tracks);
-    void me_size();
-    void me_fps(double fps);
-    void me_avsync(double sync);
-    void me_framedrop_display(int64_t count);
-    void me_framedrop_decoder(int64_t cout);
+    void playTimeChanged(double time);
+    void playLengthChanged(double length);
+    void playbackStarted();
+    void pausedChanged(bool yes);
+    void playbackFinished();
+    void mediaTitleChanged(QString title);
+    void chaptersChanged(QVariantList chapters);
+    void tracksChanged(QVariantList tracks);
+    void videoSizeChanged();
+    void fpsChanged(double fps);
+    void avsyncChanged(double sync);
+    void displayFramedropsChanged(int64_t count);
+    void decoderFramedropsChanged(int64_t cout);
 
 public slots:
 
 private slots:
-    void mpv_events();
+    void mpvEvents();
 
 private:
     mpv_handle *mpv;
-    QSize video_size;
-    double play_time;
-    double play_length;
-    QVariantList tracks;
-    QVariantList chapters;
+    QSize videoSize_;
+    double playTime_;
+    double playLength_;
+    QVariantList tracks_;
+    QVariantList chapters_;
 
-    void handle_mpv_event(mpv_event *event);
-    QString get_property_string(const char *property);
+    void handleMpvEvent(mpv_event *event);
+    QString getPropertyString(const char *property);
 };
 
 #endif // MPVWIDGET_H

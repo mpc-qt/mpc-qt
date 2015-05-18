@@ -8,7 +8,7 @@ static void wakeup(void *ctx)
     // Notify the Qt GUI thread to wake up so that it can process events with
     // mpv_wait_event().
     MpvWidget *widget= (MpvWidget*)ctx;
-    emit widget->fire_mpv_events();
+    emit widget->fireMpvEvents();
 }
 
 MpvWidget::MpvWidget(QWidget *parent) :
@@ -47,7 +47,7 @@ MpvWidget::MpvWidget(QWidget *parent) :
     // From this point on, the wakeup function will be called. The callback
     // can come from any thread, so we use the QueuedConnection mechanism to
     // relay the wakeup in a thread-safe way.
-    connect(this, &MpvWidget::fire_mpv_events, this, &MpvWidget::mpv_events,
+    connect(this, &MpvWidget::fireMpvEvents, this, &MpvWidget::mpvEvents,
             Qt::QueuedConnection);
     mpv_set_wakeup_callback(mpv, wakeup, this);
 
@@ -66,7 +66,7 @@ MpvWidget::~MpvWidget()
         mpv_terminate_destroy(mpv);
 }
 
-void MpvWidget::show_message(QString message)
+void MpvWidget::showMessage(QString message)
 {
     if (!mpv) return;
     const char *array[4] = { "show_text", message.toUtf8().data(), "1000",
@@ -74,7 +74,7 @@ void MpvWidget::show_message(QString message)
     mpv_command(mpv, array);
 }
 
-void MpvWidget::command_file_open(QString filename)
+void MpvWidget::fileOpen(QString filename)
 {
     if (!mpv) return;
     const QByteArray c_filename = filename.toUtf8();
@@ -82,23 +82,23 @@ void MpvWidget::command_file_open(QString filename)
     mpv_command_async(mpv, 0, args);
 }
 
-void MpvWidget::command_step_backward()
+void MpvWidget::stepBackward()
 {
     mpv_command_string(mpv, "frame_back_step");
 }
 
-void MpvWidget::command_step_forward()
+void MpvWidget::stepForward()
 {
     mpv_command_string(mpv, "frame_step");
 }
 
-void MpvWidget::command_stop()
+void MpvWidget::stopPlayback()
 {
     if (!mpv) return;
     mpv_command_string(mpv, "stop");
 }
 
-int64_t MpvWidget::property_chapter_get()
+int64_t MpvWidget::chapter()
 {
     if (!mpv) return 0;
     int64_t chapter = 0;
@@ -106,104 +106,104 @@ int64_t MpvWidget::property_chapter_get()
     return chapter;
 }
 
-bool MpvWidget::property_chapter_set(int64_t chapter)
+bool MpvWidget::setChapter(int64_t chapter)
 {
     if (!mpv) return false;
     return mpv_set_property(mpv, "chapter", MPV_FORMAT_INT64, &chapter) == 0;
 }
 
-QString MpvWidget::property_media_title_get()
+QString MpvWidget::mediaTitle()
 {
-    return get_property_string("media-title");
+    return getPropertyString("media-title");
 }
 
-void MpvWidget::property_mute_set(bool yes)
+void MpvWidget::setMute(bool yes)
 {
     int64_t flag = yes ? 1 : 0;
     mpv_set_property(mpv, "mute", MPV_FORMAT_FLAG, &flag);
 }
 
-void MpvWidget::property_pause_set(bool yes)
+void MpvWidget::setPaused(bool yes)
 {
     if (!mpv) return;
     mpv_set_property_string(mpv, "pause", yes ? "yes" : "no");
 }
 
-void MpvWidget::property_speed_set(double speed)
+void MpvWidget::setSpeed(double speed)
 {
     if (!mpv) return;
     mpv_set_property(mpv, "speed", MPV_FORMAT_DOUBLE, &speed);
 }
 
-void MpvWidget::property_time_set(double position)
+void MpvWidget::setTime(double position)
 {
     if (!mpv) return;
     mpv_set_property(mpv, "time-pos", MPV_FORMAT_DOUBLE, &position);
 }
 
-void MpvWidget::property_track_audio_set(int64_t id)
+void MpvWidget::setAudioTrack(int64_t id)
 {
     mpv_set_property(mpv, "aid", MPV_FORMAT_INT64, &id);
 }
 
-void MpvWidget::property_track_subtitle_set(int64_t id)
+void MpvWidget::setSubtitleTrack(int64_t id)
 {
     mpv_set_property(mpv, "sid", MPV_FORMAT_INT64, &id);
 }
 
-void MpvWidget::property_track_video_set(int64_t id)
+void MpvWidget::setVideoTrack(int64_t id)
 {
     mpv_set_property(mpv, "vid", MPV_FORMAT_INT64, &id);
 }
 
-QString MpvWidget::property_version_get()
+QString MpvWidget::mpvVersion()
 {
-    return get_property_string("mpv-version");
+    return getPropertyString("mpv-version");
 }
 
-void MpvWidget::property_volume_set(int64_t volume)
+void MpvWidget::setVolume(int64_t volume)
 {
     if (!mpv) return;
     mpv_set_property(mpv, "volume", MPV_FORMAT_INT64, &volume);
 }
 
-QVariantList MpvWidget::state_chapters_get()
+QVariantList MpvWidget::chapters()
 {
-    return chapters;
+    return chapters_;
 }
 
-double MpvWidget::state_play_length_get()
+double MpvWidget::playLength()
 {
-    return play_length;
+    return playLength_;
 }
 
-double MpvWidget::state_play_time_get()
+double MpvWidget::playTime()
 {
-    return play_time;
+    return playTime_;
 }
 
-QVariantList MpvWidget::state_tracks_get()
+QVariantList MpvWidget::tracks()
 {
-    return tracks;
+    return tracks_;
 }
 
-QSize MpvWidget::state_video_size_get()
+QSize MpvWidget::videoSize()
 {
-    return video_size;
+    return videoSize_;
 }
 
-void MpvWidget::mpv_events()
+void MpvWidget::mpvEvents()
 {
     // Process all events, until the event queue is empty.
     while (mpv) {
         mpv_event *event = mpv_wait_event(mpv, 0);
         if (event->event_id == MPV_EVENT_NONE)
             break;
-        handle_mpv_event(event);
+        handleMpvEvent(event);
     }
 }
 
-void MpvWidget::handle_mpv_event(mpv_event *event)
+void MpvWidget::handleMpvEvent(mpv_event *event)
 {
     switch (event->event_id) {
     case MPV_EVENT_PROPERTY_CHANGE: {
@@ -230,27 +230,25 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
         // TODO: Refactor this by looking up a map of functions to supported
         // property changes.
         if (strcmp(prop->name, "time-pos") == 0) {
-            play_time = asDouble();
-            me_play_time(play_time);
+            playTime_ = asDouble();
+            playTimeChanged(playTime_);
         } else if (strcmp(prop->name, "length") == 0) {
-            play_length = asDouble();
-            me_length(play_length);
+            playLength_ = asDouble();
+            playLengthChanged(playLength_);
         } else if (strcmp(prop->name, "media-title") == 0) {
-            me_title(asString());
+            mediaTitleChanged(asString());
         } else if (strcmp(prop->name, "chapter-list") == 0) {
-            chapters = asNode().toList();
-            me_chapters(chapters);
+            chaptersChanged(asNode().toList());
         } else if (strcmp(prop->name, "track-list") == 0) {
-            tracks = asNode().toList();
-            me_tracks(tracks);
+            tracksChanged(asNode().toList());
         } else if (strcmp(prop->name, "estimated-vf-fps") == 0) {
-            me_fps(asDouble());
+            fpsChanged(asDouble());
         } else if (strcmp(prop->name, "avsync") == 0) {
-            me_avsync(asDouble());
+            avsyncChanged(asDouble());
         } else if (strcmp(prop->name, "vo-drop-frame-count") == 0) {
-            me_framedrop_display(asInt64());
+            displayFramedropsChanged(asInt64());
         } else if (strcmp(prop->name, "drop-frame-count") == 0) {
-            me_framedrop_decoder(asInt64());
+            decoderFramedropsChanged(asInt64());
         } else {
             // Dump other properties as various formats for development purposes.
             // Eventually this will never be called as more control features
@@ -282,8 +280,8 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
             mpv_get_property(mpv, "height", MPV_FORMAT_INT64, &h) >= 0 &&
             w > 0 && h > 0)
         {
-            video_size.setWidth(w);
-            video_size.setHeight(h);
+            videoSize_.setWidth(w);
+            videoSize_.setHeight(h);
 
             // Note that the MPV_EVENT_VIDEO_RECONFIG event doesn't
             // necessarily imply a resize, and you should check yourself if
@@ -293,7 +291,7 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
             // mpv itself will scale/letter box the video to the container
             // size if the video doesn't fit and automatic zooming is not
             // active.
-            me_size();
+            videoSizeChanged();
         }
         break;
     }
@@ -303,17 +301,17 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
         break;
     }
     case MPV_EVENT_START_FILE: {
-        me_started();
+        playbackStarted();
         break;
     }
     case MPV_EVENT_END_FILE: {
-        me_finished();
+        playbackFinished();
         break;
     }
     case MPV_EVENT_SHUTDOWN: {
         mpv_terminate_destroy(mpv);
         mpv = NULL;
-        me_finished();
+        playbackFinished();
         break;
     }
     default: ;
@@ -321,7 +319,7 @@ void MpvWidget::handle_mpv_event(mpv_event *event)
     }
 }
 
-QString MpvWidget::get_property_string(const char *property)
+QString MpvWidget::getPropertyString(const char *property)
 {
     QString text;
     char *value;
