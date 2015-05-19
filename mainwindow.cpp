@@ -32,21 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setupVolumeSlider();
     setupMpvWidget();
     setupMpvHost();
-
-    connect(this, &MainWindow::fireUpdateSize, this, &MainWindow::sendUpdateSize,
-            Qt::QueuedConnection);
-
-    // Guarantee that the layout has been calculated.  It seems pointless, but
-    // Without it the window will temporarily display at a larger size than
-    // it needs to.
-    setAttribute (Qt::WA_DontShowOnScreen, true);
-    show();
-    QEventLoop EventLoop (this);
-    while (EventLoop.processEvents()) {}
-    hide();
-    setAttribute (Qt::WA_DontShowOnScreen, false);
-
-    updateSize(true);
+    setupSizing();
 }
 
 MainWindow::~MainWindow()
@@ -686,6 +672,24 @@ void MainWindow::setupMpvHost()
     connectButtonsToActions();
     globalizeAllActions();
     setUiEnabledState(false);
+}
+
+void MainWindow::setupSizing()
+{
+    connect(this, &MainWindow::fireUpdateSize, this, &MainWindow::sendUpdateSize,
+            Qt::QueuedConnection);
+
+    // Guarantee that the layout has been calculated.  It seems pointless, but
+    // Without it the window will temporarily display at a larger size than
+    // it needs to.
+    setAttribute (Qt::WA_DontShowOnScreen, true);
+    show();
+    QEventLoop EventLoop (this);
+    while (EventLoop.processEvents()) {}
+    hide();
+    setAttribute (Qt::WA_DontShowOnScreen, false);
+
+    updateSize(true);
 }
 
 void MainWindow::connectButtonsToActions()

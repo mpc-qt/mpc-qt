@@ -131,6 +131,7 @@ private:
     void setupVolumeSlider();
     void setupMpvWidget();
     void setupMpvHost();
+    void setupSizing();
     void connectButtonsToActions();
     void globalizeAllActions();
     void setUiDecorationState(DecorationState state);
