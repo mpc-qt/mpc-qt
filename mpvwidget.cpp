@@ -286,7 +286,7 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
         break;
     }
     case MPV_EVENT_LOG_MESSAGE: {
-        struct mpv_event_log_message *msg = (struct mpv_event_log_message *)event->data;
+        mpv_event_log_message *msg = reinterpret_cast<mpv_event_log_message*>(event->data);
         qDebug() << QString("[%1] %2: %3").arg(msg->prefix, msg->level, msg->text);
         break;
     }
