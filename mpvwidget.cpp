@@ -197,7 +197,8 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
 {
     switch (event->event_id) {
     case MPV_EVENT_PROPERTY_CHANGE: {
-        mpv_event_property *prop = reinterpret_cast<mpv_event_property*>(event->data);
+        mpv_event_property *prop =
+                reinterpret_cast<mpv_event_property*>(event->data);
         auto asDouble = [&](double dflt = -1) {
             return (prop->format != MPV_FORMAT_DOUBLE || prop->data == NULL) ?
                         dflt : *reinterpret_cast<double*>(prop->data);
@@ -214,7 +215,8 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
         };
         auto asNode = [&](QVariant dflt = QVariant()) {
             return (prop->format != MPV_FORMAT_NODE || prop->data == NULL) ?
-                        dflt : mpv::qt::node_to_variant(reinterpret_cast<mpv_node*>(prop->data));
+                        dflt : mpv::qt::node_to_variant(
+                            reinterpret_cast<mpv_node*>(prop->data));
         };
 
         // TODO: Refactor this by looking up a map of functions to supported
@@ -240,9 +242,9 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
         } else if (strcmp(prop->name, "drop-frame-count") == 0) {
             decoderFramedropsChanged(asInt64());
         } else {
-            // Dump other properties as various formats for development purposes.
-            // Eventually this will never be called as more control features
-            // are implemented.
+            // Dump other properties as various formats for development
+            // purposes.  Eventually this will never be called as more control
+            // features are implemented.
             QString msg = QString("Change property %1: %2").
                     arg(QString(prop->name));
             if (prop->data == NULL) {
@@ -286,8 +288,10 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
         break;
     }
     case MPV_EVENT_LOG_MESSAGE: {
-        mpv_event_log_message *msg = reinterpret_cast<mpv_event_log_message*>(event->data);
-        qDebug() << QString("[%1] %2: %3").arg(msg->prefix, msg->level, msg->text);
+        mpv_event_log_message *msg =
+                reinterpret_cast<mpv_event_log_message*>(event->data);
+        qDebug() << QString("[%1] %2: %3").arg(msg->prefix, msg->level,
+                                               msg->text);
         break;
     }
     case MPV_EVENT_START_FILE: {
