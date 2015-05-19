@@ -165,7 +165,7 @@ void MainWindow::on_actionViewPresetsMinimal_triggered()
     ui->actionViewHideNavigation->setChecked(false);
 }
 
-void MainWindow::on_actionViewPresetsCompactTriggered()
+void MainWindow::on_actionViewPresetsCompact_triggered()
 {
     // we should set our menu state to something like Framed, but we can't
     // reliably do that across window managers.
@@ -827,8 +827,10 @@ void MainWindow::updatePlaybackStatus()
 
 void MainWindow::updateSize(bool first_run)
 {
-    if (sizeFactor() <= 0 || fullscreenMode() || isMaximized())
+    if (sizeFactor() <= 0 || fullscreenMode() || isMaximized()) {
+        ui->infoSection->layout()->update();
         return;
+    }
 
     QSize player = isPlaying() ? mpvw->videoSize() : noVideoSize();
     double factor = isPlaying() ? sizeFactor() :

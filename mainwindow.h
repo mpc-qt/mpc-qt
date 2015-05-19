@@ -38,7 +38,7 @@ private slots:
     void on_actionViewHideNavigation_toggled(bool checked);
 
     void on_actionViewPresetsMinimal_triggered();
-    void on_actionViewPresetsCompactTriggered();
+    void on_actionViewPresetsCompact_triggered();
     void on_actionViewPresetsNormal_triggered();
 
     void on_actionViewFullscreen_toggled(bool checked);
