@@ -151,10 +151,10 @@ public:
     data_emitter(QObject *parent) : QObject(parent) {}
 
 public slots:
-    void got_something() { heres_something(data); }
+    void gotSomething() { heresSomething(data); }
 
 signals:
-    void heres_something(QVariant data);
+    void heresSomething(QVariant data);
 };
 
 

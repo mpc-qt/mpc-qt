@@ -484,8 +484,8 @@ void MainWindow::mpvw_chaptersChanged(QVariantList chapters)
                             node["title"].toString()));
         emitter = new data_emitter(action);
         emitter->data = index;
-        connect(action, &QAction::triggered, emitter, &data_emitter::got_something);
-        connect(emitter, &data_emitter::heres_something, this, &MainWindow::menuNavigateChapters_selected);
+        connect(action, &QAction::triggered, emitter, &data_emitter::gotSomething);
+        connect(emitter, &data_emitter::heresSomething, this, &MainWindow::menuNavigateChapters_selected);
         ui->menuNavigateChapters->addAction(action);
         index++;
     }
@@ -517,15 +517,15 @@ void MainWindow::mpvw_tracksChanged(QVariantList tracks)
         data_emitter *de = new data_emitter(action);
         action->setText(formatter(t));
         de->data = t["id"];
-        connect(action, &QAction::triggered, de, &data_emitter::got_something);
+        connect(action, &QAction::triggered, de, &data_emitter::gotSomething);
         if (str(t,"type") == "audio") {
-            connect(de, &data_emitter::heres_something, this, &MainWindow::actionPlayAudio_selected);
+            connect(de, &data_emitter::heresSomething, this, &MainWindow::actionPlayAudio_selected);
             ui->menuPlayAudio->addAction(action);
         } else if (str(t,"type") == "sub") {
-            connect(de, &data_emitter::heres_something, this, &MainWindow::actionPlaySubtitles_selected);
+            connect(de, &data_emitter::heresSomething, this, &MainWindow::actionPlaySubtitles_selected);
             ui->menuPlaySubtitles->addAction(action);
         } else if (str(t,"type") == "video") {
-            connect(de, &data_emitter::heres_something, this, &MainWindow::actionPlayVideoTracks_selected);
+            connect(de, &data_emitter::heresSomething, this, &MainWindow::actionPlayVideoTracks_selected);
             ui->menuPlayVideo->addAction(action);
         } else {
             // the track is unused by us for now, so delete the stuff we were
