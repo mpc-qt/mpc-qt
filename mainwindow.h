@@ -21,56 +21,56 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_action_file_open_quick_triggered();
-    void on_action_file_open_triggered();
-    void on_action_file_close_triggered();
-    void on_action_file_exit_triggered();
+    void on_actionFileOpenQuick_triggered();
+    void on_actionFileOpen_triggered();
+    void on_actionFileClose_triggered();
+    void on_actionFileExit_triggered();
 
-    void on_action_view_hide_menu_triggered();
-    void on_action_view_hide_seekbar_toggled(bool checked);
-    void on_action_view_hide_controls_toggled(bool checked);
-    void on_action_view_hide_information_toggled(bool checked);
-    void on_action_view_hide_statistics_toggled(bool checked);
-    void on_action_view_hide_status_toggled(bool checked);
-    void on_action_view_hide_subresync_toggled(bool checked);
-    void on_action_view_hide_playlist_toggled(bool checked);
-    void on_action_view_hide_capture_toggled(bool checked);
-    void on_action_view_hide_navigation_toggled(bool checked);
+    void on_actionViewHideMenu_triggered();
+    void on_actionViewHideSeekbar_toggled(bool checked);
+    void on_actionViewHideControls_toggled(bool checked);
+    void on_actionViewHideInformation_toggled(bool checked);
+    void on_actionViewHideStatistics_toggled(bool checked);
+    void on_actionViewHideStatus_toggled(bool checked);
+    void on_actionViewHideSubresync_toggled(bool checked);
+    void on_actionViewHidePlaylist_toggled(bool checked);
+    void on_actionViewHideCapture_toggled(bool checked);
+    void on_actionViewHideNavigation_toggled(bool checked);
 
-    void on_action_view_presets_minimal_triggered();
-    void on_action_view_presets_compact_triggered();
-    void on_action_view_presets_normal_triggered();
+    void on_actionViewPresetsMinimal_triggered();
+    void on_actionViewPresetsCompactTriggered();
+    void on_actionViewPresetsNormal_triggered();
 
-    void on_action_view_fullscreen_toggled(bool checked);
+    void on_actionViewFullscreen_toggled(bool checked);
 
-    void on_action_view_zoom_050_triggered();
-    void on_action_view_zoom_100_triggered();
-    void on_action_view_zoom_200_triggered();
-    void on_action_view_zoom_autofit_triggered();
-    void on_action_view_zoom_autofit_larger_triggered();
-    void on_action_view_zoom_disable_triggered();
+    void on_actionViewZoom050_triggered();
+    void on_actionViewZoom100_triggered();
+    void on_actionViewZoom200_triggered();
+    void on_actionViewZoomAutofit_triggered();
+    void on_actionViewZoomAutofitLarger_triggered();
+    void on_actionViewZoomDisable_triggered();
 
-    void on_action_play_pause_toggled(bool checked);
-    void on_action_play_stop_triggered();
-    void on_action_play_frame_backward_triggered();
-    void on_action_play_frame_forward_triggered();
-    void on_action_play_rate_decrease_triggered();
-    void on_action_play_rate_increase_triggered();
-    void on_action_play_rate_reset_triggered();
+    void on_actionPlayPause_toggled(bool checked);
+    void on_actionPlayStop_triggered();
+    void on_actionPlayFrameBackward_triggered();
+    void on_actionPlayFrameForward_triggered();
+    void on_actionPlayRateDecrease_triggered();
+    void on_actionPlayRateIncrease_triggered();
+    void on_actionPlayRateReset_triggered();
 
-    void action_play_audio_selected(QVariant data);
-    void action_play_subtitles_selected(QVariant data);
-    void action_play_video_tracks_selected(QVariant data);
+    void actionPlayAudio_selected(QVariant data);
+    void actionPlaySubtitles_selected(QVariant data);
+    void actionPlayVideoTracks_selected(QVariant data);
 
-    void on_action_play_volume_up_triggered();
-    void on_action_play_volume_down_triggered();
-    void on_action_play_volume_mute_toggled(bool checked);
+    void on_actionPlayVolumeUp_triggered();
+    void on_actionPlayVolumeDown_triggered();
+    void on_actionPlayVolumeMute_toggled(bool checked);
 
-    void on_action_navigate_chapters_previous_triggered();
-    void on_action_navigate_chapters_next_triggered();
-    void menu_navigate_chapters(QVariant data);
+    void on_actionNavigateChaptersPrevious_triggered();
+    void on_actionNavigateChaptersNext_triggered();
+    void menuNavigateChapters_selected(QVariant data);
 
-    void on_action_help_about_triggered();
+    void on_actionHelpAbout_triggered();
 
     void position_sliderMoved(int position);
     void on_play_clicked();

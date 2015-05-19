@@ -54,29 +54,29 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_action_file_open_quick_triggered()
+void MainWindow::on_actionFileOpenQuick_triggered()
 {
     // Do nothing special for the moment, call menu_file_open instead
-    on_action_file_open_triggered();
+    on_actionFileOpen_triggered();
 }
 
-void MainWindow::on_action_file_open_triggered()
+void MainWindow::on_actionFileOpen_triggered()
 {
     QString filename = QFileDialog::getOpenFileName(this, "Open file");
     mpvw->fileOpen(filename);
 }
 
-void MainWindow::on_action_file_close_triggered()
+void MainWindow::on_actionFileClose_triggered()
 {
-    on_action_play_stop_triggered();
+    on_actionPlayStop_triggered();
 }
 
-void MainWindow::on_action_file_exit_triggered()
+void MainWindow::on_actionFileExit_triggered()
 {
     close();
 }
 
-void MainWindow::on_action_view_hide_menu_triggered()
+void MainWindow::on_actionViewHideMenu_triggered()
 {
     // View/hide are unmanaged when in fullscreen mode
     if (fullscreenMode_)
@@ -87,37 +87,37 @@ void MainWindow::on_action_view_hide_menu_triggered()
     fireUpdateSize();
 }
 
-void MainWindow::on_action_view_hide_seekbar_toggled(bool checked)
+void MainWindow::on_actionViewHideSeekbar_toggled(bool checked)
 {
     if (checked)
         ui->seekbar->show();
     else
         ui->seekbar->hide();
-    ui->control_section->adjustSize();
+    ui->controlSection->adjustSize();
     fireUpdateSize();
 }
 
-void MainWindow::on_action_view_hide_controls_toggled(bool checked)
+void MainWindow::on_actionViewHideControls_toggled(bool checked)
 {
     if (checked)
         ui->controlbar->show();
     else
         ui->controlbar->hide();
-    ui->control_section->adjustSize();
+    ui->controlSection->adjustSize();
     fireUpdateSize();
 }
 
-void MainWindow::on_action_view_hide_information_toggled(bool checked)
+void MainWindow::on_actionViewHideInformation_toggled(bool checked)
 {
     if (checked)
-        ui->info_stats->show();
+        ui->infoStats->show();
     else
-        ui->info_stats->hide();
-    ui->info_section->adjustSize();
+        ui->infoStats->hide();
+    ui->infoSection->adjustSize();
     fireUpdateSize();
 }
 
-void MainWindow::on_action_view_hide_statistics_toggled(bool checked)
+void MainWindow::on_actionViewHideStatistics_toggled(bool checked)
 {
     // this currently does nothing, because info and statistics are controlled
     // by the same widget.  We're going to manage what's shown by it
@@ -127,24 +127,24 @@ void MainWindow::on_action_view_hide_statistics_toggled(bool checked)
     fireUpdateSize();
 }
 
-void MainWindow::on_action_view_hide_status_toggled(bool checked)
+void MainWindow::on_actionViewHideStatus_toggled(bool checked)
 {
     if (checked)
         ui->statusbar->show();
     else
         ui->statusbar->hide();
-    ui->info_section->adjustSize();
+    ui->infoSection->adjustSize();
     fireUpdateSize();
 }
 
-void MainWindow::on_action_view_hide_subresync_toggled(bool checked)
+void MainWindow::on_actionViewHideSubresync_toggled(bool checked)
 {
     (void)checked;
 
     fireUpdateSize();
 }
 
-void MainWindow::on_action_view_hide_playlist_toggled(bool checked)
+void MainWindow::on_actionViewHidePlaylist_toggled(bool checked)
 {
     // playlist window is unimplemented for now
     (void)checked;
@@ -152,212 +152,212 @@ void MainWindow::on_action_view_hide_playlist_toggled(bool checked)
     fireUpdateSize();
 }
 
-void MainWindow::on_action_view_hide_capture_toggled(bool checked)
+void MainWindow::on_actionViewHideCapture_toggled(bool checked)
 {
     (void)checked;
 
     fireUpdateSize();
 }
 
-void MainWindow::on_action_view_hide_navigation_toggled(bool checked)
+void MainWindow::on_actionViewHideNavigation_toggled(bool checked)
 {
     (void)checked;
 
     fireUpdateSize();
 }
 
-void MainWindow::on_action_view_presets_minimal_triggered()
+void MainWindow::on_actionViewPresetsMinimal_triggered()
 {
     setUiDecorationState(NoDecorations);
-    ui->action_view_hide_seekbar->setChecked(false);
-    ui->action_view_hide_controls->setChecked(false);
-    ui->action_view_hide_information->setChecked(false);
-    ui->action_view_hide_statistics->setChecked(false);
-    ui->action_view_hide_status->setChecked(false);
-    ui->action_view_hide_subresync->setChecked(false);
-    ui->action_view_hide_capture->setChecked(false);
-    ui->action_view_hide_navigation->setChecked(false);
+    ui->actionViewHideSeekbar->setChecked(false);
+    ui->actionViewHideControls->setChecked(false);
+    ui->actionViewHideInformation->setChecked(false);
+    ui->actionViewHideStatistics->setChecked(false);
+    ui->actionViewHideStatus->setChecked(false);
+    ui->actionViewHideSubresync->setChecked(false);
+    ui->actionViewHideCapture->setChecked(false);
+    ui->actionViewHideNavigation->setChecked(false);
 }
 
-void MainWindow::on_action_view_presets_compact_triggered()
+void MainWindow::on_actionViewPresetsCompactTriggered()
 {
     // we should set our menu state to something like Framed, but we can't
     // reliably do that across window managers.
     setUiDecorationState(NoDecorations);
-    ui->action_view_hide_menu->setChecked(true);
-    ui->action_view_hide_seekbar->setChecked(true);
-    ui->action_view_hide_controls->setChecked(false);
-    ui->action_view_hide_information->setChecked(false);
-    ui->action_view_hide_statistics->setChecked(false);
-    ui->action_view_hide_status->setChecked(false);
-    ui->action_view_hide_subresync->setChecked(false);
-    ui->action_view_hide_capture->setChecked(false);
-    ui->action_view_hide_navigation->setChecked(false);
+    ui->actionViewHideMenu->setChecked(true);
+    ui->actionViewHideSeekbar->setChecked(true);
+    ui->actionViewHideControls->setChecked(false);
+    ui->actionViewHideInformation->setChecked(false);
+    ui->actionViewHideStatistics->setChecked(false);
+    ui->actionViewHideStatus->setChecked(false);
+    ui->actionViewHideSubresync->setChecked(false);
+    ui->actionViewHideCapture->setChecked(false);
+    ui->actionViewHideNavigation->setChecked(false);
 }
 
-void MainWindow::on_action_view_presets_normal_triggered()
+void MainWindow::on_actionViewPresetsNormal_triggered()
 {
     setUiDecorationState(AllDecorations);
-    ui->action_view_hide_menu->setChecked(true);
-    ui->action_view_hide_seekbar->setChecked(true);
-    ui->action_view_hide_controls->setChecked(true);
-    ui->action_view_hide_information->setChecked(true);
-    ui->action_view_hide_statistics->setChecked(false);
-    ui->action_view_hide_status->setChecked(true);
-    ui->action_view_hide_subresync->setChecked(false);
-    ui->action_view_hide_capture->setChecked(false);
-    ui->action_view_hide_navigation->setChecked(false);
+    ui->actionViewHideMenu->setChecked(true);
+    ui->actionViewHideSeekbar->setChecked(true);
+    ui->actionViewHideControls->setChecked(true);
+    ui->actionViewHideInformation->setChecked(true);
+    ui->actionViewHideStatistics->setChecked(false);
+    ui->actionViewHideStatus->setChecked(true);
+    ui->actionViewHideSubresync->setChecked(false);
+    ui->actionViewHideCapture->setChecked(false);
+    ui->actionViewHideNavigation->setChecked(false);
 }
 
-void MainWindow::on_action_view_fullscreen_toggled(bool checked)
+void MainWindow::on_actionViewFullscreen_toggled(bool checked)
 {
     setFullscreenMode(checked);
 
     if (checked) {
         menuBar()->hide();
-        ui->control_section->hide();
-        ui->info_section->hide();
+        ui->controlSection->hide();
+        ui->infoSection->hide();
     } else {
-        if (ui->action_view_hide_menu->isChecked())
+        if (ui->actionViewHideMenu->isChecked())
             menuBar()->show();
-        ui->control_section->show();
-        ui->info_section->show();
+        ui->controlSection->show();
+        ui->infoSection->show();
     }
 }
 
-void MainWindow::on_action_view_zoom_050_triggered()
+void MainWindow::on_actionViewZoom050_triggered()
 {
     sizeFactor_ = 0.5;
     updateSize();
 }
 
-void MainWindow::on_action_view_zoom_100_triggered()
+void MainWindow::on_actionViewZoom100_triggered()
 {
     sizeFactor_ = 1.0;
     updateSize();
 }
 
-void MainWindow::on_action_view_zoom_200_triggered()
+void MainWindow::on_actionViewZoom200_triggered()
 {
     sizeFactor_ = 2.0;
     updateSize();
 }
 
-void MainWindow::on_action_view_zoom_autofit_triggered()
+void MainWindow::on_actionViewZoomAutofit_triggered()
 {
     // TODO: work out the logic for this.  In the meantime, set to manual
     // sized.
     sizeFactor_ = 0.0;
 }
 
-void MainWindow::on_action_view_zoom_autofit_larger_triggered()
+void MainWindow::on_actionViewZoomAutofitLarger_triggered()
 {
     // TODO: work out the logic for this.  In the meantime, set to manual
     // sized.
     sizeFactor_ = 0.0;
 }
 
-void MainWindow::on_action_view_zoom_disable_triggered()
+void MainWindow::on_actionViewZoomDisable_triggered()
 {
     sizeFactor_ = 0.0;
 }
 
-void MainWindow::on_action_play_pause_toggled(bool checked)
+void MainWindow::on_actionPlayPause_toggled(bool checked)
 {
     mpvw->setPaused(checked);
     mpvw_pausedChanged(checked);
 
     ui->pause->setChecked(checked);
-    ui->action_play_pause->setChecked(checked);
+    ui->actionPlayPause->setChecked(checked);
 }
 
-void MainWindow::on_action_play_stop_triggered()
+void MainWindow::on_actionPlayStop_triggered()
 {
     doMpvStopPlayback();
 }
 
-void MainWindow::on_action_play_frame_backward_triggered()
+void MainWindow::on_actionPlayFrameBackward_triggered()
 {
     mpvw->stepBackward();
     setPaused(true);
     updatePlaybackStatus();
 }
 
-void MainWindow::on_action_play_frame_forward_triggered()
+void MainWindow::on_actionPlayFrameForward_triggered()
 {
     mpvw->stepForward();
     setPaused(true);
     updatePlaybackStatus();
 }
 
-void MainWindow::on_action_play_rate_decrease_triggered()
+void MainWindow::on_actionPlayRateDecrease_triggered()
 {
     setPlaybackSpeed(playbackSpeed() / 2);
 }
 
-void MainWindow::on_action_play_rate_increase_triggered()
+void MainWindow::on_actionPlayRateIncrease_triggered()
 {
     setPlaybackSpeed(playbackSpeed() * 2);
 }
 
-void MainWindow::on_action_play_rate_reset_triggered()
+void MainWindow::on_actionPlayRateReset_triggered()
 {
     if (playbackSpeed() == 1.0)
         return;
     setPlaybackSpeed(1.0);
 }
 
-void MainWindow::action_play_audio_selected(QVariant data)
+void MainWindow::actionPlayAudio_selected(QVariant data)
 {
     int64_t id = data.toLongLong();
     mpvw->setAudioTrack(id);
 }
 
-void MainWindow::action_play_subtitles_selected(QVariant data)
+void MainWindow::actionPlaySubtitles_selected(QVariant data)
 {
     int64_t id = data.toLongLong();
     mpvw->setSubtitleTrack(id);
 }
 
-void MainWindow::action_play_video_tracks_selected(QVariant data)
+void MainWindow::actionPlayVideoTracks_selected(QVariant data)
 {
     int64_t id = data.toLongLong();
     mpvw->setVideoTrack(id);
 }
 
-void MainWindow::on_action_play_volume_up_triggered()
+void MainWindow::on_actionPlayVolumeUp_triggered()
 {
     int newvol = std::min(volumeSlider_->value() + 10, 100.0);
     doMpvSetVolume(newvol);
     volumeSlider_->setValue(newvol);
 }
 
-void MainWindow::on_action_play_volume_down_triggered()
+void MainWindow::on_actionPlayVolumeDown_triggered()
 {
     int newvol = std::max(volumeSlider_->value() - 10, 0.0);
     doMpvSetVolume(newvol);
     volumeSlider_->setValue(newvol);
 }
 
-void MainWindow::on_action_play_volume_mute_toggled(bool checked)
+void MainWindow::on_actionPlayVolumeMute_toggled(bool checked)
 {
     if (!isPlaying_)
         return;
     mpvw->setMute(checked);
     ui->mute->setIcon(QIcon(checked ? ":/images/controls/speaker2.png" :
                                       ":/images/controls/speaker1.png"));
-    ui->action_play_volume_mute->setChecked(checked);
+    ui->actionPlayVolumeMute->setChecked(checked);
     ui->mute->setChecked(checked);
 }
 
-void MainWindow::on_action_navigate_chapters_previous_triggered()
+void MainWindow::on_actionNavigateChaptersPrevious_triggered()
 {
     int64_t chapter = mpvw->chapter();
     if (chapter > 0) chapter--;
     mpvw->setChapter(chapter);
 }
 
-void MainWindow::on_action_navigate_chapters_next_triggered()
+void MainWindow::on_actionNavigateChaptersNext_triggered()
 {
     int64_t chapter = mpvw->chapter();
     chapter++;
@@ -370,12 +370,12 @@ void MainWindow::on_action_navigate_chapters_next_triggered()
     }
 }
 
-void MainWindow::menu_navigate_chapters(QVariant data)
+void MainWindow::menuNavigateChapters_selected(QVariant data)
 {
     mpvw->setChapter(data.toInt());
 }
 
-void MainWindow::on_action_help_about_triggered()
+void MainWindow::on_actionHelpAbout_triggered()
 {
     QMessageBox::about(this, "About Media Player Classic Qute Theater",
       "<h2>Media Player Classic Qute Theater</h2>"
@@ -414,7 +414,7 @@ void MainWindow::on_play_clicked()
         mpvw_pausedChanged(false);
         ui->pause->setChecked(false);
     }
-    on_action_play_rate_reset_triggered();
+    on_actionPlayRateReset_triggered();
 }
 
 void MainWindow::volume_sliderMoved(double position)
@@ -474,7 +474,7 @@ void MainWindow::mpvw_chaptersChanged(QVariantList chapters)
     // Here we populate the chapters menu with the chapters.
     QAction *action;
     data_emitter *emitter;
-    ui->menu_navigate_chapters->clear();
+    ui->menuNavigateChapters->clear();
     int index = 0;
     for (QVariant v : chapters) {
         QMap<QString, QVariant> node = v.toMap();
@@ -485,8 +485,8 @@ void MainWindow::mpvw_chaptersChanged(QVariantList chapters)
         emitter = new data_emitter(action);
         emitter->data = index;
         connect(action, &QAction::triggered, emitter, &data_emitter::got_something);
-        connect(emitter, &data_emitter::heres_something, this, &MainWindow::menu_navigate_chapters);
-        ui->menu_navigate_chapters->addAction(action);
+        connect(emitter, &data_emitter::heres_something, this, &MainWindow::menuNavigateChapters_selected);
+        ui->menuNavigateChapters->addAction(action);
         index++;
     }
 }
@@ -508,9 +508,9 @@ void MainWindow::mpvw_tracksChanged(QVariantList tracks)
         return output;
     };
 
-    ui->menu_play_audio->clear();
-    ui->menu_play_subtitles->clear();
-    ui->menu_play_video->clear();
+    ui->menuPlayAudio->clear();
+    ui->menuPlaySubtitles->clear();
+    ui->menuPlayVideo->clear();
     for (QVariant track : tracks) {
         QVariantMap t = track.toMap();
         QAction *action = new QAction(this);
@@ -519,14 +519,14 @@ void MainWindow::mpvw_tracksChanged(QVariantList tracks)
         de->data = t["id"];
         connect(action, &QAction::triggered, de, &data_emitter::got_something);
         if (str(t,"type") == "audio") {
-            connect(de, &data_emitter::heres_something, this, &MainWindow::action_play_audio_selected);
-            ui->menu_play_audio->addAction(action);
+            connect(de, &data_emitter::heres_something, this, &MainWindow::actionPlayAudio_selected);
+            ui->menuPlayAudio->addAction(action);
         } else if (str(t,"type") == "sub") {
-            connect(de, &data_emitter::heres_something, this, &MainWindow::action_play_subtitles_selected);
-            ui->menu_play_subtitles->addAction(action);
+            connect(de, &data_emitter::heres_something, this, &MainWindow::actionPlaySubtitles_selected);
+            ui->menuPlaySubtitles->addAction(action);
         } else if (str(t,"type") == "video") {
-            connect(de, &data_emitter::heres_something, this, &MainWindow::action_play_video_tracks_selected);
-            ui->menu_play_video->addAction(action);
+            connect(de, &data_emitter::heres_something, this, &MainWindow::actionPlayVideoTracks_selected);
+            ui->menuPlayVideo->addAction(action);
         } else {
             // the track is unused by us for now, so delete the stuff we were
             // going to associate with it
@@ -632,12 +632,12 @@ void MainWindow::setupMenu()
 {
     // Work around separators with text in the designer not showing as
     // sections
-    ui->menu_play_after->insertSection(ui->action_play_after_once_exit,
+    ui->menuPlayAfter->insertSection(ui->actionPlayAfterOnceExit,
                                        tr("Once"));
-    ui->menu_play_after->insertSection(ui->action_play_after_always_exit,
+    ui->menuPlayAfter->insertSection(ui->actionPlayAfterAlwaysExit,
                                        tr("Every time"));
 
-    ui->info_stats->setVisible(false);
+    ui->infoStats->setVisible(false);
 }
 
 void MainWindow::setupPositionSlider()
@@ -681,7 +681,7 @@ void MainWindow::setupMpvHost()
                             ":/images/bitmaps/blank-screen.png) no-repeat;");
     mpvHost_->setCentralWidget(mpvw);
     mpvHost_->setSizePolicy(QSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred));
-    ui->mpv_widget->layout()->addWidget(mpvHost_);
+    ui->mpvWidget->layout()->addWidget(mpvHost_);
 
     connectButtonsToActions();
     globalizeAllActions();
@@ -690,18 +690,18 @@ void MainWindow::setupMpvHost()
 
 void MainWindow::connectButtonsToActions()
 {
-    connect(ui->pause, &QPushButton::toggled, ui->action_play_pause, &QAction::toggled);
-    connect(ui->stop, &QPushButton::clicked, ui->action_play_stop, &QAction::triggered);
+    connect(ui->pause, &QPushButton::toggled, ui->actionPlayPause, &QAction::toggled);
+    connect(ui->stop, &QPushButton::clicked, ui->actionPlayStop, &QAction::triggered);
 
-    connect(ui->speedDecrease, &QPushButton::clicked, ui->action_play_rate_decrease, &QAction::triggered);
-    connect(ui->speedIncrease, &QPushButton::clicked, ui->action_play_rate_increase, &QAction::triggered);
+    connect(ui->speedDecrease, &QPushButton::clicked, ui->actionPlayRateDecrease, &QAction::triggered);
+    connect(ui->speedIncrease, &QPushButton::clicked, ui->actionPlayRateIncrease, &QAction::triggered);
 
-    connect(ui->skipBackward, &QPushButton::clicked, ui->action_navigate_chapters_previous, &QAction::triggered);
-    connect(ui->stepBackward, &QPushButton::clicked, ui->action_play_frame_backward, &QAction::triggered);
-    connect(ui->stepForward, &QPushButton::clicked, ui->action_play_frame_forward, &QAction::triggered);
-    connect(ui->skipForward, &QPushButton::clicked, ui->action_navigate_chapters_next, &QAction::triggered);
+    connect(ui->skipBackward, &QPushButton::clicked, ui->actionNavigateChaptersPrevious, &QAction::triggered);
+    connect(ui->stepBackward, &QPushButton::clicked, ui->actionPlayFrameBackward, &QAction::triggered);
+    connect(ui->stepForward, &QPushButton::clicked, ui->actionPlayFrameForward, &QAction::triggered);
+    connect(ui->skipForward, &QPushButton::clicked, ui->actionNavigateChaptersNext, &QAction::triggered);
 
-    connect(ui->mute, &QPushButton::toggled, ui->action_play_volume_mute, &QAction::toggled);
+    connect(ui->mute, &QPushButton::toggled, ui->actionPlayVolumeMute, &QAction::toggled);
 }
 
 void MainWindow::globalizeAllActions()
@@ -726,7 +726,7 @@ void MainWindow::setUiDecorationState(DecorationState state)
         menuBar()->show();
     else
         menuBar()->hide();
-    ui->action_view_hide_menu->setText(actionTexts[static_cast<int>(state)]);
+    ui->actionViewHideMenu->setText(actionTexts[static_cast<int>(state)]);
     setWindowFlags(winFlags[static_cast<int>(state)]);
     this->decorationState_ = state;
     show();
@@ -750,40 +750,40 @@ void MainWindow::setUiEnabledState(bool enabled)
     volumeSlider()->setEnabled(enabled);
 
     ui->pause->setChecked(false);
-    ui->action_play_pause->setChecked(false);
+    ui->actionPlayPause->setChecked(false);
 
-    ui->action_file_close->setEnabled(enabled);
-    ui->action_file_save_copy->setEnabled(enabled);
-    ui->action_file_save_image->setEnabled(enabled);
-    ui->action_file_save_thumbnails->setEnabled(enabled);
-    ui->action_file_load_subtitle->setEnabled(enabled);
-    ui->action_file_save_subtitle->setEnabled(enabled);
-    ui->action_file_subtitle_database_download->setEnabled(enabled);
-    ui->action_play_pause->setEnabled(enabled);
-    ui->action_play_stop->setEnabled(enabled);
-    ui->action_play_frame_backward->setEnabled(enabled);
-    ui->action_play_frame_forward->setEnabled(enabled);
-    ui->action_play_rate_decrease->setEnabled(enabled);
-    ui->action_play_rate_increase->setEnabled(enabled);
-    ui->action_play_rate_reset->setEnabled(enabled);
-    ui->action_play_volume_up->setEnabled(enabled);
-    ui->action_play_volume_down->setEnabled(enabled);
-    ui->action_play_volume_mute->setEnabled(enabled);
-    ui->action_navigate_chapters_previous->setEnabled(enabled);
-    ui->action_navigate_chapters_next->setEnabled(enabled);
-    ui->action_favorites_add->setEnabled(enabled);
+    ui->actionFileClose->setEnabled(enabled);
+    ui->actionFileSaveCopy->setEnabled(enabled);
+    ui->actionFileSaveImage->setEnabled(enabled);
+    ui->actionFileSaveThumbnails->setEnabled(enabled);
+    ui->actionFileLoadSubtitle->setEnabled(enabled);
+    ui->actionFileSaveSubtitle->setEnabled(enabled);
+    ui->actionFileSubtitleDatabaseDownload->setEnabled(enabled);
+    ui->actionPlayPause->setEnabled(enabled);
+    ui->actionPlayStop->setEnabled(enabled);
+    ui->actionPlayFrameBackward->setEnabled(enabled);
+    ui->actionPlayFrameForward->setEnabled(enabled);
+    ui->actionPlayRateDecrease->setEnabled(enabled);
+    ui->actionPlayRateIncrease->setEnabled(enabled);
+    ui->actionPlayRateReset->setEnabled(enabled);
+    ui->actionPlayVolumeUp->setEnabled(enabled);
+    ui->actionPlayVolumeDown->setEnabled(enabled);
+    ui->actionPlayVolumeMute->setEnabled(enabled);
+    ui->actionNavigateChaptersPrevious->setEnabled(enabled);
+    ui->actionNavigateChaptersNext->setEnabled(enabled);
+    ui->actionFavoritesAdd->setEnabled(enabled);
 
-    ui->menu_play_audio->setEnabled(enabled);
-    ui->menu_play_subtitles->setEnabled(enabled);
-    ui->menu_play_video->setEnabled(enabled);
-    ui->menu_navigate_chapters->setEnabled(enabled);
+    ui->menuPlayAudio->setEnabled(enabled);
+    ui->menuPlaySubtitles->setEnabled(enabled);
+    ui->menuPlayVideo->setEnabled(enabled);
+    ui->menuNavigateChapters->setEnabled(enabled);
 }
 
 void MainWindow::updateTime()
 {
-    double play_time = mpvw->playTime();
-    double play_length = mpvw->playLength();
-    ui->time->setText(QString("%1 / %2").arg(toDateFormat(play_time),toDateFormat(play_length)));
+    double playTime = mpvw->playTime();
+    double playLength = mpvw->playLength();
+    ui->time->setText(QString("%1 / %2").arg(toDateFormat(playTime),toDateFormat(playLength)));
 }
 
 void MainWindow::updatePlaybackStatus()

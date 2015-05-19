@@ -41,7 +41,7 @@
      <number>0</number>
     </property>
     <item>
-     <widget class="QWidget" name="mpv_widget" native="true">
+     <widget class="QWidget" name="mpvWidget" native="true">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(0, 0, 0);</string>
       </property>
@@ -65,7 +65,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QFrame" name="control_section">
+     <widget class="QFrame" name="controlSection">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -313,7 +313,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QFrame" name="info_section">
+     <widget class="QFrame" name="infoSection">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -347,7 +347,7 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QWidget" name="info_stats" native="true">
+        <widget class="QWidget" name="infoStats" native="true">
          <layout class="QFormLayout" name="formLayout">
           <property name="topMargin">
            <number>0</number>
@@ -435,7 +435,7 @@
      <height>30</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menu_file">
+   <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>&amp;File</string>
     </property>
@@ -444,196 +444,196 @@
       <string>O&amp;pen Disc</string>
      </property>
     </widget>
-    <widget class="QMenu" name="menu_file_recent">
+    <widget class="QMenu" name="menuFileRecent">
      <property name="title">
       <string>Recent &amp;Files</string>
      </property>
-     <addaction name="action_file_recent_clear"/>
+     <addaction name="actionFileRecentClear"/>
      <addaction name="separator"/>
     </widget>
-    <widget class="QMenu" name="menu_file_subtitle_database">
+    <widget class="QMenu" name="menuFileSubtitleDatabase">
      <property name="title">
       <string>Subtitle Data&amp;base</string>
      </property>
-     <addaction name="action_file_subtitle_database_search"/>
-     <addaction name="action_file_subtitle_database_upload"/>
-     <addaction name="action_file_subtitle_database_download"/>
+     <addaction name="actionFileSubtitleDatabaseSearch"/>
+     <addaction name="actionFileSubtitleDatabaseUpload"/>
+     <addaction name="actionFileSubtitleDatabaseDownload"/>
     </widget>
-    <addaction name="action_file_open_quick"/>
+    <addaction name="actionFileOpenQuick"/>
     <addaction name="separator"/>
-    <addaction name="action_file_open"/>
-    <addaction name="action_file_open_dvdbd"/>
-    <addaction name="action_file_open_device"/>
-    <addaction name="action_file_open_directory"/>
+    <addaction name="actionFileOpen"/>
+    <addaction name="actionFileOpenDvdbd"/>
+    <addaction name="actionFileOpenDevice"/>
+    <addaction name="actionFileOpenDirectory"/>
     <addaction name="action_file_open_disc"/>
-    <addaction name="menu_file_recent"/>
-    <addaction name="action_file_close"/>
+    <addaction name="menuFileRecent"/>
+    <addaction name="actionFileClose"/>
     <addaction name="separator"/>
-    <addaction name="action_file_save_copy"/>
-    <addaction name="action_file_save_image"/>
-    <addaction name="action_file_save_thumbnails"/>
+    <addaction name="actionFileSaveCopy"/>
+    <addaction name="actionFileSaveImage"/>
+    <addaction name="actionFileSaveThumbnails"/>
     <addaction name="separator"/>
-    <addaction name="action_file_load_subtitle"/>
-    <addaction name="action_file_save_subtitle"/>
-    <addaction name="menu_file_subtitle_database"/>
+    <addaction name="actionFileLoadSubtitle"/>
+    <addaction name="actionFileSaveSubtitle"/>
+    <addaction name="menuFileSubtitleDatabase"/>
     <addaction name="separator"/>
-    <addaction name="action_file_properties"/>
+    <addaction name="actionFileProperties"/>
     <addaction name="separator"/>
-    <addaction name="action_file_exit"/>
+    <addaction name="actionFileExit"/>
    </widget>
-   <widget class="QMenu" name="menu_View">
+   <widget class="QMenu" name="menuView">
     <property name="title">
      <string>&amp;View</string>
     </property>
-    <widget class="QMenu" name="menu_view_presets">
+    <widget class="QMenu" name="menuViewPresets">
      <property name="title">
       <string>&amp;Presets</string>
      </property>
-     <addaction name="action_view_presets_minimal"/>
-     <addaction name="action_view_presets_compact"/>
-     <addaction name="action_view_presets_normal"/>
+     <addaction name="actionViewPresetsMinimal"/>
+     <addaction name="actionViewPresetsCompact"/>
+     <addaction name="actionViewPresetsNormal"/>
     </widget>
-    <widget class="QMenu" name="menu_view_zoom">
+    <widget class="QMenu" name="menuViewZoom">
      <property name="title">
       <string>&amp;Zoom</string>
      </property>
-     <addaction name="action_view_zoom_050"/>
-     <addaction name="action_view_zoom_100"/>
-     <addaction name="action_view_zoom_200"/>
-     <addaction name="action_view_zoom_autofit"/>
-     <addaction name="action_view_zoom_autofit_larger"/>
+     <addaction name="actionViewZoom050"/>
+     <addaction name="actionViewZoom100"/>
+     <addaction name="actionViewZoom200"/>
+     <addaction name="actionViewZoomAutofit"/>
+     <addaction name="actionViewZoomAutofitLarger"/>
      <addaction name="separator"/>
-     <addaction name="action_view_zoom_disable"/>
+     <addaction name="actionViewZoomDisable"/>
     </widget>
-    <widget class="QMenu" name="menu_view_ontop">
+    <widget class="QMenu" name="menuViewOntop">
      <property name="title">
       <string>On &amp;Top</string>
      </property>
-     <addaction name="action_view_ontop_default"/>
-     <addaction name="action_view_ontop_always"/>
-     <addaction name="action_view_ontop_playing"/>
-     <addaction name="action_view_ontop_video"/>
+     <addaction name="actionViewOntopDefault"/>
+     <addaction name="actionViewOntopAlways"/>
+     <addaction name="actionViewOntopPlaying"/>
+     <addaction name="actionViewOntopVideo"/>
     </widget>
-    <addaction name="action_view_hide_menu"/>
-    <addaction name="action_view_hide_seekbar"/>
-    <addaction name="action_view_hide_controls"/>
-    <addaction name="action_view_hide_information"/>
-    <addaction name="action_view_hide_statistics"/>
-    <addaction name="action_view_hide_status"/>
-    <addaction name="action_view_hide_subresync"/>
-    <addaction name="action_view_hide_playlist"/>
-    <addaction name="action_view_hide_capture"/>
-    <addaction name="action_view_hide_navigation"/>
-    <addaction name="menu_view_presets"/>
+    <addaction name="actionViewHideMenu"/>
+    <addaction name="actionViewHideSeekbar"/>
+    <addaction name="actionViewHideControls"/>
+    <addaction name="actionViewHideInformation"/>
+    <addaction name="actionViewHideStatistics"/>
+    <addaction name="actionViewHideStatus"/>
+    <addaction name="actionViewHideSubresync"/>
+    <addaction name="actionViewHidePlaylist"/>
+    <addaction name="actionViewHideCapture"/>
+    <addaction name="actionViewHideNavigation"/>
+    <addaction name="menuViewPresets"/>
     <addaction name="separator"/>
-    <addaction name="action_view_fullscreen"/>
-    <addaction name="menu_view_zoom"/>
+    <addaction name="actionViewFullscreen"/>
+    <addaction name="menuViewZoom"/>
     <addaction name="separator"/>
-    <addaction name="menu_view_ontop"/>
-    <addaction name="action_view_options"/>
+    <addaction name="menuViewOntop"/>
+    <addaction name="actionViewOptions"/>
    </widget>
-   <widget class="QMenu" name="menu_play">
+   <widget class="QMenu" name="menuPlay">
     <property name="title">
      <string>&amp;Play</string>
     </property>
-    <widget class="QMenu" name="menu_play_audio">
+    <widget class="QMenu" name="menuPlayAudio">
      <property name="title">
       <string>&amp;Audio</string>
      </property>
     </widget>
-    <widget class="QMenu" name="menu_play_subtitles">
+    <widget class="QMenu" name="menuPlaySubtitles">
      <property name="title">
       <string>Su&amp;btitles</string>
      </property>
     </widget>
-    <widget class="QMenu" name="menu_play_video">
+    <widget class="QMenu" name="menuPlayVideo">
      <property name="title">
       <string>&amp;Video Stream</string>
      </property>
     </widget>
-    <widget class="QMenu" name="menu_play_volume">
+    <widget class="QMenu" name="menuPlayVolume">
      <property name="title">
       <string>V&amp;olume</string>
      </property>
-     <addaction name="action_play_volume_up"/>
-     <addaction name="action_play_volume_down"/>
-     <addaction name="action_play_volume_mute"/>
+     <addaction name="actionPlayVolumeUp"/>
+     <addaction name="actionPlayVolumeDown"/>
+     <addaction name="actionPlayVolumeMute"/>
     </widget>
-    <widget class="QMenu" name="menu_play_after">
+    <widget class="QMenu" name="menuPlayAfter">
      <property name="title">
       <string>Af&amp;ter Playback</string>
      </property>
-     <addaction name="action_play_after_once_exit"/>
-     <addaction name="action_play_after_once_standby"/>
-     <addaction name="action_play_after_once_hibernate"/>
-     <addaction name="action_play_after_once_shutdown"/>
-     <addaction name="action_play_after_once_logoff"/>
-     <addaction name="action_play_after_once_lock"/>
-     <addaction name="action_play_after_always_exit"/>
-     <addaction name="action_play_after_always_nothing"/>
-     <addaction name="action_play_after_always_next"/>
+     <addaction name="actionPlayAfterOnceExit"/>
+     <addaction name="actionPlayAfterOnceStandby"/>
+     <addaction name="actionPlayAfterOnceHibernate"/>
+     <addaction name="actionPlayAfterOnceShutdown"/>
+     <addaction name="actionPlayAfterOnceLogoff"/>
+     <addaction name="actionPlayAfterOnceLock"/>
+     <addaction name="actionPlayAfterAlwaysExit"/>
+     <addaction name="actionPlayAfterAlwaysNothing"/>
+     <addaction name="actionPlayAfterAlwaysNext"/>
     </widget>
-    <addaction name="action_play_pause"/>
-    <addaction name="action_play_stop"/>
-    <addaction name="action_play_frame_forward"/>
-    <addaction name="action_play_frame_backward"/>
+    <addaction name="actionPlayPause"/>
+    <addaction name="actionPlayStop"/>
+    <addaction name="actionPlayFrameForward"/>
+    <addaction name="actionPlayFrameBackward"/>
     <addaction name="separator"/>
-    <addaction name="action_play_rate_decrease"/>
-    <addaction name="action_play_rate_increase"/>
-    <addaction name="action_play_rate_reset"/>
+    <addaction name="actionPlayRateDecrease"/>
+    <addaction name="actionPlayRateIncrease"/>
+    <addaction name="actionPlayRateReset"/>
     <addaction name="separator"/>
-    <addaction name="menu_play_audio"/>
-    <addaction name="menu_play_subtitles"/>
-    <addaction name="menu_play_video"/>
+    <addaction name="menuPlayAudio"/>
+    <addaction name="menuPlaySubtitles"/>
+    <addaction name="menuPlayVideo"/>
     <addaction name="separator"/>
-    <addaction name="menu_play_volume"/>
-    <addaction name="menu_play_after"/>
+    <addaction name="menuPlayVolume"/>
+    <addaction name="menuPlayAfter"/>
    </widget>
-   <widget class="QMenu" name="menu_navigate">
+   <widget class="QMenu" name="menuNavigate">
     <property name="title">
      <string>&amp;Navigate</string>
     </property>
-    <widget class="QMenu" name="menu_navigate_chapters">
+    <widget class="QMenu" name="menuNavigateChapters">
      <property name="title">
       <string>&amp;Chapters</string>
      </property>
     </widget>
-    <addaction name="action_navigate_chapters_previous"/>
-    <addaction name="action_navigate_chapters_next"/>
-    <addaction name="action_navigate_goto"/>
-    <addaction name="menu_navigate_chapters"/>
+    <addaction name="actionNavigateChaptersPrevious"/>
+    <addaction name="actionNavigateChaptersNext"/>
+    <addaction name="actionNavigateGoto"/>
+    <addaction name="menuNavigateChapters"/>
     <addaction name="separator"/>
-    <addaction name="action_navigate_menu_title"/>
-    <addaction name="action_navigate_menu_root"/>
-    <addaction name="action_navigate_menu_subtitle"/>
-    <addaction name="action_navigate_menu_audio"/>
-    <addaction name="action_navigate_menu_angle"/>
-    <addaction name="action_navigate_menu_chapter"/>
+    <addaction name="actionNavigateMenuTitle"/>
+    <addaction name="actionNavigateMenuRoot"/>
+    <addaction name="actionNavigateMenuSubtitle"/>
+    <addaction name="actionNavigateMenuAudio"/>
+    <addaction name="actionNavigateMenuAngle"/>
+    <addaction name="actionNavigateMenuChapter"/>
    </widget>
-   <widget class="QMenu" name="menu_favorites">
+   <widget class="QMenu" name="menuFavorites">
     <property name="title">
      <string>Favo&amp;rites</string>
     </property>
-    <addaction name="action_favorites_add"/>
-    <addaction name="action_favorites_organize"/>
+    <addaction name="actionFavoritesAdd"/>
+    <addaction name="actionFavoritesOrganize"/>
     <addaction name="separator"/>
    </widget>
-   <widget class="QMenu" name="menu_help">
+   <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>&amp;Help</string>
     </property>
-    <addaction name="action_help_homepage"/>
+    <addaction name="actionHelpHomepage"/>
     <addaction name="separator"/>
-    <addaction name="action_help_about"/>
+    <addaction name="actionHelpAbout"/>
    </widget>
-   <addaction name="menu_file"/>
-   <addaction name="menu_View"/>
-   <addaction name="menu_play"/>
-   <addaction name="menu_navigate"/>
-   <addaction name="menu_favorites"/>
-   <addaction name="menu_help"/>
+   <addaction name="menuFile"/>
+   <addaction name="menuView"/>
+   <addaction name="menuPlay"/>
+   <addaction name="menuNavigate"/>
+   <addaction name="menuFavorites"/>
+   <addaction name="menuHelp"/>
   </widget>
-  <action name="action_file_open_quick">
+  <action name="actionFileOpenQuick">
    <property name="text">
     <string>&amp;Quick Open File...</string>
    </property>
@@ -641,7 +641,7 @@
     <string>Ctrl+Q</string>
    </property>
   </action>
-  <action name="action_file_open">
+  <action name="actionFileOpen">
    <property name="text">
     <string>&amp;Open File...</string>
    </property>
@@ -649,7 +649,7 @@
     <string>Ctrl+O</string>
    </property>
   </action>
-  <action name="action_file_open_dvdbd">
+  <action name="actionFileOpenDvdbd">
    <property name="text">
     <string>Open &amp;DVD/BD...</string>
    </property>
@@ -657,7 +657,7 @@
     <string>Ctrl+D</string>
    </property>
   </action>
-  <action name="action_file_open_device">
+  <action name="actionFileOpenDevice">
    <property name="text">
     <string>Open De&amp;vice...</string>
    </property>
@@ -665,17 +665,17 @@
     <string>Ctrl+V</string>
    </property>
   </action>
-  <action name="action_file_open_directory">
+  <action name="actionFileOpenDirectory">
    <property name="text">
     <string>Open Dir&amp;ectory</string>
    </property>
   </action>
-  <action name="action_file_recent_clear">
+  <action name="actionFileRecentClear">
    <property name="text">
     <string>&amp;Clear list</string>
    </property>
   </action>
-  <action name="action_file_close">
+  <action name="actionFileClose">
    <property name="text">
     <string>&amp;Close File</string>
    </property>
@@ -683,12 +683,12 @@
     <string>Ctrl+W</string>
    </property>
   </action>
-  <action name="action_file_save_copy">
+  <action name="actionFileSaveCopy">
    <property name="text">
     <string>&amp;Save a Copy...</string>
    </property>
   </action>
-  <action name="action_file_save_image">
+  <action name="actionFileSaveImage">
    <property name="text">
     <string>Save &amp;Image...</string>
    </property>
@@ -696,12 +696,12 @@
     <string>Alt+I</string>
    </property>
   </action>
-  <action name="action_file_save_thumbnails">
+  <action name="actionFileSaveThumbnails">
    <property name="text">
     <string>Save &amp;Thumbnails</string>
    </property>
   </action>
-  <action name="action_file_load_subtitle">
+  <action name="actionFileLoadSubtitle">
    <property name="text">
     <string>&amp;Load Subtitle</string>
    </property>
@@ -709,7 +709,7 @@
     <string>Ctrl+L</string>
    </property>
   </action>
-  <action name="action_file_save_subtitle">
+  <action name="actionFileSaveSubtitle">
    <property name="text">
     <string>Save S&amp;ubtitle</string>
    </property>
@@ -717,12 +717,12 @@
     <string>Ctrl+S</string>
    </property>
   </action>
-  <action name="action_file_subtitle_database_upload">
+  <action name="actionFileSubtitleDatabaseUpload">
    <property name="text">
     <string>&amp;Upload...</string>
    </property>
   </action>
-  <action name="action_file_subtitle_database_download">
+  <action name="actionFileSubtitleDatabaseDownload">
    <property name="text">
     <string>&amp;Download...</string>
    </property>
@@ -730,12 +730,12 @@
     <string>D</string>
    </property>
   </action>
-  <action name="action_file_subtitle_database_search">
+  <action name="actionFileSubtitleDatabaseSearch">
    <property name="text">
     <string>&amp;Search...</string>
    </property>
   </action>
-  <action name="action_file_properties">
+  <action name="actionFileProperties">
    <property name="text">
     <string>P&amp;roperties</string>
    </property>
@@ -743,7 +743,7 @@
     <string>Shift+F10</string>
    </property>
   </action>
-  <action name="action_file_exit">
+  <action name="actionFileExit">
    <property name="text">
     <string>E&amp;xit</string>
    </property>
@@ -751,7 +751,7 @@
     <string>Ctrl+Q</string>
    </property>
   </action>
-  <action name="action_view_hide_menu">
+  <action name="actionViewHideMenu">
    <property name="checked">
     <bool>false</bool>
    </property>
@@ -762,7 +762,7 @@
     <string>Ctrl+0</string>
    </property>
   </action>
-  <action name="action_view_hide_seekbar">
+  <action name="actionViewHideSeekbar">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -776,7 +776,7 @@
     <string>Ctrl+1</string>
    </property>
   </action>
-  <action name="action_view_hide_controls">
+  <action name="actionViewHideControls">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -790,7 +790,7 @@
     <string>Ctrl+2</string>
    </property>
   </action>
-  <action name="action_view_hide_information">
+  <action name="actionViewHideInformation">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -801,7 +801,7 @@
     <string>Ctrl+3</string>
    </property>
   </action>
-  <action name="action_view_hide_statistics">
+  <action name="actionViewHideStatistics">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -812,7 +812,7 @@
     <string>Ctrl+4</string>
    </property>
   </action>
-  <action name="action_view_hide_status">
+  <action name="actionViewHideStatus">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -826,7 +826,7 @@
     <string>Ctrl+5</string>
    </property>
   </action>
-  <action name="action_view_hide_subresync">
+  <action name="actionViewHideSubresync">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -837,7 +837,7 @@
     <string>Ctrl+6</string>
    </property>
   </action>
-  <action name="action_view_hide_playlist">
+  <action name="actionViewHidePlaylist">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -848,7 +848,7 @@
     <string>Ctrl+7</string>
    </property>
   </action>
-  <action name="action_view_hide_capture">
+  <action name="actionViewHideCapture">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -859,7 +859,7 @@
     <string>Ctrl+8</string>
    </property>
   </action>
-  <action name="action_view_hide_navigation">
+  <action name="actionViewHideNavigation">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -870,7 +870,7 @@
     <string>Ctrl+9</string>
    </property>
   </action>
-  <action name="action_view_presets_minimal">
+  <action name="actionViewPresetsMinimal">
    <property name="text">
     <string>&amp;Minimal</string>
    </property>
@@ -878,7 +878,7 @@
     <string>1</string>
    </property>
   </action>
-  <action name="action_view_presets_compact">
+  <action name="actionViewPresetsCompact">
    <property name="text">
     <string>&amp;Compact</string>
    </property>
@@ -886,7 +886,7 @@
     <string>2</string>
    </property>
   </action>
-  <action name="action_view_presets_normal">
+  <action name="actionViewPresetsNormal">
    <property name="text">
     <string>&amp;Normal</string>
    </property>
@@ -894,7 +894,7 @@
     <string>3</string>
    </property>
   </action>
-  <action name="action_view_fullscreen">
+  <action name="actionViewFullscreen">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -905,7 +905,7 @@
     <string>Alt+Return</string>
    </property>
   </action>
-  <action name="action_view_zoom_050">
+  <action name="actionViewZoom050">
    <property name="text">
     <string>&amp;50%</string>
    </property>
@@ -913,7 +913,7 @@
     <string>Alt+1</string>
    </property>
   </action>
-  <action name="action_view_zoom_100">
+  <action name="actionViewZoom100">
    <property name="text">
     <string>&amp;100%</string>
    </property>
@@ -921,7 +921,7 @@
     <string>Alt+2</string>
    </property>
   </action>
-  <action name="action_view_zoom_200">
+  <action name="actionViewZoom200">
    <property name="text">
     <string>&amp;200%</string>
    </property>
@@ -929,7 +929,7 @@
     <string>Alt+3</string>
    </property>
   </action>
-  <action name="action_view_zoom_autofit">
+  <action name="actionViewZoomAutofit">
    <property name="text">
     <string>Auto &amp;Fit</string>
    </property>
@@ -937,7 +937,7 @@
     <string>Alt+4</string>
    </property>
   </action>
-  <action name="action_view_zoom_autofit_larger">
+  <action name="actionViewZoomAutofitLarger">
    <property name="text">
     <string>Auto Fit (&amp;Larger Only)</string>
    </property>
@@ -945,7 +945,7 @@
     <string>Alt+5</string>
    </property>
   </action>
-  <action name="action_view_zoom_disable">
+  <action name="actionViewZoomDisable">
    <property name="text">
     <string>&amp;Disable snapping</string>
    </property>
@@ -953,12 +953,12 @@
     <string>Alt+0</string>
    </property>
   </action>
-  <action name="action_view_ontop_default">
+  <action name="actionViewOntopDefault">
    <property name="text">
     <string>&amp;Default</string>
    </property>
   </action>
-  <action name="action_view_ontop_always">
+  <action name="actionViewOntopAlways">
    <property name="text">
     <string>&amp;Always</string>
    </property>
@@ -966,17 +966,17 @@
     <string>Ctrl+A</string>
    </property>
   </action>
-  <action name="action_view_ontop_playing">
+  <action name="actionViewOntopPlaying">
    <property name="text">
     <string>While &amp;Playing</string>
    </property>
   </action>
-  <action name="action_view_ontop_video">
+  <action name="actionViewOntopVideo">
    <property name="text">
     <string>While Playing &amp;Video</string>
    </property>
   </action>
-  <action name="action_view_options">
+  <action name="actionViewOptions">
    <property name="text">
     <string>&amp;Options...</string>
    </property>
@@ -984,7 +984,7 @@
     <string>O</string>
    </property>
   </action>
-  <action name="action_play_pause">
+  <action name="actionPlayPause">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -995,7 +995,7 @@
     <string>Space</string>
    </property>
   </action>
-  <action name="action_play_stop">
+  <action name="actionPlayStop">
    <property name="text">
     <string>&amp;Stop</string>
    </property>
@@ -1003,7 +1003,7 @@
     <string>.</string>
    </property>
   </action>
-  <action name="action_play_frame_forward">
+  <action name="actionPlayFrameForward">
    <property name="text">
     <string>F&amp;rame Step Forward</string>
    </property>
@@ -1011,7 +1011,7 @@
     <string>Ctrl+Right</string>
    </property>
   </action>
-  <action name="action_play_frame_backward">
+  <action name="actionPlayFrameBackward">
    <property name="text">
     <string>Fra&amp;me Step Backward</string>
    </property>
@@ -1019,7 +1019,7 @@
     <string>Ctrl+Left</string>
    </property>
   </action>
-  <action name="action_play_rate_decrease">
+  <action name="actionPlayRateDecrease">
    <property name="text">
     <string>&amp;Decrease Rate</string>
    </property>
@@ -1027,7 +1027,7 @@
     <string>Ctrl+Down</string>
    </property>
   </action>
-  <action name="action_play_rate_increase">
+  <action name="actionPlayRateIncrease">
    <property name="text">
     <string>&amp;Increase Rate</string>
    </property>
@@ -1035,7 +1035,7 @@
     <string>Ctrl+Up</string>
    </property>
   </action>
-  <action name="action_play_rate_reset">
+  <action name="actionPlayRateReset">
    <property name="text">
     <string>R&amp;eset Rate</string>
    </property>
@@ -1043,7 +1043,7 @@
     <string>Ctrl+R</string>
    </property>
   </action>
-  <action name="action_play_volume_up">
+  <action name="actionPlayVolumeUp">
    <property name="text">
     <string>&amp;Up</string>
    </property>
@@ -1051,7 +1051,7 @@
     <string>Up</string>
    </property>
   </action>
-  <action name="action_play_volume_down">
+  <action name="actionPlayVolumeDown">
    <property name="text">
     <string>&amp;Down</string>
    </property>
@@ -1059,7 +1059,7 @@
     <string>Down</string>
    </property>
   </action>
-  <action name="action_play_volume_mute">
+  <action name="actionPlayVolumeMute">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -1070,52 +1070,52 @@
     <string>Ctrl+M</string>
    </property>
   </action>
-  <action name="action_play_after_once_exit">
+  <action name="actionPlayAfterOnceExit">
    <property name="text">
     <string>&amp;Exit</string>
    </property>
   </action>
-  <action name="action_play_after_once_standby">
+  <action name="actionPlayAfterOnceStandby">
    <property name="text">
     <string>&amp;Stand by</string>
    </property>
   </action>
-  <action name="action_play_after_once_hibernate">
+  <action name="actionPlayAfterOnceHibernate">
    <property name="text">
     <string>&amp;Hibernate</string>
    </property>
   </action>
-  <action name="action_play_after_once_shutdown">
+  <action name="actionPlayAfterOnceShutdown">
    <property name="text">
     <string>Shut&amp;down</string>
    </property>
   </action>
-  <action name="action_play_after_once_logoff">
+  <action name="actionPlayAfterOnceLogoff">
    <property name="text">
     <string>Log &amp;Off</string>
    </property>
   </action>
-  <action name="action_play_after_once_lock">
+  <action name="actionPlayAfterOnceLock">
    <property name="text">
     <string>&amp;Lock</string>
    </property>
   </action>
-  <action name="action_play_after_always_exit">
+  <action name="actionPlayAfterAlwaysExit">
    <property name="text">
     <string>E&amp;xit</string>
    </property>
   </action>
-  <action name="action_play_after_always_nothing">
+  <action name="actionPlayAfterAlwaysNothing">
    <property name="text">
     <string>Do &amp;Nothing</string>
    </property>
   </action>
-  <action name="action_play_after_always_next">
+  <action name="actionPlayAfterAlwaysNext">
    <property name="text">
     <string>Play next in the &amp;folder</string>
    </property>
   </action>
-  <action name="action_navigate_chapters_previous">
+  <action name="actionNavigateChaptersPrevious">
    <property name="text">
     <string>&amp;Previous</string>
    </property>
@@ -1123,7 +1123,7 @@
     <string>PgUp</string>
    </property>
   </action>
-  <action name="action_navigate_chapters_next">
+  <action name="actionNavigateChaptersNext">
    <property name="text">
     <string>&amp;Next</string>
    </property>
@@ -1131,7 +1131,7 @@
     <string>PgDown</string>
    </property>
   </action>
-  <action name="action_navigate_goto">
+  <action name="actionNavigateGoto">
    <property name="text">
     <string>&amp;Go To...</string>
    </property>
@@ -1139,7 +1139,7 @@
     <string>Ctrl+G</string>
    </property>
   </action>
-  <action name="action_navigate_menu_title">
+  <action name="actionNavigateMenuTitle">
    <property name="text">
     <string>&amp;Title Menu</string>
    </property>
@@ -1147,7 +1147,7 @@
     <string>Alt+T</string>
    </property>
   </action>
-  <action name="action_navigate_menu_root">
+  <action name="actionNavigateMenuRoot">
    <property name="text">
     <string>&amp;Root Menu</string>
    </property>
@@ -1155,42 +1155,42 @@
     <string>Alt+R</string>
    </property>
   </action>
-  <action name="action_navigate_menu_subtitle">
+  <action name="actionNavigateMenuSubtitle">
    <property name="text">
     <string>&amp;Subtitle Menu</string>
    </property>
   </action>
-  <action name="action_navigate_menu_audio">
+  <action name="actionNavigateMenuAudio">
    <property name="text">
     <string>&amp;Audio Menu</string>
    </property>
   </action>
-  <action name="action_navigate_menu_angle">
+  <action name="actionNavigateMenuAngle">
    <property name="text">
     <string>Angle &amp;Menu</string>
    </property>
   </action>
-  <action name="action_navigate_menu_chapter">
+  <action name="actionNavigateMenuChapter">
    <property name="text">
     <string>Chapt&amp;er Menu</string>
    </property>
   </action>
-  <action name="action_favorites_add">
+  <action name="actionFavoritesAdd">
    <property name="text">
     <string>&amp;Add to Favorites...</string>
    </property>
   </action>
-  <action name="action_favorites_organize">
+  <action name="actionFavoritesOrganize">
    <property name="text">
     <string>&amp;Organize Favorites...</string>
    </property>
   </action>
-  <action name="action_help_homepage">
+  <action name="actionHelpHomepage">
    <property name="text">
     <string>&amp;Home Page</string>
    </property>
   </action>
-  <action name="action_help_about">
+  <action name="actionHelpAbout">
    <property name="text">
     <string>&amp;About...</string>
    </property>
