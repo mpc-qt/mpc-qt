@@ -213,39 +213,36 @@ void MainWindow::on_actionViewFullscreen_toggled(bool checked)
 
 void MainWindow::on_actionViewZoom050_triggered()
 {
-    sizeFactor_ = 0.5;
-    updateSize();
+    setSizeFactor(0.5);
 }
 
 void MainWindow::on_actionViewZoom100_triggered()
 {
-    sizeFactor_ = 1.0;
-    updateSize();
+    setSizeFactor(1.0);
 }
 
 void MainWindow::on_actionViewZoom200_triggered()
 {
-    sizeFactor_ = 2.0;
-    updateSize();
+    setSizeFactor(2.0);
 }
 
 void MainWindow::on_actionViewZoomAutofit_triggered()
 {
     // TODO: work out the logic for this.  In the meantime, set to manual
     // sized.
-    sizeFactor_ = 0.0;
+    setSizeFactor(0.0);
 }
 
 void MainWindow::on_actionViewZoomAutofitLarger_triggered()
 {
     // TODO: work out the logic for this.  In the meantime, set to manual
     // sized.
-    sizeFactor_ = 0.0;
+    setSizeFactor(0.0);
 }
 
 void MainWindow::on_actionViewZoomDisable_triggered()
 {
-    sizeFactor_ = 0.0;
+    setSizeFactor(0.0);
 }
 
 void MainWindow::on_actionPlayPause_toggled(bool checked)
@@ -612,6 +609,8 @@ void MainWindow::setPlaybackSpeed(double speed)
 void MainWindow::setSizeFactor(double factor)
 {
     sizeFactor_ = factor;
+    if (sizeFactor_ != 0)
+        updateSize();
 }
 
 void MainWindow::setupMenu()
