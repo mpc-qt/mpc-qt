@@ -796,22 +796,22 @@ void MainWindow::updateSize(bool first_run)
     if (sizeFactor() <= 0 || fullscreenMode() || isMaximized())
         return;
 
-    QSize sz_player = isPlaying() ? mpvw->videoSize() : noVideoSize();
-    double factor_to_use = isPlaying() ? sizeFactor() : std::max(1.0, sizeFactor());
-    QSize sz_wanted(sz_player.width()*factor_to_use + 0.5,
-                    sz_player.height()*factor_to_use + 0.5);
-    QSize sz_current = mpvw->size();
-    QSize sz_window = size();
-    QSize sz_desired = sz_wanted + sz_window - sz_current;
+    QSize player = isPlaying() ? mpvw->videoSize() : noVideoSize();
+    double factor = isPlaying() ? sizeFactor() : std::max(1.0, sizeFactor());
+    QSize wanted(player.width()*factor + 0.5,
+                    player.height()*factor + 0.5);
+    QSize current = mpvw->size();
+    QSize window = size();
+    QSize desired = wanted + window - current;
 
     QDesktopWidget *desktop = qApp->desktop();
     if (first_run)
         setGeometry(QStyle::alignedRect(
-                    Qt::LeftToRight, Qt::AlignCenter, sz_desired,
+                    Qt::LeftToRight, Qt::AlignCenter, desired,
                     desktop->availableGeometry(desktop->screenNumber(QCursor::pos()))));
     else
         setGeometry(QStyle::alignedRect(
-                    Qt::LeftToRight, Qt::AlignCenter, sz_desired,
+                    Qt::LeftToRight, Qt::AlignCenter, desired,
                     desktop->availableGeometry(this)));
 }
 
