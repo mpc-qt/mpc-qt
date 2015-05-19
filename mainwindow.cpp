@@ -378,9 +378,10 @@ void MainWindow::on_actionHelpAbout_triggered()
       "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the "
       "GNU General Public License for more details."
       "<p>"
-      "You should have received a copy of the GNU General Public License along "
-      "with this program; if not, write to the Free Software Foundation, Inc., "
-      "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.");
+      "You should have received a copy of the GNU General Public License "
+      "along with this program; if not, write to the Free Software "
+      "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA "
+      "02110-1301 USA.");
 }
 
 void MainWindow::position_sliderMoved(int position)
@@ -451,7 +452,8 @@ void MainWindow::mpvw_chaptersChanged(QVariantList chapters)
     positionSlider()->clearTicks();
     for (QVariant v : chapters) {
         QMap<QString, QVariant> node = v.toMap();
-        positionSlider()->setTick(node["time"].toDouble(), node["title"].toString());
+        positionSlider()->setTick(node["time"].toDouble(),
+                                  node["title"].toString());
     }
 
     // Here we populate the chapters menu with the chapters.
@@ -467,8 +469,10 @@ void MainWindow::mpvw_chaptersChanged(QVariantList chapters)
                             node["title"].toString()));
         emitter = new DataEmitter(action);
         emitter->data = index;
-        connect(action, &QAction::triggered, emitter, &DataEmitter::gotSomething);
-        connect(emitter, &DataEmitter::heresSomething, this, &MainWindow::menuNavigateChapters_selected);
+        connect(action, &QAction::triggered,
+                emitter, &DataEmitter::gotSomething);
+        connect(emitter, &DataEmitter::heresSomething,
+                this, &MainWindow::menuNavigateChapters_selected);
         ui->menuNavigateChapters->addAction(action);
         index++;
     }
@@ -502,13 +506,16 @@ void MainWindow::mpvw_tracksChanged(QVariantList tracks)
         de->data = t["id"];
         connect(action, &QAction::triggered, de, &DataEmitter::gotSomething);
         if (str(t,"type") == "audio") {
-            connect(de, &DataEmitter::heresSomething, this, &MainWindow::actionPlayAudio_selected);
+            connect(de, &DataEmitter::heresSomething,
+                    this, &MainWindow::actionPlayAudio_selected);
             ui->menuPlayAudio->addAction(action);
         } else if (str(t,"type") == "sub") {
-            connect(de, &DataEmitter::heresSomething, this, &MainWindow::actionPlaySubtitles_selected);
+            connect(de, &DataEmitter::heresSomething,
+                    this, &MainWindow::actionPlaySubtitles_selected);
             ui->menuPlaySubtitles->addAction(action);
         } else if (str(t,"type") == "video") {
-            connect(de, &DataEmitter::heresSomething, this, &MainWindow::actionPlayVideoTracks_selected);
+            connect(de, &DataEmitter::heresSomething,
+                    this, &MainWindow::actionPlayVideoTracks_selected);
             ui->menuPlayVideo->addAction(action);
         } else {
             // the track is unused by us for now, so delete the stuff we were
@@ -629,7 +636,8 @@ void MainWindow::setupPositionSlider()
 {
     positionSlider_ = new QMediaSlider();
     ui->seekbar->layout()->addWidget(positionSlider_);
-    connect(positionSlider_, &QMediaSlider::sliderMoved, this, &MainWindow::position_sliderMoved);
+    connect(positionSlider_, &QMediaSlider::sliderMoved,
+            this, &MainWindow::position_sliderMoved);
 }
 
 void MainWindow::setupVolumeSlider()
@@ -640,21 +648,31 @@ void MainWindow::setupVolumeSlider()
     volumeSlider_->setMaximum(100);
     volumeSlider_->setValue(100);
     ui->controlbar->layout()->addWidget(volumeSlider_);
-    connect(volumeSlider_, &QVolumeSlider::sliderMoved, this, &MainWindow::volume_sliderMoved);
+    connect(volumeSlider_, &QVolumeSlider::sliderMoved,
+            this, &MainWindow::volume_sliderMoved);
 }
 
 void MainWindow::setupMpvWidget()
 {
     mpvw = new MpvWidget(this);
-    connect(mpvw, &MpvWidget::playTimeChanged, this, &MainWindow::mpvw_playTimeChanged);
-    connect(mpvw, &MpvWidget::playLengthChanged, this, &MainWindow::mpvw_playLengthChanged);
-    connect(mpvw, &MpvWidget::playbackStarted, this, &MainWindow::mpvw_playbackStarted);
-    connect(mpvw, &MpvWidget::pausedChanged, this, &MainWindow::mpvw_pausedChanged);
-    connect(mpvw, &MpvWidget::playbackFinished, this, &MainWindow::mpvw_playbackFinished);
-    connect(mpvw, &MpvWidget::mediaTitleChanged, this, &MainWindow::mpvw_mediaTitleChanged);
-    connect(mpvw, &MpvWidget::chaptersChanged, this, &MainWindow::mpvw_chaptersChanged);
-    connect(mpvw, &MpvWidget::tracksChanged, this, &MainWindow::mpvw_tracksChanged);
-    connect(mpvw, &MpvWidget::videoSizeChanged, this, &MainWindow::mpvw_videoSizeChanged);
+    connect(mpvw, &MpvWidget::playTimeChanged,
+            this, &MainWindow::mpvw_playTimeChanged);
+    connect(mpvw, &MpvWidget::playLengthChanged,
+            this, &MainWindow::mpvw_playLengthChanged);
+    connect(mpvw, &MpvWidget::playbackStarted,
+            this, &MainWindow::mpvw_playbackStarted);
+    connect(mpvw, &MpvWidget::pausedChanged,
+            this, &MainWindow::mpvw_pausedChanged);
+    connect(mpvw, &MpvWidget::playbackFinished,
+            this, &MainWindow::mpvw_playbackFinished);
+    connect(mpvw, &MpvWidget::mediaTitleChanged,
+            this, &MainWindow::mpvw_mediaTitleChanged);
+    connect(mpvw, &MpvWidget::chaptersChanged,
+            this, &MainWindow::mpvw_chaptersChanged);
+    connect(mpvw, &MpvWidget::tracksChanged,
+            this, &MainWindow::mpvw_tracksChanged);
+    connect(mpvw, &MpvWidget::videoSizeChanged,
+            this, &MainWindow::mpvw_videoSizeChanged);
 }
 
 void MainWindow::setupMpvHost()
@@ -665,7 +683,8 @@ void MainWindow::setupMpvHost()
     mpvHost_->setStyleSheet("background-color: black; background: center url("
                             ":/images/bitmaps/blank-screen.png) no-repeat;");
     mpvHost_->setCentralWidget(mpvw);
-    mpvHost_->setSizePolicy(QSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred));
+    mpvHost_->setSizePolicy(QSizePolicy(QSizePolicy::Preferred,
+                                        QSizePolicy::Preferred));
     ui->mpvWidget->layout()->addWidget(mpvHost_);
 
     connectButtonsToActions();
@@ -675,7 +694,8 @@ void MainWindow::setupMpvHost()
 
 void MainWindow::setupSizing()
 {
-    connect(this, &MainWindow::fireUpdateSize, this, &MainWindow::sendUpdateSize,
+    connect(this, &MainWindow::fireUpdateSize,
+            this, &MainWindow::sendUpdateSize,
             Qt::QueuedConnection);
 
     // Guarantee that the layout has been calculated.  It seems pointless, but
@@ -693,18 +713,27 @@ void MainWindow::setupSizing()
 
 void MainWindow::connectButtonsToActions()
 {
-    connect(ui->pause, &QPushButton::toggled, ui->actionPlayPause, &QAction::toggled);
-    connect(ui->stop, &QPushButton::clicked, ui->actionPlayStop, &QAction::triggered);
+    connect(ui->pause, &QPushButton::toggled,
+            ui->actionPlayPause, &QAction::toggled);
+    connect(ui->stop, &QPushButton::clicked,
+            ui->actionPlayStop, &QAction::triggered);
 
-    connect(ui->speedDecrease, &QPushButton::clicked, ui->actionPlayRateDecrease, &QAction::triggered);
-    connect(ui->speedIncrease, &QPushButton::clicked, ui->actionPlayRateIncrease, &QAction::triggered);
+    connect(ui->speedDecrease, &QPushButton::clicked,
+            ui->actionPlayRateDecrease, &QAction::triggered);
+    connect(ui->speedIncrease, &QPushButton::clicked,
+            ui->actionPlayRateIncrease, &QAction::triggered);
 
-    connect(ui->skipBackward, &QPushButton::clicked, ui->actionNavigateChaptersPrevious, &QAction::triggered);
-    connect(ui->stepBackward, &QPushButton::clicked, ui->actionPlayFrameBackward, &QAction::triggered);
-    connect(ui->stepForward, &QPushButton::clicked, ui->actionPlayFrameForward, &QAction::triggered);
-    connect(ui->skipForward, &QPushButton::clicked, ui->actionNavigateChaptersNext, &QAction::triggered);
+    connect(ui->skipBackward, &QPushButton::clicked,
+            ui->actionNavigateChaptersPrevious, &QAction::triggered);
+    connect(ui->stepBackward, &QPushButton::clicked,
+            ui->actionPlayFrameBackward, &QAction::triggered);
+    connect(ui->stepForward, &QPushButton::clicked,
+            ui->actionPlayFrameForward, &QAction::triggered);
+    connect(ui->skipForward, &QPushButton::clicked,
+            ui->actionNavigateChaptersNext, &QAction::triggered);
 
-    connect(ui->mute, &QPushButton::toggled, ui->actionPlayVolumeMute, &QAction::toggled);
+    connect(ui->mute, &QPushButton::toggled,
+            ui->actionPlayVolumeMute, &QAction::toggled);
 }
 
 void MainWindow::globalizeAllActions()
@@ -786,12 +815,14 @@ void MainWindow::updateTime()
 {
     double playTime = mpvw->playTime();
     double playLength = mpvw->playLength();
-    ui->time->setText(QString("%1 / %2").arg(toDateFormat(playTime),toDateFormat(playLength)));
+    ui->time->setText(QString("%1 / %2").arg(toDateFormat(playTime),
+                                             toDateFormat(playLength)));
 }
 
 void MainWindow::updatePlaybackStatus()
 {
-    ui->status->setText(isPlaying() ? isPaused() ? "Paused" : "Playing" : "Stopped");
+    ui->status->setText(isPlaying() ? isPaused() ? "Paused" :"Playing" :
+                                                   "Stopped");
 }
 
 void MainWindow::updateSize(bool first_run)
@@ -800,7 +831,8 @@ void MainWindow::updateSize(bool first_run)
         return;
 
     QSize player = isPlaying() ? mpvw->videoSize() : noVideoSize();
-    double factor = isPlaying() ? sizeFactor() : std::max(1.0, sizeFactor());
+    double factor = isPlaying() ? sizeFactor() :
+                                  std::max(1.0, sizeFactor());
     QSize wanted(player.width()*factor + 0.5,
                     player.height()*factor + 0.5);
     QSize current = mpvw->size();
@@ -811,7 +843,8 @@ void MainWindow::updateSize(bool first_run)
     if (first_run)
         setGeometry(QStyle::alignedRect(
                     Qt::LeftToRight, Qt::AlignCenter, desired,
-                    desktop->availableGeometry(desktop->screenNumber(QCursor::pos()))));
+                    desktop->availableGeometry(desktop->screenNumber(
+                                                   QCursor::pos()))));
     else
         setGeometry(QStyle::alignedRect(
                     Qt::LeftToRight, Qt::AlignCenter, desired,
