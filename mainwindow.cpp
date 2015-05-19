@@ -473,7 +473,7 @@ void MainWindow::mpvw_chaptersChanged(QVariantList chapters)
 
     // Here we populate the chapters menu with the chapters.
     QAction *action;
-    data_emitter *emitter;
+    DataEmitter *emitter;
     ui->menuNavigateChapters->clear();
     int index = 0;
     for (QVariant v : chapters) {
@@ -482,10 +482,10 @@ void MainWindow::mpvw_chaptersChanged(QVariantList chapters)
         action->setText(QString("[%1] - %2").arg(
                             toDateFormat(node["time"].toDouble()),
                             node["title"].toString()));
-        emitter = new data_emitter(action);
+        emitter = new DataEmitter(action);
         emitter->data = index;
-        connect(action, &QAction::triggered, emitter, &data_emitter::gotSomething);
-        connect(emitter, &data_emitter::heresSomething, this, &MainWindow::menuNavigateChapters_selected);
+        connect(action, &QAction::triggered, emitter, &DataEmitter::gotSomething);
+        connect(emitter, &DataEmitter::heresSomething, this, &MainWindow::menuNavigateChapters_selected);
         ui->menuNavigateChapters->addAction(action);
         index++;
     }
@@ -514,18 +514,18 @@ void MainWindow::mpvw_tracksChanged(QVariantList tracks)
     for (QVariant track : tracks) {
         QVariantMap t = track.toMap();
         QAction *action = new QAction(this);
-        data_emitter *de = new data_emitter(action);
+        DataEmitter *de = new DataEmitter(action);
         action->setText(formatter(t));
         de->data = t["id"];
-        connect(action, &QAction::triggered, de, &data_emitter::gotSomething);
+        connect(action, &QAction::triggered, de, &DataEmitter::gotSomething);
         if (str(t,"type") == "audio") {
-            connect(de, &data_emitter::heresSomething, this, &MainWindow::actionPlayAudio_selected);
+            connect(de, &DataEmitter::heresSomething, this, &MainWindow::actionPlayAudio_selected);
             ui->menuPlayAudio->addAction(action);
         } else if (str(t,"type") == "sub") {
-            connect(de, &data_emitter::heresSomething, this, &MainWindow::actionPlaySubtitles_selected);
+            connect(de, &DataEmitter::heresSomething, this, &MainWindow::actionPlaySubtitles_selected);
             ui->menuPlaySubtitles->addAction(action);
         } else if (str(t,"type") == "video") {
-            connect(de, &data_emitter::heresSomething, this, &MainWindow::actionPlayVideoTracks_selected);
+            connect(de, &DataEmitter::heresSomething, this, &MainWindow::actionPlayVideoTracks_selected);
             ui->menuPlayVideo->addAction(action);
         } else {
             // the track is unused by us for now, so delete the stuff we were

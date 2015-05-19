@@ -143,12 +143,12 @@ private:
 };
 
 // Helper class for emitting data
-class data_emitter : public QObject
+class DataEmitter : public QObject
 {
     Q_OBJECT
 public:
     QVariant data;
-    data_emitter(QObject *parent) : QObject(parent) {}
+    DataEmitter(QObject *parent) : QObject(parent) {}
 
 public slots:
     void gotSomething() { heresSomething(data); }
