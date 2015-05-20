@@ -70,6 +70,7 @@ private slots:
     void on_actionNavigateChaptersNext_triggered();
     void menuNavigateChapters_selected(QVariant data);
 
+    void on_actionHelpHomepage_triggered();
     void on_actionHelpAbout_triggered();
 
     void position_sliderMoved(int position);

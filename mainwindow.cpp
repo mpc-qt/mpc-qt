@@ -9,6 +9,7 @@
 #include <QJsonDocument>
 #include <QFileDialog>
 #include <QTime>
+#include <QDesktopServices>
 #include <QMessageBox>
 #include <QLibraryInfo>
 #include <QDebug>
@@ -356,6 +357,11 @@ void MainWindow::on_actionNavigateChaptersNext_triggered()
 void MainWindow::menuNavigateChapters_selected(QVariant data)
 {
     mpvw->setChapter(data.toInt());
+}
+
+void MainWindow::on_actionHelpHomepage_triggered()
+{
+    QDesktopServices::openUrl(QUrl("https://github.com/cmdrkotori/mpc-qt"));
 }
 
 void MainWindow::on_actionHelpAbout_triggered()
