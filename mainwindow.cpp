@@ -34,6 +34,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setupMpvWidget();
     setupMpvHost();
     setupSizing();
+    setDiscState(false);
 }
 
 MainWindow::~MainWindow()
@@ -624,6 +625,16 @@ void MainWindow::setSizeFactor(double factor)
     sizeFactor_ = factor;
     if (sizeFactor_ != 0)
         updateSize();
+}
+
+void MainWindow::setDiscState(bool playingADisc)
+{
+    ui->actionNavigateMenuTitle->setEnabled(playingADisc);
+    ui->actionNavigateMenuRoot->setEnabled(playingADisc);
+    ui->actionNavigateMenuSubtitle->setEnabled(playingADisc);
+    ui->actionNavigateMenuAudio->setEnabled(playingADisc);
+    ui->actionNavigateMenuAngle->setEnabled(playingADisc);
+    ui->actionNavigateMenuChapter->setEnabled(playingADisc);
 }
 
 void MainWindow::setupMenu()

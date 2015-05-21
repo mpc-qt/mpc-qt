@@ -126,6 +126,7 @@ private:
     void setPaused(bool yes);
     void setPlaybackSpeed(double speed);
     void setSizeFactor(double factor);
+    void setDiscState(bool playingADisc);
 
     void setupMenu();
     void setupPositionSlider();
