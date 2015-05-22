@@ -711,6 +711,8 @@ void MainWindow::setupMpvHost()
 
 void MainWindow::setupSizing()
 {
+    // The point of requesting calls to updateSize through a _queued_ slot is
+    // to give Qt time to respond to layout and window size changes.
     connect(this, &MainWindow::fireUpdateSize,
             this, &MainWindow::sendUpdateSize,
             Qt::QueuedConnection);
