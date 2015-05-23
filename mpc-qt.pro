@@ -18,12 +18,14 @@ PKGCONFIG += mpv
 SOURCES += main.cpp\
     mpvwidget.cpp \
     mainwindow.cpp \
-    qdrawnslider.cpp
+    qdrawnslider.cpp \
+    playlist.cpp
 
 HEADERS  += \
     mpvwidget.h \
     mainwindow.h \
-    qdrawnslider.h
+    qdrawnslider.h \
+    playlist.h
 
 FORMS    += \
     mainwindow.ui
