@@ -6,6 +6,7 @@
 #include <QUuid>
 #include <QUrl>
 #include <QObject>
+#include <functional>
 #include <QList>
 #include <QHash>
 #include <QStringList>
@@ -39,6 +40,7 @@ public:
     Item *itemAt(int row);
     Item *itemOf(QUuid uuid);
     int count();
+    void iterateItems(std::function<void(Item *)> callback);
     void moveItems(int sourceRow, int destRow, int count);
     void addItems(int where, QList<Item*> itemsToAdd);
     void removeItems(int where, int count);

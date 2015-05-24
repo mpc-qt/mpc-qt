@@ -92,6 +92,12 @@ int Playlist::count()
     return items.count();
 }
 
+void Playlist::iterateItems(std::function<void(Item *)> callback)
+{
+    for (Item *item : items)
+        callback(item);
+}
+
 void Playlist::moveItems(int sourceRow, int destRow, int count)
 {
     QList<Item*> taken;
