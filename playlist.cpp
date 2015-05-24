@@ -3,18 +3,28 @@
 Item::Item(QString text)
 {
     this->text = text;
-    uuid = QUuid::createUuid();
+    setUuid(QUuid::createUuid());
+}
+
+QUuid Item::uuid()
+{
+    return uuid_;
+}
+
+void Item::setUuid(QUuid uuid)
+{
+    uuid_ = uuid;
 }
 
 QString Item::toString()
 {
-    return QString("%1\t%2").arg(uuid.toString(), text);
+    return QString("%1\t%2").arg(uuid().toString(), text);
 }
 
 void Item::fromString(QString input)
 {
     QStringList sl = input.split("\t");
-    uuid = QUuid(sl[0]);
+    setUuid(QUuid(sl[0]));
     text = sl[1];
 }
 
@@ -35,7 +45,7 @@ Item *Playlist::addItem(QString text)
 {
     Item *i = new Item(text);
     items.append(i);
-    itemsByUuid.insert(i->uuid, i);
+    itemsByUuid.insert(i->uuid(), i);
     return i;
 }
 
@@ -43,9 +53,9 @@ Item *Playlist::addItem(QUuid uuid, QString text)
 {
     Item *i = new Item();
     i->text = text;
-    i->uuid = uuid;
+    i->setUuid(uuid);
     items.append(i);
-    itemsByUuid.insert(i->uuid, i);
+    itemsByUuid.insert(uuid, i);
     return i;
 }
 
@@ -80,14 +90,14 @@ void Playlist::addItems(int where, QList<Item *> itemsToAdd)
     for (int i = 0; i < itemsToAdd.count(); ++i) {
         Item *item = itemsToAdd.at(i);
         items.insert(where + i, item);
-        itemsByUuid.insert(item->uuid, item);
+        itemsByUuid.insert(item->uuid(), item);
     }
 }
 
 void Playlist::removeItems(int where, int count)
 {
     for (int i = 0; i < count; i++) {
-        itemsByUuid.remove(items.at(where)->uuid);
+        itemsByUuid.remove(items.at(where)->uuid());
         items.removeAt(where);
     }
 }
@@ -103,7 +113,7 @@ QList<Item *> Playlist::takeItems(int where, int count)
     for (int i = 0; i < count; i++) {
         Item *item = items.takeAt(where);
         taken.append(item);
-        itemsByUuid.remove(item->uuid);
+        itemsByUuid.remove(item->uuid());
     }
     return taken;
 }

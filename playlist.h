@@ -12,11 +12,15 @@
 class Item {
 public:
     Item(QString text = 0);
-    QUuid uuid;
     QString text;
 
+    QUuid uuid();
+    void setUuid(QUuid uuid);
     QString toString();
     void fromString(QString input);
+
+private:
+    QUuid uuid_;
 };
 
 class Playlist : public QObject {
