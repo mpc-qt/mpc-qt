@@ -15,13 +15,13 @@ class Item {
 public:
     Item(QUrl url = QUrl());
 
-    QUuid uuid();
+    QUuid uuid() const;
     void setUuid(QUuid uuid);
-    QUrl url();
+    QUrl url() const;
     void setUrl(QUrl url);
 
-    QString toDisplayString();
-    QString toString();
+    QString toDisplayString() const;
+    QString toString() const;
     void fromString(QString input);
 
 private:
@@ -39,7 +39,7 @@ public:
     Item *addItem(QUuid uuid, QUrl url);
     Item *itemAt(int row);
     Item *itemOf(QUuid uuid);
-    int count();
+    int count() const;
     void iterateItems(std::function<void(Item *)> callback);
     void moveItems(int sourceRow, int destRow, int count);
     void addItems(int where, QList<Item*> itemsToAdd);
@@ -53,7 +53,7 @@ public:
     QUuid uuid() const;
     void setUuid(const QUuid uuid);
 
-    QStringList toStringList();
+    QStringList toStringList() const;
     void fromStringList(QStringList sl);
 
 private:

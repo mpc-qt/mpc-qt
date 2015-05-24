@@ -7,7 +7,7 @@ Item::Item(QUrl url)
     setUuid(QUuid::createUuid());
 }
 
-QUuid Item::uuid()
+QUuid Item::uuid() const
 {
     return uuid_;
 }
@@ -17,7 +17,7 @@ void Item::setUuid(QUuid uuid)
     uuid_ = uuid;
 }
 
-QUrl Item::url()
+QUrl Item::url() const
 {
     return url_;
 }
@@ -27,14 +27,14 @@ void Item::setUrl(QUrl url)
     url_ = url;
 }
 
-QString Item::toDisplayString()
+QString Item::toDisplayString() const
 {
     if (url().isLocalFile())
         return QFileInfo(url().toLocalFile()).completeBaseName();
     return url().toDisplayString();
 }
 
-QString Item::toString()
+QString Item::toString() const
 {
     return QString("%1\t%2").arg(uuid().toString(), QString(url().toEncoded()));
 }
@@ -87,7 +87,7 @@ Item *Playlist::itemOf(QUuid uuid)
     return itemsByUuid.value(uuid, NULL);
 }
 
-int Playlist::count()
+int Playlist::count() const
 {
     return items.count();
 }
@@ -170,7 +170,7 @@ void Playlist::setUuid(const QUuid uuid)
     uuid_ = uuid;
 }
 
-QStringList Playlist::toStringList()
+QStringList Playlist::toStringList() const
 {
     QStringList sl;
     sl << QString("%1\t%2").arg(uuid().toString(), title());
