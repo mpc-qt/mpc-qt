@@ -46,13 +46,19 @@ public:
     QList<Item*> takeItems(int where, int count);
     void clear();
 
+    QString title() const;
+    void setTitle(const QString title);
+    QUuid uuid() const;
+    void setUuid(const QUuid uuid);
+
     QStringList toStringList();
     void fromStringList(QStringList sl);
 
+private:
     QList<Item*> items;
     QHash<QUuid, Item*> itemsByUuid;
-    QString title;
-    QUuid uuid;
+    QString title_;
+    QUuid uuid_;
 };
 
 class PlaylistCollection : public QObject {

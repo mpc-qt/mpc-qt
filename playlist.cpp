@@ -48,8 +48,8 @@ void Item::fromString(QString input)
 
 Playlist::Playlist(QString title)
 {
-    uuid = QUuid::createUuid();
-    this->title = title;
+    setUuid(QUuid::createUuid());
+    setTitle(title);
 }
 
 Playlist::~Playlist()
@@ -144,10 +144,30 @@ void Playlist::clear()
     itemsByUuid.clear();
 }
 
+QString Playlist::title() const
+{
+    return title_;
+}
+
+void Playlist::setTitle(const QString title)
+{
+    title_ = title;
+}
+
+QUuid Playlist::uuid() const
+{
+    return uuid_;
+}
+
+void Playlist::setUuid(const QUuid uuid)
+{
+    uuid_ = uuid;
+}
+
 QStringList Playlist::toStringList()
 {
     QStringList sl;
-    sl << QString("%1\t%2").arg(uuid.toString(), title);
+    sl << QString("%1\t%2").arg(uuid().toString(), title());
     for (Item *i : items)
         sl << i->toString();
     return sl;
@@ -162,7 +182,11 @@ void Playlist::fromStringList(QStringList sl)
     };
 
     auto iter = sl.cbegin();
-    split(*iter, &uuid, &title);
+    QUuid tempUuid;
+    QString tempTitle;
+    split(*iter, &tempUuid, &tempTitle);
+    setUuid(tempUuid);
+    setTitle(tempTitle);
     for (++iter; iter != sl.cend(); ++iter) {
         QUuid itemUuid;
         QString itemText;
@@ -221,7 +245,7 @@ void PlaylistCollection::removePlaylist(Playlist *p)
 {
     if (p == NULL)
         return;
-    removePlaylist(p->uuid);
+    removePlaylist(p->uuid());
 }
 
 Playlist *PlaylistCollection::playlistAt(int col)
@@ -237,8 +261,8 @@ Playlist *PlaylistCollection::playlistOf(QUuid uuid)
 Playlist *PlaylistCollection::doNewPlaylist(QString title, QUuid uuid)
 {
     Playlist *p = new Playlist(title);
-    p->uuid = uuid;
+    p->setUuid(uuid);
     playlists.append(p);
-    playlistsByUuid.insert(p->uuid, p);
+    playlistsByUuid.insert(p->uuid(), p);
     return p;
 }
