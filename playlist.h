@@ -4,6 +4,7 @@
 
 #include <QString>
 #include <QUuid>
+#include <QUrl>
 #include <QObject>
 #include <QList>
 #include <QHash>
@@ -11,16 +12,20 @@
 
 class Item {
 public:
-    Item(QString text = 0);
-    QString text;
+    Item(QUrl url = QUrl());
 
     QUuid uuid();
     void setUuid(QUuid uuid);
+    QUrl url();
+    void setUrl(QUrl url);
+
+    QString toDisplayString();
     QString toString();
     void fromString(QString input);
 
 private:
     QUuid uuid_;
+    QUrl url_;
 };
 
 class Playlist : public QObject {
@@ -29,8 +34,8 @@ public:
     Playlist();
     Playlist(QString title);
     ~Playlist();
-    Item *addItem(QString text = 0);
-    Item *addItem(QUuid uuid, QString text);
+    Item *addItem(QUrl url = QUrl());
+    Item *addItem(QUuid uuid, QUrl url);
     Item *itemAt(int row);
     Item *itemOf(QUuid uuid);
     int count();

@@ -1,8 +1,9 @@
+#include <QFileInfo>
 #include "playlist.h"
 
-Item::Item(QString text)
+Item::Item(QUrl url)
 {
-    this->text = text;
+    setUrl(url);
     setUuid(QUuid::createUuid());
 }
 
@@ -16,16 +17,33 @@ void Item::setUuid(QUuid uuid)
     uuid_ = uuid;
 }
 
+QUrl Item::url()
+{
+    return url_;
+}
+
+void Item::setUrl(QUrl url)
+{
+    url_ = url;
+}
+
+QString Item::toDisplayString()
+{
+    if (url().isLocalFile())
+        return QFileInfo(url().toLocalFile()).completeBaseName();
+    return url().toDisplayString();
+}
+
 QString Item::toString()
 {
-    return QString("%1\t%2").arg(uuid().toString(), text);
+    return QString("%1\t%2").arg(uuid().toString(), QString(url().toEncoded()));
 }
 
 void Item::fromString(QString input)
 {
     QStringList sl = input.split("\t");
     setUuid(QUuid(sl[0]));
-    text = sl[1];
+    setUrl(QUrl::fromPercentEncoding(sl[1].toUtf8()));
 }
 
 Playlist::Playlist(QString title)
@@ -41,18 +59,18 @@ Playlist::~Playlist()
     }
 }
 
-Item *Playlist::addItem(QString text)
+Item *Playlist::addItem(QUrl url)
 {
-    Item *i = new Item(text);
+    Item *i = new Item(url);
     items.append(i);
     itemsByUuid.insert(i->uuid(), i);
     return i;
 }
 
-Item *Playlist::addItem(QUuid uuid, QString text)
+Item *Playlist::addItem(QUuid uuid, QUrl url)
 {
     Item *i = new Item();
-    i->text = text;
+    i->setUrl(url);
     i->setUuid(uuid);
     items.append(i);
     itemsByUuid.insert(uuid, i);
