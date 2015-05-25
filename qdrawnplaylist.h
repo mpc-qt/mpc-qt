@@ -7,8 +7,10 @@
 class PlayPainter : public QAbstractItemDelegate {
 public:
     PlayPainter(QObject *parent = 0);
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void paint(QPainter *painter, const QStyleOptionViewItem &option,
+               const QModelIndex &index) const;
+    QSize sizeHint(const QStyleOptionViewItem &option,
+                   const QModelIndex &index) const;
 };
 
 
@@ -50,7 +52,8 @@ signals:
     void itemDesired(QUuid playlistUuid, QUuid itemUuid);
 
 private slots:
-    void model_rowsMoved(const QModelIndex & parent, int start, int end, const QModelIndex & destination, int row);
+    void model_rowsMoved(const QModelIndex & parent, int start, int end,
+                         const QModelIndex & destination, int row);
     void self_itemDoubleClicked(QListWidgetItem *item);
 };
 
