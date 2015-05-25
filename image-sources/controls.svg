@@ -15,10 +15,30 @@
    viewBox="0 0 176 16"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="controls.svg">
   <defs
      id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4697">
+      <stop
+         style="stop-color:#c0c0c0;stop-opacity:1"
+         offset="0"
+         id="stop4699" />
+      <stop
+         id="stop4701"
+         offset="0.42857018"
+         style="stop-color:#dfdfdf;stop-opacity:1" />
+      <stop
+         id="stop4703"
+         offset="0.49999875"
+         style="stop-color:#ffffff;stop-opacity:1" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="1"
+         id="stop4705" />
+    </linearGradient>
     <linearGradient
        id="linearGradient7577"
        inkscape:collect="always">
@@ -48,17 +68,26 @@
        y1="1051.3622"
        x2="133"
        y2="1037.3622" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4697"
+       id="linearGradient4707"
+       gradientUnits="userSpaceOnUse"
+       x1="136"
+       y1="1037.3622"
+       x2="136"
+       y2="1051.3622" />
   </defs>
   <sodipodi:namedview
      id="base"
-     pagecolor="#ffffff"
+     pagecolor="#c299c4"
      bordercolor="#666666"
      borderopacity="1.0"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="0.52941176"
      inkscape:pageshadow="2"
-     inkscape:zoom="4"
-     inkscape:cx="112.97641"
-     inkscape:cy="-50.908951"
+     inkscape:zoom="22.627417"
+     inkscape:cx="147.06245"
+     inkscape:cy="10.267751"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -71,11 +100,11 @@
      inkscape:snap-midpoints="false"
      inkscape:snap-nodes="true"
      inkscape:snap-others="false"
-     inkscape:window-width="1493"
-     inkscape:window-height="925"
-     inkscape:window-x="0"
-     inkscape:window-y="73"
-     inkscape:window-maximized="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1676"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
      inkscape:bbox-paths="true"
      inkscape:bbox-nodes="true"
      inkscape:snap-bbox-edge-midpoints="false"
@@ -221,8 +250,13 @@
          sodipodi:nodetypes="ccccccccccccc"
          inkscape:connector-curvature="0"
          id="path4357"
-         d="m 136,1052.3622 -1.5,-5.5 0,-5 1.5,-5.5 -1,0 -4.5,5.5 -1.5,0.5 -0.5,1.5 0,1 0.5,1.5 1.5,0.5 4.5,5.5 z"
+         d="m 136,1052.3622 -1.5,-5.5 0,-5 1.5,-5.5 -1,0 -4,5 -2,1 -0.5,1.5 0,1 0.5,1.5 2,1 4,5 z"
          style="fill:url(#linearGradient7589);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         style="fill:url(#linearGradient4707);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 137,1036.3622 -3,5 0,6 3,5 1,-5 0,-6 z"
+         id="path4177"
+         inkscape:connector-curvature="0" />
       <g
          transform="translate(-2,0)"
          id="g4341">
@@ -265,18 +299,27 @@
        id="use4383"
        transform="translate(16,0)"
        width="100%"
-       height="100%" />
+       height="100%"
+       inkscape:export-filename="/home/tux/src/mpc-qt/mpc-qt/images/controls/speaker2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <circle
        style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ff0000;stroke-width:1;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4333"
        cx="168"
        cy="1044.3622"
-       r="7.5" />
+       r="7.5"
+       inkscape:export-filename="/home/tux/src/mpc-qt/mpc-qt/images/controls/speaker2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 162,1049.3622 1,1 10,-11 -1,-1"
        id="path4349"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/tux/src/mpc-qt/mpc-qt/images/controls/speaker2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4146-14-9"
