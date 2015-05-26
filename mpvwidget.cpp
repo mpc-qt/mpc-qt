@@ -32,7 +32,7 @@ MpvWidget::MpvWidget(QWidget *parent) :
     mpv_observe_property(mpv, 0, "media-title", MPV_FORMAT_STRING);
     mpv_observe_property(mpv, 0, "track-list", MPV_FORMAT_NODE);
     mpv_observe_property(mpv, 0, "chapter-list", MPV_FORMAT_NODE);
-    mpv_observe_property(mpv, 0, "length", MPV_FORMAT_DOUBLE);
+    mpv_observe_property(mpv, 0, "duration", MPV_FORMAT_DOUBLE);
     mpv_observe_property(mpv, 0, "estimated-vf-fps", MPV_FORMAT_DOUBLE);
     mpv_observe_property(mpv, 0, "avsync", MPV_FORMAT_DOUBLE);
     mpv_observe_property(mpv, 0, "vo-drop-frame-count", MPV_FORMAT_INT64);
@@ -224,7 +224,7 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
         if (strcmp(prop->name, "time-pos") == 0) {
             playTime_ = asDouble();
             playTimeChanged(playTime_);
-        } else if (strcmp(prop->name, "length") == 0) {
+        } else if (strcmp(prop->name, "duration") == 0) {
             playLength_ = asDouble();
             playLengthChanged(playLength_);
         } else if (strcmp(prop->name, "media-title") == 0) {
