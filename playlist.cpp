@@ -205,7 +205,7 @@ PlaylistCollection* PlaylistCollection::collection(NULL);
 
 PlaylistCollection::PlaylistCollection()
 {
-    doNewPlaylist(tr("Now playing"), QUuid());
+    doNewPlaylist(tr("Quick playlist"), QUuid());
 }
 
 PlaylistCollection::~PlaylistCollection()
