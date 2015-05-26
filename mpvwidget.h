@@ -41,7 +41,6 @@ public:
 signals:
     void fireMpvEvents();
 
-    // Pronounce 'me' as 'mpv event'.
     void playTimeChanged(double time);
     void playLengthChanged(double length);
     void playbackStarted();
