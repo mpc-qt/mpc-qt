@@ -20,14 +20,16 @@ SOURCES += main.cpp\
     mainwindow.cpp \
     qdrawnslider.cpp \
     playlist.cpp \
-    qdrawnplaylist.cpp
+    qdrawnplaylist.cpp \
+    manager.cpp
 
 HEADERS  += \
     mpvwidget.h \
     mainwindow.h \
     qdrawnslider.h \
     playlist.h \
-    qdrawnplaylist.h
+    qdrawnplaylist.h \
+    manager.h
 
 FORMS    += \
     mainwindow.ui
