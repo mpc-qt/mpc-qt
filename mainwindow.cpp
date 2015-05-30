@@ -27,6 +27,8 @@ MainWindow::MainWindow(QWidget *parent) :
     noVideoSize_ = QSize(500,270);
     decorationState_ = AllDecorations;
 
+    manager = new PlaybackManager(this);
+
     ui->setupUi(this);
     setupMenu();
     setupPositionSlider();
@@ -39,6 +41,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    delete manager;
     delete ui;
 }
 

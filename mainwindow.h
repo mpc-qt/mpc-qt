@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <mpvwidget.h>
 #include <QMenuBar>
+#include "manager.h"
 #include "qdrawnslider.h"
 
 namespace Ui {
@@ -103,6 +104,7 @@ private:
     bool fullscreenMode_;
 
     QSize noVideoSize_;
+    PlaybackManager *manager;
     bool isPlaying_;        // TODO: move to mpvwidget
     bool isPaused_;         // TODO: move to mpvwidget
     double playbackSpeed_;  // TODO: move to mpvwidget
