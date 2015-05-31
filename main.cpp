@@ -1,5 +1,5 @@
 #include <clocale>
-#include "mainwindow.h"
+#include "main.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
@@ -9,9 +9,25 @@ int main(int argc, char *argv[])
     // Qt sets the locale in the QApplication constructor, but libmpv requires
     // the LC_NUMERIC category to be set to "C", so change it back.
     std::setlocale(LC_NUMERIC, "C");
+    Flow f;
+    return f.run();
+}
 
-    MainWindow w;
-    w.show();
+Flow::Flow(QObject *owner) :
+    QObject(owner)
+{
+    mainWindow = new MainWindow();
+    playbackManager = new PlaybackManager(this);
+}
 
-    return a.exec();
+Flow::~Flow()
+{
+    delete playbackManager;
+    delete mainWindow;
+}
+
+int Flow::run()
+{
+    mainWindow->show();
+    return qApp->exec();
 }

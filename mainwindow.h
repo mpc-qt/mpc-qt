@@ -110,6 +110,7 @@ private:
     double playbackSpeed_;  // TODO: move to mpvwidget
     double sizeFactor_;
 
+    MpvWidget *mpvWidget();
     QMediaSlider *positionSlider();
     QVolumeSlider *volumeSlider();
 

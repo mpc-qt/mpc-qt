@@ -547,6 +547,11 @@ void MainWindow::sendUpdateSize()
     updateSize();
 }
 
+MpvWidget *MainWindow::mpvWidget()
+{
+    return mpvw;
+}
+
 QMediaSlider *MainWindow::positionSlider()
 {
     return positionSlider_;

@@ -29,7 +29,8 @@ HEADERS  += \
     qdrawnslider.h \
     playlist.h \
     qdrawnplaylist.h \
-    manager.h
+    manager.h \
+    main.h
 
 FORMS    += \
     mainwindow.ui
