@@ -8,7 +8,8 @@
 #include <QList>
 #include <QUrl>
 #include <QUuid>
-#include <mpvwidget.h>
+#include "mainwindow.h"
+#include "mpvwidget.h"
 
 class PlaybackManager : public QObject
 {
@@ -19,6 +20,7 @@ public:
     enum PlaybackType { None, File, Disc, Stream, Device };
 
     explicit PlaybackManager(QObject *parent = 0);
+    void setMainWindow(MainWindow *mainWindow);
 
     // load functions
     void openFiles(QList<QUrl> what);           // from quick-load dialog
@@ -76,7 +78,8 @@ signals:
     void finishedPlaying(QUuid item);
 
 private:
-    MpvWidget* mpvw;
+    MainWindow *mainWindow_;
+    MpvWidget *mpvw;
     QUuid nowPlayingList;
     QUuid nowPlayingItem;
 };

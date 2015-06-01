@@ -18,6 +18,7 @@ Flow::Flow(QObject *owner) :
 {
     mainWindow = new MainWindow();
     playbackManager = new PlaybackManager(this);
+    playbackManager->setMainWindow(mainWindow);
 }
 
 Flow::~Flow()

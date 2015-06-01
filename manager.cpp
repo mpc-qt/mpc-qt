@@ -1,8 +1,13 @@
 #include "manager.h"
 
 PlaybackManager::PlaybackManager(QObject *parent) :
-    QObject(parent)
+    QObject(parent), mainWindow_(NULL)
 {
+}
+
+void PlaybackManager::setMainWindow(MainWindow *mainWindow)
+{
+    mainWindow_ = mainWindow;
 }
 
 void PlaybackManager::openFiles(QList<QUrl> what)
