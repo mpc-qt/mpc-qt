@@ -10,6 +10,11 @@ void PlaybackManager::setMainWindow(MainWindow *mainWindow)
     mainWindow_ = mainWindow;
 }
 
+void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)
+{
+    mpvWidget_ = mpvWidget;
+}
+
 void PlaybackManager::openFiles(QList<QUrl> what)
 {
 

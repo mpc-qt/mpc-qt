@@ -21,6 +21,7 @@ public:
 
     explicit PlaybackManager(QObject *parent = 0);
     void setMainWindow(MainWindow *mainWindow);
+    void setMpvWidget(MpvWidget *mpvWidget, bool makeConnections = false);
 
     // load functions
     void openFiles(QList<QUrl> what);           // from quick-load dialog
@@ -79,7 +80,7 @@ signals:
 
 private:
     MainWindow *mainWindow_;
-    MpvWidget *mpvw;
+    MpvWidget *mpvWidget_;
     QUuid nowPlayingList;
     QUuid nowPlayingItem;
 };
