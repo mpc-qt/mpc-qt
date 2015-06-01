@@ -20,6 +20,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    MpvWidget *mpvWidget();
+
 private slots:
     void on_actionFileOpenQuick_triggered();
     void on_actionFileOpen_triggered();
@@ -108,7 +110,6 @@ private:
     double playbackSpeed_;  // TODO: move to mpvwidget
     double sizeFactor_;
 
-    MpvWidget *mpvWidget();
     QMediaSlider *positionSlider();
     QVolumeSlider *volumeSlider();
 

@@ -42,6 +42,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+MpvWidget *MainWindow::mpvWidget()
+{
+    return mpvw;
+}
+
 void MainWindow::on_actionFileOpenQuick_triggered()
 {
     // Do nothing special for the moment, call menu_file_open instead
@@ -542,11 +547,6 @@ void MainWindow::mpvw_videoSizeChanged(QSize size)
 void MainWindow::sendUpdateSize()
 {
     updateSize();
-}
-
-MpvWidget *MainWindow::mpvWidget()
-{
-    return mpvw;
 }
 
 QMediaSlider *MainWindow::positionSlider()

@@ -19,6 +19,7 @@ Flow::Flow(QObject *owner) :
     mainWindow = new MainWindow();
     playbackManager = new PlaybackManager(this);
     playbackManager->setMainWindow(mainWindow);
+    playbackManager->setMpvWidget(mainWindow->mpvWidget());
 }
 
 Flow::~Flow()
