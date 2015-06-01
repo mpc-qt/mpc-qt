@@ -14,7 +14,23 @@
 #include <QLibraryInfo>
 #include <QDebug>
 
-static QString toDateFormat(double time);
+
+
+static QString toDateFormat(double time) {
+    int t = time*1000 + 0.5;
+    if (t < 0)
+        t = 0;
+    int hr = t/3600000;
+    int mn = t/60000 % 60;
+    int se = t%60000 / 1000;
+    int fr = t % 1000;
+    return QString("%1:%2:%3.%4").arg(QString().number(hr))
+            .arg(QString().number(mn),2,'0')
+            .arg(QString().number(se),2,'0')
+            .arg(QString().number(fr),3,'0');
+}
+
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -45,6 +61,349 @@ MainWindow::~MainWindow()
 MpvWidget *MainWindow::mpvWidget()
 {
     return mpvw;
+}
+
+QMediaSlider *MainWindow::positionSlider()
+{
+    return positionSlider_;
+}
+
+QVolumeSlider *MainWindow::volumeSlider()
+{
+    return volumeSlider_;
+}
+
+MainWindow::DecorationState MainWindow::decorationState()
+{
+    return decorationState_;
+}
+
+bool MainWindow::fullscreenMode()
+{
+    return fullscreenMode_;
+}
+
+QSize MainWindow::noVideoSize()
+{
+    return noVideoSize_;
+}
+
+bool MainWindow::isPlaying()
+{
+    return isPlaying_;
+}
+
+bool MainWindow::isPaused()
+{
+    return isPaused_;
+}
+
+double MainWindow::playbackSpeed()
+{
+    return playbackSpeed_;
+}
+
+double MainWindow::sizeFactor()
+{
+    return sizeFactor_;
+}
+
+void MainWindow::setFullscreenMode(bool fullscreenMode)
+{
+    fullscreenMode_ = fullscreenMode;
+    if (fullscreenMode)
+        showFullScreen();
+    else
+        showNormal();
+}
+
+void MainWindow::setNoVideoSize(QSize size)
+{
+    noVideoSize_ = size;
+}
+
+void MainWindow::setPlaying(bool yes)
+{
+    isPlaying_ = yes;
+}
+
+void MainWindow::setPaused(bool yes)
+{
+    isPaused_ = yes;
+}
+
+void MainWindow::setPlaybackSpeed(double speed)
+{
+    playbackSpeed_ = std::max(0.125, std::min(8.0, speed));
+    mpvw->setSpeed(speed);
+    mpvw->showMessage(QString("Speed: %1").arg(speed));
+}
+
+void MainWindow::setSizeFactor(double factor)
+{
+    sizeFactor_ = factor;
+    if (sizeFactor_ != 0)
+        updateSize();
+}
+
+void MainWindow::setDiscState(bool playingADisc)
+{
+    ui->actionNavigateMenuTitle->setEnabled(playingADisc);
+    ui->actionNavigateMenuRoot->setEnabled(playingADisc);
+    ui->actionNavigateMenuSubtitle->setEnabled(playingADisc);
+    ui->actionNavigateMenuAudio->setEnabled(playingADisc);
+    ui->actionNavigateMenuAngle->setEnabled(playingADisc);
+    ui->actionNavigateMenuChapter->setEnabled(playingADisc);
+}
+
+void MainWindow::setupMenu()
+{
+    // Work around separators with text in the designer not showing as
+    // sections
+    ui->menuPlayAfter->insertSection(ui->actionPlayAfterOnceExit,
+                                       tr("Once"));
+    ui->menuPlayAfter->insertSection(ui->actionPlayAfterAlwaysExit,
+                                       tr("Every time"));
+
+    ui->infoStats->setVisible(false);
+}
+
+void MainWindow::setupPositionSlider()
+{
+    positionSlider_ = new QMediaSlider();
+    ui->seekbar->layout()->addWidget(positionSlider_);
+    connect(positionSlider_, &QMediaSlider::sliderMoved,
+            this, &MainWindow::position_sliderMoved);
+}
+
+void MainWindow::setupVolumeSlider()
+{
+    volumeSlider_ = new QVolumeSlider();
+    volumeSlider_->setMinimumWidth(50);
+    volumeSlider_->setMinimum(0);
+    volumeSlider_->setMaximum(100);
+    volumeSlider_->setValue(100);
+    ui->controlbar->layout()->addWidget(volumeSlider_);
+    connect(volumeSlider_, &QVolumeSlider::sliderMoved,
+            this, &MainWindow::volume_sliderMoved);
+}
+
+void MainWindow::setupMpvWidget()
+{
+    mpvw = new MpvWidget(this);
+    connect(mpvw, &MpvWidget::playTimeChanged,
+            this, &MainWindow::mpvw_playTimeChanged);
+    connect(mpvw, &MpvWidget::playLengthChanged,
+            this, &MainWindow::mpvw_playLengthChanged);
+    connect(mpvw, &MpvWidget::playbackStarted,
+            this, &MainWindow::mpvw_playbackStarted);
+    connect(mpvw, &MpvWidget::pausedChanged,
+            this, &MainWindow::mpvw_pausedChanged);
+    connect(mpvw, &MpvWidget::playbackFinished,
+            this, &MainWindow::mpvw_playbackFinished);
+    connect(mpvw, &MpvWidget::mediaTitleChanged,
+            this, &MainWindow::mpvw_mediaTitleChanged);
+    connect(mpvw, &MpvWidget::chaptersChanged,
+            this, &MainWindow::mpvw_chaptersChanged);
+    connect(mpvw, &MpvWidget::tracksChanged,
+            this, &MainWindow::mpvw_tracksChanged);
+    connect(mpvw, &MpvWidget::videoSizeChanged,
+            this, &MainWindow::mpvw_videoSizeChanged);
+}
+
+void MainWindow::setupMpvHost()
+{
+    // Wrap mpvw in a special QMainWindow widget so that the playlist window
+    // will dock around it rather than ourselves
+    mpvHost_ = new QMainWindow(this);
+    mpvHost_->setStyleSheet("background-color: black; background: center url("
+                            ":/images/bitmaps/blank-screen.png) no-repeat;");
+    mpvHost_->setCentralWidget(mpvw);
+    mpvHost_->setSizePolicy(QSizePolicy(QSizePolicy::Preferred,
+                                        QSizePolicy::Preferred));
+    ui->mpvWidget->layout()->addWidget(mpvHost_);
+
+    connectButtonsToActions();
+    globalizeAllActions();
+    setUiEnabledState(false);
+}
+
+void MainWindow::setupSizing()
+{
+    // The point of requesting calls to updateSize through a _queued_ slot is
+    // to give Qt time to respond to layout and window size changes.
+    connect(this, &MainWindow::fireUpdateSize,
+            this, &MainWindow::sendUpdateSize,
+            Qt::QueuedConnection);
+
+    // Guarantee that the layout has been calculated.  It seems pointless, but
+    // Without it the window will temporarily display at a larger size than
+    // it needs to.
+    setAttribute (Qt::WA_DontShowOnScreen, true);
+    show();
+    QEventLoop EventLoop (this);
+    while (EventLoop.processEvents()) {}
+    hide();
+    setAttribute (Qt::WA_DontShowOnScreen, false);
+
+    updateSize(true);
+}
+
+void MainWindow::connectButtonsToActions()
+{
+    connect(ui->pause, &QPushButton::toggled,
+            ui->actionPlayPause, &QAction::toggled);
+    connect(ui->stop, &QPushButton::clicked,
+            ui->actionPlayStop, &QAction::triggered);
+
+    connect(ui->speedDecrease, &QPushButton::clicked,
+            ui->actionPlayRateDecrease, &QAction::triggered);
+    connect(ui->speedIncrease, &QPushButton::clicked,
+            ui->actionPlayRateIncrease, &QAction::triggered);
+
+    connect(ui->skipBackward, &QPushButton::clicked,
+            ui->actionNavigateChaptersPrevious, &QAction::triggered);
+    connect(ui->stepBackward, &QPushButton::clicked,
+            ui->actionPlayFrameBackward, &QAction::triggered);
+    connect(ui->stepForward, &QPushButton::clicked,
+            ui->actionPlayFrameForward, &QAction::triggered);
+    connect(ui->skipForward, &QPushButton::clicked,
+            ui->actionNavigateChaptersNext, &QAction::triggered);
+
+    connect(ui->mute, &QPushButton::toggled,
+            ui->actionPlayVolumeMute, &QAction::toggled);
+}
+
+void MainWindow::globalizeAllActions()
+{
+    for (QAction *a : ui->menubar->actions()) {
+        addAction(a);
+    }
+}
+
+void MainWindow::setUiDecorationState(DecorationState state)
+{
+    QString actionTexts[] = { tr("Hide &Menu"), tr("Hide &Borders"),
+                              tr("Sho&w Caption and Menu") };
+    Qt::WindowFlags defaults = Qt::Window | Qt::WindowTitleHint |
+            Qt::WindowSystemMenuHint | Qt::WindowMinMaxButtonsHint |
+            Qt::WindowCloseButtonHint;
+    Qt::WindowFlags winFlags[] = {
+        defaults,
+        defaults,
+        Qt::Window|Qt::FramelessWindowHint };
+    if (state == AllDecorations)
+        menuBar()->show();
+    else
+        menuBar()->hide();
+    ui->actionViewHideMenu->setText(actionTexts[static_cast<int>(state)]);
+    setWindowFlags(winFlags[static_cast<int>(state)]);
+    this->decorationState_ = state;
+    show();
+}
+
+void MainWindow::setUiEnabledState(bool enabled)
+{
+    positionSlider()->setEnabled(enabled);
+
+    ui->play->setEnabled(enabled);
+    ui->pause->setEnabled(enabled);
+    ui->stop->setEnabled(enabled);
+    ui->stepBackward->setEnabled(enabled);
+    ui->speedDecrease->setEnabled(enabled);
+    ui->speedIncrease->setEnabled(enabled);
+    ui->stepForward->setEnabled(enabled);
+    ui->skipBackward->setEnabled(enabled);
+    ui->skipForward->setEnabled(enabled);
+
+    ui->mute->setEnabled(enabled);
+    volumeSlider()->setEnabled(enabled);
+
+    ui->pause->setChecked(false);
+    ui->actionPlayPause->setChecked(false);
+
+    ui->actionFileClose->setEnabled(enabled);
+    ui->actionFileSaveCopy->setEnabled(enabled);
+    ui->actionFileSaveImage->setEnabled(enabled);
+    ui->actionFileSaveThumbnails->setEnabled(enabled);
+    ui->actionFileLoadSubtitle->setEnabled(enabled);
+    ui->actionFileSaveSubtitle->setEnabled(enabled);
+    ui->actionFileSubtitleDatabaseDownload->setEnabled(enabled);
+    ui->actionPlayPause->setEnabled(enabled);
+    ui->actionPlayStop->setEnabled(enabled);
+    ui->actionPlayFrameBackward->setEnabled(enabled);
+    ui->actionPlayFrameForward->setEnabled(enabled);
+    ui->actionPlayRateDecrease->setEnabled(enabled);
+    ui->actionPlayRateIncrease->setEnabled(enabled);
+    ui->actionPlayRateReset->setEnabled(enabled);
+    ui->actionPlayVolumeUp->setEnabled(enabled);
+    ui->actionPlayVolumeDown->setEnabled(enabled);
+    ui->actionPlayVolumeMute->setEnabled(enabled);
+    ui->actionNavigateChaptersPrevious->setEnabled(enabled);
+    ui->actionNavigateChaptersNext->setEnabled(enabled);
+    ui->actionFavoritesAdd->setEnabled(enabled);
+
+    ui->menuPlayAudio->setEnabled(enabled);
+    ui->menuPlaySubtitles->setEnabled(enabled);
+    ui->menuPlayVideo->setEnabled(enabled);
+    ui->menuNavigateChapters->setEnabled(enabled);
+}
+
+void MainWindow::updateTime()
+{
+    double playTime = mpvw->playTime();
+    double playLength = mpvw->playLength();
+    ui->time->setText(QString("%1 / %2").arg(toDateFormat(playTime),
+                                             toDateFormat(playLength)));
+}
+
+void MainWindow::updatePlaybackStatus()
+{
+    ui->status->setText(isPlaying() ? isPaused() ? "Paused" :"Playing" :
+                                                   "Stopped");
+}
+
+void MainWindow::updateSize(bool first_run)
+{
+    if (sizeFactor() <= 0 || fullscreenMode() || isMaximized()) {
+        ui->infoSection->layout()->update();
+        return;
+    }
+
+    QSize player = isPlaying() ? mpvw->videoSize() : noVideoSize();
+    double factor = isPlaying() ? sizeFactor() :
+                                  std::max(1.0, sizeFactor());
+    QSize wanted(player.width()*factor + 0.5,
+                    player.height()*factor + 0.5);
+    QSize current = mpvw->size();
+    QSize window = size();
+    QSize desired = wanted + window - current;
+
+    QDesktopWidget *desktop = qApp->desktop();
+    if (first_run)
+        setGeometry(QStyle::alignedRect(
+                    Qt::LeftToRight, Qt::AlignCenter, desired,
+                    desktop->availableGeometry(desktop->screenNumber(
+                                                   QCursor::pos()))));
+    else
+        setGeometry(QStyle::alignedRect(
+                    Qt::LeftToRight, Qt::AlignCenter, desired,
+                    desktop->availableGeometry(this)));
+}
+
+void MainWindow::doMpvStopPlayback(bool dry_run)
+{
+    if (!dry_run)
+        mpvw->stopPlayback();
+    setPlaying(false);
+    updatePlaybackStatus();
+    updateSize();
+}
+
+void MainWindow::doMpvSetVolume(int volume)
+{
+    mpvw->setVolume(volume);
+    mpvw->showMessage(QString("Volume :%1%").arg(volume));
 }
 
 void MainWindow::on_actionFileOpenQuick_triggered()
@@ -547,361 +906,4 @@ void MainWindow::mpvw_videoSizeChanged(QSize size)
 void MainWindow::sendUpdateSize()
 {
     updateSize();
-}
-
-QMediaSlider *MainWindow::positionSlider()
-{
-    return positionSlider_;
-}
-
-QVolumeSlider *MainWindow::volumeSlider()
-{
-    return volumeSlider_;
-}
-
-MainWindow::DecorationState MainWindow::decorationState()
-{
-    return decorationState_;
-}
-
-bool MainWindow::fullscreenMode()
-{
-    return fullscreenMode_;
-}
-
-QSize MainWindow::noVideoSize()
-{
-    return noVideoSize_;
-}
-
-bool MainWindow::isPlaying()
-{
-    return isPlaying_;
-}
-
-bool MainWindow::isPaused()
-{
-    return isPaused_;
-}
-
-double MainWindow::playbackSpeed()
-{
-    return playbackSpeed_;
-}
-
-double MainWindow::sizeFactor()
-{
-    return sizeFactor_;
-}
-
-void MainWindow::setFullscreenMode(bool fullscreenMode)
-{
-    fullscreenMode_ = fullscreenMode;
-    if (fullscreenMode)
-        showFullScreen();
-    else
-        showNormal();
-}
-
-void MainWindow::setNoVideoSize(QSize size)
-{
-    noVideoSize_ = size;
-}
-
-void MainWindow::setPlaying(bool yes)
-{
-    isPlaying_ = yes;
-}
-
-void MainWindow::setPaused(bool yes)
-{
-    isPaused_ = yes;
-}
-
-void MainWindow::setPlaybackSpeed(double speed)
-{
-    playbackSpeed_ = std::max(0.125, std::min(8.0, speed));
-    mpvw->setSpeed(speed);
-    mpvw->showMessage(QString("Speed: %1").arg(speed));
-}
-
-void MainWindow::setSizeFactor(double factor)
-{
-    sizeFactor_ = factor;
-    if (sizeFactor_ != 0)
-        updateSize();
-}
-
-void MainWindow::setDiscState(bool playingADisc)
-{
-    ui->actionNavigateMenuTitle->setEnabled(playingADisc);
-    ui->actionNavigateMenuRoot->setEnabled(playingADisc);
-    ui->actionNavigateMenuSubtitle->setEnabled(playingADisc);
-    ui->actionNavigateMenuAudio->setEnabled(playingADisc);
-    ui->actionNavigateMenuAngle->setEnabled(playingADisc);
-    ui->actionNavigateMenuChapter->setEnabled(playingADisc);
-}
-
-void MainWindow::setupMenu()
-{
-    // Work around separators with text in the designer not showing as
-    // sections
-    ui->menuPlayAfter->insertSection(ui->actionPlayAfterOnceExit,
-                                       tr("Once"));
-    ui->menuPlayAfter->insertSection(ui->actionPlayAfterAlwaysExit,
-                                       tr("Every time"));
-
-    ui->infoStats->setVisible(false);
-}
-
-void MainWindow::setupPositionSlider()
-{
-    positionSlider_ = new QMediaSlider();
-    ui->seekbar->layout()->addWidget(positionSlider_);
-    connect(positionSlider_, &QMediaSlider::sliderMoved,
-            this, &MainWindow::position_sliderMoved);
-}
-
-void MainWindow::setupVolumeSlider()
-{
-    volumeSlider_ = new QVolumeSlider();
-    volumeSlider_->setMinimumWidth(50);
-    volumeSlider_->setMinimum(0);
-    volumeSlider_->setMaximum(100);
-    volumeSlider_->setValue(100);
-    ui->controlbar->layout()->addWidget(volumeSlider_);
-    connect(volumeSlider_, &QVolumeSlider::sliderMoved,
-            this, &MainWindow::volume_sliderMoved);
-}
-
-void MainWindow::setupMpvWidget()
-{
-    mpvw = new MpvWidget(this);
-    connect(mpvw, &MpvWidget::playTimeChanged,
-            this, &MainWindow::mpvw_playTimeChanged);
-    connect(mpvw, &MpvWidget::playLengthChanged,
-            this, &MainWindow::mpvw_playLengthChanged);
-    connect(mpvw, &MpvWidget::playbackStarted,
-            this, &MainWindow::mpvw_playbackStarted);
-    connect(mpvw, &MpvWidget::pausedChanged,
-            this, &MainWindow::mpvw_pausedChanged);
-    connect(mpvw, &MpvWidget::playbackFinished,
-            this, &MainWindow::mpvw_playbackFinished);
-    connect(mpvw, &MpvWidget::mediaTitleChanged,
-            this, &MainWindow::mpvw_mediaTitleChanged);
-    connect(mpvw, &MpvWidget::chaptersChanged,
-            this, &MainWindow::mpvw_chaptersChanged);
-    connect(mpvw, &MpvWidget::tracksChanged,
-            this, &MainWindow::mpvw_tracksChanged);
-    connect(mpvw, &MpvWidget::videoSizeChanged,
-            this, &MainWindow::mpvw_videoSizeChanged);
-}
-
-void MainWindow::setupMpvHost()
-{
-    // Wrap mpvw in a special QMainWindow widget so that the playlist window
-    // will dock around it rather than ourselves
-    mpvHost_ = new QMainWindow(this);
-    mpvHost_->setStyleSheet("background-color: black; background: center url("
-                            ":/images/bitmaps/blank-screen.png) no-repeat;");
-    mpvHost_->setCentralWidget(mpvw);
-    mpvHost_->setSizePolicy(QSizePolicy(QSizePolicy::Preferred,
-                                        QSizePolicy::Preferred));
-    ui->mpvWidget->layout()->addWidget(mpvHost_);
-
-    connectButtonsToActions();
-    globalizeAllActions();
-    setUiEnabledState(false);
-}
-
-void MainWindow::setupSizing()
-{
-    // The point of requesting calls to updateSize through a _queued_ slot is
-    // to give Qt time to respond to layout and window size changes.
-    connect(this, &MainWindow::fireUpdateSize,
-            this, &MainWindow::sendUpdateSize,
-            Qt::QueuedConnection);
-
-    // Guarantee that the layout has been calculated.  It seems pointless, but
-    // Without it the window will temporarily display at a larger size than
-    // it needs to.
-    setAttribute (Qt::WA_DontShowOnScreen, true);
-    show();
-    QEventLoop EventLoop (this);
-    while (EventLoop.processEvents()) {}
-    hide();
-    setAttribute (Qt::WA_DontShowOnScreen, false);
-
-    updateSize(true);
-}
-
-void MainWindow::connectButtonsToActions()
-{
-    connect(ui->pause, &QPushButton::toggled,
-            ui->actionPlayPause, &QAction::toggled);
-    connect(ui->stop, &QPushButton::clicked,
-            ui->actionPlayStop, &QAction::triggered);
-
-    connect(ui->speedDecrease, &QPushButton::clicked,
-            ui->actionPlayRateDecrease, &QAction::triggered);
-    connect(ui->speedIncrease, &QPushButton::clicked,
-            ui->actionPlayRateIncrease, &QAction::triggered);
-
-    connect(ui->skipBackward, &QPushButton::clicked,
-            ui->actionNavigateChaptersPrevious, &QAction::triggered);
-    connect(ui->stepBackward, &QPushButton::clicked,
-            ui->actionPlayFrameBackward, &QAction::triggered);
-    connect(ui->stepForward, &QPushButton::clicked,
-            ui->actionPlayFrameForward, &QAction::triggered);
-    connect(ui->skipForward, &QPushButton::clicked,
-            ui->actionNavigateChaptersNext, &QAction::triggered);
-
-    connect(ui->mute, &QPushButton::toggled,
-            ui->actionPlayVolumeMute, &QAction::toggled);
-}
-
-void MainWindow::globalizeAllActions()
-{
-    for (QAction *a : ui->menubar->actions()) {
-        addAction(a);
-    }
-}
-
-void MainWindow::setUiDecorationState(DecorationState state)
-{
-    QString actionTexts[] = { tr("Hide &Menu"), tr("Hide &Borders"),
-                              tr("Sho&w Caption and Menu") };
-    Qt::WindowFlags defaults = Qt::Window | Qt::WindowTitleHint |
-            Qt::WindowSystemMenuHint | Qt::WindowMinMaxButtonsHint |
-            Qt::WindowCloseButtonHint;
-    Qt::WindowFlags winFlags[] = {
-        defaults,
-        defaults,
-        Qt::Window|Qt::FramelessWindowHint };
-    if (state == AllDecorations)
-        menuBar()->show();
-    else
-        menuBar()->hide();
-    ui->actionViewHideMenu->setText(actionTexts[static_cast<int>(state)]);
-    setWindowFlags(winFlags[static_cast<int>(state)]);
-    this->decorationState_ = state;
-    show();
-}
-
-void MainWindow::setUiEnabledState(bool enabled)
-{
-    positionSlider()->setEnabled(enabled);
-
-    ui->play->setEnabled(enabled);
-    ui->pause->setEnabled(enabled);
-    ui->stop->setEnabled(enabled);
-    ui->stepBackward->setEnabled(enabled);
-    ui->speedDecrease->setEnabled(enabled);
-    ui->speedIncrease->setEnabled(enabled);
-    ui->stepForward->setEnabled(enabled);
-    ui->skipBackward->setEnabled(enabled);
-    ui->skipForward->setEnabled(enabled);
-
-    ui->mute->setEnabled(enabled);
-    volumeSlider()->setEnabled(enabled);
-
-    ui->pause->setChecked(false);
-    ui->actionPlayPause->setChecked(false);
-
-    ui->actionFileClose->setEnabled(enabled);
-    ui->actionFileSaveCopy->setEnabled(enabled);
-    ui->actionFileSaveImage->setEnabled(enabled);
-    ui->actionFileSaveThumbnails->setEnabled(enabled);
-    ui->actionFileLoadSubtitle->setEnabled(enabled);
-    ui->actionFileSaveSubtitle->setEnabled(enabled);
-    ui->actionFileSubtitleDatabaseDownload->setEnabled(enabled);
-    ui->actionPlayPause->setEnabled(enabled);
-    ui->actionPlayStop->setEnabled(enabled);
-    ui->actionPlayFrameBackward->setEnabled(enabled);
-    ui->actionPlayFrameForward->setEnabled(enabled);
-    ui->actionPlayRateDecrease->setEnabled(enabled);
-    ui->actionPlayRateIncrease->setEnabled(enabled);
-    ui->actionPlayRateReset->setEnabled(enabled);
-    ui->actionPlayVolumeUp->setEnabled(enabled);
-    ui->actionPlayVolumeDown->setEnabled(enabled);
-    ui->actionPlayVolumeMute->setEnabled(enabled);
-    ui->actionNavigateChaptersPrevious->setEnabled(enabled);
-    ui->actionNavigateChaptersNext->setEnabled(enabled);
-    ui->actionFavoritesAdd->setEnabled(enabled);
-
-    ui->menuPlayAudio->setEnabled(enabled);
-    ui->menuPlaySubtitles->setEnabled(enabled);
-    ui->menuPlayVideo->setEnabled(enabled);
-    ui->menuNavigateChapters->setEnabled(enabled);
-}
-
-void MainWindow::updateTime()
-{
-    double playTime = mpvw->playTime();
-    double playLength = mpvw->playLength();
-    ui->time->setText(QString("%1 / %2").arg(toDateFormat(playTime),
-                                             toDateFormat(playLength)));
-}
-
-void MainWindow::updatePlaybackStatus()
-{
-    ui->status->setText(isPlaying() ? isPaused() ? "Paused" :"Playing" :
-                                                   "Stopped");
-}
-
-void MainWindow::updateSize(bool first_run)
-{
-    if (sizeFactor() <= 0 || fullscreenMode() || isMaximized()) {
-        ui->infoSection->layout()->update();
-        return;
-    }
-
-    QSize player = isPlaying() ? mpvw->videoSize() : noVideoSize();
-    double factor = isPlaying() ? sizeFactor() :
-                                  std::max(1.0, sizeFactor());
-    QSize wanted(player.width()*factor + 0.5,
-                    player.height()*factor + 0.5);
-    QSize current = mpvw->size();
-    QSize window = size();
-    QSize desired = wanted + window - current;
-
-    QDesktopWidget *desktop = qApp->desktop();
-    if (first_run)
-        setGeometry(QStyle::alignedRect(
-                    Qt::LeftToRight, Qt::AlignCenter, desired,
-                    desktop->availableGeometry(desktop->screenNumber(
-                                                   QCursor::pos()))));
-    else
-        setGeometry(QStyle::alignedRect(
-                    Qt::LeftToRight, Qt::AlignCenter, desired,
-                    desktop->availableGeometry(this)));
-}
-
-void MainWindow::doMpvStopPlayback(bool dry_run)
-{
-    if (!dry_run)
-        mpvw->stopPlayback();
-    setPlaying(false);
-    updatePlaybackStatus();
-    updateSize();
-}
-
-void MainWindow::doMpvSetVolume(int volume)
-{
-    mpvw->setVolume(volume);
-    mpvw->showMessage(QString("Volume :%1%").arg(volume));
-}
-
-static QString toDateFormat(double time) {
-    int t = time*1000 + 0.5;
-    if (t < 0)
-        t = 0;
-    int hr = t/3600000;
-    int mn = t/60000 % 60;
-    int se = t%60000 / 1000;
-    int fr = t % 1000;
-    return QString("%1:%2:%3.%4").arg(QString().number(hr))
-            .arg(QString().number(mn),2,'0')
-            .arg(QString().number(se),2,'0')
-            .arg(QString().number(fr),3,'0');
 }
