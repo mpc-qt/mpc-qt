@@ -1,6 +1,8 @@
 #include <clocale>
-#include "main.h"
 #include <QApplication>
+#include "main.h"
+#include "mainwindow.h"
+#include "manager.h"
 
 int main(int argc, char *argv[])
 {

@@ -8,8 +8,11 @@
 #include <QList>
 #include <QUrl>
 #include <QUuid>
-#include "mainwindow.h"
-#include "mpvwidget.h"
+#include <QSize>
+#include <QVariant>
+
+class MainWindow;
+class MpvWidget;
 
 class PlaybackManager : public QObject
 {

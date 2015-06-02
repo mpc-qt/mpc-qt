@@ -1,4 +1,6 @@
 #include "manager.h"
+#include "mainwindow.h"
+#include "mpvwidget.h"
 
 PlaybackManager::PlaybackManager(QObject *parent) :
     QObject(parent), mainWindow_(NULL)

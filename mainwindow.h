@@ -5,6 +5,7 @@
 #include <mpvwidget.h>
 #include <QMenuBar>
 #include "qdrawnslider.h"
+#include "manager.h"
 
 namespace Ui {
 class MainWindow;
@@ -73,6 +74,10 @@ private:
     void updateSize(bool first_run = false);
     void doMpvStopPlayback(bool dry_run = false);
     void doMpvSetVolume(int volume);
+
+public slots:
+    void setPlaybackState(PlaybackManager::PlaybackState state);
+    void setPlaybackType(PlaybackManager::PlaybackType type);
 
 private slots:
     void on_actionFileOpenQuick_triggered();

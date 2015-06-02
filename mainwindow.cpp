@@ -406,6 +406,20 @@ void MainWindow::doMpvSetVolume(int volume)
     mpvw->showMessage(QString("Volume :%1%").arg(volume));
 }
 
+void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
+{
+    ui->status->setText(state==PlaybackManager::StoppedState ? "Stopped" :
+                        state==PlaybackManager::PausedState ? "Paused" :
+                        state==PlaybackManager::PlayingState ? "Playing" :
+                        state==PlaybackManager::BufferingState ? "Buffering" :
+                                                                 "Unknown");
+}
+
+void MainWindow::setPlaybackType(PlaybackManager::PlaybackType type)
+{
+    setUiEnabledState(type != PlaybackManager::None);
+}
+
 void MainWindow::on_actionFileOpenQuick_triggered()
 {
     // Do nothing special for the moment, call menu_file_open instead
