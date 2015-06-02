@@ -60,6 +60,9 @@ private:
     void doMpvStopPlayback(bool dry_run = false);
     void doMpvSetVolume(int volume);
 
+signals:
+    void fireUpdateSize();
+
 public slots:
     void setPlaybackState(PlaybackManager::PlaybackState state);
     void setPlaybackType(PlaybackManager::PlaybackType type);
@@ -133,9 +136,6 @@ private slots:
 
     void sendUpdateSize();
 
-signals:
-    void fireUpdateSize();
-
 private:
     Ui::MainWindow *ui;
     QMainWindow *mpvHost_;
@@ -161,11 +161,11 @@ public:
     QVariant data;
     DataEmitter(QObject *parent) : QObject(parent) {}
 
-public slots:
-    void gotSomething() { heresSomething(data); }
-
 signals:
     void heresSomething(QVariant data);
+
+public slots:
+    void gotSomething() { heresSomething(data); }
 };
 
 
