@@ -24,21 +24,6 @@ public:
     MpvWidget *mpvWidget();
 
 private:
-    Ui::MainWindow *ui;
-    QMainWindow *mpvHost_;
-    MpvWidget *mpvw;
-    QMediaSlider *positionSlider_;
-    QVolumeSlider *volumeSlider_;
-
-    DecorationState decorationState_;
-    bool fullscreenMode_;
-
-    QSize noVideoSize_;
-    bool isPlaying_;        // TODO: move to mpvwidget
-    bool isPaused_;         // TODO: move to mpvwidget
-    double playbackSpeed_;  // TODO: move to mpvwidget
-    double sizeFactor_;
-
     QMediaSlider *positionSlider();
     QVolumeSlider *volumeSlider();
 
@@ -150,6 +135,22 @@ private slots:
 
 signals:
     void fireUpdateSize();
+
+private:
+    Ui::MainWindow *ui;
+    QMainWindow *mpvHost_;
+    MpvWidget *mpvw;
+    QMediaSlider *positionSlider_;
+    QVolumeSlider *volumeSlider_;
+
+    DecorationState decorationState_;
+    bool fullscreenMode_;
+
+    QSize noVideoSize_;
+    bool isPlaying_;        // TODO: move to mpvwidget
+    bool isPaused_;         // TODO: move to mpvwidget
+    double playbackSpeed_;  // TODO: move to mpvwidget
+    double sizeFactor_;
 };
 
 // Helper class for emitting data
