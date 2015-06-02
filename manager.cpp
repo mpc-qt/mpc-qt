@@ -3,13 +3,8 @@
 #include "mpvwidget.h"
 
 PlaybackManager::PlaybackManager(QObject *parent) :
-    QObject(parent), mainWindow_(NULL)
+    QObject(parent)
 {
-}
-
-void PlaybackManager::setMainWindow(MainWindow *mainWindow)
-{
-    mainWindow_ = mainWindow;
 }
 
 void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)

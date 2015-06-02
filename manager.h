@@ -11,7 +11,6 @@
 #include <QSize>
 #include <QVariant>
 
-class MainWindow;
 class MpvWidget;
 
 class PlaybackManager : public QObject
@@ -23,9 +22,9 @@ public:
     enum PlaybackType { None, File, Disc, Stream, Device };
 
     explicit PlaybackManager(QObject *parent = 0);
-    void setMainWindow(MainWindow *mainWindow);
     void setMpvWidget(MpvWidget *mpvWidget, bool makeConnections = false);
 
+public slots:
     // load functions
     void openFiles(QList<QUrl> what);           // from quick-load dialog
     void playDisc(QUrl where);                  // from menu
@@ -54,8 +53,6 @@ public:
     void setVolume(int64_t volume);
     void setMute(bool muted);
 
-public slots:
-
 private slots:
     void mpvw_playTimeChanged(double time);
     void mpvw_playLengthChanged(double length);
@@ -82,7 +79,6 @@ signals:
     void finishedPlaying(QUuid item);
 
 private:
-    MainWindow *mainWindow_;
     MpvWidget *mpvWidget_;
     QUuid nowPlayingList;
     QUuid nowPlayingItem;
