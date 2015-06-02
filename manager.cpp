@@ -58,17 +58,17 @@ void PlaybackManager::playDevice(QUrl device)
 
 }
 
-void PlaybackManager::pause()
+void PlaybackManager::pausePlayer()
 {
 
 }
 
-void PlaybackManager::unpause()
+void PlaybackManager::unpausePlayer()
 {
 
 }
 
-void PlaybackManager::stop()
+void PlaybackManager::stopPlayer()
 {
 
 }

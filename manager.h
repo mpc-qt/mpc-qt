@@ -1,7 +1,8 @@
 #ifndef MANAGER_H
 #define MANAGER_H
 // A simple playback manager designed to control the MainWindow like it were a
-// widget.
+// widget.  Due to needing to communicate with the playlists, it sort of takes
+// control of the mpv widget away from its host.
 
 
 #include <QObject>
@@ -33,9 +34,9 @@ public slots:
     void playDevice(QUrl device);   // I don't have a device to test this
 
     // control functions
-    void pause();
-    void unpause();
-    void stop();
+    void pausePlayer();
+    void unpausePlayer();
+    void stopPlayer();
     void stepBackward();
     void stepForward();
     void navigateToNextChapter();
