@@ -145,32 +145,37 @@ void PlaybackManager::setMute(bool muted)
 
 void PlaybackManager::mpvw_playTimeChanged(double time)
 {
-
+    // in case the duration property is not available, update the play length
+    // to indicate that the time is in fact available.
+    if (mpvLength < time)
+        mpvLength = time;
+    emit timeChanged(time, mpvLength);
 }
 
 void PlaybackManager::mpvw_playLengthChanged(double length)
 {
-
+    mpvLength = length;
 }
 
 void PlaybackManager::mpvw_playbackStarted()
 {
-
+    emit stateChanged(PlayingState);
 }
 
 void PlaybackManager::mpvw_pausedChanged(bool yes)
 {
-
+    emit stateChanged(yes ? PausedState : PlayingState)
 }
 
 void PlaybackManager::mpvw_playbackFinished()
 {
-
+    // TODO: call playlist management here instead
+    emit stateChanged(StoppedState);
 }
 
 void PlaybackManager::mpvw_mediaTitleChanged(QString title)
 {
-
+    emit titleChanged(title);
 }
 
 void PlaybackManager::mpvw_chaptersChanged(QVariantList chapters)

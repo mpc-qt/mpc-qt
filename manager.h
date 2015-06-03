@@ -66,6 +66,7 @@ private slots:
     void mpvw_videoSizeChanged(QSize size);
 
 signals:
+    void timeChanged(double time, double length);
     void titleChanged(QString title);
     void videoSizeChanged(QSize size);
     void stateChanged(PlaybackState state);
@@ -83,6 +84,8 @@ private:
     MpvWidget *mpvWidget_;
     QUuid nowPlayingList;
     QUuid nowPlayingItem;
+
+    double mpvLength;
 };
 
 #endif // MANAGER_H
