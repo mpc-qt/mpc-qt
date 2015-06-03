@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     qdrawnslider.cpp \
     playlist.cpp \
     qdrawnplaylist.cpp \
-    manager.cpp
+    manager.cpp \
+    helpers.cpp
 
 HEADERS  += \
     mpvwidget.h \
@@ -30,7 +31,8 @@ HEADERS  += \
     playlist.h \
     qdrawnplaylist.h \
     manager.h \
-    main.h
+    main.h \
+    helpers.h
 
 FORMS    += \
     mainwindow.ui

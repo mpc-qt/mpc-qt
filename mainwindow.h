@@ -153,20 +153,4 @@ private:
     double sizeFactor_;
 };
 
-// Helper class for emitting data
-class DataEmitter : public QObject
-{
-    Q_OBJECT
-public:
-    QVariant data;
-    DataEmitter(QObject *parent) : QObject(parent) {}
-
-signals:
-    void heresSomething(QVariant data);
-
-public slots:
-    void gotSomething() { heresSomething(data); }
-};
-
-
 #endif // HOSTWINDOW_H
