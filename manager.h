@@ -76,8 +76,6 @@ signals:
     void audioTracksAvailable(QList<QPair<int64_t,QString>> tracks);
     void videoTracksAvailable(QList<QPair<int64_t,QString>> tracks);
     void subtitleTracksAvailable(QList<QPair<int64_t,QString>> tracks);
-    void timeChanged(double time);
-    void lengthChanged(double time);
     void nowPlayingChanged(QUuid item);
     void finishedPlaying(QUuid item);
 
