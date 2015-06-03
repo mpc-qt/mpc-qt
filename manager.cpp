@@ -1,6 +1,10 @@
 #include "manager.h"
 #include "mainwindow.h"
 #include "mpvwidget.h"
+#include "helpers.h"
+
+using namespace Helpers;
+
 
 PlaybackManager::PlaybackManager(QObject *parent) :
     QObject(parent)
@@ -164,7 +168,7 @@ void PlaybackManager::mpvw_playbackStarted()
 
 void PlaybackManager::mpvw_pausedChanged(bool yes)
 {
-    emit stateChanged(yes ? PausedState : PlayingState)
+    emit stateChanged(yes ? PausedState : PlayingState);
 }
 
 void PlaybackManager::mpvw_playbackFinished()
@@ -180,12 +184,57 @@ void PlaybackManager::mpvw_mediaTitleChanged(QString title)
 
 void PlaybackManager::mpvw_chaptersChanged(QVariantList chapters)
 {
-
+    QList<QPair<int64_t,QString>> list;
+    int64_t index = 0;
+    for (QVariant v : chapters) {
+        QMap<QString, QVariant> node = v.toMap();
+        QString text = QString("[%1] - %2").arg(
+                toDateFormat(node["time"].toDouble()),
+                node["title"].toString());
+        QPair<int64_t,QString> item(index, text);
+        list.append(item);
+        ++index;
+    }
+    emit chaptersAvailable(list);
 }
 
 void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
 {
+    QList<QPair<int64_t,QString>> videoList;
+    QList<QPair<int64_t,QString>> audioList;
+    QList<QPair<int64_t,QString>> subtitleList;
+    QPair<int64_t,QString> item;
 
+    auto str = [](QVariantMap map, QString key) {
+        return map[key].toString();
+    };
+    auto formatter = [&str](QVariantMap track) {
+        QString output;
+        output.append(QString("%1: ").arg(str(track,"id")));
+        if (track.contains("codec"))
+            output.append(QString("[%1] ").arg(str(track,"codec")));
+        if (track.contains("lang"))
+            output.append(QString("%1 ").arg(str(track,"lang")));
+        if (track.contains("title"))
+            output.append(QString("- %1 ").arg(str(track,"title")));
+        return output;
+    };
+
+    for (QVariant track : tracks) {
+        QVariantMap t = track.toMap();
+        item.first = t["id"].toLongLong();
+        item.second = formatter(t);
+        if (str(t,"type") == "video") {
+            videoList.append(item);
+        } else if (str(t,"type") == "audio") {
+            audioList.append(item);
+        } else if (str(t,"type") == "sub") {
+            subtitleList.append(item);
+        }
+    }
+    emit videoTracksAvailable(videoList);
+    emit audioTracksAvailable(audioList);
+    emit subtitleTracksAvailable(subtitleList);
 }
 
 void PlaybackManager::mpvw_videoSizeChanged(QSize size)

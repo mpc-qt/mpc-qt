@@ -72,6 +72,7 @@ signals:
     void stateChanged(PlaybackState state);
     void typeChanged(PlaybackType type);
     // These signals transmit a list of (id, description) pairs
+    void chaptersAvailable(QList<QPair<int64_t,QString>> chapters);
     void audioTracksAvailable(QList<QPair<int64_t,QString>> tracks);
     void videoTracksAvailable(QList<QPair<int64_t,QString>> tracks);
     void subtitleTracksAvailable(QList<QPair<int64_t,QString>> tracks);
