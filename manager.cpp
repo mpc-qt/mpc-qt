@@ -239,5 +239,5 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
 
 void PlaybackManager::mpvw_videoSizeChanged(QSize size)
 {
-
+    emit videoSizeChanged(size);
 }
