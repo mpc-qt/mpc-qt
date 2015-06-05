@@ -64,62 +64,70 @@ void PlaybackManager::playDevice(QUrl device)
 
 void PlaybackManager::pausePlayer()
 {
-
+    mpvWidget_->setPaused(true);
 }
 
 void PlaybackManager::unpausePlayer()
 {
-
+    mpvWidget_->setPaused(false);
 }
 
 void PlaybackManager::stopPlayer()
 {
-
+    mpvWidget_->stopPlayback();
 }
 
 void PlaybackManager::stepBackward()
 {
-
+    mpvWidget_->stepBackward();
 }
 
 void PlaybackManager::stepForward()
 {
-
+    mpvWidget_->stepForward();
 }
 
 void PlaybackManager::navigateToNextChapter()
 {
-
+    navigateToChapter(mpvWidget_->chapter() + 1);
 }
 
 void PlaybackManager::navigateToPrevChapter()
 {
-
+    navigateToChapter(std::max(0l, mpvWidget_->chapter() - 1));
 }
 
 void PlaybackManager::navigateToChapter(int64_t chapter)
 {
-
+    if (!mpvWidget_->setChapter(chapter)) {
+        // Out-of-bounds chapter navigation request. i.e. unseekable chapter
+        // from either past-the-end or invalid.  So stop playback.
+        mpvWidget_->stopPlayback();
+        // TODO: use finishedPlaying and open next playlist item instead
+        emit stateChanged(StoppedState);
+    }
 }
 
 void PlaybackManager::navigateToTime(double time)
 {
-
+    mpvWidget_->setTime(time);
 }
 
 void PlaybackManager::speedUp()
 {
-
+    setPlaybackSpeed(std::min(8.0, mpvSpeed * 2.0));
 }
 
 void PlaybackManager::speedDown()
 {
-
+    setPlaybackSpeed(std::max(0.125, mpvSpeed / 2.0));
 }
 
 void PlaybackManager::setPlaybackSpeed(double speed)
 {
-
+    mpvSpeed = speed;
+    mpvWidget_->setSpeed(speed);
+    mpvWidget_->showMessage(tr("Speed: %1").arg(speed));
 }
 
 void PlaybackManager::setAudioTrack(int64_t id)
@@ -139,12 +147,14 @@ void PlaybackManager::setVideoTrack(int64_t id)
 
 void PlaybackManager::setVolume(int64_t volume)
 {
-
+    mpvWidget_->setVolume(volume);
+    mpvWidget_->showMessage(tr("Volume: %1").arg(volume));
 }
 
 void PlaybackManager::setMute(bool muted)
 {
-
+    mpvWidget_->setMute(muted);
+    mpvWidget_->showMessage(muted ? tr("Mute: on") : tr("Mute: off"));
 }
 
 void PlaybackManager::mpvw_playTimeChanged(double time)

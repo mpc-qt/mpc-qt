@@ -85,6 +85,7 @@ private:
     QUuid nowPlayingItem;
 
     double mpvLength;
+    double mpvSpeed;
 };
 
 #endif // MANAGER_H
