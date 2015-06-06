@@ -54,7 +54,7 @@ MpvWidget::MpvWidget(QWidget *parent) :
     // For me.
     mpv_set_option_string(mpv, "vo","opengl-hq:"
                           "scale=ewa_lanczossharp:cscale=ewa_lanczossharp:"
-                          "tscale=mitchell:interpolation:waitvsync");
+                          "tscale=oversample:interpolation:waitvsync");
 
     if (mpv_initialize(mpv) < 0)
         throw std::runtime_error("mpv failed to initialize");

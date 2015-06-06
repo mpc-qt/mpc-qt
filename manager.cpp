@@ -39,7 +39,9 @@ void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)
 
 void PlaybackManager::openFiles(QList<QUrl> what)
 {
-
+    // For the moment, until we get a working playback ui, play the first file
+    // TODO: Add the entire list to the quick playlist.
+    mpvWidget_->fileOpen(what.front().toLocalFile());
 }
 
 void PlaybackManager::playDisc(QUrl where)
