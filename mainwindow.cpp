@@ -571,7 +571,7 @@ void MainWindow::on_actionViewFullscreen_toggled(bool checked)
         ui->controlSection->hide();
         ui->infoSection->hide();
     } else {
-        if (ui->actionViewHideMenu->isChecked())
+        if (decorationState_ == AllDecorations)
             menuBar()->show();
         ui->controlSection->show();
         ui->infoSection->show();
