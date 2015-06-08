@@ -134,17 +134,17 @@ void PlaybackManager::setPlaybackSpeed(double speed)
 
 void PlaybackManager::setAudioTrack(int64_t id)
 {
-
+    mpvWidget_->setAudioTrack(id);
 }
 
 void PlaybackManager::setSubtitleTrack(int64_t id)
 {
-
+    mpvWidget_->setSubtitleTrack(id);
 }
 
 void PlaybackManager::setVideoTrack(int64_t id)
 {
-
+    mpvWidget_->setVideoTrack(id);
 }
 
 void PlaybackManager::setVolume(int64_t volume)
