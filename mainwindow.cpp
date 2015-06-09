@@ -416,7 +416,9 @@ void MainWindow::on_actionFileOpenQuick_triggered()
 void MainWindow::on_actionFileOpen_triggered()
 {
     QString filename = QFileDialog::getOpenFileName(this, "Open file");
-    mpvw->fileOpen(filename);
+    QList<QUrl> list;
+    list.append(QUrl::fromLocalFile(filename));
+    emit filesOpened(list);
 }
 
 void MainWindow::on_actionFileClose_triggered()
@@ -614,9 +616,12 @@ void MainWindow::on_actionViewZoomDisable_triggered()
 
 void MainWindow::on_actionPlayPause_toggled(bool checked)
 {
-    mpvw->setPaused(checked);
-    mpvw_pausedChanged(checked);
-
+    if (checked)
+        emit paused();
+    else
+        emit unpaused();
+    //mpvw->setPaused(checked);
+    //mpvw_pausedChanged(checked);
     ui->pause->setChecked(checked);
     ui->actionPlayPause->setChecked(checked);
 }
@@ -628,64 +633,73 @@ void MainWindow::on_actionPlayStop_triggered()
 
 void MainWindow::on_actionPlayFrameBackward_triggered()
 {
-    mpvw->stepBackward();
-    setPaused(true);
-    updatePlaybackStatus();
+    emit stepBackward();
+    //mpvw->stepBackward();
+    //setPaused(true);
+    //updatePlaybackStatus();
 }
 
 void MainWindow::on_actionPlayFrameForward_triggered()
 {
-    mpvw->stepForward();
-    setPaused(true);
-    updatePlaybackStatus();
+    emit stepBackward();
+    //setPaused(true);
+    //updatePlaybackStatus();
 }
 
 void MainWindow::on_actionPlayRateDecrease_triggered()
 {
-    setPlaybackSpeed(playbackSpeed() / 2);
+    emit speedDown();
+    //setPlaybackSpeed(playbackSpeed() / 2);
 }
 
 void MainWindow::on_actionPlayRateIncrease_triggered()
 {
-    setPlaybackSpeed(playbackSpeed() * 2);
+    emit speedUp();
+    //setPlaybackSpeed(playbackSpeed() * 2);
 }
 
 void MainWindow::on_actionPlayRateReset_triggered()
 {
-    if (playbackSpeed() == 1.0)
-        return;
-    setPlaybackSpeed(1.0);
+    emit speedReset();
+    //if (playbackSpeed() == 1.0)
+    //    return;
+    //setPlaybackSpeed(1.0);
 }
 
 void MainWindow::actionPlayAudio_selected(QVariant data)
 {
     int64_t id = data.toLongLong();
-    mpvw->setAudioTrack(id);
+    emit audioTrackSelected(id);
+    //mpvw->setAudioTrack(id);
 }
 
 void MainWindow::actionPlaySubtitles_selected(QVariant data)
 {
     int64_t id = data.toLongLong();
-    mpvw->setSubtitleTrack(id);
+    emit subtitleTrackSelected(id);
+    //mpvw->setSubtitleTrack(id);
 }
 
 void MainWindow::actionPlayVideoTracks_selected(QVariant data)
 {
     int64_t id = data.toLongLong();
-    mpvw->setVideoTrack(id);
+    emit videoTrackSelected(id);
+    //mpvw->setVideoTrack(id);
 }
 
 void MainWindow::on_actionPlayVolumeUp_triggered()
 {
     int newvol = std::min(volumeSlider_->value() + 10, 100.0);
-    doMpvSetVolume(newvol);
+    emit volumeChanged(newvol);
+    //doMpvSetVolume(newvol);
     volumeSlider_->setValue(newvol);
 }
 
 void MainWindow::on_actionPlayVolumeDown_triggered()
 {
     int newvol = std::max(volumeSlider_->value() - 10, 0.0);
-    doMpvSetVolume(newvol);
+    emit volumeChanged(newvol);
+    //doMpvSetVolume(newvol);
     volumeSlider_->setValue(newvol);
 }
 
@@ -693,7 +707,8 @@ void MainWindow::on_actionPlayVolumeMute_toggled(bool checked)
 {
     if (!isPlaying_)
         return;
-    mpvw->setMute(checked);
+    emit volumeMuteChanged(checked);
+    //mpvw->setMute(checked);
     ui->mute->setIcon(QIcon(checked ? ":/images/controls/speaker2.png" :
                                       ":/images/controls/speaker1.png"));
     ui->actionPlayVolumeMute->setChecked(checked);
@@ -702,13 +717,15 @@ void MainWindow::on_actionPlayVolumeMute_toggled(bool checked)
 
 void MainWindow::on_actionNavigateChaptersPrevious_triggered()
 {
-    int64_t chapter = mpvw->chapter();
-    if (chapter > 0) chapter--;
-    mpvw->setChapter(chapter);
+    emit chapterPrevious();
+    //int64_t chapter = mpvw->chapter();
+    //if (chapter > 0) chapter--;
+    //mpvw->setChapter(chapter);
 }
 
 void MainWindow::on_actionNavigateChaptersNext_triggered()
 {
+    emit chapterNext();/*
     int64_t chapter = mpvw->chapter();
     chapter++;
     if (!mpvw->setChapter(chapter)) {
@@ -717,12 +734,13 @@ void MainWindow::on_actionNavigateChaptersNext_triggered()
         // was playing back a playlist, this stops it.  But we intend to do
         // our own playlist parsing anyway, so no biggie.
         doMpvStopPlayback();
-    }
+    }*/
 }
 
 void MainWindow::menuNavigateChapters_selected(QVariant data)
 {
-    mpvw->setChapter(data.toInt());
+    emit chapterSelected(data.toInt());
+    //mpvw->setChapter(data.toInt());
 }
 
 void MainWindow::on_actionHelpHomepage_triggered()
@@ -758,7 +776,8 @@ void MainWindow::on_actionHelpAbout_triggered()
 
 void MainWindow::position_sliderMoved(int position)
 {
-    mpvw->setTime(position);
+    emit timeSelected(position);
+    //mpvw->setTime(position);
 }
 
 void MainWindow::on_play_clicked()
@@ -766,8 +785,9 @@ void MainWindow::on_play_clicked()
     if (!isPlaying())
         return;
     if (isPaused()) {
-        mpvw->setPaused(false);
-        mpvw_pausedChanged(false);
+        emit unpaused();
+        //mpvw->setPaused(false);
+        //mpvw_pausedChanged(false);
         ui->pause->setChecked(false);
     }
     on_actionPlayRateReset_triggered();
@@ -775,7 +795,8 @@ void MainWindow::on_play_clicked()
 
 void MainWindow::volume_sliderMoved(double position)
 {
-    doMpvSetVolume(position);
+    emit volumeChanged(position);
+    //doMpvSetVolume(position);
 }
 
 void MainWindow::mpvw_playTimeChanged(double time)

@@ -61,6 +61,24 @@ private:
     void doMpvSetVolume(int volume);
 
 signals:
+    void filesOpened(QList<QUrl> what);
+    void paused();
+    void unpaused();
+    void stepBackward();
+    void stepForward();
+    void speedDown();
+    void speedUp();
+    void speedReset();
+    void audioTrackSelected(int64_t id);
+    void subtitleTrackSelected(int64_t id);
+    void videoTrackSelected(int64_t id);
+    void volumeChanged(int64_t volume);
+    void volumeMuteChanged(bool muted);
+    void chapterPrevious();
+    void chapterNext();
+    void chapterSelected(int64_t id);
+    void timeSelected(double time);
+
     void fireUpdateSize();
 
 public slots:
