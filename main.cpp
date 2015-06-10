@@ -36,8 +36,8 @@ Flow::Flow(QObject *owner) :
             playbackManager, &PlaybackManager::speedDown);
     connect(mainWindow, &MainWindow::speedUp,
             playbackManager, &PlaybackManager::speedUp);
-    //connect(mainWindow, &MainWindow::speedReset,
-    //        playbackManager, &PlaybackManager::speedReset);
+    connect(mainWindow, &MainWindow::speedReset,
+            playbackManager, &PlaybackManager::speedReset);
     connect(mainWindow, &MainWindow::audioTrackSelected,
             playbackManager, &PlaybackManager::setAudioTrack);
     connect(mainWindow, &MainWindow::subtitleTrackSelected,

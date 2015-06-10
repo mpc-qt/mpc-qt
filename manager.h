@@ -45,6 +45,7 @@ public slots:
     void navigateToTime(double time);
     void speedUp();
     void speedDown();
+    void speedReset();
 
     // output functions
     void setPlaybackSpeed(double speed);

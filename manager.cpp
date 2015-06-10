@@ -42,6 +42,7 @@ void PlaybackManager::openFiles(QList<QUrl> what)
     // For the moment, until we get a working playback ui, play the first file
     // TODO: Add the entire list to the quick playlist.
     mpvWidget_->fileOpen(what.front().toLocalFile());
+    mpvSpeed = 1.0;
 }
 
 void PlaybackManager::playDisc(QUrl where)
@@ -123,6 +124,11 @@ void PlaybackManager::speedUp()
 void PlaybackManager::speedDown()
 {
     setPlaybackSpeed(std::max(0.125, mpvSpeed / 2.0));
+}
+
+void PlaybackManager::speedReset()
+{
+    setPlaybackSpeed(1.0);
 }
 
 void PlaybackManager::setPlaybackSpeed(double speed)
