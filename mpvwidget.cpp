@@ -232,6 +232,8 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
         } else if (strcmp(prop->name, "duration") == 0) {
             playLength_ = asDouble();
             playLengthChanged(playLength_);
+        } else if (strcmp(prop->name, "pause") == 0) {
+            pausedChanged(asBool());
         } else if (strcmp(prop->name, "media-title") == 0) {
             mediaTitleChanged(asString());
         } else if (strcmp(prop->name, "chapter-list") == 0) {
