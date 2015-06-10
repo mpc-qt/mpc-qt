@@ -375,9 +375,23 @@ void MainWindow::setPlaybackType(PlaybackManager::PlaybackType type)
     setUiEnabledState(type != PlaybackManager::None);
 }
 
-void MainWindow::setChapters(QList<QPair<int64_t, QString>> chapters)
+void MainWindow::setChapters(QList<QPair<double, QString>> chapters)
 {
-
+    positionSlider_->clearTicks();
+    ui->menuNavigateChapters->clear();
+    int64_t index = 0;
+    for (QPair<double,QString> chapter : chapters) {
+        positionSlider_->setTick(chapter.first, chapter.second);
+        QAction *action = new QAction(this);
+        DataEmitter *de = new DataEmitter(action);
+        action->setText(chapter.second);
+        de->data = QVariant::fromValue(index);
+        connect(action, &QAction::triggered, de, &DataEmitter::gotSomething);
+        connect(de, &DataEmitter::heresSomething,
+                this, &MainWindow::menuNavigateChapters_selected);
+        ui->menuNavigateChapters->addAction(action);
+        ++index;
+    }
 }
 
 void MainWindow::setAudioTracks(QList<QPair<int64_t, QString>> tracks)

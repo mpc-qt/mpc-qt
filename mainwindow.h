@@ -80,7 +80,7 @@ public slots:
     void setVideoSize(QSize size);
     void setPlaybackState(PlaybackManager::PlaybackState state);
     void setPlaybackType(PlaybackManager::PlaybackType type);
-    void setChapters(QList<QPair<int64_t,QString>> chapters);
+    void setChapters(QList<QPair<double,QString>> chapters);
     void setAudioTracks(QList<QPair<int64_t,QString>> tracks);
     void setVideoTracks(QList<QPair<int64_t,QString>> tracks);
     void setSubtitleTracks(QList<QPair<int64_t,QString>> tracks);

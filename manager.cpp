@@ -203,16 +203,14 @@ void PlaybackManager::mpvw_mediaTitleChanged(QString title)
 
 void PlaybackManager::mpvw_chaptersChanged(QVariantList chapters)
 {
-    QList<QPair<int64_t,QString>> list;
-    int64_t index = 0;
+    QList<QPair<double,QString>> list;
     for (QVariant v : chapters) {
         QMap<QString, QVariant> node = v.toMap();
         QString text = QString("[%1] - %2").arg(
                 toDateFormat(node["time"].toDouble()),
                 node["title"].toString());
-        QPair<int64_t,QString> item(index, text);
+        QPair<double,QString> item(node["time"].toDouble(), text);
         list.append(item);
-        ++index;
     }
     emit chaptersAvailable(list);
 }
