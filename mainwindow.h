@@ -115,7 +115,7 @@ private slots:
     void on_actionViewZoomAutofitLarger_triggered();
     void on_actionViewZoomDisable_triggered();
 
-    void on_actionPlayPause_toggled(bool checked);
+    void on_actionPlayPause_triggered(bool checked);
     void on_actionPlayStop_triggered();
     void on_actionPlayFrameBackward_triggered();
     void on_actionPlayFrameForward_triggered();

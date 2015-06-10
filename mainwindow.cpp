@@ -187,8 +187,8 @@ void MainWindow::setupSizing()
 
 void MainWindow::connectButtonsToActions()
 {
-    connect(ui->pause, &QPushButton::toggled,
-            ui->actionPlayPause, &QAction::toggled);
+    connect(ui->pause, &QPushButton::clicked,
+            ui->actionPlayPause, &QAction::triggered);
     connect(ui->stop, &QPushButton::clicked,
             ui->actionPlayStop, &QAction::triggered);
 
@@ -368,6 +368,10 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
     isPlaying = state != PlaybackManager::StoppedState;
     isPaused = state == PlaybackManager::PausedState;
     setUiEnabledState(state != PlaybackManager::StoppedState);
+    if (isPaused) {
+        ui->actionPlayPause->setChecked(true);
+        ui->pause->setChecked(true);
+    }
 }
 
 void MainWindow::setPlaybackType(PlaybackManager::PlaybackType type)
@@ -646,15 +650,12 @@ void MainWindow::on_actionViewZoomDisable_triggered()
     setSizeFactor(0.0);
 }
 
-void MainWindow::on_actionPlayPause_toggled(bool checked)
+void MainWindow::on_actionPlayPause_triggered(bool checked)
 {
     if (checked)
         emit paused();
     else
         emit unpaused();
-    isPaused = checked;
-    ui->pause->setChecked(checked);
-    ui->actionPlayPause->setChecked(checked);
 }
 
 void MainWindow::on_actionPlayStop_triggered()
