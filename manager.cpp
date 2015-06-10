@@ -135,7 +135,7 @@ void PlaybackManager::setPlaybackSpeed(double speed)
 {
     mpvSpeed = speed;
     mpvWidget_->setSpeed(speed);
-    mpvWidget_->showMessage(tr("Speed: %1").arg(speed));
+    mpvWidget_->showMessage(tr("Speed: %1%").arg(speed*100));
 }
 
 void PlaybackManager::setAudioTrack(int64_t id)
@@ -156,7 +156,7 @@ void PlaybackManager::setVideoTrack(int64_t id)
 void PlaybackManager::setVolume(int64_t volume)
 {
     mpvWidget_->setVolume(volume);
-    mpvWidget_->showMessage(tr("Volume: %1").arg(volume));
+    mpvWidget_->showMessage(tr("Volume: %1%").arg(volume));
 }
 
 void PlaybackManager::setMute(bool muted)
