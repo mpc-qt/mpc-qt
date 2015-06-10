@@ -24,8 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     fullscreenMode_ = false;
-    isPlaying_ = false;
-    playbackSpeed_ = 1.0;
+    isPlaying = false;
     sizeFactor_ = 1;
     noVideoSize_ = QSize(500,270);
     decorationState_ = AllDecorations;
@@ -75,21 +74,6 @@ QSize MainWindow::noVideoSize()
     return noVideoSize_;
 }
 
-bool MainWindow::isPlaying()
-{
-    return isPlaying_;
-}
-
-bool MainWindow::isPaused()
-{
-    return isPaused_;
-}
-
-double MainWindow::playbackSpeed()
-{
-    return playbackSpeed_;
-}
-
 double MainWindow::sizeFactor()
 {
     return sizeFactor_;
@@ -107,23 +91,6 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
 void MainWindow::setNoVideoSize(QSize size)
 {
     noVideoSize_ = size;
-}
-
-void MainWindow::setPlaying(bool yes)
-{
-    isPlaying_ = yes;
-}
-
-void MainWindow::setPaused(bool yes)
-{
-    isPaused_ = yes;
-}
-
-void MainWindow::setPlaybackSpeed(double speed)
-{
-    playbackSpeed_ = std::max(0.125, std::min(8.0, speed));
-    mpvw->setSpeed(speed);
-    mpvw->showMessage(QString("Speed: %1").arg(speed));
 }
 
 void MainWindow::setSizeFactor(double factor)
@@ -178,24 +145,6 @@ void MainWindow::setupVolumeSlider()
 void MainWindow::setupMpvWidget()
 {
     mpvw = new MpvWidget(this);
-    connect(mpvw, &MpvWidget::playTimeChanged,
-            this, &MainWindow::mpvw_playTimeChanged);
-    connect(mpvw, &MpvWidget::playLengthChanged,
-            this, &MainWindow::mpvw_playLengthChanged);
-    connect(mpvw, &MpvWidget::playbackStarted,
-            this, &MainWindow::mpvw_playbackStarted);
-    connect(mpvw, &MpvWidget::pausedChanged,
-            this, &MainWindow::mpvw_pausedChanged);
-    connect(mpvw, &MpvWidget::playbackFinished,
-            this, &MainWindow::mpvw_playbackFinished);
-    connect(mpvw, &MpvWidget::mediaTitleChanged,
-            this, &MainWindow::mpvw_mediaTitleChanged);
-    connect(mpvw, &MpvWidget::chaptersChanged,
-            this, &MainWindow::mpvw_chaptersChanged);
-    connect(mpvw, &MpvWidget::tracksChanged,
-            this, &MainWindow::mpvw_tracksChanged);
-    connect(mpvw, &MpvWidget::videoSizeChanged,
-            this, &MainWindow::mpvw_videoSizeChanged);
 }
 
 void MainWindow::setupMpvHost()
@@ -344,12 +293,6 @@ void MainWindow::updateTime()
                                              toDateFormat(playLength)));
 }
 
-void MainWindow::updatePlaybackStatus()
-{
-    ui->status->setText(isPlaying() ? isPaused() ? "Paused" :"Playing" :
-                                                   "Stopped");
-}
-
 void MainWindow::updateSize(bool first_run)
 {
     if (sizeFactor() <= 0 || fullscreenMode() || isMaximized()) {
@@ -357,8 +300,8 @@ void MainWindow::updateSize(bool first_run)
         return;
     }
 
-    QSize player = isPlaying() ? mpvw->videoSize() : noVideoSize();
-    double factor = isPlaying() ? sizeFactor() :
+    QSize player = isPlaying ? mpvw->videoSize() : noVideoSize();
+    double factor = isPlaying ? sizeFactor() :
                                   std::max(1.0, sizeFactor());
     QSize wanted(player.width()*factor + 0.5,
                     player.height()*factor + 0.5);
@@ -380,10 +323,10 @@ void MainWindow::updateSize(bool first_run)
 
 void MainWindow::doMpvStopPlayback(bool dry_run)
 {
+    // TODO: emit signal instead
     if (!dry_run)
         mpvw->stopPlayback();
-    setPlaying(false);
-    updatePlaybackStatus();
+    isPlaying = false;
     updateSize();
 }
 
@@ -393,6 +336,28 @@ void MainWindow::doMpvSetVolume(int volume)
     mpvw->showMessage(QString("Volume :%1%").arg(volume));
 }
 
+void MainWindow::setTime(double time, double length)
+{
+    positionSlider_->setMaximum(length >= 0 ? length : 0);
+    positionSlider_->setValue(time >= 0 ? time : 0);
+    updateTime();
+}
+
+void MainWindow::setMediaTitle(QString title)
+{
+    QString window_title("Media Player Classic Qute Theater");
+
+    if (!title.isEmpty())
+        window_title.append(" - ").append(title);
+    setWindowTitle(window_title);
+}
+
+void MainWindow::setVideoSize(QSize size)
+{
+    (void)size;
+    updateSize();
+}
+
 void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
 {
     ui->status->setText(state==PlaybackManager::StoppedState ? "Stopped" :
@@ -400,11 +365,64 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
                         state==PlaybackManager::PlayingState ? "Playing" :
                         state==PlaybackManager::BufferingState ? "Buffering" :
                                                                  "Unknown");
+    isPlaying = state != PlaybackManager::StoppedState;
+    isPaused = state == PlaybackManager::PausedState;
+    setUiEnabledState(state != PlaybackManager::StoppedState);
 }
 
 void MainWindow::setPlaybackType(PlaybackManager::PlaybackType type)
 {
     setUiEnabledState(type != PlaybackManager::None);
+}
+
+void MainWindow::setChapters(QList<QPair<int64_t, QString>> chapters)
+{
+
+}
+
+void MainWindow::setAudioTracks(QList<QPair<int64_t, QString>> tracks)
+{
+    ui->menuPlayAudio->clear();
+    for (QPair<int64_t, QString> track : tracks) {
+        QAction *action = new QAction(this);
+        DataEmitter *de = new DataEmitter(action);
+        action->setText(track.second);
+        de->data = QVariant::fromValue(track.first);
+        connect(action, &QAction::triggered, de, &DataEmitter::gotSomething);
+        connect(de, &DataEmitter::heresSomething,
+                this, &MainWindow::actionPlayAudio_selected);
+        ui->menuPlayAudio->addAction(action);
+    }
+}
+
+void MainWindow::setVideoTracks(QList<QPair<int64_t, QString>> tracks)
+{
+    ui->menuPlayVideo->clear();
+    for (QPair<int64_t, QString> track : tracks) {
+        QAction *action = new QAction(this);
+        DataEmitter *de = new DataEmitter(action);
+        action->setText(track.second);
+        de->data = QVariant::fromValue(track.first);
+        connect(action, &QAction::triggered, de, &DataEmitter::gotSomething);
+        connect(de, &DataEmitter::heresSomething,
+                this, &MainWindow::actionPlayAudio_selected);
+        ui->menuPlayVideo->addAction(action);
+    }
+}
+
+void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
+{
+    ui->menuPlaySubtitles->clear();
+    for (QPair<int64_t, QString> track : tracks) {
+        QAction *action = new QAction(this);
+        DataEmitter *de = new DataEmitter(action);
+        action->setText(track.second);
+        de->data = QVariant::fromValue(track.first);
+        connect(action, &QAction::triggered, de, &DataEmitter::gotSomething);
+        connect(de, &DataEmitter::heresSomething,
+                this, &MainWindow::actionPlayAudio_selected);
+        ui->menuPlaySubtitles->addAction(action);
+    }
 }
 
 void MainWindow::on_actionFileOpenQuick_triggered()
@@ -620,8 +638,7 @@ void MainWindow::on_actionPlayPause_toggled(bool checked)
         emit paused();
     else
         emit unpaused();
-    //mpvw->setPaused(checked);
-    //mpvw_pausedChanged(checked);
+    isPaused = checked;
     ui->pause->setChecked(checked);
     ui->actionPlayPause->setChecked(checked);
 }
@@ -634,64 +651,50 @@ void MainWindow::on_actionPlayStop_triggered()
 void MainWindow::on_actionPlayFrameBackward_triggered()
 {
     emit stepBackward();
-    //mpvw->stepBackward();
-    //setPaused(true);
-    //updatePlaybackStatus();
 }
 
 void MainWindow::on_actionPlayFrameForward_triggered()
 {
-    emit stepBackward();
-    //setPaused(true);
-    //updatePlaybackStatus();
+    emit stepForward();
 }
 
 void MainWindow::on_actionPlayRateDecrease_triggered()
 {
     emit speedDown();
-    //setPlaybackSpeed(playbackSpeed() / 2);
 }
 
 void MainWindow::on_actionPlayRateIncrease_triggered()
 {
     emit speedUp();
-    //setPlaybackSpeed(playbackSpeed() * 2);
 }
 
 void MainWindow::on_actionPlayRateReset_triggered()
 {
     emit speedReset();
-    //if (playbackSpeed() == 1.0)
-    //    return;
-    //setPlaybackSpeed(1.0);
 }
 
 void MainWindow::actionPlayAudio_selected(QVariant data)
 {
     int64_t id = data.toLongLong();
     emit audioTrackSelected(id);
-    //mpvw->setAudioTrack(id);
 }
 
 void MainWindow::actionPlaySubtitles_selected(QVariant data)
 {
     int64_t id = data.toLongLong();
     emit subtitleTrackSelected(id);
-    //mpvw->setSubtitleTrack(id);
 }
 
 void MainWindow::actionPlayVideoTracks_selected(QVariant data)
 {
     int64_t id = data.toLongLong();
     emit videoTrackSelected(id);
-    //mpvw->setVideoTrack(id);
 }
 
 void MainWindow::on_actionPlayVolumeUp_triggered()
 {
     int newvol = std::min(volumeSlider_->value() + 10, 100.0);
     emit volumeChanged(newvol);
-    //doMpvSetVolume(newvol);
     volumeSlider_->setValue(newvol);
 }
 
@@ -699,16 +702,14 @@ void MainWindow::on_actionPlayVolumeDown_triggered()
 {
     int newvol = std::max(volumeSlider_->value() - 10, 0.0);
     emit volumeChanged(newvol);
-    //doMpvSetVolume(newvol);
     volumeSlider_->setValue(newvol);
 }
 
 void MainWindow::on_actionPlayVolumeMute_toggled(bool checked)
 {
-    if (!isPlaying_)
+    if (!isPlaying)
         return;
     emit volumeMuteChanged(checked);
-    //mpvw->setMute(checked);
     ui->mute->setIcon(QIcon(checked ? ":/images/controls/speaker2.png" :
                                       ":/images/controls/speaker1.png"));
     ui->actionPlayVolumeMute->setChecked(checked);
@@ -718,29 +719,16 @@ void MainWindow::on_actionPlayVolumeMute_toggled(bool checked)
 void MainWindow::on_actionNavigateChaptersPrevious_triggered()
 {
     emit chapterPrevious();
-    //int64_t chapter = mpvw->chapter();
-    //if (chapter > 0) chapter--;
-    //mpvw->setChapter(chapter);
 }
 
 void MainWindow::on_actionNavigateChaptersNext_triggered()
 {
-    emit chapterNext();/*
-    int64_t chapter = mpvw->chapter();
-    chapter++;
-    if (!mpvw->setChapter(chapter)) {
-        // most likely the reason why we're here is because the requested
-        // chapter number is a past-the-end value, so halt playback.  If mpv
-        // was playing back a playlist, this stops it.  But we intend to do
-        // our own playlist parsing anyway, so no biggie.
-        doMpvStopPlayback();
-    }*/
+    emit chapterNext();
 }
 
 void MainWindow::menuNavigateChapters_selected(QVariant data)
 {
     emit chapterSelected(data.toInt());
-    //mpvw->setChapter(data.toInt());
 }
 
 void MainWindow::on_actionHelpHomepage_triggered()
@@ -782,12 +770,11 @@ void MainWindow::position_sliderMoved(int position)
 
 void MainWindow::on_play_clicked()
 {
-    if (!isPlaying())
+    if (!isPlaying)
         return;
-    if (isPaused()) {
+    if (isPaused) {
         emit unpaused();
-        //mpvw->setPaused(false);
-        //mpvw_pausedChanged(false);
+        isPaused = false;
         ui->pause->setChecked(false);
     }
     on_actionPlayRateReset_triggered();
@@ -796,133 +783,6 @@ void MainWindow::on_play_clicked()
 void MainWindow::volume_sliderMoved(double position)
 {
     emit volumeChanged(position);
-    //doMpvSetVolume(position);
-}
-
-void MainWindow::mpvw_playTimeChanged(double time)
-{
-    positionSlider()->setValue(time >= 0 ? time : 0);
-    updateTime();
-}
-
-void MainWindow::mpvw_playLengthChanged(double length)
-{
-    positionSlider()->setMaximum(length >= 0 ? length : 0);
-    updateTime();
-}
-
-void MainWindow::mpvw_playbackStarted()
-{
-    setPlaying(true);
-    mpvw_pausedChanged(false);
-    setUiEnabledState(true);
-}
-
-void MainWindow::mpvw_pausedChanged(bool yes)
-{
-    setPaused(yes);
-    updatePlaybackStatus();
-}
-
-void MainWindow::mpvw_playbackFinished()
-{
-    doMpvStopPlayback(true);
-    setUiEnabledState(false);
-}
-
-void MainWindow::mpvw_mediaTitleChanged(QString title)
-{
-    QString window_title("Media Player Classic Qute Theater");
-
-    if (!title.isEmpty())
-        window_title.append(" - ").append(title);
-    setWindowTitle(window_title);
-}
-
-void MainWindow::mpvw_chaptersChanged(QVariantList chapters)
-{
-    // Here we add (named) ticks to the position slider.
-    positionSlider()->clearTicks();
-    for (QVariant v : chapters) {
-        QMap<QString, QVariant> node = v.toMap();
-        positionSlider()->setTick(node["time"].toDouble(),
-                                  node["title"].toString());
-    }
-
-    // Here we populate the chapters menu with the chapters.
-    QAction *action;
-    DataEmitter *emitter;
-    ui->menuNavigateChapters->clear();
-    int index = 0;
-    for (QVariant v : chapters) {
-        QMap<QString, QVariant> node = v.toMap();
-        action = new QAction(this);
-        action->setText(QString("[%1] - %2").arg(
-                            toDateFormat(node["time"].toDouble()),
-                            node["title"].toString()));
-        emitter = new DataEmitter(action);
-        emitter->data = index;
-        connect(action, &QAction::triggered,
-                emitter, &DataEmitter::gotSomething);
-        connect(emitter, &DataEmitter::heresSomething,
-                this, &MainWindow::menuNavigateChapters_selected);
-        ui->menuNavigateChapters->addAction(action);
-        index++;
-    }
-}
-
-void MainWindow::mpvw_tracksChanged(QVariantList tracks)
-{
-    auto str = [](QVariantMap map, QString key) {
-        return map[key].toString();
-    };
-    auto formatter = [&str](QVariantMap track) {
-        QString output;
-        output.append(QString("%1: ").arg(str(track,"id")));
-        if (track.contains("codec"))
-            output.append(QString("[%1] ").arg(str(track,"codec")));
-        if (track.contains("lang"))
-            output.append(QString("%1 ").arg(str(track,"lang")));
-        if (track.contains("title"))
-            output.append(QString("- %1 ").arg(str(track,"title")));
-        return output;
-    };
-
-    ui->menuPlayAudio->clear();
-    ui->menuPlaySubtitles->clear();
-    ui->menuPlayVideo->clear();
-    for (QVariant track : tracks) {
-        QVariantMap t = track.toMap();
-        QAction *action = new QAction(this);
-        DataEmitter *de = new DataEmitter(action);
-        action->setText(formatter(t));
-        de->data = t["id"];
-        connect(action, &QAction::triggered, de, &DataEmitter::gotSomething);
-        if (str(t,"type") == "audio") {
-            connect(de, &DataEmitter::heresSomething,
-                    this, &MainWindow::actionPlayAudio_selected);
-            ui->menuPlayAudio->addAction(action);
-        } else if (str(t,"type") == "sub") {
-            connect(de, &DataEmitter::heresSomething,
-                    this, &MainWindow::actionPlaySubtitles_selected);
-            ui->menuPlaySubtitles->addAction(action);
-        } else if (str(t,"type") == "video") {
-            connect(de, &DataEmitter::heresSomething,
-                    this, &MainWindow::actionPlayVideoTracks_selected);
-            ui->menuPlayVideo->addAction(action);
-        } else {
-            // the track is unused by us for now, so delete the stuff we were
-            // going to associate with it
-            delete de;
-            delete action;
-        }
-    }
-}
-
-void MainWindow::mpvw_videoSizeChanged(QSize size)
-{
-    (void)size;
-    updateSize();
 }
 
 void MainWindow::sendUpdateSize()

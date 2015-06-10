@@ -30,19 +30,12 @@ private:
     DecorationState decorationState();
     bool fullscreenMode();
     QSize noVideoSize();
-    bool isPlaying();
-    bool isPaused();
-    double playbackSpeed();
     double sizeFactor();
 
     void setFullscreenMode(bool fullscreenMode);
-    void setDecorationState(DecorationState decorationState);
     void setNoVideoSize(QSize size);
-    void setPlaying(bool yes);
-    void setPaused(bool yes);
-    void setPlaybackSpeed(double speed);
-    void setSizeFactor(double factor);
     void setDiscState(bool playingADisc);
+    void setSizeFactor(double factor);
 
     void setupMenu();
     void setupPositionSlider();
@@ -82,8 +75,15 @@ signals:
     void fireUpdateSize();
 
 public slots:
+    void setTime(double time, double length);
+    void setMediaTitle(QString title);
+    void setVideoSize(QSize size);
     void setPlaybackState(PlaybackManager::PlaybackState state);
     void setPlaybackType(PlaybackManager::PlaybackType type);
+    void setChapters(QList<QPair<int64_t,QString>> chapters);
+    void setAudioTracks(QList<QPair<int64_t,QString>> tracks);
+    void setVideoTracks(QList<QPair<int64_t,QString>> tracks);
+    void setSubtitleTracks(QList<QPair<int64_t,QString>> tracks);
 
 private slots:
     void on_actionFileOpenQuick_triggered();
@@ -142,16 +142,6 @@ private slots:
     void on_play_clicked();
     void volume_sliderMoved(double position);
 
-    void mpvw_playTimeChanged(double time);
-    void mpvw_playLengthChanged(double length);
-    void mpvw_playbackStarted();
-    void mpvw_pausedChanged(bool yes);
-    void mpvw_playbackFinished();
-    void mpvw_mediaTitleChanged(QString title);
-    void mpvw_chaptersChanged(QVariantList chapters);
-    void mpvw_tracksChanged(QVariantList tracks);
-    void mpvw_videoSizeChanged(QSize size);
-
     void sendUpdateSize();
 
 private:
@@ -165,9 +155,8 @@ private:
     bool fullscreenMode_;
 
     QSize noVideoSize_;
-    bool isPlaying_;        // TODO: move to mpvwidget
-    bool isPaused_;         // TODO: move to mpvwidget
-    double playbackSpeed_;  // TODO: move to mpvwidget
+    bool isPlaying;
+    bool isPaused;
     double sizeFactor_;
 };
 

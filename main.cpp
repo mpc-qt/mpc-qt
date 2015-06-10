@@ -22,6 +22,7 @@ Flow::Flow(QObject *owner) :
     playbackManager = new PlaybackManager(this);
     playbackManager->setMpvWidget(mainWindow->mpvWidget(), true);
 
+    // mainwindow -> manager
     connect(mainWindow, SIGNAL(filesOpened(QList<QUrl>)),
             playbackManager, SLOT(openFiles(QList<QUrl>)));
     connect(mainWindow, SIGNAL(paused()),
@@ -57,6 +58,25 @@ Flow::Flow(QObject *owner) :
     connect(mainWindow, &MainWindow::timeSelected,
             playbackManager, &PlaybackManager::navigateToTime);
 
+    // manager -> mainwindow
+    connect(playbackManager, &PlaybackManager::timeChanged,
+            mainWindow, &MainWindow::setTime);
+    connect(playbackManager, &PlaybackManager::titleChanged,
+            mainWindow, &MainWindow::setMediaTitle);
+    connect(playbackManager, &PlaybackManager::videoSizeChanged,
+            mainWindow, &MainWindow::setVideoSize);
+    connect(playbackManager, &PlaybackManager::stateChanged,
+            mainWindow, &MainWindow::setPlaybackState);
+    connect(playbackManager, &PlaybackManager::typeChanged,
+            mainWindow, &MainWindow::setPlaybackType);
+    connect(playbackManager, &PlaybackManager::chaptersAvailable,
+            mainWindow, &MainWindow::setChapters);
+    connect(playbackManager, &PlaybackManager::audioTracksAvailable,
+            mainWindow, &MainWindow::setAudioTracks);
+    connect(playbackManager, &PlaybackManager::videoTracksAvailable,
+            mainWindow, &MainWindow::setVideoTracks);
+    connect(playbackManager, &PlaybackManager::subtitleTracksAvailable,
+            mainWindow, &MainWindow::setSubtitleTracks);
 }
 
 Flow::~Flow()
