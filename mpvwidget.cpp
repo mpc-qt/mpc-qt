@@ -29,6 +29,7 @@ MpvWidget::MpvWidget(QWidget *parent) :
     // this property changes.
     //mpv_observe_property(mpv, 0, )
     mpv_observe_property(mpv, 0, "time-pos", MPV_FORMAT_DOUBLE);
+    mpv_observe_property(mpv, 0, "pause", MPV_FORMAT_FLAG);
     mpv_observe_property(mpv, 0, "media-title", MPV_FORMAT_STRING);
     mpv_observe_property(mpv, 0, "track-list", MPV_FORMAT_NODE);
     mpv_observe_property(mpv, 0, "chapter-list", MPV_FORMAT_NODE);
@@ -199,6 +200,10 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
     case MPV_EVENT_PROPERTY_CHANGE: {
         mpv_event_property *prop =
                 reinterpret_cast<mpv_event_property*>(event->data);
+        auto asBool = [&](bool dflt = false) {
+            return (prop->format != MPV_FORMAT_FLAG || prop->data == NULL) ?
+                        dflt : *reinterpret_cast<bool*>(prop->data);
+        };
         auto asDouble = [&](double dflt = -1) {
             return (prop->format != MPV_FORMAT_DOUBLE || prop->data == NULL) ?
                         dflt : *reinterpret_cast<double*>(prop->data);
@@ -259,6 +264,8 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
             } else if (prop->format == MPV_FORMAT_STRING ||
                        prop->format == MPV_FORMAT_OSD_STRING) {
                 qDebug() << msg.arg(asString());
+            } else if (prop->format == MPV_FORMAT_FLAG) {
+                qDebug() << msg.arg(asBool());
             } else {
                 qDebug() << msg.arg(QString::number(prop->format));
             }
