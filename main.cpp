@@ -29,6 +29,8 @@ Flow::Flow(QObject *owner) :
             playbackManager, SLOT(pausePlayer()));
     connect(mainWindow, SIGNAL(unpaused()),
             playbackManager, SLOT(unpausePlayer()));
+    connect(mainWindow, &MainWindow::stopped,
+            playbackManager, &PlaybackManager::stopPlayer);
     connect(mainWindow, &MainWindow::stepBackward,
             playbackManager, &PlaybackManager::stepBackward);
     connect(mainWindow, &MainWindow::stepForward,

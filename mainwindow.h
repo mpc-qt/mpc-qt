@@ -57,6 +57,7 @@ signals:
     void filesOpened(QList<QUrl> what);
     void paused();
     void unpaused();
+    void stopped();
     void stepBackward();
     void stepForward();
     void speedDown();

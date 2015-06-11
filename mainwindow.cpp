@@ -325,7 +325,7 @@ void MainWindow::doMpvStopPlayback(bool dry_run)
 {
     // TODO: emit signal instead
     if (!dry_run)
-        mpvw->stopPlayback();
+        emit stopped();
     isPlaying = false;
     updateSize();
 }
