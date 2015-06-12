@@ -1,3 +1,6 @@
+// Portions of code in this module came from the examples directory in mpv's
+// git repo.  Reworked by me.
+
 #include <QJsonDocument>
 #include <QDebug>
 #include <mpv/qthelper.hpp>
