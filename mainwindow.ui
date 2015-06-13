@@ -382,7 +382,7 @@
           <item row="1" column="1">
            <widget class="QLabel" name="framerate">
             <property name="text">
-             <string>00.00 (1.00x)</string>
+             <string>-</string>
             </property>
            </widget>
           </item>
@@ -396,7 +396,7 @@
           <item row="2" column="1">
            <widget class="QLabel" name="avsync">
             <property name="text">
-             <string>0</string>
+             <string>-</string>
             </property>
            </widget>
           </item>

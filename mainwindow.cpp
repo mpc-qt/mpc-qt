@@ -295,8 +295,9 @@ void MainWindow::updateTime()
 
 void MainWindow::updateFramedrops()
 {
-    ui->framedrops->setText(QString("vo: %1, decoder: %2").arg(displayDrops)
-                            .arg(decoderDrops));
+    ui->framedrops->setText(QString("vo: %1, decoder: %2")
+                            .arg(displayDrops > 0 ? displayDrops : 0)
+                            .arg(decoderDrops > 0 ? decoderDrops : 0));
 }
 
 void MainWindow::updateSize(bool first_run)
@@ -451,12 +452,12 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
 
 void MainWindow::setFps(double fps)
 {
-    ui->framerate->setText(QString::number(fps, 'f', 2));
+    ui->framerate->setText(fps < 0 ? "-" : QString::number(fps, 'f', 2));
 }
 
 void MainWindow::setAvsync(double sync)
 {
-    ui->avsync->setText(QString::number(sync, 'f', 3));
+    ui->avsync->setText(sync < 0 ? "-" : QString::number(sync, 'f', 3));
 }
 
 void MainWindow::setDisplayFramedrops(int64_t count)
