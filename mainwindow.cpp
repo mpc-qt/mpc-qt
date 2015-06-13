@@ -293,6 +293,12 @@ void MainWindow::updateTime()
                                              toDateFormat(playLength)));
 }
 
+void MainWindow::updateFramedrops()
+{
+    ui->framedrops->setText(QString("vo: %1, decoder: %2").arg(displayDrops)
+                            .arg(decoderDrops));
+}
+
 void MainWindow::updateSize(bool first_run)
 {
     if (sizeFactor() <= 0 || fullscreenMode() || isMaximized()) {
@@ -441,6 +447,28 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
                 this, &MainWindow::actionPlayAudio_selected);
         ui->menuPlaySubtitles->addAction(action);
     }
+}
+
+void MainWindow::setFps(double fps)
+{
+    ui->framerate->setText(QString::number(fps, 'f', 2));
+}
+
+void MainWindow::setAvsync(double sync)
+{
+    ui->avsync->setText(QString::number(sync, 'f', 3));
+}
+
+void MainWindow::setDisplayFramedrops(int64_t count)
+{
+    displayDrops = count;
+    updateFramedrops();
+}
+
+void MainWindow::setDecoderFramedrops(int64_t count)
+{
+    decoderDrops = count;
+    updateFramedrops();
 }
 
 void MainWindow::on_actionFileOpenQuick_triggered()

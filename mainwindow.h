@@ -48,6 +48,7 @@ private:
     void setUiDecorationState(DecorationState state);
     void setUiEnabledState(bool enabled);
     void updateTime();
+    void updateFramedrops();
     void updatePlaybackStatus();
     void updateSize(bool first_run = false);
     void doMpvStopPlayback(bool dry_run = false);
@@ -85,6 +86,10 @@ public slots:
     void setAudioTracks(QList<QPair<int64_t,QString>> tracks);
     void setVideoTracks(QList<QPair<int64_t,QString>> tracks);
     void setSubtitleTracks(QList<QPair<int64_t,QString>> tracks);
+    void setFps(double fps);
+    void setAvsync(double sync);
+    void setDisplayFramedrops(int64_t count);
+    void setDecoderFramedrops(int64_t count);
 
 private slots:
     void on_actionFileOpenQuick_triggered();
@@ -159,6 +164,8 @@ private:
     bool isPlaying;
     bool isPaused;
     double sizeFactor_;
+    int64_t displayDrops;
+    int64_t decoderDrops;
 };
 
 #endif // HOSTWINDOW_H
