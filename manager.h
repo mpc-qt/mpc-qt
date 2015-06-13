@@ -65,6 +65,10 @@ private slots:
     void mpvw_chaptersChanged(QVariantList chapters);
     void mpvw_tracksChanged(QVariantList tracks);
     void mpvw_videoSizeChanged(QSize size);
+    void mpvw_fpsChanged(double fps);
+    void mpvw_avsyncChanged(double sync);
+    void mpvw_displayFramedropsChanged(int64_t count);
+    void mpvw_decoderFramedropsChanged(int64_t count);
 
 signals:
     void timeChanged(double time, double length);
@@ -80,6 +84,11 @@ signals:
     void subtitleTracksAvailable(QList<QPair<int64_t,QString>> tracks);
     void nowPlayingChanged(QUuid item);
     void finishedPlaying(QUuid item);
+
+    void fpsChanged(double fps);
+    void avsyncChanged(double sync);
+    void displayFramedropsChanged(int64_t count);
+    void decoderFramedropsChanged(int64_t count);
 
 private:
     MpvWidget *mpvWidget_;

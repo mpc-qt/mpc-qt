@@ -35,6 +35,14 @@ void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)
                 this, &PlaybackManager::mpvw_tracksChanged);
         connect(mpvWidget, &MpvWidget::videoSizeChanged,
                 this, &PlaybackManager::mpvw_videoSizeChanged);
+        connect(mpvWidget, &MpvWidget::fpsChanged,
+                this, &PlaybackManager::mpvw_fpsChanged);
+        connect(mpvWidget, &MpvWidget::avsyncChanged,
+                this, &PlaybackManager::mpvw_avsyncChanged);
+        connect(mpvWidget, &MpvWidget::displayFramedropsChanged,
+                this, &PlaybackManager::mpvw_displayFramedropsChanged);
+        connect(mpvWidget, &MpvWidget::decoderFramedropsChanged,
+                this, &PlaybackManager::mpvw_decoderFramedropsChanged);
     }
 }
 
@@ -257,4 +265,24 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
 void PlaybackManager::mpvw_videoSizeChanged(QSize size)
 {
     emit videoSizeChanged(size);
+}
+
+void PlaybackManager::mpvw_fpsChanged(double fps)
+{
+    emit fpsChanged(fps);
+}
+
+void PlaybackManager::mpvw_avsyncChanged(double sync)
+{
+    emit avsyncChanged(sync);
+}
+
+void PlaybackManager::mpvw_displayFramedropsChanged(int64_t count)
+{
+    emit displayFramedropsChanged(count);
+}
+
+void PlaybackManager::mpvw_decoderFramedropsChanged(int64_t count)
+{
+    emit decoderFramedropsChanged(count);
 }
