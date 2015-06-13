@@ -79,6 +79,14 @@ Flow::Flow(QObject *owner) :
             mainWindow, &MainWindow::setVideoTracks);
     connect(playbackManager, &PlaybackManager::subtitleTracksAvailable,
             mainWindow, &MainWindow::setSubtitleTracks);
+    connect(playbackManager, &PlaybackManager::fpsChanged,
+            mainWindow, &MainWindow::setFps);
+    connect(playbackManager, &PlaybackManager::avsyncChanged,
+            mainWindow, &MainWindow::setAvsync);
+    connect(playbackManager, &PlaybackManager::displayFramedropsChanged,
+            mainWindow, &MainWindow::setDisplayFramedrops);
+    connect(playbackManager, &PlaybackManager::decoderFramedropsChanged,
+            mainWindow, &MainWindow::setDecoderFramedrops);
 }
 
 Flow::~Flow()
