@@ -3,6 +3,7 @@
 
 #include <QJsonDocument>
 #include <QDebug>
+#include <cmath>
 #include <mpv/qthelper.hpp>
 #include "mpvwidget.h"
 
@@ -207,7 +208,7 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
             return (prop->format != MPV_FORMAT_FLAG || prop->data == NULL) ?
                         dflt : *reinterpret_cast<bool*>(prop->data);
         };
-        auto asDouble = [&](double dflt = -1) {
+        auto asDouble = [&](double dflt = nan("")) {
             return (prop->format != MPV_FORMAT_DOUBLE || prop->data == NULL) ?
                         dflt : *reinterpret_cast<double*>(prop->data);
         };

@@ -1,5 +1,6 @@
 #include <sstream>
 #include <stdexcept>
+#include <cmath>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -452,12 +453,12 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
 
 void MainWindow::setFps(double fps)
 {
-    ui->framerate->setText(fps < 0 ? "-" : QString::number(fps, 'f', 2));
+    ui->framerate->setText(isnan(fps) ? "-" : QString::number(fps, 'f', 2));
 }
 
 void MainWindow::setAvsync(double sync)
 {
-    ui->avsync->setText(sync < 0 ? "-" : QString::number(sync, 'f', 3));
+    ui->avsync->setText(isnan(sync) ? "-" : QString::number(sync, 'f', 3));
 }
 
 void MainWindow::setDisplayFramedrops(int64_t count)
