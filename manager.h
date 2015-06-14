@@ -62,6 +62,7 @@ private slots:
     void mpvw_pausedChanged(bool yes);
     void mpvw_playbackFinished();
     void mpvw_mediaTitleChanged(QString title);
+    void mpvw_chapterDataChanged(QVariantMap metadata);
     void mpvw_chaptersChanged(QVariantList chapters);
     void mpvw_tracksChanged(QVariantList tracks);
     void mpvw_videoSizeChanged(QSize size);
@@ -73,6 +74,7 @@ private slots:
 signals:
     void timeChanged(double time, double length);
     void titleChanged(QString title);
+    void chapterTitleChanged(QString title);
     void videoSizeChanged(QSize size);
     void stateChanged(PlaybackState state);
     void typeChanged(PlaybackType type);
