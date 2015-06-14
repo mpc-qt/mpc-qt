@@ -47,6 +47,7 @@ signals:
     void pausedChanged(bool yes);
     void playbackFinished();
     void mediaTitleChanged(QString title);
+    void chapterDataChanged(QVariantMap metadata);
     void chaptersChanged(QVariantList chapters);
     void tracksChanged(QVariantList tracks);
     void videoSizeChanged(QSize size);

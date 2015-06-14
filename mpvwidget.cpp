@@ -35,6 +35,7 @@ MpvWidget::MpvWidget(QWidget *parent) :
     mpv_observe_property(mpv, 0, "time-pos", MPV_FORMAT_DOUBLE);
     mpv_observe_property(mpv, 0, "pause", MPV_FORMAT_FLAG);
     mpv_observe_property(mpv, 0, "media-title", MPV_FORMAT_STRING);
+    mpv_observe_property(mpv, 0, "chapter-metadata", MPV_FORMAT_NODE);
     mpv_observe_property(mpv, 0, "track-list", MPV_FORMAT_NODE);
     mpv_observe_property(mpv, 0, "chapter-list", MPV_FORMAT_NODE);
     mpv_observe_property(mpv, 0, "duration", MPV_FORMAT_DOUBLE);
@@ -240,6 +241,8 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
             pausedChanged(asBool(true));
         } else if (strcmp(prop->name, "media-title") == 0) {
             mediaTitleChanged(asString());
+        } else if (strcmp(prop->name, "chapter-metadata") == 0) {
+            chapterDataChanged(asNode().toMap());
         } else if (strcmp(prop->name, "chapter-list") == 0) {
             chaptersChanged(asNode().toList());
         } else if (strcmp(prop->name, "track-list") == 0) {
