@@ -65,6 +65,8 @@ Flow::Flow(QObject *owner) :
             mainWindow, &MainWindow::setTime);
     connect(playbackManager, &PlaybackManager::titleChanged,
             mainWindow, &MainWindow::setMediaTitle);
+    connect(playbackManager, &PlaybackManager::chapterTitleChanged,
+            mainWindow, &MainWindow::setChapterTitle);
     connect(playbackManager, &PlaybackManager::videoSizeChanged,
             mainWindow, &MainWindow::setVideoSize);
     connect(playbackManager, &PlaybackManager::stateChanged,

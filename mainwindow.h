@@ -79,6 +79,7 @@ signals:
 public slots:
     void setTime(double time, double length);
     void setMediaTitle(QString title);
+    void setChapterTitle(QString title);
     void setVideoSize(QSize size);
     void setPlaybackState(PlaybackManager::PlaybackState state);
     void setPlaybackType(PlaybackManager::PlaybackType type);

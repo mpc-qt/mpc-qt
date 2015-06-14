@@ -360,6 +360,11 @@ void MainWindow::setMediaTitle(QString title)
     setWindowTitle(window_title);
 }
 
+void MainWindow::setChapterTitle(QString title)
+{
+    ui->chapter->setText(!title.isEmpty() ? title : "-");
+}
+
 void MainWindow::setVideoSize(QSize size)
 {
     (void)size;
