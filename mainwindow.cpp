@@ -326,7 +326,29 @@ void MainWindow::updateSize(bool first_run)
     else
         setGeometry(QStyle::alignedRect(
                     Qt::LeftToRight, Qt::AlignCenter, desired,
-                    desktop->availableGeometry(this)));
+                        desktop->availableGeometry(this)));
+}
+
+void MainWindow::updateInfostats()
+{
+    bool infoShow = ui->actionViewHideInformation->isChecked();
+    bool statShow = ui->actionViewHideStatistics->isChecked();
+
+    ui->chapter->setVisible(infoShow);
+    ui->chapterLabel->setVisible(infoShow);
+
+    ui->framerate->setVisible(statShow);
+    ui->framerateLabel->setVisible(statShow);
+    ui->avsync->setVisible(statShow);
+    ui->avsyncLabel->setVisible(statShow);
+    ui->framedrops->setVisible(statShow);
+    ui->framedropsLabel->setVisible(statShow);
+    ui->bitrate->setVisible(statShow);
+    ui->bitrateLabel->setVisible(statShow);
+
+    ui->infoStats->setVisible(infoShow || statShow);
+    ui->infoStats->adjustSize();
+    ui->infoSection->adjustSize();
 }
 
 void MainWindow::doMpvStopPlayback(bool dry_run)
@@ -535,21 +557,13 @@ void MainWindow::on_actionViewHideControls_toggled(bool checked)
 
 void MainWindow::on_actionViewHideInformation_toggled(bool checked)
 {
-    if (checked)
-        ui->infoStats->show();
-    else
-        ui->infoStats->hide();
-    ui->infoSection->adjustSize();
+    updateInfostats();
     fireUpdateSize();
 }
 
 void MainWindow::on_actionViewHideStatistics_toggled(bool checked)
 {
-    // this currently does nothing, because info and statistics are controlled
-    // by the same widget.  We're going to manage what's shown by it
-    // ourselves, and turn that on or off depending upon the settings here.
-    (void)checked;
-
+    updateInfostats();
     fireUpdateSize();
 }
 

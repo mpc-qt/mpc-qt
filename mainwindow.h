@@ -51,6 +51,7 @@ private:
     void updateFramedrops();
     void updatePlaybackStatus();
     void updateSize(bool first_run = false);
+    void updateInfostats();
     void doMpvStopPlayback(bool dry_run = false);
     void doMpvSetVolume(int volume);
 
