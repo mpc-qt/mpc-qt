@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>444</width>
+    <width>222</width>
     <height>491</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Playlist</string>
+   <string>&amp;Playlist</string>
   </property>
   <widget class="QWidget" name="contents">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -29,36 +29,56 @@
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QPushButton" name="newTab">
-        <property name="text">
+        <property name="toolTip">
          <string>New Tab</string>
+        </property>
+        <property name="icon">
+         <iconset resource="res.qrc">
+          <normaloff>:/images/controls/playlist/newtab.png</normaloff>:/images/controls/playlist/newtab.png</iconset>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="closeTab">
-        <property name="text">
+        <property name="toolTip">
          <string>Close Tab</string>
+        </property>
+        <property name="icon">
+         <iconset resource="res.qrc">
+          <normaloff>:/images/controls/playlist/closetab.png</normaloff>:/images/controls/playlist/closetab.png</iconset>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="duplicateTab">
-        <property name="text">
-         <string>Duplicate</string>
+        <property name="toolTip">
+         <string>Duplicate Tab</string>
+        </property>
+        <property name="icon">
+         <iconset resource="res.qrc">
+          <normaloff>:/images/controls/playlist/duplicatetab.png</normaloff>:/images/controls/playlist/duplicatetab.png</iconset>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="importList">
-        <property name="text">
-         <string>Import</string>
+        <property name="toolTip">
+         <string>Import Playlist</string>
+        </property>
+        <property name="icon">
+         <iconset resource="res.qrc">
+          <normaloff>:/images/controls/playlist/import.png</normaloff>:/images/controls/playlist/import.png</iconset>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="exportList">
-        <property name="text">
-         <string>Export</string>
+        <property name="toolTip">
+         <string>Export Playlist</string>
+        </property>
+        <property name="icon">
+         <iconset resource="res.qrc">
+          <normaloff>:/images/controls/playlist/export.png</normaloff>:/images/controls/playlist/export.png</iconset>
         </property>
        </widget>
       </item>
@@ -67,6 +87,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -14,5 +14,10 @@
         <file>images/bitmaps/blank-screen.png</file>
         <file>images/bitmaps/icon.png</file>
         <file>images/bitmaps/icon16.png</file>
+        <file>images/controls/playlist/closetab.png</file>
+        <file>images/controls/playlist/duplicatetab.png</file>
+        <file>images/controls/playlist/export.png</file>
+        <file>images/controls/playlist/import.png</file>
+        <file>images/controls/playlist/newtab.png</file>
     </qresource>
 </RCC>
