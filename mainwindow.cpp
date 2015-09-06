@@ -522,6 +522,8 @@ void MainWindow::on_actionFileOpenQuick_triggered()
 void MainWindow::on_actionFileOpen_triggered()
 {
     QString filename = QFileDialog::getOpenFileName(this, "Open file");
+    if (filename.isNull())
+        return;
     QList<QUrl> list;
     list.append(QUrl::fromLocalFile(filename));
     emit filesOpened(list);
