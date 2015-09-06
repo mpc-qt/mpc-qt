@@ -6,6 +6,7 @@
 #include <QMenuBar>
 #include "qdrawnslider.h"
 #include "manager.h"
+#include "playlistwindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -22,6 +23,7 @@ public:
     ~MainWindow();
 
     MpvWidget *mpvWidget();
+    PlaylistWindow *playlistWindow();
 
 private:
     QMediaSlider *positionSlider();
@@ -42,6 +44,7 @@ private:
     void setupVolumeSlider();
     void setupMpvWidget();
     void setupMpvHost();
+    void setupPlaylist();
     void setupSizing();
     void connectButtonsToActions();
     void globalizeAllActions();
@@ -158,6 +161,7 @@ private:
     MpvWidget *mpvw;
     QMediaSlider *positionSlider_;
     QVolumeSlider *volumeSlider_;
+    PlaylistWindow *playlistWindow_;
 
     DecorationState decorationState_;
     bool fullscreenMode_;

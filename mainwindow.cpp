@@ -36,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setupVolumeSlider();
     setupMpvWidget();
     setupMpvHost();
+    setupPlaylist();
     setupSizing();
     setDiscState(false);
 }
@@ -48,6 +49,11 @@ MainWindow::~MainWindow()
 MpvWidget *MainWindow::mpvWidget()
 {
     return mpvw;
+}
+
+PlaylistWindow *MainWindow::playlistWindow()
+{
+    return playlistWindow_;
 }
 
 QMediaSlider *MainWindow::positionSlider()
@@ -163,6 +169,13 @@ void MainWindow::setupMpvHost()
     connectButtonsToActions();
     globalizeAllActions();
     setUiEnabledState(false);
+}
+
+void MainWindow::setupPlaylist()
+{
+    playlistWindow_ = new PlaylistWindow(this);
+    playlistWindow_->setStyleSheet("background: window;");
+    mpvHost_->addDockWidget(Qt::RightDockWidgetArea, playlistWindow_);
 }
 
 void MainWindow::setupSizing()
