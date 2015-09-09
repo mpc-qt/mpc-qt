@@ -521,12 +521,24 @@ void MainWindow::on_actionFileOpenQuick_triggered()
 
 void MainWindow::on_actionFileOpen_triggered()
 {
-    QString filename = QFileDialog::getOpenFileName(this, "Open file");
-    if (filename.isNull())
+    auto qfd = new QFileDialog(this);
+    qfd->setFileMode(QFileDialog::ExistingFiles);
+    qfd->setOption(QFileDialog::DontResolveSymlinks);
+    qfd->setDirectory(previousOpenDir);
+    connect(qfd, &QFileDialog::filesSelected,
+            this, &MainWindow::fileOpenDialog_accepted);
+    qfd->show();
+}
+
+void MainWindow::fileOpenDialog_accepted(const QStringList &selected)
+{
+    if (selected.empty())
         return;
     QList<QUrl> list;
-    list.append(QUrl::fromLocalFile(filename));
+    foreach(auto s, selected)
+        list.append(QUrl::fromLocalFile(s));
     emit filesOpened(list);
+    previousOpenDir = QFileInfo(selected.first()).absoluteDir().path();
 }
 
 void MainWindow::on_actionFileClose_triggered()

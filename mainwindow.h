@@ -99,6 +99,7 @@ public slots:
 private slots:
     void on_actionFileOpenQuick_triggered();
     void on_actionFileOpen_triggered();
+    void fileOpenDialog_accepted(const QStringList &selected);
     void on_actionFileClose_triggered();
     void on_actionFileExit_triggered();
 
@@ -166,6 +167,7 @@ private:
     DecorationState decorationState_;
     bool fullscreenMode_;
 
+    QString previousOpenDir;
     QSize noVideoSize_;
     bool isPlaying;
     bool isPaused;
