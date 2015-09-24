@@ -1,6 +1,7 @@
 #include "playlistwindow.h"
 #include "ui_playlistwindow.h"
 #include "qdrawnplaylist.h"
+#include "playlist.h"
 
 PlaylistWindow::PlaylistWindow(QWidget *parent) :
     QDockWidget(parent),
@@ -15,4 +16,27 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
 PlaylistWindow::~PlaylistWindow()
 {
     delete ui;
+}
+
+void PlaylistWindow::on_newTab_clicked()
+{
+    auto qdp = new QDrawnPlaylist();
+    auto pl = PlaylistCollection::getSingleton()->newPlaylist();
+    qdp->setUuid(pl->uuid());
+    ui->tabWidget->addTab(qdp, tr("New Playlist"));
+}
+
+void PlaylistWindow::on_closeTab_clicked()
+{
+    int index = ui->tabWidget->currentIndex();
+    on_tabWidget_tabCloseRequested(index);
+}
+
+void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
+{
+    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->widget(index));
+    if (!qdp || qdp->uuid().isNull())
+        return;
+    PlaylistCollection::getSingleton()->removePlaylist(qdp->uuid());
+    ui->tabWidget->removeTab(index);
 }

@@ -15,6 +15,13 @@ public:
     explicit PlaylistWindow(QWidget *parent = 0);
     ~PlaylistWindow();
 
+private slots:
+    void on_newTab_clicked();
+
+    void on_closeTab_clicked();
+
+    void on_tabWidget_tabCloseRequested(int index);
+
 private:
     Ui::PlaylistWindow *ui;
 };
