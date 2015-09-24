@@ -21,9 +21,9 @@ PlaylistWindow::~PlaylistWindow()
 void PlaylistWindow::on_newTab_clicked()
 {
     auto qdp = new QDrawnPlaylist();
-    auto pl = PlaylistCollection::getSingleton()->newPlaylist();
+    auto pl = PlaylistCollection::getSingleton()->newPlaylist(tr("New Playlist"));
     qdp->setUuid(pl->uuid());
-    ui->tabWidget->addTab(qdp, tr("New Playlist"));
+    ui->tabWidget->addTab(qdp, pl->title());
 }
 
 void PlaylistWindow::on_closeTab_clicked()
