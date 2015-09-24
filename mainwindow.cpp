@@ -531,6 +531,7 @@ void MainWindow::on_actionFileOpenQuick_triggered()
 void MainWindow::on_actionFileOpen_triggered()
 {
     auto qfd = new QFileDialog(this);
+    qfd->setAttribute(Qt::WA_DeleteOnClose);
     qfd->setFileMode(QFileDialog::ExistingFiles);
     qfd->setOption(QFileDialog::DontResolveSymlinks);
     qfd->setDirectory(previousOpenDir);
