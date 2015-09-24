@@ -13,6 +13,7 @@
 #include <QVariant>
 
 class MpvWidget;
+class PlaylistWindow;
 
 class PlaybackManager : public QObject
 {
@@ -24,6 +25,7 @@ public:
 
     explicit PlaybackManager(QObject *parent = 0);
     void setMpvWidget(MpvWidget *mpvWidget, bool makeConnections = false);
+    void setPlaylistWindow(PlaylistWindow *playlistWindow);
 
 public slots:
     // load functions
@@ -94,6 +96,7 @@ signals:
 
 private:
     MpvWidget *mpvWidget_;
+    PlaylistWindow *playlistWindow_;
     QUuid nowPlayingList;
     QUuid nowPlayingItem;
 

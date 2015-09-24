@@ -48,6 +48,11 @@ void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)
     }
 }
 
+void PlaybackManager::setPlaylistWindow(PlaylistWindow *playlistWindow)
+{
+    playlistWindow_ = playlistWindow;
+}
+
 void PlaybackManager::openFiles(QList<QUrl> what)
 {
     // For the moment, until we get a working playback ui, play the first file

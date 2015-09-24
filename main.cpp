@@ -21,6 +21,7 @@ Flow::Flow(QObject *owner) :
     mainWindow = new MainWindow();
     playbackManager = new PlaybackManager(this);
     playbackManager->setMpvWidget(mainWindow->mpvWidget(), true);
+    playbackManager->setPlaylistWindow(mainWindow->playlistWindow());
 
     // mainwindow -> manager
     connect(mainWindow, SIGNAL(filesOpened(QList<QUrl>)),
