@@ -237,6 +237,19 @@ Playlist *PlaylistCollection::newPlaylist(QString title)
     return doNewPlaylist(title, QUuid::createUuid());
 }
 
+Playlist *PlaylistCollection::clonePlaylist(QUuid uuid)
+{
+    if (!playlistsByUuid.contains(uuid))
+        return NULL;
+    auto origin = playlistsByUuid[uuid];
+    auto remote = newPlaylist(origin->title());
+    auto cloner = [remote](Item* i) {
+        remote->addItem(i->url());
+    };
+    origin->iterateItems(cloner);
+    return remote;
+}
+
 void PlaylistCollection::removePlaylist(QUuid uuid)
 {
     if (!playlistsByUuid.contains(uuid))

@@ -40,3 +40,12 @@ void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
     PlaylistCollection::getSingleton()->removePlaylist(qdp->uuid());
     ui->tabWidget->removeTab(index);
 }
+
+void PlaylistWindow::on_duplicateTab_clicked()
+{
+    auto origin = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    auto remote = PlaylistCollection::getSingleton()->clonePlaylist(origin->uuid());
+    auto qdp = new QDrawnPlaylist();
+    qdp->setUuid(remote->uuid());
+    ui->tabWidget->addTab(qdp, remote->title());
+}

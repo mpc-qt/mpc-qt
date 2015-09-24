@@ -77,6 +77,7 @@ public:
     Playlist *nowPlaying();
 
     Playlist *newPlaylist(QString title = 0);
+    Playlist *clonePlaylist(QUuid uuid);
     void removePlaylist(QUuid uuid);
     void removePlaylist(Playlist *p);
     Playlist *playlistAt(int col);
