@@ -165,6 +165,7 @@ void MainWindow::setupMpvHost()
     // central widget.
     QWidget *widget = new QWidget();
     QVBoxLayout *layout = new QVBoxLayout;
+    layout->setMargin(0);
     layout->addWidget(mpvw);
     widget->setLayout(layout);
     widget->setStyleSheet("background-color: black; background: center url("
