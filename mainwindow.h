@@ -57,9 +57,11 @@ private:
     void updateInfostats();
     void doMpvStopPlayback(bool dry_run = false);
     void doMpvSetVolume(int volume);
+    void makeFileDialog(bool isQuickOpen);
 
 signals:
     void filesOpened(QList<QUrl> what);
+    void filesOpenedQuickly(QList<QUrl> what);
     void paused();
     void unpaused();
     void stopped();
@@ -99,7 +101,6 @@ public slots:
 private slots:
     void on_actionFileOpenQuick_triggered();
     void on_actionFileOpen_triggered();
-    void fileOpenDialog_accepted(const QStringList &selected);
     void on_actionFileClose_triggered();
     void on_actionFileExit_triggered();
 

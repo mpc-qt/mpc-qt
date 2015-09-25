@@ -522,33 +522,37 @@ void MainWindow::setDecoderFramedrops(int64_t count)
     updateFramedrops();
 }
 
-void MainWindow::on_actionFileOpenQuick_triggered()
-{
-    // Do nothing special for the moment, call menu_file_open instead
-    on_actionFileOpen_triggered();
-}
-
-void MainWindow::on_actionFileOpen_triggered()
-{
+void MainWindow::makeFileDialog(bool isQuickOpen) {
     auto qfd = new QFileDialog(this);
     qfd->setAttribute(Qt::WA_DeleteOnClose);
     qfd->setFileMode(QFileDialog::ExistingFiles);
     qfd->setOption(QFileDialog::DontResolveSymlinks);
     qfd->setDirectory(previousOpenDir);
-    connect(qfd, &QFileDialog::filesSelected,
-            this, &MainWindow::fileOpenDialog_accepted);
+    QObject::connect(qfd, &QFileDialog::filesSelected,
+        [this, isQuickOpen](const QStringList &selected) {
+            if (selected.empty())
+                return;
+            QList<QUrl> list;
+            foreach(auto s, selected)
+                list.append(QUrl::fromLocalFile(s));
+            if (isQuickOpen) {
+                emit this->filesOpenedQuickly(list);
+            } else {
+                emit this->filesOpened(list);
+            }
+        }
+    );
     qfd->show();
+};
+
+void MainWindow::on_actionFileOpenQuick_triggered()
+{
+    makeFileDialog(true);
 }
 
-void MainWindow::fileOpenDialog_accepted(const QStringList &selected)
+void MainWindow::on_actionFileOpen_triggered()
 {
-    if (selected.empty())
-        return;
-    QList<QUrl> list;
-    foreach(auto s, selected)
-        list.append(QUrl::fromLocalFile(s));
-    emit filesOpened(list);
-    previousOpenDir = QFileInfo(selected.first()).absoluteDir().path();
+    makeFileDialog(false);
 }
 
 void MainWindow::on_actionFileClose_triggered()
