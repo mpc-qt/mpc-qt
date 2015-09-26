@@ -51,6 +51,8 @@ void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)
 void PlaybackManager::setPlaylistWindow(PlaylistWindow *playlistWindow)
 {
     playlistWindow_ = playlistWindow;
+    connect(playlistWindow, &PlaylistWindow::itemDesired,
+            this, &PlaybackManager::playlistw_itemDesired);
 }
 
 void PlaybackManager::openFilesQuickly(QList<QUrl> what)
@@ -221,6 +223,10 @@ void PlaybackManager::mpvw_pausedChanged(bool yes)
 
 void PlaybackManager::mpvw_playbackFinished()
 {
+    if (ignoreMe) {
+        ignoreMe = false;
+        return;
+    }
     auto uuid = playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
     if (uuid.isNull()) {
         nowPlayingItem = QUuid();
@@ -325,4 +331,18 @@ void PlaybackManager::mpvw_displayFramedropsChanged(int64_t count)
 void PlaybackManager::mpvw_decoderFramedropsChanged(int64_t count)
 {
     emit decoderFramedropsChanged(count);
+}
+
+void PlaybackManager::playlistw_itemDesired(QUuid playlistUuid, QUuid itemUuid)
+{
+    qDebug() << QString("attempting %1 %2").arg(playlistUuid.toString()).arg(itemUuid.toString());
+    auto url = playlistWindow_->getUrlOf(playlistUuid, itemUuid);
+    if (url.isEmpty())
+        return;
+    ignoreMe = true;
+    nowPlayingList = playlistUuid;
+    nowPlayingItem = itemUuid;
+    mpvWidget_->fileOpen(url.toLocalFile());
+    mpvSpeed = 1.0;
+    emit nowPlayingChanged(itemUuid);
 }

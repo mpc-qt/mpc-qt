@@ -74,6 +74,8 @@ private slots:
     void mpvw_displayFramedropsChanged(int64_t count);
     void mpvw_decoderFramedropsChanged(int64_t count);
 
+    void playlistw_itemDesired(QUuid playlistUuid, QUuid itemUuid);
+
 signals:
     void timeChanged(double time, double length);
     void titleChanged(QString title);
@@ -103,6 +105,7 @@ private:
 
     double mpvLength;
     double mpvSpeed;
+    bool ignoreMe;
 };
 
 #endif // MANAGER_H

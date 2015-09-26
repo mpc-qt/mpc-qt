@@ -8,9 +8,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     ui(new Ui::PlaylistWindow)
 {
     ui->setupUi(this);
-    auto qdp = new QDrawnPlaylist();
-    qdp->setUuid(QUuid());
-    ui->tabWidget->addTab(qdp, tr("Quick Playlist"));
+    addNewTab(QUuid(), tr("Quick Playlist"));
 }
 
 PlaylistWindow::~PlaylistWindow()
