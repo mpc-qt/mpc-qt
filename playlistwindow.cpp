@@ -68,7 +68,17 @@ void PlaylistWindow::addNewTab(QUuid playlist, QString title)
     auto qdp = new QDrawnPlaylist();
     qdp->setUuid(playlist);
     connect(qdp, &QDrawnPlaylist::itemDesired, this, &PlaylistWindow::itemDesired);
+    widgets.insert(playlist, qdp);
     ui->tabWidget->addTab(qdp, title);
+}
+
+void PlaylistWindow::changePlaylistSelection(QUuid playlistUuid, QUuid itemUuid)
+{
+    if (!widgets.contains(playlistUuid))
+        return;
+    auto qdp = widgets[playlistUuid];
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
+    qdp->setCurrentRow(pl->indexOf(itemUuid));
 }
 
 void PlaylistWindow::on_newTab_clicked()
@@ -89,6 +99,7 @@ void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
     if (!qdp || qdp->uuid().isNull())
         return;
     PlaylistCollection::getSingleton()->removePlaylist(qdp->uuid());
+    widgets.remove(qdp->uuid());
     ui->tabWidget->removeTab(index);
 }
 

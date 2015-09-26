@@ -40,6 +40,7 @@ public:
     Item *itemAt(int row);
     Item *itemOf(QUuid uuid);
     Item *itemAfter(QUuid uuid);
+    int indexOf(QUuid uuid);
     int count() const;
     void iterateItems(std::function<void(Item *)> callback);
     void moveItems(int sourceRow, int destRow, int count);

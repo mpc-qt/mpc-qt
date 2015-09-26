@@ -52,6 +52,8 @@ void PlaybackManager::setPlaylistWindow(PlaylistWindow *playlistWindow)
     playlistWindow_ = playlistWindow;
     connect(playlistWindow, &PlaylistWindow::itemDesired,
             this, &PlaybackManager::playlistw_itemDesired);
+    connect(this, &PlaybackManager::nowPlayingChanged,
+            playlistWindow, &PlaylistWindow::changePlaylistSelection);
 }
 
 void PlaybackManager::fireNowPlayingState()

@@ -97,6 +97,13 @@ Item *Playlist::itemAfter(QUuid uuid)
     return items[index + 1];
 }
 
+int Playlist::indexOf(QUuid uuid)
+{
+    if (!itemsByUuid.contains(uuid))
+        return -1;
+    return items.indexOf(itemsByUuid[uuid]);
+}
+
 int Playlist::count() const
 {
     return items.count();

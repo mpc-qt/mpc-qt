@@ -2,11 +2,14 @@
 #define PLAYLISTWINDOW_H
 
 #include <QDockWidget>
+#include <QHash>
 #include <QUuid>
 
 namespace Ui {
 class PlaylistWindow;
 }
+
+class QDrawnPlaylist;
 
 class PlaylistWindow : public QDockWidget
 {
@@ -27,6 +30,9 @@ private:
 signals:
     void itemDesired(QUuid playlistUuid, QUuid itemUuid);
 
+public slots:
+    void changePlaylistSelection(QUuid playlistUuid, QUuid itemUuid);
+
 private slots:
     void on_newTab_clicked();
 
@@ -38,6 +44,8 @@ private slots:
 
 private:
     Ui::PlaylistWindow *ui;
+
+    QHash<QUuid, QDrawnPlaylist*> widgets;
 };
 
 #endif // PLAYLISTWINDOW_H
