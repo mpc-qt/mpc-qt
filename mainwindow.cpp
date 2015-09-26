@@ -632,8 +632,13 @@ void MainWindow::on_actionViewHideSubresync_toggled(bool checked)
 
 void MainWindow::on_actionViewHidePlaylist_toggled(bool checked)
 {
-    // playlist window is unimplemented for now
-    (void)checked;
+    if (fullscreenMode_)
+        return;
+
+    if (checked)
+        playlistWindow_->show();
+    else
+        playlistWindow_->hide();
 
     fireUpdateSize();
 }
@@ -703,11 +708,14 @@ void MainWindow::on_actionViewFullscreen_toggled(bool checked)
         menuBar()->hide();
         ui->controlSection->hide();
         ui->infoSection->hide();
+        playlistWindow_->hide();
     } else {
         if (decorationState_ == AllDecorations)
             menuBar()->show();
         ui->controlSection->show();
         ui->infoSection->show();
+        if (ui->actionViewHidePlaylist->isChecked())
+            playlistWindow_->show();
     }
 }
 
