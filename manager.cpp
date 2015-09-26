@@ -107,6 +107,7 @@ void PlaybackManager::unpausePlayer()
 
 void PlaybackManager::stopPlayer()
 {
+    nowPlayingItem = QUuid();
     mpvWidget_->stopPlayback();
 }
 
