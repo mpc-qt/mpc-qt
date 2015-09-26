@@ -54,6 +54,11 @@ void PlaybackManager::setPlaylistWindow(PlaylistWindow *playlistWindow)
             this, &PlaybackManager::playlistw_itemDesired);
 }
 
+void PlaybackManager::fireNowPlayingState()
+{
+    emit nowPlayingChanged(nowPlayingList, nowPlayingItem);
+}
+
 void PlaybackManager::openFilesQuickly(QList<QUrl> what)
 {
     // For the moment, until we get a working playback ui, play the first file
@@ -66,7 +71,7 @@ void PlaybackManager::openFilesQuickly(QList<QUrl> what)
         mpvSpeed = 1.0;
         this->nowPlayingList = info.first;
         this->nowPlayingItem = info.second;
-        emit nowPlayingChanged(nowPlayingItem);
+        fireNowPlayingState();
     }
 }
 
@@ -241,7 +246,7 @@ void PlaybackManager::mpvw_playbackFinished()
             mpvSpeed = 1.0;
         }
     }
-    emit nowPlayingChanged(nowPlayingItem);
+    fireNowPlayingState();
 }
 
 void PlaybackManager::mpvw_mediaTitleChanged(QString title)
@@ -342,5 +347,5 @@ void PlaybackManager::playlistw_itemDesired(QUuid playlistUuid, QUuid itemUuid)
     nowPlayingItem = itemUuid;
     mpvWidget_->fileOpen(url.toLocalFile());
     mpvSpeed = 1.0;
-    emit nowPlayingChanged(itemUuid);
+    fireNowPlayingState();
 }

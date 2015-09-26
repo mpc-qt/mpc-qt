@@ -27,6 +27,9 @@ public:
     void setMpvWidget(MpvWidget *mpvWidget, bool makeConnections = false);
     void setPlaylistWindow(PlaylistWindow *playlistWindow);
 
+private:
+    void fireNowPlayingState();
+
 public slots:
     // load functions
     void openFilesQuickly(QList<QUrl> what);    // from quick load dialog
@@ -89,7 +92,7 @@ signals:
     void audioTracksAvailable(QList<QPair<int64_t,QString>> tracks);
     void videoTracksAvailable(QList<QPair<int64_t,QString>> tracks);
     void subtitleTracksAvailable(QList<QPair<int64_t,QString>> tracks);
-    void nowPlayingChanged(QUuid item);
+    void nowPlayingChanged(QUuid listUuid, QUuid itemUuid);
     void finishedPlaying(QUuid item);
 
     void fpsChanged(double fps);
