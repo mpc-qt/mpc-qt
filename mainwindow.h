@@ -60,7 +60,7 @@ private:
     void makeFileDialog(bool isQuickOpen);
 
 signals:
-    void filesOpened(QList<QUrl> what);
+    void fileOpened(QUrl what);
     void filesOpenedQuickly(QList<QUrl> what);
     void paused();
     void unpaused();

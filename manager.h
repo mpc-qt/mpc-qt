@@ -29,7 +29,8 @@ public:
 
 public slots:
     // load functions
-    void openFiles(QList<QUrl> what);           // from quick-load dialog
+    void openFilesQuickly(QList<QUrl> what);    // from quick load dialog
+    void openFile(QUrl what);                   // from load dialog
     void playDisc(QUrl where);                  // from menu
     void playStream(QUrl stream);               // from menu
     void playItem(QUuid playlist, QUuid item);  // called by playlistwindow

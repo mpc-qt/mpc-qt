@@ -528,18 +528,21 @@ void MainWindow::makeFileDialog(bool isQuickOpen) {
     qfd->setFileMode(QFileDialog::ExistingFiles);
     qfd->setOption(QFileDialog::DontResolveSymlinks);
     qfd->setDirectory(previousOpenDir);
+    if (!isQuickOpen) {
+        qfd->setFileMode(QFileDialog::ExistingFile);
+    }
     QObject::connect(qfd, &QFileDialog::filesSelected,
         [this, isQuickOpen](const QStringList &selected) {
             if (selected.empty())
                 return;
+            if (!isQuickOpen) {
+                emit this->fileOpened(selected.first());
+                return;
+            }
             QList<QUrl> list;
             foreach(auto s, selected)
                 list.append(QUrl::fromLocalFile(s));
-            if (isQuickOpen) {
-                emit this->filesOpenedQuickly(list);
-            } else {
-                emit this->filesOpened(list);
-            }
+            emit this->filesOpenedQuickly(list);
         }
     );
     qfd->show();
@@ -552,6 +555,8 @@ void MainWindow::on_actionFileOpenQuick_triggered()
 
 void MainWindow::on_actionFileOpen_triggered()
 {
+    // until we can get a custom file dialog that takes
+    // a subfile too, behave like quick file open
     makeFileDialog(false);
 }
 

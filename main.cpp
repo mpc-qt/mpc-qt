@@ -24,8 +24,10 @@ Flow::Flow(QObject *owner) :
     playbackManager->setPlaylistWindow(mainWindow->playlistWindow());
 
     // mainwindow -> manager
-    connect(mainWindow, SIGNAL(filesOpened(QList<QUrl>)),
-            playbackManager, SLOT(openFiles(QList<QUrl>)));
+    connect(mainWindow, SIGNAL(filesOpenedQuickly(QList<QUrl>)),
+            playbackManager, SLOT(openFilesQuickly(QList<QUrl>)));
+    connect(mainWindow, SIGNAL(fileOpened(QUrl)),
+            playbackManager, SLOT(openFile(QUrl)));
     connect(mainWindow, SIGNAL(paused()),
             playbackManager, SLOT(pausePlayer()));
     connect(mainWindow, SIGNAL(unpaused()),

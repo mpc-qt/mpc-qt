@@ -53,11 +53,17 @@ void PlaybackManager::setPlaylistWindow(PlaylistWindow *playlistWindow)
     playlistWindow_ = playlistWindow;
 }
 
-void PlaybackManager::openFiles(QList<QUrl> what)
+void PlaybackManager::openFilesQuickly(QList<QUrl> what)
 {
     // For the moment, until we get a working playback ui, play the first file
     // TODO: Add the entire list to the quick playlist.
     mpvWidget_->fileOpen(what.front().toLocalFile());
+    mpvSpeed = 1.0;
+}
+
+void PlaybackManager::openFile(QUrl what)
+{
+    mpvWidget_->fileOpen(what.toLocalFile());
     mpvSpeed = 1.0;
 }
 
