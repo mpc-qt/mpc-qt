@@ -7,6 +7,8 @@ namespace Ui {
 class PlaylistWindow;
 }
 
+class Item;
+
 class PlaylistWindow : public QDockWidget
 {
     Q_OBJECT
@@ -14,6 +16,9 @@ class PlaylistWindow : public QDockWidget
 public:
     explicit PlaylistWindow(QWidget *parent = 0);
     ~PlaylistWindow();
+
+    QPair<QUuid, QUuid> addToCurrentPlaylist(QList<QUrl> what);
+    bool isCurrentPlaylistEmpty();
 
 private slots:
     void on_newTab_clicked();

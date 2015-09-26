@@ -18,6 +18,31 @@ PlaylistWindow::~PlaylistWindow()
     delete ui;
 }
 
+QPair<QUuid, QUuid> PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
+{
+    QPair<QUuid, QUuid> info;
+    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    Item *firstItem = NULL;
+    for (QUrl url : what) {
+       auto item = pl->addItem(url);
+       qdp->addItem(item->uuid());
+       if (!firstItem)  firstItem = item;
+    }
+    if (firstItem) {
+        info.first = pl->uuid();
+        info.second = firstItem->uuid();
+    }
+    return info;
+}
+
+bool PlaylistWindow::isCurrentPlaylistEmpty()
+{
+    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    return pl->count() == 0;
+}
+
 void PlaylistWindow::on_newTab_clicked()
 {
     auto qdp = new QDrawnPlaylist();
