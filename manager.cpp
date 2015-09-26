@@ -1,4 +1,3 @@
-#include <QDebug>
 #include "manager.h"
 #include "mainwindow.h"
 #include "mpvwidget.h"
@@ -335,7 +334,6 @@ void PlaybackManager::mpvw_decoderFramedropsChanged(int64_t count)
 
 void PlaybackManager::playlistw_itemDesired(QUuid playlistUuid, QUuid itemUuid)
 {
-    qDebug() << QString("attempting %1 %2").arg(playlistUuid.toString()).arg(itemUuid.toString());
     auto url = playlistWindow_->getUrlOf(playlistUuid, itemUuid);
     if (url.isEmpty())
         return;
