@@ -86,6 +86,7 @@ void MpvWidget::fileOpen(QString filename)
     const QByteArray c_filename = filename.toUtf8();
     const char *args[] = {"loadfile", c_filename.data(), NULL};
     mpv_command_async(mpv, 0, args);
+    setPaused(false);
 }
 
 void MpvWidget::stepBackward()

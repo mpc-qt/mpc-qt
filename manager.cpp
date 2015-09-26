@@ -7,7 +7,7 @@ using namespace Helpers;
 
 
 PlaybackManager::PlaybackManager(QObject *parent) :
-    QObject(parent)
+    QObject(parent), mpvSpeed(1.0)
 {
 }
 
@@ -72,7 +72,6 @@ void PlaybackManager::openFilesQuickly(QList<QUrl> what)
         this->nowPlayingList = info.first;
         this->nowPlayingItem = info.second;
         mpvWidget_->fileOpen(what.front().toLocalFile());
-        mpvSpeed = 1.0;
         fireNowPlayingState();
     }
 }
@@ -83,7 +82,6 @@ void PlaybackManager::openFile(QUrl what)
     nowPlayingList = info.first;
     nowPlayingItem = info.second;
     mpvWidget_->fileOpen(what.toLocalFile());
-    mpvSpeed = 1.0;
     fireNowPlayingState();
 }
 
@@ -149,6 +147,7 @@ void PlaybackManager::navigateToChapter(int64_t chapter)
         // Out-of-bounds chapter navigation request. i.e. unseekable chapter
         // from either past-the-end or invalid.  So stop playback and continue
         // on the next via the playback finished slot.
+        mpvWidget_->setPaused(false);
         mpvWidget_->stopPlayback();
     }
 }
@@ -352,6 +351,5 @@ void PlaybackManager::playlistw_itemDesired(QUuid playlistUuid, QUuid itemUuid)
     nowPlayingList = playlistUuid;
     nowPlayingItem = itemUuid;
     mpvWidget_->fileOpen(url.toLocalFile());
-    mpvSpeed = 1.0;
     fireNowPlayingState();
 }
