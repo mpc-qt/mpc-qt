@@ -20,6 +20,7 @@ public:
     ~PlaylistWindow();
 
     QPair<QUuid, QUuid> addToCurrentPlaylist(QList<QUrl> what);
+    QPair<QUuid, QUuid> urlToQuickPlaylist(QUrl what);
     bool isCurrentPlaylistEmpty();
     QUuid getItemAfter(QUuid list, QUuid item);
     QUrl getUrlOf(QUuid list, QUuid item);

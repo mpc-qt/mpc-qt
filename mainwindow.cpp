@@ -536,7 +536,7 @@ void MainWindow::makeFileDialog(bool isQuickOpen) {
             if (selected.empty())
                 return;
             if (!isQuickOpen) {
-                emit this->fileOpened(selected.first());
+                emit this->fileOpened(QUrl::fromLocalFile(selected.first()));
                 return;
             }
             QList<QUrl> list;

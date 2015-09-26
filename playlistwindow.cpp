@@ -34,6 +34,15 @@ QPair<QUuid, QUuid> PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
     return info;
 }
 
+QPair<QUuid, QUuid> PlaylistWindow::urlToQuickPlaylist(QUrl what)
+{
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(QUuid());
+    pl->clear();
+    widgets[QUuid()]->clear();
+    ui->tabWidget->setCurrentWidget(widgets[QUuid()]);
+    return addToCurrentPlaylist(QList<QUrl>() << what);
+}
+
 bool PlaylistWindow::isCurrentPlaylistEmpty()
 {
     auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());

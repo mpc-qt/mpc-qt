@@ -69,18 +69,22 @@ void PlaybackManager::openFilesQuickly(QList<QUrl> what)
             nowPlayingItem == QUuid();
     auto info = playlistWindow_->addToCurrentPlaylist(what);
     if (playAfterAdd) {
-        mpvWidget_->fileOpen(what.front().toLocalFile());
-        mpvSpeed = 1.0;
         this->nowPlayingList = info.first;
         this->nowPlayingItem = info.second;
+        mpvWidget_->fileOpen(what.front().toLocalFile());
+        mpvSpeed = 1.0;
         fireNowPlayingState();
     }
 }
 
 void PlaybackManager::openFile(QUrl what)
 {
+    auto info = playlistWindow_->urlToQuickPlaylist(what);
+    nowPlayingList = info.first;
+    nowPlayingItem = info.second;
     mpvWidget_->fileOpen(what.toLocalFile());
     mpvSpeed = 1.0;
+    fireNowPlayingState();
 }
 
 void PlaybackManager::playDisc(QUrl where)
