@@ -65,12 +65,18 @@ QUrl PlaylistWindow::getUrlOf(QUuid list, QUuid item)
     return i->url();
 }
 
-void PlaylistWindow::on_newTab_clicked()
+void PlaylistWindow::addNewTab(QUuid playlist, QString title)
 {
     auto qdp = new QDrawnPlaylist();
+    qdp->setUuid(playlist);
+    connect(qdp, &QDrawnPlaylist::itemDesired, this, &PlaylistWindow::itemDesired);
+    ui->tabWidget->addTab(qdp, title);
+}
+
+void PlaylistWindow::on_newTab_clicked()
+{
     auto pl = PlaylistCollection::getSingleton()->newPlaylist(tr("New Playlist"));
-    qdp->setUuid(pl->uuid());
-    ui->tabWidget->addTab(qdp, pl->title());
+    addNewTab(pl->uuid(), pl->title());
 }
 
 void PlaylistWindow::on_closeTab_clicked()
@@ -92,7 +98,5 @@ void PlaylistWindow::on_duplicateTab_clicked()
 {
     auto origin = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
     auto remote = PlaylistCollection::getSingleton()->clonePlaylist(origin->uuid());
-    auto qdp = new QDrawnPlaylist();
-    qdp->setUuid(remote->uuid());
-    ui->tabWidget->addTab(qdp, remote->title());
+    addNewTab(remote->uuid(), remote->title());
 }

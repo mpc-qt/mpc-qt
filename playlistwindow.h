@@ -2,12 +2,11 @@
 #define PLAYLISTWINDOW_H
 
 #include <QDockWidget>
+#include <QUuid>
 
 namespace Ui {
 class PlaylistWindow;
 }
-
-class Item;
 
 class PlaylistWindow : public QDockWidget
 {
@@ -21,6 +20,12 @@ public:
     bool isCurrentPlaylistEmpty();
     QUuid getItemAfter(QUuid list, QUuid item);
     QUrl getUrlOf(QUuid list, QUuid item);
+
+private:
+    void addNewTab(QUuid playlist, QString title);
+
+signals:
+    void itemDesired(QUuid playlistUuid, QUuid itemUuid);
 
 private slots:
     void on_newTab_clicked();
