@@ -135,10 +135,9 @@ void PlaybackManager::navigateToChapter(int64_t chapter)
 {
     if (!mpvWidget_->setChapter(chapter)) {
         // Out-of-bounds chapter navigation request. i.e. unseekable chapter
-        // from either past-the-end or invalid.  So stop playback.
+        // from either past-the-end or invalid.  So stop playback and continue
+        // on the next via the playback finished slot.
         mpvWidget_->stopPlayback();
-        // TODO: use finishedPlaying and open next playlist item instead
-        emit stateChanged(StoppedState);
     }
 }
 
