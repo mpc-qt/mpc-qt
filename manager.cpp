@@ -221,8 +221,22 @@ void PlaybackManager::mpvw_pausedChanged(bool yes)
 
 void PlaybackManager::mpvw_playbackFinished()
 {
-    // TODO: call playlist management here instead
-    emit stateChanged(StoppedState);
+    auto uuid = playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
+    if (uuid.isNull()) {
+        nowPlayingItem = QUuid();
+        emit stateChanged(StoppedState);
+    } else {
+        auto url = playlistWindow_->getUrlOf(nowPlayingList, uuid);
+        if (url.isEmpty()) {
+            nowPlayingItem = QUuid();
+            emit stateChanged(StoppedState);
+        } else {
+            nowPlayingItem = uuid;
+            mpvWidget_->fileOpen(url.toLocalFile());
+            mpvSpeed = 1.0;
+        }
+    }
+    emit nowPlayingChanged(nowPlayingItem);
 }
 
 void PlaybackManager::mpvw_mediaTitleChanged(QString title)

@@ -19,6 +19,8 @@ public:
 
     QPair<QUuid, QUuid> addToCurrentPlaylist(QList<QUrl> what);
     bool isCurrentPlaylistEmpty();
+    QUuid getItemAfter(QUuid list, QUuid item);
+    QUrl getUrlOf(QUuid list, QUuid item);
 
 private slots:
     void on_newTab_clicked();

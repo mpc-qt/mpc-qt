@@ -43,6 +43,28 @@ bool PlaylistWindow::isCurrentPlaylistEmpty()
     return pl->count() == 0;
 }
 
+QUuid PlaylistWindow::getItemAfter(QUuid list, QUuid item)
+{
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    if (!pl)
+        return QUuid();
+    auto after = pl->itemAfter(item);
+    if (!after)
+        return QUuid();
+    return after->uuid();
+}
+
+QUrl PlaylistWindow::getUrlOf(QUuid list, QUuid item)
+{
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    if (!pl)
+        return QUrl();
+    auto i = pl->itemOf(item);
+    if (!i)
+        return QUrl();
+    return i->url();
+}
+
 void PlaylistWindow::on_newTab_clicked()
 {
     auto qdp = new QDrawnPlaylist();
