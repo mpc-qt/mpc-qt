@@ -14,8 +14,3 @@ QString Helpers::toDateFormat(double time)
             .arg(QString().number(se),2,'0')
             .arg(QString().number(fr),3,'0');
 }
-
-void Helpers::DataEmitter::gotSomething()
-{
-    heresSomething(data);
-}

@@ -136,17 +136,12 @@ private slots:
     void on_actionPlayRateIncrease_triggered();
     void on_actionPlayRateReset_triggered();
 
-    void actionPlayAudio_selected(QVariant data);
-    void actionPlaySubtitles_selected(QVariant data);
-    void actionPlayVideoTracks_selected(QVariant data);
-
     void on_actionPlayVolumeUp_triggered();
     void on_actionPlayVolumeDown_triggered();
     void on_actionPlayVolumeMute_toggled(bool checked);
 
     void on_actionNavigateChaptersPrevious_triggered();
     void on_actionNavigateChaptersNext_triggered();
-    void menuNavigateChapters_selected(QVariant data);
 
     void on_actionHelpHomepage_triggered();
     void on_actionHelpAbout_triggered();

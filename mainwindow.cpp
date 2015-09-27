@@ -444,12 +444,10 @@ void MainWindow::setChapters(QList<QPair<double, QString>> chapters)
     for (QPair<double,QString> chapter : chapters) {
         positionSlider_->setTick(chapter.first, chapter.second);
         QAction *action = new QAction(this);
-        DataEmitter *de = new DataEmitter(action);
         action->setText(chapter.second);
-        de->data = QVariant::fromValue(index);
-        connect(action, &QAction::triggered, de, &DataEmitter::gotSomething);
-        connect(de, &DataEmitter::heresSomething,
-                this, &MainWindow::menuNavigateChapters_selected);
+        connect (action, &QAction::triggered, [=]() {
+           emit chapterSelected(index);
+        });
         ui->menuNavigateChapters->addAction(action);
         ++index;
     }
@@ -460,12 +458,10 @@ void MainWindow::setAudioTracks(QList<QPair<int64_t, QString>> tracks)
     ui->menuPlayAudio->clear();
     for (QPair<int64_t, QString> track : tracks) {
         QAction *action = new QAction(this);
-        DataEmitter *de = new DataEmitter(action);
         action->setText(track.second);
-        de->data = QVariant::fromValue(track.first);
-        connect(action, &QAction::triggered, de, &DataEmitter::gotSomething);
-        connect(de, &DataEmitter::heresSomething,
-                this, &MainWindow::actionPlayAudio_selected);
+        connect(action, &QAction::triggered, [=]{
+            emit audioTrackSelected(track.first);
+        });
         ui->menuPlayAudio->addAction(action);
     }
 }
@@ -475,12 +471,10 @@ void MainWindow::setVideoTracks(QList<QPair<int64_t, QString>> tracks)
     ui->menuPlayVideo->clear();
     for (QPair<int64_t, QString> track : tracks) {
         QAction *action = new QAction(this);
-        DataEmitter *de = new DataEmitter(action);
         action->setText(track.second);
-        de->data = QVariant::fromValue(track.first);
-        connect(action, &QAction::triggered, de, &DataEmitter::gotSomething);
-        connect(de, &DataEmitter::heresSomething,
-                this, &MainWindow::actionPlayAudio_selected);
+        connect(action, &QAction::triggered, [=]() {
+           emit videoTrackSelected(track.first);
+        });
         ui->menuPlayVideo->addAction(action);
     }
 }
@@ -490,12 +484,10 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
     ui->menuPlaySubtitles->clear();
     for (QPair<int64_t, QString> track : tracks) {
         QAction *action = new QAction(this);
-        DataEmitter *de = new DataEmitter(action);
         action->setText(track.second);
-        de->data = QVariant::fromValue(track.first);
-        connect(action, &QAction::triggered, de, &DataEmitter::gotSomething);
-        connect(de, &DataEmitter::heresSomething,
-                this, &MainWindow::actionPlayAudio_selected);
+        connect(action, &QAction::triggered, [=]() {
+            emit subtitleTrackSelected(track.first);
+        });
         ui->menuPlaySubtitles->addAction(action);
     }
 }
@@ -791,24 +783,6 @@ void MainWindow::on_actionPlayRateReset_triggered()
     emit speedReset();
 }
 
-void MainWindow::actionPlayAudio_selected(QVariant data)
-{
-    int64_t id = data.toLongLong();
-    emit audioTrackSelected(id);
-}
-
-void MainWindow::actionPlaySubtitles_selected(QVariant data)
-{
-    int64_t id = data.toLongLong();
-    emit subtitleTrackSelected(id);
-}
-
-void MainWindow::actionPlayVideoTracks_selected(QVariant data)
-{
-    int64_t id = data.toLongLong();
-    emit videoTrackSelected(id);
-}
-
 void MainWindow::on_actionPlayVolumeUp_triggered()
 {
     int newvol = std::min(volumeSlider_->value() + 10, 100.0);
@@ -842,11 +816,6 @@ void MainWindow::on_actionNavigateChaptersPrevious_triggered()
 void MainWindow::on_actionNavigateChaptersNext_triggered()
 {
     emit chapterNext();
-}
-
-void MainWindow::menuNavigateChapters_selected(QVariant data)
-{
-    emit chapterSelected(data.toInt());
 }
 
 void MainWindow::on_actionHelpHomepage_triggered()
