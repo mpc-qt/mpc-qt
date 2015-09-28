@@ -8,8 +8,9 @@ reproduce most of the interface and functionality of mpc-hc while using
 [libmpv] to play video instead of DirectShow.
 
 ## Features
-This is pre-alpha software and most of the functionality isn't written yet,
-however, you can still
+This is pre-alpha software and some of the functionality isn't written yet.
+For the most part, unwritten portions relate to persistence.  However, you
+can still
 * play back simple video files
 * control playback using the control buttons
 * seek with the seek bar
@@ -17,6 +18,8 @@ however, you can still
 * select audio/video/subtitle tracks
 * change playback rate
 * resize the window automatically using zoom factors
+* build playlists with the quick open command
+* batch play from playlists
 
 As time goes on, features will be implemented, added or dropped given the
 use-case of mpc-qt.  For example, there *are* a few things which will likely
