@@ -9,6 +9,9 @@ using namespace Helpers;
 PlaybackManager::PlaybackManager(QObject *parent) :
     QObject(parent), mpvSpeed(1.0)
 {
+    connect(this, &PlaybackManager::fireStartPlayingEvent,
+            this, &PlaybackManager::mpvw_startPlaying,
+            Qt::QueuedConnection);
 }
 
 void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)
@@ -61,6 +64,36 @@ void PlaybackManager::fireNowPlayingState()
     emit nowPlayingChanged(nowPlayingList, nowPlayingItem);
 }
 
+void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
+                                        QUuid itemUuid)
+{
+    if (what.isEmpty())
+        return;
+    // Mpv fires the playback finished state for the currently playing file
+    // when we try to play a file open command while playback is still active,
+    // thus triggering the playlist advancing code when we don't want to
+    // advance.  This is because if we naively start a new file straight away,
+    // the playlist advancing code will trigger *after* the command to play
+    // the new file has been sent, and we assume we're at the end of the file
+    // we literally started playing only moments ago.
+    //
+    // Therefore we have to try to force the playback to finish, then hope
+    // that we receive the finished event before we start the next file.
+    //
+    // The other way to do this is to introduce a few data members which
+    // indicate a sort-of "requested file change".  Which may introduce a
+    // the problem of what do you do if it doesn't follow the usual code path.
+    // (ouch!)
+    if (playbackState != StoppedState) {
+        // by setting the state to stopped here, when the finished playback
+        // event is received, it will do nothing.
+        playbackState = StoppedState;
+        emit stateChanged(playbackState);
+        mpvWidget_->stopPlayback();
+    }
+    emit fireStartPlayingEvent(what, playlistUuid, itemUuid);
+}
+
 void PlaybackManager::openFilesQuickly(QList<QUrl> what)
 {
     // For the moment, until we get a working playback ui, play the first file
@@ -69,20 +102,14 @@ void PlaybackManager::openFilesQuickly(QList<QUrl> what)
             nowPlayingItem == QUuid();
     auto info = playlistWindow_->addToCurrentPlaylist(what);
     if (playAfterAdd) {
-        this->nowPlayingList = info.first;
-        this->nowPlayingItem = info.second;
-        mpvWidget_->fileOpen(what.front().toLocalFile());
-        fireNowPlayingState();
+        startPlayWithUuid(what.front(), info.first, info.second);
     }
 }
 
 void PlaybackManager::openFile(QUrl what)
 {
     auto info = playlistWindow_->urlToQuickPlaylist(what);
-    nowPlayingList = info.first;
-    nowPlayingItem = info.second;
-    mpvWidget_->fileOpen(what.toLocalFile());
-    fireNowPlayingState();
+    startPlayWithUuid(what, info.first, info.second);
 }
 
 void PlaybackManager::playDisc(QUrl where)
@@ -206,6 +233,14 @@ void PlaybackManager::setMute(bool muted)
     mpvWidget_->showMessage(muted ? tr("Mute: on") : tr("Mute: off"));
 }
 
+void PlaybackManager::mpvw_startPlaying(QUrl what, QUuid playlistUuid, QUuid itemUuid)
+{
+    mpvWidget_->fileOpen(what.toLocalFile());
+    this->nowPlayingList = playlistUuid;
+    this->nowPlayingItem = itemUuid;
+    fireNowPlayingState();
+}
+
 void PlaybackManager::mpvw_playTimeChanged(double time)
 {
     // in case the duration property is not available, update the play length
@@ -222,33 +257,34 @@ void PlaybackManager::mpvw_playLengthChanged(double length)
 
 void PlaybackManager::mpvw_playbackStarted()
 {
-    emit stateChanged(PlayingState);
+    playbackState = PlayingState;
+    emit stateChanged(playbackState);
 }
 
 void PlaybackManager::mpvw_pausedChanged(bool yes)
 {
-    emit stateChanged(yes ? PausedState : PlayingState);
+    playbackState = yes ? PausedState : PlayingState;
+    emit stateChanged(playbackState);
 }
 
 void PlaybackManager::mpvw_playbackFinished()
 {
-    if (ignoreMe) {
-        ignoreMe = false;
-        return;
-    }
+    if (playbackState == StoppedState)
+        return; // the playback state change does not need to be processed
     auto uuid = playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
     if (uuid.isNull()) {
         nowPlayingItem = QUuid();
-        emit stateChanged(StoppedState);
+        playbackState = StoppedState;
+        emit stateChanged(playbackState);
     } else {
         auto url = playlistWindow_->getUrlOf(nowPlayingList, uuid);
         if (url.isEmpty()) {
             nowPlayingItem = QUuid();
-            emit stateChanged(StoppedState);
+            playbackState = StoppedState;
+            emit stateChanged(playbackState);
         } else {
             nowPlayingItem = uuid;
-            mpvWidget_->fileOpen(url.toLocalFile());
-            mpvSpeed = 1.0;
+            startPlayWithUuid(url, nowPlayingList, nowPlayingItem);
         }
     }
     fireNowPlayingState();
@@ -345,11 +381,5 @@ void PlaybackManager::mpvw_decoderFramedropsChanged(int64_t count)
 void PlaybackManager::playlistw_itemDesired(QUuid playlistUuid, QUuid itemUuid)
 {
     auto url = playlistWindow_->getUrlOf(playlistUuid, itemUuid);
-    if (url.isEmpty())
-        return;
-    ignoreMe = true;
-    nowPlayingList = playlistUuid;
-    nowPlayingItem = itemUuid;
-    mpvWidget_->fileOpen(url.toLocalFile());
-    fireNowPlayingState();
+    startPlayWithUuid(url, playlistUuid, itemUuid);
 }

@@ -29,6 +29,7 @@ public:
 
 private:
     void fireNowPlayingState();
+    void startPlayWithUuid(QUrl what, QUuid playlistUuid, QUuid itemUuid);
 
 public slots:
     // load functions
@@ -62,6 +63,8 @@ public slots:
     void setMute(bool muted);
 
 private slots:
+    void mpvw_startPlaying(QUrl what, QUuid playlistUuid, QUuid itemUuid);
+
     void mpvw_playTimeChanged(double time);
     void mpvw_playLengthChanged(double length);
     void mpvw_playbackStarted();
@@ -100,6 +103,8 @@ signals:
     void displayFramedropsChanged(int64_t count);
     void decoderFramedropsChanged(int64_t count);
 
+    void fireStartPlayingEvent(QUrl url, QUuid playlistUuid, QUuid itemUuid);
+
 private:
     MpvWidget *mpvWidget_;
     PlaylistWindow *playlistWindow_;
@@ -108,7 +113,7 @@ private:
 
     double mpvLength;
     double mpvSpeed;
-    bool ignoreMe;
+    PlaybackState playbackState;
 };
 
 #endif // MANAGER_H

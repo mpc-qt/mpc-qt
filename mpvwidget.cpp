@@ -175,6 +175,13 @@ void MpvWidget::setVolume(int64_t volume)
     mpv_set_property(mpv, "volume", MPV_FORMAT_INT64, &volume);
 }
 
+bool MpvWidget::eofReached()
+{
+    bool result = false;
+    mpv_get_property(mpv, "eof-reached", MPV_FORMAT_FLAG, &result);
+    return result;
+}
+
 double MpvWidget::playLength()
 {
     return playLength_;

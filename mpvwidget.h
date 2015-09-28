@@ -32,6 +32,7 @@ public:
     void setVideoTrack(int64_t id);
     QString mpvVersion();
     void setVolume(int64_t volume);
+    bool eofReached();
 
     // These query the tracked video state
     double playLength();
