@@ -25,6 +25,9 @@ public:
     QUuid getItemAfter(QUuid list, QUuid item);
     QUrl getUrlOf(QUuid list, QUuid item);
 
+    QVariantList tabsToVList() const;
+    void tabsFromVList(const QVariantList &qvl);
+
 private:
     void addNewTab(QUuid playlist, QString title);
 

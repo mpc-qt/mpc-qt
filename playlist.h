@@ -10,6 +10,7 @@
 #include <QList>
 #include <QHash>
 #include <QStringList>
+#include <QVariantMap>
 
 class Item {
 public:
@@ -24,6 +25,9 @@ public:
     QString toString() const;
     void fromString(QString input);
 
+    QVariantMap toVMap() const;
+    void fromVMap(const QVariantMap &qvm);
+
 private:
     QUuid uuid_;
     QUrl url_;
@@ -32,8 +36,7 @@ private:
 class Playlist : public QObject {
     Q_OBJECT
 public:
-    Playlist();
-    Playlist(QString title);
+    Playlist(QString title = QString());
     ~Playlist();
     Item *addItem(QUrl url = QUrl());
     Item *addItem(QUuid uuid, QUrl url);
@@ -57,6 +60,9 @@ public:
 
     QStringList toStringList() const;
     void fromStringList(QStringList sl);
+
+    QVariantMap toVMap() const;
+    void fromVMap(const QVariantMap &qvm);
 
 private:
     QList<Item*> items;
@@ -85,6 +91,7 @@ public:
     Playlist *playlistAt(int col);
     Playlist *playlistOf(QUuid uuid);
 
+    void addPlaylist(Playlist *playlist);
 
 private:
     QList<Playlist*> playlists;

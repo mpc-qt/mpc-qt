@@ -142,6 +142,29 @@ void QDrawnPlaylist::setNowPlayingItem(QUuid uuid)
         viewport()->repaint();
 }
 
+QVariantMap QDrawnPlaylist::toVMap() const
+{
+    Playlist *playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
+    if (!playlist)
+        return QVariantMap();
+    QVariantMap qvm;
+    qvm.insert("selected", currentRow());
+    qvm.insert("nowplaying", nowPlayingItem_);
+    qvm.insert("contents", playlist->toVMap());
+    return qvm;
+}
+
+void QDrawnPlaylist::fromVMap(const QVariantMap &qvm)
+{
+    QVariantMap contents = qvm.value("contents").toMap();
+    Playlist *p = new Playlist;
+    p->fromVMap(contents);
+    PlaylistCollection::getSingleton()->addPlaylist(p);
+    setUuid(p->uuid());
+    setCurrentRow(qvm.value("selected").toInt());
+    nowPlayingItem_ = qvm.value("nowplaying").toUuid();
+}
+
 void QDrawnPlaylist::model_rowsMoved(const QModelIndex &parent,
                                      int start, int end,
                                      const QModelIndex &destination, int row)

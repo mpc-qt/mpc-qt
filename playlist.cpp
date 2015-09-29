@@ -46,6 +46,20 @@ void Item::fromString(QString input)
     setUrl(QUrl::fromPercentEncoding(sl[1].toUtf8()));
 }
 
+QVariantMap Item::toVMap() const
+{
+    QVariantMap v;
+    v.insert("url", url());
+    v.insert("uuid", uuid());
+    return v;
+}
+
+void Item::fromVMap(const QVariantMap &qvm)
+{
+    url_ = qvm.contains("url") ? qvm.value("url").toUrl() : QUrl();
+    uuid_ = qvm.contains("uuid") ? qvm.value("uuid").toUuid() : QUuid::createUuid();
+}
+
 Playlist::Playlist(QString title)
 {
     setUuid(QUuid::createUuid());
@@ -218,6 +232,35 @@ void Playlist::fromStringList(QStringList sl)
     }
 }
 
+QVariantMap Playlist::toVMap() const
+{
+    QVariantMap qvm;
+    qvm.insert("title", title_);
+    qvm.insert("uuid", uuid_);
+
+    QVariantList qvl;
+    for (const Item *i : items) {
+        qvl.append(i->toVMap());
+    }
+    qvm.insert("items", qvl);
+    return qvm;
+}
+
+void Playlist::fromVMap(const QVariantMap &qvm)
+{
+    title_ = qvm.contains("title") ? qvm["title"].toString() : QString();
+    uuid_ = qvm.contains("uuid") ? qvm["uuid"].toUuid() : QUuid::createUuid();
+    if (qvm.contains("items")) {
+        auto items = qvm["items"].toMap();
+        for (const QVariant &v : items) {
+            Item *i = new Item();
+            i->fromVMap(v.toMap());
+            this->items.append(i);
+            this->itemsByUuid.insert(i->uuid(), i);
+        }
+    }
+}
+
 PlaylistCollection* PlaylistCollection::collection(NULL);
 
 PlaylistCollection::PlaylistCollection()
@@ -292,6 +335,20 @@ Playlist *PlaylistCollection::playlistAt(int col)
 Playlist *PlaylistCollection::playlistOf(QUuid uuid)
 {
     return playlistsByUuid.value(uuid, NULL);
+}
+
+void PlaylistCollection::addPlaylist(Playlist *playlist)
+{
+    if (!playlist)
+        return;
+    if (playlistsByUuid.contains(playlist->uuid())) {
+        Playlist *old = playlistsByUuid[playlist->uuid()];
+        playlistsByUuid.remove(playlist->uuid());
+        playlists.removeOne(old);
+        delete old;
+    }
+    playlists.append(playlist);
+    playlistsByUuid.insert(playlist->uuid(), playlist);
 }
 
 Playlist *PlaylistCollection::doNewPlaylist(QString title, QUuid uuid)

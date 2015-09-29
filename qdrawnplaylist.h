@@ -41,6 +41,9 @@ public:
     QUuid nowPlayingItem();
     void setNowPlayingItem(QUuid uuid);
 
+    QVariantMap toVMap() const;
+    void fromVMap(const QVariantMap &qvm);
+
 private:
     QUuid uuid_;
     QHash <QUuid, PlayItem*> itemsByUuid;

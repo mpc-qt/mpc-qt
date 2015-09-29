@@ -72,6 +72,30 @@ QUrl PlaylistWindow::getUrlOf(QUuid list, QUuid item)
     return i->url();
 }
 
+QVariantList PlaylistWindow::tabsToVList() const
+{
+    QVariantList qvl;
+    for (int i = 0; i < ui->tabWidget->count(); i++) {
+        auto widget = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->widget(i));
+        qvl.append(widget->toVMap());
+    }
+    return qvl;
+}
+
+void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
+{
+    ui->tabWidget->clear();
+    widgets.clear();
+    for (const QVariant &v : qvl) {
+        auto qdp = new QDrawnPlaylist();
+        qdp->fromVMap(v.toMap());
+        connect(qdp, &QDrawnPlaylist::itemDesired, this, &PlaylistWindow::itemDesired);
+        auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+        ui->tabWidget->addTab(qdp, pl->title());
+        widgets.insert(pl->uuid(), qdp);
+    }
+}
+
 void PlaylistWindow::addNewTab(QUuid playlist, QString title)
 {
     auto qdp = new QDrawnPlaylist();
