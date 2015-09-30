@@ -115,6 +115,7 @@ void PlaylistWindow::changePlaylistSelection(QUuid playlistUuid, QUuid itemUuid)
     auto qdp = widgets[playlistUuid];
     auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
     qdp->setCurrentRow(pl->indexOf(itemUuid));
+    qdp->setNowPlayingItem(itemUuid);
 }
 
 void PlaylistWindow::on_newTab_clicked()
