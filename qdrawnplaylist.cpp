@@ -1,5 +1,6 @@
 #include <QApplication>
 #include <QPainter>
+#include <QMenu>
 #include "qdrawnplaylist.h"
 #include "playlist.h"
 
@@ -88,6 +89,9 @@ QDrawnPlaylist::QDrawnPlaylist(QWidget *parent) : QListWidget(parent)
             this, SLOT(model_rowsMoved(QModelIndex,int,int,QModelIndex,int)));
     connect(this, SIGNAL(itemDoubleClicked(QListWidgetItem*)),
             this, SLOT(self_itemDoubleClicked(QListWidgetItem*)));
+    connect(this, SIGNAL(customContextMenuRequested(QPoint)),
+            this, SLOT(self_customContextMenuRequested(QPoint)));
+    this->setContextMenuPolicy(Qt::CustomContextMenu);
 }
 
 QUuid QDrawnPlaylist::uuid() const
@@ -120,7 +124,7 @@ void QDrawnPlaylist::addItem(QUuid uuid)
 
 void QDrawnPlaylist::removeItem(QUuid uuid)
 {
-    Playlist *playlist = PlaylistCollection::getSingleton()->playlistOf(uuid);
+    Playlist *playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
     if (playlist)
         playlist->removeItem(uuid);
     auto matchingRows = findItems(uuid.toString(), Qt::MatchExactly);
@@ -180,4 +184,28 @@ void QDrawnPlaylist::model_rowsMoved(const QModelIndex &parent,
 void QDrawnPlaylist::self_itemDoubleClicked(QListWidgetItem *item)
 {
     itemDesired(uuid(), reinterpret_cast<PlayItem*>(item)->uuid());
+}
+
+void QDrawnPlaylist::self_customContextMenuRequested(const QPoint &p)
+{
+    QMenu *m = new QMenu(this);
+    QAction *a = new QAction(m);
+    a->setText("Remove");
+    connect(a, &QAction::triggered, [=]() {
+        int index = currentRow();
+        if (index < 0)
+            return;
+        Playlist *p = PlaylistCollection::getSingleton()->playlistOf(uuid());
+        if (!p)
+            return;
+        Item *item = p->itemAt(index);
+        if (!item)
+            return;
+        removeItem(item->uuid());
+    });
+    connect(m, &QMenu::aboutToHide, [=]() {
+        m->deleteLater();
+    });
+    m->addAction(a);
+    m->exec(mapToGlobal(p));
 }

@@ -58,6 +58,7 @@ private slots:
     void model_rowsMoved(const QModelIndex & parent, int start, int end,
                          const QModelIndex & destination, int row);
     void self_itemDoubleClicked(QListWidgetItem *item);
+    void self_customContextMenuRequested(const QPoint &p);
 };
 
 
