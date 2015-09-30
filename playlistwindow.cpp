@@ -3,6 +3,7 @@
 #include "qdrawnplaylist.h"
 #include "playlist.h"
 #include <QInputDialog>
+#include <QFileDialog>
 
 PlaylistWindow::PlaylistWindow(QWidget *parent) :
     QDockWidget(parent),
@@ -118,6 +119,13 @@ void PlaylistWindow::changePlaylistSelection(QUuid playlistUuid, QUuid itemUuid)
     qdp->setNowPlayingItem(itemUuid);
 }
 
+void PlaylistWindow::addSimplePlaylist(QStringList data)
+{
+    auto pl = PlaylistCollection::getSingleton()->newPlaylist(tr("New Playlist"));
+    pl->fromStringList(data);
+    addNewTab(pl->uuid(), pl->title());
+}
+
 void PlaylistWindow::on_newTab_clicked()
 {
     auto pl = PlaylistCollection::getSingleton()->newPlaylist(tr("New Playlist"));
@@ -169,4 +177,39 @@ void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
         ui->tabWidget->setTabText(tabIndex, qid->textValue());
     });
     qid->show();
+}
+
+void PlaylistWindow::on_importList_clicked()
+{
+    auto qfd = new QFileDialog(this);
+    qfd->setAttribute(Qt::WA_DeleteOnClose);
+    qfd->setWindowModality(Qt::WindowModal);
+    qfd->setAcceptMode(QFileDialog::AcceptOpen);
+    qfd->setWindowTitle("Import File");
+    qfd->setDefaultSuffix("m3u8");
+    qfd->setNameFilters(QStringList() << "Playlist file (*.m3u *.m3u8)");
+    connect(qfd, &QFileDialog::fileSelected, [=](const QString &file) {
+        if (!file.isEmpty())
+            emit importPlaylist(file);
+    });
+    qfd->activateWindow();
+    qfd->show();
+}
+
+void PlaylistWindow::on_exportList_clicked()
+{
+    auto uuid = reinterpret_cast<QDrawnPlaylist*>(ui->tabWidget->currentWidget())->uuid();
+    auto qfd = new QFileDialog(this);
+    qfd->setAttribute(Qt::WA_DeleteOnClose);
+    qfd->setWindowModality(Qt::WindowModal);
+    qfd->setAcceptMode(QFileDialog::AcceptSave);
+    qfd->setWindowTitle("Export File");
+    qfd->setDefaultSuffix("m3u8");
+    qfd->setNameFilters(QStringList() << "Playlist files (*.m3u *.m3u8)");
+    connect(qfd, &QFileDialog::fileSelected, [=](const QString &file) {
+        auto pl = PlaylistCollection::getSingleton()->playlistOf(uuid);
+        if (!file.isEmpty() && pl)
+            emit exportPlaylist(file, pl->toStringList());
+    });
+    qfd->show();
 }

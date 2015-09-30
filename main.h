@@ -13,6 +13,10 @@ public:
 
     int run();
 
+private slots:
+    void importPlaylist(QString fname);
+    void exportPlaylist(QString fname, QStringList items);
+
 private:
     MainWindow *mainWindow;
     PlaybackManager *playbackManager;

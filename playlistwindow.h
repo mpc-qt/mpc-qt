@@ -33,9 +33,12 @@ private:
 
 signals:
     void itemDesired(QUuid playlistUuid, QUuid itemUuid);
+    void importPlaylist(QString fname);
+    void exportPlaylist(QString fname, QStringList items);
 
 public slots:
     void changePlaylistSelection(QUuid playlistUuid, QUuid itemUuid);
+    void addSimplePlaylist(QStringList data);
 
 private slots:
     void on_newTab_clicked();
@@ -47,6 +50,10 @@ private slots:
     void on_duplicateTab_clicked();
 
     void on_tabWidget_tabBarDoubleClicked(int index);
+
+    void on_importList_clicked();
+
+    void on_exportList_clicked();
 
 private:
     Ui::PlaylistWindow *ui;

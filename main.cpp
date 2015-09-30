@@ -93,6 +93,12 @@ Flow::Flow(QObject *owner) :
             mainWindow, &MainWindow::setDisplayFramedrops);
     connect(playbackManager, &PlaybackManager::decoderFramedropsChanged,
             mainWindow, &MainWindow::setDecoderFramedrops);
+
+    // playlistwindow -> this.storage
+    connect(mainWindow->playlistWindow(), &PlaylistWindow::importPlaylist,
+            this, &Flow::importPlaylist);
+    connect(mainWindow->playlistWindow(), &PlaylistWindow::exportPlaylist,
+            this, &Flow::exportPlaylist);
 }
 
 Flow::~Flow()
@@ -107,5 +113,15 @@ int Flow::run()
     mainWindow->playlistWindow()->tabsFromVList(storage.readVList("playlists"));
     mainWindow->show();
     return qApp->exec();
+}
+
+void Flow::importPlaylist(QString fname)
+{
+    emit mainWindow->playlistWindow()->addSimplePlaylist(storage.readM3U(fname));
+}
+
+void Flow::exportPlaylist(QString fname, QStringList items)
+{
+    storage.writeM3U(fname, items);
 }
 
