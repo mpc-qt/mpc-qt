@@ -2,6 +2,7 @@
 #include "ui_playlistwindow.h"
 #include "qdrawnplaylist.h"
 #include "playlist.h"
+#include <QInputDialog>
 
 PlaylistWindow::PlaylistWindow(QWidget *parent) :
     QDockWidget(parent),
@@ -141,4 +142,28 @@ void PlaylistWindow::on_duplicateTab_clicked()
     auto origin = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
     auto remote = PlaylistCollection::getSingleton()->clonePlaylist(origin->uuid());
     addNewTab(remote->uuid(), remote->title());
+}
+
+void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
+{
+    auto widget = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->widget(index));
+    QUuid tabUuid = widget->uuid();
+    if (tabUuid.isNull())
+        return;
+    QInputDialog *qid = new QInputDialog(this);
+    qid->setAttribute(Qt::WA_DeleteOnClose);
+    qid->setWindowModality(Qt::ApplicationModal);
+    qid->setWindowTitle(tr("Enter playlist name"));
+    qid->setTextValue(ui->tabWidget->tabText(index));
+    connect(qid, &QInputDialog::accepted, [=]() {
+        int tabIndex = ui->tabWidget->indexOf(widget);
+        if (tabIndex < 0)
+            return;
+        auto pl = PlaylistCollection::getSingleton()->playlistOf(tabUuid);
+        if (!pl)
+            return;
+        pl->setTitle(qid->textValue());
+        ui->tabWidget->setTabText(tabIndex, qid->textValue());
+    });
+    qid->show();
 }

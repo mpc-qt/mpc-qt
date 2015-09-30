@@ -46,6 +46,8 @@ private slots:
 
     void on_duplicateTab_clicked();
 
+    void on_tabWidget_tabBarDoubleClicked(int index);
+
 private:
     Ui::PlaylistWindow *ui;
 
