@@ -95,6 +95,8 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
         ui->tabWidget->addTab(qdp, pl->title());
         widgets.insert(pl->uuid(), qdp);
     }
+    if (widgets.count() < 1)
+        addNewTab(QUuid(), tr("Quick Playlist"));
 }
 
 void PlaylistWindow::addNewTab(QUuid playlist, QString title)

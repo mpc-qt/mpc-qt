@@ -1,6 +1,7 @@
 #include <clocale>
 #include <QApplication>
 #include "main.h"
+#include "storage.h"
 #include "mainwindow.h"
 #include "manager.h"
 
@@ -96,12 +97,15 @@ Flow::Flow(QObject *owner) :
 
 Flow::~Flow()
 {
+    storage.writeVList("playlists", mainWindow->playlistWindow()->tabsToVList());
     delete playbackManager;
     delete mainWindow;
 }
 
 int Flow::run()
 {
+    mainWindow->playlistWindow()->tabsFromVList(storage.readVList("playlists"));
     mainWindow->show();
     return qApp->exec();
 }
+

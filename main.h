@@ -2,6 +2,7 @@
 #define MAIN_H
 #include "mainwindow.h"
 #include "manager.h"
+#include "storage.h"
 
 // a simple class to control program exection and own application objects
 class Flow : public QObject {
@@ -15,6 +16,7 @@ public:
 private:
     MainWindow *mainWindow;
     PlaybackManager *playbackManager;
+    Storage storage;
 };
 
 #endif // MAIN_H

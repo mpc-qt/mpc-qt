@@ -251,7 +251,7 @@ void Playlist::fromVMap(const QVariantMap &qvm)
     title_ = qvm.contains("title") ? qvm["title"].toString() : QString();
     uuid_ = qvm.contains("uuid") ? qvm["uuid"].toUuid() : QUuid::createUuid();
     if (qvm.contains("items")) {
-        auto items = qvm["items"].toMap();
+        auto items = qvm["items"].toList();
         for (const QVariant &v : items) {
             Item *i = new Item();
             i->fromVMap(v.toMap());
