@@ -36,14 +36,13 @@ QString Item::toDisplayString() const
 
 QString Item::toString() const
 {
-    return QString("%1\t%2").arg(uuid().toString(), QString(url().toEncoded()));
+    return url_.isLocalFile() ? url_.toLocalFile() : url_.url();
 }
 
 void Item::fromString(QString input)
 {
-    QStringList sl = input.split("\t");
-    setUuid(QUuid(sl[0]));
-    setUrl(QUrl::fromPercentEncoding(sl[1].toUtf8()));
+    setUuid(QUuid::createUuid());
+    setUrl(QUrl::fromUserInput(input));
 }
 
 QVariantMap Item::toVMap() const
@@ -204,7 +203,6 @@ void Playlist::setUuid(const QUuid uuid)
 QStringList Playlist::toStringList() const
 {
     QStringList sl;
-    sl << QString("%1\t%2").arg(uuid().toString(), title());
     for (Item *i : items)
         sl << i->toString();
     return sl;
@@ -212,23 +210,13 @@ QStringList Playlist::toStringList() const
 
 void Playlist::fromStringList(QStringList sl)
 {
-    auto split = [](QString input, QUuid *id, QString *output) {
-        QStringList s = input.split("\t");
-        *id = QUuid(s[0]);
-        *output = s[1];
-    };
-
-    auto iter = sl.cbegin();
-    QUuid tempUuid;
-    QString tempTitle;
-    split(*iter, &tempUuid, &tempTitle);
-    setUuid(tempUuid);
-    setTitle(tempTitle);
-    for (++iter; iter != sl.cend(); ++iter) {
-        QUuid itemUuid;
-        QString itemText;
-        split(*iter, &itemUuid, &itemText);
-        addItem(itemUuid, itemText);
+    items.clear();
+    itemsByUuid.clear();
+    for (QString s : sl) {
+        auto item = new Item();
+        item->fromString(s);
+        items.append(item);
+        itemsByUuid.insert(item->uuid(), item);
     }
 }
 

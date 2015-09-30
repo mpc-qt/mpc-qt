@@ -48,7 +48,7 @@ QStringList Storage::readM3U(const QString &where)
     QStringList items;
     QFile file(where);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        return;
+        return QStringList();
     items = QTextStream(&file).readAll().split("\n");
     for (int i = 0; i < items.count(); ++i) {
         items[i] = items[i].trimmed();

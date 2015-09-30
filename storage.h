@@ -15,8 +15,8 @@ public:
     void writeVList(QString name, const QVariantList &qvl);
     QVariantList readVList(QString name);
 
-    QStringList readM3U(QUrl where);
-    void writeM3U(QUrl where, QList<QUrl> items);
+    QStringList readM3U(const QString &where);
+    void writeM3U(const QString &where, QStringList items);
 
 private:
     void writeJsonObject(QString fname, const QJsonDocument &doc);
