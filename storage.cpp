@@ -5,6 +5,7 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QTextStream>
+#include <QUrl>
 #include "storage.h"
 
 Storage::Storage(QObject *parent) :
@@ -40,6 +41,31 @@ QVariantList Storage::readVList(QString name)
 {
     QJsonDocument doc = readJsonObject(name);
     return doc.array().toVariantList();
+}
+
+QStringList Storage::readM3U(const QString &where)
+{
+    QStringList items;
+    QFile file(where);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+    items = QTextStream(&file).readAll().split("\n");
+    for (int i = 0; i < items.count(); ++i) {
+        items[i] = items[i].trimmed();
+        if (items[i].isEmpty() || items[i].startsWith("#")) {
+            items.removeAt(i);
+            --i;
+        }
+    }
+    return items;
+}
+
+void Storage::writeM3U(const QString &where, QStringList items)
+{
+    QFile file(where);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+        return;
+    QTextStream(&file) << "#EXTM3U\n\n" << items.join("\n");
 }
 
 void Storage::writeJsonObject(QString fname, const QJsonDocument &doc)
