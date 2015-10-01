@@ -520,6 +520,7 @@ void MainWindow::makeFileDialog(bool isQuickOpen) {
     qfd->setFileMode(QFileDialog::ExistingFiles);
     qfd->setOption(QFileDialog::DontResolveSymlinks);
     qfd->setDirectory(previousOpenDir);
+    qfd->setWindowModality(Qt::WindowModal);
     if (!isQuickOpen) {
         qfd->setFileMode(QFileDialog::ExistingFile);
     }
