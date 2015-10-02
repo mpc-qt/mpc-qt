@@ -60,7 +60,7 @@ private:
 
 signals:
     void fileOpened(QUrl what);
-    void filesOpenedQuickly(QList<QUrl> what);
+    void severalFilesOpened(QList<QUrl> what);
     void paused();
     void unpaused();
     void stopped();

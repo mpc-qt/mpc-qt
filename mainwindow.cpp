@@ -519,7 +519,7 @@ void MainWindow::on_actionFileOpenQuick_triggered()
     auto *afd = new AsyncFileDialog(this);
     afd->setMode(AsyncFileDialog::MultipleFiles);
     connect(afd, &AsyncFileDialog::filesOpened,
-            this, &MainWindow::filesOpenedQuickly);
+            this, &MainWindow::severalFilesOpened);
     afd->show();
 }
 
@@ -537,7 +537,7 @@ void MainWindow::on_actionFileOpenDirectory_triggered()
     AsyncFileDialog *afd = new AsyncFileDialog(this);
     afd->setMode(AsyncFileDialog::FolderContents);
     connect(afd, &AsyncFileDialog::filesOpened,
-            this, &MainWindow::filesOpenedQuickly);
+            this, &MainWindow::severalFilesOpened);
     afd->show();
 }
 

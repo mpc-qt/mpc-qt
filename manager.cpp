@@ -94,7 +94,7 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
     emit fireStartPlayingEvent(what, playlistUuid, itemUuid);
 }
 
-void PlaybackManager::openFilesQuickly(QList<QUrl> what)
+void PlaybackManager::openSeveralFiles(QList<QUrl> what)
 {
     // For the moment, until we get a working playback ui, play the first file
     // TODO: Add the entire list to the quick playlist.

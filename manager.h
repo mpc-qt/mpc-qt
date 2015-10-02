@@ -33,7 +33,7 @@ private:
 
 public slots:
     // load functions
-    void openFilesQuickly(QList<QUrl> what);    // from quick load dialog
+    void openSeveralFiles(QList<QUrl> what);    // from quick load dialog
     void openFile(QUrl what);                   // from load dialog
     void playDisc(QUrl where);                  // from menu
     void playStream(QUrl stream);               // from menu
