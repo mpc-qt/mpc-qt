@@ -190,7 +190,7 @@ void QDrawnPlaylist::self_customContextMenuRequested(const QPoint &p)
 {
     QMenu *m = new QMenu(this);
     QAction *a = new QAction(m);
-    a->setText("Remove");
+    a->setText(tr("Remove"));
     connect(a, &QAction::triggered, [=]() {
         int index = currentRow();
         if (index < 0)
@@ -203,9 +203,19 @@ void QDrawnPlaylist::self_customContextMenuRequested(const QPoint &p)
             return;
         removeItem(item->uuid());
     });
+    m->addAction(a);
+    a = new QAction(m);
+    a->setText(tr("Remove All"));
+    connect(a, &QAction::triggered, [=]() {
+       Playlist *p = PlaylistCollection::getSingleton()->playlistOf(uuid());
+       if (!p)
+           return;
+       p->clear();
+       clear();
+    });
+    m->addAction(a);
     connect(m, &QMenu::aboutToHide, [=]() {
         m->deleteLater();
     });
-    m->addAction(a);
     m->exec(mapToGlobal(p));
 }
