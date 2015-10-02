@@ -57,7 +57,6 @@ private:
     void updateInfostats();
     void doMpvStopPlayback(bool dry_run = false);
     void doMpvSetVolume(int volume);
-    void makeFileDialog(bool isQuickOpen);
 
 signals:
     void fileOpened(QUrl what);
@@ -101,6 +100,7 @@ public slots:
 private slots:
     void on_actionFileOpenQuick_triggered();
     void on_actionFileOpen_triggered();
+    void on_actionFileOpenDirectory_triggered();
     void on_actionFileClose_triggered();
     void on_actionFileExit_triggered();
 

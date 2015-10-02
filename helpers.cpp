@@ -14,3 +14,73 @@ QString Helpers::toDateFormat(double time)
             .arg(QString().number(se),2,'0')
             .arg(QString().number(fr),3,'0');
 }
+
+AsyncFileDialog::AsyncFileDialog(QWidget *parent)
+    : QObject(parent), qfd(NULL), mode_(SingleFile)
+{
+    qfd = new QFileDialog(parent);
+    qfd->setAttribute(Qt::WA_DeleteOnClose);
+    qfd->setOption(QFileDialog::DontResolveSymlinks);
+    qfd->setWindowModality(Qt::WindowModal);
+    connect(qfd, &QFileDialog::urlsSelected,
+            this, &AsyncFileDialog::qfd_urlsSelected);
+    connect(qfd, &QFileDialog::destroyed, [=]() {
+        qfd = NULL;
+        this->deleteLater();
+    });
+}
+
+AsyncFileDialog::~AsyncFileDialog()
+{
+    if (qfd)
+        delete qfd;
+}
+
+void AsyncFileDialog::setMode(AsyncFileDialog::DialogMode mode)
+{
+    switch (mode) {
+    case FolderContents:
+    case Directory:
+        qfd->setFileMode(QFileDialog::Directory);
+        qfd->setOption(QFileDialog::ShowDirsOnly);
+        break;
+    case SingleFile:
+        qfd->setFileMode(QFileDialog::ExistingFile);
+        break;
+    case MultipleFiles:
+        qfd->setFileMode(QFileDialog::ExistingFiles);
+        break;
+    }
+    mode_ = mode;
+}
+
+void AsyncFileDialog::show()
+{
+    qfd->show();
+}
+
+void AsyncFileDialog::qfd_urlsSelected(QList<QUrl> urls)
+{
+    if (urls.isEmpty())
+        return;
+    if (mode_ == SingleFile) {
+        emit fileOpened(urls.front());
+        return;
+    }
+    if (mode_ == Directory) {
+        emit dirOpened(urls.front());
+        return;
+    }
+    if (mode_ == MultipleFiles) {
+        emit filesOpened(urls);
+        return;
+    }
+    if (mode_ ==FolderContents) {
+        QDir dir(urls.front().toLocalFile());
+        QList<QUrl> list;
+        QFileInfoList f = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
+        for(auto file : f)
+            list.append(QUrl::fromLocalFile(file.absoluteFilePath()));
+        emit filesOpened(list);
+    }
+}

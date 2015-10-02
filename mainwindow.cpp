@@ -514,43 +514,31 @@ void MainWindow::setDecoderFramedrops(int64_t count)
     updateFramedrops();
 }
 
-void MainWindow::makeFileDialog(bool isQuickOpen) {
-    auto qfd = new QFileDialog(this);
-    qfd->setAttribute(Qt::WA_DeleteOnClose);
-    qfd->setFileMode(QFileDialog::ExistingFiles);
-    qfd->setOption(QFileDialog::DontResolveSymlinks);
-    qfd->setDirectory(previousOpenDir);
-    qfd->setWindowModality(Qt::WindowModal);
-    if (!isQuickOpen) {
-        qfd->setFileMode(QFileDialog::ExistingFile);
-    }
-    QObject::connect(qfd, &QFileDialog::filesSelected,
-        [this, isQuickOpen](const QStringList &selected) {
-            if (selected.empty())
-                return;
-            if (!isQuickOpen) {
-                emit this->fileOpened(QUrl::fromLocalFile(selected.first()));
-                return;
-            }
-            QList<QUrl> list;
-            foreach(auto s, selected)
-                list.append(QUrl::fromLocalFile(s));
-            emit this->filesOpenedQuickly(list);
-        }
-    );
-    qfd->show();
-};
-
 void MainWindow::on_actionFileOpenQuick_triggered()
 {
-    makeFileDialog(true);
+    auto *afd = new AsyncFileDialog(this);
+    afd->setMode(AsyncFileDialog::MultipleFiles);
+    connect(afd, &AsyncFileDialog::filesOpened,
+            this, &MainWindow::filesOpenedQuickly);
+    afd->show();
 }
 
 void MainWindow::on_actionFileOpen_triggered()
 {
-    // until we can get a custom file dialog that takes
-    // a subfile too, behave like quick file open
-    makeFileDialog(false);
+    auto *afd = new AsyncFileDialog(this);
+    afd->setMode(AsyncFileDialog::SingleFile);
+    connect(afd, &AsyncFileDialog::fileOpened,
+            this, &MainWindow::fileOpened);
+    afd->show();
+}
+
+void MainWindow::on_actionFileOpenDirectory_triggered()
+{
+    AsyncFileDialog *afd = new AsyncFileDialog(this);
+    afd->setMode(AsyncFileDialog::FolderContents);
+    connect(afd, &AsyncFileDialog::filesOpened,
+            this, &MainWindow::filesOpenedQuickly);
+    afd->show();
 }
 
 void MainWindow::on_actionFileClose_triggered()
