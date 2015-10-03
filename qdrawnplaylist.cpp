@@ -132,6 +132,15 @@ void QDrawnPlaylist::removeItem(QUuid uuid)
         takeItem(row(matchingRows[0]));
 }
 
+void QDrawnPlaylist::removeAll()
+{
+    Playlist *p = PlaylistCollection::getSingleton()->playlistOf(uuid());
+    if (!p)
+        return;
+    p->clear();
+    clear();
+}
+
 QUuid QDrawnPlaylist::nowPlayingItem()
 {
     return nowPlayingItem_;
@@ -206,13 +215,7 @@ void QDrawnPlaylist::self_customContextMenuRequested(const QPoint &p)
     m->addAction(a);
     a = new QAction(m);
     a->setText(tr("Remove All"));
-    connect(a, &QAction::triggered, [=]() {
-       Playlist *p = PlaylistCollection::getSingleton()->playlistOf(uuid());
-       if (!p)
-           return;
-       p->clear();
-       clear();
-    });
+    connect(a, &QAction::triggered, this, &QDrawnPlaylist::removeAll);
     m->addAction(a);
     connect(m, &QMenu::aboutToHide, [=]() {
         m->deleteLater();

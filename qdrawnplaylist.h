@@ -37,6 +37,7 @@ public:
     void setUuid(const QUuid &uuid);
     void addItem(QUuid uuid);
     void removeItem(QUuid uuid);
+    void removeAll();
 
     QUuid nowPlayingItem();
     void setNowPlayingItem(QUuid uuid);

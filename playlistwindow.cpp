@@ -141,11 +141,15 @@ void PlaylistWindow::on_closeTab_clicked()
 void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
 {
     auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->widget(index));
-    if (!qdp || qdp->uuid().isNull())
+    if (!qdp)
         return;
-    PlaylistCollection::getSingleton()->removePlaylist(qdp->uuid());
-    widgets.remove(qdp->uuid());
-    ui->tabWidget->removeTab(index);
+    if (qdp->uuid().isNull()) {
+        qdp->removeAll();
+    } else {
+        PlaylistCollection::getSingleton()->removePlaylist(qdp->uuid());
+        widgets.remove(qdp->uuid());
+        ui->tabWidget->removeTab(index);
+    }
 }
 
 void PlaylistWindow::on_duplicateTab_clicked()
