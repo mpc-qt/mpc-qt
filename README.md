@@ -8,8 +8,9 @@ reproduce most of the interface and functionality of mpc-hc while using
 [libmpv] to play video instead of DirectShow.
 
 ## Features
-This is pre-alpha software and some of the functionality isn't written yet.
-For the most part, unwritten portions relate to persistence.  However, you
+This is alpha software and some of the functionality isn't written yet. For
+the most part, unwritten portions relate to setting options, disc playback,
+streaming from the internet and devices, and storing favorites.  However, you
 can still
 * play back simple video files
 * control playback using the control buttons
