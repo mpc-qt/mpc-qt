@@ -2,6 +2,7 @@
 // git repo.  Reworked by me.
 
 #include <QJsonDocument>
+#include <QDir>
 #include <QDebug>
 #include <cmath>
 #include <mpv/qthelper.hpp>
@@ -88,6 +89,15 @@ void MpvWidget::fileOpen(QString filename)
     const char *args[] = {"loadfile", c_filename.data(), NULL};
     mpv_command_async(mpv, 0, args);
     setPaused(false);
+}
+
+void MpvWidget::discFilesOpen(QString path) {
+    QStringList entryList = QDir(path).entryList();
+    if (entryList.contains("VIDEO_TS") || entryList.contains("AUDIO_TS")) {
+        fileOpen("dvd://" + path);
+    } else if (entryList.contains("BDMV") || entryList.contains("AACS")) {
+        fileOpen("bd://" + path);
+    }
 }
 
 void MpvWidget::stepBackward()

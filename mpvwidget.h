@@ -15,6 +15,7 @@ public:
 
     // These are straightforward calls to libmpv
     void fileOpen(QString filename);
+    void discFilesOpen(QString path);
     void stopPlayback();
     void stepBackward();
     void stepForward();
