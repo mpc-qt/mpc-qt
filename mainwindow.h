@@ -61,6 +61,7 @@ private:
 signals:
     void fileOpened(QUrl what);
     void severalFilesOpened(QList<QUrl> what);
+    void dvdbdOpened(QUrl what);
     void paused();
     void unpaused();
     void stopped();
@@ -100,6 +101,7 @@ public slots:
 private slots:
     void on_actionFileOpenQuick_triggered();
     void on_actionFileOpen_triggered();
+    void on_actionFileOpenDvdbd_triggered();
     void on_actionFileOpenDirectory_triggered();
     void on_actionFileClose_triggered();
     void on_actionFileExit_triggered();

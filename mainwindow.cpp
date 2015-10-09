@@ -532,6 +532,15 @@ void MainWindow::on_actionFileOpen_triggered()
     afd->show();
 }
 
+void MainWindow::on_actionFileOpenDvdbd_triggered()
+{
+    auto *afd = new AsyncFileDialog(this);
+    afd->setMode(AsyncFileDialog::Directory);
+    connect(afd, &AsyncFileDialog::dirOpened,
+            this, &MainWindow::dvdbdOpened);
+    afd->show();
+}
+
 void MainWindow::on_actionFileOpenDirectory_triggered()
 {
     AsyncFileDialog *afd = new AsyncFileDialog(this);
