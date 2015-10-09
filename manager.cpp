@@ -112,6 +112,19 @@ void PlaybackManager::openFile(QUrl what)
     startPlayWithUuid(what, info.first, info.second);
 }
 
+void PlaybackManager::playDiscFiles(QUrl where)
+{
+    if (playbackState != StoppedState) {
+        playbackState = StoppedState;
+        emit stateChanged(playbackState);
+        mpvWidget_->stopPlayback();
+    }
+    mpvWidget_->discFilesOpen(where.toLocalFile());
+    nowPlayingItem = QUuid();
+    nowPlayingList = QUuid();
+    emit nowPlayingChanged(QUuid(), QUuid());
+}
+
 void PlaybackManager::playDisc(QUrl where)
 {
 

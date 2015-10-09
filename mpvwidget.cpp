@@ -94,9 +94,9 @@ void MpvWidget::fileOpen(QString filename)
 void MpvWidget::discFilesOpen(QString path) {
     QStringList entryList = QDir(path).entryList();
     if (entryList.contains("VIDEO_TS") || entryList.contains("AUDIO_TS")) {
-        fileOpen("dvd://" + path);
+        fileOpen(path + "/VIDEO_TS/VIDEO_TS.IFO");
     } else if (entryList.contains("BDMV") || entryList.contains("AACS")) {
-        fileOpen("bd://" + path);
+        fileOpen("bluray://" + path);
     }
 }
 
