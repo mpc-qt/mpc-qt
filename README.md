@@ -7,11 +7,13 @@ quintessential media player for the Windows desktop.  I would like mpc-qt to
 reproduce most of the interface and functionality of mpc-hc while using
 [libmpv] to play video instead of DirectShow.
 
+
 ## Features
+
 This is alpha software and some of the functionality isn't written yet. For
-the most part, unwritten portions relate to setting options, disc playback,
-streaming from the internet and devices, and storing favorites.  However, you
-can still
+the most part, unwritten portions relate to setting options, streaming from
+the internet and devices, and storing favorites.  However, you can still
+
 * play back simple video files
 * control playback using the control buttons
 * seek with the seek bar
@@ -29,7 +31,21 @@ libmpv simply has no need for.  On the other hand, libmpv also provides nice
 features that are not present in mpc-hc and these functionalities may be
 exposed as the developer sees fit.
 
+
+### Improvements over mpc-hc
+
+**Multiple playlists:**  When you're watching shows on your backlog, load
+every show into seperate playlists and still keep track of the last played
+file *for each playlist*.  Finally you can eliminate the need to keep track of
+your progress in a spreadsheet, all while never leaving the comfort of your
+favorite media player.
+
+**More to come:** Comprehensive video-output filter support; Encoding support.
+Suggestions welcome.
+
+
 ## Prequisities
+
 You need the Qt5 sdk installed and an edition of libmpv.  On ubuntu you can
 install them with
 
@@ -45,7 +61,9 @@ while making sure to place the line `--enable-libmpv-shared` inside the
 much however, so you should be okay if you don't feel like doing this and are
 willing to put up with missing features.
 
+
 ## I don't know git, how do I run this?
+
 You'll have to perform a little bit of footwork beforehand.  What you're going
 to do is make a directory for this repo to sit in, and then compile it.
 
