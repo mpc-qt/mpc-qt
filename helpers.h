@@ -4,6 +4,8 @@
 #include <QFileDialog>
 #include <QList>
 
+class QLocalServer;
+
 // generic helper module for general-use static functions
 namespace Helpers {
     QString toDateFormat(double time);
@@ -31,6 +33,27 @@ private slots:
 private:
     QFileDialog *qfd;
     DialogMode mode_;
+};
+
+class SingleProcess : public QObject
+{
+    Q_OBJECT
+public:
+    explicit SingleProcess(QObject *parent = 0);
+    bool hasPrevious();
+
+private:
+    void listen();
+
+signals:
+    void cmdlineReceived(const QStringList &args);
+
+private slots:
+    void server_newConnection();
+
+private:
+    QString socketName;
+    QLocalServer *server;
 };
 
 #endif // HELPERS_H

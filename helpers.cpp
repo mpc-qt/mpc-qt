@@ -1,3 +1,6 @@
+#include <QApplication>
+#include <QLocalServer>
+#include <QLocalSocket>
 #include "helpers.h"
 
 QString Helpers::toDateFormat(double time)
@@ -84,3 +87,44 @@ void AsyncFileDialog::qfd_urlsSelected(QList<QUrl> urls)
         emit filesOpened(list);
     }
 }
+
+SingleProcess::SingleProcess(QObject *parent) :
+    QObject(parent)
+{
+    socketName = QCoreApplication::organizationDomain();
+}
+
+bool SingleProcess::hasPrevious()
+{
+    QLocalSocket socket;
+    socket.setServerName(socketName);
+    socket.connectToServer();
+    if (!socket.waitForConnected(100)) {
+        listen();
+        return false;
+    }
+    socket.write(QCoreApplication::arguments().join('\n').toUtf8());
+    socket.waitForBytesWritten(100);
+    socket.close();
+    return true;
+}
+
+void SingleProcess::listen()
+{
+    server = new QLocalServer(this);
+    server->removeServer(socketName);
+    server->listen(socketName);
+    connect(server, &QLocalServer::newConnection,
+            this, &SingleProcess::server_newConnection);
+}
+
+void SingleProcess::server_newConnection()
+{
+    QLocalSocket *socket = server->nextPendingConnection();
+    connect(socket, &QLocalSocket::readyRead, [=]() {
+        QByteArray data = socket->readAll();
+        emit cmdlineReceived(QString::fromUtf8(data).split('\n'));
+        socket->deleteLater();
+    });
+}
+
