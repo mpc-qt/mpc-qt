@@ -1,12 +1,14 @@
+// generic helper module for general-use static functions
 #ifndef HELPERS_H
 #define HELPERS_H
-#include <QString>
-#include <QFileDialog>
+#include <QObject>
+#include <QWidget>
 #include <QList>
+#include <QUrl>
 
+class QFileDialog;
 class QLocalServer;
 
-// generic helper module for general-use static functions
 namespace Helpers {
     QString toDateFormat(double time);
 }

@@ -1,3 +1,4 @@
+#include <QFileDialog>
 #include <QApplication>
 #include <QLocalServer>
 #include <QLocalSocket>
