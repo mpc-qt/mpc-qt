@@ -19,6 +19,8 @@ public:
     explicit PlaylistWindow(QWidget *parent = 0);
     ~PlaylistWindow();
 
+    void setCurrentPlaylist(QUuid what);
+    void clearPlaylist(QUuid what);
     QPair<QUuid, QUuid> addToCurrentPlaylist(QList<QUrl> what);
     QPair<QUuid, QUuid> urlToQuickPlaylist(QUrl what);
     bool isCurrentPlaylistEmpty();

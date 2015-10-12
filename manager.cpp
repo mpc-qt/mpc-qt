@@ -94,10 +94,12 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
     emit fireStartPlayingEvent(what, playlistUuid, itemUuid);
 }
 
-void PlaybackManager::openSeveralFiles(QList<QUrl> what)
+void PlaybackManager::openSeveralFiles(QList<QUrl> what, bool important)
 {
-    // For the moment, until we get a working playback ui, play the first file
-    // TODO: Add the entire list to the quick playlist.
+    if (important) {
+        playlistWindow_->setCurrentPlaylist(QUuid());
+        playlistWindow_->clearPlaylist(QUuid());
+    }
     bool playAfterAdd = playlistWindow_->isCurrentPlaylistEmpty() &&
             nowPlayingItem == QUuid();
     auto info = playlistWindow_->addToCurrentPlaylist(what);

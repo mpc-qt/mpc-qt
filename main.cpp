@@ -7,6 +7,7 @@
 
 int main(int argc, char *argv[])
 {
+    QCoreApplication::setOrganizationDomain("cmdrkotori.mpc-qt");
     QApplication a(argc, argv);
 
     // Qt sets the locale in the QApplication constructor, but libmpv requires
@@ -27,6 +28,8 @@ Flow::Flow(QObject *owner) :
         hasPrevious_ = true;
         return;
     }
+    connect(process, SIGNAL(cmdlineReceived(QStringList)),
+            this, SLOT(process_cmdlineRecieved(QStringList)));
 
     mainWindow = new MainWindow();
     playbackManager = new PlaybackManager(this);
@@ -150,7 +153,7 @@ void Flow::process_cmdlineRecieved(const QStringList &args)
         files << QUrl::fromUserInput(s);
     }
     if (!files.empty()) {
-        playbackManager->openSeveralFiles(files);
+        playbackManager->openSeveralFiles(files, true);
     }
 }
 

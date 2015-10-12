@@ -18,6 +18,18 @@ PlaylistWindow::~PlaylistWindow()
     delete ui;
 }
 
+void PlaylistWindow::setCurrentPlaylist(QUuid what)
+{
+    if (widgets.contains(what))
+        ui->tabWidget->setCurrentWidget(widgets[what]);
+}
+
+void PlaylistWindow::clearPlaylist(QUuid what)
+{
+    if (widgets.contains(what))
+        widgets[what]->removeAll();
+}
+
 QPair<QUuid, QUuid> PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
 {
     QPair<QUuid, QUuid> info;

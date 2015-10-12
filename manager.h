@@ -33,7 +33,7 @@ private:
 
 public slots:
     // load functions
-    void openSeveralFiles(QList<QUrl> what);    // from quick load dialog
+    void openSeveralFiles(QList<QUrl> what, bool important = false);
     void openFile(QUrl what);                   // from load dialog
     void playDiscFiles(QUrl where);             // from dvd/bd open
     void playDisc(QUrl where);                  // from menu
