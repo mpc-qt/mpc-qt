@@ -1,5 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
+#include "helpers.h"
 #include "mainwindow.h"
 #include "manager.h"
 #include "storage.h"
@@ -12,15 +13,20 @@ public:
     ~Flow();
 
     int run();
+    bool hasPrevious();
 
 private slots:
+    void process_cmdlineRecieved(const QStringList &args);
     void importPlaylist(QString fname);
     void exportPlaylist(QString fname, QStringList items);
 
 private:
+    SingleProcess *process;
     MainWindow *mainWindow;
     PlaybackManager *playbackManager;
     Storage storage;
+
+    bool hasPrevious_;
 };
 
 #endif // MAIN_H

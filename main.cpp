@@ -13,12 +13,21 @@ int main(int argc, char *argv[])
     // the LC_NUMERIC category to be set to "C", so change it back.
     std::setlocale(LC_NUMERIC, "C");
     Flow f;
-    return f.run();
+    if (f.hasPrevious())
+        return f.run();
+    else
+        return 0;
 }
 
 Flow::Flow(QObject *owner) :
-    QObject(owner)
+    QObject(owner), process(NULL), mainWindow(NULL), playbackManager(NULL)
 {
+    process = new SingleProcess(this);
+    if (process->hasPrevious()) {
+        hasPrevious_ = true;
+        return;
+    }
+
     mainWindow = new MainWindow();
     playbackManager = new PlaybackManager(this);
     playbackManager->setMpvWidget(mainWindow->mpvWidget(), true);
@@ -105,16 +114,44 @@ Flow::Flow(QObject *owner) :
 
 Flow::~Flow()
 {
-    storage.writeVList("playlists", mainWindow->playlistWindow()->tabsToVList());
-    delete playbackManager;
-    delete mainWindow;
+    if (process) {
+        delete process;
+        process = NULL;
+    }
+    if (mainWindow) {
+        storage.writeVList("playlists", mainWindow->playlistWindow()->tabsToVList());
+        delete mainWindow;
+        mainWindow = NULL;
+    }
+    if (playbackManager) {
+        delete playbackManager;
+        playbackManager = NULL;
+    }
 }
 
 int Flow::run()
 {
     mainWindow->playlistWindow()->tabsFromVList(storage.readVList("playlists"));
     mainWindow->show();
+    if (!hasPrevious_)
+        process_cmdlineRecieved(QCoreApplication::arguments());
     return qApp->exec();
+}
+
+bool Flow::hasPrevious()
+{
+    return hasPrevious_;
+}
+
+void Flow::process_cmdlineRecieved(const QStringList &args)
+{
+    QList<QUrl> files;
+    foreach (QString s, args.mid(1)) {
+        files << QUrl::fromUserInput(s);
+    }
+    if (!files.empty()) {
+        playbackManager->openSeveralFiles(files);
+    }
 }
 
 void Flow::importPlaylist(QString fname)
