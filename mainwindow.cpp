@@ -159,18 +159,7 @@ void MainWindow::setupMpvHost()
     // Crate a special QMainWindow widget so that the playlist window will
     // dock around it rather than ourselves
     mpvHost_ = new QMainWindow(this);
-
-    // to workaround the background being off-center, wrap mpvw in a dummy
-    // widget with the stylesheet instead, and set the dummy widget as the
-    // central widget.
-    QWidget *widget = new QWidget();
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->setMargin(0);
-    layout->addWidget(mpvw);
-    widget->setLayout(layout);
-    widget->setStyleSheet("background-color: black; background: center url("
-                            ":/images/bitmaps/blank-screen.png) no-repeat;");
-    mpvHost_->setCentralWidget(widget);
+    mpvHost_->setCentralWidget(mpvw);
     mpvHost_->setSizePolicy(QSizePolicy(QSizePolicy::Preferred,
                                         QSizePolicy::Preferred));
     ui->mpvWidget->layout()->addWidget(mpvHost_);

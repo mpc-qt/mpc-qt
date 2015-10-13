@@ -234,6 +234,8 @@ void MpvWidget::initializeGL()
 void MpvWidget::paintGL()
 {
     mpv_opengl_cb_draw(glMpv, defaultFramebufferObject(), width(), -height());
+
+    // TODO: draw the logo ourselves (:/images/bitmaps/blank-screen.png)
 }
 
 void MpvWidget::mpvw_update(void *ctx)
