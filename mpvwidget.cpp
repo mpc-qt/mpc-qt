@@ -31,6 +31,10 @@ MpvWidget::MpvWidget(QWidget *parent) :
     if (!mpv)
         throw std::runtime_error("can't create mpv instance");
 
+    // When (un)docking windows, some widgets may get transformed into native
+    // widgets, causing painting glitches.  Tell Qt that we prefer non-native.
+    setAttribute(Qt::WA_DontCreateNativeAncestors);
+
     // Let us receive property change events with MPV_EVENT_PROPERTY_CHANGE if
     // this property changes.
     //mpv_observe_property(mpv, 0, )
