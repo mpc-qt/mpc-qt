@@ -1,6 +1,8 @@
 // Portions of code in this module came from the examples directory in mpv's
 // git repo.  Reworked by me.
 
+#include <QOpenGLContext>
+#include <QMetaObject>
 #include <QJsonDocument>
 #include <QDir>
 #include <QDebug>
@@ -16,19 +18,18 @@ static void wakeup(void *ctx)
     emit widget->fireMpvEvents();
 }
 
+static void *get_proc_address(void *ctx, const char *name) {
+    (void)ctx;
+    auto glctx = QOpenGLContext::currentContext();
+    return glctx ? (void*)glctx->getProcAddress(QByteArray(name)) : NULL;
+}
+
 MpvWidget::MpvWidget(QWidget *parent) :
-    QWidget(parent)
+    QOpenGLWidget(parent)
 {
-    mpv = mpv_create();
+    mpv = mpv::qt::Handle::FromRawHandle(mpv_create());
     if (!mpv)
         throw std::runtime_error("can't create mpv instance");
-
-    // Force Qt to create a native window, and pass the window ID to the mpv
-    // wid option. Works on: X11, win32, Cocoa
-    setAttribute(Qt::WA_NativeWindow);
-    //setAttribute(Qt::WA_DontCreateNativeAncestors);
-    int64_t wid = static_cast<int64_t>(winId());
-    mpv_set_option(mpv, "wid", MPV_FORMAT_INT64, &wid);
 
     // Let us receive property change events with MPV_EVENT_PROPERTY_CHANGE if
     // this property changes.
@@ -59,19 +60,32 @@ MpvWidget::MpvWidget(QWidget *parent) :
     mpv_set_wakeup_callback(mpv, wakeup, this);
 
     // For me.
-    mpv_set_option_string(mpv, "vo","opengl-hq:"
+    mpv_set_option_string(mpv, "vo","opengl-cb:"
                           "scale=ewa_lanczossharp:cscale=ewa_lanczossharp:"
                           "tscale=robidoux:interpolation");
     mpv_set_option_string(mpv, "video-sync", "display-resample");
 
     if (mpv_initialize(mpv) < 0)
         throw std::runtime_error("mpv failed to initialize");
+
+    glMpv = reinterpret_cast<mpv_opengl_cb_context*>(
+                mpv_get_sub_api(mpv, MPV_SUB_API_OPENGL_CB));
+    if (!glMpv)
+        throw std::runtime_error("[MpvWidget] OpenGL not compiled in");
+
+    mpv_opengl_cb_set_update_callback(glMpv, MpvWidget::mpvw_update,
+                                      reinterpret_cast<void*>(this));
+    connect(this, &QOpenGLWidget::frameSwapped,
+            this, &MpvWidget::self_frameSwapped);
 }
 
 MpvWidget::~MpvWidget()
 {
-    if (mpv)
-        mpv_terminate_destroy(mpv);
+    makeCurrent();
+    if (glMpv) {
+        mpv_opengl_cb_set_update_callback(glMpv, NULL, NULL);
+        mpv_opengl_cb_uninit_gl(glMpv);
+    }
 }
 
 void MpvWidget::showMessage(QString message)
@@ -207,6 +221,22 @@ QSize MpvWidget::videoSize()
     return videoSize_;
 }
 
+void MpvWidget::initializeGL()
+{
+    if (mpv_opengl_cb_init_gl(glMpv, NULL, get_proc_address, NULL) < 0)
+        throw std::runtime_error("[MpvWidget] cb init gl failed.");
+}
+
+void MpvWidget::paintGL()
+{
+    mpv_opengl_cb_draw(glMpv, defaultFramebufferObject(), width(), -height());
+}
+
+void MpvWidget::mpvw_update(void *ctx)
+{
+    QMetaObject::invokeMethod(reinterpret_cast<MpvWidget*>(ctx), "update");
+}
+
 void MpvWidget::mpvEvents()
 {
     // Process all events, until the event queue is empty.
@@ -216,6 +246,11 @@ void MpvWidget::mpvEvents()
             break;
         handleMpvEvent(event);
     }
+}
+
+void MpvWidget::self_frameSwapped()
+{
+    mpv_opengl_cb_report_flip(glMpv, 0);
 }
 
 void MpvWidget::handleMpvEvent(mpv_event *event)
@@ -338,8 +373,6 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
         break;
     }
     case MPV_EVENT_SHUTDOWN: {
-        mpv_terminate_destroy(mpv);
-        mpv = NULL;
         playbackFinished();
         break;
     }

@@ -1,11 +1,13 @@
 #ifndef MPVWIDGET_H
 #define MPVWIDGET_H
 
-#include <QWidget>
+#include <QOpenGLWidget>
 #include <QVariant>
 #include <mpv/client.h>
+#include <mpv/opengl_cb.h>
+#include <mpv/qthelper.hpp>
 
-class MpvWidget : public QWidget
+class MpvWidget : public QOpenGLWidget
 {
     Q_OBJECT
 public:
@@ -40,6 +42,13 @@ public:
     double playTime();
     QSize videoSize();
 
+protected:
+    void initializeGL();
+    void paintGL();
+
+private:
+    static void mpvw_update(void *ctx);
+
 signals:
     void fireMpvEvents();
 
@@ -62,9 +71,11 @@ public slots:
 
 private slots:
     void mpvEvents();
+    void self_frameSwapped();
 
 private:
-    mpv_handle *mpv;
+    mpv::qt::Handle mpv;
+    mpv_opengl_cb_context *glMpv;
     QSize videoSize_;
     double playTime_;
     double playLength_;
