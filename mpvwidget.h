@@ -2,6 +2,7 @@
 #define MPVWIDGET_H
 
 #include <QOpenGLWidget>
+#include <QOpenGLTexture>
 #include <QVariant>
 #include <mpv/client.h>
 #include <mpv/opengl_cb.h>
@@ -45,6 +46,7 @@ public:
 protected:
     void initializeGL();
     void paintGL();
+    void resizeGL(int w, int h);
 
 private:
     static void mpvw_update(void *ctx);
@@ -72,6 +74,8 @@ public slots:
 private slots:
     void mpvEvents();
     void self_frameSwapped();
+    void self_playbackStarted();
+    void self_playbackFinished();
 
 private:
     mpv::qt::Handle mpv;
@@ -82,6 +86,10 @@ private:
 
     void handleMpvEvent(mpv_event *event);
     QString getPropertyString(const char *property);
+    bool drawLogo;
+    QOpenGLTexture *logo;
+    QRectF logoLocation;
+    QString logoUrl;
 };
 
 #endif // MPVWIDGET_H

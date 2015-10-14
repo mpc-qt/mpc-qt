@@ -25,7 +25,8 @@ static void *get_proc_address(void *ctx, const char *name) {
 }
 
 MpvWidget::MpvWidget(QWidget *parent) :
-    QOpenGLWidget(parent)
+    QOpenGLWidget(parent), drawLogo(true), logo(NULL),
+    logoUrl(":/images/bitmaps/blank-screen.png")
 {
     mpv = mpv::qt::Handle::FromRawHandle(mpv_create());
     if (!mpv)
@@ -81,6 +82,10 @@ MpvWidget::MpvWidget(QWidget *parent) :
                                       reinterpret_cast<void*>(this));
     connect(this, &QOpenGLWidget::frameSwapped,
             this, &MpvWidget::self_frameSwapped);
+    connect(this, &MpvWidget::playbackStarted,
+            this, &MpvWidget::self_playbackStarted);
+    connect(this, &MpvWidget::playbackFinished,
+            this, &MpvWidget::self_playbackFinished);
 }
 
 MpvWidget::~MpvWidget()
@@ -90,6 +95,8 @@ MpvWidget::~MpvWidget()
         mpv_opengl_cb_set_update_callback(glMpv, NULL, NULL);
         mpv_opengl_cb_uninit_gl(glMpv);
     }
+    if (logo)
+        delete logo;
 }
 
 void MpvWidget::showMessage(QString message)
@@ -229,13 +236,45 @@ void MpvWidget::initializeGL()
 {
     if (mpv_opengl_cb_init_gl(glMpv, NULL, get_proc_address, NULL) < 0)
         throw std::runtime_error("[MpvWidget] cb init gl failed.");
+
+    if (!logo)
+        logo = new QOpenGLTexture(QImage(logoUrl),
+                                  QOpenGLTexture::DontGenerateMipMaps);
 }
 
 void MpvWidget::paintGL()
 {
-    mpv_opengl_cb_draw(glMpv, defaultFramebufferObject(), width(), -height());
+    if (!drawLogo) {
+        mpv_opengl_cb_draw(glMpv, defaultFramebufferObject(),
+                           width(), -height());
+    } else {
+        glClear(GL_COLOR_BUFFER_BIT);
+        glLoadIdentity();
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        glEnable(GL_TEXTURE_2D);
+        glBindTexture(GL_TEXTURE_2D, logo->textureId());
+        glColor3f(1.0f, 1.0f, 1.0f);
+        glBegin(GL_QUADS);  // eww, quads!
+            glTexCoord2f(0,0);
+                glVertex2f(logoLocation.left(), logoLocation.bottom());
+            glTexCoord2f(1,0);
+                glVertex2f(logoLocation.right(), logoLocation.bottom());
+            glTexCoord2f(1,1);
+                glVertex2f(logoLocation.right(), logoLocation.top());
+            glTexCoord2f(0,1);
+                glVertex2f(logoLocation.left(), logoLocation.top());
+        glEnd();
+        glDisable(GL_TEXTURE_2D);
+    }
+}
 
-    // TODO: draw the logo ourselves (:/images/bitmaps/blank-screen.png)
+void MpvWidget::resizeGL(int w, int h)
+{
+    float fw = 2.0f/w;
+    float fh = 2.0f/h;
+    float iw = fw * logo->width();
+    float ih = fh * logo->height();
+    logoLocation = {-iw/2, -ih/2, iw, ih};
 }
 
 void MpvWidget::mpvw_update(void *ctx)
@@ -257,6 +296,16 @@ void MpvWidget::mpvEvents()
 void MpvWidget::self_frameSwapped()
 {
     mpv_opengl_cb_report_flip(glMpv, 0);
+}
+
+void MpvWidget::self_playbackStarted()
+{
+    drawLogo = false;
+}
+
+void MpvWidget::self_playbackFinished()
+{
+    drawLogo = true;
 }
 
 void MpvWidget::handleMpvEvent(mpv_event *event)
