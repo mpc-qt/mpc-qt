@@ -67,7 +67,7 @@ MpvWidget::MpvWidget(QWidget *parent) :
     // For me.
     mpv_set_option_string(mpv, "vo","opengl-cb:"
                           "scale=ewa_lanczossharp:cscale=ewa_lanczossharp:"
-                          "tscale=robidoux:interpolation");
+                          "tscale=robidoux");
     mpv_set_option_string(mpv, "video-sync", "display-resample");
 
     if (mpv_initialize(mpv) < 0)
