@@ -295,7 +295,8 @@ void MpvWidget::mpvEvents()
 
 void MpvWidget::self_frameSwapped()
 {
-    mpv_opengl_cb_report_flip(glMpv, 0);
+    if (!drawLogo)
+        mpv_opengl_cb_report_flip(glMpv, 0);
 }
 
 void MpvWidget::self_playbackStarted()
