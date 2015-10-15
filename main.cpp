@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     // the LC_NUMERIC category to be set to "C", so change it back.
     std::setlocale(LC_NUMERIC, "C");
     Flow f;
-    if (f.hasPrevious())
+    if (!f.hasPrevious())
         return f.run();
     else
         return 0;
