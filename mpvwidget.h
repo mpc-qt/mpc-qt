@@ -50,6 +50,8 @@ protected:
 
 private:
     static void mpvw_update(void *ctx);
+    QString getPropertyString(const char *property);
+    void handleMpvEvent(mpv_event *event);
 
 signals:
     void fireMpvEvents();
@@ -84,8 +86,6 @@ private:
     double playTime_;
     double playLength_;
 
-    void handleMpvEvent(mpv_event *event);
-    QString getPropertyString(const char *property);
     bool drawLogo;
     QOpenGLTexture *logo;
     QRectF logoLocation;

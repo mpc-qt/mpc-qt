@@ -282,31 +282,16 @@ void MpvWidget::mpvw_update(void *ctx)
     QMetaObject::invokeMethod(reinterpret_cast<MpvWidget*>(ctx), "update");
 }
 
-void MpvWidget::mpvEvents()
+QString MpvWidget::getPropertyString(const char *property)
 {
-    // Process all events, until the event queue is empty.
-    while (mpv) {
-        mpv_event *event = mpv_wait_event(mpv, 0);
-        if (event->event_id == MPV_EVENT_NONE)
-            break;
-        handleMpvEvent(event);
+    QString text;
+    char *value;
+    if (mpv_get_property(mpv, property, MPV_FORMAT_STRING,
+                         &value) == 0) {
+        text = QString::fromUtf8(QByteArray(value));
+        mpv_free(value);
     }
-}
-
-void MpvWidget::self_frameSwapped()
-{
-    if (!drawLogo)
-        mpv_opengl_cb_report_flip(glMpv, 0);
-}
-
-void MpvWidget::self_playbackStarted()
-{
-    drawLogo = false;
-}
-
-void MpvWidget::self_playbackFinished()
-{
-    drawLogo = true;
+    return text;
 }
 
 void MpvWidget::handleMpvEvent(mpv_event *event)
@@ -437,15 +422,30 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
     }
 }
 
-QString MpvWidget::getPropertyString(const char *property)
+void MpvWidget::mpvEvents()
 {
-    QString text;
-    char *value;
-    if (mpv_get_property(mpv, property, MPV_FORMAT_STRING,
-                         &value) == 0) {
-        text = QString::fromUtf8(QByteArray(value));
-        mpv_free(value);
+    // Process all events, until the event queue is empty.
+    while (mpv) {
+        mpv_event *event = mpv_wait_event(mpv, 0);
+        if (event->event_id == MPV_EVENT_NONE)
+            break;
+        handleMpvEvent(event);
     }
-    return text;
+}
+
+void MpvWidget::self_frameSwapped()
+{
+    if (!drawLogo)
+        mpv_opengl_cb_report_flip(glMpv, 0);
+}
+
+void MpvWidget::self_playbackStarted()
+{
+    drawLogo = false;
+}
+
+void MpvWidget::self_playbackFinished()
+{
+    drawLogo = true;
 }
 
