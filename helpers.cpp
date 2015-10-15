@@ -105,9 +105,7 @@ bool SingleProcess::hasPrevious()
         return false;
     }
     socket.write(QCoreApplication::arguments().join('\n').toUtf8());
-    socket.waitForBytesWritten(100);
-    socket.close();
-    return true;
+    return socket.waitForReadyRead(100);
 }
 
 void SingleProcess::listen()
@@ -124,8 +122,10 @@ void SingleProcess::server_newConnection()
     QLocalSocket *socket = server->nextPendingConnection();
     connect(socket, &QLocalSocket::readyRead, [=]() {
         QByteArray data = socket->readAll();
-        emit cmdlineReceived(QString::fromUtf8(data).split('\n'));
+        socket->write("ACK");
+        socket->flush();
         socket->deleteLater();
+        emit cmdlineReceived(QString::fromUtf8(data).split('\n'));
     });
 }
 
