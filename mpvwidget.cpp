@@ -30,7 +30,7 @@ MpvWidget::MpvWidget(QWidget *parent) :
 {
     mpv = mpv::qt::Handle::FromRawHandle(mpv_create());
     if (!mpv)
-        throw std::runtime_error("can't create mpv instance");
+        throw std::runtime_error("[MpvWidget] Can't create mpv instance");
 
     // When (un)docking windows, some widgets may get transformed into native
     // widgets, causing painting glitches.  Tell Qt that we prefer non-native.
@@ -69,7 +69,7 @@ MpvWidget::MpvWidget(QWidget *parent) :
     mpv_set_option_string(mpv, "video-sync", "display-resample");
 
     if (mpv_initialize(mpv) < 0)
-        throw std::runtime_error("mpv failed to initialize");
+        throw std::runtime_error("[MpvWidget] mpv failed to initialize");
 
     glMpv = reinterpret_cast<mpv_opengl_cb_context*>(
                 mpv_get_sub_api(mpv, MPV_SUB_API_OPENGL_CB));
