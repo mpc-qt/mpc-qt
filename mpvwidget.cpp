@@ -38,20 +38,23 @@ MpvWidget::MpvWidget(QWidget *parent) :
 
     // Let us receive property change events with MPV_EVENT_PROPERTY_CHANGE if
     // this property changes.
-    //mpv_observe_property(mpv, 0, )
-    mpv_observe_property(mpv, 0, "time-pos", MPV_FORMAT_DOUBLE);
-    mpv_observe_property(mpv, 0, "pause", MPV_FORMAT_FLAG);
-    mpv_observe_property(mpv, 0, "media-title", MPV_FORMAT_STRING);
-    mpv_observe_property(mpv, 0, "chapter-metadata", MPV_FORMAT_NODE);
-    mpv_observe_property(mpv, 0, "track-list", MPV_FORMAT_NODE);
-    mpv_observe_property(mpv, 0, "chapter-list", MPV_FORMAT_NODE);
-    mpv_observe_property(mpv, 0, "duration", MPV_FORMAT_DOUBLE);
-    mpv_observe_property(mpv, 0, "estimated-vf-fps", MPV_FORMAT_DOUBLE);
-    mpv_observe_property(mpv, 0, "avsync", MPV_FORMAT_DOUBLE);
-    mpv_observe_property(mpv, 0, "vo-drop-frame-count", MPV_FORMAT_INT64);
-    mpv_observe_property(mpv, 0, "drop-frame-count", MPV_FORMAT_INT64);
-    mpv_observe_property(mpv, 0, "audio-bitrate", MPV_FORMAT_DOUBLE);
-    mpv_observe_property(mpv, 0, "video-bitrate", MPV_FORMAT_DOUBLE);
+    QVector<QPair<const char*, mpv_format>> options = {
+        { "time-pos", MPV_FORMAT_DOUBLE },
+        { "pause", MPV_FORMAT_FLAG },
+        { "media-title", MPV_FORMAT_STRING },
+        { "chapter-metadata", MPV_FORMAT_NODE },
+        { "track-list", MPV_FORMAT_NODE },
+        { "chapter-list", MPV_FORMAT_NODE },
+        { "duration", MPV_FORMAT_DOUBLE },
+        { "estimated-vf-fps", MPV_FORMAT_DOUBLE },
+        { "avsync", MPV_FORMAT_DOUBLE },
+        { "vo-drop-frame-count", MPV_FORMAT_INT64 },
+        { "drop-frame-count", MPV_FORMAT_INT64 },
+        { "audio-bitrate", MPV_FORMAT_DOUBLE },
+        { "video-bitrate", MPV_FORMAT_DOUBLE }
+    };
+    foreach (auto item, options)
+        mpv_observe_property(mpv, 0, item.first, item.second);
 
     // Request log messages with level "info" or higher.
     // They are received as MPV_EVENT_LOG_MESSAGE.
