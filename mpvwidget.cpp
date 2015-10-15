@@ -15,7 +15,7 @@ static void wakeup(void *ctx)
     // Notify the Qt GUI thread to wake up so that it can process events with
     // mpv_wait_event().
     MpvWidget *widget= (MpvWidget*)ctx;
-    emit widget->fireMpvEvents();
+    QMetaObject::invokeMethod(widget, "mpvEvents", Qt::QueuedConnection);
 }
 
 static void *get_proc_address(void *ctx, const char *name) {
@@ -58,10 +58,8 @@ MpvWidget::MpvWidget(QWidget *parent) :
     mpv_request_log_messages(mpv, "info");
 
     // From this point on, the wakeup function will be called. The callback
-    // can come from any thread, so we use the QueuedConnection mechanism to
-    // relay the wakeup in a thread-safe way.
-    connect(this, &MpvWidget::fireMpvEvents, this, &MpvWidget::mpvEvents,
-            Qt::QueuedConnection);
+    // can come from any thread, so we use the QueuedConnection mechanism from
+    // the callback to relay the wakeup in a thread-safe way.
     mpv_set_wakeup_callback(mpv, wakeup, this);
 
     // For me.

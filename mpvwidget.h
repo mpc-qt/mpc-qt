@@ -54,8 +54,6 @@ private:
     void handleMpvEvent(mpv_event *event);
 
 signals:
-    void fireMpvEvents();
-
     void playTimeChanged(double time);
     void playLengthChanged(double length);
     void playbackStarted();
