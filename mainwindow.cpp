@@ -10,6 +10,7 @@
 #include <QMenuBar>
 #include <QJsonDocument>
 #include <QFileDialog>
+#include <QInputDialog>
 #include <QTime>
 #include <QDesktopServices>
 #include <QMessageBox>
@@ -537,6 +538,19 @@ void MainWindow::on_actionFileOpenDirectory_triggered()
     connect(afd, &AsyncFileDialog::filesOpened,
             this, &MainWindow::severalFilesOpened);
     afd->show();
+}
+
+void MainWindow::on_actionFileOpenNetworkStream_triggered()
+{
+    QInputDialog *qid = new QInputDialog(this);
+    qid->setAttribute(Qt::WA_DeleteOnClose);
+    qid->setWindowModality(Qt::WindowModal);
+    qid->setWindowTitle(tr("Enter Network Stream"));
+    qid->setLabelText(tr("Network Stream"));
+    connect(qid, &QInputDialog::accepted, [=] () {
+        emit streamOpened(QUrl::fromUserInput(qid->textValue()));
+    });
+    qid->show();
 }
 
 void MainWindow::on_actionFileClose_triggered()

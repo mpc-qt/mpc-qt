@@ -47,6 +47,8 @@ Flow::Flow(QObject *owner) :
             playbackManager, SLOT(openFile(QUrl)));
     connect(mainWindow, &MainWindow::dvdbdOpened,
             playbackManager, &PlaybackManager::playDiscFiles);
+    connect(mainWindow, &MainWindow::streamOpened,
+            playbackManager, &PlaybackManager::playStream);
     connect(mainWindow, SIGNAL(paused()),
             playbackManager, SLOT(pausePlayer()));
     connect(mainWindow, SIGNAL(unpaused()),
