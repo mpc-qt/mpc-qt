@@ -134,7 +134,7 @@ void PlaybackManager::playDisc(QUrl where)
 
 void PlaybackManager::playStream(QUrl stream)
 {
-
+    openFile(stream);
 }
 
 void PlaybackManager::playItem(QUuid playlist, QUuid item)
@@ -250,7 +250,8 @@ void PlaybackManager::setMute(bool muted)
 
 void PlaybackManager::mpvw_startPlaying(QUrl what, QUuid playlistUuid, QUuid itemUuid)
 {
-    mpvWidget_->fileOpen(what.toLocalFile());
+    mpvWidget_->fileOpen(what.isLocalFile() ? what.toLocalFile()
+                                            : what.toString());
     this->nowPlayingList = playlistUuid;
     this->nowPlayingItem = itemUuid;
     fireNowPlayingState();

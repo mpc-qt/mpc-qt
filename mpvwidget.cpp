@@ -70,6 +70,7 @@ MpvWidget::MpvWidget(QWidget *parent) :
                           "scale=ewa_lanczossharp:cscale=ewa_lanczossharp:"
                           "tscale=robidoux:interpolation");
     mpv_set_option_string(mpv, "video-sync", "display-resample");
+    mpv_set_option_string(mpv, "ytdl", "yes");
 
     if (mpv_initialize(mpv) < 0)
         throw std::runtime_error("[MpvWidget] mpv failed to initialize");
