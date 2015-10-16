@@ -23,6 +23,8 @@ void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)
                 this, &PlaybackManager::mpvw_playTimeChanged);
         connect(mpvWidget, &MpvWidget::playLengthChanged,
                 this, &PlaybackManager::mpvw_playLengthChanged);
+        connect(mpvWidget, &MpvWidget::playbackLoading,
+                this, &PlaybackManager::mpvw_playbackLoading);
         connect(mpvWidget, &MpvWidget::playbackStarted,
                 this, &PlaybackManager::mpvw_playbackStarted);
         connect(mpvWidget, &MpvWidget::pausedChanged,
@@ -269,6 +271,12 @@ void PlaybackManager::mpvw_playTimeChanged(double time)
 void PlaybackManager::mpvw_playLengthChanged(double length)
 {
     mpvLength = length;
+}
+
+void PlaybackManager::mpvw_playbackLoading()
+{
+    playbackState = BufferingState;
+    emit stateChanged(playbackState);
 }
 
 void PlaybackManager::mpvw_playbackStarted()

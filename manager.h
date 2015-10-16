@@ -68,6 +68,7 @@ private slots:
 
     void mpvw_playTimeChanged(double time);
     void mpvw_playLengthChanged(double length);
+    void mpvw_playbackLoading();
     void mpvw_playbackStarted();
     void mpvw_pausedChanged(bool yes);
     void mpvw_playbackFinished();

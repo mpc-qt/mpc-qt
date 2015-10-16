@@ -51,7 +51,8 @@ MpvWidget::MpvWidget(QWidget *parent) :
         { "vo-drop-frame-count", MPV_FORMAT_INT64 },
         { "drop-frame-count", MPV_FORMAT_INT64 },
         { "audio-bitrate", MPV_FORMAT_DOUBLE },
-        { "video-bitrate", MPV_FORMAT_DOUBLE }
+        { "video-bitrate", MPV_FORMAT_DOUBLE },
+        { "paused-for-cache", MPV_FORMAT_FLAG }
     };
     foreach (auto item, options)
         mpv_observe_property(mpv, 0, item.first, item.second);
@@ -408,6 +409,10 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
         break;
     }
     case MPV_EVENT_START_FILE: {
+        playbackLoading();
+        break;
+    }
+    case MPV_EVENT_FILE_LOADED: {
         playbackStarted();
         break;
     }
