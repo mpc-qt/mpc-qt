@@ -524,6 +524,7 @@
     <addaction name="actionFileOpenDvdbd"/>
     <addaction name="actionFileOpenDevice"/>
     <addaction name="actionFileOpenDirectory"/>
+    <addaction name="actionFileOpenNetworkStream"/>
     <addaction name="action_file_open_disc"/>
     <addaction name="menuFileRecent"/>
     <addaction name="actionFileClose"/>
@@ -726,7 +727,7 @@
   </action>
   <action name="actionFileOpenDirectory">
    <property name="text">
-    <string>Open Dir&amp;ectory</string>
+    <string>Open Dir&amp;ectory...</string>
    </property>
   </action>
   <action name="actionFileRecentClear">
@@ -1255,6 +1256,11 @@
   <action name="actionHelpAbout">
    <property name="text">
     <string>&amp;About...</string>
+   </property>
+  </action>
+  <action name="actionFileOpenNetworkStream">
+   <property name="text">
+    <string>Open &amp;Network Stream...</string>
    </property>
   </action>
  </widget>
