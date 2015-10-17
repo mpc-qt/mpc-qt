@@ -29,7 +29,7 @@ Flow::Flow(QObject *owner) :
     QObject(owner), process(NULL), mainWindow(NULL), playbackManager(NULL)
 {
     process = new SingleProcess(this);
-    if (process->hasPrevious(QCoreApplication::arguments())) {
+    if (process->hasPrevious(makePayload())) {
         hasPrevious_ = true;
         return;
     }
@@ -144,7 +144,7 @@ int Flow::run()
     mainWindow->playlistWindow()->tabsFromVList(storage.readVList("playlists"));
     mainWindow->show();
     if (!hasPrevious_)
-        process_payloadRecieved(QCoreApplication::arguments());
+        process_payloadRecieved(makePayload());
     return qApp->exec();
 }
 
@@ -153,12 +153,18 @@ bool Flow::hasPrevious()
     return hasPrevious_;
 }
 
+QStringList Flow::makePayload() const
+{
+    return QStringList() << QDir::currentPath()
+                         << QCoreApplication::arguments().mid(1);
+}
+
 void Flow::process_payloadRecieved(const QStringList &payload)
 {
     QList<QUrl> files;
     QUrl url;
     foreach (QString s, payload.mid(1)) {
-        files << QUrl::fromUserInput(s, QDir::currentPath());
+        files << QUrl::fromUserInput(s, payload.first());
     }
     if (!files.empty()) {
         playbackManager->openSeveralFiles(files, true);

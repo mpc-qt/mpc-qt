@@ -15,6 +15,9 @@ public:
     int run();
     bool hasPrevious();
 
+private:
+    QStringList makePayload() const;
+
 private slots:
     void process_payloadRecieved(const QStringList &payload);
     void importPlaylist(QString fname);
