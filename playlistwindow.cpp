@@ -206,9 +206,9 @@ void PlaylistWindow::on_importList_clicked()
     qfd->setAttribute(Qt::WA_DeleteOnClose);
     qfd->setWindowModality(Qt::WindowModal);
     qfd->setAcceptMode(QFileDialog::AcceptOpen);
-    qfd->setWindowTitle("Import File");
+    qfd->setWindowTitle(tr("Import File"));
     qfd->setDefaultSuffix("m3u8");
-    qfd->setNameFilters(QStringList() << "Playlist file (*.m3u *.m3u8)");
+    qfd->setNameFilters({tr("Playlist file (*.m3u *.m3u8)")});
     connect(qfd, &QFileDialog::fileSelected, [=](const QString &file) {
         if (!file.isEmpty())
             emit importPlaylist(file);
@@ -224,9 +224,9 @@ void PlaylistWindow::on_exportList_clicked()
     qfd->setAttribute(Qt::WA_DeleteOnClose);
     qfd->setWindowModality(Qt::WindowModal);
     qfd->setAcceptMode(QFileDialog::AcceptSave);
-    qfd->setWindowTitle("Export File");
+    qfd->setWindowTitle(tr("Export File"));
     qfd->setDefaultSuffix("m3u8");
-    qfd->setNameFilters(QStringList() << "Playlist files (*.m3u *.m3u8)");
+    qfd->setNameFilters({tr("Playlist files (*.m3u *.m3u8)")});
     connect(qfd, &QFileDialog::fileSelected, [=](const QString &file) {
         auto pl = PlaylistCollection::getSingleton()->playlistOf(uuid);
         if (!file.isEmpty() && pl)
