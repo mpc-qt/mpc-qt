@@ -321,7 +321,7 @@ void PlaybackManager::mpvw_mediaTitleChanged(QString title)
 
 void PlaybackManager::mpvw_chapterDataChanged(QVariantMap metadata)
 {
-    emit chapterTitleChanged(metadata.value("TITLE").toString());
+    emit chapterTitleChanged(metadata.value("title").toString());
 }
 
 void PlaybackManager::mpvw_chaptersChanged(QVariantList chapters)
