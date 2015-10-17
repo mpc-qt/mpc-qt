@@ -1,5 +1,6 @@
 #include <clocale>
 #include <QApplication>
+#include <QDir>
 #include "main.h"
 #include "storage.h"
 #include "mainwindow.h"
@@ -155,8 +156,9 @@ bool Flow::hasPrevious()
 void Flow::process_cmdlineRecieved(const QStringList &args)
 {
     QList<QUrl> files;
+    QUrl url;
     foreach (QString s, args.mid(1)) {
-        files << QUrl::fromUserInput(s);
+        files << QUrl::fromUserInput(s, QDir::currentPath());
     }
     if (!files.empty()) {
         playbackManager->openSeveralFiles(files, true);
