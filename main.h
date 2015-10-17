@@ -16,7 +16,7 @@ public:
     bool hasPrevious();
 
 private slots:
-    void process_cmdlineRecieved(const QStringList &args);
+    void process_payloadRecieved(const QStringList &payload);
     void importPlaylist(QString fname);
     void exportPlaylist(QString fname, QStringList items);
 
