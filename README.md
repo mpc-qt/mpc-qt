@@ -2,17 +2,14 @@
 
 A clone of Media Player Classic reimplimented in Qt.
 
-[Media Player Classic Home Cinema] is considered by many to be the
-quintessential media player for the Windows desktop.  I would like mpc-qt to
-reproduce most of the interface and functionality of mpc-hc while using
-[libmpv] to play video instead of DirectShow.
+[Media Player Classic Home Cinema] (mpc-hc) is considered by many to be the
+quintessential media player for the Windows desktop.  Media Player Classic
+Qute Theater (mpc-qt) aims to reproduce most of the interface and
+functionality of mpc-hc while using [libmpv] to play video instead of
+DirectShow.
 
 
 ## Features
-
-This is alpha software and some of the functionality isn't written yet. For
-the most part, unwritten portions relate to setting options, streaming from
-the internet and devices, and storing favorites.  However, you can still
 
 * play back simple video files
 * control playback using the control buttons
@@ -23,13 +20,12 @@ the internet and devices, and storing favorites.  However, you can still
 * resize the window automatically using zoom factors
 * build playlists with the quick open command
 * batch play from playlists
+* launch files from from the command line
+* stream video from streaming sites
 
-As time goes on, features will be implemented, added or dropped given the
-use-case of mpc-qt.  For example, there *are* a few things which will likely
-never be implemented, such as the silly DirectShow output filter chains that
-libmpv simply has no need for.  On the other hand, libmpv also provides nice
-features that are not present in mpc-hc and these functionalities may be
-exposed as the developer sees fit.
+**Note:**  This is alpha software and some of the functionality isn't written
+yet.  For the most part, unwritten portions relate to setting options,
+streaming from devices, and storing favorites.
 
 
 ### Improvements over mpc-hc
@@ -46,20 +42,17 @@ Suggestions welcome.
 
 ## Prequisities
 
-You need the Qt5 sdk installed and an edition of libmpv.  On ubuntu you can
-install them with
+**For plebs:**  You need the Qt5 sdk installed and an edition of libmpv.  On
+ubuntu you can install them with
 
 >sudo apt-get install qtcreator libmpv-dev
 
 If you want Qt5 documentation in Qt Creator, add *qt5-doc* to that command.
+Beware that this may result in unguaranteed behaviour because package versions
+usually lag by a version or so.
 
-However, I recommend compiling libmpv from git head due to the fast
-development pace of mpv and old packages in package repositories. (I develop
-against mpv's head.) So you may want to follow the instructions at [mpv-build]
-while making sure to place the line `--enable-libmpv-shared` inside the
-`mpv_options` file before building as it says.  The libmpv api does not change
-much however, so you should be okay if you don't feel like doing this and are
-willing to put up with missing features.
+**For pros:**  Install qt sdk and compile [libmpv] from git head with
+``--enable-libmpv-shared``.
 
 
 ## I don't know git, how do I run this?
