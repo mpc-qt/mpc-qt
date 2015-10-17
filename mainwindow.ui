@@ -1209,6 +1209,9 @@
    <property name="shortcut">
     <string>Alt+T</string>
    </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
   </action>
   <action name="actionNavigateMenuRoot">
    <property name="text">
@@ -1217,25 +1220,40 @@
    <property name="shortcut">
     <string>Alt+R</string>
    </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
   </action>
   <action name="actionNavigateMenuSubtitle">
    <property name="text">
     <string>&amp;Subtitle Menu</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
    </property>
   </action>
   <action name="actionNavigateMenuAudio">
    <property name="text">
     <string>&amp;Audio Menu</string>
    </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
   </action>
   <action name="actionNavigateMenuAngle">
    <property name="text">
     <string>Angle &amp;Menu</string>
    </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
   </action>
   <action name="actionNavigateMenuChapter">
    <property name="text">
     <string>Chapt&amp;er Menu</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
    </property>
   </action>
   <action name="actionFavoritesAdd">
