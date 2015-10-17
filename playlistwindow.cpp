@@ -4,6 +4,7 @@
 #include "playlist.h"
 #include <QInputDialog>
 #include <QFileDialog>
+#include <QMenu>
 
 PlaylistWindow::PlaylistWindow(QWidget *parent) :
     QDockWidget(parent),
@@ -232,4 +233,15 @@ void PlaylistWindow::on_exportList_clicked()
             emit exportPlaylist(file, pl->toStringList());
     });
     qfd->show();
+}
+
+void PlaylistWindow::on_tabWidget_customContextMenuRequested(const QPoint &pos)
+{
+    QMenu *m = new QMenu(this);
+    m->addAction(tr("&New Playlist"), this, SLOT(on_newTab_clicked()));
+    m->addAction(tr("&Remove Playlist"), this, SLOT(on_closeTab_clicked()));
+    m->addAction(tr("&Duplicate Playlist"), this, SLOT(on_duplicateTab_clicked()));
+    m->addAction(tr("&Import Playlist"), this, SLOT(on_importList_clicked()));
+    m->addAction(tr("&Export Playlist"), this, SLOT(on_exportList_clicked()));
+    m->exec(ui->tabWidget->mapToGlobal(pos));
 }

@@ -57,6 +57,8 @@ private slots:
 
     void on_exportList_clicked();
 
+    void on_tabWidget_customContextMenuRequested(const QPoint &pos);
+
 private:
     Ui::PlaylistWindow *ui;
 
