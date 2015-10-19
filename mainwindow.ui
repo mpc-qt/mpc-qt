@@ -120,6 +120,9 @@
             <property name="enabled">
              <bool>false</bool>
             </property>
+            <property name="toolTip">
+             <string>Play</string>
+            </property>
             <property name="icon">
              <iconset resource="res.qrc">
               <normaloff>:/images/controls/play.png</normaloff>:/images/controls/play.png</iconset>
@@ -133,6 +136,9 @@
            <widget class="QPushButton" name="pause">
             <property name="enabled">
              <bool>false</bool>
+            </property>
+            <property name="toolTip">
+             <string>Pause</string>
             </property>
             <property name="icon">
              <iconset resource="res.qrc">
@@ -150,6 +156,9 @@
            <widget class="QPushButton" name="stop">
             <property name="enabled">
              <bool>false</bool>
+            </property>
+            <property name="toolTip">
+             <string>Stop</string>
             </property>
             <property name="icon">
              <iconset resource="res.qrc">
@@ -181,6 +190,9 @@
             <property name="enabled">
              <bool>false</bool>
             </property>
+            <property name="toolTip">
+             <string>Skip Backward</string>
+            </property>
             <property name="icon">
              <iconset resource="res.qrc">
               <normaloff>:/images/controls/back1.png</normaloff>:/images/controls/back1.png</iconset>
@@ -194,6 +206,9 @@
            <widget class="QPushButton" name="speedDecrease">
             <property name="enabled">
              <bool>false</bool>
+            </property>
+            <property name="toolTip">
+             <string>Speed Decrease</string>
             </property>
             <property name="icon">
              <iconset resource="res.qrc">
@@ -209,6 +224,9 @@
             <property name="enabled">
              <bool>false</bool>
             </property>
+            <property name="toolTip">
+             <string>Speed Increase</string>
+            </property>
             <property name="icon">
              <iconset resource="res.qrc">
               <normaloff>:/images/controls/forward1.png</normaloff>:/images/controls/forward1.png</iconset>
@@ -222,6 +240,9 @@
            <widget class="QPushButton" name="skipForward">
             <property name="enabled">
              <bool>false</bool>
+            </property>
+            <property name="toolTip">
+             <string>Skip Forward</string>
             </property>
             <property name="icon">
              <iconset resource="res.qrc">
@@ -253,6 +274,9 @@
             <property name="enabled">
              <bool>false</bool>
             </property>
+            <property name="toolTip">
+             <string>Step Backward</string>
+            </property>
             <property name="icon">
              <iconset resource="res.qrc">
               <normaloff>:/images/controls/back3.png</normaloff>:/images/controls/back3.png</iconset>
@@ -266,6 +290,9 @@
            <widget class="QPushButton" name="stepForward">
             <property name="enabled">
              <bool>false</bool>
+            </property>
+            <property name="toolTip">
+             <string>Step Forward</string>
             </property>
             <property name="icon">
              <iconset resource="res.qrc">
