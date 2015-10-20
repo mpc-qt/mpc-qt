@@ -685,7 +685,7 @@ void MainWindow::on_actionViewPresetsNormal_triggered()
     ui->actionViewHideMenu->setChecked(true);
     ui->actionViewHideSeekbar->setChecked(true);
     ui->actionViewHideControls->setChecked(true);
-    ui->actionViewHideInformation->setChecked(true);
+    ui->actionViewHideInformation->setChecked(false);
     ui->actionViewHideStatistics->setChecked(false);
     ui->actionViewHideStatus->setChecked(true);
     ui->actionViewHideSubresync->setChecked(false);
