@@ -365,7 +365,6 @@ void MainWindow::updateInfostats()
 
 void MainWindow::doMpvStopPlayback(bool dry_run)
 {
-    // TODO: emit signal instead
     if (!dry_run)
         emit stopped();
     isPlaying = false;
@@ -853,7 +852,6 @@ void MainWindow::on_actionHelpAbout_triggered()
 void MainWindow::position_sliderMoved(int position)
 {
     emit timeSelected(position);
-    //mpvw->setTime(position);
 }
 
 void MainWindow::on_play_clicked()
