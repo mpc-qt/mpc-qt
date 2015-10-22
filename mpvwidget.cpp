@@ -417,6 +417,8 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
         break;
     }
     case MPV_EVENT_END_FILE: {
+        playTimeChanged(0);
+        playLengthChanged(0);
         playbackFinished();
         break;
     }

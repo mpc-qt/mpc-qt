@@ -91,7 +91,8 @@ void QDrawnSlider::paintEvent(QPaintEvent *ev)
     p.setOpacity(isEnabled() ? 1.0 : 0.333);
 
     drawGroove(&p);
-    drawHandle(&p, isDragging ? xPosition : valueToX(value()));
+    if (minimum() != maximum())
+        drawHandle(&p, isDragging ? xPosition : valueToX(value()));
 }
 
 void QDrawnSlider::resizeEvent(QResizeEvent *re)
