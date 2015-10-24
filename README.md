@@ -45,9 +45,8 @@ Suggestions welcome.
 **For plebs:**  You need the Qt5 sdk installed and an edition of libmpv.  On
 ubuntu you can install them with
 
->sudo apt-get install qtcreator libmpv-dev
+>sudo apt-get install ubuntu-sdk libmpv-dev
 
-If you want Qt5 documentation in Qt Creator, add *qt5-doc* to that command.
 Beware that this may result in unguaranteed behaviour because package versions
 usually lag by a version or so.
 
