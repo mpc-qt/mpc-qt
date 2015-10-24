@@ -51,7 +51,8 @@ Beware that this may result in unguaranteed behaviour because package versions
 usually lag by a version or so.
 
 **For pros:**  Install qt sdk and compile [libmpv] from git head with
-``--enable-libmpv-shared``.
+``--enable-libmpv-shared``.  Make sure ldconfig is run after compiling libmpv,
+or you may end up with linker errors.
 
 
 ## I don't know git, how do I run this?
@@ -86,9 +87,16 @@ Finally, `cd` into the checked-out repository and run qtcreator.
 
 Use qtcreator's suggested build setup and click "Configure Project", then
 press the big green arrow button in the bottom-left corner.  After this, the
-executable should be in `~/src/mpc-qt/build-mpc-qt...`. Look for the `mpc-qt`
-binary and run that whenever you want to, or stick a shortcut to that on your
-taskbar/desktop.
+executable should be in `~/src/mpc-qt/build-mpc-qt...`.
+
+Now you can create a desktop entry with the provided script, for the purposes
+of sticking a shortcut to mpc-qt on your desktop. (requires Python 3.)
+
+>./generate-localinstall-desktop.py
+
+This will search the filesystem for the needed binaries and create the file
+`Media Player Classic Qute Theater.desktop`, a usuable `.desktop` file, even
+if you forgot to (or can't) run ldconfig.
 
 [Media Player Classic Home Cinema]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv

@@ -49,3 +49,6 @@ OTHER_FILES += \
     LICENSE \
     README.md \
     DOCS/codebase.svg
+
+DISTFILES += \
+    generate-localinstall-desktop.py

@@ -33,3 +33,9 @@ Makefile*
 #QtCtreator Qml
 *.qmlproject.user
 *.qmlproject.user.* 
+
+#Python
+*.pyc
+
+#.desktop
+*.desktop
