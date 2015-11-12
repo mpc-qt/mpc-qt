@@ -30,6 +30,10 @@ public:
     QVariantList tabsToVList() const;
     void tabsFromVList(const QVariantList &qvl);
 
+protected:
+    void dragEnterEvent(QDragEnterEvent *event);
+    void dropEvent(QDropEvent *event);
+
 private:
     void addNewTab(QUuid playlist, QString title);
 

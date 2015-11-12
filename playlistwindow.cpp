@@ -2,6 +2,8 @@
 #include "ui_playlistwindow.h"
 #include "qdrawnplaylist.h"
 #include "playlist.h"
+#include <QDragEnterEvent>
+#include <QMimeData>
 #include <QInputDialog>
 #include <QFileDialog>
 #include <QMenu>
@@ -115,6 +117,19 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
     }
     if (widgets.count() < 1)
         addNewTab(QUuid(), tr("Quick Playlist"));
+}
+
+void PlaylistWindow::dragEnterEvent(QDragEnterEvent *event)
+{
+    if (event->mimeData()->hasUrls())
+        event->accept();
+}
+
+void PlaylistWindow::dropEvent(QDropEvent *event)
+{
+    if (!event->mimeData()->hasUrls())
+        return;
+    addToCurrentPlaylist(event->mimeData()->urls());
 }
 
 void PlaylistWindow::addNewTab(QUuid playlist, QString title)
