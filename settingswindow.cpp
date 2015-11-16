@@ -7,6 +7,11 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui(new Ui::SettingsWindow)
 {
     ui->setupUi(this);
+    ui->pageStack->setCurrentIndex(0);
+    ui->videoTabs->setCurrentIndex(0);
+    ui->scalingTabs->setCurrentIndex(0);
+    ui->prescalarStack->setCurrentIndex(0);
+    ui->audioRendererStack->setCurrentIndex(0);
 }
 
 SettingsWindow::~SettingsWindow()

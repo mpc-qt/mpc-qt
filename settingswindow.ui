@@ -778,7 +778,7 @@ media file played</string>
                </widget>
               </item>
               <item>
-               <widget class="QTabWidget" name="tabWidget">
+               <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
                  <number>2</number>
                 </property>
@@ -1107,7 +1107,7 @@ media file played</string>
                  </attribute>
                  <layout class="QVBoxLayout" name="verticalLayout_69">
                   <item>
-                   <widget class="QTabWidget" name="tabWidget_2">
+                   <widget class="QTabWidget" name="scalingTabs">
                     <property name="currentIndex">
                      <number>5</number>
                     </property>
