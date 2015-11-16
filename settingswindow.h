@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QTreeWidgetItem>
 #include <QAbstractButton>
+#include <QVariantMap>
 
 class settings {
 public:
@@ -303,6 +304,9 @@ public:
     int contrast;
     int hue;
     int saturation;
+
+    QVariantMap toVMap();
+    void fromVMap(const QVariantMap &m);
 };
 
 namespace Ui {

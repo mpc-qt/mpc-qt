@@ -56,6 +56,15 @@ settings SettingsWindow::buildSettings() {
 void SettingsWindow::takeSettings(const settings &s)
 {
     ui->videoDumbMode->setChecked(s.videoIsDumb);
+    ui->scalingTemporalInterpolation->setChecked(s.temporalInterpolation);
+    ui->ditherDepth->setValue(s.ditherDepth);
+    ui->ditherType->setCurrentIndex(s.ditherType);
+    ui->ditherFruitSize->setValue(s.ditherFruitSize);
+    ui->debandEnabled->setChecked(s.debanding);
+    ui->scaleScalar->setCurrentIndex(s.scaleScalar);
+    ui->dscaleScalar->setCurrentIndex(s.dscaleScalar);
+    ui->cscaleScalar->setCurrentIndex(s.cscaleScalar);
+    ui->tscaleScalar->setCurrentIndex(s.tscaleScalar);
 }
 
 void SettingsWindow::on_pageTree_itemSelectionChanged()
@@ -86,4 +95,14 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
     if (buttonRole == QDialogButtonBox::AcceptRole ||
             buttonRole == QDialogButtonBox::RejectRole)
         close();
+}
+
+QVariantMap settings::toVMap()
+{
+
+}
+
+void settings::fromVMap(const QVariantMap &m)
+{
+
 }
