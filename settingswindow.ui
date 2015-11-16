@@ -127,9 +127,9 @@
         </widget>
        </item>
        <item>
-        <widget class="QStackedWidget" name="stackedWidget">
+        <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>0</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -1109,7 +1109,7 @@ media file played</string>
                   <item>
                    <widget class="QTabWidget" name="tabWidget_2">
                     <property name="currentIndex">
-                     <number>2</number>
+                     <number>5</number>
                     </property>
                     <widget class="QWidget" name="scaleOptionsTab">
                      <attribute name="title">
@@ -3011,7 +3011,7 @@ media file played</string>
                        </layout>
                       </item>
                       <item>
-                       <widget class="QStackedWidget" name="stackedWidget_3">
+                       <widget class="QStackedWidget" name="prescalarStack">
                         <property name="currentIndex">
                          <number>0</number>
                         </property>
@@ -3464,7 +3464,7 @@ media file played</string>
                </widget>
               </item>
               <item>
-               <widget class="QStackedWidget" name="stackedWidget_2">
+               <widget class="QStackedWidget" name="audioRendererStack">
                 <property name="currentIndex">
                  <number>0</number>
                 </property>

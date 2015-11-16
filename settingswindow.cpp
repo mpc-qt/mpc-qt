@@ -26,6 +26,6 @@ void SettingsWindow::on_pageTree_itemSelectionChanged()
         index = parentIndex[modelIndex.row()];
     else
         index = parentIndex[modelIndex.parent().row()] + modelIndex.row() + 1;
-    ui->stackedWidget->setCurrentIndex(index);
+    ui->pageStack->setCurrentIndex(index);
     ui->pageLabel->setText(QString("<big><b>%1</b></big>").arg(modelIndex.data().toString()));
 }
