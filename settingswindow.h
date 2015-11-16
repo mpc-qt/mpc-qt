@@ -185,6 +185,7 @@ public:
     TargetPrim targetPrim;
     enum TargetTrc { AutoTrc, BT1886Trc, sRGBTrc, LinearTrc, Gamma18Trc,
                      Gamma22Trc, Gamma28Trc, ProPhotoTrc };
+    TargetTrc targetTrc;
     bool iccAutodetect;
     QString iccLocation;
 
@@ -200,9 +201,9 @@ public:
     int alsaMixerIndex;
     bool alsaResample;
     bool alsaIgnoreChmap;
-    QString OssDspDevice;
-    QString OssMixerDevice;
-    QString OssMixerChannel;
+    QString ossDspDevice;
+    QString ossMixerDevice;
+    QString ossMixerChannel;
     bool nullIsUntimed;
     int nullOutburst;
     double nullBufferLength;
@@ -211,7 +212,13 @@ public:
     QStringList shaderFiles;
     QStringList preShaders;
     QStringList postShaders;
-    QMap<QString, QPair<QStringList, QStringList>> shaderPresets;
+    struct ShaderPreset {
+        QStringList shaderFiles;
+        QStringList preShaders;
+        QStringList postShaders;
+    };
+    typedef QList<ShaderPreset> ShaderPresetList;
+    ShaderPresetList shaderPresets;
 
     // Fullscreen page
     QString fullscreenMonitor;
@@ -228,7 +235,8 @@ public:
         bool enabled;
         QString modeLine;
     };
-    QList<XrandrMode> xrandrModes;
+    typedef QList<XrandrMode> XrandrModeList;
+    XrandrModeList xrandrModes;
     int xrandrChangeDelay;
     bool switchXrandrBackToOldMode;
     bool restoreXrandrOnExit;
