@@ -67,7 +67,8 @@ MpvWidget::MpvWidget(QWidget *parent) :
     mpv_set_wakeup_callback(mpv, wakeup, this);
 
     // For me.
-    mpv_set_option_string(mpv, "vo","opengl-cb:"
+    mpv_set_option_string(mpv, "vo","opengl-cb");
+    mpv_set_option_string(mpv, "vo_cmdline",
                           "scale=ewa_lanczossharp:cscale=ewa_lanczossharp:"
                           "tscale=robidoux:interpolation:"
                           "deband:dither-depth=auto");
@@ -137,6 +138,11 @@ void MpvWidget::stepBackward()
 void MpvWidget::stepForward()
 {
     mpv_command_string(mpv, "frame_step");
+}
+
+void MpvWidget::setVOCommandline(QString cmdline)
+{
+    mpv_set_property_string(mpv, "vo_cmdline", cmdline.toUtf8().data());
 }
 
 void MpvWidget::stopPlayback()
@@ -430,6 +436,51 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
     default: ;
         // Ignore uninteresting or unknown events.
     }
+}
+
+void MpvWidget::takeSettings(const settings &s)
+{
+    QMap<QString,QString> params;
+    QString cmdline;
+    if (s.videoIsDumb) {
+        cmdline = "dumb-mode";
+        setVOCommandline(cmdline);
+        return;
+    }
+    params["scale"] = settings::scaleScalarToText[s.scaleScalar];
+    params["cscale"] = settings::scaleScalarToText[s.cscaleScalar];
+    if (s.dscaleScalar != settings::Unset)
+        params["scale"] = settings::scaleScalarToText[s.dscaleScalar];
+    params["tscale"] = settings::timeScalarToText[s.tscaleScalar];
+    if (s.temporalInterpolation)
+        params["interpolation"] = QString();
+    if (s.debanding)
+        params["deband"] = "yes";
+    if (s.dither) {
+        params["dither-depth"] = s.ditherDepth ?
+                    QString::number(s.ditherDepth) :
+                    "auto";
+        params["dither-type"] = settings::ditherTypeToText[s.ditherType];
+        if (s.ditherFruitSize)
+            params["dither-size-fruit"] = QString::number(s.ditherFruitSize);
+    }
+    if (s.temporalDither) {
+        params["temporal-dither"] = QString();
+        params["temporal-dither-period"] = QString::number(s.temporalPeriod);
+    }
+
+    QMapIterator<QString,QString> i(params);
+    while (i.hasNext()) {
+        i.next();
+        if (!cmdline.isEmpty())
+            cmdline.append(':');
+        cmdline.append(i.key());
+        if (!i.value().isEmpty()) {
+            cmdline.append('=');
+            cmdline.append(i.value());
+        }
+    }
+    setVOCommandline(cmdline);
 }
 
 void MpvWidget::mpvEvents()

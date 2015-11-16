@@ -3,6 +3,23 @@
 #include <QDebug>
 #include <QDialogButtonBox>
 
+const char *settings::ditherTypeToText[] = {"fruit", "ordered", "no"};
+
+const char *settings::scaleScalarToText[]  = {
+    "bilinear", "bicubic_fast", "oversample", "spline16", "spline36",
+    "spline64", "sinc", "lanczos", "gingseng", "jinc", "ewa_lanczos",
+    "ewa_hanning", "ewa_gingseng", "ewa_lanczossharp", "ewa_lanczossoft",
+    "hassnsoft",  "bicubic", "bcspline", "catmull_rom", "mitchell",
+    "robidoux", "robidouxsharp", "ewa_robidoux", "ewa_robidouxsharp",
+    "box", "nearest", "triangle", "gaussian"
+};
+
+const char *settings::timeScalarToText[] = {
+    "oversample", "spline16", "spline64", "sinc", "lanczos",
+    "gingseng", "catmull_rom", "mitchell", "robidoux", "robidouxsharp",
+    "box", "nearest", "triangle", "gaussian"
+};
+
 SettingsWindow::SettingsWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SettingsWindow)

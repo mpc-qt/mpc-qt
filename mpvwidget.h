@@ -7,6 +7,7 @@
 #include <mpv/client.h>
 #include <mpv/opengl_cb.h>
 #include <mpv/qthelper.hpp>
+#include "settingswindow.h"
 
 class MpvWidget : public QOpenGLWidget
 {
@@ -24,6 +25,8 @@ public:
     void stepForward();
 
     // These are straightforward queries to libmpv
+    void setVOCommandline(QString cmdline);
+
     int64_t chapter();
     bool setChapter(int64_t chapter);
     QString mediaTitle();
@@ -71,6 +74,7 @@ signals:
     void decoderFramedropsChanged(int64_t cout);
 
 public slots:
+    void takeSettings(const settings &s);
 
 private slots:
     void mpvEvents();

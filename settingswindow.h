@@ -60,8 +60,10 @@ public:
 
     bool dither;
     int ditherDepth;
+    static const char *ditherTypeToText[];
     enum DitherType { Fruit, Ordered, NoDithering };
     DitherType ditherType;
+    int ditherFruitSize;
     bool temporalDither;
     int temporalPeriod;
 
@@ -72,6 +74,7 @@ public:
     double sigmoidCenter;
     double sigmoidSlope;
 
+    static const char *scaleScalarToText[];
     enum ScaleScalar { Unset = -1, Bilinear, BicubicFast, Oversample,
                        Spline16, Spline36, Spling64, Sinc, Lanczos, Gingseng,
                        Jinc, EwaLanczos, EwaHanning, EwaGinseng,
@@ -134,6 +137,7 @@ public:
     bool cscaleWindowSet;
     bool cscaleClamp;
 
+    static const char *timeScalarToText[];
     enum TimeScalar { tOversample, tSpline16, tSpline64, tSinc, tLanczos,
                       tGingseng, tCatmullRom, tMitchell, tRobidoux,
                       tRobidouxSharp, tBox, tNearest, tTriangle, tGaussian };
