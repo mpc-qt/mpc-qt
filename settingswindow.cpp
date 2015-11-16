@@ -40,6 +40,16 @@ SettingsWindow::~SettingsWindow()
 settings SettingsWindow::buildSettings() {
     settings s;
     s.videoIsDumb = ui->videoDumbMode->isChecked();
+    s.temporalInterpolation = ui->scalingTemporalInterpolation->isChecked();
+    s.dither = ui->ditherDithering->isChecked();
+    s.ditherDepth = ui->ditherDepth->value();
+    s.ditherType = (settings::DitherType)ui->ditherType->currentIndex();
+    s.ditherFruitSize = ui->ditherFruitSize->value();
+    s.debanding = ui->debandEnabled->isChecked();
+    s.scaleScalar = (settings::ScaleScalar)ui->scaleScalar->currentIndex();
+    s.dscaleScalar = (settings::ScaleScalar)(ui->dscaleScalar->currentIndex() - 1);
+    s.cscaleScalar = (settings::ScaleScalar)ui->cscaleScalar->currentIndex();
+    s.tscaleScalar = (settings::TimeScalar)ui->tscaleScalar->currentIndex();
     return s;
 }
 
