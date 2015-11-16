@@ -1,6 +1,7 @@
 #include "settingswindow.h"
 #include "ui_settingswindow.h"
 #include <QDebug>
+#include <QDialogButtonBox>
 
 SettingsWindow::SettingsWindow(QWidget *parent) :
     QWidget(parent),
@@ -19,6 +20,17 @@ SettingsWindow::~SettingsWindow()
     delete ui;
 }
 
+settings SettingsWindow::buildSettings() {
+    settings s;
+    s.videoIsDumb = ui->videoDumbMode->isChecked();
+    return s;
+}
+
+void SettingsWindow::takeSettings(const settings &s)
+{
+    ui->videoDumbMode->setChecked(s.videoIsDumb);
+}
+
 void SettingsWindow::on_pageTree_itemSelectionChanged()
 {
     QModelIndex modelIndex = ui->pageTree->currentIndex();
@@ -34,4 +46,17 @@ void SettingsWindow::on_pageTree_itemSelectionChanged()
     ui->pageStack->setCurrentIndex(index);
     ui->pageLabel->setText(QString("<big><b>%1</b></big>").
                            arg(modelIndex.data().toString()));
+}
+
+void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
+{
+    QDialogButtonBox::ButtonRole buttonRole;
+    buttonRole = ui->buttonBox->buttonRole(button);
+    if (buttonRole == QDialogButtonBox::ApplyRole ||
+            buttonRole == QDialogButtonBox::AcceptRole) {
+        emit settingsData(buildSettings());
+    }
+    if (buttonRole == QDialogButtonBox::AcceptRole ||
+            buttonRole == QDialogButtonBox::RejectRole)
+        close();
 }

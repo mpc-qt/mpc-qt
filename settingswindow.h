@@ -3,8 +3,10 @@
 
 #include <QWidget>
 #include <QTreeWidgetItem>
+#include <QAbstractButton>
 
 class settings {
+public:
     // Player page
     enum OpenMode { OpenSame, OpenInNew };
     OpenMode playerOpenMode;
@@ -45,6 +47,7 @@ class settings {
     int audioVolume;
 
     // Output page
+    bool videoIsDumb;
     enum VideoBackend { AutoBackend, GLXBackend, WaylandBackend, EGLBackend };
     VideoBackend videoBackend;
     enum FBDepth { DepthOf8, DepthOf10, DepthOf12, DepthOf16, DepthOf16F,
@@ -310,11 +313,23 @@ public:
     explicit SettingsWindow(QWidget *parent = 0);
     ~SettingsWindow();
 
+private:
+    settings buildSettings();
+
+signals:
+    void settingsData(const settings &s);
+
+public slots:
+    void takeSettings(const settings &s);
+
 private slots:
     void on_pageTree_itemSelectionChanged();
 
+    void on_buttonBox_clicked(QAbstractButton *button);
+
 private:
     Ui::SettingsWindow *ui;
+
 };
 
 #endif // SETTINGSWINDOW_H
