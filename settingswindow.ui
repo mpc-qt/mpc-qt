@@ -153,7 +153,7 @@ each &amp;media file</string>
               <item>
                <widget class="QRadioButton" name="playerOpenNew">
                 <property name="text">
-                 <string>Open a new player for each
+                 <string>Open a new &amp;player for each
 media file played</string>
                 </property>
                </widget>
@@ -240,7 +240,7 @@ media file played</string>
               <item>
                <widget class="QRadioButton" name="playerTitleFileNameOnly">
                 <property name="text">
-                 <string>File &amp;name only</string>
+                 <string>&amp;File name only</string>
                 </property>
                </widget>
               </item>
@@ -468,7 +468,7 @@ media file played</string>
                 <item>
                  <widget class="QRadioButton" name="playbackPlayTimes">
                   <property name="text">
-                   <string>Pla&amp;y</string>
+                   <string>P&amp;lay</string>
                   </property>
                   <property name="checked">
                    <bool>true</bool>
@@ -780,7 +780,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="tabWidget">
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>2</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -1109,7 +1109,7 @@ media file played</string>
                   <item>
                    <widget class="QTabWidget" name="tabWidget_2">
                     <property name="currentIndex">
-                     <number>0</number>
+                     <number>2</number>
                     </property>
                     <widget class="QWidget" name="scaleOptionsTab">
                      <attribute name="title">
@@ -1693,6 +1693,11 @@ media file played</string>
                       </item>
                       <item row="0" column="1" colspan="3">
                        <widget class="QComboBox" name="dscaleScalar">
+                        <item>
+                         <property name="text">
+                          <string>Unset</string>
+                         </property>
+                        </item>
                         <item>
                          <property name="text">
                           <string>Bilinear</string>

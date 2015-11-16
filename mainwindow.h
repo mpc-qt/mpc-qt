@@ -63,6 +63,7 @@ signals:
     void severalFilesOpened(QList<QUrl> what);
     void dvdbdOpened(QUrl what);
     void streamOpened(QUrl what);
+    void optionsOpenRequested();
     void paused();
     void unpaused();
     void stopped();
@@ -131,6 +132,8 @@ private slots:
     void on_actionViewZoomAutofit_triggered();
     void on_actionViewZoomAutofitLarger_triggered();
     void on_actionViewZoomDisable_triggered();
+
+    void on_actionViewOptions_triggered();
 
     void on_actionPlayPause_triggered(bool checked);
     void on_actionPlayStop_triggered();

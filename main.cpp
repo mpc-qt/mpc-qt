@@ -5,6 +5,7 @@
 #include "storage.h"
 #include "mainwindow.h"
 #include "manager.h"
+#include "settingswindow.h"
 
 int main(int argc, char *argv[])
 {
@@ -26,7 +27,8 @@ int main(int argc, char *argv[])
 }
 
 Flow::Flow(QObject *owner) :
-    QObject(owner), process(NULL), mainWindow(NULL), playbackManager(NULL)
+    QObject(owner), process(NULL), mainWindow(NULL), playbackManager(NULL),
+    settingsWindow(NULL)
 {
     process = new SingleProcess(this);
     if (process->hasPrevious(makePayload())) {
@@ -40,6 +42,8 @@ Flow::Flow(QObject *owner) :
     playbackManager = new PlaybackManager(this);
     playbackManager->setMpvWidget(mainWindow->mpvWidget(), true);
     playbackManager->setPlaylistWindow(mainWindow->playlistWindow());
+
+    settingsWindow = new SettingsWindow();
 
     // mainwindow -> manager
     connect(mainWindow, SIGNAL(severalFilesOpened(QList<QUrl>)),
@@ -115,6 +119,10 @@ Flow::Flow(QObject *owner) :
     connect(playbackManager, &PlaybackManager::decoderFramedropsChanged,
             mainWindow, &MainWindow::setDecoderFramedrops);
 
+    // mainwindow -> this.settings
+    connect(mainWindow, &MainWindow::optionsOpenRequested,
+            this, &Flow::mainwindow_optionsOpenRequested);
+
     // playlistwindow -> this.storage
     connect(mainWindow->playlistWindow(), &PlaylistWindow::importPlaylist,
             this, &Flow::importPlaylist);
@@ -137,6 +145,10 @@ Flow::~Flow()
         delete playbackManager;
         playbackManager = NULL;
     }
+    if (settingsWindow) {
+        delete settingsWindow;
+        settingsWindow = NULL;
+    }
 }
 
 int Flow::run()
@@ -157,6 +169,11 @@ QStringList Flow::makePayload() const
 {
     return QStringList() << QDir::currentPath()
                          << QCoreApplication::arguments().mid(1);
+}
+
+void Flow::mainwindow_optionsOpenRequested()
+{
+    settingsWindow->show();
 }
 
 void Flow::process_payloadRecieved(const QStringList &payload)

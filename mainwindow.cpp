@@ -745,6 +745,11 @@ void MainWindow::on_actionViewZoomDisable_triggered()
     setSizeFactor(0.0);
 }
 
+void MainWindow::on_actionViewOptions_triggered()
+{
+    emit optionsOpenRequested();
+}
+
 void MainWindow::on_actionPlayPause_triggered(bool checked)
 {
     if (checked)
@@ -875,3 +880,4 @@ void MainWindow::sendUpdateSize()
 {
     updateSize();
 }
+

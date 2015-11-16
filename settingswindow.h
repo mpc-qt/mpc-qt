@@ -2,6 +2,7 @@
 #define SETTINGSWINDOW_H
 
 #include <QWidget>
+#include <QTreeWidgetItem>
 
 namespace Ui {
 class SettingsWindow;
@@ -14,6 +15,9 @@ class SettingsWindow : public QWidget
 public:
     explicit SettingsWindow(QWidget *parent = 0);
     ~SettingsWindow();
+
+private slots:
+    void on_pageTree_itemSelectionChanged();
 
 private:
     Ui::SettingsWindow *ui;
