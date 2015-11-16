@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     manager.cpp \
     helpers.cpp \
     playlistwindow.cpp \
-    storage.cpp
+    storage.cpp \
+    settingswindow.cpp
 
 HEADERS  += \
     mpvwidget.h \
@@ -36,11 +37,13 @@ HEADERS  += \
     main.h \
     helpers.h \
     playlistwindow.h \
-    storage.h
+    storage.h \
+    settingswindow.h
 
 FORMS    += \
     mainwindow.ui \
-    playlistwindow.ui
+    playlistwindow.ui \
+    settingswindow.ui
 
 RESOURCES += \
     res.qrc
