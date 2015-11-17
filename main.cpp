@@ -47,6 +47,7 @@ Flow::Flow(QObject *owner) :
     settingsWindow = new SettingsWindow();
     settingsWindow->setWindowModality(Qt::WindowModal);
     s.fromVMap(storage.readVMap("settings"));
+    settingsWindow->takeSettings(s);
     mainWindow->mpvWidget()->takeSettings(s);
 
     // mainwindow -> manager

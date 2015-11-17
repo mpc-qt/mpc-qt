@@ -6,7 +6,7 @@
 #include <QAbstractButton>
 #include <QVariantMap>
 
-class settings {
+struct settings {
 public:
     explicit settings() {}
     // Player page
