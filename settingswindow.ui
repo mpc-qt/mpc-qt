@@ -129,7 +129,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>11</number>
+          <number>9</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -4403,6 +4403,13 @@ media file played</string>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_27">
               <item>
+               <widget class="QCheckBox" name="subtitlesOverridePlacement">
+                <property name="text">
+                 <string>Override default subtitle placement</string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <layout class="QGridLayout" name="gridLayout_8" columnstretch="0,1,0,1">
                 <item row="0" column="0">
                  <widget class="QLabel" name="label_25">
@@ -4489,17 +4496,17 @@ media file played</string>
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="1">
-                 <widget class="QCheckBox" name="subtitlesUseMargins">
-                  <property name="text">
-                   <string>Use margins</string>
-                  </property>
-                  <property name="checked">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
                </layout>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="subtitlesUseMargins">
+                <property name="text">
+                 <string>Use margins</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
               </item>
              </layout>
             </widget>
