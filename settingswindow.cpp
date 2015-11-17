@@ -20,36 +20,8 @@ const char *settings::timeScalarToText[] = {
     "box", "nearest", "triangle", "gaussian"
 };
 
-Q_DECLARE_METATYPE(settings::OpenMode);
-Q_DECLARE_METATYPE(settings::TitleBarMode);
-Q_DECLARE_METATYPE(settings::LogoDisplay);
-Q_DECLARE_METATYPE(settings::PlaybackProgression);
-Q_DECLARE_METATYPE(settings::AutoZoomMethod);
-Q_DECLARE_METATYPE(settings::VideoBackend);
-Q_DECLARE_METATYPE(settings::FBDepth);
-Q_DECLARE_METATYPE(settings::AlphaMode);
-Q_DECLARE_METATYPE(settings::DitherType);
-Q_DECLARE_METATYPE(settings::ScaleScalar);
-Q_DECLARE_METATYPE(settings::ScaleWindow);
-Q_DECLARE_METATYPE(settings::TimeScalar);
-Q_DECLARE_METATYPE(settings::Prescalar);
-Q_DECLARE_METATYPE(settings::Nnedi3Neurons);
-Q_DECLARE_METATYPE(settings::Nnedi3Window);
-Q_DECLARE_METATYPE(settings::Nnedi3UploadMethod);
-Q_DECLARE_METATYPE(settings::TargetPrim);
-Q_DECLARE_METATYPE(settings::TargetTrc);
-Q_DECLARE_METATYPE(settings::AudioRenderer);
 Q_DECLARE_METATYPE(settings::ShaderPresetList);
-Q_DECLARE_METATYPE(settings::FullscreenShow);
 Q_DECLARE_METATYPE(settings::XrandrModeList);
-Q_DECLARE_METATYPE(settings::FramedropMode);
-Q_DECLARE_METATYPE(settings::DecoderDropMode);
-Q_DECLARE_METATYPE(settings::SyncMode);
-Q_DECLARE_METATYPE(settings::SubtitlePlacementX);
-Q_DECLARE_METATYPE(settings::SubtitlePlacementY);
-Q_DECLARE_METATYPE(settings::AssOverride);
-Q_DECLARE_METATYPE(settings::SubsAlignment);
-Q_DECLARE_METATYPE(settings::TimeTooltipLocation);
 #define STORE_PROP(X) m[__STRING(X)] = qVariantFromValue(X)
 #define STORE_PROP_T(X,Y) m[__STRING(X)] = qVariantFromValue((Y)X);
 #define READ_PROP(X,Y) \
@@ -308,7 +280,7 @@ void settings::fromVMap(const QVariantMap &m)
     READ_PROP(sharpen, 0);
     READ_PROP(dither, false);
     READ_PROP(ditherDepth, 0);
-    READ_PROP(ditherType, Fruit);
+    READ_PROP_T(ditherType, Fruit, int);
     READ_PROP(ditherFruitSize, 4);
     READ_PROP(temporalDither, false);
     READ_PROP(temporalPeriod, 1);
@@ -432,7 +404,7 @@ void settings::fromVMap(const QVariantMap &m)
     READ_PROP(switchXrandrBackToOldMode, false);
     READ_PROP(restoreXrandrOnExit, false);
     READ_PROP_T(framedroppingMode, VideoDrops, int);
-    READ_PROP(decoderDroppingMode, DecoderDefault);
+    READ_PROP_T(decoderDroppingMode, DecoderDefault, int);
     READ_PROP_T(syncMode, SyncToAudio, int);
     READ_PROP(audioDropSize, 0.02);
     READ_PROP(maxAudioChange, 0.12);
