@@ -80,6 +80,7 @@ QVariantMap settings::toVMap()
     STORE_PROP(downscaleCorrectly);
     STORE_PROP(scaleInLinearLight);
     STORE_PROP(temporalInterpolation);
+    STORE_PROP(blendSubtitles);
     STORE_PROP(sigmoidizedUpscaling);
     STORE_PROP(sigmoidCenter);
     STORE_PROP(sigmoidSlope);
@@ -287,6 +288,7 @@ void settings::fromVMap(const QVariantMap &m)
     READ_PROP(downscaleCorrectly, false);
     READ_PROP(scaleInLinearLight, false);
     READ_PROP(temporalInterpolation, false);
+    READ_PROP(blendSubtitles, false);
     READ_PROP(sigmoidizedUpscaling, false);
     READ_PROP(sigmoidCenter, 0.75);
     READ_PROP(sigmoidSlope, 6.5);
@@ -470,6 +472,7 @@ settings SettingsWindow::buildSettings() {
     settings s;
     s.videoIsDumb = ui->videoDumbMode->isChecked();
     s.temporalInterpolation = ui->scalingTemporalInterpolation->isChecked();
+    s.blendSubtitles = ui->scalingBlendSubtitles->isChecked();
     s.dither = ui->ditherDithering->isChecked();
     s.ditherDepth = ui->ditherDepth->value();
     s.ditherType = (settings::DitherType)ui->ditherType->currentIndex();
@@ -488,6 +491,7 @@ void SettingsWindow::takeSettings(const settings &s)
 {
     ui->videoDumbMode->setChecked(s.videoIsDumb);
     ui->scalingTemporalInterpolation->setChecked(s.temporalInterpolation);
+    ui->scalingBlendSubtitles->setChecked(s.blendSubtitles);
     ui->ditherDepth->setValue(s.ditherDepth);
     ui->ditherType->setCurrentIndex(s.ditherType);
     ui->ditherFruitSize->setValue(s.ditherFruitSize);
@@ -498,6 +502,10 @@ void SettingsWindow::takeSettings(const settings &s)
     ui->dscaleScalar->setCurrentIndex(s.dscaleScalar + 1);
     ui->cscaleScalar->setCurrentIndex(s.cscaleScalar);
     ui->tscaleScalar->setCurrentIndex(s.tscaleScalar);
+
+    on_prescalarMethod_currentIndexChanged(s.prescalar);
+    on_audioRenderer_currentIndexChanged(s.audioRenderer);
+    on_videoDumbMode_toggled(s.videoIsDumb);
 }
 
 void SettingsWindow::on_pageTree_itemSelectionChanged()

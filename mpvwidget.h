@@ -93,6 +93,8 @@ private:
     QOpenGLTexture *logo;
     QRectF logoLocation;
     QString logoUrl;
+
+    settings s;
 };
 
 #endif // MPVWIDGET_H

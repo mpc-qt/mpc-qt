@@ -74,6 +74,7 @@ public:
     bool downscaleCorrectly;
     bool scaleInLinearLight;
     bool temporalInterpolation;
+    bool blendSubtitles;
     bool sigmoidizedUpscaling;
     double sigmoidCenter;
     double sigmoidSlope;

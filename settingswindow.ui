@@ -1129,7 +1129,7 @@ media file played</string>
                   <item>
                    <widget class="QTabWidget" name="scalingTabs">
                     <property name="currentIndex">
-                     <number>5</number>
+                     <number>0</number>
                     </property>
                     <widget class="QWidget" name="scaleOptionsTab">
                      <attribute name="title">
@@ -1156,6 +1156,13 @@ media file played</string>
                          <widget class="QCheckBox" name="scalingTemporalInterpolation">
                           <property name="text">
                            <string>Temporal interpolation</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QCheckBox" name="scalingBlendSubtitles">
+                          <property name="text">
+                           <string>Blend subtitles</string>
                           </property>
                          </widget>
                         </item>

@@ -119,6 +119,7 @@ void MpvWidget::fileOpen(QString filename)
     const char *args[] = {"loadfile", c_filename.data(), NULL};
     mpv_command_async(mpv, 0, args);
     setPaused(false);
+    takeSettings(s);
 }
 
 void MpvWidget::discFilesOpen(QString path) {
@@ -454,8 +455,10 @@ void MpvWidget::takeSettings(const settings &s)
     params["tscale"] = settings::timeScalarToText[s.tscaleScalar];
     if (s.temporalInterpolation)
         params["interpolation"] = QString();
+    if (s.blendSubtitles)
+        params["blend-subtitles"] = QString();
     if (s.debanding)
-        params["deband"] = "yes";
+        params["deband"] = QString();
     if (s.dither) {
         params["dither-depth"] = s.ditherDepth ?
                     QString::number(s.ditherDepth) :
@@ -480,6 +483,8 @@ void MpvWidget::takeSettings(const settings &s)
     }
     qDebug() << "set advanced command line " << cmdline.join(':');
     setVOCommandLine(cmdline.join(':'));
+
+    this->s = s;
 }
 
 void MpvWidget::mpvEvents()
