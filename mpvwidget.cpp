@@ -140,9 +140,10 @@ void MpvWidget::stepForward()
     mpv_command_string(mpv, "frame_step");
 }
 
-void MpvWidget::setVOCommandline(QString cmdline)
+void MpvWidget::setVOCommandLine(QString cmdline)
 {
-    mpv_set_property_string(mpv, "vo_cmdline", cmdline.toUtf8().data());
+    const char *data[] = { "vo-cmdline", cmdline.toUtf8().constData(), NULL };
+    mpv_command(mpv, data);
 }
 
 void MpvWidget::stopPlayback()
@@ -441,16 +442,15 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
 void MpvWidget::takeSettings(const settings &s)
 {
     QMap<QString,QString> params;
-    QString cmdline;
+    QStringList cmdline;
     if (s.videoIsDumb) {
-        cmdline = "dumb-mode";
-        setVOCommandline(cmdline);
+        setVOCommandLine("dumb-mode");
         return;
     }
     params["scale"] = settings::scaleScalarToText[s.scaleScalar];
     params["cscale"] = settings::scaleScalarToText[s.cscaleScalar];
     if (s.dscaleScalar != settings::Unset)
-        params["scale"] = settings::scaleScalarToText[s.dscaleScalar];
+        params["dscale"] = settings::scaleScalarToText[s.dscaleScalar];
     params["tscale"] = settings::timeScalarToText[s.tscaleScalar];
     if (s.temporalInterpolation)
         params["interpolation"] = QString();
@@ -460,7 +460,7 @@ void MpvWidget::takeSettings(const settings &s)
         params["dither-depth"] = s.ditherDepth ?
                     QString::number(s.ditherDepth) :
                     "auto";
-        params["dither-type"] = settings::ditherTypeToText[s.ditherType];
+        params["dither"] = settings::ditherTypeToText[s.ditherType];
         if (s.ditherFruitSize)
             params["dither-size-fruit"] = QString::number(s.ditherFruitSize);
     }
@@ -472,15 +472,14 @@ void MpvWidget::takeSettings(const settings &s)
     QMapIterator<QString,QString> i(params);
     while (i.hasNext()) {
         i.next();
-        if (!cmdline.isEmpty())
-            cmdline.append(':');
-        cmdline.append(i.key());
         if (!i.value().isEmpty()) {
-            cmdline.append('=');
-            cmdline.append(i.value());
+            cmdline.append(QString("%1=%2").arg(i.key(),i.value()));
+        } else {
+            cmdline.append(i.key());
         }
     }
-    setVOCommandline(cmdline);
+    qDebug() << "set advanced command line " << cmdline.join(':');
+    setVOCommandLine(cmdline.join(':'));
 }
 
 void MpvWidget::mpvEvents()

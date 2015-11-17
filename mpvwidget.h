@@ -25,7 +25,7 @@ public:
     void stepForward();
 
     // These are straightforward queries to libmpv
-    void setVOCommandline(QString cmdline);
+    void setVOCommandLine(QString cmdline);
 
     int64_t chapter();
     bool setChapter(int64_t chapter);

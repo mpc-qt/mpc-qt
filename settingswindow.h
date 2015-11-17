@@ -352,6 +352,8 @@ private slots:
 
     void on_audioRenderer_currentIndexChanged(int index);
 
+    void on_videoDumbMode_toggled(bool checked);
+
 private:
     Ui::SettingsWindow *ui;
 

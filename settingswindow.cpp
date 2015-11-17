@@ -15,7 +15,7 @@ const char *settings::scaleScalarToText[]  = {
 };
 
 const char *settings::timeScalarToText[] = {
-    "oversample", "spline16", "spline64", "sinc", "lanczos",
+    "oversample", "spline16", "spline36", "spline64", "sinc", "lanczos",
     "gingseng", "catmull_rom", "mitchell", "robidoux", "robidouxsharp",
     "box", "nearest", "triangle", "gaussian"
 };
@@ -496,6 +496,8 @@ settings SettingsWindow::buildSettings() {
     s.ditherDepth = ui->ditherDepth->value();
     s.ditherType = (settings::DitherType)ui->ditherType->currentIndex();
     s.ditherFruitSize = ui->ditherFruitSize->value();
+    s.temporalDither = ui->ditherTemporal->isChecked();
+    s.temporalPeriod = ui->ditherTemporalPeriod->value();
     s.debanding = ui->debandEnabled->isChecked();
     s.scaleScalar = (settings::ScaleScalar)ui->scaleScalar->currentIndex();
     s.dscaleScalar = (settings::ScaleScalar)(ui->dscaleScalar->currentIndex() - 1);
@@ -511,9 +513,11 @@ void SettingsWindow::takeSettings(const settings &s)
     ui->ditherDepth->setValue(s.ditherDepth);
     ui->ditherType->setCurrentIndex(s.ditherType);
     ui->ditherFruitSize->setValue(s.ditherFruitSize);
+    ui->ditherTemporal->setChecked(s.temporalDither);
+    ui->ditherTemporalPeriod->setValue(s.temporalPeriod);
     ui->debandEnabled->setChecked(s.debanding);
     ui->scaleScalar->setCurrentIndex(s.scaleScalar);
-    ui->dscaleScalar->setCurrentIndex(s.dscaleScalar);
+    ui->dscaleScalar->setCurrentIndex(s.dscaleScalar + 1);
     ui->cscaleScalar->setCurrentIndex(s.cscaleScalar);
     ui->tscaleScalar->setCurrentIndex(s.tscaleScalar);
 }
@@ -556,4 +560,9 @@ void SettingsWindow::on_prescalarMethod_currentIndexChanged(int index)
 void SettingsWindow::on_audioRenderer_currentIndexChanged(int index)
 {
     ui->audioRendererStack->setCurrentIndex(index);
+}
+
+void SettingsWindow::on_videoDumbMode_toggled(bool checked)
+{
+    ui->videoTabs->setEnabled(!checked);
 }
