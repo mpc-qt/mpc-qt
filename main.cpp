@@ -44,6 +44,7 @@ Flow::Flow(QObject *owner) :
     playbackManager->setPlaylistWindow(mainWindow->playlistWindow());
 
     settingsWindow = new SettingsWindow();
+    s.fromVMap(storage.readVMap("settings"));
 
     // mainwindow -> manager
     connect(mainWindow, SIGNAL(severalFilesOpened(QList<QUrl>)),
@@ -123,6 +124,10 @@ Flow::Flow(QObject *owner) :
     connect(mainWindow, &MainWindow::optionsOpenRequested,
             this, &Flow::mainwindow_optionsOpenRequested);
 
+    // settings -> this
+    connect(settingsWindow, &SettingsWindow::settingsData,
+            this, &Flow::settingswindow_settingsData);
+
     // playlistwindow -> this.storage
     connect(mainWindow->playlistWindow(), &PlaylistWindow::importPlaylist,
             this, &Flow::importPlaylist);
@@ -149,6 +154,7 @@ Flow::~Flow()
         delete settingsWindow;
         settingsWindow = NULL;
     }
+    storage.writeVMap("settings", s.toVMap());
 }
 
 int Flow::run()
@@ -173,6 +179,7 @@ QStringList Flow::makePayload() const
 
 void Flow::mainwindow_optionsOpenRequested()
 {
+    settingsWindow->takeSettings(s);
     settingsWindow->show();
 }
 
@@ -186,6 +193,12 @@ void Flow::process_payloadRecieved(const QStringList &payload)
     if (!files.empty()) {
         playbackManager->openSeveralFiles(files, true);
     }
+}
+
+void Flow::settingswindow_settingsData(const settings &s)
+{
+    this->s = s;
+    mainWindow->mpvWidget()->takeSettings(s);
 }
 
 void Flow::importPlaylist(QString fname)
