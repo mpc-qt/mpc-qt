@@ -129,7 +129,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>5</number>
+          <number>11</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -3486,7 +3486,7 @@ media file played</string>
               <item>
                <widget class="QStackedWidget" name="audioRendererStack">
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>3</number>
                 </property>
                 <widget class="QWidget" name="pulsePage">
                  <layout class="QFormLayout" name="formLayout_15">
@@ -3727,10 +3727,10 @@ media file played</string>
                      <number>1</number>
                     </property>
                     <property name="maximum">
-                     <number>44100</number>
+                     <number>100000</number>
                     </property>
                     <property name="value">
-                     <number>250</number>
+                     <number>256</number>
                     </property>
                    </widget>
                   </item>
@@ -3738,6 +3738,12 @@ media file played</string>
                    <widget class="QDoubleSpinBox" name="nullBufferLength">
                     <property name="decimals">
                      <number>6</number>
+                    </property>
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>0.200000000000000</double>
                     </property>
                    </widget>
                   </item>

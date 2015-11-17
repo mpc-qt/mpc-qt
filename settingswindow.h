@@ -8,15 +8,19 @@
 
 class settings {
 public:
+    explicit settings() : logoLocation(), subtitleTracks(), audioTracks(), subsFont()
+    {}
     // Player page
     enum OpenMode { OpenSame, OpenInNew };
     OpenMode playerOpenMode;
     bool useTrayIcon;
     bool showOSD;
+    bool limitWindowProportions;
     bool disableDiscMenu;
     enum TitleBarMode { FullPath, FileNameOnly, DontPrefix };
     TitleBarMode titleBar;
     bool replaceFileNameInTitleBar;
+    bool rememberRecentlyOpened;
     bool rememberLastPlaylist;
     bool rememberWindowPosition;
     bool rememberWindowSize;
@@ -196,7 +200,7 @@ public:
     int pulseBuffer;
     bool pulseLatencyHack;
     QString alsaMixer;
-    QString alsaMixerDeice;
+    QString alsaMixerDevice;
     QString alsaMixerName;
     int alsaMixerIndex;
     bool alsaResample;
@@ -227,6 +231,7 @@ public:
     bool hidePanelsInFullscreen;
     bool hideControlsInFullscreen;
     enum FullscreenShow { NeverShow, ShowWhenMoving, ShowWhenHovering };
+    FullscreenShow whenToShowControls;
     int controlShowDuration;
 
     struct XrandrMode {
@@ -295,6 +300,7 @@ public:
     bool preferDefaultSubs;
     bool preferExternalSubs;
     bool ignoreEmbeddedSubs;
+    QString subtitleAutoloadPath;
     QString subtitleDatabase;
 
     // Tweaks Page
