@@ -547,3 +547,13 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
             buttonRole == QDialogButtonBox::RejectRole)
         close();
 }
+
+void SettingsWindow::on_prescalarMethod_currentIndexChanged(int index)
+{
+    ui->prescalarStack->setCurrentIndex(index);
+}
+
+void SettingsWindow::on_audioRenderer_currentIndexChanged(int index)
+{
+    ui->audioRendererStack->setCurrentIndex(index);
+}

@@ -129,7 +129,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>9</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -497,7 +497,7 @@ media file played</string>
               <item>
                <widget class="QRadioButton" name="playbackRepeatForever">
                 <property name="text">
-                 <string>Repeat fore&amp;ver</string>
+                 <string>Repeat &amp;forever</string>
                 </property>
                </widget>
               </item>
@@ -780,7 +780,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>2</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -1129,7 +1129,7 @@ media file played</string>
                   <item>
                    <widget class="QTabWidget" name="scalingTabs">
                     <property name="currentIndex">
-                     <number>0</number>
+                     <number>5</number>
                     </property>
                     <widget class="QWidget" name="scaleOptionsTab">
                      <attribute name="title">

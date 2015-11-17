@@ -348,6 +348,10 @@ private slots:
 
     void on_buttonBox_clicked(QAbstractButton *button);
 
+    void on_prescalarMethod_currentIndexChanged(int index);
+
+    void on_audioRenderer_currentIndexChanged(int index);
+
 private:
     Ui::SettingsWindow *ui;
 
