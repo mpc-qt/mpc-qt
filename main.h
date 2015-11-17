@@ -20,6 +20,7 @@ private:
     QStringList makePayload() const;
 
 private slots:
+    void mainwindow_applicationShouldQuit();
     void mainwindow_optionsOpenRequested();
     void process_payloadRecieved(const QStringList &payload);
     void settingswindow_settingsData(const settings &s);

@@ -25,6 +25,9 @@ public:
     MpvWidget *mpvWidget();
     PlaylistWindow *playlistWindow();
 
+protected:
+    void closeEvent(QCloseEvent *event);
+
 private:
     QMediaSlider *positionSlider();
     QVolumeSlider *volumeSlider();
@@ -59,6 +62,7 @@ private:
     void doMpvSetVolume(int volume);
 
 signals:
+    void applicationShouldQuit();
     void fileOpened(QUrl what);
     void severalFilesOpened(QList<QUrl> what);
     void dvdbdOpened(QUrl what);

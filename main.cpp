@@ -45,6 +45,7 @@ Flow::Flow(QObject *owner) :
     playbackManager->setPlaylistWindow(mainWindow->playlistWindow());
 
     settingsWindow = new SettingsWindow();
+    settingsWindow->setWindowModality(Qt::WindowModal);
     s.fromVMap(storage.readVMap("settings"));
 
     // mainwindow -> manager
@@ -121,9 +122,11 @@ Flow::Flow(QObject *owner) :
     connect(playbackManager, &PlaybackManager::decoderFramedropsChanged,
             mainWindow, &MainWindow::setDecoderFramedrops);
 
-    // mainwindow -> this.settings
+    // mainwindow -> this
     connect(mainWindow, &MainWindow::optionsOpenRequested,
             this, &Flow::mainwindow_optionsOpenRequested);
+    connect(mainWindow, &MainWindow::applicationShouldQuit,
+            this, &Flow::mainwindow_applicationShouldQuit);
 
     // settings -> this
     connect(settingsWindow, &SettingsWindow::settingsData,
@@ -176,6 +179,11 @@ QStringList Flow::makePayload() const
 {
     return QStringList() << QDir::currentPath()
                          << QCoreApplication::arguments().mid(1);
+}
+
+void Flow::mainwindow_applicationShouldQuit()
+{
+    qApp->quit();
 }
 
 void Flow::mainwindow_optionsOpenRequested()

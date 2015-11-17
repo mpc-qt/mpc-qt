@@ -57,6 +57,12 @@ PlaylistWindow *MainWindow::playlistWindow()
     return playlistWindow_;
 }
 
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    event->accept();
+    emit applicationShouldQuit();
+}
+
 QMediaSlider *MainWindow::positionSlider()
 {
     return positionSlider_;
