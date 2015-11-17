@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
 
     QCoreApplication::setOrganizationDomain("cmdrkotori.mpc-qt");
     QApplication a(argc, argv);
+    a.setWindowIcon(QIcon(":/images/bitmaps/icon.png"));
 
     // Qt sets the locale in the QApplication constructor, but libmpv requires
     // the LC_NUMERIC category to be set to "C", so change it back.

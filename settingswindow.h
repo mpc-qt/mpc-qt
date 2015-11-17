@@ -8,8 +8,7 @@
 
 class settings {
 public:
-    explicit settings() : logoLocation(), subtitleTracks(), audioTracks(), subsFont()
-    {}
+    explicit settings() {}
     // Player page
     enum OpenMode { OpenSame, OpenInNew };
     OpenMode playerOpenMode;
