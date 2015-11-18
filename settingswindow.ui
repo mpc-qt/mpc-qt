@@ -129,7 +129,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>9</number>
+          <number>8</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -4299,7 +4299,7 @@ media file played</string>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Resample autio to match video (Drop frames)</string>
+                  <string>Resample audio to match video (may drop frames)</string>
                  </property>
                 </item>
                 <item>
