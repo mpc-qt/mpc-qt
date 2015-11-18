@@ -229,6 +229,12 @@ bool MpvWidget::eofReached()
     return result;
 }
 
+void MpvWidget::setSubsAreGray(bool yes)
+{
+    if (!mpv) return;
+    mpv_set_option(mpv, "sub-gray", MPV_FORMAT_FLAG, &yes);
+}
+
 double MpvWidget::playLength()
 {
     return playLength_;
@@ -483,6 +489,7 @@ void MpvWidget::takeSettings(const settings &s)
     }
     qDebug() << "set advanced command line " << cmdline.join(':');
     setVOCommandLine(cmdline.join(':'));
+    setSubsAreGray(s.subtitlesInGrayscale);
 
     this->s = s;
 }

@@ -40,6 +40,7 @@ public:
     QString mpvVersion();
     void setVolume(int64_t volume);
     bool eofReached();
+    void setSubsAreGray(bool yes);
 
     // These query the tracked video state
     double playLength();

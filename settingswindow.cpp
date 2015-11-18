@@ -494,6 +494,8 @@ settings SettingsWindow::buildSettings() {
     s.dscaleScalar = (settings::ScaleScalar)(ui->dscaleScalar->currentIndex() - 1);
     s.cscaleScalar = (settings::ScaleScalar)ui->cscaleScalar->currentIndex();
     s.tscaleScalar = (settings::TimeScalar)ui->tscaleScalar->currentIndex();
+
+    s.subtitlesInGrayscale = ui->subtitlesForceGrayscale->isChecked();
     return s;
 }
 
@@ -512,6 +514,8 @@ void SettingsWindow::takeSettings(const settings &s)
     ui->dscaleScalar->setCurrentIndex(s.dscaleScalar + 1);
     ui->cscaleScalar->setCurrentIndex(s.cscaleScalar);
     ui->tscaleScalar->setCurrentIndex(s.tscaleScalar);
+
+    ui->subtitlesForceGrayscale->setChecked(s.subtitlesInGrayscale);
 
     on_prescalarMethod_currentIndexChanged(s.prescalar);
     on_audioRenderer_currentIndexChanged(s.audioRenderer);
