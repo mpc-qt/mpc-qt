@@ -461,6 +461,16 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->scalingTabs->setCurrentIndex(0);
     ui->prescalarStack->setCurrentIndex(0);
     ui->audioRendererStack->setCurrentIndex(0);
+
+    // Expand every item on pageTree
+    QList<QTreeWidgetItem*> stack;
+    stack.append(ui->pageTree->invisibleRootItem());
+    while (!stack.isEmpty()) {
+        QTreeWidgetItem* item = stack.takeFirst();
+        item->setExpanded(true);
+        for (int i = 0; i < item->childCount(); ++i)
+            stack.push_front(item->child(i));
+    }
 }
 
 SettingsWindow::~SettingsWindow()
