@@ -30,6 +30,7 @@ public:
 private:
     void fireNowPlayingState();
     void startPlayWithUuid(QUrl what, QUuid playlistUuid, QUuid itemUuid);
+    void selectDesiredTracks();
 
 public slots:
     // load functions
@@ -116,6 +117,13 @@ private:
     double mpvLength;
     double mpvSpeed;
     PlaybackState playbackState;
+
+    QList<QPair<int64_t,QString>> videoList;
+    QList<QPair<int64_t,QString>> audioList;
+    QList<QPair<int64_t,QString>> subtitleList;
+    QString videoListSelected;
+    QString audioListSelected;
+    QString subtitleListSelected;
 };
 
 #endif // MANAGER_H

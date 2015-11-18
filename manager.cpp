@@ -96,6 +96,42 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
     emit fireStartPlayingEvent(what, playlistUuid, itemUuid);
 }
 
+void PlaybackManager::selectDesiredTracks()
+{
+    // search current tracks by mangled string of no id and no spaces
+    auto mangle = [](QString s) {
+        return QStringList(s.split(' ').mid(1)).join("");
+    };
+    auto findIdBySecond = [&](QList<QPair<int64_t,QString>> list,
+                                   QString needle) {
+        if (list.isEmpty() || (needle = mangle(needle)).isEmpty())
+            return -1l;
+        for (int i = 0; i < list.count(); i++) {
+            if (mangle(list[i].second) == needle) {
+                return list[i].first;
+            }
+        }
+        return -1l;
+    };
+    int64_t videoId = findIdBySecond(videoList, videoListSelected);
+    int64_t audioId = findIdBySecond(audioList, audioListSelected);
+    int64_t subsId = findIdBySecond(subtitleList, subtitleListSelected);
+    // Set detected tracks; if no preferred track from a list could be found,
+    // clear user selection
+    if (videoId >= 0)
+        setVideoTrack(videoId);
+    else if (!videoList.isEmpty())
+        videoListSelected.clear();
+    if (audioId >= 0)
+        setAudioTrack(audioId);
+    else if (!audioList.isEmpty())
+        audioListSelected.clear();
+    if (subsId >= 0)
+        setSubtitleTrack(subsId);
+    else if (!subtitleList.isEmpty())
+        subtitleListSelected.clear();
+}
+
 void PlaybackManager::openSeveralFiles(QList<QUrl> what, bool important)
 {
     if (important) {
@@ -223,18 +259,29 @@ void PlaybackManager::setPlaybackSpeed(double speed)
     mpvWidget_->showMessage(tr("Speed: %1%").arg(speed*100));
 }
 
+static QString findSecondById(QList<QPair<int64_t,QString>> list, int64_t id) {
+    // this *should* return the string at id-1
+    for (int i = 0; i < list.count(); ++i)
+        if (list[i].first == id)
+            return list[i].second;
+    return QString();
+}
+
 void PlaybackManager::setAudioTrack(int64_t id)
 {
+    audioListSelected = findSecondById(audioList, id);
     mpvWidget_->setAudioTrack(id);
 }
 
 void PlaybackManager::setSubtitleTrack(int64_t id)
 {
+    subtitleListSelected = findSecondById(subtitleList, id);
     mpvWidget_->setSubtitleTrack(id);
 }
 
 void PlaybackManager::setVideoTrack(int64_t id)
 {
+    videoListSelected = findSecondById(videoList, id);
     mpvWidget_->setVideoTrack(id);
 }
 
@@ -340,9 +387,9 @@ void PlaybackManager::mpvw_chaptersChanged(QVariantList chapters)
 
 void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
 {
-    QList<QPair<int64_t,QString>> videoList;
-    QList<QPair<int64_t,QString>> audioList;
-    QList<QPair<int64_t,QString>> subtitleList;
+    videoList.clear();
+    audioList.clear();
+    subtitleList.clear();
     QPair<int64_t,QString> item;
 
     auto str = [](QVariantMap map, QString key) {
@@ -375,6 +422,8 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
     emit videoTracksAvailable(videoList);
     emit audioTracksAvailable(audioList);
     emit subtitleTracksAvailable(subtitleList);
+
+    selectDesiredTracks();
 }
 
 void PlaybackManager::mpvw_videoSizeChanged(QSize size)
