@@ -495,6 +495,9 @@ settings SettingsWindow::buildSettings() {
     s.cscaleScalar = (settings::ScaleScalar)ui->cscaleScalar->currentIndex();
     s.tscaleScalar = (settings::TimeScalar)ui->tscaleScalar->currentIndex();
 
+    s.framedroppingMode = (settings::FramedropMode)ui->framedroppingMode->currentIndex();
+    s.decoderDroppingMode = (settings::DecoderDropMode)ui->framedroppingDecoderMode->currentIndex();
+
     s.subtitlesInGrayscale = ui->subtitlesForceGrayscale->isChecked();
     return s;
 }
@@ -514,6 +517,9 @@ void SettingsWindow::takeSettings(const settings &s)
     ui->dscaleScalar->setCurrentIndex(s.dscaleScalar + 1);
     ui->cscaleScalar->setCurrentIndex(s.cscaleScalar);
     ui->tscaleScalar->setCurrentIndex(s.tscaleScalar);
+
+    ui->framedroppingMode->setCurrentIndex(s.framedroppingMode);
+    ui->framedroppingDecoderMode->setCurrentIndex(s.framedroppingMode);
 
     ui->subtitlesForceGrayscale->setChecked(s.subtitlesInGrayscale);
 
