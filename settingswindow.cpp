@@ -3,8 +3,19 @@
 #include <QDebug>
 #include <QDialogButtonBox>
 
-const char *settings::ditherTypeToText[] = {"fruit", "ordered", "no"};
-
+const char *settings::videoBackendToText[]  = {
+    "auto", "x11", "wayland","x11egl"
+};
+const char *settings::fbDepthToText[][2] = {
+    { "rgb8", "rgba" }, { "rgb10", "rgb10_a2" }, { "rgba12", "rgba12" },
+    { "rgb16", "rgba16" }, { "rgb16f", "rgba16f" }, { "rgb32f", "rgba32f" }
+};
+const char *settings::alphaModeToText[] = {
+    "blend", "yes", "no"
+};
+const char *settings::ditherTypeToText[] = {
+    "fruit", "ordered", "no"
+};
 const char *settings::scaleScalarToText[]  = {
     "bilinear", "bicubic_fast", "oversample", "spline16", "spline36",
     "spline64", "sinc", "lanczos", "gingseng", "jinc", "ewa_lanczos",
@@ -13,11 +24,61 @@ const char *settings::scaleScalarToText[]  = {
     "robidoux", "robidouxsharp", "ewa_robidoux", "ewa_robidouxsharp",
     "box", "nearest", "triangle", "gaussian"
 };
-
+const char *settings::scaleWindowToText[] = {
+    "box", "triable", "bartlett", "hanning", "hamming", "quadric", "welch",
+    "kaiser", "blackman", "gaussian", "sinc", "jinc", "sphinx"
+};
 const char *settings::timeScalarToText[] = {
     "oversample", "spline16", "spline36", "spline64", "sinc", "lanczos",
     "gingseng", "catmull_rom", "mitchell", "robidoux", "robidouxsharp",
     "box", "nearest", "triangle", "gaussian"
+};
+const char *settings::prescalarToText[] = {
+    "none", "superxbr", "needi3"
+};
+const char *settings::nnedi3NeuronsToText[] = {
+    "16", "32", "64", "128"
+};
+const char *settings::nnedi3WindowToText[] = {
+    "8x4", "8x6"
+};
+const char *settings::nnedi3UploadMethodToText[] = {
+    "ubo", "shader"
+};
+const char *settings::targetPrimToText[] = {
+    "auto", "bt.601-525", "bt.601-625", "bt.709", "bt.2020", "bt.470m",
+    "apple", "adobe", "prophoto", "cie1931"
+};
+const char *settings::targetTrcToText[] = {
+    "auto", "by.1886", "srgb", "linear", "gamma1.8", "gamma2.2", "gamma2.8",
+    "prophoto"
+};
+const char *settings::audioRendererToText[] = {
+    "pulse", "alsa", "oss", "null"
+};
+const char *settings::framedropToText[] = {
+    "no", "vo", "decoder", "decoder+vo"
+};
+const char *settings::decoderDropToText[] = {
+    "none", "default", "nonref", "bidir", "nonkey", "all"
+};
+const char *settings::videoSyncToText[] = {
+    "audio", "display-resample", "display-resample-vdrop",
+    "display-resample-desync", "display-adrop", "display-vdrop"
+};
+const char *settings::subtitlePlacementXToText[] = {
+    "left", "center", "right"
+};
+const char *settings::subtitlePlacementYToText[] = {
+    "top", "center", "bottom"
+};
+const char *settings::assOverrideToText[] = {
+    "no", "yes", "force", "signfs"
+};
+const char *settings::subtitleAlignmentToText[][2] = {
+    { "top", "center" }, { "top", "right" }, { "center", "right" },
+    { "bottom", "right" }, { "bottom", "center" }, { "bottom", "left" },
+    { "center", "left" }, { "top", "left" }, { "center", "center" }
 };
 
 Q_DECLARE_METATYPE(settings::ShaderPresetList);
@@ -155,6 +216,7 @@ QVariantMap settings::toVMap()
     STORE_PROP(superxbrEdgeStrength);
     STORE_PROP_T(nnedi3Neurons, int);
     STORE_PROP_T(nnedi3Window, int);
+    STORE_PROP_T(nnedi3UploadMethod, int);
     STORE_PROP(debanding);
     STORE_PROP(debandIterations);
     STORE_PROP(debandThreshold);
@@ -363,6 +425,7 @@ void settings::fromVMap(const QVariantMap &m)
     READ_PROP(superxbrEdgeStrength, 1.0);
     READ_PROP_T(nnedi3Neurons, NeuronsOf32, int);
     READ_PROP_T(nnedi3Window, WindowOf8x4, int);
+    READ_PROP_T(nnedi3UploadMethod, UboUploading, int);
     READ_PROP(debanding, false);
     READ_PROP(debandIterations, 1);
     READ_PROP(debandThreshold, 64.0);

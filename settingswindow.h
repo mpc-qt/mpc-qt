@@ -52,12 +52,15 @@ public:
 
     // Output page
     bool videoIsDumb;
+    static const char *videoBackendToText[];
     enum VideoBackend { AutoBackend, GLXBackend, WaylandBackend, EGLBackend };
     VideoBackend videoBackend;
+    static const char *fbDepthToText[][2];
     enum FBDepth { DepthOf8, DepthOf10, DepthOf12, DepthOf16, DepthOf16F,
                    DepthOf32f };
     FBDepth framebufferDepth;
     bool framebufferAlpha;
+    static const char *alphaModeToText[];
     enum AlphaMode { BlendAlpha, UseAlpha, IgnoreAlpha };
     AlphaMode alphaMode;
     double sharpen;
@@ -100,6 +103,7 @@ public:
     bool scaleAntiRingSet;
     bool scaleBlurSet;
     bool scaleWindowParamSet;
+    static const char *scaleWindowToText[];
     enum ScaleWindow { BoxWindow = 0, TriangleWindow, BartlettWindow,
                        HanningWindow, HammingWindow, QuadricWindow,
                        WelchWindow, KaiserWindow, BlackmanWindow,
@@ -163,6 +167,7 @@ public:
     bool tscaleWindowSet;
     bool tscaleClamp;
 
+    static const char *prescalarToText[];
     enum Prescalar { NoPrescalar, SuperXbr, Nnedi3 };
     Prescalar prescalar;
     int prescalarPasses;
@@ -170,11 +175,15 @@ public:
 
     double superxbrSharpness;
     double superxbrEdgeStrength;
+    static const char *nnedi3NeuronsToText[];
     enum Nnedi3Neurons { NeuronsOf16, NeuronsOf32, NeuronsOf64, NeuronsOf128 };
     Nnedi3Neurons nnedi3Neurons;
+    static const char *nnedi3WindowToText[];
     enum Nnedi3Window { WindowOf8x4, WindowOf8x6 };
     Nnedi3Window nnedi3Window;
+    static const char *nnedi3UploadMethodToText[];
     enum Nnedi3UploadMethod { UboUploading, ShaderUploading };
+    Nnedi3UploadMethod nnedi3UploadMethod;
 
     bool debanding;
     int debandIterations;
@@ -183,16 +192,19 @@ public:
     double debandGrain;
 
     double gamma;
+    static const char *targetPrimToText[];
     enum TargetPrim { AutoPrim, BT470MPrim, BT601525Prim, BT601625Prim,
                       BT709Prim, BT2020Prim, ApplePrim, AdobePrim,
                       ProPhotoPrim, CIE1931Prim };
     TargetPrim targetPrim;
+    static const char *targetTrcToText[];
     enum TargetTrc { AutoTrc, BT1886Trc, sRGBTrc, LinearTrc, Gamma18Trc,
                      Gamma22Trc, Gamma28Trc, ProPhotoTrc };
     TargetTrc targetTrc;
     bool iccAutodetect;
     QString iccLocation;
 
+    static const char *audioRendererToText[];
     enum AudioRenderer { PulseAudio, Alsa, Oss, NullAudio };
     AudioRenderer audioRenderer;
     QString pulseHost;
@@ -247,13 +259,16 @@ public:
     bool restoreXrandrOnExit;
 
     // Sync Page
+    static const char *framedropToText[];
     enum FramedropMode { NeverDrop, VideoDrops, DecoderDrops,
                          DecoderAndVideoDrops };
     FramedropMode framedroppingMode;
+    static const char *decoderDropToText[];
     enum DecoderDropMode { DecoderNeverDrops, DecoderDefault,
                            DropOnNonReferenceFrames, BiDirectionalDrops,
                            DropOnNonKeyFrames, DropAtAnyTime };
     DecoderDropMode decoderDroppingMode;
+    static const char *videoSyncToText[];
     enum SyncMode { SyncToAudio, ResampleAudio, ResampleAudioAndDrop,
                     RepeatVideo, RepeatAudio };
     SyncMode syncMode;
@@ -262,8 +277,10 @@ public:
     double maxVideoChange;
 
     // Subtitles Page
+    static const char *subtitlePlacementXToText[];
     enum SubtitlePlacementX { SubtitlesOnLeft, SubtitlesInCenter,
                               SubtitlesOnRight };
+    static const char *subtitlePlacementYToText[];
     enum SubtitlePlacementY { SubtitlesAtTop, SubtitlesAtCenter,
                               SubtitlesAtBottom };
     SubtitlePlacementX subPlacementX;
@@ -275,6 +292,7 @@ public:
     bool subtitlesInGrayscale;
     bool subtitlesWithFixedTiming;
     bool subtitlesClearOnSeek;
+    static const char *assOverrideToText[];
     enum AssOverride { NoOverride, Override, OverrideOnlyZoomSigns,
                        ForcedOverride };
     AssOverride assOverrideMode;
@@ -286,6 +304,8 @@ public:
     double borderSize;
     double borderShadowOffset;
 
+    // n.b. subtitle alignment is probably redundant to the placement fields
+    static const char *subtitleAlignmentToText[][2];
     enum SubsAlignment { Top, TopRight, Right, BottomRight, Bottom,
                          BottomLeft, Left, TopLeft, Center };
     SubsAlignment subsAlignment;
