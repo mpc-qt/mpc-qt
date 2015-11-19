@@ -560,6 +560,10 @@ settings SettingsWindow::buildSettings() {
 
     s.framedroppingMode = (settings::FramedropMode)ui->framedroppingMode->currentIndex();
     s.decoderDroppingMode = (settings::DecoderDropMode)ui->framedroppingDecoderMode->currentIndex();
+    s.syncMode = (settings::SyncMode)ui->syncMode->currentIndex();
+    s.audioDropSize = ui->syncAudioDropSize->value();
+    s.maxAudioChange = ui->syncMaxAudioChange->value();
+    s.maxVideoChange = ui->syncMaxVideoChange->value();
 
     s.subtitlesInGrayscale = ui->subtitlesForceGrayscale->isChecked();
     return s;
@@ -583,6 +587,9 @@ void SettingsWindow::takeSettings(const settings &s)
 
     ui->framedroppingMode->setCurrentIndex(s.framedroppingMode);
     ui->framedroppingDecoderMode->setCurrentIndex(s.framedroppingMode);
+    ui->syncMode->setCurrentIndex(s.syncMode);
+    ui->syncMaxAudioChange->setValue(s.maxAudioChange);
+    ui->syncMaxVideoChange->setValue(s.maxVideoChange);
 
     ui->subtitlesForceGrayscale->setChecked(s.subtitlesInGrayscale);
 
