@@ -41,6 +41,12 @@ public:
     void setVolume(int64_t volume);
     bool eofReached();
     void setSubsAreGray(bool yes);
+    void setFramedropMode(QString mode);
+    void setDecoderDropMode(QString mode);
+    void setDisplaySyncMode(QString mode);
+    void setAudioDropSize(double size);
+    void setMaximumAudioChange(double change);
+    void setMaximumVideoChange(double change);
 
     // These query the tracked video state
     double playLength();

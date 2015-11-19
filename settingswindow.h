@@ -268,7 +268,7 @@ public:
                            DropOnNonReferenceFrames, BiDirectionalDrops,
                            DropOnNonKeyFrames, DropAtAnyTime };
     DecoderDropMode decoderDroppingMode;
-    static const char *videoSyncToText[];
+    static const char *syncModeToText[];
     enum SyncMode { SyncToAudio, ResampleAudio, ResampleAudioAndDrop,
                     RepeatVideo, RepeatAudio };
     SyncMode syncMode;

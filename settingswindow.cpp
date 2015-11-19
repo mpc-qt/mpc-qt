@@ -62,7 +62,7 @@ const char *settings::framedropToText[] = {
 const char *settings::decoderDropToText[] = {
     "none", "default", "nonref", "bidir", "nonkey", "all"
 };
-const char *settings::videoSyncToText[] = {
+const char *settings::syncModeToText[] = {
     "audio", "display-resample", "display-resample-vdrop",
     "display-resample-desync", "display-adrop", "display-vdrop"
 };

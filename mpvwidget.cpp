@@ -66,13 +66,8 @@ MpvWidget::MpvWidget(QWidget *parent) :
     // the callback to relay the wakeup in a thread-safe way.
     mpv_set_wakeup_callback(mpv, wakeup, this);
 
-    // For me.
+    // Initialize non-managed settings
     mpv_set_option_string(mpv, "vo","opengl-cb");
-    mpv_set_option_string(mpv, "vo_cmdline",
-                          "scale=ewa_lanczossharp:cscale=ewa_lanczossharp:"
-                          "tscale=robidoux:interpolation:"
-                          "deband:dither-depth=auto");
-    mpv_set_option_string(mpv, "video-sync", "display-resample");
     mpv_set_option_string(mpv, "ytdl", "yes");
 
     if (mpv_initialize(mpv) < 0)
@@ -233,6 +228,42 @@ void MpvWidget::setSubsAreGray(bool yes)
 {
     if (!mpv) return;
     mpv_set_option(mpv, "sub-gray", MPV_FORMAT_FLAG, &yes);
+}
+
+void MpvWidget::setFramedropMode(QString mode)
+{
+    if (!mpv) return;
+    mpv_set_option_string(mpv, "framedrop", mode.toUtf8().constData());
+}
+
+void MpvWidget::setDecoderDropMode(QString mode)
+{
+    if (!mpv) return;
+    mpv_set_option_string(mpv, "vd-lavc-framedrop", mode.toUtf8().constData());
+}
+
+void MpvWidget::setDisplaySyncMode(QString mode)
+{
+    if (!mpv) return;
+    mpv_set_option_string(mpv, "video-sync", mode.toUtf8().constData());
+}
+
+void MpvWidget::setAudioDropSize(double size)
+{
+    if (!mpv) return;
+    mpv_set_option(mpv, "video-sync-adrop-size", MPV_FORMAT_DOUBLE, &size);
+}
+
+void MpvWidget::setMaximumAudioChange(double change)
+{
+    if (!mpv) return;
+    mpv_set_option(mpv, "video-sync-max-audio-change", MPV_FORMAT_DOUBLE, &change);
+}
+
+void MpvWidget::setMaximumVideoChange(double change)
+{
+    if (!mpv) return;
+    mpv_set_option(mpv, "video-sync-max-video-change", MPV_FORMAT_DOUBLE, &change);
 }
 
 double MpvWidget::playLength()
@@ -489,6 +520,14 @@ void MpvWidget::takeSettings(const settings &s)
     }
     qDebug() << "set advanced command line " << cmdline.join(':');
     setVOCommandLine(cmdline.join(':'));
+
+    setFramedropMode(settings::framedropToText[s.framedroppingMode]);
+    setDecoderDropMode(settings::decoderDropToText[s.decoderDroppingMode]);
+    setDisplaySyncMode(settings::syncModeToText[s.syncMode]);
+    setAudioDropSize(s.audioDropSize);
+    setMaximumAudioChange(s.maxAudioChange);
+    setMaximumVideoChange(s.maxVideoChange);
+
     setSubsAreGray(s.subtitlesInGrayscale);
 
     this->s = s;
