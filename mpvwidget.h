@@ -66,6 +66,7 @@ private:
 signals:
     void playTimeChanged(double time);
     void playLengthChanged(double length);
+    void playbackPreload();
     void playbackLoading();
     void playbackStarted();
     void pausedChanged(bool yes);
