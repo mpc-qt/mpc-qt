@@ -123,6 +123,28 @@ Flow::Flow(QObject *owner) :
     connect(playbackManager, &PlaybackManager::decoderFramedropsChanged,
             mainWindow, &MainWindow::setDecoderFramedrops);
 
+    // settings -> manager
+    connect(settingsWindow, &SettingsWindow::voCommandLine,
+            playbackManager, &PlaybackManager::setVoCommandLine);
+    connect(settingsWindow, &SettingsWindow::framedropMode,
+            playbackManager, &PlaybackManager::setFramedropMode);
+    connect(settingsWindow, &SettingsWindow::decoderDropMode,
+            playbackManager, &PlaybackManager::setDecoderDropMode);
+    connect(settingsWindow, &SettingsWindow::displaySyncMode,
+            playbackManager, &PlaybackManager::setDisplaySyncMode);
+    connect(settingsWindow, &SettingsWindow::audioDropSize,
+            playbackManager, &PlaybackManager::setAudioDropSize);
+    connect(settingsWindow, &SettingsWindow::maximumAudioChange,
+            playbackManager, &PlaybackManager::setMaximumAudioChange);
+    connect(settingsWindow, &SettingsWindow::maximumVideoChange,
+            playbackManager, &PlaybackManager::setMaximumVideoChange);
+    connect(settingsWindow, &SettingsWindow::subsAreGray,
+            playbackManager, &PlaybackManager::setSubsAreGray);
+
+    // manager -> settings
+    connect(playbackManager, &PlaybackManager::playerSettingsRequested,
+            settingsWindow, &SettingsWindow::sendSignals);
+
     // mainwindow -> this
     connect(mainWindow, &MainWindow::optionsOpenRequested,
             this, &Flow::mainwindow_optionsOpenRequested);
@@ -138,6 +160,9 @@ Flow::Flow(QObject *owner) :
             this, &Flow::importPlaylist);
     connect(mainWindow->playlistWindow(), &PlaylistWindow::exportPlaylist,
             this, &Flow::exportPlaylist);
+
+    // update player framework
+    settingsWindow->sendSignals();
 }
 
 Flow::~Flow()

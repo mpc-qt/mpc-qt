@@ -297,6 +297,46 @@ void PlaybackManager::setMute(bool muted)
     mpvWidget_->showMessage(muted ? tr("Mute: on") : tr("Mute: off"));
 }
 
+void PlaybackManager::setVoCommandLine(QString s)
+{
+    mpvWidget_->setVOCommandLine(s);
+}
+
+void PlaybackManager::setFramedropMode(QString s)
+{
+    mpvWidget_->setFramedropMode(s);
+}
+
+void PlaybackManager::setDecoderDropMode(QString s)
+{
+    mpvWidget_->setDecoderDropMode(s);
+}
+
+void PlaybackManager::setDisplaySyncMode(QString s)
+{
+    mpvWidget_->setDisplaySyncMode(s);
+}
+
+void PlaybackManager::setAudioDropSize(double d)
+{
+    mpvWidget_->setAudioDropSize(d);
+}
+
+void PlaybackManager::setMaximumAudioChange(double d)
+{
+    mpvWidget_->setMaximumAudioChange(d);
+}
+
+void PlaybackManager::setMaximumVideoChange(double d)
+{
+    mpvWidget_->setMaximumVideoChange(d);
+}
+
+void PlaybackManager::setSubsAreGray(bool flag)
+{
+    mpvWidget_->setSubsAreGray(flag);
+}
+
 void PlaybackManager::mpvw_startPlaying(QUrl what, QUuid playlistUuid, QUuid itemUuid)
 {
     mpvWidget_->fileOpen(what.isLocalFile() ? what.toLocalFile()
@@ -330,6 +370,7 @@ void PlaybackManager::mpvw_playbackStarted()
 {
     playbackState = PlayingState;
     emit stateChanged(playbackState);
+    emit playerSettingsRequested();
 }
 
 void PlaybackManager::mpvw_pausedChanged(bool yes)

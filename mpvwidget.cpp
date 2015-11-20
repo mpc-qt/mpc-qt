@@ -113,7 +113,6 @@ void MpvWidget::fileOpen(QString filename)
     const QByteArray c_filename = filename.toUtf8();
     const char *args[] = {"loadfile", c_filename.data(), NULL};
     mpv_command_async(mpv, 0, args);
-    emit playbackPreload();
     setPaused(false);
 }
 
@@ -138,6 +137,7 @@ void MpvWidget::stepForward()
 
 void MpvWidget::setVOCommandLine(QString cmdline)
 {
+    qDebug() << "got advanced command line " << cmdline;
     const char *data[] = { "vo-cmdline", cmdline.toUtf8().constData(), NULL };
     mpv_command(mpv, data);
 }

@@ -64,6 +64,16 @@ public slots:
     void setVolume(int64_t volume);
     void setMute(bool muted);
 
+    // settings functions
+    void setVoCommandLine(QString s);
+    void setFramedropMode(QString s);
+    void setDecoderDropMode(QString s);
+    void setDisplaySyncMode(QString s);
+    void setAudioDropSize(double d);
+    void setMaximumAudioChange(double d);
+    void setMaximumVideoChange(double d);
+    void setSubsAreGray(bool flag);
+
 private slots:
     void mpvw_startPlaying(QUrl what, QUuid playlistUuid, QUuid itemUuid);
 
@@ -86,6 +96,7 @@ private slots:
     void playlistw_itemDesired(QUuid playlistUuid, QUuid itemUuid);
 
 signals:
+    void playerSettingsRequested();
     void timeChanged(double time, double length);
     void titleChanged(QString title);
     void chapterTitleChanged(QString title);
