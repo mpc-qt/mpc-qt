@@ -3,20 +3,20 @@
 #include <QDebug>
 #include <QDialogButtonBox>
 
-const char *settings::videoBackendToText[]  = {
+const char *Settings::videoBackendToText[]  = {
     "auto", "x11", "wayland","x11egl"
 };
-const char *settings::fbDepthToText[][2] = {
+const char *Settings::fbDepthToText[][2] = {
     { "rgb8", "rgba" }, { "rgb10", "rgb10_a2" }, { "rgba12", "rgba12" },
     { "rgb16", "rgba16" }, { "rgb16f", "rgba16f" }, { "rgb32f", "rgba32f" }
 };
-const char *settings::alphaModeToText[] = {
+const char *Settings::alphaModeToText[] = {
     "blend", "yes", "no"
 };
-const char *settings::ditherTypeToText[] = {
+const char *Settings::ditherTypeToText[] = {
     "fruit", "ordered", "no"
 };
-const char *settings::scaleScalarToText[]  = {
+const char *Settings::scaleScalarToText[]  = {
     "bilinear", "bicubic_fast", "oversample", "spline16", "spline36",
     "spline64", "sinc", "lanczos", "gingseng", "jinc", "ewa_lanczos",
     "ewa_hanning", "ewa_gingseng", "ewa_lanczossharp", "ewa_lanczossoft",
@@ -24,65 +24,65 @@ const char *settings::scaleScalarToText[]  = {
     "robidoux", "robidouxsharp", "ewa_robidoux", "ewa_robidouxsharp",
     "box", "nearest", "triangle", "gaussian"
 };
-const char *settings::scaleWindowToText[] = {
+const char *Settings::scaleWindowToText[] = {
     "box", "triable", "bartlett", "hanning", "hamming", "quadric", "welch",
     "kaiser", "blackman", "gaussian", "sinc", "jinc", "sphinx"
 };
-const char *settings::timeScalarToText[] = {
+const char *Settings::timeScalarToText[] = {
     "oversample", "spline16", "spline36", "spline64", "sinc", "lanczos",
     "gingseng", "catmull_rom", "mitchell", "robidoux", "robidouxsharp",
     "box", "nearest", "triangle", "gaussian"
 };
-const char *settings::prescalarToText[] = {
+const char *Settings::prescalarToText[] = {
     "none", "superxbr", "needi3"
 };
-const char *settings::nnedi3NeuronsToText[] = {
+const char *Settings::nnedi3NeuronsToText[] = {
     "16", "32", "64", "128"
 };
-const char *settings::nnedi3WindowToText[] = {
+const char *Settings::nnedi3WindowToText[] = {
     "8x4", "8x6"
 };
-const char *settings::nnedi3UploadMethodToText[] = {
+const char *Settings::nnedi3UploadMethodToText[] = {
     "ubo", "shader"
 };
-const char *settings::targetPrimToText[] = {
+const char *Settings::targetPrimToText[] = {
     "auto", "bt.601-525", "bt.601-625", "bt.709", "bt.2020", "bt.470m",
     "apple", "adobe", "prophoto", "cie1931"
 };
-const char *settings::targetTrcToText[] = {
+const char *Settings::targetTrcToText[] = {
     "auto", "by.1886", "srgb", "linear", "gamma1.8", "gamma2.2", "gamma2.8",
     "prophoto"
 };
-const char *settings::audioRendererToText[] = {
+const char *Settings::audioRendererToText[] = {
     "pulse", "alsa", "oss", "null"
 };
-const char *settings::framedropToText[] = {
+const char *Settings::framedropToText[] = {
     "no", "vo", "decoder", "decoder+vo"
 };
-const char *settings::decoderDropToText[] = {
+const char *Settings::decoderDropToText[] = {
     "none", "default", "nonref", "bidir", "nonkey", "all"
 };
-const char *settings::syncModeToText[] = {
+const char *Settings::syncModeToText[] = {
     "audio", "display-resample", "display-resample-vdrop",
     "display-resample-desync", "display-adrop", "display-vdrop"
 };
-const char *settings::subtitlePlacementXToText[] = {
+const char *Settings::subtitlePlacementXToText[] = {
     "left", "center", "right"
 };
-const char *settings::subtitlePlacementYToText[] = {
+const char *Settings::subtitlePlacementYToText[] = {
     "top", "center", "bottom"
 };
-const char *settings::assOverrideToText[] = {
+const char *Settings::assOverrideToText[] = {
     "no", "yes", "force", "signfs"
 };
-const char *settings::subtitleAlignmentToText[][2] = {
+const char *Settings::subtitleAlignmentToText[][2] = {
     { "top", "center" }, { "top", "right" }, { "center", "right" },
     { "bottom", "right" }, { "bottom", "center" }, { "bottom", "left" },
     { "center", "left" }, { "top", "left" }, { "center", "center" }
 };
 
-Q_DECLARE_METATYPE(settings::ShaderPresetList);
-Q_DECLARE_METATYPE(settings::XrandrModeList);
+Q_DECLARE_METATYPE(Settings::ShaderPresetList);
+Q_DECLARE_METATYPE(Settings::XrandrModeList);
 #define STORE_PROP(X) m[__STRING(X)] = qVariantFromValue(X)
 #define STORE_PROP_T(X,Y) m[__STRING(X)] = qVariantFromValue((Y)X);
 #define READ_PROP(X,Y) \
@@ -96,7 +96,7 @@ Q_DECLARE_METATYPE(settings::XrandrModeList);
     else \
         X = Y;
 
-QVariantMap settings::toVMap()
+QVariantMap Settings::toVMap()
 {
     QVariantMap m;
     STORE_PROP_T(playerOpenMode, int);
@@ -305,7 +305,7 @@ QVariantMap settings::toVMap()
     return m;
 }
 
-void settings::fromVMap(const QVariantMap &m)
+void Settings::fromVMap(const QVariantMap &m)
 {
     READ_PROP_T(playerOpenMode, OpenSame, int);
     READ_PROP(useTrayIcon, false);
@@ -541,26 +541,26 @@ SettingsWindow::~SettingsWindow()
     delete ui;
 }
 
-settings SettingsWindow::buildSettings() {
-    settings s;
+Settings SettingsWindow::buildSettings() {
+    Settings s;
     s.videoIsDumb = ui->videoDumbMode->isChecked();
     s.temporalInterpolation = ui->scalingTemporalInterpolation->isChecked();
     s.blendSubtitles = ui->scalingBlendSubtitles->isChecked();
     s.dither = ui->ditherDithering->isChecked();
     s.ditherDepth = ui->ditherDepth->value();
-    s.ditherType = (settings::DitherType)ui->ditherType->currentIndex();
+    s.ditherType = (Settings::DitherType)ui->ditherType->currentIndex();
     s.ditherFruitSize = ui->ditherFruitSize->value();
     s.temporalDither = ui->ditherTemporal->isChecked();
     s.temporalPeriod = ui->ditherTemporalPeriod->value();
     s.debanding = ui->debandEnabled->isChecked();
-    s.scaleScalar = (settings::ScaleScalar)ui->scaleScalar->currentIndex();
-    s.dscaleScalar = (settings::ScaleScalar)(ui->dscaleScalar->currentIndex() - 1);
-    s.cscaleScalar = (settings::ScaleScalar)ui->cscaleScalar->currentIndex();
-    s.tscaleScalar = (settings::TimeScalar)ui->tscaleScalar->currentIndex();
+    s.scaleScalar = (Settings::ScaleScalar)ui->scaleScalar->currentIndex();
+    s.dscaleScalar = (Settings::ScaleScalar)(ui->dscaleScalar->currentIndex() - 1);
+    s.cscaleScalar = (Settings::ScaleScalar)ui->cscaleScalar->currentIndex();
+    s.tscaleScalar = (Settings::TimeScalar)ui->tscaleScalar->currentIndex();
 
-    s.framedroppingMode = (settings::FramedropMode)ui->framedroppingMode->currentIndex();
-    s.decoderDroppingMode = (settings::DecoderDropMode)ui->framedroppingDecoderMode->currentIndex();
-    s.syncMode = (settings::SyncMode)ui->syncMode->currentIndex();
+    s.framedroppingMode = (Settings::FramedropMode)ui->framedroppingMode->currentIndex();
+    s.decoderDroppingMode = (Settings::DecoderDropMode)ui->framedroppingDecoderMode->currentIndex();
+    s.syncMode = (Settings::SyncMode)ui->syncMode->currentIndex();
     s.audioDropSize = ui->syncAudioDropSize->value();
     s.maxAudioChange = ui->syncMaxAudioChange->value();
     s.maxVideoChange = ui->syncMaxVideoChange->value();
@@ -569,7 +569,7 @@ settings SettingsWindow::buildSettings() {
     return s;
 }
 
-void SettingsWindow::takeSettings(const settings &s)
+void SettingsWindow::takeSettings(const Settings &s)
 {
     ui->videoDumbMode->setChecked(s.videoIsDumb);
     ui->scalingTemporalInterpolation->setChecked(s.temporalInterpolation);

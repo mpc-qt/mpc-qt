@@ -206,7 +206,7 @@ void Flow::process_payloadRecieved(const QStringList &payload)
     }
 }
 
-void Flow::settingswindow_settingsData(const settings &s)
+void Flow::settingswindow_settingsData(const Settings &s)
 {
     this->s = s;
     mainWindow->mpvWidget()->takeSettings(s);

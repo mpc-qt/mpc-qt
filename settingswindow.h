@@ -6,9 +6,9 @@
 #include <QAbstractButton>
 #include <QVariantMap>
 
-struct settings {
+struct Settings {
 public:
-    explicit settings() {}
+    explicit Settings() {}
     // Player page
     enum OpenMode { OpenSame, OpenInNew };
     OpenMode playerOpenMode;
@@ -356,13 +356,13 @@ public:
     ~SettingsWindow();
 
 private:
-    settings buildSettings();
+    Settings buildSettings();
 
 signals:
-    void settingsData(const settings &s);
+    void settingsData(const Settings &s);
 
 public slots:
-    void takeSettings(const settings &s);
+    void takeSettings(const Settings &s);
 
 private slots:
     void on_pageTree_itemSelectionChanged();

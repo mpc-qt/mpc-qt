@@ -477,7 +477,7 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
     }
 }
 
-void MpvWidget::takeSettings(const settings &s)
+void MpvWidget::takeSettings(const Settings &s)
 {
     QMap<QString,QString> params;
     QStringList cmdline;
@@ -485,11 +485,11 @@ void MpvWidget::takeSettings(const settings &s)
         setVOCommandLine("dumb-mode");
         return;
     }
-    params["scale"] = settings::scaleScalarToText[s.scaleScalar];
-    params["cscale"] = settings::scaleScalarToText[s.cscaleScalar];
-    if (s.dscaleScalar != settings::Unset)
-        params["dscale"] = settings::scaleScalarToText[s.dscaleScalar];
-    params["tscale"] = settings::timeScalarToText[s.tscaleScalar];
+    params["scale"] = Settings::scaleScalarToText[s.scaleScalar];
+    params["cscale"] = Settings::scaleScalarToText[s.cscaleScalar];
+    if (s.dscaleScalar != Settings::Unset)
+        params["dscale"] = Settings::scaleScalarToText[s.dscaleScalar];
+    params["tscale"] = Settings::timeScalarToText[s.tscaleScalar];
     if (s.temporalInterpolation)
         params["interpolation"] = QString();
     if (s.blendSubtitles)
@@ -500,7 +500,7 @@ void MpvWidget::takeSettings(const settings &s)
         params["dither-depth"] = s.ditherDepth ?
                     QString::number(s.ditherDepth) :
                     "auto";
-        params["dither"] = settings::ditherTypeToText[s.ditherType];
+        params["dither"] = Settings::ditherTypeToText[s.ditherType];
         if (s.ditherFruitSize)
             params["dither-size-fruit"] = QString::number(s.ditherFruitSize);
     }
@@ -521,9 +521,9 @@ void MpvWidget::takeSettings(const settings &s)
     qDebug() << "set advanced command line " << cmdline.join(':');
     setVOCommandLine(cmdline.join(':'));
 
-    setFramedropMode(settings::framedropToText[s.framedroppingMode]);
-    setDecoderDropMode(settings::decoderDropToText[s.decoderDroppingMode]);
-    setDisplaySyncMode(settings::syncModeToText[s.syncMode]);
+    setFramedropMode(Settings::framedropToText[s.framedroppingMode]);
+    setDecoderDropMode(Settings::decoderDropToText[s.decoderDroppingMode]);
+    setDisplaySyncMode(Settings::syncModeToText[s.syncMode]);
     setAudioDropSize(s.audioDropSize);
     setMaximumAudioChange(s.maxAudioChange);
     setMaximumVideoChange(s.maxVideoChange);

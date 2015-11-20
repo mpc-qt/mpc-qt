@@ -81,7 +81,7 @@ signals:
     void decoderFramedropsChanged(int64_t cout);
 
 public slots:
-    void takeSettings(const settings &s);
+    void takeSettings(const Settings &s);
 
 private slots:
     void mpvEvents();
@@ -101,7 +101,7 @@ private:
     QRectF logoLocation;
     QString logoUrl;
 
-    settings s;
+    Settings s;
 };
 
 #endif // MPVWIDGET_H
