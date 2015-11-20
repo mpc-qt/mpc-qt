@@ -477,62 +477,6 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
     }
 }
 
-void MpvWidget::takeSettings(const Settings &s)
-{
-    QMap<QString,QString> params;
-    QStringList cmdline;
-    if (s.videoIsDumb) {
-        setVOCommandLine("dumb-mode");
-        return;
-    }
-    params["scale"] = Settings::scaleScalarToText[s.scaleScalar];
-    params["cscale"] = Settings::scaleScalarToText[s.cscaleScalar];
-    if (s.dscaleScalar != Settings::Unset)
-        params["dscale"] = Settings::scaleScalarToText[s.dscaleScalar];
-    params["tscale"] = Settings::timeScalarToText[s.tscaleScalar];
-    if (s.temporalInterpolation)
-        params["interpolation"] = QString();
-    if (s.blendSubtitles)
-        params["blend-subtitles"] = QString();
-    if (s.debanding)
-        params["deband"] = QString();
-    if (s.dither) {
-        params["dither-depth"] = s.ditherDepth ?
-                    QString::number(s.ditherDepth) :
-                    "auto";
-        params["dither"] = Settings::ditherTypeToText[s.ditherType];
-        if (s.ditherFruitSize)
-            params["dither-size-fruit"] = QString::number(s.ditherFruitSize);
-    }
-    if (s.temporalDither) {
-        params["temporal-dither"] = QString();
-        params["temporal-dither-period"] = QString::number(s.temporalPeriod);
-    }
-
-    QMapIterator<QString,QString> i(params);
-    while (i.hasNext()) {
-        i.next();
-        if (!i.value().isEmpty()) {
-            cmdline.append(QString("%1=%2").arg(i.key(),i.value()));
-        } else {
-            cmdline.append(i.key());
-        }
-    }
-    qDebug() << "set advanced command line " << cmdline.join(':');
-    setVOCommandLine(cmdline.join(':'));
-
-    setFramedropMode(Settings::framedropToText[s.framedroppingMode]);
-    setDecoderDropMode(Settings::decoderDropToText[s.decoderDroppingMode]);
-    setDisplaySyncMode(Settings::syncModeToText[s.syncMode]);
-    setAudioDropSize(s.audioDropSize);
-    setMaximumAudioChange(s.maxAudioChange);
-    setMaximumVideoChange(s.maxVideoChange);
-
-    setSubsAreGray(s.subtitlesInGrayscale);
-
-    this->s = s;
-}
-
 void MpvWidget::mpvEvents()
 {
     // Process all events, until the event queue is empty.

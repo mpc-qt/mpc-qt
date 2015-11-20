@@ -81,9 +81,6 @@ signals:
     void displayFramedropsChanged(int64_t count);
     void decoderFramedropsChanged(int64_t cout);
 
-public slots:
-    void takeSettings(const Settings &s);
-
 private slots:
     void mpvEvents();
     void self_frameSwapped();
@@ -101,8 +98,6 @@ private:
     QOpenGLTexture *logo;
     QRectF logoLocation;
     QString logoUrl;
-
-    Settings s;
 };
 
 #endif // MPVWIDGET_H

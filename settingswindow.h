@@ -356,13 +356,23 @@ public:
     ~SettingsWindow();
 
 private:
-    Settings buildSettings();
+    void updateAcceptedSettings();
 
 signals:
     void settingsData(const Settings &s);
 
+    void voCommandLine(const QString &s);
+    void framedropMode(const QString &s);
+    void decoderDropMode(const QString &s);
+    void displaySyncMode(const QString &s);
+    void audioDropSize(double d);
+    void maximumAudioChange(double d);
+    void maximumVideoChange(double d);
+    void subsAreGray(bool flag);
+
 public slots:
     void takeSettings(const Settings &s);
+    void sendSignals();
 
 private slots:
     void on_pageTree_itemSelectionChanged();
@@ -377,7 +387,7 @@ private slots:
 
 private:
     Ui::SettingsWindow *ui;
-
+    Settings acceptedSettings;
 };
 
 #endif // SETTINGSWINDOW_H

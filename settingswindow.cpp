@@ -541,7 +541,7 @@ SettingsWindow::~SettingsWindow()
     delete ui;
 }
 
-Settings SettingsWindow::buildSettings() {
+void SettingsWindow::updateAcceptedSettings() {
     Settings s;
     s.videoIsDumb = ui->videoDumbMode->isChecked();
     s.temporalInterpolation = ui->scalingTemporalInterpolation->isChecked();
@@ -566,7 +566,7 @@ Settings SettingsWindow::buildSettings() {
     s.maxVideoChange = ui->syncMaxVideoChange->value();
 
     s.subtitlesInGrayscale = ui->subtitlesForceGrayscale->isChecked();
-    return s;
+    acceptedSettings = s;
 }
 
 void SettingsWindow::takeSettings(const Settings &s)
@@ -596,6 +596,57 @@ void SettingsWindow::takeSettings(const Settings &s)
     on_prescalarMethod_currentIndexChanged(s.prescalar);
     on_audioRenderer_currentIndexChanged(s.audioRenderer);
     on_videoDumbMode_toggled(s.videoIsDumb);
+
+    acceptedSettings = s;
+}
+
+void SettingsWindow::sendSignals()
+{
+    QMap<QString,QString> params;
+    QStringList cmdline;
+    params["scale"] = Settings::scaleScalarToText[acceptedSettings.scaleScalar];
+    params["cscale"] = Settings::scaleScalarToText[acceptedSettings.cscaleScalar];
+    if (acceptedSettings.dscaleScalar != Settings::Unset)
+        params["dscale"] = Settings::scaleScalarToText[acceptedSettings.dscaleScalar];
+    params["tscale"] = Settings::timeScalarToText[acceptedSettings.tscaleScalar];
+    if (acceptedSettings.temporalInterpolation)
+        params["interpolation"] = QString();
+    if (acceptedSettings.blendSubtitles)
+        params["blend-subtitles"] = QString();
+    if (acceptedSettings.debanding)
+        params["deband"] = QString();
+    if (acceptedSettings.dither) {
+        params["dither-depth"] = acceptedSettings.ditherDepth ?
+                    QString::number(acceptedSettings.ditherDepth) :
+                    "auto";
+        params["dither"] = Settings::ditherTypeToText[acceptedSettings.ditherType];
+        if (acceptedSettings.ditherFruitSize)
+            params["dither-size-fruit"] = QString::number(acceptedSettings.ditherFruitSize);
+    }
+    if (acceptedSettings.temporalDither) {
+        params["temporal-dither"] = QString();
+        params["temporal-dither-period"] = QString::number(acceptedSettings.temporalPeriod);
+    }
+
+    QMapIterator<QString,QString> i(params);
+    while (i.hasNext()) {
+        i.next();
+        if (!i.value().isEmpty()) {
+            cmdline.append(QString("%1=%2").arg(i.key(),i.value()));
+        } else {
+            cmdline.append(i.key());
+        }
+    }
+    voCommandLine(acceptedSettings.videoIsDumb ? "dumb-mode"
+                                               : cmdline.join(':'));
+
+    framedropMode(Settings::framedropToText[acceptedSettings.framedroppingMode]);
+    decoderDropMode(Settings::decoderDropToText[acceptedSettings.decoderDroppingMode]);
+    displaySyncMode(Settings::syncModeToText[acceptedSettings.syncMode]);
+    audioDropSize(acceptedSettings.audioDropSize);
+    maximumAudioChange(acceptedSettings.maxAudioChange);
+    maximumVideoChange(acceptedSettings.maxVideoChange);
+    subsAreGray(acceptedSettings.subtitlesInGrayscale);
 }
 
 void SettingsWindow::on_pageTree_itemSelectionChanged()
@@ -620,8 +671,10 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
     QDialogButtonBox::ButtonRole buttonRole;
     buttonRole = ui->buttonBox->buttonRole(button);
     if (buttonRole == QDialogButtonBox::ApplyRole ||
-            buttonRole == QDialogButtonBox::AcceptRole) {
-        emit settingsData(buildSettings());
+            buttonRole == QDialogButtonBox::AcceptRole) {\
+        updateAcceptedSettings();
+        emit settingsData(acceptedSettings);
+        sendSignals();
     }
     if (buttonRole == QDialogButtonBox::AcceptRole ||
             buttonRole == QDialogButtonBox::RejectRole)
