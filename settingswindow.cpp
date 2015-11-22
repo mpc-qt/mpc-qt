@@ -542,7 +542,7 @@ SettingsWindow::~SettingsWindow()
 }
 
 void SettingsWindow::updateAcceptedSettings() {
-    Settings s = acceptedSettings;
+    Settings &s = acceptedSettings;
     s.videoIsDumb = ui->videoDumbMode->isChecked();
 
     s.videoBackend = (Settings::VideoBackend)ui->videoBackend->currentIndex();
@@ -636,7 +636,6 @@ void SettingsWindow::updateAcceptedSettings() {
     s.maxVideoChange = ui->syncMaxVideoChange->value();
 
     s.subtitlesInGrayscale = ui->subtitlesForceGrayscale->isChecked();
-    acceptedSettings = s;
 }
 
 void SettingsWindow::takeSettings(const Settings &s)
