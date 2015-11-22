@@ -558,8 +558,13 @@ void SettingsWindow::updateAcceptedSettings() {
     s.temporalDither = ui->ditherTemporal->isChecked();
     s.temporalPeriod = ui->ditherTemporalPeriod->value();
 
+    s.downscaleCorrectly = ui->scalingCorrectDownscaling->isChecked();
+    s.scaleInLinearLight = ui->scalingInLinearLight->isChecked();
     s.temporalInterpolation = ui->scalingTemporalInterpolation->isChecked();
     s.blendSubtitles = ui->scalingBlendSubtitles->isChecked();
+    s.sigmoidizedUpscaling = ui->scalingSigmoidizedUpscaling->isChecked();
+    s.sigmoidCenter = ui->sigmoidizedCenter->value();
+    s.sigmoidSlope = ui->sigmoidizedSlope->value();
 
     s.scaleScalar = (Settings::ScaleScalar)ui->scaleScalar->currentIndex();
     s.scaleParam1 = ui->scaleParam1Value->value();
@@ -650,8 +655,13 @@ void SettingsWindow::takeSettings(const Settings &s)
     ui->ditherTemporal->setChecked(s.temporalDither);
     ui->ditherTemporalPeriod->setValue(s.temporalPeriod);
 
+    ui->scalingCorrectDownscaling->setChecked(s.downscaleCorrectly);
+    ui->scalingInLinearLight->setChecked(s.scaleInLinearLight);
     ui->scalingTemporalInterpolation->setChecked(s.temporalInterpolation);
     ui->scalingBlendSubtitles->setChecked(s.blendSubtitles);
+    ui->scalingSigmoidizedUpscaling->setChecked(s.sigmoidizedUpscaling);
+    ui->sigmoidizedCenter->setValue(s.sigmoidCenter);
+    ui->sigmoidizedSlope->setValue(s.sigmoidSlope);
 
     ui->scaleScalar->setCurrentIndex(s.scaleScalar);
     ui->scaleParam1Value->setValue(s.scaleParam1);
@@ -761,10 +771,19 @@ void SettingsWindow::sendSignals()
         params["temporal-dither-period"] = QString::number(acceptedSettings.temporalPeriod);
     }
 
+    if (acceptedSettings.downscaleCorrectly)
+        params["correct-downscaling"] = QString();
+    if (acceptedSettings.scaleInLinearLight)
+        params["linear-scaling"] = QString();
     if (acceptedSettings.temporalInterpolation)
         params["interpolation"] = QString();
     if (acceptedSettings.blendSubtitles)
         params["blend-subtitles"] = QString();
+    if (acceptedSettings.sigmoidizedUpscaling) {
+        params["sigmoid-upscaling"] = QString();
+        params["sigmoid-center"] = QString::number(acceptedSettings.sigmoidCenter);
+        params["sigmoid-slope"] = QString::number(acceptedSettings.sigmoidSlope);
+    }
 
     params["scale"] = Settings::scaleScalarToText[acceptedSettings.scaleScalar];
     if (acceptedSettings.scaleParam1Set)
