@@ -544,6 +544,13 @@ SettingsWindow::~SettingsWindow()
 void SettingsWindow::updateAcceptedSettings() {
     Settings s = acceptedSettings;
     s.videoIsDumb = ui->videoDumbMode->isChecked();
+
+    s.videoBackend = (Settings::VideoBackend)ui->videoBackend->currentIndex();
+    s.framebufferDepth = (Settings::FBDepth)ui->videoFramebuffer->currentIndex();
+    s.framebufferAlpha = ui->videoUseAlpha->isChecked();
+    s.alphaMode = (Settings::AlphaMode)ui->videoAlphaMode->currentIndex();
+    s.sharpen = ui->videoSharpen->value();
+
     s.temporalInterpolation = ui->scalingTemporalInterpolation->isChecked();
     s.blendSubtitles = ui->scalingBlendSubtitles->isChecked();
     s.dither = ui->ditherDithering->isChecked();
@@ -628,6 +635,13 @@ void SettingsWindow::updateAcceptedSettings() {
 void SettingsWindow::takeSettings(const Settings &s)
 {
     ui->videoDumbMode->setChecked(s.videoIsDumb);
+
+    ui->videoBackend->setCurrentIndex(s.videoBackend);
+    ui->videoFramebuffer->setCurrentIndex(s.framebufferDepth);
+    ui->videoUseAlpha->setChecked(s.framebufferAlpha);
+    ui->videoAlphaMode->setCurrentIndex(s.alphaMode);
+    ui->videoSharpen->setValue(s.sharpen);
+
     ui->scalingTemporalInterpolation->setChecked(s.temporalInterpolation);
     ui->scalingBlendSubtitles->setChecked(s.blendSubtitles);
     ui->ditherDepth->setValue(s.ditherDepth);
@@ -815,6 +829,10 @@ void SettingsWindow::sendSignals()
         params["temporal-dither"] = QString();
         params["temporal-dither-period"] = QString::number(acceptedSettings.temporalPeriod);
     }
+    params["backend"] = Settings::videoBackendToText[acceptedSettings.videoBackend];
+    params["fbo-format"] = Settings::fbDepthToText[acceptedSettings.framebufferDepth][acceptedSettings.framebufferAlpha];
+    params["alpha"] = Settings::alphaModeToText[acceptedSettings.alphaMode];
+    params["sharpen"] = QString::number(acceptedSettings.sharpen);
 
     QMapIterator<QString,QString> i(params);
     while (i.hasNext()) {

@@ -780,7 +780,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -910,7 +910,7 @@ media file played</string>
                    </widget>
                   </item>
                   <item row="3" column="1">
-                   <widget class="QDoubleSpinBox" name="doubleSpinBox_37">
+                   <widget class="QDoubleSpinBox" name="videoSharpen">
                     <property name="specialValueText">
                      <string>Disabled</string>
                     </property>
@@ -1129,7 +1129,7 @@ media file played</string>
                   <item>
                    <widget class="QTabWidget" name="scalingTabs">
                     <property name="currentIndex">
-                     <number>1</number>
+                     <number>0</number>
                     </property>
                     <widget class="QWidget" name="scaleOptionsTab">
                      <attribute name="title">
