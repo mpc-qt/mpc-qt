@@ -551,15 +551,15 @@ void SettingsWindow::updateAcceptedSettings() {
     s.alphaMode = (Settings::AlphaMode)ui->videoAlphaMode->currentIndex();
     s.sharpen = ui->videoSharpen->value();
 
-    s.temporalInterpolation = ui->scalingTemporalInterpolation->isChecked();
-    s.blendSubtitles = ui->scalingBlendSubtitles->isChecked();
     s.dither = ui->ditherDithering->isChecked();
     s.ditherDepth = ui->ditherDepth->value();
     s.ditherType = (Settings::DitherType)ui->ditherType->currentIndex();
     s.ditherFruitSize = ui->ditherFruitSize->value();
     s.temporalDither = ui->ditherTemporal->isChecked();
     s.temporalPeriod = ui->ditherTemporalPeriod->value();
-    s.debanding = ui->debandEnabled->isChecked();
+
+    s.temporalInterpolation = ui->scalingTemporalInterpolation->isChecked();
+    s.blendSubtitles = ui->scalingBlendSubtitles->isChecked();
 
     s.scaleScalar = (Settings::ScaleScalar)ui->scaleScalar->currentIndex();
     s.scaleParam1 = ui->scaleParam1Value->value();
@@ -621,6 +621,8 @@ void SettingsWindow::updateAcceptedSettings() {
     s.tscaleWindowSet = ui->tscaleWindowSet->isChecked();
     s.tscaleClamp = ui->tscaleClamp->isChecked();
 
+    s.debanding = ui->debandEnabled->isChecked();
+
     s.framedroppingMode = (Settings::FramedropMode)ui->framedroppingMode->currentIndex();
     s.decoderDroppingMode = (Settings::DecoderDropMode)ui->framedroppingDecoderMode->currentIndex();
     s.syncMode = (Settings::SyncMode)ui->syncMode->currentIndex();
@@ -642,14 +644,14 @@ void SettingsWindow::takeSettings(const Settings &s)
     ui->videoAlphaMode->setCurrentIndex(s.alphaMode);
     ui->videoSharpen->setValue(s.sharpen);
 
-    ui->scalingTemporalInterpolation->setChecked(s.temporalInterpolation);
-    ui->scalingBlendSubtitles->setChecked(s.blendSubtitles);
     ui->ditherDepth->setValue(s.ditherDepth);
     ui->ditherType->setCurrentIndex(s.ditherType);
     ui->ditherFruitSize->setValue(s.ditherFruitSize);
     ui->ditherTemporal->setChecked(s.temporalDither);
     ui->ditherTemporalPeriod->setValue(s.temporalPeriod);
-    ui->debandEnabled->setChecked(s.debanding);
+
+    ui->scalingTemporalInterpolation->setChecked(s.temporalInterpolation);
+    ui->scalingBlendSubtitles->setChecked(s.blendSubtitles);
 
     ui->scaleScalar->setCurrentIndex(s.scaleScalar);
     ui->scaleParam1Value->setValue(s.scaleParam1);
@@ -719,6 +721,8 @@ void SettingsWindow::takeSettings(const Settings &s)
     ui->tscaleWindowSet->setChecked(s.tscaleWindowSet);
     ui->tscaleClamp->setChecked(s.tscaleClamp);
 
+    ui->debandEnabled->setChecked(s.debanding);
+
     ui->framedroppingMode->setCurrentIndex(s.framedroppingMode);
     ui->framedroppingDecoderMode->setCurrentIndex(s.framedroppingMode);
     ui->syncMode->setCurrentIndex(s.syncMode);
@@ -738,6 +742,30 @@ void SettingsWindow::sendSignals()
 {
     QMap<QString,QString> params;
     QStringList cmdline;
+
+    params["backend"] = Settings::videoBackendToText[acceptedSettings.videoBackend];
+    params["fbo-format"] = Settings::fbDepthToText[acceptedSettings.framebufferDepth][acceptedSettings.framebufferAlpha];
+    params["alpha"] = Settings::alphaModeToText[acceptedSettings.alphaMode];
+    params["sharpen"] = QString::number(acceptedSettings.sharpen);
+
+    if (acceptedSettings.dither) {
+        params["dither-depth"] = acceptedSettings.ditherDepth ?
+                    QString::number(acceptedSettings.ditherDepth) :
+                    "auto";
+        params["dither"] = Settings::ditherTypeToText[acceptedSettings.ditherType];
+        if (acceptedSettings.ditherFruitSize)
+            params["dither-size-fruit"] = QString::number(acceptedSettings.ditherFruitSize);
+    }
+    if (acceptedSettings.temporalDither) {
+        params["temporal-dither"] = QString();
+        params["temporal-dither-period"] = QString::number(acceptedSettings.temporalPeriod);
+    }
+
+    if (acceptedSettings.temporalInterpolation)
+        params["interpolation"] = QString();
+    if (acceptedSettings.blendSubtitles)
+        params["blend-subtitles"] = QString();
+
     params["scale"] = Settings::scaleScalarToText[acceptedSettings.scaleScalar];
     if (acceptedSettings.scaleParam1Set)
         params["scale-param1"] = QString::number(acceptedSettings.scaleParam1);
@@ -811,28 +839,8 @@ void SettingsWindow::sendSignals()
     if (acceptedSettings.tscaleClamp)
         params["tscale-clamp"] = QString();
 
-    if (acceptedSettings.temporalInterpolation)
-        params["interpolation"] = QString();
-    if (acceptedSettings.blendSubtitles)
-        params["blend-subtitles"] = QString();
     if (acceptedSettings.debanding)
         params["deband"] = QString();
-    if (acceptedSettings.dither) {
-        params["dither-depth"] = acceptedSettings.ditherDepth ?
-                    QString::number(acceptedSettings.ditherDepth) :
-                    "auto";
-        params["dither"] = Settings::ditherTypeToText[acceptedSettings.ditherType];
-        if (acceptedSettings.ditherFruitSize)
-            params["dither-size-fruit"] = QString::number(acceptedSettings.ditherFruitSize);
-    }
-    if (acceptedSettings.temporalDither) {
-        params["temporal-dither"] = QString();
-        params["temporal-dither-period"] = QString::number(acceptedSettings.temporalPeriod);
-    }
-    params["backend"] = Settings::videoBackendToText[acceptedSettings.videoBackend];
-    params["fbo-format"] = Settings::fbDepthToText[acceptedSettings.framebufferDepth][acceptedSettings.framebufferAlpha];
-    params["alpha"] = Settings::alphaModeToText[acceptedSettings.alphaMode];
-    params["sharpen"] = QString::number(acceptedSettings.sharpen);
 
     QMapIterator<QString,QString> i(params);
     while (i.hasNext()) {
