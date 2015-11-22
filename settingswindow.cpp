@@ -542,7 +542,7 @@ SettingsWindow::~SettingsWindow()
 }
 
 void SettingsWindow::updateAcceptedSettings() {
-    Settings s;
+    Settings s = acceptedSettings;
     s.videoIsDumb = ui->videoDumbMode->isChecked();
     s.temporalInterpolation = ui->scalingTemporalInterpolation->isChecked();
     s.blendSubtitles = ui->scalingBlendSubtitles->isChecked();
@@ -553,10 +553,66 @@ void SettingsWindow::updateAcceptedSettings() {
     s.temporalDither = ui->ditherTemporal->isChecked();
     s.temporalPeriod = ui->ditherTemporalPeriod->value();
     s.debanding = ui->debandEnabled->isChecked();
+
     s.scaleScalar = (Settings::ScaleScalar)ui->scaleScalar->currentIndex();
+    s.scaleParam1 = ui->scaleParam1Value->value();
+    s.scaleParam2 = ui->scaleParam2Value->value();
+    s.scaleAntiRing = ui->scaleAntiRingValue->value();
+    s.scaleBlur = ui->scaleBlurValue->value();
+    s.scaleWindowParam = ui->scaleWindowParamValue->value();
+    s.scaleWindow = (Settings::ScaleWindow)ui->scaleWindowValue->currentIndex();
+    s.scaleParam1Set = ui->scaleParam1Set->isChecked();
+    s.scaleParam2Set = ui->scaleParam2Set->isChecked();
+    s.scaleAntiRingSet = ui->scaleAntiRingSet->isChecked();
+    s.scaleBlurSet = ui->scaleBlurSet->isChecked();
+    s.scaleWindowParamSet = ui->scaleWindowParamSet->isChecked();
+    s.scaleWindowSet = ui->scaleWindowSet->isChecked();
+    s.scaleClamp = ui->scaleClamp->isChecked();
+
     s.dscaleScalar = (Settings::ScaleScalar)(ui->dscaleScalar->currentIndex() - 1);
+    s.dscaleParam1 = ui->dscaleParam1Value->value();
+    s.dscaleParam2 = ui->dscaleParam2Value->value();
+    s.dscaleAntiRing = ui->dscaleAntiRingValue->value();
+    s.dscaleBlur = ui->dscaleBlurValue->value();
+    s.dscaleWindowParam = ui->dscaleWindowParamValue->value();
+    s.dscaleWindow = (Settings::ScaleWindow)ui->dscaleWindowValue->currentIndex();
+    s.dscaleParam1Set = ui->dscaleParam1Set->isChecked();
+    s.dscaleParam2Set = ui->dscaleParam2Set->isChecked();
+    s.dscaleAntiRingSet = ui->dscaleAntiRingSet->isChecked();
+    s.dscaleBlurSet = ui->dscaleBlurSet->isChecked();
+    s.dscaleWindowParamSet = ui->dscaleWindowParamSet->isChecked();
+    s.dscaleWindowSet = ui->dscaleWindowSet->isChecked();
+    s.dscaleClamp = ui->dscaleClamp->isChecked();
+
     s.cscaleScalar = (Settings::ScaleScalar)ui->cscaleScalar->currentIndex();
+    s.cscaleParam1 = ui->cscaleParam1Value->value();
+    s.cscaleParam2 = ui->cscaleParam2Value->value();
+    s.cscaleAntiRing = ui->cscaleAntiRingValue->value();
+    s.cscaleBlur = ui->cscaleBlurValue->value();
+    s.cscaleWindowParam = ui->cscaleWindowParamValue->value();
+    s.cscaleWindow = (Settings::ScaleWindow)ui->cscaleWindowValue->currentIndex();
+    s.cscaleParam1Set = ui->cscaleParam1Set->isChecked();
+    s.cscaleParam2Set = ui->cscaleParam2Set->isChecked();
+    s.cscaleAntiRingSet = ui->cscaleAntiRingSet->isChecked();
+    s.cscaleBlurSet = ui->cscaleBlurSet->isChecked();
+    s.cscaleWindowParamSet = ui->cscaleWindowParamSet->isChecked();
+    s.cscaleWindowSet = ui->cscaleWindowSet->isChecked();
+    s.cscaleClamp = ui->cscaleClamp->isChecked();
+
     s.tscaleScalar = (Settings::TimeScalar)ui->tscaleScalar->currentIndex();
+    s.tscaleParam1 = ui->tscaleParam1Value->value();
+    s.tscaleParam2 = ui->tscaleParam2Value->value();
+    s.tscaleAntiRing = ui->tscaleAntiRingValue->value();
+    s.tscaleBlur = ui->tscaleBlurValue->value();
+    s.tscaleWindowParam = ui->tscaleWindowParamValue->value();
+    s.tscaleWindow = (Settings::ScaleWindow)ui->tscaleWindowValue->currentIndex();
+    s.tscaleParam1Set = ui->tscaleParam1Set->isChecked();
+    s.tscaleParam2Set = ui->tscaleParam2Set->isChecked();
+    s.tscaleAntiRingSet = ui->tscaleAntiRingSet->isChecked();
+    s.tscaleBlurSet = ui->tscaleBlurSet->isChecked();
+    s.tscaleWindowParamSet = ui->tscaleWindowParamSet->isChecked();
+    s.tscaleWindowSet = ui->tscaleWindowSet->isChecked();
+    s.tscaleClamp = ui->tscaleClamp->isChecked();
 
     s.framedroppingMode = (Settings::FramedropMode)ui->framedroppingMode->currentIndex();
     s.decoderDroppingMode = (Settings::DecoderDropMode)ui->framedroppingDecoderMode->currentIndex();
@@ -580,10 +636,74 @@ void SettingsWindow::takeSettings(const Settings &s)
     ui->ditherTemporal->setChecked(s.temporalDither);
     ui->ditherTemporalPeriod->setValue(s.temporalPeriod);
     ui->debandEnabled->setChecked(s.debanding);
+
     ui->scaleScalar->setCurrentIndex(s.scaleScalar);
+    ui->scaleParam1Value->setValue(s.scaleParam1);
+    ui->scaleParam2Value->setValue(s.scaleParam2);
+    ui->scaleRadiusValue->setValue(s.scaleRadius);
+    ui->scaleAntiRingValue->setValue(s.scaleAntiRing);
+    ui->scaleBlurValue->setValue(s.scaleBlur);
+    ui->scaleWindowParamValue->setValue(s.scaleWindowParam);
+    ui->scaleWindowValue->setCurrentIndex(s.scaleWindow);
+    ui->scaleParam1Set->setChecked(s.scaleParam1Set);
+    ui->scaleParam2Set->setChecked(s.scaleParam2Set);
+    ui->scaleRadiusSet->setChecked(s.scaleRadiusSet);
+    ui->scaleAntiRingSet->setChecked(s.scaleAntiRingSet);
+    ui->scaleBlurSet->setChecked(s.scaleBlurSet);
+    ui->scaleWindowParamSet->setChecked(s.scaleWindowParamSet);
+    ui->scaleWindowSet->setChecked(s.scaleWindowSet);
+    ui->scaleClamp->setChecked(s.scaleClamp);
+
     ui->dscaleScalar->setCurrentIndex(s.dscaleScalar + 1);
+    ui->dscaleParam1Value->setValue(s.dscaleParam1);
+    ui->dscaleParam2Value->setValue(s.dscaleParam2);
+    ui->dscaleRadiusValue->setValue(s.dscaleRadius);
+    ui->dscaleAntiRingValue->setValue(s.dscaleAntiRing);
+    ui->dscaleBlurValue->setValue(s.dscaleBlur);
+    ui->dscaleWindowParamValue->setValue(s.dscaleWindowParam);
+    ui->dscaleWindowValue->setCurrentIndex(s.dscaleWindow);
+    ui->dscaleParam1Set->setChecked(s.dscaleParam1Set);
+    ui->dscaleParam2Set->setChecked(s.dscaleParam2Set);
+    ui->dscaleRadiusSet->setChecked(s.dscaleRadiusSet);
+    ui->dscaleAntiRingSet->setChecked(s.dscaleAntiRingSet);
+    ui->dscaleBlurSet->setChecked(s.dscaleBlurSet);
+    ui->dscaleWindowParamSet->setChecked(s.dscaleWindowParamSet);
+    ui->dscaleWindowSet->setChecked(s.dscaleWindowSet);
+    ui->dscaleClamp->setChecked(s.dscaleClamp);
+
     ui->cscaleScalar->setCurrentIndex(s.cscaleScalar);
+    ui->cscaleParam1Value->setValue(s.cscaleParam1);
+    ui->cscaleParam2Value->setValue(s.cscaleParam2);
+    ui->cscaleRadiusValue->setValue(s.cscaleRadius);
+    ui->cscaleAntiRingValue->setValue(s.cscaleAntiRing);
+    ui->cscaleBlurValue->setValue(s.cscaleBlur);
+    ui->cscaleWindowParamValue->setValue(s.cscaleWindowParam);
+    ui->cscaleWindowValue->setCurrentIndex(s.cscaleWindow);
+    ui->cscaleParam1Set->setChecked(s.cscaleParam1Set);
+    ui->cscaleParam2Set->setChecked(s.cscaleParam2Set);
+    ui->cscaleRadiusSet->setChecked(s.cscaleRadiusSet);
+    ui->cscaleAntiRingSet->setChecked(s.cscaleAntiRingSet);
+    ui->cscaleBlurSet->setChecked(s.cscaleBlurSet);
+    ui->cscaleWindowParamSet->setChecked(s.cscaleWindowParamSet);
+    ui->cscaleWindowSet->setChecked(s.cscaleWindowSet);
+    ui->cscaleClamp->setChecked(s.cscaleClamp);
+
     ui->tscaleScalar->setCurrentIndex(s.tscaleScalar);
+    ui->tscaleParam1Value->setValue(s.tscaleParam1);
+    ui->tscaleParam2Value->setValue(s.tscaleParam2);
+    ui->tscaleRadiusValue->setValue(s.tscaleRadius);
+    ui->tscaleAntiRingValue->setValue(s.tscaleAntiRing);
+    ui->tscaleBlurValue->setValue(s.tscaleBlur);
+    ui->tscaleWindowParamValue->setValue(s.tscaleWindowParam);
+    ui->tscaleWindowValue->setCurrentIndex(s.tscaleWindow);
+    ui->tscaleParam1Set->setChecked(s.tscaleParam1Set);
+    ui->tscaleParam2Set->setChecked(s.tscaleParam2Set);
+    ui->tscaleRadiusSet->setChecked(s.tscaleRadiusSet);
+    ui->tscaleAntiRingSet->setChecked(s.tscaleAntiRingSet);
+    ui->tscaleBlurSet->setChecked(s.tscaleBlurSet);
+    ui->tscaleWindowParamSet->setChecked(s.tscaleWindowParamSet);
+    ui->tscaleWindowSet->setChecked(s.tscaleWindowSet);
+    ui->tscaleClamp->setChecked(s.tscaleClamp);
 
     ui->framedroppingMode->setCurrentIndex(s.framedroppingMode);
     ui->framedroppingDecoderMode->setCurrentIndex(s.framedroppingMode);
@@ -605,10 +725,78 @@ void SettingsWindow::sendSignals()
     QMap<QString,QString> params;
     QStringList cmdline;
     params["scale"] = Settings::scaleScalarToText[acceptedSettings.scaleScalar];
-    params["cscale"] = Settings::scaleScalarToText[acceptedSettings.cscaleScalar];
+    if (acceptedSettings.scaleParam1Set)
+        params["scale-param1"] = QString::number(acceptedSettings.scaleParam1);
+    if (acceptedSettings.scaleParam2Set)
+        params["scale-param2"] = QString::number(acceptedSettings.scaleParam2);
+    if (acceptedSettings.scaleRadiusSet)
+        params["scale-radius"] = QString::number(acceptedSettings.scaleRadius);
+    if (acceptedSettings.scaleAntiRingSet)
+        params["scale-antiring"] = QString::number(acceptedSettings.scaleAntiRing);
+    if (acceptedSettings.scaleBlurSet)
+        params["scale-blur"] = QString::number(acceptedSettings.scaleBlur);
+    if (acceptedSettings.scaleWindowParamSet)
+        params["scale-wparam"] = QString::number(acceptedSettings.scaleWindowParam);
+    if (acceptedSettings.scaleWindowSet)
+        params["scale-window"] = Settings::scaleWindowToText[acceptedSettings.scaleWindow];
+    if (acceptedSettings.scaleClamp)
+        params["scale-clamp"] = QString();
+
     if (acceptedSettings.dscaleScalar != Settings::Unset)
         params["dscale"] = Settings::scaleScalarToText[acceptedSettings.dscaleScalar];
+    if (acceptedSettings.dscaleParam1Set)
+        params["dscale-param1"] = QString::number(acceptedSettings.dscaleParam1);
+    if (acceptedSettings.dscaleParam2Set)
+        params["dscale-param2"] = QString::number(acceptedSettings.dscaleParam2);
+    if (acceptedSettings.dscaleRadiusSet)
+        params["dscale-radius"] = QString::number(acceptedSettings.dscaleRadius);
+    if (acceptedSettings.dscaleAntiRingSet)
+        params["dscale-antiring"] = QString::number(acceptedSettings.dscaleAntiRing);
+    if (acceptedSettings.dscaleBlurSet)
+        params["dscale-blur"] = QString::number(acceptedSettings.dscaleBlur);
+    if (acceptedSettings.dscaleWindowParamSet)
+        params["dscale-wparam"] = QString::number(acceptedSettings.dscaleWindowParam);
+    if (acceptedSettings.dscaleWindowSet)
+        params["dscale-window"] = Settings::scaleWindowToText[acceptedSettings.dscaleWindow];
+    if (acceptedSettings.dscaleClamp)
+        params["dscale-clamp"] = QString();
+
+    params["cscale"] = Settings::scaleScalarToText[acceptedSettings.cscaleScalar];
+    if (acceptedSettings.cscaleParam1Set)
+        params["cscale-param1"] = QString::number(acceptedSettings.cscaleParam1);
+    if (acceptedSettings.cscaleParam2Set)
+        params["cscale-param2"] = QString::number(acceptedSettings.cscaleParam2);
+    if (acceptedSettings.cscaleRadiusSet)
+        params["cscale-radius"] = QString::number(acceptedSettings.cscaleRadius);
+    if (acceptedSettings.cscaleAntiRingSet)
+        params["cscale-antiring"] = QString::number(acceptedSettings.cscaleAntiRing);
+    if (acceptedSettings.cscaleBlurSet)
+        params["cscale-blur"] = QString::number(acceptedSettings.cscaleBlur);
+    if (acceptedSettings.cscaleWindowParamSet)
+        params["cscale-wparam"] = QString::number(acceptedSettings.cscaleWindowParam);
+    if (acceptedSettings.cscaleWindowSet)
+        params["cscale-window"] = Settings::scaleWindowToText[acceptedSettings.cscaleWindow];
+    if (acceptedSettings.cscaleClamp)
+        params["cscale-clamp"] = QString();
+
     params["tscale"] = Settings::timeScalarToText[acceptedSettings.tscaleScalar];
+    if (acceptedSettings.tscaleParam1Set)
+        params["tscale-param1"] = QString::number(acceptedSettings.tscaleParam1);
+    if (acceptedSettings.tscaleParam2Set)
+        params["tscale-param2"] = QString::number(acceptedSettings.tscaleParam2);
+    if (acceptedSettings.tscaleRadiusSet)
+        params["tscale-radius"] = QString::number(acceptedSettings.tscaleRadius);
+    if (acceptedSettings.tscaleAntiRingSet)
+        params["tscale-antiring"] = QString::number(acceptedSettings.tscaleAntiRing);
+    if (acceptedSettings.tscaleBlurSet)
+        params["tscale-blur"] = QString::number(acceptedSettings.tscaleBlur);
+    if (acceptedSettings.tscaleWindowParamSet)
+        params["tscale-wparam"] = QString::number(acceptedSettings.tscaleWindowParam);
+    if (acceptedSettings.tscaleWindowSet)
+        params["tscale-window"] = Settings::scaleWindowToText[acceptedSettings.tscaleWindow];
+    if (acceptedSettings.tscaleClamp)
+        params["tscale-clamp"] = QString();
+
     if (acceptedSettings.temporalInterpolation)
         params["interpolation"] = QString();
     if (acceptedSettings.blendSubtitles)

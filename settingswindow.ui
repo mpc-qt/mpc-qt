@@ -129,7 +129,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>8</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -497,7 +497,7 @@ media file played</string>
               <item>
                <widget class="QRadioButton" name="playbackRepeatForever">
                 <property name="text">
-                 <string>Repeat &amp;forever</string>
+                 <string>Repeat fore&amp;ver</string>
                 </property>
                </widget>
               </item>
@@ -1129,7 +1129,7 @@ media file played</string>
                   <item>
                    <widget class="QTabWidget" name="scalingTabs">
                     <property name="currentIndex">
-                     <number>0</number>
+                     <number>1</number>
                     </property>
                     <widget class="QWidget" name="scaleOptionsTab">
                      <attribute name="title">
@@ -1322,7 +1322,7 @@ media file played</string>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
+                         <widget class="QDoubleSpinBox" name="scaleRadiusValue">
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -1941,7 +1941,7 @@ media file played</string>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QDoubleSpinBox" name="dcsaleParam2Value">
+                         <widget class="QDoubleSpinBox" name="dscaleParam2Value">
                           <property name="decimals">
                            <number>6</number>
                           </property>
