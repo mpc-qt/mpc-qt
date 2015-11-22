@@ -627,6 +627,10 @@ void SettingsWindow::updateAcceptedSettings() {
     s.tscaleClamp = ui->tscaleClamp->isChecked();
 
     s.debanding = ui->debandEnabled->isChecked();
+    s.debandIterations = ui->debandIterations->value();
+    s.debandThreshold = ui->debandThreshold->value();
+    s.debandRange = ui->debandRange->value();
+    s.debandGrain = ui->debandGrain->value();
 
     s.framedroppingMode = (Settings::FramedropMode)ui->framedroppingMode->currentIndex();
     s.decoderDroppingMode = (Settings::DecoderDropMode)ui->framedroppingDecoderMode->currentIndex();
@@ -731,6 +735,10 @@ void SettingsWindow::takeSettings(const Settings &s)
     ui->tscaleClamp->setChecked(s.tscaleClamp);
 
     ui->debandEnabled->setChecked(s.debanding);
+    ui->debandIterations->setValue(s.debandIterations);
+    ui->debandThreshold->setValue(s.debandThreshold);
+    ui->debandRange->setValue(s.debandRange);
+    ui->debandGrain->setValue(s.debandGrain);
 
     ui->framedroppingMode->setCurrentIndex(s.framedroppingMode);
     ui->framedroppingDecoderMode->setCurrentIndex(s.framedroppingMode);
@@ -857,8 +865,13 @@ void SettingsWindow::sendSignals()
     if (acceptedSettings.tscaleClamp)
         params["tscale-clamp"] = QString();
 
-    if (acceptedSettings.debanding)
+    if (acceptedSettings.debanding) {
         params["deband"] = QString();
+        params["deband-iterations"] = QString::number(acceptedSettings.debandIterations);
+        params["deband-threshold"] = QString::number(acceptedSettings.debandThreshold);
+        params["deband-range"] = QString::number(acceptedSettings.debandRange);
+        params["deband-grain"] = QString::number(acceptedSettings.debandGrain);
+    }
 
     QMapIterator<QString,QString> i(params);
     while (i.hasNext()) {
