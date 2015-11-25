@@ -102,9 +102,7 @@ MpvWidget::~MpvWidget()
 void MpvWidget::showMessage(QString message)
 {
     if (!mpv) return;
-    const char *array[4] = { "show_text", message.toUtf8().data(), "1000",
-                             NULL };
-    mpv_command(mpv, array);
+    mpv::qt::command_variant(mpv, QVariantList({"show_text", message, "1000"}));
 }
 
 void MpvWidget::fileOpen(QString filename)
@@ -138,8 +136,7 @@ void MpvWidget::stepForward()
 void MpvWidget::setVOCommandLine(QString cmdline)
 {
     qDebug() << "got advanced command line " << cmdline;
-    const char *data[] = { "vo-cmdline", cmdline.toUtf8().constData(), NULL };
-    mpv_command(mpv, data);
+    mpv::qt::command_variant(mpv, QVariantList({"vo-cmdline", cmdline}));
 }
 
 void MpvWidget::stopPlayback()
