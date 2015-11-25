@@ -191,6 +191,7 @@ public:
     double debandRange;
     double debandGrain;
 
+    bool gammaAutodetect;
     double gamma;
     static const char *targetPrimToText[];
     enum TargetPrim { AutoPrim, BT470MPrim, BT601525Prim, BT601625Prim,

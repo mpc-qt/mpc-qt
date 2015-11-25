@@ -780,7 +780,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>4</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -3283,7 +3283,7 @@ media file played</string>
                  <attribute name="title">
                   <string>Color Correction</string>
                  </attribute>
-                 <layout class="QFormLayout" name="formLayout_26">
+                 <layout class="QFormLayout" name="formLayout_11">
                   <property name="fieldGrowthPolicy">
                    <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
                   </property>
@@ -3295,20 +3295,31 @@ media file played</string>
                    </widget>
                   </item>
                   <item row="0" column="1">
-                   <widget class="QDoubleSpinBox" name="ccGamma">
-                    <property name="decimals">
-                     <number>6</number>
-                    </property>
-                    <property name="minimum">
-                     <double>0.100000000000000</double>
-                    </property>
-                    <property name="maximum">
-                     <double>2.000000000000000</double>
-                    </property>
-                    <property name="value">
-                     <double>1.000000000000000</double>
-                    </property>
-                   </widget>
+                   <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="0,1">
+                    <item>
+                     <widget class="QCheckBox" name="gammaAutodetect">
+                      <property name="text">
+                       <string>Autodetect</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QDoubleSpinBox" name="ccGamma">
+                      <property name="decimals">
+                       <number>6</number>
+                      </property>
+                      <property name="minimum">
+                       <double>0.100000000000000</double>
+                      </property>
+                      <property name="maximum">
+                       <double>2.000000000000000</double>
+                      </property>
+                      <property name="value">
+                       <double>1.000000000000000</double>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </item>
                   <item row="1" column="0">
                    <widget class="QLabel" name="label_138">

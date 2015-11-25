@@ -222,6 +222,7 @@ QVariantMap Settings::toVMap()
     STORE_PROP(debandThreshold);
     STORE_PROP(debandRange);
     STORE_PROP(debandGrain);
+    STORE_PROP(gammaAutodetect);
     STORE_PROP(gamma);
     STORE_PROP_T(targetPrim, int);
     STORE_PROP_T(targetTrc, int);
@@ -431,6 +432,7 @@ void Settings::fromVMap(const QVariantMap &m)
     READ_PROP(debandThreshold, 64.0);
     READ_PROP(debandRange, 16.0);
     READ_PROP(debandGrain, 48.0);
+    READ_PROP(gammaAutodetect, true);
     READ_PROP(gamma, 1.0);
     READ_PROP_T(targetPrim, AutoPrim, int);
     READ_PROP_T(targetTrc, AutoTrc, int);
