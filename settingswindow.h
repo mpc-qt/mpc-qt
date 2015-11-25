@@ -52,9 +52,6 @@ public:
 
     // Output page
     bool videoIsDumb;
-    static const char *videoBackendToText[];
-    enum VideoBackend { AutoBackend, GLXBackend, WaylandBackend, EGLBackend };
-    VideoBackend videoBackend;
     static const char *fbDepthToText[][2];
     enum FBDepth { DepthOf8, DepthOf10, DepthOf12, DepthOf16, DepthOf16F,
                    DepthOf32f };

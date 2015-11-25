@@ -3,9 +3,6 @@
 #include <QDebug>
 #include <QDialogButtonBox>
 
-const char *Settings::videoBackendToText[]  = {
-    "auto", "x11", "wayland","x11egl"
-};
 const char *Settings::fbDepthToText[][2] = {
     { "rgb8", "rgba" }, { "rgb10", "rgb10_a2" }, { "rgba12", "rgba12" },
     { "rgb16", "rgba16" }, { "rgb16f", "rgba16f" }, { "rgb32f", "rgba32f" }
@@ -127,7 +124,6 @@ QVariantMap Settings::toVMap()
     STORE_PROP(audioBalance);
     STORE_PROP(audioVolume);
     STORE_PROP(videoIsDumb);
-    STORE_PROP_T(videoBackend, int);
     STORE_PROP_T(framebufferDepth, int);
     STORE_PROP(framebufferAlpha);
     STORE_PROP_T(alphaMode, int);
@@ -337,7 +333,6 @@ void Settings::fromVMap(const QVariantMap &m)
     READ_PROP(audioBalance,0);
     READ_PROP(audioVolume, 100);
     READ_PROP(videoIsDumb, false);
-    READ_PROP_T(videoBackend, AutoBackend, int);
     READ_PROP_T(framebufferDepth, DepthOf16, int);
     READ_PROP(framebufferAlpha, false);
     READ_PROP_T(alphaMode, BlendAlpha, int);
@@ -547,7 +542,6 @@ void SettingsWindow::updateAcceptedSettings() {
     Settings &s = acceptedSettings;
     s.videoIsDumb = ui->videoDumbMode->isChecked();
 
-    s.videoBackend = (Settings::VideoBackend)ui->videoBackend->currentIndex();
     s.framebufferDepth = (Settings::FBDepth)ui->videoFramebuffer->currentIndex();
     s.framebufferAlpha = ui->videoUseAlpha->isChecked();
     s.alphaMode = (Settings::AlphaMode)ui->videoAlphaMode->currentIndex();
@@ -648,7 +642,6 @@ void SettingsWindow::takeSettings(const Settings &s)
 {
     ui->videoDumbMode->setChecked(s.videoIsDumb);
 
-    ui->videoBackend->setCurrentIndex(s.videoBackend);
     ui->videoFramebuffer->setCurrentIndex(s.framebufferDepth);
     ui->videoUseAlpha->setChecked(s.framebufferAlpha);
     ui->videoAlphaMode->setCurrentIndex(s.alphaMode);
@@ -762,7 +755,6 @@ void SettingsWindow::sendSignals()
     QMap<QString,QString> params;
     QStringList cmdline;
 
-    params["backend"] = Settings::videoBackendToText[acceptedSettings.videoBackend];
     params["fbo-format"] = Settings::fbDepthToText[acceptedSettings.framebufferDepth][acceptedSettings.framebufferAlpha];
     params["alpha"] = Settings::alphaModeToText[acceptedSettings.alphaMode];
     params["sharpen"] = QString::number(acceptedSettings.sharpen);

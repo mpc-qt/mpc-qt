@@ -780,7 +780,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>4</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -791,44 +791,13 @@ media file played</string>
                    <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
                   </property>
                   <item row="0" column="0">
-                   <widget class="QLabel" name="label_73">
-                    <property name="text">
-                     <string>Backend</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QComboBox" name="videoBackend">
-                    <item>
-                     <property name="text">
-                      <string>Auto</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>X11/GLX</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>wayland</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>X11/EGL</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
                    <widget class="QLabel" name="label_74">
                     <property name="text">
                      <string>Framebuffer</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="1">
+                  <item row="0" column="1">
                    <layout class="QHBoxLayout" name="horizontalLayout_29">
                     <item>
                      <widget class="QComboBox" name="videoFramebuffer">
@@ -876,14 +845,14 @@ media file played</string>
                     </item>
                    </layout>
                   </item>
-                  <item row="2" column="0">
+                  <item row="1" column="0">
                    <widget class="QLabel" name="label_75">
                     <property name="text">
                      <string>Alpha</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="1">
+                  <item row="1" column="1">
                    <widget class="QComboBox" name="videoAlphaMode">
                     <item>
                      <property name="text">
@@ -902,14 +871,14 @@ media file played</string>
                     </item>
                    </widget>
                   </item>
-                  <item row="3" column="0">
+                  <item row="2" column="0">
                    <widget class="QLabel" name="label_144">
                     <property name="text">
                      <string>Sharpen</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="3" column="1">
+                  <item row="2" column="1">
                    <widget class="QDoubleSpinBox" name="videoSharpen">
                     <property name="specialValueText">
                      <string>Disabled</string>
@@ -922,14 +891,14 @@ media file played</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="0">
+                  <item row="3" column="0">
                    <widget class="QLabel" name="label_141">
                     <property name="text">
                      <string>Presets</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="1">
+                  <item row="3" column="1">
                    <layout class="QHBoxLayout" name="horizontalLayout_58">
                     <item>
                      <widget class="QPushButton" name="videoPresetPlain">
