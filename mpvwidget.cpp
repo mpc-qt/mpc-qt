@@ -28,6 +28,11 @@ MpvWidget::MpvWidget(QWidget *parent) :
     QOpenGLWidget(parent), drawLogo(true), logo(NULL),
     logoUrl(":/images/bitmaps/blank-screen.png")
 {
+#ifdef QT_DEBUG
+    debugMessages = true;
+#else
+    debugMessages = false;
+#endif
     mpv = mpv::qt::Handle::FromRawHandle(mpv_create());
     if (!mpv)
         throw std::runtime_error("[MpvWidget] Can't create mpv instance");
@@ -67,8 +72,8 @@ MpvWidget::MpvWidget(QWidget *parent) :
     mpv_set_wakeup_callback(mpv, wakeup, this);
 
     // Initialize non-managed settings
-    mpv_set_option_string(mpv, "vo","opengl-cb");
-    mpv_set_option_string(mpv, "ytdl", "yes");
+    setMpvOptionString("vo","opengl-cb");
+    setMpvOptionString("ytdl", "yes");
 
     if (mpv_initialize(mpv) < 0)
         throw std::runtime_error("[MpvWidget] mpv failed to initialize");
@@ -149,14 +154,14 @@ int64_t MpvWidget::chapter()
 {
     if (!mpv) return 0;
     int64_t chapter = 0;
-    mpv_get_property(mpv, "chapter", MPV_FORMAT_INT64, &chapter);
+    getMpvProperty("chapter", MPV_FORMAT_INT64, &chapter);
     return chapter;
 }
 
 bool MpvWidget::setChapter(int64_t chapter)
 {
     if (!mpv) return false;
-    return mpv_set_property(mpv, "chapter", MPV_FORMAT_INT64, &chapter) == 0;
+    return setMpvProperty("chapter", MPV_FORMAT_INT64, &chapter) == 0;
 }
 
 QString MpvWidget::mediaTitle()
@@ -167,7 +172,7 @@ QString MpvWidget::mediaTitle()
 void MpvWidget::setMute(bool yes)
 {
     int64_t flag = yes ? 1 : 0;
-    mpv_set_property(mpv, "mute", MPV_FORMAT_FLAG, &flag);
+    setMpvProperty("mute", MPV_FORMAT_FLAG, &flag);
 }
 
 void MpvWidget::setPaused(bool yes)
@@ -179,28 +184,28 @@ void MpvWidget::setPaused(bool yes)
 void MpvWidget::setSpeed(double speed)
 {
     if (!mpv) return;
-    mpv_set_property(mpv, "speed", MPV_FORMAT_DOUBLE, &speed);
+    setMpvProperty("speed", MPV_FORMAT_DOUBLE, &speed);
 }
 
 void MpvWidget::setTime(double position)
 {
     if (!mpv) return;
-    mpv_set_property(mpv, "time-pos", MPV_FORMAT_DOUBLE, &position);
+    setMpvProperty("time-pos", MPV_FORMAT_DOUBLE, &position);
 }
 
 void MpvWidget::setAudioTrack(int64_t id)
 {
-    mpv_set_property(mpv, "aid", MPV_FORMAT_INT64, &id);
+    setMpvProperty("aid", MPV_FORMAT_INT64, &id);
 }
 
 void MpvWidget::setSubtitleTrack(int64_t id)
 {
-    mpv_set_property(mpv, "sid", MPV_FORMAT_INT64, &id);
+    setMpvProperty("sid", MPV_FORMAT_INT64, &id);
 }
 
 void MpvWidget::setVideoTrack(int64_t id)
 {
-    mpv_set_property(mpv, "vid", MPV_FORMAT_INT64, &id);
+    setMpvProperty("vid", MPV_FORMAT_INT64, &id);
 }
 
 QString MpvWidget::mpvVersion()
@@ -211,56 +216,56 @@ QString MpvWidget::mpvVersion()
 void MpvWidget::setVolume(int64_t volume)
 {
     if (!mpv) return;
-    mpv_set_property(mpv, "volume", MPV_FORMAT_INT64, &volume);
+    setMpvProperty("volume", MPV_FORMAT_INT64, &volume);
 }
 
 bool MpvWidget::eofReached()
 {
     bool result = false;
-    mpv_get_property(mpv, "eof-reached", MPV_FORMAT_FLAG, &result);
+    getMpvProperty("eof-reached", MPV_FORMAT_FLAG, &result);
     return result;
 }
 
 void MpvWidget::setSubsAreGray(bool yes)
 {
     if (!mpv) return;
-    mpv_set_option(mpv, "sub-gray", MPV_FORMAT_FLAG, &yes);
+    setMpvOption("sub-gray", MPV_FORMAT_FLAG, &yes);
 }
 
 void MpvWidget::setFramedropMode(QString mode)
 {
     if (!mpv) return;
-    mpv_set_option_string(mpv, "framedrop", mode.toUtf8().constData());
+    setMpvOptionString("framedrop", mode.toUtf8().constData());
 }
 
 void MpvWidget::setDecoderDropMode(QString mode)
 {
     if (!mpv) return;
-    mpv_set_option_string(mpv, "vd-lavc-framedrop", mode.toUtf8().constData());
+    setMpvOptionString("vd-lavc-framedrop", mode.toUtf8().constData());
 }
 
 void MpvWidget::setDisplaySyncMode(QString mode)
 {
     if (!mpv) return;
-    mpv_set_option_string(mpv, "video-sync", mode.toUtf8().constData());
+    setMpvOptionString("video-sync", mode.toUtf8().constData());
 }
 
 void MpvWidget::setAudioDropSize(double size)
 {
     if (!mpv) return;
-    mpv_set_option(mpv, "video-sync-adrop-size", MPV_FORMAT_DOUBLE, &size);
+    setMpvOption("video-sync-adrop-size", MPV_FORMAT_DOUBLE, &size);
 }
 
 void MpvWidget::setMaximumAudioChange(double change)
 {
     if (!mpv) return;
-    mpv_set_option(mpv, "video-sync-max-audio-change", MPV_FORMAT_DOUBLE, &change);
+    setMpvOption("video-sync-max-audio-change", MPV_FORMAT_DOUBLE, &change);
 }
 
 void MpvWidget::setMaximumVideoChange(double change)
 {
     if (!mpv) return;
-    mpv_set_option(mpv, "video-sync-max-video-change", MPV_FORMAT_DOUBLE, &change);
+    setMpvOption("video-sync-max-video-change", MPV_FORMAT_DOUBLE, &change);
 }
 
 double MpvWidget::playLength()
@@ -330,6 +335,8 @@ void MpvWidget::mpvw_update(void *ctx)
 
 QString MpvWidget::getPropertyString(const char *property)
 {
+    if (debugMessages)
+        qDebug() << "get prop string: " << property;
     QString text;
     char *value;
     if (mpv_get_property(mpv, property, MPV_FORMAT_STRING,
@@ -338,6 +345,41 @@ QString MpvWidget::getPropertyString(const char *property)
         mpv_free(value);
     }
     return text;
+}
+
+int MpvWidget::getMpvProperty(const char *name, mpv_format fmt, void *data)
+{
+    if (debugMessages)
+        qDebug() << "get mpv property " << name;
+    return mpv_get_property(mpv, name, fmt, data);
+}
+
+int MpvWidget::setMpvProperty(const char *name, mpv_format fmt, void *data)
+{
+    if (debugMessages)
+        qDebug() << "set mpv property " << name;
+    return mpv_set_property(mpv, name, fmt, data);
+}
+
+int MpvWidget::setMpvOption(const char *name, mpv_format fmt, void *data)
+{
+    if (debugMessages)
+        qDebug() << "set mpv option " << name;
+    return mpv_set_option(mpv, name, fmt, data);
+}
+
+int MpvWidget::setMpvOptionString(const char *name, const char *string)
+{
+    if (debugMessages)
+        qDebug() << "set mpv option str " << name;
+    return mpv_set_option_string(mpv, name, string);
+}
+
+int MpvWidget::setMpvPropertyString(const char *name, const char *string)
+{
+    if (debugMessages)
+        qDebug() << "set mpv property str " << name;
+    return mpv_set_property_string(mpv, name, string);
 }
 
 void MpvWidget::handleMpvEvent(mpv_event *event)
@@ -369,7 +411,8 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
                         dflt : mpv::qt::node_to_variant(
                             reinterpret_cast<mpv_node*>(prop->data));
         };
-
+        if (debugMessages)
+            qDebug() << "prop change " << prop->name;
         // TODO: Refactor this by looking up a map of functions to supported
         // property changes.
         if (strcmp(prop->name, "time-pos") == 0) {
@@ -400,6 +443,8 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
             // Dump other properties as various formats for development
             // purposes.  Eventually this will never be called as more control
             // features are implemented.
+            if (!debugMessages)
+                break;
             QString msg = QString("Change property %1: %2").
                     arg(QString(prop->name));
             if (prop->data == NULL) {
@@ -423,49 +468,53 @@ void MpvWidget::handleMpvEvent(mpv_event *event)
         break;
     }
     case MPV_EVENT_VIDEO_RECONFIG: {
+        if (debugMessages)
+            qDebug() << "video reconfig";
         // Retrieve the new video size.
         int64_t w, h;
-        if (mpv_get_property(mpv, "width", MPV_FORMAT_INT64, &w) >= 0 &&
-            mpv_get_property(mpv, "height", MPV_FORMAT_INT64, &h) >= 0 &&
+        if (getMpvProperty("width", MPV_FORMAT_INT64, &w) >= 0 &&
+            getMpvProperty("height", MPV_FORMAT_INT64, &h) >= 0 &&
             w > 0 && h > 0)
         {
             videoSize_.setWidth(w);
             videoSize_.setHeight(h);
-
-            // Note that the MPV_EVENT_VIDEO_RECONFIG event doesn't
-            // necessarily imply a resize, and you should check yourself if
-            // the video dimensions really changed.  This would happen for
-            // example when playing back an mkv file that refers to other
-            // videos.
-            // mpv itself will scale/letter box the video to the container
-            // size if the video doesn't fit and automatic zooming is not
-            // active.
-            videoSizeChanged(videoSize_);
+            if (lastVideoSize != videoSize_)
+                videoSizeChanged(videoSize_);
+            lastVideoSize = videoSize_;
         }
         break;
     }
     case MPV_EVENT_LOG_MESSAGE: {
         mpv_event_log_message *msg =
                 reinterpret_cast<mpv_event_log_message*>(event->data);
-        qDebug() << QString("[%1] %2: %3").arg(msg->prefix, msg->level,
-                                               msg->text);
+        if (debugMessages)
+            qDebug() << QString("[%1] %2: %3").arg(msg->prefix, msg->level,
+                                                   msg->text);
         break;
     }
     case MPV_EVENT_START_FILE: {
+        if (debugMessages)
+            qDebug() << "start file";
         playbackLoading();
         break;
     }
     case MPV_EVENT_FILE_LOADED: {
+        if (debugMessages)
+            qDebug() << "file loaded";
         playbackStarted();
         break;
     }
     case MPV_EVENT_END_FILE: {
+        if (debugMessages)
+            qDebug() << "end file";
         playTimeChanged(0);
         playLengthChanged(0);
         playbackFinished();
         break;
     }
     case MPV_EVENT_SHUTDOWN: {
+        if (debugMessages)
+            qDebug() << "event shutdown";
         playbackFinished();
         break;
     }

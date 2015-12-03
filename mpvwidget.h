@@ -60,6 +60,11 @@ protected:
 private:
     static void mpvw_update(void *ctx);
     QString getPropertyString(const char *property);
+    int setMpvPropertyString(const char *name, const char *string);
+    int getMpvProperty(const char *name, mpv_format fmt, void *data);
+    int setMpvProperty(const char *name, mpv_format fmt, void *data);
+    int setMpvOption(const char *name, mpv_format fmt, void *data);
+    int setMpvOptionString(const char *name, const char *string);
     void handleMpvEvent(mpv_event *event);
 
 signals:
@@ -88,6 +93,7 @@ private slots:
 private:
     mpv::qt::Handle mpv;
     mpv_opengl_cb_context *glMpv;
+    QSize lastVideoSize;
     QSize videoSize_;
     double playTime_;
     double playLength_;
@@ -96,6 +102,8 @@ private:
     QOpenGLTexture *logo;
     QRectF logoLocation;
     QString logoUrl;
+
+    bool debugMessages;
 };
 
 #endif // MPVWIDGET_H
