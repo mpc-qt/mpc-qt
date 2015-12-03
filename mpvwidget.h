@@ -8,6 +8,9 @@
 #include <mpv/opengl_cb.h>
 #include <mpv/qthelper.hpp>
 
+class QThread;
+class MpvController;
+
 class MpvWidget : public QOpenGLWidget
 {
     Q_OBJECT
@@ -58,16 +61,16 @@ protected:
     void resizeGL(int w, int h);
 
 private:
-    static void mpvw_update(void *ctx);
-    QString getPropertyString(const char *property);
-    int setMpvPropertyString(const char *name, const char *string);
-    int getMpvProperty(const char *name, mpv_format fmt, void *data);
-    int setMpvProperty(const char *name, mpv_format fmt, void *data);
-    int setMpvOption(const char *name, mpv_format fmt, void *data);
-    int setMpvOptionString(const char *name, const char *string);
-    void handleMpvEvent(mpv_event *event);
+    static void ctrl_update(void *ctx);
+    void     setMpvPropertyVariant(QString name, QVariant value);
+    QVariant getMpvPropertyVariant(QString name);
+    void     setMpvOptionVariant(QString name, QVariant value);
 
 signals:
+    void ctrlCommand(QVariant params);
+    void ctrlSetOptionVariant(QString name, QVariant value);
+    void ctrlSetPropertyVariant(QString name, QVariant value);
+
     void playTimeChanged(double time);
     void playLengthChanged(double length);
     void playbackLoading();
@@ -85,14 +88,18 @@ signals:
     void decoderFramedropsChanged(int64_t cout);
 
 private slots:
-    void mpvEvents();
+    void ctrl_mpvPropertyChanged(QString name, QVariant v);
+    void ctrl_logMessage(QString message);
+    void ctrl_unhandledMpvEvent(int eventLevel);
     void self_frameSwapped();
     void self_playbackStarted();
     void self_playbackFinished();
 
 private:
-    mpv::qt::Handle mpv;
+    QThread *worker;
+    MpvController *ctrl;
     mpv_opengl_cb_context *glMpv;
+
     QSize lastVideoSize;
     QSize videoSize_;
     double playTime_;
@@ -105,5 +112,59 @@ private:
 
     bool debugMessages;
 };
+
+class MpvErrorCode {
+public:
+    MpvErrorCode() : value(0) {};
+    MpvErrorCode(int value) : value(value) {};
+    MpvErrorCode(const MpvErrorCode &mec) : value(mec.value) {}
+    ~MpvErrorCode() {}
+    int errorcode() { return value; }
+private:
+    int value;
+};
+Q_DECLARE_METATYPE(MpvErrorCode)
+
+// This controller attempts to shove as much libmpv related business off of
+// the main thread.
+class MpvController : public QObject
+{
+
+    Q_OBJECT
+public:
+    typedef QPair<const char*, mpv_format> MpvProperty;
+    typedef QVector<MpvProperty> PropertyList;
+    enum LogLevel { LogFatal, LogError, LogWarn, LogInfo, LogStatus, LogV,
+                    LogDebug, LogTrace };
+
+    MpvController(QObject *parent = 0);
+    ~MpvController();
+
+signals:
+    void durationChanged(int value);
+    void positionChanged(int value);
+    void mpvPropertyChanged(QString name, QVariant v);
+    void logMessage(QString message);
+    void unhandledMpvEvent(int eventNumber);
+
+public slots:
+    void create();
+    void observeProperties(const MpvController::PropertyList &properties);
+    void setLogLevel(MpvController::LogLevel level);
+    mpv_opengl_cb_context *mpvDrawContext();
+    void setOptionVariant(QString name, const QVariant &value);
+    void command(const QVariant &params);
+    void setPropertyVariant(const QString &name, const QVariant &value);
+    QVariant getPropertyVariant(const QString &name);
+    void parseMpvEvents();
+
+private:
+    void handleMpvEvent(mpv_event *event);
+    static void mpvWakeup(void *ctx);
+
+    mpv::qt::Handle mpv;
+    mpv_opengl_cb_context *glMpv;
+};
+
 
 #endif // MPVWIDGET_H

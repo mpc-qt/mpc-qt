@@ -6,6 +6,7 @@
 #include "mainwindow.h"
 #include "manager.h"
 #include "settingswindow.h"
+#include "mpvwidget.h"
 
 int main(int argc, char *argv[])
 {
@@ -20,6 +21,10 @@ int main(int argc, char *argv[])
     // Qt sets the locale in the QApplication constructor, but libmpv requires
     // the LC_NUMERIC category to be set to "C", so change it back.
     std::setlocale(LC_NUMERIC, "C");
+
+    // Register the error code type so that signals/slots will work with it
+    qRegisterMetaType<MpvErrorCode>("MpvErrorCode");
+
     Flow f;
     if (!f.hasPrevious())
         return f.run();
