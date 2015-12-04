@@ -20,11 +20,8 @@ MpvWidget::MpvWidget(QWidget *parent) :
     QOpenGLWidget(parent), drawLogo(true), logo(NULL),
     logoUrl(":/images/bitmaps/blank-screen.png")
 {
-#ifdef QT_DEBUG
-    debugMessages = true;
-#else
     debugMessages = false;
-#endif
+
     // When (un)docking windows, some widgets may get transformed into native
     // widgets, causing painting glitches.  Tell Qt that we prefer non-native.
     setAttribute(Qt::WA_DontCreateNativeAncestors);
@@ -185,7 +182,7 @@ void MpvWidget::setMute(bool yes)
 
 void MpvWidget::setPaused(bool yes)
 {
-    setMpvOptionVariant("pause", yes ? "yes" : "no");
+    setMpvPropertyVariant("pause", yes);
 }
 
 void MpvWidget::setSpeed(double speed)
@@ -293,7 +290,8 @@ void MpvWidget::initializeGL()
 
 void MpvWidget::paintGL()
 {
-    qDebug() << "paintGL";
+    if (debugMessages)
+        qDebug() << "paintGL";
     if (!drawLogo) {
         mpv_opengl_cb_draw(glMpv, defaultFramebufferObject(),
                            width(), -height());
@@ -329,7 +327,6 @@ void MpvWidget::resizeGL(int w, int h)
 
 void MpvWidget::ctrl_update(void *ctx)
 {
-    qDebug() << "onupdate";
     QMetaObject::invokeMethod(reinterpret_cast<MpvWidget*>(ctx), "update");
 }
 
@@ -509,9 +506,6 @@ void MpvController::setOptionVariant(QString name, const QVariant &value)
 
 void MpvController::command(const QVariant &params)
 {
-#ifdef QT_DEBUG
-    qDebug() << "command " << params;
-#endif
     if (params.type() == QVariant::String)
         mpv_command_string(mpv, params.toString().toUtf8().data());
     else
@@ -613,9 +607,6 @@ void MpvController::handleMpvEvent(mpv_event *event)
                 lastVideoSize = videoSize;
             }
         }
-#ifdef QT_DEBUG
-        qDebug() << "video reconfig " << w << h;
-#endif
         break;
     }
     default:
