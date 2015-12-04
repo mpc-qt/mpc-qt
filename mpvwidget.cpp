@@ -62,6 +62,10 @@ MpvWidget::MpvWidget(QWidget *parent) :
                               Qt::BlockingQueuedConnection,
                               Q_RETURN_ARG(mpv_opengl_cb_context *, glMpv));
 
+    // ask mpv to make draw requests to us
+    mpv_opengl_cb_set_update_callback(glMpv, MpvWidget::ctrl_update,
+                                      (void *)this);
+
     // clean up objects when the worker thread is deleted
     connect(worker, &QThread::finished, ctrl, &MpvController::deleteLater);
 
@@ -279,9 +283,6 @@ void MpvWidget::initializeGL()
 {
     if (mpv_opengl_cb_init_gl(glMpv, NULL, get_proc_address, NULL) < 0)
         throw std::runtime_error("[MpvWidget] cb init gl failed.");
-
-    mpv_opengl_cb_set_update_callback(glMpv, MpvWidget::ctrl_update,
-                                      (void *)this);
 
     if (!logo)
         logo = new QOpenGLTexture(QImage(logoUrl),
