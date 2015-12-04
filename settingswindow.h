@@ -52,19 +52,19 @@ public:
 
     // Output page
     bool videoIsDumb;
-    static const char *fbDepthToText[][2];
+    static QList<QStringList> fbDepthToText;
     enum FBDepth { DepthOf8, DepthOf10, DepthOf12, DepthOf16, DepthOf16F,
                    DepthOf32f };
     FBDepth framebufferDepth;
     bool framebufferAlpha;
-    static const char *alphaModeToText[];
+    static QStringList alphaModeToText;
     enum AlphaMode { BlendAlpha, UseAlpha, IgnoreAlpha };
     AlphaMode alphaMode;
     double sharpen;
 
     bool dither;
     int ditherDepth;
-    static const char *ditherTypeToText[];
+    static QStringList ditherTypeToText;
     enum DitherType { Fruit, Ordered, NoDithering };
     DitherType ditherType;
     int ditherFruitSize;
@@ -79,7 +79,7 @@ public:
     double sigmoidCenter;
     double sigmoidSlope;
 
-    static const char *scaleScalarToText[];
+    static QStringList scaleScalarToText;
     enum ScaleScalar { Unset = -1, Bilinear, BicubicFast, Oversample,
                        Spline16, Spline36, Spling64, Sinc, Lanczos, Gingseng,
                        Jinc, EwaLanczos, EwaHanning, EwaGinseng,
@@ -100,7 +100,7 @@ public:
     bool scaleAntiRingSet;
     bool scaleBlurSet;
     bool scaleWindowParamSet;
-    static const char *scaleWindowToText[];
+    static QStringList scaleWindowToText;
     enum ScaleWindow { BoxWindow = 0, TriangleWindow, BartlettWindow,
                        HanningWindow, HammingWindow, QuadricWindow,
                        WelchWindow, KaiserWindow, BlackmanWindow,
@@ -143,7 +143,7 @@ public:
     bool cscaleWindowSet;
     bool cscaleClamp;
 
-    static const char *timeScalarToText[];
+    static QStringList timeScalarToText;
     enum TimeScalar { tOversample, tSpline16, tSpline64, tSinc, tLanczos,
                       tGingseng, tCatmullRom, tMitchell, tRobidoux,
                       tRobidouxSharp, tBox, tNearest, tTriangle, tGaussian };
@@ -164,7 +164,7 @@ public:
     bool tscaleWindowSet;
     bool tscaleClamp;
 
-    static const char *prescalarToText[];
+    static QStringList prescalarToText;
     enum Prescalar { NoPrescalar, SuperXbr, Nnedi3 };
     Prescalar prescalar;
     int prescalarPasses;
@@ -172,13 +172,13 @@ public:
 
     double superxbrSharpness;
     double superxbrEdgeStrength;
-    static const char *nnedi3NeuronsToText[];
+    static QStringList nnedi3NeuronsToText;
     enum Nnedi3Neurons { NeuronsOf16, NeuronsOf32, NeuronsOf64, NeuronsOf128 };
     Nnedi3Neurons nnedi3Neurons;
-    static const char *nnedi3WindowToText[];
+    static QStringList nnedi3WindowToText;
     enum Nnedi3Window { WindowOf8x4, WindowOf8x6 };
     Nnedi3Window nnedi3Window;
-    static const char *nnedi3UploadMethodToText[];
+    static QStringList nnedi3UploadMethodToText;
     enum Nnedi3UploadMethod { UboUploading, ShaderUploading };
     Nnedi3UploadMethod nnedi3UploadMethod;
 
@@ -190,19 +190,19 @@ public:
 
     bool gammaAutodetect;
     double gamma;
-    static const char *targetPrimToText[];
+    static QStringList targetPrimToText;
     enum TargetPrim { AutoPrim, BT470MPrim, BT601525Prim, BT601625Prim,
                       BT709Prim, BT2020Prim, ApplePrim, AdobePrim,
                       ProPhotoPrim, CIE1931Prim };
     TargetPrim targetPrim;
-    static const char *targetTrcToText[];
+    static QStringList targetTrcToText;
     enum TargetTrc { AutoTrc, BT1886Trc, sRGBTrc, LinearTrc, Gamma18Trc,
                      Gamma22Trc, Gamma28Trc, ProPhotoTrc };
     TargetTrc targetTrc;
     bool iccAutodetect;
     QString iccLocation;
 
-    static const char *audioRendererToText[];
+    static QStringList audioRendererToText;
     enum AudioRenderer { PulseAudio, Alsa, Oss, NullAudio };
     AudioRenderer audioRenderer;
     QString pulseHost;
@@ -257,16 +257,16 @@ public:
     bool restoreXrandrOnExit;
 
     // Sync Page
-    static const char *framedropToText[];
+    static QStringList framedropToText;
     enum FramedropMode { NeverDrop, VideoDrops, DecoderDrops,
                          DecoderAndVideoDrops };
     FramedropMode framedroppingMode;
-    static const char *decoderDropToText[];
+    static QStringList decoderDropToText;
     enum DecoderDropMode { DecoderNeverDrops, DecoderDefault,
                            DropOnNonReferenceFrames, BiDirectionalDrops,
                            DropOnNonKeyFrames, DropAtAnyTime };
     DecoderDropMode decoderDroppingMode;
-    static const char *syncModeToText[];
+    static QStringList syncModeToText;
     enum SyncMode { SyncToAudio, ResampleAudio, ResampleAudioAndDrop,
                     RepeatVideo, RepeatAudio };
     SyncMode syncMode;
@@ -275,10 +275,10 @@ public:
     double maxVideoChange;
 
     // Subtitles Page
-    static const char *subtitlePlacementXToText[];
+    static QStringList subtitlePlacementXToText;
     enum SubtitlePlacementX { SubtitlesOnLeft, SubtitlesInCenter,
                               SubtitlesOnRight };
-    static const char *subtitlePlacementYToText[];
+    static QStringList subtitlePlacementYToText;
     enum SubtitlePlacementY { SubtitlesAtTop, SubtitlesAtCenter,
                               SubtitlesAtBottom };
     SubtitlePlacementX subPlacementX;
@@ -290,7 +290,7 @@ public:
     bool subtitlesInGrayscale;
     bool subtitlesWithFixedTiming;
     bool subtitlesClearOnSeek;
-    static const char *assOverrideToText[];
+    static QStringList assOverrideToText;
     enum AssOverride { NoOverride, Override, OverrideOnlyZoomSigns,
                        ForcedOverride };
     AssOverride assOverrideMode;
@@ -303,7 +303,7 @@ public:
     double borderShadowOffset;
 
     // n.b. subtitle alignment is probably redundant to the placement fields
-    static const char *subtitleAlignmentToText[][2];
+    static QList<QStringList> subtitleAlignmentToText;
     enum SubsAlignment { Top, TopRight, Right, BottomRight, Bottom,
                          BottomLeft, Left, TopLeft, Center };
     SubsAlignment subsAlignment;

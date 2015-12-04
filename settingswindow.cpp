@@ -3,17 +3,17 @@
 #include <QDebug>
 #include <QDialogButtonBox>
 
-const char *Settings::fbDepthToText[][2] = {
+QList<QStringList> Settings::fbDepthToText = {
     { "rgb8", "rgba" }, { "rgb10", "rgb10_a2" }, { "rgba12", "rgba12" },
     { "rgb16", "rgba16" }, { "rgb16f", "rgba16f" }, { "rgb32f", "rgba32f" }
 };
-const char *Settings::alphaModeToText[] = {
+QStringList Settings::alphaModeToText = {
     "blend", "yes", "no"
 };
-const char *Settings::ditherTypeToText[] = {
+QStringList Settings::ditherTypeToText = {
     "fruit", "ordered", "no"
 };
-const char *Settings::scaleScalarToText[]  = {
+QStringList Settings::scaleScalarToText  = {
     "bilinear", "bicubic_fast", "oversample", "spline16", "spline36",
     "spline64", "sinc", "lanczos", "gingseng", "jinc", "ewa_lanczos",
     "ewa_hanning", "ewa_gingseng", "ewa_lanczossharp", "ewa_lanczossoft",
@@ -21,58 +21,58 @@ const char *Settings::scaleScalarToText[]  = {
     "robidoux", "robidouxsharp", "ewa_robidoux", "ewa_robidouxsharp",
     "box", "nearest", "triangle", "gaussian"
 };
-const char *Settings::scaleWindowToText[] = {
+QStringList Settings::scaleWindowToText = {
     "box", "triable", "bartlett", "hanning", "hamming", "quadric", "welch",
     "kaiser", "blackman", "gaussian", "sinc", "jinc", "sphinx"
 };
-const char *Settings::timeScalarToText[] = {
+QStringList Settings::timeScalarToText = {
     "oversample", "spline16", "spline36", "spline64", "sinc", "lanczos",
     "gingseng", "catmull_rom", "mitchell", "robidoux", "robidouxsharp",
     "box", "nearest", "triangle", "gaussian"
 };
-const char *Settings::prescalarToText[] = {
+QStringList Settings::prescalarToText = {
     "none", "superxbr", "needi3"
 };
-const char *Settings::nnedi3NeuronsToText[] = {
+QStringList Settings::nnedi3NeuronsToText = {
     "16", "32", "64", "128"
 };
-const char *Settings::nnedi3WindowToText[] = {
+QStringList Settings::nnedi3WindowToText = {
     "8x4", "8x6"
 };
-const char *Settings::nnedi3UploadMethodToText[] = {
+QStringList Settings::nnedi3UploadMethodToText = {
     "ubo", "shader"
 };
-const char *Settings::targetPrimToText[] = {
+QStringList Settings::targetPrimToText = {
     "auto", "bt.601-525", "bt.601-625", "bt.709", "bt.2020", "bt.470m",
     "apple", "adobe", "prophoto", "cie1931"
 };
-const char *Settings::targetTrcToText[] = {
+QStringList Settings::targetTrcToText = {
     "auto", "by.1886", "srgb", "linear", "gamma1.8", "gamma2.2", "gamma2.8",
     "prophoto"
 };
-const char *Settings::audioRendererToText[] = {
+QStringList Settings::audioRendererToText = {
     "pulse", "alsa", "oss", "null"
 };
-const char *Settings::framedropToText[] = {
+QStringList Settings::framedropToText = {
     "no", "vo", "decoder", "decoder+vo"
 };
-const char *Settings::decoderDropToText[] = {
+QStringList Settings::decoderDropToText = {
     "none", "default", "nonref", "bidir", "nonkey", "all"
 };
-const char *Settings::syncModeToText[] = {
+QStringList Settings::syncModeToText = {
     "audio", "display-resample", "display-resample-vdrop",
     "display-resample-desync", "display-adrop", "display-vdrop"
 };
-const char *Settings::subtitlePlacementXToText[] = {
+QStringList Settings::subtitlePlacementXToText = {
     "left", "center", "right"
 };
-const char *Settings::subtitlePlacementYToText[] = {
+QStringList Settings::subtitlePlacementYToText = {
     "top", "center", "bottom"
 };
-const char *Settings::assOverrideToText[] = {
+QStringList Settings::assOverrideToText = {
     "no", "yes", "force", "signfs"
 };
-const char *Settings::subtitleAlignmentToText[][2] = {
+QList<QStringList> Settings::subtitleAlignmentToText = {
     { "top", "center" }, { "top", "right" }, { "center", "right" },
     { "bottom", "right" }, { "bottom", "center" }, { "bottom", "left" },
     { "center", "left" }, { "top", "left" }, { "center", "center" }
@@ -750,20 +750,27 @@ void SettingsWindow::takeSettings(const Settings &s)
     acceptedSettings = s;
 }
 
+#define TEXT_LOOKUP(array, field, dflt) \
+    Settings::array.value(acceptedSettings.field, Settings::array[dflt])
+#define TEXT_LOOKUP2(array, field1, dflt1, field2, dflt2) \
+    Settings::array.value(acceptedSettings.field1, Settings::array[dflt1]) \
+                   .value(acceptedSettings.field2, TEXT_LOOKUP(array,field1,dflt1).value(dflt2))
+
+
 void SettingsWindow::sendSignals()
 {
     QMap<QString,QString> params;
     QStringList cmdline;
 
-    params["fbo-format"] = Settings::fbDepthToText[acceptedSettings.framebufferDepth][acceptedSettings.framebufferAlpha];
-    params["alpha"] = Settings::alphaModeToText[acceptedSettings.alphaMode];
+    params["fbo-format"] = TEXT_LOOKUP2(fbDepthToText, framebufferDepth, Settings::DepthOf16, framebufferAlpha, false);
+    params["alpha"] = Settings::alphaModeToText.value(acceptedSettings.alphaMode, "blend");
     params["sharpen"] = QString::number(acceptedSettings.sharpen);
 
     if (acceptedSettings.dither) {
         params["dither-depth"] = acceptedSettings.ditherDepth ?
                     QString::number(acceptedSettings.ditherDepth) :
                     "auto";
-        params["dither"] = Settings::ditherTypeToText[acceptedSettings.ditherType];
+        params["dither"] = TEXT_LOOKUP(ditherTypeToText, ditherType, Settings::Fruit);
         if (acceptedSettings.ditherFruitSize)
             params["dither-size-fruit"] = QString::number(acceptedSettings.ditherFruitSize);
     }
@@ -786,7 +793,7 @@ void SettingsWindow::sendSignals()
         params["sigmoid-slope"] = QString::number(acceptedSettings.sigmoidSlope);
     }
 
-    params["scale"] = Settings::scaleScalarToText[acceptedSettings.scaleScalar];
+    params["scale"] = TEXT_LOOKUP(scaleScalarToText, scaleScalar, Settings::Bilinear);
     if (acceptedSettings.scaleParam1Set)
         params["scale-param1"] = QString::number(acceptedSettings.scaleParam1);
     if (acceptedSettings.scaleParam2Set)
@@ -800,12 +807,12 @@ void SettingsWindow::sendSignals()
     if (acceptedSettings.scaleWindowParamSet)
         params["scale-wparam"] = QString::number(acceptedSettings.scaleWindowParam);
     if (acceptedSettings.scaleWindowSet)
-        params["scale-window"] = Settings::scaleWindowToText[acceptedSettings.scaleWindow];
+        params["scale-window"] = TEXT_LOOKUP(scaleWindowToText, scaleWindow, Settings::BoxWindow);
     if (acceptedSettings.scaleClamp)
         params["scale-clamp"] = QString();
 
     if (acceptedSettings.dscaleScalar != Settings::Unset)
-        params["dscale"] = Settings::scaleScalarToText[acceptedSettings.dscaleScalar];
+        params["dscale"] = TEXT_LOOKUP(scaleScalarToText, dscaleScalar, Settings::Bilinear);
     if (acceptedSettings.dscaleParam1Set)
         params["dscale-param1"] = QString::number(acceptedSettings.dscaleParam1);
     if (acceptedSettings.dscaleParam2Set)
@@ -819,11 +826,11 @@ void SettingsWindow::sendSignals()
     if (acceptedSettings.dscaleWindowParamSet)
         params["dscale-wparam"] = QString::number(acceptedSettings.dscaleWindowParam);
     if (acceptedSettings.dscaleWindowSet)
-        params["dscale-window"] = Settings::scaleWindowToText[acceptedSettings.dscaleWindow];
+        params["dscale-window"] = TEXT_LOOKUP(scaleWindowToText, dscaleWindow, Settings::BoxWindow);
     if (acceptedSettings.dscaleClamp)
         params["dscale-clamp"] = QString();
 
-    params["cscale"] = Settings::scaleScalarToText[acceptedSettings.cscaleScalar];
+    params["cscale"] = TEXT_LOOKUP(scaleScalarToText, cscaleScalar, Settings::Bilinear);
     if (acceptedSettings.cscaleParam1Set)
         params["cscale-param1"] = QString::number(acceptedSettings.cscaleParam1);
     if (acceptedSettings.cscaleParam2Set)
@@ -837,11 +844,11 @@ void SettingsWindow::sendSignals()
     if (acceptedSettings.cscaleWindowParamSet)
         params["cscale-wparam"] = QString::number(acceptedSettings.cscaleWindowParam);
     if (acceptedSettings.cscaleWindowSet)
-        params["cscale-window"] = Settings::scaleWindowToText[acceptedSettings.cscaleWindow];
+        params["cscale-window"] = TEXT_LOOKUP(scaleWindowToText, cscaleWindow, Settings::BoxWindow);
     if (acceptedSettings.cscaleClamp)
         params["cscale-clamp"] = QString();
 
-    params["tscale"] = Settings::timeScalarToText[acceptedSettings.tscaleScalar];
+    params["tscale"] = TEXT_LOOKUP(timeScalarToText, tscaleScalar, Settings::Oversample);
     if (acceptedSettings.tscaleParam1Set)
         params["tscale-param1"] = QString::number(acceptedSettings.tscaleParam1);
     if (acceptedSettings.tscaleParam2Set)
@@ -855,7 +862,7 @@ void SettingsWindow::sendSignals()
     if (acceptedSettings.tscaleWindowParamSet)
         params["tscale-wparam"] = QString::number(acceptedSettings.tscaleWindowParam);
     if (acceptedSettings.tscaleWindowSet)
-        params["tscale-window"] = Settings::scaleWindowToText[acceptedSettings.tscaleWindow];
+        params["tscale-window"] = TEXT_LOOKUP(scaleWindowToText, tscaleWindow, Settings::BoxWindow);
     if (acceptedSettings.tscaleClamp)
         params["tscale-clamp"] = QString();
 
@@ -879,9 +886,9 @@ void SettingsWindow::sendSignals()
     voCommandLine(acceptedSettings.videoIsDumb ? "dumb-mode"
                                                : cmdline.join(':'));
 
-    framedropMode(Settings::framedropToText[acceptedSettings.framedroppingMode]);
-    decoderDropMode(Settings::decoderDropToText[acceptedSettings.decoderDroppingMode]);
-    displaySyncMode(Settings::syncModeToText[acceptedSettings.syncMode]);
+    framedropMode(Settings::framedropToText.value(acceptedSettings.framedroppingMode));
+    decoderDropMode(Settings::decoderDropToText.value(acceptedSettings.decoderDroppingMode));
+    displaySyncMode(Settings::syncModeToText.value(acceptedSettings.syncMode));
     audioDropSize(acceptedSettings.audioDropSize);
     maximumAudioChange(acceptedSettings.maxAudioChange);
     maximumVideoChange(acceptedSettings.maxVideoChange);
