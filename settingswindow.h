@@ -18,10 +18,8 @@ public:
     QVariant value;
 };
 
-
-struct Settings {
+struct SettingMap : public QHash<QString, Setting> {
 public:
-    explicit Settings() {}
     static QHash<QString, QStringList> indexedValueToText;
     QVariantMap toVMap();
     void fromVMap(const QVariantMap &m);
@@ -41,10 +39,10 @@ public:
 
 private:
     void updateAcceptedSettings();
-    void generateSettingMap();
+    SettingMap generateSettingMap();
 
 signals:
-    void settingsData(const Settings &s);
+    void settingsData(const SettingMap &s);
 
     void voCommandLine(const QString &s);
     void framedropMode(const QString &s);
@@ -56,7 +54,7 @@ signals:
     void subsAreGray(bool flag);
 
 public slots:
-    void takeSettings(const Settings &s);
+    void takeSettings(const SettingMap &s);
     void sendSignals();
 
 private slots:
@@ -72,8 +70,7 @@ private slots:
 
 private:
     Ui::SettingsWindow *ui;
-    Settings acceptedSettings;
-    QHash<QString, Setting> settingMap;
+    SettingMap acceptedSettings;
 };
 
 #endif // SETTINGSWINDOW_H
