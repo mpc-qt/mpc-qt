@@ -519,7 +519,13 @@ void MpvController::setOptionVariant(QString name, const QVariant &value)
 
 void MpvController::command(const QVariant &params)
 {
-    mpv::qt::command_variant(mpv, params);
+#ifdef QT_DEBUG
+    qDebug() << "command " << params;
+#endif
+    if (params.type() == QVariant::String)
+        mpv_command_string(mpv, params.toString().toUtf8().data());
+    else
+        mpv::qt::command_variant(mpv, params);
 }
 
 void MpvController::setPropertyVariant(const QString &name, const QVariant &value)
