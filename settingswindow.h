@@ -6,6 +6,19 @@
 #include <QAbstractButton>
 #include <QVariantMap>
 
+class Setting {
+public:
+    Setting() : name(), widget(NULL), value() {}
+    Setting(const Setting &s) : name(s.name), widget(s.widget), value(s.value) {}
+    Setting(QString name, QWidget *widget, QVariant value) : name(name), widget(widget), value(value) {}
+
+    ~Setting() {}
+    QString name;
+    QWidget *widget;
+    QVariant value;
+};
+
+
 struct Settings {
 public:
     explicit Settings() {}
@@ -355,6 +368,7 @@ public:
 
 private:
     void updateAcceptedSettings();
+    void generateSettingMap();
 
 signals:
     void settingsData(const Settings &s);
@@ -386,6 +400,7 @@ private slots:
 private:
     Ui::SettingsWindow *ui;
     Settings acceptedSettings;
+    QHash<QString, Setting> settingMap;
 };
 
 #endif // SETTINGSWINDOW_H

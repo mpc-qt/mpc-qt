@@ -516,6 +516,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui(new Ui::SettingsWindow)
 {
     ui->setupUi(this);
+
     ui->pageStack->setCurrentIndex(0);
     ui->videoTabs->setCurrentIndex(0);
     ui->scalingTabs->setCurrentIndex(0);
@@ -636,6 +637,45 @@ void SettingsWindow::updateAcceptedSettings() {
     s.maxVideoChange = ui->syncMaxVideoChange->value();
 
     s.subtitlesInGrayscale = ui->subtitlesForceGrayscale->isChecked();
+}
+
+void SettingsWindow::generateSettingMap()
+{
+    QMap<QString> classToProperty = {
+        { "QCheckBox", "checked" },
+        { "QRadioButton", "checked" },
+        { "QLineEdit", "text" },
+        { "QSpinBox", "value" },
+        { "QComboBox", "currentIndex" },
+        { "QListWidget", "currentRow" },
+        { "QFontComboBox", "currentText" },
+        { "QScrollBar", "value" }
+    };
+
+    // The idea here is to discover all the widgets in the ui and only inspect
+    // the widgets which we desire to know about.
+    QObjectList toParse;
+    toParse.append(this);
+    while (!toParse.empty()) {
+        QObject *item = toParse.takeFirst();
+        if (QStringList({"QCheckBox", "QRadioButton", "QLineEdit", "QSpinBox",
+                        "QComboBox", "QListWidget", "QFontComboBox",
+                        "QScrollBar"}).contains(item->metaObject()->className())
+            && !item->objectName().isEmpty()
+            && item->objectName() != "qt_spinbox_lineedit") {
+            QString name = item->objectName();
+            QString className = item->metaObject()->className();
+            QString property = classToProperty.value(className, QString());
+            QVariant value = item->property(property);
+            settingMap.insert(name, {name, item, value});
+            return;
+        }
+        QObjectList children = item->children();
+        foreach(QObject *child, children) {
+            if (child->inherits("QWidget") || child->inherits("QLayout"))
+            toParse.append(child);
+        }
+    };
 }
 
 void SettingsWindow::takeSettings(const Settings &s)
