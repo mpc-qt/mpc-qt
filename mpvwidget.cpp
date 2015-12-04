@@ -54,6 +54,8 @@ MpvWidget::MpvWidget(QWidget *parent) :
             this, &MpvWidget::ctrl_logMessage, Qt::QueuedConnection);
     connect(ctrl, &MpvController::unhandledMpvEvent,
             this, &MpvWidget::ctrl_unhandledMpvEvent, Qt::QueuedConnection);
+    connect(ctrl, &MpvController::videoSizeChanged,
+            this, &MpvWidget::ctrl_videoSizeChanged, Qt::QueuedConnection);
 
     // Initialize mpv
     QMetaObject::invokeMethod(ctrl, "create", Qt::BlockingQueuedConnection);
@@ -402,25 +404,6 @@ void MpvWidget::ctrl_logMessage(QString message)
 void MpvWidget::ctrl_unhandledMpvEvent(int eventLevel)
 {
     switch(eventLevel) {
-    case MPV_EVENT_VIDEO_RECONFIG: {
-        if (debugMessages)
-            qDebug() << "video reconfig";
-        // Retrieve the new video size.
-        QVariant vw, vh;
-        vw = getMpvPropertyVariant("width");
-        vh = getMpvPropertyVariant("height");
-        int w, h;
-        if (!vw.canConvert<MpvErrorCode>() && !vh.canConvert<MpvErrorCode>()
-                && (w = vw.toInt()) > 0 && (h = vh.toInt()) > 0)
-        {
-            videoSize_.setWidth(w);
-            videoSize_.setHeight(h);
-            if (lastVideoSize != videoSize_)
-                videoSizeChanged(videoSize_);
-            lastVideoSize = videoSize_;
-        }
-        break;
-    }
     case MPV_EVENT_START_FILE: {
         if (debugMessages)
             qDebug() << "start file";
@@ -448,6 +431,12 @@ void MpvWidget::ctrl_unhandledMpvEvent(int eventLevel)
         break;
     }
     }
+}
+
+void MpvWidget::ctrl_videoSizeChanged(QSize size)
+{
+    videoSize_ = size;
+    emit videoSizeChanged(videoSize_);
 }
 
 void MpvWidget::self_frameSwapped()
@@ -607,6 +596,25 @@ void MpvController::handleMpvEvent(mpv_event *event)
                 reinterpret_cast<mpv_event_log_message*>(event->data);
         emit logMessage(QString("[%1] %2: %3").arg(msg->prefix, msg->level,
                                                    msg->text));
+        break;
+    }
+    case MPV_EVENT_VIDEO_RECONFIG: {
+        // Retrieve the new video size.
+        QVariant vw, vh;
+        vw = getPropertyVariant("width");
+        vh = getPropertyVariant("height");
+        int w, h;
+        if (!vw.canConvert<MpvErrorCode>() && !vh.canConvert<MpvErrorCode>()
+                && (w = vw.toInt()) > 0 && (h = vh.toInt()) > 0) {
+            QSize videoSize(w, h);
+            if (lastVideoSize != videoSize) {
+                emit videoSizeChanged(videoSize);
+                lastVideoSize = videoSize;
+            }
+        }
+#ifdef QT_DEBUG
+        qDebug() << "video reconfig " << w << h;
+#endif
         break;
     }
     default:

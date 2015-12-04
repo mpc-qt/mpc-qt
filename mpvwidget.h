@@ -91,6 +91,7 @@ private slots:
     void ctrl_mpvPropertyChanged(QString name, QVariant v);
     void ctrl_logMessage(QString message);
     void ctrl_unhandledMpvEvent(int eventLevel);
+    void ctrl_videoSizeChanged(QSize size);
     void self_frameSwapped();
     void self_playbackStarted();
     void self_playbackFinished();
@@ -100,7 +101,6 @@ private:
     MpvController *ctrl;
     mpv_opengl_cb_context *glMpv;
 
-    QSize lastVideoSize;
     QSize videoSize_;
     double playTime_;
     double playLength_;
@@ -146,6 +146,7 @@ signals:
     void mpvPropertyChanged(QString name, QVariant v);
     void logMessage(QString message);
     void unhandledMpvEvent(int eventNumber);
+    void videoSizeChanged(QSize size);
 
 public slots:
     void create();
@@ -164,6 +165,7 @@ private:
 
     mpv::qt::Handle mpv;
     mpv_opengl_cb_context *glMpv;
+    QSize lastVideoSize;
 };
 
 
