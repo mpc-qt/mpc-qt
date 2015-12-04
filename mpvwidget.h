@@ -92,6 +92,8 @@ private slots:
     void ctrl_logMessage(QString message);
     void ctrl_unhandledMpvEvent(int eventLevel);
     void ctrl_videoSizeChanged(QSize size);
+    void self_playTimeChanged(double playTime);
+    void self_playLengthChanged(double playLength);
     void self_frameSwapped();
     void self_playbackStarted();
     void self_playbackFinished();

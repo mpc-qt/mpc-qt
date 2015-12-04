@@ -380,8 +380,8 @@ void MpvWidget::ctrl_mpvPropertyChanged(QString name, QVariant v)
         qDebug() << "property changed " << name << v;
 
     bool ok = v.type() < QVariant::UserType;
-    HANDLE_PROP_1("time-pos", playTimeChanged, toDouble, -1.0);
-    HANDLE_PROP_1("duration", playLengthChanged, toDouble, -1.0);
+    HANDLE_PROP_1("time-pos", self_playTimeChanged, toDouble, -1.0);
+    HANDLE_PROP_1("duration", self_playLengthChanged, toDouble, -1.0);
     HANDLE_PROP_1("pause", pausedChanged, toBool, true);
     HANDLE_PROP_1("media-title", mediaTitleChanged, toString, QString());
     HANDLE_PROP_1("chapter-metadata", chapterDataChanged, toMap, QVariantMap());
@@ -435,6 +435,18 @@ void MpvWidget::ctrl_videoSizeChanged(QSize size)
 {
     videoSize_ = size;
     emit videoSizeChanged(videoSize_);
+}
+
+void MpvWidget::self_playTimeChanged(double playTime)
+{
+    playTime_ = playTime;
+    emit playTimeChanged(playTime);
+}
+
+void MpvWidget::self_playLengthChanged(double playLength)
+{
+    playLength_ = playLength;
+    emit playLengthChanged(playLength);
 }
 
 void MpvWidget::self_frameSwapped()
