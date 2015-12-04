@@ -453,6 +453,7 @@ void MpvWidget::self_playbackStarted()
 void MpvWidget::self_playbackFinished()
 {
     drawLogo = true;
+    update();
 }
 
 
