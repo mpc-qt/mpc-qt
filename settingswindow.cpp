@@ -2,96 +2,53 @@
 #include "ui_settingswindow.h"
 #include <QDebug>
 #include <QDialogButtonBox>
+#include <QHash>
 
-QList<QStringList> Settings::fbDepthToText = {
-    { "rgb8", "rgba" }, { "rgb10", "rgb10_a2" }, { "rgba12", "rgba12" },
-    { "rgb16", "rgba16" }, { "rgb16f", "rgba16f" }, { "rgb32f", "rgba32f" }
-};
-QStringList Settings::alphaModeToText = {
-    "blend", "yes", "no"
-};
-QStringList Settings::ditherTypeToText = {
-    "fruit", "ordered", "no"
-};
-QStringList Settings::scaleScalarToText  = {
-    "bilinear", "bicubic_fast", "oversample", "spline16", "spline36",
-    "spline64", "sinc", "lanczos", "gingseng", "jinc", "ewa_lanczos",
-    "ewa_hanning", "ewa_gingseng", "ewa_lanczossharp", "ewa_lanczossoft",
-    "hassnsoft",  "bicubic", "bcspline", "catmull_rom", "mitchell",
-    "robidoux", "robidouxsharp", "ewa_robidoux", "ewa_robidouxsharp",
+#define SCALAR_SCALARS \
+    "bilinear", "bicubic_fast", "oversample", "spline16", "spline36",\
+    "spline64", "sinc", "lanczos", "gingseng", "jinc", "ewa_lanczos",\
+    "ewa_hanning", "ewa_gingseng", "ewa_lanczossharp", "ewa_lanczossoft",\
+    "hassnsoft",  "bicubic", "bcspline", "catmull_rom", "mitchell",\
+    "robidoux", "robidouxsharp", "ewa_robidoux", "ewa_robidouxsharp",\
     "box", "nearest", "triangle", "gaussian"
-};
-QStringList Settings::scaleWindowToText = {
-    "box", "triable", "bartlett", "hanning", "hamming", "quadric", "welch",
+
+#define SCALAR_WINDOWS \
+    "box", "triable", "bartlett", "hanning", "hamming", "quadric", "welch",\
     "kaiser", "blackman", "gaussian", "sinc", "jinc", "sphinx"
-};
-QStringList Settings::timeScalarToText = {
-    "oversample", "spline16", "spline36", "spline64", "sinc", "lanczos",
-    "gingseng", "catmull_rom", "mitchell", "robidoux", "robidouxsharp",
-    "box", "nearest", "triangle", "gaussian"
-};
-QStringList Settings::prescalarToText = {
-    "none", "superxbr", "needi3"
-};
-QStringList Settings::nnedi3NeuronsToText = {
-    "16", "32", "64", "128"
-};
-QStringList Settings::nnedi3WindowToText = {
-    "8x4", "8x6"
-};
-QStringList Settings::nnedi3UploadMethodToText = {
-    "ubo", "shader"
-};
-QStringList Settings::targetPrimToText = {
-    "auto", "bt.601-525", "bt.601-625", "bt.709", "bt.2020", "bt.470m",
-    "apple", "adobe", "prophoto", "cie1931"
-};
-QStringList Settings::targetTrcToText = {
-    "auto", "by.1886", "srgb", "linear", "gamma1.8", "gamma2.2", "gamma2.8",
-    "prophoto"
-};
-QStringList Settings::audioRendererToText = {
-    "pulse", "alsa", "oss", "null"
-};
-QStringList Settings::framedropToText = {
-    "no", "vo", "decoder", "decoder+vo"
-};
-QStringList Settings::decoderDropToText = {
-    "none", "default", "nonref", "bidir", "nonkey", "all"
-};
-QStringList Settings::syncModeToText = {
-    "audio", "display-resample", "display-resample-vdrop",
-    "display-resample-desync", "display-adrop", "display-vdrop"
-};
-QStringList Settings::subtitlePlacementXToText = {
-    "left", "center", "right"
-};
-QStringList Settings::subtitlePlacementYToText = {
-    "top", "center", "bottom"
-};
-QStringList Settings::assOverrideToText = {
-    "no", "yes", "force", "signfs"
-};
-QList<QStringList> Settings::subtitleAlignmentToText = {
-    { "top", "center" }, { "top", "right" }, { "center", "right" },
-    { "bottom", "right" }, { "bottom", "center" }, { "bottom", "left" },
-    { "center", "left" }, { "top", "left" }, { "center", "center" }
-};
 
-Q_DECLARE_METATYPE(Settings::ShaderPresetList);
-Q_DECLARE_METATYPE(Settings::XrandrModeList);
-#define STORE_PROP(X) m[__STRING(X)] = qVariantFromValue(X)
-#define STORE_PROP_T(X,Y) m[__STRING(X)] = qVariantFromValue((Y)X);
-#define READ_PROP(X,Y) \
-    if (m.contains(__STRING(X))) \
-        X = m[__STRING(X)].value<__typeof__(X)>(); \
-    else \
-        X = Y;
-#define READ_PROP_T(X,Y,T) \
-    if (m.contains(__STRING(X))) \
-        X = static_cast<__typeof__(X)>(m[__STRING(X)].value<T>()); \
-    else \
-        X = Y;
+#define TIME_SCALARS \
+    "oversample", "spline16", "spline36", "spline64", "sinc", "lanczos",\
+    "gingseng", "catmull_rom", "mitchell", "robidoux", "robidouxsharp",\
+    "box", "nearest", "triangle", "gaussian"
+
+
+QHash<QString, QStringList> Settings::indexedValueToText = {
+    {"videoFramebuffer", {"rgb8-rgba", "rgb10-rgb10_a2", "rgba12-rgba12", "rgb16-rgba16", "rgb16f-rgba16f", "rgb32f-rgba32f"}},
+    {"videoAlphaMode", {"blend", "yes", "no"}},
+    {"ditherType", {"fruit", "ordered", "no"}},
+    {"scaleScalar", {SCALAR_SCALARS}},
+    {"scaleWindow", {SCALAR_WINDOWS}},
+    {"dscaleScalar", {SCALAR_SCALARS}},
+    {"dscaleWindow", {SCALAR_WINDOWS}},
+    {"cscaleScalar", {SCALAR_SCALARS}},
+    {"cscaleWindow", {SCALAR_WINDOWS}},
+    {"tscaleScalar", {TIME_SCALARS}},
+    {"tscaleWindow", {SCALAR_WINDOWS}},
+    {"prescalarMethod", {"none", "superxbr", "needi3"}},
+    {"nnedi3Neurons", {"16", "32", "64", "128"}},
+    {"nnedi3Window", {"8x4", "8x6"}},
+    {"nnedi3Upload", {"ubo", "shader"}},
+    {"ccTargetPrim", {"auto", "bt.601-525", "bt.601-625", "bt.709", "bt.2020", "bt.470m", "apple", "adobe", "prophoto", "cie1931"}},
+    {"ccTargetTRC", {"auto", "by.1886", "srgb", "linear", "gamma1.8", "gamma2.2", "gamma2.8", "prophoto"}},
+    {"audioRenderer", {"pulse", "alsa", "oss", "null"}},
+    {"framedroppingMode", {"no", "vo", "decoder", "decoder+vo"}},
+    {"framedroppingDecoderMode", {"none", "default", "nonref", "bidir", "nonkey", "all"}},
+    {"syncMode", {"audio", "display-resample", "display-resample-vdrop", "display-resample-desync", "display-adrop", "display-vdrop"}},
+    {"subtitlePlacementX", {"left", "center", "right"}},
+    {"subtitlePlacementY", {"top", "center", "bottom"}},
+    {"subtitlesAssOverride", {"no", "yes", "force", "signfs"}},
+    {"subtitleAlignment", { "top-center", "top-right", "center-right", "bottom-right", "bottom-center", "bottom-left", "center-left", "top-left", "center-center" }}
+};
 
 QVariantMap Settings::toVMap()
 {
