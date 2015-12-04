@@ -381,7 +381,7 @@ void MpvWidget::ctrl_mpvPropertyChanged(QString name, QVariant v)
     if (debugMessages)
         qDebug() << "property changed " << name << v;
 
-    bool ok = (int)v.type() <= (int)QMetaType::User;
+    bool ok = v.type() < QVariant::UserType;
     HANDLE_PROP_1("time-pos", playTimeChanged, toDouble, -1.0);
     HANDLE_PROP_1("duration", playLengthChanged, toDouble, -1.0);
     HANDLE_PROP_1("pause", pausedChanged, toBool, true);
