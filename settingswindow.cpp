@@ -27,13 +27,13 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"videoAlphaMode", {"blend", "yes", "no"}},
     {"ditherType", {"fruit", "ordered", "no"}},
     {"scaleScalar", {SCALAR_SCALARS}},
-    {"scaleWindow", {SCALAR_WINDOWS}},
+    {"scaleWindowValue", {SCALAR_WINDOWS}},
     {"dscaleScalar", {SCALAR_SCALARS}},
-    {"dscaleWindow", {SCALAR_WINDOWS}},
+    {"dscaleWindowValue", {SCALAR_WINDOWS}},
     {"cscaleScalar", {SCALAR_SCALARS}},
-    {"cscaleWindow", {SCALAR_WINDOWS}},
+    {"cscaleWindowValue", {SCALAR_WINDOWS}},
     {"tscaleScalar", {TIME_SCALARS}},
-    {"tscaleWindow", {SCALAR_WINDOWS}},
+    {"tscaleWindowValue", {SCALAR_WINDOWS}},
     {"prescalarMethod", {"none", "superxbr", "needi3"}},
     {"nnedi3Neurons", {"16", "32", "64", "128"}},
     {"nnedi3Window", {"8x4", "8x6"}},
@@ -190,11 +190,11 @@ void SettingsWindow::sendSignals()
     QStringList cmdline;
 
     params["fbo-format"] = WIDGET_TO_TEXT(ui->videoFramebuffer).split('-').value(WIDGET_LOOKUP(ui->videoUseAlpha).toBool());
-    params["alpha"] = WIDGET_TO_TEXT(ui->videoUseAlpha);
+    params["alpha"] = WIDGET_TO_TEXT(ui->videoAlphaMode);
     params["sharpen"] = WIDGET_LOOKUP(ui->videoSharpen).toString();
 
     if (WIDGET_LOOKUP(ui->ditherDithering).toBool()) {
-        params["dither-depth"] = WIDGET_TO_TEXT(ui->ditherDepth);
+        params["dither-depth"] = WIDGET_LOOKUP(ui->ditherDepth).toString();
         params["dither"] = WIDGET_TO_TEXT(ui->ditherType);
         params["dither-size-fruit"] = WIDGET_LOOKUP(ui->ditherFruitSize).toString();
     }
