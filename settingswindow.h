@@ -12,10 +12,15 @@ public:
     Setting(const Setting &s) : name(s.name), widget(s.widget), value(s.value) {}
     Setting(QString name, QWidget *widget, QVariant value) : name(name), widget(widget), value(value) {}
 
+    void sendToControl();
+    void fetchFromControl();
+
     ~Setting() {}
     QString name;
     QWidget *widget;
     QVariant value;
+
+    static QMap<QString,QString> classToProperty;
 };
 
 struct SettingMap : public QHash<QString, Setting> {
@@ -54,7 +59,7 @@ signals:
     void subsAreGray(bool flag);
 
 public slots:
-    void takeSettings(const SettingMap &s);
+    void takeSettings(QVariantMap payload);
     void sendSignals();
 
 private slots:
@@ -71,6 +76,7 @@ private slots:
 private:
     Ui::SettingsWindow *ui;
     SettingMap acceptedSettings;
+    SettingMap defaultSettings;
 };
 
 #endif // SETTINGSWINDOW_H

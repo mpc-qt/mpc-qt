@@ -50,6 +50,29 @@ QHash<QString, QStringList> Settings::indexedValueToText = {
     {"subtitleAlignment", { "top-center", "top-right", "center-right", "bottom-right", "bottom-center", "bottom-left", "center-left", "top-left", "center-center" }}
 };
 
+static QMap<QString, QString> Setting::classToProperty = {
+    { "QCheckBox", "checked" },
+    { "QRadioButton", "checked" },
+    { "QLineEdit", "text" },
+    { "QSpinBox", "value" },
+    { "QComboBox", "currentIndex" },
+    { "QListWidget", "currentRow" },
+    { "QFontComboBox", "currentText" },
+    { "QScrollBar", "value" }
+};
+
+void Setting::sendToControl()
+{
+    QString property = classToProperty(widget->metaObject()->className());
+    widget->setProperty(property, value);
+}
+
+void Setting::fetchFromControl()
+{
+    QString property = classToProperty(widget->metaObject()->className());
+    value = widget->property(property);
+}
+
 QVariantMap SettingMap::toVMap()
 {
     QVariantMap m;
@@ -80,6 +103,9 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    defaultSettings = generateSettingMap();
+    acceptedSettings = defaultSettings();
+
     ui->pageStack->setCurrentIndex(0);
     ui->videoTabs->setCurrentIndex(0);
     ui->scalingTabs->setCurrentIndex(0);
@@ -103,118 +129,13 @@ SettingsWindow::~SettingsWindow()
 }
 
 void SettingsWindow::updateAcceptedSettings() {
-    Settings &s = acceptedSettings;
-    s.videoIsDumb = ui->videoDumbMode->isChecked();
-
-    s.framebufferDepth = (Settings::FBDepth)ui->videoFramebuffer->currentIndex();
-    s.framebufferAlpha = ui->videoUseAlpha->isChecked();
-    s.alphaMode = (Settings::AlphaMode)ui->videoAlphaMode->currentIndex();
-    s.sharpen = ui->videoSharpen->value();
-
-    s.dither = ui->ditherDithering->isChecked();
-    s.ditherDepth = ui->ditherDepth->value();
-    s.ditherType = (Settings::DitherType)ui->ditherType->currentIndex();
-    s.ditherFruitSize = ui->ditherFruitSize->value();
-    s.temporalDither = ui->ditherTemporal->isChecked();
-    s.temporalPeriod = ui->ditherTemporalPeriod->value();
-
-    s.downscaleCorrectly = ui->scalingCorrectDownscaling->isChecked();
-    s.scaleInLinearLight = ui->scalingInLinearLight->isChecked();
-    s.temporalInterpolation = ui->scalingTemporalInterpolation->isChecked();
-    s.blendSubtitles = ui->scalingBlendSubtitles->isChecked();
-    s.sigmoidizedUpscaling = ui->scalingSigmoidizedUpscaling->isChecked();
-    s.sigmoidCenter = ui->sigmoidizedCenter->value();
-    s.sigmoidSlope = ui->sigmoidizedSlope->value();
-
-    s.scaleScalar = (Settings::ScaleScalar)ui->scaleScalar->currentIndex();
-    s.scaleParam1 = ui->scaleParam1Value->value();
-    s.scaleParam2 = ui->scaleParam2Value->value();
-    s.scaleAntiRing = ui->scaleAntiRingValue->value();
-    s.scaleBlur = ui->scaleBlurValue->value();
-    s.scaleWindowParam = ui->scaleWindowParamValue->value();
-    s.scaleWindow = (Settings::ScaleWindow)ui->scaleWindowValue->currentIndex();
-    s.scaleParam1Set = ui->scaleParam1Set->isChecked();
-    s.scaleParam2Set = ui->scaleParam2Set->isChecked();
-    s.scaleAntiRingSet = ui->scaleAntiRingSet->isChecked();
-    s.scaleBlurSet = ui->scaleBlurSet->isChecked();
-    s.scaleWindowParamSet = ui->scaleWindowParamSet->isChecked();
-    s.scaleWindowSet = ui->scaleWindowSet->isChecked();
-    s.scaleClamp = ui->scaleClamp->isChecked();
-
-    s.dscaleScalar = (Settings::ScaleScalar)(ui->dscaleScalar->currentIndex() - 1);
-    s.dscaleParam1 = ui->dscaleParam1Value->value();
-    s.dscaleParam2 = ui->dscaleParam2Value->value();
-    s.dscaleAntiRing = ui->dscaleAntiRingValue->value();
-    s.dscaleBlur = ui->dscaleBlurValue->value();
-    s.dscaleWindowParam = ui->dscaleWindowParamValue->value();
-    s.dscaleWindow = (Settings::ScaleWindow)ui->dscaleWindowValue->currentIndex();
-    s.dscaleParam1Set = ui->dscaleParam1Set->isChecked();
-    s.dscaleParam2Set = ui->dscaleParam2Set->isChecked();
-    s.dscaleAntiRingSet = ui->dscaleAntiRingSet->isChecked();
-    s.dscaleBlurSet = ui->dscaleBlurSet->isChecked();
-    s.dscaleWindowParamSet = ui->dscaleWindowParamSet->isChecked();
-    s.dscaleWindowSet = ui->dscaleWindowSet->isChecked();
-    s.dscaleClamp = ui->dscaleClamp->isChecked();
-
-    s.cscaleScalar = (Settings::ScaleScalar)ui->cscaleScalar->currentIndex();
-    s.cscaleParam1 = ui->cscaleParam1Value->value();
-    s.cscaleParam2 = ui->cscaleParam2Value->value();
-    s.cscaleAntiRing = ui->cscaleAntiRingValue->value();
-    s.cscaleBlur = ui->cscaleBlurValue->value();
-    s.cscaleWindowParam = ui->cscaleWindowParamValue->value();
-    s.cscaleWindow = (Settings::ScaleWindow)ui->cscaleWindowValue->currentIndex();
-    s.cscaleParam1Set = ui->cscaleParam1Set->isChecked();
-    s.cscaleParam2Set = ui->cscaleParam2Set->isChecked();
-    s.cscaleAntiRingSet = ui->cscaleAntiRingSet->isChecked();
-    s.cscaleBlurSet = ui->cscaleBlurSet->isChecked();
-    s.cscaleWindowParamSet = ui->cscaleWindowParamSet->isChecked();
-    s.cscaleWindowSet = ui->cscaleWindowSet->isChecked();
-    s.cscaleClamp = ui->cscaleClamp->isChecked();
-
-    s.tscaleScalar = (Settings::TimeScalar)ui->tscaleScalar->currentIndex();
-    s.tscaleParam1 = ui->tscaleParam1Value->value();
-    s.tscaleParam2 = ui->tscaleParam2Value->value();
-    s.tscaleAntiRing = ui->tscaleAntiRingValue->value();
-    s.tscaleBlur = ui->tscaleBlurValue->value();
-    s.tscaleWindowParam = ui->tscaleWindowParamValue->value();
-    s.tscaleWindow = (Settings::ScaleWindow)ui->tscaleWindowValue->currentIndex();
-    s.tscaleParam1Set = ui->tscaleParam1Set->isChecked();
-    s.tscaleParam2Set = ui->tscaleParam2Set->isChecked();
-    s.tscaleAntiRingSet = ui->tscaleAntiRingSet->isChecked();
-    s.tscaleBlurSet = ui->tscaleBlurSet->isChecked();
-    s.tscaleWindowParamSet = ui->tscaleWindowParamSet->isChecked();
-    s.tscaleWindowSet = ui->tscaleWindowSet->isChecked();
-    s.tscaleClamp = ui->tscaleClamp->isChecked();
-
-    s.debanding = ui->debandEnabled->isChecked();
-    s.debandIterations = ui->debandIterations->value();
-    s.debandThreshold = ui->debandThreshold->value();
-    s.debandRange = ui->debandRange->value();
-    s.debandGrain = ui->debandGrain->value();
-
-    s.framedroppingMode = (Settings::FramedropMode)ui->framedroppingMode->currentIndex();
-    s.decoderDroppingMode = (Settings::DecoderDropMode)ui->framedroppingDecoderMode->currentIndex();
-    s.syncMode = (Settings::SyncMode)ui->syncMode->currentIndex();
-    s.audioDropSize = ui->syncAudioDropSize->value();
-    s.maxAudioChange = ui->syncMaxAudioChange->value();
-    s.maxVideoChange = ui->syncMaxVideoChange->value();
-
-    s.subtitlesInGrayscale = ui->subtitlesForceGrayscale->isChecked();
+    acceptedSettings = generateSettingMap();
 }
 
 SettingMap SettingsWindow::generateSettingMap()
 {
     SettingMap settingMap;
-    QMap<QString> classToProperty = {
-        { "QCheckBox", "checked" },
-        { "QRadioButton", "checked" },
-        { "QLineEdit", "text" },
-        { "QSpinBox", "value" },
-        { "QComboBox", "currentIndex" },
-        { "QListWidget", "currentRow" },
-        { "QFontComboBox", "currentText" },
-        { "QScrollBar", "value" }
-    };
+
 
     // The idea here is to discover all the widgets in the ui and only inspect
     // the widgets which we desire to know about.
@@ -229,7 +150,7 @@ SettingMap SettingsWindow::generateSettingMap()
             && item->objectName() != "qt_spinbox_lineedit") {
             QString name = item->objectName();
             QString className = item->metaObject()->className();
-            QString property = classToProperty.value(className, QString());
+            QString property = Setting::classToProperty.value(className, QString());
             QVariant value = item->property(property);
             settingMap.insert(name, {name, item, value});
             return;
@@ -243,116 +164,12 @@ SettingMap SettingsWindow::generateSettingMap()
     return settingMap;
 }
 
-void SettingsWindow::takeSettings(const SettingMap &s)
+void SettingsWindow::takeSettings(QVariantMap payload)
 {
-    ui->videoDumbMode->setChecked(s.videoIsDumb);
-
-    ui->videoFramebuffer->setCurrentIndex(s.framebufferDepth);
-    ui->videoUseAlpha->setChecked(s.framebufferAlpha);
-    ui->videoAlphaMode->setCurrentIndex(s.alphaMode);
-    ui->videoSharpen->setValue(s.sharpen);
-
-    ui->ditherDepth->setValue(s.ditherDepth);
-    ui->ditherType->setCurrentIndex(s.ditherType);
-    ui->ditherFruitSize->setValue(s.ditherFruitSize);
-    ui->ditherTemporal->setChecked(s.temporalDither);
-    ui->ditherTemporalPeriod->setValue(s.temporalPeriod);
-
-    ui->scalingCorrectDownscaling->setChecked(s.downscaleCorrectly);
-    ui->scalingInLinearLight->setChecked(s.scaleInLinearLight);
-    ui->scalingTemporalInterpolation->setChecked(s.temporalInterpolation);
-    ui->scalingBlendSubtitles->setChecked(s.blendSubtitles);
-    ui->scalingSigmoidizedUpscaling->setChecked(s.sigmoidizedUpscaling);
-    ui->sigmoidizedCenter->setValue(s.sigmoidCenter);
-    ui->sigmoidizedSlope->setValue(s.sigmoidSlope);
-
-    ui->scaleScalar->setCurrentIndex(s.scaleScalar);
-    ui->scaleParam1Value->setValue(s.scaleParam1);
-    ui->scaleParam2Value->setValue(s.scaleParam2);
-    ui->scaleRadiusValue->setValue(s.scaleRadius);
-    ui->scaleAntiRingValue->setValue(s.scaleAntiRing);
-    ui->scaleBlurValue->setValue(s.scaleBlur);
-    ui->scaleWindowParamValue->setValue(s.scaleWindowParam);
-    ui->scaleWindowValue->setCurrentIndex(s.scaleWindow);
-    ui->scaleParam1Set->setChecked(s.scaleParam1Set);
-    ui->scaleParam2Set->setChecked(s.scaleParam2Set);
-    ui->scaleRadiusSet->setChecked(s.scaleRadiusSet);
-    ui->scaleAntiRingSet->setChecked(s.scaleAntiRingSet);
-    ui->scaleBlurSet->setChecked(s.scaleBlurSet);
-    ui->scaleWindowParamSet->setChecked(s.scaleWindowParamSet);
-    ui->scaleWindowSet->setChecked(s.scaleWindowSet);
-    ui->scaleClamp->setChecked(s.scaleClamp);
-
-    ui->dscaleScalar->setCurrentIndex(s.dscaleScalar + 1);
-    ui->dscaleParam1Value->setValue(s.dscaleParam1);
-    ui->dscaleParam2Value->setValue(s.dscaleParam2);
-    ui->dscaleRadiusValue->setValue(s.dscaleRadius);
-    ui->dscaleAntiRingValue->setValue(s.dscaleAntiRing);
-    ui->dscaleBlurValue->setValue(s.dscaleBlur);
-    ui->dscaleWindowParamValue->setValue(s.dscaleWindowParam);
-    ui->dscaleWindowValue->setCurrentIndex(s.dscaleWindow);
-    ui->dscaleParam1Set->setChecked(s.dscaleParam1Set);
-    ui->dscaleParam2Set->setChecked(s.dscaleParam2Set);
-    ui->dscaleRadiusSet->setChecked(s.dscaleRadiusSet);
-    ui->dscaleAntiRingSet->setChecked(s.dscaleAntiRingSet);
-    ui->dscaleBlurSet->setChecked(s.dscaleBlurSet);
-    ui->dscaleWindowParamSet->setChecked(s.dscaleWindowParamSet);
-    ui->dscaleWindowSet->setChecked(s.dscaleWindowSet);
-    ui->dscaleClamp->setChecked(s.dscaleClamp);
-
-    ui->cscaleScalar->setCurrentIndex(s.cscaleScalar);
-    ui->cscaleParam1Value->setValue(s.cscaleParam1);
-    ui->cscaleParam2Value->setValue(s.cscaleParam2);
-    ui->cscaleRadiusValue->setValue(s.cscaleRadius);
-    ui->cscaleAntiRingValue->setValue(s.cscaleAntiRing);
-    ui->cscaleBlurValue->setValue(s.cscaleBlur);
-    ui->cscaleWindowParamValue->setValue(s.cscaleWindowParam);
-    ui->cscaleWindowValue->setCurrentIndex(s.cscaleWindow);
-    ui->cscaleParam1Set->setChecked(s.cscaleParam1Set);
-    ui->cscaleParam2Set->setChecked(s.cscaleParam2Set);
-    ui->cscaleRadiusSet->setChecked(s.cscaleRadiusSet);
-    ui->cscaleAntiRingSet->setChecked(s.cscaleAntiRingSet);
-    ui->cscaleBlurSet->setChecked(s.cscaleBlurSet);
-    ui->cscaleWindowParamSet->setChecked(s.cscaleWindowParamSet);
-    ui->cscaleWindowSet->setChecked(s.cscaleWindowSet);
-    ui->cscaleClamp->setChecked(s.cscaleClamp);
-
-    ui->tscaleScalar->setCurrentIndex(s.tscaleScalar);
-    ui->tscaleParam1Value->setValue(s.tscaleParam1);
-    ui->tscaleParam2Value->setValue(s.tscaleParam2);
-    ui->tscaleRadiusValue->setValue(s.tscaleRadius);
-    ui->tscaleAntiRingValue->setValue(s.tscaleAntiRing);
-    ui->tscaleBlurValue->setValue(s.tscaleBlur);
-    ui->tscaleWindowParamValue->setValue(s.tscaleWindowParam);
-    ui->tscaleWindowValue->setCurrentIndex(s.tscaleWindow);
-    ui->tscaleParam1Set->setChecked(s.tscaleParam1Set);
-    ui->tscaleParam2Set->setChecked(s.tscaleParam2Set);
-    ui->tscaleRadiusSet->setChecked(s.tscaleRadiusSet);
-    ui->tscaleAntiRingSet->setChecked(s.tscaleAntiRingSet);
-    ui->tscaleBlurSet->setChecked(s.tscaleBlurSet);
-    ui->tscaleWindowParamSet->setChecked(s.tscaleWindowParamSet);
-    ui->tscaleWindowSet->setChecked(s.tscaleWindowSet);
-    ui->tscaleClamp->setChecked(s.tscaleClamp);
-
-    ui->debandEnabled->setChecked(s.debanding);
-    ui->debandIterations->setValue(s.debandIterations);
-    ui->debandThreshold->setValue(s.debandThreshold);
-    ui->debandRange->setValue(s.debandRange);
-    ui->debandGrain->setValue(s.debandGrain);
-
-    ui->framedroppingMode->setCurrentIndex(s.framedroppingMode);
-    ui->framedroppingDecoderMode->setCurrentIndex(s.framedroppingMode);
-    ui->syncMode->setCurrentIndex(s.syncMode);
-    ui->syncMaxAudioChange->setValue(s.maxAudioChange);
-    ui->syncMaxVideoChange->setValue(s.maxVideoChange);
-
-    ui->subtitlesForceGrayscale->setChecked(s.subtitlesInGrayscale);
-
-    on_prescalarMethod_currentIndexChanged(s.prescalar);
-    on_audioRenderer_currentIndexChanged(s.audioRenderer);
-    on_videoDumbMode_toggled(s.videoIsDumb);
-
-    acceptedSettings = s;
+    acceptedSettings.fromVMap(payload);
+    foreach (Setting &s, acceptedSettings) {
+        s.sendToControl();
+    }
 }
 
 #define TEXT_LOOKUP(array, field, dflt) \
@@ -546,3 +363,4 @@ void SettingsWindow::on_videoDumbMode_toggled(bool checked)
 {
     ui->videoTabs->setEnabled(!checked);
 }
+
