@@ -23,12 +23,14 @@
 
 
 QHash<QString, QStringList> SettingMap::indexedValueToText = {
-    {"videoFramebuffer", {"rgb8-rgba", "rgb10-rgb10_a2", "rgba12-rgba12", "rgb16-rgba16", "rgb16f-rgba16f", "rgb32f-rgba32f"}},
+    {"videoFramebuffer", {"rgb8-rgba", "rgb10-rgb10_a2", "rgba12-rgba12",\
+                          "rgb16-rgba16", "rgb16f-rgba16f",\
+                          "rgb32f-rgba32f"}},
     {"videoAlphaMode", {"blend", "yes", "no"}},
     {"ditherType", {"fruit", "ordered", "no"}},
     {"scaleScalar", {SCALAR_SCALARS}},
     {"scaleWindowValue", {SCALAR_WINDOWS}},
-    {"dscaleScalar", {SCALAR_SCALARS}},
+    {"dscaleScalar", {"unset", SCALAR_SCALARS}},
     {"dscaleWindowValue", {SCALAR_WINDOWS}},
     {"cscaleScalar", {SCALAR_SCALARS}},
     {"cscaleWindowValue", {SCALAR_WINDOWS}},
@@ -38,16 +40,24 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"nnedi3Neurons", {"16", "32", "64", "128"}},
     {"nnedi3Window", {"8x4", "8x6"}},
     {"nnedi3Upload", {"ubo", "shader"}},
-    {"ccTargetPrim", {"auto", "bt.601-525", "bt.601-625", "bt.709", "bt.2020", "bt.470m", "apple", "adobe", "prophoto", "cie1931"}},
-    {"ccTargetTRC", {"auto", "by.1886", "srgb", "linear", "gamma1.8", "gamma2.2", "gamma2.8", "prophoto"}},
+    {"ccTargetPrim", {"auto", "bt.601-525", "bt.601-625", "bt.709",\
+                      "bt.2020", "bt.470m", "apple", "adobe", "prophoto",\
+                      "cie1931"}},
+    {"ccTargetTRC", {"auto", "by.1886", "srgb", "linear", "gamma1.8",\
+                     "gamma2.2", "gamma2.8", "prophoto"}},
     {"audioRenderer", {"pulse", "alsa", "oss", "null"}},
     {"framedroppingMode", {"no", "vo", "decoder", "decoder+vo"}},
-    {"framedroppingDecoderMode", {"none", "default", "nonref", "bidir", "nonkey", "all"}},
-    {"syncMode", {"audio", "display-resample", "display-resample-vdrop", "display-resample-desync", "display-adrop", "display-vdrop"}},
+    {"framedroppingDecoderMode", {"none", "default", "nonref", "bidir",\
+                                  "nonkey", "all"}},
+    {"syncMode", {"audio", "display-resample", "display-resample-vdrop",\
+                  "display-resample-desync", "display-adrop",\
+                  "display-vdrop"}},
     {"subtitlePlacementX", {"left", "center", "right"}},
     {"subtitlePlacementY", {"top", "center", "bottom"}},
     {"subtitlesAssOverride", {"no", "yes", "force", "signfs"}},
-    {"subtitleAlignment", { "top-center", "top-right", "center-right", "bottom-right", "bottom-center", "bottom-left", "center-left", "top-left", "center-center" }}
+    {"subtitleAlignment", { "top-center", "top-right", "center-right",\
+                            "bottom-right", "bottom-center", "bottom-left",\
+                            "center-left", "top-left", "center-center" }}
 };
 
 QMap<QString, QString> Setting::classToProperty = {
@@ -144,9 +154,7 @@ SettingMap SettingsWindow::generateSettingMap()
     toParse.append(this);
     while (!toParse.empty()) {
         QObject *item = toParse.takeFirst();
-        if (QStringList({"QCheckBox", "QRadioButton", "QLineEdit", "QSpinBox",
-                        "QDoubleSpinBox", "QComboBox", "QListWidget", "QFontComboBox",
-                        "QScrollBar"}).contains(item->metaObject()->className())
+        if (Setting::classToProperty.keys().contains(item->metaObject()->className())
             && !item->objectName().isEmpty()
             && item->objectName() != "qt_spinbox_lineedit") {
             QString name = item->objectName();
