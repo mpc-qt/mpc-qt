@@ -51,8 +51,8 @@ Flow::Flow(QObject *owner) :
 
     settingsWindow = new SettingsWindow();
     settingsWindow->setWindowModality(Qt::WindowModal);
-    s.fromVMap(storage.readVMap("settings"));
-    settingsWindow->takeSettings(s);
+    settings = storage.readVMap("settings");
+    settingsWindow->takeSettings(settings);
 
     // mainwindow -> manager
     connect(mainWindow, SIGNAL(severalFilesOpened(QList<QUrl>)),
@@ -189,7 +189,7 @@ Flow::~Flow()
         delete settingsWindow;
         settingsWindow = NULL;
     }
-    storage.writeVMap("settings", s.toVMap());
+    storage.writeVMap("settings", settings);
 }
 
 int Flow::run()
@@ -219,7 +219,7 @@ void Flow::mainwindow_applicationShouldQuit()
 
 void Flow::mainwindow_optionsOpenRequested()
 {
-    settingsWindow->takeSettings(s);
+    settingsWindow->takeSettings(settings);
     settingsWindow->show();
 }
 
@@ -235,9 +235,9 @@ void Flow::process_payloadRecieved(const QStringList &payload)
     }
 }
 
-void Flow::settingswindow_settingsData(const Settings &s)
+void Flow::settingswindow_settingsData(const QVariantMap &settings)
 {
-    this->s = s;
+    this->settings = settings;
 }
 
 void Flow::importPlaylist(QString fname)

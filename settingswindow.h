@@ -47,7 +47,7 @@ private:
     SettingMap generateSettingMap();
 
 signals:
-    void settingsData(const SettingMap &s);
+    void settingsData(const QVariantMap &s);
 
     void voCommandLine(const QString &s);
     void framedropMode(const QString &s);

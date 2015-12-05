@@ -23,7 +23,7 @@ private slots:
     void mainwindow_applicationShouldQuit();
     void mainwindow_optionsOpenRequested();
     void process_payloadRecieved(const QStringList &payload);
-    void settingswindow_settingsData(const Settings &s);
+    void settingswindow_settingsData(const QVariantMap &settings);
     void importPlaylist(QString fname);
     void exportPlaylist(QString fname, QStringList items);
 
@@ -33,7 +33,7 @@ private:
     PlaybackManager *playbackManager;
     SettingsWindow *settingsWindow;
     Storage storage;
-    Settings s;
+    QVariantMap settings;
 
     bool hasPrevious_;
 };

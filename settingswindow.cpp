@@ -343,7 +343,7 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
     if (buttonRole == QDialogButtonBox::ApplyRole ||
             buttonRole == QDialogButtonBox::AcceptRole) {\
         updateAcceptedSettings();
-        emit settingsData(acceptedSettings);
+        emit settingsData(acceptedSettings.toVMap());
         sendSignals();
     }
     if (buttonRole == QDialogButtonBox::AcceptRole ||
