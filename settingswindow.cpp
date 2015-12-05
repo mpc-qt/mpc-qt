@@ -74,12 +74,20 @@ QMap<QString, QString> Setting::classToProperty = {
 
 void Setting::sendToControl()
 {
+    if (!widget) {
+        qDebug() << "[Settings] attempted to send data to null widget!";
+        return;
+    }
     QString property = classToProperty[widget->metaObject()->className()];
     widget->setProperty(property.toUtf8().data(), value);
 }
 
 void Setting::fetchFromControl()
 {
+    if (!widget) {
+        qDebug() << "[Settings] attempted to get data from null widget!";
+        return;
+    }
     QString property = classToProperty[widget->metaObject()->className()];
     value = widget->property(property.toUtf8().data());
 }
