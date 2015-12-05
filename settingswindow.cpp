@@ -22,7 +22,7 @@
     "box", "nearest", "triangle", "gaussian"
 
 
-QHash<QString, QStringList> Settings::indexedValueToText = {
+QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"videoFramebuffer", {"rgb8-rgba", "rgb10-rgb10_a2", "rgba12-rgba12", "rgb16-rgba16", "rgb16f-rgba16f", "rgb32f-rgba32f"}},
     {"videoAlphaMode", {"blend", "yes", "no"}},
     {"ditherType", {"fruit", "ordered", "no"}},
@@ -50,7 +50,7 @@ QHash<QString, QStringList> Settings::indexedValueToText = {
     {"subtitleAlignment", { "top-center", "top-right", "center-right", "bottom-right", "bottom-center", "bottom-left", "center-left", "top-left", "center-center" }}
 };
 
-static QMap<QString, QString> Setting::classToProperty = {
+QMap<QString, QString> Setting::classToProperty = {
     { "QCheckBox", "checked" },
     { "QRadioButton", "checked" },
     { "QLineEdit", "text" },
@@ -63,14 +63,14 @@ static QMap<QString, QString> Setting::classToProperty = {
 
 void Setting::sendToControl()
 {
-    QString property = classToProperty(widget->metaObject()->className());
-    widget->setProperty(property, value);
+    QString property = classToProperty[widget->metaObject()->className()];
+    widget->setProperty(property.toUtf8().data(), value);
 }
 
 void Setting::fetchFromControl()
 {
-    QString property = classToProperty(widget->metaObject()->className());
-    value = widget->property(property);
+    QString property = classToProperty[widget->metaObject()->className()];
+    value = widget->property(property.toUtf8().data());
 }
 
 QVariantMap SettingMap::toVMap()
@@ -92,7 +92,7 @@ void SettingMap::fromVMap(const QVariantMap &m)
         if (!this->contains(i.key()))
             continue;
         Setting s = this->value(i.key());
-        this->insert({s.name, s.widget, i.value()});
+        this->insert(s.name, {s.name, s.widget, i.value()});
     }
 }
 
@@ -104,7 +104,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->setupUi(this);
 
     defaultSettings = generateSettingMap();
-    acceptedSettings = defaultSettings();
+    acceptedSettings = defaultSettings;
 
     ui->pageStack->setCurrentIndex(0);
     ui->videoTabs->setCurrentIndex(0);
@@ -151,9 +151,9 @@ SettingMap SettingsWindow::generateSettingMap()
             QString name = item->objectName();
             QString className = item->metaObject()->className();
             QString property = Setting::classToProperty.value(className, QString());
-            QVariant value = item->property(property);
-            settingMap.insert(name, {name, item, value});
-            return;
+            QVariant value = item->property(property.toUtf8().data());
+            settingMap.insert(name, {name, qobject_cast<QWidget*>(item), value});
+            continue;
         }
         QObjectList children = item->children();
         foreach(QObject *child, children) {
@@ -167,21 +167,21 @@ SettingMap SettingsWindow::generateSettingMap()
 void SettingsWindow::takeSettings(QVariantMap payload)
 {
     acceptedSettings.fromVMap(payload);
-    foreach (Setting &s, acceptedSettings) {
+    for (Setting &s : acceptedSettings) {
         s.sendToControl();
     }
 }
 
 
 #define WIDGET_LOOKUP(widget) \
-    acceptedSettings[widget->name()].value
+    acceptedSettings[widget->objectName()].value
 
 #define OFFSET_LOOKUP(source, widget) \
-    source[widget->name()].value.toInt()
+    source[widget->objectName()].value.toInt()
 
 #define WIDGET_TO_TEXT(widget) \
-    SettingMap::indexedValueToText[widget->name()].value(OFFSET_LOOKUP(acceptedSettings,widget), \
-        SettingMap::indexedValueToText[widget->name()].value(OFFSET_LOOKUP(defaultSettings,widget)))
+    SettingMap::indexedValueToText[widget->objectName()].value(OFFSET_LOOKUP(acceptedSettings,widget), \
+        SettingMap::indexedValueToText[widget->objectName()].value(OFFSET_LOOKUP(defaultSettings,widget)))
 
 void SettingsWindow::sendSignals()
 {
@@ -190,7 +190,7 @@ void SettingsWindow::sendSignals()
 
     params["fbo-format"] = WIDGET_TO_TEXT(ui->videoFramebuffer).split('-').value(WIDGET_LOOKUP(ui->videoUseAlpha).toBool());
     params["alpha"] = WIDGET_TO_TEXT(ui->videoUseAlpha);
-    params["sharpen"] = WIDGET_TO_TEXT(ui->videoSharpen).toString();
+    params["sharpen"] = WIDGET_LOOKUP(ui->videoSharpen).toString();
 
     if (WIDGET_LOOKUP(ui->ditherDithering).toBool()) {
         params["dither-depth"] = WIDGET_TO_TEXT(ui->ditherDepth);
@@ -313,10 +313,10 @@ void SettingsWindow::sendSignals()
     framedropMode(WIDGET_TO_TEXT(ui->framedroppingMode));
     decoderDropMode(WIDGET_TO_TEXT(ui->framedroppingDecoderMode));
     displaySyncMode(WIDGET_TO_TEXT(ui->syncMode));
-    audioDropSize(WIDGET_LOOKUP(ui->syncAudioDropSize).toString());
-    maximumAudioChange(WIDGET_LOOKUP(ui->syncMaxAudioChange).toString());
-    maximumVideoChange(WIDGET_LOOKUP(ui->syncMaxVideoChange).toString());
-    subsAreGray(WIDGET_LOOKUP(ui->subtitlesForceGrayscale).toString());
+    audioDropSize(WIDGET_LOOKUP(ui->syncAudioDropSize).toDouble());
+    maximumAudioChange(WIDGET_LOOKUP(ui->syncMaxAudioChange).toDouble());
+    maximumVideoChange(WIDGET_LOOKUP(ui->syncMaxVideoChange).toDouble());
+    subsAreGray(WIDGET_LOOKUP(ui->subtitlesForceGrayscale).toDouble());
 }
 
 void SettingsWindow::on_pageTree_itemSelectionChanged()
