@@ -55,6 +55,7 @@ QMap<QString, QString> Setting::classToProperty = {
     { "QRadioButton", "checked" },
     { "QLineEdit", "text" },
     { "QSpinBox", "value" },
+    { "QDoubleSpinBox", "value" },
     { "QComboBox", "currentIndex" },
     { "QListWidget", "currentRow" },
     { "QFontComboBox", "currentText" },
@@ -144,7 +145,7 @@ SettingMap SettingsWindow::generateSettingMap()
     while (!toParse.empty()) {
         QObject *item = toParse.takeFirst();
         if (QStringList({"QCheckBox", "QRadioButton", "QLineEdit", "QSpinBox",
-                        "QComboBox", "QListWidget", "QFontComboBox",
+                        "QDoubleSpinBox", "QComboBox", "QListWidget", "QFontComboBox",
                         "QScrollBar"}).contains(item->metaObject()->className())
             && !item->objectName().isEmpty()
             && item->objectName() != "qt_spinbox_lineedit") {
