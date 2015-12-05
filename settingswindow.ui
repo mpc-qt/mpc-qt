@@ -129,7 +129,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>5</number>
+          <number>8</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -434,7 +434,7 @@ media file played</string>
              <item row="0" column="0">
               <widget class="QRadioButton" name="logoUseInternal">
                <property name="text">
-                <string>I&amp;nternal</string>
+                <string>Interna&amp;l</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -780,7 +780,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">

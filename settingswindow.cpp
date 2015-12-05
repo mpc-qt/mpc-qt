@@ -172,128 +172,130 @@ void SettingsWindow::takeSettings(QVariantMap payload)
     }
 }
 
-#define TEXT_LOOKUP(array, field, dflt) \
-    Settings::array.value(acceptedSettings.field, Settings::array[dflt])
-#define TEXT_LOOKUP2(array, field1, dflt1, field2, dflt2) \
-    Settings::array.value(acceptedSettings.field1, Settings::array[dflt1]) \
-                   .value(acceptedSettings.field2, TEXT_LOOKUP(array,field1,dflt1).value(dflt2))
 
+#define WIDGET_LOOKUP(widget) \
+    acceptedSettings[widget->name()].value
+
+#define OFFSET_LOOKUP(source, widget) \
+    source[widget->name()].value.toInt()
+
+#define WIDGET_TO_TEXT(widget) \
+    SettingMap::indexedValueToText[widget->name()].value(OFFSET_LOOKUP(acceptedSettings,widget), \
+        SettingMap::indexedValueToText[widget->name()].value(OFFSET_LOOKUP(defaultSettings,widget)))
 
 void SettingsWindow::sendSignals()
 {
     QMap<QString,QString> params;
     QStringList cmdline;
 
-    params["fbo-format"] = TEXT_LOOKUP2(fbDepthToText, framebufferDepth, Settings::DepthOf16, framebufferAlpha, false);
-    params["alpha"] = Settings::alphaModeToText.value(acceptedSettings.alphaMode, "blend");
-    params["sharpen"] = QString::number(acceptedSettings.sharpen);
+    params["fbo-format"] = WIDGET_TO_TEXT(ui->videoFramebuffer).split('-').value(WIDGET_LOOKUP(ui->videoUseAlpha).toBool());
+    params["alpha"] = WIDGET_TO_TEXT(ui->videoUseAlpha);
+    params["sharpen"] = WIDGET_TO_TEXT(ui->videoSharpen).toString();
 
-    if (acceptedSettings.dither) {
-        params["dither-depth"] = acceptedSettings.ditherDepth ?
-                    QString::number(acceptedSettings.ditherDepth) :
-                    "auto";
-        params["dither"] = TEXT_LOOKUP(ditherTypeToText, ditherType, Settings::Fruit);
-        if (acceptedSettings.ditherFruitSize)
-            params["dither-size-fruit"] = QString::number(acceptedSettings.ditherFruitSize);
+    if (WIDGET_LOOKUP(ui->ditherDithering).toBool()) {
+        params["dither-depth"] = WIDGET_TO_TEXT(ui->ditherDepth);
+        params["dither"] = WIDGET_TO_TEXT(ui->ditherType);
+        params["dither-size-fruit"] = WIDGET_LOOKUP(ui->ditherFruitSize).toString();
     }
-    if (acceptedSettings.temporalDither) {
+    if (WIDGET_LOOKUP(ui->ditherTemporal).toBool()) {
         params["temporal-dither"] = QString();
-        params["temporal-dither-period"] = QString::number(acceptedSettings.temporalPeriod);
+        params["temporal-dither-period"] = WIDGET_LOOKUP(ui->ditherTemporalPeriod).toString();
     }
-
-    if (acceptedSettings.downscaleCorrectly)
+    // WIDGET_LOOKUP().toString();
+    // WIDGET_LOOKUP().toBool()
+    if (WIDGET_LOOKUP(ui->scalingCorrectDownscaling).toBool())
         params["correct-downscaling"] = QString();
-    if (acceptedSettings.scaleInLinearLight)
+    if (WIDGET_LOOKUP(ui->scalingInLinearLight).toBool())
         params["linear-scaling"] = QString();
-    if (acceptedSettings.temporalInterpolation)
+    if (WIDGET_LOOKUP(ui->scalingTemporalInterpolation).toBool())
         params["interpolation"] = QString();
-    if (acceptedSettings.blendSubtitles)
+    if (WIDGET_LOOKUP(ui->scalingBlendSubtitles).toBool())
         params["blend-subtitles"] = QString();
-    if (acceptedSettings.sigmoidizedUpscaling) {
+    if (WIDGET_LOOKUP(ui->scalingSigmoidizedUpscaling).toBool()) {
         params["sigmoid-upscaling"] = QString();
-        params["sigmoid-center"] = QString::number(acceptedSettings.sigmoidCenter);
-        params["sigmoid-slope"] = QString::number(acceptedSettings.sigmoidSlope);
+        params["sigmoid-center"] = WIDGET_LOOKUP(ui->sigmoidizedCenter).toString();
+        params["sigmoid-slope"] = WIDGET_LOOKUP(ui->sigmoidizedSlope).toString();
     }
 
-    params["scale"] = TEXT_LOOKUP(scaleScalarToText, scaleScalar, Settings::Bilinear);
-    if (acceptedSettings.scaleParam1Set)
-        params["scale-param1"] = QString::number(acceptedSettings.scaleParam1);
-    if (acceptedSettings.scaleParam2Set)
-        params["scale-param2"] = QString::number(acceptedSettings.scaleParam2);
-    if (acceptedSettings.scaleRadiusSet)
-        params["scale-radius"] = QString::number(acceptedSettings.scaleRadius);
-    if (acceptedSettings.scaleAntiRingSet)
-        params["scale-antiring"] = QString::number(acceptedSettings.scaleAntiRing);
-    if (acceptedSettings.scaleBlurSet)
-        params["scale-blur"] = QString::number(acceptedSettings.scaleBlur);
-    if (acceptedSettings.scaleWindowParamSet)
-        params["scale-wparam"] = QString::number(acceptedSettings.scaleWindowParam);
-    if (acceptedSettings.scaleWindowSet)
-        params["scale-window"] = TEXT_LOOKUP(scaleWindowToText, scaleWindow, Settings::BoxWindow);
-    if (acceptedSettings.scaleClamp)
+    params["scale"] = WIDGET_TO_TEXT(ui->scaleScalar);
+    if (WIDGET_LOOKUP(ui->scaleParam1Set).toBool())
+        params["scale-param1"] = WIDGET_LOOKUP(ui->scaleParam1Value).toString();
+    if (WIDGET_LOOKUP(ui->scaleParam2Set).toBool())
+        params["scale-param2"] = WIDGET_LOOKUP(ui->scaleParam2Value).toString();
+    if (WIDGET_LOOKUP(ui->scaleRadiusSet).toBool())
+        params["scale-radius"] = WIDGET_LOOKUP(ui->scaleRadiusValue).toString();
+    if (WIDGET_LOOKUP(ui->scaleAntiRingSet).toBool())
+        params["scale-antiring"] = WIDGET_LOOKUP(ui->scaleAntiRingValue).toString();
+    if (WIDGET_LOOKUP(ui->scaleBlurSet).toBool())
+        params["scale-blur"] = WIDGET_LOOKUP(ui->scaleBlurValue).toString();
+    if (WIDGET_LOOKUP(ui->scaleWindowParamSet).toBool())
+        params["scale-wparam"] = WIDGET_LOOKUP(ui->scaleWindowParamValue).toString();
+    if (WIDGET_LOOKUP(ui->scaleWindowSet).toBool())
+        params["scale-window"] = WIDGET_TO_TEXT(ui->scaleWindowValue);
+    if (WIDGET_LOOKUP(ui->scaleClamp).toBool())
         params["scale-clamp"] = QString();
 
-    if (acceptedSettings.dscaleScalar != Settings::Unset)
-        params["dscale"] = TEXT_LOOKUP(scaleScalarToText, dscaleScalar, Settings::Bilinear);
-    if (acceptedSettings.dscaleParam1Set)
-        params["dscale-param1"] = QString::number(acceptedSettings.dscaleParam1);
-    if (acceptedSettings.dscaleParam2Set)
-        params["dscale-param2"] = QString::number(acceptedSettings.dscaleParam2);
-    if (acceptedSettings.dscaleRadiusSet)
-        params["dscale-radius"] = QString::number(acceptedSettings.dscaleRadius);
-    if (acceptedSettings.dscaleAntiRingSet)
-        params["dscale-antiring"] = QString::number(acceptedSettings.dscaleAntiRing);
-    if (acceptedSettings.dscaleBlurSet)
-        params["dscale-blur"] = QString::number(acceptedSettings.dscaleBlur);
-    if (acceptedSettings.dscaleWindowParamSet)
-        params["dscale-wparam"] = QString::number(acceptedSettings.dscaleWindowParam);
-    if (acceptedSettings.dscaleWindowSet)
-        params["dscale-window"] = TEXT_LOOKUP(scaleWindowToText, dscaleWindow, Settings::BoxWindow);
-    if (acceptedSettings.dscaleClamp)
+    if (WIDGET_LOOKUP(ui->dscaleScalar).toInt())
+        params["dscale"] = WIDGET_TO_TEXT(ui->dscaleScalar);
+    if (WIDGET_LOOKUP(ui->dscaleParam1Set).toBool())
+        params["dscale-param1"] = WIDGET_LOOKUP(ui->scaleParam1Value).toString();
+    if (WIDGET_LOOKUP(ui->dscaleParam2Set).toBool())
+        params["dscale-param2"] = WIDGET_LOOKUP(ui->scaleParam2Value).toString();
+    if (WIDGET_LOOKUP(ui->dscaleRadiusSet).toBool())
+        params["dscale-radius"] = WIDGET_LOOKUP(ui->scaleRadiusValue).toString();
+    if (WIDGET_LOOKUP(ui->dscaleAntiRingSet).toBool())
+        params["dscale-antiring"] = WIDGET_LOOKUP(ui->scaleAntiRingValue).toString();
+    if (WIDGET_LOOKUP(ui->dscaleBlurSet).toBool())
+        params["dscale-blur"] = WIDGET_LOOKUP(ui->scaleBlurValue).toString();
+    if (WIDGET_LOOKUP(ui->dscaleWindowParamSet).toBool())
+        params["dscale-wparam"] = WIDGET_LOOKUP(ui->scaleWindowParamValue).toString();
+    if (WIDGET_LOOKUP(ui->dscaleWindowSet).toBool())
+        params["dscale-window"] = WIDGET_TO_TEXT(ui->scaleWindowValue);
+    if (WIDGET_LOOKUP(ui->dscaleClamp).toBool())
         params["dscale-clamp"] = QString();
 
-    params["cscale"] = TEXT_LOOKUP(scaleScalarToText, cscaleScalar, Settings::Bilinear);
-    if (acceptedSettings.cscaleParam1Set)
-        params["cscale-param1"] = QString::number(acceptedSettings.cscaleParam1);
-    if (acceptedSettings.cscaleParam2Set)
-        params["cscale-param2"] = QString::number(acceptedSettings.cscaleParam2);
-    if (acceptedSettings.cscaleRadiusSet)
-        params["cscale-radius"] = QString::number(acceptedSettings.cscaleRadius);
-    if (acceptedSettings.cscaleAntiRingSet)
-        params["cscale-antiring"] = QString::number(acceptedSettings.cscaleAntiRing);
-    if (acceptedSettings.cscaleBlurSet)
-        params["cscale-blur"] = QString::number(acceptedSettings.cscaleBlur);
-    if (acceptedSettings.cscaleWindowParamSet)
-        params["cscale-wparam"] = QString::number(acceptedSettings.cscaleWindowParam);
-    if (acceptedSettings.cscaleWindowSet)
-        params["cscale-window"] = TEXT_LOOKUP(scaleWindowToText, cscaleWindow, Settings::BoxWindow);
-    if (acceptedSettings.cscaleClamp)
+    params["cscale"] = WIDGET_TO_TEXT(ui->cscaleScalar);
+    if (WIDGET_LOOKUP(ui->cscaleParam1Set).toBool())
+        params["ccale-param1"] = WIDGET_LOOKUP(ui->cscaleParam1Value).toString();
+    if (WIDGET_LOOKUP(ui->cscaleParam2Set).toBool())
+        params["cscale-param2"] = WIDGET_LOOKUP(ui->cscaleParam2Value).toString();
+    if (WIDGET_LOOKUP(ui->cscaleRadiusSet).toBool())
+        params["cscale-radius"] = WIDGET_LOOKUP(ui->cscaleRadiusValue).toString();
+    if (WIDGET_LOOKUP(ui->cscaleAntiRingSet).toBool())
+        params["cscale-antiring"] = WIDGET_LOOKUP(ui->cscaleAntiRingValue).toString();
+    if (WIDGET_LOOKUP(ui->cscaleBlurSet).toBool())
+        params["cscale-blur"] = WIDGET_LOOKUP(ui->cscaleBlurValue).toString();
+    if (WIDGET_LOOKUP(ui->cscaleWindowParamSet).toBool())
+        params["cscale-wparam"] = WIDGET_LOOKUP(ui->cscaleWindowParamValue).toString();
+    if (WIDGET_LOOKUP(ui->cscaleWindowSet).toBool())
+        params["cscale-window"] = WIDGET_TO_TEXT(ui->cscaleWindowValue);
+    if (WIDGET_LOOKUP(ui->cscaleClamp).toBool())
         params["cscale-clamp"] = QString();
 
-    params["tscale"] = TEXT_LOOKUP(timeScalarToText, tscaleScalar, Settings::Oversample);
-    if (acceptedSettings.tscaleParam1Set)
-        params["tscale-param1"] = QString::number(acceptedSettings.tscaleParam1);
-    if (acceptedSettings.tscaleParam2Set)
-        params["tscale-param2"] = QString::number(acceptedSettings.tscaleParam2);
-    if (acceptedSettings.tscaleRadiusSet)
-        params["tscale-radius"] = QString::number(acceptedSettings.tscaleRadius);
-    if (acceptedSettings.tscaleAntiRingSet)
-        params["tscale-antiring"] = QString::number(acceptedSettings.tscaleAntiRing);
-    if (acceptedSettings.tscaleBlurSet)
-        params["tscale-blur"] = QString::number(acceptedSettings.tscaleBlur);
-    if (acceptedSettings.tscaleWindowParamSet)
-        params["tscale-wparam"] = QString::number(acceptedSettings.tscaleWindowParam);
-    if (acceptedSettings.tscaleWindowSet)
-        params["tscale-window"] = TEXT_LOOKUP(scaleWindowToText, tscaleWindow, Settings::BoxWindow);
-    if (acceptedSettings.tscaleClamp)
+    params["tscale"] = WIDGET_TO_TEXT(ui->tscaleScalar);
+    if (WIDGET_LOOKUP(ui->tscaleParam1Set).toBool())
+        params["tscale-param1"] = WIDGET_LOOKUP(ui->tscaleParam1Value).toString();
+    if (WIDGET_LOOKUP(ui->tscaleParam2Set).toBool())
+        params["tscale-param2"] = WIDGET_LOOKUP(ui->tscaleParam2Value).toString();
+    if (WIDGET_LOOKUP(ui->tscaleRadiusSet).toBool())
+        params["tscale-radius"] = WIDGET_LOOKUP(ui->tscaleRadiusValue).toString();
+    if (WIDGET_LOOKUP(ui->tscaleAntiRingSet).toBool())
+        params["tscale-antiring"] = WIDGET_LOOKUP(ui->tscaleAntiRingValue).toString();
+    if (WIDGET_LOOKUP(ui->tscaleBlurSet).toBool())
+        params["tscale-blur"] = WIDGET_LOOKUP(ui->tscaleBlurValue).toString();
+    if (WIDGET_LOOKUP(ui->tscaleWindowParamSet).toBool())
+        params["tscale-wparam"] = WIDGET_LOOKUP(ui->tscaleWindowParamValue).toString();
+    if (WIDGET_LOOKUP(ui->tscaleWindowSet).toBool())
+        params["tscale-window"] = WIDGET_TO_TEXT(ui->tscaleWindowValue);
+    if (WIDGET_LOOKUP(ui->tscaleClamp).toBool())
         params["tscale-clamp"] = QString();
 
-    if (acceptedSettings.debanding) {
+    if (WIDGET_LOOKUP(ui->debandEnabled).toBool()) {
         params["deband"] = QString();
-        params["deband-iterations"] = QString::number(acceptedSettings.debandIterations);
-        params["deband-threshold"] = QString::number(acceptedSettings.debandThreshold);
-        params["deband-range"] = QString::number(acceptedSettings.debandRange);
-        params["deband-grain"] = QString::number(acceptedSettings.debandGrain);
+        params["deband-iterations"] = WIDGET_LOOKUP(ui->debandIterations).toString();
+        params["deband-threshold"] = WIDGET_LOOKUP(ui->debandThreshold).toString();
+        params["deband-range"] = WIDGET_LOOKUP(ui->debandRange).toString();
+        params["deband-grain"] = WIDGET_LOOKUP(ui->debandGrain).toString();
     }
 
     QMapIterator<QString,QString> i(params);
@@ -305,16 +307,16 @@ void SettingsWindow::sendSignals()
             cmdline.append(i.key());
         }
     }
-    voCommandLine(acceptedSettings.videoIsDumb ? "dumb-mode"
-                                               : cmdline.join(':'));
+    voCommandLine(WIDGET_LOOKUP(ui->videoDumbMode).toBool()
+                  ? "dumb-mode" : cmdline.join(':'));
 
-    framedropMode(Settings::framedropToText.value(acceptedSettings.framedroppingMode));
-    decoderDropMode(Settings::decoderDropToText.value(acceptedSettings.decoderDroppingMode));
-    displaySyncMode(Settings::syncModeToText.value(acceptedSettings.syncMode));
-    audioDropSize(acceptedSettings.audioDropSize);
-    maximumAudioChange(acceptedSettings.maxAudioChange);
-    maximumVideoChange(acceptedSettings.maxVideoChange);
-    subsAreGray(acceptedSettings.subtitlesInGrayscale);
+    framedropMode(WIDGET_TO_TEXT(ui->framedroppingMode));
+    decoderDropMode(WIDGET_TO_TEXT(ui->framedroppingDecoderMode));
+    displaySyncMode(WIDGET_TO_TEXT(ui->syncMode));
+    audioDropSize(WIDGET_LOOKUP(ui->syncAudioDropSize).toString());
+    maximumAudioChange(WIDGET_LOOKUP(ui->syncMaxAudioChange).toString());
+    maximumVideoChange(WIDGET_LOOKUP(ui->syncMaxVideoChange).toString());
+    subsAreGray(WIDGET_LOOKUP(ui->subtitlesForceGrayscale).toString());
 }
 
 void SettingsWindow::on_pageTree_itemSelectionChanged()
