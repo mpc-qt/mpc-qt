@@ -174,6 +174,10 @@ void SettingsWindow::takeSettings(QVariantMap payload)
 }
 
 
+// The reason why we're using #define's like this instead of quoted-string
+// inspection is because this way guarantees that the compile will fail if
+// the names here and the names in the ui file do not match up.
+
 #define WIDGET_LOOKUP(widget) \
     acceptedSettings[widget->objectName()].value
 
