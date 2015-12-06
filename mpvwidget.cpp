@@ -264,6 +264,11 @@ void MpvWidget::setMaximumVideoChange(double change)
     setMpvOptionVariant("video-sync-max-video-change", change);
 }
 
+void MpvWidget::setClientDebuggingMessages(bool yes)
+{
+    debugMessages = yes;
+}
+
 void MpvWidget::setMpvLogLevel(QString level)
 {
     setMpvOptionVariant("log-level", QString("all=%1").arg(level));
