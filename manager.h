@@ -73,6 +73,8 @@ public slots:
     void setMaximumAudioChange(double d);
     void setMaximumVideoChange(double d);
     void setSubsAreGray(bool flag);
+    void setClientDebuggingMessages(bool yes);
+    void setMpvLogLevel(QString level);
 
 private slots:
     void mpvw_startPlaying(QUrl what, QUuid playlistUuid, QUuid itemUuid);

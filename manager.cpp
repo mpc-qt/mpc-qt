@@ -337,6 +337,16 @@ void PlaybackManager::setSubsAreGray(bool flag)
     mpvWidget_->setSubsAreGray(flag);
 }
 
+void PlaybackManager::setClientDebuggingMessages(bool yes)
+{
+    mpvWidget_->setClientDebuggingMessages(yes);
+}
+
+void PlaybackManager::setMpvLogLevel(QString level)
+{
+    mpvWidget_->setMpvLogLevel(level);
+}
+
 void PlaybackManager::mpvw_startPlaying(QUrl what, QUuid playlistUuid, QUuid itemUuid)
 {
     mpvWidget_->fileOpen(what.isLocalFile() ? what.toLocalFile()

@@ -49,7 +49,7 @@ public:
     void setAudioDropSize(double size);
     void setMaximumAudioChange(double change);
     void setMaximumVideoChange(double change);
-    void setDebuggingMessagesEnabled(bool yes);
+    void setClientDebuggingMessages(bool yes);
     void setMpvLogLevel(QString level);
 
     // These query the tracked video state
