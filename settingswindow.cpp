@@ -58,8 +58,8 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"subtitleAlignment", { "top-center", "top-right", "center-right",\
                             "bottom-right", "bottom-center", "bottom-left",\
                             "center-left", "top-left", "center-center" }},
-    {"debugMpv", { "fatal", "error", "warn", "info", "status", "v", "debug",\
-                   "trace"}}
+    {"debugMpv", { "no", "fatal", "error", "warn", "info", "status", "v",\
+                   "debug", "trace"}}
 };
 
 QMap<QString, QString> Setting::classToProperty = {
