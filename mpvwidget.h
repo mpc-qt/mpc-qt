@@ -49,6 +49,7 @@ public:
     void setAudioDropSize(double size);
     void setMaximumAudioChange(double change);
     void setMaximumVideoChange(double change);
+    void setMpvLogLevel(QString level);
 
     // These query the tracked video state
     double playLength();
