@@ -145,6 +145,10 @@ Flow::Flow(QObject *owner) :
             playbackManager, &PlaybackManager::setMaximumVideoChange);
     connect(settingsWindow, &SettingsWindow::subsAreGray,
             playbackManager, &PlaybackManager::setSubsAreGray);
+    connect(settingsWindow, &SettingsWindow::clientDebuggingMessages,
+            playbackManager, &PlaybackManager::setClientDebuggingMessages);
+    connect(settingsWindow, &SettingsWindow::mpvLogLevel,
+            playbackManager, &PlaybackManager::setMpvLogLevel);
 
     // manager -> settings
     connect(playbackManager, &PlaybackManager::playerSettingsRequested,
