@@ -57,7 +57,9 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"subtitlesAssOverride", {"no", "yes", "force", "signfs"}},
     {"subtitleAlignment", { "top-center", "top-right", "center-right",\
                             "bottom-right", "bottom-center", "bottom-left",\
-                            "center-left", "top-left", "center-center" }}
+                            "center-left", "top-left", "center-center" }},
+    {"debugMpv", { "fatal", "error", "warn", "info", "status", "v", "debug",\
+                   "trace"}}
 };
 
 QMap<QString, QString> Setting::classToProperty = {
@@ -338,6 +340,9 @@ void SettingsWindow::sendSignals()
     maximumAudioChange(WIDGET_LOOKUP(ui->syncMaxAudioChange).toDouble());
     maximumVideoChange(WIDGET_LOOKUP(ui->syncMaxVideoChange).toDouble());
     subsAreGray(WIDGET_LOOKUP(ui->subtitlesForceGrayscale).toDouble());
+    clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
+    mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
+
 }
 
 void SettingsWindow::on_pageTree_itemSelectionChanged()

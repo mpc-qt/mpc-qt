@@ -57,6 +57,8 @@ signals:
     void maximumAudioChange(double d);
     void maximumVideoChange(double d);
     void subsAreGray(bool flag);
+    void clientDebuggingMessages(bool yes);
+    void mpvLogLevel(const QString &s);
 
 public slots:
     void takeSettings(QVariantMap payload);
