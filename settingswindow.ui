@@ -129,7 +129,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>8</number>
+          <number>13</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -5138,7 +5138,7 @@ media file played</string>
           </layout>
          </widget>
          <widget class="QWidget" name="miscPage">
-          <layout class="QVBoxLayout" name="verticalLayout_65">
+          <layout class="QVBoxLayout" name="verticalLayout_34">
            <item>
             <widget class="QGroupBox" name="groupBox_56">
              <property name="title">
@@ -5283,6 +5283,88 @@ media file played</string>
                  </widget>
                 </item>
                </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_19">
+             <property name="title">
+              <string>Debugging</string>
+             </property>
+             <layout class="QFormLayout" name="formLayout_12">
+              <property name="fieldGrowthPolicy">
+               <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+              </property>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_32">
+                <property name="text">
+                 <string>Client</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QCheckBox" name="debugClient">
+                <property name="text">
+                 <string>Event messages</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_31">
+                <property name="text">
+                 <string>mpv</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="debugMpv">
+                <item>
+                 <property name="text">
+                  <string>No (complete silence)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Fatal</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Error</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Warning</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Informational</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Status</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Verbose</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Debug</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Trace (very noisy)</string>
+                 </property>
+                </item>
+               </widget>
               </item>
              </layout>
             </widget>
