@@ -495,7 +495,7 @@ void MpvController::create()
     if (mpv_initialize(mpv) < 0)
         throw std::runtime_error("could not initialize mpv context");
 
-    mpv_request_log_messages(mpv, "terminal-default");
+    setLogLevel(LogTerminalDefault);
     setOptionVariant("vo", "opengl-cb");
     glMpv = (mpv_opengl_cb_context *)mpv_get_sub_api(mpv, MPV_SUB_API_OPENGL_CB);
     if (!glMpv)
@@ -512,8 +512,9 @@ void MpvController::observeProperties(const MpvController::PropertyList &propert
 
 void MpvController::setLogLevel(LogLevel level)
 {
-    QVector<const char*> logLevels = { "fatal", "error", "warn ", "info",
-                                       "status", "v", "debug", "trace" };
+    QVector<const char*> logLevels = { "no", "fatal", "error", "warn ",
+                                       "info", "status", "v", "debug",
+                                       "trace", "terminal-default" };
     mpv_request_log_messages(mpv, logLevels.value(level));
 }
 

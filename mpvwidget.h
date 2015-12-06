@@ -138,8 +138,8 @@ class MpvController : public QObject
 public:
     typedef QPair<const char*, mpv_format> MpvProperty;
     typedef QVector<MpvProperty> PropertyList;
-    enum LogLevel { LogFatal, LogError, LogWarn, LogInfo, LogStatus, LogV,
-                    LogDebug, LogTrace };
+    enum LogLevel { LogNone, LogFatal, LogError, LogWarn, LogInfo, LogStatus,
+                    LogV, LogDebug, LogTrace, LogTerminalDefault };
 
     MpvController(QObject *parent = 0);
     ~MpvController();
