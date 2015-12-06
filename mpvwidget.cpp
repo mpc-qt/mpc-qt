@@ -405,8 +405,7 @@ void MpvWidget::ctrl_mpvPropertyChanged(QString name, QVariant v)
 
 void MpvWidget::ctrl_logMessage(QString message)
 {
-    if (debugMessages)
-        qDebug() << message;
+    qDebug() << message;
 }
 
 void MpvWidget::ctrl_unhandledMpvEvent(int eventLevel)
@@ -496,6 +495,7 @@ void MpvController::create()
     if (mpv_initialize(mpv) < 0)
         throw std::runtime_error("could not initialize mpv context");
 
+    mpv_request_log_messages(mpv, "terminal-default");
     setOptionVariant("vo", "opengl-cb");
     glMpv = (mpv_opengl_cb_context *)mpv_get_sub_api(mpv, MPV_SUB_API_OPENGL_CB);
     if (!glMpv)
