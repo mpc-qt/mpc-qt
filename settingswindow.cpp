@@ -36,7 +36,7 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"cscaleWindowValue", {SCALAR_WINDOWS}},
     {"tscaleScalar", {TIME_SCALARS}},
     {"tscaleWindowValue", {SCALAR_WINDOWS}},
-    {"prescalarMethod", {"none", "superxbr", "needi3"}},
+    {"prescalarMethod", {"none", "superxbr", "nnedi3"}},
     {"nnedi3Neurons", {"16", "32", "64", "128"}},
     {"nnedi3Window", {"8x4", "8x6"}},
     {"nnedi3Upload", {"ubo", "shader"}},
@@ -322,6 +322,27 @@ void SettingsWindow::sendSignals()
         params["deband-grain"] = WIDGET_LOOKUP(ui->debandGrain).toString();
     }
 
+    int prescalar = WIDGET_LOOKUP(ui->prescalarMethod).toInt();
+    if (prescalar == 2 && !parseNnedi3Fields) {
+        prescalar = 0;
+    }
+    if (prescalar) {
+        params["prescale"] = WIDGET_TO_TEXT(ui->prescalarMethod);
+        params["prescale-passes"] = WIDGET_LOOKUP(ui->prescalarPasses).toString();
+        params["prescale-downscaling-threshold"] = WIDGET_LOOKUP(ui->prescalarThreshold).toString();
+    }
+    switch (prescalar) {
+    case 1:
+        params["superxbr-sharpness"] = WIDGET_LOOKUP(ui->superxbrSharpness).toString();
+        params["superxbr-edge-strength"] = WIDGET_LOOKUP(ui->superxbrEdgeStrength).toString();
+        break;
+    case 2:
+        params["nnedi3-neurons"] = WIDGET_TO_TEXT(ui->nnedi3Neurons);
+        params["nnedi3-window"] = WIDGET_TO_TEXT(ui->nnedi3Window);
+        params["nnedi3-upload"] = WIDGET_TO_TEXT(ui->nnedi3Upload);
+        break;
+    }
+
     QMapIterator<QString,QString> i(params);
     while (i.hasNext()) {
         i.next();
@@ -348,6 +369,7 @@ void SettingsWindow::sendSignals()
 
 void SettingsWindow::setNnedi3Available(bool yes)
 {
+    parseNnedi3Fields = yes;
     ui->nnedi3Unavailable->setVisible(!yes);
     ui->nnedi3Page->setEnabled(yes);
 }

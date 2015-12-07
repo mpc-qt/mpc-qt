@@ -80,6 +80,7 @@ private:
     Ui::SettingsWindow *ui;
     SettingMap acceptedSettings;
     SettingMap defaultSettings;
+    bool parseNnedi3Fields;
 };
 
 #endif // SETTINGSWINDOW_H
