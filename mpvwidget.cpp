@@ -511,8 +511,6 @@ void MpvController::create()
 
     setLogLevel(LogTerminalDefault);
 
-    ;
-
     // check for nnedi3
     if (setOptionVariant("vo", "opengl-cb:prescale=nnedi3") < 0)
         emit nnedi3Unavailable();
