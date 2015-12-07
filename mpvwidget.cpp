@@ -17,8 +17,8 @@ static void *get_proc_address(void *ctx, const char *name) {
 }
 
 MpvWidget::MpvWidget(QWidget *parent) :
-    QOpenGLWidget(parent), drawLogo(true), logo(NULL),
-    logoUrl(":/images/bitmaps/blank-screen.png")
+    QOpenGLWidget(parent), nnedi3Available_(true), drawLogo(true),
+    logo(NULL), logoUrl(":/images/bitmaps/blank-screen.png")
 {
     debugMessages = false;
 
@@ -45,6 +45,8 @@ MpvWidget::MpvWidget(QWidget *parent) :
             ctrl, &MpvController::setPropertyVariant, Qt::QueuedConnection);
 
     // Wire up the event-handling callbacks
+    connect(ctrl, &MpvController::nnedi3Unavailable,
+            this, &MpvWidget::ctrl_nnedi3Unavailable, Qt::QueuedConnection);
     connect(ctrl, &MpvController::mpvPropertyChanged,
             this, &MpvWidget::ctrl_mpvPropertyChanged, Qt::QueuedConnection);
     connect(ctrl, &MpvController::logMessage,
@@ -289,6 +291,11 @@ QSize MpvWidget::videoSize()
     return videoSize_;
 }
 
+bool MpvWidget::nnedi3Available()
+{
+    return nnedi3Available_;
+}
+
 void MpvWidget::initializeGL()
 {
     if (mpv_opengl_cb_init_gl(glMpv, NULL, get_proc_address, NULL) < 0)
@@ -365,6 +372,13 @@ void MpvWidget::setMpvOptionVariant(QString name, QVariant value)
     if (debugMessages)
         qDebug() << "option set " << name << value;
     emit ctrlSetOptionVariant(name, value);
+}
+
+void MpvWidget::ctrl_nnedi3Unavailable()
+{
+    if (debugMessages)
+        qDebug() << "nnedi3 is unavailable!";
+    nnedi3Available_ = false;
 }
 
 #define HANDLE_PROP_1(p, method, converter, dflt) \
@@ -496,7 +510,14 @@ void MpvController::create()
         throw std::runtime_error("could not initialize mpv context");
 
     setLogLevel(LogTerminalDefault);
+
+    ;
+
+    // check for nnedi3
+    if (setOptionVariant("vo", "opengl-cb:prescale=nnedi3") < 0)
+        emit nnedi3Unavailable();
     setOptionVariant("vo", "opengl-cb");
+
     glMpv = (mpv_opengl_cb_context *)mpv_get_sub_api(mpv, MPV_SUB_API_OPENGL_CB);
     if (!glMpv)
         throw std::runtime_error("OpenGL not compiled in");
@@ -523,9 +544,9 @@ mpv_opengl_cb_context* MpvController::mpvDrawContext()
     return glMpv;
 }
 
-void MpvController::setOptionVariant(QString name, const QVariant &value)
+int MpvController::setOptionVariant(QString name, const QVariant &value)
 {
-    mpv::qt::set_option_variant(mpv, name, value);
+    return mpv::qt::set_option_variant(mpv, name, value);
 }
 
 void MpvController::command(const QVariant &params)

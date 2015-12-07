@@ -56,6 +56,7 @@ public:
     double playLength();
     double playTime();
     QSize videoSize();
+    bool nnedi3Available();
 
 protected:
     void initializeGL();
@@ -90,6 +91,7 @@ signals:
     void decoderFramedropsChanged(int64_t cout);
 
 private slots:
+    void ctrl_nnedi3Unavailable();
     void ctrl_mpvPropertyChanged(QString name, QVariant v);
     void ctrl_logMessage(QString message);
     void ctrl_unhandledMpvEvent(int eventLevel);
@@ -108,6 +110,7 @@ private:
     QSize videoSize_;
     double playTime_;
     double playLength_;
+    bool nnedi3Available_;
 
     bool drawLogo;
     QOpenGLTexture *logo;
@@ -145,6 +148,7 @@ public:
     ~MpvController();
 
 signals:
+    void nnedi3Unavailable();
     void durationChanged(int value);
     void positionChanged(int value);
     void mpvPropertyChanged(QString name, QVariant v);
@@ -157,7 +161,7 @@ public slots:
     void observeProperties(const MpvController::PropertyList &properties);
     void setLogLevel(MpvController::LogLevel level);
     mpv_opengl_cb_context *mpvDrawContext();
-    void setOptionVariant(QString name, const QVariant &value);
+    int setOptionVariant(QString name, const QVariant &value);
     void command(const QVariant &params);
     void setPropertyVariant(const QString &name, const QVariant &value);
     QVariant getPropertyVariant(const QString &name);
