@@ -62,7 +62,8 @@ signals:
 
 public slots:
     void takeSettings(QVariantMap payload);
-    void sendSignals();
+    void sendSignals();    
+    void setNnedi3Available(bool yes);
 
 private slots:
     void on_pageTree_itemSelectionChanged();

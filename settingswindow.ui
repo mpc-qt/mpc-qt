@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>752</width>
+    <width>683</width>
     <height>787</height>
    </rect>
   </property>
@@ -129,7 +129,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>13</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -780,7 +780,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>2</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -1098,7 +1098,7 @@ media file played</string>
                   <item>
                    <widget class="QTabWidget" name="scalingTabs">
                     <property name="currentIndex">
-                     <number>0</number>
+                     <number>5</number>
                     </property>
                     <widget class="QWidget" name="scaleOptionsTab">
                      <attribute name="title">
@@ -3009,7 +3009,7 @@ media file played</string>
                       <item>
                        <widget class="QStackedWidget" name="prescalarStack">
                         <property name="currentIndex">
-                         <number>0</number>
+                         <number>2</number>
                         </property>
                         <widget class="QWidget" name="noPrescalarPage"/>
                         <widget class="QWidget" name="superxbrPage">
@@ -3054,84 +3054,98 @@ media file played</string>
                          </layout>
                         </widget>
                         <widget class="QWidget" name="nnedi3Page">
-                         <layout class="QFormLayout" name="formLayout_24">
-                          <property name="fieldGrowthPolicy">
-                           <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-                          </property>
-                          <item row="0" column="0">
-                           <widget class="QLabel" name="label_122">
+                         <layout class="QVBoxLayout" name="verticalLayout_35">
+                          <item>
+                           <layout class="QFormLayout" name="formLayout_16">
+                            <item row="0" column="0">
+                             <widget class="QLabel" name="label_122">
+                              <property name="text">
+                               <string>Neurons</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="0" column="1">
+                             <widget class="QComboBox" name="nnedi3Neurons">
+                              <property name="currentIndex">
+                               <number>1</number>
+                              </property>
+                              <item>
+                               <property name="text">
+                                <string>16</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>32</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>64</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>128</string>
+                               </property>
+                              </item>
+                             </widget>
+                            </item>
+                            <item row="1" column="0">
+                             <widget class="QLabel" name="label_123">
+                              <property name="text">
+                               <string>Window</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="1" column="1">
+                             <widget class="QComboBox" name="nnedi3Window">
+                              <item>
+                               <property name="text">
+                                <string>8x4</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>8x6</string>
+                               </property>
+                              </item>
+                             </widget>
+                            </item>
+                            <item row="2" column="0">
+                             <widget class="QLabel" name="label_124">
+                              <property name="text">
+                               <string>Upload</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="2" column="1">
+                             <widget class="QComboBox" name="nnedi3Upload">
+                              <item>
+                               <property name="text">
+                                <string>UBO</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>Shader</string>
+                               </property>
+                              </item>
+                             </widget>
+                            </item>
+                           </layout>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="nnedi3Unavailable">
                             <property name="text">
-                             <string>Neurons</string>
+                             <string>The nnedi3 prescalar is unavailable.  Either your mpv version is too old, or it was not compiled with GPL3 support.</string>
                             </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="1">
-                           <widget class="QComboBox" name="nnedi3Neurons">
-                            <property name="currentIndex">
-                             <number>1</number>
+                            <property name="alignment">
+                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                             </property>
-                            <item>
-                             <property name="text">
-                              <string>16</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>32</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>64</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>128</string>
-                             </property>
-                            </item>
-                           </widget>
-                          </item>
-                          <item row="1" column="0">
-                           <widget class="QLabel" name="label_123">
-                            <property name="text">
-                             <string>Window</string>
+                            <property name="wordWrap">
+                             <bool>true</bool>
                             </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="1">
-                           <widget class="QComboBox" name="nnedi3Window">
-                            <item>
-                             <property name="text">
-                              <string>8x4</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>8x6</string>
-                             </property>
-                            </item>
-                           </widget>
-                          </item>
-                          <item row="2" column="0">
-                           <widget class="QLabel" name="label_124">
-                            <property name="text">
-                             <string>Upload</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="2" column="1">
-                           <widget class="QComboBox" name="nnedi3Upload">
-                            <item>
-                             <property name="text">
-                              <string>UBO</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Shader</string>
-                             </property>
-                            </item>
                            </widget>
                           </item>
                          </layout>

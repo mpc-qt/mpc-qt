@@ -132,6 +132,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->scalingTabs->setCurrentIndex(0);
     ui->prescalarStack->setCurrentIndex(0);
     ui->audioRendererStack->setCurrentIndex(0);
+    setNnedi3Available(false);
 
     // Expand every item on pageTree
     QList<QTreeWidgetItem*> stack;
@@ -343,6 +344,12 @@ void SettingsWindow::sendSignals()
     clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
     mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
 
+}
+
+void SettingsWindow::setNnedi3Available(bool yes)
+{
+    ui->nnedi3Unavailable->setVisible(!yes);
+    ui->nnedi3Page->setEnabled(yes);
 }
 
 void SettingsWindow::on_pageTree_itemSelectionChanged()
