@@ -53,6 +53,7 @@ Flow::Flow(QObject *owner) :
     settingsWindow->setWindowModality(Qt::WindowModal);
     settings = storage.readVMap("settings");
     settingsWindow->takeSettings(settings);
+    settingsWindow->setNnedi3Available(mainWindow->mpvWidget()->nnedi3Available());
 
     // mainwindow -> manager
     connect(mainWindow, SIGNAL(severalFilesOpened(QList<QUrl>)),
