@@ -297,6 +297,11 @@ void PlaybackManager::setMute(bool muted)
     mpvWidget_->showMessage(muted ? tr("Mute: on") : tr("Mute: off"));
 }
 
+void PlaybackManager::setLogoSource(QString s)
+{
+    mpvWidget_->setLogoUrl(s);
+}
+
 void PlaybackManager::setVoCommandLine(QString s)
 {
     mpvWidget_->setVOCommandLine(s);

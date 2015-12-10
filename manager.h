@@ -65,6 +65,7 @@ public slots:
     void setMute(bool muted);
 
     // settings functions
+    void setLogoSource(QString s);
     void setVoCommandLine(QString s);
     void setFramedropMode(QString s);
     void setDecoderDropMode(QString s);

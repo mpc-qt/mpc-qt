@@ -130,6 +130,8 @@ Flow::Flow(QObject *owner) :
             mainWindow, &MainWindow::setDecoderFramedrops);
 
     // settings -> manager
+    connect(settingsWindow, &SettingsWindow::logoSource,
+            playbackManager, &PlaybackManager::setLogoSource);
     connect(settingsWindow, &SettingsWindow::voCommandLine,
             playbackManager, &PlaybackManager::setVoCommandLine);
     connect(settingsWindow, &SettingsWindow::framedropMode,

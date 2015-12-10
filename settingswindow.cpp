@@ -193,9 +193,9 @@ void SettingsWindow::updateLogoWidget()
 
 QString SettingsWindow::selectedLogo()
 {
-    ui->logoExternal->isChecked()
-                            ? ui->logoExternalLocation->text()
-                            : QString()
+    return ui->logoExternal->isChecked()
+                                ? ui->logoExternalLocation->text()
+                                : QString();
 }
 
 void SettingsWindow::takeSettings(QVariantMap payload)
