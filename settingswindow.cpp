@@ -446,7 +446,7 @@ void SettingsWindow::on_logoExternalBrowse_clicked()
     connect(afd, &AsyncFileDialog::fileOpened, [&](QUrl file) {
         ui->logoExternalLocation->setText(file.toLocalFile());
         if (ui->logoExternal->isChecked())
-            logoWidget->setLogo(file.toLocalFile());
+            updateLogoWidget();
     });
     afd->show();
 }
