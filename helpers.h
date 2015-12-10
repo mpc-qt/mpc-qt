@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QList>
 #include <QUrl>
+#include <QOpenGLWidget>
 
 class QFileDialog;
 class QLocalServer;
@@ -74,6 +75,23 @@ private:
 private:
     QRectF logoLocation;
     QOpenGLTexture *logo;
+    QString logoUrl;
+};
+
+class LogoWidget : public QOpenGLWidget {
+    Q_OBJECT
+public:
+    explicit LogoWidget(QWidget *parent = 0);
+    ~LogoWidget();
+    void setLogo(const QString &filename);
+
+protected:
+    void initializeGL();
+    void paintGL();
+    void resizeGL(int w, int h);
+
+private:
+    LogoDrawer *logoDrawer;
     QString logoUrl;
 };
 

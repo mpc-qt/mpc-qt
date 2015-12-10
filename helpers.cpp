@@ -3,6 +3,7 @@
 #include <QLocalServer>
 #include <QLocalSocket>
 #include <QOpenGLTexture>
+#include <QOpenGLWidget>
 #include "helpers.h"
 
 QString Helpers::toDateFormat(double time)
@@ -205,4 +206,40 @@ void LogoDrawer::regenerateTexture()
     logo = new QOpenGLTexture(QImage(logoUrl),
                                      QOpenGLTexture::DontGenerateMipMaps);
     logo->setMinificationFilter(QOpenGLTexture::Linear);
+}
+
+LogoWidget::LogoWidget(QWidget *parent)
+    : QOpenGLWidget(parent),
+      logoDrawer(NULL)
+{
+}
+
+LogoWidget::~LogoWidget()
+{
+    if (logoDrawer)
+        delete logoDrawer;
+}
+
+void LogoWidget::setLogo(const QString &filename) {
+    logoUrl = filename;
+    if (logoDrawer)
+        logoDrawer->setLogoUrl(filename);
+}
+
+void LogoWidget::initializeGL()
+{
+    if (!logoDrawer) {
+        logoDrawer = new LogoDrawer(this);
+        logoDrawer->setLogoUrl(logoUrl);
+    }
+}
+
+void LogoWidget::paintGL()
+{
+    logoDrawer->paintGL();
+}
+
+void LogoWidget::resizeGL(int w, int h)
+{
+    logoDrawer->resizeGL(w,h);
 }

@@ -123,6 +123,9 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    logoWidget = new LogoWidget(this);
+    ui->logoImageHost->addWidget(logoWidget);
+
     defaultSettings = generateSettingMap();
     acceptedSettings = defaultSettings;
 
@@ -427,7 +430,7 @@ void SettingsWindow::on_logoExternalBrowse_clicked()
     connect(afd, &AsyncFileDialog::fileOpened, [&](QUrl file) {
         ui->logoExternalLocation->setText(file.toLocalFile());
         if (ui->logoExternal->isChecked())
-            ui->logoImageLabel->setPixmap(QPixmap(file.toLocalFile()));
+            logoWidget->setLogo(file.toLocalFile());
     });
     afd->show();
 }

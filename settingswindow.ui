@@ -413,14 +413,7 @@ media file played</string>
          <widget class="QWidget" name="logoPage">
           <layout class="QVBoxLayout" name="verticalLayout_10" stretch="1,0">
            <item>
-            <widget class="QLabel" name="logoImageLabel">
-             <property name="pixmap">
-              <pixmap resource="res.qrc">:/images/bitmaps/blank-screen.png</pixmap>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
+            <layout class="QVBoxLayout" name="logoImageHost"/>
            </item>
            <item>
             <layout class="QGridLayout" name="gridLayout_2">
@@ -434,7 +427,7 @@ media file played</string>
              <item row="0" column="0">
               <widget class="QRadioButton" name="logoUseInternal">
                <property name="text">
-                <string>Interna&amp;l</string>
+                <string>I&amp;nternal</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -5443,8 +5436,6 @@ media file played</string>
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

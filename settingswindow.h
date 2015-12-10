@@ -6,6 +6,8 @@
 #include <QAbstractButton>
 #include <QVariantMap>
 
+class LogoWidget;
+
 class Setting {
 public:
     Setting() : name(), widget(NULL), value() {}
@@ -80,6 +82,7 @@ private slots:
 
 private:
     Ui::SettingsWindow *ui;
+    LogoWidget *logoWidget;
     SettingMap acceptedSettings;
     SettingMap defaultSettings;
     bool parseNnedi3Fields;
