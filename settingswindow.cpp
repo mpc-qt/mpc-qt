@@ -1,8 +1,7 @@
+#include <QDebug>
 #include "settingswindow.h"
 #include "ui_settingswindow.h"
-#include <QDebug>
-#include <QDialogButtonBox>
-#include <QHash>
+#include "helpers.h"
 
 #define SCALAR_SCALARS \
     "bilinear", "bicubic_fast", "oversample", "spline16", "spline36",\
@@ -421,3 +420,14 @@ void SettingsWindow::on_videoDumbMode_toggled(bool checked)
     ui->videoTabs->setEnabled(!checked);
 }
 
+void SettingsWindow::on_logoExternalBrowse_clicked()
+{
+    AsyncFileDialog *afd = new AsyncFileDialog(this);
+    afd->setMode(AsyncFileDialog::SingleFile);
+    connect(afd, &AsyncFileDialog::fileOpened, [&](QUrl file) {
+        ui->logoExternalLocation->setText(file.toLocalFile());
+        if (ui->logoExternal->isChecked())
+            ui->logoImageLabel->setPixmap(QPixmap(file.toLocalFile()));
+    });
+    afd->show();
+}

@@ -76,6 +76,8 @@ private slots:
 
     void on_videoDumbMode_toggled(bool checked);
 
+    void on_logoExternalBrowse_clicked();
+
 private:
     Ui::SettingsWindow *ui;
     SettingMap acceptedSettings;
