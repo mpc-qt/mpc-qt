@@ -154,12 +154,14 @@ void MpvWidget::stepForward()
 
 void MpvWidget::setLogoUrl(const QString &filename)
 {
+    makeCurrent();
     if (!logo)
         logo = new LogoDrawer(this);
     logo->setLogoUrl(filename);
     logo->resizeGL(width(), height());
     if (drawLogo)
         update();
+    doneCurrent();
 }
 
 void MpvWidget::setVOCommandLine(QString cmdline)
