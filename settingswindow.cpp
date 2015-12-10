@@ -186,12 +186,20 @@ SettingMap SettingsWindow::generateSettingMap()
     return settingMap;
 }
 
+void SettingsWindow::updateLogoWidget()
+{
+    logoWidget->setLogo(ui->logoExternal->isChecked()
+                        ? ui->logoExternalLocation->text()
+                        : QString());
+}
+
 void SettingsWindow::takeSettings(QVariantMap payload)
 {
     acceptedSettings.fromVMap(payload);
     for (Setting &s : acceptedSettings) {
         s.sendToControl();
     }
+    updateLogoWidget();
 }
 
 
@@ -433,4 +441,14 @@ void SettingsWindow::on_logoExternalBrowse_clicked()
             logoWidget->setLogo(file.toLocalFile());
     });
     afd->show();
+}
+
+void SettingsWindow::on_logoUseInternal_clicked()
+{
+    updateLogoWidget();
+}
+
+void SettingsWindow::on_logoExternal_clicked()
+{
+    updateLogoWidget();
 }

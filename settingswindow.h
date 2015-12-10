@@ -47,6 +47,7 @@ public:
 private:
     void updateAcceptedSettings();
     SettingMap generateSettingMap();
+    void updateLogoWidget();
 
 signals:
     void settingsData(const QVariantMap &s);
@@ -79,6 +80,10 @@ private slots:
     void on_videoDumbMode_toggled(bool checked);
 
     void on_logoExternalBrowse_clicked();
+
+    void on_logoUseInternal_clicked();
+
+    void on_logoExternal_clicked();
 
 private:
     Ui::SettingsWindow *ui;

@@ -216,8 +216,11 @@ LogoWidget::LogoWidget(QWidget *parent)
 
 LogoWidget::~LogoWidget()
 {
-    if (logoDrawer)
+    if (logoDrawer) {
+        makeCurrent();
         delete logoDrawer;
+        logoDrawer = NULL;
+    }
 }
 
 void LogoWidget::setLogo(const QString &filename) {
@@ -225,6 +228,9 @@ void LogoWidget::setLogo(const QString &filename) {
     if (logoDrawer) {
         makeCurrent();
         logoDrawer->setLogoUrl(filename);
+        logoDrawer->resizeGL(width(), height());
+        doneCurrent();
+        update();
     }
 }
 
