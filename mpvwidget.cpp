@@ -301,9 +301,11 @@ void MpvWidget::initializeGL()
     if (mpv_opengl_cb_init_gl(glMpv, NULL, get_proc_address, NULL) < 0)
         throw std::runtime_error("[MpvWidget] cb init gl failed.");
 
-    if (!logo)
+    if (!logo) {
         logo = new QOpenGLTexture(QImage(logoUrl),
                                   QOpenGLTexture::DontGenerateMipMaps);
+        logo->setMinificationFilter(QOpenGLTexture::Linear);
+    }
 }
 
 void MpvWidget::paintGL()
@@ -336,10 +338,28 @@ void MpvWidget::paintGL()
 
 void MpvWidget::resizeGL(int w, int h)
 {
+    float ratioImg = logo->width() / std::max((float)logo->height(), 1.0f);
+    float ratioWin = w / std::max((float)h, 1.0f);
+    int aimWidth;
+    int aimHeight;
+
+    if (logo->width() <= w && logo->height() <= h) {
+        // fits inside
+        aimWidth = logo->width();
+        aimHeight = logo->height();
+    } else if (ratioImg > ratioWin) {
+        // left and right touch
+        aimWidth = w;
+        aimHeight = w / ratioImg;
+    } else {
+        // top and bottom touch
+        aimWidth = h * ratioImg;
+        aimHeight = h;
+    }
     float fw = 2.0f/w;
     float fh = 2.0f/h;
-    float iw = fw * logo->width();
-    float ih = fh * logo->height();
+    float iw = fw * aimWidth;
+    float ih = fh * aimHeight;
     logoLocation = {-iw/2, -ih/2, iw, ih};
 }
 
