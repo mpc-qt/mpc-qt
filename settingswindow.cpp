@@ -188,9 +188,14 @@ SettingMap SettingsWindow::generateSettingMap()
 
 void SettingsWindow::updateLogoWidget()
 {
-    logoWidget->setLogo(ui->logoExternal->isChecked()
-                        ? ui->logoExternalLocation->text()
-                        : QString());
+    logoWidget->setLogo(selectedLogo());
+}
+
+QString SettingsWindow::selectedLogo()
+{
+    ui->logoExternal->isChecked()
+                            ? ui->logoExternalLocation->text()
+                            : QString()
 }
 
 void SettingsWindow::takeSettings(QVariantMap payload)
@@ -219,6 +224,9 @@ void SettingsWindow::takeSettings(QVariantMap payload)
 
 void SettingsWindow::sendSignals()
 {
+    emit logoSource(selectedLogo());
+
+
     QMap<QString,QString> params;
     QStringList cmdline;
 

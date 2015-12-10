@@ -48,10 +48,12 @@ private:
     void updateAcceptedSettings();
     SettingMap generateSettingMap();
     void updateLogoWidget();
+    QString selectedLogo();
 
 signals:
     void settingsData(const QVariantMap &s);
 
+    void logoSource(const QString &s);
     void voCommandLine(const QString &s);
     void framedropMode(const QString &s);
     void decoderDropMode(const QString &s);
