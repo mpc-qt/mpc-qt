@@ -222,8 +222,10 @@ LogoWidget::~LogoWidget()
 
 void LogoWidget::setLogo(const QString &filename) {
     logoUrl = filename;
-    if (logoDrawer)
+    if (logoDrawer) {
+        makeCurrent();
         logoDrawer->setLogoUrl(filename);
+    }
 }
 
 void LogoWidget::initializeGL()
