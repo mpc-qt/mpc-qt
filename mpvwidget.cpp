@@ -166,7 +166,8 @@ void MpvWidget::setLogoUrl(const QString &filename)
 
 void MpvWidget::setVOCommandLine(QString cmdline)
 {
-    qDebug() << "got advanced command line " << cmdline;
+    if (debugMessages)
+        qDebug() << "got advanced command line " << cmdline;
     emit ctrlCommand(QVariantList({"vo-cmdline", cmdline}));
 }
 
