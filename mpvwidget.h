@@ -25,6 +25,7 @@ public:
     void stopPlayback();
     void stepBackward();
     void stepForward();
+    void setLogoUrl(const QString &filename);
 
     // These are straightforward queries to libmpv
     void setVOCommandLine(QString cmdline);
@@ -64,6 +65,7 @@ protected:
     void resizeGL(int w, int h);
 
 private:
+    void regenerateLogo();
     static void ctrl_update(void *ctx);
     void     setMpvPropertyVariant(QString name, QVariant value);
     QVariant getMpvPropertyVariant(QString name);

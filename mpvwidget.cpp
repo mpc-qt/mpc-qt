@@ -147,6 +147,15 @@ void MpvWidget::stepForward()
     emit ctrlCommand("frame_step");
 }
 
+void MpvWidget::setLogoUrl(const QString &filename)
+{
+    logoUrl = filename;
+    regenerateLogo();
+    resizeGL(width(), height());
+    if (drawLogo)
+        update();
+}
+
 void MpvWidget::setVOCommandLine(QString cmdline)
 {
     qDebug() << "got advanced command line " << cmdline;
@@ -301,11 +310,8 @@ void MpvWidget::initializeGL()
     if (mpv_opengl_cb_init_gl(glMpv, NULL, get_proc_address, NULL) < 0)
         throw std::runtime_error("[MpvWidget] cb init gl failed.");
 
-    if (!logo) {
-        logo = new QOpenGLTexture(QImage(logoUrl),
-                                  QOpenGLTexture::DontGenerateMipMaps);
-        logo->setMinificationFilter(QOpenGLTexture::Linear);
-    }
+    if (!logo)
+        regenerateLogo();
 }
 
 void MpvWidget::paintGL()
@@ -361,6 +367,16 @@ void MpvWidget::resizeGL(int w, int h)
     float iw = fw * aimWidth;
     float ih = fh * aimHeight;
     logoLocation = {-iw/2, -ih/2, iw, ih};
+}
+
+void MpvWidget::regenerateLogo()
+{
+    if (logo)
+        delete logo;
+
+    logo = new QOpenGLTexture(QImage(logoUrl),
+                              QOpenGLTexture::DontGenerateMipMaps);
+    logo->setMinificationFilter(QOpenGLTexture::Linear);
 }
 
 void MpvWidget::ctrl_update(void *ctx)
