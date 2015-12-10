@@ -10,6 +10,7 @@
 
 class QThread;
 class MpvController;
+class LogoDrawer;
 
 class MpvWidget : public QOpenGLWidget
 {
@@ -115,9 +116,7 @@ private:
     bool nnedi3Available_;
 
     bool drawLogo;
-    QOpenGLTexture *logo;
-    QRectF logoLocation;
-    QString logoUrl;
+    LogoDrawer *logo;
 
     bool debugMessages;
 };

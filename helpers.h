@@ -8,6 +8,7 @@
 
 class QFileDialog;
 class QLocalServer;
+class QOpenGLTexture;
 
 namespace Helpers {
     QString toDateFormat(double time);
@@ -56,6 +57,24 @@ private slots:
 private:
     QString socketName;
     QLocalServer *server;
+};
+
+class LogoDrawer : public QObject {
+    Q_OBJECT
+public:
+    explicit LogoDrawer(QObject *parent = 0);
+    ~LogoDrawer();
+    void setLogoUrl(const QString &filename);
+    void resizeGL(int w, int h);
+    void paintGL();
+
+private:
+    void regenerateTexture();
+
+private:
+    QRectF logoLocation;
+    QOpenGLTexture *logo;
+    QString logoUrl;
 };
 
 #endif // HELPERS_H

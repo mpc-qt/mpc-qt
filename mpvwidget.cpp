@@ -9,6 +9,7 @@
 #include <cmath>
 #include <mpv/qthelper.hpp>
 #include "mpvwidget.h"
+#include "helpers.h"
 
 static void *get_proc_address(void *ctx, const char *name) {
     (void)ctx;
@@ -18,7 +19,7 @@ static void *get_proc_address(void *ctx, const char *name) {
 
 MpvWidget::MpvWidget(QWidget *parent) :
     QOpenGLWidget(parent), nnedi3Available_(true), drawLogo(true),
-    logo(NULL), logoUrl(":/images/bitmaps/blank-screen.png")
+    logo(NULL)
 {
     debugMessages = false;
 
@@ -114,6 +115,10 @@ MpvWidget::~MpvWidget()
         mpv_opengl_cb_set_update_callback(glMpv, NULL, NULL);
         mpv_opengl_cb_uninit_gl(glMpv);
     }
+    if (logo) {
+        delete logo;
+        logo = NULL;
+    }
     worker->deleteLater();
 }
 
@@ -149,9 +154,10 @@ void MpvWidget::stepForward()
 
 void MpvWidget::setLogoUrl(const QString &filename)
 {
-    logoUrl = filename;
-    regenerateLogo();
-    resizeGL(width(), height());
+    if (!logo)
+        logo = new LogoDrawer(this);
+    logo->setLogoUrl(filename);
+    logo->resizeGL(width(), height());
     if (drawLogo)
         update();
 }
@@ -311,7 +317,7 @@ void MpvWidget::initializeGL()
         throw std::runtime_error("[MpvWidget] cb init gl failed.");
 
     if (!logo)
-        regenerateLogo();
+        logo = new LogoDrawer(this);
 }
 
 void MpvWidget::paintGL()
@@ -322,61 +328,13 @@ void MpvWidget::paintGL()
         mpv_opengl_cb_draw(glMpv, defaultFramebufferObject(),
                            width(), -height());
     } else {
-        glClear(GL_COLOR_BUFFER_BIT);
-        glLoadIdentity();
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        glEnable(GL_TEXTURE_2D);
-        glBindTexture(GL_TEXTURE_2D, logo->textureId());
-        glColor3f(1.0f, 1.0f, 1.0f);
-        glBegin(GL_QUADS);  // eww, quads!
-            glTexCoord2f(0,0);
-                glVertex2f(logoLocation.left(), logoLocation.bottom());
-            glTexCoord2f(1,0);
-                glVertex2f(logoLocation.right(), logoLocation.bottom());
-            glTexCoord2f(1,1);
-                glVertex2f(logoLocation.right(), logoLocation.top());
-            glTexCoord2f(0,1);
-                glVertex2f(logoLocation.left(), logoLocation.top());
-        glEnd();
-        glDisable(GL_TEXTURE_2D);
+        logo->paintGL();
     }
 }
 
 void MpvWidget::resizeGL(int w, int h)
 {
-    float ratioImg = logo->width() / std::max((float)logo->height(), 1.0f);
-    float ratioWin = w / std::max((float)h, 1.0f);
-    int aimWidth;
-    int aimHeight;
-
-    if (logo->width() <= w && logo->height() <= h) {
-        // fits inside
-        aimWidth = logo->width();
-        aimHeight = logo->height();
-    } else if (ratioImg > ratioWin) {
-        // left and right touch
-        aimWidth = w;
-        aimHeight = w / ratioImg;
-    } else {
-        // top and bottom touch
-        aimWidth = h * ratioImg;
-        aimHeight = h;
-    }
-    float fw = 2.0f/w;
-    float fh = 2.0f/h;
-    float iw = fw * aimWidth;
-    float ih = fh * aimHeight;
-    logoLocation = {-iw/2, -ih/2, iw, ih};
-}
-
-void MpvWidget::regenerateLogo()
-{
-    if (logo)
-        delete logo;
-
-    logo = new QOpenGLTexture(QImage(logoUrl),
-                              QOpenGLTexture::DontGenerateMipMaps);
-    logo->setMinificationFilter(QOpenGLTexture::Linear);
+    logo->resizeGL(w,h);
 }
 
 void MpvWidget::ctrl_update(void *ctx)
