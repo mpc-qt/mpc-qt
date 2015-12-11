@@ -184,14 +184,17 @@ int64_t MpvWidget::chapter()
 bool MpvWidget::setChapter(int64_t chapter)
 {
     // As this requires knowledge of mpv's return value, it cannot be
-    // queued as a simple message.
+    // queued as a simple message.  The usual return values are:
+    // MPV_ERROR_PROPERTY_UNAVAILABLE: unchaptered file
+    // MPV_ERROR_PROPERTY_FORMAT: past-the-end value requested
+    // MPV_ERROR_SUCCESS: success
     int r;
-    QMetaObject::invokeMethod(ctrl, "setOptionVariant",
+    QMetaObject::invokeMethod(ctrl, "setPropertyVariant",
                               Qt::BlockingQueuedConnection,
                               Q_RETURN_ARG(int, r),
                               Q_ARG(QString, "chapter"),
-                              Q_ARG(QVariant, (long long)chapter));
-    return r == 0;
+                              Q_ARG(QVariant, QVariant((qlonglong)chapter)));
+    return r == MPV_ERROR_SUCCESS;
 }
 
 QString MpvWidget::mediaTitle()
@@ -552,9 +555,9 @@ void MpvController::command(const QVariant &params)
         mpv::qt::command_variant(mpv, params);
 }
 
-void MpvController::setPropertyVariant(const QString &name, const QVariant &value)
+int MpvController::setPropertyVariant(const QString &name, const QVariant &value)
 {
-    mpv::qt::set_property_variant(mpv, name, value);
+    return mpv::qt::set_property_variant(mpv, name, value);
 }
 
 QVariant MpvController::getPropertyVariant(const QString &name)

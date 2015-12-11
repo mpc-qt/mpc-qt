@@ -164,7 +164,7 @@ public slots:
     mpv_opengl_cb_context *mpvDrawContext();
     int setOptionVariant(QString name, const QVariant &value);
     void command(const QVariant &params);
-    void setPropertyVariant(const QString &name, const QVariant &value);
+    int setPropertyVariant(const QString &name, const QVariant &value);
     QVariant getPropertyVariant(const QString &name);
     void parseMpvEvents();
 
