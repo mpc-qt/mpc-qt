@@ -19,5 +19,6 @@
         <file>images/controls/playlist/export.png</file>
         <file>images/controls/playlist/import.png</file>
         <file>images/controls/playlist/newtab.png</file>
+        <file>images/bitmaps/logo-gpl.png</file>
     </qresource>
 </RCC>
