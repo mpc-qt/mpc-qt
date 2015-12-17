@@ -15,8 +15,8 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="gpl-logo.svg"
-   inkscape:export-filename="/home/tux/Documents/logos/mpc-qt/gpl-logo.png"
+   sodipodi:docname="logo-gpl.svg"
+   inkscape:export-filename="/home/tux/src/mpc-qt/mpc-qt/images/bitmaps/logo-gpl.png"
    inkscape:export-xdpi="45"
    inkscape:export-ydpi="45">
   <defs
@@ -60,7 +60,7 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="526.32326"
+     inkscape:cx="350.55672"
      inkscape:cy="327.05169"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -89,7 +89,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -158,13 +158,13 @@
       <text
          xml:space="preserve"
          style="color:#000000;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.25px;line-height:200%;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro Bold';text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:4px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;display:inline;overflow:visible;visibility:visible;fill:#868686;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate"
-         x="-451.97455"
+         x="-452.70425"
          y="795.61249"
          id="text4142"
          sodipodi:linespacing="200%"><tspan
            sodipodi:role="line"
            id="tspan4144"
-           x="-449.97455"
+           x="-450.70425"
            y="795.61249">QUTE THEATER</tspan></text>
     </g>
     <text

@@ -15,9 +15,9 @@
    viewBox="0 0 310 200"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="blank-screen.svg"
-   inkscape:export-filename="/home/tux/Documents/logos/mpc-qt/blank-screen.png"
+   inkscape:export-filename="/home/tux/src/mpc-qt/mpc-qt/images/bitmaps/blank-screen.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90"
    enable-background="new">
@@ -29,11 +29,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="127.07451"
-     inkscape:cy="87.37887"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="91.779825"
+     inkscape:cy="64.136476"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:snap-bbox="false"
@@ -49,9 +49,9 @@
      inkscape:snap-text-baseline="true"
      inkscape:snap-nodes="true"
      inkscape:window-width="1920"
-     inkscape:window-height="1025"
-     inkscape:window-x="-2"
-     inkscape:window-y="-3"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      showborder="true">
     <inkscape:grid
@@ -157,7 +157,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -341,22 +341,22 @@
        sodipodi:linespacing="100%"
        id="text4138"
        y="1002.3622"
-       x="152"
+       x="154.57379"
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:15px;line-height:100%;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro Semi-Bold';text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:6px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;display:inline;overflow:visible;visibility:visible;fill:#868686;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate"
        xml:space="preserve"><tspan
          y="1002.3622"
-         x="155"
+         x="157.57379"
          id="tspan4140"
          sodipodi:role="line">MEDIA PLAYER CLASSIC</tspan></text>
     <text
        sodipodi:linespacing="200%"
        id="text4142"
        y="1022.3622"
-       x="153"
+       x="154.84409"
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.25px;line-height:200%;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro Bold';text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:4px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;display:inline;overflow:visible;visibility:visible;fill:#868686;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate"
        xml:space="preserve"><tspan
          y="1022.3622"
-         x="155"
+         x="156.84409"
          id="tspan4144"
          sodipodi:role="line">QUTE THEATER</tspan></text>
     <g
