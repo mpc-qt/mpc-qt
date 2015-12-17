@@ -20,5 +20,6 @@
         <file>images/controls/playlist/import.png</file>
         <file>images/controls/playlist/newtab.png</file>
         <file>images/bitmaps/logo-gpl.png</file>
+        <file>images/bitmaps/blank-screen-gray.png</file>
     </qresource>
 </RCC>

@@ -444,6 +444,33 @@ media file played</string>
                </property>
               </widget>
              </item>
+             <item row="0" column="1" colspan="2">
+              <widget class="QComboBox" name="logoInternal">
+               <property name="currentIndex">
+                <number>1</number>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Blank</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Color film stock</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Black and white film stock</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Triangle in circle</string>
+                </property>
+               </item>
+              </widget>
+             </item>
             </layout>
            </item>
           </layout>

@@ -87,6 +87,8 @@ private slots:
 
     void on_logoExternal_clicked();
 
+    void on_logoInternal_currentIndexChanged(int index);
+
 private:
     Ui::SettingsWindow *ui;
     LogoWidget *logoWidget;

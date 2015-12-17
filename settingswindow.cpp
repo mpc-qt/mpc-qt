@@ -73,6 +73,13 @@ QMap<QString, QString> Setting::classToProperty = {
     { "QScrollBar", "value" }
 };
 
+QStringList internalLogos = {
+    ":/not-a-real-resource.png",
+    ":/images/bitmaps/blank-screen.png",
+    ":/images/bitmaps/blank-screen-gray.png",
+    ":/images/bitmaps/logo-gpl.png"
+};
+
 void Setting::sendToControl()
 {
     if (!widget) {
@@ -195,7 +202,7 @@ QString SettingsWindow::selectedLogo()
 {
     return ui->logoExternal->isChecked()
                                 ? ui->logoExternalLocation->text()
-                                : QString();
+                                : internalLogos.value(ui->logoInternal->currentIndex());
 }
 
 void SettingsWindow::takeSettings(QVariantMap payload)
@@ -458,5 +465,11 @@ void SettingsWindow::on_logoUseInternal_clicked()
 
 void SettingsWindow::on_logoExternal_clicked()
 {
+    updateLogoWidget();
+}
+
+void SettingsWindow::on_logoInternal_currentIndexChanged(int index)
+{
+    Q_UNUSED(index);
     updateLogoWidget();
 }
