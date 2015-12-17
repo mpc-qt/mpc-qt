@@ -77,7 +77,7 @@ QStringList internalLogos = {
     ":/not-a-real-resource.png",
     ":/images/bitmaps/blank-screen.png",
     ":/images/bitmaps/blank-screen-gray.png",
-    ":/images/bitmaps/logo-gpl.png"
+    ":/images/bitmaps/blank-screen-triangle-circle.png"
 };
 
 void Setting::sendToControl()
