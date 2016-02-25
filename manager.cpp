@@ -19,6 +19,9 @@ void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)
     mpvWidget_ = mpvWidget;
 
     if (makeConnections) {
+        connect(mpvWidget, &MpvWidget::mousePressed,
+                this, &PlaybackManager::mpvw_mousePressed);
+
         connect(mpvWidget, &MpvWidget::playTimeChanged,
                 this, &PlaybackManager::mpvw_playTimeChanged);
         connect(mpvWidget, &MpvWidget::playLengthChanged,
@@ -350,6 +353,14 @@ void PlaybackManager::setClientDebuggingMessages(bool yes)
 void PlaybackManager::setMpvLogLevel(QString level)
 {
     mpvWidget_->setMpvLogLevel(level);
+}
+
+void PlaybackManager::mpvw_mousePressed()
+{
+    if (playbackState == PlayingState)
+        pausePlayer();
+    else if (playbackState == PausedState)
+        unpausePlayer();
 }
 
 void PlaybackManager::mpvw_startPlaying(QUrl what, QUuid playlistUuid, QUuid itemUuid)

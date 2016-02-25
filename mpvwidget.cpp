@@ -317,6 +317,10 @@ bool MpvWidget::nnedi3Available()
     return nnedi3Available_;
 }
 
+void MpvWidget::mousePressEvent(QMouseEvent *event) {
+    emit mousePressed();
+}
+
 void MpvWidget::initializeGL()
 {
     if (mpv_opengl_cb_init_gl(glMpv, NULL, get_proc_address, NULL) < 0)

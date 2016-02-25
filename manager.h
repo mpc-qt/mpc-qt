@@ -78,6 +78,7 @@ public slots:
     void setMpvLogLevel(QString level);
 
 private slots:
+    void mpvw_mousePressed();
     void mpvw_startPlaying(QUrl what, QUuid playlistUuid, QUuid itemUuid);
 
     void mpvw_playTimeChanged(double time);

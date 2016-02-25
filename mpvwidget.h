@@ -61,6 +61,7 @@ public:
     bool nnedi3Available();
 
 protected:
+    void mousePressEvent(QMouseEvent *event);
     void initializeGL();
     void paintGL();
     void resizeGL(int w, int h);
@@ -72,6 +73,8 @@ private:
     void     setMpvOptionVariant(QString name, QVariant value);
 
 signals:
+    void mousePressed();
+
     void ctrlCommand(QVariant params);
     void ctrlSetOptionVariant(QString name, QVariant value);
     void ctrlSetPropertyVariant(QString name, QVariant value);
