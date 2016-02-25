@@ -66,7 +66,6 @@ protected:
     void resizeGL(int w, int h);
 
 private:
-    void regenerateLogo();
     static void ctrl_update(void *ctx);
     void     setMpvPropertyVariant(QString name, QVariant value);
     QVariant getMpvPropertyVariant(QString name);
