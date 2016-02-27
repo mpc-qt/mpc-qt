@@ -54,4 +54,5 @@ OTHER_FILES += \
     DOCS/codebase.svg
 
 DISTFILES += \
-    generate-localinstall-desktop.py
+    generate-localinstall-desktop.py \
+    DOCS/codebase2.svg
