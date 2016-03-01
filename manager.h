@@ -64,19 +64,6 @@ public slots:
     void setVolume(int64_t volume);
     void setMute(bool muted);
 
-    // settings functions
-    void setLogoSource(QString s);
-    void setVoCommandLine(QString s);
-    void setFramedropMode(QString s);
-    void setDecoderDropMode(QString s);
-    void setDisplaySyncMode(QString s);
-    void setAudioDropSize(double d);
-    void setMaximumAudioChange(double d);
-    void setMaximumVideoChange(double d);
-    void setSubsAreGray(bool flag);
-    void setClientDebuggingMessages(bool yes);
-    void setMpvLogLevel(QString level);
-
 private slots:
     void mpvw_mousePressed();
     void mpvw_startPlaying(QUrl what, QUuid playlistUuid, QUuid itemUuid);

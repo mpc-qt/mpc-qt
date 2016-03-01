@@ -300,61 +300,6 @@ void PlaybackManager::setMute(bool muted)
     mpvWidget_->showMessage(muted ? tr("Mute: on") : tr("Mute: off"));
 }
 
-void PlaybackManager::setLogoSource(QString s)
-{
-    mpvWidget_->setLogoUrl(s);
-}
-
-void PlaybackManager::setVoCommandLine(QString s)
-{
-    mpvWidget_->setVOCommandLine(s);
-}
-
-void PlaybackManager::setFramedropMode(QString s)
-{
-    mpvWidget_->setFramedropMode(s);
-}
-
-void PlaybackManager::setDecoderDropMode(QString s)
-{
-    mpvWidget_->setDecoderDropMode(s);
-}
-
-void PlaybackManager::setDisplaySyncMode(QString s)
-{
-    mpvWidget_->setDisplaySyncMode(s);
-}
-
-void PlaybackManager::setAudioDropSize(double d)
-{
-    mpvWidget_->setAudioDropSize(d);
-}
-
-void PlaybackManager::setMaximumAudioChange(double d)
-{
-    mpvWidget_->setMaximumAudioChange(d);
-}
-
-void PlaybackManager::setMaximumVideoChange(double d)
-{
-    mpvWidget_->setMaximumVideoChange(d);
-}
-
-void PlaybackManager::setSubsAreGray(bool flag)
-{
-    mpvWidget_->setSubsAreGray(flag);
-}
-
-void PlaybackManager::setClientDebuggingMessages(bool yes)
-{
-    mpvWidget_->setClientDebuggingMessages(yes);
-}
-
-void PlaybackManager::setMpvLogLevel(QString level)
-{
-    mpvWidget_->setMpvLogLevel(level);
-}
-
 void PlaybackManager::mpvw_mousePressed()
 {
     if (playbackState == PlayingState)

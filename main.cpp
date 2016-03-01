@@ -129,29 +129,30 @@ Flow::Flow(QObject *owner) :
     connect(playbackManager, &PlaybackManager::decoderFramedropsChanged,
             mainWindow, &MainWindow::setDecoderFramedrops);
 
-    // settings -> manager
+    // settings -> mpvwidget
+    auto mpvw = mainWindow->mpvWidget();
     connect(settingsWindow, &SettingsWindow::logoSource,
-            playbackManager, &PlaybackManager::setLogoSource);
+            mpvw, &MpvWidget::setLogoUrl);
     connect(settingsWindow, &SettingsWindow::voCommandLine,
-            playbackManager, &PlaybackManager::setVoCommandLine);
+            mpvw, &MpvWidget::setVOCommandLine);
     connect(settingsWindow, &SettingsWindow::framedropMode,
-            playbackManager, &PlaybackManager::setFramedropMode);
+            mpvw, &MpvWidget::setFramedropMode);
     connect(settingsWindow, &SettingsWindow::decoderDropMode,
-            playbackManager, &PlaybackManager::setDecoderDropMode);
+            mpvw, &MpvWidget::setDecoderDropMode);
     connect(settingsWindow, &SettingsWindow::displaySyncMode,
-            playbackManager, &PlaybackManager::setDisplaySyncMode);
+            mpvw, &MpvWidget::setDisplaySyncMode);
     connect(settingsWindow, &SettingsWindow::audioDropSize,
-            playbackManager, &PlaybackManager::setAudioDropSize);
+            mpvw, &MpvWidget::setAudioDropSize);
     connect(settingsWindow, &SettingsWindow::maximumAudioChange,
-            playbackManager, &PlaybackManager::setMaximumAudioChange);
+            mpvw, &MpvWidget::setMaximumAudioChange);
     connect(settingsWindow, &SettingsWindow::maximumVideoChange,
-            playbackManager, &PlaybackManager::setMaximumVideoChange);
+            mpvw, &MpvWidget::setMaximumVideoChange);
     connect(settingsWindow, &SettingsWindow::subsAreGray,
-            playbackManager, &PlaybackManager::setSubsAreGray);
+            mpvw, &MpvWidget::setSubsAreGray);
     connect(settingsWindow, &SettingsWindow::clientDebuggingMessages,
-            playbackManager, &PlaybackManager::setClientDebuggingMessages);
+            mpvw, &MpvWidget::setClientDebuggingMessages);
     connect(settingsWindow, &SettingsWindow::mpvLogLevel,
-            playbackManager, &PlaybackManager::setMpvLogLevel);
+            mpvw, &MpvWidget::setMpvLogLevel);
 
     // manager -> settings
     connect(playbackManager, &PlaybackManager::playerSettingsRequested,
