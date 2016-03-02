@@ -139,7 +139,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>13</number>
+          <number>12</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -5200,7 +5200,7 @@ media file played</string>
               <item row="1" column="1">
                <widget class="QLineEdit" name="encodeTemplate">
                 <property name="placeholderText">
-                 <string>%f_encode_%iP-%jP_[%tY.%tm.%td_%tH.%tM.%tS]%s{_subs}%a{_novideo}{_noaudio}</string>
+                 <string>%f_encode_%aP-%bP_[%tY.%tm.%td_%tH.%tM.%tS]%s{_subs}%d{_novideo}{_noaudio}</string>
                 </property>
                </widget>
               </item>
