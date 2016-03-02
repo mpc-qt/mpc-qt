@@ -89,6 +89,8 @@ private slots:
 
     void on_logoInternal_currentIndexChanged(int index);
 
+    void on_screenshotFormat_currentIndexChanged(int index);
+
 private:
     Ui::SettingsWindow *ui;
     LogoWidget *logoWidget;

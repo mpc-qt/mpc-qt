@@ -405,7 +405,7 @@ void SettingsWindow::on_pageTree_itemSelectionChanged()
     if (!modelIndex.isValid())
         return;
 
-    static int parentIndex[] = { 0, 4, 9, 12, 13 };
+    static int parentIndex[] = { 0, 4, 9, 12, 14, 15 };
     int index = 0;
     if (!modelIndex.parent().isValid())
         index = parentIndex[modelIndex.row()];
@@ -472,4 +472,9 @@ void SettingsWindow::on_logoInternal_currentIndexChanged(int index)
 {
     Q_UNUSED(index);
     updateLogoWidget();
+}
+
+void SettingsWindow::on_screenshotFormat_currentIndexChanged(int index)
+{
+    ui->screenshotFormatStack->setCurrentIndex(index);
 }

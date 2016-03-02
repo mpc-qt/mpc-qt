@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>683</width>
+    <width>767</width>
     <height>787</height>
    </rect>
   </property>
@@ -102,6 +102,16 @@
       </item>
       <item>
        <property name="text">
+        <string>Export</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Encoding</string>
+        </property>
+       </item>
+      </item>
+      <item>
+       <property name="text">
         <string>Tweaks</string>
        </property>
       </item>
@@ -129,7 +139,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>3</number>
+          <number>13</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -1118,7 +1128,7 @@ media file played</string>
                   <item>
                    <widget class="QTabWidget" name="scalingTabs">
                     <property name="currentIndex">
-                     <number>5</number>
+                     <number>1</number>
                     </property>
                     <widget class="QWidget" name="scaleOptionsTab">
                      <attribute name="title">
@@ -5062,6 +5072,667 @@ media file played</string>
            </item>
            <item>
             <spacer name="verticalSpacer_19">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="exportPage">
+          <layout class="QVBoxLayout" name="verticalLayout_36">
+           <item>
+            <widget class="QGroupBox" name="groupBox_20">
+             <property name="title">
+              <string>Directories</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_5">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_33">
+                <property name="text">
+                 <string>Screenshot</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <layout class="QHBoxLayout" name="horizontalLayout_16">
+                <item>
+                 <widget class="QCheckBox" name="screenshotDirectorySet">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="screenshotDirectoryValue">
+                  <property name="placeholderText">
+                   <string>~/Pictures/mpc_shots</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="screenshotDirectoryBrowse">
+                  <property name="text">
+                   <string>...</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_34">
+                <property name="text">
+                 <string>Encode</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <layout class="QHBoxLayout" name="horizontalLayout_15">
+                <item>
+                 <widget class="QCheckBox" name="encodeDirectorySet">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="encodeDirectoryValue">
+                  <property name="placeholderText">
+                   <string>~/Videos/mpc_encodes</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="encodeDirectoryBrowse">
+                  <property name="text">
+                   <string>...</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QLabel" name="label_35">
+                <property name="text">
+                 <string>Unchecked directories will place output files in the source directory. Streams do not have a source directory and will bring up a dialog when a field is left blank; &lt;b&gt;Alt+I&lt;/b&gt; will always ask where to place files. &lt;b&gt;~&lt;/b&gt; expands to your home folder. Directories will be created if necessary; this may not work across all filesystems.</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_22">
+             <property name="title">
+              <string>Filename template</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_9">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_36">
+                <property name="text">
+                 <string>Screenshot</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="screenshotTemplate">
+                <property name="placeholderText">
+                 <string>%f_snapshot_%P_[%tY.%tm.%td_%tH.%tM.%tS]%s{_subs}</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_37">
+                <property name="text">
+                 <string>Encode</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="encodeTemplate">
+                <property name="placeholderText">
+                 <string>%f_encode_%iP-%jP_[%tY.%tm.%td_%tH.%tM.%tS]%s{_subs}%a{_novideo}{_noaudio}</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QTextBrowser" name="textBrowser">
+                <property name="html">
+                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Oxygen-Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Format specifiers&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If no format specifier is set, mpc will attempt to use a sensible default.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%[#][0X]n (screenshots only)&lt;/span&gt;&lt;br /&gt;A sequence number, padded with zeros to length X (default: 04). E.g. passing the format &lt;span style=&quot; font-weight:600;&quot;&gt;%04n&lt;/span&gt; will yield 0012 on the 12th screenshot. The number is incremented every time a screenshot is taken or if the file already exists. The length X must be in the range 0-9. With the optional # sign, mpc will use the lowest available number. For example, if you take three screenshots--0001, 0002, 0003--and delete the first two, the next two screenshots will not be 0004 and 0005, but 0001 and 0002 again.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%f&lt;/span&gt;&lt;br /&gt;Filename of the currently played video.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%F&lt;/span&gt;&lt;br /&gt;Same as &lt;span style=&quot; font-weight:600;&quot;&gt;%f&lt;/span&gt;, but strip the file extension, including the dot.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%s{with}{without}&lt;/span&gt;&lt;br /&gt;Indicator whether subs were embedded. Text within the brackets is substituted according to subtitle embedding. For example, pass &lt;span style=&quot; font-weight:600;&quot;&gt;%s{subs}{}&lt;/span&gt; to insert the text &amp;quot;subs&amp;quot; when subtitles are rendered, and nothing when subtitles are not rendered. Passing only one pair of &lt;span style=&quot; font-weight:600;&quot;&gt;{}&lt;/span&gt; like &lt;span style=&quot; font-weight:600;&quot;&gt;%s{subs}&lt;/span&gt; is the same as passing &lt;span style=&quot; font-weight:600;&quot;&gt;%s{subs}{}&lt;/span&gt;. Ignored if the source has no subtitles.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%d{novideo}{noaudio} (encodes only)&lt;/span&gt;&lt;br /&gt;Indicator whether a track was disabled. Text within the brackets is expanded the same way as with &lt;span style=&quot; font-weight:600;&quot;&gt;%s&lt;/span&gt;. Ignored if the source lacks either a video or audio track.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%tX&lt;/span&gt;&lt;br /&gt;Specify the current local date/time using the format described by the UNIX strftime() function. See `man strftime` for details. Passing &lt;span style=&quot; font-weight:600;&quot;&gt;%tX&lt;/span&gt; inserts the result of passing &lt;span style=&quot; font-weight:600;&quot;&gt;%X&lt;/span&gt; to strftime. For example, &lt;span style=&quot; font-weight:600;&quot;&gt;%tm&lt;/span&gt; will insert the number of the current month as number. You have to use multiple &lt;span style=&quot; font-weight:600;&quot;&gt;%tX&lt;/span&gt; specifiers to build a full date/time string.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%aX (encodes only)&lt;/span&gt;&lt;br /&gt;Specify the starting time of the capture window using the format string X.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%bX (encodes only)&lt;/span&gt;&lt;br /&gt;Specify the ending time of the capture window using the format string X.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%wX (screenshots only)&lt;/span&gt;&lt;br /&gt;Specify the current playback time using the format string X.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%%&lt;/span&gt;&lt;br /&gt;Replaced with the &lt;span style=&quot; font-weight:600;&quot;&gt;%&lt;/span&gt; character itself.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Format string X&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Replace &lt;span style=&quot; font-weight:600;&quot;&gt;w&lt;/span&gt; with &lt;span style=&quot; font-weight:600;&quot;&gt;a&lt;/span&gt; or &lt;span style=&quot; font-weight:600;&quot;&gt;b&lt;/span&gt; for encodes.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%wp&lt;/span&gt;&lt;br /&gt;Equivalent to &lt;span style=&quot; font-weight:600;&quot;&gt;%wH:%wM:%wS&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%wP&lt;/span&gt;&lt;br /&gt;Equivalent to &lt;span style=&quot; font-weight:600;&quot;&gt;%wH:%wM:%wS.%wT&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%wH&lt;/span&gt;&lt;br /&gt;hour (padded with 0 to two digits)&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%wh&lt;/span&gt;&lt;br /&gt;hour (not padded)&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%wM&lt;/span&gt;&lt;br /&gt;minutes (00-59)&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%wm&lt;/span&gt;&lt;br /&gt;total minutes (includes hours, unlike %wM)&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%wS&lt;/span&gt;&lt;br /&gt;seconds (00-59)&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%ws&lt;/span&gt;&lt;br /&gt;total seconds (includes hours and minutes)&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%wf&lt;/span&gt;&lt;br /&gt;like &lt;span style=&quot; font-weight:600;&quot;&gt;%ws&lt;/span&gt;, but as float&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;%wT&lt;/span&gt;&lt;br /&gt;milliseconds (000-999)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="encodingPage">
+          <layout class="QVBoxLayout" name="verticalLayout_37">
+           <item>
+            <widget class="QGroupBox" name="groupBox_25">
+             <property name="title">
+              <string>Screenshot</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_38">
+              <item>
+               <widget class="QComboBox" name="screenshotFormat">
+                <item>
+                 <property name="text">
+                  <string>jpg</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>png</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QStackedWidget" name="screenshotFormatStack">
+                <property name="currentIndex">
+                 <number>0</number>
+                </property>
+                <widget class="QWidget" name="widget">
+                 <layout class="QFormLayout" name="formLayout_20">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_39">
+                    <property name="text">
+                     <string>Quality</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <layout class="QHBoxLayout" name="horizontalLayout_14">
+                    <item>
+                     <widget class="QSlider" name="jpgQuality">
+                      <property name="maximum">
+                       <number>100</number>
+                      </property>
+                      <property name="value">
+                       <number>90</number>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="tickPosition">
+                       <enum>QSlider::TicksBothSides</enum>
+                      </property>
+                      <property name="tickInterval">
+                       <number>5</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="jpgQualityValue">
+                      <property name="text">
+                       <string>090</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_40">
+                    <property name="text">
+                     <string>Smooth</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <layout class="QHBoxLayout" name="horizontalLayout_17">
+                    <item>
+                     <widget class="QSlider" name="jpgSmooth">
+                      <property name="maximum">
+                       <number>100</number>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="tickPosition">
+                       <enum>QSlider::TicksBothSides</enum>
+                      </property>
+                      <property name="tickInterval">
+                       <number>5</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="spgSmoothValue">
+                      <property name="text">
+                       <string>000</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="label_41">
+                    <property name="text">
+                     <string>Source Chroma</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QCheckBox" name="jpgSourceChroma">
+                    <property name="text">
+                     <string>Yes</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="page_2">
+                 <layout class="QFormLayout" name="formLayout_21">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_44">
+                    <property name="text">
+                     <string>Compression</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <layout class="QHBoxLayout" name="horizontalLayout_18">
+                    <item>
+                     <widget class="QSlider" name="pngCompression">
+                      <property name="maximum">
+                       <number>9</number>
+                      </property>
+                      <property name="value">
+                       <number>7</number>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="tickPosition">
+                       <enum>QSlider::TicksBothSides</enum>
+                      </property>
+                      <property name="tickInterval">
+                       <number>1</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="pngCompressionValue">
+                      <property name="text">
+                       <string>7</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_45">
+                    <property name="text">
+                     <string>Filter</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <layout class="QHBoxLayout" name="horizontalLayout_19">
+                    <item>
+                     <widget class="QSlider" name="pngFilter">
+                      <property name="maximum">
+                       <number>5</number>
+                      </property>
+                      <property name="value">
+                       <number>5</number>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="tickPosition">
+                       <enum>QSlider::TicksBothSides</enum>
+                      </property>
+                      <property name="tickInterval">
+                       <number>1</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="pngFilterValue">
+                      <property name="text">
+                       <string>5</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="label_46">
+                    <property name="text">
+                     <string>Colorspace</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QCheckBox" name="pngColorspace">
+                    <property name="text">
+                     <string>Include tag</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_26">
+             <property name="title">
+              <string>Encode</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_10" columnstretch="1,1">
+              <item row="1" column="0">
+               <widget class="QGroupBox" name="groupBox_27">
+                <property name="title">
+                 <string>Video</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_40">
+                 <item>
+                  <widget class="QCheckBox" name="encodeVideoForget">
+                   <property name="text">
+                    <string>Don't encode the video</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="encodeVideoHardsub">
+                   <property name="text">
+                    <string>Hardsub</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QFormLayout" name="formLayout_24">
+                   <property name="labelAlignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QRadioButton" name="encodeVideoMethodFilesize">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Filesi&amp;ze</string>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QDoubleSpinBox" name="encodeVideoFilesize">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="suffix">
+                      <string>MB</string>
+                     </property>
+                     <property name="value">
+                      <double>2.900000000000000</double>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QRadioButton" name="encodeVideoMethodBitrate">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Bitrate</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QSpinBox" name="encodeVideoBitrate">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="suffix">
+                      <string>kBits</string>
+                     </property>
+                     <property name="maximum">
+                      <number>8192</number>
+                     </property>
+                     <property name="value">
+                      <number>500</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <layout class="QFormLayout" name="formLayout_26">
+                     <property name="labelAlignment">
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                     </property>
+                     <item row="0" column="0">
+                      <widget class="QCheckBox" name="encodeVideoCrf">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="text">
+                        <string>crf</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QSpinBox" name="encodeVideoCrfValue">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="minimum">
+                        <number>-1</number>
+                       </property>
+                       <property name="maximum">
+                        <number>63</number>
+                       </property>
+                       <property name="value">
+                        <number>-1</number>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QCheckBox" name="encodeVideoQMin">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="text">
+                        <string>qmin</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QSpinBox" name="encodeVideoQMinValue">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="minimum">
+                        <number>-1</number>
+                       </property>
+                       <property name="maximum">
+                        <number>69</number>
+                       </property>
+                       <property name="value">
+                        <number>2</number>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QCheckBox" name="encodeVideoQMax">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="text">
+                        <string>qmax</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QSpinBox" name="encodeVideoQMaxValue">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="minimum">
+                        <number>-1</number>
+                       </property>
+                       <property name="maximum">
+                        <number>1024</number>
+                       </property>
+                       <property name="value">
+                        <number>31</number>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="2">
+               <widget class="QComboBox" name="encodeFormat">
+                <item>
+                 <property name="text">
+                  <string>WebM (VP8+OGG)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>MP4 (x264+MP3)</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QGroupBox" name="groupBox_28">
+                <property name="title">
+                 <string>Audio</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_39">
+                 <item>
+                  <widget class="QCheckBox" name="encodeAudioForget">
+                   <property name="text">
+                    <string>Don't encode the audio</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="encodeAudioBitrate">
+                   <property name="suffix">
+                    <string>kBits</string>
+                   </property>
+                   <property name="maximum">
+                    <number>360</number>
+                   </property>
+                   <property name="singleStep">
+                    <number>16</number>
+                   </property>
+                   <property name="value">
+                    <number>96</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer_11">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QLabel" name="label_38">
+                <property name="text">
+                 <string>&quot;Don't encode&quot; checkboxes are ignored for audio-only or video-only files.</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_12">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
