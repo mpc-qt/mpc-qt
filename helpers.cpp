@@ -155,20 +155,25 @@ QString Helpers::parseFormat(QString fmt, QString fileName,
             case 'a':
                 if (++position < length)
                     output.append(begin.toString(fmt.at(position)));
+                ++position;
                 break;
             case 'b':
                 if (++position < length)
                     output.append(end.toString(fmt.at(position)));
+                ++position;
                 break;
             case 'w':
                 if (++position < length)
                     output.append(nav.toString(fmt.at(position)));
+                ++position;
                 break;
             case '%':
                 output.append('%');
+                ++position;
                 break;
             default:
                 output.append(c);
+                ++position;
                 // %n unimplemented (look at mpv source code?)
             }
         } else {
