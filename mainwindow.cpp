@@ -280,6 +280,7 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionFileClose->setEnabled(enabled);
     ui->actionFileSaveCopy->setEnabled(enabled);
     ui->actionFileSaveImage->setEnabled(enabled);
+    ui->actionFileSaveImageAuto->setEnabled(enabled);
     ui->actionFileSaveThumbnails->setEnabled(enabled);
     ui->actionFileLoadSubtitle->setEnabled(enabled);
     ui->actionFileSaveSubtitle->setEnabled(enabled);
