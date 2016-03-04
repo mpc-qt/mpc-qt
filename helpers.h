@@ -29,6 +29,7 @@ public:
     explicit AsyncFileDialog(QWidget *parent = NULL);
     ~AsyncFileDialog();
     void setMode(DialogMode mode);
+    void setSave(bool yes);
     void show();
 
 signals:

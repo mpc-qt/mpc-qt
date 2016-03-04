@@ -223,6 +223,11 @@ void AsyncFileDialog::setMode(AsyncFileDialog::DialogMode mode)
     mode_ = mode;
 }
 
+void AsyncFileDialog::setSave(bool yes)
+{
+    qfd->setAcceptMode(yes ? QFileDialog::AcceptSave : QFileDialog::AcceptOpen);
+}
+
 void AsyncFileDialog::show()
 {
     qfd->show();
