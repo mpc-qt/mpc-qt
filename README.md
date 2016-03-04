@@ -22,6 +22,7 @@ DirectShow.
 * batch play from playlists
 * launch files from from the command line
 * stream video from streaming sites
+* taking screenshots with a customizable filename template
 
 **Note:**  This is alpha software and some of the functionality isn't written
 yet.  For the most part, unwritten portions relate to setting options,
