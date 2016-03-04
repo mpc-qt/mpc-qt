@@ -21,9 +21,15 @@ private:
 
 private slots:
     void mainwindow_applicationShouldQuit();
+    void mainwindow_takeImage();
+    void mainwindow_takeImageAutomatically();
     void mainwindow_optionsOpenRequested();
     void process_payloadRecieved(const QStringList &payload);
     void settingswindow_settingsData(const QVariantMap &settings);
+    void settingswindow_screenshotDirectory(const QString &where);
+    void settingswindow_encodeDirectory(const QString &where);
+    void settingswindow_screenshotTemplate(const QString &fmt);
+    void settingswindow_encodeTemplate(const QString &fmt);
     void importPlaylist(QString fname);
     void exportPlaylist(QString fname, QStringList items);
 
@@ -35,6 +41,10 @@ private:
     Storage storage;
     QVariantMap settings;
 
+    QString screenshotDirectory;
+    QString encodeDirectory;
+    QString screenshotTemplate;
+    QString encodeTemplate;
     bool hasPrevious_;
 };
 

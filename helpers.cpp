@@ -89,24 +89,20 @@ QString Helpers::parseFormat(QString fmt, QString fileName,
         MatchMode mm = Bracket;
         while (mm != Finish && position < length) {
             c = source.at(position);
-            switch(mm) {
-            case Bracket:
+            if (mm == Bracket) {
                 if (c != '{') {
+                    position--;
                     mm = Finish;
-                    break;
+                } else {
+                    mm = Inside;
                 }
-                mm = Inside;
                 ++position;
-                break;
-            case Inside:
+            } else if (mm == Inside) {
                 if (c != '}')
                     match.append(c);
                 else
                     mm = Finish;
                 ++position;
-                break;
-            default:
-                (void)0;
             }
         }
         return match;
@@ -129,9 +125,11 @@ QString Helpers::parseFormat(QString fmt, QString fileName,
             c = fmt.at(position);
             switch (c.unicode()) {
             case 'f':
+                ++position;
                 output += fileName;
                 break;
             case 'F':
+                ++position;
                 output += fileNameNoExt;
                 break;
             case 's':
@@ -173,6 +171,9 @@ QString Helpers::parseFormat(QString fmt, QString fileName,
                 output.append(c);
                 // %n unimplemented (look at mpv source code?)
             }
+        } else {
+            output.append(c);
+            position++;
         }
     }
     return output;

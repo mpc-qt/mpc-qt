@@ -1,4 +1,6 @@
 #include <QDebug>
+#include <QStandardPaths>
+#include <QFileInfo>
 #include "settingswindow.h"
 #include "ui_settingswindow.h"
 #include "helpers.h"
@@ -143,6 +145,13 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->audioRendererStack->setCurrentIndex(0);
     setNnedi3Available(false);
 
+    ui->screenshotDirectoryValue->setPlaceholderText(
+                QStandardPaths::writableLocation(
+                    QStandardPaths::PicturesLocation) + "/mpc_shots");
+    ui->encodeDirectoryValue->setPlaceholderText(
+                QStandardPaths::writableLocation(
+                    QStandardPaths::PicturesLocation) + "/mpc_encodes");
+
     // Expand every item on pageTree
     QList<QTreeWidgetItem*> stack;
     stack.append(ui->pageTree->invisibleRootItem());
@@ -228,6 +237,9 @@ void SettingsWindow::takeSettings(QVariantMap payload)
 #define WIDGET_TO_TEXT(widget) \
     SettingMap::indexedValueToText[widget->objectName()].value(OFFSET_LOOKUP(acceptedSettings,widget), \
         SettingMap::indexedValueToText[widget->objectName()].value(OFFSET_LOOKUP(defaultSettings,widget)))
+
+#define WIDGET_PLACEHOLD_LOOKUP(widget) \
+    (WIDGET_LOOKUP(widget).toString().isEmpty() ? widget->placeholderText() : WIDGET_LOOKUP(widget).toString())
 
 void SettingsWindow::sendSignals()
 {
@@ -387,6 +399,16 @@ void SettingsWindow::sendSignals()
     maximumAudioChange(WIDGET_LOOKUP(ui->syncMaxAudioChange).toDouble());
     maximumVideoChange(WIDGET_LOOKUP(ui->syncMaxVideoChange).toDouble());
     subsAreGray(WIDGET_LOOKUP(ui->subtitlesForceGrayscale).toDouble());
+
+    screenshotDirectory(
+                WIDGET_LOOKUP(ui->screenshotDirectorySet).toBool() ?
+                QFileInfo(WIDGET_PLACEHOLD_LOOKUP(ui->screenshotDirectoryValue)).absoluteFilePath() : QString());
+
+    encodeDirectory(
+                WIDGET_LOOKUP(ui->encodeDirectorySet).toBool() ?
+                QFileInfo(WIDGET_PLACEHOLD_LOOKUP(ui->encodeDirectoryValue)).absoluteFilePath() : QString());
+    screenshotTemplate(WIDGET_PLACEHOLD_LOOKUP(ui->screenshotTemplate));
+    encodeTemplate(WIDGET_PLACEHOLD_LOOKUP(ui->encodeTemplate));
     clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
     mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
 

@@ -62,6 +62,10 @@ signals:
     void maximumAudioChange(double d);
     void maximumVideoChange(double d);
     void subsAreGray(bool flag);
+    void screenshotDirectory(const QString &s);
+    void encodeDirectory(const QString &s);
+    void screenshotTemplate(const QString &s);
+    void encodeTemplate(const QString &s);
     void clientDebuggingMessages(bool yes);
     void mpvLogLevel(const QString &s);
 

@@ -558,6 +558,7 @@
     <addaction name="separator"/>
     <addaction name="actionFileSaveCopy"/>
     <addaction name="actionFileSaveImage"/>
+    <addaction name="actionFileSaveImageAuto"/>
     <addaction name="actionFileSaveThumbnails"/>
     <addaction name="separator"/>
     <addaction name="actionFileLoadSubtitle"/>
@@ -1306,6 +1307,14 @@
   <action name="actionFileOpenNetworkStream">
    <property name="text">
     <string>Open &amp;Network Stream...</string>
+   </property>
+  </action>
+  <action name="actionFileSaveImageAuto">
+   <property name="text">
+    <string>Save Image (Auto)</string>
+   </property>
+   <property name="shortcut">
+    <string>F5</string>
    </property>
   </action>
  </widget>

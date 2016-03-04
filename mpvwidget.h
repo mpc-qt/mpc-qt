@@ -26,6 +26,7 @@ public:
     void stopPlayback();
     void stepBackward();
     void stepForward();
+    void screenshot(const QString &fileName, bool subtitles);
     void setLogoUrl(const QString &filename);
 
     // These are straightforward queries to libmpv

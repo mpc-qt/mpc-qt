@@ -152,6 +152,12 @@ void MpvWidget::stepForward()
     emit ctrlCommand("frame_step");
 }
 
+void MpvWidget::screenshot(const QString &fileName, bool subtitles)
+{
+    emit ctrlSetOptionVariant("screenshot-template", QString(fileName).replace("%","%%"));
+    emit ctrlCommand(QStringList({"screenshot", subtitles ? "subtitles" : "video"}));
+}
+
 void MpvWidget::setLogoUrl(const QString &filename)
 {
     makeCurrent();

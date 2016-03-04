@@ -67,6 +67,8 @@ signals:
     void severalFilesOpened(QList<QUrl> what);
     void dvdbdOpened(QUrl what);
     void streamOpened(QUrl what);
+    void takeImage();
+    void takeImageAutomatically();
     void optionsOpenRequested();
     void paused();
     void unpaused();
@@ -110,6 +112,8 @@ private slots:
     void on_actionFileOpenDvdbd_triggered();
     void on_actionFileOpenDirectory_triggered();
     void on_actionFileOpenNetworkStream_triggered();
+    void on_actionFileSaveImage_triggered();
+    void on_actionFileSaveImageAuto_triggered();
     void on_actionFileClose_triggered();
     void on_actionFileExit_triggered();
 

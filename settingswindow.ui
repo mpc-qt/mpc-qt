@@ -5107,6 +5107,9 @@ media file played</string>
                   <property name="text">
                    <string/>
                   </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
                  </widget>
                 </item>
                 <item>
@@ -5138,6 +5141,9 @@ media file played</string>
                  <widget class="QCheckBox" name="encodeDirectorySet">
                   <property name="text">
                    <string/>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>
@@ -5186,7 +5192,7 @@ media file played</string>
               <item row="0" column="1">
                <widget class="QLineEdit" name="screenshotTemplate">
                 <property name="placeholderText">
-                 <string>%f_snapshot_%P_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}</string>
+                 <string>%f_snapshot_%wP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}</string>
                 </property>
                </widget>
               </item>

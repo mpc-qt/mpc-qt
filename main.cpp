@@ -1,6 +1,7 @@
 #include <clocale>
 #include <QApplication>
 #include <QDir>
+#include <QStandardPaths>
 #include "main.h"
 #include "storage.h"
 #include "mainwindow.h"
@@ -159,6 +160,10 @@ Flow::Flow(QObject *owner) :
             settingsWindow, &SettingsWindow::sendSignals);
 
     // mainwindow -> this
+    connect(mainWindow, &MainWindow::takeImage,
+            this, &Flow::mainwindow_takeImage);
+    connect(mainWindow, &MainWindow::takeImageAutomatically,
+            this, &Flow::mainwindow_takeImageAutomatically);
     connect(mainWindow, &MainWindow::optionsOpenRequested,
             this, &Flow::mainwindow_optionsOpenRequested);
     connect(mainWindow, &MainWindow::applicationShouldQuit,
@@ -167,6 +172,15 @@ Flow::Flow(QObject *owner) :
     // settings -> this
     connect(settingsWindow, &SettingsWindow::settingsData,
             this, &Flow::settingswindow_settingsData);
+    connect(settingsWindow, &SettingsWindow::screenshotDirectory,
+            this, &Flow::settingswindow_screenshotDirectory);
+    connect(settingsWindow, &SettingsWindow::encodeDirectory,
+            this, &Flow::settingswindow_encodeDirectory);
+    connect(settingsWindow, &SettingsWindow::screenshotTemplate,
+            this, &Flow::settingswindow_screenshotTemplate);
+    connect(settingsWindow, &SettingsWindow::encodeTemplate,
+            this, &Flow::settingswindow_encodeTemplate);
+
 
     // playlistwindow -> this.storage
     connect(mainWindow->playlistWindow(), &PlaylistWindow::importPlaylist,
@@ -225,6 +239,33 @@ void Flow::mainwindow_applicationShouldQuit()
     qApp->quit();
 }
 
+void Flow::mainwindow_takeImage()
+{
+
+}
+
+void Flow::mainwindow_takeImageAutomatically()
+{
+    double playTime = mainWindow->mpvWidget()->playTime();
+    QUrl nowPlaying = playbackManager->nowPlaying();
+    QString basename = QFileInfo(nowPlaying.toDisplayString().split('/').last())
+                       .completeBaseName();
+
+    QString fileName = Helpers::parseFormat(screenshotTemplate, basename,
+                                            Helpers::DisabledAudio,
+                                            Helpers::SubtitlesPresent,
+                                            playTime, 0, 0);
+    QString filePath = screenshotDirectory;
+    if (filePath.isEmpty()) {
+        if (nowPlaying.isLocalFile())
+            filePath = QFileInfo(nowPlaying.toLocalFile()).path();
+        else
+            filePath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+    }
+    QDir().mkpath(filePath);
+    mainWindow->mpvWidget()->screenshot(filePath + "/" + fileName, true);
+}
+
 void Flow::mainwindow_optionsOpenRequested()
 {
     settingsWindow->takeSettings(settings);
@@ -246,6 +287,26 @@ void Flow::process_payloadRecieved(const QStringList &payload)
 void Flow::settingswindow_settingsData(const QVariantMap &settings)
 {
     this->settings = settings;
+}
+
+void Flow::settingswindow_screenshotDirectory(const QString &where)
+{
+    this->screenshotDirectory = where;
+}
+
+void Flow::settingswindow_encodeDirectory(const QString &where)
+{
+    this->encodeDirectory = where;
+}
+
+void Flow::settingswindow_screenshotTemplate(const QString &fmt)
+{
+    this->screenshotTemplate = fmt;
+}
+
+void Flow::settingswindow_encodeTemplate(const QString &fmt)
+{
+    this->encodeTemplate = fmt;
 }
 
 void Flow::importPlaylist(QString fname)

@@ -558,6 +558,16 @@ void MainWindow::on_actionFileOpenNetworkStream_triggered()
     qid->show();
 }
 
+void MainWindow::on_actionFileSaveImage_triggered()
+{
+    emit takeImage();
+}
+
+void MainWindow::on_actionFileSaveImageAuto_triggered()
+{
+    emit takeImageAutomatically();
+}
+
 void MainWindow::on_actionFileClose_triggered()
 {
     on_actionPlayStop_triggered();

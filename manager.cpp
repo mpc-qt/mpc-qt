@@ -64,6 +64,11 @@ void PlaybackManager::setPlaylistWindow(PlaylistWindow *playlistWindow)
             playlistWindow, &PlaylistWindow::changePlaylistSelection);
 }
 
+QUrl PlaybackManager::nowPlaying()
+{
+    return nowPlaying_;
+}
+
 void PlaybackManager::fireNowPlayingState()
 {
     emit nowPlayingChanged(nowPlayingList, nowPlayingItem);
@@ -310,6 +315,7 @@ void PlaybackManager::mpvw_mousePressed()
 
 void PlaybackManager::mpvw_startPlaying(QUrl what, QUuid playlistUuid, QUuid itemUuid)
 {
+    nowPlaying_ = what;
     mpvWidget_->fileOpen(what.isLocalFile() ? what.toLocalFile()
                                             : what.toString());
     this->nowPlayingList = playlistUuid;
@@ -356,12 +362,14 @@ void PlaybackManager::mpvw_playbackFinished()
         return; // the playback state change does not need to be processed
     auto uuid = playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
     if (uuid.isNull()) {
+        nowPlaying_.clear();
         nowPlayingItem = QUuid();
         playbackState = StoppedState;
         emit stateChanged(playbackState);
     } else {
         auto url = playlistWindow_->getUrlOf(nowPlayingList, uuid);
         if (url.isEmpty()) {
+            nowPlaying_.clear();
             nowPlayingItem = QUuid();
             playbackState = StoppedState;
             emit stateChanged(playbackState);

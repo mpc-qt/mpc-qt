@@ -26,6 +26,7 @@ public:
     explicit PlaybackManager(QObject *parent = 0);
     void setMpvWidget(MpvWidget *mpvWidget, bool makeConnections = false);
     void setPlaylistWindow(PlaylistWindow *playlistWindow);
+    QUrl nowPlaying();
 
 private:
     void fireNowPlayingState();
@@ -36,6 +37,7 @@ public slots:
     // load functions
     void openSeveralFiles(QList<QUrl> what, bool important = false);
     void openFile(QUrl what);                   // from load dialog
+
     void playDiscFiles(QUrl where);             // from dvd/bd open
     void playDisc(QUrl where);                  // from menu
     void playStream(QUrl stream);               // from menu
@@ -113,6 +115,7 @@ signals:
 private:
     MpvWidget *mpvWidget_;
     PlaylistWindow *playlistWindow_;
+    QUrl  nowPlaying_;
     QUuid nowPlayingList;
     QUuid nowPlayingItem;
 
