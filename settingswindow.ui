@@ -5166,7 +5166,7 @@ media file played</string>
               <item row="2" column="0" colspan="2">
                <widget class="QLabel" name="label_35">
                 <property name="text">
-                 <string>Unchecked directories will place output files in the source directory. Streams do not have a source directory and will bring up a dialog when a field is left blank; &lt;b&gt;Alt+I&lt;/b&gt; will always ask where to place files. &lt;b&gt;~&lt;/b&gt; expands to your home folder. Directories will be created if necessary; this may not work across all filesystems.</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Unchecked directories will place output files in the source directory. Streams do not have a source directory and will bring up a dialog when a field is left blank; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; will always ask where to place files. Directories will be created if necessary; this may not work across all filesystems.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="wordWrap">
                  <bool>true</bool>
