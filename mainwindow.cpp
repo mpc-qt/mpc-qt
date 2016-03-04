@@ -39,6 +39,10 @@ MainWindow::MainWindow(QWidget *parent) :
     setupMpvHost();
     setupPlaylist();
     setupSizing();
+
+    connectButtonsToActions();
+    globalizeAllActions();
+    setUiEnabledState(false);
     setDiscState(false);
 }
 
@@ -170,10 +174,6 @@ void MainWindow::setupMpvHost()
     mpvHost_->setSizePolicy(QSizePolicy(QSizePolicy::Preferred,
                                         QSizePolicy::Preferred));
     ui->mpvWidget->layout()->addWidget(mpvHost_);
-
-    connectButtonsToActions();
-    globalizeAllActions();
-    setUiEnabledState(false);
 }
 
 void MainWindow::setupPlaylist()
