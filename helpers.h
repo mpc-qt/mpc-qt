@@ -13,6 +13,11 @@ class QOpenGLTexture;
 
 namespace Helpers {
     QString toDateFormat(double time);
+    enum DisabledTrack { NothingDisabled, DisabledAudio, DisabledVideo };
+    enum Subtitles { NoSubtitles, SubtitlesPresent, SubtitlesDisabled, };
+    QString parseFormat(QString fmt, QString fileName, DisabledTrack disabled,
+                        Subtitles subtitles, double timeNav, double timeBegin,
+                        double timeEnd);
 }
 
 class AsyncFileDialog : public QObject {

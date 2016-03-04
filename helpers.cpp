@@ -1,3 +1,4 @@
+#include <QDateTime>
 #include <QFileDialog>
 #include <QApplication>
 #include <QLocalServer>
@@ -19,6 +20,162 @@ QString Helpers::toDateFormat(double time)
             .arg(QString().number(mn),2,'0')
             .arg(QString().number(se),2,'0')
             .arg(QString().number(fr),3,'0');
+}
+
+
+QString Helpers::parseFormat(QString fmt, QString fileName,
+                             Helpers::DisabledTrack disabled,
+                             Subtitles subtitles, double timeNav,
+                             double timeBegin, double timeEnd)
+{
+    // convenient format parsing
+    struct TimeParse {
+        TimeParse(double time) {
+            this->time = time;
+            int t = time*1000 + 0.5;
+            hr = t/3600000;
+            mn = t/60000 % 60;
+            se = t%60000 / 1000;
+            fr = t % 1000;
+        }
+        QString toString(QChar fmt) {
+            switch (fmt.unicode()) {
+            case 'p':
+                return QString("%1:%2:%3")
+                        .arg(QString::number(hr),2,'0')
+                        .arg(QString::number(mn),2,'0')
+                        .arg(QString::number(se),2,'0');
+            case 'P':
+                return QString("%1:%2:%3.%4")
+                        .arg(QString::number(hr),2,'0')
+                        .arg(QString::number(mn),2,'0')
+                        .arg(QString::number(se),2,'0')
+                        .arg(QString::number(fr),3,'0');
+            case 'H':
+                return QString("%1").arg(QString::number(hr),2,'0');
+            case 'M':
+                return QString("%1").arg(QString::number(mn),2,'0');
+            case 'S':
+                return QString("%1").arg(QString::number(se),2,'0');
+            case 'T':
+                return QString("%1").arg(QString::number(fr),3,'0');
+            case 'h':
+                return QString::number(hr);
+            case 'm':
+                return QString::number((int)(time)/60);
+            case 's':
+                return QString::number((int)time);
+            case 'f':
+                return QString::number(time,'f');
+            }
+            return fmt;
+        }
+        double time;
+        int hr, mn, se, fr;
+    };
+
+    QString fileNameNoExt = QFileInfo(fileName).completeBaseName();
+    TimeParse nav(timeNav), begin(timeBegin), end(timeEnd);
+    QDateTime currentTime = QDateTime::currentDateTime();
+    QString output;
+    int length = fmt.length();
+    int position = 0;
+
+    // grab a {} from the format string
+    auto grabBrackets = [&position, &length](QString source) {
+        QString match;
+        QChar c;
+        enum MatchMode { Bracket, Inside, Finish };
+        MatchMode mm = Bracket;
+        while (mm != Finish && position < length) {
+            c = source.at(position);
+            switch(mm) {
+            case Bracket:
+                if (c != '{') {
+                    mm = Finish;
+                    break;
+                }
+                mm = Inside;
+                ++position;
+                break;
+            case Inside:
+                if (c != '}')
+                    match.append(c);
+                else
+                    mm = Finish;
+                ++position;
+                break;
+            default:
+                (void)0;
+            }
+        }
+        return match;
+    };
+
+    // grab a {}{} pair from the format string
+    auto grabPair = [&position, &length, grabBrackets](QString source) {
+        QString p1 = grabBrackets(source);
+        QString p2 = grabBrackets(source);
+        return QStringList({p1, p2});
+    };
+
+    QStringList pairs;
+    while (position < length) {
+        QChar c = fmt.at(position);
+        if (c == '%') {
+            position++;
+            if (position >= length)
+                break;
+            c = fmt.at(position);
+            switch (c.unicode()) {
+            case 'f':
+                output += fileName;
+                break;
+            case 'F':
+                output += fileNameNoExt;
+                break;
+            case 's':
+                ++position;
+                pairs = grabPair(fmt);
+                if (subtitles == SubtitlesPresent)
+                    output.append(pairs[0]);
+                if (subtitles == SubtitlesDisabled)
+                    output.append(pairs[1]);
+                break;
+            case 'd':
+                ++position;
+                pairs = grabPair(fmt);
+                if (disabled == DisabledAudio)
+                    output.append(pairs[0]);
+                if (disabled == DisabledVideo)
+                    output.append(pairs[1]);
+                break;
+            case 't':
+                ++position;
+                output.append(currentTime.toString(grabBrackets(fmt)));
+                break;
+            case 'a':
+                if (++position < length)
+                    output.append(begin.toString(fmt.at(position)));
+                break;
+            case 'b':
+                if (++position < length)
+                    output.append(end.toString(fmt.at(position)));
+                break;
+            case 'w':
+                if (++position < length)
+                    output.append(nav.toString(fmt.at(position)));
+                break;
+            case '%':
+                output.append('%');
+                break;
+            default:
+                output.append(c);
+                // %n unimplemented (look at mpv source code?)
+            }
+        }
+    }
+    return output;
 }
 
 AsyncFileDialog::AsyncFileDialog(QWidget *parent)
