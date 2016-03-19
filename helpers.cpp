@@ -197,6 +197,9 @@ AsyncFileDialog::AsyncFileDialog(QWidget *parent)
         qfd = NULL;
         this->deleteLater();
     });
+    connect(qfd, &QFileDialog::rejected, [=]() {
+        emit rejected();
+    });
 }
 
 AsyncFileDialog::~AsyncFileDialog()
@@ -213,6 +216,9 @@ void AsyncFileDialog::setMode(AsyncFileDialog::DialogMode mode)
         qfd->setFileMode(QFileDialog::Directory);
         qfd->setOption(QFileDialog::ShowDirsOnly);
         break;
+    case AnyFile:
+        qfd->setFileMode(QFileDialog::AnyFile);
+        break;
     case SingleFile:
         qfd->setFileMode(QFileDialog::ExistingFile);
         break;
@@ -228,6 +234,16 @@ void AsyncFileDialog::setSave(bool yes)
     qfd->setAcceptMode(yes ? QFileDialog::AcceptSave : QFileDialog::AcceptOpen);
 }
 
+void AsyncFileDialog::setDirectory(const QString &directory)
+{
+    qfd->setDirectory(directory);
+}
+
+void AsyncFileDialog::selectFile(const QString &file)
+{
+    qfd->selectFile(file);
+}
+
 void AsyncFileDialog::show()
 {
     qfd->show();
@@ -237,7 +253,7 @@ void AsyncFileDialog::qfd_urlsSelected(QList<QUrl> urls)
 {
     if (urls.isEmpty())
         return;
-    if (mode_ == SingleFile) {
+    if (mode_ == SingleFile || mode_ == AnyFile) {
         emit fileOpened(urls.front());
         return;
     }

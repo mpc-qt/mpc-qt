@@ -2,6 +2,7 @@
 #include <QApplication>
 #include <QDir>
 #include <QStandardPaths>
+#include <QUuid>
 #include "main.h"
 #include "storage.h"
 #include "mainwindow.h"
@@ -234,17 +235,7 @@ QStringList Flow::makePayload() const
                          << QCoreApplication::arguments().mid(1);
 }
 
-void Flow::mainwindow_applicationShouldQuit()
-{
-    qApp->quit();
-}
-
-void Flow::mainwindow_takeImage()
-{
-
-}
-
-void Flow::mainwindow_takeImageAutomatically()
+QString Flow::pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const
 {
     double playTime = mainWindow->mpvWidget()->playTime();
     QUrl nowPlaying = playbackManager->nowPlaying();
@@ -252,8 +243,8 @@ void Flow::mainwindow_takeImageAutomatically()
                        .completeBaseName();
 
     QString fileName = Helpers::parseFormat(screenshotTemplate, basename,
-                                            Helpers::DisabledAudio,
-                                            Helpers::SubtitlesPresent,
+                                            tracks,
+                                            subs,
                                             playTime, 0, 0);
     QString filePath = screenshotDirectory;
     if (filePath.isEmpty()) {
@@ -263,7 +254,41 @@ void Flow::mainwindow_takeImageAutomatically()
             filePath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
     }
     QDir().mkpath(filePath);
-    mainWindow->mpvWidget()->screenshot(filePath + "/" + fileName, true);
+    return filePath + "/" + fileName;
+}
+
+void Flow::mainwindow_applicationShouldQuit()
+{
+    qApp->quit();
+}
+
+void Flow::mainwindow_takeImage()
+{
+    QString tempFile = QString("/dev/shm/mpc-qt_%1").arg(QUuid::createUuid().toString());
+    mainWindow->mpvWidget()->screenshot(tempFile, true);
+    // TODO: grab the expected file extension from the settings dialog after
+    // the screenshot format is propogated
+    QString extension = ".jpg";
+
+    QString fileName = pictureTemplate(Helpers::DisabledAudio, Helpers::SubtitlesPresent);
+    auto afd = new AsyncFileDialog(NULL);
+    afd->setMode(AsyncFileDialog::AnyFile);
+    afd->setSave(true);
+    afd->setDirectory(QFileInfo(fileName).absoluteFilePath());
+    //afd->selectFile(fileName);  // FIXME: this does not prefill the dialog
+    //                            // for nonexisting files (obviously)
+    connect(afd, &AsyncFileDialog::fileOpened, [=](QUrl file) {
+        QFile(tempFile + extension).copy(file.toLocalFile() + extension);
+    });
+    connect(afd, &AsyncFileDialog::destroyed, [=]() {
+        QFile(tempFile + extension).remove();
+    });
+    afd->show();
+}
+
+void Flow::mainwindow_takeImageAutomatically()
+{
+    mainWindow->mpvWidget()->screenshot(pictureTemplate(Helpers::DisabledAudio, Helpers::SubtitlesPresent), true);
 }
 
 void Flow::mainwindow_optionsOpenRequested()

@@ -18,6 +18,7 @@ public:
 
 private:
     QStringList makePayload() const;
+    QString pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const;
 
 private slots:
     void mainwindow_applicationShouldQuit();
