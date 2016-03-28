@@ -73,7 +73,8 @@ QMap<QString, QString> Setting::classToProperty = {
     { "QComboBox", "currentIndex" },
     { "QListWidget", "currentRow" },
     { "QFontComboBox", "currentText" },
-    { "QScrollBar", "value" }
+    { "QScrollBar", "value" },
+    { "QSlider", "value" }
 };
 
 QStringList internalLogos = {
@@ -501,4 +502,24 @@ void SettingsWindow::on_logoInternal_currentIndexChanged(int index)
 void SettingsWindow::on_screenshotFormat_currentIndexChanged(int index)
 {
     ui->screenshotFormatStack->setCurrentIndex(index);
+}
+
+void SettingsWindow::on_jpgQuality_valueChanged(int value)
+{
+    ui->jpgQualityValue->setText(QString("%1").arg(value, 3, 10, QChar('0')));
+}
+
+void SettingsWindow::on_jpgSmooth_valueChanged(int value)
+{
+    ui->jpgSmoothValue->setText(QString("%1").arg(value, 3, 10, QChar('0')));
+}
+
+void SettingsWindow::on_pngCompression_valueChanged(int value)
+{
+    ui->pngCompressionValue->setText(QString::number(value));
+}
+
+void SettingsWindow::on_pngFilter_valueChanged(int value)
+{
+    ui->pngFilterValue->setText(QString::number(value));
 }

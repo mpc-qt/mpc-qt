@@ -96,6 +96,14 @@ private slots:
 
     void on_screenshotFormat_currentIndexChanged(int index);
 
+    void on_jpgQuality_valueChanged(int value);
+
+    void on_jpgSmooth_valueChanged(int value);
+
+    void on_pngCompression_valueChanged(int value);
+
+    void on_pngFilter_valueChanged(int value);
+
 private:
     Ui::SettingsWindow *ui;
     LogoWidget *logoWidget;
