@@ -1,3 +1,4 @@
+#include <QDebug>
 #include <clocale>
 #include <QApplication>
 #include <QDir>
@@ -151,6 +152,8 @@ Flow::Flow(QObject *owner) :
             mpvw, &MpvWidget::setMaximumVideoChange);
     connect(settingsWindow, &SettingsWindow::subsAreGray,
             mpvw, &MpvWidget::setSubsAreGray);
+    connect(settingsWindow, &SettingsWindow::screenshotFormat,
+            mpvw, &MpvWidget::setScreenshotFormat);
     connect(settingsWindow, &SettingsWindow::clientDebuggingMessages,
             mpvw, &MpvWidget::setClientDebuggingMessages);
     connect(settingsWindow, &SettingsWindow::mpvLogLevel,
@@ -181,7 +184,8 @@ Flow::Flow(QObject *owner) :
             this, &Flow::settingswindow_screenshotTemplate);
     connect(settingsWindow, &SettingsWindow::encodeTemplate,
             this, &Flow::settingswindow_encodeTemplate);
-
+    connect(settingsWindow, &SettingsWindow::screenshotFormat,
+            this, &Flow::settingswindow_screenshotFormat);
 
     // playlistwindow -> this.storage
     connect(mainWindow->playlistWindow(), &PlaylistWindow::importPlaylist,
@@ -266,9 +270,7 @@ void Flow::mainwindow_takeImage()
 {
     QString tempFile = QString("/dev/shm/mpc-qt_%1").arg(QUuid::createUuid().toString());
     mainWindow->mpvWidget()->screenshot(tempFile, true);
-    // TODO: grab the expected file extension from the settings dialog after
-    // the screenshot format is propogated
-    QString extension = ".jpg";
+    tempFile += "." + screenshotFormat;
 
     QString fileName = pictureTemplate(Helpers::DisabledAudio, Helpers::SubtitlesPresent);
     auto afd = new AsyncFileDialog(NULL);
@@ -278,10 +280,14 @@ void Flow::mainwindow_takeImage()
     //afd->selectFile(fileName);  // FIXME: this does not prefill the dialog
     //                            // for nonexisting files (obviously)
     connect(afd, &AsyncFileDialog::fileOpened, [=](QUrl file) {
-        QFile(tempFile + extension).copy(file.toLocalFile() + extension);
+        // strip extension
+        QFileInfo qfi(file.toLocalFile());
+        QString dest = qfi.absolutePath() + "/" + qfi.completeBaseName() + "." + screenshotFormat;
+        // move to selected location
+        QFile(tempFile).copy(dest);
     });
     connect(afd, &AsyncFileDialog::destroyed, [=]() {
-        QFile(tempFile + extension).remove();
+        QFile(tempFile).remove();
     });
     afd->show();
 }
@@ -332,6 +338,11 @@ void Flow::settingswindow_screenshotTemplate(const QString &fmt)
 void Flow::settingswindow_encodeTemplate(const QString &fmt)
 {
     this->encodeTemplate = fmt;
+}
+
+void Flow::settingswindow_screenshotFormat(const QString &fmt)
+{
+    this->screenshotFormat = fmt;
 }
 
 void Flow::importPlaylist(QString fname)

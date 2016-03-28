@@ -31,6 +31,7 @@ private slots:
     void settingswindow_encodeDirectory(const QString &where);
     void settingswindow_screenshotTemplate(const QString &fmt);
     void settingswindow_encodeTemplate(const QString &fmt);
+    void settingswindow_screenshotFormat(const QString &fmt);
     void importPlaylist(QString fname);
     void exportPlaylist(QString fname, QStringList items);
 
@@ -46,6 +47,7 @@ private:
     QString encodeDirectory;
     QString screenshotTemplate;
     QString encodeTemplate;
+    QString screenshotFormat;
     bool hasPrevious_;
 };
 

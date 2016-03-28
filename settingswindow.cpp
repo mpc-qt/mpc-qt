@@ -59,6 +59,7 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"subtitleAlignment", { "top-center", "top-right", "center-right",\
                             "bottom-right", "bottom-center", "bottom-left",\
                             "center-left", "top-left", "center-center" }},
+    {"screenshotFormat", {"jpg", "png"}},
     {"debugMpv", { "no", "fatal", "error", "warn", "info", "status", "v",\
                    "debug", "trace"}}
 };
@@ -409,6 +410,7 @@ void SettingsWindow::sendSignals()
                 QFileInfo(WIDGET_PLACEHOLD_LOOKUP(ui->encodeDirectoryValue)).absoluteFilePath() : QString());
     screenshotTemplate(WIDGET_PLACEHOLD_LOOKUP(ui->screenshotTemplate));
     encodeTemplate(WIDGET_PLACEHOLD_LOOKUP(ui->encodeTemplate));
+    screenshotFormat(WIDGET_TO_TEXT(ui->screenshotFormat));
     clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
     mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
 

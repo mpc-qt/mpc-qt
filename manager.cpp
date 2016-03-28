@@ -147,7 +147,7 @@ void PlaybackManager::openSeveralFiles(QList<QUrl> what, bool important)
         playlistWindow_->clearPlaylist(QUuid());
     }
     bool playAfterAdd = (playlistWindow_->isCurrentPlaylistEmpty() &&
-            nowPlayingItem == QUuid())|| !playlistWindow_->isVisible();
+            nowPlayingItem == QUuid()) || !playlistWindow_->isVisible();
     auto info = playlistWindow_->addToCurrentPlaylist(what);
     if (playAfterAdd) {
         startPlayWithUuid(what.front(), info.first, info.second);

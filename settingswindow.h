@@ -66,6 +66,7 @@ signals:
     void encodeDirectory(const QString &s);
     void screenshotTemplate(const QString &s);
     void encodeTemplate(const QString &s);
+    void screenshotFormat(const QString &s);
     void clientDebuggingMessages(bool yes);
     void mpvLogLevel(const QString &s);
 

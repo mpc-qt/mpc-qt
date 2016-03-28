@@ -293,6 +293,11 @@ void MpvWidget::setMaximumVideoChange(double change)
     setMpvOptionVariant("video-sync-max-video-change", change);
 }
 
+void MpvWidget::setScreenshotFormat(QString format)
+{
+    setMpvOptionVariant("screenshot-format", format);
+}
+
 void MpvWidget::setClientDebuggingMessages(bool yes)
 {
     debugMessages = yes;

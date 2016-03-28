@@ -52,6 +52,7 @@ public:
     void setAudioDropSize(double size);
     void setMaximumAudioChange(double change);
     void setMaximumVideoChange(double change);
+    void setScreenshotFormat(QString format);
     void setClientDebuggingMessages(bool yes);
     void setMpvLogLevel(QString level);
 
