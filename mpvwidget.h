@@ -53,6 +53,12 @@ public:
     void setMaximumAudioChange(double change);
     void setMaximumVideoChange(double change);
     void setScreenshotFormat(QString format);
+    void setScreenshotJpegQuality(int64_t value);
+    void setScreenshotJpegSmooth(int64_t value);
+    void setScreenshotJpegSourceChroma(bool yes);
+    void setScreenshotPngCompression(int64_t value);
+    void setScreenshotPngFilter(int64_t value);
+    void setScreenshotPngColorspace(bool yes);
     void setClientDebuggingMessages(bool yes);
     void setMpvLogLevel(QString level);
 

@@ -298,6 +298,36 @@ void MpvWidget::setScreenshotFormat(QString format)
     setMpvOptionVariant("screenshot-format", format);
 }
 
+void MpvWidget::setScreenshotJpegQuality(int64_t value)
+{
+    setMpvOptionVariant("screenshot-jpeg-quality", (long long)value);
+}
+
+void MpvWidget::setScreenshotJpegSmooth(int64_t value)
+{
+    setMpvOptionVariant("screenshot-jpeg-smooth", (long long)value);
+}
+
+void MpvWidget::setScreenshotJpegSourceChroma(bool yes)
+{
+    setMpvOptionVariant("screenshot-jpeg-source-chroma", yes);
+}
+
+void MpvWidget::setScreenshotPngCompression(int64_t value)
+{
+    setMpvOptionVariant("screenshot-png-compression", (long long)value);
+}
+
+void MpvWidget::setScreenshotPngFilter(int64_t value)
+{
+    setMpvOptionVariant("screenshot-png-filter", (long long)value);
+}
+
+void MpvWidget::setScreenshotPngColorspace(bool yes)
+{
+    setMpvOptionVariant("screenshot-tag-colorspace", yes);
+}
+
 void MpvWidget::setClientDebuggingMessages(bool yes)
 {
     debugMessages = yes;
