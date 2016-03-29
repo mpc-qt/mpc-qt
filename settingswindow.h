@@ -67,6 +67,12 @@ signals:
     void screenshotTemplate(const QString &s);
     void encodeTemplate(const QString &s);
     void screenshotFormat(const QString &s);
+    void screenshotJpegQuality(int64_t value);
+    void screenshotJpegSmooth(int64_t value);
+    void screenshotJpegSourceChroma(bool yes);
+    void screenshotPngCompression(int64_t value);
+    void screenshotPngFilter(int64_t value);
+    void screenshotPngColorspace(bool yes);
     void clientDebuggingMessages(bool yes);
     void mpvLogLevel(const QString &s);
 

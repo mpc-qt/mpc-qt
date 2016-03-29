@@ -412,6 +412,12 @@ void SettingsWindow::sendSignals()
     screenshotTemplate(WIDGET_PLACEHOLD_LOOKUP(ui->screenshotTemplate));
     encodeTemplate(WIDGET_PLACEHOLD_LOOKUP(ui->encodeTemplate));
     screenshotFormat(WIDGET_TO_TEXT(ui->screenshotFormat));
+    screenshotJpegQuality(WIDGET_LOOKUP(ui->jpgQuality).toInt());
+    screenshotJpegSmooth(WIDGET_LOOKUP(ui->jpgSmooth).toInt());
+    screenshotJpegSourceChroma(WIDGET_LOOKUP(ui->jpgSourceChroma).toBool());
+    screenshotPngCompression(WIDGET_LOOKUP(ui->pngCompression).toInt());
+    screenshotPngFilter(WIDGET_LOOKUP(ui->pngFilter).toInt());
+    screenshotPngColorspace(WIDGET_LOOKUP(ui->pngColorspace).toBool());
     clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
     mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
 
