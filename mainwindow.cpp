@@ -510,6 +510,12 @@ void MainWindow::setDecoderFramedrops(int64_t count)
     updateFramedrops();
 }
 
+void MainWindow::setPlaylistVisibleState(bool yes) {
+    ui->actionFileOpenQuick->setText(yes ? tr("&Quick Add To Playlist")
+                                         : tr("&Quick Open File"));
+    ui->actionViewHidePlaylist->setChecked(yes);
+}
+
 void MainWindow::on_actionFileOpenQuick_triggered()
 {
     auto *afd = new AsyncFileDialog(this);

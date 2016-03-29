@@ -102,6 +102,10 @@ Flow::Flow(QObject *owner) :
     connect(mainWindow, &MainWindow::timeSelected,
             playbackManager, &PlaybackManager::navigateToTime);
 
+    // playlistwindow -> mainwindow
+    connect(mainWindow->playlistWindow(), &PlaylistWindow::visibilityChanged,
+            mainWindow, &MainWindow::setPlaylistVisibleState);
+
     // manager -> mainwindow
     connect(playbackManager, &PlaybackManager::timeChanged,
             mainWindow, &MainWindow::setTime);

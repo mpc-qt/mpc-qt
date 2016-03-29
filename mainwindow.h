@@ -105,6 +105,7 @@ public slots:
     void setAvsync(double sync);
     void setDisplayFramedrops(int64_t count);
     void setDecoderFramedrops(int64_t count);
+    void setPlaylistVisibleState(bool yes);
 
 private slots:
     void on_actionFileOpenQuick_triggered();
