@@ -5294,7 +5294,7 @@ p, li { white-space: pre-wrap; }
               <item>
                <widget class="QStackedWidget" name="screenshotFormatStack">
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="widget">
                  <layout class="QFormLayout" name="formLayout_20">
