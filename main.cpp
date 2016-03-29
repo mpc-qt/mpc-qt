@@ -154,6 +154,18 @@ Flow::Flow(QObject *owner) :
             mpvw, &MpvWidget::setSubsAreGray);
     connect(settingsWindow, &SettingsWindow::screenshotFormat,
             mpvw, &MpvWidget::setScreenshotFormat);
+    connect(settingsWindow, &SettingsWindow::screenshotJpegQuality,
+            mpvw, &MpvWidget::setScreenshotJpegQuality);
+    connect(settingsWindow, &SettingsWindow::screenshotJpegSmooth,
+            mpvw, &MpvWidget::setScreenshotJpegSmooth);
+    connect(settingsWindow, &SettingsWindow::screenshotJpegSourceChroma,
+            mpvw, &MpvWidget::setScreenshotJpegSourceChroma);
+    connect(settingsWindow, &SettingsWindow::screenshotPngCompression,
+            mpvw, &MpvWidget::setScreenshotPngCompression);
+    connect(settingsWindow, &SettingsWindow::screenshotPngFilter,
+            mpvw, &MpvWidget::setScreenshotPngFilter);
+    connect(settingsWindow, &SettingsWindow::screenshotPngColorspace,
+            mpvw, &MpvWidget::setScreenshotPngColorspace);
     connect(settingsWindow, &SettingsWindow::clientDebuggingMessages,
             mpvw, &MpvWidget::setClientDebuggingMessages);
     connect(settingsWindow, &SettingsWindow::mpvLogLevel,
