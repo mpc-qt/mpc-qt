@@ -1,6 +1,7 @@
 #include <QDebug>
 #include <clocale>
 #include <QApplication>
+#include <QFileDialog>
 #include <QDir>
 #include <QStandardPaths>
 #include <QUuid>
@@ -289,23 +290,16 @@ void Flow::mainwindow_takeImage()
     tempFile += "." + screenshotFormat;
 
     QString fileName = pictureTemplate(Helpers::DisabledAudio, Helpers::SubtitlesPresent);
-    auto afd = new AsyncFileDialog(NULL);
-    afd->setMode(AsyncFileDialog::AnyFile);
-    afd->setSave(true);
-    afd->setDirectory(QFileInfo(fileName).absoluteFilePath());
-    //afd->selectFile(fileName);  // FIXME: this does not prefill the dialog
-    //                            // for nonexisting files (obviously)
-    connect(afd, &AsyncFileDialog::fileOpened, [=](QUrl file) {
-        // strip extension
-        QFileInfo qfi(file.toLocalFile());
-        QString dest = qfi.absolutePath() + "/" + qfi.completeBaseName() + "." + screenshotFormat;
-        // move to selected location
-        QFile(tempFile).copy(dest);
-    });
-    connect(afd, &AsyncFileDialog::destroyed, [=]() {
+    QString picFile;
+    picFile = QFileDialog::getSaveFileName(this->mainWindow, tr("Save Image"),
+                                           fileName);
+    if (picFile.isEmpty()) {
         QFile(tempFile).remove();
-    });
-    afd->show();
+        return;
+    }
+    QFileInfo qfi(picFile);
+    QString dest = qfi.absolutePath() + "/" + qfi.completeBaseName() + "." + screenshotFormat;
+    QFile(tempFile).copy(dest);
 }
 
 void Flow::mainwindow_takeImageAutomatically()
