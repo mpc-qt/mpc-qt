@@ -518,38 +518,41 @@ void MainWindow::setPlaylistVisibleState(bool yes) {
 
 void MainWindow::on_actionFileOpenQuick_triggered()
 {
-    auto *afd = new AsyncFileDialog(this);
-    afd->setMode(AsyncFileDialog::MultipleFiles);
-    connect(afd, &AsyncFileDialog::filesOpened,
-            this, &MainWindow::severalFilesOpened);
-    afd->show();
+    QList<QUrl> urls;
+    urls = QFileDialog::getOpenFileUrls(this, tr("Quick Open"));
+    if (!urls.isEmpty())
+        emit severalFilesOpened(urls);
 }
 
 void MainWindow::on_actionFileOpen_triggered()
 {
-    auto *afd = new AsyncFileDialog(this);
-    afd->setMode(AsyncFileDialog::SingleFile);
-    connect(afd, &AsyncFileDialog::fileOpened,
-            this, &MainWindow::fileOpened);
-    afd->show();
+    QUrl url;
+    url = QFileDialog::getOpenFileUrl(this, tr("Open File"));
+    if (!url.isEmpty())
+        emit fileOpened(url);
 }
 
 void MainWindow::on_actionFileOpenDvdbd_triggered()
 {
-    auto *afd = new AsyncFileDialog(this);
-    afd->setMode(AsyncFileDialog::Directory);
-    connect(afd, &AsyncFileDialog::dirOpened,
-            this, &MainWindow::dvdbdOpened);
-    afd->show();
+    QUrl dir;
+    dir = QFileDialog::getExistingDirectoryUrl(this, tr("Open Directory"));
+    if (!dir.isEmpty())
+        emit dvdbdOpened(dir);
 }
 
 void MainWindow::on_actionFileOpenDirectory_triggered()
 {
-    AsyncFileDialog *afd = new AsyncFileDialog(this);
-    afd->setMode(AsyncFileDialog::FolderContents);
-    connect(afd, &AsyncFileDialog::filesOpened,
-            this, &MainWindow::severalFilesOpened);
-    afd->show();
+    QUrl url;
+    url = QFileDialog::getExistingDirectoryUrl(this, tr("Open Directory"));
+    if (url.isEmpty())
+        return;
+
+    QDir dir(url.toLocalFile());
+    QList<QUrl> list;
+    QFileInfoList f = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
+    for(auto file : f)
+        list.append(QUrl::fromLocalFile(file.absoluteFilePath()));
+    emit severalFilesOpened(list);
 }
 
 void MainWindow::on_actionFileOpenNetworkStream_triggered()
