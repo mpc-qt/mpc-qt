@@ -217,37 +217,23 @@ void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
 
 void PlaylistWindow::on_importList_clicked()
 {
-    auto qfd = new QFileDialog(this);
-    qfd->setAttribute(Qt::WA_DeleteOnClose);
-    qfd->setWindowModality(Qt::WindowModal);
-    qfd->setAcceptMode(QFileDialog::AcceptOpen);
-    qfd->setWindowTitle(tr("Import File"));
-    qfd->setDefaultSuffix("m3u8");
-    qfd->setNameFilters({tr("Playlist file (*.m3u *.m3u8)")});
-    connect(qfd, &QFileDialog::fileSelected, [=](const QString &file) {
-        if (!file.isEmpty())
-            emit importPlaylist(file);
-    });
-    qfd->activateWindow();
-    qfd->show();
+    QString file;
+    file = QFileDialog::getOpenFileName(this, tr("Import File"), QString(),
+                                        tr("Playlist files (*.m3u *.m3u8)"));
+    if (!file.isEmpty())
+        emit importPlaylist(file);
 }
 
 void PlaylistWindow::on_exportList_clicked()
 {
     auto uuid = reinterpret_cast<QDrawnPlaylist*>(ui->tabWidget->currentWidget())->uuid();
-    auto qfd = new QFileDialog(this);
-    qfd->setAttribute(Qt::WA_DeleteOnClose);
-    qfd->setWindowModality(Qt::WindowModal);
-    qfd->setAcceptMode(QFileDialog::AcceptSave);
-    qfd->setWindowTitle(tr("Export File"));
-    qfd->setDefaultSuffix("m3u8");
-    qfd->setNameFilters({tr("Playlist files (*.m3u *.m3u8)")});
-    connect(qfd, &QFileDialog::fileSelected, [=](const QString &file) {
-        auto pl = PlaylistCollection::getSingleton()->playlistOf(uuid);
-        if (!file.isEmpty() && pl)
-            emit exportPlaylist(file, pl->toStringList());
-    });
-    qfd->show();
+
+    QString file;
+    file = QFileDialog::getSaveFileName(this, tr("Export File"), QString(),
+                                        tr("Playlist files (*.m3u *.m3u8)"));
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(uuid);
+    if (!file.isEmpty() && pl)
+        emit exportPlaylist(file, pl->toStringList());
 }
 
 void PlaylistWindow::on_tabWidget_customContextMenuRequested(const QPoint &pos)
