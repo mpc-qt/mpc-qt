@@ -1,6 +1,7 @@
 #include <QDebug>
 #include <QStandardPaths>
 #include <QFileInfo>
+#include <QFileDialog>
 #include "settingswindow.h"
 #include "ui_settingswindow.h"
 #include "helpers.h"
@@ -479,14 +480,14 @@ void SettingsWindow::on_videoDumbMode_toggled(bool checked)
 
 void SettingsWindow::on_logoExternalBrowse_clicked()
 {
-    AsyncFileDialog *afd = new AsyncFileDialog(this);
-    afd->setMode(AsyncFileDialog::SingleFile);
-    connect(afd, &AsyncFileDialog::fileOpened, [&](QUrl file) {
-        ui->logoExternalLocation->setText(file.toLocalFile());
-        if (ui->logoExternal->isChecked())
-            updateLogoWidget();
-    });
-    afd->show();
+    QString file;
+    file = QFileDialog::getOpenFileName(this, tr("Open Logo Image"));
+    if (file.isEmpty())
+        return;
+
+    ui->logoExternalLocation->setText(file);
+    if (ui->logoExternal->isChecked())
+        updateLogoWidget();
 }
 
 void SettingsWindow::on_logoUseInternal_clicked()
