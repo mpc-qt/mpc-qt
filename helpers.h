@@ -20,34 +20,6 @@ namespace Helpers {
                         double timeEnd);
 }
 
-class AsyncFileDialog : public QObject {
-    Q_OBJECT
-
-public:
-    enum DialogMode { AnyFile, SingleFile, MultipleFiles, FolderContents, Directory };
-
-    explicit AsyncFileDialog(QWidget *parent = NULL);
-    ~AsyncFileDialog();
-    void setMode(DialogMode mode);
-    void setSave(bool yes);
-    void setDirectory(const QString &directory);
-    void selectFile(const QString &file);
-    void show();
-
-signals:
-    void filesOpened(QList<QUrl> files);
-    void fileOpened(QUrl file);
-    void dirOpened(QUrl dir);
-    void rejected();
-
-private slots:
-    void qfd_urlsSelected(QList<QUrl> urls);
-
-private:
-    QFileDialog *qfd;
-    DialogMode mode_;
-};
-
 class SingleProcess : public QObject
 {
     Q_OBJECT
