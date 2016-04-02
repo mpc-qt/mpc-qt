@@ -247,7 +247,8 @@ void SettingsWindow::takeSettings(QVariantMap payload)
 void SettingsWindow::sendSignals()
 {
     emit logoSource(selectedLogo());
-
+    emit playbackPlayTimes(WIDGET_LOOKUP(ui->playbackRepeatForever).toBool() ?
+                           0 : WIDGET_LOOKUP(ui->playbackPlayAmount).toInt());
 
     QMap<QString,QString> params;
     QStringList cmdline;

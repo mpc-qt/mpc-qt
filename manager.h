@@ -30,7 +30,8 @@ public:
 
 private:
     void fireNowPlayingState();
-    void startPlayWithUuid(QUrl what, QUuid playlistUuid, QUuid itemUuid);
+    void startPlayWithUuid(QUrl what, QUuid playlistUuid, QUuid itemUuid,
+                           bool isRepeating);
     void selectDesiredTracks();
 
 public slots:
@@ -66,9 +67,13 @@ public slots:
     void setVolume(int64_t volume);
     void setMute(bool muted);
 
+    // playback options
+    void setPlaybackPlayTimes(int times);
+
 private slots:
     void mpvw_mousePressed();
-    void mpvw_startPlaying(QUrl what, QUuid playlistUuid, QUuid itemUuid);
+    void mpvw_startPlaying(QUrl what, QUuid playlistUuid, QUuid itemUuid,
+                           bool isRepeating);
 
     void mpvw_playTimeChanged(double time);
     void mpvw_playLengthChanged(double length);
@@ -110,7 +115,8 @@ signals:
     void displayFramedropsChanged(int64_t count);
     void decoderFramedropsChanged(int64_t count);
 
-    void fireStartPlayingEvent(QUrl url, QUuid playlistUuid, QUuid itemUuid);
+    void fireStartPlayingEvent(QUrl url, QUuid playlistUuid, QUuid itemUuid,
+                               bool isRepeating);
 
 private:
     MpvWidget *mpvWidget_;
@@ -129,6 +135,9 @@ private:
     QString videoListSelected;
     QString audioListSelected;
     QString subtitleListSelected;
+
+    int playbackPlayTimes;
+    int playbackPlayTimesCount;
 };
 
 #endif // MANAGER_H

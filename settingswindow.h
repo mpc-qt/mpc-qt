@@ -54,6 +54,7 @@ signals:
     void settingsData(const QVariantMap &s);
 
     void logoSource(const QString &s);
+    void playbackPlayTimes(int count);
     void voCommandLine(const QString &s);
     void framedropMode(const QString &s);
     void decoderDropMode(const QString &s);

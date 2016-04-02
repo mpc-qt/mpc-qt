@@ -1,3 +1,4 @@
+#include <QDebug>
 #include "manager.h"
 #include "mainwindow.h"
 #include "mpvwidget.h"
@@ -7,7 +8,7 @@ using namespace Helpers;
 
 
 PlaybackManager::PlaybackManager(QObject *parent) :
-    QObject(parent), mpvSpeed(1.0)
+    QObject(parent), mpvSpeed(1.0), playbackPlayTimes(1)
 {
     connect(this, &PlaybackManager::fireStartPlayingEvent,
             this, &PlaybackManager::mpvw_startPlaying,
@@ -75,7 +76,7 @@ void PlaybackManager::fireNowPlayingState()
 }
 
 void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
-                                        QUuid itemUuid)
+                                        QUuid itemUuid, bool isRepeating)
 {
     if (what.isEmpty())
         return;
@@ -101,7 +102,7 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
         emit stateChanged(playbackState);
         mpvWidget_->stopPlayback();
     }
-    emit fireStartPlayingEvent(what, playlistUuid, itemUuid);
+    emit fireStartPlayingEvent(what, playlistUuid, itemUuid, isRepeating);
 }
 
 void PlaybackManager::selectDesiredTracks()
@@ -150,14 +151,14 @@ void PlaybackManager::openSeveralFiles(QList<QUrl> what, bool important)
             nowPlayingItem == QUuid()) || !playlistWindow_->isVisible();
     auto info = playlistWindow_->addToCurrentPlaylist(what);
     if (playAfterAdd) {
-        startPlayWithUuid(what.front(), info.first, info.second);
+        startPlayWithUuid(what.front(), info.first, info.second, false);
     }
 }
 
 void PlaybackManager::openFile(QUrl what)
 {
     auto info = playlistWindow_->urlToQuickPlaylist(what);
-    startPlayWithUuid(what, info.first, info.second);
+    startPlayWithUuid(what, info.first, info.second, false);
 }
 
 void PlaybackManager::playDiscFiles(QUrl where)
@@ -305,6 +306,11 @@ void PlaybackManager::setMute(bool muted)
     mpvWidget_->showMessage(muted ? tr("Mute: on") : tr("Mute: off"));
 }
 
+void PlaybackManager::setPlaybackPlayTimes(int times)
+{
+    this->playbackPlayTimes = std::max(0, times);
+}
+
 void PlaybackManager::mpvw_mousePressed()
 {
     if (playbackState == PlayingState)
@@ -313,13 +319,21 @@ void PlaybackManager::mpvw_mousePressed()
         unpausePlayer();
 }
 
-void PlaybackManager::mpvw_startPlaying(QUrl what, QUuid playlistUuid, QUuid itemUuid)
+void PlaybackManager::mpvw_startPlaying(QUrl what, QUuid playlistUuid,
+                                        QUuid itemUuid, bool isRepeating)
 {
     nowPlaying_ = what;
     mpvWidget_->fileOpen(what.isLocalFile() ? what.toLocalFile()
                                             : what.toString());
     this->nowPlayingList = playlistUuid;
     this->nowPlayingItem = itemUuid;
+    if (!isRepeating) {
+        // not repeating, so set playback count up
+        playbackPlayTimesCount = 1;
+    } else {
+        // repeating, so it needs a addition
+        playbackPlayTimesCount++;
+    }
     fireNowPlayingState();
 }
 
@@ -360,23 +374,21 @@ void PlaybackManager::mpvw_playbackFinished()
 {
     if (playbackState == StoppedState)
         return; // the playback state change does not need to be processed
-    auto uuid = playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
-    if (uuid.isNull()) {
+    QUuid uuid;
+    bool isRepeating;
+    QUrl url;
+
+    isRepeating = playbackPlayTimes < 1 || playbackPlayTimesCount < playbackPlayTimes;
+    uuid = isRepeating ? nowPlayingItem
+                       : playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
+    if (uuid.isNull() || (url = playlistWindow_->getUrlOf(nowPlayingList, uuid)).isEmpty()) {
         nowPlaying_.clear();
         nowPlayingItem = QUuid();
         playbackState = StoppedState;
         emit stateChanged(playbackState);
     } else {
-        auto url = playlistWindow_->getUrlOf(nowPlayingList, uuid);
-        if (url.isEmpty()) {
-            nowPlaying_.clear();
-            nowPlayingItem = QUuid();
-            playbackState = StoppedState;
-            emit stateChanged(playbackState);
-        } else {
-            nowPlayingItem = uuid;
-            startPlayWithUuid(url, nowPlayingList, nowPlayingItem);
-        }
+        nowPlayingItem = uuid;
+        startPlayWithUuid(url, nowPlayingList, nowPlayingItem, isRepeating);
     }
     fireNowPlayingState();
 }
@@ -474,5 +486,5 @@ void PlaybackManager::mpvw_decoderFramedropsChanged(int64_t count)
 void PlaybackManager::playlistw_itemDesired(QUuid playlistUuid, QUuid itemUuid)
 {
     auto url = playlistWindow_->getUrlOf(playlistUuid, itemUuid);
-    startPlayWithUuid(url, playlistUuid, itemUuid);
+    startPlayWithUuid(url, playlistUuid, itemUuid, false);
 }
