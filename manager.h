@@ -91,8 +91,6 @@ private slots:
     void mpvw_displayFramedropsChanged(int64_t count);
     void mpvw_decoderFramedropsChanged(int64_t count);
 
-    void playlistw_itemDesired(QUuid playlistUuid, QUuid itemUuid);
-
 signals:
     void playerSettingsRequested();
     void timeChanged(double time, double length);

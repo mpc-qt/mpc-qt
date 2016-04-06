@@ -60,7 +60,7 @@ void PlaybackManager::setPlaylistWindow(PlaylistWindow *playlistWindow)
 {
     playlistWindow_ = playlistWindow;
     connect(playlistWindow, &PlaylistWindow::itemDesired,
-            this, &PlaybackManager::playlistw_itemDesired);
+            this, &PlaybackManager::playItem);
     connect(this, &PlaybackManager::nowPlayingChanged,
             playlistWindow, &PlaylistWindow::changePlaylistSelection);
 }
@@ -186,7 +186,8 @@ void PlaybackManager::playStream(QUrl stream)
 
 void PlaybackManager::playItem(QUuid playlist, QUuid item)
 {
-
+    auto url = playlistWindow_->getUrlOf(playlist, item);
+    startPlayWithUuid(url, playlist, item, false);
 }
 
 void PlaybackManager::playDevice(QUrl device)
@@ -481,10 +482,4 @@ void PlaybackManager::mpvw_displayFramedropsChanged(int64_t count)
 void PlaybackManager::mpvw_decoderFramedropsChanged(int64_t count)
 {
     emit decoderFramedropsChanged(count);
-}
-
-void PlaybackManager::playlistw_itemDesired(QUuid playlistUuid, QUuid itemUuid)
-{
-    auto url = playlistWindow_->getUrlOf(playlistUuid, itemUuid);
-    startPlayWithUuid(url, playlistUuid, itemUuid, false);
 }
