@@ -315,6 +315,7 @@ void Flow::mainwindow_optionsOpenRequested()
 {
     settingsWindow->takeSettings(settings);
     settingsWindow->show();
+    settingsWindow->raise();
 }
 
 void Flow::process_payloadRecieved(const QStringList &payload)
