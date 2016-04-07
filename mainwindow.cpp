@@ -511,6 +511,9 @@ void MainWindow::setDecoderFramedrops(int64_t count)
 }
 
 void MainWindow::setPlaylistVisibleState(bool yes) {
+    if (fullscreenMode_)
+        return;
+
     ui->actionFileOpenQuick->setText(yes ? tr("&Quick Add To Playlist")
                                          : tr("&Quick Open File"));
     ui->actionViewHidePlaylist->setChecked(yes);
