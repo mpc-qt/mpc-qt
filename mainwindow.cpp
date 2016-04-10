@@ -817,6 +817,13 @@ void MainWindow::on_actionViewZoomAutofitLarger_triggered()
     setSizeFactor(1.0);
 }
 
+void MainWindow::on_actionViewZoomAutofitSmaller_triggered()
+{
+    setZoomMode(AutofitSmaller);
+    setSizeFactor(1.0);
+}
+
+
 void MainWindow::on_actionViewZoomDisable_triggered()
 {
     setZoomMode(FitToWindow);
@@ -958,4 +965,3 @@ void MainWindow::sendUpdateSize()
 {
     updateSize();
 }
-

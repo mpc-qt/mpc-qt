@@ -144,6 +144,7 @@ private slots:
     void on_actionViewZoom200_triggered();
     void on_actionViewZoomAutofit_triggered();
     void on_actionViewZoomAutofitLarger_triggered();
+    void on_actionViewZoomAutofitSmaller_triggered();
     void on_actionViewZoomDisable_triggered();
 
     void on_actionViewOptions_triggered();

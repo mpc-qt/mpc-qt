@@ -518,7 +518,7 @@
      <x>0</x>
      <y>0</y>
      <width>590</width>
-     <height>30</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -589,6 +589,7 @@
      <addaction name="actionViewZoom100"/>
      <addaction name="actionViewZoom200"/>
      <addaction name="actionViewZoomAutofit"/>
+     <addaction name="actionViewZoomAutofitSmaller"/>
      <addaction name="actionViewZoomAutofitLarger"/>
      <addaction name="separator"/>
      <addaction name="actionViewZoomDisable"/>
@@ -622,7 +623,7 @@
    </widget>
    <widget class="QMenu" name="menuPlay">
     <property name="title">
-     <string>&amp;Play</string>
+     <string>P&amp;lay</string>
     </property>
     <widget class="QMenu" name="menuPlayAudio">
      <property name="title">
@@ -1311,10 +1312,15 @@
   </action>
   <action name="actionFileSaveImageAuto">
    <property name="text">
-    <string>Save Image (Auto)</string>
+    <string>Save I&amp;mage (Auto)</string>
    </property>
    <property name="shortcut">
     <string>F5</string>
+   </property>
+  </action>
+  <action name="actionViewZoomAutofitSmaller">
+   <property name="text">
+    <string>Auto Fit (&amp;Smaller Only)</string>
    </property>
   </action>
  </widget>
