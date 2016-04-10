@@ -77,7 +77,10 @@ QUuid PlaylistWindow::getItemAfter(QUuid list, QUuid item)
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
     if (!pl)
         return QUuid();
-    auto after = pl->itemAfter(item);
+    QUuid uuid = pl->queueTakeFirst();
+    if (!uuid.isNull())
+        return uuid;
+    Item *after = pl->itemAfter(item);
     if (!after)
         return QUuid();
     return after->uuid();
