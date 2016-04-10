@@ -63,6 +63,8 @@ private slots:
 
     void on_tabWidget_customContextMenuRequested(const QPoint &pos);
 
+    void on_queueToggle_triggered();
+
 private:
     Ui::PlaylistWindow *ui;
 

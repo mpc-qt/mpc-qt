@@ -18,6 +18,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
 
     ui->setupUi(this);
     addNewTab(QUuid(), tr("Quick Playlist"));
+    this->addAction(ui->queueToggle);
 }
 
 PlaylistWindow::~PlaylistWindow()
@@ -245,4 +246,15 @@ void PlaylistWindow::on_tabWidget_customContextMenuRequested(const QPoint &pos)
     m->addAction(tr("&Import Playlist"), this, SLOT(on_importList_clicked()));
     m->addAction(tr("&Export Playlist"), this, SLOT(on_exportList_clicked()));
     m->exec(ui->tabWidget->mapToGlobal(pos));
+}
+
+void PlaylistWindow::on_queueToggle_triggered()
+{
+    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    int i = qdp->currentRow();
+    if (i < 0)
+        return;
+    pl->queueToggle(pl->itemAt(i)->uuid());
+    qdp->viewport()->update();
 }
