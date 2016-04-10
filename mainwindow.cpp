@@ -807,42 +807,49 @@ void MainWindow::on_actionViewZoom050_triggered()
 {
     setZoomMode(RegularZoom);
     setSizeFactor(0.5);
+    emit zoomPresetChanged(0);
 }
 
 void MainWindow::on_actionViewZoom100_triggered()
 {
     setZoomMode(RegularZoom);
     setSizeFactor(1.0);
+    emit zoomPresetChanged(1);
 }
 
 void MainWindow::on_actionViewZoom200_triggered()
 {
     setZoomMode(RegularZoom);
     setSizeFactor(2.0);
+    emit zoomPresetChanged(2);
 }
 
 void MainWindow::on_actionViewZoomAutofit_triggered()
 {
     setZoomMode(Autofit);
     setSizeFactor(1.0);
+    emit zoomPresetChanged(3);
 }
 
 void MainWindow::on_actionViewZoomAutofitLarger_triggered()
 {
     setZoomMode(AutofitLarger);
     setSizeFactor(1.0);
+    emit zoomPresetChanged(4);
 }
 
 void MainWindow::on_actionViewZoomAutofitSmaller_triggered()
 {
     setZoomMode(AutofitSmaller);
     setSizeFactor(1.0);
+    emit zoomPresetChanged(5);
 }
 
 void MainWindow::on_actionViewZoomDisable_triggered()
 {
     setZoomMode(FitToWindow);
     setSizeFactor(0.0);
+    emit zoomPresetChanged(-1);
 }
 
 void MainWindow::on_actionViewOptions_triggered()

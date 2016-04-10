@@ -89,6 +89,7 @@ signals:
     void chapterNext();
     void chapterSelected(int64_t id);
     void timeSelected(double time);
+    void zoomPresetChanged(int which);
 
     void fireUpdateSize();
 

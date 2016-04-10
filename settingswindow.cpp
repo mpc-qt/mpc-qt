@@ -440,6 +440,19 @@ void SettingsWindow::setNnedi3Available(bool yes)
     ui->nnedi3Page->setEnabled(yes);
 }
 
+void SettingsWindow::setZoomPreset(int which)
+{
+    bool autoZoom = which < 0;
+    int zoomMethod = !autoZoom ? which : 1;
+
+    WIDGET_LOOKUP(ui->playbackAutoZoom).setValue(autoZoom);
+    WIDGET_LOOKUP(ui->playbackAutoZoomMethod).setValue(zoomMethod);
+    ui->playbackAutoZoom->setChecked(autoZoom);
+    ui->playbackAutoZoomMethod->setCurrentIndex(zoomMethod);
+
+    emit settingsData(acceptedSettings.toVMap());
+}
+
 void SettingsWindow::on_pageTree_itemSelectionChanged()
 {
     QModelIndex modelIndex = ui->pageTree->currentIndex();

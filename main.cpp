@@ -137,6 +137,10 @@ Flow::Flow(QObject *owner) :
     connect(playbackManager, &PlaybackManager::decoderFramedropsChanged,
             mainWindow, &MainWindow::setDecoderFramedrops);
 
+    // mainwindow -> settings
+    connect(mainWindow, &MainWindow::zoomPresetChanged,
+            settingsWindow, &SettingsWindow::setZoomPreset);
+
     // settings -> mainwindow
     connect(settingsWindow, &SettingsWindow::zoomPreset,
             mainWindow, &MainWindow::setZoomPreset);

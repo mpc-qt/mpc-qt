@@ -82,6 +82,7 @@ public slots:
     void takeSettings(QVariantMap payload);
     void sendSignals();
     void setNnedi3Available(bool yes);
+    void setZoomPreset(int which);
 
 private slots:
     void on_pageTree_itemSelectionChanged();
