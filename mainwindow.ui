@@ -589,8 +589,8 @@
      <addaction name="actionViewZoom100"/>
      <addaction name="actionViewZoom200"/>
      <addaction name="actionViewZoomAutofit"/>
-     <addaction name="actionViewZoomAutofitSmaller"/>
      <addaction name="actionViewZoomAutofitLarger"/>
+     <addaction name="actionViewZoomAutofitSmaller"/>
      <addaction name="separator"/>
      <addaction name="actionViewZoomDisable"/>
     </widget>
@@ -1321,6 +1321,9 @@
   <action name="actionViewZoomAutofitSmaller">
    <property name="text">
     <string>Auto Fit (&amp;Smaller Only)</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+6</string>
    </property>
   </action>
  </widget>

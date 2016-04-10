@@ -137,6 +137,10 @@ Flow::Flow(QObject *owner) :
     connect(playbackManager, &PlaybackManager::decoderFramedropsChanged,
             mainWindow, &MainWindow::setDecoderFramedrops);
 
+    // settings -> mainwindow
+    connect(settingsWindow, &SettingsWindow::zoomPreset,
+            mainWindow, &MainWindow::setZoomPreset);
+
     // settings -> mpvwidget
     auto mpvw = mainWindow->mpvWidget();
     connect(settingsWindow, &SettingsWindow::logoSource,

@@ -55,6 +55,7 @@ signals:
 
     void logoSource(const QString &s);
     void playbackPlayTimes(int count);
+    void zoomPreset(int which, double fitFactor);
     void voCommandLine(const QString &s);
     void framedropMode(const QString &s);
     void decoderDropMode(const QString &s);
@@ -79,7 +80,7 @@ signals:
 
 public slots:
     void takeSettings(QVariantMap payload);
-    void sendSignals();    
+    void sendSignals();
     void setNnedi3Available(bool yes);
 
 private slots:

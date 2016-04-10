@@ -16,6 +16,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+private:
     enum DecorationState { AllDecorations, NoMenu, NoDecorations };
     enum ZoomMode { RegularZoom, Autofit, AutofitSmaller, AutofitLarger,
                     FitToWindow };
@@ -99,6 +100,7 @@ public slots:
     void setSizeFactor(double factor);
     void setFitFactor(double fitFactor);
     void setZoomMode(ZoomMode mode);
+    void setZoomPreset(int which, double fitFactor);
     void setPlaybackState(PlaybackManager::PlaybackState state);
     void setPlaybackType(PlaybackManager::PlaybackType type);
     void setChapters(QList<QPair<double,QString>> chapters);

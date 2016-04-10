@@ -139,7 +139,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>13</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -628,7 +628,7 @@ media file played</string>
               <item row="0" column="1">
                <widget class="QComboBox" name="playbackAutoZoomMethod">
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>0</number>
                 </property>
                 <item>
                  <property name="text">
@@ -653,6 +653,11 @@ media file played</string>
                 <item>
                  <property name="text">
                   <string>Autofit (Larger Only)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Autofit (Smaller Only)</string>
                  </property>
                 </item>
                </widget>

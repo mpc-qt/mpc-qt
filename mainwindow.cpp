@@ -347,6 +347,7 @@ void MainWindow::updateSize(bool first_run)
             wanted = player.scaled(wanted.width(), wanted.height(),
                                    Qt::KeepAspectRatio);
         } else if (zoomMode == AutofitLarger) {
+            qDebug() << "autofitting larger";
             if (wanted.height() > player.height()
                     || wanted.width() > player.width()) {
                 // window is larger than player size, so set to player size
@@ -361,17 +362,20 @@ void MainWindow::updateSize(bool first_run)
             }
             qDebug() << wanted;
         } else { // zoomMode == AutofitSmaller
-            if (wanted.height() < player.height()
-                    || wanted.height() < player.width()) {
-                // window is smaller than player size, so use an expanded
-                // player size that contains the wanted size
+            qDebug() << "autofitting smaller";
+            if (player.height() < wanted.height()
+                    || player.width() < wanted.width()) {
+                qDebug() << "smaller";
+                // player size is smaller than wanted window, so make it larger
                 wanted = player.scaled(wanted.width(), wanted.height(),
                                        Qt::KeepAspectRatioByExpanding);
             } else {
+                qDebug() << "larger";
                 wanted = player;
             }
         }
     }
+    qDebug() << "wanted size" << wanted;
     desired = wanted + fudgeFactor;
 
     setGeometry(QStyle::alignedRect(
@@ -456,6 +460,18 @@ void MainWindow::setFitFactor(double fitFactor)
 void MainWindow::setZoomMode(ZoomMode mode)
 {
     zoomMode = mode;
+}
+
+void MainWindow::setZoomPreset(int which, double fitFactor)
+{
+    double factor[] = { 1.0, 0.5, 1.0, 2.0, 1.0, 1.0, 1.0 };
+    MainWindow::ZoomMode mode[] = { FitToWindow, RegularZoom,
+                                    RegularZoom, RegularZoom,
+                                    Autofit, AutofitLarger,
+                                    AutofitSmaller };
+    setFitFactor(fitFactor);
+    setZoomMode(mode[which+1]);
+    setSizeFactor(factor[which+1]);
 }
 
 void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
@@ -822,7 +838,6 @@ void MainWindow::on_actionViewZoomAutofitSmaller_triggered()
     setZoomMode(AutofitSmaller);
     setSizeFactor(1.0);
 }
-
 
 void MainWindow::on_actionViewZoomDisable_triggered()
 {

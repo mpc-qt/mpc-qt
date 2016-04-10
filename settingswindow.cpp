@@ -250,6 +250,14 @@ void SettingsWindow::sendSignals()
     emit playbackPlayTimes(WIDGET_LOOKUP(ui->playbackRepeatForever).toBool() ?
                            0 : WIDGET_LOOKUP(ui->playbackPlayAmount).toInt());
 
+    double factor = WIDGET_LOOKUP(ui->playbackAutoFitFactor).toInt() / 100.0;
+
+    if (!WIDGET_LOOKUP(ui->playbackAutoZoom).toBool())
+        emit zoomPreset(-1, factor);
+    else
+        emit zoomPreset(WIDGET_LOOKUP(ui->playbackAutoZoomMethod).toInt(),
+                        factor);
+
     QMap<QString,QString> params;
     QStringList cmdline;
 
