@@ -37,6 +37,8 @@ file *for each playlist*.  Finally you can eliminate the need to keep track of
 your progress in a spreadsheet, all while never leaving the comfort of your
 favorite media player.
 
+**Quick queueing:**  Out-of-order playback in the same style of xmms/qmmp.
+
 **More to come:** Comprehensive video-output filter support; Encoding support.
 Suggestions welcome.
 
