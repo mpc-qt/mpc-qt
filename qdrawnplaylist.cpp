@@ -1,5 +1,6 @@
 #include <QApplication>
 #include <QPainter>
+#include <QFontMetrics>
 #include <QMenu>
 #include "qdrawnplaylist.h"
 #include "playlist.h"
@@ -21,6 +22,16 @@ void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
     QApplication::style()->drawControl(QStyle::CE_ItemViewItem, &option,
                                        painter);
     QRect rc = option.rect.adjusted(3,0,-3,0);
+
+    if (i->queuePosition() > 0) {
+        QString queueIndex(QString::number(i->queuePosition()));
+        int queueIndexWidth = painter->fontMetrics().width(queueIndex);
+        QRect rc2(rc);
+        rc2.setLeft(rc.right() - queueIndexWidth);
+        painter->drawText(rc2, Qt::AlignRight|Qt::AlignVCenter, queueIndex);
+        rc.adjust(0, 0, -(3 + queueIndexWidth), 0);
+    }
+
     if (i->uuid() == playWidget->nowPlayingItem()) {
          QFont f = playWidget->font();
          f.setBold(true);
