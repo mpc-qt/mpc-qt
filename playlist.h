@@ -58,6 +58,7 @@ public:
     QList<Item*> takeItems(int where, int count);
     void clear();
 
+    QUuid queueFirst();
     QUuid queueTakeFirst();
     void queueToggle(QUuid uuid);
     void queueRemove(QUuid uuid);

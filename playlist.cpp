@@ -200,6 +200,13 @@ void Playlist::clear()
     itemsByUuid.clear();
 }
 
+QUuid Playlist::queueFirst()
+{
+    if (queue.isEmpty())
+        return QUuid();
+    return queue.first();
+}
+
 QUuid Playlist::queueTakeFirst()
 {
     if (queue.isEmpty())
