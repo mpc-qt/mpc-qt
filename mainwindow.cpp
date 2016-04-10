@@ -28,6 +28,9 @@ MainWindow::MainWindow(QWidget *parent) :
     fullscreenMode_ = false;
     isPlaying = false;
     sizeFactor_ = 1;
+    fitFactor_ = 0.75;
+    zoomMode = RegularZoom;
+
     noVideoSize_ = QSize(500,270);
     decorationState_ = AllDecorations;
 
@@ -109,13 +112,6 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
 void MainWindow::setNoVideoSize(QSize size)
 {
     noVideoSize_ = size;
-}
-
-void MainWindow::setSizeFactor(double factor)
-{
-    sizeFactor_ = factor;
-    if (sizeFactor_ != 0)
-        updateSize();
 }
 
 void MainWindow::setDiscState(bool playingADisc)
@@ -322,30 +318,64 @@ void MainWindow::updateFramedrops()
 
 void MainWindow::updateSize(bool first_run)
 {
-    if (sizeFactor() <= 0 || fullscreenMode() || isMaximized()) {
+    if (zoomMode == FitToWindow || fullscreenMode() || isMaximized()) {
+        qDebug() << "opting out of zoom";
         ui->infoSection->layout()->update();
         return;
     }
 
+    // calculate available area for the window
+    QDesktopWidget *desktop = qApp->desktop();
+    QRect available = first_run ? desktop->availableGeometry(
+                                      desktop->screenNumber(QCursor::pos()))
+                                : desktop->availableGeometry(this);
+
     QSize player = isPlaying ? mpvw->videoSize() : noVideoSize();
     double factor = isPlaying ? sizeFactor() :
                                   std::max(1.0, sizeFactor());
-    QSize wanted(player.width()*factor + 0.5,
-                    player.height()*factor + 0.5);
-    QSize current = mpvw->size();
-    QSize window = size();
-    QSize desired = wanted + window - current;
 
-    QDesktopWidget *desktop = qApp->desktop();
-    if (first_run)
-        setGeometry(QStyle::alignedRect(
-                    Qt::LeftToRight, Qt::AlignCenter, desired,
-                    desktop->availableGeometry(desktop->screenNumber(
-                                                   QCursor::pos()))));
-    else
-        setGeometry(QStyle::alignedRect(
-                    Qt::LeftToRight, Qt::AlignCenter, desired,
-                        desktop->availableGeometry(this)));
+    QSize fudgeFactor = size() - mpvw->size();
+    QSize wanted, desired;
+    if (zoomMode == RegularZoom) {
+        wanted = QSize(player.width()*factor + 0.5,
+                       player.height()*factor + 0.5);
+        qDebug() << "regular zoom" << wanted;
+    } else {
+        wanted = (available.size() - fudgeFactor) * fitFactor_;
+        qDebug() << "autofitting" << player << wanted;
+        if (zoomMode == Autofit) {
+            wanted = player.scaled(wanted.width(), wanted.height(),
+                                   Qt::KeepAspectRatio);
+        } else if (zoomMode == AutofitLarger) {
+            if (wanted.height() > player.height()
+                    || wanted.width() > player.width()) {
+                // window is larger than player size, so set to player size
+                qDebug() << "larger";
+                wanted = player;
+            } else {
+                // window is smaller than player size, so limit new window
+                // size to contain a player rectangle
+                qDebug() << "smaller";
+                wanted = player.scaled(wanted.width(), wanted.height(),
+                                       Qt::KeepAspectRatio);
+            }
+            qDebug() << wanted;
+        } else { // zoomMode == AutofitSmaller
+            if (wanted.height() < player.height()
+                    || wanted.height() < player.width()) {
+                // window is smaller than player size, so use an expanded
+                // player size that contains the wanted size
+                wanted = player.scaled(wanted.width(), wanted.height(),
+                                       Qt::KeepAspectRatioByExpanding);
+            } else {
+                wanted = player;
+            }
+        }
+    }
+    desired = wanted + fudgeFactor;
+
+    setGeometry(QStyle::alignedRect(
+                    Qt::LeftToRight, Qt::AlignCenter, desired, available));
 }
 
 void MainWindow::updateInfostats()
@@ -409,6 +439,23 @@ void MainWindow::setVideoSize(QSize size)
 {
     (void)size;
     updateSize();
+}
+
+void MainWindow::setSizeFactor(double factor)
+{
+    sizeFactor_ = factor;
+    if (sizeFactor_ != 0)
+        updateSize();
+}
+
+void MainWindow::setFitFactor(double fitFactor)
+{
+    fitFactor_ = fitFactor;
+}
+
+void MainWindow::setZoomMode(ZoomMode mode)
+{
+    zoomMode = mode;
 }
 
 void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
@@ -742,35 +789,37 @@ void MainWindow::on_actionViewFullscreen_toggled(bool checked)
 
 void MainWindow::on_actionViewZoom050_triggered()
 {
+    setZoomMode(RegularZoom);
     setSizeFactor(0.5);
 }
 
 void MainWindow::on_actionViewZoom100_triggered()
 {
+    setZoomMode(RegularZoom);
     setSizeFactor(1.0);
 }
 
 void MainWindow::on_actionViewZoom200_triggered()
 {
+    setZoomMode(RegularZoom);
     setSizeFactor(2.0);
 }
 
 void MainWindow::on_actionViewZoomAutofit_triggered()
 {
-    // TODO: work out the logic for this.  In the meantime, set to manual
-    // sized.
-    setSizeFactor(0.0);
+    setZoomMode(Autofit);
+    setSizeFactor(1.0);
 }
 
 void MainWindow::on_actionViewZoomAutofitLarger_triggered()
 {
-    // TODO: work out the logic for this.  In the meantime, set to manual
-    // sized.
-    setSizeFactor(0.0);
+    setZoomMode(AutofitLarger);
+    setSizeFactor(1.0);
 }
 
 void MainWindow::on_actionViewZoomDisable_triggered()
 {
+    setZoomMode(FitToWindow);
     setSizeFactor(0.0);
 }
 

@@ -17,6 +17,8 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
     enum DecorationState { AllDecorations, NoMenu, NoDecorations };
+    enum ZoomMode { RegularZoom, Autofit, AutofitSmaller, AutofitLarger,
+                    FitToWindow };
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -40,7 +42,6 @@ private:
     void setFullscreenMode(bool fullscreenMode);
     void setNoVideoSize(QSize size);
     void setDiscState(bool playingADisc);
-    void setSizeFactor(double factor);
 
     void setupMenu();
     void setupPositionSlider();
@@ -95,6 +96,9 @@ public slots:
     void setMediaTitle(QString title);
     void setChapterTitle(QString title);
     void setVideoSize(QSize size);
+    void setSizeFactor(double factor);
+    void setFitFactor(double fitFactor);
+    void setZoomMode(ZoomMode mode);
     void setPlaybackState(PlaybackManager::PlaybackState state);
     void setPlaybackType(PlaybackManager::PlaybackType type);
     void setChapters(QList<QPair<double,QString>> chapters);
@@ -184,6 +188,8 @@ private:
     bool isPlaying;
     bool isPaused;
     double sizeFactor_;
+    double fitFactor_;
+    ZoomMode zoomMode;
     int64_t displayDrops;
     int64_t decoderDrops;
 };
