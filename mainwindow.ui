@@ -1140,7 +1140,7 @@
     <string>&amp;Up</string>
    </property>
    <property name="shortcut">
-    <string>Up</string>
+    <string>0</string>
    </property>
   </action>
   <action name="actionPlayVolumeDown">
@@ -1148,7 +1148,7 @@
     <string>&amp;Down</string>
    </property>
    <property name="shortcut">
-    <string>Down</string>
+    <string>9</string>
    </property>
   </action>
   <action name="actionPlayVolumeMute">
