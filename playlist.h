@@ -21,6 +21,10 @@ public:
     QUrl url() const;
     void setUrl(QUrl url);
 
+    int queuePosition() const;
+    void setQueuePosition(int num);
+    void decQueuePosition();
+
     QString toDisplayString() const;
     QString toString() const;
     void fromString(QString input);
@@ -31,6 +35,7 @@ public:
 private:
     QUuid uuid_;
     QUrl url_;
+    int queuePosition_;
 };
 
 class Playlist : public QObject {
@@ -53,6 +58,10 @@ public:
     QList<Item*> takeItems(int where, int count);
     void clear();
 
+    QUuid queueTakeFirst();
+    void queueToggle(QUuid uuid);
+    void queueRemove(QUuid uuid);
+
     QString title() const;
     void setTitle(const QString title);
     QUuid uuid() const;
@@ -67,6 +76,7 @@ public:
 private:
     QList<Item*> items;
     QHash<QUuid, Item*> itemsByUuid;
+    QList<QUuid> queue;
     QString title_;
     QUuid uuid_;
 };

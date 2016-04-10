@@ -5,6 +5,7 @@ Item::Item(QUrl url)
 {
     setUrl(url);
     setUuid(QUuid::createUuid());
+    setQueuePosition(0);
 }
 
 QUuid Item::uuid() const
@@ -25,6 +26,22 @@ QUrl Item::url() const
 void Item::setUrl(QUrl url)
 {
     url_ = url;
+}
+
+int Item::queuePosition() const
+{
+    return queuePosition_;
+}
+
+void Item::setQueuePosition(int num)
+{
+    queuePosition_ = num;
+}
+
+void Item::decQueuePosition()
+{
+    if (queuePosition_ > 0)
+        queuePosition_--;
 }
 
 QString Item::toDisplayString() const
@@ -151,6 +168,7 @@ void Playlist::addItems(int where, QList<Item *> itemsToAdd)
 void Playlist::removeItems(int where, int count)
 {
     for (int i = 0; i < count; i++) {
+        queueRemove(items.at(where)->uuid());
         itemsByUuid.remove(items.at(where)->uuid());
         items.removeAt(where);
     }
@@ -158,6 +176,7 @@ void Playlist::removeItems(int where, int count)
 
 void Playlist::removeItem(QUuid uuid)
 {
+    queueRemove(uuid);
     items.removeAll(itemsByUuid.take(uuid));
 }
 
@@ -167,6 +186,7 @@ QList<Item *> Playlist::takeItems(int where, int count)
     for (int i = 0; i < count; i++) {
         Item *item = items.takeAt(where);
         taken.append(item);
+        queueRemove(item->uuid());
         itemsByUuid.remove(item->uuid());
     }
     return taken;
@@ -178,6 +198,43 @@ void Playlist::clear()
         delete i;
     items.clear();
     itemsByUuid.clear();
+}
+
+QUuid Playlist::queueTakeFirst()
+{
+    if (queue.isEmpty())
+        return QUuid();
+    for (QUuid uuid : queue) {
+        if (itemsByUuid.contains(uuid))
+            itemsByUuid[uuid]->decQueuePosition();
+    }
+    return queue.takeFirst();
+}
+
+void Playlist::queueToggle(QUuid uuid)
+{
+    if (!itemsByUuid.contains(uuid))
+        return;
+
+    if (queue.contains(uuid)) {
+        queueRemove(uuid);
+    } else {
+        itemsByUuid[uuid]->setQueuePosition(queue.length() + 1);
+        queue.append(uuid);
+    }
+}
+
+void Playlist::queueRemove(QUuid uuid)
+{
+    itemsByUuid[uuid]->setQueuePosition(0);
+    int a = queue.indexOf(uuid);
+    if (a < 0)
+        return;
+    int b = queue.length();
+    for (int i = a; i < b; i++)
+        if (itemsByUuid.contains(queue[i]))
+            itemsByUuid[queue[i]]->decQueuePosition();
+    queue.removeAll(uuid);
 }
 
 QString Playlist::title() const
