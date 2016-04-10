@@ -101,7 +101,7 @@ public slots:
     void setSizeFactor(double factor);
     void setFitFactor(double fitFactor);
     void setZoomMode(ZoomMode mode);
-    void setZoomPreset(int which, double fitFactor);
+    void setZoomPreset(int which, double fitFactor = -1.0);
     void setPlaybackState(PlaybackManager::PlaybackState state);
     void setPlaybackType(PlaybackManager::PlaybackType type);
     void setChapters(QList<QPair<double,QString>> chapters);

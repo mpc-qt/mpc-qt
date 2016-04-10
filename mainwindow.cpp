@@ -469,7 +469,8 @@ void MainWindow::setZoomPreset(int which, double fitFactor)
                                     RegularZoom, RegularZoom,
                                     Autofit, AutofitLarger,
                                     AutofitSmaller };
-    setFitFactor(fitFactor);
+    if (fitFactor >= 0.0)
+        setFitFactor(fitFactor);
     setZoomMode(mode[which+1]);
     setSizeFactor(factor[which+1]);
 }
@@ -805,50 +806,43 @@ void MainWindow::on_actionViewFullscreen_toggled(bool checked)
 
 void MainWindow::on_actionViewZoom050_triggered()
 {
-    setZoomMode(RegularZoom);
-    setSizeFactor(0.5);
+    setZoomPreset(0);
     emit zoomPresetChanged(0);
 }
 
 void MainWindow::on_actionViewZoom100_triggered()
 {
-    setZoomMode(RegularZoom);
-    setSizeFactor(1.0);
+    setZoomPreset(1);
     emit zoomPresetChanged(1);
 }
 
 void MainWindow::on_actionViewZoom200_triggered()
 {
-    setZoomMode(RegularZoom);
-    setSizeFactor(2.0);
+    setZoomPreset(2);
     emit zoomPresetChanged(2);
 }
 
 void MainWindow::on_actionViewZoomAutofit_triggered()
 {
-    setZoomMode(Autofit);
-    setSizeFactor(1.0);
+    setZoomPreset(3);
     emit zoomPresetChanged(3);
 }
 
 void MainWindow::on_actionViewZoomAutofitLarger_triggered()
 {
-    setZoomMode(AutofitLarger);
-    setSizeFactor(1.0);
+    setZoomPreset(4);
     emit zoomPresetChanged(4);
 }
 
 void MainWindow::on_actionViewZoomAutofitSmaller_triggered()
 {
-    setZoomMode(AutofitSmaller);
-    setSizeFactor(1.0);
+    setZoomPreset(5);
     emit zoomPresetChanged(5);
 }
 
 void MainWindow::on_actionViewZoomDisable_triggered()
 {
-    setZoomMode(FitToWindow);
-    setSizeFactor(0.0);
+    setZoomPreset(-1);
     emit zoomPresetChanged(-1);
 }
 
