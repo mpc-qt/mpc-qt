@@ -442,8 +442,8 @@ void SettingsWindow::setNnedi3Available(bool yes)
 
 void SettingsWindow::setZoomPreset(int which)
 {
-    bool autoZoom = which < 0;
-    int zoomMethod = !autoZoom ? which : 1;
+    bool autoZoom = which >= 0;
+    int zoomMethod = autoZoom ? which : 1;
 
     WIDGET_LOOKUP(ui->playbackAutoZoom).setValue(autoZoom);
     WIDGET_LOOKUP(ui->playbackAutoZoomMethod).setValue(zoomMethod);
