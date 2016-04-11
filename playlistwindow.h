@@ -25,6 +25,7 @@ public:
     QPair<QUuid, QUuid> urlToQuickPlaylist(QUrl what);
     bool isCurrentPlaylistEmpty();
     QUuid getItemAfter(QUuid list, QUuid item);
+    QUuid getItemBefore(QUuid list, QUuid item);
     QUrl getUrlOf(QUuid list, QUuid item);
 
     QVariantList tabsToVList() const;

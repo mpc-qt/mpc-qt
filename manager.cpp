@@ -228,7 +228,22 @@ void PlaybackManager::navigateToNextChapter()
 
 void PlaybackManager::navigateToPrevChapter()
 {
-    navigateToChapter(std::max(0l, mpvWidget_->chapter() - 1));
+    int64_t chapter = mpvWidget_->chapter();
+    if (chapter > 0)
+        navigateToChapter(std::max(0l, chapter - 1));
+    else
+        playPrevFile();
+}
+
+void PlaybackManager::playPrevFile()
+{
+    QUuid uuid = playlistWindow_->getItemBefore(nowPlayingList, nowPlayingItem);
+    if (uuid.isNull())
+        return;
+    QUrl url = playlistWindow_->getUrlOf(nowPlayingList, uuid);
+    if (url.isEmpty())
+        return;
+    startPlayWithUuid(url, nowPlayingList, uuid, false);
 }
 
 void PlaybackManager::navigateToChapter(int64_t chapter)

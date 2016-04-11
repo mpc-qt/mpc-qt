@@ -127,6 +127,16 @@ Item *Playlist::itemAfter(QUuid uuid)
     return items[index + 1];
 }
 
+Item *Playlist::itemBefore(QUuid uuid)
+{
+    if (!itemsByUuid.contains(uuid))
+        return NULL;
+    int index = items.indexOf(itemsByUuid[uuid]);
+    if (index <= 0)
+        return NULL;
+    return items[index - 1];
+}
+
 int Playlist::indexOf(QUuid uuid)
 {
     if (!itemsByUuid.contains(uuid))

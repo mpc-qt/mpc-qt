@@ -86,6 +86,17 @@ QUuid PlaylistWindow::getItemAfter(QUuid list, QUuid item)
     return after->uuid();
 }
 
+QUuid PlaylistWindow::getItemBefore(QUuid list, QUuid item)
+{
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    if (!pl)
+        return QUuid();
+    Item *before = pl->itemBefore(item);
+    if (!before)
+        return QUuid();
+    return before->uuid();
+}
+
 QUrl PlaylistWindow::getUrlOf(QUuid list, QUuid item)
 {
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
