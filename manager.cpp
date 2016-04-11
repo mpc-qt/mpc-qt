@@ -415,6 +415,12 @@ void PlaybackManager::mpvw_playbackFinished()
     if (playbackState == StoppedState)
         return; // the playback state change does not need to be processed
 
+    if (nowPlayingItem.isNull()) {
+        nowPlaying_.clear();
+        playbackState = StoppedState;
+        emit stateChanged(playbackState);
+    }
+
     bool isRepeating;
     isRepeating = playbackPlayTimes < 1 || playbackPlayTimesCount < playbackPlayTimes;
     if (isRepeating)
