@@ -419,6 +419,7 @@ void PlaybackManager::mpvw_playbackFinished()
         nowPlaying_.clear();
         playbackState = StoppedState;
         emit stateChanged(playbackState);
+        return;
     }
 
     bool isRepeating;
