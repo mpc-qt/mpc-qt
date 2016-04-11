@@ -2,6 +2,7 @@
 #include <QPainter>
 #include <QFontMetrics>
 #include <QMenu>
+#include <QKeyEvent>
 #include "qdrawnplaylist.h"
 #include "playlist.h"
 
@@ -187,6 +188,18 @@ void QDrawnPlaylist::fromVMap(const QVariantMap &qvm)
     setUuid(p->uuid());
     setCurrentRow(qvm.value("selected").toInt());
     nowPlayingItem_ = qvm.value("nowplaying").toUuid();
+}
+
+bool QDrawnPlaylist::event(QEvent *e)
+{
+    if (hasFocus() && e->type() == QEvent::ShortcutOverride) {
+        QKeyEvent *ke = static_cast<QKeyEvent*>(e);
+        if (ke->key() == Qt::Key_PageUp || ke->key() == Qt::Key_PageDown) {
+            e->accept();
+            return true;
+        }
+    }
+    return QListWidget::event(e);
 }
 
 void QDrawnPlaylist::model_rowsMoved(const QModelIndex &parent,

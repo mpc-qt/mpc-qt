@@ -45,6 +45,9 @@ public:
     QVariantMap toVMap() const;
     void fromVMap(const QVariantMap &qvm);
 
+protected:
+    bool event(QEvent *e);
+
 private:
     QUuid uuid_;
     QHash <QUuid, PlayItem*> itemsByUuid;
