@@ -330,7 +330,8 @@ void MainWindow::updateSize(bool first_run)
                                       desktop->screenNumber(QCursor::pos()))
                                 : desktop->availableGeometry(this);
 
-    QSize player = isPlaying ? mpvw->videoSize() : noVideoSize();
+    qreal ratio = devicePixelRatio();
+    QSize player = isPlaying ? mpvw->videoSize()/ratio : noVideoSize();
     double factor = isPlaying ? sizeFactor() :
                                   std::max(1.0, sizeFactor());
 

@@ -377,7 +377,7 @@ void MpvWidget::paintGL()
         qDebug() << "paintGL";
     if (!drawLogo) {
         mpv_opengl_cb_draw(glMpv, defaultFramebufferObject(),
-                           width(), -height());
+                           glWidth, -glHeight);
     } else {
         logo->paintGL();
     }
@@ -385,7 +385,10 @@ void MpvWidget::paintGL()
 
 void MpvWidget::resizeGL(int w, int h)
 {
-    logo->resizeGL(w,h);
+    qreal r = devicePixelRatio();
+    glWidth = w * r;
+    glHeight = h * r;
+    logo->resizeGL(width(),height());
 }
 
 void MpvWidget::ctrl_update(void *ctx)

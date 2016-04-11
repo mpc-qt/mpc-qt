@@ -124,6 +124,7 @@ private:
     double playTime_;
     double playLength_;
     bool nnedi3Available_;
+    int glWidth, glHeight;
 
     bool drawLogo;
     LogoDrawer *logo;
