@@ -53,7 +53,9 @@ public slots:
     void stepForward();
     void navigateToNextChapter();
     void navigateToPrevChapter();
+    void playNextFile();
     void playPrevFile();
+    void repeatThisFile();
     void navigateToChapter(int64_t chapter);
     void navigateToTime(double time);
     void speedUp();

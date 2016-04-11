@@ -235,6 +235,21 @@ void PlaybackManager::navigateToPrevChapter()
         playPrevFile();
 }
 
+void PlaybackManager::playNextFile()
+{
+    QUuid uuid = playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
+    QUrl url = playlistWindow_->getUrlOf(nowPlayingList, uuid);
+    if (url.isEmpty()) {
+        nowPlaying_.clear();
+        nowPlayingItem = QUuid();
+        playbackState = StoppedState;
+        emit stateChanged(playbackState);
+    } else {
+        nowPlayingItem = uuid;
+        startPlayWithUuid(url, nowPlayingList, nowPlayingItem, false);
+    }
+}
+
 void PlaybackManager::playPrevFile()
 {
     QUuid uuid = playlistWindow_->getItemBefore(nowPlayingList, nowPlayingItem);
@@ -244,6 +259,11 @@ void PlaybackManager::playPrevFile()
     if (url.isEmpty())
         return;
     startPlayWithUuid(url, nowPlayingList, uuid, false);
+}
+
+void PlaybackManager::repeatThisFile()
+{
+    startPlayWithUuid(nowPlaying_, nowPlayingList, nowPlayingItem, true);
 }
 
 void PlaybackManager::navigateToChapter(int64_t chapter)
@@ -390,23 +410,13 @@ void PlaybackManager::mpvw_playbackFinished()
 {
     if (playbackState == StoppedState)
         return; // the playback state change does not need to be processed
-    QUuid uuid;
-    bool isRepeating;
-    QUrl url;
 
+    bool isRepeating;
     isRepeating = playbackPlayTimes < 1 || playbackPlayTimesCount < playbackPlayTimes;
-    uuid = isRepeating ? nowPlayingItem
-                       : playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
-    if (uuid.isNull() || (url = playlistWindow_->getUrlOf(nowPlayingList, uuid)).isEmpty()) {
-        nowPlaying_.clear();
-        nowPlayingItem = QUuid();
-        playbackState = StoppedState;
-        emit stateChanged(playbackState);
-    } else {
-        nowPlayingItem = uuid;
-        startPlayWithUuid(url, nowPlayingList, nowPlayingItem, isRepeating);
-    }
-    fireNowPlayingState();
+    if (isRepeating)
+        repeatThisFile();
+    else
+        playNextFile();
 }
 
 void PlaybackManager::mpvw_mediaTitleChanged(QString title)
