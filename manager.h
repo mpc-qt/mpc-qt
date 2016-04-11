@@ -136,6 +136,7 @@ private:
     QString videoListSelected;
     QString audioListSelected;
     QString subtitleListSelected;
+    int numChapters;
 
     int playbackPlayTimes;
     int playbackPlayTimesCount;

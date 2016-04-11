@@ -223,7 +223,11 @@ void PlaybackManager::stepForward()
 
 void PlaybackManager::navigateToNextChapter()
 {
-    navigateToChapter(mpvWidget_->chapter() + 1);
+    int64_t nextChapter = mpvWidget_->chapter() + 1;
+    if (nextChapter >= numChapters)
+        playNextFile();
+    else
+        navigateToChapter(nextChapter);
 }
 
 void PlaybackManager::navigateToPrevChapter()
@@ -440,6 +444,7 @@ void PlaybackManager::mpvw_chaptersChanged(QVariantList chapters)
         QPair<double,QString> item(node["time"].toDouble(), text);
         list.append(item);
     }
+    numChapters = list.count();
     emit chaptersAvailable(list);
 }
 
