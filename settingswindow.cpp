@@ -459,7 +459,7 @@ void SettingsWindow::on_pageTree_itemSelectionChanged()
     if (!modelIndex.isValid())
         return;
 
-    static int parentIndex[] = { 0, 4, 9, 12, 14, 15 };
+    static int parentIndex[] = { 0, 4, 10, 13, 15, 16 };
     int index = 0;
     if (!modelIndex.parent().isValid())
         index = parentIndex[modelIndex.row()];
