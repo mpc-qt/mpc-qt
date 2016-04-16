@@ -36,8 +36,10 @@ void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
 
     DisplayParser *dp = playWidget->displayParser();
     QString text = i->toDisplayString();
-    if (dp)
-        text = dp->parseMetadata(i->metadata(), text, Helpers::AudioFile);
+    if (dp) {
+        // TODO: detect what type of file is being played
+        text = dp->parseMetadata(i->metadata(), text, Helpers::VideoFile);
+    }
 
     if (i->uuid() == playWidget->nowPlayingItem()) {
          QFont f = playWidget->font();

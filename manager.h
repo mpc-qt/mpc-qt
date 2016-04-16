@@ -93,6 +93,7 @@ private slots:
     void mpvw_avsyncChanged(double sync);
     void mpvw_displayFramedropsChanged(int64_t count);
     void mpvw_decoderFramedropsChanged(int64_t count);
+    void mpvw_metadataChanged(QVariantMap metadata);
 
 signals:
     void playerSettingsRequested();

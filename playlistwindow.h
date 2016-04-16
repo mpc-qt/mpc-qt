@@ -4,6 +4,7 @@
 #include <QDockWidget>
 #include <QHash>
 #include <QUuid>
+#include "helpers.h"
 
 namespace Ui {
 class PlaylistWindow;
@@ -27,6 +28,7 @@ public:
     QUuid getItemAfter(QUuid list, QUuid item);
     QUuid getItemBefore(QUuid list, QUuid item);
     QUrl getUrlOf(QUuid list, QUuid item);
+    void setMetadata(QUuid list, QUuid item, const QVariantMap &map);
 
     QVariantList tabsToVList() const;
     void tabsFromVList(const QVariantList &qvl);
@@ -46,6 +48,7 @@ signals:
 public slots:
     void changePlaylistSelection(QUuid playlistUuid, QUuid itemUuid);
     void addSimplePlaylist(QStringList data);
+    void setDisplayFormatSpecifier(QString fmt);
 
 private slots:
     void on_newTab_clicked();
@@ -68,6 +71,7 @@ private slots:
 
 private:
     Ui::PlaylistWindow *ui;
+    DisplayParser displayParser;
 
     QHash<QUuid, QDrawnPlaylist*> widgets;
 };

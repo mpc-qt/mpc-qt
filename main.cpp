@@ -184,6 +184,10 @@ Flow::Flow(QObject *owner) :
     connect(settingsWindow, &SettingsWindow::mpvLogLevel,
             mpvw, &MpvWidget::setMpvLogLevel);
 
+    // settings -> playlistWindow
+    connect(settingsWindow, &SettingsWindow::playlistFormat,
+            mainWindow->playlistWindow(), &PlaylistWindow::setDisplayFormatSpecifier);
+
     // settings -> manager
     connect(settingsWindow, &SettingsWindow::playbackPlayTimes,
             playbackManager, &PlaybackManager::setPlaybackPlayTimes);

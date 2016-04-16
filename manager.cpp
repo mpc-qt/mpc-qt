@@ -53,6 +53,8 @@ void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)
                 this, &PlaybackManager::mpvw_displayFramedropsChanged);
         connect(mpvWidget, &MpvWidget::decoderFramedropsChanged,
                 this, &PlaybackManager::mpvw_decoderFramedropsChanged);
+        connect(mpvWidget, &MpvWidget::metaDataChanged,
+                this, &PlaybackManager::mpvw_metadataChanged);
     }
 }
 
@@ -519,4 +521,9 @@ void PlaybackManager::mpvw_displayFramedropsChanged(int64_t count)
 void PlaybackManager::mpvw_decoderFramedropsChanged(int64_t count)
 {
     emit decoderFramedropsChanged(count);
+}
+
+void PlaybackManager::mpvw_metadataChanged(QVariantMap metadata)
+{
+    playlistWindow_->setMetadata(nowPlayingList, nowPlayingItem, metadata);
 }

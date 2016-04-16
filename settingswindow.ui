@@ -4449,7 +4449,7 @@ media file played</string>
                  <string/>
                 </property>
                 <property name="placeholderText">
-                 <string>%track{#. }{?.}{}%artist{# - }{Unknown Artist - }{}%title{#}{$}{$}</string>
+                 <string>%track{#. }{}{}%artist{# - }{Unknown Artist - }{}%title{#}{$}{$}</string>
                 </property>
                </widget>
               </item>

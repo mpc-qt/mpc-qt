@@ -439,6 +439,9 @@ public:
     }
     ~DisplayNode() {
         empty();
+        if (next)
+            delete next;
+        next = NULL;
     }
 
     bool isNull() {
@@ -475,7 +478,8 @@ public:
     }
 
     void appendNode(DisplayNode *next) {
-        if (next) delete next;
+        if (this->next)
+            delete this->next;
         this->next = next;
     }
 
@@ -513,6 +517,8 @@ public:
         default:
             break;
         }
+        if (next)
+            t += next->output(metaData, displayString, fileType);
         return t;
     }
 
@@ -546,7 +552,7 @@ void DisplayParser::takeFormatString(QString fmt)
         QString p1 = grabBrackets(source, position, length);
         QString p2 = grabBrackets(source, position, length);
         QString p3 = grabBrackets(source, position, length);
-        return QStringList({p1, p2});
+        return QStringList({p1, p2, p3});
     };
 
     // grab the text between % and {
@@ -561,12 +567,15 @@ void DisplayParser::takeFormatString(QString fmt)
     };
 
     // dump whatever data may have been gathered up to this point
-    auto dumpGatheredData = [](QString &gathered, DisplayNode* &current) {
+    auto dumpGatheredData = [](QString &gathered, DisplayNode* &current,
+            bool final = false) {
         if (!gathered.isEmpty()) {
             current->setPlainText(gathered);
-            current->appendNode(new DisplayNode);
-            current = current->nextNode();
-            gathered.clear();
+            if (!final) {
+                current->appendNode(new DisplayNode);
+                current = current->nextNode();
+                gathered.clear();
+            }
         }
     };
 
@@ -581,9 +590,9 @@ void DisplayParser::takeFormatString(QString fmt)
         while (position < length) {
             c = text.at(position);
             position++;
-            if (c == '%') {
-                if (position < length && text.at(position)=='%') {
-                    gathered += '%';
+            if (c == '#') {
+                if (position < length && text.at(position)=='#') {
+                    gathered += '#';
                     position++;
                 } else {
                     dumpGatheredData(gathered, current);
@@ -605,9 +614,7 @@ void DisplayParser::takeFormatString(QString fmt)
                 gathered += c;
             }
         }
-        dumpGatheredData(gathered, current);
-        if (current != first && current->isNull())
-            delete current;
+        dumpGatheredData(gathered, current, true);
         return first;
     };
 
@@ -631,22 +638,27 @@ void DisplayParser::takeFormatString(QString fmt)
             if (prop.isEmpty())
                 continue;
             tuple = grabTuple(fmt);
-            DisplayNode *n = new DisplayNode;
-            n->setNodeTrie(prop, nodeInnerChars(tuple[0], prop),
-                           nodeInnerChars(tuple[1], prop),
-                           nodeInnerChars(tuple[2], prop));
-            current->appendNode(n);
-            current = n;
+            current->setNodeTrie(prop, nodeInnerChars(tuple[0], prop),
+                                 nodeInnerChars(tuple[1], prop),
+                                 nodeInnerChars(tuple[2], prop));
+            current->appendNode(new DisplayNode);
+            current = current->nextNode();
         } else {
             gathered += c;
         }
     }
-    dumpGatheredData(gathered, current);
+    dumpGatheredData(gathered, current, true);
 }
 
 QString DisplayParser::parseMetadata(QVariantMap metaData,
                                      QString displayString,
                                      Helpers::FileType fileType)
 {
-    return node->output(metaData, displayString, fileType);
+    if (metaData.isEmpty()) {
+        return displayString;
+    } else {
+        if (!metaData.contains("title"))
+            metaData["title"] = displayString;
+        return node->output(metaData, displayString, fileType);
+    }
 }

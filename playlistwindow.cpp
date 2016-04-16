@@ -108,6 +108,22 @@ QUrl PlaylistWindow::getUrlOf(QUuid list, QUuid item)
     return i->url();
 }
 
+void PlaylistWindow::setMetadata(QUuid list, QUuid item, const QVariantMap &map)
+{
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    if (!pl)
+        return;
+    auto i = pl->itemOf(item);
+    if (!i)
+        return;
+    i->setMetadata(map);
+
+    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    if (qdp->uuid() == list)
+        qdp->viewport()->update();
+
+}
+
 QVariantList PlaylistWindow::tabsToVList() const
 {
     QVariantList qvl;
@@ -124,6 +140,7 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
     widgets.clear();
     for (const QVariant &v : qvl) {
         auto qdp = new QDrawnPlaylist();
+        qdp->setDisplayParser(&displayParser);
         qdp->fromVMap(v.toMap());
         connect(qdp, &QDrawnPlaylist::itemDesired, this, &PlaylistWindow::itemDesired);
         auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
@@ -150,6 +167,7 @@ void PlaylistWindow::dropEvent(QDropEvent *event)
 void PlaylistWindow::addNewTab(QUuid playlist, QString title)
 {
     auto qdp = new QDrawnPlaylist();
+    qdp->setDisplayParser(&displayParser);
     qdp->setUuid(playlist);
     connect(qdp, &QDrawnPlaylist::itemDesired, this, &PlaylistWindow::itemDesired);
     widgets.insert(playlist, qdp);
@@ -173,6 +191,12 @@ void PlaylistWindow::addSimplePlaylist(QStringList data)
     auto pl = PlaylistCollection::getSingleton()->newPlaylist(tr("New Playlist"));
     pl->fromStringList(data);
     addNewTab(pl->uuid(), pl->title());
+}
+
+void PlaylistWindow::setDisplayFormatSpecifier(QString fmt)
+{
+    displayParser.takeFormatString(fmt);
+    ui->tabWidget->currentWidget()->update();
 }
 
 void PlaylistWindow::on_newTab_clicked()

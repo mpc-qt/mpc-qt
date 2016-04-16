@@ -541,11 +541,11 @@ void MpvWidget::self_playbackFinished()
 
 void MpvWidget::self_metadata(QVariantMap metadata)
 {
-    QVariantMap data;
-    for(QString key : data.keys()) {
-        data.insert(key.toLower(), data[key]);
+    QVariantMap map;
+    for(QString key : metadata.keys()) {
+        map.insert(key.toLower(), metadata[key]);
     }
-    emit metaDataChanged(metadata);
+    emit metaDataChanged(map);
 }
 
 
