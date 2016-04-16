@@ -87,7 +87,8 @@ MpvWidget::MpvWidget(QWidget *parent) :
         { "drop-frame-count", MPV_FORMAT_INT64 },
         { "audio-bitrate", MPV_FORMAT_DOUBLE },
         { "video-bitrate", MPV_FORMAT_DOUBLE },
-        { "paused-for-cache", MPV_FORMAT_FLAG }
+        { "paused-for-cache", MPV_FORMAT_FLAG },
+        { "metadata", MPV_FORMAT_NODE }
     };
     QMetaObject::invokeMethod(ctrl, "observeProperties",
                               Qt::BlockingQueuedConnection,
@@ -463,6 +464,7 @@ void MpvWidget::ctrl_mpvPropertyChanged(QString name, QVariant v)
     HANDLE_PROP_1("avsync", avsyncChanged, toDouble, 0.0);
     HANDLE_PROP_1("vo-drop-frame-count", displayFramedropsChanged, toLongLong, 0ll);
     HANDLE_PROP_1("drop-frame-count", decoderFramedropsChanged, toLongLong, 0ll);
+    HANDLE_PROP_1("metadata", self_metadata, toMap, QVariantMap());
 }
 
 void MpvWidget::ctrl_logMessage(QString message)
@@ -535,6 +537,15 @@ void MpvWidget::self_playbackFinished()
 {
     drawLogo = true;
     update();
+}
+
+void MpvWidget::self_metadata(QVariantMap metadata)
+{
+    QVariantMap data;
+    for(QString key : data.keys()) {
+        data.insert(key.toLower(), data[key]);
+    }
+    emit metaDataChanged(metadata);
 }
 
 

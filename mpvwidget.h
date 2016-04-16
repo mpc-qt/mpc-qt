@@ -94,6 +94,7 @@ signals:
     void pausedChanged(bool yes);
     void playbackFinished();
     void mediaTitleChanged(QString title);
+    void metaDataChanged(QVariantMap metadata);
     void chapterDataChanged(QVariantMap metadata);
     void chaptersChanged(QVariantList chapters);
     void tracksChanged(QVariantList tracks);
@@ -114,6 +115,7 @@ private slots:
     void self_frameSwapped();
     void self_playbackStarted();
     void self_playbackFinished();
+    void self_metadata(QVariantMap metadata);
 
 private:
     QThread *worker;
