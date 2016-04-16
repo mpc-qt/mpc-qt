@@ -410,6 +410,7 @@ void SettingsWindow::sendSignals()
     audioDropSize(WIDGET_LOOKUP(ui->syncAudioDropSize).toDouble());
     maximumAudioChange(WIDGET_LOOKUP(ui->syncMaxAudioChange).toDouble());
     maximumVideoChange(WIDGET_LOOKUP(ui->syncMaxVideoChange).toDouble());
+    playlistFormat(WIDGET_PLACEHOLD_LOOKUP(ui->playlistFormat));
     subsAreGray(WIDGET_LOOKUP(ui->subtitlesForceGrayscale).toDouble());
 
     screenshotDirectory(

@@ -63,6 +63,7 @@ signals:
     void audioDropSize(double d);
     void maximumAudioChange(double d);
     void maximumVideoChange(double d);
+    void playlistFormat(const QString &fmt);
     void subsAreGray(bool flag);
     void screenshotDirectory(const QString &s);
     void encodeDirectory(const QString &s);
