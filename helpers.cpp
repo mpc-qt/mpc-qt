@@ -425,3 +425,228 @@ void LogoWidget::resizeGL(int w, int h)
 {
     logoDrawer->resizeGL(w,h);
 }
+
+
+// For the sake of optimizing 0.0001% of execution time, let's create a
+// tree out of the format string, so we don't need to do string operations
+// all the time other than those we need to.
+class DisplayNode {
+public:
+    enum NodeType { NullNode, PlainText, Trie, Property, DisplayName };
+    DisplayNode() :
+        type(NullNode), tagNode(NULL), audioNode(NULL), videoNode(NULL),
+        next(NULL) {
+    }
+    ~DisplayNode() {
+        empty();
+    }
+
+    bool isNull() {
+        return type == NullNode;
+    }
+
+    DisplayNode *nextNode() { return next; }
+
+    void setPlainText(QString text) {
+        empty();
+        data = text;
+        type = PlainText;
+    }
+
+    void setDisplayName() {
+        empty();
+        type = DisplayName;
+    }
+
+    void setActualProperty(QString text) {
+        empty();
+        type = Property;
+        data = text;
+    }
+
+    void setNodeTrie(QString propertyName, DisplayNode *tag,
+                     DisplayNode *audio, DisplayNode *video) {
+        empty();
+        type = Trie;
+        data = propertyName;
+        tagNode = tag;
+        audioNode = audio;
+        videoNode = video;
+    }
+
+    void appendNode(DisplayNode *next) {
+        if (next) delete next;
+        this->next = next;
+    }
+
+    void empty() {
+        if (tagNode)    { delete tagNode;   tagNode = NULL; }
+        if (audioNode)  { delete audioNode; audioNode = NULL; }
+        if (videoNode)  { delete videoNode; videoNode = NULL; }
+    }
+
+    QString output(const QVariantMap &metaData, const QString &displayString,
+                   const Helpers::FileType fileType) {
+        QString t;
+        switch (type) {
+        case NullNode:
+            break;
+        case PlainText:
+            t += data;
+            break;
+        case Trie:
+            if (metaData.contains(data) && tagNode) {
+                t += tagNode->output(metaData, displayString, fileType);
+            } else if (fileType == Helpers::AudioFile && audioNode) {
+                t += audioNode->output(metaData, displayString, fileType);
+            } else if (videoNode) {
+                t += videoNode->output(metaData, displayString, fileType);
+            }
+            break;
+        case Property:
+            if (metaData.contains(data)) {
+                t += metaData[data].toString();
+            }
+            break;
+        case DisplayName:
+            t += displayString;
+        default:
+            break;
+        }
+        return t;
+    }
+
+private:
+    NodeType type;
+    QString data;
+    DisplayNode *tagNode;
+    DisplayNode *audioNode;
+    DisplayNode *videoNode;
+    DisplayNode *next;
+};
+
+
+DisplayParser::DisplayParser() : node(NULL)
+{
+
+}
+
+DisplayParser::~DisplayParser()
+{
+    if (node) { delete node; node = NULL; }
+}
+
+void DisplayParser::takeFormatString(QString fmt)
+{
+    int length = fmt.length();
+    int position = 0;
+
+    // grab a {}{}{} tuple from the format string
+    auto grabTuple = [&position, &length](QString source) {
+        QString p1 = grabBrackets(source, position, length);
+        QString p2 = grabBrackets(source, position, length);
+        QString p3 = grabBrackets(source, position, length);
+        return QStringList({p1, p2});
+    };
+
+    // grab the text between % and {
+    auto grabProp = [&position](QString source) {
+        int run = source.mid(position).indexOf(QChar('{'));
+        if (run >= 0) {
+            QString ret = source.mid(position, run);
+            position += run;
+            return ret;
+        }
+        return QString();
+    };
+
+    // dump whatever data may have been gathered up to this point
+    auto dumpGatheredData = [](QString &gathered, DisplayNode* &current) {
+        if (!gathered.isEmpty()) {
+            current->setPlainText(gathered);
+            current->appendNode(new DisplayNode);
+            current = current->nextNode();
+            gathered.clear();
+        }
+    };
+
+    // convert text inside {} to a node
+    auto nodeInnerChars = [dumpGatheredData](QString text, QString propertyValue) {
+        DisplayNode *first = new DisplayNode;
+        DisplayNode *current = first;
+        QString gathered;
+        QChar c;
+        int length = text.length();
+        int position = 0;
+        while (position < length) {
+            c = text.at(position);
+            position++;
+            if (c == '%') {
+                if (position < length && text.at(position)=='%') {
+                    gathered += '%';
+                    position++;
+                } else {
+                    dumpGatheredData(gathered, current);
+                    current->setActualProperty(propertyValue);
+                    current->appendNode(new DisplayNode);
+                    current = current->nextNode();
+                }
+            } else if (c == '$') {
+                if (position < length && text.at(position)=='$') {
+                    gathered += '$';
+                    position++;
+                } else {
+                    dumpGatheredData(gathered, current);
+                    current->setDisplayName();
+                    current->appendNode(new DisplayNode);
+                    current = current->nextNode();
+                }
+            } else {
+                gathered += c;
+            }
+        }
+        dumpGatheredData(gathered, current);
+        if (current != first && current->isNull())
+            delete current;
+        return first;
+    };
+
+    if (node)
+        delete node;
+    node = new DisplayNode;
+
+    DisplayNode *current = node;
+    QString prop;
+    QStringList tuple;
+    QString gathered;
+    while (position < length) {
+        QChar c = fmt.at(position++);
+        if (c == '%') {
+            if (position < length && fmt.at(position)=='%') {
+                gathered += '%';
+                continue;
+            }
+            dumpGatheredData(gathered, current);
+            prop = grabProp(fmt);
+            if (prop.isEmpty())
+                continue;
+            tuple = grabTuple(fmt);
+            DisplayNode *n = new DisplayNode;
+            n->setNodeTrie(prop, nodeInnerChars(tuple[0], prop),
+                           nodeInnerChars(tuple[1], prop),
+                           nodeInnerChars(tuple[2], prop));
+            current->appendNode(n);
+            current = n;
+        } else {
+            gathered += c;
+        }
+    }
+    dumpGatheredData(gathered, current);
+}
+
+QString DisplayParser::parseMetadata(QVariantMap metaData,
+                                     QString displayString,
+                                     Helpers::FileType fileType)
+{
+    return node->output(metaData, displayString, fileType);
+}

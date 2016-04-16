@@ -79,4 +79,17 @@ private:
     QString logoUrl;
 };
 
+class DisplayNode;
+class DisplayParser {
+public:
+    DisplayParser();
+    ~DisplayParser();
+
+    void takeFormatString(QString fmt);
+    QString parseMetadata(QVariantMap metaData, QString displayString,
+                          Helpers::FileType fileType);
+private:
+    DisplayNode *node;
+};
+
 #endif // HELPERS_H
