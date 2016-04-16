@@ -19,8 +19,6 @@ namespace Helpers {
     QString parseFormat(QString fmt, QString fileName, DisabledTrack disabled,
                         Subtitles subtitles, double timeNav, double timeBegin,
                         double timeEnd);
-    QString parseDisplayFormat(QString fmt, const QVariantMap &metadata,
-                               QString displayString, FileType fileType);
 }
 
 class SingleProcess : public QObject
