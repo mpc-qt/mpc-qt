@@ -15,9 +15,12 @@ namespace Helpers {
     QString toDateFormat(double time);
     enum DisabledTrack { NothingDisabled, DisabledAudio, DisabledVideo };
     enum Subtitles { NoSubtitles, SubtitlesPresent, SubtitlesDisabled, };
+    enum FileType { AudioFile, VideoFile };
     QString parseFormat(QString fmt, QString fileName, DisabledTrack disabled,
                         Subtitles subtitles, double timeNav, double timeBegin,
                         double timeEnd);
+    QString parseDisplayFormat(QString fmt, const QVariantMap &metadata,
+                               QString displayString, FileType fileType);
 }
 
 class SingleProcess : public QObject

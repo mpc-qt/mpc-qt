@@ -23,6 +23,33 @@ QString Helpers::toDateFormat(double time)
 }
 
 
+static QString grabBrackets(QString source, int &position, int &length) {
+    QString match;
+    QChar c;
+    enum MatchMode { Bracket, Inside, Finish };
+    MatchMode mm = Bracket;
+    while (mm != Finish && position < length) {
+        c = source.at(position);
+        if (mm == Bracket) {
+            if (c != '{') {
+                position--;
+                mm = Finish;
+            } else {
+                mm = Inside;
+            }
+            ++position;
+        } else if (mm == Inside) {
+            if (c != '}')
+                match.append(c);
+            else
+                mm = Finish;
+            ++position;
+        }
+    }
+    return match;
+}
+
+
 QString Helpers::parseFormat(QString fmt, QString fileName,
                              Helpers::DisabledTrack disabled,
                              Subtitles subtitles, double timeNav,
@@ -81,37 +108,10 @@ QString Helpers::parseFormat(QString fmt, QString fileName,
     int length = fmt.length();
     int position = 0;
 
-    // grab a {} from the format string
-    auto grabBrackets = [&position, &length](QString source) {
-        QString match;
-        QChar c;
-        enum MatchMode { Bracket, Inside, Finish };
-        MatchMode mm = Bracket;
-        while (mm != Finish && position < length) {
-            c = source.at(position);
-            if (mm == Bracket) {
-                if (c != '{') {
-                    position--;
-                    mm = Finish;
-                } else {
-                    mm = Inside;
-                }
-                ++position;
-            } else if (mm == Inside) {
-                if (c != '}')
-                    match.append(c);
-                else
-                    mm = Finish;
-                ++position;
-            }
-        }
-        return match;
-    };
-
     // grab a {}{} pair from the format string
-    auto grabPair = [&position, &length, grabBrackets](QString source) {
-        QString p1 = grabBrackets(source);
-        QString p2 = grabBrackets(source);
+    auto grabPair = [&position, &length](QString source) {
+        QString p1 = grabBrackets(source, position, length);
+        QString p2 = grabBrackets(source, position, length);
         return QStringList({p1, p2});
     };
 
@@ -150,7 +150,7 @@ QString Helpers::parseFormat(QString fmt, QString fileName,
                 break;
             case 't':
                 ++position;
-                output.append(currentTime.toString(grabBrackets(fmt)));
+                output.append(currentTime.toString(grabBrackets(fmt, position, length)));
                 break;
             case 'a':
                 if (++position < length)
@@ -183,6 +183,86 @@ QString Helpers::parseFormat(QString fmt, QString fileName,
     }
     return output;
 }
+
+QString Helpers::parseDisplayFormat(QString fmt, const QVariantMap &metadata,
+                                    QString displayString, FileType fileType)
+{
+    int length = fmt.length();
+    int position = 0;
+
+    // grab a {}{} tuple from the format string
+    auto grabTuple = [&position, &length](QString source) {
+        QString p1 = grabBrackets(source, position, length);
+        QString p2 = grabBrackets(source, position, length);
+        QString p3 = grabBrackets(source, position, length);
+        return QStringList({p1, p2});
+    };
+    // grab the text between % and {
+    auto grabProp = [&position](QString source) {
+        int run = source.mid(position).indexOf(QChar('{'));
+        if (run >= 0) {
+            QString ret = source.mid(position, run);
+            position += run;
+            return ret;
+        }
+        return QString();
+    };
+    auto expandChars = [displayString](QString text, QString propertyValue) {
+        // let's parse everything twice!
+        QString output;
+        QChar c;
+        int length = text.length();
+        int position = 0;
+        while (position < length) {
+            c = text.at(position);
+            position++;
+            if (c == '%') {
+                if (position < length && text.at(position)=='%') {
+                    output += '%';
+                    position++;
+                } else {
+                    output += propertyValue;
+                }
+            } else if (c == '$') {
+                if (position < length && text.at(position)=='$') {
+                    output += '$';
+                    position++;
+                } else {
+                    output += displayString;
+                }
+            } else {
+                output += c;
+            }
+        }
+        return output;
+    };
+
+    QString prop;
+    QStringList tuple;
+    QString output;
+    while (position < length) {
+        QChar c = fmt.at(position++);
+        if (c == '%') {
+            prop = grabProp(fmt);
+            if (prop.isEmpty())
+                break;
+            tuple = grabTuple(fmt);
+            if (metadata.contains(prop))
+                output += expandChars(tuple[0], metadata[prop].toString());
+            else if (fileType == AudioFile)
+                output += expandChars(tuple[1], QString());
+            else if (fileType == VideoFile)
+                output += expandChars(tuple[2], QString());
+            break;
+        }
+        else {
+            output += c;
+        }
+    }
+    return output;
+}
+
+
 
 SingleProcess::SingleProcess(QObject *parent) :
     QObject(parent)
