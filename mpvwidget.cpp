@@ -1,6 +1,7 @@
 // Portions of code in this module came from the examples directory in mpv's
 // git repo.  Reworked by me.
 
+#include <QtX11Extras/QX11Info>
 #include <QThread>
 #include <QOpenGLContext>
 #include <QMetaObject>
@@ -11,9 +12,17 @@
 #include "mpvwidget.h"
 #include "helpers.h"
 
+static void* GLAPIENTRY glMPGetNativeDisplay(const char* name) {
+    if (!strcmp(name, "X11")) {
+        return (void*)QX11Info::display();
+    }
+}
+
 static void *get_proc_address(void *ctx, const char *name) {
     (void)ctx;
     auto glctx = QOpenGLContext::currentContext();
+    if (!strcmp(name,__STRING(glMPGetNativeDisplay)))
+            return (void*)glMPGetNativeDisplay;
     return glctx ? (void*)glctx->getProcAddress(QByteArray(name)) : NULL;
 }
 
@@ -379,6 +388,8 @@ void MpvWidget::paintGL()
     if (!drawLogo) {
         mpv_opengl_cb_draw(glMpv, defaultFramebufferObject(),
                            glWidth, -glHeight);
+        context()->swapBuffers(context()->surface());
+        mpv_opengl_cb_report_flip(glMpv, 0);
     } else {
         logo->paintGL();
     }

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network opengl
+QT       += core gui network opengl x11extras
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
