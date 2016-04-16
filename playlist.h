@@ -20,6 +20,8 @@ public:
     void setUuid(QUuid uuid);
     QUrl url() const;
     void setUrl(QUrl url);
+    QVariantMap metadata() const;
+    void setMetadata(const QVariantMap &qvm);
 
     int queuePosition() const;
     void setQueuePosition(int num);
@@ -35,6 +37,7 @@ public:
 private:
     QUuid uuid_;
     QUrl url_;
+    QVariantMap metadata_;
     int queuePosition_;
 };
 

@@ -28,6 +28,16 @@ void Item::setUrl(QUrl url)
     url_ = url;
 }
 
+QVariantMap Item::metadata() const
+{
+    return metadata_;
+}
+
+void Item::setMetadata(const QVariantMap &qvm)
+{
+    metadata_ = qvm;
+}
+
 int Item::queuePosition() const
 {
     return queuePosition_;
@@ -67,6 +77,7 @@ QVariantMap Item::toVMap() const
     QVariantMap v;
     v.insert("url", url());
     v.insert("uuid", uuid());
+    v.insert("metadata", metadata());
     return v;
 }
 
@@ -74,6 +85,7 @@ void Item::fromVMap(const QVariantMap &qvm)
 {
     url_ = qvm.contains("url") ? qvm.value("url").toUrl() : QUrl();
     uuid_ = qvm.contains("uuid") ? qvm.value("uuid").toUuid() : QUuid::createUuid();
+    metadata_ = qvm.contains("metadata") ? qvm.value("metadata").toMap() : QVariantMap();
 }
 
 Playlist::Playlist(QString title)
