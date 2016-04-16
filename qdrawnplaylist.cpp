@@ -5,6 +5,7 @@
 #include <QKeyEvent>
 #include "qdrawnplaylist.h"
 #include "playlist.h"
+#include "helpers.h"
 
 PlayPainter::PlayPainter(QObject *parent) : QAbstractItemDelegate(parent) {}
 
@@ -33,20 +34,25 @@ void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
         rc.adjust(0, 0, -(3 + queueIndexWidth), 0);
     }
 
+    DisplayParser *dp = playWidget->displayParser();
+    QString text = i->toDisplayString();
+    if (dp)
+        text = dp->parseMetadata(i->metadata(), text, Helpers::AudioFile);
+
     if (i->uuid() == playWidget->nowPlayingItem()) {
          QFont f = playWidget->font();
          f.setBold(true);
          painter->setFont(f);
          painter->setPen(playWidget->palette().link().color());
          painter->drawText(rc, Qt::AlignLeft|Qt::AlignVCenter,
-                           i->toDisplayString());
+                           text);
          painter->setFont(playWidget->font());
     } else {
          painter->setPen(playWidget->palette().text().color());
          QApplication::style()->drawItemText(painter, rc,
                                              Qt::AlignLeft|Qt::AlignVCenter,
                                              playWidget->palette(), true,
-                                             i->toDisplayString());
+                                             text);
     }
 }
 
@@ -94,7 +100,8 @@ void PlayItem::setUuid(QUuid uuid)
 }
 
 
-QDrawnPlaylist::QDrawnPlaylist(QWidget *parent) : QListWidget(parent)
+QDrawnPlaylist::QDrawnPlaylist(QWidget *parent) : QListWidget(parent),
+    displayParser_(NULL)
 {
     setItemDelegate(new PlayPainter(this));
     connect(model(), SIGNAL(rowsMoved(QModelIndex,int,int,QModelIndex,int)),
@@ -188,6 +195,16 @@ void QDrawnPlaylist::fromVMap(const QVariantMap &qvm)
     setUuid(p->uuid());
     setCurrentRow(qvm.value("selected").toInt());
     nowPlayingItem_ = qvm.value("nowplaying").toUuid();
+}
+
+void QDrawnPlaylist::setDisplayParser(DisplayParser *parser)
+{
+    displayParser_ = parser;
+}
+
+DisplayParser *QDrawnPlaylist::displayParser()
+{
+    return displayParser_;
 }
 
 bool QDrawnPlaylist::event(QEvent *e)

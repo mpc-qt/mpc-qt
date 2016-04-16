@@ -4,6 +4,8 @@
 #include <QListWidget>
 #include <QUuid>
 
+class DisplayParser;
+
 class PlayPainter : public QAbstractItemDelegate {
 public:
     PlayPainter(QObject *parent = 0);
@@ -45,6 +47,9 @@ public:
     QVariantMap toVMap() const;
     void fromVMap(const QVariantMap &qvm);
 
+    void setDisplayParser(DisplayParser *parser);
+    DisplayParser *displayParser();
+
 protected:
     bool event(QEvent *e);
 
@@ -52,6 +57,7 @@ private:
     QUuid uuid_;
     QHash <QUuid, PlayItem*> itemsByUuid;
     QUuid nowPlayingItem_;
+    DisplayParser *displayParser_;
 
 signals:
     // for lack of a better term that doesn't conflict with what we already
