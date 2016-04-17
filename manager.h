@@ -27,6 +27,7 @@ public:
     void setMpvWidget(MpvWidget *mpvWidget, bool makeConnections = false);
     void setPlaylistWindow(PlaylistWindow *playlistWindow);
     QUrl nowPlaying();
+    PlaybackState playbackState();
 
 private:
     void fireNowPlayingState();
@@ -133,7 +134,7 @@ private:
 
     double mpvLength;
     double mpvSpeed;
-    PlaybackState playbackState;
+    PlaybackState playbackState_;
 
     QList<QPair<int64_t,QString>> videoList;
     QList<QPair<int64_t,QString>> audioList;

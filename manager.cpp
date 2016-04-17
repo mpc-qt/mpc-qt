@@ -77,6 +77,11 @@ QUrl PlaybackManager::nowPlaying()
     return nowPlaying_;
 }
 
+PlaybackManager::PlaybackState PlaybackManager::playbackState()
+{
+    return playbackState_;
+}
+
 void PlaybackManager::fireNowPlayingState()
 {
     emit nowPlayingChanged(nowPlayingList, nowPlayingItem);
@@ -102,11 +107,11 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
     // indicate a sort-of "requested file change".  Which may introduce a
     // the problem of what do you do if it doesn't follow the usual code path.
     // (ouch!)
-    if (playbackState != StoppedState) {
+    if (playbackState_ != StoppedState) {
         // by setting the state to stopped here, when the finished playback
         // event is received, it will do nothing.
-        playbackState = StoppedState;
-        emit stateChanged(playbackState);
+        playbackState_ = StoppedState;
+        emit stateChanged(playbackState_);
         mpvWidget_->stopPlayback();
     }
     emit fireStartPlayingEvent(what, playlistUuid, itemUuid, isRepeating);
@@ -170,9 +175,9 @@ void PlaybackManager::openFile(QUrl what)
 
 void PlaybackManager::playDiscFiles(QUrl where)
 {
-    if (playbackState != StoppedState) {
-        playbackState = StoppedState;
-        emit stateChanged(playbackState);
+    if (playbackState_ != StoppedState) {
+        playbackState_ = StoppedState;
+        emit stateChanged(playbackState_);
         mpvWidget_->stopPlayback();
     }
     mpvWidget_->discFilesOpen(where.toLocalFile());
@@ -204,13 +209,13 @@ void PlaybackManager::playDevice(QUrl device)
 
 void PlaybackManager::pausePlayer()
 {
-    if (playbackState == PlayingState)
+    if (playbackState_ == PlayingState)
         mpvWidget_->setPaused(true);
 }
 
 void PlaybackManager::unpausePlayer()
 {
-    if (playbackState == PausedState)
+    if (playbackState_ == PausedState)
         mpvWidget_->setPaused(false);
 }
 
@@ -256,8 +261,8 @@ void PlaybackManager::playNextFile()
         mpvWidget_->stopPlayback();
         nowPlaying_.clear();
         nowPlayingItem = QUuid();
-        playbackState = StoppedState;
-        emit stateChanged(playbackState);
+        playbackState_ = StoppedState;
+        emit stateChanged(playbackState_);
     } else {
         nowPlayingItem = uuid;
         startPlayWithUuid(url, nowPlayingList, nowPlayingItem, false);
@@ -272,8 +277,8 @@ void PlaybackManager::playPrevFile()
         mpvWidget_->stopPlayback();
         nowPlaying_.clear();
         nowPlayingItem = QUuid();
-        playbackState = StoppedState;
-        emit stateChanged(playbackState);
+        playbackState_ = StoppedState;
+        emit stateChanged(playbackState_);
         return;
     }
     startPlayWithUuid(url, nowPlayingList, uuid, false);
@@ -372,9 +377,9 @@ void PlaybackManager::setPlaybackPlayTimes(int times)
 
 void PlaybackManager::mpvw_mousePressed()
 {
-    if (playbackState == PlayingState)
+    if (playbackState_ == PlayingState)
         pausePlayer();
-    else if (playbackState == PausedState)
+    else if (playbackState_ == PausedState)
         unpausePlayer();
 }
 
@@ -412,32 +417,32 @@ void PlaybackManager::mpvw_playLengthChanged(double length)
 
 void PlaybackManager::mpvw_playbackLoading()
 {
-    playbackState = BufferingState;
-    emit stateChanged(playbackState);
+    playbackState_ = BufferingState;
+    emit stateChanged(playbackState_);
 }
 
 void PlaybackManager::mpvw_playbackStarted()
 {
-    playbackState = PlayingState;
-    emit stateChanged(playbackState);
+    playbackState_ = PlayingState;
+    emit stateChanged(playbackState_);
     emit playerSettingsRequested();
 }
 
 void PlaybackManager::mpvw_pausedChanged(bool yes)
 {
-    playbackState = yes ? PausedState : PlayingState;
-    emit stateChanged(playbackState);
+    playbackState_ = yes ? PausedState : PlayingState;
+    emit stateChanged(playbackState_);
 }
 
 void PlaybackManager::mpvw_playbackFinished()
 {
-    if (playbackState == StoppedState)
+    if (playbackState_ == StoppedState)
         return; // the playback state change does not need to be processed
 
     if (nowPlayingItem.isNull()) {
         nowPlaying_.clear();
-        playbackState = StoppedState;
-        emit stateChanged(playbackState);
+        playbackState_ = StoppedState;
+        emit stateChanged(playbackState_);
         return;
     }
 
