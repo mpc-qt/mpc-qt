@@ -50,6 +50,7 @@ public slots:
     void changePlaylistSelection(QUuid playlistUuid, QUuid itemUuid);
     void addSimplePlaylist(QStringList data);
     void setDisplayFormatSpecifier(QString fmt);
+    void playCurrentItem();
 
 private slots:
     void on_newTab_clicked();

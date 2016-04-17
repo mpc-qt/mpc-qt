@@ -91,6 +91,7 @@ signals:
     void timeSelected(double time);
     void zoomPresetChanged(int which);
 
+    void playCurrentItemRequested();
     void fireUpdateSize();
 
 public slots:
@@ -175,6 +176,8 @@ private slots:
     void volume_sliderMoved(double position);
 
     void sendUpdateSize();
+
+    void on_actionPlaylistPlayCurrent_triggered();
 
 private:
     Ui::MainWindow *ui;

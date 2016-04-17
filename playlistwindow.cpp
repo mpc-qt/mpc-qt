@@ -203,6 +203,16 @@ void PlaylistWindow::setDisplayFormatSpecifier(QString fmt)
     ui->tabWidget->currentWidget()->update();
 }
 
+void PlaylistWindow::playCurrentItem()
+{
+    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    int i = qdp->currentRow();
+    if (i < 0)
+        return;
+    emit itemDesired(pl->uuid(), pl->itemAt(i)->uuid());
+}
+
 void PlaylistWindow::on_newTab_clicked()
 {
     auto pl = PlaylistCollection::getSingleton()->newPlaylist(tr("New Playlist"));

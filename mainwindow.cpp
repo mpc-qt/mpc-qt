@@ -230,6 +230,7 @@ void MainWindow::globalizeAllActions()
     for (QAction *a : ui->menubar->actions()) {
         addAction(a);
     }
+    addAction(ui->actionPlaylistPlayCurrent);
 }
 
 void MainWindow::setUiDecorationState(DecorationState state)
@@ -981,4 +982,9 @@ void MainWindow::volume_sliderMoved(double position)
 void MainWindow::sendUpdateSize()
 {
     updateSize();
+}
+
+void MainWindow::on_actionPlaylistPlayCurrent_triggered()
+{
+    emit playCurrentItemRequested();
 }
