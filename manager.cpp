@@ -204,12 +204,14 @@ void PlaybackManager::playDevice(QUrl device)
 
 void PlaybackManager::pausePlayer()
 {
-    mpvWidget_->setPaused(true);
+    if (playbackState == PlayingState)
+        mpvWidget_->setPaused(true);
 }
 
 void PlaybackManager::unpausePlayer()
 {
-    mpvWidget_->setPaused(false);
+    if (playbackState == PausedState)
+        mpvWidget_->setPaused(false);
 }
 
 void PlaybackManager::stopPlayer()
