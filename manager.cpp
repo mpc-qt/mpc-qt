@@ -55,6 +55,9 @@ void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)
                 this, &PlaybackManager::mpvw_decoderFramedropsChanged);
         connect(mpvWidget, &MpvWidget::metaDataChanged,
                 this, &PlaybackManager::mpvw_metadataChanged);
+
+        connect(this, &PlaybackManager::hasNoVideo,
+                mpvWidget, &MpvWidget::setDrawLogo);
     }
 }
 
@@ -496,6 +499,10 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
     emit subtitleTracksAvailable(subtitleList);
 
     selectDesiredTracks();
+
+    emit hasNoVideo(videoList.empty());
+    emit hasNoAudio(audioList.empty());
+    emit hasNoSubtitles(subtitleList.empty());
 }
 
 void PlaybackManager::mpvw_videoSizeChanged(QSize size)

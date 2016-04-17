@@ -109,6 +109,9 @@ signals:
     void audioTracksAvailable(QList<QPair<int64_t,QString>> tracks);
     void videoTracksAvailable(QList<QPair<int64_t,QString>> tracks);
     void subtitleTracksAvailable(QList<QPair<int64_t,QString>> tracks);
+    void hasNoVideo(bool empty);
+    void hasNoAudio(bool empty);
+    void hasNoSubtitles(bool empty);
     void nowPlayingChanged(QUuid listUuid, QUuid itemUuid);
     void finishedPlaying(QUuid item);
 

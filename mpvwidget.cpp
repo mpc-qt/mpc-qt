@@ -253,6 +253,11 @@ void MpvWidget::setVideoTrack(int64_t id)
     setMpvPropertyVariant("vid", (long long)id);
 }
 
+void MpvWidget::setDrawLogo(bool yes)
+{
+    drawLogo = yes;
+}
+
 QString MpvWidget::mpvVersion()
 {
     return getMpvPropertyVariant("mpv-version").toString();

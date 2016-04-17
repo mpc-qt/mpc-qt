@@ -42,6 +42,7 @@ public:
     void setAudioTrack(int64_t id);
     void setSubtitleTrack(int64_t id);
     void setVideoTrack(int64_t id);
+    void setDrawLogo(bool yes);
     QString mpvVersion();
     void setVolume(int64_t volume);
     bool eofReached();
