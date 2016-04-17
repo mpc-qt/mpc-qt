@@ -26,13 +26,13 @@ class SingleProcess : public QObject
     Q_OBJECT
 public:
     explicit SingleProcess(QObject *parent = 0);
-    bool hasPrevious(const QStringList &payload);
+    bool sendPayload(const QByteArray &payload);
 
 private:
     void listen();
 
 signals:
-    void payloadReceived(const QStringList &payload);
+    void payloadReceived(const QByteArray &payload);
 
 private slots:
     void server_newConnection();

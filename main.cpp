@@ -5,6 +5,7 @@
 #include <QDir>
 #include <QStandardPaths>
 #include <QUuid>
+#include <QJsonDocument>
 #include "main.h"
 #include "storage.h"
 #include "mainwindow.h"
@@ -41,12 +42,12 @@ Flow::Flow(QObject *owner) :
     settingsWindow(NULL)
 {
     process = new SingleProcess(this);
-    if (process->hasPrevious(makePayload())) {
+    if (process->sendPayload(makePayload())) {
         hasPrevious_ = true;
         return;
     }
-    connect(process, SIGNAL(payloadReceived(QStringList)),
-            this, SLOT(process_payloadRecieved(QStringList)));
+    connect(process, &SingleProcess::payloadReceived,
+            this, &Flow::process_payloadRecieved);
 
     mainWindow = new MainWindow();
     playbackManager = new PlaybackManager(this);
@@ -270,10 +271,14 @@ bool Flow::hasPrevious()
     return hasPrevious_;
 }
 
-QStringList Flow::makePayload() const
+QByteArray Flow::makePayload() const
 {
-    return QStringList() << QDir::currentPath()
-                         << QCoreApplication::arguments().mid(1);
+    QVariantMap map({
+        {"command", QVariant("playFiles")},
+        {"directory", QVariant(QDir::currentPath())},
+        {"files", QVariant(QCoreApplication::arguments().mid(1))}
+    });
+    return QJsonDocument::fromVariant(map).toJson();
 }
 
 QString Flow::pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const
@@ -334,15 +339,25 @@ void Flow::mainwindow_optionsOpenRequested()
     settingsWindow->raise();
 }
 
-void Flow::process_payloadRecieved(const QStringList &payload)
+void Flow::process_payloadRecieved(const QByteArray &payload)
 {
-    QList<QUrl> files;
-    QUrl url;
-    foreach (QString s, payload.mid(1)) {
-        files << QUrl::fromUserInput(s, payload.first());
-    }
-    if (!files.empty()) {
-        playbackManager->openSeveralFiles(files, true);
+    QJsonParseError parseError;
+    QVariantMap map = QJsonDocument::fromJson(payload, &parseError).toVariant().toMap();
+
+    if (!map.contains("command"))
+        return;
+    QString command = map["command"].toString();
+    if (command == "playFiles") {
+        QString workingDirectory = map["directory"].toString();
+        QStringList filesAsText = map["files"].toStringList();
+        QList<QUrl> files;
+        QUrl url;
+        foreach (QString s, filesAsText) {
+            files << QUrl::fromUserInput(s, workingDirectory);
+        }
+        if (!files.empty()) {
+            playbackManager->openSeveralFiles(files, true);
+        }
     }
 }
 

@@ -192,7 +192,7 @@ SingleProcess::SingleProcess(QObject *parent) :
     socketName = QCoreApplication::organizationDomain();
 }
 
-bool SingleProcess::hasPrevious(const QStringList &payload)
+bool SingleProcess::sendPayload(const QByteArray &payload)
 {
     QLocalSocket socket;
     socket.setServerName(socketName);
@@ -201,7 +201,7 @@ bool SingleProcess::hasPrevious(const QStringList &payload)
         listen();
         return false;
     }
-    socket.write(payload.join('\n').toUtf8());
+    socket.write(payload);
     return socket.waitForReadyRead(100);
 }
 
@@ -222,7 +222,7 @@ void SingleProcess::server_newConnection()
         socket->write("ACK");
         socket->flush();
         socket->deleteLater();
-        emit payloadReceived(QString::fromUtf8(data).split('\n'));
+        emit payloadReceived(data);
     });
 }
 

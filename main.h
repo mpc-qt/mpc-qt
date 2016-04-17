@@ -17,7 +17,7 @@ public:
     bool hasPrevious();
 
 private:
-    QStringList makePayload() const;
+    QByteArray makePayload() const;
     QString pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const;
 
 private slots:
@@ -25,7 +25,7 @@ private slots:
     void mainwindow_takeImage();
     void mainwindow_takeImageAutomatically();
     void mainwindow_optionsOpenRequested();
-    void process_payloadRecieved(const QStringList &payload);
+    void process_payloadRecieved(const QByteArray &payload);
     void settingswindow_settingsData(const QVariantMap &settings);
     void settingswindow_screenshotDirectory(const QString &where);
     void settingswindow_encodeDirectory(const QString &where);
