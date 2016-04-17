@@ -66,6 +66,8 @@ void PlaybackManager::setPlaylistWindow(PlaylistWindow *playlistWindow)
     playlistWindow_ = playlistWindow;
     connect(playlistWindow, &PlaylistWindow::itemDesired,
             this, &PlaybackManager::playItem);
+    connect(playlistWindow, &PlaylistWindow::relativeSeekRequested,
+            this, &PlaybackManager::relativeSeek);
     connect(this, &PlaybackManager::nowPlayingChanged,
             playlistWindow, &PlaylistWindow::changePlaylistSelection);
 }
@@ -304,6 +306,11 @@ void PlaybackManager::speedDown()
 void PlaybackManager::speedReset()
 {
     setPlaybackSpeed(1.0);
+}
+
+void PlaybackManager::relativeSeek(bool forwards, bool small)
+{
+    mpvWidget_->seek((forwards ? 1 : -1) * (small ? 1 : 5), small);
 }
 
 void PlaybackManager::setPlaybackSpeed(double speed)

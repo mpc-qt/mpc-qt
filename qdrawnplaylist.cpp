@@ -211,13 +211,26 @@ DisplayParser *QDrawnPlaylist::displayParser()
 
 bool QDrawnPlaylist::event(QEvent *e)
 {
-    if (hasFocus() && e->type() == QEvent::ShortcutOverride) {
+    if (!hasFocus())
+        goto end;
+    if (e->type() == QEvent::ShortcutOverride) {
         QKeyEvent *ke = static_cast<QKeyEvent*>(e);
         if (ke->key() == Qt::Key_PageUp || ke->key() == Qt::Key_PageDown) {
             e->accept();
             return true;
         }
     }
+    if (e->type() == QEvent::KeyPress) {
+        QKeyEvent *ke = static_cast<QKeyEvent*>(e);
+        if (ke->key() == Qt::Key_Left || ke->key() == Qt::Key_Right) {
+            e->accept();
+            emit relativeSeekRequested(
+                        ke->key() == Qt::Key_Right,
+                        (ke->modifiers() & Qt::ShiftModifier) > 0);
+            return true;
+        }
+    }
+    end:
     return QListWidget::event(e);
 }
 

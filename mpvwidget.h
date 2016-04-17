@@ -26,6 +26,7 @@ public:
     void stopPlayback();
     void stepBackward();
     void stepForward();
+    void seek(double amount, bool exact);
     void screenshot(const QString &fileName, bool subtitles);
     void setLogoUrl(const QString &filename);
 

@@ -143,6 +143,8 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
         qdp->setDisplayParser(&displayParser);
         qdp->fromVMap(v.toMap());
         connect(qdp, &QDrawnPlaylist::itemDesired, this, &PlaylistWindow::itemDesired);
+        connect(qdp, &QDrawnPlaylist::relativeSeekRequested,
+                this, &PlaylistWindow::relativeSeekRequested);
         auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
         ui->tabWidget->addTab(qdp, pl->title());
         widgets.insert(pl->uuid(), qdp);
@@ -170,6 +172,8 @@ void PlaylistWindow::addNewTab(QUuid playlist, QString title)
     qdp->setDisplayParser(&displayParser);
     qdp->setUuid(playlist);
     connect(qdp, &QDrawnPlaylist::itemDesired, this, &PlaylistWindow::itemDesired);
+    connect(qdp, &QDrawnPlaylist::relativeSeekRequested,
+            this, &PlaylistWindow::relativeSeekRequested);
     widgets.insert(playlist, qdp);
     ui->tabWidget->addTab(qdp, title);
 }

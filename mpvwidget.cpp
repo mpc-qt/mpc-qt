@@ -163,6 +163,14 @@ void MpvWidget::stepForward()
     emit ctrlCommand("frame_step");
 }
 
+void MpvWidget::seek(double amount, bool exact)
+{
+    QVariantList payload({"seek", amount});
+    if (exact)
+        payload.append("exact");
+    emit ctrlCommand(payload);
+}
+
 void MpvWidget::screenshot(const QString &fileName, bool subtitles)
 {
     emit ctrlSetOptionVariant("screenshot-template", QString(fileName).replace("%","%%"));

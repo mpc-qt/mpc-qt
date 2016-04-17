@@ -44,6 +44,7 @@ signals:
     void itemDesired(QUuid playlistUuid, QUuid itemUuid);
     void importPlaylist(QString fname);
     void exportPlaylist(QString fname, QStringList items);
+    void relativeSeekRequested(bool fowards, bool small);
 
 public slots:
     void changePlaylistSelection(QUuid playlistUuid, QUuid itemUuid);
