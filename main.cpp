@@ -41,12 +41,12 @@ Flow::Flow(QObject *owner) :
     QObject(owner), process(NULL), mainWindow(NULL), playbackManager(NULL),
     settingsWindow(NULL)
 {
-    process = new SingleProcess(this);
+    process = new JsonServer(this);
     if (process->sendPayload(makePayload())) {
         hasPrevious_ = true;
         return;
     }
-    connect(process, &SingleProcess::payloadReceived,
+    connect(process, &JsonServer::payloadReceived,
             this, &Flow::process_payloadRecieved);
 
     mainWindow = new MainWindow();

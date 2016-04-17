@@ -21,11 +21,11 @@ namespace Helpers {
                         double timeEnd);
 }
 
-class SingleProcess : public QObject
+class JsonServer : public QObject
 {
     Q_OBJECT
 public:
-    explicit SingleProcess(QObject *parent = 0);
+    explicit JsonServer(QObject *parent = 0);
     bool sendPayload(const QByteArray &payload);
 
 private:

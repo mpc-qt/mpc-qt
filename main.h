@@ -36,7 +36,7 @@ private slots:
     void exportPlaylist(QString fname, QStringList items);
 
 private:
-    SingleProcess *process;
+    JsonServer *process;
     MainWindow *mainWindow;
     PlaybackManager *playbackManager;
     SettingsWindow *settingsWindow;

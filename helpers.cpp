@@ -186,13 +186,13 @@ QString Helpers::parseFormat(QString fmt, QString fileName,
 
 
 
-SingleProcess::SingleProcess(QObject *parent) :
+JsonServer::JsonServer(QObject *parent) :
     QObject(parent)
 {
     socketName = QCoreApplication::organizationDomain();
 }
 
-bool SingleProcess::sendPayload(const QByteArray &payload)
+bool JsonServer::sendPayload(const QByteArray &payload)
 {
     QLocalSocket socket;
     socket.setServerName(socketName);
@@ -205,16 +205,16 @@ bool SingleProcess::sendPayload(const QByteArray &payload)
     return socket.waitForReadyRead(100);
 }
 
-void SingleProcess::listen()
+void JsonServer::listen()
 {
     server = new QLocalServer(this);
     server->removeServer(socketName);
     server->listen(socketName);
     connect(server, &QLocalServer::newConnection,
-            this, &SingleProcess::server_newConnection);
+            this, &JsonServer::server_newConnection);
 }
 
-void SingleProcess::server_newConnection()
+void JsonServer::server_newConnection()
 {
     QLocalSocket *socket = server->nextPendingConnection();
     connect(socket, &QLocalSocket::readyRead, [=]() {
