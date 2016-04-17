@@ -33,6 +33,9 @@ public:
     QVariantList tabsToVList() const;
     void tabsFromVList(const QVariantList &qvl);
 
+    void selectNext();
+    void selectPrevious();
+
 protected:
     void dragEnterEvent(QDragEnterEvent *event);
     void dropEvent(QDropEvent *event);

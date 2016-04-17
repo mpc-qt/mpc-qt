@@ -153,6 +153,22 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
         addNewTab(QUuid(), tr("Quick Playlist"));
 }
 
+void PlaylistWindow::selectNext()
+{
+    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    int index = qdp->currentRow();
+    if (index < qdp->count())
+        qdp->setCurrentRow(index + 1);
+}
+
+void PlaylistWindow::selectPrevious()
+{
+    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    int index = qdp->currentRow();
+    if (index > 0)
+        qdp->setCurrentRow(index - 1);
+}
+
 void PlaylistWindow::dragEnterEvent(QDragEnterEvent *event)
 {
     if (event->mimeData()->hasUrls())
