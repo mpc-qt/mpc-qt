@@ -16,6 +16,7 @@ static void* GLAPIENTRY glMPGetNativeDisplay(const char* name) {
     if (!strcmp(name, "X11")) {
         return (void*)QX11Info::display();
     }
+    return NULL;
 }
 
 static void *get_proc_address(void *ctx, const char *name) {
