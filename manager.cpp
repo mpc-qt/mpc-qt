@@ -8,7 +8,8 @@ using namespace Helpers;
 
 
 PlaybackManager::PlaybackManager(QObject *parent) :
-    QObject(parent), mpvSpeed(1.0), playbackPlayTimes(1)
+    QObject(parent), mpvSpeed(1.0), playbackPlayTimes(1),
+    playbackState_(StoppedState)
 {
     connect(this, &PlaybackManager::fireStartPlayingEvent,
             this, &PlaybackManager::mpvw_startPlaying,

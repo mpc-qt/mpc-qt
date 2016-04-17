@@ -382,6 +382,17 @@ void Flow::process_payloadRecieved(const QByteArray &payload)
             mainWindow->playCurrentItemRequested();
     } else if (command == "repeat") {
         playbackManager->repeatThisFile();
+    } else if (command == "togglePlayback") {
+        switch (playbackManager->playbackState()) {
+        case PlaybackManager::StoppedState:
+            mainWindow->playCurrentItemRequested();
+            break;
+        case PlaybackManager::PausedState:
+            playbackManager->unpausePlayer();
+            break;
+        default:
+            playbackManager->pausePlayer();
+        }
     }
 }
 
