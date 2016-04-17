@@ -55,4 +55,5 @@ OTHER_FILES += \
 
 DISTFILES += \
     generate-localinstall-desktop.py \
-    DOCS/codebase2.svg
+    DOCS/codebase2.svg \
+    DOCS/ipc.md
