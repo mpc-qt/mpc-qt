@@ -358,6 +358,24 @@ void Flow::process_payloadRecieved(const QByteArray &payload)
         if (!files.empty()) {
             playbackManager->openSeveralFiles(files, true);
         }
+    } else if (command == "play") {
+        QUrl url = map["file"].toString();
+        if (!url.isEmpty())
+            playbackManager->openFile(url);
+    } else if (command == "pause") {
+        playbackManager->pausePlayer();
+    } else if (command == "unpause") {
+        playbackManager->unpausePlayer();
+    } else if (command == "start") {
+        mainWindow->playCurrentItemRequested();
+    } else if (command == "stop") {
+        playbackManager->stopPlayer();
+    } else if (command == "next") {
+        playbackManager->playNextFile();
+    } else if (command == "previous") {
+        playbackManager->playPrevFile();
+    } else if (command == "repeat") {
+        playbackManager->repeatThisFile();
     }
 }
 
