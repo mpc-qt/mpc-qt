@@ -251,6 +251,7 @@ void PlaybackManager::playNextFile()
     QUuid uuid = playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
     QUrl url = playlistWindow_->getUrlOf(nowPlayingList, uuid);
     if (url.isEmpty()) {
+        mpvWidget_->stopPlayback();
         nowPlaying_.clear();
         nowPlayingItem = QUuid();
         playbackState = StoppedState;
@@ -264,11 +265,15 @@ void PlaybackManager::playNextFile()
 void PlaybackManager::playPrevFile()
 {
     QUuid uuid = playlistWindow_->getItemBefore(nowPlayingList, nowPlayingItem);
-    if (uuid.isNull())
-        return;
     QUrl url = playlistWindow_->getUrlOf(nowPlayingList, uuid);
-    if (url.isEmpty())
+    if (url.isEmpty()) {
+        mpvWidget_->stopPlayback();
+        nowPlaying_.clear();
+        nowPlayingItem = QUuid();
+        playbackState = StoppedState;
+        emit stateChanged(playbackState);
         return;
+    }
     startPlayWithUuid(url, nowPlayingList, uuid, false);
 }
 

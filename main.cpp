@@ -371,9 +371,15 @@ void Flow::process_payloadRecieved(const QByteArray &payload)
     } else if (command == "stop") {
         playbackManager->stopPlayer();
     } else if (command == "next") {
-        playbackManager->playNextFile();
+        if (!playbackManager->nowPlaying().isEmpty())
+            playbackManager->playNextFile();
+        else if (map.value("autostart", true).toBool())
+            mainWindow->playCurrentItemRequested();
     } else if (command == "previous") {
-        playbackManager->playPrevFile();
+        if (!playbackManager->nowPlaying().isEmpty())
+            playbackManager->playPrevFile();
+        else if (map.value("autostart", true).toBool())
+            mainWindow->playCurrentItemRequested();
     } else if (command == "repeat") {
         playbackManager->repeatThisFile();
     }
