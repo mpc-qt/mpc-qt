@@ -331,12 +331,20 @@ void MainWindow::updateSize(bool first_run)
                                       desktop->screenNumber(QCursor::pos()))
                                 : desktop->availableGeometry(this);
 
+    // remove the window frame size from the size available
+    QSize fudgeFactor = this->frameGeometry().size() - this->geometry().size();
+    available.adjust(0,0, -fudgeFactor.width(), -fudgeFactor.height());
+
+    // calculate player size
     qreal ratio = devicePixelRatio();
     QSize player = isPlaying ? mpvw->videoSize()/ratio : noVideoSize();
     double factor = isPlaying ? sizeFactor() :
                                   std::max(1.0, sizeFactor());
 
-    QSize fudgeFactor = size() - mpvw->size();
+    // calculate the amount taken by widgets outside the video frame
+    fudgeFactor = this->geometry().size() - mpvw->size();
+
+    // calculate desired client size, depending upon the zoom mode
     QSize wanted, desired;
     if (zoomMode == RegularZoom) {
         wanted = QSize(player.width()*factor + 0.5,
@@ -379,6 +387,12 @@ void MainWindow::updateSize(bool first_run)
     }
     qDebug() << "wanted size" << wanted;
     desired = wanted + fudgeFactor;
+
+    // limit window to available desktop area
+    if (desired.height() > available.height())
+        desired.setHeight(available.height());
+    if (desired.width() > available.width())
+        desired.setWidth(available.width());
 
     setGeometry(QStyle::alignedRect(
                     Qt::LeftToRight, Qt::AlignCenter, desired, available));
