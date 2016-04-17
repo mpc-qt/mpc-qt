@@ -15,7 +15,6 @@
 #include <QDesktopServices>
 #include <QMessageBox>
 #include <QLibraryInfo>
-#include <QDebug>
 
 using namespace Helpers;
 
@@ -320,7 +319,6 @@ void MainWindow::updateFramedrops()
 void MainWindow::updateSize(bool first_run)
 {
     if (zoomMode == FitToWindow || fullscreenMode() || isMaximized()) {
-        qDebug() << "opting out of zoom";
         ui->infoSection->layout()->update();
         return;
     }
@@ -349,43 +347,34 @@ void MainWindow::updateSize(bool first_run)
     if (zoomMode == RegularZoom) {
         wanted = QSize(player.width()*factor + 0.5,
                        player.height()*factor + 0.5);
-        qDebug() << "regular zoom" << wanted;
     } else {
         wanted = (available.size() - fudgeFactor) * fitFactor_;
-        qDebug() << "autofitting" << player << wanted;
         if (zoomMode == Autofit) {
             wanted = player.scaled(wanted.width(), wanted.height(),
                                    Qt::KeepAspectRatio);
         } else if (zoomMode == AutofitLarger) {
-            qDebug() << "autofitting larger";
             if (wanted.height() > player.height()
                     || wanted.width() > player.width()) {
                 // window is larger than player size, so set to player size
-                qDebug() << "larger";
                 wanted = player;
             } else {
                 // window is smaller than player size, so limit new window
                 // size to contain a player rectangle
-                qDebug() << "smaller";
                 wanted = player.scaled(wanted.width(), wanted.height(),
                                        Qt::KeepAspectRatio);
             }
-            qDebug() << wanted;
         } else { // zoomMode == AutofitSmaller
-            qDebug() << "autofitting smaller";
             if (player.height() < wanted.height()
                     || player.width() < wanted.width()) {
-                qDebug() << "smaller";
                 // player size is smaller than wanted window, so make it larger
                 wanted = player.scaled(wanted.width(), wanted.height(),
                                        Qt::KeepAspectRatioByExpanding);
             } else {
-                qDebug() << "larger";
+                // player size is larger than wanted, so use the player size
                 wanted = player;
             }
         }
     }
-    qDebug() << "wanted size" << wanted;
     desired = wanted + fudgeFactor;
 
     // limit window to available desktop area
