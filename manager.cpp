@@ -125,15 +125,15 @@ void PlaybackManager::selectDesiredTracks()
         return QStringList(s.split(' ').mid(1)).join("");
     };
     auto findIdBySecond = [&](QList<QPair<int64_t,QString>> list,
-                                   QString needle) {
+                                   QString needle) -> int64_t {
         if (list.isEmpty() || (needle = mangle(needle)).isEmpty())
-            return -1l;
+            return -1;
         for (int i = 0; i < list.count(); i++) {
             if (mangle(list[i].second) == needle) {
                 return list[i].first;
             }
         }
-        return -1l;
+        return -1;
     };
     int64_t videoId = findIdBySecond(videoList, videoListSelected);
     int64_t audioId = findIdBySecond(audioList, audioListSelected);
@@ -249,7 +249,7 @@ void PlaybackManager::navigateToPrevChapter()
 {
     int64_t chapter = mpvWidget_->chapter();
     if (chapter > 0)
-        navigateToChapter(std::max(0l, chapter - 1));
+        navigateToChapter(std::max((int64_t)0, chapter - 1));
     else
         playPrevFile();
 }
