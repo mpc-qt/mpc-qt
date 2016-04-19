@@ -14,7 +14,7 @@
    <bool>true</bool>
   </property>
   <property name="windowTitle">
-   <string>Play&amp;list</string>
+   <string>P&amp;laylist</string>
   </property>
   <widget class="QWidget" name="contents">
    <layout class="QVBoxLayout" name="verticalLayout">
