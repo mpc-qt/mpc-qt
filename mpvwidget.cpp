@@ -27,7 +27,7 @@ static void* GLAPIENTRY glMPGetNativeDisplay(const char* name) {
     }
 #endif
 #ifdef Q_OS_WIN
-    if (!strcmp(name "IDirect3DDevice9")) {
+    if (!strcmp(name, "IDirect3DDevice9")) {
         // Do something here ?
     }
 #endif

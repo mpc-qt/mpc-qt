@@ -4,7 +4,11 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network opengl x11extras
+QT       += core gui network
+
+!win32 {
+QT += x11extras
+}
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -12,8 +16,17 @@ TARGET = mpc-qt
 TEMPLATE = app
 
 CONFIG += c++11
+
+!win32 {
 CONFIG += link_pkgconfig
 PKGCONFIG += mpv
+}
+
+win32 {
+LIBS += -L$$PWD/mpv-dev/lib/ -llibmpv
+INCLUDEPATH += $$PWD/mpv-dev/include
+DEPENDPATH += $$PWD/mpv-dev
+}
 
 SOURCES += main.cpp\
     mpvwidget.cpp \

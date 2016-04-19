@@ -95,8 +95,23 @@ This will search the filesystem for the needed binaries and create the file
 `Media Player Classic Qute Theater.desktop`, a usuable `.desktop` file, even
 if you forgot to (or can't) run ldconfig.
 
+## Compiling on Windows
+
+While this program is meant for Linux, it is possible to compile it on Windows
+due to the largely cross-platform Qt toolkit.  After cloning this repository,
+download libmpv from the [mpv windows release page], and extract it somewhere.
+
+Place the libaries for your architechture from mpv-dev.7z (e.g.
+`mpv-dev.7z/32`) into `mpv-dev/lib`.  Then place the include files from
+mpv-dev.7z (usually at `mpv-dev.zip/include`) into `mpv-dev/include/mpv`.
+
+Compile with the mingw32 edition of Qt Creator.
+
+
 [Media Player Classic Home Cinema]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
 [mpv-build]:https://github.com/mpv-player/mpv-build
 [bomi]:https://github.com/xylosper/bomi
 [baka]:https://github.com/u8sand/Baka-MPlayer
+[mpv windows release page]:https://mpv.srsfckn.biz/
+
