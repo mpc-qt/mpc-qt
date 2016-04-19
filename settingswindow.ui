@@ -144,7 +144,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>9</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -613,6 +613,16 @@ media file played</string>
                  <string>Auto zoom</string>
                 </property>
                 <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QLabel" name="playbackAutozoomWarn">
+                <property name="text">
+                 <string>Autofitting in tiling window managers requires that the window be in floating mode.</string>
+                </property>
+                <property name="wordWrap">
                  <bool>true</bool>
                 </property>
                </widget>

@@ -170,6 +170,8 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     };
     if (isTilingDesktop())
         ui->playbackAutoZoom->setChecked(false);
+#else
+    ui->playbackAutozoomWarn->setVisible(false);
 #endif
 
     ui->screenshotDirectoryValue->setPlaceholderText(
