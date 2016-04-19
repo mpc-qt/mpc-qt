@@ -1,7 +1,10 @@
 // Portions of code in this module came from the examples directory in mpv's
 // git repo.  Reworked by me.
 
+#include <QtGlobal>
+#ifdef Q_OS_LINUX
 #include <QtX11Extras/QX11Info>
+#endif
 #include <QThread>
 #include <QOpenGLContext>
 #include <QMetaObject>
@@ -12,17 +15,29 @@
 #include "mpvwidget.h"
 #include "helpers.h"
 
+#ifndef GLAPIENTRY
+// On Windows, GLAPIENTRY may sometimes conveniently go missing
+#define GLAPIENTRY __stdcall
+#endif
+
 static void* GLAPIENTRY glMPGetNativeDisplay(const char* name) {
-    if (!strcmp(name, "X11")) {
+#ifdef Q_OS_LINUX
+    if (!strcmp(name, "x11")) {
         return (void*)QX11Info::display();
     }
+#endif
+#ifdef Q_OS_WIN
+    if (!strcmp(name "IDirect3DDevice9")) {
+        // Do something here ?
+    }
+#endif
     return NULL;
 }
 
 static void *get_proc_address(void *ctx, const char *name) {
     (void)ctx;
     auto glctx = QOpenGLContext::currentContext();
-    if (!strcmp(name,__STRING(glMPGetNativeDisplay)))
+    if (!strcmp(name, "glMPGetNativeDisplay"))
             return (void*)glMPGetNativeDisplay;
     return glctx ? (void*)glctx->getProcAddress(QByteArray(name)) : NULL;
 }
@@ -401,8 +416,10 @@ void MpvWidget::paintGL()
     if (!drawLogo) {
         mpv_opengl_cb_draw(glMpv, defaultFramebufferObject(),
                            glWidth, -glHeight);
+#ifndef Q_OS_WIN
         context()->swapBuffers(context()->surface());
         mpv_opengl_cb_report_flip(glMpv, 0);
+#endif
     } else {
         logo->paintGL();
     }
