@@ -32,10 +32,16 @@ Makefile*
 
 #QtCtreator Qml
 *.qmlproject.user
-*.qmlproject.user.* 
+*.qmlproject.user.*
 
 #Python
 *.pyc
 
 #.desktop
 *.desktop
+
+# qmake
+/release/
+/debug/
+/object_script.*.Debug
+/object_script.*.Release
