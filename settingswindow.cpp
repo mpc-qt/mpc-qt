@@ -170,7 +170,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
         for (QString wm: tilers) {
             QProcess process;
             process.start("pgrep", QStringList({wm}));
-            process.waitForReadyRead();
+            process.waitForFinished();
             if (!process.readAllStandardOutput().isEmpty())
                 return true;
         }
