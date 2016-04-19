@@ -973,6 +973,10 @@ void MainWindow::on_play_clicked()
         emit unpaused();
         isPaused = false;
         ui->pause->setChecked(false);
+    } else {
+        emit paused();
+        isPaused = true;
+        ui->pause->setChecked(true);
     }
     on_actionPlayRateReset_triggered();
 }
