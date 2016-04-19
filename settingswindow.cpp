@@ -2,6 +2,7 @@
 #include <QStandardPaths>
 #include <QFileInfo>
 #include <QFileDialog>
+#include <QProcess>
 #include <QProcessEnvironment>
 #include "settingswindow.h"
 #include "ui_settingswindow.h"
@@ -166,6 +167,13 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
         for (QString wm : tilers)
             if (desktop.contains(wm))
                 return true;
+        for (QString wm: tilers) {
+            QProcess process;
+            process.start("pgrep", QStringList({wm}));
+            process.waitForReadyRead();
+            if (!process.readAllStandardOutput().isEmpty())
+                return true;
+        }
         return false;
     };
     if (isTilingDesktop())
