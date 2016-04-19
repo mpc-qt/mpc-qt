@@ -55,6 +55,7 @@ signals:
 
     void logoSource(const QString &s);
     void playbackPlayTimes(int count);
+    void playbackSeekGlobally(bool yes);
     void zoomPreset(int which, double fitFactor);
     void voCommandLine(const QString &s);
     void framedropMode(const QString &s);

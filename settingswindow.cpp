@@ -275,6 +275,7 @@ void SettingsWindow::sendSignals()
     emit logoSource(selectedLogo());
     emit playbackPlayTimes(WIDGET_LOOKUP(ui->playbackRepeatForever).toBool() ?
                            0 : WIDGET_LOOKUP(ui->playbackPlayAmount).toInt());
+    emit playbackSeekGlobally(WIDGET_LOOKUP(ui->playbackSeekGlobally).toBool());
 
     double factor = WIDGET_LOOKUP(ui->playbackAutoFitFactor).toInt() / 100.0;
 

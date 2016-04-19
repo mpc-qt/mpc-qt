@@ -85,6 +85,8 @@ Flow::Flow(QObject *owner) :
             playbackManager, &PlaybackManager::speedUp);
     connect(mainWindow, &MainWindow::speedReset,
             playbackManager, &PlaybackManager::speedReset);
+    connect(mainWindow, &MainWindow::relativeSeek,
+            playbackManager, &PlaybackManager::relativeSeek);
     connect(mainWindow, &MainWindow::audioTrackSelected,
             playbackManager, &PlaybackManager::setAudioTrack);
     connect(mainWindow, &MainWindow::subtitleTrackSelected,
@@ -149,6 +151,8 @@ Flow::Flow(QObject *owner) :
     // settings -> mainwindow
     connect(settingsWindow, &SettingsWindow::zoomPreset,
             mainWindow, &MainWindow::setZoomPreset);
+    connect(settingsWindow, &SettingsWindow::playbackSeekGlobally,
+            mainWindow, &MainWindow::setGlobalSeek);
 
     // settings -> mpvwidget
     auto mpvw = mainWindow->mpvWidget();
@@ -192,6 +196,8 @@ Flow::Flow(QObject *owner) :
     // settings -> playlistWindow
     connect(settingsWindow, &SettingsWindow::playlistFormat,
             mainWindow->playlistWindow(), &PlaylistWindow::setDisplayFormatSpecifier);
+    connect(settingsWindow, &SettingsWindow::playbackSeekGlobally,
+            mainWindow->playlistWindow(), &PlaylistWindow::setGlobalSeek);
 
     // settings -> manager
     connect(settingsWindow, &SettingsWindow::playbackPlayTimes,

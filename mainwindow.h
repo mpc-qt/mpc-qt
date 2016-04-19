@@ -80,6 +80,7 @@ signals:
     void speedDown();
     void speedUp();
     void speedReset();
+    void relativeSeek(bool forwards, bool small);
     void audioTrackSelected(int64_t id);
     void subtitleTrackSelected(int64_t id);
     void videoTrackSelected(int64_t id);
@@ -105,6 +106,7 @@ public slots:
     void setZoomPreset(int which, double fitFactor = -1.0);
     void setPlaybackState(PlaybackManager::PlaybackState state);
     void setPlaybackType(PlaybackManager::PlaybackType type);
+    void setGlobalSeek(bool yes);
     void setChapters(QList<QPair<double,QString>> chapters);
     void setAudioTracks(QList<QPair<int64_t,QString>> tracks);
     void setVideoTracks(QList<QPair<int64_t,QString>> tracks);
@@ -160,6 +162,10 @@ private slots:
     void on_actionPlayRateDecrease_triggered();
     void on_actionPlayRateIncrease_triggered();
     void on_actionPlayRateReset_triggered();
+    void on_actionPlaySeekForwards_triggered();
+    void on_actionPlaySeekBackwards_triggered();
+    void on_actionPlaySeekForwardsFine_triggered();
+    void on_actionPlaySeekBackwardsFine_triggered();
 
     void on_actionPlayVolumeUp_triggered();
     void on_actionPlayVolumeDown_triggered();

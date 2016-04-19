@@ -144,7 +144,7 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
         qdp->fromVMap(v.toMap());
         connect(qdp, &QDrawnPlaylist::itemDesired, this, &PlaylistWindow::itemDesired);
         connect(qdp, &QDrawnPlaylist::relativeSeekRequested,
-                this, &PlaylistWindow::relativeSeekRequested);
+                this, &PlaylistWindow::self_relativeSeekRequested);
         auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
         ui->tabWidget->addTab(qdp, pl->title());
         widgets.insert(pl->uuid(), qdp);
@@ -189,7 +189,7 @@ void PlaylistWindow::addNewTab(QUuid playlist, QString title)
     qdp->setUuid(playlist);
     connect(qdp, &QDrawnPlaylist::itemDesired, this, &PlaylistWindow::itemDesired);
     connect(qdp, &QDrawnPlaylist::relativeSeekRequested,
-            this, &PlaylistWindow::relativeSeekRequested);
+            this, &PlaylistWindow::self_relativeSeekRequested);
     widgets.insert(playlist, qdp);
     ui->tabWidget->addTab(qdp, title);
 }
@@ -227,6 +227,17 @@ void PlaylistWindow::playCurrentItem()
     if (i < 0)
         return;
     emit itemDesired(pl->uuid(), pl->itemAt(i)->uuid());
+}
+
+void PlaylistWindow::setGlobalSeek(bool yes)
+{
+    globalSeek = yes;
+}
+
+void PlaylistWindow::self_relativeSeekRequested(bool forwards, bool small)
+{
+    if (!globalSeek)
+        emit relativeSeekRequested(forwards, small);
 }
 
 void PlaylistWindow::on_newTab_clicked()

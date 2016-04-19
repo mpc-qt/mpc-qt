@@ -1334,6 +1334,38 @@
     <string>Return</string>
    </property>
   </action>
+  <action name="actionPlaySeekForwards">
+   <property name="text">
+    <string>Seek Forwards</string>
+   </property>
+   <property name="shortcut">
+    <string>Right</string>
+   </property>
+  </action>
+  <action name="actionPlaySeekBackwards">
+   <property name="text">
+    <string>Seek Backwards</string>
+   </property>
+   <property name="shortcut">
+    <string>Left</string>
+   </property>
+  </action>
+  <action name="actionPlaySeekForwardsFine">
+   <property name="text">
+    <string>Seek Forwards Finely</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+Right</string>
+   </property>
+  </action>
+  <action name="actionPlaySeekBackwardsFine">
+   <property name="text">
+    <string>Seek Backwards Fine</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+Left</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="res.qrc"/>

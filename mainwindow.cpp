@@ -230,6 +230,10 @@ void MainWindow::globalizeAllActions()
         addAction(a);
     }
     addAction(ui->actionPlaylistPlayCurrent);
+    addAction(ui->actionPlaySeekForwards);
+    addAction(ui->actionPlaySeekForwardsFine);
+    addAction(ui->actionPlaySeekBackwards);
+    addAction(ui->actionPlaySeekBackwardsFine);
 }
 
 void MainWindow::setUiDecorationState(DecorationState state)
@@ -499,6 +503,14 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
 void MainWindow::setPlaybackType(PlaybackManager::PlaybackType type)
 {
     setUiEnabledState(type != PlaybackManager::None);
+}
+
+void MainWindow::setGlobalSeek(bool yes)
+{
+    ui->actionPlaySeekForwards->setEnabled(yes);
+    ui->actionPlaySeekForwardsFine->setEnabled(yes);
+    ui->actionPlaySeekBackwards->setEnabled(yes);
+    ui->actionPlaySeekBackwardsFine->setEnabled(yes);
 }
 
 void MainWindow::setChapters(QList<QPair<double, QString>> chapters)
@@ -892,6 +904,26 @@ void MainWindow::on_actionPlayRateIncrease_triggered()
 void MainWindow::on_actionPlayRateReset_triggered()
 {
     emit speedReset();
+}
+
+void MainWindow::on_actionPlaySeekForwards_triggered()
+{
+    emit relativeSeek(true, false);
+}
+
+void MainWindow::on_actionPlaySeekBackwards_triggered()
+{
+    emit relativeSeek(false, false);
+}
+
+void MainWindow::on_actionPlaySeekForwardsFine_triggered()
+{
+    emit relativeSeek(true, true);
+}
+
+void MainWindow::on_actionPlaySeekBackwardsFine_triggered()
+{
+    emit relativeSeek(false, true);
 }
 
 void MainWindow::on_actionPlayVolumeUp_triggered()
