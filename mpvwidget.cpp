@@ -421,7 +421,7 @@ void MpvWidget::paintGL()
         mpv_opengl_cb_report_flip(glMpv, 0);
 #endif
     } else {
-        logo->paintGL();
+        logo->paintGL(this);
     }
 }
 

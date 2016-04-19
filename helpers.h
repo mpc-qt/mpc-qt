@@ -49,14 +49,14 @@ public:
     ~LogoDrawer();
     void setLogoUrl(const QString &filename);
     void resizeGL(int w, int h);
-    void paintGL();
+    void paintGL(QOpenGLWidget *widget);
 
 private:
     void regenerateTexture();
 
 private:
     QRectF logoLocation;
-    QOpenGLTexture *logo;
+    QImage logo;
     QString logoUrl;
 };
 

@@ -3,6 +3,7 @@
 #include <QApplication>
 #include <QLocalServer>
 #include <QLocalSocket>
+#include <QPainter>
 #include <QOpenGLTexture>
 #include <QOpenGLWidget>
 #include "helpers.h"
@@ -234,8 +235,7 @@ LogoDrawer::LogoDrawer(QObject *parent)
 
 LogoDrawer::~LogoDrawer()
 {
-    if (logo)
-        delete logo;
+
 }
 
 void LogoDrawer::setLogoUrl(const QString &filename)
@@ -247,15 +247,15 @@ void LogoDrawer::setLogoUrl(const QString &filename)
 
 void LogoDrawer::resizeGL(int w, int h)
 {
-    float ratioImg = logo->width() / std::max((float)logo->height(), 1.0f);
+    float ratioImg = logo.width() / std::max((float)logo.height(), 1.0f);
     float ratioWin = w / std::max((float)h, 1.0f);
     int aimWidth;
     int aimHeight;
 
-    if (logo->width() <= w && logo->height() <= h) {
+    if (logo.width() <= w && logo.height() <= h) {
         // fits inside
-        aimWidth = logo->width();
-        aimHeight = logo->height();
+        aimWidth = logo.width();
+        aimHeight = logo.height();
     } else if (ratioImg > ratioWin) {
         // left and right touch
         aimWidth = w;
@@ -272,36 +272,18 @@ void LogoDrawer::resizeGL(int w, int h)
     logoLocation = {-iw/2, -ih/2, iw, ih};
 }
 
-void LogoDrawer::paintGL()
+void LogoDrawer::paintGL(QOpenGLWidget *widget)
 {
-    glClear(GL_COLOR_BUFFER_BIT);
-    glLoadIdentity();
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, logo->textureId());
-    glColor3f(1.0f, 1.0f, 1.0f);
-    glBegin(GL_QUADS);  // eww, quads!
-        glTexCoord2f(0,0);
-            glVertex2f(logoLocation.left(), logoLocation.bottom());
-        glTexCoord2f(1,0);
-            glVertex2f(logoLocation.right(), logoLocation.bottom());
-        glTexCoord2f(1,1);
-            glVertex2f(logoLocation.right(), logoLocation.top());
-        glTexCoord2f(0,1);
-            glVertex2f(logoLocation.left(), logoLocation.top());
-    glEnd();
-    glDisable(GL_TEXTURE_2D);
+    QPainter painter(widget);
+    painter.setWindow(-1, -1, 2, 2);
+    painter.setRenderHint(QPainter::SmoothPixmapTransform);
+    painter.fillRect(QRect(-1, -1, 2, 2), QBrush(QColor(0,0,0)));
+    painter.drawImage(logoLocation, logo);
 }
 
 void LogoDrawer::regenerateTexture()
 {
-    if (logo) {
-        delete logo;
-    }
-    logo = new QOpenGLTexture(QImage(logoUrl),
-                                     QOpenGLTexture::DontGenerateMipMaps);
-    logo->setMinificationFilter(QOpenGLTexture::Linear);
+    logo.load(logoUrl);
 }
 
 LogoWidget::LogoWidget(QWidget *parent)
@@ -340,7 +322,7 @@ void LogoWidget::initializeGL()
 
 void LogoWidget::paintGL()
 {
-    logoDrawer->paintGL();
+    logoDrawer->paintGL(this);
 }
 
 void LogoWidget::resizeGL(int w, int h)
