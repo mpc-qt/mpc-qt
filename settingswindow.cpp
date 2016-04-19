@@ -2,6 +2,7 @@
 #include <QStandardPaths>
 #include <QFileInfo>
 #include <QFileDialog>
+#include <QProcessEnvironment>
 #include "settingswindow.h"
 #include "ui_settingswindow.h"
 #include "helpers.h"
@@ -147,6 +148,29 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->prescalarStack->setCurrentIndex(0);
     ui->audioRendererStack->setCurrentIndex(0);
     setNnedi3Available(false);
+
+#ifdef Q_OS_LINUX
+    // Detect a tiling desktop, and disable autozoom for the default.
+    // Note that this only changes the default; if autozoom is already enabled
+    // in the user's config, the application may still try to use an
+    // autozooming in a tiling context.  And, in fact, it may still do so if
+    // autozoom is enabled after-the-fact.
+    auto isTilingDesktop =[]() {
+        QProcessEnvironment env;
+        QStringList tilers({ "awesome", "bspwm", "dwm", "i3", "larswm", "ion",
+            "qtile", "ratpoison", "stumpwm", "wmii", "xmonad"});
+        QString desktop = env.value("XDG_DESKTOP_SESSION");
+        if (tilers.contains(desktop))
+            return true;
+        desktop = env.value("XDG_DATA_DIRS");
+        for (QString wm : tilers)
+            if (desktop.contains(wm))
+                return true;
+        return false;
+    };
+    if (isTilingDesktop())
+        ui->playbackAutoZoom->setChecked(false);
+#endif
 
     ui->screenshotDirectoryValue->setPlaceholderText(
                 QStandardPaths::writableLocation(
