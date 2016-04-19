@@ -571,12 +571,12 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
 
 void MainWindow::setFps(double fps)
 {
-    ui->framerate->setText(isnan(fps) ? "-" : QString::number(fps, 'f', 2));
+    ui->framerate->setText(std::isnan(fps) ? "-" : QString::number(fps, 'f', 2));
 }
 
 void MainWindow::setAvsync(double sync)
 {
-    ui->avsync->setText(isnan(sync) ? "-" : QString::number(sync, 'f', 3));
+    ui->avsync->setText(std::isnan(sync) ? "-" : QString::number(sync, 'f', 3));
 }
 
 void MainWindow::setDisplayFramedrops(int64_t count)
