@@ -16,15 +16,22 @@ public:
     int run();
     bool hasPrevious();
 
+signals:
+    void recentFilesChanged(QList<TrackInfo> urls);
+
 private:
     QByteArray makePayload() const;
     QString pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const;
+    QVariantList recentToVList() const;
+    void recentFromVList(const QVariantList &list);
 
 private slots:
     void mainwindow_applicationShouldQuit();
+    void mainwindow_recentOpened(const TrackInfo &track);
     void mainwindow_takeImage();
     void mainwindow_takeImageAutomatically();
     void mainwindow_optionsOpenRequested();
+    void manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid);
     void process_payloadRecieved(const QByteArray &payload);
     void settingswindow_settingsData(const QVariantMap &settings);
     void settingswindow_screenshotDirectory(const QString &where);
@@ -42,6 +49,7 @@ private:
     SettingsWindow *settingsWindow;
     Storage storage;
     QVariantMap settings;
+    QList<TrackInfo> recentFiles;
 
     QString screenshotDirectory;
     QString encodeDirectory;

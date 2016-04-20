@@ -49,6 +49,8 @@ Flow::Flow(QObject *owner) :
             this, &Flow::process_payloadRecieved);
 
     mainWindow = new MainWindow();
+    recentFromVList(storage.readVList("recent"));
+    mainWindow->setRecentDocuments(recentFiles);
     playbackManager = new PlaybackManager(this);
     playbackManager->setMpvWidget(mainWindow->mpvWidget(), true);
     playbackManager->setPlaylistWindow(mainWindow->playlistWindow());
@@ -207,6 +209,8 @@ Flow::Flow(QObject *owner) :
             settingsWindow, &SettingsWindow::sendSignals);
 
     // mainwindow -> this
+    connect(mainWindow, &MainWindow::recentOpened,
+            this, &Flow::mainwindow_recentOpened);
     connect(mainWindow, &MainWindow::takeImage,
             this, &Flow::mainwindow_takeImage);
     connect(mainWindow, &MainWindow::takeImageAutomatically,
@@ -215,6 +219,10 @@ Flow::Flow(QObject *owner) :
             this, &Flow::mainwindow_optionsOpenRequested);
     connect(mainWindow, &MainWindow::applicationShouldQuit,
             this, &Flow::mainwindow_applicationShouldQuit);
+
+    // manager -> this
+    connect(playbackManager, &PlaybackManager::nowPlayingChanged,
+            this, &Flow::manager_nowPlayingChanged);
 
     // settings -> this
     connect(settingsWindow, &SettingsWindow::settingsData,
@@ -235,6 +243,10 @@ Flow::Flow(QObject *owner) :
             this, &Flow::importPlaylist);
     connect(mainWindow->playlistWindow(), &PlaylistWindow::exportPlaylist,
             this, &Flow::exportPlaylist);
+
+    // this -> mainwindow
+    connect(this, &Flow::recentFilesChanged,
+            mainWindow, &MainWindow::setRecentDocuments);
 
     // update player framework
     settingsWindow->sendSignals();
@@ -260,6 +272,7 @@ Flow::~Flow()
         settingsWindow = NULL;
     }
     storage.writeVMap("settings", settings);
+    storage.writeVList("recent", recentToVList());
 }
 
 int Flow::run()
@@ -308,9 +321,37 @@ QString Flow::pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles 
     return filePath + "/" + fileName;
 }
 
+QVariantList Flow::recentToVList() const
+{
+    QVariantList l;
+    for (TrackInfo track : recentFiles)
+        l.append(track.toVMap());
+    return l;
+}
+
+void Flow::recentFromVList(const QVariantList &list)
+{
+    recentFiles.clear();
+    for (QVariant item : list) {
+        TrackInfo t;
+        t.fromVMap(item.toMap());
+        recentFiles.append(t);
+    }
+}
+
 void Flow::mainwindow_applicationShouldQuit()
 {
     qApp->quit();
+}
+
+void Flow::mainwindow_recentOpened(const TrackInfo &track)
+{
+    // attempt to play the old one if possible, otherwise pretend it's new
+    QUrl old = mainWindow->playlistWindow()->getUrlOf(track.list, track.item);
+    if (!old.isEmpty())
+        playbackManager->playItem(track.list, track.item);
+    else
+        playbackManager->openFile(track.url);
 }
 
 void Flow::mainwindow_takeImage()
@@ -342,6 +383,19 @@ void Flow::mainwindow_optionsOpenRequested()
     settingsWindow->takeSettings(settings);
     settingsWindow->show();
     settingsWindow->raise();
+}
+
+void Flow::manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid)
+{
+    TrackInfo track(url, listUuid, itemUuid);
+    if (recentFiles.contains(track)) {
+        recentFiles.removeAll(track);
+    }
+    recentFiles.insert(0, track);
+    if (recentFiles.size() > 10)
+        recentFiles.removeLast();
+
+    emit recentFilesChanged(recentFiles);
 }
 
 void Flow::process_payloadRecieved(const QByteArray &payload)
