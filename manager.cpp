@@ -85,8 +85,7 @@ PlaybackManager::PlaybackState PlaybackManager::playbackState()
 
 void PlaybackManager::fireNowPlayingState()
 {
-    emit nowPlayingChanged(nowPlayingList, nowPlayingItem);
-    emit nowPlayingUrlChanged(nowPlaying_);
+    emit nowPlayingChanged(nowPlaying_, nowPlayingList, nowPlayingItem);
 }
 
 void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
@@ -185,7 +184,7 @@ void PlaybackManager::playDiscFiles(QUrl where)
     mpvWidget_->discFilesOpen(where.toLocalFile());
     nowPlayingItem = QUuid();
     nowPlayingList = QUuid();
-    emit nowPlayingChanged(QUuid(), QUuid());
+    emit nowPlayingChanged(where, QUuid(), QUuid());
 }
 
 void PlaybackManager::playDisc(QUrl where)

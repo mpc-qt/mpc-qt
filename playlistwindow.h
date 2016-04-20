@@ -50,7 +50,7 @@ signals:
     void relativeSeekRequested(bool fowards, bool small);
 
 public slots:
-    void changePlaylistSelection(QUuid playlistUuid, QUuid itemUuid);
+    void changePlaylistSelection(QUrl itemUrl, QUuid playlistUuid, QUuid itemUuid);
     void addSimplePlaylist(QStringList data);
     void setDisplayFormatSpecifier(QString fmt);
     void playCurrentItem();

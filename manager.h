@@ -114,8 +114,7 @@ signals:
     void hasNoVideo(bool empty);
     void hasNoAudio(bool empty);
     void hasNoSubtitles(bool empty);
-    void nowPlayingChanged(QUuid listUuid, QUuid itemUuid);
-    void nowPlayingUrlChanged(QUrl url);
+    void nowPlayingChanged(QUrl itemUrl, QUuid listUuid, QUuid itemUuid);
     void finishedPlaying(QUuid item);
 
     void fpsChanged(double fps);

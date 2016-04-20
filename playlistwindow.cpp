@@ -194,8 +194,9 @@ void PlaylistWindow::addNewTab(QUuid playlist, QString title)
     ui->tabWidget->addTab(qdp, title);
 }
 
-void PlaylistWindow::changePlaylistSelection(QUuid playlistUuid, QUuid itemUuid)
+void PlaylistWindow::changePlaylistSelection( QUrl itemUrl, QUuid playlistUuid, QUuid itemUuid)
 {
+    (void)itemUrl;
     if (!widgets.contains(playlistUuid))
         return;
     auto qdp = widgets[playlistUuid];
