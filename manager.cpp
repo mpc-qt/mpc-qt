@@ -86,6 +86,7 @@ PlaybackManager::PlaybackState PlaybackManager::playbackState()
 void PlaybackManager::fireNowPlayingState()
 {
     emit nowPlayingChanged(nowPlayingList, nowPlayingItem);
+    emit nowPlayingUrlChanged(nowPlaying_);
 }
 
 void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
