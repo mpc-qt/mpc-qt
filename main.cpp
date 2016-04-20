@@ -41,9 +41,9 @@ Flow::Flow(QObject *owner) :
     settingsWindow(NULL)
 {
     process = new JsonServer(this);
-    hasPrevious_ = process->sendPayload(makePayload();
+    hasPrevious_ = process->sendPayload(makePayload());
     if (hasPrevious_)
-        return true;
+        return;
 
     connect(process, &JsonServer::payloadReceived,
             this, &Flow::process_payloadRecieved);
