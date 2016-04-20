@@ -69,6 +69,7 @@ signals:
     void severalFilesOpened(QList<QUrl> what);
     void dvdbdOpened(QUrl what);
     void streamOpened(QUrl what);
+    void recentOpened(TrackInfo info);
     void takeImage();
     void takeImageAutomatically();
     void optionsOpenRequested();
@@ -96,6 +97,7 @@ signals:
     void fireUpdateSize();
 
 public slots:
+    void setRecentDocuments(QList<TrackInfo> tracks);
     void setTime(double time, double length);
     void setMediaTitle(QString title);
     void setChapterTitle(QString title);

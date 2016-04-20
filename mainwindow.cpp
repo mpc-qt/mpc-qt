@@ -427,6 +427,28 @@ void MainWindow::doMpvSetVolume(int volume)
     mpvw->showMessage(QString("Volume :%1%").arg(volume));
 }
 
+void MainWindow::setRecentDocuments(QList<TrackInfo> tracks)
+{
+    bool isEmpty = tracks.count() == 0;
+    ui->menuFileRecent->clear();
+    ui->menuFileRecent->setDisabled(isEmpty);
+    if (isEmpty)
+        return;
+
+    for (int i = 0; i < tracks.count(); i++) {
+        TrackInfo track = tracks[i];
+        QString displayString = track.url.fileName();
+        QAction *a = new QAction(QString("%1 - %2").arg(i).arg(displayString),
+                                 this);
+        connect(a, &QAction::triggered, [=]() {
+            emit recentOpened(track);
+        });
+        ui->menuFileRecent->addAction(a);
+    }
+    ui->menuFileRecent->addSeparator();
+    ui->menuFileRecent->addAction(ui->actionFileRecentClear);
+}
+
 void MainWindow::setTime(double time, double length)
 {
     positionSlider_->setMaximum(length >= 0 ? length : 0);
