@@ -568,3 +568,27 @@ QString DisplayParser::parseMetadata(QVariantMap metaData,
         return node->output(metaData, displayString, fileType);
     }
 }
+
+TrackInfo::TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item)
+{
+    this->url = url;
+    this->list = list;
+    this->item = item;
+}
+
+QVariantMap TrackInfo::toVMap() const
+{
+    return QVariantMap({{"url", url}, {"list", list}, {"item", item}});
+}
+
+void TrackInfo::fromVMap(const QVariantMap &map)
+{
+    url = map.value("url").toUrl();
+    list = map.value("list").toUuid();
+    item = map.value("item").toUuid();
+}
+
+bool TrackInfo::operator ==(const TrackInfo &track) const
+{
+    return url == track.url;
+}

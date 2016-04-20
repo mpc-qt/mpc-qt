@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QList>
 #include <QUrl>
+#include <QUuid>
 #include <QOpenGLWidget>
 
 class QFileDialog;
@@ -88,6 +89,18 @@ public:
                           Helpers::FileType fileType);
 private:
     DisplayNode *node;
+};
+
+class TrackInfo {
+public:
+    TrackInfo() {}
+    TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item);
+    QUrl url;
+    QUuid list;
+    QUuid item;
+    QVariantMap toVMap() const;
+    void fromVMap(const QVariantMap &map);
+    bool operator ==(const TrackInfo &track) const;
 };
 
 #endif // HELPERS_H
