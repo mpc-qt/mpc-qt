@@ -411,7 +411,7 @@ void SettingsWindow::sendSignals()
         prescalar = 0;
     }
     if (prescalar) {
-        params["prescale"] = WIDGET_TO_TEXT(ui->prescalarMethod);
+        params["prescale-luma"] = WIDGET_TO_TEXT(ui->prescalarMethod);
         params["prescale-passes"] = WIDGET_LOOKUP(ui->prescalarPasses).toString();
         params["prescale-downscaling-threshold"] = WIDGET_LOOKUP(ui->prescalarThreshold).toString();
     }
