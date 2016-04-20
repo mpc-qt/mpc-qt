@@ -11,10 +11,12 @@
 Storage::Storage(QObject *parent) :
     QObject(parent)
 {
-    // This may need patching for OSX
-    QSettings::setDefaultFormat(QSettings::IniFormat);
-    configPath = QFileInfo(QSettings("mpc-qt", "mpc-qt").fileName()).absolutePath() + "/";
-    QDir().mkpath(configPath);
+    // CHECKME: is this the right org domain for OSX?
+    QSettings settings(QSettings::IniFormat,
+                       QSettings::UserScope,
+                       "mpc-qt", "mpc-qt");
+    configPath = QFileInfo(settings.fileName()).absolutePath() + "/";
+     QDir().mkpath(configPath);
 }
 
 void Storage::writeVMap(QString name, const QVariantMap &qvm)
