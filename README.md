@@ -98,15 +98,16 @@ if you forgot to (or can't) run ldconfig.
 ## Compiling on Windows
 
 While this program is meant for Linux, it is possible to compile it on Windows
-due to the largely cross-platform Qt toolkit.  After cloning this repository,
-download libmpv from the [mpv windows release page], and extract it somewhere.
+with the [MSYS2 edition of Qt Creator] due to the largely cross-platform Qt
+toolkit.
 
-Place the libaries for your architechture from mpv-dev.7z (e.g.
-`mpv-dev.7z/32`) into `mpv-dev/lib`.  Then place the include files from
-mpv-dev.7z (usually at `mpv-dev.zip/include`) into `mpv-dev/include/mpv`.
-
-Compile with the mingw32 edition of Qt Creator.
-
+Mpc-Qt can be compiled with a libmpv linked to MSYS2's ffmpeg libraries, or by
+using the prebuilt library from mpv.srsfckn.biz.  To use the prebuilt library
+after cloning this repository, download libmpv from the
+[mpv windows release page], and extract it somewhere.  Place the libaries for
+your architechture from mpv-dev.7z (e.g. `mpv-dev.7z/64`) into `mpv-dev/lib`.
+Then place the include files from mpv-dev.7z (usually at `mpv-dev.zip/include`)
+into `mpv-dev/include/mpv`.  Compile with the 64bit Qt framework as usual.
 
 [Media Player Classic Home Cinema]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
@@ -114,4 +115,4 @@ Compile with the mingw32 edition of Qt Creator.
 [bomi]:https://github.com/xylosper/bomi
 [baka]:https://github.com/u8sand/Baka-MPlayer
 [mpv windows release page]:https://mpv.srsfckn.biz/
-
+[MSYS2 edition of Qt Creator]:https://wiki.qt.io/MSYS2
