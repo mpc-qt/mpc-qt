@@ -37,16 +37,16 @@ int main(int argc, char *argv[])
 }
 
 Flow::Flow(QObject *owner) :
-    QObject(owner), process(NULL), mainWindow(NULL), playbackManager(NULL),
+    QObject(owner), server(NULL), mainWindow(NULL), playbackManager(NULL),
     settingsWindow(NULL)
 {
-    process = new JsonServer(this);
-    hasPrevious_ = process->sendPayload(makePayload());
+    server = new JsonServer(this);
+    hasPrevious_ = server->sendPayload(makePayload());
     if (hasPrevious_)
         return;
 
-    connect(process, &JsonServer::payloadReceived,
-            this, &Flow::process_payloadRecieved);
+    connect(server, &JsonServer::payloadReceived,
+            this, &Flow::server_payloadRecieved);
 
     mainWindow = new MainWindow();
     recentFromVList(storage.readVList("recent"));
@@ -256,9 +256,9 @@ Flow::Flow(QObject *owner) :
 
 Flow::~Flow()
 {
-    if (process) {
-        delete process;
-        process = NULL;
+    if (server) {
+        delete server;
+        server = NULL;
     }
     if (mainWindow) {
         storage.writeVList("playlists", mainWindow->playlistWindow()->tabsToVList());
@@ -282,7 +282,7 @@ int Flow::run()
     mainWindow->playlistWindow()->tabsFromVList(storage.readVList("playlists"));
     mainWindow->show();
     if (!hasPrevious_)
-        process_payloadRecieved(makePayload());
+        server_payloadRecieved(makePayload());
     return qApp->exec();
 }
 
@@ -406,7 +406,7 @@ void Flow::manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid)
     emit recentFilesChanged(recentFiles);
 }
 
-void Flow::process_payloadRecieved(const QByteArray &payload)
+void Flow::server_payloadRecieved(const QByteArray &payload)
 {
     QJsonParseError parseError;
     QVariantMap map = QJsonDocument::fromJson(payload, &parseError).toVariant().toMap();

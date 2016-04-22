@@ -33,7 +33,7 @@ private slots:
     void mainwindow_takeImageAutomatically();
     void mainwindow_optionsOpenRequested();
     void manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid);
-    void process_payloadRecieved(const QByteArray &payload);
+    void server_payloadRecieved(const QByteArray &payload);
     void settingswindow_settingsData(const QVariantMap &settings);
     void settingswindow_screenshotDirectory(const QString &where);
     void settingswindow_encodeDirectory(const QString &where);
@@ -44,7 +44,7 @@ private slots:
     void exportPlaylist(QString fname, QStringList items);
 
 private:
-    JsonServer *process;
+    JsonServer *server;
     MainWindow *mainWindow;
     PlaybackManager *playbackManager;
     SettingsWindow *settingsWindow;
