@@ -28,6 +28,7 @@ private:
 private slots:
     void mainwindow_applicationShouldQuit();
     void mainwindow_recentOpened(const TrackInfo &track);
+    void mainwindow_recentClear();
     void mainwindow_takeImage();
     void mainwindow_takeImageAutomatically();
     void mainwindow_optionsOpenRequested();

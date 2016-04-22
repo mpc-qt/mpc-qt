@@ -211,6 +211,8 @@ Flow::Flow(QObject *owner) :
     // mainwindow -> this
     connect(mainWindow, &MainWindow::recentOpened,
             this, &Flow::mainwindow_recentOpened);
+    connect(mainWindow, &MainWindow::recentClear,
+            this, &Flow::mainwindow_recentClear);
     connect(mainWindow, &MainWindow::takeImage,
             this, &Flow::mainwindow_takeImage);
     connect(mainWindow, &MainWindow::takeImageAutomatically,
@@ -352,6 +354,12 @@ void Flow::mainwindow_recentOpened(const TrackInfo &track)
         playbackManager->playItem(track.list, track.item);
     else
         playbackManager->openFile(track.url);
+}
+
+void Flow::mainwindow_recentClear()
+{
+    recentFiles.clear();
+    mainWindow->setRecentDocuments(recentFiles);
 }
 
 void Flow::mainwindow_takeImage()
