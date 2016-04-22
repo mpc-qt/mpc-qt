@@ -674,6 +674,11 @@ void MainWindow::on_actionFileOpenNetworkStream_triggered()
     qid->show();
 }
 
+void MainWindow::on_actionFileRecentClear_triggered()
+{
+    emit recentClear();
+}
+
 void MainWindow::on_actionFileSaveImage_triggered()
 {
     emit takeImage();

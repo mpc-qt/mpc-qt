@@ -70,6 +70,7 @@ signals:
     void dvdbdOpened(QUrl what);
     void streamOpened(QUrl what);
     void recentOpened(TrackInfo info);
+    void recentClear();
     void takeImage();
     void takeImageAutomatically();
     void optionsOpenRequested();
@@ -125,6 +126,7 @@ private slots:
     void on_actionFileOpenDvdbd_triggered();
     void on_actionFileOpenDirectory_triggered();
     void on_actionFileOpenNetworkStream_triggered();
+    void on_actionFileRecentClear_triggered();
     void on_actionFileSaveImage_triggered();
     void on_actionFileSaveImageAuto_triggered();
     void on_actionFileClose_triggered();
