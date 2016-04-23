@@ -173,7 +173,7 @@ signals:
     void videoSizeChanged(QSize size);
 
 public slots:
-    void create();
+    void create(bool video = true, bool audio = true);
     void observeProperties(const MpvController::PropertyList &properties);
     void setLogLevel(MpvController::LogLevel level);
     mpv_opengl_cb_context *mpvDrawContext();

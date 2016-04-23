@@ -616,7 +616,8 @@ void MpvWidget::self_metadata(QVariantMap metadata)
 
 
 
-MpvController::MpvController(QObject *parent) : QObject(parent)
+MpvController::MpvController(QObject *parent) : QObject(parent),
+    glMpv(NULL), lastVideoSize(0,0)
 {
 }
 
@@ -625,7 +626,7 @@ MpvController::~MpvController()
     mpv_set_wakeup_callback(mpv, NULL, NULL);
 }
 
-void MpvController::create()
+void MpvController::create(bool video, bool audio)
 {
     mpv = mpv::qt::Handle::FromRawHandle(mpv_create());
     if (!mpv)
@@ -636,15 +637,24 @@ void MpvController::create()
 
     setLogLevel(LogTerminalDefault);
 
-    // check for nnedi3
-    if (setOptionVariant("vo", "opengl-cb:prescale=nnedi3") < 0)
-        emit nnedi3Unavailable();
-    setOptionVariant("vo", "opengl-cb");
+    if (!audio) {
+        setOptionVariant("ao", "null");
+        setOptionVariant("no-audio", true);
+    }
+    if (!video) {
+        // NOTE: this completely skips setting up the gl interface.
+        setOptionVariant("vo", "null");
+        setOptionVariant("no-video", true);
+    } else {
+        // check for nnedi3
+        if (setOptionVariant("vo", "opengl-cb:prescale=nnedi3") < 0)
+            emit nnedi3Unavailable();
+        setOptionVariant("vo", "opengl-cb");
 
-    glMpv = (mpv_opengl_cb_context *)mpv_get_sub_api(mpv, MPV_SUB_API_OPENGL_CB);
-    if (!glMpv)
-        throw std::runtime_error("OpenGL not compiled in");
-
+        glMpv = (mpv_opengl_cb_context *)mpv_get_sub_api(mpv, MPV_SUB_API_OPENGL_CB);
+        if (!glMpv)
+            throw std::runtime_error("OpenGL not compiled in");
+    }
     mpv_set_wakeup_callback(mpv, MpvController::mpvWakeup, this);
 }
 
