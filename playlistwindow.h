@@ -54,7 +54,6 @@ public slots:
     void addSimplePlaylist(QStringList data);
     void setDisplayFormatSpecifier(QString fmt);
     void playCurrentItem();
-    void setGlobalSeek(bool yes);
 
 private slots:
     void self_relativeSeekRequested(bool forwards, bool small);
@@ -82,7 +81,6 @@ private:
     DisplayParser displayParser;
 
     QHash<QUuid, QDrawnPlaylist*> widgets;
-    bool globalSeek;
 };
 
 #endif // PLAYLISTWINDOW_H

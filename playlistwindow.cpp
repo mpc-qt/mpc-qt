@@ -230,15 +230,9 @@ void PlaylistWindow::playCurrentItem()
     emit itemDesired(pl->uuid(), pl->itemAt(i)->uuid());
 }
 
-void PlaylistWindow::setGlobalSeek(bool yes)
-{
-    globalSeek = yes;
-}
-
 void PlaylistWindow::self_relativeSeekRequested(bool forwards, bool small)
 {
-    if (!globalSeek)
-        emit relativeSeekRequested(forwards, small);
+    emit relativeSeekRequested(forwards, small);
 }
 
 void PlaylistWindow::on_newTab_clicked()

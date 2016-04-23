@@ -197,8 +197,6 @@ Flow::Flow(QObject *owner) :
     // settings -> playlistWindow
     connect(settingsWindow, &SettingsWindow::playlistFormat,
             mainWindow->playlistWindow(), &PlaylistWindow::setDisplayFormatSpecifier);
-    connect(settingsWindow, &SettingsWindow::playbackSeekGlobally,
-            mainWindow->playlistWindow(), &PlaylistWindow::setGlobalSeek);
 
     // settings -> manager
     connect(settingsWindow, &SettingsWindow::playbackPlayTimes,

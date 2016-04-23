@@ -219,9 +219,6 @@ bool QDrawnPlaylist::event(QEvent *e)
             e->accept();
             return true;
         }
-    }
-    if (e->type() == QEvent::KeyPress) {
-        QKeyEvent *ke = static_cast<QKeyEvent*>(e);
         if (ke->key() == Qt::Key_Left || ke->key() == Qt::Key_Right) {
             e->accept();
             emit relativeSeekRequested(
