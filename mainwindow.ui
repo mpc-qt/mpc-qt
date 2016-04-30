@@ -518,7 +518,7 @@
      <x>0</x>
      <y>0</y>
      <width>590</width>
-     <height>23</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -1360,7 +1360,7 @@
   </action>
   <action name="actionPlaySeekBackwardsFine">
    <property name="text">
-    <string>Seek Backwards Fine</string>
+    <string>Seek Backwards Finely</string>
    </property>
    <property name="shortcut">
     <string>Shift+Left</string>
