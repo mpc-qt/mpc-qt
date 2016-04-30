@@ -145,6 +145,10 @@ Flow::Flow(QObject *owner) :
             settingsWindow, &SettingsWindow::setZoomPreset);
 
     // settings -> mainwindow
+    connect(settingsWindow, &SettingsWindow::mouseWindowedMap,
+            mainWindow, &MainWindow::setWindowedMouseMap);
+    connect(settingsWindow, &SettingsWindow::mouseFullscreenMap,
+            mainWindow, &MainWindow::setFullscreenMouseMap);
     connect(settingsWindow, &SettingsWindow::zoomPreset,
             mainWindow, &MainWindow::setZoomPreset);
     connect(settingsWindow, &SettingsWindow::playbackSeekGlobally,
