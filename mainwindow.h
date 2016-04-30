@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <mpvwidget.h>
 #include <QMenuBar>
+#include "helpers.h"
 #include "qdrawnslider.h"
 #include "manager.h"
 #include "playlistwindow.h"
@@ -31,8 +32,13 @@ public:
 
 protected:
     void closeEvent(QCloseEvent *event);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
+    void wheelEvent(QWheelEvent *event);
 
 private:
+    bool mouseStateEvent(const MouseState &state);
+
     QMediaSlider *positionSlider();
     QVolumeSlider *volumeSlider();
 
@@ -99,6 +105,8 @@ signals:
     void fireUpdateSize();
 
 public slots:
+    void setWindowedMouseMap(const MouseStateMap &map);
+    void setFullscreenMouseMap(const MouseStateMap &map);
     void setRecentDocuments(QList<TrackInfo> tracks);
     void setTime(double time, double length);
     void setMediaTitle(QString title);
@@ -210,6 +218,9 @@ private:
     ZoomMode zoomMode;
     int64_t displayDrops;
     int64_t decoderDrops;
+
+    MouseStateMap mouseMapWindowed;
+    MouseStateMap mouseMapFullscreen;
 };
 
 #endif // HOSTWINDOW_H

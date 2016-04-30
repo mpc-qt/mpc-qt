@@ -1,7 +1,6 @@
 #include <sstream>
 #include <stdexcept>
 #include <cmath>
-
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "helpers.h"
@@ -84,6 +83,47 @@ void MainWindow::closeEvent(QCloseEvent *event)
 {
     event->accept();
     emit applicationShouldQuit();
+}
+
+void MainWindow::mousePressEvent(QMouseEvent *event)
+{
+    if (mouseStateEvent(MouseState::fromMouseEvent(event, true)))
+        event->accept();
+    else
+        QMainWindow::mousePressEvent(event);
+}
+
+void MainWindow::mouseReleaseEvent(QMouseEvent *event)
+{
+    if (mouseStateEvent(MouseState::fromMouseEvent(event, false)))
+        event->accept();
+    else
+        QMainWindow::mouseReleaseEvent(event);
+}
+
+void MainWindow::wheelEvent(QWheelEvent *event)
+{
+    if (mouseStateEvent(MouseState::fromWheelEvent(event)))
+        event->accept();
+    else
+        QMainWindow::wheelEvent(event);
+}
+
+bool MainWindow::mouseStateEvent(const MouseState &state)
+{
+    MouseStateMap &mouseMap = fullscreenMode_ ? mouseMapFullscreen
+                                              : mouseMapWindowed;
+
+    if (mouseMap.contains(state)) {
+        QAction *action = mouseMap[state];
+        if (!action->isEnabled())
+            return true;
+        if (action->isCheckable())
+            action->toggle();
+        action->trigger();
+        return true;
+    }
+    return false;
 }
 
 QMediaSlider *MainWindow::positionSlider()
@@ -442,6 +482,16 @@ void MainWindow::doMpvSetVolume(int volume)
 {
     mpvw->setVolume(volume);
     mpvw->showMessage(QString("Volume :%1%").arg(volume));
+}
+
+void MainWindow::setWindowedMouseMap(const MouseStateMap &map)
+{
+    mouseMapWindowed = map;
+}
+
+void MainWindow::setFullscreenMouseMap(const MouseStateMap &map)
+{
+    mouseMapFullscreen = map;
 }
 
 void MainWindow::setRecentDocuments(QList<TrackInfo> tracks)
