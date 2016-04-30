@@ -20,7 +20,7 @@ public:
     void updateActions();
 
     QVariantMap toVMap() const;
-    void fromVMap(QVariantMap &map);
+    void fromVMap(const QVariantMap &map);
 
 signals:
     void mouseFullscreenMap(MouseStateMap map);

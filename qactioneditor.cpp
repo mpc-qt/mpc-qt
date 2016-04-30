@@ -29,8 +29,8 @@ void QActionEditor::setCommands(const QList<Command> &commands)
         QList<QStandardItem*> items = {
             new QStandardItem(commands[i].action->text().replace('&',"")),
             new QStandardItem(commands[i].action->shortcut().toString()),
-            new QStandardItem(commands[i].mouseFullscreen.toString()),
             new QStandardItem(commands[i].mouseWindowed.toString()),
+            new QStandardItem(commands[i].mouseFullscreen.toString()),
         };
         items[0]->setEditable(false);
         for (auto index : items) {
@@ -94,16 +94,18 @@ QVariantMap QActionEditor::toVMap() const
     return map;
 }
 
-void QActionEditor::fromVMap(QVariantMap &map)
+void QActionEditor::fromVMap(const QVariantMap &map)
 {
     QMap<QString, int> nameToIndex;
     for (int i = 0; i < commands.count(); i++)
         nameToIndex[commands[i].action->objectName()] = i;
     for (const QString &key : map.keys()) {
-        Command c = commands[nameToIndex[key]];
+        int index = nameToIndex[key];
+        Command c = commands[index];
         c.fromVMap(map.value(key).toMap());
-        commands[nameToIndex[key]] = c;
+        commands[index] = c;
     }
+    setCommands(commands);
 }
 
 ShortcutDelegate::ShortcutDelegate(QObject *parent)
