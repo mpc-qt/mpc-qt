@@ -1,0 +1,292 @@
+#include <QHBoxLayout>
+#include <QDebug>
+#include <QKeySequence>
+#include <QKeySequenceEdit>
+#include <QPushButton>
+#include <QToolButton>
+#include <QMenu>
+#include <cmath>
+#include "qactioneditor.h"
+
+QActionEditor::QActionEditor(QWidget *parent) :
+    QTableView(parent)
+{
+    model.setHorizontalHeaderLabels({"Command", "Key",
+                                     "Mouse Window ",
+                                     "Mouse Fullscr "});
+    this->setModel(&model);
+    this->setItemDelegateForColumn(1, new ShortcutDelegate(this));
+    this->setItemDelegateForColumn(2, new ButtonDelegate(this, false));
+    this->setItemDelegateForColumn(3, new ButtonDelegate(this, true));
+}
+
+void QActionEditor::setCommands(const QList<Command> &commands)
+{
+    model.setRowCount(0);
+
+    for (int i = 0; i < commands.count(); i++) {
+        qDebug() << commands[i].toString();
+        QList<QStandardItem*> items = {
+            new QStandardItem(commands[i].action->text().replace('&',"")),
+            new QStandardItem(commands[i].action->shortcut().toString()),
+            new QStandardItem(commands[i].mouseFullscreen.toString()),
+            new QStandardItem(commands[i].mouseWindowed.toString()),
+        };
+        items[0]->setEditable(false);
+        for (auto index : items) {
+            index->setData(i);
+        }
+        model.appendRow(items);
+    }
+    this->commands = commands;
+}
+
+Command QActionEditor::getCommand(int index) const
+{
+    return commands.value(index);
+}
+
+void QActionEditor::setCommand(int index, const Command &c)
+{
+    if (index >= 0 && index < commands.count())
+        commands[index] = c;
+
+    for (int i = 0; i < commands.count(); i++) {
+        if (i == index)
+            continue;
+        Command &other = commands[i];
+        if (!!other.mouseFullscreen && other.mouseFullscreen == c.mouseFullscreen) {
+            model.setData(model.index(i, 3), "None");
+            other.mouseFullscreen = MouseState();
+        }
+        if (!!other.mouseWindowed && other.mouseWindowed == c.mouseWindowed) {
+            model.setData(model.index(i, 2), "None");
+            other.mouseWindowed = MouseState();
+        }
+        qDebug() << i << c.keys << other.keys;
+        if (!other.keys.isEmpty() && other.keys.matches(c.keys) == QKeySequence::ExactMatch) {
+            model.setData(model.index(i, 1), "");
+            other.keys = QKeySequence();
+        }
+    }
+}
+
+void QActionEditor::updateActions()
+{
+    MouseStateMap fullscreen, windowed;
+    for (const Command &c : commands) {
+        c.action->setShortcut(c.keys);
+        if (!!c.mouseFullscreen)
+            fullscreen[c.mouseFullscreen] = c.action;
+        if (!!c.mouseWindowed)
+            windowed[c.mouseWindowed] = c.action;
+    }
+    emit mouseFullscreenMap(fullscreen);
+    emit mouseWindowedMap(windowed);
+}
+
+QVariantMap QActionEditor::toVMap() const
+{
+    QVariantMap map;
+    for (const Command &c : commands) {
+        map[c.action->objectName()] = c.toVMap();
+    }
+    return map;
+}
+
+void QActionEditor::fromVMap(QVariantMap &map)
+{
+    QMap<QString, int> nameToIndex;
+    for (int i = 0; i < commands.count(); i++)
+        nameToIndex[commands[i].action->objectName()] = i;
+    for (const QString &key : map.keys()) {
+        Command c = commands[nameToIndex[key]];
+        c.fromVMap(map.value(key).toMap());
+        commands[nameToIndex[key]] = c;
+    }
+}
+
+ShortcutDelegate::ShortcutDelegate(QObject *parent)
+    : QStyledItemDelegate(parent), owner((QActionEditor*)parent)
+{
+
+}
+
+QWidget *ShortcutDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    Q_UNUSED(option);
+    Q_UNUSED(index);
+    QKeySequenceEdit *editor = new QKeySequenceEdit(parent);
+    return (QWidget*)editor;
+}
+
+void ShortcutDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
+{
+    QKeySequenceEdit *keyEditor = static_cast<QKeySequenceEdit*>(editor);
+    keyEditor->setKeySequence(QKeySequence(index.data(Qt::EditRole).toString()));
+}
+
+void ShortcutDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
+{
+    QKeySequenceEdit *keyEditor = static_cast<QKeySequenceEdit*>(editor);
+    QKeySequence seq = keyEditor->keySequence();
+    Command c = owner->getCommand(index.row());
+    c.keys = seq;
+    owner->setCommand(index.row(), c);
+    model->setData(index, keyEditor->keySequence());
+}
+
+void ShortcutDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    Q_UNUSED(index);
+    editor->setGeometry(option.rect);
+}
+
+
+
+ButtonDelegate::ButtonDelegate(QObject *parent, bool fullscreen)
+    : owner((QActionEditor*)parent), fullscreen(fullscreen)
+{
+}
+
+QWidget *ButtonDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    Q_UNUSED(option);
+    Q_UNUSED(index);
+    return (QWidget*)new ButtonWidget(parent);
+}
+
+void ButtonDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
+{
+    ButtonWidget *buttons = static_cast<ButtonWidget*>(editor);
+    Command c = owner->getCommand(index.row());
+    buttons->setState(fullscreen ? c.mouseFullscreen : c.mouseWindowed);
+}
+
+void ButtonDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
+{
+    ButtonWidget *buttons = static_cast<ButtonWidget*>(editor);
+    Command c = owner->getCommand(index.row());
+    MouseState state = buttons->state();
+    if (fullscreen)
+        c.mouseFullscreen = state;
+    else
+        c.mouseWindowed = state;
+    owner->setCommand(index.row(), c);
+
+    model->setData(index, state.toString());
+}
+
+void ButtonDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    Q_UNUSED(index);
+    QRect rc = option.rect;
+    QSize sz = editor->minimumSizeHint();
+    if (rc.width() < sz.width())  rc.setWidth(sz.width());
+    editor->setGeometry(rc);
+}
+
+
+
+ButtonWidget::ButtonWidget(QWidget *parent) : QWidget(parent)
+{
+    QHBoxLayout *layout = new QHBoxLayout;
+    button = new QToolButton(this);
+    button->setText(tr("B"));
+    button->setPopupMode(QToolButton::InstantPopup);
+    QMenu *menu = new QMenu;
+    QActionGroup *group = new QActionGroup(this);
+    group->setExclusive(true);
+    for (int i = 0; i < MouseState::buttonToText.count(); i++) {
+        QAction *a = new QAction( MouseState::buttonToText[i], this);
+        connect(a, &QAction::triggered, [i, this]() {
+            qDebug() << "got action for " << i;
+            buttonMenu_selected(i);
+        });
+        a->setCheckable(true);
+        group->addAction(a);
+        menu->addAction(a);
+        buttonActions.append(a);
+    }
+    button->setMenu(menu);
+    layout->addWidget(button);
+
+    keyMod = new QToolButton(this);
+    keyMod->setText(tr("K"));
+    keyMod->setPopupMode(QToolButton::InstantPopup);
+    menu = new QMenu;
+    for (int i = 0; i < MouseState::modToText.count(); i++) {
+        QAction *a = new QAction(MouseState::modToText[i], this);
+        connect(a, &QAction::toggled, [i, this](bool yes) {
+            qDebug() << "got action for " << i;
+            keyModMenu_selected(i, yes);
+        });
+        a->setCheckable(true);
+        menu->addAction(a);
+        keyModActions.append(a);
+    }
+    keyMod->setMenu(menu);
+    layout->addWidget(keyMod);
+
+
+    press = new QToolButton(this);
+    press->setText(tr("↑↓"));
+    press->setPopupMode(QToolButton::InstantPopup);
+    menu = new QMenu;
+    group = new QActionGroup(this);
+    group->setExclusive(true);
+    for (int i = 0; i < MouseState::pressToText.count(); i++) {
+        QAction *a = new QAction(MouseState::pressToText[i], this);
+        connect(a, &QAction::triggered, [i, this]() {
+            qDebug() << "got action for " << i;
+            pressMenu_selected(i);
+        });
+        a->setCheckable(true);
+        group->addAction(a);
+        menu->addAction(a);
+        pressActions.append(a);
+    }
+    press->setMenu(menu);
+    layout->addWidget(press);
+
+    layout->setMargin(0);
+    layout->setSpacing(0);
+    setLayout(layout);
+}
+
+void ButtonWidget::setState(const MouseState &state)
+{
+    state_ = state;
+    buttonActions[state.button]->setChecked(true);
+    keyModActions[0]->setChecked(state.mod & 1);
+    keyModActions[1]->setChecked(state.mod & 2);
+    keyModActions[2]->setChecked(state.mod & 4);
+    keyModActions[3]->setChecked(state.mod & 8);
+    pressActions[state.press]->setChecked(true);
+}
+
+MouseState ButtonWidget::state() const
+{
+    return state_;
+}
+
+void ButtonWidget::buttonMenu_selected(int item)
+{
+    qDebug() << "bms" << item;
+    state_.button = item;
+}
+
+void ButtonWidget::keyModMenu_selected(int item, bool yes)
+{
+    qDebug() << "kmm" << item << yes;
+    if (yes)
+        state_.mod |= (1 << item);
+    else
+        state_.mod &= ~(1 << item);
+}
+
+void ButtonWidget::pressMenu_selected(int item)
+{
+    qDebug() << "pm" << item;
+    state_.press = item > 0;
+}

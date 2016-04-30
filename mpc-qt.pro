@@ -38,7 +38,8 @@ SOURCES += main.cpp\
     helpers.cpp \
     playlistwindow.cpp \
     storage.cpp \
-    settingswindow.cpp
+    settingswindow.cpp \
+    qactioneditor.cpp
 
 HEADERS  += \
     mpvwidget.h \
@@ -51,7 +52,8 @@ HEADERS  += \
     helpers.h \
     playlistwindow.h \
     storage.h \
-    settingswindow.h
+    settingswindow.h \
+    qactioneditor.h
 
 FORMS    += \
     mainwindow.ui \
