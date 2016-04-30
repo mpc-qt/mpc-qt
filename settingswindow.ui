@@ -405,7 +405,7 @@ media file played</string>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_20" stretch="1,0">
              <item>
-              <layout class="QVBoxLayout" name="verticalLayout_43">
+              <layout class="QVBoxLayout" name="verticalLayout_43" stretch="0,0,1">
                <item>
                 <widget class="QLabel" name="ipcNotice">
                  <property name="text">
@@ -414,16 +414,29 @@ media file played</string>
                 </widget>
                </item>
                <item>
-                <widget class="QCheckBox" name="keysMpris">
+                <widget class="QCheckBox" name="ipcMpris">
                  <property name="text">
                   <string>MPRIS</string>
                  </property>
                 </widget>
                </item>
+               <item>
+                <spacer name="verticalSpacer_14">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
               </layout>
              </item>
              <item>
-              <layout class="QVBoxLayout" name="verticalLayout_44">
+              <layout class="QVBoxLayout" name="verticalLayout_44" stretch="0,1">
                <item>
                 <widget class="QPushButton" name="keysReset">
                  <property name="text">

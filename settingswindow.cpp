@@ -630,3 +630,9 @@ void SettingsWindow::on_pngFilter_valueChanged(int value)
 {
     ui->pngFilterValue->setText(QString::number(value));
 }
+
+void SettingsWindow::on_keysReset_clicked()
+{
+    actionEditor->fromVMap(defaultKeyMap);
+    actionEditor->updateActions();
+}

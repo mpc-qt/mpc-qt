@@ -123,6 +123,8 @@ private slots:
 
     void on_pngFilter_valueChanged(int value);
 
+    void on_keysReset_clicked();
+
 private:
     Ui::SettingsWindow *ui;
     QActionEditor *actionEditor;
