@@ -49,17 +49,12 @@ Flow::Flow(QObject *owner) :
             this, &Flow::server_payloadRecieved);
 
     mainWindow = new MainWindow();
-    recentFromVList(storage.readVList("recent"));
-    mainWindow->setRecentDocuments(recentFiles);
     playbackManager = new PlaybackManager(this);
     playbackManager->setMpvWidget(mainWindow->mpvWidget(), true);
     playbackManager->setPlaylistWindow(mainWindow->playlistWindow());
 
     settingsWindow = new SettingsWindow();
     settingsWindow->setWindowModality(Qt::WindowModal);
-    settings = storage.readVMap("settings");
-    settingsWindow->takeSettings(settings);
-    settingsWindow->setNnedi3Available(mainWindow->mpvWidget()->nnedi3Available());
 
     // mainwindow -> manager
     connect(mainWindow, SIGNAL(severalFilesOpened(QList<QUrl>)),
@@ -249,6 +244,12 @@ Flow::Flow(QObject *owner) :
             mainWindow, &MainWindow::setRecentDocuments);
 
     // update player framework
+    settingsWindow->takeActions(mainWindow->editableActions());
+    recentFromVList(storage.readVList("recent"));
+    mainWindow->setRecentDocuments(recentFiles);
+    settings = storage.readVMap("settings");
+    settingsWindow->takeSettings(settings);
+    settingsWindow->setNnedi3Available(mainWindow->mpvWidget()->nnedi3Available());
     settingsWindow->sendSignals();
 }
 
