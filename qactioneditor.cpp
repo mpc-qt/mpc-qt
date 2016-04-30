@@ -1,5 +1,4 @@
 #include <QHBoxLayout>
-#include <QDebug>
 #include <QKeySequence>
 #include <QKeySequenceEdit>
 #include <QPushButton>
@@ -25,7 +24,6 @@ void QActionEditor::setCommands(const QList<Command> &commands)
     model.setRowCount(0);
 
     for (int i = 0; i < commands.count(); i++) {
-        qDebug() << commands[i].toString();
         QList<QStandardItem*> items = {
             new QStandardItem(commands[i].action->text().replace('&',"")),
             new QStandardItem(commands[i].action->shortcut().toString()),
@@ -63,7 +61,6 @@ void QActionEditor::setCommand(int index, const Command &c)
             model.setData(model.index(i, 2), "None");
             other.mouseWindowed = MouseState();
         }
-        qDebug() << i << c.keys << other.keys;
         if (!other.keys.isEmpty() && other.keys.matches(c.keys) == QKeySequence::ExactMatch) {
             model.setData(model.index(i, 1), "");
             other.keys = QKeySequence();
@@ -202,7 +199,6 @@ ButtonWidget::ButtonWidget(QWidget *parent) : QWidget(parent)
     for (int i = 0; i < MouseState::buttonToText.count(); i++) {
         QAction *a = new QAction( MouseState::buttonToText[i], this);
         connect(a, &QAction::triggered, [i, this]() {
-            qDebug() << "got action for " << i;
             buttonMenu_selected(i);
         });
         a->setCheckable(true);
@@ -220,7 +216,6 @@ ButtonWidget::ButtonWidget(QWidget *parent) : QWidget(parent)
     for (int i = 0; i < MouseState::modToText.count(); i++) {
         QAction *a = new QAction(MouseState::modToText[i], this);
         connect(a, &QAction::toggled, [i, this](bool yes) {
-            qDebug() << "got action for " << i;
             keyModMenu_selected(i, yes);
         });
         a->setCheckable(true);
@@ -240,7 +235,6 @@ ButtonWidget::ButtonWidget(QWidget *parent) : QWidget(parent)
     for (int i = 0; i < MouseState::pressToText.count(); i++) {
         QAction *a = new QAction(MouseState::pressToText[i], this);
         connect(a, &QAction::triggered, [i, this]() {
-            qDebug() << "got action for " << i;
             pressMenu_selected(i);
         });
         a->setCheckable(true);
@@ -274,13 +268,11 @@ MouseState ButtonWidget::state() const
 
 void ButtonWidget::buttonMenu_selected(int item)
 {
-    qDebug() << "bms" << item;
     state_.button = item;
 }
 
 void ButtonWidget::keyModMenu_selected(int item, bool yes)
 {
-    qDebug() << "kmm" << item << yes;
     if (yes)
         state_.mod |= (1 << item);
     else
@@ -289,6 +281,5 @@ void ButtonWidget::keyModMenu_selected(int item, bool yes)
 
 void ButtonWidget::pressMenu_selected(int item)
 {
-    qDebug() << "pm" << item;
     state_.press = item > 0;
 }
