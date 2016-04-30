@@ -27,6 +27,7 @@ public:
 
     MpvWidget *mpvWidget();
     PlaylistWindow *playlistWindow();
+    QList<QAction *> editableActions();
 
 protected:
     void closeEvent(QCloseEvent *event);

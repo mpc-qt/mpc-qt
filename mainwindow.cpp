@@ -63,6 +63,23 @@ PlaylistWindow *MainWindow::playlistWindow()
     return playlistWindow_;
 }
 
+static void actionsToList(QList<QAction*> &actionList, const QList<QAction*> &actions) {
+    for (QAction *a : actions) {
+        if (a->menu()) {
+            actionsToList(actionList, a->menu()->actions());
+        } if (!a->isSeparator()) {
+            actionList.append(a);
+        }
+    }
+}
+
+QList<QAction *> MainWindow::editableActions()
+{
+    QList<QAction*> actionList;
+    actionsToList(actionList, actions());
+    return actionList;
+}
+
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     event->accept();
