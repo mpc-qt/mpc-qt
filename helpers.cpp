@@ -6,6 +6,9 @@
 #include <QPainter>
 #include <QOpenGLTexture>
 #include <QOpenGLWidget>
+#include <QMouseEvent>
+#include <QWheelEvent>
+#include <QAction>
 #include "helpers.h"
 
 QString Helpers::toDateFormat(double time)
@@ -592,3 +595,160 @@ bool TrackInfo::operator ==(const TrackInfo &track) const
 {
     return url == track.url;
 }
+
+
+QStringList MouseState::buttonToText = {
+    "None", "Wheel", "Left", "Right", "Middle", "Back",
+    "Forward", "Task", "XButton4", "XButton5", "XButton6", "XButton7",
+    "XButton8", "XButton9", "XButton10", "XButton11", "XButton12",
+    "XButton13", "XButton14", "XButton15", "XButton16", "XButton17",
+    "XButton18", "XButton19","XButton20", "XButton21", "XButton22",
+    "XButton23", "XButton24" };
+
+QStringList MouseState::multiModToText = ([]() {
+    QStringList items = {"None"};
+    for (int i = 1; i < 16; i++) {
+        QStringList item;
+        if (i & 1)  item << "Shift";
+        if (i & 2)  item << "Control";
+        if (i & 4)  item << "Alt";
+        if (i & 8)  item << "Meta";
+        items << item.join("+");
+    }
+    return items;
+})();
+
+QStringList MouseState::modToText = { "Shift", "Control", "Alt", "Meta" };
+
+QStringList MouseState::pressToText = { "Up", "Down" };
+
+
+
+MouseState::MouseState() : button(0), mod(0), press(false) {}
+
+MouseState::MouseState(const MouseState &m) {
+    button = m.button;
+    mod = m.mod;
+    press = m.press;
+}
+
+MouseState::MouseState(int button, int mod, bool press)
+    : button(button), mod(mod), press(press)
+{
+}
+
+Qt::MouseButtons MouseState::mouseButtons() const
+{
+    if (button < 2)
+        return Qt::NoButton;
+    return static_cast<Qt::MouseButtons>(1 << (button - 2));
+}
+
+Qt::KeyboardModifiers MouseState::keyModifiers() const
+{
+    Qt::KeyboardModifiers m;
+    if (mod&1)  m|=Qt::ShiftModifier;
+    if (mod&2)  m|=Qt::ControlModifier;
+    if (mod&4)  m|=Qt::AltModifier;
+    if (mod^8)  m|=Qt::MetaModifier;
+    return m;
+}
+
+bool MouseState::isPress()
+{
+    return press;
+}
+
+bool MouseState::isWheel()
+{
+    return button == 1;
+}
+
+QString MouseState::toString() const
+{
+    if (button == 0)
+        return buttonToText[0];
+    return QString(mod ? "%3 %1 %2" : "%1 %2").arg(buttonToText[button],
+                                                   pressToText[press],
+                                                   multiModToText[mod]);
+}
+
+QVariantMap MouseState::toVMap() const
+{
+    return QVariantMap({{"button", button}, {"mod", mod}, {"press", press}});
+}
+
+void MouseState::fromVMap(const QVariantMap &map)
+{
+    button = map.value("button").toInt();
+    mod = map.value("mod").toInt();
+    press = map.value("press").toBool();
+}
+
+uint MouseState::mouseHash() const
+{
+    if (button == 0)
+        return 0;
+
+    return qHash(press ^ mod<<8 ^ button<<16);
+}
+
+bool MouseState::operator ==(const MouseState &other) const {
+    return button == other.button
+            && mod == other.mod
+            && press == other.press;
+}
+
+bool MouseState::operator !() const
+{
+    return !button;
+}
+
+MouseState MouseState::fromWheelEvent(QWheelEvent *event)
+{
+    QPoint delta = event->angleDelta();
+    if (delta.isNull())
+        return MouseState();
+    return MouseState(1, // wheel button
+                      (event->modifiers() >> 25)&15,
+                      delta.y() < 0); // towards = negative = down
+}
+
+MouseState MouseState::fromMouseEvent(QMouseEvent *event, bool press)
+{
+    Qt::MouseButtons mb = event->button();
+    if (mb == Qt::NoButton)
+        return MouseState();
+    int btn = std::log2(mb.operator Int()) + 2.5; // 1->0+2, 2->1+2, 4->2+2 etc.
+    return MouseState(btn, (event->modifiers() >> 25)&15, press);
+}
+
+
+
+Command::Command() : action(NULL), mouseFullscreen(), mouseWindowed() {}
+
+Command::Command(QAction *a, MouseState mf, MouseState mw) : action(a),
+    mouseFullscreen(mf), mouseWindowed(mw) {}
+
+QString Command::toString() const { return action->text(); }
+
+QVariantMap Command::toVMap() const
+{
+    return QVariantMap({{"keys", keys},
+                        {"fullscreen", mouseFullscreen.toVMap()},
+                        {"windowed", mouseWindowed.toVMap()}});
+}
+
+void Command::fromVMap(const QVariantMap &map)
+{
+    keys = map.value("keys").value<QKeySequence>();
+    mouseFullscreen.fromVMap(map.value("fullscreen").value<QVariantMap>());
+    mouseWindowed.fromVMap(map.value("windowed").value<QVariantMap>());
+}
+
+void Command::fromAction(QAction *a)
+{
+    action = a;
+    keys = a->shortcut();
+}
+

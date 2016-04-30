@@ -103,4 +103,71 @@ public:
     bool operator ==(const TrackInfo &track) const;
 };
 
+class MouseState {
+public:
+    MouseState();
+    MouseState(const MouseState &m);
+    MouseState(int button, int mod, bool press);
+
+    // Components
+    int button;
+    int mod;
+    bool press;
+
+    // to Qt notation functions
+    Qt::MouseButtons mouseButtons() const;
+    Qt::KeyboardModifiers keyModifiers() const;
+    bool isPress();
+    bool isWheel();
+
+    // I/O functions
+    QString toString() const;
+    QVariantMap toVMap() const;
+    void fromVMap(const QVariantMap &map);
+
+    // Hashing-related functions
+    uint mouseHash() const;
+    bool operator ==(const MouseState &other) const;
+    bool operator !() const;        // le saef bull eyediom faec
+
+    // Conversion functions
+    static MouseState fromWheelEvent(QWheelEvent *event);
+    static MouseState fromMouseEvent(QMouseEvent *event, bool press);
+
+    // Display mapping vars
+    static QStringList buttonToText;
+    static QStringList modToText;
+    static QStringList multiModToText;
+    static QStringList pressToText;
+};
+
+inline uint qHash(const MouseState &m, uint seed) {
+    Q_UNUSED(seed);
+    return m.mouseHash();
+}
+
+typedef QHash<MouseState, QAction*> MouseStateMap;
+
+class Command {
+public:
+    Command();
+    Command(QAction *a, MouseState mf, MouseState mw);
+
+    // Components
+    QAction *action;
+    QKeySequence keys;      // taken from the QAction in constructor
+    MouseState mouseFullscreen;
+    MouseState mouseWindowed;
+
+    // I/O functions
+    QString toString() const;
+    QVariantMap toVMap() const;
+    void fromVMap(const QVariantMap &map);
+
+    // Conversion functions
+    void fromAction(QAction *a);
+};
+
+
+
 #endif // HELPERS_H
