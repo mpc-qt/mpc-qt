@@ -677,9 +677,13 @@ QString MouseState::toString() const
 {
     if (button == 0)
         return buttonToText[0];
-    return QString(mod ? "%3 %1 %2" : "%1 %2").arg(buttonToText[button],
-                                                   pressToText[press],
-                                                   multiModToText[mod]);
+    if (mod)
+        return QString("%3 %1 %2").arg(buttonToText[button],
+                                       pressToText[press],
+                                       multiModToText[mod]);
+    else
+        return QString("%1 %2").arg(buttonToText[button],
+                                    pressToText[press]);
 }
 
 QVariantMap MouseState::toVMap() const
