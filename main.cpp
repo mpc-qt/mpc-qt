@@ -257,6 +257,7 @@ Flow::Flow(QObject *owner) :
     settingsWindow->setMouseMapDefaults(mainWindow->mouseMapDefaults());
     settingsWindow->takeKeyMap(keyMap);
     settingsWindow->setNnedi3Available(mainWindow->mpvWidget()->nnedi3Available());
+    settingsWindow->setServerName(server->fullServerName());
     settingsWindow->sendSignals();
 }
 

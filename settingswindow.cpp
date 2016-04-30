@@ -138,7 +138,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->setupUi(this);
 
     actionEditor = new QActionEditor(this);
-    ui->keysPage->layout()->addWidget(actionEditor);
+    ui->keysHost->addWidget(actionEditor);
     connect(actionEditor, &QActionEditor::mouseWindowedMap,
             this, &SettingsWindow::mouseWindowedMap);
     connect(actionEditor, &QActionEditor::mouseFullscreenMap,
@@ -187,6 +187,10 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
         ui->playbackAutoZoom->setChecked(false);
 #else
     ui->playbackAutozoomWarn->setVisible(false);
+#endif
+
+#ifndef Q_OS_LINUX
+    ui->ipcMpris->setVisible(false);
 #endif
 
     ui->screenshotDirectoryValue->setPlaceholderText(
@@ -518,6 +522,11 @@ void SettingsWindow::setZoomPreset(int which)
     ui->playbackAutoZoomMethod->setCurrentIndex(zoomMethod);
 
     emit settingsData(acceptedSettings.toVMap());
+}
+
+void SettingsWindow::setServerName(const QString &name)
+{
+    ui->ipcNotice->setText(ui->ipcNotice->text().arg(name));
 }
 
 void SettingsWindow::on_pageTree_itemSelectionChanged()

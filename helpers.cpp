@@ -209,6 +209,13 @@ bool JsonServer::sendPayload(const QByteArray &payload)
     return socket.waitForReadyRead(100);
 }
 
+QString JsonServer::fullServerName()
+{
+    if (!server)
+        return QString();
+    return server->fullServerName();
+}
+
 void JsonServer::listen()
 {
     server = new QLocalServer(this);

@@ -92,6 +92,7 @@ public slots:
     void sendSignals();
     void setNnedi3Available(bool yes);
     void setZoomPreset(int which);
+    void setServerName(const QString &name);
 
 private slots:
     void on_pageTree_itemSelectionChanged();

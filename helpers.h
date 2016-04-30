@@ -28,6 +28,7 @@ class JsonServer : public QObject
 public:
     explicit JsonServer(QObject *parent = 0);
     bool sendPayload(const QByteArray &payload);
+    QString fullServerName();
 
 private:
     void listen();
