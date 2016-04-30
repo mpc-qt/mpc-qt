@@ -144,7 +144,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>4</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -398,32 +398,7 @@ media file played</string>
           </layout>
          </widget>
          <widget class="QWidget" name="keysPage">
-          <layout class="QVBoxLayout" name="verticalLayout_9">
-           <item>
-            <widget class="QTableWidget" name="keysTable">
-             <column>
-              <property name="text">
-               <string>Command</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>Key</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>Mouse Windowed</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>Mouse Fullscreen</string>
-              </property>
-             </column>
-            </widget>
-           </item>
-          </layout>
+          <layout class="QVBoxLayout" name="verticalLayout_9"/>
          </widget>
          <widget class="QWidget" name="logoPage">
           <layout class="QVBoxLayout" name="verticalLayout_10" stretch="1,0">

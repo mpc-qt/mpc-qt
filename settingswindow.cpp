@@ -6,6 +6,7 @@
 #include <QProcessEnvironment>
 #include "settingswindow.h"
 #include "ui_settingswindow.h"
+#include "qactioneditor.h"
 #include "helpers.h"
 
 #define SCALAR_SCALARS \
@@ -136,6 +137,9 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui(new Ui::SettingsWindow)
 {
     ui->setupUi(this);
+
+    actionEditor = new QActionEditor(this);
+    ui->keysPage->layout()->addWidget(actionEditor);
 
     logoWidget = new LogoWidget(this);
     ui->logoImageHost->addWidget(logoWidget);

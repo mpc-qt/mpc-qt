@@ -6,6 +6,7 @@
 #include <QAbstractButton>
 #include <QVariantMap>
 
+class QActionEditor;
 class LogoWidget;
 
 class Setting {
@@ -117,6 +118,7 @@ private slots:
 
 private:
     Ui::SettingsWindow *ui;
+    QActionEditor *actionEditor;
     LogoWidget *logoWidget;
     SettingMap acceptedSettings;
     SettingMap defaultSettings;
