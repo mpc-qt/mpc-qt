@@ -29,6 +29,7 @@ public:
     MpvWidget *mpvWidget();
     PlaylistWindow *playlistWindow();
     QList<QAction *> editableActions();
+    QVariantMap mouseMapDefaults();
 
 protected:
     void closeEvent(QCloseEvent *event);

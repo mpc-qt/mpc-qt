@@ -286,6 +286,12 @@ void SettingsWindow::takeKeyMap(const QVariantMap &payload)
     acceptedKeyMap = actionEditor->toVMap();
 }
 
+void SettingsWindow::setMouseMapDefaults(const QVariantMap &payload)
+{
+    actionEditor->fromVMap(payload);
+    defaultKeyMap = actionEditor->toVMap();
+}
+
 
 // The reason why we're using #define's like this instead of quoted-string
 // inspection is because this way guarantees that the compile will fail if

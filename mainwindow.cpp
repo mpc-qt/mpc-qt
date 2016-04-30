@@ -79,6 +79,24 @@ QList<QAction *> MainWindow::editableActions()
     return actionList;
 }
 
+QVariantMap MainWindow::mouseMapDefaults()
+{
+    QVariantMap commandMap;
+    auto actionToMap = [&commandMap](QAction *a, const MouseState &m) {
+        Command c;
+        c.fromAction(a);
+        c.mouseWindowed = m;
+        c.mouseFullscreen = m;
+        commandMap.insert(a->objectName(), c.toVMap());
+    };
+    actionToMap(ui->actionPlayPause, {MouseState::Left,0,false});
+    actionToMap(ui->actionNavigateChaptersNext, {MouseState::Forward,0,true});
+    actionToMap(ui->actionNavigateChaptersPrevious, {MouseState::Back,0,true});
+    actionToMap(ui->actionPlayVolumeDown, {MouseState::Wheel,0,true});
+    actionToMap(ui->actionPlayVolumeUp, {MouseState::Wheel,0,false});
+    return commandMap;
+}
+
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     event->accept();

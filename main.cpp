@@ -256,6 +256,7 @@ Flow::Flow(QObject *owner) :
     settings = storage.readVMap("settings");
     keyMap = storage.readVMap("keys");
     settingsWindow->takeSettings(settings);
+    settingsWindow->setMouseMapDefaults(mainWindow->mouseMapDefaults());
     settingsWindow->takeKeyMap(keyMap);
     settingsWindow->setNnedi3Available(mainWindow->mpvWidget()->nnedi3Available());
     settingsWindow->sendSignals();

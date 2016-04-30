@@ -89,6 +89,7 @@ public slots:
     void takeActions(const QList<QAction*> actions);
     void takeSettings(QVariantMap payload);
     void takeKeyMap(const QVariantMap &payload);
+    void setMouseMapDefaults(const QVariantMap &payload);
     void sendSignals();
     void setNnedi3Available(bool yes);
     void setZoomPreset(int which);
