@@ -105,6 +105,13 @@ public:
 
 class MouseState {
 public:
+    enum MouseButtons { None, Wheel, Left, Right, Middle, Back,
+        Forward, Task, XButton4, XButton5, XButton6, XButton7,
+        XButton8, XButton9, XButton10, XButton11, XButton12,
+        XButton13, XButton14, XButton15, XButton16, XButton17,
+        XButton18, XButton19,XButton20, XButton21, XButton22,
+        XButton23, XButton24 };
+
     MouseState();
     MouseState(const MouseState &m);
     MouseState(int button, int mod, bool press);
