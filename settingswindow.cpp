@@ -7,7 +7,6 @@
 #include "settingswindow.h"
 #include "ui_settingswindow.h"
 #include "qactioneditor.h"
-#include "helpers.h"
 
 #define SCALAR_SCALARS \
     "bilinear", "bicubic_fast", "oversample", "spline16", "spline36",\
@@ -140,6 +139,10 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
 
     actionEditor = new QActionEditor(this);
     ui->keysPage->layout()->addWidget(actionEditor);
+    connect(actionEditor, &QActionEditor::mouseWindowedMap,
+            this, &SettingsWindow::mouseWindowedMap);
+    connect(actionEditor, &QActionEditor::mouseFullscreenMap,
+            this, &SettingsWindow::mouseFullscreenMap);
 
     logoWidget = new LogoWidget(this);
     ui->logoImageHost->addWidget(logoWidget);

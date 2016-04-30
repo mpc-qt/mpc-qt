@@ -5,6 +5,7 @@
 #include <QTreeWidgetItem>
 #include <QAbstractButton>
 #include <QVariantMap>
+#include "helpers.h"
 
 class QActionEditor;
 class LogoWidget;
@@ -54,6 +55,8 @@ private:
 signals:
     void settingsData(const QVariantMap &s);
     void keyMapData(const QVariantMap &s);
+    void mouseWindowedMap(const MouseStateMap &map);
+    void mouseFullscreenMap(const MouseStateMap &map);
 
     void logoSource(const QString &s);
     void playbackPlayTimes(int count);
