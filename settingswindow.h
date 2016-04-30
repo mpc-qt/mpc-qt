@@ -53,6 +53,7 @@ private:
 
 signals:
     void settingsData(const QVariantMap &s);
+    void keyMapData(const QVariantMap &s);
 
     void logoSource(const QString &s);
     void playbackPlayTimes(int count);
@@ -84,6 +85,7 @@ signals:
 public slots:
     void takeActions(const QList<QAction*> actions);
     void takeSettings(QVariantMap payload);
+    void takeKeyMap(const QVariantMap &payload);
     void sendSignals();
     void setNnedi3Available(bool yes);
     void setZoomPreset(int which);
@@ -123,6 +125,8 @@ private:
     LogoWidget *logoWidget;
     SettingMap acceptedSettings;
     SettingMap defaultSettings;
+    QVariantMap acceptedKeyMap;
+    QVariantMap defaultKeyMap;
     bool parseNnedi3Fields;
 };
 

@@ -211,12 +211,12 @@ SettingsWindow::~SettingsWindow()
 
 void SettingsWindow::updateAcceptedSettings() {
     acceptedSettings = generateSettingMap();
+    acceptedKeyMap = actionEditor->toVMap();
 }
 
 SettingMap SettingsWindow::generateSettingMap()
 {
     SettingMap settingMap;
-
 
     // The idea here is to discover all the widgets in the ui and only inspect
     // the widgets which we desire to know about.
@@ -264,6 +264,7 @@ void SettingsWindow::takeActions(const QList<QAction *> actions)
         commandList.append(c);
     }
     actionEditor->setCommands(commandList);
+    defaultKeyMap = actionEditor->toVMap();
 }
 
 void SettingsWindow::takeSettings(QVariantMap payload)
@@ -273,6 +274,13 @@ void SettingsWindow::takeSettings(QVariantMap payload)
         s.sendToControl();
     }
     updateLogoWidget();
+}
+
+void SettingsWindow::takeKeyMap(const QVariantMap &payload)
+{
+    actionEditor->fromVMap(payload);
+    actionEditor->updateActions();
+    acceptedKeyMap = actionEditor->toVMap();
 }
 
 
@@ -529,6 +537,8 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
             buttonRole == QDialogButtonBox::AcceptRole) {\
         updateAcceptedSettings();
         emit settingsData(acceptedSettings.toVMap());
+        emit keyMapData(acceptedKeyMap);
+        actionEditor->updateActions();
         sendSignals();
     }
     if (buttonRole == QDialogButtonBox::AcceptRole ||
