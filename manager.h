@@ -76,7 +76,6 @@ public slots:
     void setPlaybackPlayTimes(int times);
 
 private slots:
-    void mpvw_mousePressed();
     void mpvw_startPlaying(QUrl what, QUuid playlistUuid, QUuid itemUuid,
                            bool isRepeating);
 

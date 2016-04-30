@@ -21,9 +21,6 @@ void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)
     mpvWidget_ = mpvWidget;
 
     if (makeConnections) {
-        connect(mpvWidget, &MpvWidget::mousePressed,
-                this, &PlaybackManager::mpvw_mousePressed);
-
         connect(mpvWidget, &MpvWidget::playTimeChanged,
                 this, &PlaybackManager::mpvw_playTimeChanged);
         connect(mpvWidget, &MpvWidget::playLengthChanged,
@@ -374,14 +371,6 @@ void PlaybackManager::setMute(bool muted)
 void PlaybackManager::setPlaybackPlayTimes(int times)
 {
     this->playbackPlayTimes = std::max(0, times);
-}
-
-void PlaybackManager::mpvw_mousePressed()
-{
-    if (playbackState_ == PlayingState)
-        pausePlayer();
-    else if (playbackState_ == PausedState)
-        unpausePlayer();
 }
 
 void PlaybackManager::mpvw_startPlaying(QUrl what, QUuid playlistUuid,
