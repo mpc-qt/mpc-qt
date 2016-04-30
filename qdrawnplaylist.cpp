@@ -219,13 +219,6 @@ bool QDrawnPlaylist::event(QEvent *e)
             e->accept();
             return true;
         }
-        if (ke->key() == Qt::Key_Left || ke->key() == Qt::Key_Right) {
-            e->accept();
-            emit relativeSeekRequested(
-                        ke->key() == Qt::Key_Right,
-                        (ke->modifiers() & Qt::ShiftModifier) > 0);
-            return true;
-        }
     }
     end:
     return QListWidget::event(e);

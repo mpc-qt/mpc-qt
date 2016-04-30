@@ -119,7 +119,6 @@ public slots:
     void setZoomPreset(int which, double fitFactor = -1.0);
     void setPlaybackState(PlaybackManager::PlaybackState state);
     void setPlaybackType(PlaybackManager::PlaybackType type);
-    void setGlobalSeek(bool yes);
     void setChapters(QList<QPair<double,QString>> chapters);
     void setAudioTracks(QList<QPair<int64_t,QString>> tracks);
     void setVideoTracks(QList<QPair<int64_t,QString>> tracks);

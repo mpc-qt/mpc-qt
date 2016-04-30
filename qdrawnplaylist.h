@@ -63,7 +63,6 @@ signals:
     // for lack of a better term that doesn't conflict with what we already
     // have, when an item is made hot by double clicking.
     void itemDesired(QUuid playlistUuid, QUuid itemUuid);
-    void relativeSeekRequested(bool forwards, bool small);
 
 private slots:
     void model_rowsMoved(const QModelIndex & parent, int start, int end,

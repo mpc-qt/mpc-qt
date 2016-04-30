@@ -151,8 +151,6 @@ Flow::Flow(QObject *owner) :
             mainWindow, &MainWindow::setFullscreenMouseMap);
     connect(settingsWindow, &SettingsWindow::zoomPreset,
             mainWindow, &MainWindow::setZoomPreset);
-    connect(settingsWindow, &SettingsWindow::playbackSeekGlobally,
-            mainWindow, &MainWindow::setGlobalSeek);
 
     // settings -> mpvwidget
     auto mpvw = mainWindow->mpvWidget();

@@ -612,14 +612,6 @@ void MainWindow::setPlaybackType(PlaybackManager::PlaybackType type)
     setUiEnabledState(type != PlaybackManager::None);
 }
 
-void MainWindow::setGlobalSeek(bool yes)
-{
-    ui->actionPlaySeekForwards->setEnabled(yes);
-    ui->actionPlaySeekForwardsFine->setEnabled(yes);
-    ui->actionPlaySeekBackwards->setEnabled(yes);
-    ui->actionPlaySeekBackwardsFine->setEnabled(yes);
-}
-
 void MainWindow::setChapters(QList<QPair<double, QString>> chapters)
 {
     positionSlider_->clearTicks();
