@@ -14,6 +14,7 @@
 #include <QDesktopServices>
 #include <QMessageBox>
 #include <QLibraryInfo>
+#include <QTimer>
 
 using namespace Helpers;
 
@@ -261,17 +262,9 @@ void MainWindow::setupSizing()
             this, &MainWindow::sendUpdateSize,
             Qt::QueuedConnection);
 
-    // Guarantee that the layout has been calculated.  It seems pointless, but
-    // Without it the window will temporarily display at a larger size than
-    // it needs to.
-    setAttribute (Qt::WA_DontShowOnScreen, true);
-    show();
-    QEventLoop EventLoop (this);
-    while (EventLoop.processEvents()) {}
-    hide();
-    setAttribute (Qt::WA_DontShowOnScreen, false);
-
-    updateSize(true);
+    // Send update request after the window has its layout calculated
+    // Hopefully this doesn't introduce noticable glitches.
+    QTimer::singleShot(10, [this]() { this->updateSize(true); });
 }
 
 void MainWindow::connectButtonsToActions()
@@ -419,7 +412,7 @@ void MainWindow::updateSize(bool first_run)
                                   std::max(1.0, sizeFactor());
 
     // calculate the amount taken by widgets outside the video frame
-    fudgeFactor = this->geometry().size() - mpvw->size();
+    fudgeFactor = size() - mpvw->size();
 
     // calculate desired client size, depending upon the zoom mode
     QSize wanted, desired;
@@ -456,14 +449,25 @@ void MainWindow::updateSize(bool first_run)
     }
     desired = wanted + fudgeFactor;
 
-    // limit window to available desktop area
-    if (desired.height() > available.height())
-        desired.setHeight(available.height());
-    if (desired.width() > available.width())
-        desired.setWidth(available.width());
+    auto setToSize = [this](QSize &desired, const QRect &available) {
+        // limit window to available desktop area
+        if (desired.height() > available.height())
+            desired.setHeight(available.height());
+        if (desired.width() > available.width())
+            desired.setWidth(available.width());
 
-    setGeometry(QStyle::alignedRect(
-                    Qt::LeftToRight, Qt::AlignCenter, desired, available));
+        setGeometry(QStyle::alignedRect(
+                        Qt::LeftToRight, Qt::AlignCenter, desired, available));
+        return;
+    };
+
+    // get it right first time, and try again with slight adjustment if needed
+    setToSize(desired, available);
+    QSize finalAdjustment = mpvw->size() - wanted;
+    if (!finalAdjustment.isEmpty()) {
+        desired += finalAdjustment;
+        setToSize(desired, available);
+    }
 }
 
 void MainWindow::updateInfostats()
