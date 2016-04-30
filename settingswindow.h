@@ -82,6 +82,7 @@ signals:
     void mpvLogLevel(const QString &s);
 
 public slots:
+    void takeActions(const QList<QAction*> actions);
     void takeSettings(QVariantMap payload);
     void sendSignals();
     void setNnedi3Available(bool yes);

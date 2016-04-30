@@ -255,6 +255,17 @@ QString SettingsWindow::selectedLogo()
                                 : internalLogos.value(ui->logoInternal->currentIndex());
 }
 
+void SettingsWindow::takeActions(const QList<QAction *> actions)
+{
+    QList<Command> commandList;
+    for (QAction *a : actions) {
+        Command c;
+        c.fromAction(a);
+        commandList.append(c);
+    }
+    actionEditor->setCommands(commandList);
+}
+
 void SettingsWindow::takeSettings(QVariantMap payload)
 {
     acceptedSettings.fromVMap(payload);
