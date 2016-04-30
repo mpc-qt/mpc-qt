@@ -137,8 +137,8 @@ bool MainWindow::mouseStateEvent(const MouseState &state)
         if (!action->isEnabled())
             return true;
         if (action->isCheckable())
-            action->toggle();
-        action->trigger();
+            action->setChecked(!action->isChecked());
+        action->triggered(action->isChecked());
         return true;
     }
     return false;
