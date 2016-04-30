@@ -230,6 +230,8 @@ void JsonServer::server_newConnection()
     });
 }
 
+
+
 LogoDrawer::LogoDrawer(QObject *parent)
     : QObject(parent), logo(NULL)
 {
@@ -291,6 +293,8 @@ void LogoDrawer::regenerateTexture()
     logo.load(logoUrl);
 }
 
+
+
 LogoWidget::LogoWidget(QWidget *parent)
     : QOpenGLWidget(parent),
       logoDrawer(NULL)
@@ -334,6 +338,7 @@ void LogoWidget::resizeGL(int w, int h)
 {
     logoDrawer->resizeGL(w,h);
 }
+
 
 
 // For the sake of optimizing 0.0001% of execution time, let's create a
@@ -439,6 +444,7 @@ private:
     DisplayNode *videoNode;
     DisplayNode *next;
 };
+
 
 
 DisplayParser::DisplayParser() : node(NULL)
@@ -572,6 +578,8 @@ QString DisplayParser::parseMetadata(QVariantMap metaData,
     }
 }
 
+
+
 TrackInfo::TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item)
 {
     this->url = url;
@@ -595,6 +603,7 @@ bool TrackInfo::operator ==(const TrackInfo &track) const
 {
     return url == track.url;
 }
+
 
 
 QStringList MouseState::buttonToText = {
