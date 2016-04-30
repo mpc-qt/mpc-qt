@@ -35,6 +35,7 @@ private slots:
     void manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid);
     void server_payloadRecieved(const QByteArray &payload);
     void settingswindow_settingsData(const QVariantMap &settings);
+    void settingswindow_keymapData(const QVariantMap &keyMap);
     void settingswindow_screenshotDirectory(const QString &where);
     void settingswindow_encodeDirectory(const QString &where);
     void settingswindow_screenshotTemplate(const QString &fmt);
@@ -50,6 +51,7 @@ private:
     SettingsWindow *settingsWindow;
     Storage storage;
     QVariantMap settings;
+    QVariantMap keyMap;
     QList<TrackInfo> recentFiles;
 
     QString screenshotDirectory;

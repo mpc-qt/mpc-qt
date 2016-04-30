@@ -222,6 +222,8 @@ Flow::Flow(QObject *owner) :
     // settings -> this
     connect(settingsWindow, &SettingsWindow::settingsData,
             this, &Flow::settingswindow_settingsData);
+    connect(settingsWindow, &SettingsWindow::keyMapData,
+            this, &Flow::settingswindow_keymapData);
     connect(settingsWindow, &SettingsWindow::screenshotDirectory,
             this, &Flow::settingswindow_screenshotDirectory);
     connect(settingsWindow, &SettingsWindow::encodeDirectory,
@@ -248,7 +250,9 @@ Flow::Flow(QObject *owner) :
     recentFromVList(storage.readVList("recent"));
     mainWindow->setRecentDocuments(recentFiles);
     settings = storage.readVMap("settings");
+    keyMap = storage.readVMap("keys");
     settingsWindow->takeSettings(settings);
+    settingsWindow->takeKeyMap(keyMap);
     settingsWindow->setNnedi3Available(mainWindow->mpvWidget()->nnedi3Available());
     settingsWindow->sendSignals();
 }
@@ -273,6 +277,7 @@ Flow::~Flow()
         settingsWindow = NULL;
     }
     storage.writeVMap("settings", settings);
+    storage.writeVMap("keys", keyMap);
     storage.writeVList("recent", recentToVList());
 }
 
@@ -388,6 +393,7 @@ void Flow::mainwindow_takeImageAutomatically()
 void Flow::mainwindow_optionsOpenRequested()
 {
     settingsWindow->takeSettings(settings);
+    settingsWindow->takeKeyMap(keyMap);
     settingsWindow->show();
     settingsWindow->raise();
 }
@@ -469,6 +475,11 @@ void Flow::server_payloadRecieved(const QByteArray &payload)
 void Flow::settingswindow_settingsData(const QVariantMap &settings)
 {
     this->settings = settings;
+}
+
+void Flow::settingswindow_keymapData(const QVariantMap &keyMap)
+{
+    this->keyMap = keyMap;
 }
 
 void Flow::settingswindow_screenshotDirectory(const QString &where)
