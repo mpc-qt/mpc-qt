@@ -643,7 +643,7 @@ void MpvController::create(bool video, bool audio)
         setOptionVariant("no-video", true);
     } else {
         // check for nnedi3
-        if (setOptionVariant("vo", "opengl-cb:prescale=nnedi3") < 0)
+        if (setOptionVariant("vo", "opengl-cb:prescale-luma=nnedi3") < 0)
             emit nnedi3Unavailable();
         setOptionVariant("vo", "opengl-cb");
 
