@@ -308,21 +308,22 @@ void MainWindow::setUiDecorationState(DecorationState state)
 {
     QString actionTexts[] = { tr("Hide &Menu"), tr("Hide &Borders"),
                               tr("Sho&w Caption and Menu") };
-    Qt::WindowFlags defaults = Qt::Window | Qt::WindowTitleHint |
-            Qt::WindowSystemMenuHint | Qt::WindowMinMaxButtonsHint |
-            Qt::WindowCloseButtonHint;
-    Qt::WindowFlags winFlags[] = {
-        defaults,
-        defaults,
-        Qt::Window|Qt::FramelessWindowHint };
-    if (state == AllDecorations)
-        menuBar()->show();
-    else
-        menuBar()->hide();
     ui->actionViewHideMenu->setText(actionTexts[static_cast<int>(state)]);
-    setWindowFlags(winFlags[static_cast<int>(state)]);
-    this->decorationState_ = state;
-    show();
+    decorationState_ = state;
+
+    if (state == AllDecorations && !ui->menubar->isVisible()) {
+        ui->menubar->show();
+    } else if (ui->menubar->isVisible()) {
+        ui->menubar->hide();
+    }
+
+    if (state == NoDecorations) {
+        setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+        show();
+    } else if (windowFlags() & Qt::FramelessWindowHint) {
+        setWindowFlags(windowFlags() & ~Qt::FramelessWindowHint);
+        show();
+    }
 }
 
 void MainWindow::setUiEnabledState(bool enabled)
