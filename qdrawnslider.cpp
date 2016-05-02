@@ -85,6 +85,7 @@ void QDrawnSlider::paintEvent(QPaintEvent *ev)
     grooveFill   = pal.color(QPalette::Normal, QPalette::Base);
     handleBorder = pal.color(QPalette::Normal, QPalette::Dark);
     handleFill   = pal.color(QPalette::Normal, QPalette::Button);
+    loopColor    = pal.color(QPalette::Normal, QPalette::Highlight);
     markColor    = pal.color(QPalette::Normal, QPalette::Shadow);
 
     p.setRenderHint(QPainter::Antialiasing, true);
@@ -211,13 +212,16 @@ void QDrawnSlider::mouseMoveEvent(QMouseEvent *ev)
 
 
 QMediaSlider::QMediaSlider(QWidget *parent) :
-    QDrawnSlider(parent, QSize(11, 12), QSize(5, 3))
+    QDrawnSlider(parent, QSize(11, 12), QSize(5, 3)),
+    vLoopA(-1), vLoopB(-1), loopArea(-1,-1,0,0)
 {
 }
 
 void QMediaSlider::clearTicks()
 {
     ticks.clear();
+    vLoopA = vLoopB = -1;
+    loopArea = {-1, -1, 0, 0};
 }
 
 void QMediaSlider::setTick(double value, QString text)
@@ -231,9 +235,26 @@ void QMediaSlider::drawGroove(QPainter *p)
     p->setBrush(grooveFill);
     dr(p, grooveArea);
 
-    double pos;
+    if (vLoopA >= 0 && vLoopB >= 0) {
+        p->setBrush(loopColor);
+        dr(p, loopArea);
+    }
+    p->setPen(loopColor);
+    if (vLoopA >= 0) {
+        double pos = valueToX(vLoopA);
+        p->drawLine(QPointF(pos + 0.5, grooveArea.top() + 1.5),
+                    QPointF(pos + 0.5, grooveArea.bottom() - 1.5));
+    }
+    if (vLoopB >= 0) {
+        double pos = valueToX(vLoopB);
+        p->drawLine(QPointF(pos + 0.5, grooveArea.top() + 1.5),
+                    QPointF(pos + 0.5, grooveArea.bottom() - 1.5));
+
+    }
+
+    p->setPen(grooveBorder);
     for (auto i = ticks.constBegin(); i != ticks.constEnd(); i++) {
-        pos = valueToX(i.key());
+        double pos = valueToX(i.key());
         // Don't draw over the edge of the groove twice when disabled, so the
         // affected groove sides don't appear dark.
         if (isEnabled() || (pos > grooveArea.left() + 1.0 &&
@@ -281,6 +302,14 @@ void QMediaSlider::handleHover(double x)
     double valueOfX = xToValue(x);
 
     hoverValue(valueOfX, valueToTickText(valueOfX), x);
+}
+
+void QMediaSlider::updateLoopArea()
+{
+    double left = valueToX(vLoopA);
+    double right = valueToX(vLoopB);
+    loopArea = {left, grooveArea.top(), right - left, grooveArea.height()};
+    update();
 }
 
 QString QMediaSlider::valueToTickText(double value)

@@ -37,10 +37,14 @@ protected:
     double valueToX(double value);
     double xToValue(double x);
 
+    void updateLoopArea();
+
     QRectF drawnArea;
     QRectF grooveArea;
     QRectF sliderArea;
-    QColor grooveBorder, grooveFill, handleBorder, handleFill, markColor;
+    QColor grooveBorder, grooveFill;
+    QColor handleBorder, handleFill;
+    QColor loopColor, markColor;
     int handleWidth, handleHeight, marginX, marginY;
 
 private:
@@ -66,6 +70,11 @@ public:
 
     void clearTicks();
     void setTick(double value, QString text);
+    void setLoopA(double a) { vLoopA = a; updateLoopArea(); }
+    void setLoopB(double b) { vLoopB = b; updateLoopArea(); }
+    double loopA() { return vLoopA; }
+    double loopB() { return vLoopB; }
+    bool isLoopEmpty() { return vLoopA < 0 || vLoopB < 0; }
 
 signals:
     void hoverBegin();
@@ -79,8 +88,13 @@ protected:
     void leaveEvent(QEvent *event);
     void handleHover(double x);
 
+    void updateLoopArea();
+
     QString valueToTickText(double value);
     QMap<double, QString> ticks;
+    double vLoopA;
+    double vLoopB;
+    QRectF loopArea;
 };
 
 class QVolumeSlider : public QDrawnSlider {
