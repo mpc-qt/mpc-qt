@@ -7,6 +7,7 @@
 #include <QDesktopWidget>
 #include <QWindow>
 #include <QMenuBar>
+#include <QMimeData>
 #include <QJsonDocument>
 #include <QFileDialog>
 #include <QInputDialog>
@@ -126,6 +127,17 @@ void MainWindow::wheelEvent(QWheelEvent *event)
         event->accept();
     else
         QMainWindow::wheelEvent(event);
+}
+
+void MainWindow::dragEnterEvent(QDragEnterEvent *event)
+{
+    if (event->mimeData()->hasUrls())
+        event->accept();
+}
+
+void MainWindow::dropEvent(QDropEvent *event)
+{
+    emit severalFilesOpened(event->mimeData()->urls(), true);
 }
 
 bool MainWindow::mouseStateEvent(const MouseState &state)

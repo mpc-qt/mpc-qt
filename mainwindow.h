@@ -36,6 +36,8 @@ protected:
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
     void wheelEvent(QWheelEvent *event);
+    void dragEnterEvent(QDragEnterEvent *event);
+    void dropEvent(QDropEvent *event);
 
 private:
     bool mouseStateEvent(const MouseState &state);
@@ -73,7 +75,7 @@ private:
 signals:
     void applicationShouldQuit();
     void fileOpened(QUrl what);
-    void severalFilesOpened(QList<QUrl> what);
+    void severalFilesOpened(QList<QUrl> what, bool important = false);
     void dvdbdOpened(QUrl what);
     void streamOpened(QUrl what);
     void recentOpened(TrackInfo info);
