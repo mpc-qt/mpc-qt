@@ -9,6 +9,22 @@ functionality of mpc-hc while using [libmpv] to play video instead of
 DirectShow.
 
 
+## Releases
+
+The closest you'll presently find to an RC is if you went back to just before
+the settingswindow module was introduced, where you may find [a mostly-working
+edition][mwe] with sane defaults.  However it lacks all the changes since
+then, such as bugfixes, screenshoting, autofit and remembering recent files,
+and what is unimplemented to date.  So there are no real release-worthy
+packages just yet.  Real soon now.
+
+However, if you are willing to compile from source, you may test it out and
+determine if what works is satisfying for you.  If not, please open an issue
+that may motivate the developer in a helpful direction.  There could even be
+packages in your distro that help with this.  (e.g. [aur].)  See the compiling
+section below.
+
+
 ## Features
 
 * play back simple video files
@@ -39,11 +55,13 @@ favorite media player.
 
 **Quick queueing:**  Out-of-order playback in the same style of xmms/qmmp.
 
-**More to come:** Comprehensive video-output filter support; Encoding support.
-Suggestions welcome.
+**More to come:** Comprehensive filter-chain support; Encoding support like
+VirtualDub.  Suggestions welcome.
 
 
-## Prequisities
+## Compiling
+
+### Prerequisites
 
 You need the Qt5 sdk installed and a recent edition of libmpv.  On ubuntu you
 can usually install the Qt5 sdk with the ``ubuntu-sdk`` or ``qtcreator``
@@ -52,7 +70,7 @@ packages.  You will need to compile [libmpv] from git head or at least version
 after compiling libmpv, or you may end up with linker errors.
 
 
-## I don't know git, how do I run this?
+### I don't know git, how do I do this?
 
 You'll have to perform a little bit of footwork beforehand.  What you're going
 to do is make a directory for this repo to sit in, and then compile it.
@@ -95,6 +113,7 @@ This will search the filesystem for the needed binaries and create the file
 `Media Player Classic Qute Theater.desktop`, a usuable `.desktop` file, even
 if you forgot to (or can't) run ldconfig.
 
+
 ## Compiling on Windows
 
 While this program is meant for Linux, it is possible to compile it on Windows
@@ -111,6 +130,8 @@ into `mpv-dev/include/mpv`.  Compile with the 64bit Qt framework as usual.
 
 [Media Player Classic Home Cinema]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
+[mwe]:https://github.com/cmdrkotori/mpc-qt/commit/9400f595
+[aur]:https://aur.archlinux.org/packages/mpc-qt-git/
 [mpv-build]:https://github.com/mpv-player/mpv-build
 [bomi]:https://github.com/xylosper/bomi
 [baka]:https://github.com/u8sand/Baka-MPlayer
