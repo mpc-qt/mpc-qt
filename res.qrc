@@ -21,5 +21,7 @@
         <file>images/controls/playlist/newtab.png</file>
         <file>images/bitmaps/blank-screen-triangle-circle.png</file>
         <file>images/bitmaps/blank-screen-gray.png</file>
+        <file>images/controls/loopa.png</file>
+        <file>images/controls/loopb.png</file>
     </qresource>
 </RCC>
