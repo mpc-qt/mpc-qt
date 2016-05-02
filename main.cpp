@@ -57,18 +57,18 @@ Flow::Flow(QObject *owner) :
     settingsWindow->setWindowModality(Qt::WindowModal);
 
     // mainwindow -> manager
-    connect(mainWindow, SIGNAL(severalFilesOpened(QList<QUrl>)),
-            playbackManager, SLOT(openSeveralFiles(QList<QUrl>)));
-    connect(mainWindow, SIGNAL(fileOpened(QUrl)),
-            playbackManager, SLOT(openFile(QUrl)));
+    connect(mainWindow, &MainWindow::severalFilesOpened,
+            playbackManager, &PlaybackManager::openSeveralFiles);
+    connect(mainWindow, &MainWindow::fileOpened,
+            playbackManager, &PlaybackManager::openFile);
     connect(mainWindow, &MainWindow::dvdbdOpened,
             playbackManager, &PlaybackManager::playDiscFiles);
     connect(mainWindow, &MainWindow::streamOpened,
             playbackManager, &PlaybackManager::playStream);
-    connect(mainWindow, SIGNAL(paused()),
-            playbackManager, SLOT(pausePlayer()));
-    connect(mainWindow, SIGNAL(unpaused()),
-            playbackManager, SLOT(unpausePlayer()));
+    connect(mainWindow, &MainWindow::paused,
+            playbackManager, &PlaybackManager::pausePlayer);
+    connect(mainWindow, &MainWindow::unpaused,
+            playbackManager, &PlaybackManager::unpausePlayer);
     connect(mainWindow, &MainWindow::stopped,
             playbackManager, &PlaybackManager::stopPlayer);
     connect(mainWindow, &MainWindow::stepBackward,
