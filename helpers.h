@@ -53,6 +53,9 @@ public:
     void resizeGL(int w, int h);
     void paintGL(QOpenGLWidget *widget);
 
+signals:
+    void logoSize(QSize size);
+
 private:
     void regenerateTexture();
 

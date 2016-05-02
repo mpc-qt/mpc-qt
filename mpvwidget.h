@@ -103,6 +103,8 @@ signals:
     void displayFramedropsChanged(int64_t count);
     void decoderFramedropsChanged(int64_t cout);
 
+    void logoSizeChanged(QSize size);
+
 private slots:
     void ctrl_nnedi3Unavailable();
     void ctrl_mpvPropertyChanged(QString name, QVariant v);

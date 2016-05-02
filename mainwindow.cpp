@@ -184,11 +184,6 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
         showNormal();
 }
 
-void MainWindow::setNoVideoSize(QSize size)
-{
-    noVideoSize_ = size;
-}
-
 void MainWindow::setDiscState(bool playingADisc)
 {
     ui->actionNavigateMenuTitle->setEnabled(playingADisc);
@@ -234,6 +229,8 @@ void MainWindow::setupVolumeSlider()
 void MainWindow::setupMpvWidget()
 {
     mpvw = new MpvWidget(this);
+    connect(mpvw, &MpvWidget::logoSizeChanged,
+            this, &MainWindow::setNoVideoSize);
 }
 
 void MainWindow::setupMpvHost()
@@ -505,6 +502,12 @@ void MainWindow::doMpvSetVolume(int volume)
 {
     mpvw->setVolume(volume);
     mpvw->showMessage(QString("Volume :%1%").arg(volume));
+}
+
+void MainWindow::setNoVideoSize(const QSize &size)
+{
+    noVideoSize_ = size.expandedTo(QSize(500,270));
+    fireUpdateSize();
 }
 
 void MainWindow::setWindowedMouseMap(const MouseStateMap &map)

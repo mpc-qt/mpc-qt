@@ -298,6 +298,7 @@ void LogoDrawer::paintGL(QOpenGLWidget *widget)
 void LogoDrawer::regenerateTexture()
 {
     logo.load(logoUrl);
+    emit logoSize(logo.size());
 }
 
 

@@ -49,7 +49,6 @@ private:
     double sizeFactor();
 
     void setFullscreenMode(bool fullscreenMode);
-    void setNoVideoSize(QSize size);
     void setDiscState(bool playingADisc);
 
     void setupMenu();
@@ -106,6 +105,7 @@ signals:
     void fireUpdateSize();
 
 public slots:
+    void setNoVideoSize(const QSize &sz);
     void setWindowedMouseMap(const MouseStateMap &map);
     void setFullscreenMouseMap(const MouseStateMap &map);
     void setRecentDocuments(QList<TrackInfo> tracks);

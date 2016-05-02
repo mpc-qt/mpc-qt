@@ -219,8 +219,11 @@ void MpvWidget::screenshot(const QString &fileName, bool subtitles)
 void MpvWidget::setLogoUrl(const QString &filename)
 {
     makeCurrent();
-    if (!logo)
+    if (!logo) {
         logo = new LogoDrawer(this);
+        connect(logo, &LogoDrawer::logoSize,
+                this, &MpvWidget::logoSizeChanged);
+    }
     logo->setLogoUrl(filename);
     logo->resizeGL(width(), height());
     if (drawLogo)
