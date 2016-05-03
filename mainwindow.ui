@@ -105,7 +105,7 @@
        </item>
        <item>
         <widget class="QWidget" name="controlbar" native="true">
-         <layout class="QHBoxLayout" name="_3" stretch="0,0,0,0,0,0,0,0,0,0,0,1,0">
+         <layout class="QHBoxLayout" name="_3" stretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0">
           <property name="leftMargin">
            <number>6</number>
           </property>
@@ -300,6 +300,50 @@
             <property name="icon">
              <iconset resource="res.qrc">
               <normaloff>:/images/controls/forward3.png</normaloff>:/images/controls/forward3.png</iconset>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>8</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="loopA">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="icon">
+             <iconset resource="res.qrc">
+              <normaloff>:/images/controls/loopa.png</normaloff>:/images/controls/loopa.png</iconset>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="loopB">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="icon">
+             <iconset resource="res.qrc">
+              <normaloff>:/images/controls/loopb.png</normaloff>:/images/controls/loopb.png</iconset>
             </property>
             <property name="flat">
              <bool>true</bool>
@@ -665,6 +709,16 @@
      <addaction name="actionPlayAfterAlwaysNothing"/>
      <addaction name="actionPlayAfterAlwaysNext"/>
     </widget>
+    <widget class="QMenu" name="menuPlayLoop">
+     <property name="title">
+      <string>&amp;Loop</string>
+     </property>
+     <addaction name="actionPlayLoopStart"/>
+     <addaction name="actionPlayLoopEnd"/>
+     <addaction name="separator"/>
+     <addaction name="actionPlayLoopUse"/>
+     <addaction name="actionPlayLoopClear"/>
+    </widget>
     <addaction name="actionPlayPause"/>
     <addaction name="actionPlayStop"/>
     <addaction name="actionPlayFrameForward"/>
@@ -673,6 +727,8 @@
     <addaction name="actionPlayRateDecrease"/>
     <addaction name="actionPlayRateIncrease"/>
     <addaction name="actionPlayRateReset"/>
+    <addaction name="separator"/>
+    <addaction name="menuPlayLoop"/>
     <addaction name="separator"/>
     <addaction name="menuPlayAudio"/>
     <addaction name="menuPlaySubtitles"/>
@@ -1367,6 +1423,41 @@
    </property>
    <property name="shortcut">
     <string>Shift+Left</string>
+   </property>
+  </action>
+  <action name="actionPlayLoopStart">
+   <property name="text">
+    <string>&amp;Set Loop Start</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Home</string>
+   </property>
+  </action>
+  <action name="actionPlayLoopEnd">
+   <property name="text">
+    <string>Set &amp;Loop End</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+End</string>
+   </property>
+  </action>
+  <action name="actionPlayLoopUse">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Use Loop Points</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Backspace</string>
+   </property>
+  </action>
+  <action name="actionPlayLoopClear">
+   <property name="text">
+    <string>Clear Loop</string>
+   </property>
+   <property name="shortcut">
+    <string>Backspace</string>
    </property>
   </action>
  </widget>

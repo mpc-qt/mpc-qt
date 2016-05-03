@@ -297,6 +297,11 @@ void MainWindow::connectButtonsToActions()
     connect(ui->skipForward, &QPushButton::clicked,
             ui->actionNavigateChaptersNext, &QAction::triggered);
 
+    connect(ui->loopA, &QPushButton::clicked,
+            ui->actionPlayLoopStart, &QAction::triggered);
+    connect(ui->loopB, &QPushButton::clicked,
+            ui->actionPlayLoopEnd, &QAction::triggered);
+
     connect(ui->mute, &QPushButton::toggled,
             ui->actionPlayVolumeMute, &QAction::toggled);
 }
@@ -337,7 +342,11 @@ void MainWindow::setUiDecorationState(DecorationState state)
 
 void MainWindow::setUiEnabledState(bool enabled)
 {
-    positionSlider()->setEnabled(enabled);
+    positionSlider_->setEnabled(enabled);
+    if (!enabled) {
+        positionSlider_->setLoopA(-1);
+        positionSlider_->setLoopB(-1);
+    }
 
     ui->play->setEnabled(enabled);
     ui->pause->setEnabled(enabled);
@@ -348,6 +357,8 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->stepForward->setEnabled(enabled);
     ui->skipBackward->setEnabled(enabled);
     ui->skipForward->setEnabled(enabled);
+    ui->loopA->setEnabled(enabled);
+    ui->loopB->setEnabled(enabled);
 
     ui->mute->setEnabled(enabled);
     volumeSlider()->setEnabled(enabled);
@@ -377,6 +388,7 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionNavigateChaptersNext->setEnabled(enabled);
     ui->actionFavoritesAdd->setEnabled(enabled);
 
+    ui->menuPlayLoop->setEnabled(enabled);
     ui->menuPlayAudio->setEnabled(enabled);
     ui->menuPlaySubtitles->setEnabled(enabled);
     ui->menuPlayVideo->setEnabled(enabled);
@@ -1048,6 +1060,43 @@ void MainWindow::on_actionPlaySeekForwardsFine_triggered()
 void MainWindow::on_actionPlaySeekBackwardsFine_triggered()
 {
     emit relativeSeek(false, true);
+}
+
+
+void MainWindow::on_actionPlayLoopStart_triggered()
+{
+    positionSlider_->setLoopA(mpvw->playTime());
+    if (ui->actionPlayLoopUse->isChecked())
+        mpvw->setLoopPoints(positionSlider_->loopA(),
+                            positionSlider_->loopB());
+}
+
+void MainWindow::on_actionPlayLoopEnd_triggered()
+{
+    positionSlider_->setLoopB(mpvw->playTime());
+    if (ui->actionPlayLoopUse->isChecked())
+        mpvw->setLoopPoints(positionSlider_->loopA(),
+                            positionSlider_->loopB());
+}
+
+void MainWindow::on_actionPlayLoopUse_triggered(bool checked)
+{
+    if (checked && !positionSlider_->isLoopEmpty()) {
+        mpvw->setLoopPoints(positionSlider_->loopA(),
+                            positionSlider_->loopB());
+    } else if (checked) {
+        ui->actionPlayLoopUse->setChecked(false);
+    } else {
+        mpvw->setLoopPoints(-1, -1);
+    }
+}
+
+void MainWindow::on_actionPlayLoopClear_triggered()
+{
+    ui->actionPlayLoopUse->setChecked(false);
+    mpvw->setLoopPoints(-1, -1);
+    positionSlider_->setLoopA(-1);
+    positionSlider_->setLoopB(-1);
 }
 
 void MainWindow::on_actionPlayVolumeUp_triggered()

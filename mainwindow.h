@@ -182,6 +182,11 @@ private slots:
     void on_actionPlaySeekForwardsFine_triggered();
     void on_actionPlaySeekBackwardsFine_triggered();
 
+    void on_actionPlayLoopStart_triggered();
+    void on_actionPlayLoopEnd_triggered();
+    void on_actionPlayLoopUse_triggered(bool checked);
+    void on_actionPlayLoopClear_triggered();
+
     void on_actionPlayVolumeUp_triggered();
     void on_actionPlayVolumeDown_triggered();
     void on_actionPlayVolumeMute_toggled(bool checked);
