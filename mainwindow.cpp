@@ -15,7 +15,6 @@
 #include <QDesktopServices>
 #include <QMessageBox>
 #include <QLibraryInfo>
-#include <QTimer>
 
 using namespace Helpers;
 
@@ -270,10 +269,6 @@ void MainWindow::setupSizing()
     connect(this, &MainWindow::fireUpdateSize,
             this, &MainWindow::sendUpdateSize,
             Qt::QueuedConnection);
-
-    // Send update request after the window has its layout calculated
-    // Hopefully this doesn't introduce noticable glitches.
-    QTimer::singleShot(10, [this]() { this->updateSize(true); });
 }
 
 void MainWindow::connectButtonsToActions()

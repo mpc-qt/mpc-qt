@@ -6,6 +6,7 @@
 #include <QStandardPaths>
 #include <QUuid>
 #include <QJsonDocument>
+#include <QTimer>
 #include "main.h"
 #include "storage.h"
 #include "mainwindow.h"
@@ -52,7 +53,6 @@ Flow::Flow(QObject *owner) :
     playbackManager = new PlaybackManager(this);
     playbackManager->setMpvWidget(mainWindow->mpvWidget(), true);
     playbackManager->setPlaylistWindow(mainWindow->playlistWindow());
-
     settingsWindow = new SettingsWindow();
     settingsWindow->setWindowModality(Qt::WindowModal);
 
@@ -288,7 +288,10 @@ Flow::~Flow()
 int Flow::run()
 {
     mainWindow->playlistWindow()->tabsFromVList(storage.readVList("playlists"));
-    mainWindow->show();
+    QTimer::singleShot(50, [this]() {
+        mainWindow->fireUpdateSize();
+        mainWindow->show();
+    });
     if (!hasPrevious_)
         server_payloadRecieved(makePayload());
     return qApp->exec();
