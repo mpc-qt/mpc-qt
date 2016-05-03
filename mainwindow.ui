@@ -327,6 +327,9 @@
             <property name="enabled">
              <bool>false</bool>
             </property>
+            <property name="toolTip">
+             <string>Set Loop Start</string>
+            </property>
             <property name="icon">
              <iconset resource="res.qrc">
               <normaloff>:/images/controls/loopa.png</normaloff>:/images/controls/loopa.png</iconset>
@@ -340,6 +343,9 @@
            <widget class="QPushButton" name="loopB">
             <property name="enabled">
              <bool>false</bool>
+            </property>
+            <property name="toolTip">
+             <string>Set Loop End</string>
             </property>
             <property name="icon">
              <iconset resource="res.qrc">
