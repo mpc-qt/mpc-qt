@@ -231,28 +231,34 @@ void QMediaSlider::setTick(double value, QString text)
 
 void QMediaSlider::drawGroove(QPainter *p)
 {
-    p->setPen(grooveBorder);
+    // Draw inside area
+    p->setPen(Qt::NoPen);
     p->setBrush(grooveFill);
     dr(p, grooveArea);
 
+    // Draw any highlighted area
+    p->setPen(loopColor);
+    p->setBrush(loopColor);
     if (vLoopA >= 0 && vLoopB >= 0) {
         p->setBrush(loopColor);
         dr(p, loopArea);
-    }
-    p->setPen(loopColor);
-    if (vLoopA >= 0) {
+    } else if (vLoopA >= 0) {
         double pos = valueToX(vLoopA);
         p->drawLine(QPointF(pos + 0.5, grooveArea.top() + 1.5),
                     QPointF(pos + 0.5, grooveArea.bottom() - 1.5));
-    }
-    if (vLoopB >= 0) {
+    } else if (vLoopB >= 0) {
         double pos = valueToX(vLoopB);
         p->drawLine(QPointF(pos + 0.5, grooveArea.top() + 1.5),
                     QPointF(pos + 0.5, grooveArea.bottom() - 1.5));
 
     }
 
+    // Draw outside groove
     p->setPen(grooveBorder);
+    p->setBrush(Qt::NoBrush);
+    dr(p, grooveArea);
+
+    // Draw chapter marks
     for (auto i = ticks.constBegin(); i != ticks.constEnd(); i++) {
         double pos = valueToX(i.key());
         // Don't draw over the edge of the groove twice when disabled, so the
@@ -308,7 +314,7 @@ void QMediaSlider::updateLoopArea()
 {
     double left = valueToX(vLoopA);
     double right = valueToX(vLoopB);
-    loopArea = {left, grooveArea.top(), right - left, grooveArea.height()};
+    loopArea = {left, grooveArea.top() + 1, right - left, grooveArea.height() - 2};
     update();
 }
 
