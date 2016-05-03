@@ -40,6 +40,7 @@ public:
     void setPaused(bool yes);
     void setSpeed(double speed);
     void setTime(double position);
+    void setLoopPoints(double first, double end);
     void setAudioTrack(int64_t id);
     void setSubtitleTrack(int64_t id);
     void setVideoTrack(int64_t id);

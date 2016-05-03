@@ -289,6 +289,12 @@ void MpvWidget::setTime(double position)
     setMpvPropertyVariant("time-pos", position);
 }
 
+void MpvWidget::setLoopPoints(double first, double end)
+{
+    setMpvPropertyVariant("ab-loop-a", first < 0 ? (-0x1p+63) : first);
+    setMpvPropertyVariant("ab-loop-b", end < 0 ? (-0x1p+63) : end);
+}
+
 void MpvWidget::setAudioTrack(int64_t id)
 {
     setMpvPropertyVariant("aid", (long long)id);
