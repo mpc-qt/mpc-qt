@@ -307,11 +307,12 @@ void MainWindow::globalizeAllActions()
         addAction(a);
     }
     addAction(ui->actionPlaylistPlayCurrent);
+    addAction(ui->actionPlaylistQuickQueue);
+    addAction(ui->actionPlaylistSearch);
     addAction(ui->actionPlaySeekForwards);
     addAction(ui->actionPlaySeekForwardsFine);
     addAction(ui->actionPlaySeekBackwards);
     addAction(ui->actionPlaySeekBackwardsFine);
-    addAction(ui->actionPlaylistSearch);
 }
 
 void MainWindow::setUiDecorationState(DecorationState state)
@@ -1200,4 +1201,9 @@ void MainWindow::on_actionPlaylistPlayCurrent_triggered()
 void MainWindow::on_actionPlaylistSearch_triggered()
 {
     playlistWindow()->revealSearch();
+}
+
+void MainWindow::on_actionPlaylistQuickQueue_triggered()
+{
+    playlistWindow()->quickQueue();
 }

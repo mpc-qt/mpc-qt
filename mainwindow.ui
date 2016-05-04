@@ -1474,6 +1474,14 @@
     <string>Ctrl+F</string>
    </property>
   </action>
+  <action name="actionPlaylistQuickQueue">
+   <property name="text">
+    <string>Quick Queue Toggle</string>
+   </property>
+   <property name="shortcut">
+    <string>Q</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="res.qrc"/>

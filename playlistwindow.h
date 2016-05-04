@@ -37,6 +37,7 @@ public:
     void selectNext();
     void selectPrevious();
 
+    void quickQueue();
     void revealSearch();
 
 protected:
@@ -78,8 +79,6 @@ private slots:
     void on_exportList_clicked();
 
     void on_tabWidget_customContextMenuRequested(const QPoint &pos);
-
-    void on_queueToggle_triggered();
 
     void on_searchField_textEdited(const QString &arg1);
 

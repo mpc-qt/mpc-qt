@@ -102,14 +102,6 @@
     </item>
    </layout>
   </widget>
-  <action name="queueToggle">
-   <property name="text">
-    <string>&amp;Queue Toggle</string>
-   </property>
-   <property name="shortcut">
-    <string>Q</string>
-   </property>
-  </action>
  </widget>
  <resources>
   <include location="res.qrc"/>

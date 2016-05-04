@@ -20,7 +20,6 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
 
     ui->setupUi(this);
     addNewTab(QUuid(), tr("Quick Playlist"));
-    this->addAction(ui->queueToggle);
     ui->searchField->setVisible(false);
 
     worker = new QThread();
@@ -181,6 +180,17 @@ void PlaylistWindow::selectPrevious()
     int index = qdp->currentRow();
     if (index > 0)
         qdp->setCurrentRow(index - 1);
+}
+
+void PlaylistWindow::quickQueue()
+{
+    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    int i = qdp->currentRow();
+    if (i < 0)
+        return;
+    pl->queueToggle(pl->itemAt(i)->uuid());
+    qdp->viewport()->update();
 }
 
 void PlaylistWindow::revealSearch()
@@ -363,17 +373,6 @@ void PlaylistWindow::on_tabWidget_customContextMenuRequested(const QPoint &pos)
     m->addAction(tr("&Import Playlist"), this, SLOT(on_importList_clicked()));
     m->addAction(tr("&Export Playlist"), this, SLOT(on_exportList_clicked()));
     m->exec(ui->tabWidget->mapToGlobal(pos));
-}
-
-void PlaylistWindow::on_queueToggle_triggered()
-{
-    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
-    int i = qdp->currentRow();
-    if (i < 0)
-        return;
-    pl->queueToggle(pl->itemAt(i)->uuid());
-    qdp->viewport()->update();
 }
 
 void PlaylistWindow::on_searchField_textEdited(const QString &arg1)
