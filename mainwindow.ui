@@ -45,9 +45,6 @@
     </property>
     <item>
      <widget class="QWidget" name="mpvWidget" native="true">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(0, 0, 0);</string>
-      </property>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <property name="spacing">
         <number>0</number>

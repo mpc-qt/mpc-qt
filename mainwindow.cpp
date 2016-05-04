@@ -258,7 +258,6 @@ void MainWindow::setupMpvHost()
 void MainWindow::setupPlaylist()
 {
     playlistWindow_ = new PlaylistWindow(this);
-    playlistWindow_->setStyleSheet("background: window;");
     mpvHost_->addDockWidget(Qt::RightDockWidgetArea, playlistWindow_);
 }
 
