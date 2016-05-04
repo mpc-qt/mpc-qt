@@ -29,7 +29,14 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     searcher->moveToThread(worker);
 
     connect(searcher, &PlaylistSearcher::playlistMarked,
-            this, &PlaylistWindow::updatePlaylist);
+            this, &PlaylistWindow::updatePlaylist,
+            Qt::QueuedConnection);
+    connect(this, &PlaylistWindow::searcher_clearPlaylistMarks,
+            searcher, &PlaylistSearcher::clearPlaylistMarks,
+            Qt::QueuedConnection);
+    connect(this, &PlaylistWindow::searcher_searchPlaylist,
+            searcher, &PlaylistSearcher::markPlaylist,
+            Qt::QueuedConnection);
 }
 
 PlaylistWindow::~PlaylistWindow()
@@ -214,9 +221,7 @@ void PlaylistWindow::dropEvent(QDropEvent *event)
 
 void PlaylistWindow::updateCurrentPlaylist()
 {
-    QMetaObject::invokeMethod(searcher, "clearPlaylistMarks",
-                              Qt::QueuedConnection,
-                              Q_ARG(QUuid, currentPlaylist));
+    emit searcher_clearPlaylistMarks(currentPlaylist);
     auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
     if (!qdp)
         return;
@@ -378,12 +383,8 @@ void PlaylistWindow::on_tabWidget_customContextMenuRequested(const QPoint &pos)
 void PlaylistWindow::on_searchField_textEdited(const QString &arg1)
 {
     auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
-    QUuid playlistUuid = qdp->uuid();
     searcher->bump();
-    QMetaObject::invokeMethod(searcher, "markPlaylist",
-                              Qt::QueuedConnection,
-                              Q_ARG(QUuid, playlistUuid),
-                              Q_ARG(QString, arg1));
+    emit searcher_searchPlaylist(qdp->uuid(), arg1);
 }
 
 void PlaylistWindow::on_searchField_editingFinished()
