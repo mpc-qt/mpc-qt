@@ -311,6 +311,7 @@ void MainWindow::globalizeAllActions()
     addAction(ui->actionPlaySeekForwardsFine);
     addAction(ui->actionPlaySeekBackwards);
     addAction(ui->actionPlaySeekBackwardsFine);
+    addAction(ui->actionPlaylistSearch);
 }
 
 void MainWindow::setUiDecorationState(DecorationState state)
@@ -1194,4 +1195,9 @@ void MainWindow::sendUpdateSize()
 void MainWindow::on_actionPlaylistPlayCurrent_triggered()
 {
     emit playCurrentItemRequested();
+}
+
+void MainWindow::on_actionPlaylistSearch_triggered()
+{
+    playlistWindow()->revealSearch();
 }

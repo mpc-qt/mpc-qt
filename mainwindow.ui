@@ -1460,10 +1460,18 @@
   </action>
   <action name="actionPlayLoopClear">
    <property name="text">
-    <string>Clear Loop</string>
+    <string>&amp;Clear Loop</string>
    </property>
    <property name="shortcut">
     <string>Backspace</string>
+   </property>
+  </action>
+  <action name="actionPlaylistSearch">
+   <property name="text">
+    <string>Search Playlist</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
    </property>
   </action>
  </widget>

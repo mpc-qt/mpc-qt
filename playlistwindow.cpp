@@ -21,6 +21,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     ui->setupUi(this);
     addNewTab(QUuid(), tr("Quick Playlist"));
     this->addAction(ui->queueToggle);
+    ui->searchField->setVisible(false);
 
     worker = new QThread();
     worker->start();
@@ -180,6 +181,12 @@ void PlaylistWindow::selectPrevious()
     int index = qdp->currentRow();
     if (index > 0)
         qdp->setCurrentRow(index - 1);
+}
+
+void PlaylistWindow::revealSearch()
+{
+    ui->searchField->setVisible(true);
+    ui->searchField->setFocus();
 }
 
 void PlaylistWindow::dragEnterEvent(QDragEnterEvent *event)
@@ -380,7 +387,13 @@ void PlaylistWindow::on_searchField_textEdited(const QString &arg1)
                               Q_ARG(QString, arg1));
 }
 
+void PlaylistWindow::on_searchField_editingFinished()
+{
+    ui->searchField->setVisible(false);
+}
+
 void PlaylistWindow::on_tabWidget_currentChanged(int index)
 {
     updateCurrentPlaylist();
 }
+

@@ -37,6 +37,8 @@ public:
     void selectNext();
     void selectPrevious();
 
+    void revealSearch();
+
 protected:
     void dragEnterEvent(QDragEnterEvent *event);
     void dropEvent(QDropEvent *event);
@@ -80,6 +82,8 @@ private slots:
     void on_queueToggle_triggered();
 
     void on_searchField_textEdited(const QString &arg1);
+
+    void on_searchField_editingFinished();
 
     void on_tabWidget_currentChanged(int index);
 

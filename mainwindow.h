@@ -205,6 +205,8 @@ private slots:
 
     void on_actionPlaylistPlayCurrent_triggered();
 
+    void on_actionPlaylistSearch_triggered();
+
 private:
     Ui::MainWindow *ui;
     QMainWindow *mpvHost_;
