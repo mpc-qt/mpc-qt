@@ -41,21 +41,18 @@ void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
         text = dp->parseMetadata(i->metadata(), text, Helpers::VideoFile);
     }
 
-    if (i->uuid() == playWidget->nowPlayingItem()) {
-         QFont f = playWidget->font();
-         f.setBold(true);
-         painter->setFont(f);
-         painter->setPen(playWidget->palette().link().color());
-         painter->drawText(rc, Qt::AlignLeft|Qt::AlignVCenter,
-                           text);
-         painter->setFont(playWidget->font());
-    } else {
-         painter->setPen(playWidget->palette().text().color());
-         QApplication::style()->drawItemText(painter, rc,
-                                             Qt::AlignLeft|Qt::AlignVCenter,
-                                             playWidget->palette(), true,
-                                             text);
-    }
+    bool isNowPlaying = i->uuid() == playWidget->nowPlayingItem();
+    bool isMarked = i->marked();
+    QFont f = playWidget->font();
+    f.setBold(isNowPlaying);
+    painter->setFont(f);
+    painter->setPen(isMarked
+                    ? playWidget->palette().link().color()
+                    : isNowPlaying ? playWidget->palette().highlightedText().color()
+                                   : playWidget->palette().text().color());
+    painter->drawText(rc, Qt::AlignLeft|Qt::AlignVCenter,
+                      text);
+    painter->setFont(playWidget->font());
 }
 
 QSize PlayPainter::sizeHint(const QStyleOptionViewItem &option,
