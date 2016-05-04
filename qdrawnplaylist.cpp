@@ -48,8 +48,7 @@ void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
     painter->setFont(f);
     painter->setPen(isMarked
                     ? playWidget->palette().link().color()
-                    : isNowPlaying ? playWidget->palette().highlightedText().color()
-                                   : playWidget->palette().text().color());
+                    : playWidget->palette().text().color());
     painter->drawText(rc, Qt::AlignLeft|Qt::AlignVCenter,
                       text);
     painter->setFont(playWidget->font());
