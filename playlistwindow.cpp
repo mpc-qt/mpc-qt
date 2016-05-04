@@ -43,7 +43,7 @@ QPair<QUuid, QUuid> PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
     QPair<QUuid, QUuid> info;
     auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
     auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
-    Item *firstItem = NULL;
+    QSharedPointer<Item> firstItem;
     for (QUrl url : what) {
        auto item = pl->addItem(url);
        qdp->addItem(item->uuid());
@@ -80,7 +80,7 @@ QUuid PlaylistWindow::getItemAfter(QUuid list, QUuid item)
     QUuid uuid = pl->queueTakeFirst();
     if (!uuid.isNull())
         return uuid;
-    Item *after = pl->itemAfter(item);
+    QSharedPointer<Item> after = pl->itemAfter(item);
     if (!after)
         return QUuid();
     return after->uuid();
@@ -91,7 +91,7 @@ QUuid PlaylistWindow::getItemBefore(QUuid list, QUuid item)
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
     if (!pl)
         return QUuid();
-    Item *before = pl->itemBefore(item);
+    QSharedPointer<Item> before = pl->itemBefore(item);
     if (!before)
         return QUuid();
     return before->uuid();
@@ -224,6 +224,12 @@ void PlaylistWindow::playCurrentItem()
     if (i < 0)
         return;
     emit itemDesired(pl->uuid(), pl->itemAt(i)->uuid());
+}
+
+void PlaylistWindow::updatePlaylist(QUuid playlistUuid)
+{
+    if (widgets.contains(playlistUuid))
+        widgets[playlistUuid]->viewport()->update();
 }
 
 void PlaylistWindow::self_relativeSeekRequested(bool forwards, bool small)

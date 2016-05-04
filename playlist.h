@@ -8,9 +8,11 @@
 #include <QObject>
 #include <functional>
 #include <QList>
+#include <QSharedPointer>
 #include <QHash>
 #include <QStringList>
 #include <QVariantMap>
+#include <QReadWriteLock>
 
 class Item {
 public:
@@ -27,6 +29,9 @@ public:
     void setQueuePosition(int num);
     void decQueuePosition();
 
+    void setMarked(bool yes);
+    bool marked();
+
     QString toDisplayString() const;
     QString toString() const;
     void fromString(QString input);
@@ -34,11 +39,13 @@ public:
     QVariantMap toVMap() const;
     void fromVMap(const QVariantMap &qvm);
 
+
 private:
     QUuid uuid_;
     QUrl url_;
     QVariantMap metadata_;
     int queuePosition_;
+    bool marked_;
 };
 
 class Playlist : public QObject {
@@ -46,20 +53,20 @@ class Playlist : public QObject {
 public:
     Playlist(QString title = QString());
     ~Playlist();
-    Item *addItem(QUrl url = QUrl());
-    Item *addItem(QUuid uuid, QUrl url);
-    Item *itemAt(int row);
-    Item *itemOf(QUuid uuid);
-    Item *itemAfter(QUuid uuid);
-    Item *itemBefore(QUuid uuid);
+    QSharedPointer<Item> addItem(QUrl url = QUrl());
+    QSharedPointer<Item> addItem(QUuid uuid, QUrl url);
+    QSharedPointer<Item> itemAt(int row);
+    QSharedPointer<Item> itemOf(QUuid uuid);
+    QSharedPointer<Item> itemAfter(QUuid uuid);
+    QSharedPointer<Item> itemBefore(QUuid uuid);
     int indexOf(QUuid uuid);
-    int count() const;
-    void iterateItems(std::function<void(Item *)> callback);
+    int count();
+    void iterateItems(std::function<void(QSharedPointer<Item>)> callback);
     void moveItems(int sourceRow, int destRow, int count);
-    void addItems(int where, QList<Item*> itemsToAdd);
+    void addItems(int where, QList<QSharedPointer<Item>> itemsToAdd);
     void removeItems(int where, int count);
-    void removeItem(QUuid uuid);
-    QList<Item*> takeItems(int where, int count);
+    void removeItem(QUuid uuuid);
+    QList<QSharedPointer<Item>> takeItems(int where, int count);
     void clear();
 
     QUuid queueFirst();
@@ -67,53 +74,54 @@ public:
     void queueToggle(QUuid uuid);
     void queueRemove(QUuid uuid);
 
-    QString title() const;
+    QString title();
     void setTitle(const QString title);
-    QUuid uuid() const;
+    QUuid uuid();
     void setUuid(const QUuid uuid);
 
-    QStringList toStringList() const;
+    QStringList toStringList();
     void fromStringList(QStringList sl);
 
-    QVariantMap toVMap() const;
+    QVariantMap toVMap();
     void fromVMap(const QVariantMap &qvm);
 
+
 private:
-    QList<Item*> items;
-    QHash<QUuid, Item*> itemsByUuid;
+    QList<QSharedPointer<Item>> items;
+    QHash<QUuid, QSharedPointer<Item>> itemsByUuid;
     QList<QUuid> queue;
     QString title_;
     QUuid uuid_;
+
+    QReadWriteLock listLock;
 };
 
 class PlaylistCollection : public QObject {
     Q_OBJECT
 private:
     PlaylistCollection();
-    ~PlaylistCollection();
-    static PlaylistCollection* collection;
+    static QSharedPointer<PlaylistCollection> collection;
 
 public:
-    static PlaylistCollection *getSingleton();
-    static void freeSingleton();
+    ~PlaylistCollection();
+    static QSharedPointer<PlaylistCollection> getSingleton();
 
-    Playlist *nowPlaying();
+    QSharedPointer<Playlist> nowPlaying();
 
-    Playlist *newPlaylist(QString title = 0);
-    Playlist *clonePlaylist(QUuid uuid);
+    QSharedPointer<Playlist> newPlaylist(QString title = 0);
+    QSharedPointer<Playlist> clonePlaylist(QUuid uuid);
     void removePlaylist(QUuid uuid);
-    void removePlaylist(Playlist *p);
-    Playlist *playlistAt(int col);
-    Playlist *playlistOf(QUuid uuid);
+    void removePlaylist(QSharedPointer<Playlist> p);
+    QSharedPointer<Playlist> playlistAt(int col);
+    QSharedPointer<Playlist> playlistOf(QUuid uuid);
 
-    void addPlaylist(Playlist *playlist);
+    void addPlaylist(QSharedPointer<Playlist> playlist);
 
 private:
-    QList<Playlist*> playlists;
-    QHash<QUuid, Playlist*> playlistsByUuid;
+    QList<QSharedPointer<Playlist>> playlists;
+    QHash<QUuid, QSharedPointer<Playlist>> playlistsByUuid;
 
-    Playlist *doNewPlaylist(QString title, QUuid uuid);
+    QSharedPointer<Playlist> doNewPlaylist(QString title, QUuid uuid);
 };
-
 
 #endif // PLAYLIST_H

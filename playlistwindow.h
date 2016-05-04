@@ -11,6 +11,7 @@ class PlaylistWindow;
 }
 
 class QDrawnPlaylist;
+class QThread;
 
 class PlaylistWindow : public QDockWidget
 {
@@ -54,6 +55,7 @@ public slots:
     void addSimplePlaylist(QStringList data);
     void setDisplayFormatSpecifier(QString fmt);
     void playCurrentItem();
+    void updatePlaylist(QUuid playlistUuid);
 
 private slots:
     void self_relativeSeekRequested(bool forwards, bool small);

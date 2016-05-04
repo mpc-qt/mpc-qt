@@ -13,11 +13,11 @@ void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
                         const QModelIndex &index) const
 {
     auto playWidget = qobject_cast<QDrawnPlaylist*>(parent());
-    Playlist *p = PlaylistCollection::getSingleton()->
-                      playlistOf(playWidget->uuid());
+    auto p = PlaylistCollection::getSingleton()->
+            playlistOf(playWidget->uuid());
     if (p == NULL)
         return;
-    Item *i = p->itemOf(QUuid(index.data(Qt::DisplayRole).toString()));
+    QSharedPointer<Item> i = p->itemOf(QUuid(index.data(Qt::DisplayRole).toString()));
     if (i == NULL)
         return;
 
@@ -90,11 +90,11 @@ void PlayItem::setUuid(QUuid uuid)
     auto playWidget = reinterpret_cast<QDrawnPlaylist *>(listWidget());
     if (playWidget == NULL)
         return;
-    Playlist *playlist = PlaylistCollection::getSingleton()->
-                             playlistOf(playWidget->uuid());
+    QSharedPointer<Playlist> playlist = PlaylistCollection::getSingleton()->
+            playlistOf(playWidget->uuid());
     if (playlist == NULL)
         return;
-    Item *item = playlist->itemOf(uuid);
+    QSharedPointer<Item> item = playlist->itemOf(uuid);
     if (item == NULL)
         return;
 
@@ -125,11 +125,11 @@ void QDrawnPlaylist::setUuid(const QUuid &uuid)
     clear();
 
     uuid_ = uuid;
-    Playlist *playlist = PlaylistCollection::getSingleton()->playlistOf(uuid);
+    auto playlist = PlaylistCollection::getSingleton()->playlistOf(uuid);
     if (playlist == NULL)
         return;
 
-    auto itemAdder = [&](Item *item) {
+    auto itemAdder = [&](QSharedPointer<Item> item) {
         addItem(item->uuid());
     };
     playlist->iterateItems(itemAdder);
@@ -145,7 +145,7 @@ void QDrawnPlaylist::addItem(QUuid uuid)
 
 void QDrawnPlaylist::removeItem(QUuid uuid)
 {
-    Playlist *playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
+    QSharedPointer<Playlist> playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
     if (playlist)
         playlist->removeItem(uuid);
     auto matchingRows = findItems(uuid.toString(), Qt::MatchExactly);
@@ -155,7 +155,7 @@ void QDrawnPlaylist::removeItem(QUuid uuid)
 
 void QDrawnPlaylist::removeAll()
 {
-    Playlist *p = PlaylistCollection::getSingleton()->playlistOf(uuid());
+    QSharedPointer<Playlist> p = PlaylistCollection::getSingleton()->playlistOf(uuid());
     if (!p)
         return;
     p->clear();
@@ -178,7 +178,7 @@ void QDrawnPlaylist::setNowPlayingItem(QUuid uuid)
 
 QVariantMap QDrawnPlaylist::toVMap() const
 {
-    Playlist *playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
+    QSharedPointer<Playlist> playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
     if (!playlist)
         return QVariantMap();
     QVariantMap qvm;
@@ -191,7 +191,7 @@ QVariantMap QDrawnPlaylist::toVMap() const
 void QDrawnPlaylist::fromVMap(const QVariantMap &qvm)
 {
     QVariantMap contents = qvm.value("contents").toMap();
-    Playlist *p = new Playlist;
+    QSharedPointer<Playlist> p(new Playlist);
     p->fromVMap(contents);
     PlaylistCollection::getSingleton()->addPlaylist(p);
     setUuid(p->uuid());
@@ -230,8 +230,8 @@ void QDrawnPlaylist::model_rowsMoved(const QModelIndex &parent,
 {
     Q_UNUSED(parent);
     Q_UNUSED(destination);
-    Playlist *p = PlaylistCollection::getSingleton()->playlistOf(uuid());
-    if (p == NULL)
+    QSharedPointer<Playlist> p = PlaylistCollection::getSingleton()->playlistOf(uuid());
+    if (p.isNull())
         return;
     p->moveItems(start, row, 1 + end - start);
 }
@@ -250,10 +250,10 @@ void QDrawnPlaylist::self_customContextMenuRequested(const QPoint &p)
         int index = currentRow();
         if (index < 0)
             return;
-        Playlist *p = PlaylistCollection::getSingleton()->playlistOf(uuid());
+        QSharedPointer<Playlist> p = PlaylistCollection::getSingleton()->playlistOf(uuid());
         if (!p)
             return;
-        Item *item = p->itemAt(index);
+        QSharedPointer<Item> item = p->itemAt(index);
         if (!item)
             return;
         removeItem(item->uuid());
