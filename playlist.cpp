@@ -6,6 +6,7 @@ Item::Item(QUrl url)
     setUrl(url);
     setUuid(QUuid::createUuid());
     setQueuePosition(0);
+    setMarked(false);
 }
 
 QUuid Item::uuid() const
@@ -52,6 +53,16 @@ void Item::decQueuePosition()
 {
     if (queuePosition_ > 0)
         queuePosition_--;
+}
+
+void Item::setMarked(bool yes)
+{
+    marked_ = yes;
+}
+
+bool Item::marked()
+{
+    return marked_;
 }
 
 QString Item::toDisplayString() const
@@ -444,4 +455,72 @@ QSharedPointer<Playlist> PlaylistCollection::doNewPlaylist(QString title, QUuid 
     playlists.append(p);
     playlistsByUuid.insert(p->uuid(), p);
     return p;
+}
+
+void PlaylistSearcher::bump()
+{
+    QWriteLocker locker(&bumpLock);
+    ++bumps_;
+}
+
+void PlaylistSearcher::unbump()
+{
+    QWriteLocker locker(&bumpLock);
+    --bumps_;
+}
+
+int PlaylistSearcher::bumps()
+{
+    QReadLocker locker(&bumpLock);
+    return bumps_;
+}
+
+void PlaylistSearcher::markPlaylist(QUuid playlist, QString text)
+{
+    // Limit response - only reply if last in event queue
+    bool bumpLimited = bumps() > 1;
+    unbump();
+    if (bumpLimited)
+        return;
+
+    if (text.isEmpty()) {
+        clearPlaylistMarks(playlist);
+        return;
+    }
+
+    auto c = PlaylistCollection::getSingleton();
+    QSharedPointer<Playlist> list = c->playlistOf(playlist);
+    if (list.isNull())
+        return;
+
+    QVariantMap map;
+    auto marker = [&map, &text](QSharedPointer<Item> item) {
+        if (item->toDisplayString().contains(text)) {
+            item->setMarked(true);
+            return;
+        }
+        for (const QVariant &v : item->metadata()) {
+            if (v.toString().contains(text)) {
+                item->setMarked(true);
+                return;
+            }
+        }
+        item->setMarked(false);
+    };
+    list->iterateItems(marker);
+    emit playlistMarked(playlist);
+}
+
+void PlaylistSearcher::clearPlaylistMarks(QUuid playlist)
+{
+    auto c = PlaylistCollection::getSingleton();
+    QSharedPointer<Playlist> list = c->playlistOf(playlist);
+    if (list.isNull())
+        return;
+
+    auto clearer = [](QSharedPointer<Item> item) {
+        item->setMarked(false);
+    };
+    list->iterateItems(clearer);
+    emit playlistMarked(playlist);
 }

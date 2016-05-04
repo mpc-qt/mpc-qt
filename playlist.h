@@ -124,4 +124,26 @@ private:
     QSharedPointer<Playlist> doNewPlaylist(QString title, QUuid uuid);
 };
 
+class PlaylistSearcher : public QObject {
+    Q_OBJECT
+public:
+
+    PlaylistSearcher() : QObject(), bumps_(0) {}
+    void bump();
+    void unbump();
+    int bumps();
+
+signals:
+    void playlistMarked(QUuid playlist);
+
+public slots:
+    void markPlaylist(QUuid playlist, QString text);
+    void clearPlaylistMarks(QUuid playlist);
+
+private:
+    QReadWriteLock bumpLock;
+    volatile int bumps_;
+};
+
+
 #endif // PLAYLIST_H
