@@ -12,7 +12,7 @@ class PlaylistWindow;
 
 class QDrawnPlaylist;
 class QThread;
-
+class PlaylistSearcher;
 class PlaylistWindow : public QDockWidget
 {
     Q_OBJECT
@@ -42,6 +42,7 @@ protected:
     void dropEvent(QDropEvent *event);
 
 private:
+    void updateCurrentPlaylist();
     void addNewTab(QUuid playlist, QString title);
 
 signals:
@@ -78,11 +79,18 @@ private slots:
 
     void on_queueToggle_triggered();
 
+    void on_searchField_textEdited(const QString &arg1);
+
+    void on_tabWidget_currentChanged(int index);
+
 private:
     Ui::PlaylistWindow *ui;
+    QUuid currentPlaylist;
     DisplayParser displayParser;
 
     QHash<QUuid, QDrawnPlaylist*> widgets;
+    QThread *worker;
+    PlaylistSearcher *searcher;
 };
 
 #endif // PLAYLISTWINDOW_H

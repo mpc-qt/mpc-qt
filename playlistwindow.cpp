@@ -7,10 +7,12 @@
 #include <QInputDialog>
 #include <QFileDialog>
 #include <QMenu>
+#include <QThread>
 
 PlaylistWindow::PlaylistWindow(QWidget *parent) :
     QDockWidget(parent),
-    ui(new Ui::PlaylistWindow)
+    ui(new Ui::PlaylistWindow),
+    currentPlaylist()
 {
     // When (un)docking windows, some widgets may get transformed into native
     // widgets, causing painting glitches.  Tell Qt that we prefer non-native.
@@ -19,17 +21,30 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     ui->setupUi(this);
     addNewTab(QUuid(), tr("Quick Playlist"));
     this->addAction(ui->queueToggle);
+
+    worker = new QThread();
+    worker->start();
+
+    searcher = new PlaylistSearcher();
+    searcher->moveToThread(worker);
+
+    connect(searcher, &PlaylistSearcher::playlistMarked,
+            this, &PlaylistWindow::updatePlaylist);
 }
 
 PlaylistWindow::~PlaylistWindow()
 {
+    worker->deleteLater();
     delete ui;
 }
 
 void PlaylistWindow::setCurrentPlaylist(QUuid what)
 {
-    if (widgets.contains(what))
+    if (widgets.contains(what)) {
         ui->tabWidget->setCurrentWidget(widgets[what]);
+        currentPlaylist = what;
+    }
+    updateCurrentPlaylist();
 }
 
 void PlaylistWindow::clearPlaylist(QUuid what)
@@ -180,6 +195,19 @@ void PlaylistWindow::dropEvent(QDropEvent *event)
     addToCurrentPlaylist(event->mimeData()->urls());
 }
 
+void PlaylistWindow::updateCurrentPlaylist()
+{
+    QMetaObject::invokeMethod(searcher, "clearPlaylistMarks",
+                              Qt::QueuedConnection,
+                              Q_ARG(QUuid, currentPlaylist));
+    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    if (!qdp)
+        return;
+
+    currentPlaylist = qdp->uuid();
+    ui->searchField->clear();
+}
+
 void PlaylistWindow::addNewTab(QUuid playlist, QString title)
 {
     auto qdp = new QDrawnPlaylist();
@@ -247,10 +275,12 @@ void PlaylistWindow::on_closeTab_clicked()
 {
     int index = ui->tabWidget->currentIndex();
     on_tabWidget_tabCloseRequested(index);
+    updateCurrentPlaylist();
 }
 
 void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
 {
+    int current = ui->tabWidget->currentIndex();
     auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->widget(index));
     if (!qdp)
         return;
@@ -261,6 +291,8 @@ void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
         widgets.remove(qdp->uuid());
         ui->tabWidget->removeTab(index);
     }
+    if (current == index)
+        updateCurrentPlaylist();
 }
 
 void PlaylistWindow::on_duplicateTab_clicked()
@@ -335,4 +367,20 @@ void PlaylistWindow::on_queueToggle_triggered()
         return;
     pl->queueToggle(pl->itemAt(i)->uuid());
     qdp->viewport()->update();
+}
+
+void PlaylistWindow::on_searchField_textEdited(const QString &arg1)
+{
+    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    QUuid playlistUuid = qdp->uuid();
+    searcher->bump();
+    QMetaObject::invokeMethod(searcher, "markPlaylist",
+                              Qt::QueuedConnection,
+                              Q_ARG(QUuid, playlistUuid),
+                              Q_ARG(QString, arg1));
+}
+
+void PlaylistWindow::on_tabWidget_currentChanged(int index)
+{
+    updateCurrentPlaylist();
 }
