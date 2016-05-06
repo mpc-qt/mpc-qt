@@ -1,4 +1,5 @@
 #include <QDebug>
+#include <cmath>
 #include "manager.h"
 #include "mainwindow.h"
 #include "mpvwidget.h"

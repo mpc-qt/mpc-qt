@@ -9,6 +9,7 @@
 #include <QMouseEvent>
 #include <QWheelEvent>
 #include <QAction>
+#include <cmath>
 #include "helpers.h"
 
 QString Helpers::toDateFormat(double time)

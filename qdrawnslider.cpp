@@ -1,5 +1,6 @@
 // A simple(?) set of sliders related to controlling multimedia players.
 #include <QPainter>
+#include <cmath>
 #include "qdrawnslider.h"
 
 
