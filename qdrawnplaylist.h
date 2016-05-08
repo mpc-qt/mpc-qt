@@ -5,6 +5,8 @@
 #include <QUuid>
 
 class DisplayParser;
+class QThread;
+class PlaylistSearcher;
 
 class PlayPainter : public QAbstractItemDelegate {
 public:
@@ -35,6 +37,7 @@ class QDrawnPlaylist : public QListWidget {
     Q_OBJECT
 public:
     QDrawnPlaylist(QWidget *parent = 0);
+    ~QDrawnPlaylist();
     QUuid uuid() const;
     void setUuid(const QUuid &uuid);
     void addItem(QUuid uuid);
@@ -50,6 +53,8 @@ public:
     void setDisplayParser(DisplayParser *parser);
     DisplayParser *displayParser();
 
+    void setFilter(QString needles);
+
 protected:
     bool event(QEvent *e);
 
@@ -58,13 +63,19 @@ private:
     QHash <QUuid, PlayItem*> itemsByUuid;
     QUuid nowPlayingItem_;
     DisplayParser *displayParser_;
+    QThread *worker;
+    PlaylistSearcher *searcher;
+    QString currentFilterText;
 
 signals:
     // for lack of a better term that doesn't conflict with what we already
     // have, when an item is made hot by double clicking.
     void itemDesired(QUuid playlistUuid, QUuid itemUuid);
+    void searcher_filterPlaylist(QUuid playlistUuid, QString text);
 
 private slots:
+    void repopulateItems();
+
     void model_rowsMoved(const QModelIndex & parent, int start, int end,
                          const QModelIndex & destination, int row);
     void self_itemDoubleClicked(QListWidgetItem *item);

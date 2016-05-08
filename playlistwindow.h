@@ -55,15 +55,11 @@ signals:
     void exportPlaylist(QString fname, QStringList items);
     void relativeSeekRequested(bool fowards, bool small);
 
-    void searcher_filterPlaylist(QUuid uuid, QString string);
-    void searcher_clearPlaylistFilter(QUuid uuid);
-
 public slots:
     void changePlaylistSelection(QUrl itemUrl, QUuid playlistUuid, QUuid itemUuid);
     void addSimplePlaylist(QStringList data);
     void setDisplayFormatSpecifier(QString fmt);
     void playCurrentItem();
-    void updatePlaylist(QUuid playlistUuid);
 
 private slots:
     void self_relativeSeekRequested(bool forwards, bool small);
@@ -96,8 +92,6 @@ private:
     bool showSearch;
 
     QHash<QUuid, QDrawnPlaylist*> widgets;
-    QThread *worker;
-    PlaylistSearcher *searcher;
 };
 
 #endif // PLAYLISTWINDOW_H

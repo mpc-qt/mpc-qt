@@ -23,28 +23,12 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     addNewTab(QUuid(), tr("Quick Playlist"));
     ui->searchField->setVisible(false);
 
-    worker = new QThread();
-    worker->start();
-
-    searcher = new PlaylistSearcher();
-    searcher->moveToThread(worker);
-
-    connect(searcher, &PlaylistSearcher::playlistFiltered,
-            this, &PlaylistWindow::updatePlaylist,
-            Qt::QueuedConnection);
-    connect(this, &PlaylistWindow::searcher_clearPlaylistFilter,
-            searcher, &PlaylistSearcher::clearPlaylistFilter,
-            Qt::QueuedConnection);
-    connect(this, &PlaylistWindow::searcher_filterPlaylist,
-            searcher, &PlaylistSearcher::filterPlaylist,
-            Qt::QueuedConnection);
     connect(this, &PlaylistWindow::visibilityChanged,
             this, &PlaylistWindow::self_visibilityChanged);
 }
 
 PlaylistWindow::~PlaylistWindow()
 {
-    worker->deleteLater();
     delete ui;
 }
 
@@ -217,8 +201,13 @@ void PlaylistWindow::finishSearch()
     if (!ui->searchField->isVisible())
         return;
 
-    if (!ui->searchField->text().isEmpty())
-        emit searcher_clearPlaylistFilter(currentPlaylist);
+    if (!ui->searchField->text().isEmpty()) {
+        ui->searchField->setText(QString());
+        auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+        if (qdp)
+            qdp->setFilter(QString());
+    }
+
     ui->searchField->setVisible(false);
 }
 
@@ -237,16 +226,11 @@ void PlaylistWindow::dropEvent(QDropEvent *event)
 
 void PlaylistWindow::updateCurrentPlaylist()
 {
-    emit searcher_clearPlaylistFilter(currentPlaylist);
     auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
     if (!qdp)
         return;
     currentPlaylist = qdp->uuid();
-
-    if (searcher) {
-        searcher->bump();
-        emit searcher_filterPlaylist(currentPlaylist, ui->searchField->text());
-    }
+    qdp->setFilter(ui->searchField->text());
 }
 
 void PlaylistWindow::addNewTab(QUuid playlist, QString title)
@@ -293,12 +277,6 @@ void PlaylistWindow::playCurrentItem()
     if (i < 0)
         return;
     emit itemDesired(pl->uuid(), pl->itemAt(i)->uuid());
-}
-
-void PlaylistWindow::updatePlaylist(QUuid playlistUuid)
-{
-    if (widgets.contains(playlistUuid))
-        widgets[playlistUuid]->viewport()->update();
 }
 
 void PlaylistWindow::self_relativeSeekRequested(bool forwards, bool small)
@@ -412,8 +390,7 @@ void PlaylistWindow::on_tabWidget_customContextMenuRequested(const QPoint &pos)
 void PlaylistWindow::on_searchField_textEdited(const QString &arg1)
 {
     auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
-    searcher->bump();
-    emit searcher_filterPlaylist(qdp->uuid(), arg1);
+    qdp->setFilter(arg1);
 }
 
 void PlaylistWindow::on_tabWidget_currentChanged(int index)

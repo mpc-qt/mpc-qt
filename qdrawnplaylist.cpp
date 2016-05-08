@@ -1,4 +1,5 @@
 #include <QApplication>
+#include <QThread>
 #include <QPainter>
 #include <QFontMetrics>
 #include <QMenu>
@@ -99,16 +100,32 @@ void PlayItem::setUuid(QUuid uuid)
 
 
 QDrawnPlaylist::QDrawnPlaylist(QWidget *parent) : QListWidget(parent),
-    displayParser_(NULL)
+    displayParser_(NULL), worker(NULL), searcher(NULL)
 {
+    worker = new QThread();
+    worker->start();
+    searcher = new PlaylistSearcher();
+    searcher->moveToThread(worker);
+
     setItemDelegate(new PlayPainter(this));
     connect(model(), SIGNAL(rowsMoved(QModelIndex,int,int,QModelIndex,int)),
             this, SLOT(model_rowsMoved(QModelIndex,int,int,QModelIndex,int)));
+    connect(this, &QDrawnPlaylist::searcher_filterPlaylist,
+            searcher, &PlaylistSearcher::filterPlaylist,
+            Qt::QueuedConnection);
+    connect(searcher, &PlaylistSearcher::playlistFiltered,
+            this, &QDrawnPlaylist::repopulateItems,
+            Qt::QueuedConnection);
     connect(this, SIGNAL(itemDoubleClicked(QListWidgetItem*)),
             this, SLOT(self_itemDoubleClicked(QListWidgetItem*)));
     connect(this, SIGNAL(customContextMenuRequested(QPoint)),
             this, SLOT(self_customContextMenuRequested(QPoint)));
     this->setContextMenuPolicy(Qt::CustomContextMenu);
+}
+
+QDrawnPlaylist::~QDrawnPlaylist()
+{
+    worker->deleteLater();
 }
 
 QUuid QDrawnPlaylist::uuid() const
@@ -118,17 +135,8 @@ QUuid QDrawnPlaylist::uuid() const
 
 void QDrawnPlaylist::setUuid(const QUuid &uuid)
 {
-    clear();
-
     uuid_ = uuid;
-    auto playlist = PlaylistCollection::getSingleton()->playlistOf(uuid);
-    if (playlist == NULL)
-        return;
-
-    auto itemAdder = [&](QSharedPointer<Item> item) {
-        addItem(item->uuid());
-    };
-    playlist->iterateItems(itemAdder);
+    repopulateItems();
 }
 
 void QDrawnPlaylist::addItem(QUuid uuid)
@@ -205,6 +213,16 @@ DisplayParser *QDrawnPlaylist::displayParser()
     return displayParser_;
 }
 
+void QDrawnPlaylist::setFilter(QString needles)
+{
+    if (currentFilterText == needles)
+        return;
+
+    currentFilterText = needles;
+    searcher->bump();
+    emit searcher_filterPlaylist(uuid_, needles);
+}
+
 bool QDrawnPlaylist::event(QEvent *e)
 {
     if (!hasFocus())
@@ -218,6 +236,22 @@ bool QDrawnPlaylist::event(QEvent *e)
     }
     end:
     return QListWidget::event(e);
+}
+
+void QDrawnPlaylist::repopulateItems()
+{
+    clear();
+
+    auto playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
+    if (playlist == NULL)
+        return;
+
+    auto itemAdder = [&](QSharedPointer<Item> item) {
+        if (!item->hidden())
+            addItem(item->uuid());
+    };
+    playlist->iterateItems(itemAdder);
+
 }
 
 void QDrawnPlaylist::model_rowsMoved(const QModelIndex &parent,
