@@ -55,8 +55,8 @@ signals:
     void exportPlaylist(QString fname, QStringList items);
     void relativeSeekRequested(bool fowards, bool small);
 
-    void searcher_searchPlaylist(QUuid uuid, QString string);
-    void searcher_clearPlaylistMarks(QUuid uuid);
+    void searcher_filterPlaylist(QUuid uuid, QString string);
+    void searcher_clearPlaylistFilter(QUuid uuid);
 
 public slots:
     void changePlaylistSelection(QUrl itemUrl, QUuid playlistUuid, QUuid itemUuid);

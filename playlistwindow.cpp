@@ -29,14 +29,14 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     searcher = new PlaylistSearcher();
     searcher->moveToThread(worker);
 
-    connect(searcher, &PlaylistSearcher::playlistMarked,
+    connect(searcher, &PlaylistSearcher::playlistFiltered,
             this, &PlaylistWindow::updatePlaylist,
             Qt::QueuedConnection);
-    connect(this, &PlaylistWindow::searcher_clearPlaylistMarks,
-            searcher, &PlaylistSearcher::clearPlaylistMarks,
+    connect(this, &PlaylistWindow::searcher_clearPlaylistFilter,
+            searcher, &PlaylistSearcher::clearPlaylistFilter,
             Qt::QueuedConnection);
-    connect(this, &PlaylistWindow::searcher_searchPlaylist,
-            searcher, &PlaylistSearcher::markPlaylist,
+    connect(this, &PlaylistWindow::searcher_filterPlaylist,
+            searcher, &PlaylistSearcher::filterPlaylist,
             Qt::QueuedConnection);
     connect(this, &PlaylistWindow::visibilityChanged,
             this, &PlaylistWindow::self_visibilityChanged);
@@ -218,7 +218,7 @@ void PlaylistWindow::finishSearch()
         return;
 
     if (!ui->searchField->text().isEmpty())
-        emit searcher_clearPlaylistMarks(currentPlaylist);
+        emit searcher_clearPlaylistFilter(currentPlaylist);
     ui->searchField->setVisible(false);
 }
 
@@ -237,7 +237,7 @@ void PlaylistWindow::dropEvent(QDropEvent *event)
 
 void PlaylistWindow::updateCurrentPlaylist()
 {
-    emit searcher_clearPlaylistMarks(currentPlaylist);
+    emit searcher_clearPlaylistFilter(currentPlaylist);
     auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
     if (!qdp)
         return;
@@ -245,7 +245,7 @@ void PlaylistWindow::updateCurrentPlaylist()
 
     if (searcher) {
         searcher->bump();
-        emit searcher_searchPlaylist(currentPlaylist, ui->searchField->text());
+        emit searcher_filterPlaylist(currentPlaylist, ui->searchField->text());
     }
 }
 
@@ -413,7 +413,7 @@ void PlaylistWindow::on_searchField_textEdited(const QString &arg1)
 {
     auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
     searcher->bump();
-    emit searcher_searchPlaylist(qdp->uuid(), arg1);
+    emit searcher_filterPlaylist(qdp->uuid(), arg1);
 }
 
 void PlaylistWindow::on_tabWidget_currentChanged(int index)

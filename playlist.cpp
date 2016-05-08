@@ -6,7 +6,7 @@ Item::Item(QUrl url)
     setUrl(url);
     setUuid(QUuid::createUuid());
     setQueuePosition(0);
-    setMarked(false);
+    setHidden(false);
 }
 
 QUuid Item::uuid() const
@@ -55,14 +55,14 @@ void Item::decQueuePosition()
         queuePosition_--;
 }
 
-void Item::setMarked(bool yes)
+void Item::setHidden(bool yes)
 {
-    marked_ = yes;
+    hidden_ = yes;
 }
 
-bool Item::marked()
+bool Item::hidden()
 {
-    return marked_;
+    return hidden_;
 }
 
 QString Item::toDisplayString() const
@@ -475,7 +475,7 @@ int PlaylistSearcher::bumps()
     return bumps_;
 }
 
-void PlaylistSearcher::markPlaylist(QUuid playlist, QString text)
+void PlaylistSearcher::filterPlaylist(QUuid playlist, QString text)
 {
     // Limit response - only reply if last in event queue
     bool bumpLimited = bumps() > 1;
@@ -484,7 +484,7 @@ void PlaylistSearcher::markPlaylist(QUuid playlist, QString text)
         return;
 
     if (text.isEmpty()) {
-        clearPlaylistMarks(playlist);
+        clearPlaylistFilter(playlist);
         return;
     }
 
@@ -496,22 +496,22 @@ void PlaylistSearcher::markPlaylist(QUuid playlist, QString text)
     QVariantMap map;
     auto marker = [&map, &text](QSharedPointer<Item> item) {
         if (item->toDisplayString().contains(text)) {
-            item->setMarked(true);
+            item->setHidden(false);
             return;
         }
         for (const QVariant &v : item->metadata()) {
             if (v.toString().contains(text)) {
-                item->setMarked(true);
+                item->setHidden(false);
                 return;
             }
         }
-        item->setMarked(false);
+        item->setHidden(true);
     };
     list->iterateItems(marker);
-    emit playlistMarked(playlist);
+    emit playlistFiltered(playlist);
 }
 
-void PlaylistSearcher::clearPlaylistMarks(QUuid playlist)
+void PlaylistSearcher::clearPlaylistFilter(QUuid playlist)
 {
     auto c = PlaylistCollection::getSingleton();
     QSharedPointer<Playlist> list = c->playlistOf(playlist);
@@ -519,8 +519,8 @@ void PlaylistSearcher::clearPlaylistMarks(QUuid playlist)
         return;
 
     auto clearer = [](QSharedPointer<Item> item) {
-        item->setMarked(false);
+        item->setHidden(false);
     };
     list->iterateItems(clearer);
-    emit playlistMarked(playlist);
+    emit playlistFiltered(playlist);
 }

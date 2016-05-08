@@ -42,7 +42,7 @@ void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
     }
 
     bool isNowPlaying = i->uuid() == playWidget->nowPlayingItem();
-    bool isMarked = i->marked();
+    bool isMarked = !i->hidden();
     QFont f = playWidget->font();
     f.setBold(isNowPlaying);
     painter->setFont(f);

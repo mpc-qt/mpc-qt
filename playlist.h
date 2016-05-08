@@ -29,8 +29,8 @@ public:
     void setQueuePosition(int num);
     void decQueuePosition();
 
-    void setMarked(bool yes);
-    bool marked();
+    void setHidden(bool yes);
+    bool hidden();
 
     QString toDisplayString() const;
     QString toString() const;
@@ -45,7 +45,7 @@ private:
     QUrl url_;
     QVariantMap metadata_;
     int queuePosition_;
-    bool marked_;
+    bool hidden_;
 };
 
 class Playlist : public QObject {
@@ -134,11 +134,11 @@ public:
     int bumps();
 
 signals:
-    void playlistMarked(QUuid playlist);
+    void playlistFiltered(QUuid playlist);
 
 public slots:
-    void markPlaylist(QUuid playlist, QString text);
-    void clearPlaylistMarks(QUuid playlist);
+    void filterPlaylist(QUuid playlist, QString text);
+    void clearPlaylistFilter(QUuid playlist);
 
 private:
     QReadWriteLock bumpLock;
