@@ -70,9 +70,8 @@ QPair<QUuid, QUuid> PlaylistWindow::urlToQuickPlaylist(QUrl what)
 
 bool PlaylistWindow::isCurrentPlaylistEmpty()
 {
-    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
-    return pl->isEmpty();
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(currentPlaylist);
+    return pl ? pl->isEmpty() : true;
 }
 
 QUuid PlaylistWindow::getItemAfter(QUuid list, QUuid item)
