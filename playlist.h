@@ -7,8 +7,9 @@
 #include <QUrl>
 #include <QObject>
 #include <functional>
-#include <QList>
 #include <QSharedPointer>
+#include <QList>
+#include <QSet>
 #include <QHash>
 #include <QStringList>
 #include <QVariantMap>
@@ -133,6 +134,10 @@ public:
     void unbump();
     int bumps();
 
+    static QStringList textToNeedles(QString text);
+    static bool itemMatchesFilter(const QSharedPointer<Item> &item,
+                                  const QStringList &needles);
+
 signals:
     void playlistFiltered(QUuid playlist);
 
@@ -141,6 +146,9 @@ public slots:
     void clearPlaylistFilter(QUuid playlist);
 
 private:
+    static void findNeedles(const QString &text, const QStringList &needles,
+                            QSet<QString> &found);
+
     QReadWriteLock bumpLock;
     volatile int bumps_;
 };

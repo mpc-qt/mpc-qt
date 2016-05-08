@@ -1,4 +1,5 @@
 #include <QFileInfo>
+#include <QDebug>
 #include "playlist.h"
 
 Item::Item(QUrl url)
@@ -475,6 +476,20 @@ int PlaylistSearcher::bumps()
     return bumps_;
 }
 
+bool PlaylistSearcher::itemMatchesFilter(const QSharedPointer<Item> &item,
+                                         const QStringList &needles)
+{
+    QSet<QString> found;
+    findNeedles(item->toDisplayString(), needles, found);
+    if (found.count() == needles.count())
+        return true;
+
+    // OPTIMIZE: don't run the metadata through toLower every search
+    for (const QVariant &v : item->metadata())
+        findNeedles(v.toString(), needles, found);
+    return found.count() == needles.count();
+}
+
 void PlaylistSearcher::filterPlaylist(QUuid playlist, QString text)
 {
     // Limit response - only reply if last in event queue
@@ -483,7 +498,8 @@ void PlaylistSearcher::filterPlaylist(QUuid playlist, QString text)
     if (bumpLimited)
         return;
 
-    if (text.isEmpty()) {
+    QStringList needles = textToNeedles(text);
+    if (needles.isEmpty()) {
         clearPlaylistFilter(playlist);
         return;
     }
@@ -493,19 +509,8 @@ void PlaylistSearcher::filterPlaylist(QUuid playlist, QString text)
     if (list.isNull())
         return;
 
-    QVariantMap map;
-    auto marker = [&map, &text](QSharedPointer<Item> item) {
-        if (item->toDisplayString().contains(text)) {
-            item->setHidden(false);
-            return;
-        }
-        for (const QVariant &v : item->metadata()) {
-            if (v.toString().contains(text)) {
-                item->setHidden(false);
-                return;
-            }
-        }
-        item->setHidden(true);
+    auto marker = [&needles](QSharedPointer<Item> item) {
+        item->setHidden(!itemMatchesFilter(item, needles));
     };
     list->iterateItems(marker);
     emit playlistFiltered(playlist);
@@ -523,4 +528,20 @@ void PlaylistSearcher::clearPlaylistFilter(QUuid playlist)
     };
     list->iterateItems(clearer);
     emit playlistFiltered(playlist);
+}
+
+QStringList PlaylistSearcher::textToNeedles(QString text)
+{
+    return text.toLower().split(QString(" "), QString::SkipEmptyParts);
+}
+
+void PlaylistSearcher::findNeedles(const QString &text,
+                                   const QStringList &needles,
+                                   QSet<QString> &found)
+{
+    QString haystack = text.toLower();
+    for (const QString &needle : needles) {
+        if (haystack.contains(needle))
+            found.insert(needle);
+    }
 }
