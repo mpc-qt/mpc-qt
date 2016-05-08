@@ -203,9 +203,7 @@ void PlaylistWindow::finishSearch()
 
     if (!ui->searchField->text().isEmpty()) {
         ui->searchField->setText(QString());
-        auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
-        if (qdp)
-            qdp->setFilter(QString());
+        setPlaylistFilters(QString());
     }
 
     ui->searchField->setVisible(false);
@@ -230,7 +228,13 @@ void PlaylistWindow::updateCurrentPlaylist()
     if (!qdp)
         return;
     currentPlaylist = qdp->uuid();
-    qdp->setFilter(ui->searchField->text());
+}
+
+void PlaylistWindow::setPlaylistFilters(QString filterText)
+{
+    for (auto widget : widgets) {
+        widget->setFilter(filterText);
+    }
 }
 
 void PlaylistWindow::addNewTab(QUuid playlist, QString title)
@@ -389,8 +393,7 @@ void PlaylistWindow::on_tabWidget_customContextMenuRequested(const QPoint &pos)
 
 void PlaylistWindow::on_searchField_textEdited(const QString &arg1)
 {
-    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
-    qdp->setFilter(arg1);
+    setPlaylistFilters(arg1);
 }
 
 void PlaylistWindow::on_tabWidget_currentChanged(int index)

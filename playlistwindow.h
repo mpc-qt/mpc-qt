@@ -47,6 +47,7 @@ protected:
 
 private:
     void updateCurrentPlaylist();
+    void setPlaylistFilters(QString filterText);
     void addNewTab(QUuid playlist, QString title);
 
 signals:
