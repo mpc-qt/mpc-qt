@@ -426,9 +426,12 @@ void MainWindow::updateSize(bool first_run)
 
     // calculate player size
     qreal ratio = devicePixelRatio();
-    QSize player = isPlaying ? mpvw->videoSize()/ratio : noVideoSize();
-    double factor = isPlaying ? sizeFactor() :
-                                  std::max(1.0, sizeFactor());
+    QSize player = mpvw->videoSize() / ratio;
+    double factor = sizeFactor();
+    if (!isPlaying || player.isEmpty()) {
+        player = noVideoSize_;
+        factor = std::max(1.0, sizeFactor());
+    }
 
     // calculate the amount taken by widgets outside the video frame
     fudgeFactor = size() - mpvw->size();
