@@ -42,14 +42,10 @@ void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
         text = dp->parseMetadata(i->metadata(), text, Helpers::VideoFile);
     }
 
-    bool isNowPlaying = i->uuid() == playWidget->nowPlayingItem();
-    bool isMarked = !i->hidden();
     QFont f = playWidget->font();
-    f.setBold(isNowPlaying);
+    f.setBold(i->uuid() == playWidget->nowPlayingItem());
     painter->setFont(f);
-    painter->setPen(isMarked
-                    ? playWidget->palette().link().color()
-                    : playWidget->palette().text().color());
+    painter->setPen(playWidget->palette().text().color());
     painter->drawText(rc, Qt::AlignLeft|Qt::AlignVCenter,
                       text);
     painter->setFont(playWidget->font());
