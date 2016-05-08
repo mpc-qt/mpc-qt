@@ -72,7 +72,7 @@ bool PlaylistWindow::isCurrentPlaylistEmpty()
 {
     auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
     auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
-    return pl->count() == 0;
+    return pl->isEmpty();
 }
 
 QUuid PlaylistWindow::getItemAfter(QUuid list, QUuid item)

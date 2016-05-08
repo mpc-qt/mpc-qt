@@ -159,7 +159,7 @@ void QDrawnPlaylist::addItem(QUuid uuid)
 {
     PlayItem *playItem = new PlayItem(this);
     playItem->setUuid(uuid);
-    itemsByUuid.insert(uuid, playItem);
+    //itemsByUuid.insert(uuid, playItem);
     QListWidget::addItem(playItem);
 }
 
@@ -171,6 +171,7 @@ void QDrawnPlaylist::removeItem(QUuid uuid)
     auto matchingRows = findItems(uuid.toString(), Qt::MatchExactly);
     if (matchingRows.length() > 0)
         takeItem(row(matchingRows[0]));
+    //itemsByUuid.remove(uuid);
 }
 
 void QDrawnPlaylist::removeAll()
@@ -180,6 +181,7 @@ void QDrawnPlaylist::removeAll()
         return;
     p->clear();
     clear();
+    //itemsByUuid.clear();
 }
 
 QPair<QUuid,QUuid> QDrawnPlaylist::importUrl(QUrl url)
@@ -189,6 +191,7 @@ QPair<QUuid,QUuid> QDrawnPlaylist::importUrl(QUrl url)
     if (!playlist)  return info;
     auto item = playlist->addItem(url);
     info.first = uuid_;
+    //itemsByUuid.insert(uuid, playItem);
     info.second = item->uuid();
     if (currentFilterText.isEmpty() ||
             PlaylistSearcher::itemMatchesFilter(item, currentFilterList))
@@ -203,8 +206,8 @@ QUuid QDrawnPlaylist::nowPlayingItem()
 
 void QDrawnPlaylist::setNowPlayingItem(QUuid uuid)
 {
-    bool refreshNeeded = itemsByUuid.contains(nowPlayingItem()) ||
-            itemsByUuid.contains(uuid);
+    QSharedPointer<Playlist> playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
+    bool refreshNeeded = playlist->contains(nowPlayingItem()) || playlist->contains(uuid);
     nowPlayingItem_ = uuid;
     if (refreshNeeded)
         viewport()->repaint();
@@ -314,16 +317,10 @@ void QDrawnPlaylist::self_customContextMenuRequested(const QPoint &p)
     QAction *a = new QAction(m);
     a->setText(tr("Remove"));
     connect(a, &QAction::triggered, [=]() {
-        int index = currentRow();
-        if (index < 0)
+        auto current = QListWidget::currentItem();
+        if (!current)
             return;
-        QSharedPointer<Playlist> p = PlaylistCollection::getSingleton()->playlistOf(uuid());
-        if (!p)
-            return;
-        QSharedPointer<Item> item = p->itemAt(index);
-        if (!item)
-            return;
-        removeItem(item->uuid());
+        removeItem(QUuid(current->text()));
     });
     m->addAction(a);
     a = new QAction(m);

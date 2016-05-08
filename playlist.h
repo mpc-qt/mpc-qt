@@ -56,19 +56,14 @@ public:
     ~Playlist();
     QSharedPointer<Item> addItem(QUrl url = QUrl());
     QSharedPointer<Item> addItem(QUuid uuid, QUrl url);
-    QSharedPointer<Item> itemAt(int row);
     QSharedPointer<Item> itemOf(QUuid uuid);
     QSharedPointer<Item> itemAfter(QUuid uuid);
     QSharedPointer<Item> itemBefore(QUuid uuid);
-    int indexOf(QUuid uuid);
-    int count();
+    bool isEmpty();
+    bool contains(QUuid uuid);
     void iterateItems(std::function<void(QSharedPointer<Item>)> callback);
-    void moveItems(int sourceRow, int destRow, int count);
-    void addItems(int where, QList<QSharedPointer<Item>> itemsToAdd);
     void addItems(QUuid where, QList<QSharedPointer<Item>> itemsToAdd);
-    void removeItems(int where, int count);
     void removeItem(QUuid uuuid);
-    QList<QSharedPointer<Item>> takeItems(int where, int count);
     void takeItemsRaw(QList<QSharedPointer<Item> > &itemsToRemove);
     void clear();
 
