@@ -209,6 +209,13 @@ void Playlist::addItems(int where, QList<QSharedPointer<Item>> itemsToAdd)
     }
 }
 
+void Playlist::addItems(QUuid where, QList<QSharedPointer<Item> > itemsToAdd)
+{
+    int index = indexOf(where);
+    if (index >= 0)
+        addItems(indexOf(where), itemsToAdd);
+}
+
 void Playlist::removeItems(int where, int count)
 {
     QWriteLocker locker(&listLock);
@@ -237,6 +244,17 @@ QList<QSharedPointer<Item>> Playlist::takeItems(int where, int count)
         itemsByUuid.remove(item->uuid());
     }
     return taken;
+}
+
+void Playlist::takeItemsRaw(QList<QSharedPointer<Item>> &itemsToRemove)
+{
+    // "takeItemsRaw", because we don't check if it's in a queue or whatever,
+    // it's just taken raw, potentially damaging everything.  Only use if you
+    // may know what you're doing.
+    for (QSharedPointer<Item> item: itemsToRemove) {
+        itemsByUuid.remove(item->uuid());
+        items.removeAll(item);
+    }
 }
 
 void Playlist::clear()

@@ -103,8 +103,11 @@ QDrawnPlaylist::QDrawnPlaylist(QWidget *parent) : QListWidget(parent),
     searcher = new PlaylistSearcher();
     searcher->moveToThread(worker);
 
+    setSelectionMode(QAbstractItemView::ContiguousSelection);
+    setDragDropMode(QAbstractItemView::InternalMove);
+
     setItemDelegate(new PlayPainter(this));
-    connect(model(), SIGNAL(rowsMoved(QModelIndex,int,int,QModelIndex,int)),
+    connect(model(), SIGNAL(rowsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)),
             this, SLOT(model_rowsMoved(QModelIndex,int,int,QModelIndex,int)));
     connect(this, &QDrawnPlaylist::searcher_filterPlaylist,
             searcher, &PlaylistSearcher::filterPlaylist,
@@ -285,13 +288,19 @@ void QDrawnPlaylist::model_rowsMoved(const QModelIndex &parent,
                                      int start, int end,
                                      const QModelIndex &destination, int row)
 {
-    // FIXME: Moving by indicies is now broken.
     Q_UNUSED(parent);
     Q_UNUSED(destination);
     QSharedPointer<Playlist> p = PlaylistCollection::getSingleton()->playlistOf(uuid());
     if (p.isNull())
         return;
-    p->moveItems(start, row, 1 + end - start);
+    QUuid destinationId = QUuid(QListWidget::item(row)->text());
+    QList<QSharedPointer<Item>> itemsToGrab;
+    for (int index = start; index <= end; index++) {
+        QUuid itemUuid = QUuid(QListWidget::item(index)->text());
+        itemsToGrab.append(p->itemOf(itemUuid));
+    }
+    p->takeItemsRaw(itemsToGrab);
+    p->addItems(destinationId, itemsToGrab);
 }
 
 void QDrawnPlaylist::self_itemDoubleClicked(QListWidgetItem *item)
