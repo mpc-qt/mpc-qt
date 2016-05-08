@@ -790,6 +790,9 @@ void MpvController::handleMpvEvent(mpv_event *event)
                 emit videoSizeChanged(videoSize);
                 lastVideoSize = videoSize;
             }
+        } else {
+            logMessage("ACHTUNG: no video size properties. Audio only?");
+            emit videoSizeChanged(QSize());
         }
         break;
     }
