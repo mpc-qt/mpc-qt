@@ -51,16 +51,10 @@ QPair<QUuid, QUuid> PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
 {
     QPair<QUuid, QUuid> info;
     auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
-    QSharedPointer<Item> firstItem;
     for (QUrl url : what) {
-       auto item = pl->addItem(url);
-       qdp->addItem(item->uuid());
-       if (!firstItem)  firstItem = item;
-    }
-    if (firstItem) {
-        info.first = pl->uuid();
-        info.second = firstItem->uuid();
+        QPair<QUuid,QUuid> itemInfo = qdp->importUrl(url);
+        if (info.second.isNull())
+            info = itemInfo;
     }
     return info;
 }
@@ -180,10 +174,10 @@ void PlaylistWindow::quickQueue()
 {
     auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
     auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
-    int i = qdp->currentRow();
-    if (i < 0)
+    auto itemUuid = qdp->currentItemUuid();
+    if (itemUuid.isNull())
         return;
-    pl->queueToggle(pl->itemAt(i)->uuid());
+    pl->queueToggle(itemUuid);
     qdp->viewport()->update();
 }
 
@@ -256,7 +250,7 @@ void PlaylistWindow::changePlaylistSelection( QUrl itemUrl, QUuid playlistUuid, 
     auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
     if (!itemUuid.isNull() && pl->queueFirst() == itemUuid)
         pl->queueTakeFirst();
-    qdp->setCurrentRow(pl->indexOf(itemUuid));
+    qdp->setCurrentItem(itemUuid);
     qdp->setNowPlayingItem(itemUuid);
 }
 
@@ -277,10 +271,10 @@ void PlaylistWindow::playCurrentItem()
 {
     auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
     auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
-    int i = qdp->currentRow();
-    if (i < 0)
+    auto itemUuid = qdp->currentItemUuid();
+    if (itemUuid.isNull())
         return;
-    emit itemDesired(pl->uuid(), pl->itemAt(i)->uuid());
+    emit itemDesired(pl->uuid(), itemUuid);
 }
 
 void PlaylistWindow::self_relativeSeekRequested(bool forwards, bool small)

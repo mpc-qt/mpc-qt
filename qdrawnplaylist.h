@@ -40,9 +40,14 @@ public:
     ~QDrawnPlaylist();
     QUuid uuid() const;
     void setUuid(const QUuid &uuid);
+    QUuid currentItemUuid() const;
+    void setCurrentItem(QUuid itemUuid);
     void addItem(QUuid uuid);
     void removeItem(QUuid uuid);
     void removeAll();
+
+    QPair<QUuid,QUuid> importUrl(QUrl url);
+    void currentToQueue();
 
     QUuid nowPlayingItem();
     void setNowPlayingItem(QUuid uuid);
@@ -66,6 +71,7 @@ private:
     QThread *worker;
     PlaylistSearcher *searcher;
     QString currentFilterText;
+    QStringList currentFilterList;
 
 signals:
     // for lack of a better term that doesn't conflict with what we already

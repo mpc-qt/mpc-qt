@@ -129,6 +129,23 @@ QUuid QDrawnPlaylist::uuid() const
     return uuid_;
 }
 
+QUuid QDrawnPlaylist::currentItemUuid() const
+{
+    PlayItem *item = reinterpret_cast<PlayItem*>(currentItem());
+    if (!item)
+        return QUuid();
+    return item->uuid();
+}
+
+void QDrawnPlaylist::setCurrentItem(QUuid itemUuid)
+{
+    QList<QListWidgetItem *> items = findItems(itemUuid.toString(), Qt::MatchExactly);
+    if (items.isEmpty())
+        setCurrentRow(-1);
+    else
+        QListWidget::setCurrentItem(items.first());
+}
+
 void QDrawnPlaylist::setUuid(const QUuid &uuid)
 {
     uuid_ = uuid;
@@ -162,6 +179,20 @@ void QDrawnPlaylist::removeAll()
     clear();
 }
 
+QPair<QUuid,QUuid> QDrawnPlaylist::importUrl(QUrl url)
+{
+    QPair<QUuid,QUuid> info;
+    QSharedPointer<Playlist> playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
+    if (!playlist)  return info;
+    auto item = playlist->addItem(url);
+    info.first = uuid_;
+    info.second = item->uuid();
+    if (currentFilterText.isEmpty() ||
+            PlaylistSearcher::itemMatchesFilter(item, currentFilterList))
+        addItem(item->uuid());
+    return info;
+}
+
 QUuid QDrawnPlaylist::nowPlayingItem()
 {
     return nowPlayingItem_;
@@ -182,7 +213,6 @@ QVariantMap QDrawnPlaylist::toVMap() const
     if (!playlist)
         return QVariantMap();
     QVariantMap qvm;
-    qvm.insert("selected", currentRow());
     qvm.insert("nowplaying", nowPlayingItem_);
     qvm.insert("contents", playlist->toVMap());
     return qvm;
@@ -195,8 +225,8 @@ void QDrawnPlaylist::fromVMap(const QVariantMap &qvm)
     p->fromVMap(contents);
     PlaylistCollection::getSingleton()->addPlaylist(p);
     setUuid(p->uuid());
-    setCurrentRow(qvm.value("selected").toInt());
     nowPlayingItem_ = qvm.value("nowplaying").toUuid();
+    setCurrentItem(nowPlayingItem_);
 }
 
 void QDrawnPlaylist::setDisplayParser(DisplayParser *parser)
@@ -215,6 +245,7 @@ void QDrawnPlaylist::setFilter(QString needles)
         return;
 
     currentFilterText = needles;
+    currentFilterList = PlaylistSearcher::textToNeedles(needles);
     searcher->bump();
     emit searcher_filterPlaylist(uuid_, needles);
 }
@@ -254,6 +285,7 @@ void QDrawnPlaylist::model_rowsMoved(const QModelIndex &parent,
                                      int start, int end,
                                      const QModelIndex &destination, int row)
 {
+    // FIXME: Moving by indicies is now broken.
     Q_UNUSED(parent);
     Q_UNUSED(destination);
     QSharedPointer<Playlist> p = PlaylistCollection::getSingleton()->playlistOf(uuid());
