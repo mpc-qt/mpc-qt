@@ -159,7 +159,6 @@ void QDrawnPlaylist::addItem(QUuid uuid)
 {
     PlayItem *playItem = new PlayItem(this);
     playItem->setUuid(uuid);
-    //itemsByUuid.insert(uuid, playItem);
     QListWidget::addItem(playItem);
 }
 
@@ -171,7 +170,6 @@ void QDrawnPlaylist::removeItem(QUuid uuid)
     auto matchingRows = findItems(uuid.toString(), Qt::MatchExactly);
     if (matchingRows.length() > 0)
         takeItem(row(matchingRows[0]));
-    //itemsByUuid.remove(uuid);
 }
 
 void QDrawnPlaylist::removeAll()
@@ -181,7 +179,6 @@ void QDrawnPlaylist::removeAll()
         return;
     p->clear();
     clear();
-    //itemsByUuid.clear();
 }
 
 QPair<QUuid,QUuid> QDrawnPlaylist::importUrl(QUrl url)
@@ -191,7 +188,6 @@ QPair<QUuid,QUuid> QDrawnPlaylist::importUrl(QUrl url)
     if (!playlist)  return info;
     auto item = playlist->addItem(url);
     info.first = uuid_;
-    //itemsByUuid.insert(uuid, playItem);
     info.second = item->uuid();
     if (currentFilterText.isEmpty() ||
             PlaylistSearcher::itemMatchesFilter(item, currentFilterList))
