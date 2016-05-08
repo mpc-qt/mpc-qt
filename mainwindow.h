@@ -209,6 +209,8 @@ private slots:
 
     void on_actionPlaylistQuickQueue_triggered();
 
+    void on_actionPlaylistFinishSearching_triggered();
+
 private:
     Ui::MainWindow *ui;
     QMainWindow *mpvHost_;

@@ -1479,6 +1479,14 @@
     <string>Q</string>
    </property>
   </action>
+  <action name="actionPlaylistFinishSearching">
+   <property name="text">
+    <string>Finish Searching</string>
+   </property>
+   <property name="shortcut">
+    <string>Esc</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="res.qrc"/>

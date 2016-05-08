@@ -12,7 +12,8 @@
 PlaylistWindow::PlaylistWindow(QWidget *parent) :
     QDockWidget(parent),
     ui(new Ui::PlaylistWindow),
-    currentPlaylist()
+    currentPlaylist(),
+    showSearch(false)
 {
     // When (un)docking windows, some widgets may get transformed into native
     // widgets, causing painting glitches.  Tell Qt that we prefer non-native.
@@ -37,6 +38,8 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     connect(this, &PlaylistWindow::searcher_searchPlaylist,
             searcher, &PlaylistSearcher::markPlaylist,
             Qt::QueuedConnection);
+    connect(this, &PlaylistWindow::visibilityChanged,
+            this, &PlaylistWindow::self_visibilityChanged);
 }
 
 PlaylistWindow::~PlaylistWindow()
@@ -202,8 +205,21 @@ void PlaylistWindow::quickQueue()
 
 void PlaylistWindow::revealSearch()
 {
+    showSearch = true;
+    activateWindow();
     ui->searchField->setVisible(true);
     ui->searchField->setFocus();
+}
+
+void PlaylistWindow::finishSearch()
+{
+    showSearch = false;
+    if (!ui->searchField->isVisible())
+        return;
+
+    if (!ui->searchField->text().isEmpty())
+        emit searcher_clearPlaylistMarks(currentPlaylist);
+    ui->searchField->setVisible(false);
 }
 
 void PlaylistWindow::dragEnterEvent(QDragEnterEvent *event)
@@ -225,9 +241,12 @@ void PlaylistWindow::updateCurrentPlaylist()
     auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
     if (!qdp)
         return;
-
     currentPlaylist = qdp->uuid();
-    ui->searchField->clear();
+
+    if (searcher) {
+        searcher->bump();
+        emit searcher_searchPlaylist(currentPlaylist, ui->searchField->text());
+    }
 }
 
 void PlaylistWindow::addNewTab(QUuid playlist, QString title)
@@ -285,6 +304,16 @@ void PlaylistWindow::updatePlaylist(QUuid playlistUuid)
 void PlaylistWindow::self_relativeSeekRequested(bool forwards, bool small)
 {
     emit relativeSeekRequested(forwards, small);
+}
+
+void PlaylistWindow::self_visibilityChanged()
+{
+    // When the window was (re)created/destroyed for whatever reason by
+    // the toolkit/wm/etc, reveal the search widget if it was active last.
+    if (showSearch)
+        revealSearch();
+    else
+        finishSearch();
 }
 
 void PlaylistWindow::on_newTab_clicked()
@@ -385,11 +414,6 @@ void PlaylistWindow::on_searchField_textEdited(const QString &arg1)
     auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
     searcher->bump();
     emit searcher_searchPlaylist(qdp->uuid(), arg1);
-}
-
-void PlaylistWindow::on_searchField_editingFinished()
-{
-    ui->searchField->setVisible(false);
 }
 
 void PlaylistWindow::on_tabWidget_currentChanged(int index)

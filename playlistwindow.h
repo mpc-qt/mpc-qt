@@ -39,6 +39,7 @@ public:
 
     void quickQueue();
     void revealSearch();
+    void finishSearch();
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event);
@@ -66,6 +67,7 @@ public slots:
 
 private slots:
     void self_relativeSeekRequested(bool forwards, bool small);
+    void self_visibilityChanged();
 
     void on_newTab_clicked();
 
@@ -85,14 +87,13 @@ private slots:
 
     void on_searchField_textEdited(const QString &arg1);
 
-    void on_searchField_editingFinished();
-
     void on_tabWidget_currentChanged(int index);
 
 private:
     Ui::PlaylistWindow *ui;
     QUuid currentPlaylist;
     DisplayParser displayParser;
+    bool showSearch;
 
     QHash<QUuid, QDrawnPlaylist*> widgets;
     QThread *worker;

@@ -308,6 +308,7 @@ void MainWindow::globalizeAllActions()
     addAction(ui->actionPlaylistPlayCurrent);
     addAction(ui->actionPlaylistQuickQueue);
     addAction(ui->actionPlaylistSearch);
+    addAction(ui->actionPlaylistFinishSearching);
     addAction(ui->actionPlaySeekForwards);
     addAction(ui->actionPlaySeekForwardsFine);
     addAction(ui->actionPlaySeekBackwards);
@@ -1199,10 +1200,17 @@ void MainWindow::on_actionPlaylistPlayCurrent_triggered()
 
 void MainWindow::on_actionPlaylistSearch_triggered()
 {
-    playlistWindow()->revealSearch();
+    if (playlistWindow_->isHidden())
+        playlistWindow_->show();
+    playlistWindow_->revealSearch();
 }
 
 void MainWindow::on_actionPlaylistQuickQueue_triggered()
 {
     playlistWindow()->quickQueue();
+}
+
+void MainWindow::on_actionPlaylistFinishSearching_triggered()
+{
+    playlistWindow_->finishSearch();
 }
