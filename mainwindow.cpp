@@ -818,9 +818,9 @@ void MainWindow::on_actionViewHideMenu_triggered()
 
 void MainWindow::on_actionViewHideSeekbar_toggled(bool checked)
 {
-    if (checked)
+    if (checked && ui->seekbar->isHidden())
         ui->seekbar->show();
-    else
+    else if (!checked && ui->seekbar->isVisible())
         ui->seekbar->hide();
     ui->controlSection->adjustSize();
     fireUpdateSize();
@@ -828,9 +828,9 @@ void MainWindow::on_actionViewHideSeekbar_toggled(bool checked)
 
 void MainWindow::on_actionViewHideControls_toggled(bool checked)
 {
-    if (checked)
+    if (checked && ui->controlbar->isHidden())
         ui->controlbar->show();
-    else
+    else if (!checked && ui->controlbar->isVisible())
         ui->controlbar->hide();
     ui->controlSection->adjustSize();
     fireUpdateSize();
@@ -850,9 +850,9 @@ void MainWindow::on_actionViewHideStatistics_toggled(bool checked)
 
 void MainWindow::on_actionViewHideStatus_toggled(bool checked)
 {
-    if (checked)
+    if (checked && ui->statusbar->isHidden())
         ui->statusbar->show();
-    else
+    else if (!checked && ui->statusbar->isVisible())
         ui->statusbar->hide();
     ui->infoSection->adjustSize();
     fireUpdateSize();
@@ -870,9 +870,9 @@ void MainWindow::on_actionViewHidePlaylist_toggled(bool checked)
     if (fullscreenMode_)
         return;
 
-    if (checked)
+    if (checked && playlistWindow_->isHidden())
         playlistWindow_->show();
-    else
+    else if (!checked && playlistWindow_->isVisible())
         playlistWindow_->hide();
 
     fireUpdateSize();
