@@ -42,6 +42,7 @@ public:
     void setUuid(const QUuid &uuid);
     QUuid currentItemUuid() const;
     void setCurrentItem(QUuid itemUuid);
+    void scrollToItem(QUuid itemUuid);
     void addItem(QUuid uuid);
     void removeItem(QUuid uuid);
     void removeAll();

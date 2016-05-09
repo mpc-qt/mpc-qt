@@ -149,6 +149,15 @@ void QDrawnPlaylist::setCurrentItem(QUuid itemUuid)
         QListWidget::setCurrentItem(items.first());
 }
 
+void QDrawnPlaylist::scrollToItem(QUuid itemUuid)
+{
+    auto items = findItems(itemUuid.toString(), Qt::MatchExactly);
+    if (items.empty())
+        return;
+    auto item = items.first();
+    this->scrollTo(indexFromItem(item));
+}
+
 void QDrawnPlaylist::setUuid(const QUuid &uuid)
 {
     uuid_ = uuid;
