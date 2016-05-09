@@ -44,6 +44,7 @@ public:
 protected:
     void dragEnterEvent(QDragEnterEvent *event);
     void dropEvent(QDropEvent *event);
+    void wheelEvent(QWheelEvent *event);
 
 private:
     void updateCurrentPlaylist();

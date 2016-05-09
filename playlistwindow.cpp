@@ -215,6 +215,13 @@ void PlaylistWindow::dropEvent(QDropEvent *event)
     addToCurrentPlaylist(event->mimeData()->urls());
 }
 
+void PlaylistWindow::wheelEvent(QWheelEvent *event)
+{
+    // Don't pass scroll events up the chain.  They are used for e.g. tab
+    // switching when over the tab bar and also scrolling the playlists.
+    event->accept();
+}
+
 void PlaylistWindow::updateCurrentPlaylist()
 {
     auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
