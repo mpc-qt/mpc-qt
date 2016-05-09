@@ -256,7 +256,7 @@ void PlaylistWindow::changePlaylistSelection( QUrl itemUrl, QUuid playlistUuid, 
     auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
     if (!itemUuid.isNull() && pl->queueFirst() == itemUuid)
         pl->queueTakeFirst();
-    qdp->setCurrentItem(itemUuid);
+    qdp->scrollToItem(itemUuid);
     qdp->setNowPlayingItem(itemUuid);
 }
 
