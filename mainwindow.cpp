@@ -414,6 +414,9 @@ void MainWindow::updateSize(bool first_run)
         return;
     }
 
+    // Grab device pixel ratio (2=HiDPI screen)
+    qreal ratio = devicePixelRatio();
+
     // calculate available area for the window
     QDesktopWidget *desktop = qApp->desktop();
     QRect available = first_run ? desktop->availableGeometry(
@@ -422,10 +425,10 @@ void MainWindow::updateSize(bool first_run)
 
     // remove the window frame size from the size available
     QSize fudgeFactor = this->frameGeometry().size() - this->geometry().size();
+    fudgeFactor /= ratio;
     available.adjust(0,0, -fudgeFactor.width(), -fudgeFactor.height());
 
     // calculate player size
-    qreal ratio = devicePixelRatio();
     QSize player = mpvw->videoSize() / ratio;
     double factor = sizeFactor();
     if (!isPlaying || player.isEmpty()) {
