@@ -67,6 +67,7 @@ protected:
 private:
     QUuid uuid_;
     QHash <QUuid, PlayItem*> itemsByUuid;
+    QUuid lastSelectedItem;
     QUuid nowPlayingItem_;
     DisplayParser *displayParser_;
     QThread *worker;
@@ -85,6 +86,8 @@ private slots:
 
     void model_rowsMoved(const QModelIndex & parent, int start, int end,
                          const QModelIndex & destination, int row);
+    void self_currentItemChanged(QListWidgetItem *current,
+                                 QListWidgetItem *previous);
     void self_itemDoubleClicked(QListWidgetItem *item);
     void self_customContextMenuRequested(const QPoint &p);
 };

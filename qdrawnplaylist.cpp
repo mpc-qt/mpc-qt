@@ -115,6 +115,8 @@ QDrawnPlaylist::QDrawnPlaylist(QWidget *parent) : QListWidget(parent),
     connect(searcher, &PlaylistSearcher::playlistFiltered,
             this, &QDrawnPlaylist::repopulateItems,
             Qt::QueuedConnection);
+    connect(this, &QDrawnPlaylist::currentItemChanged,
+            this, &QDrawnPlaylist::self_currentItemChanged);
     connect(this, SIGNAL(itemDoubleClicked(QListWidgetItem*)),
             this, SLOT(self_itemDoubleClicked(QListWidgetItem*)));
     connect(this, SIGNAL(customContextMenuRequested(QPoint)),
@@ -289,7 +291,7 @@ void QDrawnPlaylist::repopulateItems()
             addItem(item->uuid());
     };
     playlist->iterateItems(itemAdder);
-
+    setCurrentItem(lastSelectedItem);
 }
 
 void QDrawnPlaylist::model_rowsMoved(const QModelIndex &parent,
@@ -309,6 +311,14 @@ void QDrawnPlaylist::model_rowsMoved(const QModelIndex &parent,
     }
     p->takeItemsRaw(itemsToGrab);
     p->addItems(destinationId, itemsToGrab);
+}
+
+void QDrawnPlaylist::self_currentItemChanged(QListWidgetItem *current,
+                                             QListWidgetItem *previous)
+{
+    QUuid uuid;
+    if (current && !(uuid=reinterpret_cast<PlayItem*>(current)->uuid()).isNull())
+        lastSelectedItem = uuid;
 }
 
 void QDrawnPlaylist::self_itemDoubleClicked(QListWidgetItem *item)
