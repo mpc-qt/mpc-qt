@@ -51,7 +51,7 @@ void PlaylistWindow::clearPlaylist(QUuid what)
 QPair<QUuid, QUuid> PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
 {
     QPair<QUuid, QUuid> info;
-    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    auto qdp = currentPlaylistWidget();
     for (QUrl url : what) {
         QPair<QUuid,QUuid> itemInfo = qdp->importUrl(url);
         if (info.second.isNull())
@@ -121,7 +121,7 @@ void PlaylistWindow::setMetadata(QUuid list, QUuid item, const QVariantMap &map)
         return;
     i->setMetadata(map);
 
-    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    auto qdp = currentPlaylistWidget();
     if (qdp->uuid() == list)
         qdp->viewport()->update();
 
@@ -156,7 +156,7 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
 
 void PlaylistWindow::selectNext()
 {
-    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    auto qdp = currentPlaylistWidget();
     int index = qdp->currentRow();
     if (index < qdp->count())
         qdp->setCurrentRow(index + 1);
@@ -164,7 +164,7 @@ void PlaylistWindow::selectNext()
 
 void PlaylistWindow::selectPrevious()
 {
-    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    auto qdp = currentPlaylistWidget();
     int index = qdp->currentRow();
     if (index > 0)
         qdp->setCurrentRow(index - 1);
@@ -172,7 +172,7 @@ void PlaylistWindow::selectPrevious()
 
 void PlaylistWindow::quickQueue()
 {
-    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    auto qdp = currentPlaylistWidget();
     auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
     auto itemUuid = qdp->currentItemUuid();
     if (itemUuid.isNull())
@@ -241,9 +241,14 @@ void PlaylistWindow::wheelEvent(QWheelEvent *event)
     event->accept();
 }
 
+QDrawnPlaylist *PlaylistWindow::currentPlaylistWidget()
+{
+    return reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+}
+
 void PlaylistWindow::updateCurrentPlaylist()
 {
-    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    auto qdp = currentPlaylistWidget();
     if (!qdp)
         return;
     currentPlaylist = qdp->uuid();
@@ -294,7 +299,7 @@ void PlaylistWindow::setDisplayFormatSpecifier(QString fmt)
 
 void PlaylistWindow::playCurrentItem()
 {
-    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    auto qdp = currentPlaylistWidget();
     auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
     auto itemUuid = qdp->currentItemUuid();
     if (itemUuid.isNull())
@@ -349,7 +354,7 @@ void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
 
 void PlaylistWindow::on_duplicateTab_clicked()
 {
-    auto origin = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    auto origin = currentPlaylistWidget();
     auto remote = PlaylistCollection::getSingleton()->clonePlaylist(origin->uuid());
     addNewTab(remote->uuid(), remote->title());
 }

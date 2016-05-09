@@ -48,6 +48,7 @@ protected:
     void wheelEvent(QWheelEvent *event);
 
 private:
+    QDrawnPlaylist *currentPlaylistWidget();
     void updateCurrentPlaylist();
     void setPlaylistFilters(QString filterText);
     void addNewTab(QUuid playlist, QString title);
