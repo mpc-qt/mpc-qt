@@ -22,7 +22,15 @@ void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
     if (i == NULL)
         return;
 
-    QApplication::style()->drawControl(QStyle::CE_ItemViewItem, &option,
+    QStyleOptionViewItem o2 = option;
+    if (playWidget->currentItemUuid() == i->uuid()) {
+        // in some cases, the current item we want to highlight is not the
+        // actual item that the list widget thinks is selected. i.e. during
+        // searching the topmost item should be selected.
+        o2.showDecorationSelected = true;
+        o2.state |= QStyle::State_Selected;
+    }
+    QApplication::style()->drawControl(QStyle::CE_ItemViewItem, &o2,
                                        painter);
     QRect rc = option.rect.adjusted(3,0,-3,0);
 
@@ -138,8 +146,10 @@ QUuid QDrawnPlaylist::currentItemUuid() const
 {
     PlayItem *item = reinterpret_cast<PlayItem*>(currentItem());
     if (!item)
-        return QUuid();
-    return item->uuid();
+        item = reinterpret_cast<PlayItem*>(QListWidget::item(0));
+    if (item)
+        return item->uuid();
+    return QUuid();
 }
 
 void QDrawnPlaylist::setCurrentItem(QUuid itemUuid)
