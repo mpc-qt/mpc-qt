@@ -89,6 +89,8 @@ private slots:
 
     void on_tabWidget_currentChanged(int index);
 
+    void on_searchField_returnPressed();
+
 private:
     Ui::PlaylistWindow *ui;
     QUuid currentPlaylist;

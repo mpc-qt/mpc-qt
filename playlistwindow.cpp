@@ -425,3 +425,7 @@ void PlaylistWindow::on_tabWidget_currentChanged(int index)
     updateCurrentPlaylist();
 }
 
+void PlaylistWindow::on_searchField_returnPressed()
+{
+    playCurrentItem();
+}
