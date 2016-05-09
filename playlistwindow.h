@@ -42,6 +42,7 @@ public:
     void finishSearch();
 
 protected:
+    bool eventFilter(QObject *obj, QEvent *event);
     void dragEnterEvent(QDragEnterEvent *event);
     void dropEvent(QDropEvent *event);
     void wheelEvent(QWheelEvent *event);

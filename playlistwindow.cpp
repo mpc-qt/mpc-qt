@@ -22,6 +22,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     ui->setupUi(this);
     addNewTab(QUuid(), tr("Quick Playlist"));
     ui->searchField->setVisible(false);
+    ui->searchField->installEventFilter(this);
 
     connect(this, &PlaylistWindow::visibilityChanged,
             this, &PlaylistWindow::self_visibilityChanged);
@@ -200,6 +201,24 @@ void PlaylistWindow::finishSearch()
     }
 
     ui->searchField->setVisible(false);
+}
+
+bool PlaylistWindow::eventFilter(QObject *obj, QEvent *event)
+{
+    Q_UNUSED(obj);
+    if (obj == ui->searchField && event->type() == QEvent::KeyPress) {
+        auto keyEvent = reinterpret_cast<QKeyEvent*>(event);
+        if (!keyEvent->modifiers() &&
+                (keyEvent->key() == Qt::Key_Up ||
+                 keyEvent->key() == Qt::Key_Down)) {
+            if (keyEvent->key() == Qt::Key_Up)
+                selectPrevious();
+            else
+                selectNext();
+            return true;
+        }
+    }
+    return QDockWidget::eventFilter(obj, event);
 }
 
 void PlaylistWindow::dragEnterEvent(QDragEnterEvent *event)
