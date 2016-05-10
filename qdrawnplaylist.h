@@ -49,6 +49,7 @@ public:
 
     QPair<QUuid,QUuid> importUrl(QUrl url);
     void currentToQueue();
+    void visibleToQueue();
 
     QUuid nowPlayingItem();
     void setNowPlayingItem(QUuid uuid);

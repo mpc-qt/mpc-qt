@@ -216,6 +216,35 @@ QPair<QUuid,QUuid> QDrawnPlaylist::importUrl(QUrl url)
     return info;
 }
 
+void QDrawnPlaylist::visibleToQueue()
+{
+    QSharedPointer<Playlist> playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
+    if (!playlist)
+        return;
+    if (count() == 0) {
+        playlist->queueClear();
+    } else {
+        // First, grab all the visible items
+        QList<QUuid> itemsToQueue;
+        int itemCount = count();
+        for (int index = 0; index < itemCount; ++index) {
+            PlayItem *playItem = reinterpret_cast<PlayItem*>(QListWidget::item(index));
+            itemsToQueue.append(playItem->uuid());
+        }
+        // Check if every visible item is already in the queue
+        int inQueue = playlist->queueContains(itemsToQueue);
+        if (itemsToQueue.count() == inQueue) {
+            // every item was in the quick queue already, so assume user wants
+            // to remove them.
+            playlist->queueRemoveItems(itemsToQueue);
+        } else {
+            // Something was missing, so add it to the quick queue
+            playlist->queueAddItems(itemsToQueue);
+        }
+    }
+    viewport()->update();
+}
+
 QUuid QDrawnPlaylist::nowPlayingItem()
 {
     return nowPlayingItem_;
