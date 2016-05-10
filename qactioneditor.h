@@ -8,6 +8,14 @@
 #include <QAction>
 #include "helpers.h"
 
+
+
+class QKeySequenceEdit;
+class QToolButton;
+class QComboBox;
+
+
+
 class QActionEditor : public QTableView
 {
     Q_OBJECT
@@ -33,6 +41,23 @@ private:
 
 
 
+class ShortcutWidget :public QWidget {
+    Q_OBJECT
+public:
+    ShortcutWidget(QWidget *parent = 0);
+    void setKeySequence(const QKeySequence &keySequence);
+    QKeySequence keySequence();
+
+private slots:
+    void keyClear_clicked();
+
+private:
+    QKeySequenceEdit *keyEditor;
+    QToolButton *keyClear;
+};
+
+
+
 class ShortcutDelegate : public QStyledItemDelegate {
     Q_OBJECT
 public:
@@ -48,8 +73,7 @@ private:
 
 
 
-class QComboBox;
-class QToolButton;
+
 class ButtonWidget : public QWidget {
     Q_OBJECT
 public:

@@ -115,19 +115,19 @@ QWidget *ShortcutDelegate::createEditor(QWidget *parent, const QStyleOptionViewI
 {
     Q_UNUSED(option);
     Q_UNUSED(index);
-    QKeySequenceEdit *editor = new QKeySequenceEdit(parent);
+    ShortcutWidget *editor = new ShortcutWidget(parent);
     return (QWidget*)editor;
 }
 
 void ShortcutDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
 {
-    QKeySequenceEdit *keyEditor = static_cast<QKeySequenceEdit*>(editor);
+    ShortcutWidget *keyEditor = static_cast<ShortcutWidget*>(editor);
     keyEditor->setKeySequence(QKeySequence(index.data(Qt::EditRole).toString()));
 }
 
 void ShortcutDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 {
-    QKeySequenceEdit *keyEditor = static_cast<QKeySequenceEdit*>(editor);
+    ShortcutWidget *keyEditor = static_cast<ShortcutWidget*>(editor);
     QKeySequence seq = keyEditor->keySequence();
     Command c = owner->getCommand(index.row());
     c.keys = seq;
@@ -282,4 +282,39 @@ void ButtonWidget::keyModMenu_selected(int item, bool yes)
 void ButtonWidget::pressMenu_selected(int item)
 {
     state_.press = item > 0;
+}
+
+
+
+ShortcutWidget::ShortcutWidget(QWidget *parent) : QWidget(parent)
+{
+    QHBoxLayout *layout = new QHBoxLayout();
+    keyEditor = new QKeySequenceEdit(this);
+    layout->addWidget(keyEditor, 1);
+
+    keyClear = new QToolButton(this);
+    keyClear->setText("<");
+    layout->addWidget(keyClear, 0);
+
+    layout->setMargin(0);
+    layout->setSpacing(0);
+    setLayout(layout);
+
+    connect(keyClear, &QToolButton::clicked,
+            this, &ShortcutWidget::keyClear_clicked);
+}
+
+void ShortcutWidget::setKeySequence(const QKeySequence &keySequence)
+{
+    keyEditor->setKeySequence(keySequence);
+}
+
+QKeySequence ShortcutWidget::keySequence()
+{
+    return keyEditor->keySequence();
+}
+
+void ShortcutWidget::keyClear_clicked()
+{
+    keyEditor->setKeySequence(QKeySequence());
 }
