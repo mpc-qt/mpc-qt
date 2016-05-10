@@ -32,13 +32,42 @@
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="searchField">
-      <property name="placeholderText">
-       <string>Search</string>
-      </property>
-      <property name="clearButtonEnabled">
-       <bool>true</bool>
-      </property>
+     <widget class="QWidget" name="searchHost" native="true">
+      <layout class="QHBoxLayout" name="searchLayout" stretch="1,0">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLineEdit" name="searchField">
+         <property name="placeholderText">
+          <string>Search</string>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="quickQueue">
+         <property name="toolTip">
+          <string>Visible Items to Quick Queue</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/images/controls/playlist/quickqueue.png</normaloff>:/images/controls/playlist/quickqueue.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
     <item>

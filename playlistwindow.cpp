@@ -21,7 +21,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
 
     ui->setupUi(this);
     addNewTab(QUuid(), tr("Quick Playlist"));
-    ui->searchField->setVisible(false);
+    ui->searchHost->setVisible(false);
     ui->searchField->installEventFilter(this);
 
     connect(this, &PlaylistWindow::visibilityChanged,
@@ -185,14 +185,14 @@ void PlaylistWindow::revealSearch()
 {
     showSearch = true;
     activateWindow();
-    ui->searchField->setVisible(true);
+    ui->searchHost->setVisible(true);
     ui->searchField->setFocus();
 }
 
 void PlaylistWindow::finishSearch()
 {
     showSearch = false;
-    if (!ui->searchField->isVisible())
+    if (!ui->searchHost->isVisible())
         return;
 
     if (!ui->searchField->text().isEmpty()) {
@@ -200,7 +200,7 @@ void PlaylistWindow::finishSearch()
         setPlaylistFilters(QString());
     }
 
-    ui->searchField->setVisible(false);
+    ui->searchHost->setVisible(false);
 }
 
 bool PlaylistWindow::eventFilter(QObject *obj, QEvent *event)
@@ -428,4 +428,9 @@ void PlaylistWindow::on_tabWidget_currentChanged(int index)
 void PlaylistWindow::on_searchField_returnPressed()
 {
     playCurrentItem();
+}
+
+void PlaylistWindow::on_quickQueue_clicked()
+{
+    currentPlaylistWidget()->visibleToQueue();
 }

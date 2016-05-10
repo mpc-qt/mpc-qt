@@ -91,6 +91,8 @@ private slots:
 
     void on_searchField_returnPressed();
 
+    void on_quickQueue_clicked();
+
 private:
     Ui::PlaylistWindow *ui;
     QUuid currentPlaylist;
