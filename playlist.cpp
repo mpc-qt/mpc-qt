@@ -234,17 +234,24 @@ QUuid Playlist::queueTakeFirst()
     return queue.takeFirst();
 }
 
-void Playlist::queueToggle(QUuid uuid)
+void Playlist::queueToggle(QUuid uuid, bool always)
 {
     if (!itemsByUuid.contains(uuid))
         return;
 
-    if (queue.contains(uuid)) {
+    bool inQueue = queue.contains(uuid);
+    if (!always && inQueue) {
         queueRemove(uuid);
-    } else {
+    } else if (!inQueue) {
         itemsByUuid[uuid]->setQueuePosition(queue.length() + 1);
         queue.append(uuid);
     }
+}
+
+void Playlist::queueAddItems(const QList<QUuid> &itemsToAdd)
+{
+    for (QUuid itemUuid : itemsToAdd)
+        queueToggle(itemUuid, true);
 }
 
 void Playlist::queueRemove(QUuid uuid)
@@ -258,6 +265,29 @@ void Playlist::queueRemove(QUuid uuid)
         if (itemsByUuid.contains(queue[i]))
             itemsByUuid[queue[i]]->decQueuePosition();
     queue.removeAll(uuid);
+}
+
+void Playlist::queueRemoveItems(const QList<QUuid> &itemsToRemove)
+{
+    for (QUuid itemUuid : itemsToRemove)
+        queueRemove(itemUuid);
+}
+
+void Playlist::queueClear()
+{
+    for (QUuid queueItem : queue)
+        if (itemsByUuid.contains(queueItem))
+           itemsByUuid[queueItem]->setQueuePosition(0);
+    queue.clear();
+}
+
+int Playlist::queueContains(const QList<QUuid> &itemsToCheck) const
+{
+    int count;
+    for (QUuid itemUuid : itemsToCheck)
+        if (queue.contains(itemUuid))
+            ++count;
+    return count;
 }
 
 QString Playlist::title()
