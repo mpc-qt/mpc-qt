@@ -13,10 +13,11 @@ QActionEditor::QActionEditor(QWidget *parent) :
     model.setHorizontalHeaderLabels({"Command", "Key",
                                      "Mouse Window ",
                                      "Mouse Fullscr "});
-    this->setModel(&model);
-    this->setItemDelegateForColumn(1, new ShortcutDelegate(this));
-    this->setItemDelegateForColumn(2, new ButtonDelegate(this, false));
-    this->setItemDelegateForColumn(3, new ButtonDelegate(this, true));
+    setModel(&model);
+    setItemDelegateForColumn(1, new ShortcutDelegate(this));
+    setItemDelegateForColumn(2, new ButtonDelegate(this, false));
+    setItemDelegateForColumn(3, new ButtonDelegate(this, true));
+    setEditTriggers(QAbstractItemView::AllEditTriggers);
 }
 
 void QActionEditor::setCommands(const QList<Command> &commands)
