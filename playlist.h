@@ -20,9 +20,9 @@ public:
     Item(QUrl url = QUrl());
 
     QUuid uuid() const;
-    void setUuid(QUuid uuid);
+    void setUuid(const QUuid &uuid);
     QUrl url() const;
-    void setUrl(QUrl url);
+    void setUrl(const QUrl &url);
     QVariantMap metadata() const;
     void setMetadata(const QVariantMap &qvm);
 
@@ -52,35 +52,35 @@ private:
 class Playlist : public QObject {
     Q_OBJECT
 public:
-    Playlist(QString title = QString());
+    Playlist(const QString &title = QString());
     ~Playlist();
     QSharedPointer<Item> addItem(const QUrl &url = QUrl());
-    QSharedPointer<Item> addItem(QUuid uuid, QUrl url);
+    QSharedPointer<Item> addItem(const QUuid &uuid, const QUrl &url);
     QSharedPointer<Item> addItemClone(const QSharedPointer<Item> &item);
-    QSharedPointer<Item> itemOf(QUuid uuid);
-    QSharedPointer<Item> itemAfter(QUuid uuid);
-    QSharedPointer<Item> itemBefore(QUuid uuid);
-    bool isEmpty();
-    bool contains(QUuid uuid);
-    void iterateItems(std::function<void(QSharedPointer<Item>)> callback);
-    void addItems(QUuid where, QList<QSharedPointer<Item>> itemsToAdd);
-    void removeItem(QUuid uuuid);
-    void takeItemsRaw(QList<QSharedPointer<Item> > &itemsToRemove);
+    QSharedPointer<Item> itemOf(const QUuid &uuid);
+    QSharedPointer<Item> itemAfter(const QUuid &uuid);
+    QSharedPointer<Item> itemBefore(const QUuid &uuid);
+    bool isEmpty() const;
+    bool contains(const QUuid &uuid) const;
+    void iterateItems(const std::function<void(QSharedPointer<Item>)> &callback);
+    void addItems(const QUuid &where, const QList<QSharedPointer<Item> > &itemsToAdd);
+    void removeItem(const QUuid &uuid);
+    void takeItemsRaw(const QList<QSharedPointer<Item>> &itemsToRemove);
     void clear();
 
     QUuid queueFirst();
     QUuid queueTakeFirst();
-    void queueToggle(QUuid uuid, bool always = false);
+    void queueToggle(const QUuid &uuid, bool always = false);
     void queueAddItems(const QList<QUuid> &itemsToAdd);
-    void queueRemove(QUuid uuid);
+    void queueRemove(const QUuid &uuid);
     void queueRemoveItems(const QList<QUuid> &itemsToRemove);
     void queueClear();
     int queueContains(const QList<QUuid> &itemsToCheck) const;
 
     QString title();
-    void setTitle(const QString title);
+    void setTitle(const QString &title);
     QUuid uuid();
-    void setUuid(const QUuid uuid);
+    void setUuid(const QUuid &uuid);
 
     QStringList toStringList();
     void fromStringList(QStringList sl);
@@ -111,20 +111,21 @@ public:
 
     QSharedPointer<Playlist> nowPlaying();
 
-    QSharedPointer<Playlist> newPlaylist(QString title = 0);
-    QSharedPointer<Playlist> clonePlaylist(QUuid uuid);
-    void removePlaylist(QUuid uuid);
-    void removePlaylist(QSharedPointer<Playlist> p);
-    QSharedPointer<Playlist> playlistAt(int col);
-    QSharedPointer<Playlist> playlistOf(QUuid uuid);
+    QSharedPointer<Playlist> newPlaylist(const QString &title = QString());
+    QSharedPointer<Playlist> clonePlaylist(const QUuid &uuid);
+    void removePlaylist(const QUuid &uuid);
+    void removePlaylist(const QSharedPointer<Playlist> &p);
+    QSharedPointer<Playlist> playlistAt(int col) const;
+    QSharedPointer<Playlist> playlistOf(const QUuid &uuid) const;
 
-    void addPlaylist(QSharedPointer<Playlist> playlist);
+    void addPlaylist(const QSharedPointer<Playlist> &playlist);
 
 private:
     QList<QSharedPointer<Playlist>> playlists;
     QHash<QUuid, QSharedPointer<Playlist>> playlistsByUuid;
 
-    QSharedPointer<Playlist> doNewPlaylist(QString title, QUuid uuid);
+    QSharedPointer<Playlist> doNewPlaylist(const QString &title,
+                                           const QUuid &uuid);
 };
 
 class PlaylistSearcher : public QObject {
@@ -144,8 +145,8 @@ signals:
     void playlistFiltered(QUuid playlist);
 
 public slots:
-    void filterPlaylist(QUuid playlist, QString text);
-    void clearPlaylistFilter(QUuid playlist);
+    void filterPlaylist(const QUuid &playlist, QString text);
+    void clearPlaylistFilter(const QUuid &playlist);
 
 private:
     static void findNeedles(const QString &text, const QStringList &needles,
