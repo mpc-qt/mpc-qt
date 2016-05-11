@@ -113,6 +113,14 @@ This will search the filesystem for the needed binaries and create the file
 `Media Player Classic Qute Theater.desktop`, a usuable `.desktop` file, even
 if you forgot to (or can't) run ldconfig.
 
+You're done!  Later on, performing a git pull from inside the source code
+directory will get the latest changes.
+
+>git pull origin master
+
+Then in Qt Creator, select `Build->Rebuild All`, and run mpc-qt as you were.
+Do this regularly to keep your local build up to date.
+
 
 ## Compiling on Windows
 
