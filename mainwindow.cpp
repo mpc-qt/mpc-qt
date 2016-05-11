@@ -43,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setupSizing();
 
     connectButtonsToActions();
+    connectPlaylistWindowToActions();
     globalizeAllActions();
     setUiEnabledState(false);
     setDiscState(false);
@@ -155,6 +156,7 @@ bool MainWindow::mouseStateEvent(const MouseState &state)
     }
     return false;
 }
+void on_actionPlaylistSearch_triggered();
 
 QMediaSlider *MainWindow::positionSlider()
 {
@@ -300,13 +302,41 @@ void MainWindow::connectButtonsToActions()
             ui->actionPlayVolumeMute, &QAction::toggled);
 }
 
+void MainWindow::connectPlaylistWindowToActions()
+{
+    connect(ui->actionPlaylistNewTab, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::newTab);
+    connect(ui->actionPlaylistCloseTab, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::closeTab);
+    connect(ui->actionPlaylistDuplicateTab, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::duplicateTab);
+    connect(ui->actionPlaylistImport, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::importTab);
+    connect(ui->actionPlaylistExport, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::exportTab);
+    connect(ui->actionPlaylistPlayCurrent, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::playCurrentItem);
+    connect(ui->actionPlaylistQuickQueue, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::quickQueue);
+    connect(ui->actionPlaylistQueueVisible, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::visibleToQueue);
+    connect(ui->actionPlaylistFinishSearching, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::finishSearch);
+}
+
 void MainWindow::globalizeAllActions()
 {
     for (QAction *a : ui->menubar->actions()) {
         addAction(a);
     }
+    addAction(ui->actionPlaylistNewTab);
+    addAction(ui->actionPlaylistCloseTab);
+    addAction(ui->actionPlaylistDuplicateTab);
+    addAction(ui->actionPlaylistImport);
+    addAction(ui->actionPlaylistExport);
     addAction(ui->actionPlaylistPlayCurrent);
     addAction(ui->actionPlaylistQuickQueue);
+    addAction(ui->actionPlaylistQueueVisible);
     addAction(ui->actionPlaylistSearch);
     addAction(ui->actionPlaylistFinishSearching);
     addAction(ui->actionPlaySeekForwards);
@@ -1199,24 +1229,9 @@ void MainWindow::sendUpdateSize()
     updateSize();
 }
 
-void MainWindow::on_actionPlaylistPlayCurrent_triggered()
-{
-    emit playCurrentItemRequested();
-}
-
 void MainWindow::on_actionPlaylistSearch_triggered()
 {
     if (playlistWindow_->isHidden())
         playlistWindow_->show();
     playlistWindow_->revealSearch();
-}
-
-void MainWindow::on_actionPlaylistQuickQueue_triggered()
-{
-    playlistWindow()->quickQueue();
-}
-
-void MainWindow::on_actionPlaylistFinishSearching_triggered()
-{
-    playlistWindow_->finishSearch();
 }

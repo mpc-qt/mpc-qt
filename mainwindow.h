@@ -61,6 +61,7 @@ private:
     void setupPlaylist();
     void setupSizing();
     void connectButtonsToActions();
+    void connectPlaylistWindowToActions();
     void globalizeAllActions();
     void setUiDecorationState(DecorationState state);
     void setUiEnabledState(bool enabled);
@@ -197,19 +198,13 @@ private slots:
     void on_actionHelpHomepage_triggered();
     void on_actionHelpAbout_triggered();
 
+    void on_actionPlaylistSearch_triggered();
+
     void position_sliderMoved(int position);
     void on_play_clicked();
     void volume_sliderMoved(double position);
 
     void sendUpdateSize();
-
-    void on_actionPlaylistPlayCurrent_triggered();
-
-    void on_actionPlaylistSearch_triggered();
-
-    void on_actionPlaylistQuickQueue_triggered();
-
-    void on_actionPlaylistFinishSearching_triggered();
 
 private:
     Ui::MainWindow *ui;

@@ -1487,6 +1487,54 @@
     <string>Esc</string>
    </property>
   </action>
+  <action name="actionPlaylistNewTab">
+   <property name="text">
+    <string>New Tab</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+T</string>
+   </property>
+  </action>
+  <action name="actionPlaylistCloseTab">
+   <property name="text">
+    <string>CloseTab</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+W</string>
+   </property>
+  </action>
+  <action name="actionPlaylistDuplicateTab">
+   <property name="text">
+    <string>DuplicateTab</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+D</string>
+   </property>
+  </action>
+  <action name="actionPlaylistImport">
+   <property name="text">
+    <string>Import Playlist</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+O</string>
+   </property>
+  </action>
+  <action name="actionPlaylistExport">
+   <property name="text">
+    <string>Export Playlist</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionPlaylistQueueVisible">
+   <property name="text">
+    <string>Queue Visible</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+Q</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="res.qrc"/>
