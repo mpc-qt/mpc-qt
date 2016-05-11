@@ -34,13 +34,6 @@ public:
     QVariantList tabsToVList() const;
     void tabsFromVList(const QVariantList &qvl);
 
-    void selectNext();
-    void selectPrevious();
-
-    void quickQueue();
-    void revealSearch();
-    void finishSearch();
-
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
     void dragEnterEvent(QDragEnterEvent *event);
@@ -48,6 +41,9 @@ protected:
     void wheelEvent(QWheelEvent *event);
 
 private:
+    void connectButtonsToActions();
+    void connectSignalsToSlots();
+
     QDrawnPlaylist *currentPlaylistWidget();
     void updateCurrentPlaylist();
     void setPlaylistFilters(QString filterText);
@@ -63,25 +59,30 @@ public slots:
     void changePlaylistSelection(QUrl itemUrl, QUuid playlistUuid, QUuid itemUuid);
     void addSimplePlaylist(QStringList data);
     void setDisplayFormatSpecifier(QString fmt);
+
+    void newTab();
+    void closeTab();
+    void duplicateTab();
+    void importTab();
+    void exportTab();
+
     void playCurrentItem();
+    void selectNext();
+    void selectPrevious();
+
+    void quickQueue();
+    void visibleToQueue();
+
+    void revealSearch();
+    void finishSearch();
 
 private slots:
     void self_relativeSeekRequested(bool forwards, bool small);
     void self_visibilityChanged();
 
-    void on_newTab_clicked();
-
-    void on_closeTab_clicked();
-
     void on_tabWidget_tabCloseRequested(int index);
 
-    void on_duplicateTab_clicked();
-
     void on_tabWidget_tabBarDoubleClicked(int index);
-
-    void on_importList_clicked();
-
-    void on_exportList_clicked();
 
     void on_tabWidget_customContextMenuRequested(const QPoint &pos);
 
@@ -90,8 +91,6 @@ private slots:
     void on_tabWidget_currentChanged(int index);
 
     void on_searchField_returnPressed();
-
-    void on_quickQueue_clicked();
 
 private:
     Ui::PlaylistWindow *ui;

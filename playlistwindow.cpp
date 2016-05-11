@@ -24,8 +24,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     ui->searchHost->setVisible(false);
     ui->searchField->installEventFilter(this);
 
-    connect(this, &PlaylistWindow::visibilityChanged,
-            this, &PlaylistWindow::self_visibilityChanged);
+    connectSignalsToSlots();
 }
 
 PlaylistWindow::~PlaylistWindow()
@@ -154,55 +153,6 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
         addNewTab(QUuid(), tr("Quick Playlist"));
 }
 
-void PlaylistWindow::selectNext()
-{
-    auto qdp = currentPlaylistWidget();
-    int index = qdp->currentRow();
-    if (index < qdp->count())
-        qdp->setCurrentRow(index + 1);
-}
-
-void PlaylistWindow::selectPrevious()
-{
-    auto qdp = currentPlaylistWidget();
-    int index = qdp->currentRow();
-    if (index > 0)
-        qdp->setCurrentRow(index - 1);
-}
-
-void PlaylistWindow::quickQueue()
-{
-    auto qdp = currentPlaylistWidget();
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
-    auto itemUuid = qdp->currentItemUuid();
-    if (itemUuid.isNull())
-        return;
-    pl->queueToggle(itemUuid);
-    qdp->viewport()->update();
-}
-
-void PlaylistWindow::revealSearch()
-{
-    showSearch = true;
-    activateWindow();
-    ui->searchHost->setVisible(true);
-    ui->searchField->setFocus();
-}
-
-void PlaylistWindow::finishSearch()
-{
-    showSearch = false;
-    if (!ui->searchHost->isVisible())
-        return;
-
-    if (!ui->searchField->text().isEmpty()) {
-        ui->searchField->setText(QString());
-        setPlaylistFilters(QString());
-    }
-
-    ui->searchHost->setVisible(false);
-}
-
 bool PlaylistWindow::eventFilter(QObject *obj, QEvent *event)
 {
     Q_UNUSED(obj);
@@ -239,6 +189,25 @@ void PlaylistWindow::wheelEvent(QWheelEvent *event)
     // Don't pass scroll events up the chain.  They are used for e.g. tab
     // switching when over the tab bar and also scrolling the playlists.
     event->accept();
+}
+
+void PlaylistWindow::connectSignalsToSlots()
+{
+    connect(this, &PlaylistWindow::visibilityChanged,
+            this, &PlaylistWindow::self_visibilityChanged);
+
+    connect(ui->newTab, &QPushButton::clicked,
+            this, &PlaylistWindow::newTab);
+    connect(ui->closeTab, &QPushButton::clicked,
+            this, &PlaylistWindow::closeTab);
+    connect(ui->duplicateTab, &QPushButton::clicked,
+            this, &PlaylistWindow::duplicateTab);
+    connect(ui->importList, &QPushButton::clicked,
+            this, &PlaylistWindow::importTab);
+    connect(ui->exportList, &QPushButton::clicked,
+            this, &PlaylistWindow::exportTab);
+    connect(ui->visibleToQueue, &QPushButton::clicked,
+            this, &PlaylistWindow::visibleToQueue);
 }
 
 QDrawnPlaylist *PlaylistWindow::currentPlaylistWidget()
@@ -297,6 +266,47 @@ void PlaylistWindow::setDisplayFormatSpecifier(QString fmt)
     ui->tabWidget->currentWidget()->update();
 }
 
+void PlaylistWindow::newTab()
+{
+    auto pl = PlaylistCollection::getSingleton()->newPlaylist(tr("New Playlist"));
+    addNewTab(pl->uuid(), pl->title());
+}
+
+void PlaylistWindow::closeTab()
+{
+    int index = ui->tabWidget->currentIndex();
+    on_tabWidget_tabCloseRequested(index);
+    updateCurrentPlaylist();
+}
+
+void PlaylistWindow::duplicateTab()
+{
+    auto origin = currentPlaylistWidget();
+    auto remote = PlaylistCollection::getSingleton()->clonePlaylist(origin->uuid());
+    addNewTab(remote->uuid(), remote->title());
+}
+
+void PlaylistWindow::importTab()
+{
+    QString file;
+    file = QFileDialog::getOpenFileName(this, tr("Import File"), QString(),
+                                        tr("Playlist files (*.m3u *.m3u8)"));
+    if (!file.isEmpty())
+        emit importPlaylist(file);
+}
+
+void PlaylistWindow::exportTab()
+{
+    auto uuid = reinterpret_cast<QDrawnPlaylist*>(ui->tabWidget->currentWidget())->uuid();
+
+    QString file;
+    file = QFileDialog::getSaveFileName(this, tr("Export File"), QString(),
+                                        tr("Playlist files (*.m3u *.m3u8)"));
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(uuid);
+    if (!file.isEmpty() && pl)
+        emit exportPlaylist(file, pl->toStringList());
+}
+
 void PlaylistWindow::playCurrentItem()
 {
     auto qdp = currentPlaylistWidget();
@@ -305,6 +315,60 @@ void PlaylistWindow::playCurrentItem()
     if (itemUuid.isNull())
         return;
     emit itemDesired(pl->uuid(), itemUuid);
+}
+
+void PlaylistWindow::selectNext()
+{
+    auto qdp = currentPlaylistWidget();
+    int index = qdp->currentRow();
+    if (index < qdp->count())
+        qdp->setCurrentRow(index + 1);
+}
+
+void PlaylistWindow::selectPrevious()
+{
+    auto qdp = currentPlaylistWidget();
+    int index = qdp->currentRow();
+    if (index > 0)
+        qdp->setCurrentRow(index - 1);
+}
+
+void PlaylistWindow::quickQueue()
+{
+    auto qdp = currentPlaylistWidget();
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    auto itemUuid = qdp->currentItemUuid();
+    if (itemUuid.isNull())
+        return;
+    pl->queueToggle(itemUuid);
+    qdp->viewport()->update();
+}
+
+void PlaylistWindow::visibleToQueue()
+{
+    currentPlaylistWidget()->visibleToQueue();
+}
+
+void PlaylistWindow::revealSearch()
+{
+    showSearch = true;
+    activateWindow();
+    ui->searchHost->setVisible(true);
+    ui->searchField->setFocus();
+}
+
+void PlaylistWindow::finishSearch()
+{
+    showSearch = false;
+    if (!ui->searchHost->isVisible())
+        return;
+
+    if (!ui->searchField->text().isEmpty()) {
+        ui->searchField->setText(QString());
+        setPlaylistFilters(QString());
+    }
+
+    ui->searchHost->setVisible(false);
 }
 
 void PlaylistWindow::self_relativeSeekRequested(bool forwards, bool small)
@@ -322,19 +386,6 @@ void PlaylistWindow::self_visibilityChanged()
         finishSearch();
 }
 
-void PlaylistWindow::on_newTab_clicked()
-{
-    auto pl = PlaylistCollection::getSingleton()->newPlaylist(tr("New Playlist"));
-    addNewTab(pl->uuid(), pl->title());
-}
-
-void PlaylistWindow::on_closeTab_clicked()
-{
-    int index = ui->tabWidget->currentIndex();
-    on_tabWidget_tabCloseRequested(index);
-    updateCurrentPlaylist();
-}
-
 void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
 {
     int current = ui->tabWidget->currentIndex();
@@ -350,13 +401,6 @@ void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
     }
     if (current == index)
         updateCurrentPlaylist();
-}
-
-void PlaylistWindow::on_duplicateTab_clicked()
-{
-    auto origin = currentPlaylistWidget();
-    auto remote = PlaylistCollection::getSingleton()->clonePlaylist(origin->uuid());
-    addNewTab(remote->uuid(), remote->title());
 }
 
 void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
@@ -383,27 +427,6 @@ void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
     qid->show();
 }
 
-void PlaylistWindow::on_importList_clicked()
-{
-    QString file;
-    file = QFileDialog::getOpenFileName(this, tr("Import File"), QString(),
-                                        tr("Playlist files (*.m3u *.m3u8)"));
-    if (!file.isEmpty())
-        emit importPlaylist(file);
-}
-
-void PlaylistWindow::on_exportList_clicked()
-{
-    auto uuid = reinterpret_cast<QDrawnPlaylist*>(ui->tabWidget->currentWidget())->uuid();
-
-    QString file;
-    file = QFileDialog::getSaveFileName(this, tr("Export File"), QString(),
-                                        tr("Playlist files (*.m3u *.m3u8)"));
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(uuid);
-    if (!file.isEmpty() && pl)
-        emit exportPlaylist(file, pl->toStringList());
-}
-
 void PlaylistWindow::on_tabWidget_customContextMenuRequested(const QPoint &pos)
 {
     QMenu *m = new QMenu(this);
@@ -428,9 +451,4 @@ void PlaylistWindow::on_tabWidget_currentChanged(int index)
 void PlaylistWindow::on_searchField_returnPressed()
 {
     playCurrentItem();
-}
-
-void PlaylistWindow::on_quickQueue_clicked()
-{
-    currentPlaylistWidget()->visibleToQueue();
 }

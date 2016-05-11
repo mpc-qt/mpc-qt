@@ -57,7 +57,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="quickQueue">
+        <widget class="QPushButton" name="visibleToQueue">
          <property name="toolTip">
           <string>Visible Items to Quick Queue</string>
          </property>
