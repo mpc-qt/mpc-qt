@@ -1,6 +1,6 @@
 ## Media Player Classic Qute Theater
 
-A clone of Media Player Classic reimplimented in Qt.
+A clone of Media Player Classic reimplimented in Qt. ([screenshot])
 
 [Media Player Classic Home Cinema] (mpc-hc) is considered by many to be the
 quintessential media player for the Windows desktop.  Media Player Classic
@@ -143,6 +143,7 @@ your architechture from mpv-dev.7z (e.g. `mpv-dev.7z/64`) into `mpv-dev/lib`.
 Then place the include files from mpv-dev.7z (usually at `mpv-dev.zip/include`)
 into `mpv-dev/include/mpv`.  Compile with the 64bit Qt framework as usual.
 
+[screenshot]:https://raw.githubusercontent.com/cmdrkotori/mpc-qt/master/DOCS/screenshot%2020160510.png
 [Media Player Classic Home Cinema]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
 [mwe]:https://github.com/cmdrkotori/mpc-qt/commit/9400f595
