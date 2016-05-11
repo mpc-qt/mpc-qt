@@ -11,12 +11,7 @@ DirectShow.
 
 ## Releases
 
-The closest you'll presently find to an RC is if you went back to just before
-the settingswindow module was introduced, where you may find [a mostly-working
-edition][mwe] with sane defaults.  However it lacks all the changes since
-then, such as bugfixes, screenshoting, autofit and remembering recent files,
-and what is unimplemented to date.  So there are no real release-worthy
-packages just yet.  Real soon now.
+There is no RC.
 
 However, if you are willing to compile from source, you may test it out and
 determine if what works is satisfying for you.  If not, please open an issue
@@ -27,22 +22,9 @@ section below.
 
 ## Features
 
-* play back simple video files
-* control playback using the control buttons
-* seek with the seek bar
-* navigate by chapters
-* select audio/video/subtitle tracks
-* change playback rate
-* resize the window automatically using zoom factors
-* build playlists with the quick open command
-* batch play from playlists
-* launch files from from the command line
-* stream video from streaming sites
-* take screenshots with a customizable filename template
-
-**Note:**  This is alpha software and some of the functionality isn't written
-yet.  For the most part, unwritten portions relate to setting options,
-streaming from devices, and storing favorites.
+Nearly everything that mpc-hc does.  For the most part, unwritten
+portions relate to setting options, streaming from devices, and storing
+favorites.
 
 
 ### Improvements over mpc-hc
@@ -54,9 +36,34 @@ your progress in a spreadsheet, all while never leaving the comfort of your
 favorite media player.
 
 **Quick queueing:**  Out-of-order playback in the same style of xmms/qmmp.
+Got some compilation albums in a playlist, but want to hear only some rock
+tracks for a while?  Now you can, without obliterating your playlist.
 
-**More to come:** Comprehensive filter-chain support; Encoding support like
-VirtualDub.  Suggestions welcome.
+**Playlist searching:**  Multi-threaded playlist searching, in the same style
+as other media players.  Find the tracks you want, when you want them.
+
+**Screenshot templates:**  Take screenshots with a custom, sleek and stylized
+filename.  Only include the information that you want.
+
+**Looped playback:** Selectively show part of video/music tracks.  Amazing,
+isn't it?
+
+**Custom metadata:**  Display custom metadata in the playlist window.  Want to
+show the artist as well as the title, down to even the encoder used?  Nothing
+is stopping you.
+
+
+### Upcoming features
+
+**Native filter-chain support:**  Comprehensive integration of mpv/ffmpeg's
+filter interface/library, right inside your media player.
+
+**Encoding support like VirtualDub:**  Churn out memes faster.  No need to
+open a video editor when your media player can do your job for you.
+
+**Race Inspired Cosmetic Enhancements:**  In-app custom styling support.
+
+Suggestions welcome.
 
 
 ## Compiling
