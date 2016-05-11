@@ -112,7 +112,7 @@ Playlist::~Playlist()
     items.clear();
 }
 
-QSharedPointer<Item> Playlist::addItem(QUrl url)
+QSharedPointer<Item> Playlist::addItem(const QUrl &url)
 {
     QWriteLocker locker(&listLock);
     QSharedPointer<Item> i(new Item(url));
@@ -129,6 +129,13 @@ QSharedPointer<Item> Playlist::addItem(QUuid uuid, QUrl url)
     i->setUuid(uuid);
     items.append(i);
     itemsByUuid.insert(uuid, i);
+    return i;
+}
+
+QSharedPointer<Item> Playlist::addItemClone(const QSharedPointer<Item> &item)
+{
+    QSharedPointer<Item> i = addItem(item->url());
+    i->setMetadata(item->metadata());
     return i;
 }
 
@@ -404,7 +411,7 @@ QSharedPointer<Playlist> PlaylistCollection::clonePlaylist(QUuid uuid)
     auto origin = playlistsByUuid[uuid];
     auto remote = newPlaylist(origin->title());
     auto cloner = [remote](QSharedPointer<Item> i) {
-        remote->addItem(i->url());
+        remote->addItemClone(i);
     };
     origin->iterateItems(cloner);
     return remote;

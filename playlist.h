@@ -54,8 +54,9 @@ class Playlist : public QObject {
 public:
     Playlist(QString title = QString());
     ~Playlist();
-    QSharedPointer<Item> addItem(QUrl url = QUrl());
+    QSharedPointer<Item> addItem(const QUrl &url = QUrl());
     QSharedPointer<Item> addItem(QUuid uuid, QUrl url);
+    QSharedPointer<Item> addItemClone(const QSharedPointer<Item> &item);
     QSharedPointer<Item> itemOf(QUuid uuid);
     QSharedPointer<Item> itemAfter(QUuid uuid);
     QSharedPointer<Item> itemBefore(QUuid uuid);
