@@ -767,33 +767,46 @@ void MainWindow::setPlaylistVisibleState(bool yes) {
 void MainWindow::on_actionFileOpenQuick_triggered()
 {
     QList<QUrl> urls;
-    urls = QFileDialog::getOpenFileUrls(this, tr("Quick Open"));
-    if (!urls.isEmpty())
-        emit severalFilesOpened(urls);
+    static QUrl lastDir;
+    urls = QFileDialog::getOpenFileUrls(this, tr("Quick Open"), lastDir);
+    if (urls.isEmpty())
+        return;
+    lastDir = urls[0];
+    emit severalFilesOpened(urls);
 }
 
 void MainWindow::on_actionFileOpen_triggered()
 {
     QUrl url;
-    url = QFileDialog::getOpenFileUrl(this, tr("Open File"));
-    if (!url.isEmpty())
-        emit fileOpened(url);
+    static QUrl lastDir;
+    url = QFileDialog::getOpenFileUrl(this, tr("Open File"), lastDir);
+    if (url.isEmpty())
+        return;
+    lastDir = url;
+    emit fileOpened(url);
 }
 
 void MainWindow::on_actionFileOpenDvdbd_triggered()
 {
     QUrl dir;
-    dir = QFileDialog::getExistingDirectoryUrl(this, tr("Open Directory"));
-    if (!dir.isEmpty())
-        emit dvdbdOpened(dir);
+    static QUrl lastDir;
+    dir = QFileDialog::getExistingDirectoryUrl(this, tr("Open Directory"),
+                                               lastDir);
+    if (dir.isEmpty())
+        return;
+    lastDir = dir;
+    emit dvdbdOpened(dir);
 }
 
 void MainWindow::on_actionFileOpenDirectory_triggered()
 {
     QUrl url;
-    url = QFileDialog::getExistingDirectoryUrl(this, tr("Open Directory"));
+    static QUrl lastDir;
+    url = QFileDialog::getExistingDirectoryUrl(this, tr("Open Directory"),
+                                               lastDir);
     if (url.isEmpty())
         return;
+    lastDir = url;
 
     QDir dir(url.toLocalFile());
     QList<QUrl> list;
