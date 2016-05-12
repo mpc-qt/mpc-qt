@@ -298,7 +298,7 @@ void PlaylistWindow::importTab()
 
 void PlaylistWindow::exportTab()
 {
-    auto uuid = reinterpret_cast<QDrawnPlaylist*>(ui->tabWidget->currentWidget())->uuid();
+    auto uuid = currentPlaylistWidget()->uuid();
 
     QString file;
     file = QFileDialog::getSaveFileName(this, tr("Export File"), QString(),
