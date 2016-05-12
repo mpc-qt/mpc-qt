@@ -430,11 +430,11 @@ void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
 void PlaylistWindow::on_tabWidget_customContextMenuRequested(const QPoint &pos)
 {
     QMenu *m = new QMenu(this);
-    m->addAction(tr("&New Playlist"), this, SLOT(on_newTab_clicked()));
-    m->addAction(tr("&Remove Playlist"), this, SLOT(on_closeTab_clicked()));
-    m->addAction(tr("&Duplicate Playlist"), this, SLOT(on_duplicateTab_clicked()));
-    m->addAction(tr("&Import Playlist"), this, SLOT(on_importList_clicked()));
-    m->addAction(tr("&Export Playlist"), this, SLOT(on_exportList_clicked()));
+    m->addAction(tr("&New Playlist"), this, SLOT(newTab()));
+    m->addAction(tr("&Remove Playlist"), this, SLOT(closeTab()));
+    m->addAction(tr("&Duplicate Playlist"), this, SLOT(duplicateTab()));
+    m->addAction(tr("&Import Playlist"), this, SLOT(importTab()));
+    m->addAction(tr("&Export Playlist"), this, SLOT(exportTab()));
     m->exec(ui->tabWidget->mapToGlobal(pos));
 }
 
