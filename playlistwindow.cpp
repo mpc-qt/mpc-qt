@@ -238,6 +238,7 @@ void PlaylistWindow::addNewTab(QUuid playlist, QString title)
     connect(qdp, &QDrawnPlaylist::itemDesired, this, &PlaylistWindow::itemDesired);
     widgets.insert(playlist, qdp);
     ui->tabWidget->addTab(qdp, title);
+    ui->tabWidget->setCurrentWidget(qdp);
 }
 
 void PlaylistWindow::changePlaylistSelection( QUrl itemUrl, QUuid playlistUuid, QUuid itemUuid)
