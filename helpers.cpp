@@ -291,7 +291,7 @@ void LogoDrawer::paintGL(QOpenGLWidget *widget)
     int ratio = widget->devicePixelRatio();
     QRect window(-1, -1, 2*ratio, 2*ratio);
     painter.setWindow(window);
-    painter.setRenderHint(QPainter::SmoothPixmapTransform, ratio > 1);
+    painter.setRenderHint(QPainter::SmoothPixmapTransform);
     painter.fillRect(window, QBrush(QColor(0,0,0)));
     painter.drawImage(logoLocation, logo);
 }
