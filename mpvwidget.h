@@ -93,6 +93,7 @@ signals:
     void playbackStarted();
     void pausedChanged(bool yes);
     void playbackFinished();
+    void playbackIdling();
     void mediaTitleChanged(QString title);
     void metaDataChanged(QVariantMap metadata);
     void chapterDataChanged(QVariantMap metadata);

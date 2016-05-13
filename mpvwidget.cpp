@@ -567,6 +567,12 @@ void MpvWidget::ctrl_unhandledMpvEvent(int eventLevel)
         playbackFinished();
         break;
     }
+    case MPV_EVENT_IDLE: {
+        if (debugMessages)
+            qDebug() << "idling";
+        playbackIdling();
+        break;
+    }
     case MPV_EVENT_SHUTDOWN: {
         if (debugMessages)
             qDebug() << "event shutdown";
