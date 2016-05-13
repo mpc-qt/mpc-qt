@@ -246,10 +246,9 @@ void PlaybackManager::playNextFile()
         nowPlayingItem = QUuid();
         playbackState_ = StoppedState;
         emit stateChanged(playbackState_);
-    } else {
-        nowPlayingItem = uuid;
-        startPlayWithUuid(url, nowPlayingList, nowPlayingItem, false);
+        return;
     }
+    startPlayWithUuid(url, nowPlayingList, uuid, false);
 }
 
 void PlaybackManager::playPrevFile()
