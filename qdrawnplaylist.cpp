@@ -115,6 +115,8 @@ QDrawnPlaylist::QDrawnPlaylist(QWidget *parent) : QListWidget(parent),
     setDragDropMode(QAbstractItemView::InternalMove);
 
     setItemDelegate(new PlayPainter(this));
+
+    connect(worker, &QThread::finished, searcher, &QObject::deleteLater);
     connect(model(), SIGNAL(rowsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)),
             this, SLOT(model_rowsMoved(QModelIndex,int,int,QModelIndex,int)));
     connect(this, &QDrawnPlaylist::searcher_filterPlaylist,
