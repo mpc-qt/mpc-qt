@@ -12,9 +12,6 @@ PlaybackManager::PlaybackManager(QObject *parent) :
     QObject(parent), mpvSpeed(1.0), playbackPlayTimes(1),
     playbackState_(StoppedState)
 {
-    connect(this, &PlaybackManager::fireStartPlayingEvent,
-            this, &PlaybackManager::mpvw_startPlaying,
-            Qt::QueuedConnection);
 }
 
 void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)
@@ -81,19 +78,26 @@ PlaybackManager::PlaybackState PlaybackManager::playbackState()
     return playbackState_;
 }
 
-void PlaybackManager::fireNowPlayingState()
-{
-    emit nowPlayingChanged(nowPlaying_, nowPlayingList, nowPlayingItem);
-}
-
 void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
                                         QUuid itemUuid, bool isRepeating)
 {
     if (playbackState_ == WaitingState || what.isEmpty())
         return;
-
     emit stateChanged(playbackState_ = WaitingState);
-    emit fireStartPlayingEvent(what, playlistUuid, itemUuid, isRepeating);
+
+    nowPlaying_ = what;
+    mpvWidget_->fileOpen(what.isLocalFile() ? what.toLocalFile()
+                                            : what.toString());
+    this->nowPlayingList = playlistUuid;
+    this->nowPlayingItem = itemUuid;
+    if (!isRepeating) {
+        // not repeating, so set playback count up
+        playbackPlayTimesCount = 1;
+    } else {
+        // repeating, so it needs a addition
+        playbackPlayTimesCount++;
+    }
+    emit nowPlayingChanged(nowPlaying_, nowPlayingList, nowPlayingItem);
 }
 
 void PlaybackManager::selectDesiredTracks()
@@ -354,24 +358,6 @@ void PlaybackManager::setPlaybackPlayTimes(int times)
     this->playbackPlayTimes = std::max(0, times);
 }
 
-void PlaybackManager::mpvw_startPlaying(QUrl what, QUuid playlistUuid,
-                                        QUuid itemUuid, bool isRepeating)
-{
-    nowPlaying_ = what;
-    mpvWidget_->fileOpen(what.isLocalFile() ? what.toLocalFile()
-                                            : what.toString());
-    this->nowPlayingList = playlistUuid;
-    this->nowPlayingItem = itemUuid;
-    if (!isRepeating) {
-        // not repeating, so set playback count up
-        playbackPlayTimesCount = 1;
-    } else {
-        // repeating, so it needs a addition
-        playbackPlayTimesCount++;
-    }
-    fireNowPlayingState();
-}
-
 void PlaybackManager::mpvw_playTimeChanged(double time)
 {
     // in case the duration property is not available, update the play length
@@ -407,9 +393,9 @@ void PlaybackManager::mpvw_pausedChanged(bool yes)
 
 void PlaybackManager::mpvw_playbackIdling()
 {
-    if (playbackState_ == StoppedState)
-        return; // the playback state change does not need to be processed
-
+    if (playbackState_ != PlayingState) {
+        return;
+    }
     if (nowPlayingItem.isNull()) {
         nowPlaying_.clear();
         playbackState_ = StoppedState;

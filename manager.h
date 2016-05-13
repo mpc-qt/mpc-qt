@@ -30,7 +30,6 @@ public:
     PlaybackState playbackState();
 
 private:
-    void fireNowPlayingState();
     void startPlayWithUuid(QUrl what, QUuid playlistUuid, QUuid itemUuid,
                            bool isRepeating);
     void selectDesiredTracks();
@@ -76,9 +75,6 @@ public slots:
     void setPlaybackPlayTimes(int times);
 
 private slots:
-    void mpvw_startPlaying(QUrl what, QUuid playlistUuid, QUuid itemUuid,
-                           bool isRepeating);
-
     void mpvw_playTimeChanged(double time);
     void mpvw_playLengthChanged(double length);
     void mpvw_playbackLoading();
@@ -120,9 +116,6 @@ signals:
     void avsyncChanged(double sync);
     void displayFramedropsChanged(int64_t count);
     void decoderFramedropsChanged(int64_t count);
-
-    void fireStartPlayingEvent(QUrl url, QUuid playlistUuid, QUuid itemUuid,
-                               bool isRepeating);
 
 private:
     MpvWidget *mpvWidget_;
