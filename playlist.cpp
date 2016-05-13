@@ -395,11 +395,6 @@ QSharedPointer<PlaylistCollection> PlaylistCollection::getSingleton()
     return collection;
 }
 
-QSharedPointer<Playlist> PlaylistCollection::nowPlaying()
-{
-    return playlistOf(QUuid());
-}
-
 QSharedPointer<Playlist> PlaylistCollection::newPlaylist(const QString &title)
 {
     return doNewPlaylist(title, QUuid::createUuid());

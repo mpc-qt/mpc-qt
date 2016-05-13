@@ -109,8 +109,6 @@ public:
     ~PlaylistCollection();
     static QSharedPointer<PlaylistCollection> getSingleton();
 
-    QSharedPointer<Playlist> nowPlaying();
-
     QSharedPointer<Playlist> newPlaylist(const QString &title = QString());
     QSharedPointer<Playlist> clonePlaylist(const QUuid &uuid);
     void removePlaylist(const QUuid &uuid);
