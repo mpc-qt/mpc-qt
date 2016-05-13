@@ -89,30 +89,10 @@ void PlaybackManager::fireNowPlayingState()
 void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
                                         QUuid itemUuid, bool isRepeating)
 {
-    if (what.isEmpty())
+    if (playbackState_ == WaitingState || what.isEmpty())
         return;
-    // Mpv fires the playback finished state for the currently playing file
-    // when we try to play a file open command while playback is still active,
-    // thus triggering the playlist advancing code when we don't want to
-    // advance.  This is because if we naively start a new file straight away,
-    // the playlist advancing code will trigger *after* the command to play
-    // the new file has been sent, and we assume we're at the end of the file
-    // we literally started playing only moments ago.
-    //
-    // Therefore we have to try to force the playback to finish, then hope
-    // that we receive the finished event before we start the next file.
-    //
-    // The other way to do this is to introduce a few data members which
-    // indicate a sort-of "requested file change".  Which may introduce a
-    // the problem of what do you do if it doesn't follow the usual code path.
-    // (ouch!)
-    if (playbackState_ != StoppedState) {
-        // by setting the state to stopped here, when the finished playback
-        // event is received, it will do nothing.
-        playbackState_ = StoppedState;
-        emit stateChanged(playbackState_);
-        mpvWidget_->stopPlayback();
-    }
+
+    emit stateChanged(playbackState_ = WaitingState);
     emit fireStartPlayingEvent(what, playlistUuid, itemUuid, isRepeating);
 }
 

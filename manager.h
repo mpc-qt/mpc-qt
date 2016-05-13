@@ -20,7 +20,7 @@ class PlaybackManager : public QObject
     Q_OBJECT
 public:
     enum PlaybackState { StoppedState, PausedState, PlayingState,
-                         BufferingState };
+                         BufferingState, WaitingState };
     enum PlaybackType { None, File, Disc, Stream, Device };
 
     explicit PlaybackManager(QObject *parent = 0);
