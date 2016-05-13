@@ -32,8 +32,8 @@ void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)
                 this, &PlaybackManager::mpvw_playbackStarted);
         connect(mpvWidget, &MpvWidget::pausedChanged,
                 this, &PlaybackManager::mpvw_pausedChanged);
-        connect(mpvWidget, &MpvWidget::playbackFinished,
-                this, &PlaybackManager::mpvw_playbackFinished);
+        connect(mpvWidget, &MpvWidget::playbackIdling,
+                this, &PlaybackManager::mpvw_playbackIdling);
         connect(mpvWidget, &MpvWidget::mediaTitleChanged,
                 this, &PlaybackManager::mpvw_mediaTitleChanged);
         connect(mpvWidget, &MpvWidget::chapterDataChanged,
@@ -425,7 +425,7 @@ void PlaybackManager::mpvw_pausedChanged(bool yes)
     emit stateChanged(playbackState_);
 }
 
-void PlaybackManager::mpvw_playbackFinished()
+void PlaybackManager::mpvw_playbackIdling()
 {
     if (playbackState_ == StoppedState)
         return; // the playback state change does not need to be processed
