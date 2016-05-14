@@ -275,20 +275,11 @@ void QMediaSlider::drawGroove(QPainter *p)
 void QMediaSlider::drawHandle(QPainter *p, double x)
 {
     QRectF slider(x - 5, 0, handleWidth, handleHeight);
-
+    slider.adjust(1.5, 1.5, -1.5, -1.5);
     p->setBrush(Qt::NoBrush);
-    p->setPen(handleBorder);
+    p->setPen(QPen(handleBorder, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
     dr(p, slider);
-
-    p->setPen(handleFill);
-    slider.adjust(1, 1, -1, -1);
-    dr(p, slider);
-
-    slider.adjust(1, 1, -1, -1);
-    dr(p, slider);
-
-    p->setPen(handleBorder);
-    slider.adjust(1, 1,- 1, -1);
+    p->setPen(QPen(handleFill, 2, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
     dr(p, slider);
 }
 
