@@ -41,6 +41,8 @@ Flow::Flow(QObject *owner) :
     QObject(owner), server(NULL), mainWindow(NULL), playbackManager(NULL),
     settingsWindow(NULL)
 {
+    setupIpcCommands();
+
     server = new JsonServer(this);
     hasPrevious_ = server->sendPayload(makePayload());
     if (hasPrevious_)
@@ -302,6 +304,16 @@ bool Flow::hasPrevious()
     return hasPrevious_;
 }
 
+void Flow::setupIpcCommands()
+{
+    for (int i = 0; i < metaObject()->methodCount(); ++i) {
+        QMetaMethod method(metaObject()->method(i));
+        QString name(method.name());
+        if (name.startsWith("ipc_"))
+            ipcCommands[name.mid(4)] = method;
+    }
+}
+
 QByteArray Flow::makePayload() const
 {
     QVariantMap map({
@@ -426,56 +438,91 @@ void Flow::server_payloadRecieved(const QByteArray &payload)
     if (!map.contains("command"))
         return;
     QString command = map["command"].toString();
-    if (command == "playFiles") {
-        QString workingDirectory = map["directory"].toString();
-        QStringList filesAsText = map["files"].toStringList();
-        QList<QUrl> files;
-        QUrl url;
-        foreach (QString s, filesAsText) {
-            files << QUrl::fromUserInput(s, workingDirectory);
-        }
-        if (!files.empty()) {
-            playbackManager->openSeveralFiles(files, true);
-        }
-    } else if (command == "play") {
-        QUrl url = map["file"].toString();
-        if (!url.isEmpty())
-            playbackManager->openFile(url);
-    } else if (command == "pause") {
-        playbackManager->pausePlayer();
-    } else if (command == "unpause") {
-        playbackManager->unpausePlayer();
-    } else if (command == "start") {
+    if (ipcCommands.contains(command)) {
+        if (ipcCommands[command].parameterCount())
+            ipcCommands[command].invoke(this, Q_ARG(QVariantMap,map));
+        else
+            ipcCommands[command].invoke(this);
+    }
+}
+
+void Flow::ipc_playFiles(const QVariantMap &map)
+{
+    QString workingDirectory = map["directory"].toString();
+    QStringList filesAsText = map["files"].toStringList();
+    QList<QUrl> files;
+    QUrl url;
+    foreach (QString s, filesAsText) {
+        files << QUrl::fromUserInput(s, workingDirectory);
+    }
+    if (!files.empty()) {
+        playbackManager->openSeveralFiles(files, true);
+    }
+}
+
+void Flow::ipc_play(const QVariantMap &map)
+{
+    QUrl url = map["file"].toString();
+    if (!url.isEmpty())
+        playbackManager->openFile(url);
+}
+
+void Flow::ipc_pause()
+{
+    playbackManager->pausePlayer();
+}
+
+void Flow::ipc_unpause()
+{
+    playbackManager->unpausePlayer();
+}
+
+void Flow::ipc_start()
+{
+     mainWindow->playCurrentItemRequested();
+}
+
+void Flow::ipc_stop()
+{
+    playbackManager->stopPlayer();
+}
+
+void Flow::ipc_next(const QVariantMap &map)
+{
+    if (playbackManager->playbackState() != PlaybackManager::StoppedState)
+        playbackManager->playNextFile();
+    else if (map.value("autostart", false).toBool())
         mainWindow->playCurrentItemRequested();
-    } else if (command == "stop") {
-        playbackManager->stopPlayer();
-    } else if (command == "next") {
-        if (playbackManager->playbackState() != PlaybackManager::StoppedState)
-            playbackManager->playNextFile();
-        else if (map.value("autostart", false).toBool())
-            mainWindow->playCurrentItemRequested();
-        else
-            mainWindow->playlistWindow()->selectNext();
-    } else if (command == "previous") {
-        if (playbackManager->playbackState() != PlaybackManager::StoppedState)
-            playbackManager->playPrevFile();
-        else if (map.value("autostart", false).toBool())
-            mainWindow->playCurrentItemRequested();
-        else
-            mainWindow->playlistWindow()->selectPrevious();
-    } else if (command == "repeat") {
-        playbackManager->repeatThisFile();
-    } else if (command == "togglePlayback") {
-        switch (playbackManager->playbackState()) {
-        case PlaybackManager::StoppedState:
-            mainWindow->playCurrentItemRequested();
-            break;
-        case PlaybackManager::PausedState:
-            playbackManager->unpausePlayer();
-            break;
-        default:
-            playbackManager->pausePlayer();
-        }
+    else
+        mainWindow->playlistWindow()->selectNext();
+}
+
+void Flow::ipc_previous(const QVariantMap &map)
+{
+    if (playbackManager->playbackState() != PlaybackManager::StoppedState)
+        playbackManager->playPrevFile();
+    else if (map.value("autostart", false).toBool())
+        mainWindow->playCurrentItemRequested();
+    else
+        mainWindow->playlistWindow()->selectPrevious();
+}
+
+void Flow::ipc_repeat()
+{
+    playbackManager->repeatThisFile();
+}
+
+void Flow::ipc_togglePlayback()
+{
+    switch (playbackManager->playbackState()) {
+    case PlaybackManager::StoppedState:
+        mainWindow->playCurrentItemRequested();
+        break;
+    case PlaybackManager::PausedState:
+        playbackManager->unpausePlayer();
+        break;
+    default:
+        playbackManager->pausePlayer();
     }
 }
 
