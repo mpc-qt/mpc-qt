@@ -447,10 +447,6 @@ void MpvWidget::paintGL()
     if (!drawLogo) {
         mpv_opengl_cb_draw(glMpv, defaultFramebufferObject(),
                            glWidth, -glHeight);
-#ifndef Q_OS_WIN
-        context()->swapBuffers(context()->surface());
-        mpv_opengl_cb_report_flip(glMpv, 0);
-#endif
     } else {
         logo->paintGL(this);
     }
