@@ -392,9 +392,6 @@ void PlaybackManager::mpvw_pausedChanged(bool yes)
 
 void PlaybackManager::mpvw_playbackIdling()
 {
-    if (playbackState_ != PlayingState) {
-        return;
-    }
     if (nowPlayingItem.isNull()) {
         nowPlaying_.clear();
         playbackState_ = StoppedState;
