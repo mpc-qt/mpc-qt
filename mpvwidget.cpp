@@ -152,6 +152,8 @@ MpvWidget::MpvWidget(QWidget *parent) :
                                   Q_ARG(MpvController::LogLevel,
                                         MpvController::LogInfo));
 
+    emit ctrlSetOptionVariant("ytdl", "yes");
+
     connect(this, &QOpenGLWidget::frameSwapped,
             this, &MpvWidget::self_frameSwapped);
     connect(this, &MpvWidget::playbackStarted,
