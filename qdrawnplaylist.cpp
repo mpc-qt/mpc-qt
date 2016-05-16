@@ -249,6 +249,9 @@ void QDrawnPlaylist::visibleToQueue()
 
 QUuid QDrawnPlaylist::nowPlayingItem()
 {
+    QSharedPointer<Playlist> playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
+    if (nowPlayingItem_.isNull() || !playlist->contains(nowPlayingItem_))
+        nowPlayingItem_ = currentItemUuid();
     return nowPlayingItem_;
 }
 
