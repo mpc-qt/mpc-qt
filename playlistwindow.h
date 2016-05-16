@@ -56,6 +56,7 @@ signals:
     void relativeSeekRequested(bool fowards, bool small);
 
 public slots:
+    bool activateItem(QUuid playlistUuid, QUuid itemUuid);
     void changePlaylistSelection(QUrl itemUrl, QUuid playlistUuid, QUuid itemUuid);
     void addSimplePlaylist(QStringList data);
     void setDisplayFormatSpecifier(QString fmt);
@@ -67,8 +68,12 @@ public slots:
     void exportTab();
 
     void playCurrentItem();
+    bool playActiveItem();
     void selectNext();
     void selectPrevious();
+
+    void activateNext();
+    void activatePrevious();
 
     void quickQueue();
     void visibleToQueue();

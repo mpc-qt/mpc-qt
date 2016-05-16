@@ -243,17 +243,24 @@ void PlaylistWindow::addNewTab(QUuid playlist, QString title)
     ui->tabWidget->setCurrentWidget(qdp);
 }
 
+bool PlaylistWindow::activateItem(QUuid playlistUuid, QUuid itemUuid)
+{
+    if (!widgets.contains(playlistUuid))
+        return false;
+    auto qdp = widgets[playlistUuid];
+    qdp->scrollToItem(itemUuid);
+    qdp->setNowPlayingItem(itemUuid);
+    return true;
+}
+
 void PlaylistWindow::changePlaylistSelection( QUrl itemUrl, QUuid playlistUuid, QUuid itemUuid)
 {
     (void)itemUrl;
-    if (!widgets.contains(playlistUuid))
+    if (!activateItem(playlistUuid, itemUuid))
         return;
-    auto qdp = widgets[playlistUuid];
     auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
     if (!itemUuid.isNull() && pl->queueFirst() == itemUuid)
         pl->queueTakeFirst();
-    qdp->scrollToItem(itemUuid);
-    qdp->setNowPlayingItem(itemUuid);
 }
 
 void PlaylistWindow::addSimplePlaylist(QStringList data)
@@ -320,6 +327,17 @@ void PlaylistWindow::playCurrentItem()
     emit itemDesired(pl->uuid(), itemUuid);
 }
 
+bool PlaylistWindow::playActiveItem()
+{
+    auto qdp = currentPlaylistWidget();
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    auto itemUuid = qdp->nowPlayingItem();
+    if (itemUuid.isNull())
+        return false;
+    emit itemDesired(pl->uuid(), itemUuid);
+    return true;
+}
+
 void PlaylistWindow::selectNext()
 {
     auto qdp = currentPlaylistWidget();
@@ -334,6 +352,22 @@ void PlaylistWindow::selectPrevious()
     int index = qdp->currentRow();
     if (index > 0)
         qdp->setCurrentRow(index - 1);
+}
+
+void PlaylistWindow::activateNext()
+{
+    auto qdp = currentPlaylistWidget();
+    auto now = qdp->nowPlayingItem();
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    activateItem(qdp->uuid(), pl->itemAfter(now)->uuid());
+}
+
+void PlaylistWindow::activatePrevious()
+{
+    auto qdp = currentPlaylistWidget();
+    auto now = qdp->nowPlayingItem();
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    activateItem(qdp->uuid(), pl->itemBefore(now)->uuid());
 }
 
 void PlaylistWindow::quickQueue()
