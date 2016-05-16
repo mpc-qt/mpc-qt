@@ -359,7 +359,9 @@ void PlaylistWindow::activateNext()
     auto qdp = currentPlaylistWidget();
     auto now = qdp->nowPlayingItem();
     auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
-    activateItem(qdp->uuid(), pl->itemAfter(now)->uuid());
+    auto next = pl->itemAfter(now);
+    if (!!next)
+        activateItem(qdp->uuid(), next->uuid());
 }
 
 void PlaylistWindow::activatePrevious()
@@ -367,7 +369,9 @@ void PlaylistWindow::activatePrevious()
     auto qdp = currentPlaylistWidget();
     auto now = qdp->nowPlayingItem();
     auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
-    activateItem(qdp->uuid(), pl->itemBefore(now)->uuid());
+    auto prev = pl->itemBefore(now);
+    if (!!prev)
+        activateItem(qdp->uuid(), prev->uuid());
 }
 
 void PlaylistWindow::quickQueue()
