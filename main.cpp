@@ -479,7 +479,8 @@ void Flow::ipc_unpause()
 
 void Flow::ipc_start()
 {
-     mainWindow->playCurrentItemRequested();
+    if (!mainWindow->playlistWindow()->playActiveItem())
+        mainWindow->playlistWindow()->playCurrentItem();
 }
 
 void Flow::ipc_stop()
@@ -492,9 +493,9 @@ void Flow::ipc_next(const QVariantMap &map)
     if (playbackManager->playbackState() != PlaybackManager::StoppedState)
         playbackManager->playNextFile();
     else if (map.value("autostart", false).toBool())
-        mainWindow->playCurrentItemRequested();
+        ipc_start();
     else
-        mainWindow->playlistWindow()->selectNext();
+        mainWindow->playlistWindow()->activateNext();
 }
 
 void Flow::ipc_previous(const QVariantMap &map)
@@ -502,9 +503,9 @@ void Flow::ipc_previous(const QVariantMap &map)
     if (playbackManager->playbackState() != PlaybackManager::StoppedState)
         playbackManager->playPrevFile();
     else if (map.value("autostart", false).toBool())
-        mainWindow->playCurrentItemRequested();
+        ipc_start();
     else
-        mainWindow->playlistWindow()->selectPrevious();
+        mainWindow->playlistWindow()->activatePrevious();
 }
 
 void Flow::ipc_repeat()
@@ -516,7 +517,7 @@ void Flow::ipc_togglePlayback()
 {
     switch (playbackManager->playbackState()) {
     case PlaybackManager::StoppedState:
-        mainWindow->playCurrentItemRequested();
+        ipc_start();
         break;
     case PlaybackManager::PausedState:
         playbackManager->unpausePlayer();
