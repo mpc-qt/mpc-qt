@@ -221,6 +221,8 @@ void PlaylistWindow::updateCurrentPlaylist()
     if (!qdp)
         return;
     currentPlaylist = qdp->uuid();
+    setTabOrder(ui->tabWidget->focusProxy(), qdp);
+    setTabOrder(qdp, ui->searchField);
 }
 
 void PlaylistWindow::setPlaylistFilters(QString filterText)
