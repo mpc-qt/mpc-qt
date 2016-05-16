@@ -7,6 +7,7 @@
 #include <QDesktopWidget>
 #include <QWindow>
 #include <QMenuBar>
+#include <QSizeGrip>
 #include <QMimeData>
 #include <QJsonDocument>
 #include <QFileDialog>
@@ -270,6 +271,9 @@ void MainWindow::setupSizing()
     connect(this, &MainWindow::fireUpdateSize,
             this, &MainWindow::sendUpdateSize,
             Qt::QueuedConnection);
+
+    QSizeGrip *gripper = new QSizeGrip(this);
+    ui->statusbar->layout()->addWidget(gripper);
 }
 
 void MainWindow::connectButtonsToActions()
