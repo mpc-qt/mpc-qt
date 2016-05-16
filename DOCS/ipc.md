@@ -31,9 +31,10 @@ nothing happens.
 The *unpause* command unpauses the current playback.  If nothing is being
 played, nothing happens.
 
-The *start* command requests that the currently selected item in the currently
-shown playlist is played.  Acts in the same way as pressing the Enter key when
-the playlist window has focus.
+The *start* command requests that the currently active item in the currently
+shown playlist is played.  This is not the currently highlighted item in the
+playlist, it is the bold aka active item.  To make a item active using the
+mouse, double click it.
 
 The *stop* command stops the player.
 
@@ -43,8 +44,8 @@ played, nothing happens.
 The *next* command takes an optional parameter `autostart` (a boolean
 defaulting to `false`), and proceeds to the next file in the playlist when
 playback is active.  If nothing is being played, behavior is defined by the
-autostart field: behave like the *start* command when true, move the playlist
-selection forwards by one if false.
+autostart field: behave like the *start* command when true, move the active
+item forwards by one if false.
 
 The *previous* command behaves just like the *next* command, except for
 playing/moving to the previous track instead of the next track.
