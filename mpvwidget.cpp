@@ -566,8 +566,6 @@ void MpvWidget::ctrl_unhandledMpvEvent(int eventLevel)
     case MPV_EVENT_END_FILE: {
         if (debugMessages)
             qDebug() << "end file";
-        playTimeChanged(0);
-        playLengthChanged(0);
         playbackFinished();
         break;
     }
