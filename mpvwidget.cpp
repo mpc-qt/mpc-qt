@@ -6,6 +6,7 @@
 #include <QtX11Extras/QX11Info>
 #endif
 #include <QThread>
+#include <QTimer>
 #include <QOpenGLContext>
 #include <QMetaObject>
 #include <QDir>
@@ -141,9 +142,14 @@ MpvWidget::MpvWidget(QWidget *parent) :
         { "paused-for-cache", MPV_FORMAT_FLAG },
         { "metadata", MPV_FORMAT_NODE }
     };
+    QSet<QString> throttled = {
+        "time-pos", "avsync", "estimated-vf-fps", "vo-drop-frame-count",
+        "drop-frame-count", "audio-bitrate", "video-bitrate"
+    };
     QMetaObject::invokeMethod(ctrl, "observeProperties",
                               Qt::BlockingQueuedConnection,
-                              Q_ARG(const MpvController::PropertyList &, options));
+                              Q_ARG(const MpvController::PropertyList &, options),
+                              Q_ARG(const QSet<QString> &, throttled));
 
     // Output debug messages from mpv
     if (debugMessages)
@@ -629,11 +635,17 @@ void MpvWidget::self_metadata(QVariantMap metadata)
 MpvController::MpvController(QObject *parent) : QObject(parent),
     glMpv(NULL), lastVideoSize(0,0)
 {
+    throttler = new QTimer(this);
+    connect(throttler, &QTimer::timeout,
+            this, &MpvController::flushProperties);
+    throttler->setInterval(1000/12);
+    throttler->start();
 }
 
 MpvController::~MpvController()
 {
     mpv_set_wakeup_callback(mpv, NULL, NULL);
+    throttler->deleteLater();
 }
 
 void MpvController::create(bool video, bool audio)
@@ -668,10 +680,17 @@ void MpvController::create(bool video, bool audio)
     mpv_set_wakeup_callback(mpv, MpvController::mpvWakeup, this);
 }
 
-void MpvController::observeProperties(const MpvController::PropertyList &properties)
+void MpvController::observeProperties(const MpvController::PropertyList &properties,
+                                      const QSet<QString> &throttled)
 {
     foreach (MpvProperty item, properties)
         mpv_observe_property(mpv, 0, item.first, item.second);
+    throttledProperties = throttled;
+}
+
+void MpvController::setThrottleTime(int msec)
+{
+    throttler->setInterval(msec);
 }
 
 void MpvController::setLogLevel(LogLevel level)
@@ -727,6 +746,18 @@ void MpvController::parseMpvEvents()
     }
 }
 
+void MpvController::setThrottledProperty(const QString &name, const QVariant &v)
+{
+    throttledValues[name] = v;
+}
+
+void MpvController::flushProperties()
+{
+    foreach (QString key, throttledValues.keys())
+        emit mpvPropertyChanged(key, throttledValues[key]);
+    throttledValues.clear();
+}
+
 void MpvController::handleMpvEvent(mpv_event *event)
 {
     switch (event->event_id) {
@@ -771,7 +802,11 @@ void MpvController::handleMpvEvent(mpv_event *event)
         } else if (prop->format == MPV_FORMAT_FLAG) {
             v = asBool();
         }
-        emit mpvPropertyChanged(QString::fromUtf8(prop->name), v);
+        QString propname = QString::fromUtf8(prop->name);
+        if (throttledProperties.contains(propname))
+            setThrottledProperty(propname, v);
+        else
+            emit mpvPropertyChanged(propname, v);
         break;
     }
     case MPV_EVENT_LOG_MESSAGE: {

@@ -4,11 +4,13 @@
 #include <QOpenGLWidget>
 #include <QOpenGLTexture>
 #include <QVariant>
+#include <QSet>
 #include <mpv/client.h>
 #include <mpv/opengl_cb.h>
 #include <mpv/qthelper.hpp>
 
 class QThread;
+class QTimer;
 class MpvController;
 class LogoDrawer;
 
@@ -175,7 +177,9 @@ signals:
 
 public slots:
     void create(bool video = true, bool audio = true);
-    void observeProperties(const MpvController::PropertyList &properties);
+    void observeProperties(const MpvController::PropertyList &properties,
+                           const QSet<QString> &throttled);
+    void setThrottleTime(int msec);
     void setLogLevel(MpvController::LogLevel level);
     mpv_opengl_cb_context *mpvDrawContext();
     int setOptionVariant(QString name, const QVariant &value);
@@ -185,13 +189,18 @@ public slots:
     void parseMpvEvents();
 
 private:
+    void setThrottledProperty(const QString &name, const QVariant &v);
+    void flushProperties();
     void handleMpvEvent(mpv_event *event);
     static void mpvWakeup(void *ctx);
 
     mpv::qt::Handle mpv;
     mpv_opengl_cb_context *glMpv;
     QSize lastVideoSize;
-};
 
+    QTimer *throttler;
+    QSet<QString> throttledProperties;
+    QVariantMap throttledValues;
+};
 
 #endif // MPVWIDGET_H
