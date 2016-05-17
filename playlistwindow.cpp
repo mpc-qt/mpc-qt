@@ -409,6 +409,9 @@ void PlaylistWindow::finishSearch()
         setPlaylistFilters(QString());
     }
 
+    if (ui->searchField->hasFocus())
+        currentPlaylistWidget()->setFocus();
+
     ui->searchHost->setVisible(false);
 }
 
