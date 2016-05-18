@@ -322,6 +322,7 @@ void MpvWidget::setVideoTrack(int64_t id)
 void MpvWidget::setDrawLogo(bool yes)
 {
     drawLogo = yes;
+    update();
 }
 
 QString MpvWidget::mpvVersion()
