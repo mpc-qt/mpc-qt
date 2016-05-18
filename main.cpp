@@ -1,6 +1,7 @@
 #include <QDebug>
 #include <clocale>
 #include <QApplication>
+#include <QDesktopWidget>
 #include <QLocalSocket>
 #include <QFileDialog>
 #include <QDir>
@@ -262,6 +263,20 @@ Flow::Flow(QObject *owner) :
     settingsWindow->setNnedi3Available(mainWindow->mpvWidget()->nnedi3Available());
     settingsWindow->setServerName(server->fullServerName());
     settingsWindow->sendSignals();
+
+    // Push all our windows on to the same (moused) screen... similar code is
+    // in mainwindow.cpp.  Prevents jumping screens on multiple screens for
+    // whatever underlying reason.
+    QDesktopWidget *desktop = qApp->desktop();
+    QRect available = desktop->availableGeometry(desktop->screenNumber(QCursor::pos()));
+    settingsWindow->setGeometry(QStyle::alignedRect(Qt::LeftToRight,
+                                                    Qt::AlignCenter,
+                                                    settingsWindow->size(),
+                                                    available));
+    mainWindow->setGeometry(QStyle::alignedRect(Qt::LeftToRight,
+                                                    Qt::AlignCenter,
+                                                    mainWindow->size(),
+                                                    available));
 }
 
 Flow::~Flow()
