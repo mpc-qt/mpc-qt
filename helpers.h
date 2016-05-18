@@ -10,6 +10,7 @@
 
 class QFileDialog;
 class QLocalServer;
+class QLocalSocket;
 class QOpenGLTexture;
 
 namespace Helpers {
@@ -34,7 +35,7 @@ private:
     void listen();
 
 signals:
-    void payloadReceived(const QByteArray &payload);
+    void payloadReceived(const QByteArray &payload, QLocalSocket *socket);
 
 private slots:
     void server_newConnection();

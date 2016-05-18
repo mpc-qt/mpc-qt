@@ -24,6 +24,7 @@ signals:
 private:
     void setupIpcCommands();
     QByteArray makePayload() const;
+    void socketReturn(QLocalSocket *socket, bool wasParsed, QVariant value = QVariant());
     QString pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const;
     QVariantList recentToVList() const;
     void recentFromVList(const QVariantList &list);
@@ -36,7 +37,7 @@ private slots:
     void mainwindow_takeImageAutomatically();
     void mainwindow_optionsOpenRequested();
     void manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid);
-    void server_payloadRecieved(const QByteArray &payload);
+    void server_payloadRecieved(const QByteArray &payload, QLocalSocket *socket);
     void ipc_playFiles(const QVariantMap &map);
     void ipc_play(const QVariantMap &map);
     void ipc_pause();
@@ -47,6 +48,10 @@ private slots:
     void ipc_previous(const QVariantMap &map);
     void ipc_repeat();
     void ipc_togglePlayback();
+    QVariant ipc_getMpvProperty(const QVariantMap &map);
+    QVariant ipc_setMpvProperty(const QVariantMap &map);
+    QVariant ipc_setMpvOption(const QVariantMap &map);
+    QVariant ipc_doMpvCommand(const QVariantMap &map);
     void settingswindow_settingsData(const QVariantMap &settings);
     void settingswindow_keymapData(const QVariantMap &keyMap);
     void settingswindow_screenshotDirectory(const QString &where);

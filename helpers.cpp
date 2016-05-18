@@ -231,10 +231,7 @@ void JsonServer::server_newConnection()
     QLocalSocket *socket = server->nextPendingConnection();
     connect(socket, &QLocalSocket::readyRead, [=]() {
         QByteArray data = socket->readAll();
-        socket->write("ACK");
-        socket->flush();
-        socket->deleteLater();
-        emit payloadReceived(data);
+        emit payloadReceived(data, socket);
     });
 }
 

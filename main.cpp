@@ -1,6 +1,7 @@
 #include <QDebug>
 #include <clocale>
 #include <QApplication>
+#include <QLocalSocket>
 #include <QFileDialog>
 #include <QDir>
 #include <QStandardPaths>
@@ -295,7 +296,7 @@ int Flow::run()
         mainWindow->show();
     });
     if (!hasPrevious_)
-        server_payloadRecieved(makePayload());
+        server_payloadRecieved(makePayload(), NULL);
     return qApp->exec();
 }
 
@@ -322,6 +323,30 @@ QByteArray Flow::makePayload() const
         {"files", QVariant(QCoreApplication::arguments().mid(1))}
     });
     return QJsonDocument::fromVariant(map).toJson();
+}
+
+void Flow::socketReturn(QLocalSocket *socket, bool wasParsed, QVariant value)
+{
+    if (!socket)
+        return;
+
+    QVariantMap result;
+    QString code;
+    if (!wasParsed) {
+        result["code"] = "unknown";
+        goto end;
+    }
+    if (value.canConvert<MpvErrorCode>()) {
+        result["code"]= "error";
+        value = value.value<MpvErrorCode>().errorcode();
+    } else {
+        result["code"] = "ok";
+    }
+    result["value"] = value;
+    end:
+    socket->write(QJsonDocument::fromVariant(result).toJson());
+    socket->flush();
+    socket->deleteLater();
 }
 
 QString Flow::pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const
@@ -430,7 +455,7 @@ void Flow::manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid)
     emit recentFilesChanged(recentFiles);
 }
 
-void Flow::server_payloadRecieved(const QByteArray &payload)
+void Flow::server_payloadRecieved(const QByteArray &payload, QLocalSocket *socket)
 {
     QJsonParseError parseError;
     QVariantMap map = QJsonDocument::fromJson(payload, &parseError).toVariant().toMap();
@@ -438,11 +463,19 @@ void Flow::server_payloadRecieved(const QByteArray &payload)
     if (!map.contains("command"))
         return;
     QString command = map["command"].toString();
+    QVariant value;
     if (ipcCommands.contains(command)) {
-        if (ipcCommands[command].parameterCount())
-            ipcCommands[command].invoke(this, Q_ARG(QVariantMap,map));
+        QMetaMethod method = ipcCommands[command];
+        if (ipcCommands[command].returnType() == QMetaType::QVariant)
+            method.invoke(this, Q_RETURN_ARG(QVariant, value),
+                                Q_ARG(QVariantMap, map));
+        else if (method.parameterCount())
+            method.invoke(this, Q_ARG(QVariantMap,map));
         else
-            ipcCommands[command].invoke(this);
+            method.invoke(this);
+        socketReturn(socket, true, value);
+    } else {
+        socketReturn(socket, false);
     }
 }
 
@@ -525,6 +558,65 @@ void Flow::ipc_togglePlayback()
     default:
         playbackManager->pausePlayer();
     }
+}
+
+QVariant Flow::ipc_getMpvProperty(const QVariantMap &map)
+{
+    if (!map.contains("name"))
+        return QVariant::fromValue(MpvErrorCode(-0xdedbeef));
+    return mainWindow->mpvWidget()->getMpvPropertyVariant(map["name"].toString());
+}
+
+QVariant Flow::ipc_setMpvProperty(const QVariantMap &map)
+{
+    QSet<QString> banned = {
+        "stream-open-filename", "file-local-options", "ab-loop-a",
+        "ab-loop-b", "volume", "mute", "fullscreen" };
+    QString name = map.value("name").toString();
+    if (name.isEmpty() || banned.contains(name))
+        return QVariant::fromValue(MpvErrorCode(-0xdedbeef));
+
+    return mainWindow->mpvWidget()->blockingSetMpvPropertyVariant(name, map["value"]);
+}
+
+QVariant Flow::ipc_setMpvOption(const QVariantMap &map)
+{
+    QSet<QString> banned = {
+        "vo", "vo-defaults", "script", "script-opts",  "wid", "input-conf",
+        "input-test", "input-file", "input-terminal", "no-input-terminal",
+        "input-ipc-server", "input-media-keys", "input-vo-keyboard",
+        "input-app-event", "osc", "no-osc", "no-osd-bar", "osd-bar",
+        "no-terminal",  "terminal" };
+    QString name = map.value("name").toString();
+    if (name.isEmpty() || banned.contains(name))
+        return QVariant::fromValue(MpvErrorCode(-0xdedbeef));
+
+    return mainWindow->mpvWidget()->blockingSetMpvOptionVariant(name, map["value"]);
+}
+
+QVariant Flow::ipc_doMpvCommand(const QVariantMap &map)
+{
+    QSet<QString> banned = {
+        "openfile", "stop", "set", "add", "cycle", "multiply", "run", "quit",
+        "quit-watch-later", "mouse", "keypress", "keydown", "keyup",
+        "enable-section", "define-section", "script-message",
+        "script-message-to", "script-binding", "vo-cmdline", "hook-add",
+        "hook-ack", "set_property", "set_property_string", "enable_event",
+        "suspend", "volume" };
+    QString name = map.value("name").toString();
+    if (name.isEmpty() || banned.contains(name))
+        return QVariant::fromValue(MpvErrorCode(-0xdedbeef));
+
+    QVariantList command = { name };
+    QVariant options = map.value("options");
+    if (options.isNull())
+        goto end;
+    else if (options.canConvert<QVariantList>())
+        command.append(options.toList());
+    else
+        command.append(options);
+    end:
+    return mainWindow->mpvWidget()->blockingMpvCommand(QVariant(command));
 }
 
 void Flow::settingswindow_settingsData(const QVariantMap &settings)
