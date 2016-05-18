@@ -22,7 +22,6 @@ public:
     ~MpvWidget();
     void showMessage(QString message);
 
-    // These are straightforward calls to libmpv
     void fileOpen(QString filename);
     void discFilesOpen(QString path);
     void stopPlayback();
@@ -31,8 +30,6 @@ public:
     void seek(double amount, bool exact);
     void screenshot(const QString &fileName, bool subtitles);
     void setLogoUrl(const QString &filename);
-
-    // These are straightforward queries to libmpv
     void setVOCommandLine(QString cmdline);
 
     int64_t chapter();
@@ -73,6 +70,11 @@ public:
     QSize videoSize();
     bool nnedi3Available();
 
+    QVariant blockingMpvCommand(QVariant params);
+    QVariant blockingSetMpvPropertyVariant(QString name, QVariant value);
+    QVariant blockingSetMpvOptionVariant(QString name, QVariant value);
+    QVariant getMpvPropertyVariant(QString name);
+
 protected:
     void initializeGL();
     void paintGL();
@@ -81,7 +83,6 @@ protected:
 private:
     static void ctrl_update(void *ctx);
     void     setMpvPropertyVariant(QString name, QVariant value);
-    QVariant getMpvPropertyVariant(QString name);
     void     setMpvOptionVariant(QString name, QVariant value);
 
 signals:
@@ -183,7 +184,7 @@ public slots:
     void setLogLevel(MpvController::LogLevel level);
     mpv_opengl_cb_context *mpvDrawContext();
     int setOptionVariant(QString name, const QVariant &value);
-    void command(const QVariant &params);
+    QVariant command(const QVariant &params);
     int setPropertyVariant(const QString &name, const QVariant &value);
     QVariant getPropertyVariant(const QString &name);
     void parseMpvEvents();

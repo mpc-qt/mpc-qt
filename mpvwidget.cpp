@@ -202,6 +202,11 @@ void MpvWidget::discFilesOpen(QString path) {
     }
 }
 
+void MpvWidget::stopPlayback()
+{
+    emit ctrlCommand("stop");
+}
+
 void MpvWidget::stepBackward()
 {
     emit ctrlCommand("frame_back_step");
@@ -245,11 +250,6 @@ void MpvWidget::setVOCommandLine(QString cmdline)
     if (debugMessages)
         qDebug() << "got advanced command line " << cmdline;
     emit ctrlCommand(QVariantList({"vo-cmdline", cmdline}));
-}
-
-void MpvWidget::stopPlayback()
-{
-    emit ctrlCommand("stop");
 }
 
 int64_t MpvWidget::chapter()
@@ -439,6 +439,50 @@ bool MpvWidget::nnedi3Available()
     return nnedi3Available_;
 }
 
+QVariant MpvWidget::blockingMpvCommand(QVariant params)
+{
+    QVariant v;
+    QMetaObject::invokeMethod(ctrl, "command",
+                              Qt::BlockingQueuedConnection,
+                              Q_RETURN_ARG(QVariant, v),
+                              Q_ARG(QVariant, params));
+    return v;
+}
+
+QVariant MpvWidget::blockingSetMpvPropertyVariant(QString name, QVariant value)
+{
+    int v;
+    QMetaObject::invokeMethod(ctrl, "setPropertyVariant",
+                              Qt::BlockingQueuedConnection,
+                              Q_RETURN_ARG(int, v),
+                              Q_ARG(QString, name),
+                              Q_ARG(QVariant, value));
+    return v == MPV_ERROR_SUCCESS ? QVariant()
+                                  : QVariant::fromValue(MpvErrorCode(v));
+}
+
+QVariant MpvWidget::blockingSetMpvOptionVariant(QString name, QVariant value)
+{
+    int v;
+    QMetaObject::invokeMethod(ctrl, "setOptionVariant",
+                              Qt::BlockingQueuedConnection,
+                              Q_RETURN_ARG(int, v),
+                              Q_ARG(QString, name),
+                              Q_ARG(QVariant, value));
+    return v == MPV_ERROR_SUCCESS ? QVariant()
+                                  : QVariant::fromValue(MpvErrorCode(v));
+}
+
+QVariant MpvWidget::getMpvPropertyVariant(QString name)
+{
+    QVariant v;
+    QMetaObject::invokeMethod(ctrl, "getPropertyVariant",
+                              Qt::BlockingQueuedConnection,
+                              Q_RETURN_ARG(QVariant, v),
+                              Q_ARG(QString, name));
+    return v;
+}
+
 void MpvWidget::initializeGL()
 {
     if (mpv_opengl_cb_init_gl(glMpv, NULL, get_proc_address, NULL) < 0)
@@ -468,11 +512,6 @@ void MpvWidget::resizeGL(int w, int h)
     logo->resizeGL(width(),height());
 }
 
-void MpvWidget::ctrl_update(void *ctx)
-{
-    QMetaObject::invokeMethod(reinterpret_cast<MpvWidget*>(ctx), "update");
-}
-
 void MpvWidget::setMpvPropertyVariant(QString name, QVariant value)
 {
     if (debugMessages)
@@ -480,23 +519,16 @@ void MpvWidget::setMpvPropertyVariant(QString name, QVariant value)
     emit ctrlSetPropertyVariant(name, value);
 }
 
-QVariant MpvWidget::getMpvPropertyVariant(QString name)
-{
-    if (debugMessages)
-        qDebug() << "property get " << name;
-    QVariant v;
-    QMetaObject::invokeMethod(ctrl, "getPropertyVariant",
-                              Qt::BlockingQueuedConnection,
-                              Q_RETURN_ARG(QVariant, v),
-                              Q_ARG(QString, name));
-    return v;
-}
-
 void MpvWidget::setMpvOptionVariant(QString name, QVariant value)
 {
     if (debugMessages)
         qDebug() << "option set " << name << value;
     emit ctrlSetOptionVariant(name, value);
+}
+
+void MpvWidget::ctrl_update(void *ctx)
+{
+    QMetaObject::invokeMethod(reinterpret_cast<MpvWidget*>(ctx), "update");
 }
 
 void MpvWidget::ctrl_nnedi3Unavailable()
@@ -709,12 +741,18 @@ int MpvController::setOptionVariant(QString name, const QVariant &value)
     return mpv::qt::set_option_variant(mpv, name, value);
 }
 
-void MpvController::command(const QVariant &params)
+QVariant MpvController::command(const QVariant &params)
 {
     if (params.type() == QVariant::String)
-        mpv_command_string(mpv, params.toString().toUtf8().data());
-    else
-        mpv::qt::command_variant(mpv, params);
+        return mpv_command_string(mpv, params.toString().toUtf8().data());
+
+    mpv::qt::node_builder node(params);
+    mpv_node res;
+    int value;
+    if ((value = mpv_command_node(mpv, node.node(), &res)) < 0)
+        return QVariant::fromValue(MpvErrorCode(value));
+    mpv::qt::node_autofree f(&res);
+    return mpv::qt::node_to_variant(&res);
 }
 
 int MpvController::setPropertyVariant(const QString &name, const QVariant &value)
