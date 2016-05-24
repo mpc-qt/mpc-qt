@@ -27,7 +27,7 @@
 
 
 QHash<QString, QStringList> SettingMap::indexedValueToText = {
-    {"videoFramebuffer", {"rgb8-rgba", "rgb10-rgb10_a2", "rgba12-rgba12",\
+    {"videoFramebuffer", {"rgb8-rgba8", "rgb10-rgb10_a2", "rgba12-rgba12",\
                           "rgb16-rgba16", "rgb16f-rgba16f",\
                           "rgb32f-rgba32f"}},
     {"videoAlphaMode", {"blend", "yes", "no"}},
