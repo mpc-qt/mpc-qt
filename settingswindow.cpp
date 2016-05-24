@@ -328,6 +328,7 @@ void SettingsWindow::sendSignals()
         emit zoomPreset(WIDGET_LOOKUP(ui->playbackAutoZoomMethod).toInt(),
                         factor);
 
+    displaySyncMode(WIDGET_TO_TEXT(ui->syncMode));
     QMap<QString,QString> params;
     QStringList cmdline;
 
@@ -476,7 +477,6 @@ void SettingsWindow::sendSignals()
 
     framedropMode(WIDGET_TO_TEXT(ui->framedroppingMode));
     decoderDropMode(WIDGET_TO_TEXT(ui->framedroppingDecoderMode));
-    displaySyncMode(WIDGET_TO_TEXT(ui->syncMode));
     audioDropSize(WIDGET_LOOKUP(ui->syncAudioDropSize).toDouble());
     maximumAudioChange(WIDGET_LOOKUP(ui->syncMaxAudioChange).toDouble());
     maximumVideoChange(WIDGET_LOOKUP(ui->syncMaxVideoChange).toDouble());
