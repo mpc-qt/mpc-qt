@@ -137,7 +137,6 @@ private:
     int numChapters;
 
     int playbackPlayTimes;
-    int playbackPlayTimesCount;
 };
 
 #endif // MANAGER_H

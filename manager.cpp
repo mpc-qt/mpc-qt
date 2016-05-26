@@ -90,12 +90,13 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
                                             : what.toString());
     this->nowPlayingList = playlistUuid;
     this->nowPlayingItem = itemUuid;
-    if (!isRepeating) {
-        // not repeating, so set playback count up
-        playbackPlayTimesCount = 1;
-    } else {
-        // repeating, so it needs a addition
-        playbackPlayTimesCount++;
+
+    if (!isRepeating && playbackPlayTimes > 1
+            && playlistWindow_->extraPlayTimes(playlistUuid, itemUuid) <= 0) {
+        // On first play, when playing more than once, and when the extra
+        // play times has not been set, set the extra play times to the one
+        // configured in the settings dialog.
+        playlistWindow_->setExtraPlayTimes(playlistUuid, itemUuid, playbackPlayTimes - 1);
     }
     emit nowPlayingChanged(nowPlaying_, nowPlayingList, nowPlayingItem);
 }
@@ -399,8 +400,10 @@ void PlaybackManager::mpvw_playbackIdling()
         return;
     }
 
-    bool isRepeating;
-    isRepeating = playbackPlayTimes < 1 || playbackPlayTimesCount < playbackPlayTimes;
+    int extraTimes = playlistWindow_->extraPlayTimes(nowPlayingList, nowPlayingItem);
+    playlistWindow_->setExtraPlayTimes(nowPlayingList, nowPlayingItem, extraTimes - 1);
+
+    bool isRepeating = playbackPlayTimes < 1 || extraTimes > 0;
     if (isRepeating)
         repeatThisFile();
     else
