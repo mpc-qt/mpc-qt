@@ -34,13 +34,17 @@ void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
                                        painter);
     QRect rc = option.rect.adjusted(3,0,-3,0);
 
-    if (i->queuePosition() > 0) {
-        QString queueIndex(QString::number(i->queuePosition()));
-        int queueIndexWidth = painter->fontMetrics().width(queueIndex);
+    if (i->queuePosition() || i->extraPlayTimes()) {
+        QString extraText;
+        if (i->queuePosition())
+            extraText.append(QString::number(i->queuePosition()));
+        if (i->extraPlayTimes())
+            extraText.append(QString("+%1").arg(i->extraPlayTimes()));
+        int extraTextWidth = painter->fontMetrics().width(extraText);
         QRect rc2(rc);
-        rc2.setLeft(rc.right() - queueIndexWidth);
-        painter->drawText(rc2, Qt::AlignRight|Qt::AlignVCenter, queueIndex);
-        rc.adjust(0, 0, -(3 + queueIndexWidth), 0);
+        rc2.setLeft(rc.right() - extraTextWidth);
+        painter->drawText(rc2, Qt::AlignRight|Qt::AlignVCenter, extraText);
+        rc.adjust(0, 0, -(3 + extraTextWidth), 0);
     }
 
     DisplayParser *dp = playWidget->displayParser();
@@ -160,6 +164,12 @@ QList<QUuid> QDrawnPlaylist::currentItemUuids() const
     for (auto i : selectedItems())
         selected.append(QUuid(i->text()));
     return selected;
+}
+
+void QDrawnPlaylist::traverseSelected(std::function<void (QUuid)> callback)
+{
+    for (auto i : selectedItems())
+        callback(QUuid(i->text()));
 }
 
 void QDrawnPlaylist::setCurrentItem(QUuid itemUuid)

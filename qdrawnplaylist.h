@@ -3,6 +3,7 @@
 
 #include <QListWidget>
 #include <QUuid>
+#include <functional>
 
 class DisplayParser;
 class QThread;
@@ -42,6 +43,7 @@ public:
     void setUuid(const QUuid &uuid);
     QUuid currentItemUuid() const;
     QList<QUuid> currentItemUuids() const;
+    void traverseSelected(std::function<void(QUuid)> callback);
     void setCurrentItem(QUuid itemUuid);
     void scrollToItem(QUuid itemUuid);
     void addItem(QUuid uuid);
