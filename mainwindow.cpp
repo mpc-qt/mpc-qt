@@ -67,11 +67,10 @@ PlaylistWindow *MainWindow::playlistWindow()
 
 static void actionsToList(QList<QAction*> &actionList, const QList<QAction*> &actions) {
     for (QAction *a : actions) {
-        if (a->menu()) {
+        if (a->menu())
             actionsToList(actionList, a->menu()->actions());
-        } if (!a->isSeparator()) {
+        else if (!a->isSeparator())
             actionList.append(a);
-        }
     }
 }
 
