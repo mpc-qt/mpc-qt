@@ -326,6 +326,13 @@ void MainWindow::connectPlaylistWindowToActions()
             playlistWindow_, &PlaylistWindow::visibleToQueue);
     connect(ui->actionPlaylistFinishSearching, &QAction::triggered,
             playlistWindow_, &PlaylistWindow::finishSearch);
+
+    connect(ui->actionPlaylistExtraIncrement, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::incExtraPlayTimes);
+    connect(ui->actionPlaylistExtraDecrement, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::decExtraPlayTimes);
+    connect(ui->actionPlaylistExtraZero, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::zeroExtraPlayTimes);
 }
 
 void MainWindow::globalizeAllActions()
@@ -343,6 +350,9 @@ void MainWindow::globalizeAllActions()
     addAction(ui->actionPlaylistQueueVisible);
     addAction(ui->actionPlaylistSearch);
     addAction(ui->actionPlaylistFinishSearching);
+    addAction(ui->actionPlaylistExtraIncrement);
+    addAction(ui->actionPlaylistExtraDecrement);
+    addAction(ui->actionPlaylistExtraZero);
     addAction(ui->actionPlaySeekForwards);
     addAction(ui->actionPlaySeekForwardsFine);
     addAction(ui->actionPlaySeekBackwards);
