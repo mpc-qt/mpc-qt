@@ -325,6 +325,13 @@ int Playlist::queueContains(const QList<QUuid> &itemsToCheck) const
     return count;
 }
 
+void Playlist::iterateQueue(const std::function<void(QSharedPointer<Item>)> &callback)
+{
+    for (QUuid itemUuid : queue)
+        if (Q_LIKELY(itemsByUuid.contains(itemUuid)))
+            callback(itemsByUuid[itemUuid]);
+}
+
 QString Playlist::title()
 {
     QReadLocker locker(&listLock);

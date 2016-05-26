@@ -45,7 +45,6 @@ public:
     QVariantMap toVMap() const;
     void fromVMap(const QVariantMap &qvm);
 
-
 private:
     QUuid uuid_;
     QUrl url_;
@@ -54,6 +53,7 @@ private:
     int extraPlayTimes_;
     bool hidden_;
 };
+
 
 class Playlist : public QObject {
     Q_OBJECT
@@ -83,6 +83,7 @@ public:
     void queueRemoveItems(const QList<QUuid> &itemsToRemove);
     void queueClear();
     int queueContains(const QList<QUuid> &itemsToCheck) const;
+    void iterateQueue(const std::function<void(QSharedPointer<Item>)> &callback);
 
     QString title();
     void setTitle(const QString &title);
