@@ -308,6 +308,15 @@ void MainWindow::connectButtonsToActions()
 
 void MainWindow::connectPlaylistWindowToActions()
 {
+    connect(ui->actionPlaylistCopy, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::copy);
+    connect(ui->actionPlaylistCopyQueue, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::copyQueue);
+    connect(ui->actionPlaylistPaste, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::paste);
+    connect(ui->actionPlaylistPasteQueue, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::pasteQueue);
+
     connect(ui->actionPlaylistNewTab, &QAction::triggered,
             playlistWindow_, &PlaylistWindow::newTab);
     connect(ui->actionPlaylistCloseTab, &QAction::triggered,
@@ -340,19 +349,6 @@ void MainWindow::globalizeAllActions()
     for (QAction *a : ui->menubar->actions()) {
         addAction(a);
     }
-    addAction(ui->actionPlaylistNewTab);
-    addAction(ui->actionPlaylistCloseTab);
-    addAction(ui->actionPlaylistDuplicateTab);
-    addAction(ui->actionPlaylistImport);
-    addAction(ui->actionPlaylistExport);
-    addAction(ui->actionPlaylistPlayCurrent);
-    addAction(ui->actionPlaylistQuickQueue);
-    addAction(ui->actionPlaylistQueueVisible);
-    addAction(ui->actionPlaylistSearch);
-    addAction(ui->actionPlaylistFinishSearching);
-    addAction(ui->actionPlaylistExtraIncrement);
-    addAction(ui->actionPlaylistExtraDecrement);
-    addAction(ui->actionPlaylistExtraZero);
     addAction(ui->actionPlaySeekForwards);
     addAction(ui->actionPlaySeekForwardsFine);
     addAction(ui->actionPlaySeekBackwards);

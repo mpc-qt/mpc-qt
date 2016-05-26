@@ -767,7 +767,41 @@
     <addaction name="separator"/>
     <addaction name="actionHelpAbout"/>
    </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+    <widget class="QMenu" name="menuPlay_Times">
+     <property name="title">
+      <string>Extra Play Times</string>
+     </property>
+     <addaction name="actionPlaylistExtraIncrement"/>
+     <addaction name="actionPlaylistExtraDecrement"/>
+     <addaction name="separator"/>
+     <addaction name="actionPlaylistExtraZero"/>
+    </widget>
+    <addaction name="actionPlaylistPlayCurrent"/>
+    <addaction name="menuPlay_Times"/>
+    <addaction name="separator"/>
+    <addaction name="actionPlaylistCopy"/>
+    <addaction name="actionPlaylistCopyQueue"/>
+    <addaction name="actionPlaylistPaste"/>
+    <addaction name="actionPlaylistPasteQueue"/>
+    <addaction name="separator"/>
+    <addaction name="actionPlaylistQuickQueue"/>
+    <addaction name="actionPlaylistQueueVisible"/>
+    <addaction name="separator"/>
+    <addaction name="actionPlaylistSearch"/>
+    <addaction name="actionPlaylistFinishSearching"/>
+    <addaction name="separator"/>
+    <addaction name="actionPlaylistNewTab"/>
+    <addaction name="actionPlaylistCloseTab"/>
+    <addaction name="actionPlaylistDuplicateTab"/>
+    <addaction name="actionPlaylistImport"/>
+    <addaction name="actionPlaylistExport"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
    <addaction name="menuView"/>
    <addaction name="menuPlay"/>
    <addaction name="menuNavigate"/>
@@ -1487,7 +1521,10 @@
   </action>
   <action name="actionPlaylistCloseTab">
    <property name="text">
-    <string>CloseTab</string>
+    <string>Close Tab</string>
+   </property>
+   <property name="toolTip">
+    <string>Close Tab</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+W</string>
@@ -1495,7 +1532,7 @@
   </action>
   <action name="actionPlaylistDuplicateTab">
    <property name="text">
-    <string>DuplicateTab</string>
+    <string>Duplicate Tab</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+D</string>
@@ -1527,7 +1564,7 @@
   </action>
   <action name="actionPlaylistExtraIncrement">
    <property name="text">
-    <string>Increment Extra Play Times</string>
+    <string>Increment</string>
    </property>
    <property name="shortcut">
     <string>E</string>
@@ -1535,7 +1572,7 @@
   </action>
   <action name="actionPlaylistExtraDecrement">
    <property name="text">
-    <string>Decrement Extra Play Times</string>
+    <string>Decrement</string>
    </property>
    <property name="shortcut">
     <string>Shift+E</string>
@@ -1547,6 +1584,38 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionPlaylistCopy">
+   <property name="text">
+    <string>Copy Selection</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+C</string>
+   </property>
+  </action>
+  <action name="actionPlaylistPaste">
+   <property name="text">
+    <string>Paste</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+V</string>
+   </property>
+  </action>
+  <action name="actionPlaylistCopyQueue">
+   <property name="text">
+    <string>Copy Queue</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+C</string>
+   </property>
+  </action>
+  <action name="actionPlaylistPasteQueue">
+   <property name="text">
+    <string>Paste and Queue</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+V</string>
    </property>
   </action>
  </widget>
