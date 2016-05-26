@@ -11,6 +11,7 @@ class PlaylistWindow;
 }
 
 class QDrawnPlaylist;
+class PlaylistSelection;
 class QThread;
 class PlaylistSearcher;
 class PlaylistWindow : public QDockWidget
@@ -69,6 +70,11 @@ public slots:
     void importTab();
     void exportTab();
 
+    void copy();
+    void copyQueue();
+    void paste();
+    void pasteQueue();
+
     void playCurrentItem();
     bool playActiveItem();
     void selectNext();
@@ -110,6 +116,7 @@ private:
     bool showSearch;
 
     QHash<QUuid, QDrawnPlaylist*> widgets;
+    PlaylistSelection *clipboard;
 };
 
 #endif // PLAYLISTWINDOW_H

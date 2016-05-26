@@ -15,6 +15,8 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     currentPlaylist(),
     showSearch(false)
 {
+    clipboard = new PlaylistSelection;
+
     // When (un)docking windows, some widgets may get transformed into native
     // widgets, causing painting glitches.  Tell Qt that we prefer non-native.
     setAttribute(Qt::WA_DontCreateNativeAncestors);
@@ -30,6 +32,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
 PlaylistWindow::~PlaylistWindow()
 {
     delete ui;
+    delete clipboard;
 }
 
 void PlaylistWindow::setCurrentPlaylist(QUuid what)
@@ -345,6 +348,26 @@ void PlaylistWindow::exportTab()
     auto pl = PlaylistCollection::getSingleton()->playlistOf(uuid);
     if (!file.isEmpty() && pl)
         emit exportPlaylist(file, pl->toStringList());
+}
+
+void PlaylistWindow::copy()
+{
+    clipboard->fromSelected(currentPlaylistWidget());
+}
+
+void PlaylistWindow::copyQueue()
+{
+    clipboard->fromQueue(currentPlaylistWidget());
+}
+
+void PlaylistWindow::paste()
+{
+    clipboard->appendToPlaylist(currentPlaylistWidget());
+}
+
+void PlaylistWindow::pasteQueue()
+{
+    clipboard->appendAndQuickQueue(currentPlaylistWidget());
 }
 
 void PlaylistWindow::playCurrentItem()
