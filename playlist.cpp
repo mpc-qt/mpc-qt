@@ -256,6 +256,12 @@ void Playlist::queueToggle(const QUuid &uuid, bool always)
     }
 }
 
+void Playlist::queueToggle(const QList<QUuid> &uuids)
+{
+    for (auto uuid : uuids)
+        queueToggle(uuid);
+}
+
 void Playlist::queueAddItems(const QList<QUuid> &itemsToAdd)
 {
     for (QUuid itemUuid : itemsToAdd)

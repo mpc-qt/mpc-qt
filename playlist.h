@@ -71,6 +71,7 @@ public:
     QUuid queueFirst();
     QUuid queueTakeFirst();
     void queueToggle(const QUuid &uuid, bool always = false);
+    void queueToggle(const QList<QUuid> &uuids);
     void queueAddItems(const QList<QUuid> &itemsToAdd);
     void queueRemove(const QUuid &uuid);
     void queueRemoveItems(const QList<QUuid> &itemsToRemove);
