@@ -126,6 +126,26 @@ void PlaylistWindow::setMetadata(QUuid list, QUuid item, const QVariantMap &map)
 
 }
 
+int PlaylistWindow::extraPlayTimes(QUuid list, QUuid item)
+{
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    if (!pl)
+        return -1;
+    auto i = pl->itemOf(item);
+    return i ? i->extraPlayTimes() : -1;
+}
+
+void PlaylistWindow::setExtraPlayTimes(QUuid list, QUuid item, int amount)
+{
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    if (!pl)
+        return;
+    auto i = pl->itemOf(item);
+    if (!i)
+        return;
+    i->setExtraPlayTimes(amount);
+}
+
 QVariantList PlaylistWindow::tabsToVList() const
 {
     QVariantList qvl;
@@ -362,6 +382,45 @@ void PlaylistWindow::selectPrevious()
     int index = qdp->currentRow();
     if (index > 0)
         qdp->setCurrentRow(index - 1);
+}
+
+void PlaylistWindow::incExtraPlayTimes()
+{
+    auto qdp = currentPlaylistWidget();
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    auto incrementer = [pl](QUuid uuid) {
+        auto item = pl->itemOf(uuid);
+        if (Q_LIKELY(!item.isNull()))
+            item->incExtraPlayTimes();
+    };
+    qdp->traverseSelected(incrementer);
+    qdp->viewport()->update();
+}
+
+void PlaylistWindow::decExtraPlayTimes()
+{
+    auto qdp = currentPlaylistWidget();
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    auto decrementer = [pl](QUuid uuid) {
+        auto item = pl->itemOf(uuid);
+        if (Q_LIKELY(!item.isNull()))
+            item->decExtraPlayTimes();
+    };
+    qdp->traverseSelected(decrementer);
+    qdp->viewport()->update();
+}
+
+void PlaylistWindow::zeroExtraPlayTimes()
+{
+    auto qdp = currentPlaylistWidget();
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    auto zeroer = [pl](QUuid uuid) {
+        auto item = pl->itemOf(uuid);
+        if (Q_LIKELY(!item.isNull()))
+            item->setExtraPlayTimes(0);
+    };
+    qdp->traverseSelected(zeroer);
+    qdp->viewport()->update();
 }
 
 void PlaylistWindow::activateNext()

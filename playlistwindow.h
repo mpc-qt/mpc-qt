@@ -30,6 +30,8 @@ public:
     QUuid getItemBefore(QUuid list, QUuid item);
     QUrl getUrlOf(QUuid list, QUuid item);
     void setMetadata(QUuid list, QUuid item, const QVariantMap &map);
+    int extraPlayTimes(QUuid list, QUuid item);
+    void setExtraPlayTimes(QUuid list, QUuid item, int amount);
 
     QVariantList tabsToVList() const;
     void tabsFromVList(const QVariantList &qvl);
@@ -71,6 +73,10 @@ public slots:
     bool playActiveItem();
     void selectNext();
     void selectPrevious();
+
+    void incExtraPlayTimes();
+    void decExtraPlayTimes();
+    void zeroExtraPlayTimes();
 
     void activateNext();
     void activatePrevious();
