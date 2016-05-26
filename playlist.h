@@ -30,6 +30,11 @@ public:
     void setQueuePosition(int num);
     void decQueuePosition();
 
+    int extraPlayTimes() const;
+    void setExtraPlayTimes(int amount);
+    int incExtraPlayTimes();
+    int decExtraPlayTimes();
+
     void setHidden(bool yes);
     bool hidden();
 
@@ -46,6 +51,7 @@ private:
     QUrl url_;
     QVariantMap metadata_;
     int queuePosition_;
+    int extraPlayTimes_;
     bool hidden_;
 };
 

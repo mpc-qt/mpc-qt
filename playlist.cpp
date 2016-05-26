@@ -1,5 +1,5 @@
 #include <QFileInfo>
-#include <QDebug>
+#include <cmath>
 #include "playlist.h"
 
 Item::Item(QUrl url)
@@ -7,6 +7,7 @@ Item::Item(QUrl url)
     setUrl(url);
     setUuid(QUuid::createUuid());
     setQueuePosition(0);
+    setExtraPlayTimes(0);
     setHidden(false);
 }
 
@@ -54,6 +55,26 @@ void Item::decQueuePosition()
 {
     if (queuePosition_ > 0)
         queuePosition_--;
+}
+
+int Item::extraPlayTimes() const
+{
+    return extraPlayTimes_;
+}
+
+void Item::setExtraPlayTimes(int amount)
+{
+    extraPlayTimes_ = std::max(amount, 0);
+}
+
+int Item::incExtraPlayTimes()
+{
+    return ++extraPlayTimes_ > 0 ? extraPlayTimes_ : 0;
+}
+
+int Item::decExtraPlayTimes()
+{
+    return extraPlayTimes_ > 0 ? --extraPlayTimes_ : 0;
 }
 
 void Item::setHidden(bool yes)
