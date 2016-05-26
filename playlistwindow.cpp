@@ -265,6 +265,7 @@ void PlaylistWindow::changePlaylistSelection( QUrl itemUrl, QUuid playlistUuid, 
 
 void PlaylistWindow::addSimplePlaylist(QStringList data)
 {
+
     auto pl = PlaylistCollection::getSingleton()->newPlaylist(tr("New Playlist"));
     pl->fromStringList(data);
     addNewTab(pl->uuid(), pl->title());
@@ -278,7 +279,16 @@ void PlaylistWindow::setDisplayFormatSpecifier(QString fmt)
 
 void PlaylistWindow::newTab()
 {
-    auto pl = PlaylistCollection::getSingleton()->newPlaylist(tr("New Playlist"));
+    bool ok;
+    QString title = QInputDialog::getText(this, tr("Enter Playlist Name"),
+                                           "Name", QLineEdit::Normal,
+                                          tr("New Playlist"), &ok);
+    if (!ok)
+        return;
+    else if (title.isEmpty())
+        title = tr("New Playlist");
+
+    auto pl = PlaylistCollection::getSingleton()->newPlaylist(title);
     addNewTab(pl->uuid(), pl->title());
 }
 
