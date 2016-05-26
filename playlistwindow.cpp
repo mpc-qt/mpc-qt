@@ -388,10 +388,10 @@ void PlaylistWindow::quickQueue()
 {
     auto qdp = currentPlaylistWidget();
     auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
-    auto itemUuid = qdp->currentItemUuid();
-    if (itemUuid.isNull())
+    auto itemUuids = qdp->currentItemUuids();
+    if (itemUuids.isEmpty())
         return;
-    pl->queueToggle(itemUuid);
+    pl->queueToggle(itemUuids);
     qdp->viewport()->update();
 }
 
