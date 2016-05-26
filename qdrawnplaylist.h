@@ -96,5 +96,20 @@ private slots:
     void self_customContextMenuRequested(const QPoint &p);
 };
 
+class PlaylistSelectionPrivate;
+class PlaylistSelection {
+public:
+    PlaylistSelection();
+    PlaylistSelection(PlaylistSelection &other);
+    ~PlaylistSelection();
+    void fromItem(QUuid playlistUuid, QUuid itemUuid);
+    void fromQueue(QDrawnPlaylist *list);
+    void fromSelected(QDrawnPlaylist *list);
 
+    void appendToPlaylist(QDrawnPlaylist *list);
+    void appendAndQuickQueue(QDrawnPlaylist *list);
+
+private:
+    PlaylistSelectionPrivate *d;
+};
 #endif // QDRAWNPLAYLIST_H

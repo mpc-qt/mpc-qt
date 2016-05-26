@@ -409,3 +409,91 @@ void QDrawnPlaylist::self_customContextMenuRequested(const QPoint &p)
     });
     m->exec(mapToGlobal(p));
 }
+
+
+
+class PlaylistSelectionPrivate {
+public:
+    QList<QSharedPointer<Item>> items;
+};
+
+
+PlaylistSelection::PlaylistSelection()
+{
+    d = new PlaylistSelectionPrivate();
+}
+
+PlaylistSelection::PlaylistSelection(PlaylistSelection &other)
+{
+    d = new PlaylistSelectionPrivate();
+    other.d->items = d->items;
+}
+
+PlaylistSelection::~PlaylistSelection()
+{
+    delete d;
+}
+
+void PlaylistSelection::fromItem(QUuid playlistUuid, QUuid itemUuid)
+{
+    d->items.clear();
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
+    if (Q_UNLIKELY(!pl))
+        return;
+    auto i = pl->itemOf(itemUuid);
+    if (Q_LIKELY(!i.isNull()))
+        d->items.append(i);
+}
+
+void PlaylistSelection::fromQueue(QDrawnPlaylist *list)
+{
+    d->items.clear();
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(list->uuid());
+    if (Q_UNLIKELY(!pl))
+        return;
+    auto itemAdder = [this](QSharedPointer<Item> item) {
+        d->items.append(item);
+    };
+    pl->iterateQueue(itemAdder);
+    if (d->items.isEmpty()) {
+        QUuid activeItem = list->nowPlayingItem();
+        if (!activeItem.isNull())
+            d->items.append(pl->itemOf(activeItem));
+    }
+}
+
+void PlaylistSelection::fromSelected(QDrawnPlaylist *list)
+{
+    d->items.clear();
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(list->uuid());
+    if (Q_UNLIKELY(!pl))
+        return;
+    auto itemAdder = [this,pl](QUuid item) {
+        d->items.append(pl->itemOf(item));
+    };
+    list->traverseSelected(itemAdder);
+}
+
+void PlaylistSelection::appendToPlaylist(QDrawnPlaylist *list)
+{
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(list->uuid());
+    if (Q_UNLIKELY(!pl))
+        return;
+    for (auto i : d->items) {
+        list->addItem(pl->addItemClone(i)->uuid());
+    }
+    list->viewport()->update();
+}
+
+void PlaylistSelection::appendAndQuickQueue(QDrawnPlaylist *list)
+{
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(list->uuid());
+    if (Q_UNLIKELY(!pl))
+        return;
+    for (auto i : d->items) {
+        QUuid uuid = pl->addItemClone(i)->uuid();
+        list->addItem(uuid);
+        pl->queueToggle(uuid);
+    }
+    list->viewport()->update();
+}
