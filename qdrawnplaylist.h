@@ -41,6 +41,7 @@ public:
     QUuid uuid() const;
     void setUuid(const QUuid &uuid);
     QUuid currentItemUuid() const;
+    QList<QUuid> currentItemUuids() const;
     void setCurrentItem(QUuid itemUuid);
     void scrollToItem(QUuid itemUuid);
     void addItem(QUuid uuid);

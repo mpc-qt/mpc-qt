@@ -154,6 +154,14 @@ QUuid QDrawnPlaylist::currentItemUuid() const
     return QUuid();
 }
 
+QList<QUuid> QDrawnPlaylist::currentItemUuids() const
+{
+    QList<QUuid> selected;
+    for (auto i : selectedItems())
+        selected.append(QUuid(i->text()));
+    return selected;
+}
+
 void QDrawnPlaylist::setCurrentItem(QUuid itemUuid)
 {
     QList<QListWidgetItem *> items = findItems(itemUuid.toString(), Qt::MatchExactly);
