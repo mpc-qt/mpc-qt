@@ -394,10 +394,7 @@ void QDrawnPlaylist::self_customContextMenuRequested(const QPoint &p)
     QAction *a = new QAction(m);
     a->setText(tr("Remove"));
     connect(a, &QAction::triggered, [=]() {
-        auto current = QListWidget::currentItem();
-        if (!current)
-            return;
-        removeItem(QUuid(current->text()));
+        traverseSelected([this](const QUuid &item) { removeItem(item); });
     });
     m->addAction(a);
     a = new QAction(m);
