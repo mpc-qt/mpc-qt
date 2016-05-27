@@ -96,10 +96,9 @@ Then, make a directory to checkout this git into, and `cd` into that.
 
 >cd mpc-qt
 
-At this stage you can checkout this git repository using the following
-command:
+At this stage you can clone this git repository using the following command:
 
->git checkout https://github.com/cmdrkotori/mpc-qt.git
+>git clone https://github.com/cmdrkotori/mpc-qt.git
 
 Finally, `cd` into the checked-out repository and run qtcreator.
 
