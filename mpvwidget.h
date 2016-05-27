@@ -5,6 +5,7 @@
 #include <QOpenGLTexture>
 #include <QVariant>
 #include <QSet>
+#include <functional>
 #include <mpv/client.h>
 #include <mpv/opengl_cb.h>
 #include <mpv/qthelper.hpp>
@@ -140,6 +141,8 @@ private:
     bool debugMessages;
 };
 
+
+
 class MpvErrorCode {
 public:
     MpvErrorCode() : value(0) {};
@@ -152,11 +155,31 @@ private:
 };
 Q_DECLARE_METATYPE(MpvErrorCode)
 
+
+
+// This wraps a lambda so that it is invoked in the calling thread. i.e. use
+// QMetaObject::invokeMethod on the controller's async functions to pass
+// through this object, like this:
+//    getPropertyVariantAsync("xyz", new MpvCallback([](const QVariant &v) {
+//        ...
+//    }));
+class MpvCallback : public QObject {
+    Q_OBJECT
+public:
+    typedef std::function<void(QVariant)> Callback;
+    explicit MpvCallback(const Callback &callback, QObject *owner = 0);
+public slots:
+    void reply(QVariant value);
+private:
+    Callback callback;
+};
+
+
+
 // This controller attempts to shove as much libmpv related business off of
 // the main thread.
 class MpvController : public QObject
 {
-
     Q_OBJECT
 public:
     typedef QPair<const char*, mpv_format> MpvProperty;
@@ -187,6 +210,11 @@ public slots:
     QVariant command(const QVariant &params);
     int setPropertyVariant(const QString &name, const QVariant &value);
     QVariant getPropertyVariant(const QString &name);
+
+    void commandAsync(const QVariant &params, MpvCallback *callback);
+    void setPropertyVariantAsync(const QString &name, const QVariant &value, MpvCallback *callback);
+    void getPropertyVariantAsync(const QString &name, MpvCallback *callback);
+
     void parseMpvEvents();
 
 private:

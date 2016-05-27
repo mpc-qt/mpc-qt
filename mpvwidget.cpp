@@ -663,6 +663,21 @@ void MpvWidget::self_metadata(QVariantMap metadata)
 
 
 
+MpvCallback::MpvCallback(const Callback &callback,
+                         QObject *owner)
+    : QObject(owner)
+{
+    this->callback = callback;
+}
+
+void MpvCallback::reply(QVariant value)
+{
+    callback(value);
+    deleteLater();
+}
+
+
+
 MpvController::MpvController(QObject *parent) : QObject(parent),
     glMpv(NULL), lastVideoSize(0,0)
 {
@@ -771,6 +786,29 @@ QVariant MpvController::getPropertyVariant(const QString &name)
     return mpv::qt::node_to_variant(&node);
 }
 
+void MpvController::commandAsync(const QVariant &params, MpvCallback *callback)
+{
+    mpv::qt::node_builder node(params);
+    mpv_command_node_async(mpv, reinterpret_cast<uint64_t>(callback),
+                           node.node());
+}
+
+void MpvController::setPropertyVariantAsync(const QString &name,
+                                            const QVariant &value,
+                                            MpvCallback *callback)
+{
+    mpv::qt::node_builder node(value);
+    mpv_set_property_async(mpv, reinterpret_cast<uint64_t>(callback),
+                           name.toUtf8().data(), MPV_FORMAT_NODE, node.node());
+}
+
+void MpvController::getPropertyVariantAsync(const QString &name,
+                                            MpvCallback *callback)
+{
+    mpv_get_property_async(mpv, reinterpret_cast<uint64_t>(callback),
+                           name.toUtf8().data(), MPV_FORMAT_NODE);
+}
+
 void MpvController::parseMpvEvents()
 {
     // Process all events, until the event queue is empty.
@@ -797,10 +835,7 @@ void MpvController::flushProperties()
 
 void MpvController::handleMpvEvent(mpv_event *event)
 {
-    switch (event->event_id) {
-    case MPV_EVENT_PROPERTY_CHANGE: {
-        mpv_event_property *prop =
-                reinterpret_cast<mpv_event_property*>(event->data);
+    auto propertyToVariant = [event](mpv_event_property *prop) -> QVariant {
         auto asBool = [&](bool dflt = false) {
             return (prop->format != MPV_FORMAT_FLAG || prop->data == NULL) ?
                         dflt : *reinterpret_cast<bool*>(prop->data);
@@ -824,22 +859,44 @@ void MpvController::handleMpvEvent(mpv_event *event)
                         dflt : mpv::qt::node_to_variant(
                             reinterpret_cast<mpv_node*>(prop->data));
         };
-        QVariant v;
         if (prop->data == NULL) {
-            v = QVariant::fromValue<MpvErrorCode>(MpvErrorCode(event->error));
+            return QVariant::fromValue<MpvErrorCode>(MpvErrorCode(event->error));
         } else if (prop->format == MPV_FORMAT_NODE) {
-            v = asNode();
+            return asNode();
         } else if (prop->format == MPV_FORMAT_INT64) {
-            v = (long long)asInt64();
+            return (long long)asInt64();
         } else if (prop->format == MPV_FORMAT_DOUBLE) {
-            v = asDouble();
+            return asDouble();
         } else if (prop->format == MPV_FORMAT_STRING ||
                    prop->format == MPV_FORMAT_OSD_STRING) {
-            v = asString();
+            return asString();
         } else if (prop->format == MPV_FORMAT_FLAG) {
-            v = asBool();
+            return asBool();
         }
-        QString propname = QString::fromUtf8(prop->name);
+        return QVariant();
+    };
+
+    switch (event->event_id) {
+    case MPV_EVENT_GET_PROPERTY_REPLY: {
+        QVariant v = propertyToVariant(reinterpret_cast<mpv_event_property*>(event->data));
+        if (!event->reply_userdata)
+            return;
+        QMetaObject::invokeMethod(reinterpret_cast<MpvCallback*>(event->reply_userdata),
+                                  "reply", Qt::QueuedConnection,
+                                  Q_ARG(QVariant, v));
+        break;
+    }
+    case MPV_EVENT_COMMAND_REPLY:
+    case MPV_EVENT_SET_PROPERTY_REPLY: {
+        QVariant v = QVariant::fromValue<MpvErrorCode>(MpvErrorCode(event->error));
+        QMetaObject::invokeMethod(reinterpret_cast<MpvCallback*>(event->reply_userdata),
+                                  "reply", Qt::QueuedConnection,
+                                  Q_ARG(QVariant, v));
+        break;
+    }
+    case MPV_EVENT_PROPERTY_CHANGE: {
+        QVariant v = propertyToVariant(reinterpret_cast<mpv_event_property*>(event->data));
+        QString propname = QString::fromUtf8(reinterpret_cast<mpv_event_property*>(event->data)->name);
         if (throttledProperties.contains(propname))
             setThrottledProperty(propname, v);
         else
