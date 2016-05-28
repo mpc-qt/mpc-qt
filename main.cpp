@@ -425,7 +425,8 @@ void Flow::restoreWindows(const QVariantMap &map)
 {
     QVariantMap mainWindowMap = map["mainWindow"].toMap();
     QVariantMap playlistWindowMap = map["playlistWindow"].toMap();
-    if (rememberWindowGeometry) {
+    if (rememberWindowGeometry && mainWindowMap.contains("geometry")
+            && playlistWindowMap.contains("geometry")) {
         if (playlistWindowMap["floating"].toBool()) {
             mainWindow->playlistWindow()->setFloating(true);
             mainWindow->playlistWindow()->window()->setGeometry(Helpers::vmapToRect(playlistWindowMap["geometry"].toMap()));

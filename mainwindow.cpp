@@ -120,18 +120,19 @@ QVariantMap MainWindow::state()
 
 void MainWindow::setState(const QVariantMap &map)
 {
-#define UNWRAP(a) \
-    a->setChecked(map[a->objectName()].toBool())
+#define UNWRAP(a,b) \
+    a->setChecked(map.value(a->objectName(), b).toBool())
+
     setUiDecorationState((DecorationState)map["decorationState"].toInt());
-    UNWRAP(ui->actionViewHideSeekbar);
-    UNWRAP(ui->actionViewHideControls);
-    UNWRAP(ui->actionViewHideInformation);
-    UNWRAP(ui->actionViewHideStatistics);
-    UNWRAP(ui->actionViewHideStatus);
-    UNWRAP(ui->actionViewHideSubresync);
-    UNWRAP(ui->actionViewHidePlaylist);
-    UNWRAP(ui->actionViewHideCapture);
-    UNWRAP(ui->actionViewHideNavigation);
+    UNWRAP(ui->actionViewHideSeekbar, true);
+    UNWRAP(ui->actionViewHideControls, true);
+    UNWRAP(ui->actionViewHideInformation, false);
+    UNWRAP(ui->actionViewHideStatistics, false);
+    UNWRAP(ui->actionViewHideStatus, true);
+    UNWRAP(ui->actionViewHideSubresync, false);
+    UNWRAP(ui->actionViewHidePlaylist, true);
+    UNWRAP(ui->actionViewHideCapture, false);
+    UNWRAP(ui->actionViewHideNavigation, false);
 #undef UNWRAP
 }
 
