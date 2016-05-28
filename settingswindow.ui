@@ -144,7 +144,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>9</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -313,16 +313,12 @@ media file played</string>
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="playerRememberWindowPosition">
-                <property name="text">
-                 <string>Remember last window position</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="playerRememberWindowSize">
+               <widget class="QCheckBox" name="playerRememberWindowGeometry">
                 <property name="text">
                  <string>Remember last window size</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>

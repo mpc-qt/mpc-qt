@@ -66,8 +66,7 @@ signals:
     void titleUseMediaTitle(bool yes);
     void rememberHistory(bool yes);
     void rememberSelectedPlaylist(bool yes);
-    void rememberWindowPosition(bool yes);
-    void rememberWindowSize(bool yes);
+    void rememberWindowGeometry(bool yes);
     void rememberPanNScan(bool yes);
 
     void logoSource(const QString &s);

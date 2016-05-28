@@ -325,8 +325,7 @@ void SettingsWindow::sendSignals()
     emit titleUseMediaTitle(WIDGET_LOOKUP(ui->playerTitleReplaceName).toBool());
     emit rememberHistory(WIDGET_LOOKUP(ui->playerKeepHistory).toBool());
     emit rememberSelectedPlaylist(WIDGET_LOOKUP(ui->playerRememberLastPlaylist).toBool());
-    emit rememberWindowPosition(WIDGET_LOOKUP(ui->playerRememberWindowPosition).toBool());
-    emit rememberWindowSize(WIDGET_LOOKUP(ui->playerRememberWindowSize).toBool());
+    emit rememberWindowGeometry(WIDGET_LOOKUP(ui->playerRememberWindowGeometry).toBool());
     emit rememberPanNScan(WIDGET_LOOKUP(ui->playerRememberPanScanZoom).toBool());
 
     emit logoSource(selectedLogo());
