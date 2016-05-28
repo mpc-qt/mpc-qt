@@ -230,6 +230,8 @@ Flow::Flow(QObject *owner) :
             this, &Flow::settingswindow_settingsData);
     connect(settingsWindow, &SettingsWindow::keyMapData,
             this, &Flow::settingswindow_keymapData);
+    connect(settingsWindow, &SettingsWindow::rememberWindowGeometry,
+            this, &Flow::settingswindow_rememberWindowGeometry);
     connect(settingsWindow, &SettingsWindow::screenshotDirectory,
             this, &Flow::settingswindow_screenshotDirectory);
     connect(settingsWindow, &SettingsWindow::encodeDirectory,
@@ -298,17 +300,14 @@ Flow::~Flow()
         delete settingsWindow;
         settingsWindow = NULL;
     }
-    storage.writeVMap("settings", settings);
-    storage.writeVMap("keys", keyMap);
-    storage.writeVList("recent", recentToVList());
 }
 
 int Flow::run()
 {
     mainWindow->playlistWindow()->tabsFromVList(storage.readVList("playlists"));
     QTimer::singleShot(50, [this]() {
-        mainWindow->fireUpdateSize();
-        mainWindow->show();
+        // wait for the internal geometry to update, then perform a risize
+        restoreWindows(storage.readVMap("geometry"));
     });
     if (!hasPrevious_)
         server_payloadRecieved(makePayload(), NULL);
@@ -404,8 +403,53 @@ void Flow::recentFromVList(const QVariantList &list)
     }
 }
 
+QVariantMap Flow::saveWindows()
+{
+    return QVariantMap {
+        {
+            "mainWindow", QVariantMap {
+                { "geometry", Helpers::rectToVmap(mainWindow->geometry()) },
+                { "state", mainWindow->state() }
+            }
+        },
+        {
+            "playlistWindow", QVariantMap {
+                { "geometry", Helpers::rectToVmap(mainWindow->playlistWindow()->window()->geometry()) },
+                { "floating", mainWindow->playlistWindow()->isFloating() }
+            }
+        }
+    };
+}
+
+void Flow::restoreWindows(const QVariantMap &map)
+{
+    QVariantMap mainWindowMap = map["mainWindow"].toMap();
+    QVariantMap playlistWindowMap = map["playlistWindow"].toMap();
+    if (rememberWindowGeometry) {
+        if (playlistWindowMap["floating"].toBool()) {
+            mainWindow->playlistWindow()->setFloating(true);
+            mainWindow->playlistWindow()->window()->setGeometry(Helpers::vmapToRect(playlistWindowMap["geometry"].toMap()));
+        }
+        mainWindow->setGeometry(Helpers::vmapToRect(mainWindowMap["geometry"].toMap()));
+        QTimer::singleShot(50, [=]() {
+            // once again, wait for the internal geometery to change, then
+            // show the window.
+            mainWindow->show();
+            mainWindow->setState(mainWindowMap["state"].toMap());
+        });
+    } else {
+        mainWindow->fireUpdateSize();
+        mainWindow->show();
+        mainWindow->setState(mainWindowMap["state"].toMap());
+    }
+}
+
 void Flow::mainwindow_applicationShouldQuit()
 {
+    storage.writeVMap("settings", settings);
+    storage.writeVMap("keys", keyMap);
+    storage.writeVList("recent", recentToVList());
+    storage.writeVMap("geometry", saveWindows());
     qApp->quit();
 }
 
@@ -637,6 +681,11 @@ QVariant Flow::ipc_doMpvCommand(const QVariantMap &map)
 void Flow::settingswindow_settingsData(const QVariantMap &settings)
 {
     this->settings = settings;
+}
+
+void Flow::settingswindow_rememberWindowGeometry(bool yes)
+{
+    this->rememberWindowGeometry = yes;
 }
 
 void Flow::settingswindow_keymapData(const QVariantMap &keyMap)

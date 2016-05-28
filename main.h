@@ -28,6 +28,8 @@ private:
     QString pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const;
     QVariantList recentToVList() const;
     void recentFromVList(const QVariantList &list);
+    QVariantMap saveWindows();
+    void restoreWindows(const QVariantMap &map);
 
 private slots:
     void mainwindow_applicationShouldQuit();
@@ -53,6 +55,7 @@ private slots:
     QVariant ipc_setMpvOption(const QVariantMap &map);
     QVariant ipc_doMpvCommand(const QVariantMap &map);
     void settingswindow_settingsData(const QVariantMap &settings);
+    void settingswindow_rememberWindowGeometry(bool yes);
     void settingswindow_keymapData(const QVariantMap &keyMap);
     void settingswindow_screenshotDirectory(const QString &where);
     void settingswindow_encodeDirectory(const QString &where);
@@ -73,6 +76,7 @@ private:
     QVariantMap keyMap;
     QList<TrackInfo> recentFiles;
 
+    bool rememberWindowGeometry;
     QString screenshotDirectory;
     QString encodeDirectory;
     QString screenshotTemplate;
