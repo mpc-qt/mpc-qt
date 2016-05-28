@@ -315,7 +315,7 @@ media file played</string>
               <item>
                <widget class="QCheckBox" name="playerRememberWindowGeometry">
                 <property name="text">
-                 <string>Remember last window size</string>
+                 <string>Remember last window geometry</string>
                 </property>
                 <property name="checked">
                  <bool>true</bool>
