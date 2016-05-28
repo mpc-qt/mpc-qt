@@ -316,6 +316,19 @@ void SettingsWindow::setMouseMapDefaults(const QVariantMap &payload)
 
 void SettingsWindow::sendSignals()
 {
+    emit trayIcon(WIDGET_LOOKUP(ui->playerTrayIcon).toBool());
+    emit showOsd(WIDGET_LOOKUP(ui->playerOSD).toBool());
+    emit limitProportions(WIDGET_LOOKUP(ui->playerDisableOpenDisc).toBool());
+    emit disableOpenDiscMenu(WIDGET_LOOKUP(ui->playerDisableOpenDisc).toBool());
+    emit titleBarFormat(WIDGET_LOOKUP(ui->playerTitleDisplayFullPath).toBool() ? Helpers::PrefixFullPath
+                        : WIDGET_LOOKUP(ui->playerTitleFileNameOnly).toBool() ? Helpers::PrefixFileName : Helpers::NoPrefix);
+    emit titleUseMediaTitle(WIDGET_LOOKUP(ui->playerTitleReplaceName).toBool());
+    emit rememberHistory(WIDGET_LOOKUP(ui->playerKeepHistory).toBool());
+    emit rememberSelectedPlaylist(WIDGET_LOOKUP(ui->playerRememberLastPlaylist).toBool());
+    emit rememberWindowPosition(WIDGET_LOOKUP(ui->playerRememberWindowPosition).toBool());
+    emit rememberWindowSize(WIDGET_LOOKUP(ui->playerRememberWindowSize).toBool());
+    emit rememberPanNScan(WIDGET_LOOKUP(ui->playerRememberPanScanZoom).toBool());
+
     emit logoSource(selectedLogo());
     emit playbackPlayTimes(WIDGET_LOOKUP(ui->playbackRepeatForever).toBool() ?
                            0 : WIDGET_LOOKUP(ui->playbackPlayAmount).toInt());
