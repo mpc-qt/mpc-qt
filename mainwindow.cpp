@@ -99,6 +99,42 @@ QVariantMap MainWindow::mouseMapDefaults()
     return commandMap;
 }
 
+QVariantMap MainWindow::state()
+{
+#define WRAP(a) \
+    a->objectName(), a->isChecked()
+    return QVariantMap {
+        { "decorationState", (int)decorationState_ },
+        { WRAP(ui->actionViewHideSeekbar) },
+        { WRAP(ui->actionViewHideControls) },
+        { WRAP(ui->actionViewHideInformation) },
+        { WRAP(ui->actionViewHideStatistics) },
+        { WRAP(ui->actionViewHideStatus) },
+        { WRAP(ui->actionViewHideSubresync) },
+        { WRAP(ui->actionViewHidePlaylist) },
+        { WRAP(ui->actionViewHideCapture) },
+        { WRAP(ui->actionViewHideNavigation) }
+    };
+#undef WRAP
+}
+
+void MainWindow::setState(const QVariantMap &map)
+{
+#define UNWRAP(a) \
+    a->setChecked(map[a->objectName()].toBool())
+    setUiDecorationState((DecorationState)map["decorationState"].toInt());
+    UNWRAP(ui->actionViewHideSeekbar);
+    UNWRAP(ui->actionViewHideControls);
+    UNWRAP(ui->actionViewHideInformation);
+    UNWRAP(ui->actionViewHideStatistics);
+    UNWRAP(ui->actionViewHideStatus);
+    UNWRAP(ui->actionViewHideSubresync);
+    UNWRAP(ui->actionViewHidePlaylist);
+    UNWRAP(ui->actionViewHideCapture);
+    UNWRAP(ui->actionViewHideNavigation);
+#undef UNWRAP
+}
+
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     event->accept();
@@ -363,12 +399,12 @@ void MainWindow::setUiDecorationState(DecorationState state)
 
     if (state == AllDecorations && !ui->menubar->isVisible()) {
         ui->menubar->show();
-    } else if (ui->menubar->isVisible()) {
+    } else if (state != AllDecorations && ui->menubar->isVisible()) {
         ui->menubar->hide();
     }
 
     if (state == NoDecorations) {
-        setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+        setWindowFlags(windowFlags() | Qt::FramelessWindowHint);
         show();
     } else if (windowFlags() & Qt::FramelessWindowHint) {
         setWindowFlags(windowFlags() & ~Qt::FramelessWindowHint);

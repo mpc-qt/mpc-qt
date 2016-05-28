@@ -30,6 +30,8 @@ public:
     PlaylistWindow *playlistWindow();
     QList<QAction *> editableActions();
     QVariantMap mouseMapDefaults();
+    QVariantMap state();
+    void setState(const QVariantMap &map);
 
 protected:
     void closeEvent(QCloseEvent *event);
