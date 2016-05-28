@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+   "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+<meta name="qrichtext" content="1">
+<style type="text/css">
+p, li { white-space: pre-wrap; }
+p { margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;}
+</style>
+<title></title>
+
+<style type="text/css">
+ body.c6 { font-size:10pt; font-weight:400; font-style:normal;}
+ span.c5 { font-weight:600;}
+ p.c3 { -qt-paragraph-type:empty;}
+ span.c1 { font-size:14pt; font-weight:600;}
+</style>
+</head>
+<body class="c6">
+<p><span class="c1">Format specifiers</span></p>
+<p class="c3"><br></p>
+<p>If no format specifier is set, mpc will attempt to use a sensible default. A format string is composed of %prop tuples, where prop is a metadata property returned by mpv. When mpc has not received any metadata about a file, it will display the filename (minus the extension and the dot).</p>
+<p class="c3"><br></p>
+<p><span class="c5">%prop{tag present}{audio file}{video file}</span></p>
+<p>Expands to the text as decoded by format string X if the tag was present, and optionally if the tag was not present, whether the file was an audio or video file. Files without an audio or video track will be decoded to nothing. For example <span class="c5">%author{# - }{Unknown - }{}</span> will expand to "John Doe - " when a music file specifies who the author is, "Unknown - " when a music file does not specify who the author is, and nothing when a video file does not specify who the author is (as would be the expected case for most video files). If the second and/or third pair of <span class="c5">{}</span> are not specified, they will be parsed as if they were empty.</p>
+<p class="c3"><br></p>
+<p><span class="c1">Format string X</span></p>
+<p class="c3"><br></p>
+<p><span class="c5">#</span></p>
+<p>A special character that expands to whatever the current property may be. Nothing if there is no current property or the current property is empty.</p>
+<p class="c3"><br></p>
+<p><span class="c5">##</span></p>
+<p>Expands to a hash sign.</p>
+<p class="c3"><br></p>
+<p><span class="c5">$</span></p>
+<p>A special character which expands to the filename (minus the extension and the dot). Useful for when no or insufficient metadata is present.</p>
+<p class="c3"><br></p>
+<p><span class="c5">$$</span></p>
+<p>Expands to a dollar sign</p>
+<p class="c3"><br></p>
+<p><span class="c1">Useful metadata properties</span></p>
+<p class="c3"><br></p>
+<p>album</p>
+<p>author</p>
+<p>date</p>
+<p>genre</p>
+<p>title</p>
+<p>track</p>
+</body>
+</html>

@@ -24,5 +24,7 @@
         <file>images/controls/loopa.png</file>
         <file>images/controls/loopb.png</file>
         <file>images/controls/playlist/quickqueue.png</file>
+        <file>text/playlistFormat.html</file>
+        <file>text/encodeFormat.html</file>
     </qresource>
 </RCC>

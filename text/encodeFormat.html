@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+   "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+<meta name="qrichtext" content="1">
+<style type="text/css">
+p, li { white-space: pre-wrap; }
+p { margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; }
+</style>
+<title></title>
+
+<style type="text/css">
+ body.c5 { font-size:10pt; font-weight:400; font-style:normal;}
+ span.c4 { font-weight:600;}
+ span.c1 { font-size:14pt; font-weight:600;}
+</style>
+</head>
+<body class="c5">
+<p><span class="c1">Format specifiers</span></p>
+<p>If no format specifier is set, mpc will attempt to use a sensible default.</p>
+<p><span class="c4">%f</span><br>
+Filename of the currently played video.</p>
+<p><span class="c4">%F</span><br>
+Same as <span class="c4">%f</span>, but strip the file extension, including the dot.</p>
+<p><span class="c4">%s{with}{without}</span><br>
+Indicator whether subs were embedded. Text within the brackets is substituted according to subtitle embedding. For example, pass <span class="c4">%s{subs}{}</span> to insert the text "subs" when subtitles are rendered, and nothing when subtitles are not rendered. Passing only one pair of <span class="c4">{}</span> like <span class="c4">%s{subs}</span> is the same as passing <span class="c4">%s{subs}{}</span>. Ignored if the source has no subtitles.</p>
+<p><span class="c4">%d{novideo}{noaudio}</span><br>
+Encodes only. Indicator whether a track was disabled. Text within the brackets is expanded the same way as with <span class="c4">%s</span>. Ignored if the source lacks either a video or audio track.</p>
+<p><span class="c4">%t{format}</span><br>
+Specify the current local date/time using QDateTime::toString() function. See the bottommost section for details. For example, <span class="c4">%t{yyyy-MM-dd}</span> will insert the current date in ISO date format.</p>
+<p><span class="c4">%aX</span><br>
+Encodes only. Specify the starting time of the capture window using the format string X.</p>
+<p><span class="c4">%bX</span><br>
+Encodes only. Specify the ending time of the capture window using the format string X.</p>
+<p><span class="c4">%wX</span><br>
+Screenshots only. Specify the current playback time using the format string X.</p>
+<p><span class="c4">%%</span><br>
+Replaced with the <span class="c4">%</span> character itself.</p>
+<p><br>
+<span class="c1">Format string X</span></p>
+<p>Replace <span class="c4">w</span> with <span class="c4">a</span> or <span class="c4">b</span> for encodes.</p>
+<p><span class="c4">%wp</span><br>
+Equivalent to <span class="c4">%wH:%wM:%wS</span></p>
+<p><span class="c4">%wP</span><br>
+Equivalent to <span class="c4">%wH:%wM:%wS.%wT</span></p>
+<p><span class="c4">%wH</span><br>
+hour (padded with 0 to two digits)</p>
+<p><span class="c4">%wh</span><br>
+hour (not padded)</p>
+<p><span class="c4">%wM</span><br>
+minutes (00-59)</p>
+<p><span class="c4">%wm</span><br>
+total minutes (includes hours, unlike %wM)</p>
+<p><span class="c4">%wS</span><br>
+seconds (00-59)</p>
+<p><span class="c4">%ws</span><br>
+total seconds (includes hours and minutes)</p>
+<p><span class="c4">%wf</span><br>
+like <span class="c4">%ws</span>, but as float</p>
+<p><span class="c4">%wT</span><br>
+milliseconds (000-999)</p>
+<p><br>
+<span class="c1">QDateTime format</span></p>
+<p><span class="c4">d</span><br>
+the day as number without a leading zero (1 to 31)</p>
+<p><span class="c4">dd</span><br>
+the day as number with a leading zero (01 to 31)</p>
+<p><span class="c4">ddd</span><br>
+the abbreviated localized day name (e.g. 'Mon' to 'Sun')</p>
+<p><span class="c4">dddd</span><br>
+the long localized day name (e.g. 'Monday' to 'Sunday')</p>
+<p><span class="c4">M</span><br>
+the month as number without a leading zero (1-12)</p>
+<p><span class="c4">MM</span><br>
+the month as number with a leading zero (01-12)</p>
+<p><span class="c4">MMM</span><br>
+the abbreviated localized month name (e.g. 'Jan' to 'Dec')</p>
+<p><span class="c4">MMMM</span><br>
+the long localized month name (e.g. 'January' to 'December')</p>
+<p><span class="c4">yy</span><br>
+the year as two digit number (00-99)</p>
+<p><span class="c4">yyyy</span><br>
+the year as four digit number</p>
+<p><span class="c4">h</span><br>
+the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)</p>
+<p><span class="c4">hh</span><br>
+the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)</p>
+<p><span class="c4">H</span><br>
+the hour without a leading zero (0 to 23, even with AM/PM display)</p>
+<p><span class="c4">HH</span><br>
+the hour with a leading zero (00 to 23, even with AM/PM display)</p>
+<p><span class="c4">m</span><br>
+the minute without a leading zero (0 to 59)</p>
+<p><span class="c4">mm</span><br>
+the minute with a leading zero (00 to 59)</p>
+<p><span class="c4">s</span><br>
+the second without a leading zero (0 to 59)</p>
+<p><span class="c4">ss</span><br>
+the second with a leading zero (00 to 59)</p>
+<p><span class="c4">z</span><br>
+the milliseconds without leading zeroes (0 to 999)</p>
+<p><span class="c4">zzz</span><br>
+the milliseconds with leading zeroes (000 to 999)</p>
+</body>
+</html>
