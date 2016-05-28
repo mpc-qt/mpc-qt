@@ -21,6 +21,8 @@ namespace Helpers {
     QString parseFormat(QString fmt, QString fileName, DisabledTrack disabled,
                         Subtitles subtitles, double timeNav, double timeBegin,
                         double timeEnd);
+    QRect vmapToRect(const QVariantMap &m);
+    QVariantMap rectToVmap(const QRect &r);
 
     enum TitlePrefix { PrefixFullPath, PrefixFileName, NoPrefix };
     enum ControlHiding { NeverShown, ShowWhenMoving, ShowWhenHovering };

@@ -189,6 +189,20 @@ QString Helpers::parseFormat(QString fmt, QString fileName,
     return output;
 }
 
+QRect Helpers::vmapToRect(const QVariantMap &m) {
+    return QRect(m["x"].toInt(), m["y"].toInt(),
+            m["w"].toInt(), m["h"].toInt());
+}
+
+QVariantMap Helpers::rectToVmap(const QRect &r) {
+    return QVariantMap {
+        { "x", r.left() },
+        { "y", r.top() },
+        { "w", r.width() },
+        { "h", r.height() }
+    };
+}
+
 
 
 JsonServer::JsonServer(QObject *parent) :
@@ -770,4 +784,5 @@ void Command::fromAction(QAction *a)
     action = a;
     keys = a->shortcut();
 }
+
 
