@@ -714,14 +714,16 @@ void MpvController::create(bool video, bool audio)
         setOptionVariant("vo", "null");
         setOptionVariant("no-video", true);
     } else {
-        // check for nnedi3
-        if (setOptionVariant("vo", "opengl-cb:prescale-luma=nnedi3") < 0)
-            emit nnedi3Unavailable();
         setOptionVariant("vo", "opengl-cb");
-
         glMpv = (mpv_opengl_cb_context *)mpv_get_sub_api(mpv, MPV_SUB_API_OPENGL_CB);
         if (!glMpv)
             throw std::runtime_error("OpenGL not compiled in");
+
+        // check for nnedi3
+        QVariant r = command(QStringList({"vo-cmdline", "prescale-luma=nnedi3"}));
+        if (r.canConvert<MpvErrorCode>())
+            emit nnedi3Unavailable();
+        command(QStringList({"vo-cmdline", ""}));
     }
     mpv_set_wakeup_callback(mpv, MpvController::mpvWakeup, this);
 }
