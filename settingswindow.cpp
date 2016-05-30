@@ -155,7 +155,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->scalingTabs->setCurrentIndex(0);
     ui->prescalarStack->setCurrentIndex(0);
     ui->audioRendererStack->setCurrentIndex(0);
-    setNnedi3Available(false);
+    ui->nnedi3Unavailable->setVisible(false);
 
 #ifdef Q_OS_LINUX
     // Detect a tiling desktop, and disable autozoom for the default.
@@ -516,11 +516,11 @@ void SettingsWindow::sendSignals()
 
 }
 
-void SettingsWindow::setNnedi3Available(bool yes)
+void SettingsWindow::setNnedi3Unavailable()
 {
-    parseNnedi3Fields = yes;
-    ui->nnedi3Unavailable->setVisible(!yes);
-    ui->nnedi3Page->setEnabled(yes);
+    parseNnedi3Fields = false;
+    ui->nnedi3Unavailable->setVisible(true);
+    ui->nnedi3Page->setEnabled(false);
 }
 
 void SettingsWindow::setZoomPreset(int which)

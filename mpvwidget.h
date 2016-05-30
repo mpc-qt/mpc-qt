@@ -69,7 +69,6 @@ public:
     double playLength();
     double playTime();
     QSize videoSize();
-    bool nnedi3Available();
 
     QVariant blockingMpvCommand(QVariant params);
     QVariant blockingSetMpvPropertyVariant(QString name, QVariant value);
@@ -91,6 +90,7 @@ signals:
     void ctrlSetOptionVariant(QString name, QVariant value);
     void ctrlSetPropertyVariant(QString name, QVariant value);
 
+    void nnedi3Unavailable();
     void playTimeChanged(double time);
     void playLengthChanged(double length);
     void playbackLoading();
@@ -112,7 +112,6 @@ signals:
     void logoSizeChanged(QSize size);
 
 private slots:
-    void ctrl_nnedi3Unavailable();
     void ctrl_mpvPropertyChanged(QString name, QVariant v);
     void ctrl_logMessage(QString message);
     void ctrl_unhandledMpvEvent(int eventLevel);
@@ -132,7 +131,6 @@ private:
     QSize videoSize_;
     double playTime_;
     double playLength_;
-    bool nnedi3Available_;
     int glWidth, glHeight;
 
     bool drawLogo;

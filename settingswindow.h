@@ -178,7 +178,7 @@ public slots:
     void takeKeyMap(const QVariantMap &payload);
     void setMouseMapDefaults(const QVariantMap &payload);
     void sendSignals();
-    void setNnedi3Available(bool yes);
+    void setNnedi3Unavailable();
     void setZoomPreset(int which);
     void setServerName(const QString &name);
 

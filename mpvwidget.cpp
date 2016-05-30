@@ -70,7 +70,7 @@ static void *get_proc_address(void *ctx, const char *name) {
 }
 
 MpvWidget::MpvWidget(QWidget *parent) :
-    QOpenGLWidget(parent), nnedi3Available_(true), drawLogo(true),
+    QOpenGLWidget(parent), drawLogo(true),
     logo(NULL)
 {
     debugMessages = false;
@@ -99,7 +99,7 @@ MpvWidget::MpvWidget(QWidget *parent) :
 
     // Wire up the event-handling callbacks
     connect(ctrl, &MpvController::nnedi3Unavailable,
-            this, &MpvWidget::ctrl_nnedi3Unavailable, Qt::QueuedConnection);
+            this, &MpvWidget::nnedi3Unavailable, Qt::QueuedConnection);
     connect(ctrl, &MpvController::mpvPropertyChanged,
             this, &MpvWidget::ctrl_mpvPropertyChanged, Qt::QueuedConnection);
     connect(ctrl, &MpvController::logMessage,
@@ -435,11 +435,6 @@ QSize MpvWidget::videoSize()
     return videoSize_;
 }
 
-bool MpvWidget::nnedi3Available()
-{
-    return nnedi3Available_;
-}
-
 QVariant MpvWidget::blockingMpvCommand(QVariant params)
 {
     QVariant v;
@@ -530,13 +525,6 @@ void MpvWidget::setMpvOptionVariant(QString name, QVariant value)
 void MpvWidget::ctrl_update(void *ctx)
 {
     QMetaObject::invokeMethod(reinterpret_cast<MpvWidget*>(ctx), "update");
-}
-
-void MpvWidget::ctrl_nnedi3Unavailable()
-{
-    if (debugMessages)
-        qDebug() << "nnedi3 is unavailable!";
-    nnedi3Available_ = false;
 }
 
 #define HANDLE_PROP_1(p, method, converter, dflt) \
@@ -722,7 +710,7 @@ void MpvController::create(bool video, bool audio)
         // check for nnedi3
         QVariant r = command(QStringList({"vo-cmdline", "prescale-luma=nnedi3"}));
         if (r.canConvert<MpvErrorCode>())
-            emit nnedi3Unavailable();
+                 emit nnedi3Unavailable();
         command(QStringList({"vo-cmdline", ""}));
     }
     mpv_set_wakeup_callback(mpv, MpvController::mpvWakeup, this);
@@ -761,13 +749,10 @@ int MpvController::setOptionVariant(QString name, const QVariant &value)
 
 QVariant MpvController::command(const QVariant &params)
 {
-    if (params.type() == QVariant::String)
-        return mpv_command_string(mpv, params.toString().toUtf8().data());
-
     mpv::qt::node_builder node(params);
     mpv_node res;
-    int value;
-    if ((value = mpv_command_node(mpv, node.node(), &res)) < 0)
+    int value = mpv_command_node(mpv, node.node(), &res);
+    if (value < 0)
         return QVariant::fromValue(MpvErrorCode(value));
     mpv::qt::node_autofree f(&res);
     return mpv::qt::node_to_variant(&res);
@@ -891,6 +876,8 @@ void MpvController::handleMpvEvent(mpv_event *event)
     case MPV_EVENT_COMMAND_REPLY:
     case MPV_EVENT_SET_PROPERTY_REPLY: {
         QVariant v = QVariant::fromValue<MpvErrorCode>(MpvErrorCode(event->error));
+        if (!event->reply_userdata)
+            return;
         QMetaObject::invokeMethod(reinterpret_cast<MpvCallback*>(event->reply_userdata),
                                   "reply", Qt::QueuedConnection,
                                   Q_ARG(QVariant, v));

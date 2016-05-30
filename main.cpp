@@ -60,6 +60,10 @@ Flow::Flow(QObject *owner) :
     settingsWindow = new SettingsWindow();
     settingsWindow->setWindowModality(Qt::WindowModal);
 
+    // mpvwidget -> settingsmanager
+    connect(mainWindow->mpvWidget(), &MpvWidget::nnedi3Unavailable,
+            settingsWindow, &SettingsWindow::setNnedi3Unavailable);
+
     // mainwindow -> manager
     connect(mainWindow, &MainWindow::severalFilesOpened,
             playbackManager, &PlaybackManager::openSeveralFiles);
@@ -262,7 +266,6 @@ Flow::Flow(QObject *owner) :
     settingsWindow->takeSettings(settings);
     settingsWindow->setMouseMapDefaults(mainWindow->mouseMapDefaults());
     settingsWindow->takeKeyMap(keyMap);
-    settingsWindow->setNnedi3Available(mainWindow->mpvWidget()->nnedi3Available());
     settingsWindow->setServerName(server->fullServerName());
     settingsWindow->sendSignals();
 
