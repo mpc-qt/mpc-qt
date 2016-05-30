@@ -708,10 +708,9 @@ void MpvController::create(bool video, bool audio)
             throw std::runtime_error("OpenGL not compiled in");
 
         // check for nnedi3
-        QVariant r = command(QStringList({"vo-cmdline", "prescale-luma=nnedi3"}));
-        if (r.canConvert<MpvErrorCode>())
-                 emit nnedi3Unavailable();
-        command(QStringList({"vo-cmdline", ""}));
+        QVariant r = getPropertyVariant("mpv-configuration");
+        if (!r.toString().contains("--enable-gpl3"))
+            emit nnedi3Unavailable();
     }
     mpv_set_wakeup_callback(mpv, MpvController::mpvWakeup, this);
 }
