@@ -6,6 +6,7 @@
 #include <QMenuBar>
 #include "helpers.h"
 #include "qdrawnslider.h"
+#include "qdrawnstatus.h"
 #include "manager.h"
 #include "playlistwindow.h"
 
@@ -61,6 +62,7 @@ private:
     void setupMpvWidget();
     void setupMpvHost();
     void setupPlaylist();
+    void setupStatus();
     void setupSizing();
     void connectButtonsToActions();
     void connectPlaylistWindowToActions();
@@ -214,6 +216,8 @@ private:
     MpvWidget *mpvw;
     QMediaSlider *positionSlider_;
     QVolumeSlider *volumeSlider_;
+    QStatusTime *timePosition;
+    QStatusTime *timeDuration;
     PlaylistWindow *playlistWindow_;
 
     DecorationState decorationState_;

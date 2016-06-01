@@ -41,6 +41,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setupMpvWidget();
     setupMpvHost();
     setupPlaylist();
+    setupStatus();
     setupSizing();
 
     connectButtonsToActions();
@@ -300,6 +301,14 @@ void MainWindow::setupPlaylist()
     mpvHost_->addDockWidget(Qt::RightDockWidgetArea, playlistWindow_);
 }
 
+void MainWindow::setupStatus()
+{
+    timePosition = new QStatusTime();
+    ui->statusbarLayout->insertWidget(2, timePosition);
+    timeDuration = new QStatusTime();
+    ui->statusbarLayout->insertWidget(4, timeDuration);
+}
+
 void MainWindow::setupSizing()
 {
     // The point of requesting calls to updateSize through a _queued_ slot is
@@ -470,10 +479,8 @@ void MainWindow::setUiEnabledState(bool enabled)
 
 void MainWindow::updateTime()
 {
-    double playTime = mpvw->playTime();
-    double playLength = mpvw->playLength();
-    ui->time->setText(QString("%1 / %2").arg(toDateFormat(playTime),
-                                             toDateFormat(playLength)));
+    timeDuration->setTime(mpvw->playLength());
+    timePosition->setTime(mpvw->playTime());
 }
 
 void MainWindow::updateFramedrops()

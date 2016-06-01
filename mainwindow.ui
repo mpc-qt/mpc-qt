@@ -510,7 +510,7 @@
        </item>
        <item>
         <widget class="QWidget" name="statusbar" native="true">
-         <layout class="QHBoxLayout" name="_2" stretch="0,1,0">
+         <layout class="QHBoxLayout" name="statusbarLayout" stretch="0,1,0">
           <property name="leftMargin">
            <number>6</number>
           </property>
@@ -538,9 +538,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="time">
+           <widget class="QLabel" name="timeGap">
             <property name="text">
-             <string>0:00:00.000 / 0:00:00.000</string>
+             <string>/</string>
             </property>
            </widget>
           </item>
@@ -773,7 +773,7 @@
     </property>
     <widget class="QMenu" name="menuPlay_Times">
      <property name="title">
-      <string>Extra Play Times</string>
+      <string>&amp;Extra Play Times</string>
      </property>
      <addaction name="actionPlaylistExtraIncrement"/>
      <addaction name="actionPlaylistExtraDecrement"/>
@@ -1414,7 +1414,7 @@
   </action>
   <action name="actionPlaylistPlayCurrent">
    <property name="text">
-    <string>Play Current</string>
+    <string>&amp;Play Current</string>
    </property>
    <property name="shortcut">
     <string>Return</string>
@@ -1489,7 +1489,7 @@
   </action>
   <action name="actionPlaylistSearch">
    <property name="text">
-    <string>Search Playlist</string>
+    <string>&amp;Search Playlist</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+F</string>
@@ -1497,7 +1497,7 @@
   </action>
   <action name="actionPlaylistQuickQueue">
    <property name="text">
-    <string>Quick Queue Toggle</string>
+    <string>&amp;Quick Queue Toggle</string>
    </property>
    <property name="shortcut">
     <string>Q</string>
@@ -1505,7 +1505,7 @@
   </action>
   <action name="actionPlaylistFinishSearching">
    <property name="text">
-    <string>Finish Searching</string>
+    <string>&amp;Finish Searching</string>
    </property>
    <property name="shortcut">
     <string>Esc</string>
@@ -1513,7 +1513,7 @@
   </action>
   <action name="actionPlaylistNewTab">
    <property name="text">
-    <string>New Tab</string>
+    <string>&amp;New Tab</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+T</string>
@@ -1521,7 +1521,7 @@
   </action>
   <action name="actionPlaylistCloseTab">
    <property name="text">
-    <string>Close Tab</string>
+    <string>C&amp;lose Tab</string>
    </property>
    <property name="toolTip">
     <string>Close Tab</string>
@@ -1532,7 +1532,7 @@
   </action>
   <action name="actionPlaylistDuplicateTab">
    <property name="text">
-    <string>Duplicate Tab</string>
+    <string>&amp;Duplicate Tab</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+D</string>
@@ -1540,7 +1540,7 @@
   </action>
   <action name="actionPlaylistImport">
    <property name="text">
-    <string>Import Playlist</string>
+    <string>&amp;Import Playlist</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+O</string>
@@ -1548,7 +1548,7 @@
   </action>
   <action name="actionPlaylistExport">
    <property name="text">
-    <string>Export Playlist</string>
+    <string>E&amp;xport Playlist</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+S</string>
@@ -1556,7 +1556,7 @@
   </action>
   <action name="actionPlaylistQueueVisible">
    <property name="text">
-    <string>Queue Visible</string>
+    <string>Queue &amp;Visible</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+Q</string>
@@ -1564,7 +1564,7 @@
   </action>
   <action name="actionPlaylistExtraIncrement">
    <property name="text">
-    <string>Increment</string>
+    <string>&amp;Increment</string>
    </property>
    <property name="shortcut">
     <string>E</string>
@@ -1572,7 +1572,7 @@
   </action>
   <action name="actionPlaylistExtraDecrement">
    <property name="text">
-    <string>Decrement</string>
+    <string>&amp;Decrement</string>
    </property>
    <property name="shortcut">
     <string>Shift+E</string>
@@ -1580,7 +1580,7 @@
   </action>
   <action name="actionPlaylistExtraZero">
    <property name="text">
-    <string>Clear Play Times</string>
+    <string>&amp;Clear Play Times</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+E</string>
@@ -1588,7 +1588,7 @@
   </action>
   <action name="actionPlaylistCopy">
    <property name="text">
-    <string>Copy Selection</string>
+    <string>&amp;Copy Selection</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+C</string>
@@ -1604,7 +1604,7 @@
   </action>
   <action name="actionPlaylistCopyQueue">
    <property name="text">
-    <string>Copy Queue</string>
+    <string>C&amp;opy Queue</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+C</string>
@@ -1612,7 +1612,7 @@
   </action>
   <action name="actionPlaylistPasteQueue">
    <property name="text">
-    <string>Paste and Queue</string>
+    <string>Paste and Q&amp;ueue</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+V</string>
