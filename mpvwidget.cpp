@@ -748,6 +748,13 @@ int MpvController::setOptionVariant(QString name, const QVariant &value)
 
 QVariant MpvController::command(const QVariant &params)
 {
+    if (params.canConvert<QString>()) {
+        int value = mpv_command_string(mpv, params.value<QString>().toUtf8().data());
+        if (value < 0)
+            return QVariant::fromValue(MpvErrorCode(value));
+        return QVariant();
+    }
+
     mpv::qt::node_builder node(params);
     mpv_node res;
     int value = mpv_command_node(mpv, node.node(), &res);
