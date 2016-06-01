@@ -33,7 +33,7 @@ static const T& clamp(const T& value, const T& low, const T& high)
 
 
 QDrawnSlider::QDrawnSlider(QWidget *parent, QSize handle, QSize margin) :
-    QWidget(parent)
+    QOpenGLWidget(parent)
 {
     setFocusPolicy(Qt::NoFocus);
     setMouseTracking(true);
@@ -75,20 +75,21 @@ double QDrawnSlider::xToValue(double x)
     return clamp(val, minimum(), maximum());
 }
 
-void QDrawnSlider::paintEvent(QPaintEvent *ev)
+void QDrawnSlider::paintGL()
 {
-    (void)ev;
-    QPainter p(this);
-
     QPalette pal;
     pal = reinterpret_cast<QWidget*>(parentWidget())->palette();
     grooveBorder = pal.color(QPalette::Normal, QPalette::Shadow);
     grooveFill   = pal.color(QPalette::Normal, QPalette::Base);
     handleBorder = pal.color(QPalette::Normal, QPalette::Dark);
     handleFill   = pal.color(QPalette::Normal, QPalette::Button);
+    bgColor      = pal.color(QPalette::Normal, QPalette::Window);
     loopColor    = pal.color(QPalette::Normal, QPalette::Highlight);
     markColor    = pal.color(QPalette::Normal, QPalette::Shadow);
 
+    // TODO: convert both mediaslider and volumeslider to gl
+    glClearColor(bgColor.redF(), bgColor.greenF(), bgColor.blueF(), 0.0f);
+    QPainter p(this);
     p.setRenderHint(QPainter::Antialiasing, true);
     p.setOpacity(isEnabled() ? 1.0 : 0.333);
 
@@ -97,7 +98,7 @@ void QDrawnSlider::paintEvent(QPaintEvent *ev)
         drawHandle(&p, isDragging ? xPosition : valueToX(value()));
 }
 
-void QDrawnSlider::resizeEvent(QResizeEvent *re)
+void QDrawnSlider::resizeGL(int w, int h)
 {
     /*
         MEDIA SLIDER CASE
@@ -164,9 +165,6 @@ height  |         +          ----    hH
     these relate to where the middle of the handle is.
     */
 
-    (void)re;
-    int w = re->size().width();
-    int h = re->size().height();
     grooveArea = QRectF(0, 0, w, h);
     drawnArea = grooveArea;
     grooveArea.adjust(marginX, marginY, -marginX, -marginY);
