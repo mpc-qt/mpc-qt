@@ -940,12 +940,14 @@ void MainWindow::on_actionViewHideControls_toggled(bool checked)
 
 void MainWindow::on_actionViewHideInformation_toggled(bool checked)
 {
+    Q_UNUSED(checked);
     updateInfostats();
     fireUpdateSize();
 }
 
 void MainWindow::on_actionViewHideStatistics_toggled(bool checked)
 {
+    Q_UNUSED(checked);
     updateInfostats();
     fireUpdateSize();
 }

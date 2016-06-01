@@ -9,8 +9,8 @@ using namespace Helpers;
 
 
 PlaybackManager::PlaybackManager(QObject *parent) :
-    QObject(parent), mpvSpeed(1.0), playbackPlayTimes(1),
-    playbackState_(StoppedState)
+    QObject(parent), mpvSpeed(1.0), playbackState_(StoppedState),
+    playbackPlayTimes(1)
 {
 }
 

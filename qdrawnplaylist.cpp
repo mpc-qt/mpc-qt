@@ -378,6 +378,7 @@ void QDrawnPlaylist::model_rowsMoved(const QModelIndex &parent,
 void QDrawnPlaylist::self_currentItemChanged(QListWidgetItem *current,
                                              QListWidgetItem *previous)
 {
+    Q_UNUSED(previous);
     QUuid uuid;
     if (current && !(uuid=reinterpret_cast<PlayItem*>(current)->uuid()).isNull())
         lastSelectedItem = uuid;

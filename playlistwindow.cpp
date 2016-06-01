@@ -581,6 +581,7 @@ void PlaylistWindow::on_searchField_textEdited(const QString &arg1)
 
 void PlaylistWindow::on_tabWidget_currentChanged(int index)
 {
+    Q_UNUSED(index);
     updateCurrentPlaylist();
 }
 
