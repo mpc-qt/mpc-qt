@@ -44,6 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setupStatus();
     setupSizing();
 
+    connectActionsToSlots();
     connectButtonsToActions();
     connectPlaylistWindowToActions();
     globalizeAllActions();
@@ -319,6 +320,12 @@ void MainWindow::setupSizing()
 
     QSizeGrip *gripper = new QSizeGrip(this);
     ui->statusbar->layout()->addWidget(gripper);
+}
+
+void MainWindow::connectActionsToSlots()
+{
+    connect(ui->actionHelpAboutQt, &QAction::triggered,
+            qApp, &QApplication::aboutQt);
 }
 
 void MainWindow::connectButtonsToActions()

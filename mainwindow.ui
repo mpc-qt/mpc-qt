@@ -766,6 +766,7 @@
     <addaction name="actionHelpHomepage"/>
     <addaction name="separator"/>
     <addaction name="actionHelpAbout"/>
+    <addaction name="actionHelpAboutQt"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
@@ -1616,6 +1617,11 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+V</string>
+   </property>
+  </action>
+  <action name="actionHelpAboutQt">
+   <property name="text">
+    <string>About Qt...</string>
    </property>
   </action>
  </widget>

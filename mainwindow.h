@@ -64,6 +64,7 @@ private:
     void setupPlaylist();
     void setupStatus();
     void setupSizing();
+    void connectActionsToSlots();
     void connectButtonsToActions();
     void connectPlaylistWindowToActions();
     void globalizeAllActions();
