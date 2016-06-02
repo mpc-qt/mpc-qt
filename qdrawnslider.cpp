@@ -87,9 +87,8 @@ void QDrawnSlider::paintGL()
     loopColor    = pal.color(QPalette::Normal, QPalette::Highlight);
     markColor    = pal.color(QPalette::Normal, QPalette::Shadow);
 
-    // TODO: convert both mediaslider and volumeslider to gl
-    glClearColor(bgColor.redF(), bgColor.greenF(), bgColor.blueF(), 0.0f);
     QPainter p(this);
+    p.fillRect(QRect(0, 0, width(), height()), bgColor);
     p.setRenderHint(QPainter::Antialiasing, true);
     p.setOpacity(isEnabled() ? 1.0 : 0.333);
 
