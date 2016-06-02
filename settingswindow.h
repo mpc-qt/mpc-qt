@@ -179,8 +179,10 @@ public slots:
     void setMouseMapDefaults(const QVariantMap &payload);
     void sendSignals();
     void setNnedi3Unavailable();
-    void setZoomPreset(int which);
+
     void setServerName(const QString &name);
+
+    void setZoomPreset(int which);
 
 private slots:
     void on_pageTree_itemSelectionChanged();

@@ -523,6 +523,11 @@ void SettingsWindow::setNnedi3Unavailable()
     ui->nnedi3Page->setEnabled(false);
 }
 
+void SettingsWindow::setServerName(const QString &name)
+{
+    ui->ipcNotice->setText(ui->ipcNotice->text().arg(name));
+}
+
 void SettingsWindow::setZoomPreset(int which)
 {
     bool autoZoom = which >= 0;
@@ -534,11 +539,6 @@ void SettingsWindow::setZoomPreset(int which)
     ui->playbackAutoZoomMethod->setCurrentIndex(zoomMethod);
 
     emit settingsData(acceptedSettings.toVMap());
-}
-
-void SettingsWindow::setServerName(const QString &name)
-{
-    ui->ipcNotice->setText(ui->ipcNotice->text().arg(name));
 }
 
 void SettingsWindow::on_pageTree_itemSelectionChanged()
