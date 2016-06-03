@@ -607,20 +607,6 @@ void MainWindow::updateInfostats()
     ui->infoSection->adjustSize();
 }
 
-void MainWindow::doMpvStopPlayback(bool dry_run)
-{
-    if (!dry_run)
-        emit stopped();
-    isPlaying = false;
-    updateSize();
-}
-
-void MainWindow::doMpvSetVolume(int volume)
-{
-    mpvw->setVolume(volume);
-    mpvw->showMessage(QString("Volume :%1%").arg(volume));
-}
-
 void MainWindow::setNoVideoSize(const QSize &size)
 {
     noVideoSize_ = size.expandedTo(QSize(500,270));
@@ -1122,7 +1108,9 @@ void MainWindow::on_actionPlayPause_triggered(bool checked)
 
 void MainWindow::on_actionPlayStop_triggered()
 {
-    doMpvStopPlayback();
+    emit stopped();
+    isPlaying = false;
+    updateSize();
 }
 
 void MainWindow::on_actionPlayFrameBackward_triggered()
