@@ -528,6 +528,14 @@ void SettingsWindow::setServerName(const QString &name)
     ui->ipcNotice->setText(ui->ipcNotice->text().arg(name));
 }
 
+void SettingsWindow::setVolume(int level)
+{
+    WIDGET_LOOKUP(ui->playbackVolume).setValue(level);
+    ui->playbackVolume->setValue(level);
+
+    emit settingsData(acceptedSettings.toVMap());
+}
+
 void SettingsWindow::setZoomPreset(int which)
 {
     bool autoZoom = which >= 0;

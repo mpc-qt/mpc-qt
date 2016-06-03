@@ -182,6 +182,7 @@ public slots:
 
     void setServerName(const QString &name);
 
+    void setVolume(int level);
     void setZoomPreset(int which);
 
 private slots:
