@@ -146,6 +146,8 @@ Flow::Flow(QObject *owner) :
             mainWindow, &MainWindow::setDecoderFramedrops);
 
     // mainwindow -> settings
+    connect(mainWindow, &MainWindow::volumeChanged,
+            settingsWindow, &SettingsWindow::setVolume);
     connect(mainWindow, &MainWindow::zoomPresetChanged,
             settingsWindow, &SettingsWindow::setZoomPreset);
 
@@ -154,6 +156,8 @@ Flow::Flow(QObject *owner) :
             mainWindow, &MainWindow::setWindowedMouseMap);
     connect(settingsWindow, &SettingsWindow::mouseFullscreenMap,
             mainWindow, &MainWindow::setFullscreenMouseMap);
+    connect(settingsWindow, &SettingsWindow::volume,
+            mainWindow, &MainWindow::setVolume);
     connect(settingsWindow, &SettingsWindow::zoomPreset,
             mainWindow, &MainWindow::setZoomPreset);
 
@@ -161,6 +165,8 @@ Flow::Flow(QObject *owner) :
     auto mpvw = mainWindow->mpvWidget();
     connect(settingsWindow, &SettingsWindow::logoSource,
             mpvw, &MpvWidget::setLogoUrl);
+    connect(settingsWindow, &SettingsWindow::volume,
+            mpvw, &MpvWidget::setVolume);
     connect(settingsWindow, &SettingsWindow::voCommandLine,
             mpvw, &MpvWidget::setVOCommandLine);
     connect(settingsWindow, &SettingsWindow::framedropMode,
