@@ -17,10 +17,6 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
 {
     clipboard = new PlaylistSelection;
 
-    // When (un)docking windows, some widgets may get transformed into native
-    // widgets, causing painting glitches.  Tell Qt that we prefer non-native.
-    setAttribute(Qt::WA_DontCreateNativeAncestors);
-
     ui->setupUi(this);
     addNewTab(QUuid(), tr("Quick Playlist"));
     ui->searchHost->setVisible(false);

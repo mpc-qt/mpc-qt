@@ -75,10 +75,6 @@ MpvWidget::MpvWidget(QWidget *parent) :
 {
     debugMessages = false;
 
-    // When (un)docking windows, some widgets may get transformed into native
-    // widgets, causing painting glitches.  Tell Qt that we prefer non-native.
-    setAttribute(Qt::WA_DontCreateNativeAncestors);
-
     // Setup threads
     worker = new QThread();
     worker->start();
