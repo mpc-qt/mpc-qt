@@ -779,6 +779,11 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
     }
 }
 
+void MainWindow::setVolume(int level)
+{
+    volumeSlider_->setValue(level);
+}
+
 void MainWindow::setFps(double fps)
 {
     ui->framerate->setText(std::isnan(fps) ? "-" : QString::number(fps, 'f', 2));

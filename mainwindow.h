@@ -129,6 +129,7 @@ public slots:
     void setAudioTracks(QList<QPair<int64_t,QString>> tracks);
     void setVideoTracks(QList<QPair<int64_t,QString>> tracks);
     void setSubtitleTracks(QList<QPair<int64_t,QString>> tracks);
+    void setVolume(int level);
     void setFps(double fps);
     void setAvsync(double sync);
     void setDisplayFramedrops(int64_t count);
