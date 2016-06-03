@@ -329,6 +329,9 @@ void SettingsWindow::sendSignals()
     emit rememberPanNScan(WIDGET_LOOKUP(ui->playerRememberPanScanZoom).toBool());
 
     emit logoSource(selectedLogo());
+
+    emit volume(WIDGET_LOOKUP(ui->playbackVolume).toInt());
+
     emit playbackPlayTimes(WIDGET_LOOKUP(ui->playbackRepeatForever).toBool() ?
                            0 : WIDGET_LOOKUP(ui->playbackPlayAmount).toInt());
 
