@@ -271,7 +271,7 @@ void MainWindow::setupVolumeSlider()
     volumeSlider_ = new QVolumeSlider();
     volumeSlider_->setMinimumWidth(50);
     volumeSlider_->setMinimum(0);
-    volumeSlider_->setMaximum(100);
+    volumeSlider_->setMaximum(130);
     volumeSlider_->setValue(100);
     ui->controlbar->layout()->addWidget(volumeSlider_);
     connect(volumeSlider_, &QVolumeSlider::sliderMoved,

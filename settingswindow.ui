@@ -729,7 +729,7 @@ media file played</string>
               <item row="1" column="0">
                <widget class="QSlider" name="playbackVolume">
                 <property name="maximum">
-                 <number>200</number>
+                 <number>130</number>
                 </property>
                 <property name="value">
                  <number>99</number>
