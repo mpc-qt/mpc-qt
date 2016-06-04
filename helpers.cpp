@@ -205,52 +205,6 @@ QVariantMap Helpers::rectToVmap(const QRect &r) {
 
 
 
-JsonServer::JsonServer(QObject *parent) :
-    QObject(parent)
-{
-    socketName = QCoreApplication::organizationDomain();
-}
-
-bool JsonServer::sendPayload(const QByteArray &payload)
-{
-    QLocalSocket socket;
-    socket.setServerName(socketName);
-    socket.connectToServer();
-    if (!socket.waitForConnected(100)) {
-        listen();
-        return false;
-    }
-    socket.write(payload);
-    return socket.waitForReadyRead(100);
-}
-
-QString JsonServer::fullServerName()
-{
-    if (!server)
-        return QString();
-    return server->fullServerName();
-}
-
-void JsonServer::listen()
-{
-    server = new QLocalServer(this);
-    server->removeServer(socketName);
-    server->listen(socketName);
-    connect(server, &QLocalServer::newConnection,
-            this, &JsonServer::server_newConnection);
-}
-
-void JsonServer::server_newConnection()
-{
-    QLocalSocket *socket = server->nextPendingConnection();
-    connect(socket, &QLocalSocket::readyRead, [=]() {
-        QByteArray data = socket->readAll();
-        emit payloadReceived(data, socket);
-    });
-}
-
-
-
 LogoDrawer::LogoDrawer(QObject *parent)
     : QObject(parent), logo(NULL)
 {

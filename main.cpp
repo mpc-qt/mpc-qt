@@ -40,22 +40,17 @@ Flow::Flow(QObject *owner) :
     QObject(owner), server(NULL), mainWindow(NULL), playbackManager(NULL),
     settingsWindow(NULL)
 {
-    setupIpcCommands();
-
-    server = new JsonServer(this);
-    hasPrevious_ = server->sendPayload(makePayload());
-    if (hasPrevious_)
-        return;
-
-    connect(server, &JsonServer::payloadReceived,
-            this, &Flow::server_payloadRecieved);
-
     mainWindow = new MainWindow();
     playbackManager = new PlaybackManager(this);
     playbackManager->setMpvWidget(mainWindow->mpvWidget(), true);
     playbackManager->setPlaylistWindow(mainWindow->playlistWindow());
     settingsWindow = new SettingsWindow();
     settingsWindow->setWindowModality(Qt::WindowModal);
+
+    server = new MpcQtServer(mainWindow, playbackManager, this);
+    hasPrevious_ = server->sendPayload(makePayload());
+    if (hasPrevious_)
+        return;
 
     // mpvwidget -> settingsmanager
     connect(mainWindow->mpvWidget(), &MpvWidget::nnedi3Unavailable,
@@ -316,23 +311,13 @@ int Flow::run()
         restoreWindows(storage.readVMap("geometry"));
     });
     if (!hasPrevious_)
-        server_payloadRecieved(makePayload(), NULL);
+        server->fakePayload(makePayload());
     return qApp->exec();
 }
 
 bool Flow::hasPrevious()
 {
     return hasPrevious_;
-}
-
-void Flow::setupIpcCommands()
-{
-    for (int i = 0; i < metaObject()->methodCount(); ++i) {
-        QMetaMethod method(metaObject()->method(i));
-        QString name(method.name());
-        if (name.startsWith("ipc_"))
-            ipcCommands[name.mid(4)] = method;
-    }
 }
 
 QByteArray Flow::makePayload() const
@@ -343,30 +328,6 @@ QByteArray Flow::makePayload() const
         {"files", QVariant(QCoreApplication::arguments().mid(1))}
     });
     return QJsonDocument::fromVariant(map).toJson();
-}
-
-void Flow::socketReturn(QLocalSocket *socket, bool wasParsed, QVariant value)
-{
-    if (!socket)
-        return;
-
-    QVariantMap result;
-    QString code;
-    if (!wasParsed) {
-        result["code"] = "unknown";
-        goto end;
-    }
-    if (value.canConvert<MpvErrorCode>()) {
-        result["code"]= "error";
-        value = value.value<MpvErrorCode>().errorcode();
-    } else {
-        result["code"] = "ok";
-    }
-    result["value"] = value;
-    end:
-    socket->write(QJsonDocument::fromVariant(result).toJson());
-    socket->flush();
-    socket->deleteLater();
 }
 
 QString Flow::pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const
@@ -519,170 +480,6 @@ void Flow::manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid)
         recentFiles.removeLast();
 
     emit recentFilesChanged(recentFiles);
-}
-
-void Flow::server_payloadRecieved(const QByteArray &payload, QLocalSocket *socket)
-{
-    QJsonParseError parseError;
-    QVariantMap map = QJsonDocument::fromJson(payload, &parseError).toVariant().toMap();
-
-    if (!map.contains("command"))
-        return;
-    QString command = map["command"].toString();
-    QVariant value;
-    if (ipcCommands.contains(command)) {
-        QMetaMethod method = ipcCommands[command];
-        if (ipcCommands[command].returnType() == QMetaType::QVariant)
-            method.invoke(this, Q_RETURN_ARG(QVariant, value),
-                                Q_ARG(QVariantMap, map));
-        else if (method.parameterCount())
-            method.invoke(this, Q_ARG(QVariantMap,map));
-        else
-            method.invoke(this);
-        socketReturn(socket, true, value);
-    } else {
-        socketReturn(socket, false);
-    }
-}
-
-void Flow::ipc_playFiles(const QVariantMap &map)
-{
-    QString workingDirectory = map["directory"].toString();
-    QStringList filesAsText = map["files"].toStringList();
-    QList<QUrl> files;
-    QUrl url;
-    foreach (QString s, filesAsText) {
-        files << QUrl::fromUserInput(s, workingDirectory);
-    }
-    if (!files.empty()) {
-        playbackManager->openSeveralFiles(files, true);
-    }
-}
-
-void Flow::ipc_play(const QVariantMap &map)
-{
-    QUrl url = map["file"].toString();
-    if (!url.isEmpty())
-        playbackManager->openFile(url);
-}
-
-void Flow::ipc_pause()
-{
-    playbackManager->pausePlayer();
-}
-
-void Flow::ipc_unpause()
-{
-    playbackManager->unpausePlayer();
-}
-
-void Flow::ipc_start()
-{
-    if (!mainWindow->playlistWindow()->playActiveItem())
-        mainWindow->playlistWindow()->playCurrentItem();
-}
-
-void Flow::ipc_stop()
-{
-    playbackManager->stopPlayer();
-}
-
-void Flow::ipc_next(const QVariantMap &map)
-{
-    if (playbackManager->playbackState() != PlaybackManager::StoppedState)
-        playbackManager->playNextFile();
-    else if (map.value("autostart", false).toBool())
-        ipc_start();
-    else
-        mainWindow->playlistWindow()->activateNext();
-}
-
-void Flow::ipc_previous(const QVariantMap &map)
-{
-    if (playbackManager->playbackState() != PlaybackManager::StoppedState)
-        playbackManager->playPrevFile();
-    else if (map.value("autostart", false).toBool())
-        ipc_start();
-    else
-        mainWindow->playlistWindow()->activatePrevious();
-}
-
-void Flow::ipc_repeat()
-{
-    playbackManager->repeatThisFile();
-}
-
-void Flow::ipc_togglePlayback()
-{
-    switch (playbackManager->playbackState()) {
-    case PlaybackManager::StoppedState:
-        ipc_start();
-        break;
-    case PlaybackManager::PausedState:
-        playbackManager->unpausePlayer();
-        break;
-    default:
-        playbackManager->pausePlayer();
-    }
-}
-
-QVariant Flow::ipc_getMpvProperty(const QVariantMap &map)
-{
-    if (!map.contains("name"))
-        return QVariant::fromValue(MpvErrorCode(-0xdedbeef));
-    return mainWindow->mpvWidget()->getMpvPropertyVariant(map["name"].toString());
-}
-
-QVariant Flow::ipc_setMpvProperty(const QVariantMap &map)
-{
-    QSet<QString> banned = {
-        "stream-open-filename", "file-local-options", "ab-loop-a",
-        "ab-loop-b", "volume", "mute", "fullscreen" };
-    QString name = map.value("name").toString();
-    if (name.isEmpty() || banned.contains(name))
-        return QVariant::fromValue(MpvErrorCode(-0xdedbeef));
-
-    return mainWindow->mpvWidget()->blockingSetMpvPropertyVariant(name, map["value"]);
-}
-
-QVariant Flow::ipc_setMpvOption(const QVariantMap &map)
-{
-    QSet<QString> banned = {
-        "vo", "vo-defaults", "script", "script-opts",  "wid", "input-conf",
-        "input-test", "input-file", "input-terminal", "no-input-terminal",
-        "input-ipc-server", "input-media-keys", "input-vo-keyboard",
-        "input-app-event", "osc", "no-osc", "no-osd-bar", "osd-bar",
-        "no-terminal",  "terminal" };
-    QString name = map.value("name").toString();
-    if (name.isEmpty() || banned.contains(name))
-        return QVariant::fromValue(MpvErrorCode(-0xdedbeef));
-
-    return mainWindow->mpvWidget()->blockingSetMpvOptionVariant(name, map["value"]);
-}
-
-QVariant Flow::ipc_doMpvCommand(const QVariantMap &map)
-{
-    QSet<QString> banned = {
-        "openfile", "stop", "set", "add", "cycle", "multiply", "run", "quit",
-        "quit-watch-later", "mouse", "keypress", "keydown", "keyup",
-        "enable-section", "define-section", "script-message",
-        "script-message-to", "script-binding", "vo-cmdline", "hook-add",
-        "hook-ack", "set_property", "set_property_string", "enable_event",
-        "suspend", "volume" };
-    QString name = map.value("name").toString();
-    if (name.isEmpty() || banned.contains(name))
-        return QVariant::fromValue(MpvErrorCode(-0xdedbeef));
-
-    QVariantList command = { name };
-    QVariant options = map.value("options");
-    if (options.isNull())
-        goto end;
-    else if (options.canConvert<QVariantList>())
-        command.append(options.toList());
-    else
-        command.append(options);
-    end:
-    return mainWindow->mpvWidget()->blockingMpvCommand(QVariant(command));
 }
 
 void Flow::settingswindow_settingsData(const QVariantMap &settings)

@@ -28,28 +28,6 @@ namespace Helpers {
     enum ControlHiding { NeverShown, ShowWhenMoving, ShowWhenHovering };
 }
 
-class JsonServer : public QObject
-{
-    Q_OBJECT
-public:
-    explicit JsonServer(QObject *parent = 0);
-    bool sendPayload(const QByteArray &payload);
-    QString fullServerName();
-
-private:
-    void listen();
-
-signals:
-    void payloadReceived(const QByteArray &payload, QLocalSocket *socket);
-
-private slots:
-    void server_newConnection();
-
-private:
-    QString socketName;
-    QLocalServer *server;
-};
-
 class LogoDrawer : public QObject {
     Q_OBJECT
 public:
