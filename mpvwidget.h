@@ -65,7 +65,7 @@ public:
     void setClientDebuggingMessages(bool yes);
     void setMpvLogLevel(QString level);
 
-    // These query the tracked video state
+    MpvController *controller();
     double playLength();
     double playTime();
     QSize videoSize();
@@ -180,7 +180,11 @@ class MpvController : public QObject
 {
     Q_OBJECT
 public:
-    typedef QPair<const char*, mpv_format> MpvProperty;
+    struct MpvProperty {
+        const char *name;
+        uint64_t userData;
+        mpv_format format;
+    };
     typedef QVector<MpvProperty> PropertyList;
     enum LogLevel { LogNone, LogFatal, LogError, LogWarn, LogInfo, LogStatus,
                     LogV, LogDebug, LogTrace, LogTerminalDefault };
@@ -192,7 +196,7 @@ signals:
     void nnedi3Unavailable();
     void durationChanged(int value);
     void positionChanged(int value);
-    void mpvPropertyChanged(QString name, QVariant v);
+    void mpvPropertyChanged(QString name, QVariant v, uint64_t userData);
     void logMessage(QString message);
     void unhandledMpvEvent(int eventNumber);
     void videoSizeChanged(QSize size);
@@ -216,7 +220,7 @@ public slots:
     void parseMpvEvents();
 
 private:
-    void setThrottledProperty(const QString &name, const QVariant &v);
+    void setThrottledProperty(const QString &name, const QVariant &v, uint64_t userData);
     void flushProperties();
     void handleMpvEvent(mpv_event *event);
     static void mpvWakeup(void *ctx);
@@ -227,7 +231,7 @@ private:
 
     QTimer *throttler;
     QSet<QString> throttledProperties;
-    QVariantMap throttledValues;
+    QMap<QString,QPair<QVariant,uint64_t>> throttledValues;
 };
 
 #endif // MPVWIDGET_H

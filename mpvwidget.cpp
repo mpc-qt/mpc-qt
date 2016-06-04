@@ -122,21 +122,21 @@ MpvWidget::MpvWidget(QWidget *parent) :
 
     // Observe some properties
     MpvController::PropertyList options = {
-        { "time-pos", MPV_FORMAT_DOUBLE },
-        { "pause", MPV_FORMAT_FLAG },
-        { "media-title", MPV_FORMAT_STRING },
-        { "chapter-metadata", MPV_FORMAT_NODE },
-        { "track-list", MPV_FORMAT_NODE },
-        { "chapter-list", MPV_FORMAT_NODE },
-        { "duration", MPV_FORMAT_DOUBLE },
-        { "estimated-vf-fps", MPV_FORMAT_DOUBLE },
-        { "avsync", MPV_FORMAT_DOUBLE },
-        { "vo-drop-frame-count", MPV_FORMAT_INT64 },
-        { "drop-frame-count", MPV_FORMAT_INT64 },
-        { "audio-bitrate", MPV_FORMAT_DOUBLE },
-        { "video-bitrate", MPV_FORMAT_DOUBLE },
-        { "paused-for-cache", MPV_FORMAT_FLAG },
-        { "metadata", MPV_FORMAT_NODE }
+        { "time-pos", 0, MPV_FORMAT_DOUBLE },
+        { "pause", 0, MPV_FORMAT_FLAG },
+        { "media-title", 0, MPV_FORMAT_STRING },
+        { "chapter-metadata", 0, MPV_FORMAT_NODE },
+        { "track-list", 0, MPV_FORMAT_NODE },
+        { "chapter-list", 0, MPV_FORMAT_NODE },
+        { "duration", 0, MPV_FORMAT_DOUBLE },
+        { "estimated-vf-fps", 0, MPV_FORMAT_DOUBLE },
+        { "avsync", 0, MPV_FORMAT_DOUBLE },
+        { "vo-drop-frame-count", 0, MPV_FORMAT_INT64 },
+        { "drop-frame-count", 0, MPV_FORMAT_INT64 },
+        { "audio-bitrate", 0, MPV_FORMAT_DOUBLE },
+        { "video-bitrate", 0, MPV_FORMAT_DOUBLE },
+        { "paused-for-cache", 0, MPV_FORMAT_FLAG },
+        { "metadata", 0, MPV_FORMAT_NODE }
     };
     QSet<QString> throttled = {
         "time-pos", "avsync", "estimated-vf-fps", "vo-drop-frame-count",
@@ -415,6 +415,11 @@ void MpvWidget::setClientDebuggingMessages(bool yes)
 void MpvWidget::setMpvLogLevel(QString level)
 {
     setMpvOptionVariant("log-level", QString("all=%1").arg(level));
+}
+
+MpvController *MpvWidget::controller()
+{
+    return ctrl;
 }
 
 double MpvWidget::playLength()
@@ -716,8 +721,8 @@ void MpvController::observeProperties(const MpvController::PropertyList &propert
                                       const QSet<QString> &throttled)
 {
     foreach (MpvProperty item, properties)
-        mpv_observe_property(mpv, 0, item.first, item.second);
-    throttledProperties = throttled;
+        mpv_observe_property(mpv, item.userData, item.name, item.format);
+    throttledProperties.unite(throttled);
 }
 
 void MpvController::setThrottleTime(int msec)
@@ -811,15 +816,16 @@ void MpvController::parseMpvEvents()
     }
 }
 
-void MpvController::setThrottledProperty(const QString &name, const QVariant &v)
+void MpvController::setThrottledProperty(const QString &name, const QVariant &v, uint64_t userData)
 {
-    throttledValues[name] = v;
+    throttledValues.insert(name, QPair<QVariant,uint64_t>(v,userData));
 }
 
 void MpvController::flushProperties()
 {
     foreach (QString key, throttledValues.keys())
-        emit mpvPropertyChanged(key, throttledValues[key]);
+        emit mpvPropertyChanged(key, throttledValues[key].first,
+                                throttledValues[key].second);
     throttledValues.clear();
 }
 
@@ -890,9 +896,9 @@ void MpvController::handleMpvEvent(mpv_event *event)
         QVariant v = propertyToVariant(reinterpret_cast<mpv_event_property*>(event->data));
         QString propname = QString::fromUtf8(reinterpret_cast<mpv_event_property*>(event->data)->name);
         if (throttledProperties.contains(propname))
-            setThrottledProperty(propname, v);
+            setThrottledProperty(propname, v, event->reply_userdata);
         else
-            emit mpvPropertyChanged(propname, v);
+            emit mpvPropertyChanged(propname, v, event->reply_userdata);
         break;
     }
     case MPV_EVENT_LOG_MESSAGE: {
