@@ -908,6 +908,15 @@ void MpvController::handleMpvEvent(mpv_event *event)
                                                    msg->text));
         break;
     }
+    case MPV_EVENT_CLIENT_MESSAGE: {
+        mpv_event_client_message *msg =
+                reinterpret_cast<mpv_event_client_message*>(event->data);
+        QStringList list;
+        for (int i = 0; i < msg->num_args; i++)
+            list.append(msg->args[i]);
+        emit clientMessage(event->reply_userdata, list);
+        break;
+    }
     case MPV_EVENT_VIDEO_RECONFIG: {
         // Retrieve the new video size.
         QVariant vw, vh;

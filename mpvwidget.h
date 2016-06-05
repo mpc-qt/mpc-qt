@@ -198,8 +198,9 @@ signals:
     void positionChanged(int value);
     void mpvPropertyChanged(QString name, QVariant v, uint64_t userData);
     void logMessage(QString message);
-    void unhandledMpvEvent(int eventNumber);
+    void clientMessage(uint64_t id, QStringList args);
     void videoSizeChanged(QSize size);
+    void unhandledMpvEvent(int eventNumber);
 
 public slots:
     void create(bool video = true, bool audio = true);
