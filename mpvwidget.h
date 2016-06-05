@@ -207,8 +207,14 @@ public slots:
     void observeProperties(const MpvController::PropertyList &properties,
                            const QSet<QString> &throttled);
     void setThrottleTime(int msec);
+
+    QString clientName();
+    int64_t timeMicroseconds();
+    int64_t apiVersion();
+
     void setLogLevel(MpvController::LogLevel level);
     mpv_opengl_cb_context *mpvDrawContext();
+
     int setOptionVariant(QString name, const QVariant &value);
     QVariant command(const QVariant &params);
     int setPropertyVariant(const QString &name, const QVariant &value);

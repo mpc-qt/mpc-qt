@@ -730,6 +730,21 @@ void MpvController::setThrottleTime(int msec)
     throttler->setInterval(msec);
 }
 
+QString MpvController::clientName()
+{
+    return QString::fromUtf8(mpv_client_name(mpv));
+}
+
+int64_t MpvController::timeMicroseconds()
+{
+    return mpv_get_time_us(mpv);
+}
+
+int64_t MpvController::apiVersion()
+{
+    return mpv_client_api_version();
+}
+
 void MpvController::setLogLevel(LogLevel level)
 {
     QVector<const char*> logLevels = { "no", "fatal", "error", "warn ",
