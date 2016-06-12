@@ -18,7 +18,7 @@ public:
     bool sendPayload(const QByteArray &payload);
     QString fullServerName();
 
-private:
+protected:
     void listen();
 
 signals:
@@ -89,12 +89,10 @@ public:
 
 private slots:
     void server_newConnection(QLocalSocket *socket);
-    void connection_disconnected();
 
 private:
     PlaybackManager *playbackManager;
     MpvWidget *mpvWidget;
-    QList<QSharedPointer<MpvConnection>> connections;
 };
 
 
@@ -108,20 +106,40 @@ public:
     ~MpvConnection();
 
 signals:
-    void disconnected();
+    void disconnected(MpvConnection *self);
+
+private:
+    void socketWrite(const QVariant &v);
+    void commandReturn(int errorCode, QVariant requestId, QVariant data = QVariant());
+    void commandReturnVariant(const QVariant &requestId, const QVariant &data);
 
 private slots:
     void socket_readyRead();
     void socket_disconnected();
-    void ctrl_mpvPropertyChanged(QString name, QVariant v, uint64_t userData);
+    void ctrl_mpvPropertyChanged(QString name, const QVariant &v, uint64_t userData);
     void ctrl_logMessage(QString message);
+    void ctrl_clientMessage(uint64_t id, const QStringList &args);
+    void ctrl_videoSizeChanged(const QSize &size);
     void ctrl_unhandledMpvEvent(int eventNumber);
-    void ctrl_videoSizeChanged(QSize size);
+
+    void command_raw(const QStringList &list, const QVariant &requestId);
+    void command_forbidden();
+    void command_client_name(const QVariant &requestId);
+    void command_get_time_us(const QVariant &requestId);
+    void command_get_version(const QVariant &requestId);
+    void command_get_property(const QStringList &list, const QVariant &requestId);
+    void command_get_property_string(const QStringList &list, const QVariant &requestId);
+    void command_set_property(const QVariantList &list, const QVariant &requestId);
+    void command_set_property_string(const QStringList &list, const QVariant &requestId);
+    void command_observe_property(const QVariantList &list, const QVariant &requestId);
+    void command_observe_property_string(const QVariantList &list, const QVariant &requestId);
+    void command_unobserve_property(const QVariantList &list, const QVariant &requestId);
 
 private:
     QLocalSocket *socket;
     PlaybackManager *manager;
     MpvWidget *mpvWidget;
+    QMap<QString,QMetaMethod> commandParsers;
 };
 
 #endif // MPVSERVER_H

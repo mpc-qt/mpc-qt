@@ -51,6 +51,7 @@ private slots:
 
 private:
     MpcQtServer *server;
+    MpvServer *mpvServer;
     MainWindow *mainWindow;
     PlaybackManager *playbackManager;
     SettingsWindow *settingsWindow;

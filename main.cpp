@@ -37,8 +37,8 @@ int main(int argc, char *argv[])
 }
 
 Flow::Flow(QObject *owner) :
-    QObject(owner), server(NULL), mainWindow(NULL), playbackManager(NULL),
-    settingsWindow(NULL)
+    QObject(owner), server(NULL), mpvServer(NULL), mainWindow(NULL),
+    playbackManager(NULL), settingsWindow(NULL)
 {
     mainWindow = new MainWindow();
     playbackManager = new PlaybackManager(this);
@@ -51,6 +51,7 @@ Flow::Flow(QObject *owner) :
     hasPrevious_ = server->sendPayload(makePayload());
     if (hasPrevious_)
         return;
+    mpvServer = new MpvServer(playbackManager, mainWindow->mpvWidget(), this);
 
     // mpvwidget -> settingsmanager
     connect(mainWindow->mpvWidget(), &MpvWidget::nnedi3Unavailable,
@@ -287,6 +288,10 @@ Flow::~Flow()
     if (server) {
         delete server;
         server = NULL;
+    }
+    if (mpvServer) {
+        delete mpvServer;
+        mpvServer = NULL;
     }
     if (mainWindow) {
         storage.writeVList("playlists", mainWindow->playlistWindow()->tabsToVList());
