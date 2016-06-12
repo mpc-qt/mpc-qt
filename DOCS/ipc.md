@@ -102,9 +102,27 @@ a value, and any other value when the ipc returned something.
 
 ### Direct Mpv Access
 
-Sit tight for a bit while the developer does some guru meditation.
+An emulated interface of mpv's --input-ipc-server is available at
+`/tmp/cmdrkotori.mpc-qt.mpv`.  For details about mpv's input-ipc-server
+mechanism, please see the corresponding section in the [mpv manual].
+
+The emulated socket is subject to the same limitations as above with regards
+to some commands and properties being read-only or unavailable.  These are
+commands such as stop, loadfile, script, hook-related commands, input and so
+on.  i.e. mostly related to that which could lead to undefined behavour from
+the gui state not tracking mpv's state.  The top of ipc.cpp has a list of
+what will be ignored, and may be subject to change.  Accessing these filtered
+members will return an invalid parameter error code.
+
+In addition, observing a property requires that the user data field be set to
+a non-zero value, because zero is reserved by mpc-qt.  Any attempt to
+(un)observe a zero-id'd property will receive an invalid parameter error
+code in the same manner.
 
 
 ### MPRIS
 
 Currently unimplemented.
+
+
+[mpv manual]:https://github.com/mpv-player/mpv/blob/master/DOCS/man/ipc.rst
