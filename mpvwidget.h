@@ -181,9 +181,11 @@ class MpvController : public QObject
     Q_OBJECT
 public:
     struct MpvProperty {
-        const char *name;
+        QString name;
         uint64_t userData;
         mpv_format format;
+        MpvProperty(const QString &name, uint64_t userData, mpv_format format)
+            : name(name), userData(userData), format(format) {}
     };
     typedef QVector<MpvProperty> PropertyList;
     enum LogLevel { LogNone, LogFatal, LogError, LogWarn, LogInfo, LogStatus,
@@ -204,8 +206,9 @@ signals:
 
 public slots:
     void create(bool video = true, bool audio = true);
-    void observeProperties(const MpvController::PropertyList &properties,
-                           const QSet<QString> &throttled);
+    int observeProperties(const MpvController::PropertyList &properties,
+                          const QSet<QString> &throttled = QSet<QString>());
+    int unobservePropertiesById(const QSet<uint64_t> &ids);
     void setThrottleTime(int msec);
 
     QString clientName();
@@ -219,6 +222,8 @@ public slots:
     QVariant command(const QVariant &params);
     int setPropertyVariant(const QString &name, const QVariant &value);
     QVariant getPropertyVariant(const QString &name);
+    int setPropertyString(const QString &name, const QString &value);
+    QString getPropertyString(const QString &name);
 
     void commandAsync(const QVariant &params, MpvCallback *callback);
     void setPropertyVariantAsync(const QString &name, const QVariant &value, MpvCallback *callback);

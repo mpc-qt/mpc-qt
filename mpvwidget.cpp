@@ -717,12 +717,22 @@ void MpvController::create(bool video, bool audio)
     mpv_set_wakeup_callback(mpv, MpvController::mpvWakeup, this);
 }
 
-void MpvController::observeProperties(const MpvController::PropertyList &properties,
+int MpvController::observeProperties(const MpvController::PropertyList &properties,
                                       const QSet<QString> &throttled)
 {
-    foreach (MpvProperty item, properties)
-        mpv_observe_property(mpv, item.userData, item.name, item.format);
+    int rval = 0;
+    foreach (const MpvProperty &item, properties)
+        rval  = std::min(rval, mpv_observe_property(mpv, item.userData, item.name.toUtf8().data(), item.format));
     throttledProperties.unite(throttled);
+    return rval;
+}
+
+int MpvController::unobservePropertiesById(const QSet<uint64_t> &ids)
+{
+    int rval = 0;
+    foreach (uint64_t id, ids)
+        rval = std::min(rval, mpv_unobserve_property(mpv, id));
+    return rval;
 }
 
 void MpvController::setThrottleTime(int msec)
@@ -794,6 +804,21 @@ QVariant MpvController::getPropertyVariant(const QString &name)
     if (r < 0)
         return QVariant::fromValue<MpvErrorCode>(MpvErrorCode(r));
     return mpv::qt::node_to_variant(&node);
+}
+
+int MpvController::setPropertyString(const QString &name, const QString &value)
+{
+    return mpv_set_property_string(mpv, name.toUtf8().data(), value.toUtf8().data());
+}
+
+QString MpvController::getPropertyString(const QString &name)
+{
+    char *c = mpv_get_property_string(mpv, name.toUtf8().data());
+    if (!c)
+        return QString();
+    QByteArray b(c);
+    mpv_free(c);
+    return QString::fromUtf8(b);
 }
 
 void MpvController::commandAsync(const QVariant &params, MpvCallback *callback)
