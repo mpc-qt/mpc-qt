@@ -17,9 +17,15 @@
 #include "mpvwidget.h"
 #include "helpers.h"
 
-#ifndef GLAPIENTRY
-// On Windows, GLAPIENTRY may sometimes conveniently go missing
-#define GLAPIENTRY __stdcall
+#ifndef Q_PROCESSOR_ARM
+    #ifndef GLAPIENTRY
+    // On Windows, GLAPIENTRY may sometimes conveniently go missing
+    #define GLAPIENTRY __stdcall
+    #endif
+#else
+    #ifndef GLAPIENTRY
+    #define GLAPIENTRY
+    #endif
 #endif
 
 static void* GLAPIENTRY glMPGetNativeDisplay(const char* name) {
