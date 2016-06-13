@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>767</width>
+    <width>785</width>
     <height>787</height>
    </rect>
   </property>
@@ -144,7 +144,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>4</number>
+          <number>6</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -3788,32 +3788,38 @@ media file played</string>
           </layout>
          </widget>
          <widget class="QWidget" name="shadersPage">
-          <layout class="QVBoxLayout" name="verticalLayout_18">
+          <layout class="QVBoxLayout" name="verticalLayout_14">
            <item>
             <widget class="QLabel" name="label_10">
              <property name="text">
-              <string>Shaders contain special effects which can be added to the video rendering process</string>
+              <string>Shaders contain special effects which can be added to the video rendering process.  A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;the mpv wiki&lt;/a&gt;.</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="openExternalLinks">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_17">
                <item>
-                <widget class="QListWidget" name="shadersList"/>
+                <widget class="QListWidget" name="shadersFileList"/>
                </item>
                <item>
                 <layout class="QHBoxLayout" name="horizontalLayout_4">
                  <item>
-                  <widget class="QPushButton" name="shadersAdd">
+                  <widget class="QPushButton" name="shadersAddFile">
                    <property name="text">
-                    <string>Add shader file</string>
+                    <string>Add shader file...</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="shadersRemove">
+                  <widget class="QPushButton" name="shadersRemoveFile">
                    <property name="text">
                     <string>Remove</string>
                    </property>
@@ -3826,16 +3832,9 @@ media file played</string>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_16">
                <item>
-                <widget class="QPushButton" name="shadersAddToPostResize">
+                <widget class="QPushButton" name="shadersAddToShaders">
                  <property name="text">
-                  <string>Add to post-resize</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="shadersAddToPreResize">
-                 <property name="text">
-                  <string>Add to pre-resize</string>
+                  <string>Add to shaders</string>
                  </property>
                 </widget>
                </item>
@@ -3876,113 +3875,72 @@ media file played</string>
                  </layout>
                 </widget>
                </item>
+               <item>
+                <spacer name="verticalSpacer_6">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
               </layout>
              </item>
             </layout>
            </item>
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_6">
-             <item>
-              <widget class="QGroupBox" name="groupBox_14">
-               <property name="title">
-                <string>Active pre-resize shaders</string>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <widget class="QGroupBox" name="groupBox_14">
+             <property name="title">
+              <string>Active shaders</string>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <widget class="QListWidget" name="shadersActiveList"/>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_13">
                 <item>
-                 <widget class="QListWidget" name="ShadersPreResizeList"/>
+                 <widget class="QPushButton" name="shadersActiveUp">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
                 </item>
                 <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_13">
-                  <item>
-                   <widget class="QPushButton" name="shadersPreResizeUp">
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="shadersPreResizeDown">
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="shadersPreResizeRemove">
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="verticalSpacer_5">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                 </layout>
+                 <widget class="QPushButton" name="shadersActiveDown">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="shadersActiveRemove">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer_5">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QGroupBox" name="groupBox_15">
-               <property name="title">
-                <string>Active post-resize shaders</string>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_3">
-                <item>
-                 <widget class="QListWidget" name="shadersPostResizeList"/>
-                </item>
-                <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_14">
-                  <item>
-                   <widget class="QPushButton" name="shadersPostResizeUp">
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="shadersPostResizeDown">
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="shadersPostResizeRemove">
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="verticalSpacer_6">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                 </layout>
-                </item>
-               </layout>
-              </widget>
-             </item>
-            </layout>
+              </item>
+             </layout>
+            </widget>
            </item>
           </layout>
          </widget>
