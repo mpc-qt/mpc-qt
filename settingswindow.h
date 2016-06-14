@@ -192,6 +192,8 @@ private slots:
 
     void on_prescalarMethod_currentIndexChanged(int index);
 
+    void on_ccHdrMapper_currentIndexChanged(int index);
+
     void on_audioRenderer_currentIndexChanged(int index);
 
     void on_videoDumbMode_toggled(bool checked);

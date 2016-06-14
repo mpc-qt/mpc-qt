@@ -144,7 +144,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>6</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -810,7 +810,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>4</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -1128,7 +1128,7 @@ media file played</string>
                   <item>
                    <widget class="QTabWidget" name="scalingTabs">
                     <property name="currentIndex">
-                     <number>5</number>
+                     <number>0</number>
                     </property>
                     <widget class="QWidget" name="scaleOptionsTab">
                      <attribute name="title">
@@ -3310,9 +3310,12 @@ media file played</string>
                   <item row="0" column="1">
                    <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="0,1">
                     <item>
-                     <widget class="QCheckBox" name="gammaAutodetect">
+                     <widget class="QCheckBox" name="ccGammaAutodetect">
                       <property name="text">
                        <string>Autodetect</string>
+                      </property>
+                      <property name="checked">
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
@@ -3393,6 +3396,11 @@ media file played</string>
                       <string>CIE1931</string>
                      </property>
                     </item>
+                    <item>
+                     <property name="text">
+                      <string>DCI-P3</string>
+                     </property>
+                    </item>
                    </widget>
                   </item>
                   <item row="2" column="0">
@@ -3444,16 +3452,21 @@ media file played</string>
                       <string>ProPhoto</string>
                      </property>
                     </item>
+                    <item>
+                     <property name="text">
+                      <string>ST2084</string>
+                     </property>
+                    </item>
                    </widget>
                   </item>
-                  <item row="3" column="0">
+                  <item row="5" column="0">
                    <widget class="QLabel" name="label_140">
                     <property name="text">
                      <string>ICC Profile</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="3" column="1">
+                  <item row="5" column="1">
                    <layout class="QHBoxLayout" name="horizontalLayout_57" stretch="0,1,0">
                     <item>
                      <widget class="QCheckBox" name="ccICCAutodetect">
@@ -3473,6 +3486,201 @@ media file played</string>
                       <property name="text">
                        <string>Browse</string>
                       </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="label_42">
+                    <property name="text">
+                     <string>Target Brightness</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QSpinBox" name="ccTargetBrightness">
+                    <property name="minimum">
+                     <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>100000</number>
+                    </property>
+                    <property name="value">
+                     <number>250</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="0">
+                   <widget class="QLabel" name="label_43">
+                    <property name="text">
+                     <string>HDR Tone mapping</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="1">
+                   <layout class="QHBoxLayout" name="horizontalLayout_5">
+                    <item>
+                     <widget class="QComboBox" name="ccHdrMapper">
+                      <property name="currentIndex">
+                       <number>2</number>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>Clip</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Reinhard</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Hable</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Gamma</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Linear</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QStackedWidget" name="ccHdrStack">
+                      <property name="currentIndex">
+                       <number>2</number>
+                      </property>
+                      <widget class="QWidget" name="ccHdrClipPage"/>
+                      <widget class="QWidget" name="ccHdrReinhardPage">
+                       <layout class="QFormLayout" name="formLayout_28">
+                        <property name="leftMargin">
+                         <number>3</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="label_47">
+                          <property name="text">
+                           <string>Contrast</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="1">
+                         <widget class="QDoubleSpinBox" name="ccHdrReinhardParam">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="value">
+                           <double>0.500000000000000</double>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                      <widget class="QWidget" name="ccHablePage"/>
+                      <widget class="QWidget" name="ccHdrGammaPage">
+                       <layout class="QFormLayout" name="formLayout_29">
+                        <property name="leftMargin">
+                         <number>3</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="label_48">
+                          <property name="text">
+                           <string>Gamma</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="1">
+                         <widget class="QDoubleSpinBox" name="ccHdrGammaParam">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimum">
+                           <double>0.100000000000000</double>
+                          </property>
+                          <property name="maximum">
+                           <double>10.000000000000000</double>
+                          </property>
+                          <property name="value">
+                           <double>1.800000000000000</double>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                      <widget class="QWidget" name="ccHdrLinearPage">
+                       <layout class="QFormLayout" name="formLayout_30">
+                        <property name="leftMargin">
+                         <number>3</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="label_49">
+                          <property name="text">
+                           <string>Scale</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="1">
+                         <widget class="QDoubleSpinBox" name="ccHdrLinearParam">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="decimals">
+                           <number>2</number>
+                          </property>
+                          <property name="minimum">
+                           <double>0.010000000000000</double>
+                          </property>
+                          <property name="maximum">
+                           <double>100.000000000000000</double>
+                          </property>
+                          <property name="value">
+                           <double>1.000000000000000</double>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
                      </widget>
                     </item>
                    </layout>
@@ -3805,7 +4013,7 @@ media file played</string>
            <item>
             <widget class="QTabWidget" name="tabWidget">
              <property name="currentIndex">
-              <number>1</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="shadersFilesTab">
               <attribute name="title">

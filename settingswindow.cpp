@@ -46,9 +46,9 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"nnedi3Upload", {"ubo", "shader"}},
     {"ccTargetPrim", {"auto", "bt.601-525", "bt.601-625", "bt.709",\
                       "bt.2020", "bt.470m", "apple", "adobe", "prophoto",\
-                      "cie1931"}},
+                      "cie1931", "dvi-p3"}},
     {"ccTargetTRC", {"auto", "by.1886", "srgb", "linear", "gamma1.8",\
-                     "gamma2.2", "gamma2.8", "prophoto"}},
+                     "gamma2.2", "gamma2.8", "prophoto", "st2084"}},
     {"audioRenderer", {"pulse", "alsa", "oss", "null"}},
     {"framedroppingMode", {"no", "vo", "decoder", "decoder+vo"}},
     {"framedroppingDecoderMode", {"none", "default", "nonref", "bidir",\
@@ -589,6 +589,11 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
 void SettingsWindow::on_prescalarMethod_currentIndexChanged(int index)
 {
     ui->prescalarStack->setCurrentIndex(index);
+}
+
+void SettingsWindow::on_ccHdrMapper_currentIndexChanged(int index)
+{
+    ui->ccHdrStack->setCurrentIndex(index);
 }
 
 void SettingsWindow::on_audioRenderer_currentIndexChanged(int index)
