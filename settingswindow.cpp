@@ -687,3 +687,14 @@ void SettingsWindow::on_shadersActiveRemove_clicked()
 {
     qDeleteAll(ui->shadersActiveList->selectedItems());
 }
+
+
+void SettingsWindow::on_shadersWikiAdd_clicked()
+{
+
+}
+
+void SettingsWindow::on_shadersWikiSync_clicked()
+{
+
+}

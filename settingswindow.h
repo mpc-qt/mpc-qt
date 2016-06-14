@@ -224,6 +224,10 @@ private slots:
 
     void on_shadersActiveRemove_clicked();
 
+    void on_shadersWikiAdd_clicked();
+
+    void on_shadersWikiSync_clicked();
+
 private:
     Ui::SettingsWindow *ui;
     QActionEditor *actionEditor;
