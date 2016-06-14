@@ -49,6 +49,7 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
                       "cie1931", "dvi-p3"}},
     {"ccTargetTRC", {"auto", "by.1886", "srgb", "linear", "gamma1.8",\
                      "gamma2.2", "gamma2.8", "prophoto", "st2084"}},
+    {"ccHdrMapper", {"clip", "reinhard", "hable", "gamma", "linear"}},
     {"audioRenderer", {"pulse", "alsa", "oss", "null"}},
     {"framedroppingMode", {"no", "vo", "decoder", "decoder+vo"}},
     {"framedroppingDecoderMode", {"none", "default", "nonref", "bidir",\
@@ -187,6 +188,12 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
         ui->playbackAutoZoom->setChecked(false);
 #else
     ui->playbackAutozoomWarn->setVisible(false);
+#endif
+
+#ifndef Q_OS_MAC
+    ui->ccGammaAutodetect->setEnabled(false);
+#else
+    ui->ccGammaAutodetect->setChecked(true);
 #endif
 
 #ifndef Q_OS_LINUX
@@ -477,6 +484,28 @@ void SettingsWindow::sendSignals()
         params["nnedi3-upload"] = WIDGET_TO_TEXT(ui->nnedi3Upload);
         break;
     }
+
+    params["gamma"] = WIDGET_LOOKUP(ui->ccGamma).toString();
+#ifdef Q_OS_MAC
+    if (WIDGET_LOOKUP(ui->ccGammaAutodetect).toBool()) {
+        params["gamma-autodetect"] = QString();
+        params.remove("gamma");
+    }
+#endif
+    params["target-prim"] = WIDGET_TO_TEXT(ui->ccTargetPrim);
+    params["target-trc"] = WIDGET_TO_TEXT(ui->ccTargetTRC);
+    params["target-brightness"] = WIDGET_LOOKUP(ui->ccTargetBrightness).toString();
+    params["hdr-tone-mapping"] = WIDGET_TO_TEXT(ui->ccHdrMapper);
+    {
+        QList<QDoubleSpinBox*> boxen {NULL, ui->ccHdrReinhardParam, NULL, ui->ccHdrGammaParam, ui->ccHdrLinearParam};
+        QDoubleSpinBox* toneParam = boxen[WIDGET_LOOKUP(ui->ccHdrMapper).toInt()];
+        if (toneParam)
+            params["tone-mapping-param"] = WIDGET_LOOKUP(toneParam).toString();
+    }
+    if (WIDGET_LOOKUP(ui->ccICCAutodetect).toBool())
+        params["icc-profile-auto"] = QString();
+    else
+        params["icc-profile"] = WIDGET_LOOKUP(ui->ccICCLocation).toString();
 
     QMapIterator<QString,QString> i(params);
     while (i.hasNext()) {

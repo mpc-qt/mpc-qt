@@ -3311,11 +3311,11 @@ media file played</string>
                    <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="0,1">
                     <item>
                      <widget class="QCheckBox" name="ccGammaAutodetect">
+                      <property name="toolTip">
+                       <string>Only implemented on Mac</string>
+                      </property>
                       <property name="text">
                        <string>Autodetect</string>
-                      </property>
-                      <property name="checked">
-                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
