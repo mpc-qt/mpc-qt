@@ -73,7 +73,7 @@ Suggestions welcome.
 You need the Qt5 sdk installed and a recent edition of libmpv.  On ubuntu you
 can usually install the Qt5 sdk with the ``ubuntu-sdk`` or ``qtcreator``
 packages.  You will need to compile [libmpv] from git head or at least version
-0.17.0 with the ``--enable-libmpv-shared`` option.  Make sure ldconfig is run
+0.18.0 with the ``--enable-libmpv-shared`` option.  Make sure ldconfig is run
 after compiling libmpv, or you may end up with linker errors.
 
 
