@@ -3807,14 +3807,27 @@ media file played</string>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_17">
                <item>
-                <widget class="QListWidget" name="shadersFileList"/>
+                <widget class="QListWidget" name="shadersFileList">
+                 <property name="dragEnabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="dragDropMode">
+                  <enum>QAbstractItemView::DragDrop</enum>
+                 </property>
+                 <property name="defaultDropAction">
+                  <enum>Qt::CopyAction</enum>
+                 </property>
+                 <property name="selectionMode">
+                  <enum>QAbstractItemView::ExtendedSelection</enum>
+                 </property>
+                </widget>
                </item>
                <item>
                 <layout class="QHBoxLayout" name="horizontalLayout_4">
                  <item>
                   <widget class="QPushButton" name="shadersAddFile">
                    <property name="text">
-                    <string>Add shader file...</string>
+                    <string>Add shader files...</string>
                    </property>
                   </widget>
                  </item>
@@ -3899,24 +3912,23 @@ media file played</string>
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_2">
               <item>
-               <widget class="QListWidget" name="shadersActiveList"/>
+               <widget class="QListWidget" name="shadersActiveList">
+                <property name="dragEnabled">
+                 <bool>true</bool>
+                </property>
+                <property name="dragDropMode">
+                 <enum>QAbstractItemView::DragDrop</enum>
+                </property>
+                <property name="defaultDropAction">
+                 <enum>Qt::CopyAction</enum>
+                </property>
+                <property name="selectionMode">
+                 <enum>QAbstractItemView::ExtendedSelection</enum>
+                </property>
+               </widget>
               </item>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_13">
-                <item>
-                 <widget class="QPushButton" name="shadersActiveUp">
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="shadersActiveDown">
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
                 <item>
                  <widget class="QPushButton" name="shadersActiveRemove">
                   <property name="text">

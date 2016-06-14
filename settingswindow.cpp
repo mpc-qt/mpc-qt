@@ -659,3 +659,31 @@ void SettingsWindow::on_keysReset_clicked()
     actionEditor->fromVMap(defaultKeyMap);
     actionEditor->updateActions();
 }
+
+void SettingsWindow::on_shadersAddFile_clicked()
+{
+    QStringList files = QFileDialog::getOpenFileNames(this);
+    if (files.isEmpty())
+        return;
+
+    ui->shadersFileList->addItems(files);
+}
+
+void SettingsWindow::on_shadersRemoveFile_clicked()
+{
+    qDeleteAll(ui->shadersFileList->selectedItems());
+}
+
+void SettingsWindow::on_shadersAddToShaders_clicked()
+{
+    QList<QListWidgetItem *> items = ui->shadersFileList->selectedItems();
+    QStringList files;
+    for (auto item : items)
+        files.append(item->text());
+    ui->shadersActiveList->addItems(files);
+}
+
+void SettingsWindow::on_shadersActiveRemove_clicked()
+{
+    qDeleteAll(ui->shadersActiveList->selectedItems());
+}
