@@ -68,18 +68,61 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
                    "debug", "trace"}}
 };
 
-QMap<QString, QString> Setting::classToProperty = {
+
+QMap<QString, const char *> Setting::classToProperty = {
     { "QCheckBox", "checked" },
     { "QRadioButton", "checked" },
     { "QLineEdit", "text" },
     { "QSpinBox", "value" },
     { "QDoubleSpinBox", "value" },
     { "QComboBox", "currentIndex" },
-    { "QListWidget", "currentRow" },
     { "QFontComboBox", "currentText" },
     { "QScrollBar", "value" },
     { "QSlider", "value" }
 };
+
+QMap<QString, std::function<QVariant(QObject *)>> Setting::classFetcher([]() {
+    QMap<QString, std::function<QVariant(QObject*)>> fetchers;
+    for (const QString &i : Setting::classToProperty.keys()) {
+        const char *property = Setting::classToProperty[i];
+        fetchers.insert(i, [property](QObject *w) {
+            return w->property(property);
+        });
+    }
+    fetchers.insert("QListWidget", [](QObject *w) {
+        QListWidget* lw = static_cast<QListWidget*>(w);
+        if (!lw)
+            return QVariant();
+        int count = lw->count();
+        QStringList items;
+        for (int i = 0; i < count; i++)
+            items.append(lw->item(i)->text());
+        return QVariant(items);
+    });
+    return fetchers;
+}());
+
+QMap<QString, std::function<void (QObject *, const QVariant &)> > Setting::classSetter([]() {
+    QMap<QString, std::function<void(QObject*, const QVariant &)>> setters;
+    for (const QString &i : Setting::classToProperty.keys()) {
+        const char *property = Setting::classToProperty[i];
+        setters.insert(i, [property](QObject *w, const QVariant &v) {
+            w->setProperty(property, v);
+        });
+    }
+    setters.insert("QListWidget", [](QObject *w, const QVariant &v) {
+        QListWidget* l = static_cast<QListWidget*>(w);
+        QStringList list = v.toStringList();
+        if (!l)
+            return;
+        l->clear();
+        for (auto listItem : list)
+            l->addItem(listItem);
+    });
+    return setters;
+}());
+
+
 
 QStringList internalLogos = {
     ":/not-a-real-resource.png",
@@ -88,14 +131,15 @@ QStringList internalLogos = {
     ":/images/bitmaps/blank-screen-triangle-circle.png"
 };
 
+
+
 void Setting::sendToControl()
 {
     if (!widget) {
         qDebug() << "[Settings] attempted to send data to null widget!";
         return;
     }
-    QString property = classToProperty[widget->metaObject()->className()];
-    widget->setProperty(property.toUtf8().data(), value);
+    classSetter[widget->metaObject()->className()](widget, value);
 }
 
 void Setting::fetchFromControl()
@@ -104,8 +148,7 @@ void Setting::fetchFromControl()
         qDebug() << "[Settings] attempted to get data from null widget!";
         return;
     }
-    QString property = classToProperty[widget->metaObject()->className()];
-    value = widget->property(property.toUtf8().data());
+    value = classFetcher[widget->metaObject()->className()](widget);
 }
 
 QVariantMap SettingMap::toVMap()
@@ -238,13 +281,12 @@ SettingMap SettingsWindow::generateSettingMap()
     toParse.append(this);
     while (!toParse.empty()) {
         QObject *item = toParse.takeFirst();
-        if (Setting::classToProperty.keys().contains(item->metaObject()->className())
+        if (Setting::classFetcher.keys().contains(item->metaObject()->className())
             && !item->objectName().isEmpty()
             && item->objectName() != "qt_spinbox_lineedit") {
             QString name = item->objectName();
             QString className = item->metaObject()->className();
-            QString property = Setting::classToProperty.value(className, QString());
-            QVariant value = item->property(property.toUtf8().data());
+            QVariant value = Setting::classFetcher[className](item);
             settingMap.insert(name, {name, qobject_cast<QWidget*>(item), value});
             continue;
         }

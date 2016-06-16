@@ -5,6 +5,9 @@
 #include <QTreeWidgetItem>
 #include <QAbstractButton>
 #include <QVariantMap>
+
+#include <functional>
+
 #include "helpers.h"
 
 class QActionEditor;
@@ -24,7 +27,11 @@ public:
     QWidget *widget;
     QVariant value;
 
-    static QMap<QString,QString> classToProperty;
+    static QMap<QString, std::function<QVariant (QObject *)> > classFetcher;
+    static QMap<QString, std::function<void (QObject *, const QVariant &)> > classSetter;
+
+private:
+    static QMap<QString,const char*> classToProperty;
 };
 
 struct SettingMap : public QHash<QString, Setting> {
