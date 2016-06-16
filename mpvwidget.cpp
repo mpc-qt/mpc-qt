@@ -22,10 +22,9 @@
     // On Windows, GLAPIENTRY may sometimes conveniently go missing
     #define GLAPIENTRY __stdcall
     #endif
-#else
-    #ifndef GLAPIENTRY
-    #define GLAPIENTRY
-    #endif
+#endif
+#ifndef GLAPIENTRY
+#define GLAPIENTRY
 #endif
 
 static void* GLAPIENTRY glMPGetNativeDisplay(const char* name) {
