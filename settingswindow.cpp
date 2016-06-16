@@ -548,6 +548,9 @@ void SettingsWindow::sendSignals()
         params["icc-profile-auto"] = QString();
     else
         params["icc-profile"] = WIDGET_LOOKUP(ui->ccICCLocation).toString();
+    if (!WIDGET_LOOKUP(ui->shadersActiveList).toStringList().isEmpty()) {
+        params["user-shaders"] = "[" + WIDGET_LOOKUP(ui->shadersActiveList).toStringList().join(",") + "]";
+    }
 
     QMapIterator<QString,QString> i(params);
     while (i.hasNext()) {
