@@ -502,7 +502,7 @@ void MpvConnection::command_get_property(const QStringList &list,
         commandReturn(MPV_ERROR_INVALID_PARAMETER, requestId);
         return;
     }
-    commandReturnVariant(mpvWidget->controller()->getPropertyVariant(list.at(1)), requestId);
+    commandReturnVariant(requestId, mpvWidget->controller()->getPropertyVariant(list.at(1)));
 }
 
 void MpvConnection::command_get_property_string(const QStringList &list,
