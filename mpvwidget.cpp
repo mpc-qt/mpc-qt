@@ -302,8 +302,9 @@ void MpvWidget::setTime(double position)
 
 void MpvWidget::setLoopPoints(double first, double end)
 {
-    setMpvPropertyVariant("ab-loop-a", first < 0 ? (-0x1p+63) : first);
-    setMpvPropertyVariant("ab-loop-b", end < 0 ? (-0x1p+63) : end);
+    static const double mpvNoPts = -0x1p+63;
+    setMpvPropertyVariant("ab-loop-a", first < 0 ? mpvNoPts : first);
+    setMpvPropertyVariant("ab-loop-b", end < 0 ? mpvNoPts : end);
 }
 
 void MpvWidget::setAudioTrack(int64_t id)
