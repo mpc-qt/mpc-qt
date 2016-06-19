@@ -197,9 +197,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->pageStack->setCurrentIndex(0);
     ui->videoTabs->setCurrentIndex(0);
     ui->scalingTabs->setCurrentIndex(0);
-    ui->prescalarStack->setCurrentIndex(0);
     ui->audioRendererStack->setCurrentIndex(0);
-    ui->nnedi3Unavailable->setVisible(false);
 
 #ifdef Q_OS_LINUX
     // Detect a tiling desktop, and disable autozoom for the default.
@@ -506,27 +504,6 @@ void SettingsWindow::sendSignals()
         params["deband-grain"] = WIDGET_LOOKUP(ui->debandGrain).toString();
     }
 
-    int prescalar = WIDGET_LOOKUP(ui->prescalarMethod).toInt();
-    if (prescalar == 2 && !parseNnedi3Fields) {
-        prescalar = 0;
-    }
-    if (prescalar) {
-        params["prescale-luma"] = WIDGET_TO_TEXT(ui->prescalarMethod);
-        params["prescale-passes"] = WIDGET_LOOKUP(ui->prescalarPasses).toString();
-        params["prescale-downscaling-threshold"] = WIDGET_LOOKUP(ui->prescalarThreshold).toString();
-    }
-    switch (prescalar) {
-    case 1:
-        params["superxbr-sharpness"] = WIDGET_LOOKUP(ui->superxbrSharpness).toString();
-        params["superxbr-edge-strength"] = WIDGET_LOOKUP(ui->superxbrEdgeStrength).toString();
-        break;
-    case 2:
-        params["nnedi3-neurons"] = WIDGET_TO_TEXT(ui->nnedi3Neurons);
-        params["nnedi3-window"] = WIDGET_TO_TEXT(ui->nnedi3Window);
-        params["nnedi3-upload"] = WIDGET_TO_TEXT(ui->nnedi3Upload);
-        break;
-    }
-
     params["gamma"] = WIDGET_LOOKUP(ui->ccGamma).toString();
 #ifdef Q_OS_MAC
     if (WIDGET_LOOKUP(ui->ccGammaAutodetect).toBool()) {
@@ -593,13 +570,6 @@ void SettingsWindow::sendSignals()
 
 }
 
-void SettingsWindow::setNnedi3Unavailable()
-{
-    parseNnedi3Fields = false;
-    ui->nnedi3Unavailable->setVisible(true);
-    ui->nnedi3Page->setEnabled(false);
-}
-
 void SettingsWindow::setServerName(const QString &name)
 {
     ui->ipcNotice->setText(ui->ipcNotice->text().arg(name));
@@ -658,11 +628,6 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
     if (buttonRole == QDialogButtonBox::AcceptRole ||
             buttonRole == QDialogButtonBox::RejectRole)
         close();
-}
-
-void SettingsWindow::on_prescalarMethod_currentIndexChanged(int index)
-{
-    ui->prescalarStack->setCurrentIndex(index);
 }
 
 void SettingsWindow::on_ccHdrMapper_currentIndexChanged(int index)

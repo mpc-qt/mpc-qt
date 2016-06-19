@@ -810,7 +810,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>4</number>
+                 <number>2</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -1128,7 +1128,7 @@ media file played</string>
                   <item>
                    <widget class="QTabWidget" name="scalingTabs">
                     <property name="currentIndex">
-                     <number>0</number>
+                     <number>5</number>
                     </property>
                     <widget class="QWidget" name="scaleOptionsTab">
                      <attribute name="title">
@@ -2965,221 +2965,18 @@ media file played</string>
                      <attribute name="title">
                       <string>Prescalar</string>
                      </attribute>
-                     <layout class="QHBoxLayout" name="horizontalLayout_56">
+                     <layout class="QVBoxLayout" name="verticalLayout_35">
                       <item>
-                       <layout class="QFormLayout" name="formLayout_22">
-                        <property name="fieldGrowthPolicy">
-                         <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+                       <widget class="QLabel" name="prescalarsMoved">
+                        <property name="text">
+                         <string>Prescalars have moved to mpv's user-shaders interface, and can be found at Playback/Shaders.</string>
                         </property>
-                        <item row="0" column="0">
-                         <widget class="QLabel" name="label_91">
-                          <property name="text">
-                           <string>Method</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="0" column="1">
-                         <widget class="QComboBox" name="prescalarMethod">
-                          <item>
-                           <property name="text">
-                            <string>None</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Super-xbr</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>nnedi3</string>
-                           </property>
-                          </item>
-                         </widget>
-                        </item>
-                        <item row="1" column="0">
-                         <widget class="QLabel" name="label_92">
-                          <property name="text">
-                           <string>Passes</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="1" column="1">
-                         <widget class="QSpinBox" name="prescalarPasses">
-                          <property name="minimum">
-                           <number>1</number>
-                          </property>
-                          <property name="maximum">
-                           <number>5</number>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="2" column="0">
-                         <widget class="QLabel" name="label_93">
-                          <property name="text">
-                           <string>Threshold</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="2" column="1">
-                         <widget class="QDoubleSpinBox" name="prescalarThreshold">
-                          <property name="decimals">
-                           <number>6</number>
-                          </property>
-                          <property name="maximum">
-                           <double>32.000000000000000</double>
-                          </property>
-                          <property name="value">
-                           <double>2.000000000000000</double>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </item>
-                      <item>
-                       <widget class="QStackedWidget" name="prescalarStack">
-                        <property name="currentIndex">
-                         <number>2</number>
+                        <property name="alignment">
+                         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                         </property>
-                        <widget class="QWidget" name="noPrescalarPage"/>
-                        <widget class="QWidget" name="superxbrPage">
-                         <layout class="QFormLayout" name="formLayout_23">
-                          <property name="fieldGrowthPolicy">
-                           <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-                          </property>
-                          <item row="0" column="0">
-                           <widget class="QLabel" name="label_94">
-                            <property name="text">
-                             <string>Sharpness</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="1">
-                           <widget class="QDoubleSpinBox" name="superxbrSharpness">
-                            <property name="decimals">
-                             <number>6</number>
-                            </property>
-                            <property name="maximum">
-                             <double>2.000000000000000</double>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="0">
-                           <widget class="QLabel" name="label_95">
-                            <property name="text">
-                             <string>Edge strength</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="1">
-                           <widget class="QDoubleSpinBox" name="superxbrEdgeStrength">
-                            <property name="decimals">
-                             <number>6</number>
-                            </property>
-                            <property name="maximum">
-                             <double>1.000000000000000</double>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
-                        </widget>
-                        <widget class="QWidget" name="nnedi3Page">
-                         <layout class="QVBoxLayout" name="verticalLayout_35">
-                          <item>
-                           <layout class="QFormLayout" name="formLayout_16">
-                            <item row="0" column="0">
-                             <widget class="QLabel" name="label_122">
-                              <property name="text">
-                               <string>Neurons</string>
-                              </property>
-                             </widget>
-                            </item>
-                            <item row="0" column="1">
-                             <widget class="QComboBox" name="nnedi3Neurons">
-                              <property name="currentIndex">
-                               <number>1</number>
-                              </property>
-                              <item>
-                               <property name="text">
-                                <string>16</string>
-                               </property>
-                              </item>
-                              <item>
-                               <property name="text">
-                                <string>32</string>
-                               </property>
-                              </item>
-                              <item>
-                               <property name="text">
-                                <string>64</string>
-                               </property>
-                              </item>
-                              <item>
-                               <property name="text">
-                                <string>128</string>
-                               </property>
-                              </item>
-                             </widget>
-                            </item>
-                            <item row="1" column="0">
-                             <widget class="QLabel" name="label_123">
-                              <property name="text">
-                               <string>Window</string>
-                              </property>
-                             </widget>
-                            </item>
-                            <item row="1" column="1">
-                             <widget class="QComboBox" name="nnedi3Window">
-                              <item>
-                               <property name="text">
-                                <string>8x4</string>
-                               </property>
-                              </item>
-                              <item>
-                               <property name="text">
-                                <string>8x6</string>
-                               </property>
-                              </item>
-                             </widget>
-                            </item>
-                            <item row="2" column="0">
-                             <widget class="QLabel" name="label_124">
-                              <property name="text">
-                               <string>Upload</string>
-                              </property>
-                             </widget>
-                            </item>
-                            <item row="2" column="1">
-                             <widget class="QComboBox" name="nnedi3Upload">
-                              <item>
-                               <property name="text">
-                                <string>UBO</string>
-                               </property>
-                              </item>
-                              <item>
-                               <property name="text">
-                                <string>Shader</string>
-                               </property>
-                              </item>
-                             </widget>
-                            </item>
-                           </layout>
-                          </item>
-                          <item>
-                           <widget class="QLabel" name="nnedi3Unavailable">
-                            <property name="text">
-                             <string>The nnedi3 prescalar is unavailable.  Either your mpv version is too old, or it was not compiled with GPL3 support.</string>
-                            </property>
-                            <property name="alignment">
-                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-                            </property>
-                            <property name="wordWrap">
-                             <bool>true</bool>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
-                        </widget>
+                        <property name="wordWrap">
+                         <bool>true</bool>
+                        </property>
                        </widget>
                       </item>
                      </layout>

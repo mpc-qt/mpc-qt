@@ -99,8 +99,6 @@ MpvWidget::MpvWidget(QWidget *parent) :
             ctrl, &MpvController::setPropertyVariant, Qt::QueuedConnection);
 
     // Wire up the event-handling callbacks
-    connect(ctrl, &MpvController::nnedi3Unavailable,
-            this, &MpvWidget::nnedi3Unavailable, Qt::QueuedConnection);
     connect(ctrl, &MpvController::mpvPropertyChanged,
             this, &MpvWidget::ctrl_mpvPropertyChanged, Qt::QueuedConnection);
     connect(ctrl, &MpvController::logMessage,
@@ -714,11 +712,6 @@ void MpvController::create(bool video, bool audio)
         glMpv = (mpv_opengl_cb_context *)mpv_get_sub_api(mpv, MPV_SUB_API_OPENGL_CB);
         if (!glMpv)
             throw std::runtime_error("OpenGL not compiled in");
-
-        // check for nnedi3
-        QVariant r = getPropertyVariant("mpv-configuration");
-        if (!r.toString().contains("--enable-gpl3"))
-            emit nnedi3Unavailable();
     }
     mpv_set_wakeup_callback(mpv, MpvController::mpvWakeup, this);
 }

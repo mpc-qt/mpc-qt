@@ -53,10 +53,6 @@ Flow::Flow(QObject *owner) :
         return;
     mpvServer = new MpvServer(playbackManager, mainWindow->mpvWidget(), this);
 
-    // mpvwidget -> settingsmanager
-    connect(mainWindow->mpvWidget(), &MpvWidget::nnedi3Unavailable,
-            settingsWindow, &SettingsWindow::setNnedi3Unavailable);
-
     // mainwindow -> manager
     connect(mainWindow, &MainWindow::severalFilesOpened,
             playbackManager, &PlaybackManager::openSeveralFiles);

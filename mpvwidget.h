@@ -90,7 +90,6 @@ signals:
     void ctrlSetOptionVariant(QString name, QVariant value);
     void ctrlSetPropertyVariant(QString name, QVariant value);
 
-    void nnedi3Unavailable();
     void playTimeChanged(double time);
     void playLengthChanged(double length);
     void playbackLoading();
@@ -195,7 +194,6 @@ public:
     ~MpvController();
 
 signals:
-    void nnedi3Unavailable();
     void durationChanged(int value);
     void positionChanged(int value);
     void mpvPropertyChanged(QString name, QVariant v, uint64_t userData);

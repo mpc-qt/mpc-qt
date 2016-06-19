@@ -185,7 +185,6 @@ public slots:
     void takeKeyMap(const QVariantMap &payload);
     void setMouseMapDefaults(const QVariantMap &payload);
     void sendSignals();
-    void setNnedi3Unavailable();
 
     void setServerName(const QString &name);
 
@@ -196,8 +195,6 @@ private slots:
     void on_pageTree_itemSelectionChanged();
 
     void on_buttonBox_clicked(QAbstractButton *button);
-
-    void on_prescalarMethod_currentIndexChanged(int index);
 
     void on_ccHdrMapper_currentIndexChanged(int index);
 
