@@ -388,6 +388,9 @@ void PlaybackManager::mpvw_playbackStarted()
 
 void PlaybackManager::mpvw_pausedChanged(bool yes)
 {
+    if (playbackState_ == StoppedState)
+        return;
+
     playbackState_ = yes ? PausedState : PlayingState;
     emit stateChanged(playbackState_);
 }
