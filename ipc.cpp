@@ -304,7 +304,6 @@ void MpvServer::server_newConnection(QLocalSocket *socket)
     new MpvConnection(socket, playbackManager, mpvWidget, this);
 }
 
-
 MpvConnection::MpvConnection(QLocalSocket *socket, PlaybackManager *manager,
                              MpvWidget *mpvWidget, QObject *parent)
     : QObject(parent), socket(socket), manager(manager), mpvWidget(mpvWidget)
@@ -325,7 +324,7 @@ MpvConnection::MpvConnection(QLocalSocket *socket, PlaybackManager *manager,
         if (method.name().indexOf("command_") == 0)
             commandParsers.insert(method.name().mid(8), method);
     }
-    commandParsers.remove(__STRING(command_raw));
+    commandParsers.remove("raw");
 
     connect(socket, &QLocalSocket::readyRead,
             this, &MpvConnection::socket_readyRead);
