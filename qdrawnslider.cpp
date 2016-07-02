@@ -40,6 +40,11 @@ QDrawnSlider::QDrawnSlider(QWidget *parent, QSize handle, QSize margin) :
     setSliderGeometry(handle.width(), handle.height(),
                       margin.width(), margin.height());
     isDragging = false;
+
+    // Request multisampling surface for subpixel fuzzing
+    QSurfaceFormat fmt = QSurfaceFormat::defaultFormat();
+    fmt.setSamples(4);
+    this->setFormat(fmt);
 }
 
 void QDrawnSlider::setSliderGeometry(int handleWidth, int handleHeight,
