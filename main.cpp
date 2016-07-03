@@ -308,11 +308,11 @@ int Flow::run()
 {
     mainWindow->playlistWindow()->tabsFromVList(storage.readVList("playlists"));
     QTimer::singleShot(50, [this]() {
-        // wait for the internal geometry to update, then perform a risize
+        // wait for the internal geometry to update, then perform a resize
         restoreWindows(storage.readVMap("geometry"));
+        if (!hasPrevious_)
+            server->fakePayload(makePayload());
     });
-    if (!hasPrevious_)
-        server->fakePayload(makePayload());
     return qApp->exec();
 }
 
