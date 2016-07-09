@@ -503,11 +503,6 @@ void PlaylistWindow::finishSearch()
     ui->searchHost->setVisible(false);
 }
 
-void PlaylistWindow::self_relativeSeekRequested(bool forwards, bool small)
-{
-    emit relativeSeekRequested(forwards, small);
-}
-
 void PlaylistWindow::self_visibilityChanged()
 {
     // When the window was (re)created/destroyed for whatever reason by

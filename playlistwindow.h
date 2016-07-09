@@ -56,7 +56,6 @@ signals:
     void itemDesired(QUuid playlistUuid, QUuid itemUuid);
     void importPlaylist(QString fname);
     void exportPlaylist(QString fname, QStringList items);
-    void relativeSeekRequested(bool fowards, bool small);
 
 public slots:
     bool activateItem(QUuid playlistUuid, QUuid itemUuid);
@@ -94,7 +93,6 @@ public slots:
     void finishSearch();
 
 private slots:
-    void self_relativeSeekRequested(bool forwards, bool small);
     void self_visibilityChanged();
 
     void on_tabWidget_tabCloseRequested(int index);
