@@ -132,7 +132,7 @@ Do this regularly to keep your local build up to date.
 
 While this program is meant for Linux, it is possible to compile it on Windows
 with the [MSYS2 edition of Qt Creator] due to the largely cross-platform Qt
-toolkit.
+toolkit.  MSVC is not supported.
 
 Mpc-Qt can be compiled with a libmpv linked to MSYS2's ffmpeg libraries, or by
 using the prebuilt library from mpv.srsfckn.biz.  To use the prebuilt library
