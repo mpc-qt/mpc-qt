@@ -107,12 +107,14 @@ signals:
     void avsyncChanged(double sync);
     void displayFramedropsChanged(int64_t count);
     void decoderFramedropsChanged(int64_t cout);
+    void playlistChanged(QVariantList playlist);
 
     void logoSizeChanged(QSize size);
 
 private slots:
     void ctrl_mpvPropertyChanged(QString name, QVariant v);
     void ctrl_logMessage(QString message);
+    void ctrl_clientMessage(uint64_t id, const QStringList &args);
     void ctrl_unhandledMpvEvent(int eventLevel);
     void ctrl_videoSizeChanged(QSize size);
     void self_playTimeChanged(double playTime);
@@ -204,6 +206,7 @@ signals:
 
 public slots:
     void create(bool video = true, bool audio = true);
+    void addHook(const QString &name, int id);
     int observeProperties(const MpvController::PropertyList &properties,
                           const QSet<QString> &throttled = QSet<QString>());
     int unobservePropertiesById(const QSet<uint64_t> &ids);

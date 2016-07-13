@@ -27,6 +27,12 @@
 #define GLAPIENTRY
 #endif
 
+
+
+static const int HOOK_UNLOAD_CALLBACK_ID = 'UNLD';
+
+
+
 static void* GLAPIENTRY glMPGetNativeDisplay(const char* name) {
 #ifdef Q_OS_LINUX
     if (!strcmp(name, "x11")) {
@@ -103,6 +109,8 @@ MpvWidget::MpvWidget(QWidget *parent) :
             this, &MpvWidget::ctrl_mpvPropertyChanged, Qt::QueuedConnection);
     connect(ctrl, &MpvController::logMessage,
             this, &MpvWidget::ctrl_logMessage, Qt::QueuedConnection);
+    connect(ctrl, &MpvController::clientMessage,
+            this, &MpvWidget::ctrl_clientMessage, Qt::QueuedConnection);
     connect(ctrl, &MpvController::unhandledMpvEvent,
             this, &MpvWidget::ctrl_unhandledMpvEvent, Qt::QueuedConnection);
     connect(ctrl, &MpvController::videoSizeChanged,
@@ -149,6 +157,12 @@ MpvWidget::MpvWidget(QWidget *parent) :
                               Qt::BlockingQueuedConnection,
                               Q_ARG(const MpvController::PropertyList &, options),
                               Q_ARG(const QSet<QString> &, throttled));
+
+    // Add hooks
+    QMetaObject::invokeMethod(ctrl, "addHook",
+                              Qt::BlockingQueuedConnection,
+                              Q_ARG(QString, "on_unload"),
+                              Q_ARG(int, HOOK_UNLOAD_CALLBACK_ID));
 
     // Output debug messages from mpv
     if (debugMessages)
@@ -575,6 +589,16 @@ void MpvWidget::ctrl_logMessage(QString message)
     qDebug() << message;
 }
 
+void MpvWidget::ctrl_clientMessage(uint64_t id, const QStringList &args)
+{
+    if (args[1] == QString::number(HOOK_UNLOAD_CALLBACK_ID)) {
+        QVariantList playlist = getMpvPropertyVariant("playlist").toList();
+        if (playlist.count() > 1)
+            playlistChanged(playlist);
+        emit ctrlCommand(QStringList({"hook-ack", args[2]}));
+    }
+}
+
 void MpvWidget::ctrl_unhandledMpvEvent(int eventLevel)
 {
     switch(eventLevel) {
@@ -714,6 +738,11 @@ void MpvController::create(bool video, bool audio)
             throw std::runtime_error("OpenGL not compiled in");
     }
     mpv_set_wakeup_callback(mpv, MpvController::mpvWakeup, this);
+}
+
+void MpvController::addHook(const QString &name, int id)
+{
+    command(QStringList({"hook-add", name, QString::number(id), "0"}));
 }
 
 int MpvController::observeProperties(const MpvController::PropertyList &properties,
