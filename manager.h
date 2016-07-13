@@ -91,6 +91,7 @@ private slots:
     void mpvw_displayFramedropsChanged(int64_t count);
     void mpvw_decoderFramedropsChanged(int64_t count);
     void mpvw_metadataChanged(QVariantMap metadata);
+    void mpvw_playlistChanged(const QVariantList &playlist);
 
 signals:
     void playerSettingsRequested();

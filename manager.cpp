@@ -51,6 +51,8 @@ void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)
                 this, &PlaybackManager::mpvw_decoderFramedropsChanged);
         connect(mpvWidget, &MpvWidget::metaDataChanged,
                 this, &PlaybackManager::mpvw_metadataChanged);
+        connect(mpvWidget, &MpvWidget::playlistChanged,
+                this, &PlaybackManager::mpvw_playlistChanged);
 
         connect(this, &PlaybackManager::hasNoVideo,
                 mpvWidget, &MpvWidget::setDrawLogo);
@@ -85,7 +87,7 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
 
     nowPlaying_ = what;
     mpvWidget_->fileOpen(what.isLocalFile() ? what.toLocalFile()
-                                            : what.toString());
+                                            : what.fromPercentEncoding(what.toEncoded()));
     this->nowPlayingList = playlistUuid;
     this->nowPlayingItem = itemUuid;
 
@@ -510,4 +512,14 @@ void PlaybackManager::mpvw_decoderFramedropsChanged(int64_t count)
 void PlaybackManager::mpvw_metadataChanged(QVariantMap metadata)
 {
     playlistWindow_->setMetadata(nowPlayingList, nowPlayingItem, metadata);
+}
+
+void PlaybackManager::mpvw_playlistChanged(const QVariantList &playlist)
+{
+    // replace current item with whatever we got, and trigger its playback
+    QList<QUrl> urls;
+    for (auto i : playlist)
+        urls.append(QUrl::fromUserInput(i.toMap()["filename"].toString()));
+    playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, urls);
+    playItem(nowPlayingList, nowPlayingItem);
 }
