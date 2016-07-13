@@ -203,6 +203,19 @@ void QDrawnPlaylist::addItem(QUuid uuid)
     QListWidget::addItem(playItem);
 }
 
+void QDrawnPlaylist::addItemsAfter(QUuid item, const QList<QUuid> &items)
+{
+    auto matchingRows = findItems(item.toString(), Qt::MatchExactly);
+    if (matchingRows.length() < 1)
+        return;
+    int itemIndex = row(matchingRows[0]) + 1;
+    for (auto i : items) {
+        PlayItem *playItem = new PlayItem(this);
+        playItem->setUuid(i);
+        QListWidget::insertItem(itemIndex++, playItem);
+    }
+}
+
 void QDrawnPlaylist::removeItem(QUuid uuid)
 {
     QSharedPointer<Playlist> playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);

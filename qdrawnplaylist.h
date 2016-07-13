@@ -47,6 +47,7 @@ public:
     void setCurrentItem(QUuid itemUuid);
     void scrollToItem(QUuid itemUuid);
     void addItem(QUuid uuid);
+    void addItemsAfter(QUuid item, const QList<QUuid> &items);
     void removeItem(QUuid uuid);
     void removeAll();
 

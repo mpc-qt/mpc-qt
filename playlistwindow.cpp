@@ -125,6 +125,22 @@ void PlaylistWindow::setMetadata(QUuid list, QUuid item, const QVariantMap &map)
 
 }
 
+void PlaylistWindow::replaceItem(QUuid list, QUuid item, const QList<QUrl> &urls)
+{
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    if (!pl)
+        return;
+    QList<QUuid> addedItems = pl->replaceItem(item, urls);
+
+    auto listWidget = widgets[list];
+    if (listWidget)
+        listWidget->addItemsAfter(item, addedItems);
+
+    auto qdp = currentPlaylistWidget();
+    if (qdp->uuid() == list)
+        qdp->viewport()->update();
+}
+
 int PlaylistWindow::extraPlayTimes(QUuid list, QUuid item)
 {
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list);

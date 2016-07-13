@@ -72,6 +72,7 @@ public:
     void addItems(const QUuid &where, const QList<QSharedPointer<Item> > &itemsToAdd);
     void removeItem(const QUuid &uuid);
     void takeItemsRaw(const QList<QSharedPointer<Item>> &itemsToRemove);
+    QList<QUuid> replaceItem(const QUuid &where, const QList<QUrl> &urls);
     void clear();
 
     QUuid queueFirst();

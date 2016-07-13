@@ -238,6 +238,26 @@ void Playlist::takeItemsRaw(const QList<QSharedPointer<Item>> &itemsToRemove)
     }
 }
 
+QList<QUuid> Playlist::replaceItem(const QUuid &where, const QList<QUrl> &urls)
+{
+    if (!contains(where))
+        return QList<QUuid>();
+
+    QWriteLocker lock(&listLock);
+    itemsByUuid[where]->setUrl(urls[0]);
+
+    QList<QUuid> addedItems;
+    // essentially insertAfter(where, urls[1..end]);
+    int insertIndex = items.indexOf(itemsByUuid[where]);
+    for (int urlIndex = 1; urlIndex < urls.count(); urlIndex++) {
+        QSharedPointer<Item> i(new Item(urls[urlIndex]));
+        items.insert(insertIndex + urlIndex, i);
+        itemsByUuid.insert(i->uuid(), i);
+        addedItems.append(i->uuid());
+    }
+    return addedItems;
+}
+
 void Playlist::clear()
 {
     QWriteLocker locker(&listLock);
