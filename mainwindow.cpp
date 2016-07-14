@@ -1202,7 +1202,7 @@ void MainWindow::on_actionPlayLoopClear_triggered()
 
 void MainWindow::on_actionPlayVolumeUp_triggered()
 {
-    int newvol = std::min(volumeSlider_->value() + 10, 100.0);
+    int newvol = std::min(volumeSlider_->value() + 10, 130.0);
     emit volumeChanged(newvol);
     volumeSlider_->setValue(newvol);
 }
