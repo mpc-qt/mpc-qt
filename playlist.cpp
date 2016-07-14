@@ -91,7 +91,7 @@ QString Item::toDisplayString() const
 {
     if (url().isLocalFile())
         return QFileInfo(url().toLocalFile()).completeBaseName();
-    return url().toDisplayString();
+    return url().toDisplayString(QUrl::FullyDecoded);
 }
 
 QString Item::toString() const
