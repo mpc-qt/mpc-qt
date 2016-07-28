@@ -127,6 +127,7 @@ public slots:
     void setFitFactor(double fitFactor);
     void setZoomMode(ZoomMode mode);
     void setZoomPreset(int which, double fitFactor = -1.0);
+    void setBottomAreaBehavior(Helpers::ControlHiding method);
     void setPlaybackState(PlaybackManager::PlaybackState state);
     void setPlaybackType(PlaybackManager::PlaybackType type);
     void setChapters(QList<QPair<double,QString>> chapters);
@@ -226,6 +227,7 @@ private:
 
     DecorationState decorationState_;
     bool fullscreenMode_;
+    Helpers::ControlHiding bottomAreaBehavior;
     int bottomAreaHeight;
 
     QString previousOpenDir;

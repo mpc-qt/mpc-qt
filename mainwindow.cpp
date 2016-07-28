@@ -525,10 +525,29 @@ void MainWindow::reparentBottomArea(bool overlay)
 
 void MainWindow::checkBottomArea(QPoint mousePosition)
 {
-    if (mousePosition.y() >= height()-bottomAreaHeight && ui->bottomArea->isHidden())
-        ui->bottomArea->show();
-    else if (mousePosition.y() < height()-bottomAreaHeight && ui->bottomArea->isVisible())
-        ui->bottomArea->hide();
+    if (!fullscreenMode_)
+        return;
+
+    switch (bottomAreaBehavior) {
+    case Helpers::NeverShown:
+        if (ui->bottomArea->isVisible())
+            ui->bottomArea->hide();
+        break;
+    case Helpers::ShowWhenHovering:
+        if (mousePosition.y() >= height()-bottomAreaHeight && ui->bottomArea->isHidden())
+            ui->bottomArea->show();
+        else if (mousePosition.y() < height()-bottomAreaHeight && ui->bottomArea->isVisible())
+            ui->bottomArea->hide();
+        break;
+    case Helpers::ShowWhenMoving:
+        // TBD
+        break;
+    case Helpers::AlwaysShow:
+        if (ui->bottomArea->isHidden())
+            ui->bottomArea->show();
+        break;
+    }
+
 }
 
 void MainWindow::updateTime()
@@ -747,6 +766,13 @@ void MainWindow::setZoomPreset(int which, double fitFactor)
         setFitFactor(fitFactor);
     setZoomMode(mode[which+1]);
     setSizeFactor(factor[which+1]);
+}
+
+void MainWindow::setBottomAreaBehavior(ControlHiding method)
+{
+    bottomAreaBehavior = method;
+    if (fullscreenMode_)
+        checkBottomArea(mapFromGlobal(QCursor::pos()));
 }
 
 void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)

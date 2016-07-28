@@ -25,7 +25,8 @@ namespace Helpers {
     QVariantMap rectToVmap(const QRect &r);
 
     enum TitlePrefix { PrefixFullPath, PrefixFileName, NoPrefix };
-    enum ControlHiding { NeverShown, ShowWhenMoving, ShowWhenHovering };
+    enum ControlHiding { NeverShown, ShowWhenMoving, ShowWhenHovering,
+                         AlwaysShow };
 }
 
 class LogoDrawer : public QObject {
