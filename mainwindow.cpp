@@ -810,7 +810,7 @@ void MainWindow::setBottomAreaHideTime(int milliseconds)
 void MainWindow::setFullscreenHidePanels(bool hidden)
 {
     fullscreenHidePanels = hidden;
-    if (fullscreenMode_) {
+    if (fullscreenMode_ && !playlistWindow_->isFloating()) {
         if (hidden && playlistWindow_->isVisible()) {
             playlistWindow_->hide();
             updateBottomAreaGeometry();
@@ -1163,7 +1163,7 @@ void MainWindow::on_actionViewFullscreen_toggled(bool checked)
 
     if (checked) {
         menuBar()->hide();
-        if (fullscreenHidePanels)
+        if (fullscreenHidePanels && !playlistWindow_->isFloating())
             playlistWindow_->hide();
     } else {
         if (decorationState_ == AllDecorations)
