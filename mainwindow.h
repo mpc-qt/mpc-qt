@@ -76,6 +76,7 @@ private:
     void setUiEnabledState(bool enabled);
     void reparentBottomArea(bool overlay);
     void checkBottomArea(QPoint mousePosition);
+    void updateBottomAreaGeometry();
     void updateTime();
     void updateFramedrops();
     void updatePlaybackStatus();
@@ -131,6 +132,7 @@ public slots:
     void setZoomPreset(int which, double fitFactor = -1.0);
     void setBottomAreaBehavior(Helpers::ControlHiding method);
     void setBottomAreaHideTime(int milliseconds);
+    void setFullscreenHidePanels(bool hidden);
     void setPlaybackState(PlaybackManager::PlaybackState state);
     void setPlaybackType(PlaybackManager::PlaybackType type);
     void setChapters(QList<QPair<double,QString>> chapters);
@@ -232,6 +234,7 @@ private:
 
     DecorationState decorationState_;
     bool fullscreenMode_;
+    bool fullscreenHidePanels;
     Helpers::ControlHiding bottomAreaBehavior;
     int bottomAreaHeight;
     int bottomAreaHideTime;

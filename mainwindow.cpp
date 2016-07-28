@@ -517,13 +517,11 @@ void MainWindow::reparentBottomArea(bool overlay)
 {
     bool inLayout = ui->centralwidget->layout()->indexOf(ui->bottomArea) >= 0;
     if (overlay && inLayout) {
-        QSize sz = windowHandle()->screen()->virtualSize();
         bottomAreaHeight = ui->bottomArea->height();
         ui->centralwidget->layout()->removeWidget(ui->bottomArea);
         ui->bottomArea->setParent(NULL);
         ui->bottomArea->setParent(mpvw);
-        ui->bottomArea->setGeometry(0, sz.height() - bottomAreaHeight,
-                                    sz.width(), bottomAreaHeight);
+        updateBottomAreaGeometry();
         checkBottomArea(mapFromGlobal(QCursor::pos()));
     }
     if (!overlay && !inLayout) {
@@ -567,6 +565,15 @@ void MainWindow::checkBottomArea(QPoint mousePosition)
         else
             hideTimer.start();
     }
+}
+
+void MainWindow::updateBottomAreaGeometry()
+{
+    QSize sz = windowHandle()->screen()->virtualSize();
+    if (playlistWindow_->isVisible() && !fullscreenHidePanels)
+        sz -= QSize(playlistWindow_->width(), 0);
+    ui->bottomArea->setGeometry(0, sz.height() - bottomAreaHeight,
+                                sz.width(), bottomAreaHeight);
 }
 
 void MainWindow::updateTime()
@@ -798,6 +805,20 @@ void MainWindow::setBottomAreaHideTime(int milliseconds)
 {
     bottomAreaHideTime = milliseconds;
     hideTimer.setInterval(milliseconds);
+}
+
+void MainWindow::setFullscreenHidePanels(bool hidden)
+{
+    fullscreenHidePanels = hidden;
+    if (fullscreenMode_) {
+        if (hidden && playlistWindow_->isVisible()) {
+            playlistWindow_->hide();
+            updateBottomAreaGeometry();
+        } else if (!hidden && playlistWindow_->isHidden()) {
+            playlistWindow_->show();
+            updateBottomAreaGeometry();
+        }
+    }
 }
 
 void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
@@ -1142,7 +1163,8 @@ void MainWindow::on_actionViewFullscreen_toggled(bool checked)
 
     if (checked) {
         menuBar()->hide();
-        playlistWindow_->hide();
+        if (fullscreenHidePanels)
+            playlistWindow_->hide();
     } else {
         if (decorationState_ == AllDecorations)
             menuBar()->show();
