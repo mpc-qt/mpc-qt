@@ -230,6 +230,8 @@ void PlaylistWindow::connectSignalsToSlots()
 {
     connect(this, &PlaylistWindow::visibilityChanged,
             this, &PlaylistWindow::self_visibilityChanged);
+    connect(this, &PlaylistWindow::dockLocationChanged,
+            this, &PlaylistWindow::self_dockLocationChanged);
 
     connect(ui->newTab, &QPushButton::clicked,
             this, &PlaylistWindow::newTab);
@@ -527,6 +529,12 @@ void PlaylistWindow::self_visibilityChanged()
         revealSearch();
     else
         finishSearch();
+}
+
+void PlaylistWindow::self_dockLocationChanged(Qt::DockWidgetArea area)
+{
+    if (area != Qt::NoDockWidgetArea)
+        emit windowDocked();
 }
 
 void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)

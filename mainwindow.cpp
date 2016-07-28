@@ -322,6 +322,8 @@ void MainWindow::setupPlaylist()
 {
     playlistWindow_ = new PlaylistWindow(this);
     mpvHost_->addDockWidget(Qt::RightDockWidgetArea, playlistWindow_);
+    connect(playlistWindow_, &PlaylistWindow::windowDocked,
+            this, &MainWindow::playlistWindow_windowDocked);
 }
 
 void MainWindow::setupStatus()
@@ -1411,6 +1413,12 @@ void MainWindow::on_play_clicked()
 void MainWindow::volume_sliderMoved(double position)
 {
     emit volumeChanged(position);
+}
+
+void MainWindow::playlistWindow_windowDocked()
+{
+    if (fullscreenMode_ && fullscreenHidePanels)
+        playlistWindow_->hide();
 }
 
 void MainWindow::hideTimer_timeout()

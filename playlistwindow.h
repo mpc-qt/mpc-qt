@@ -54,6 +54,7 @@ private:
     void addNewTab(QUuid playlist, QString title);
 
 signals:
+    void windowDocked();
     void itemDesired(QUuid playlistUuid, QUuid itemUuid);
     void importPlaylist(QString fname);
     void exportPlaylist(QString fname, QStringList items);
@@ -95,6 +96,8 @@ public slots:
 
 private slots:
     void self_visibilityChanged();
+
+    void self_dockLocationChanged(Qt::DockWidgetArea area);
 
     void on_tabWidget_tabCloseRequested(int index);
 

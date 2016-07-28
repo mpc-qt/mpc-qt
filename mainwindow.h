@@ -217,6 +217,7 @@ private slots:
     void position_sliderMoved(int position);
     void on_play_clicked();
     void volume_sliderMoved(double position);
+    void playlistWindow_windowDocked();
     void hideTimer_timeout();
 
     void sendUpdateSize();
