@@ -156,6 +156,8 @@ Flow::Flow(QObject *owner) :
             mainWindow, &MainWindow::setBottomAreaBehavior);
     connect(settingsWindow, &SettingsWindow::hideTime,
             mainWindow, &MainWindow::setBottomAreaHideTime);
+    connect(settingsWindow, &SettingsWindow::hidePanels,
+            mainWindow, &MainWindow::setFullscreenHidePanels);
 
     // settings -> mpvwidget
     auto mpvw = mainWindow->mpvWidget();
