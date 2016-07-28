@@ -5,6 +5,7 @@
 #include "ui_mainwindow.h"
 #include "helpers.h"
 #include <QDesktopWidget>
+#include <QScreen>
 #include <QWindow>
 #include <QMenuBar>
 #include <QSizeGrip>
@@ -26,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     fullscreenMode_ = false;
+    bottomAreaHeight = 0;
     isPlaying = false;
     sizeFactor_ = 1;
     fitFactor_ = 0.75;
@@ -43,6 +45,8 @@ MainWindow::MainWindow(QWidget *parent) :
     setupPlaylist();
     setupStatus();
     setupSizing();
+
+    mpvw->installEventFilter(this);
 
     connectActionsToSlots();
     connectButtonsToActions();
@@ -138,10 +142,24 @@ void MainWindow::setState(const QVariantMap &map)
 #undef UNWRAP
 }
 
+bool MainWindow::eventFilter(QObject *object, QEvent *event)
+{
+    if (object == mpvw && event->type() == QEvent::MouseMove) {
+        this->mouseMoveEvent(static_cast<QMouseEvent*>(event));
+    }
+    return QMainWindow::eventFilter(object, event);
+}
+
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     event->accept();
     emit applicationShouldQuit();
+}
+
+void MainWindow::mouseMoveEvent(QMouseEvent *event)
+{
+    if (fullscreenMode_)
+        checkBottomArea(event->pos());
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
@@ -283,6 +301,7 @@ void MainWindow::setupMpvWidget()
     mpvw = new MpvWidget(this);
     connect(mpvw, &MpvWidget::logoSizeChanged,
             this, &MainWindow::setNoVideoSize);
+    mpvw->setMouseTracking(true);
 }
 
 void MainWindow::setupMpvHost()
@@ -482,6 +501,34 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->menuPlaySubtitles->setEnabled(enabled);
     ui->menuPlayVideo->setEnabled(enabled);
     ui->menuNavigateChapters->setEnabled(enabled);
+}
+
+void MainWindow::reparentBottomArea(bool overlay)
+{
+    bool inLayout = ui->centralwidget->layout()->indexOf(ui->bottomArea) >= 0;
+    if (overlay && inLayout) {
+        QSize sz = windowHandle()->screen()->virtualSize();
+        bottomAreaHeight = ui->bottomArea->height();
+        ui->centralwidget->layout()->removeWidget(ui->bottomArea);
+        ui->bottomArea->setParent(NULL);
+        ui->bottomArea->setParent(mpvw);
+        ui->bottomArea->setGeometry(0, sz.height() - bottomAreaHeight,
+                                    sz.width(), bottomAreaHeight);
+        checkBottomArea(mapFromGlobal(QCursor::pos()));
+    }
+    if (!overlay && !inLayout) {
+        ui->bottomArea->setParent(NULL);
+        ui->centralwidget->layout()->addWidget(ui->bottomArea);
+        ui->bottomArea->show();
+    }
+}
+
+void MainWindow::checkBottomArea(QPoint mousePosition)
+{
+    if (mousePosition.y() >= height()-bottomAreaHeight && ui->bottomArea->isHidden())
+        ui->bottomArea->show();
+    else if (mousePosition.y() < height()-bottomAreaHeight && ui->bottomArea->isVisible())
+        ui->bottomArea->hide();
 }
 
 void MainWindow::updateTime()
@@ -1040,17 +1087,15 @@ void MainWindow::on_actionViewPresetsNormal_triggered()
 void MainWindow::on_actionViewFullscreen_toggled(bool checked)
 {
     setFullscreenMode(checked);
+    reparentBottomArea(checked);
 
     if (checked) {
         menuBar()->hide();
-        ui->controlSection->hide();
-        ui->infoSection->hide();
         playlistWindow_->hide();
     } else {
         if (decorationState_ == AllDecorations)
             menuBar()->show();
-        ui->controlSection->show();
-        ui->infoSection->show();
+        ui->bottomArea->show();
         if (ui->actionViewHidePlaylist->isChecked())
             playlistWindow_->show();
     }
@@ -1303,3 +1348,4 @@ void MainWindow::on_actionPlaylistSearch_triggered()
         playlistWindow_->show();
     playlistWindow_->revealSearch();
 }
+

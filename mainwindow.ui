@@ -66,6 +66,9 @@
     </item>
     <item>
      <widget class="QWidget" name="bottomArea" native="true">
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <property name="spacing">
         <number>0</number>

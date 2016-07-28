@@ -35,7 +35,9 @@ public:
     void setState(const QVariantMap &map);
 
 protected:
+    bool eventFilter(QObject *object, QEvent *event);
     void closeEvent(QCloseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
     void wheelEvent(QWheelEvent *event);
@@ -70,6 +72,8 @@ private:
     void globalizeAllActions();
     void setUiDecorationState(DecorationState state);
     void setUiEnabledState(bool enabled);
+    void reparentBottomArea(bool overlay);
+    void checkBottomArea(QPoint mousePosition);
     void updateTime();
     void updateFramedrops();
     void updatePlaybackStatus();
@@ -222,6 +226,7 @@ private:
 
     DecorationState decorationState_;
     bool fullscreenMode_;
+    int bottomAreaHeight;
 
     QString previousOpenDir;
     QSize noVideoSize_;
