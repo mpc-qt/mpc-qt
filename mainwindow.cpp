@@ -27,7 +27,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     fullscreenMode_ = false;
+    bottomAreaBehavior = Helpers::ShowWhenHovering;
     bottomAreaHeight = 0;
+    bottomAreaHideTime = 0;
     isPlaying = false;
     sizeFactor_ = 1;
     fitFactor_ = 0.75;
@@ -45,6 +47,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setupPlaylist();
     setupStatus();
     setupSizing();
+    setupHideTimer();
 
     mpvw->installEventFilter(this);
 
@@ -341,6 +344,13 @@ void MainWindow::setupSizing()
     ui->statusbar->layout()->addWidget(gripper);
 }
 
+void MainWindow::setupHideTimer()
+{
+    hideTimer.setSingleShot(true);
+    connect(&hideTimer, &QTimer::timeout,
+            this, &MainWindow::hideTimer_timeout);
+}
+
 void MainWindow::connectActionsToSlots()
 {
     connect(ui->actionHelpAboutQt, &QAction::triggered,
@@ -528,6 +538,7 @@ void MainWindow::checkBottomArea(QPoint mousePosition)
     if (!fullscreenMode_)
         return;
 
+    bool startTimer = false;
     switch (bottomAreaBehavior) {
     case Helpers::NeverShown:
         if (ui->bottomArea->isVisible())
@@ -537,10 +548,12 @@ void MainWindow::checkBottomArea(QPoint mousePosition)
         if (mousePosition.y() >= height()-bottomAreaHeight && ui->bottomArea->isHidden())
             ui->bottomArea->show();
         else if (mousePosition.y() < height()-bottomAreaHeight && ui->bottomArea->isVisible())
-            ui->bottomArea->hide();
+            startTimer = true;
         break;
     case Helpers::ShowWhenMoving:
-        // TBD
+        if (ui->bottomArea->isHidden())
+            ui->bottomArea->show();
+        startTimer = true;
         break;
     case Helpers::AlwaysShow:
         if (ui->bottomArea->isHidden())
@@ -548,6 +561,12 @@ void MainWindow::checkBottomArea(QPoint mousePosition)
         break;
     }
 
+    if (startTimer) {
+        if (!bottomAreaHideTime)
+            ui->bottomArea->hide();
+        else
+            hideTimer.start();
+    }
 }
 
 void MainWindow::updateTime()
@@ -773,6 +792,12 @@ void MainWindow::setBottomAreaBehavior(ControlHiding method)
     bottomAreaBehavior = method;
     if (fullscreenMode_)
         checkBottomArea(mapFromGlobal(QCursor::pos()));
+}
+
+void MainWindow::setBottomAreaHideTime(int milliseconds)
+{
+    bottomAreaHideTime = milliseconds;
+    hideTimer.setInterval(milliseconds);
 }
 
 void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
@@ -1361,6 +1386,12 @@ void MainWindow::on_play_clicked()
 void MainWindow::volume_sliderMoved(double position)
 {
     emit volumeChanged(position);
+}
+
+void MainWindow::hideTimer_timeout()
+{
+    if (fullscreenMode_)
+        ui->bottomArea->hide();
 }
 
 void MainWindow::sendUpdateSize()

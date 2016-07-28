@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <mpvwidget.h>
 #include <QMenuBar>
+#include <QTimer>
 #include "helpers.h"
 #include "qdrawnslider.h"
 #include "qdrawnstatus.h"
@@ -66,6 +67,7 @@ private:
     void setupPlaylist();
     void setupStatus();
     void setupSizing();
+    void setupHideTimer();
     void connectActionsToSlots();
     void connectButtonsToActions();
     void connectPlaylistWindowToActions();
@@ -128,6 +130,7 @@ public slots:
     void setZoomMode(ZoomMode mode);
     void setZoomPreset(int which, double fitFactor = -1.0);
     void setBottomAreaBehavior(Helpers::ControlHiding method);
+    void setBottomAreaHideTime(int milliseconds);
     void setPlaybackState(PlaybackManager::PlaybackState state);
     void setPlaybackType(PlaybackManager::PlaybackType type);
     void setChapters(QList<QPair<double,QString>> chapters);
@@ -212,6 +215,7 @@ private slots:
     void position_sliderMoved(int position);
     void on_play_clicked();
     void volume_sliderMoved(double position);
+    void hideTimer_timeout();
 
     void sendUpdateSize();
 
@@ -224,11 +228,13 @@ private:
     QStatusTime *timePosition;
     QStatusTime *timeDuration;
     PlaylistWindow *playlistWindow_;
+    QTimer hideTimer;
 
     DecorationState decorationState_;
     bool fullscreenMode_;
     Helpers::ControlHiding bottomAreaBehavior;
     int bottomAreaHeight;
+    int bottomAreaHideTime;
 
     QString previousOpenDir;
     QSize noVideoSize_;
