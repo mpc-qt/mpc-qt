@@ -540,7 +540,9 @@ void SettingsWindow::sendSignals()
     }
     voCommandLine(WIDGET_LOOKUP(ui->videoDumbMode).toBool()
                   ? "dumb-mode" : cmdline.join(':'));
-
+    hideMethod(WIDGET_LOOKUP(ui->fullscreenHideControls).toBool()
+               ? static_cast<Helpers::ControlHiding>(WIDGET_LOOKUP(ui->fullscreenShowWhen).toInt())
+               : Helpers::AlwaysShow);
     framedropMode(WIDGET_TO_TEXT(ui->framedroppingMode));
     decoderDropMode(WIDGET_TO_TEXT(ui->framedroppingDecoderMode));
     audioDropSize(WIDGET_LOOKUP(ui->syncAudioDropSize).toDouble());
@@ -741,4 +743,11 @@ void SettingsWindow::on_shadersWikiAdd_clicked()
 void SettingsWindow::on_shadersWikiSync_clicked()
 {
 
+}
+
+void SettingsWindow::on_fullscreenHideControls_toggled(bool checked)
+{
+    ui->fullscreenShowWhen->setEnabled(checked);
+    ui->fullscreenShowWhenDuration->setEnabled(checked);
+    ui->fullscreenHidePanels->setEnabled(checked);
 }

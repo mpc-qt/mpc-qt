@@ -93,7 +93,6 @@ signals:
     void fullscreenAtLaunch(bool yes);
     void fullscreenExitAtEnd(bool yes);
 
-    void hideControls(bool yes);
     void hideMethod(Helpers::ControlHiding method);
     void hideTime(int milliseconds);
     void hidePanels(bool yes);
@@ -233,6 +232,8 @@ private slots:
     void on_shadersWikiAdd_clicked();
 
     void on_shadersWikiSync_clicked();
+
+    void on_fullscreenHideControls_toggled(bool checked);
 
 private:
     Ui::SettingsWindow *ui;

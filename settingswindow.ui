@@ -144,7 +144,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>5</number>
+          <number>7</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -4071,6 +4071,9 @@ media file played</string>
                 <property name="text">
                  <string>Hide docked panels</string>
                 </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="0" column="0" colspan="2">
@@ -4085,6 +4088,9 @@ media file played</string>
               </item>
               <item row="1" column="0">
                <widget class="QComboBox" name="fullscreenShowWhen">
+                <property name="currentIndex">
+                 <number>2</number>
+                </property>
                 <item>
                  <property name="text">
                   <string>Never show</string>

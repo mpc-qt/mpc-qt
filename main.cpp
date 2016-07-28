@@ -152,6 +152,8 @@ Flow::Flow(QObject *owner) :
             mainWindow, &MainWindow::setVolume);
     connect(settingsWindow, &SettingsWindow::zoomPreset,
             mainWindow, &MainWindow::setZoomPreset);
+    connect(settingsWindow, &SettingsWindow::hideMethod,
+            mainWindow, &MainWindow::setBottomAreaBehavior);
 
     // settings -> mpvwidget
     auto mpvw = mainWindow->mpvWidget();
