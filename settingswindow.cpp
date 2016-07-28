@@ -550,8 +550,10 @@ void SettingsWindow::sendSignals()
             hideMethod(method);
             hideTime(timeOut);
         }
+        hidePanels(WIDGET_LOOKUP(ui->fullscreenHidePanels).toBool());
     } else {
         hideMethod(Helpers::AlwaysShow);
+        hidePanels(false);
     }
     framedropMode(WIDGET_TO_TEXT(ui->framedroppingMode));
     decoderDropMode(WIDGET_TO_TEXT(ui->framedroppingDecoderMode));
