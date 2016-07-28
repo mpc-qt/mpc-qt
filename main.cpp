@@ -154,6 +154,8 @@ Flow::Flow(QObject *owner) :
             mainWindow, &MainWindow::setZoomPreset);
     connect(settingsWindow, &SettingsWindow::hideMethod,
             mainWindow, &MainWindow::setBottomAreaBehavior);
+    connect(settingsWindow, &SettingsWindow::hideTime,
+            mainWindow, &MainWindow::setBottomAreaHideTime);
 
     // settings -> mpvwidget
     auto mpvw = mainWindow->mpvWidget();
