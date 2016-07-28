@@ -1088,13 +1088,16 @@ void MainWindow::on_actionViewHideSubresync_toggled(bool checked)
 
 void MainWindow::on_actionViewHidePlaylist_toggled(bool checked)
 {
-    if (fullscreenMode_)
+    if (fullscreenMode_ && fullscreenHidePanels)
         return;
 
     if (checked && playlistWindow_->isHidden())
         playlistWindow_->show();
     else if (!checked && playlistWindow_->isVisible())
         playlistWindow_->hide();
+
+    if (fullscreenMode_ && !fullscreenHidePanels)
+        updateBottomAreaGeometry();
 
     fireUpdateSize();
 }
