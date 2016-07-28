@@ -4064,6 +4064,9 @@ media file played</string>
                 <property name="suffix">
                  <string>ms</string>
                 </property>
+                <property name="maximum">
+                 <number>5000</number>
+                </property>
                </widget>
               </item>
               <item row="2" column="0" colspan="2">

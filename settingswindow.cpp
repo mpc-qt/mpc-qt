@@ -540,9 +540,19 @@ void SettingsWindow::sendSignals()
     }
     voCommandLine(WIDGET_LOOKUP(ui->videoDumbMode).toBool()
                   ? "dumb-mode" : cmdline.join(':'));
-    hideMethod(WIDGET_LOOKUP(ui->fullscreenHideControls).toBool()
-               ? static_cast<Helpers::ControlHiding>(WIDGET_LOOKUP(ui->fullscreenShowWhen).toInt())
-               : Helpers::AlwaysShow);
+    if (WIDGET_LOOKUP(ui->fullscreenHideControls).toBool()) {
+        Helpers::ControlHiding method = static_cast<Helpers::ControlHiding>(WIDGET_LOOKUP(ui->fullscreenShowWhen).toInt());
+        int timeOut = WIDGET_LOOKUP(ui->fullscreenShowWhenDuration).toInt();
+        if (method == Helpers::ShowWhenMoving && !timeOut) {
+            hideMethod(Helpers::ShowWhenHovering);
+            hideTime(0);
+        } else {
+            hideMethod(method);
+            hideTime(timeOut);
+        }
+    } else {
+        hideMethod(Helpers::AlwaysShow);
+    }
     framedropMode(WIDGET_TO_TEXT(ui->framedroppingMode));
     decoderDropMode(WIDGET_TO_TEXT(ui->framedroppingDecoderMode));
     audioDropSize(WIDGET_LOOKUP(ui->syncAudioDropSize).toDouble());
