@@ -250,6 +250,10 @@ double MainWindow::sizeFactor()
 
 void MainWindow::setFullscreenMode(bool fullscreenMode)
 {
+    // This is where the monitor settings should be honored.
+    // For now, use the current screen.
+    windowHandle()->setScreen(windowHandle()->screen());
+
     fullscreenMode_ = fullscreenMode;
     if (fullscreenMode)
         showFullScreen();
