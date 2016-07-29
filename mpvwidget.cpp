@@ -786,8 +786,8 @@ int64_t MpvController::apiVersion()
 void MpvController::setLogLevel(LogLevel level)
 {
     QVector<const char*> logLevels = { "no", "fatal", "error", "warn ",
-                                       "info", "status", "v", "debug",
-                                       "trace", "terminal-default" };
+                                       "info", "v", "debug", "trace",
+                                       "terminal-default" };
     mpv_request_log_messages(mpv, logLevels.value(level));
 }
 

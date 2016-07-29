@@ -64,8 +64,8 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
                             "bottom-right", "bottom-center", "bottom-left",\
                             "center-left", "top-left", "center-center" }},
     {"screenshotFormat", {"jpg", "png"}},
-    {"debugMpv", { "no", "fatal", "error", "warn", "info", "status", "v",\
-                   "debug", "trace"}}
+    {"debugMpv", { "no", "fatal", "error", "warn", "info", "v", "debug",\
+                   "trace"}}
 };
 
 

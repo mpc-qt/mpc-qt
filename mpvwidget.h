@@ -189,8 +189,8 @@ public:
             : name(name), userData(userData), format(format) {}
     };
     typedef QVector<MpvProperty> PropertyList;
-    enum LogLevel { LogNone, LogFatal, LogError, LogWarn, LogInfo, LogStatus,
-                    LogV, LogDebug, LogTrace, LogTerminalDefault };
+    enum LogLevel { LogNone, LogFatal, LogError, LogWarn, LogInfo, LogV,
+                    LogDebug, LogTrace, LogTerminalDefault };
 
     MpvController(QObject *parent = 0);
     ~MpvController();
