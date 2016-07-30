@@ -338,7 +338,7 @@ void Playlist::queueClear()
 
 int Playlist::queueContains(const QList<QUuid> &itemsToCheck) const
 {
-    int count;
+    int count = 0;
     for (QUuid itemUuid : itemsToCheck)
         if (queue.contains(itemUuid))
             ++count;
