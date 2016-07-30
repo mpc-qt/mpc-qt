@@ -5,7 +5,6 @@
 #include "ui_mainwindow.h"
 #include "helpers.h"
 #include <QDesktopWidget>
-#include <QScreen>
 #include <QWindow>
 #include <QMenuBar>
 #include <QSizeGrip>
@@ -143,6 +142,12 @@ void MainWindow::setState(const QVariantMap &map)
     UNWRAP(ui->actionViewHideCapture, false);
     UNWRAP(ui->actionViewHideNavigation, false);
 #undef UNWRAP
+}
+
+void MainWindow::resizeEvent(QResizeEvent *event)
+{
+    updateBottomAreaGeometry();
+    checkBottomArea(mapFromGlobal(QCursor::pos()));
 }
 
 bool MainWindow::eventFilter(QObject *object, QEvent *event)
@@ -527,8 +532,6 @@ void MainWindow::reparentBottomArea(bool overlay)
         ui->centralwidget->layout()->removeWidget(ui->bottomArea);
         ui->bottomArea->setParent(NULL);
         ui->bottomArea->setParent(mpvw);
-        updateBottomAreaGeometry();
-        checkBottomArea(mapFromGlobal(QCursor::pos()));
     }
     if (!overlay && !inLayout) {
         ui->bottomArea->setParent(NULL);
@@ -575,7 +578,10 @@ void MainWindow::checkBottomArea(QPoint mousePosition)
 
 void MainWindow::updateBottomAreaGeometry()
 {
-    QSize sz = windowHandle()->screen()->virtualSize();
+    if (!fullscreenMode_)
+        return;
+
+    QSize sz = size();
     if (playlistWindow_->isVisible() && !fullscreenHidePanels)
         sz -= QSize(playlistWindow_->width(), 0);
     ui->bottomArea->setGeometry(0, sz.height() - bottomAreaHeight,

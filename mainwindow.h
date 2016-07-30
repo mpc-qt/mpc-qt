@@ -36,6 +36,7 @@ public:
     void setState(const QVariantMap &map);
 
 protected:
+    void resizeEvent(QResizeEvent *event);
     bool eventFilter(QObject *object, QEvent *event);
     void closeEvent(QCloseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
