@@ -649,9 +649,14 @@
      <property name="title">
       <string>&amp;Zoom</string>
      </property>
+     <addaction name="actionViewZoom025"/>
      <addaction name="actionViewZoom050"/>
+     <addaction name="actionViewZoom075"/>
      <addaction name="actionViewZoom100"/>
+     <addaction name="actionViewZoom150"/>
      <addaction name="actionViewZoom200"/>
+     <addaction name="actionViewZoom300"/>
+     <addaction name="actionViewZoom400"/>
      <addaction name="actionViewZoomAutofit"/>
      <addaction name="actionViewZoomAutofitLarger"/>
      <addaction name="actionViewZoomAutofitSmaller"/>
@@ -1646,6 +1651,31 @@
   <action name="actionHelpAboutQt">
    <property name="text">
     <string>About &amp;Qt...</string>
+   </property>
+  </action>
+  <action name="actionViewZoom025">
+   <property name="text">
+    <string>25%</string>
+   </property>
+  </action>
+  <action name="actionViewZoom075">
+   <property name="text">
+    <string>75%</string>
+   </property>
+  </action>
+  <action name="actionViewZoom150">
+   <property name="text">
+    <string>150%</string>
+   </property>
+  </action>
+  <action name="actionViewZoom400">
+   <property name="text">
+    <string>400%</string>
+   </property>
+  </action>
+  <action name="actionViewZoom300">
+   <property name="text">
+    <string>300%</string>
    </property>
   </action>
  </widget>

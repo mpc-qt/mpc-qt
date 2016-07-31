@@ -795,15 +795,15 @@ void MainWindow::setZoomMode(ZoomMode mode)
 
 void MainWindow::setZoomPreset(int which, double fitFactor)
 {
-    double factor[] = { 1.0, 0.5, 1.0, 2.0, 1.0, 1.0, 1.0 };
-    MainWindow::ZoomMode mode[] = { FitToWindow, RegularZoom,
-                                    RegularZoom, RegularZoom,
-                                    Autofit, AutofitLarger,
-                                    AutofitSmaller };
+    double factor[] = { 1.0, 1.0, 1.0, 1.0,
+                        0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0, 4.0 };
+    ZoomMode mode[] = { Autofit, AutofitLarger, AutofitSmaller, FitToWindow,
+                        RegularZoom, RegularZoom, RegularZoom, RegularZoom,
+                        RegularZoom, RegularZoom, RegularZoom, RegularZoom };
     if (fitFactor >= 0.0)
         setFitFactor(fitFactor);
-    setZoomMode(mode[which+1]);
-    setSizeFactor(factor[which+1]);
+    setZoomMode(mode[which + 4]);
+    setSizeFactor(factor[which + 4]);
 }
 
 void MainWindow::setBottomAreaBehavior(ControlHiding method)
@@ -1189,40 +1189,70 @@ void MainWindow::on_actionViewFullscreen_toggled(bool checked)
     }
 }
 
-void MainWindow::on_actionViewZoom050_triggered()
+void MainWindow::on_actionViewZoom025_triggered()
 {
     setZoomPreset(0);
     emit zoomPresetChanged(0);
 }
 
-void MainWindow::on_actionViewZoom100_triggered()
+void MainWindow::on_actionViewZoom050_triggered()
 {
     setZoomPreset(1);
     emit zoomPresetChanged(1);
 }
 
-void MainWindow::on_actionViewZoom200_triggered()
+void MainWindow::on_actionViewZoom075_triggered()
 {
     setZoomPreset(2);
     emit zoomPresetChanged(2);
 }
 
-void MainWindow::on_actionViewZoomAutofit_triggered()
+void MainWindow::on_actionViewZoom100_triggered()
 {
     setZoomPreset(3);
     emit zoomPresetChanged(3);
 }
 
-void MainWindow::on_actionViewZoomAutofitLarger_triggered()
+void MainWindow::on_actionViewZoom150_triggered()
 {
     setZoomPreset(4);
     emit zoomPresetChanged(4);
 }
 
-void MainWindow::on_actionViewZoomAutofitSmaller_triggered()
+void MainWindow::on_actionViewZoom200_triggered()
 {
     setZoomPreset(5);
     emit zoomPresetChanged(5);
+}
+
+void MainWindow::on_actionViewZoom300_triggered()
+{
+    setZoomPreset(6);
+    emit zoomPresetChanged(6);
+}
+
+void MainWindow::on_actionViewZoom400_triggered()
+{
+    setZoomPreset(7);
+    emit zoomPresetChanged(7);
+}
+
+void MainWindow::on_actionViewZoomAutofit_triggered()
+{
+    setZoomPreset(-4);
+    emit zoomPresetChanged(-4);
+}
+
+void MainWindow::on_actionViewZoomAutofitLarger_triggered()
+{
+    setZoomPreset(-3);
+    emit zoomPresetChanged(-3);
+}
+
+void MainWindow::on_actionViewZoomAutofitSmaller_triggered()
+{
+    setZoomPreset(-2);
+    emit zoomPresetChanged(-2);
 }
 
 void MainWindow::on_actionViewZoomDisable_triggered()

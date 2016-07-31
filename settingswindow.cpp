@@ -383,12 +383,16 @@ void SettingsWindow::sendSignals()
                            0 : WIDGET_LOOKUP(ui->playbackPlayAmount).toInt());
 
     double factor = WIDGET_LOOKUP(ui->playbackAutoFitFactor).toInt() / 100.0;
-
     if (!WIDGET_LOOKUP(ui->playbackAutoZoom).toBool())
         emit zoomPreset(-1, factor);
-    else
-        emit zoomPreset(WIDGET_LOOKUP(ui->playbackAutoZoomMethod).toInt(),
-                        factor);
+    else {
+        int preset = WIDGET_LOOKUP(ui->playbackAutoZoomMethod).toInt();
+        int count = ui->playbackAutoZoomMethod->count();
+        if (preset >= count - 3)
+            emit zoomPreset(preset - count, factor);
+        else
+            emit zoomPreset(preset, factor);
+    }
 
     displaySyncMode(WIDGET_TO_TEXT(ui->syncMode));
     QMap<QString,QString> params;
@@ -599,8 +603,10 @@ void SettingsWindow::setVolume(int level)
 
 void SettingsWindow::setZoomPreset(int which)
 {
-    bool autoZoom = which >= 0;
-    int zoomMethod = autoZoom ? which : 1;
+    bool autoZoom = which != -1;
+    int zoomMethod = which >= 0 ? which :
+                     which == -1 ? 1
+                                 : which - ui->playbackAutoZoomMethod->count();
 
     WIDGET_LOOKUP(ui->playbackAutoZoom).setValue(autoZoom);
     WIDGET_LOOKUP(ui->playbackAutoZoomMethod).setValue(zoomMethod);

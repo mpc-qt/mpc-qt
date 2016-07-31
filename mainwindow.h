@@ -176,9 +176,14 @@ private slots:
 
     void on_actionViewFullscreen_toggled(bool checked);
 
+    void on_actionViewZoom025_triggered();
     void on_actionViewZoom050_triggered();
+    void on_actionViewZoom075_triggered();
     void on_actionViewZoom100_triggered();
+    void on_actionViewZoom150_triggered();
     void on_actionViewZoom200_triggered();
+    void on_actionViewZoom300_triggered();
+    void on_actionViewZoom400_triggered();
     void on_actionViewZoomAutofit_triggered();
     void on_actionViewZoomAutofitLarger_triggered();
     void on_actionViewZoomAutofitSmaller_triggered();
