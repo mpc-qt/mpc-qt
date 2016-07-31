@@ -466,7 +466,7 @@ void SettingsWindow::sendSignals()
 
     params["cscale"] = WIDGET_TO_TEXT(ui->cscaleScalar);
     if (WIDGET_LOOKUP(ui->cscaleParam1Set).toBool())
-        params["ccale-param1"] = WIDGET_LOOKUP(ui->cscaleParam1Value).toString();
+        params["cscale-param1"] = WIDGET_LOOKUP(ui->cscaleParam1Value).toString();
     if (WIDGET_LOOKUP(ui->cscaleParam2Set).toBool())
         params["cscale-param2"] = WIDGET_LOOKUP(ui->cscaleParam2Value).toString();
     if (WIDGET_LOOKUP(ui->cscaleRadiusSet).toBool())
