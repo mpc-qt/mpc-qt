@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>785</width>
-    <height>787</height>
+    <height>746</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -580,7 +580,34 @@ media file played</string>
              <property name="title">
               <string>Output</string>
              </property>
-             <layout class="QGridLayout" name="gridLayout_4" columnstretch="0,1">
+             <layout class="QGridLayout" name="gridLayout_4">
+              <item row="4" column="0" colspan="2">
+               <widget class="QLabel" name="playbackAutozoomWarn">
+                <property name="text">
+                 <string>Autofitting in tiling window managers requires that the window be in floating mode.</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QCheckBox" name="playbackAutoZoom">
+                <property name="text">
+                 <string>Auto zoom</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="playbackAutoFitFactorLabel">
+                <property name="text">
+                 <string>Auto fit factor</string>
+                </property>
+               </widget>
+              </item>
               <item row="0" column="1">
                <widget class="QComboBox" name="playbackAutoZoomMethod">
                 <property name="currentIndex">
@@ -643,14 +670,7 @@ media file played</string>
                 </item>
                </widget>
               </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_7">
-                <property name="text">
-                 <string>Auto fit factor</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
+              <item row="2" column="1">
                <widget class="QSpinBox" name="playbackAutoFitFactor">
                 <property name="suffix">
                  <string>%</string>
@@ -666,22 +686,12 @@ media file played</string>
                 </property>
                </widget>
               </item>
-              <item row="0" column="0">
-               <widget class="QCheckBox" name="playbackAutoZoom">
+              <item row="3" column="0" colspan="2">
+               <widget class="QCheckBox" name="playbackAutoCenterWindow">
                 <property name="text">
-                 <string>Auto zoom</string>
+                 <string>Center window when zooming</string>
                 </property>
                 <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" colspan="2">
-               <widget class="QLabel" name="playbackAutozoomWarn">
-                <property name="text">
-                 <string>Autofitting in tiling window managers requires that the window be in floating mode.</string>
-                </property>
-                <property name="wordWrap">
                  <bool>true</bool>
                 </property>
                </widget>

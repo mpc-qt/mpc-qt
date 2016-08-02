@@ -82,6 +82,7 @@ signals:
     void volumeStep(int amount);
     void speedStep(double amount);
     void zoomPreset(int which, double fitFactor);
+    void zoomCenter(bool yes);
     void travkVideoPreference(const QString &pref);
     void trackAudioPreference(const QString &pref);
     void autoLoadAudio(bool yes);
@@ -234,6 +235,8 @@ private slots:
     void on_shadersWikiSync_clicked();
 
     void on_fullscreenHideControls_toggled(bool checked);
+
+    void on_playbackAutoZoom_toggled(bool checked);
 
 private:
     Ui::SettingsWindow *ui;

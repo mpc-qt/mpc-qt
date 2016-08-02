@@ -33,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     sizeFactor_ = 1;
     fitFactor_ = 0.75;
     zoomMode = RegularZoom;
+    zoomCenter = true;
 
     noVideoSize_ = QSize(500,270);
     decorationState_ = AllDecorations;
@@ -668,6 +669,11 @@ void MainWindow::updateSize(bool first_run)
     }
     desired = wanted + fudgeFactor;
 
+    if (!zoomCenter) {
+        resize(desired.width(), desired.height());
+        return;
+    }
+
     auto setToSize = [this](QSize &desired, const QRect &available) {
         // limit window to available desktop area
         if (desired.height() > available.height())
@@ -804,6 +810,11 @@ void MainWindow::setZoomPreset(int which, double fitFactor)
         setFitFactor(fitFactor);
     setZoomMode(mode[which + 4]);
     setSizeFactor(factor[which + 4]);
+}
+
+void MainWindow::setZoomCenter(bool yes)
+{
+    zoomCenter = yes;
 }
 
 void MainWindow::setBottomAreaBehavior(ControlHiding method)

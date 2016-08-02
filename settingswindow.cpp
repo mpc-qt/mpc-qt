@@ -382,6 +382,7 @@ void SettingsWindow::sendSignals()
     emit playbackPlayTimes(WIDGET_LOOKUP(ui->playbackRepeatForever).toBool() ?
                            0 : WIDGET_LOOKUP(ui->playbackPlayAmount).toInt());
 
+    emit zoomCenter(WIDGET_LOOKUP(ui->playbackAutoCenterWindow).toBool());
     double factor = WIDGET_LOOKUP(ui->playbackAutoFitFactor).toInt() / 100.0;
     if (!WIDGET_LOOKUP(ui->playbackAutoZoom).toBool())
         emit zoomPreset(-1, factor);
@@ -768,4 +769,13 @@ void SettingsWindow::on_fullscreenHideControls_toggled(bool checked)
     ui->fullscreenShowWhen->setEnabled(checked);
     ui->fullscreenShowWhenDuration->setEnabled(checked);
     ui->fullscreenHidePanels->setEnabled(checked);
+}
+
+void SettingsWindow::on_playbackAutoZoom_toggled(bool checked)
+{
+    ui->playbackAutoZoomMethod->setEnabled(checked);
+    ui->playbackAutoFitFactorLabel->setEnabled(checked);
+    ui->playbackAutoFitFactor->setEnabled(checked);
+    ui->playbackAutoCenterWindow->setEnabled(checked);
+    ui->playbackAutozoomWarn->setEnabled(checked);
 }

@@ -131,6 +131,7 @@ public slots:
     void setFitFactor(double fitFactor);
     void setZoomMode(ZoomMode mode);
     void setZoomPreset(int which, double fitFactor = -1.0);
+    void setZoomCenter(bool yes);
     void setBottomAreaBehavior(Helpers::ControlHiding method);
     void setBottomAreaHideTime(int milliseconds);
     void setFullscreenHidePanels(bool hidden);
@@ -253,6 +254,7 @@ private:
     double sizeFactor_;
     double fitFactor_;
     ZoomMode zoomMode;
+    bool zoomCenter;
     int64_t displayDrops;
     int64_t decoderDrops;
 
