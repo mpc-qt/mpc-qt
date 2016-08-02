@@ -6,6 +6,8 @@
 
 QT       += core gui network widgets
 
+QMAKE_CXXFLAGS += -Wall -Werror
+
 !win32 {
 QT += x11extras
 }

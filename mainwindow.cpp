@@ -147,6 +147,7 @@ void MainWindow::setState(const QVariantMap &map)
 
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
+    Q_UNUSED(event);
     updateBottomAreaGeometry();
     checkBottomArea(mapFromGlobal(QCursor::pos()));
 }

@@ -173,7 +173,8 @@ void PlaybackManager::playDiscFiles(QUrl where)
 
 void PlaybackManager::playDisc(QUrl where)
 {
-
+    Q_UNUSED(where);
+    //FIXME: use udisks2 to determine possible disc locations
 }
 
 void PlaybackManager::playStream(QUrl stream)
@@ -189,7 +190,8 @@ void PlaybackManager::playItem(QUuid playlist, QUuid item)
 
 void PlaybackManager::playDevice(QUrl device)
 {
-
+    Q_UNUSED(device);
+    //FIXME: detect dvb dongles, and use a channel map (or make one?)
 }
 
 void PlaybackManager::pausePlayer()

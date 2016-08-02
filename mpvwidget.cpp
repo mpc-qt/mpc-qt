@@ -29,7 +29,7 @@
 
 
 
-static const int HOOK_UNLOAD_CALLBACK_ID = 'UNLD';
+static const int HOOK_UNLOAD_CALLBACK_ID = 0xdeaddead;
 
 
 
@@ -591,6 +591,7 @@ void MpvWidget::ctrl_logMessage(QString message)
 
 void MpvWidget::ctrl_clientMessage(uint64_t id, const QStringList &args)
 {
+    Q_UNUSED(id);
     if (args[1] == QString::number(HOOK_UNLOAD_CALLBACK_ID)) {
         QVariantList playlist = getMpvPropertyVariant("playlist").toList();
         if (playlist.count() > 1)
