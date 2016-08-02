@@ -1418,7 +1418,7 @@
   </action>
   <action name="actionHelpAbout">
    <property name="text">
-    <string>&amp;About...</string>
+    <string>&amp;About This Program...</string>
    </property>
   </action>
   <action name="actionFileOpenNetworkStream">
@@ -1660,22 +1660,22 @@
   </action>
   <action name="actionViewZoom075">
    <property name="text">
-    <string>75%</string>
+    <string>&amp;75%</string>
    </property>
   </action>
   <action name="actionViewZoom150">
    <property name="text">
-    <string>150%</string>
+    <string>15&amp;0%</string>
    </property>
   </action>
   <action name="actionViewZoom400">
    <property name="text">
-    <string>400%</string>
+    <string>&amp;400%</string>
    </property>
   </action>
   <action name="actionViewZoom300">
    <property name="text">
-    <string>300%</string>
+    <string>&amp;300%</string>
    </property>
   </action>
  </widget>
