@@ -381,6 +381,7 @@ void SettingsWindow::sendSignals()
 
     emit playbackPlayTimes(WIDGET_LOOKUP(ui->playbackRepeatForever).toBool() ?
                            0 : WIDGET_LOOKUP(ui->playbackPlayAmount).toInt());
+    emit playbackLoopImages(WIDGET_LOOKUP(ui->playbackLoopImages).toBool());
 
     emit zoomCenter(WIDGET_LOOKUP(ui->playbackAutoCenterWindow).toBool());
     double factor = WIDGET_LOOKUP(ui->playbackAutoFitFactor).toInt() / 100.0;

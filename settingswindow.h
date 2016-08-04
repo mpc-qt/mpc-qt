@@ -115,6 +115,7 @@ signals:
 
     void playbackPlayTimes(int count);
     void playbackRewinds(bool yes);
+    void playbackLoopImages(bool yes);
     void playlistFormat(const QString &fmt);
 
     void subsAreGray(bool flag);

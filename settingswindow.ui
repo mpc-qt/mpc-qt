@@ -144,7 +144,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>4</number>
+          <number>9</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -4552,6 +4552,16 @@ media file played</string>
                <widget class="QCheckBox" name="playbackRewindWhenDone">
                 <property name="text">
                  <string>Rewind when done playing</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="playbackLoopImages">
+                <property name="text">
+                 <string>Always loop images (manual progression)</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
