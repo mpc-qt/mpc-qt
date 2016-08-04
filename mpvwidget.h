@@ -31,6 +31,7 @@ public:
     void seek(double amount, bool exact);
     void screenshot(const QString &fileName, bool subtitles);
     void setLogoUrl(const QString &filename);
+    void setLoopImages(bool yes);
     void setVOCommandLine(QString cmdline);
 
     int64_t chapter();
@@ -136,6 +137,8 @@ private:
 
     bool drawLogo;
     LogoDrawer *logo;
+
+    bool loopImages;
 
     bool debugMessages;
 };
