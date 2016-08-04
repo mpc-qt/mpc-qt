@@ -181,6 +181,8 @@ Flow::Flow(QObject *owner) :
             mpvw, &MpvWidget::setMaximumAudioChange);
     connect(settingsWindow, &SettingsWindow::maximumVideoChange,
             mpvw, &MpvWidget::setMaximumVideoChange);
+    connect(settingsWindow, &SettingsWindow::playbackLoopImages,
+            mpvw, &MpvWidget::setLoopImages);
     connect(settingsWindow, &SettingsWindow::subsAreGray,
             mpvw, &MpvWidget::setSubsAreGray);
     connect(settingsWindow, &SettingsWindow::screenshotFormat,
