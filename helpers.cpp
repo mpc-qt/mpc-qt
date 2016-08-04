@@ -252,7 +252,8 @@ void LogoDrawer::paintGL(QOpenGLWidget *widget)
     painter.setWindow(window);
     painter.setRenderHint(QPainter::SmoothPixmapTransform);
     painter.fillRect(window, QBrush(QColor(0,0,0)));
-    painter.drawImage(logoLocation, logo);
+    if (!logo.isNull())
+        painter.drawImage(logoLocation, logo);
 }
 
 void LogoDrawer::regenerateTexture()
