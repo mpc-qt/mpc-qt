@@ -10,8 +10,8 @@
 
 #define SCALAR_SCALARS \
     "bilinear", "bicubic_fast", "oversample", "spline16", "spline36",\
-    "spline64", "sinc", "lanczos", "gingseng", "jinc", "ewa_lanczos",\
-    "ewa_hanning", "ewa_gingseng", "ewa_lanczossharp", "ewa_lanczossoft",\
+    "spline64", "sinc", "lanczos", "ginseng", "jinc", "ewa_lanczos",\
+    "ewa_hanning", "ewa_ginseng", "ewa_lanczossharp", "ewa_lanczossoft",\
     "hassnsoft",  "bicubic", "bcspline", "catmull_rom", "mitchell",\
     "robidoux", "robidouxsharp", "ewa_robidoux", "ewa_robidouxsharp",\
     "box", "nearest", "triangle", "gaussian"
@@ -22,7 +22,7 @@
 
 #define TIME_SCALARS \
     "oversample", "spline16", "spline36", "spline64", "sinc", "lanczos",\
-    "gingseng", "catmull_rom", "mitchell", "robidoux", "robidouxsharp",\
+    "ginseng", "catmull_rom", "mitchell", "robidoux", "robidouxsharp",\
     "box", "nearest", "triangle", "gaussian"
 
 
@@ -189,7 +189,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
             this, &SettingsWindow::mouseFullscreenMap);
 
     logoWidget = new LogoWidget(this);
-    ui->logoImageHost->addWidget(logoWidget);
+    ui->logoImageHost->layout()->addWidget(logoWidget);
 
     defaultSettings = generateSettingMap();
     acceptedSettings = defaultSettings;
