@@ -608,7 +608,7 @@ void SettingsWindow::setZoomPreset(int which)
     bool autoZoom = which != -1;
     int zoomMethod = which >= 0 ? which :
                      which == -1 ? 1
-                                 : which - ui->playbackAutoZoomMethod->count();
+                                 : which + ui->playbackAutoZoomMethod->count() + 1;
 
     WIDGET_LOOKUP(ui->playbackAutoZoom).setValue(autoZoom);
     WIDGET_LOOKUP(ui->playbackAutoZoomMethod).setValue(zoomMethod);
