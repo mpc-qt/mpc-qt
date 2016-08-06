@@ -23,13 +23,6 @@ static void dr(QPainter *p, QRectF r) {
     p->drawRect(r2);
 }
 
-// C++18 can't come soon enough
-template <class T>
-static const T& clamp(const T& value, const T& low, const T& high)
-{
-    return std::min(std::max(value, low), high);
-}
-
 
 
 QDrawnSlider::QDrawnSlider(QWidget *parent, QSize handle, QSize margin) :
@@ -69,7 +62,7 @@ double QDrawnSlider::valueToX(double value)
     double stride = sliderArea.right() - sliderArea.left();
     double x = sliderArea.left() + (((value-minimum()) * stride)
                                  / std::max(1.0, maximum() - minimum()));
-    return clamp(x, sliderArea.left(), sliderArea.right());
+    return qBound(x, sliderArea.left(), sliderArea.right());
 }
 
 double QDrawnSlider::xToValue(double x)
@@ -77,7 +70,7 @@ double QDrawnSlider::xToValue(double x)
     double stride = std::max(1.0, sliderArea.right() - sliderArea.left());
     double val = ((x-sliderArea.left()) * (maximum() - minimum()))
             / stride;
-    return clamp(val, minimum(), maximum());
+    return qBound(val, minimum(), maximum());
 }
 
 void QDrawnSlider::paintGL()
@@ -198,8 +191,8 @@ void QDrawnSlider::mouseMoveEvent(QMouseEvent *ev)
 {
     if (isDragging && ev->buttons() & Qt::LeftButton) {
         double mouseValue = xToValue(ev->localPos().x());
-        double mouseX = clamp(ev->localPos().x(), sliderArea.left(),
-                              sliderArea.right());
+        double mouseX = qBound(ev->localPos().x(), sliderArea.left(),
+                               sliderArea.right());
         if (value() != mouseValue) {
             setValue(mouseValue);
             sliderMoved(value());
