@@ -68,6 +68,7 @@ private:
     void setupPlaylist();
     void setupStatus();
     void setupSizing();
+    void setupBottomArea();
     void setupHideTimer();
     void connectActionsToSlots();
     void connectButtonsToActions();

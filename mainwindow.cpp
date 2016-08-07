@@ -47,9 +47,11 @@ MainWindow::MainWindow(QWidget *parent) :
     setupPlaylist();
     setupStatus();
     setupSizing();
+    setupBottomArea();
     setupHideTimer();
 
     mpvw->installEventFilter(this);
+    playlistWindow_->installEventFilter(this);
 
     connectActionsToSlots();
     connectButtonsToActions();
@@ -149,12 +151,12 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 {
     Q_UNUSED(event);
     updateBottomAreaGeometry();
-    checkBottomArea(mapFromGlobal(QCursor::pos()));
+    checkBottomArea(QCursor::pos());
 }
 
 bool MainWindow::eventFilter(QObject *object, QEvent *event)
 {
-    if (object == mpvw && event->type() == QEvent::MouseMove) {
+    if ((object == mpvw || object == playlistWindow_) && event->type() == QEvent::MouseMove) {
         this->mouseMoveEvent(static_cast<QMouseEvent*>(event));
     }
     return QMainWindow::eventFilter(object, event);
@@ -169,7 +171,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
     if (fullscreenMode_)
-        checkBottomArea(event->pos());
+        checkBottomArea(event->globalPos());
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
@@ -335,6 +337,10 @@ void MainWindow::setupPlaylist()
     mpvHost_->addDockWidget(Qt::RightDockWidgetArea, playlistWindow_);
     connect(playlistWindow_, &PlaylistWindow::windowDocked,
             this, &MainWindow::playlistWindow_windowDocked);
+    QList<QWidget *> playlistWidgets = playlistWindow_->findChildren<QWidget *>();
+    foreach(QWidget *w, playlistWidgets)
+        w->setMouseTracking(true);
+    playlistWindow_->setMouseTracking(true);
 }
 
 void MainWindow::setupStatus()
@@ -355,6 +361,14 @@ void MainWindow::setupSizing()
 
     QSizeGrip *gripper = new QSizeGrip(this);
     ui->statusbar->layout()->addWidget(gripper);
+}
+
+void MainWindow::setupBottomArea()
+{
+    QList<QWidget *> bottomWidgets = ui->bottomArea->findChildren<QWidget *>();
+    foreach(QWidget *w, bottomWidgets)
+        w->setMouseTracking(true);
+    ui->bottomArea->setMouseTracking(true);
 }
 
 void MainWindow::setupHideTimer()
@@ -547,6 +561,7 @@ void MainWindow::checkBottomArea(QPoint mousePosition)
     if (!fullscreenMode_)
         return;
 
+    QPoint relMousePosition;
     bool startTimer = false;
     switch (bottomAreaBehavior) {
     case Helpers::NeverShown:
@@ -554,15 +569,24 @@ void MainWindow::checkBottomArea(QPoint mousePosition)
             ui->bottomArea->hide();
         break;
     case Helpers::ShowWhenHovering:
-        if (mousePosition.y() >= height()-bottomAreaHeight && ui->bottomArea->isHidden())
-            ui->bottomArea->show();
-        else if (mousePosition.y() < height()-bottomAreaHeight && ui->bottomArea->isVisible())
+        relMousePosition = mpvw->mapFromGlobal(mousePosition);
+        if (ui->bottomArea->geometry().contains(relMousePosition)) {
+            if (ui->bottomArea->isHidden())
+                ui->bottomArea->show();
+        } else if (ui->bottomArea->isVisible() && !hideTimer.isActive()) {
             startTimer = true;
+        }
         break;
     case Helpers::ShowWhenMoving:
-        if (ui->bottomArea->isHidden())
-            ui->bottomArea->show();
-        startTimer = true;
+        relMousePosition = mapFromGlobal(mousePosition);
+        if (mpvw->geometry().contains(relMousePosition)) {
+            if (ui->bottomArea->isHidden())
+                ui->bottomArea->show();
+            else
+                startTimer = true;
+        } else if (ui->bottomArea->isVisible() && !hideTimer.isActive()) {
+            startTimer = true;
+        }
         break;
     case Helpers::AlwaysShow:
         if (ui->bottomArea->isHidden())
@@ -822,7 +846,7 @@ void MainWindow::setBottomAreaBehavior(ControlHiding method)
 {
     bottomAreaBehavior = method;
     if (fullscreenMode_)
-        checkBottomArea(mapFromGlobal(QCursor::pos()));
+        checkBottomArea(QCursor::pos());
 }
 
 void MainWindow::setBottomAreaHideTime(int milliseconds)
@@ -1475,7 +1499,8 @@ void MainWindow::playlistWindow_windowDocked()
 
 void MainWindow::hideTimer_timeout()
 {
-    if (fullscreenMode_)
+    if (fullscreenMode_ &&
+            !ui->bottomArea->geometry().contains(mpvw->mapFromGlobal(QCursor::pos())))
         ui->bottomArea->hide();
 }
 
