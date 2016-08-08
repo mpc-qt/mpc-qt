@@ -6,7 +6,6 @@ QStatusTime::QStatusTime(QWidget *parent) : QOpenGLWidget(parent),
     currentTime(-1)
 {
     setTime(0);
-    setUpdatesEnabled(this);
     setMinimumSize(minimumSizeHint());
 }
 
