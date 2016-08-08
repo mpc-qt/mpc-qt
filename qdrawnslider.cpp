@@ -203,6 +203,8 @@ void QDrawnSlider::mouseMoveEvent(QMouseEvent *ev)
         }
     }
     handleHover(ev->localPos().x());
+    // Forward mouse move events also to the parent widget
+    ev->ignore();
 }
 
 
