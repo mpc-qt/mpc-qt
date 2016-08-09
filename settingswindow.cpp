@@ -391,7 +391,7 @@ void SettingsWindow::sendSignals()
         int preset = WIDGET_LOOKUP(ui->playbackAutoZoomMethod).toInt();
         int count = ui->playbackAutoZoomMethod->count();
         if (preset >= count - 3)
-            emit zoomPreset(preset - count, factor);
+            emit zoomPreset(preset - count - 1, factor);
         else
             emit zoomPreset(preset, factor);
     }
