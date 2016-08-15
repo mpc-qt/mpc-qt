@@ -7,6 +7,7 @@
 
 class DisplayParser;
 class QThread;
+class Playlist;
 class PlaylistSearcher;
 
 class PlayPainter : public QAbstractItemDelegate {
@@ -95,6 +96,12 @@ private slots:
                                  QListWidgetItem *previous);
     void self_itemDoubleClicked(QListWidgetItem *item);
     void self_customContextMenuRequested(const QPoint &p);
+};
+
+
+class QDrawnQueue : public QDrawnPlaylist {
+public:
+
 };
 
 class PlaylistSelectionPrivate;

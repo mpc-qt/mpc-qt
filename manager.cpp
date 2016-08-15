@@ -242,17 +242,19 @@ void PlaybackManager::navigateToPrevChapter()
 
 void PlaybackManager::playNextFile()
 {
-    QUuid uuid = playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
-    QUrl url = playlistWindow_->getUrlOf(nowPlayingList, uuid);
+    QPair<QUuid, QUuid> next;
+    next = playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
+    QUrl url = playlistWindow_->getUrlOf(next.first, next.second);
     if (url.isEmpty()) {
         mpvWidget_->stopPlayback();
         nowPlaying_.clear();
+        nowPlayingList = QUuid();
         nowPlayingItem = QUuid();
         playbackState_ = StoppedState;
         emit stateChanged(playbackState_);
         return;
     }
-    startPlayWithUuid(url, nowPlayingList, uuid, false);
+    startPlayWithUuid(url, next.first, next.second, false);
 }
 
 void PlaybackManager::playPrevFile()

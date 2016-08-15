@@ -21,6 +21,16 @@ void Item::setUuid(const QUuid &uuid)
     uuid_ = uuid;
 }
 
+QUuid Item::playlistUuid() const
+{
+    return playlistUuid_;
+}
+
+void Item::setPlaylistUuid(const QUuid &uuid)
+{
+    playlistUuid_ = uuid;
+}
+
 QUrl Item::url() const
 {
     return url_;
@@ -137,6 +147,7 @@ QSharedPointer<Item> Playlist::addItem(const QUrl &url)
 {
     QWriteLocker locker(&listLock);
     QSharedPointer<Item> i(new Item(url));
+    i->setPlaylistUuid(uuid_);
     items.append(i);
     itemsByUuid.insert(i->uuid(), i);
     return i;
@@ -146,6 +157,7 @@ QSharedPointer<Item> Playlist::addItem(const QUuid &uuid, const QUrl &url)
 {
     QWriteLocker locker(&listLock);
     QSharedPointer<Item> i(new Item(url));
+    i->setPlaylistUuid(uuid_);
     i->setUrl(url);
     i->setUuid(uuid);
     items.append(i);
@@ -156,8 +168,16 @@ QSharedPointer<Item> Playlist::addItem(const QUuid &uuid, const QUrl &url)
 QSharedPointer<Item> Playlist::addItemClone(const QSharedPointer<Item> &item)
 {
     QSharedPointer<Item> i = addItem(item->url());
+    i->setPlaylistUuid(uuid_);
     i->setMetadata(item->metadata());
     return i;
+}
+
+void Playlist::addItemRaw(const QSharedPointer<Item> &item)
+{
+    QWriteLocker locker(&listLock);
+    items.append(item);
+    itemsByUuid.insert(item->uuid(), item);
 }
 
 QSharedPointer<Item> Playlist::itemOf(const QUuid &uuid)
@@ -215,6 +235,7 @@ void Playlist::addItems(const QUuid &where,
     int indexWhere = items.indexOf(itemsByUuid[where]);
     for (int i = 0; i < itemsToAdd.count(); ++i) {
         QSharedPointer<Item> item = itemsToAdd.at(i);
+        item->setPlaylistUuid(uuid_);
         items.insert(indexWhere + i, item);
         itemsByUuid.insert(item->uuid(), item);
     }
@@ -223,7 +244,7 @@ void Playlist::addItems(const QUuid &where,
 void Playlist::removeItem(const QUuid &uuid)
 {
     QWriteLocker locker(&listLock);
-    queueRemove(uuid);
+    PlaylistCollection::getSingleton()->queuePlaylist()->removeItem(uuid);
     items.removeAll(itemsByUuid.take(uuid));
 }
 
@@ -251,6 +272,7 @@ QList<QUuid> Playlist::replaceItem(const QUuid &where, const QList<QUrl> &urls)
     int insertIndex = items.indexOf(itemsByUuid[where]);
     for (int urlIndex = 1; urlIndex < urls.count(); urlIndex++) {
         QSharedPointer<Item> i(new Item(urls[urlIndex]));
+        i->setPlaylistUuid(uuid_);
         items.insert(insertIndex + urlIndex, i);
         itemsByUuid.insert(i->uuid(), i);
         addedItems.append(i->uuid());
@@ -264,7 +286,7 @@ void Playlist::clear()
     items.clear();
     itemsByUuid.clear();
 }
-
+/*
 QUuid Playlist::queueFirst()
 {
     if (queue.isEmpty())
@@ -351,7 +373,7 @@ void Playlist::iterateQueue(const std::function<void(QSharedPointer<Item>)> &cal
         if (Q_LIKELY(itemsByUuid.contains(itemUuid)))
             callback(itemsByUuid[itemUuid]);
 }
-
+*/
 QString Playlist::title()
 {
     QReadLocker locker(&listLock);
@@ -392,6 +414,7 @@ void Playlist::fromStringList(QStringList sl)
     itemsByUuid.clear();
     for (QString s : sl) {
         QSharedPointer<Item> item(new Item());
+        item->setPlaylistUuid(uuid_);
         item->fromString(s);
         items.append(item);
         itemsByUuid.insert(item->uuid(), item);
@@ -422,6 +445,7 @@ void Playlist::fromVMap(const QVariantMap &qvm)
         auto items = qvm["items"].toList();
         for (const QVariant &v : items) {
             QSharedPointer<Item> i(new Item());
+            i->setPlaylistUuid(uuid_);
             i->fromVMap(v.toMap());
             this->items.append(i);
             this->itemsByUuid.insert(i->uuid(), i);
@@ -429,9 +453,165 @@ void Playlist::fromVMap(const QVariantMap &qvm)
     }
 }
 
+
+
+QueuePlaylist::QueuePlaylist(const QString &title)
+    : Playlist(title)
+{
+
+}
+
+QPair<QUuid,QUuid> QueuePlaylist::first()
+{
+    QReadLocker lock(&listLock);
+    if (items.isEmpty())
+        return QPair<QUuid,QUuid>(QUuid(),QUuid());
+    return { items.first()->playlistUuid(), items.first()->uuid() };
+}
+
+QPair<QUuid,QUuid> QueuePlaylist::takeFirst()
+{
+    QWriteLocker lock(&listLock);
+    if (items.isEmpty())
+        return { QUuid(), QUuid() };
+    QSharedPointer<Item> item = items.takeFirst();
+    itemsByUuid.remove(item->uuid());
+    item->setQueuePosition(0);
+    int i = 1;
+    for (auto item : items)
+        item->setQueuePosition(i++);
+    return { item->playlistUuid(), item->uuid() };
+
+}
+
+void QueuePlaylist::toggle(const QUuid &playlistUuid, const QUuid &itemUuid, bool always)
+{
+    QWriteLocker lock(&listLock);
+    toggle_(playlistUuid, itemUuid, always);
+}
+
+void QueuePlaylist::toggle(const QUuid &playlistUuid, const QList<QUuid> &uuids)
+{
+    QWriteLocker lock(&listLock);
+    int numberPresent = contains_(uuids);
+    if (numberPresent == uuids.count()) {
+        removeItems_(uuids);
+        return;
+    }
+    for (const QUuid &item : uuids)
+        toggle_(playlistUuid, item, true);
+}
+
+void QueuePlaylist::appendItems(const QUuid &playlistUuid, const QList<QUuid> &itemsToAdd)
+{
+    QWriteLocker lock(&listLock);
+    for (QUuid item : itemsToAdd)
+        toggle_(playlistUuid, item, true);
+}
+
+void QueuePlaylist::addItems(const QUuid &where, const QList<QSharedPointer<Item> > &itemsToAdd)
+{
+    QWriteLocker lock(&listLock);
+    int index = items.indexOf(itemsByUuid[where]);
+    if (index < 0)
+        index = 0;
+
+    int count = itemsToAdd.count();
+    for (int i = 0; i < count; i++) {
+        QSharedPointer<Item> item = itemsToAdd[i];
+        items.insert(index + i, item);
+        itemsByUuid.insert(item->uuid(), item);
+    }
+    count = items.count();
+    for (int i = index; i < count; i++)
+        items[i]->setQueuePosition(i);
+}
+
+void QueuePlaylist::removeItem(const QUuid &uuid)
+{
+    QWriteLocker lock(&listLock);
+    removeItem_(uuid);
+}
+
+void QueuePlaylist::removeItems(const QList<QUuid> &itemsToRemove)
+{
+    QWriteLocker lock(&listLock);
+    removeItems_(itemsToRemove);
+}
+
+void QueuePlaylist::clear()
+{
+    QWriteLocker lock(&listLock);
+    for (QSharedPointer<Item> item : items)
+        item->setQueuePosition(0);
+    items.clear();
+    itemsByUuid.clear();
+}
+
+int QueuePlaylist::contains(const QList<QUuid> &itemsToCheck)
+{
+    QReadLocker lock(&listLock);
+    return contains_(itemsToCheck);
+}
+
+void QueuePlaylist::toggle_(const QUuid &playlistUuid, const QUuid &itemUuid, bool always)
+{
+    if (Playlist::contains(itemUuid)) {
+        if (!always)
+            removeItem_(itemUuid);
+        return;
+    }
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
+    if (!pl)
+        return;
+    QSharedPointer<Item> item = pl->itemOf(itemUuid);
+    if (!item)
+        return;
+    items.append(item);
+    itemsByUuid.insert(itemUuid, item);
+    item->setQueuePosition(items.count());
+}
+
+int QueuePlaylist::contains_(const QList<QUuid> &itemsToCheck) const
+{
+    int count = 0;
+    for (QUuid item : itemsToCheck)
+        if (itemsByUuid.contains(item))
+            count++;
+    return count;
+}
+
+void QueuePlaylist::removeItem_(const QUuid &uuid)
+{
+    if (!itemsByUuid.contains(uuid))
+        return;
+    QSharedPointer<Item> item = itemsByUuid[uuid];
+    int index = items.indexOf(item);
+    items.removeOne(item);
+    itemsByUuid.remove(uuid);
+    item->setQueuePosition(0);
+    int count = items.count();
+    for (int i = index; i < count; i++)
+        items[i]->setQueuePosition(i+1);
+}
+
+void QueuePlaylist::removeItems_(const QList<QUuid> &itemsToRemove)
+{
+    for (QUuid uuid : itemsToRemove) {
+        QSharedPointer<Item> item = itemsByUuid.take(uuid);
+        items.removeOne(item);
+        item->setQueuePosition(0);
+    }
+    for (int i = 0; i < items.count(); i++)
+        items[i]->setQueuePosition(i+1);
+}
+
+
+
 QSharedPointer<PlaylistCollection> PlaylistCollection::collection;
 
 PlaylistCollection::PlaylistCollection()
+    : queuePlaylist_(new QueuePlaylist("Queue"))
 {
     doNewPlaylist(tr("Quick playlist"), QUuid());
 }
@@ -491,6 +671,11 @@ QSharedPointer<Playlist> PlaylistCollection::playlistAt(int col) const
 QSharedPointer<Playlist> PlaylistCollection::playlistOf(const QUuid &uuid) const
 {
     return playlistsByUuid.value(uuid);
+}
+
+QSharedPointer<QueuePlaylist> PlaylistCollection::queuePlaylist() const
+{
+    return queuePlaylist_;
 }
 
 void PlaylistCollection::addPlaylist(const QSharedPointer<Playlist> &playlist)

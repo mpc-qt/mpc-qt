@@ -249,13 +249,20 @@ QPair<QUuid,QUuid> QDrawnPlaylist::importUrl(QUrl url)
     return info;
 }
 
+void QDrawnPlaylist::currentToQueue()
+{
+    // CHECKME: code for this should be here?
+}
+
 void QDrawnPlaylist::visibleToQueue()
 {
+    QSharedPointer<QueuePlaylist> queue = PlaylistCollection::getSingleton()->queuePlaylist();
     QSharedPointer<Playlist> playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
     if (!playlist)
         return;
     if (count() == 0) {
-        playlist->queueClear();
+        //CHECKME: did this do anything? -- A: No
+        //playlist->queueClear();
     } else {
         // First, grab all the visible items
         QList<QUuid> itemsToQueue;
@@ -265,14 +272,14 @@ void QDrawnPlaylist::visibleToQueue()
             itemsToQueue.append(playItem->uuid());
         }
         // Check if every visible item is already in the queue
-        int inQueue = playlist->queueContains(itemsToQueue);
+        int inQueue = queue->contains(itemsToQueue);
         if (itemsToQueue.count() == inQueue) {
             // every item was in the quick queue already, so assume user wants
             // to remove them.
-            playlist->queueRemoveItems(itemsToQueue);
+            queue->removeItems(itemsToQueue);
         } else {
             // Something was missing, so add it to the quick queue
-            playlist->queueAddItems(itemsToQueue);
+            queue->appendItems(uuid_, itemsToQueue);
         }
     }
     viewport()->update();
@@ -459,14 +466,16 @@ void PlaylistSelection::fromItem(QUuid playlistUuid, QUuid itemUuid)
 void PlaylistSelection::fromQueue(QDrawnPlaylist *list)
 {
     d->items.clear();
+    auto queue = PlaylistCollection::getSingleton()->queuePlaylist();
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list->uuid());
     if (Q_UNLIKELY(!pl))
         return;
     auto itemAdder = [this](QSharedPointer<Item> item) {
         d->items.append(item);
     };
-    pl->iterateQueue(itemAdder);
+    queue->iterateItems(itemAdder);
     if (d->items.isEmpty()) {
+        //CHECKME: will this still correct when the queue widget is shown?
         QUuid activeItem = list->nowPlayingItem();
         if (!activeItem.isNull())
             d->items.append(pl->itemOf(activeItem));
@@ -498,13 +507,14 @@ void PlaylistSelection::appendToPlaylist(QDrawnPlaylist *list)
 
 void PlaylistSelection::appendAndQuickQueue(QDrawnPlaylist *list)
 {
+    auto queue = PlaylistCollection::getSingleton()->queuePlaylist();
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list->uuid());
     if (Q_UNLIKELY(!pl))
         return;
     for (auto i : d->items) {
         QUuid uuid = pl->addItemClone(i)->uuid();
         list->addItem(uuid);
-        pl->queueToggle(uuid);
+        queue->toggle(pl->uuid(), uuid);
     }
     list->viewport()->update();
 }

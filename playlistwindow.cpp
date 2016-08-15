@@ -73,18 +73,19 @@ bool PlaylistWindow::isCurrentPlaylistEmpty()
     return pl ? pl->isEmpty() : true;
 }
 
-QUuid PlaylistWindow::getItemAfter(QUuid list, QUuid item)
+QPair<QUuid,QUuid> PlaylistWindow::getItemAfter(QUuid list, QUuid item)
 {
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
     if (!pl)
-        return QUuid();
-    QUuid uuid = pl->queueTakeFirst();
-    if (!uuid.isNull())
-        return uuid;
+        return { QUuid(), QUuid() };
+    auto qpl = PlaylistCollection::getSingleton()->queuePlaylist();
+    QPair<QUuid, QUuid> next = qpl->takeFirst();
+    if (!next.second.isNull())
+        return next;
     QSharedPointer<Item> after = pl->itemAfter(item);
     if (!after)
-        return QUuid();
-    return after->uuid();
+        return { QUuid(), QUuid() };
+    return { pl->uuid(), after->uuid() };
 }
 
 QUuid PlaylistWindow::getItemBefore(QUuid list, QUuid item)
@@ -296,8 +297,9 @@ void PlaylistWindow::changePlaylistSelection( QUrl itemUrl, QUuid playlistUuid, 
     if (!activateItem(playlistUuid, itemUuid))
         return;
     auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
-    if (!itemUuid.isNull() && pl->queueFirst() == itemUuid)
-        pl->queueTakeFirst();
+    auto qpl = PlaylistCollection::getSingleton()->queuePlaylist();
+    if (!itemUuid.isNull() && qpl->first().second == itemUuid)
+        qpl->takeFirst();
 }
 
 void PlaylistWindow::addSimplePlaylist(QStringList data)
@@ -483,17 +485,19 @@ void PlaylistWindow::activatePrevious()
 void PlaylistWindow::quickQueue()
 {
     auto qdp = currentPlaylistWidget();
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
     auto itemUuids = qdp->currentItemUuids();
     if (itemUuids.isEmpty())
         return;
-    pl->queueToggle(itemUuids);
+    auto qpl = PlaylistCollection::getSingleton()->queuePlaylist();
+    qpl->toggle(qdp->uuid(), itemUuids);
     qdp->viewport()->update();
 }
 
 void PlaylistWindow::visibleToQueue()
 {
     currentPlaylistWidget()->visibleToQueue();
+    /*auto qpl = PlaylistCollection::getSingleton()->queuePlaylist();
+    qpl->visibleToQueue(currentPlaylistWidget()->uuid());*/
 }
 
 void PlaylistWindow::revealSearch()
