@@ -79,18 +79,7 @@ public:
     void takeItemsRaw(const QList<QSharedPointer<Item>> &itemsToRemove);
     QList<QUuid> replaceItem(const QUuid &where, const QList<QUrl> &urls);
     void clear();
-/*
-    QUuid queueFirst();
-    QUuid queueTakeFirst();
-    void queueToggle(const QUuid &uuid, bool always = false);
-    void queueToggle(const QList<QUuid> &uuids);
-    void queueAddItems(const QList<QUuid> &itemsToAdd);
-    void queueRemove(const QUuid &uuid);
-    void queueRemoveItems(const QList<QUuid> &itemsToRemove);
-    void queueClear();
-    int queueContains(const QList<QUuid> &itemsToCheck) const;
-    void iterateQueue(const std::function<void(QSharedPointer<Item>)> &callback);
-*/
+
     QString title();
     void setTitle(const QString &title);
     QUuid uuid();
