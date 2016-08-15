@@ -283,6 +283,7 @@ QList<QUuid> Playlist::replaceItem(const QUuid &where, const QList<QUrl> &urls)
 void Playlist::clear()
 {
     QWriteLocker locker(&listLock);
+    PlaylistCollection::getSingleton()->queuePlaylist()->removeItems(itemsByUuid.keys());
     items.clear();
     itemsByUuid.clear();
 }
@@ -511,6 +512,8 @@ void QueuePlaylist::removeItem_(const QUuid &uuid)
 void QueuePlaylist::removeItems_(const QList<QUuid> &itemsToRemove)
 {
     for (QUuid uuid : itemsToRemove) {
+        if (!itemsByUuid.contains(uuid))
+            continue;
         QSharedPointer<Item> item = itemsByUuid.take(uuid);
         items.removeOne(item);
         item->setQueuePosition(0);
