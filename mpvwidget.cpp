@@ -30,7 +30,6 @@
 
 
 static const int HOOK_UNLOAD_CALLBACK_ID = 0xdeaddead;
-static const int HOOK_PRELOADED_CALLBACK_ID = 0xcafecafe;
 
 
 
@@ -164,10 +163,6 @@ MpvWidget::MpvWidget(QWidget *parent) :
                               Qt::BlockingQueuedConnection,
                               Q_ARG(QString, "on_unload"),
                               Q_ARG(int, HOOK_UNLOAD_CALLBACK_ID));
-    QMetaObject::invokeMethod(ctrl, "addHook",
-                              Qt::BlockingQueuedConnection,
-                              Q_ARG(QString, "on_preloaded"),
-                              Q_ARG(int, HOOK_PRELOADED_CALLBACK_ID));
 
     // Output debug messages from mpv
     if (debugMessages)
@@ -266,7 +261,8 @@ void MpvWidget::setLogoUrl(const QString &filename)
 
 void MpvWidget::setLoopImages(bool yes)
 {
-    loopImages = yes;
+    emit ctrlSetOptionVariant("image-display-duration",
+                              yes ? QVariant("inf") : QVariant(1.0));
 }
 
 void MpvWidget::setVOCommandLine(QString cmdline)
@@ -606,22 +602,6 @@ void MpvWidget::ctrl_clientMessage(uint64_t id, const QStringList &args)
         QVariantList playlist = getMpvPropertyVariant("playlist").toList();
         if (playlist.count() > 1)
             playlistChanged(playlist);
-        emit ctrlCommand(QStringList({"hook-ack", args[2]}));
-    }
-    if (args[1] == QString::number(HOOK_PRELOADED_CALLBACK_ID)) {
-        QVariantList tracks = getMpvPropertyVariant("track-list").toList();
-        if (loopImages && tracks.count() == 1) {
-            QVariantMap track = tracks.first().toMap();
-            if (track.value("type", QString("unknown")).toString() == "video") {
-                QString codec = track.value("codec", QString("unknown")).toString();
-                if (codec == "mjpeg" || codec == "png" || codec == "gif") {
-                    setMpvPropertyVariant("loop-file", "inf");
-                    goto done;
-                }
-            }
-        }
-        setMpvPropertyVariant("loop-file", "no");
-        done:
         emit ctrlCommand(QStringList({"hook-ack", args[2]}));
     }
 }
