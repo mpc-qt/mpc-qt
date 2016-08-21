@@ -113,6 +113,7 @@ signals:
     void logoSizeChanged(QSize size);
 
 private slots:
+    void maybeUpdate();
     void ctrl_mpvPropertyChanged(QString name, QVariant v);
     void ctrl_logMessage(QString message);
     void ctrl_clientMessage(uint64_t id, const QStringList &args);

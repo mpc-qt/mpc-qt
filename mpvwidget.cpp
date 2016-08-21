@@ -548,9 +548,22 @@ void MpvWidget::setMpvOptionVariant(QString name, QVariant value)
     emit ctrlSetOptionVariant(name, value);
 }
 
+void MpvWidget::maybeUpdate()
+{
+    if (window()->isMinimized()) {
+        makeCurrent();
+        paintGL();
+        context()->swapBuffers(context()->surface());
+        self_frameSwapped();
+        doneCurrent();
+    } else {
+        update();
+    }
+}
+
 void MpvWidget::ctrl_update(void *ctx)
 {
-    QMetaObject::invokeMethod(reinterpret_cast<MpvWidget*>(ctx), "update");
+    QMetaObject::invokeMethod(reinterpret_cast<MpvWidget*>(ctx), "maybeUpdate");
 }
 
 #define HANDLE_PROP_1(p, method, converter, dflt) \
