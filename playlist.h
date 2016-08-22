@@ -71,8 +71,8 @@ public:
     QSharedPointer<Item> itemOf(const QUuid &uuid);
     QSharedPointer<Item> itemAfter(const QUuid &uuid);
     QSharedPointer<Item> itemBefore(const QUuid &uuid);
-    bool isEmpty() const;
-    bool contains(const QUuid &uuid) const;
+    bool isEmpty();
+    bool contains(const QUuid &uuid);
     void iterateItems(const std::function<void(QSharedPointer<Item>)> &callback);
     virtual void addItems(const QUuid &where, const QList<QSharedPointer<Item> > &itemsToAdd);
     virtual void removeItem(const QUuid &uuid);

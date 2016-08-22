@@ -208,13 +208,15 @@ QSharedPointer<Item> Playlist::itemBefore(const QUuid &uuid)
     return items[index - 1];
 }
 
-bool Playlist::isEmpty() const
+bool Playlist::isEmpty()
 {
+    QReadLocker lock(&listLock);
     return items.isEmpty();
 }
 
-bool Playlist::contains(const QUuid &uuid) const
+bool Playlist::contains(const QUuid &uuid)
 {
+    QReadLocker lock(&listLock);
     return itemsByUuid.contains(uuid);
 }
 
@@ -261,10 +263,10 @@ void Playlist::takeItemsRaw(const QList<QSharedPointer<Item>> &itemsToRemove)
 
 QList<QUuid> Playlist::replaceItem(const QUuid &where, const QList<QUrl> &urls)
 {
-    if (!contains(where))
+    QWriteLocker lock(&listLock);
+    if (!itemsByUuid.contains(where))
         return QList<QUuid>();
 
-    QWriteLocker lock(&listLock);
     itemsByUuid[where]->setUrl(urls[0]);
 
     QList<QUuid> addedItems;
@@ -470,7 +472,8 @@ int QueuePlaylist::contains(const QList<QUuid> &itemsToCheck)
 
 void QueuePlaylist::toggle_(const QUuid &playlistUuid, const QUuid &itemUuid, bool always)
 {
-    if (Playlist::contains(itemUuid)) {
+    QWriteLocker lock(&listLock);
+    if (itemsByUuid.contains(itemUuid)) {
         if (!always)
             removeItem_(itemUuid);
         return;
