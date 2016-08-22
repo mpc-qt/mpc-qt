@@ -12,7 +12,7 @@
     "bilinear", "bicubic_fast", "oversample", "spline16", "spline36",\
     "spline64", "sinc", "lanczos", "ginseng", "jinc", "ewa_lanczos",\
     "ewa_hanning", "ewa_ginseng", "ewa_lanczossharp", "ewa_lanczossoft",\
-    "hassnsoft",  "bicubic", "bcspline", "catmull_rom", "mitchell",\
+    "haasnsoft",  "bicubic", "bcspline", "catmull_rom", "mitchell",\
     "robidoux", "robidouxsharp", "ewa_robidoux", "ewa_robidouxsharp",\
     "box", "nearest", "triangle", "gaussian"
 
@@ -21,9 +21,9 @@
     "kaiser", "blackman", "gaussian", "sinc", "jinc", "sphinx"
 
 #define TIME_SCALARS \
-    "oversample", "spline16", "spline36", "spline64", "sinc", "lanczos",\
-    "ginseng", "catmull_rom", "mitchell", "robidoux", "robidouxsharp",\
-    "box", "nearest", "triangle", "gaussian"
+    "oversample", "linear",  "spline16", "spline36", "spline64", "sinc", \
+    "lanczos", "ginseng", "bicubic", "bcspline", "catmull_rom", "mitchell", \
+    "robidoux", "robidouxsharp", "box", "nearest", "triangle", "gaussian"
 
 
 QHash<QString, QStringList> SettingMap::indexedValueToText = {
