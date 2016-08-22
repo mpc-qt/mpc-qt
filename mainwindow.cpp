@@ -582,8 +582,7 @@ void MainWindow::checkBottomArea(QPoint mousePosition)
         if (mpvw->geometry().contains(relMousePosition)) {
             if (ui->bottomArea->isHidden())
                 ui->bottomArea->show();
-            else
-                startTimer = true;
+            startTimer = true;
         } else if (ui->bottomArea->isVisible() && !hideTimer.isActive()) {
             startTimer = true;
         }
