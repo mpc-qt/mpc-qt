@@ -365,7 +365,9 @@ void QDrawnPlaylist::model_rowsMoved(const QModelIndex &parent,
     QSharedPointer<Playlist> p = PlaylistCollection::getSingleton()->playlistOf(uuid());
     if (p.isNull())
         return;
-    QUuid destinationId = QUuid(QListWidget::item(row)->text());
+    QListWidgetItem *destinationItem = QListWidget::item(row);
+    QUuid destinationId = destinationItem ? QUuid(destinationItem->text())
+                                          : QUuid();
     QList<QSharedPointer<Item>> itemsToGrab;
     for (int index = start; index <= end; index++) {
         QUuid itemUuid = QUuid(QListWidget::item(index)->text());

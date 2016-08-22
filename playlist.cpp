@@ -231,10 +231,10 @@ void Playlist::addItems(const QUuid &where,
                         const QList<QSharedPointer<Item>> &itemsToAdd)
 {
     QWriteLocker locker(&listLock);
-    if (!itemsByUuid.contains(where))
-        return;
 
     int indexWhere = items.indexOf(itemsByUuid[where]);
+    if (indexWhere < 0)
+        indexWhere = items.size();
     for (int i = 0; i < itemsToAdd.count(); ++i) {
         QSharedPointer<Item> item = itemsToAdd.at(i);
         item->setPlaylistUuid(uuid_);
