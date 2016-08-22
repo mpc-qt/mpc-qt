@@ -72,10 +72,11 @@ QSize PlayPainter::sizeHint(const QStyleOptionViewItem &option,
                                                    option.rect.size());
 }
 
-PlayItem::PlayItem(QListWidget *parent, int type)
-    : QListWidgetItem(parent, type)
+PlayItem::PlayItem(const QUuid &uuid, QListWidget *parent)
+    : QListWidgetItem(parent, QListWidgetItem::UserType)
 {
-
+    uuid_ = uuid;
+    setData(Qt::DisplayRole, uuid.toString());
 }
 
 PlayItem::~PlayItem()
@@ -87,25 +88,6 @@ QUuid PlayItem::uuid()
 {
     return uuid_;
 }
-
-void PlayItem::setUuid(QUuid uuid)
-{
-    uuid_ = uuid;
-
-    auto playWidget = reinterpret_cast<QDrawnPlaylist *>(listWidget());
-    if (playWidget == NULL)
-        return;
-    QSharedPointer<Playlist> playlist = PlaylistCollection::getSingleton()->
-            playlistOf(playWidget->uuid());
-    if (playlist == NULL)
-        return;
-    QSharedPointer<Item> item = playlist->itemOf(uuid);
-    if (item == NULL)
-        return;
-
-    setText(uuid.toString());
-}
-
 
 QDrawnPlaylist::QDrawnPlaylist(QWidget *parent) : QListWidget(parent),
     displayParser_(NULL), worker(NULL), searcher(NULL)
@@ -198,8 +180,7 @@ void QDrawnPlaylist::setUuid(const QUuid &uuid)
 
 void QDrawnPlaylist::addItem(QUuid uuid)
 {
-    PlayItem *playItem = new PlayItem(this);
-    playItem->setUuid(uuid);
+    PlayItem *playItem = new PlayItem(uuid, this);
     QListWidget::addItem(playItem);
 }
 
@@ -210,8 +191,7 @@ void QDrawnPlaylist::addItemsAfter(QUuid item, const QList<QUuid> &items)
         return;
     int itemIndex = row(matchingRows[0]) + 1;
     for (auto i : items) {
-        PlayItem *playItem = new PlayItem(this);
-        playItem->setUuid(i);
+        PlayItem *playItem = new PlayItem(i);
         QListWidget::insertItem(itemIndex++, playItem);
     }
 }

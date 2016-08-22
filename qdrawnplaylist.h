@@ -22,11 +22,11 @@ public:
 
 class PlayItem : public QListWidgetItem {
 public:
-    PlayItem(QListWidget *parent = 0, int type = QListWidgetItem::UserType);
+    PlayItem(const QUuid &uuid = QUuid(), QListWidget *parent = 0);
     ~PlayItem();
 
     QUuid uuid();
-    void setUuid(QUuid uuid);
+
 private:
     QUuid uuid_;
 };
