@@ -472,7 +472,6 @@ int QueuePlaylist::contains(const QList<QUuid> &itemsToCheck)
 
 void QueuePlaylist::toggle_(const QUuid &playlistUuid, const QUuid &itemUuid, bool always)
 {
-    QWriteLocker lock(&listLock);
     if (itemsByUuid.contains(itemUuid)) {
         if (!always)
             removeItem_(itemUuid);
