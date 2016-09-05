@@ -356,72 +356,72 @@ bool MpvWidget::eofReached()
 
 void MpvWidget::setSubsAreGray(bool yes)
 {
-    setMpvOptionVariant("sub-gray", yes);
+    setCachedMpvOption("sub-gray", yes);
 }
 
 void MpvWidget::setFramedropMode(QString mode)
 {
-    setMpvOptionVariant("framedrop", mode);
+    setCachedMpvOption("framedrop", mode);
 }
 
 void MpvWidget::setDecoderDropMode(QString mode)
 {
-    setMpvOptionVariant("vd-lavc-framedrop", mode);
+    setCachedMpvOption("vd-lavc-framedrop", mode);
 }
 
 void MpvWidget::setDisplaySyncMode(QString mode)
 {
-    setMpvOptionVariant("video-sync", mode);
+    setCachedMpvOption("video-sync", mode);
 }
 
 void MpvWidget::setAudioDropSize(double size)
 {
-    setMpvOptionVariant("video-sync-adrop-size", size);
+    setCachedMpvOption("video-sync-adrop-size", size);
 }
 
 void MpvWidget::setMaximumAudioChange(double change)
 {
-    setMpvOptionVariant("video-sync-max-audio-change", change);
+    setCachedMpvOption("video-sync-max-audio-change", change);
 }
 
 void MpvWidget::setMaximumVideoChange(double change)
 {
-    setMpvOptionVariant("video-sync-max-video-change", change);
+    setCachedMpvOption("video-sync-max-video-change", change);
 }
 
 void MpvWidget::setScreenshotFormat(QString format)
 {
-    setMpvOptionVariant("screenshot-format", format);
+    setCachedMpvOption("screenshot-format", format);
 }
 
 void MpvWidget::setScreenshotJpegQuality(int64_t value)
 {
-    setMpvOptionVariant("screenshot-jpeg-quality", (long long)value);
+    setCachedMpvOption("screenshot-jpeg-quality", (long long)value);
 }
 
 void MpvWidget::setScreenshotJpegSmooth(int64_t value)
 {
-    setMpvOptionVariant("screenshot-jpeg-smooth", (long long)value);
+    setCachedMpvOption("screenshot-jpeg-smooth", (long long)value);
 }
 
 void MpvWidget::setScreenshotJpegSourceChroma(bool yes)
 {
-    setMpvOptionVariant("screenshot-jpeg-source-chroma", yes);
+    setCachedMpvOption("screenshot-jpeg-source-chroma", yes);
 }
 
 void MpvWidget::setScreenshotPngCompression(int64_t value)
 {
-    setMpvOptionVariant("screenshot-png-compression", (long long)value);
+    setCachedMpvOption("screenshot-png-compression", (long long)value);
 }
 
 void MpvWidget::setScreenshotPngFilter(int64_t value)
 {
-    setMpvOptionVariant("screenshot-png-filter", (long long)value);
+    setCachedMpvOption("screenshot-png-filter", (long long)value);
 }
 
 void MpvWidget::setScreenshotPngColorspace(bool yes)
 {
-    setMpvOptionVariant("screenshot-tag-colorspace", yes);
+    setCachedMpvOption("screenshot-tag-colorspace", yes);
 }
 
 void MpvWidget::setClientDebuggingMessages(bool yes)
