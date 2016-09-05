@@ -32,7 +32,6 @@ public:
     void screenshot(const QString &fileName, bool subtitles);
     void setLogoUrl(const QString &filename);
     void setLoopImages(bool yes);
-    void setVOCommandLine(QString cmdline);
 
     int64_t chapter();
     bool setChapter(int64_t chapter);
@@ -71,6 +70,7 @@ public:
     double playTime();
     QSize videoSize();
 
+    void setCachedMpvOption(const QString &option, const QVariant &value);
     QVariant blockingMpvCommand(QVariant params);
     QVariant blockingSetMpvPropertyVariant(QString name, QVariant value);
     QVariant blockingSetMpvOptionVariant(QString name, QVariant value);
@@ -130,6 +130,7 @@ private:
     QThread *worker;
     MpvController *ctrl;
     mpv_opengl_cb_context *glMpv;
+    QVariantMap cachedState;
 
     QSize videoSize_;
     double playTime_;

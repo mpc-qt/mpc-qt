@@ -265,13 +265,6 @@ void MpvWidget::setLoopImages(bool yes)
                               yes ? QVariant("inf") : QVariant(1.0));
 }
 
-void MpvWidget::setVOCommandLine(QString cmdline)
-{
-    if (debugMessages)
-        qDebug() << "got advanced command line " << cmdline;
-    emit ctrlCommand(QVariantList({"vo-cmdline", cmdline}));
-}
-
 int64_t MpvWidget::chapter()
 {
     return getMpvPropertyVariant("chapter").toLongLong();
@@ -459,6 +452,14 @@ double MpvWidget::playTime()
 QSize MpvWidget::videoSize()
 {
     return videoSize_;
+}
+
+void MpvWidget::setCachedMpvOption(const QString &option, const QVariant &value)
+{
+    if (cachedState.contains(option) && cachedState.value(option) == value)
+        return;
+    cachedState.insert(option, value);
+    setMpvOptionVariant(option, value);
 }
 
 QVariant MpvWidget::blockingMpvCommand(QVariant params)

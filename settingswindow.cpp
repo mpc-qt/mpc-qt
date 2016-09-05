@@ -361,6 +361,12 @@ void SettingsWindow::setMouseMapDefaults(const QVariantMap &payload)
 #define WIDGET_PLACEHOLD_LOOKUP(widget) \
     (WIDGET_LOOKUP(widget).toString().isEmpty() ? widget->placeholderText() : WIDGET_LOOKUP(widget).toString())
 
+#define WIDGET_LOOKUP2(option, widget, dflt) \
+    (WIDGET_LOOKUP(option).toBool() ? WIDGET_LOOKUP(widget) : QVariant(dflt))
+
+#define WIDGET_LOOKUP2_TEXT(option, widget, dflt) \
+    (WIDGET_LOOKUP(option).toBool() ? WIDGET_TO_TEXT(widget) : QVariant(dflt))
+
 void SettingsWindow::sendSignals()
 {
     emit trayIcon(WIDGET_LOOKUP(ui->playerTrayIcon).toBool());
@@ -397,155 +403,108 @@ void SettingsWindow::sendSignals()
     }
 
     displaySyncMode(WIDGET_TO_TEXT(ui->syncMode));
-    QMap<QString,QString> params;
-    QStringList cmdline;
-
-    params["fbo-format"] = WIDGET_TO_TEXT(ui->videoFramebuffer).split('-').value(WIDGET_LOOKUP(ui->videoUseAlpha).toBool());
-    params["alpha"] = WIDGET_TO_TEXT(ui->videoAlphaMode);
-    params["sharpen"] = WIDGET_LOOKUP(ui->videoSharpen).toString();
+    voOption("opengl-dumb-mode", WIDGET_LOOKUP(ui->videoDumbMode));
+    voOption("opengl-fbo-format", WIDGET_TO_TEXT(ui->videoFramebuffer).split('-').value(WIDGET_LOOKUP(ui->videoUseAlpha).toBool()));
+    voOption("alpha", WIDGET_TO_TEXT(ui->videoAlphaMode));
+    voOption("sharpen", WIDGET_LOOKUP(ui->videoSharpen).toString());
 
     if (WIDGET_LOOKUP(ui->ditherDithering).toBool()) {
-        params["dither-depth"] = WIDGET_LOOKUP(ui->ditherDepth).toString();
-        params["dither"] = WIDGET_TO_TEXT(ui->ditherType);
-        params["dither-size-fruit"] = WIDGET_LOOKUP(ui->ditherFruitSize).toString();
+        voOption("dither-depth", WIDGET_LOOKUP(ui->ditherDepth).toString());
+        voOption("dither", WIDGET_TO_TEXT(ui->ditherType));
+        voOption("dither-size-fruit", WIDGET_LOOKUP(ui->ditherFruitSize).toString());
+    } else {
+        voOption("dither", "no");
     }
-    if (WIDGET_LOOKUP(ui->ditherTemporal).toBool()) {
-        params["temporal-dither"] = QString();
-        params["temporal-dither-period"] = WIDGET_LOOKUP(ui->ditherTemporalPeriod).toString();
-    }
-    // WIDGET_LOOKUP().toString();
-    // WIDGET_LOOKUP().toBool()
-    if (WIDGET_LOOKUP(ui->scalingCorrectDownscaling).toBool())
-        params["correct-downscaling"] = QString();
-    if (WIDGET_LOOKUP(ui->scalingInLinearLight).toBool())
-        params["linear-scaling"] = QString();
-    if (WIDGET_LOOKUP(ui->scalingTemporalInterpolation).toBool())
-        params["interpolation"] = QString();
-    if (WIDGET_LOOKUP(ui->scalingBlendSubtitles).toBool())
-        params["blend-subtitles"] = QString();
+    voOption("temporal-dither", WIDGET_LOOKUP(ui->ditherTemporal));
+    voOption("temporal-dither-period", WIDGET_LOOKUP2(ui->ditherTemporal, ui->ditherTemporalPeriod, 1));
+    voOption("correct-downscaling", WIDGET_LOOKUP(ui->scalingCorrectDownscaling));
+    voOption("linear-scaling", WIDGET_LOOKUP(ui->scalingInLinearLight));
+    voOption("interpolation", WIDGET_LOOKUP(ui->scalingTemporalInterpolation));
+    voOption("blend-subtitles", WIDGET_LOOKUP(ui->scalingBlendSubtitles));
     if (WIDGET_LOOKUP(ui->scalingSigmoidizedUpscaling).toBool()) {
-        params["sigmoid-upscaling"] = QString();
-        params["sigmoid-center"] = WIDGET_LOOKUP(ui->sigmoidizedCenter).toString();
-        params["sigmoid-slope"] = WIDGET_LOOKUP(ui->sigmoidizedSlope).toString();
+        voOption("sigmoid-upscaling", true);
+        voOption("sigmoid-center", WIDGET_LOOKUP(ui->sigmoidizedCenter));
+        voOption("sigmoid-slope", WIDGET_LOOKUP(ui->sigmoidizedSlope));
+    } else {
+        voOption("sigmoid-upscaling", false);
     }
 
-    params["scale"] = WIDGET_TO_TEXT(ui->scaleScalar);
-    if (WIDGET_LOOKUP(ui->scaleParam1Set).toBool())
-        params["scale-param1"] = WIDGET_LOOKUP(ui->scaleParam1Value).toString();
-    if (WIDGET_LOOKUP(ui->scaleParam2Set).toBool())
-        params["scale-param2"] = WIDGET_LOOKUP(ui->scaleParam2Value).toString();
-    if (WIDGET_LOOKUP(ui->scaleRadiusSet).toBool())
-        params["scale-radius"] = WIDGET_LOOKUP(ui->scaleRadiusValue).toString();
-    if (WIDGET_LOOKUP(ui->scaleAntiRingSet).toBool())
-        params["scale-antiring"] = WIDGET_LOOKUP(ui->scaleAntiRingValue).toString();
-    if (WIDGET_LOOKUP(ui->scaleBlurSet).toBool())
-        params["scale-blur"] = WIDGET_LOOKUP(ui->scaleBlurValue).toString();
-    if (WIDGET_LOOKUP(ui->scaleWindowParamSet).toBool())
-        params["scale-wparam"] = WIDGET_LOOKUP(ui->scaleWindowParamValue).toString();
-    if (WIDGET_LOOKUP(ui->scaleWindowSet).toBool())
-        params["scale-window"] = WIDGET_TO_TEXT(ui->scaleWindowValue);
-    if (WIDGET_LOOKUP(ui->scaleClamp).toBool())
-        params["scale-clamp"] = QString();
+    // Is this the right way to fall back to (the scalar's) defaults?
+    // Bear in mind we're not setting what hasn't changed since last time.
+    // Perhaps would should pass a blank QVariant or empty string instead.
+    voOption("scale", WIDGET_TO_TEXT(ui->scaleScalar));
+    voOption("scale-param1", WIDGET_LOOKUP2(ui->scaleParam1Set, ui->scaleParam1Value, "nan"));
+    voOption("scale-param2", WIDGET_LOOKUP2(ui->scaleParam2Set, ui->scaleParam2Value, "nan"));
+    voOption("scale-radius", WIDGET_LOOKUP2(ui->scaleRadiusSet, ui->scaleRadiusValue, 0.0));
+    voOption("scale-antiring", WIDGET_LOOKUP2(ui->scaleAntiRingSet, ui->scaleAntiRingValue, 0.0));
+    voOption("scale-blur",   WIDGET_LOOKUP2(ui->scaleBlurSet,   ui->scaleBlurValue,  "nan"));
+    voOption("scale-wparam", WIDGET_LOOKUP2(ui->scaleWindowParamSet, ui->scaleWindowParamValue, "nan"));
+    voOption("scale-window", WIDGET_LOOKUP2_TEXT(ui->scaleWindowSet, ui->scaleWindowValue, ""));
+    voOption("scale-clamp", WIDGET_LOOKUP(ui->scaleClamp));
 
-    if (WIDGET_LOOKUP(ui->dscaleScalar).toInt())
-        params["dscale"] = WIDGET_TO_TEXT(ui->dscaleScalar);
-    if (WIDGET_LOOKUP(ui->dscaleParam1Set).toBool())
-        params["dscale-param1"] = WIDGET_LOOKUP(ui->scaleParam1Value).toString();
-    if (WIDGET_LOOKUP(ui->dscaleParam2Set).toBool())
-        params["dscale-param2"] = WIDGET_LOOKUP(ui->scaleParam2Value).toString();
-    if (WIDGET_LOOKUP(ui->dscaleRadiusSet).toBool())
-        params["dscale-radius"] = WIDGET_LOOKUP(ui->scaleRadiusValue).toString();
-    if (WIDGET_LOOKUP(ui->dscaleAntiRingSet).toBool())
-        params["dscale-antiring"] = WIDGET_LOOKUP(ui->scaleAntiRingValue).toString();
-    if (WIDGET_LOOKUP(ui->dscaleBlurSet).toBool())
-        params["dscale-blur"] = WIDGET_LOOKUP(ui->scaleBlurValue).toString();
-    if (WIDGET_LOOKUP(ui->dscaleWindowParamSet).toBool())
-        params["dscale-wparam"] = WIDGET_LOOKUP(ui->scaleWindowParamValue).toString();
-    if (WIDGET_LOOKUP(ui->dscaleWindowSet).toBool())
-        params["dscale-window"] = WIDGET_TO_TEXT(ui->scaleWindowValue);
-    if (WIDGET_LOOKUP(ui->dscaleClamp).toBool())
-        params["dscale-clamp"] = QString();
+    voOption("dscale", WIDGET_TO_TEXT(ui->dscaleScalar));
+    voOption("dscale-param1", WIDGET_LOOKUP2(ui->dscaleParam1Set, ui->dscaleParam1Value, "nan"));
+    voOption("dscale-param2", WIDGET_LOOKUP2(ui->dscaleParam2Set, ui->dscaleParam2Value, "nan"));
+    voOption("dscale-radius", WIDGET_LOOKUP2(ui->dscaleRadiusSet, ui->dscaleRadiusValue, 0.0));
+    voOption("dscale-antiring", WIDGET_LOOKUP2(ui->dscaleAntiRingSet, ui->dscaleAntiRingValue, 0.0));
+    voOption("dscale-blur",   WIDGET_LOOKUP2(ui->dscaleBlurSet,   ui->dscaleBlurValue,  "nan"));
+    voOption("dscale-wparam", WIDGET_LOOKUP2(ui->dscaleWindowParamSet, ui->dscaleWindowParamValue, "nan"));
+    voOption("dscale-window", WIDGET_LOOKUP2_TEXT(ui->dscaleWindowSet, ui->dscaleWindowValue, ""));
+    voOption("dscale-clamp", WIDGET_LOOKUP(ui->dscaleClamp));
 
-    params["cscale"] = WIDGET_TO_TEXT(ui->cscaleScalar);
-    if (WIDGET_LOOKUP(ui->cscaleParam1Set).toBool())
-        params["cscale-param1"] = WIDGET_LOOKUP(ui->cscaleParam1Value).toString();
-    if (WIDGET_LOOKUP(ui->cscaleParam2Set).toBool())
-        params["cscale-param2"] = WIDGET_LOOKUP(ui->cscaleParam2Value).toString();
-    if (WIDGET_LOOKUP(ui->cscaleRadiusSet).toBool())
-        params["cscale-radius"] = WIDGET_LOOKUP(ui->cscaleRadiusValue).toString();
-    if (WIDGET_LOOKUP(ui->cscaleAntiRingSet).toBool())
-        params["cscale-antiring"] = WIDGET_LOOKUP(ui->cscaleAntiRingValue).toString();
-    if (WIDGET_LOOKUP(ui->cscaleBlurSet).toBool())
-        params["cscale-blur"] = WIDGET_LOOKUP(ui->cscaleBlurValue).toString();
-    if (WIDGET_LOOKUP(ui->cscaleWindowParamSet).toBool())
-        params["cscale-wparam"] = WIDGET_LOOKUP(ui->cscaleWindowParamValue).toString();
-    if (WIDGET_LOOKUP(ui->cscaleWindowSet).toBool())
-        params["cscale-window"] = WIDGET_TO_TEXT(ui->cscaleWindowValue);
-    if (WIDGET_LOOKUP(ui->cscaleClamp).toBool())
-        params["cscale-clamp"] = QString();
+    voOption("cscale", WIDGET_TO_TEXT(ui->cscaleScalar));
+    voOption("cscale-param1", WIDGET_LOOKUP2(ui->cscaleParam1Set, ui->cscaleParam1Value, "nan"));
+    voOption("cscale-param2", WIDGET_LOOKUP2(ui->cscaleParam2Set, ui->cscaleParam2Value, "nan"));
+    voOption("cscale-radius", WIDGET_LOOKUP2(ui->cscaleRadiusSet, ui->cscaleRadiusValue, 0.0));
+    voOption("cscale-antiring", WIDGET_LOOKUP2(ui->cscaleAntiRingSet, ui->cscaleAntiRingValue, 0.0));
+    voOption("cscale-blur",   WIDGET_LOOKUP2(ui->cscaleBlurSet,   ui->cscaleBlurValue,  "nan"));
+    voOption("cscale-wparam", WIDGET_LOOKUP2(ui->cscaleWindowParamSet, ui->cscaleWindowParamValue, "nan"));
+    voOption("cscale-window", WIDGET_LOOKUP2_TEXT(ui->cscaleWindowSet, ui->cscaleWindowValue, ""));
+    voOption("cscale-clamp", WIDGET_LOOKUP(ui->cscaleClamp));
 
-    params["tscale"] = WIDGET_TO_TEXT(ui->tscaleScalar);
-    if (WIDGET_LOOKUP(ui->tscaleParam1Set).toBool())
-        params["tscale-param1"] = WIDGET_LOOKUP(ui->tscaleParam1Value).toString();
-    if (WIDGET_LOOKUP(ui->tscaleParam2Set).toBool())
-        params["tscale-param2"] = WIDGET_LOOKUP(ui->tscaleParam2Value).toString();
-    if (WIDGET_LOOKUP(ui->tscaleRadiusSet).toBool())
-        params["tscale-radius"] = WIDGET_LOOKUP(ui->tscaleRadiusValue).toString();
-    if (WIDGET_LOOKUP(ui->tscaleAntiRingSet).toBool())
-        params["tscale-antiring"] = WIDGET_LOOKUP(ui->tscaleAntiRingValue).toString();
-    if (WIDGET_LOOKUP(ui->tscaleBlurSet).toBool())
-        params["tscale-blur"] = WIDGET_LOOKUP(ui->tscaleBlurValue).toString();
-    if (WIDGET_LOOKUP(ui->tscaleWindowParamSet).toBool())
-        params["tscale-wparam"] = WIDGET_LOOKUP(ui->tscaleWindowParamValue).toString();
-    if (WIDGET_LOOKUP(ui->tscaleWindowSet).toBool())
-        params["tscale-window"] = WIDGET_TO_TEXT(ui->tscaleWindowValue);
-    if (WIDGET_LOOKUP(ui->tscaleClamp).toBool())
-        params["tscale-clamp"] = QString();
+    voOption("tscale", WIDGET_TO_TEXT(ui->tscaleScalar));
+    voOption("tscale-param1", WIDGET_LOOKUP2(ui->tscaleParam1Set, ui->tscaleParam1Value, "nan"));
+    voOption("tscale-param2", WIDGET_LOOKUP2(ui->tscaleParam2Set, ui->tscaleParam2Value, "nan"));
+    voOption("tscale-radius", WIDGET_LOOKUP2(ui->tscaleRadiusSet, ui->tscaleRadiusValue, 0.0));
+    voOption("tscale-antiring", WIDGET_LOOKUP2(ui->tscaleAntiRingSet, ui->tscaleAntiRingValue, 0.0));
+    voOption("tscale-blur",   WIDGET_LOOKUP2(ui->tscaleBlurSet,   ui->tscaleBlurValue,  "nan"));
+    voOption("tscale-wparam", WIDGET_LOOKUP2(ui->tscaleWindowParamSet, ui->tscaleWindowParamValue, "nan"));
+    voOption("tscale-window", WIDGET_LOOKUP2_TEXT(ui->tscaleWindowSet, ui->tscaleWindowValue, ""));
+    voOption("tscale-clamp", WIDGET_LOOKUP(ui->tscaleClamp));
 
     if (WIDGET_LOOKUP(ui->debandEnabled).toBool()) {
-        params["deband"] = QString();
-        params["deband-iterations"] = WIDGET_LOOKUP(ui->debandIterations).toString();
-        params["deband-threshold"] = WIDGET_LOOKUP(ui->debandThreshold).toString();
-        params["deband-range"] = WIDGET_LOOKUP(ui->debandRange).toString();
-        params["deband-grain"] = WIDGET_LOOKUP(ui->debandGrain).toString();
+        voOption("deband", true);
+        voOption("deband-iterations", WIDGET_LOOKUP(ui->debandIterations));
+        voOption("deband-threshold", WIDGET_LOOKUP(ui->debandThreshold));
+        voOption("deband-range", WIDGET_LOOKUP(ui->debandRange));
+        voOption("deband-grain", WIDGET_LOOKUP(ui->debandGrain));
+    } else {
+        voOption("deband", false);
     }
 
-    params["gamma"] = WIDGET_LOOKUP(ui->ccGamma).toString();
+    voOption("gamma", WIDGET_LOOKUP(ui->ccGamma));
 #ifdef Q_OS_MAC
-    if (WIDGET_LOOKUP(ui->ccGammaAutodetect).toBool()) {
-        params["gamma-autodetect"] = QString();
-        params.remove("gamma");
-    }
+    voOption("gamma-auto", WIDGET_LOOKUP(ui->ccGammaAutodetect));
 #endif
-    params["target-prim"] = WIDGET_TO_TEXT(ui->ccTargetPrim);
-    params["target-trc"] = WIDGET_TO_TEXT(ui->ccTargetTRC);
-    params["target-brightness"] = WIDGET_LOOKUP(ui->ccTargetBrightness).toString();
-    params["hdr-tone-mapping"] = WIDGET_TO_TEXT(ui->ccHdrMapper);
+    voOption("target-prim", WIDGET_TO_TEXT(ui->ccTargetPrim));
+    voOption("target-trc", WIDGET_TO_TEXT(ui->ccTargetTRC));
+    voOption("target-brightness", WIDGET_LOOKUP(ui->ccTargetBrightness));
+    voOption("hdr-tone-mapping", WIDGET_TO_TEXT(ui->ccHdrMapper));
     {
         QList<QDoubleSpinBox*> boxen {NULL, ui->ccHdrReinhardParam, NULL, ui->ccHdrGammaParam, ui->ccHdrLinearParam};
         QDoubleSpinBox* toneParam = boxen[WIDGET_LOOKUP(ui->ccHdrMapper).toInt()];
-        if (toneParam)
-            params["tone-mapping-param"] = WIDGET_LOOKUP(toneParam).toString();
+        voOption("tone-mapping-param", toneParam ? WIDGET_LOOKUP(toneParam) : QVariant("nan"));
     }
-    if (WIDGET_LOOKUP(ui->ccICCAutodetect).toBool())
-        params["icc-profile-auto"] = QString();
-    else
-        params["icc-profile"] = WIDGET_LOOKUP(ui->ccICCLocation).toString();
-    if (!WIDGET_LOOKUP(ui->shadersActiveList).toStringList().isEmpty()) {
-        params["user-shaders"] = "[" + WIDGET_LOOKUP(ui->shadersActiveList).toStringList().join(",") + "]";
+    if (WIDGET_LOOKUP(ui->ccICCAutodetect).toBool()) {
+        voOption("icc-profile", "");
+        voOption("icc-profile-auto", true);
+    } else {
+        voOption("icc-profile-auto", false);
+        voOption("icc-profile", WIDGET_LOOKUP(ui->ccICCLocation));
     }
+    // FIXME: add icc-intent etc
+    voOption("opengl-shaders", WIDGET_LOOKUP(ui->shadersActiveList).toStringList());
 
-    QMapIterator<QString,QString> i(params);
-    while (i.hasNext()) {
-        i.next();
-        if (!i.value().isEmpty()) {
-            cmdline.append(QString("%1=%2").arg(i.key(),i.value()));
-        } else {
-            cmdline.append(i.key());
-        }
-    }
-    voCommandLine(WIDGET_LOOKUP(ui->videoDumbMode).toBool()
-                  ? "dumb-mode" : cmdline.join(':'));
     if (WIDGET_LOOKUP(ui->fullscreenHideControls).toBool()) {
         Helpers::ControlHiding method = static_cast<Helpers::ControlHiding>(WIDGET_LOOKUP(ui->fullscreenShowWhen).toInt());
         int timeOut = WIDGET_LOOKUP(ui->fullscreenShowWhenDuration).toInt();
@@ -587,7 +546,6 @@ void SettingsWindow::sendSignals()
     screenshotPngColorspace(WIDGET_LOOKUP(ui->pngColorspace).toBool());
     clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
     mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
-
 }
 
 void SettingsWindow::setServerName(const QString &name)

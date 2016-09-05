@@ -167,8 +167,10 @@ Flow::Flow(QObject *owner) :
             mpvw, &MpvWidget::setLogoUrl);
     connect(settingsWindow, &SettingsWindow::volume,
             mpvw, &MpvWidget::setVolume);
-    connect(settingsWindow, &SettingsWindow::voCommandLine,
-            mpvw, &MpvWidget::setVOCommandLine);
+    connect(settingsWindow, &SettingsWindow::voOption,
+            mpvw, &MpvWidget::setCachedMpvOption);
+    connect(settingsWindow, &SettingsWindow::aoOption,
+            mpvw, &MpvWidget::setCachedMpvOption);
     connect(settingsWindow, &SettingsWindow::framedropMode,
             mpvw, &MpvWidget::setFramedropMode);
     connect(settingsWindow, &SettingsWindow::decoderDropMode,

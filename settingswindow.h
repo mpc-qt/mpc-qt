@@ -88,8 +88,8 @@ signals:
     void autoLoadAudio(bool yes);
     void autoLoadSubs(bool yes);
 
-    void voCommandLine(const QString &s);
-    void aoCommandLine(const QString &s);
+    void voOption(const QString &s, const QVariant &v);
+    void aoOption(const QString &s, const QVariant &v);
     void fullscreenGeometry(const QRect &f);
     void fullscreenAtLaunch(bool yes);
     void fullscreenExitAtEnd(bool yes);
