@@ -53,6 +53,10 @@ void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)
                 this, &PlaybackManager::mpvw_metadataChanged);
         connect(mpvWidget, &MpvWidget::playlistChanged,
                 this, &PlaybackManager::mpvw_playlistChanged);
+        connect(mpvWidget, &MpvWidget::audioBitrateChanged,
+                this, &PlaybackManager::mpvw_audioBitrateChanged);
+        connect(mpvWidget, &MpvWidget::videoBitrateChanged,
+                this, &PlaybackManager::mpvw_videoBitrateChanged);
 
         connect(this, &PlaybackManager::hasNoVideo,
                 mpvWidget, &MpvWidget::setDrawLogo);
@@ -511,6 +515,16 @@ void PlaybackManager::mpvw_displayFramedropsChanged(int64_t count)
 void PlaybackManager::mpvw_decoderFramedropsChanged(int64_t count)
 {
     emit decoderFramedropsChanged(count);
+}
+
+void PlaybackManager::mpvw_audioBitrateChanged(double bitrate)
+{
+    emit audioBitrateChanged(bitrate);
+}
+
+void PlaybackManager::mpvw_videoBitrateChanged(double bitrate)
+{
+    emit videoBitrateChanged(bitrate);
 }
 
 void PlaybackManager::mpvw_metadataChanged(QVariantMap metadata)

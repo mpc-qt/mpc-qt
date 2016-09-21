@@ -626,6 +626,13 @@ void MainWindow::updateFramedrops()
                             .arg(decoderDrops > 0 ? decoderDrops : 0));
 }
 
+void MainWindow::updateBitrate()
+{
+    ui->bitrate->setText(QString("v: %1 kb/s, a: %2 kb/s")
+                         .arg(std::lrint(videoBitrate / 1000))
+                         .arg(std::lrint(audioBitrate / 1000)));
+}
+
 void MainWindow::updateSize(bool first_run)
 {
     if (zoomMode == FitToWindow || fullscreenMode() || isMaximized()) {
@@ -970,6 +977,18 @@ void MainWindow::setDecoderFramedrops(int64_t count)
 {
     decoderDrops = count;
     updateFramedrops();
+}
+
+void MainWindow::setAudioBitrate(double bitrate)
+{
+    audioBitrate = bitrate;
+    updateBitrate();
+}
+
+void MainWindow::setVideoBitrate(double bitrate)
+{
+    videoBitrate = bitrate;
+    updateBitrate();
 }
 
 void MainWindow::setPlaylistVisibleState(bool yes) {
