@@ -38,6 +38,11 @@ MainWindow::MainWindow(QWidget *parent) :
     noVideoSize_ = QSize(500,270);
     decorationState_ = AllDecorations;
 
+    displayDrops = 0;
+    decoderDrops = 0;
+    audioBitrate = 0;
+    videoBitrate = 0;
+
     ui->setupUi(this);
     setupMenu();
     setupPositionSlider();
