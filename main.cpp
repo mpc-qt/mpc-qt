@@ -136,6 +136,10 @@ Flow::Flow(QObject *owner) :
             mainWindow, &MainWindow::setDisplayFramedrops);
     connect(playbackManager, &PlaybackManager::decoderFramedropsChanged,
             mainWindow, &MainWindow::setDecoderFramedrops);
+    connect(playbackManager, &PlaybackManager::audioBitrateChanged,
+            mainWindow, &MainWindow::setAudioBitrate);
+    connect(playbackManager, &PlaybackManager::videoBitrateChanged,
+            mainWindow, &MainWindow::setVideoBitrate);
 
     // mainwindow -> settings
     connect(mainWindow, &MainWindow::volumeChanged,

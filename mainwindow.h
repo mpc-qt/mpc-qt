@@ -81,6 +81,7 @@ private:
     void updateBottomAreaGeometry();
     void updateTime();
     void updateFramedrops();
+    void updateBitrate();
     void updatePlaybackStatus();
     void updateSize(bool first_run = false);
     void updateInfostats();
@@ -148,6 +149,8 @@ public slots:
     void setDisplayFramedrops(int64_t count);
     void setDecoderFramedrops(int64_t count);
     void setPlaylistVisibleState(bool yes);
+    void setAudioBitrate(double bitrate);
+    void setVideoBitrate(double bitrate);
 
 private slots:
     void on_actionFileOpenQuick_triggered();
@@ -258,6 +261,8 @@ private:
     bool zoomCenter;
     int64_t displayDrops;
     int64_t decoderDrops;
+    double audioBitrate;
+    double videoBitrate;
 
     MouseStateMap mouseMapWindowed;
     MouseStateMap mouseMapFullscreen;

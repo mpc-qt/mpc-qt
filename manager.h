@@ -92,6 +92,8 @@ private slots:
     void mpvw_decoderFramedropsChanged(int64_t count);
     void mpvw_metadataChanged(QVariantMap metadata);
     void mpvw_playlistChanged(const QVariantList &playlist);
+    void mpvw_audioBitrateChanged(double bitrate);
+    void mpvw_videoBitrateChanged(double bitrate);
 
 signals:
     void playerSettingsRequested();
@@ -117,6 +119,8 @@ signals:
     void avsyncChanged(double sync);
     void displayFramedropsChanged(int64_t count);
     void decoderFramedropsChanged(int64_t count);
+    void audioBitrateChanged(double bitrate);
+    void videoBitrateChanged(double bitrate);
 
 private:
     MpvWidget *mpvWidget_;

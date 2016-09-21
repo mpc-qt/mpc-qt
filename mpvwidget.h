@@ -108,6 +108,8 @@ signals:
     void avsyncChanged(double sync);
     void displayFramedropsChanged(int64_t count);
     void decoderFramedropsChanged(int64_t cout);
+    void audioBitrateChanged(double bitrate);
+    void videoBitrateChanged(double bitrate);
     void playlistChanged(QVariantList playlist);
 
     void logoSizeChanged(QSize size);

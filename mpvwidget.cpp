@@ -601,6 +601,8 @@ void MpvWidget::ctrl_mpvPropertyChanged(QString name, QVariant v)
     HANDLE_PROP_1("avsync", avsyncChanged, toDouble, 0.0);
     HANDLE_PROP_1("vo-drop-frame-count", displayFramedropsChanged, toLongLong, 0ll);
     HANDLE_PROP_1("drop-frame-count", decoderFramedropsChanged, toLongLong, 0ll);
+    HANDLE_PROP_1("audio-bitrate", audioBitrateChanged, toDouble, 0.0);
+    HANDLE_PROP_1("video-bitrate", videoBitrateChanged, toDouble, 0.0);
     HANDLE_PROP_1("metadata", self_metadata, toMap, QVariantMap());
 }
 
