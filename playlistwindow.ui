@@ -127,6 +127,26 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QPushButton" name="showQueue">
+        <property name="toolTip">
+         <string>Show Queue</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="res.qrc">
+          <normaloff>:/images/controls/playlist/showqueue.png</normaloff>:/images/controls/playlist/showqueue.png</iconset>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
    </layout>
