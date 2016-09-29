@@ -26,5 +26,6 @@
         <file>images/controls/playlist/quickqueue.png</file>
         <file>text/playlistFormat.html</file>
         <file>text/encodeFormat.html</file>
+        <file>images/controls/playlist/showqueue.png</file>
     </qresource>
 </RCC>
