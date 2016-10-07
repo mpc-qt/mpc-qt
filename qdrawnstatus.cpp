@@ -9,6 +9,12 @@ QStatusTime::QStatusTime(QWidget *parent) : QOpenGLWidget(parent),
     setMinimumSize(minimumSizeHint());
 }
 
+QSize QStatusTime::minimumSizeHint()
+{
+    QSize sz = QFontMetrics(font()).size(0, drawnText);
+    return sz;
+}
+
 void QStatusTime::setTime(double time)
 {
     if (currentTime == time)
@@ -27,11 +33,5 @@ void QStatusTime::paintGL()
     p.fillRect(rc, bgColor);
     p.setPen(txColor);
     p.drawText(rc, drawnText, QTextOption(Qt::AlignRight | Qt::AlignVCenter));
-}
-
-QSize QStatusTime::minimumSizeHint()
-{
-    QSize sz = QFontMetrics(font()).size(0, drawnText);
-    return sz;
 }
 
