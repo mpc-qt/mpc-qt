@@ -8,7 +8,7 @@ class QStatusTime : public QOpenGLWidget
     Q_OBJECT
 public:
     explicit QStatusTime(QWidget *parent = 0);
-    virtual QSize minimumSizeHint();
+    virtual QSize minimumSizeHint() const;
 
     void setTime(double time);
 

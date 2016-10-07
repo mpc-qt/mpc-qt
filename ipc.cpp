@@ -573,6 +573,6 @@ void MpvConnection::command_unobserve_property(const QVariantList &list,
     if (list.count() != 2 || (id = list.at(1).toInt())==0)
         commandReturn(MPV_ERROR_INVALID_PARAMETER, requestId);
     else
-        commandReturn(mpvWidget->controller()->unobservePropertiesById({{id}}), requestId);
+        commandReturn(mpvWidget->controller()->unobservePropertiesById(QSet<uint64_t>() << id), requestId);
 }
 

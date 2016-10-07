@@ -701,7 +701,7 @@ MouseState MouseState::fromMouseEvent(QMouseEvent *event, bool press)
     Qt::MouseButtons mb = event->button();
     if (mb == Qt::NoButton)
         return MouseState();
-    int btn = std::log2(mb.operator Int()) + 2.5; // 1->0+2, 2->1+2, 4->2+2 etc.
+    int btn = std::log2(int(mb)) + 2.5; // 1->0+2, 2->1+2, 4->2+2 etc.
     return MouseState(btn, (event->modifiers() >> 25)&15, press);
 }
 

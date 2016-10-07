@@ -9,7 +9,7 @@ QStatusTime::QStatusTime(QWidget *parent) : QOpenGLWidget(parent),
     setMinimumSize(minimumSizeHint());
 }
 
-QSize QStatusTime::minimumSizeHint()
+QSize QStatusTime::minimumSizeHint() const
 {
     QSize sz = QFontMetrics(font()).size(0, drawnText);
     return sz;
