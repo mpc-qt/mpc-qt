@@ -5,14 +5,6 @@
 
 
 
-// Convert a rectangle to a string, useful for debugging purposes
-static QString r2s(QRectF r) {
-    (void)r2s;  // suppress warning about unused function
-    return QString("(%1,%2)-(%3,%4)[%5x%6]")
-            .arg(r.left()).arg(r.top()).arg(r.right()).arg(r.bottom())
-            .arg(r.width()).arg(r.height());
-}
-
 // dr: drawrect electric floating boogaloo
 // As the doc says, QPainter draws the right and bottom edges one pixel below
 // and to the right of the expected location.  So provide a helper function
