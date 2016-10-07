@@ -2,7 +2,7 @@
 // git repo.  Reworked by me.
 
 #include <QtGlobal>
-#if defined(Q_OS_LINUX) && !defined(Q_OS_DARWIN)
+#if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
 #include <QtX11Extras/QX11Info>
 #endif
 #include <QThread>
