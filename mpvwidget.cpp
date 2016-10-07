@@ -2,7 +2,7 @@
 // git repo.  Reworked by me.
 
 #include <QtGlobal>
-#ifdef Q_OS_LINUX
+#if defined(Q_OS_LINUX) && !defined(Q_OS_DARWIN)
 #include <QtX11Extras/QX11Info>
 #endif
 #include <QThread>
@@ -34,15 +34,16 @@ static const int HOOK_UNLOAD_CALLBACK_ID = 0xdeaddead;
 
 
 static void* GLAPIENTRY glMPGetNativeDisplay(const char* name) {
-#ifdef Q_OS_LINUX
+#if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
     if (!strcmp(name, "x11")) {
         return (void*)QX11Info::display();
     }
-#endif
-#ifdef Q_OS_WIN
+#elif defined(Q_OS_WIN)
     if (!strcmp(name, "IDirect3DDevice9")) {
         // Do something here ?
     }
+#else
+    Q_UNUSED(name);
 #endif
     return NULL;
 }
