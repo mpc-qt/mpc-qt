@@ -16,8 +16,8 @@ There is no RC.
 However, if you are willing to compile from source, you may test it out and
 determine if what works is satisfying for you.  If not, please open an issue
 that may motivate the developer in a helpful direction.  There could even be
-packages in your distro that help with this.  (e.g. [aur].)  See the compiling
-section below.
+packages in your distro that help with this.  (e.g. [aur], [ports].)  See the
+compiling section below.
 
 
 ## Features
@@ -131,7 +131,7 @@ Do this regularly to keep your local build up to date.
 
 ## Compiling on Windows
 
-While this program is meant for Linux, it is possible to compile it on Windows
+While this program is meant for Unix, it is possible to compile it on Windows
 with the [MSYS2 edition of Qt Creator] due to the largely cross-platform Qt
 toolkit.  MSVC is not supported.
 
@@ -148,6 +148,7 @@ into `mpv-dev/include/mpv`.  Compile with the 64bit Qt framework as usual.
 [libmpv]:https://github.com/mpv-player/mpv
 [mwe]:https://github.com/cmdrkotori/mpc-qt/commit/9400f595
 [aur]:https://aur.archlinux.org/packages/mpc-qt-git/
+[ports]:https://svnweb.freebsd.org/ports/head/multimedia/mpc-qt/
 [mpv-build]:https://github.com/mpv-player/mpv-build
 [bomi]:https://github.com/xylosper/bomi
 [baka]:https://github.com/u8sand/Baka-MPlayer
