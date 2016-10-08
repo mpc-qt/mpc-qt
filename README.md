@@ -148,7 +148,7 @@ into `mpv-dev/include/mpv`.  Compile with the 64bit Qt framework as usual.
 [libmpv]:https://github.com/mpv-player/mpv
 [mwe]:https://github.com/cmdrkotori/mpc-qt/commit/9400f595
 [aur]:https://aur.archlinux.org/packages/mpc-qt-git/
-[ports]:https://svnweb.freebsd.org/ports/head/multimedia/mpc-qt/
+[ports]:https://www.freshports.org/multimedia/mpc-qt
 [mpv-build]:https://github.com/mpv-player/mpv-build
 [bomi]:https://github.com/xylosper/bomi
 [baka]:https://github.com/u8sand/Baka-MPlayer
