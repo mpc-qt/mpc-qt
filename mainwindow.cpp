@@ -1162,6 +1162,9 @@ void MainWindow::on_actionViewHidePlaylist_toggled(bool checked)
     if (fullscreenMode_ && fullscreenHidePanels)
         return;
 
+    if (isMinimized())
+        return;
+
     if (checked && playlistWindow_->isHidden())
         playlistWindow_->show();
     else if (!checked && playlistWindow_->isVisible())
