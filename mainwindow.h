@@ -245,6 +245,7 @@ private:
     QTimer hideTimer;
 
     DecorationState decorationState_;
+    bool fullscreenMaximized;
     bool fullscreenMode_;
     bool fullscreenHidePanels;
     Helpers::ControlHiding bottomAreaBehavior;

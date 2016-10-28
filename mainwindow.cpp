@@ -26,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     fullscreenMode_ = false;
+    fullscreenMaximized = false;
     bottomAreaBehavior = Helpers::ShowWhenHovering;
     bottomAreaHeight = 0;
     bottomAreaHideTime = 0;
@@ -268,9 +269,14 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
     // For now, use the current screen.
     windowHandle()->setScreen(windowHandle()->screen());
 
+    if (!fullscreenMode_ && fullscreenMode)
+        fullscreenMaximized = isMaximized();
+
     fullscreenMode_ = fullscreenMode;
     if (fullscreenMode)
         showFullScreen();
+    else if (fullscreenMaximized)
+        showMaximized();
     else
         showNormal();
 }
