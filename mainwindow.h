@@ -136,6 +136,7 @@ public slots:
     void setZoomCenter(bool yes);
     void setBottomAreaBehavior(Helpers::ControlHiding method);
     void setBottomAreaHideTime(int milliseconds);
+    void setTimeTooltip(bool show, bool above);
     void setFullscreenHidePanels(bool hidden);
     void setPlaybackState(PlaybackManager::PlaybackState state);
     void setPlaybackType(PlaybackManager::PlaybackType type);
@@ -226,6 +227,7 @@ private slots:
     void on_actionPlaylistSearch_triggered();
 
     void position_sliderMoved(int position);
+    void position_hoverValue(double value, QString text, double x);
     void on_play_clicked();
     void volume_sliderMoved(double position);
     void playlistWindow_windowDocked();
@@ -251,6 +253,8 @@ private:
     Helpers::ControlHiding bottomAreaBehavior;
     int bottomAreaHeight;
     int bottomAreaHideTime;
+    bool timeTooltipShown;
+    bool timeTooltipAbove;
 
     QString previousOpenDir;
     QSize noVideoSize_;

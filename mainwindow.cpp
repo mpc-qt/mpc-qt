@@ -16,6 +16,7 @@
 #include <QDesktopServices>
 #include <QMessageBox>
 #include <QLibraryInfo>
+#include <QToolTip>
 
 using namespace Helpers;
 
@@ -30,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
     bottomAreaBehavior = Helpers::ShowWhenHovering;
     bottomAreaHeight = 0;
     bottomAreaHideTime = 0;
+    timeTooltipAbove = false;
     isPlaying = false;
     sizeFactor_ = 1;
     fitFactor_ = 0.75;
@@ -309,6 +311,8 @@ void MainWindow::setupPositionSlider()
     ui->seekbar->layout()->addWidget(positionSlider_);
     connect(positionSlider_, &QMediaSlider::sliderMoved,
             this, &MainWindow::position_sliderMoved);
+    connect(positionSlider_, &QMediaSlider::hoverValue,
+            this, &MainWindow::position_hoverValue);
 }
 
 void MainWindow::setupVolumeSlider()
@@ -870,6 +874,12 @@ void MainWindow::setBottomAreaHideTime(int milliseconds)
 {
     bottomAreaHideTime = milliseconds;
     hideTimer.setInterval(milliseconds);
+}
+
+void MainWindow::setTimeTooltip(bool shown, bool above)
+{
+    timeTooltipShown = shown;
+    timeTooltipAbove = above;
 }
 
 void MainWindow::setFullscreenHidePanels(bool hidden)
@@ -1500,6 +1510,20 @@ void MainWindow::on_actionHelpAbout_triggered()
 void MainWindow::position_sliderMoved(int position)
 {
     emit timeSelected(position);
+}
+
+void MainWindow::position_hoverValue(double value, QString text, double x)
+{
+    if (!timeTooltipShown)
+        return;
+    if (text.isEmpty())
+        text = "<unknown>";
+
+    QString t = QString("%1 - %2").arg(Helpers::toDateFormat(value)).arg(text);
+    QPoint where = positionSlider_->mapToGlobal(QPoint(x, timeTooltipAbove ? -40 : 0));
+    QToolTip::showText(where, t, positionSlider_);
+
+    //FIXME: use a widget not the system tooltip?
 }
 
 void MainWindow::on_play_clicked()

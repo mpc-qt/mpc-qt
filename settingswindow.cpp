@@ -545,6 +545,8 @@ void SettingsWindow::sendSignals()
     screenshotPngFilter(WIDGET_LOOKUP(ui->pngFilter).toInt());
     screenshotPngColorspace(WIDGET_LOOKUP(ui->pngColorspace).toBool());
     clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
+    timeTooltip(WIDGET_LOOKUP(ui->tweaksTimeTooltip).toBool(),
+                WIDGET_LOOKUP(ui->tweaksTimeTooltipLocation).toInt() == 0);
     mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
 }
 

@@ -164,6 +164,8 @@ Flow::Flow(QObject *owner) :
             mainWindow, &MainWindow::setBottomAreaHideTime);
     connect(settingsWindow, &SettingsWindow::hidePanels,
             mainWindow, &MainWindow::setFullscreenHidePanels);
+    connect(settingsWindow, &SettingsWindow::timeTooltip,
+            mainWindow, &MainWindow::setTimeTooltip);
 
     // settings -> mpvwidget
     auto mpvw = mainWindow->mpvWidget();

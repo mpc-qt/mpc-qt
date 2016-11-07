@@ -169,7 +169,7 @@ signals:
     void fastSeek(bool toKeyframes);
     void chapterMarks(bool yes);
     void fallbackToFolder(bool yes);
-    void timeTooptip(bool yes, bool above);
+    void timeTooltip(bool yes, bool above);
     void osdFont(const QString &family, const QString &size);
 
     // bchs should be part of a filter module page, hence the funny name
