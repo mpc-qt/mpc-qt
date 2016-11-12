@@ -172,7 +172,6 @@ MpvWidget::MpvWidget(QWidget *parent) :
                                   Q_ARG(MpvController::LogLevel,
                                         MpvController::LogInfo));
 
-    emit ctrlSetOptionVariant("softvol", "yes");
     emit ctrlSetOptionVariant("ytdl", "yes");
 
     connect(this, &QOpenGLWidget::frameSwapped,
