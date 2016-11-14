@@ -166,4 +166,24 @@ public:
 
 
 
+class AudioDevice {
+public:
+    AudioDevice();
+    AudioDevice(const QVariantMap &m);
+    void setFromVMap(const QVariantMap &m);
+
+    bool operator ==(const AudioDevice &other) const;
+    QString displayString() const;
+    QString deviceName() const;
+
+    static QList<AudioDevice> listFromVList(const QVariantList &list);
+
+private:
+    QString displayString_;
+    QString deviceName_;
+};
+
+
+
+
 #endif // HELPERS_H

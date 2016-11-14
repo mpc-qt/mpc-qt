@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>785</width>
-    <height>746</height>
+    <height>768</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -845,7 +845,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -1163,7 +1163,7 @@ media file played</string>
                   <item>
                    <widget class="QTabWidget" name="scalingTabs">
                     <property name="currentIndex">
-                     <number>4</number>
+                     <number>0</number>
                     </property>
                     <widget class="QWidget" name="scaleOptionsTab">
                      <attribute name="title">
@@ -3559,69 +3559,147 @@ media file played</string>
              <property name="title">
               <string>Audio Renderer</string>
              </property>
-             <layout class="QVBoxLayout" name="verticalLayout_66">
+             <layout class="QVBoxLayout" name="verticalLayout_46">
               <item>
-               <widget class="QComboBox" name="audioRenderer">
-                <item>
-                 <property name="text">
-                  <string>PulseAudio</string>
-                 </property>
+               <layout class="QFormLayout" name="formLayout_16">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_7">
+                  <property name="text">
+                   <string>Device</string>
+                  </property>
+                 </widget>
                 </item>
-                <item>
-                 <property name="text">
-                  <string>ALSA</string>
-                 </property>
+                <item row="0" column="1">
+                 <widget class="QComboBox" name="audioDevice">
+                  <item>
+                   <property name="text">
+                    <string>Auto</string>
+                   </property>
+                  </item>
+                 </widget>
                 </item>
-                <item>
-                 <property name="text">
-                  <string>OSS</string>
-                 </property>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_52">
+                  <property name="text">
+                   <string>Channel layout</string>
+                  </property>
+                 </widget>
                 </item>
-                <item>
-                 <property name="text">
-                  <string>Null</string>
-                 </property>
+                <item row="1" column="1">
+                 <widget class="QComboBox" name="audioChannels">
+                  <property name="editable">
+                   <bool>false</bool>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>System layout (stereo fallback)</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Maximal layout (may output to unconnected channels)</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Stereo</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Audio switcher (WIP)</string>
+                   </property>
+                  </item>
+                 </widget>
                 </item>
-               </widget>
+               </layout>
               </item>
               <item>
-               <widget class="QStackedWidget" name="audioRendererStack">
+               <widget class="QTabWidget" name="audioTabs">
                 <property name="currentIndex">
-                 <number>3</number>
+                 <number>0</number>
                 </property>
+                <widget class="QWidget" name="allTab">
+                 <attribute name="title">
+                  <string>All</string>
+                 </attribute>
+                 <layout class="QVBoxLayout" name="verticalLayout_47">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_56">
+                    <item>
+                     <widget class="QCheckBox" name="audioStreamSilence">
+                      <property name="text">
+                       <string>Stream silence (HDMI fixup)</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QDoubleSpinBox" name="audioWaitTime">
+                      <property name="suffix">
+                       <string> seconds</string>
+                      </property>
+                      <property name="maximum">
+                       <double>9.990000000000000</double>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="horizontalSpacer_4">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="audioPitchCorrection">
+                    <property name="text">
+                     <string>Pitch correction</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="audioExclusiveMode">
+                    <property name="text">
+                     <string>Exclusive mode</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="audioNormalizeDownmix">
+                    <property name="text">
+                     <string>Normalize downmix</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
                 <widget class="QWidget" name="pulsePage">
+                 <attribute name="title">
+                  <string>Pulse</string>
+                 </attribute>
                  <layout class="QFormLayout" name="formLayout_15">
                   <property name="fieldGrowthPolicy">
                    <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
                   </property>
                   <item row="0" column="0">
-                   <widget class="QLabel" name="label_69">
-                    <property name="text">
-                     <string>Host</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QLineEdit" name="pulseHost"/>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="label_70">
-                    <property name="text">
-                     <string>Sink</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QLineEdit" name="pulseSink"/>
-                  </item>
-                  <item row="2" column="0">
                    <widget class="QLabel" name="label_71">
                     <property name="text">
                      <string>Buffer</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="1">
+                  <item row="0" column="1">
                    <widget class="QSpinBox" name="pulseBuffer">
                     <property name="minimum">
                      <number>1</number>
@@ -3634,14 +3712,14 @@ media file played</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="3" column="0">
+                  <item row="1" column="0">
                    <widget class="QLabel" name="label_72">
                     <property name="text">
                      <string>Fixes</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="3" column="1">
+                  <item row="1" column="1">
                    <widget class="QCheckBox" name="pulseLatency">
                     <property name="text">
                      <string>Latency hacks</string>
@@ -3651,136 +3729,69 @@ media file played</string>
                  </layout>
                 </widget>
                 <widget class="QWidget" name="alsaPage">
-                 <layout class="QFormLayout" name="formLayout_17">
-                  <property name="fieldGrowthPolicy">
-                   <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-                  </property>
+                 <attribute name="title">
+                  <string>Alsa</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_12">
                   <item row="0" column="0">
-                   <widget class="QLabel" name="label_77">
+                   <widget class="QCheckBox" name="alsaResample">
                     <property name="text">
-                     <string>Device</string>
+                     <string>Resample (may introduce latency)</string>
                     </property>
                    </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QLineEdit" name="alsaDevice"/>
                   </item>
                   <item row="1" column="0">
-                   <widget class="QLabel" name="label_78">
+                   <widget class="QCheckBox" name="alsaIgnoreChannelMap">
                     <property name="text">
-                     <string>Mixer device</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QLineEdit" name="alsaMixerDevice">
-                    <property name="text">
-                     <string>default</string>
+                     <string>Ignore channel map (for specific alsa setups)</string>
                     </property>
                    </widget>
                   </item>
                   <item row="2" column="0">
-                   <widget class="QLabel" name="label_79">
-                    <property name="text">
-                     <string>Mixer name</string>
+                   <spacer name="verticalSpacer_16">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
                     </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="1">
-                   <widget class="QLineEdit" name="alsaMixerName">
-                    <property name="text">
-                     <string>Master</string>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
                     </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QLabel" name="label_80">
-                    <property name="text">
-                     <string>Mixer index</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="1">
-                   <widget class="QSpinBox" name="alsaMixerIndex">
-                    <property name="minimum">
-                     <number>-1</number>
-                    </property>
-                    <property name="maximum">
-                     <number>100</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="0">
-                   <widget class="QLabel" name="label_81">
-                    <property name="text">
-                     <string>Resample</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="1">
-                   <widget class="QCheckBox" name="alsaResample">
-                    <property name="text">
-                     <string>May introduce latency</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="5" column="0">
-                   <widget class="QLabel" name="label_82">
-                    <property name="text">
-                     <string>Ignore channel map</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="5" column="1">
-                   <widget class="QCheckBox" name="alsaIgnoreChannelMap">
-                    <property name="text">
-                     <string>For specific alsa setups</string>
-                    </property>
-                   </widget>
+                   </spacer>
                   </item>
                  </layout>
                 </widget>
                 <widget class="QWidget" name="ossPage">
+                 <attribute name="title">
+                  <string>Oss</string>
+                 </attribute>
                  <layout class="QFormLayout" name="formLayout_18">
                   <property name="fieldGrowthPolicy">
                    <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
                   </property>
                   <item row="0" column="0">
-                   <widget class="QLabel" name="label_83">
-                    <property name="text">
-                     <string>DSP device</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QLineEdit" name="ossDspDevice">
-                    <property name="text">
-                     <string>/dev/dsp</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
                    <widget class="QLabel" name="label_84">
                     <property name="text">
                      <string>Mixer device</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="1">
+                  <item row="0" column="1">
                    <widget class="QLineEdit" name="ossMixerDevice">
                     <property name="text">
                      <string>/dev/mixer</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="0">
+                  <item row="1" column="0">
                    <widget class="QLabel" name="label_85">
                     <property name="text">
                      <string>Mixer channel</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="1">
+                  <item row="1" column="1">
                    <widget class="QLineEdit" name="ossMixerChannel">
                     <property name="text">
                      <string>pcm</string>
@@ -3789,62 +3800,87 @@ media file played</string>
                   </item>
                  </layout>
                 </widget>
-                <widget class="QWidget" name="nullPage">
-                 <layout class="QFormLayout" name="formLayout_19">
-                  <property name="fieldGrowthPolicy">
-                   <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-                  </property>
+                <widget class="QWidget" name="jackPage">
+                 <attribute name="title">
+                  <string>Jack</string>
+                 </attribute>
+                 <layout class="QVBoxLayout" name="verticalLayout_45">
+                  <item>
+                   <widget class="QCheckBox" name="jackAutostart">
+                    <property name="text">
+                     <string>Start jackd at startup</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="jackConnect">
+                    <property name="text">
+                     <string>Auto connect</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QFormLayout" name="formLayout_17">
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_53">
+                      <property name="text">
+                       <string>Name</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QLineEdit" name="jackName">
+                      <property name="text">
+                       <string>mpc-qt</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QLabel" name="label_54">
+                      <property name="text">
+                       <string>Port</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="1">
+                     <widget class="QLineEdit" name="jackPort"/>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="corePage">
+                 <attribute name="title">
+                  <string>CoreAudio</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_13">
                   <item row="0" column="0">
-                   <widget class="QLabel" name="label_76">
+                   <widget class="QLabel" name="label_50">
                     <property name="text">
-                     <string>Timing</string>
+                     <string>No specific options (yet)</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="1">
-                   <widget class="QCheckBox" name="nullUntimed">
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="wasapiPage">
+                 <attribute name="title">
+                  <string>Wasapi</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_14">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_51">
                     <property name="text">
-                     <string>Untimed</string>
+                     <string>No specific options (yet)</string>
                     </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="label_86">
-                    <property name="text">
-                     <string>Buffer length</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QLabel" name="label_87">
-                    <property name="text">
-                     <string>Outburst</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="1">
-                   <widget class="QSpinBox" name="nullOutburst">
-                    <property name="minimum">
-                     <number>1</number>
-                    </property>
-                    <property name="maximum">
-                     <number>100000</number>
-                    </property>
-                    <property name="value">
-                     <number>256</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QDoubleSpinBox" name="nullBufferLength">
-                    <property name="decimals">
-                     <number>6</number>
-                    </property>
-                    <property name="maximum">
-                     <double>100.000000000000000</double>
-                    </property>
-                    <property name="value">
-                     <double>0.200000000000000</double>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                     </property>
                    </widget>
                   </item>

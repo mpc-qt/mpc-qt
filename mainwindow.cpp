@@ -329,7 +329,7 @@ void MainWindow::setupVolumeSlider()
 
 void MainWindow::setupMpvWidget()
 {
-    mpvw = new MpvWidget(this);
+    mpvw = new MpvWidget(this, "Media Player Classic Qute Theater");
     connect(mpvw, &MpvWidget::logoSizeChanged,
             this, &MainWindow::setNoVideoSize);
     mpvw->setMouseTracking(true);

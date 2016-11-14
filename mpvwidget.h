@@ -9,6 +9,7 @@
 #include <mpv/client.h>
 #include <mpv/opengl_cb.h>
 #include <mpv/qthelper.hpp>
+#include "helpers.h"
 
 class QThread;
 class QTimer;
@@ -19,8 +20,10 @@ class MpvWidget : public QOpenGLWidget
 {
     Q_OBJECT
 public:
-    explicit MpvWidget(QWidget *parent = 0);
+    explicit MpvWidget(QWidget *parent = 0, const QString &clientName = "mpv");
     ~MpvWidget();
+    QList<AudioDevice> audioDevices();
+
     void showMessage(QString message);
 
     void fileOpen(QString filename);
@@ -91,6 +94,8 @@ signals:
     void ctrlSetOptionVariant(QString name, QVariant value);
     void ctrlSetPropertyVariant(QString name, QVariant value);
 
+    void audioDeviceList(const QList<AudioDevice> audioDevices);
+
     void playTimeChanged(double time);
     void playLengthChanged(double length);
     void playbackLoading();
@@ -127,6 +132,7 @@ private slots:
     void self_playbackStarted();
     void self_playbackFinished();
     void self_metadata(QVariantMap metadata);
+    void self_audioDeviceList(const QVariantList &list);
 
 private:
     QThread *worker;
@@ -179,7 +185,6 @@ public slots:
 private:
     Callback callback;
 };
-
 
 
 // This controller attempts to shove as much libmpv related business off of

@@ -58,6 +58,7 @@ private:
     SettingMap generateSettingMap();
     void updateLogoWidget();
     QString selectedLogo();
+    QString channelSwitcher();
 
 signals:
     void settingsData(const QVariantMap &s);
@@ -185,6 +186,7 @@ public slots:
     void takeSettings(QVariantMap payload);
     void takeKeyMap(const QVariantMap &payload);
     void setMouseMapDefaults(const QVariantMap &payload);
+    void setAudioDevices(const QList<AudioDevice> &devices);
     void sendSignals();
 
     void setServerName(const QString &name);
@@ -198,8 +200,6 @@ private slots:
     void on_buttonBox_clicked(QAbstractButton *button);
 
     void on_ccHdrMapper_currentIndexChanged(int index);
-
-    void on_audioRenderer_currentIndexChanged(int index);
 
     void on_videoDumbMode_toggled(bool checked);
 
@@ -247,6 +247,7 @@ private:
     SettingMap defaultSettings;
     QVariantMap acceptedKeyMap;
     QVariantMap defaultKeyMap;
+    QList<AudioDevice> audioDevices;
     bool parseNnedi3Fields;
 };
 

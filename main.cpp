@@ -212,6 +212,10 @@ Flow::Flow(QObject *owner) :
     connect(settingsWindow, &SettingsWindow::mpvLogLevel,
             mpvw, &MpvWidget::setMpvLogLevel);
 
+    // mpvwidget -> settings
+    connect(mpvw, &MpvWidget::audioDeviceList,
+            settingsWindow, &SettingsWindow::setAudioDevices);
+
     // settings -> playlistWindow
     connect(settingsWindow, &SettingsWindow::playlistFormat,
             mainWindow->playlistWindow(), &PlaylistWindow::setDisplayFormatSpecifier);
@@ -276,6 +280,7 @@ Flow::Flow(QObject *owner) :
     mainWindow->setRecentDocuments(recentFiles);
     settings = storage.readVMap("settings");
     keyMap = storage.readVMap("keys");
+    settingsWindow->setAudioDevices(mpvw->audioDevices());
     settingsWindow->takeSettings(settings);
     settingsWindow->setMouseMapDefaults(mainWindow->mouseMapDefaults());
     settingsWindow->takeKeyMap(keyMap);

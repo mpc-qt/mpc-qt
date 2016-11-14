@@ -81,7 +81,7 @@ static void *get_proc_address(void *ctx, const char *name) {
     return res;
 }
 
-MpvWidget::MpvWidget(QWidget *parent) :
+MpvWidget::MpvWidget(QWidget *parent, const QString &clientName) :
     QOpenGLWidget(parent), drawLogo(true),
     logo(NULL), loopImages(true)
 {
@@ -148,7 +148,8 @@ MpvWidget::MpvWidget(QWidget *parent) :
         { "audio-bitrate", 0, MPV_FORMAT_DOUBLE },
         { "video-bitrate", 0, MPV_FORMAT_DOUBLE },
         { "paused-for-cache", 0, MPV_FORMAT_FLAG },
-        { "metadata", 0, MPV_FORMAT_NODE }
+        { "metadata", 0, MPV_FORMAT_NODE },
+        { "audio-device-list", 0, MPV_FORMAT_NODE }
     };
     QSet<QString> throttled = {
         "time-pos", "avsync", "estimated-vf-fps", "vo-drop-frame-count",
@@ -173,6 +174,7 @@ MpvWidget::MpvWidget(QWidget *parent) :
                                         MpvController::LogInfo));
 
     emit ctrlSetOptionVariant("ytdl", "yes");
+    emit ctrlSetOptionVariant("audio-client-name", clientName);
 
     connect(this, &QOpenGLWidget::frameSwapped,
             this, &MpvWidget::self_frameSwapped);
@@ -194,6 +196,11 @@ MpvWidget::~MpvWidget()
         logo = NULL;
     }
     worker->deleteLater();
+}
+
+QList<AudioDevice> MpvWidget::audioDevices()
+{
+    return AudioDevice::listFromVList(getMpvPropertyVariant("audio-devices").toList());
 }
 
 void MpvWidget::showMessage(QString message)
@@ -604,6 +611,7 @@ void MpvWidget::ctrl_mpvPropertyChanged(QString name, QVariant v)
     HANDLE_PROP_1("audio-bitrate", audioBitrateChanged, toDouble, 0.0);
     HANDLE_PROP_1("video-bitrate", videoBitrateChanged, toDouble, 0.0);
     HANDLE_PROP_1("metadata", self_metadata, toMap, QVariantMap());
+    HANDLE_PROP_1("audio-device-list", self_audioDeviceList, toList, QVariantList());
 }
 
 void MpvWidget::ctrl_logMessage(QString message)
@@ -700,6 +708,11 @@ void MpvWidget::self_metadata(QVariantMap metadata)
         map.insert(key.toLower(), metadata[key]);
     }
     emit metaDataChanged(map);
+}
+
+void MpvWidget::self_audioDeviceList(const QVariantList &list)
+{
+    emit audioDeviceList(AudioDevice::listFromVList(list));
 }
 
 

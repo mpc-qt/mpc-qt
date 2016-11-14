@@ -50,6 +50,7 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"ccTargetTRC", {"auto", "by.1886", "srgb", "linear", "gamma1.8",\
                      "gamma2.2", "gamma2.8", "prophoto", "st2084"}},
     {"ccHdrMapper", {"clip", "reinhard", "hable", "gamma", "linear"}},
+    {"audioChannels", {"auto-safe", "auto", "stereo"}},
     {"audioRenderer", {"pulse", "alsa", "oss", "null"}},
     {"framedroppingMode", {"no", "vo", "decoder", "decoder+vo"}},
     {"framedroppingDecoderMode", {"none", "default", "nonref", "bidir",\
@@ -197,7 +198,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->pageStack->setCurrentIndex(0);
     ui->videoTabs->setCurrentIndex(0);
     ui->scalingTabs->setCurrentIndex(0);
-    ui->audioRendererStack->setCurrentIndex(0);
+    ui->audioTabs->setCurrentIndex(0);
 
 #ifdef Q_OS_LINUX
     // Detect a tiling desktop, and disable autozoom for the default.
@@ -309,6 +310,12 @@ QString SettingsWindow::selectedLogo()
                                 : internalLogos.value(ui->logoInternal->currentIndex());
 }
 
+QString SettingsWindow::channelSwitcher()
+{
+    //FIXME: stub
+    return "2.0";
+}
+
 void SettingsWindow::takeActions(const QList<QAction *> actions)
 {
     QList<Command> commandList;
@@ -341,6 +348,14 @@ void SettingsWindow::setMouseMapDefaults(const QVariantMap &payload)
 {
     actionEditor->fromVMap(payload);
     defaultKeyMap = actionEditor->toVMap();
+}
+
+void SettingsWindow::setAudioDevices(const QList<AudioDevice> &devices)
+{
+    audioDevices = devices;
+    ui->audioDevice->clear();
+    for (const AudioDevice &device : audioDevices)
+        ui->audioDevice->addItem(device.displayString());
 }
 
 
@@ -502,6 +517,29 @@ void SettingsWindow::sendSignals()
         voOption("icc-profile-auto", false);
         voOption("icc-profile", WIDGET_LOOKUP(ui->ccICCLocation));
     }
+
+    int index = WIDGET_LOOKUP(ui->audioDevice).toInt();
+    aoOption("audio-device", audioDevices.value(index).deviceName());
+    index = WIDGET_LOOKUP(ui->audioChannels).toInt();
+    aoOption("audio-channels", index < 3 ? SettingMap::indexedValueToText[ui->audioChannels->objectName()][index]
+                                         : channelSwitcher());
+    bool flag = WIDGET_LOOKUP(ui->audioStreamSilence).toBool();
+    aoOption("stream-silence", flag);
+    aoOption("audio-wait-open", flag ? WIDGET_LOOKUP(ui->audioWaitTime).toDouble() : 0.0);
+    aoOption("audio-pitch-correction", WIDGET_LOOKUP(ui->audioPitchCorrection).toBool());
+    aoOption("audio-exclusive", WIDGET_LOOKUP(ui->audioExclusiveMode).toBool());
+    aoOption("audio-normalize-downmix", WIDGET_LOOKUP(ui->audioNormalizeDownmix).toBool());
+    aoOption("pulse-buffer", WIDGET_LOOKUP(ui->pulseBuffer).toInt());
+    aoOption("pulse-latency-hacks", WIDGET_LOOKUP(ui->pulseLatency).toBool());
+    aoOption("alsa-resample", WIDGET_LOOKUP(ui->alsaResample).toBool());
+    aoOption("alsa-ignore-chmap", WIDGET_LOOKUP(ui->alsaIgnoreChannelMap).toBool());
+    aoOption("oss-mixer-channel", WIDGET_LOOKUP(ui->ossMixerChannel).toString());
+    aoOption("oss-mixer-device", WIDGET_LOOKUP(ui->ossMixerDevice).toString());
+    aoOption("jack-autostart", WIDGET_LOOKUP(ui->jackAutostart).toBool());
+    aoOption("jack-connect", WIDGET_LOOKUP(ui->jackConnect).toBool());
+    aoOption("jack-name", WIDGET_LOOKUP(ui->jackName).toString());
+    aoOption("jack-port", WIDGET_LOOKUP(ui->jackPort).toString());
+
     // FIXME: add icc-intent etc
     voOption("opengl-shaders", WIDGET_LOOKUP(ui->shadersActiveList).toStringList());
 
@@ -526,7 +564,7 @@ void SettingsWindow::sendSignals()
     maximumAudioChange(WIDGET_LOOKUP(ui->syncMaxAudioChange).toDouble());
     maximumVideoChange(WIDGET_LOOKUP(ui->syncMaxVideoChange).toDouble());
     playlistFormat(WIDGET_PLACEHOLD_LOOKUP(ui->playlistFormat));
-    subsAreGray(WIDGET_LOOKUP(ui->subtitlesForceGrayscale).toDouble());
+    subsAreGray(WIDGET_LOOKUP(ui->subtitlesForceGrayscale).toBool());
 
     screenshotDirectory(
                 WIDGET_LOOKUP(ui->screenshotDirectorySet).toBool() ?
@@ -615,11 +653,6 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
 void SettingsWindow::on_ccHdrMapper_currentIndexChanged(int index)
 {
     ui->ccHdrStack->setCurrentIndex(index);
-}
-
-void SettingsWindow::on_audioRenderer_currentIndexChanged(int index)
-{
-    ui->audioRendererStack->setCurrentIndex(index);
 }
 
 void SettingsWindow::on_videoDumbMode_toggled(bool checked)

@@ -735,3 +735,45 @@ void Command::fromAction(QAction *a)
 }
 
 
+
+AudioDevice::AudioDevice()
+{
+
+}
+
+AudioDevice::AudioDevice(const QVariantMap &m)
+{
+    setFromVMap(m);
+}
+
+void AudioDevice::setFromVMap(const QVariantMap &m)
+{
+    QString desc = m.value("description", "-").toString();
+    deviceName_ = m.value("name", "null").toString();
+    QString driver = deviceName_.split('/').first();
+    displayString_ = QString("[%1] %2").arg(driver).arg(desc);
+}
+
+bool AudioDevice::operator ==(const AudioDevice &other) const
+{
+    return other.deviceName_ == deviceName_;
+}
+
+QString AudioDevice::displayString() const
+{
+    return displayString_;
+}
+
+QString AudioDevice::deviceName() const
+{
+    return deviceName_;
+}
+
+QList<AudioDevice> AudioDevice::listFromVList(const QVariantList &list)
+{
+    QList<AudioDevice> audioDevices;
+    for (const QVariant &v : list)
+        audioDevices.append(AudioDevice(v.toMap()));
+    return audioDevices;
+}
+
