@@ -3644,42 +3644,38 @@ media file played</string>
                  <attribute name="title">
                   <string>All</string>
                  </attribute>
-                 <layout class="QVBoxLayout" name="verticalLayout_47">
-                  <item>
-                   <layout class="QHBoxLayout" name="horizontalLayout_56">
-                    <item>
-                     <widget class="QCheckBox" name="audioStreamSilence">
-                      <property name="text">
-                       <string>Stream silence (HDMI fixup)</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QDoubleSpinBox" name="audioWaitTime">
-                      <property name="suffix">
-                       <string> seconds</string>
-                      </property>
-                      <property name="maximum">
-                       <double>9.990000000000000</double>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <spacer name="horizontalSpacer_4">
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>40</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                   </layout>
+                 <layout class="QGridLayout" name="gridLayout_11">
+                  <item row="0" column="0">
+                   <widget class="QCheckBox" name="audioStreamSilence">
+                    <property name="text">
+                     <string>Stream silence (HDMI fixup)</string>
+                    </property>
+                   </widget>
                   </item>
-                  <item>
+                  <item row="0" column="1">
+                   <widget class="QDoubleSpinBox" name="audioWaitTime">
+                    <property name="suffix">
+                     <string> seconds</string>
+                    </property>
+                    <property name="maximum">
+                     <double>9.990000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <spacer name="horizontalSpacer_4">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>239</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="1" column="0">
                    <widget class="QCheckBox" name="audioPitchCorrection">
                     <property name="text">
                      <string>Pitch correction</string>
@@ -3689,14 +3685,14 @@ media file played</string>
                     </property>
                    </widget>
                   </item>
-                  <item>
+                  <item row="2" column="0">
                    <widget class="QCheckBox" name="audioExclusiveMode">
                     <property name="text">
                      <string>Exclusive mode</string>
                     </property>
                    </widget>
                   </item>
-                  <item>
+                  <item row="3" column="0">
                    <widget class="QCheckBox" name="audioNormalizeDownmix">
                     <property name="text">
                      <string>Normalize downmix</string>
