@@ -845,7 +845,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -1001,12 +1001,24 @@ media file played</string>
                   <string>Dither</string>
                  </attribute>
                  <layout class="QHBoxLayout" name="horizontalLayout_30">
+                  <property name="spacing">
+                   <number>15</number>
+                  </property>
                   <item>
-                   <widget class="QGroupBox" name="groupBox_60">
-                    <property name="title">
-                     <string/>
-                    </property>
+                   <widget class="QFrame" name="frame_60">
                     <layout class="QVBoxLayout" name="verticalLayout_33" stretch="0,0,1">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
                      <item>
                       <widget class="QCheckBox" name="ditherDithering">
                        <property name="text">
@@ -1101,11 +1113,20 @@ media file played</string>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QGroupBox" name="groupBox_61">
-                    <property name="title">
-                     <string/>
-                    </property>
+                   <widget class="QFrame" name="frame_61">
                     <layout class="QVBoxLayout" name="verticalLayout_32" stretch="0,0,1">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
                      <item>
                       <widget class="QCheckBox" name="ditherTemporal">
                        <property name="text">
