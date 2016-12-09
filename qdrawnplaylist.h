@@ -4,10 +4,10 @@
 #include <QListWidget>
 #include <QUuid>
 #include <functional>
+#include "playlist.h"
 
 class DisplayParser;
 class QThread;
-class Playlist;
 class PlaylistSearcher;
 
 class PlayPainter : public QAbstractItemDelegate {
@@ -22,12 +22,14 @@ public:
 
 class PlayItem : public QListWidgetItem {
 public:
-    PlayItem(const QUuid &uuid = QUuid(), QListWidget *parent = 0);
+    PlayItem(const QUuid &uuid = QUuid(), const QUuid &playlistUuid = QUuid(), QListWidget *parent = 0);
     ~PlayItem();
 
+    QUuid playlistUuid();
     QUuid uuid();
 
 private:
+    QUuid playlistUuid_;
     QUuid uuid_;
 };
 
@@ -40,6 +42,7 @@ class QDrawnPlaylist : public QListWidget {
 public:
     QDrawnPlaylist(QWidget *parent = 0);
     ~QDrawnPlaylist();
+    virtual QSharedPointer<Playlist> playlist() const;
     QUuid uuid() const;
     void setUuid(const QUuid &uuid);
     QUuid currentItemUuid() const;
@@ -47,14 +50,14 @@ public:
     void traverseSelected(std::function<void(QUuid)> callback);
     void setCurrentItem(QUuid itemUuid);
     void scrollToItem(QUuid itemUuid);
-    void addItem(QUuid uuid);
+    virtual void addItem(QUuid uuid);
     void addItemsAfter(QUuid item, const QList<QUuid> &items);
     void removeItem(QUuid uuid);
     void removeAll();
 
     QPair<QUuid,QUuid> importUrl(QUrl url);
     void currentToQueue();
-    void visibleToQueue();
+    void visibleToQueue(QList<QUuid> &added, QList<QUuid> &removed);
 
     QUuid nowPlayingItem();
     void setNowPlayingItem(QUuid uuid);
@@ -101,7 +104,8 @@ private slots:
 
 class QDrawnQueue : public QDrawnPlaylist {
 public:
-
+    virtual QSharedPointer<Playlist> playlist() const;
+    void addItem(QUuid uuid);
 };
 
 class PlaylistSelectionPrivate;

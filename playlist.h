@@ -57,6 +57,27 @@ private:
     bool hidden_;
 };
 
+class ItemCollection : public QObject {
+    Q_OBJECT
+private:
+    ItemCollection();
+    static QSharedPointer<ItemCollection> collection;
+
+public:
+    ~ItemCollection();
+    static QSharedPointer<ItemCollection> getSingleton();
+
+    QSharedPointer<Item> addItem(const QUrl url = QUrl());
+    QSharedPointer<Item> addItem(const QUuid &itemUuid, const QUrl &url);
+    QSharedPointer<Item> itemOf(const QUuid &itemUuid);
+    void removeItem(const QUuid &itemUuid);
+    void storeItem(const QSharedPointer<Item> &item);
+
+private:
+    QHash<QUuid, QSharedPointer<Item>> items;
+};
+
+
 
 class Playlist : public QObject {
     Q_OBJECT
@@ -78,7 +99,7 @@ public:
     virtual void removeItem(const QUuid &uuid);
     void takeItemsRaw(const QList<QSharedPointer<Item>> &itemsToRemove);
     QList<QUuid> replaceItem(const QUuid &where, const QList<QUrl> &urls);
-    void clear();
+    virtual void clear();
 
     QString title();
     void setTitle(const QString &title);
@@ -108,8 +129,8 @@ public:
 
     QPair<QUuid, QUuid> first();
     QPair<QUuid, QUuid> takeFirst();
-    void toggle(const QUuid &playlistUuid, const QUuid &itemUuid, bool always = false);
-    void toggle(const QUuid &playlistUuid, const QList<QUuid> &uuids);
+    int toggle(const QUuid &playlistUuid, const QUuid &itemUuid, bool always = false);
+    void toggle(const QUuid &playlistUuid, const QList<QUuid> &uuids, QList<QUuid> &added, QList<QUuid> &removed);
     void appendItems(const QUuid &playlistUuid, const QList<QUuid> &itemsToAdd);
     void addItems(const QUuid &where, const QList<QSharedPointer<Item> > &itemsToAdd);
     void removeItem(const QUuid &uuid);
@@ -118,7 +139,7 @@ public:
     int contains(const QList<QUuid> &itemsToCheck);
 
 private:
-    void toggle_(const QUuid &playlistUuid, const QUuid &itemUuid, bool always = false);
+    int toggle_(const QUuid &playlistUuid, const QUuid &itemUuid, bool always = false);
     int contains_(const QList<QUuid> &itemsToCheck) const;
     void removeItem_(const QUuid &uuid);
     void removeItems_(const QList<QUuid> &itemsToRemove);

@@ -52,6 +52,7 @@ private:
     void updateCurrentPlaylist();
     void setPlaylistFilters(QString filterText);
     void addNewTab(QUuid playlist, QString title);
+    void addQuickQueue();
 
 signals:
     void windowDocked();
@@ -111,6 +112,8 @@ private slots:
 
     void on_searchField_returnPressed();
 
+    void on_showQueue_clicked(bool checked);
+
 private:
     Ui::PlaylistWindow *ui;
     QUuid currentPlaylist;
@@ -118,6 +121,7 @@ private:
     bool showSearch;
 
     QHash<QUuid, QDrawnPlaylist*> widgets;
+    QDrawnPlaylist* queueWidget;
     PlaylistSelection *clipboard;
 };
 

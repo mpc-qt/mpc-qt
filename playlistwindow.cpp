@@ -19,6 +19,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
 
     ui->setupUi(this);
     addNewTab(QUuid(), tr("Quick Playlist"));
+    addQuickQueue();
     ui->searchHost->setVisible(false);
     ui->searchField->installEventFilter(this);
 
@@ -281,6 +282,16 @@ void PlaylistWindow::addNewTab(QUuid playlist, QString title)
     ui->tabWidget->setCurrentWidget(qdp);
 }
 
+void PlaylistWindow::addQuickQueue()
+{
+    queueWidget = new QDrawnQueue();
+    queueWidget->setDisplayParser(&displayParser);
+    queueWidget->setUuid(QUuid());
+    connect(queueWidget, &QDrawnQueue::itemDesired,
+            this, &PlaylistWindow::itemDesired);
+    ui->quickPage->layout()->addWidget(queueWidget);
+}
+
 bool PlaylistWindow::activateItem(QUuid playlistUuid, QUuid itemUuid)
 {
     if (!widgets.contains(playlistUuid))
@@ -298,8 +309,9 @@ void PlaylistWindow::changePlaylistSelection( QUrl itemUrl, QUuid playlistUuid, 
         return;
     auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
     auto qpl = PlaylistCollection::getSingleton()->queuePlaylist();
-    if (!itemUuid.isNull() && qpl->first().second == itemUuid)
-        qpl->takeFirst();
+    if (!itemUuid.isNull() && qpl->first().second == itemUuid) {
+        queueWidget->removeItem(itemUuid);
+    }
 }
 
 void PlaylistWindow::addSimplePlaylist(QStringList data)
@@ -484,18 +496,37 @@ void PlaylistWindow::activatePrevious()
 
 void PlaylistWindow::quickQueue()
 {
+    if (ui->showQueue->isChecked())
+        return;
+
     auto qdp = currentPlaylistWidget();
     auto itemUuids = qdp->currentItemUuids();
     if (itemUuids.isEmpty())
         return;
     auto qpl = PlaylistCollection::getSingleton()->queuePlaylist();
-    qpl->toggle(qdp->uuid(), itemUuids);
+    QList<QUuid> added, removed;
+    qpl->toggle(qdp->uuid(), itemUuids, added, removed);
+    for (const QUuid &item : added)
+        queueWidget->addItem(item);
+    for (const QUuid &item : removed)
+        queueWidget->removeItem(item);
     qdp->viewport()->update();
+    queueWidget->viewport()->update();
 }
 
 void PlaylistWindow::visibleToQueue()
 {
-    currentPlaylistWidget()->visibleToQueue();
+    if (ui->showQueue->isChecked())
+        return;
+
+    QList<QUuid> added, removed;
+    currentPlaylistWidget()->visibleToQueue(added, removed);
+    if (!added.isEmpty())
+        for (const QUuid &a : added)
+            queueWidget->addItem(a);
+    if (!removed.isEmpty())
+        for (const QUuid &a : removed)
+            queueWidget->removeItem(a);
     /*auto qpl = PlaylistCollection::getSingleton()->queuePlaylist();
     qpl->visibleToQueue(currentPlaylistWidget()->uuid());*/
 }
@@ -607,4 +638,10 @@ void PlaylistWindow::on_tabWidget_currentChanged(int index)
 void PlaylistWindow::on_searchField_returnPressed()
 {
     playCurrentItem();
+}
+
+void PlaylistWindow::on_showQueue_clicked(bool checked)
+{
+    ui->playStack->setCurrentIndex(checked ? 1 : 0);
+    setWindowTitle(checked ? "Queue" : "Playlist");
 }

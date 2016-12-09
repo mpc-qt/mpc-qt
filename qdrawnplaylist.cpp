@@ -14,8 +14,7 @@ void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
                         const QModelIndex &index) const
 {
     auto playWidget = qobject_cast<QDrawnPlaylist*>(parent());
-    auto p = PlaylistCollection::getSingleton()->
-            playlistOf(playWidget->uuid());
+    auto p = playWidget->playlist();
     if (p == NULL)
         return;
     QSharedPointer<Item> i = p->itemOf(QUuid(index.data(Qt::DisplayRole).toString()));
@@ -72,9 +71,11 @@ QSize PlayPainter::sizeHint(const QStyleOptionViewItem &option,
                                                    option.rect.size());
 }
 
-PlayItem::PlayItem(const QUuid &uuid, QListWidget *parent)
+PlayItem::PlayItem(const QUuid &uuid, const QUuid &playlistUuid,
+                   QListWidget *parent)
     : QListWidgetItem(parent, QListWidgetItem::UserType)
 {
+    playlistUuid_ = playlistUuid;
     uuid_ = uuid;
     setData(Qt::DisplayRole, uuid.toString());
 }
@@ -82,6 +83,11 @@ PlayItem::PlayItem(const QUuid &uuid, QListWidget *parent)
 PlayItem::~PlayItem()
 {
 
+}
+
+QUuid PlayItem::playlistUuid()
+{
+    return playlistUuid_;
 }
 
 QUuid PlayItem::uuid()
@@ -117,12 +123,17 @@ QDrawnPlaylist::QDrawnPlaylist(QWidget *parent) : QListWidget(parent),
             this, SLOT(self_itemDoubleClicked(QListWidgetItem*)));
     connect(this, SIGNAL(customContextMenuRequested(QPoint)),
             this, SLOT(self_customContextMenuRequested(QPoint)));
-    this->setContextMenuPolicy(Qt::CustomContextMenu);
+    setContextMenuPolicy(Qt::CustomContextMenu);
 }
 
 QDrawnPlaylist::~QDrawnPlaylist()
 {
     worker->deleteLater();
+}
+
+QSharedPointer<Playlist> QDrawnPlaylist::playlist() const
+{
+    return PlaylistCollection::getSingleton()->playlistOf(uuid_);
 }
 
 QUuid QDrawnPlaylist::uuid() const
@@ -169,7 +180,7 @@ void QDrawnPlaylist::scrollToItem(QUuid itemUuid)
     if (items.empty())
         return;
     auto item = items.first();
-    this->scrollTo(indexFromItem(item));
+    scrollTo(indexFromItem(item));
 }
 
 void QDrawnPlaylist::setUuid(const QUuid &uuid)
@@ -180,7 +191,7 @@ void QDrawnPlaylist::setUuid(const QUuid &uuid)
 
 void QDrawnPlaylist::addItem(QUuid uuid)
 {
-    PlayItem *playItem = new PlayItem(uuid, this);
+    PlayItem *playItem = new PlayItem(uuid, uuid_, this);
     QListWidget::addItem(playItem);
 }
 
@@ -198,7 +209,7 @@ void QDrawnPlaylist::addItemsAfter(QUuid item, const QList<QUuid> &items)
 
 void QDrawnPlaylist::removeItem(QUuid uuid)
 {
-    QSharedPointer<Playlist> playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
+    QSharedPointer<Playlist> playlist = this->playlist();
     if (playlist)
         playlist->removeItem(uuid);
     auto matchingRows = findItems(uuid.toString(), Qt::MatchExactly);
@@ -208,7 +219,7 @@ void QDrawnPlaylist::removeItem(QUuid uuid)
 
 void QDrawnPlaylist::removeAll()
 {
-    QSharedPointer<Playlist> p = PlaylistCollection::getSingleton()->playlistOf(uuid());
+    QSharedPointer<Playlist> p = playlist();
     if (!p)
         return;
     p->clear();
@@ -218,7 +229,7 @@ void QDrawnPlaylist::removeAll()
 QPair<QUuid,QUuid> QDrawnPlaylist::importUrl(QUrl url)
 {
     QPair<QUuid,QUuid> info;
-    QSharedPointer<Playlist> playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
+    QSharedPointer<Playlist> playlist = this->playlist();
     if (!playlist)  return info;
     auto item = playlist->addItem(url);
     info.first = uuid_;
@@ -234,11 +245,13 @@ void QDrawnPlaylist::currentToQueue()
     // CHECKME: code for this should be here?
 }
 
-void QDrawnPlaylist::visibleToQueue()
+void QDrawnPlaylist::visibleToQueue(QList<QUuid> &added, QList<QUuid> &removed)
 {
     QSharedPointer<QueuePlaylist> queue = PlaylistCollection::getSingleton()->queuePlaylist();
-    QSharedPointer<Playlist> playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
+    QSharedPointer<Playlist> playlist = this->playlist();
     if (!playlist)
+        return;
+    if (playlist == queue)
         return;
     if (count() == 0) {
         //CHECKME: did this do anything? -- A: No
@@ -257,9 +270,11 @@ void QDrawnPlaylist::visibleToQueue()
             // every item was in the quick queue already, so assume user wants
             // to remove them.
             queue->removeItems(itemsToQueue);
+            removed.append(itemsToQueue);
         } else {
             // Something was missing, so add it to the quick queue
             queue->appendItems(uuid_, itemsToQueue);
+            added.append(itemsToQueue);
         }
     }
     viewport()->update();
@@ -267,7 +282,7 @@ void QDrawnPlaylist::visibleToQueue()
 
 QUuid QDrawnPlaylist::nowPlayingItem()
 {
-    QSharedPointer<Playlist> playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
+    QSharedPointer<Playlist> playlist = this->playlist();
     if (nowPlayingItem_.isNull() || !playlist->contains(nowPlayingItem_))
         nowPlayingItem_ = currentItemUuid();
     return nowPlayingItem_;
@@ -275,7 +290,7 @@ QUuid QDrawnPlaylist::nowPlayingItem()
 
 void QDrawnPlaylist::setNowPlayingItem(QUuid uuid)
 {
-    QSharedPointer<Playlist> playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
+    QSharedPointer<Playlist> playlist = this->playlist();
     bool refreshNeeded = playlist->contains(nowPlayingItem()) || playlist->contains(uuid);
     nowPlayingItem_ = uuid;
     if (refreshNeeded)
@@ -284,7 +299,7 @@ void QDrawnPlaylist::setNowPlayingItem(QUuid uuid)
 
 QVariantMap QDrawnPlaylist::toVMap() const
 {
-    QSharedPointer<Playlist> playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
+    QSharedPointer<Playlist> playlist = this->playlist();
     if (!playlist)
         return QVariantMap();
     QVariantMap qvm;
@@ -344,7 +359,7 @@ void QDrawnPlaylist::repopulateItems()
 {
     clear();
 
-    auto playlist = PlaylistCollection::getSingleton()->playlistOf(uuid_);
+    auto playlist = this->playlist();
     if (playlist == NULL)
         return;
 
@@ -362,7 +377,7 @@ void QDrawnPlaylist::model_rowsMoved(const QModelIndex &parent,
 {
     Q_UNUSED(parent);
     Q_UNUSED(destination);
-    QSharedPointer<Playlist> p = PlaylistCollection::getSingleton()->playlistOf(uuid());
+    QSharedPointer<Playlist> p = playlist();
     if (p.isNull())
         return;
     QListWidgetItem *destinationItem = QListWidget::item(row);
@@ -388,7 +403,8 @@ void QDrawnPlaylist::self_currentItemChanged(QListWidgetItem *current,
 
 void QDrawnPlaylist::self_itemDoubleClicked(QListWidgetItem *item)
 {
-    itemDesired(uuid(), reinterpret_cast<PlayItem*>(item)->uuid());
+    PlayItem *playItem = reinterpret_cast<PlayItem*>(item);
+    itemDesired(playItem->playlistUuid(), playItem->uuid());
 }
 
 void QDrawnPlaylist::self_customContextMenuRequested(const QPoint &p)
@@ -499,4 +515,18 @@ void PlaylistSelection::appendAndQuickQueue(QDrawnPlaylist *list)
         queue->toggle(pl->uuid(), uuid);
     }
     list->viewport()->update();
+}
+
+QSharedPointer<Playlist> QDrawnQueue::playlist() const
+{
+    return PlaylistCollection::getSingleton()->queuePlaylist();
+}
+
+void QDrawnQueue::addItem(QUuid uuid)
+{
+    auto actualItem = ItemCollection::getSingleton()->itemOf(uuid);
+    if (actualItem.isNull())
+        return;
+    PlayItem *playItem = new PlayItem(uuid, actualItem->playlistUuid(), this);
+    QListWidget::addItem(playItem);
 }
