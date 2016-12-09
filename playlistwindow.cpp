@@ -269,6 +269,7 @@ void PlaylistWindow::setPlaylistFilters(QString filterText)
     for (auto widget : widgets) {
         widget->setFilter(filterText);
     }
+    queueWidget->setFilter(filterText);
 }
 
 void PlaylistWindow::addNewTab(QUuid playlist, QString title)

@@ -707,7 +707,7 @@ bool PlaylistSearcher::itemMatchesFilter(const QSharedPointer<Item> &item,
     return found.count() == needles.count();
 }
 
-void PlaylistSearcher::filterPlaylist(const QUuid &playlist, QString text)
+void PlaylistSearcher::filterPlaylist(QSharedPointer<Playlist> list, QString text)
 {
     // Limit response - only reply if last in event queue
     bool bumpLimited = bumps() > 1;
@@ -717,12 +717,10 @@ void PlaylistSearcher::filterPlaylist(const QUuid &playlist, QString text)
 
     QStringList needles = textToNeedles(text);
     if (needles.isEmpty()) {
-        clearPlaylistFilter(playlist);
+        clearPlaylistFilter(list);
         return;
     }
 
-    auto c = PlaylistCollection::getSingleton();
-    QSharedPointer<Playlist> list = c->playlistOf(playlist);
     if (list.isNull())
         return;
 
@@ -730,13 +728,11 @@ void PlaylistSearcher::filterPlaylist(const QUuid &playlist, QString text)
         item->setHidden(!itemMatchesFilter(item, needles));
     };
     list->iterateItems(marker);
-    emit playlistFiltered(playlist);
+    emit playlistFiltered(list->uuid());
 }
 
-void PlaylistSearcher::clearPlaylistFilter(const QUuid &playlist)
+void PlaylistSearcher::clearPlaylistFilter(QSharedPointer<Playlist> &list)
 {
-    auto c = PlaylistCollection::getSingleton();
-    QSharedPointer<Playlist> list = c->playlistOf(playlist);
     if (list.isNull())
         return;
 
@@ -744,7 +740,7 @@ void PlaylistSearcher::clearPlaylistFilter(const QUuid &playlist)
         item->setHidden(false);
     };
     list->iterateItems(clearer);
-    emit playlistFiltered(playlist);
+    emit playlistFiltered(list->uuid());
 }
 
 QStringList PlaylistSearcher::textToNeedles(QString text)

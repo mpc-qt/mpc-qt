@@ -337,7 +337,7 @@ void QDrawnPlaylist::setFilter(QString needles)
     currentFilterText = needles;
     currentFilterList = PlaylistSearcher::textToNeedles(needles);
     searcher->bump();
-    emit searcher_filterPlaylist(uuid_, needles);
+    emit searcher_filterPlaylist(playlist(), needles);
 }
 
 bool QDrawnPlaylist::event(QEvent *e)

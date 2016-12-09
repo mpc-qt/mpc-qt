@@ -191,8 +191,8 @@ signals:
     void playlistFiltered(QUuid playlist);
 
 public slots:
-    void filterPlaylist(const QUuid &playlist, QString text);
-    void clearPlaylistFilter(const QUuid &playlist);
+    void filterPlaylist(QSharedPointer<Playlist> list, QString text);
+    void clearPlaylistFilter(QSharedPointer<Playlist> &list);
 
 private:
     static void findNeedles(const QString &text, const QStringList &needles,

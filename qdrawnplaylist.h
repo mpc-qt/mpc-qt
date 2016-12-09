@@ -88,7 +88,7 @@ signals:
     // for lack of a better term that doesn't conflict with what we already
     // have, when an item is made hot by double clicking.
     void itemDesired(QUuid playlistUuid, QUuid itemUuid);
-    void searcher_filterPlaylist(QUuid playlistUuid, QString text);
+    void searcher_filterPlaylist(QSharedPointer<Playlist>, QString text);
 
 private slots:
     void repopulateItems();
