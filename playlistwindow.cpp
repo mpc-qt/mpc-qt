@@ -521,15 +521,16 @@ void PlaylistWindow::visibleToQueue()
         return;
 
     QList<QUuid> added, removed;
-    currentPlaylistWidget()->visibleToQueue(added, removed);
+    PlaylistCollection::getSingleton()->queuePlaylist()->\
+            toggleFromPlaylist(currentPlaylistWidget()->uuid(), added, removed);
     if (!added.isEmpty())
         for (const QUuid &a : added)
             queueWidget->addItem(a);
     if (!removed.isEmpty())
         for (const QUuid &a : removed)
             queueWidget->removeItem(a);
-    /*auto qpl = PlaylistCollection::getSingleton()->queuePlaylist();
-    qpl->visibleToQueue(currentPlaylistWidget()->uuid());*/
+    queueWidget->viewport()->update();
+    currentPlaylistWidget()->viewport()->update();
 }
 
 void PlaylistWindow::revealSearch()

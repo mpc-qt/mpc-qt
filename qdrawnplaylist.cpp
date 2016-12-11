@@ -245,41 +245,6 @@ void QDrawnPlaylist::currentToQueue()
     // CHECKME: code for this should be here?
 }
 
-void QDrawnPlaylist::visibleToQueue(QList<QUuid> &added, QList<QUuid> &removed)
-{
-    QSharedPointer<QueuePlaylist> queue = PlaylistCollection::getSingleton()->queuePlaylist();
-    QSharedPointer<Playlist> playlist = this->playlist();
-    if (!playlist)
-        return;
-    if (playlist == queue)
-        return;
-    if (count() == 0) {
-        //CHECKME: did this do anything? -- A: No
-        //playlist->queueClear();
-    } else {
-        // First, grab all the visible items
-        QList<QUuid> itemsToQueue;
-        int itemCount = count();
-        for (int index = 0; index < itemCount; ++index) {
-            PlayItem *playItem = reinterpret_cast<PlayItem*>(QListWidget::item(index));
-            itemsToQueue.append(playItem->uuid());
-        }
-        // Check if every visible item is already in the queue
-        int inQueue = queue->contains(itemsToQueue);
-        if (itemsToQueue.count() == inQueue) {
-            // every item was in the quick queue already, so assume user wants
-            // to remove them.
-            queue->removeItems(itemsToQueue);
-            removed.append(itemsToQueue);
-        } else {
-            // Something was missing, so add it to the quick queue
-            queue->appendItems(uuid_, itemsToQueue);
-            added.append(itemsToQueue);
-        }
-    }
-    viewport()->update();
-}
-
 QUuid QDrawnPlaylist::nowPlayingItem()
 {
     QSharedPointer<Playlist> playlist = this->playlist();
