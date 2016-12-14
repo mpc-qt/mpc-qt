@@ -373,7 +373,10 @@ QString Flow::pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles 
             filePath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
     }
     QDir().mkpath(filePath);
-    return filePath + "/" + fileName;
+#ifdef Q_OS_WIN
+    fileName.replace(':', '.');
+#endif
+    return filePath + "/" + fileName + "." + screenshotFormat;
 }
 
 QVariantList Flow::recentToVList() const
@@ -463,7 +466,13 @@ void Flow::mainwindow_recentClear()
 
 void Flow::mainwindow_takeImage()
 {
-    QString tempFile = QString("/dev/shm/mpc-qt_%1").arg(QUuid::createUuid().toString());
+    QString fmt;
+#ifdef Q_OS_WINDOWS
+    fmt = "C:\\WINDOWS\\TEMP\\mpc-qt_%1";
+#else
+    fmt = "/dev/shm/mpc-qt_%1";
+#endif
+    QString tempFile = QString(fmt).arg(QUuid::createUuid().toString());
     mainWindow->mpvWidget()->screenshot(tempFile, true);
     tempFile += "." + screenshotFormat;
 
@@ -476,7 +485,7 @@ void Flow::mainwindow_takeImage()
         return;
     }
     QFileInfo qfi(picFile);
-    QString dest = qfi.absolutePath() + "/" + qfi.completeBaseName() + "." + screenshotFormat;
+    QString dest = qfi.absolutePath() + "/" + qfi.completeBaseName();
     QFile(tempFile).copy(dest);
 }
 
