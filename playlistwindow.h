@@ -92,6 +92,7 @@ public slots:
 
     void quickQueue();
     void visibleToQueue();
+    void setQueueMode(bool yes);
 
     void revealSearch();
     void finishSearch();
@@ -112,8 +113,6 @@ private slots:
     void on_tabWidget_currentChanged(int index);
 
     void on_searchField_returnPressed();
-
-    void on_showQueue_clicked(bool checked);
 
 private:
     Ui::PlaylistWindow *ui;

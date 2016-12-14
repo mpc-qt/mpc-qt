@@ -247,6 +247,8 @@ void PlaylistWindow::connectSignalsToSlots()
             this, &PlaylistWindow::exportTab);
     connect(ui->visibleToQueue, &QPushButton::clicked,
             this, &PlaylistWindow::visibleToQueue);
+    connect(ui->showQueue, &QPushButton::clicked,
+            this, &PlaylistWindow::setQueueMode);
 }
 
 QDrawnPlaylist *PlaylistWindow::currentPlaylistWidget()
@@ -533,6 +535,13 @@ void PlaylistWindow::visibleToQueue()
     currentPlaylistWidget()->viewport()->update();
 }
 
+void PlaylistWindow::setQueueMode(bool yes)
+{
+    ui->playStack->setCurrentIndex(yes ? 1 : 0);
+    setWindowTitle(yes ? "Queue" : "Playlist");
+    emit quickQueueMode(yes);
+}
+
 void PlaylistWindow::revealSearch()
 {
     showSearch = true;
@@ -640,11 +649,4 @@ void PlaylistWindow::on_tabWidget_currentChanged(int index)
 void PlaylistWindow::on_searchField_returnPressed()
 {
     playCurrentItem();
-}
-
-void PlaylistWindow::on_showQueue_clicked(bool checked)
-{
-    ui->playStack->setCurrentIndex(checked ? 1 : 0);
-    setWindowTitle(checked ? "Queue" : "Playlist");
-    emit quickQueueMode(checked);
 }

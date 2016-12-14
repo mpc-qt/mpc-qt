@@ -452,6 +452,8 @@ void MainWindow::connectPlaylistWindowToActions()
             playlistWindow_, &PlaylistWindow::exportTab);
     connect(ui->actionPlaylistPlayCurrent, &QAction::triggered,
             playlistWindow_, &PlaylistWindow::playCurrentItem);
+    connect(ui->actionPlaylistShowQuickQueue, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::setQueueMode);
     connect(ui->actionPlaylistQuickQueue, &QAction::triggered,
             playlistWindow_, &PlaylistWindow::quickQueue);
     connect(ui->actionPlaylistQueueVisible, &QAction::triggered,
