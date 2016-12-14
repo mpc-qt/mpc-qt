@@ -34,8 +34,8 @@ private slots:
     void mainwindow_applicationShouldQuit();
     void mainwindow_recentOpened(const TrackInfo &track);
     void mainwindow_recentClear();
-    void mainwindow_takeImage();
-    void mainwindow_takeImageAutomatically();
+    void mainwindow_takeImage(bool subs);
+    void mainwindow_takeImageAutomatically(bool subs);
     void mainwindow_optionsOpenRequested();
     void manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid);
     void settingswindow_settingsData(const QVariantMap &settings);

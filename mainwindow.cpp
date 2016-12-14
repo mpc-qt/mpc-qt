@@ -530,7 +530,10 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionFileSaveCopy->setEnabled(enabled);
     ui->actionFileSaveImage->setEnabled(enabled);
     ui->actionFileSaveImageAuto->setEnabled(enabled);
+    ui->actionFileSavePlainImage->setEnabled(enabled);
+    ui->actionFileSavePlainImageAuto->setEnabled(enabled);
     ui->actionFileSaveThumbnails->setEnabled(enabled);
+    ui->actionFileExportEncode->setEnabled(enabled);
     ui->actionFileLoadSubtitle->setEnabled(enabled);
     ui->actionFileSaveSubtitle->setEnabled(enabled);
     ui->actionFileSubtitleDatabaseDownload->setEnabled(enabled);
@@ -1093,13 +1096,24 @@ void MainWindow::on_actionFileRecentClear_triggered()
 
 void MainWindow::on_actionFileSaveImage_triggered()
 {
-    emit takeImage();
+    emit takeImage(true);
 }
 
 void MainWindow::on_actionFileSaveImageAuto_triggered()
 {
-    emit takeImageAutomatically();
+    emit takeImageAutomatically(true);
 }
+
+void MainWindow::on_actionFileSavePlainImage_triggered()
+{
+    emit takeImage(false);
+}
+
+void MainWindow::on_actionFileSavePlainImageAuto_triggered()
+{
+    emit takeImageAutomatically(false);
+}
+
 
 void MainWindow::on_actionFileClose_triggered()
 {
@@ -1571,4 +1585,3 @@ void MainWindow::on_actionPlaylistSearch_triggered()
         playlistWindow_->show();
     playlistWindow_->revealSearch();
 }
-

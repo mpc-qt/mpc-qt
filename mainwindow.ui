@@ -579,7 +579,7 @@
      <x>0</x>
      <y>0</y>
      <width>590</width>
-     <height>23</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -620,7 +620,11 @@
     <addaction name="actionFileSaveCopy"/>
     <addaction name="actionFileSaveImage"/>
     <addaction name="actionFileSaveImageAuto"/>
+    <addaction name="actionFileSavePlainImage"/>
+    <addaction name="actionFileSavePlainImageAuto"/>
     <addaction name="actionFileSaveThumbnails"/>
+    <addaction name="separator"/>
+    <addaction name="actionFileExportEncode"/>
     <addaction name="separator"/>
     <addaction name="actionFileLoadSubtitle"/>
     <addaction name="actionFileSaveSubtitle"/>
@@ -1673,6 +1677,30 @@
   <action name="actionViewZoom300">
    <property name="text">
     <string>&amp;300%</string>
+   </property>
+  </action>
+  <action name="actionFileSavePlainImage">
+   <property name="text">
+    <string>Save Pl&amp;ain Image...</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Shift+I</string>
+   </property>
+  </action>
+  <action name="actionFileSavePlainImageAuto">
+   <property name="text">
+    <string>Save Plain Image (Auto)</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+F5</string>
+   </property>
+  </action>
+  <action name="actionFileExportEncode">
+   <property name="text">
+    <string>Export Encode...</string>
+   </property>
+   <property name="shortcut">
+    <string>F12</string>
    </property>
   </action>
  </widget>

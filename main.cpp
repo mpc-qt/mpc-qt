@@ -464,7 +464,7 @@ void Flow::mainwindow_recentClear()
     mainWindow->setRecentDocuments(recentFiles);
 }
 
-void Flow::mainwindow_takeImage()
+void Flow::mainwindow_takeImage(bool subs)
 {
     QString fmt;
 #ifdef Q_OS_WINDOWS
@@ -473,10 +473,12 @@ void Flow::mainwindow_takeImage()
     fmt = "/dev/shm/mpc-qt_%1";
 #endif
     QString tempFile = QString(fmt).arg(QUuid::createUuid().toString());
-    mainWindow->mpvWidget()->screenshot(tempFile, true);
+    mainWindow->mpvWidget()->screenshot(tempFile, subs);
     tempFile += "." + screenshotFormat;
 
-    QString fileName = pictureTemplate(Helpers::DisabledAudio, Helpers::SubtitlesPresent);
+    QString fileName = pictureTemplate(Helpers::DisabledAudio,
+                                       subs ? Helpers::SubtitlesPresent
+                                            : Helpers::SubtitlesDisabled);
     QString picFile;
     picFile = QFileDialog::getSaveFileName(this->mainWindow, tr("Save Image"),
                                            fileName);
@@ -489,9 +491,12 @@ void Flow::mainwindow_takeImage()
     QFile(tempFile).copy(dest);
 }
 
-void Flow::mainwindow_takeImageAutomatically()
+void Flow::mainwindow_takeImageAutomatically(bool subs)
 {
-    mainWindow->mpvWidget()->screenshot(pictureTemplate(Helpers::DisabledAudio, Helpers::SubtitlesPresent), true);
+    QString fileName = pictureTemplate(Helpers::DisabledAudio,
+                                       subs ? Helpers::SubtitlesPresent
+                                            : Helpers::SubtitlesDisabled);
+    mainWindow->mpvWidget()->screenshot(fileName, subs);
 }
 
 void Flow::mainwindow_optionsOpenRequested()
