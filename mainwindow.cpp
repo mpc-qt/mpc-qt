@@ -1028,6 +1028,7 @@ void MainWindow::setPlaylistVisibleState(bool yes) {
 
 void MainWindow::setPlaylistQuickQueueMode(bool yes)
 {
+    ui->actionPlaylistShowQuickQueue->setChecked(yes);
     ui->actionPlaylistQuickQueue->setEnabled(!yes);
     ui->actionPlaylistQueueVisible->setEnabled(!yes);
 }
