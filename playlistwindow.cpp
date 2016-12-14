@@ -646,4 +646,5 @@ void PlaylistWindow::on_showQueue_clicked(bool checked)
 {
     ui->playStack->setCurrentIndex(checked ? 1 : 0);
     setWindowTitle(checked ? "Queue" : "Playlist");
+    emit quickQueueMode(checked);
 }

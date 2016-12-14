@@ -102,6 +102,8 @@ Flow::Flow(QObject *owner) :
     // playlistwindow -> mainwindow
     connect(mainWindow->playlistWindow(), &PlaylistWindow::visibilityChanged,
             mainWindow, &MainWindow::setPlaylistVisibleState);
+    connect(mainWindow->playlistWindow(), &PlaylistWindow::quickQueueMode,
+            mainWindow, &MainWindow::setPlaylistQuickQueueMode);
 
     // mainwindow -> playlistwindow
     connect(mainWindow, &MainWindow::playCurrentItemRequested,

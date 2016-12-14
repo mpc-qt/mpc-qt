@@ -1024,6 +1024,12 @@ void MainWindow::setPlaylistVisibleState(bool yes) {
     ui->actionViewHidePlaylist->setChecked(yes);
 }
 
+void MainWindow::setPlaylistQuickQueueMode(bool yes)
+{
+    ui->actionPlaylistQuickQueue->setEnabled(!yes);
+    ui->actionPlaylistQueueVisible->setEnabled(!yes);
+}
+
 void MainWindow::on_actionFileOpenQuick_triggered()
 {
     QList<QUrl> urls;

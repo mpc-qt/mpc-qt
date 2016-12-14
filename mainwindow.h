@@ -150,6 +150,7 @@ public slots:
     void setDisplayFramedrops(int64_t count);
     void setDecoderFramedrops(int64_t count);
     void setPlaylistVisibleState(bool yes);
+    void setPlaylistQuickQueueMode(bool yes);
     void setAudioBitrate(double bitrate);
     void setVideoBitrate(double bitrate);
 

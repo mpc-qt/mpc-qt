@@ -59,6 +59,7 @@ signals:
     void itemDesired(QUuid playlistUuid, QUuid itemUuid);
     void importPlaylist(QString fname);
     void exportPlaylist(QString fname, QStringList items);
+    void quickQueueMode(bool yes);
 
 public slots:
     bool activateItem(QUuid playlistUuid, QUuid itemUuid);
