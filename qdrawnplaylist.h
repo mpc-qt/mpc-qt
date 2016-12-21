@@ -51,8 +51,10 @@ public:
     void setCurrentItem(QUuid itemUuid);
     void scrollToItem(QUuid itemUuid);
     virtual void addItem(QUuid uuid);
+    void addItems(const QList<QUuid> &items);
     void addItemsAfter(QUuid item, const QList<QUuid> &items);
     void removeItem(QUuid uuid);
+    void removeItems(const QList<int> &indicies);
     void removeAll();
 
     QPair<QUuid,QUuid> importUrl(QUrl url);

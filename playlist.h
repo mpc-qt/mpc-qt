@@ -132,8 +132,8 @@ public:
     QPair<QUuid, QUuid> first();
     QPair<QUuid, QUuid> takeFirst();
     int toggle(const QUuid &playlistUuid, const QUuid &itemUuid, bool always = false);
-    void toggle(const QUuid &playlistUuid, const QList<QUuid> &uuids, QList<QUuid> &added, QList<QUuid> &removed);
-    void toggleFromPlaylist(const QUuid &playlistUuid, QList<QUuid> &added, QList<QUuid> &removed);
+    void toggle(const QUuid &playlistUuid, const QList<QUuid> &uuids, QList<QUuid> &added, QList<int> &removed);
+    void toggleFromPlaylist(const QUuid &playlistUuid, QList<QUuid> &added, QList<int> &removedIndices);
     void appendItems(const QUuid &playlistUuid, const QList<QUuid> &itemsToAdd);
     void addItems(const QUuid &where, const QList<QSharedPointer<Item> > &itemsToAdd);
     void removeItem(const QUuid &uuid);
@@ -145,7 +145,7 @@ private:
     int toggle_(const QUuid &playlistUuid, const QUuid &itemUuid, bool always = false);
     int contains_(const QList<QUuid> &itemsToCheck) const;
     void removeItem_(const QUuid &uuid);
-    void removeItems_(const QList<QUuid> &itemsToRemove);
+    QList<int> removeItems_(const QList<QUuid> &itemsToRemove);
 };
 
 class PlaylistCollection : public QObject {

@@ -195,6 +195,12 @@ void QDrawnPlaylist::addItem(QUuid uuid)
     QListWidget::addItem(playItem);
 }
 
+void QDrawnPlaylist::addItems(const QList<QUuid> &items)
+{
+    for (const QUuid &item : items)
+        QListWidget::addItem(item.toString());
+}
+
 void QDrawnPlaylist::addItemsAfter(QUuid item, const QList<QUuid> &items)
 {
     auto matchingRows = findItems(item.toString(), Qt::MatchExactly);
@@ -210,11 +216,19 @@ void QDrawnPlaylist::addItemsAfter(QUuid item, const QList<QUuid> &items)
 void QDrawnPlaylist::removeItem(QUuid uuid)
 {
     QSharedPointer<Playlist> playlist = this->playlist();
-    if (playlist)
+    if (playlist && playlist->contains(uuid))
         playlist->removeItem(uuid);
     auto matchingRows = findItems(uuid.toString(), Qt::MatchExactly);
     if (matchingRows.length() > 0)
         takeItem(row(matchingRows[0]));
+}
+
+void QDrawnPlaylist::removeItems(const QList<int> &indicies)
+{
+    QListIterator<int> iterator(indicies);
+    iterator.toBack();
+    while (iterator.hasPrevious())
+        delete takeItem(iterator.previous());
 }
 
 void QDrawnPlaylist::removeAll()

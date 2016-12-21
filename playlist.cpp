@@ -1,4 +1,5 @@
 #include <QFileInfo>
+#include <QMutableListIterator>
 #include <cmath>
 #include "playlist.h"
 
@@ -459,13 +460,12 @@ int QueuePlaylist::toggle(const QUuid &playlistUuid, const QUuid &itemUuid, bool
     return toggle_(playlistUuid, itemUuid, always);
 }
 
-void QueuePlaylist::toggle(const QUuid &playlistUuid, const QList<QUuid> &uuids, QList<QUuid> &added, QList<QUuid> &removed)
+void QueuePlaylist::toggle(const QUuid &playlistUuid, const QList<QUuid> &uuids, QList<QUuid> &added, QList<int> &removed)
 {
     QWriteLocker lock(&listLock);
     int numberPresent = contains_(uuids);
     if (numberPresent == uuids.count()) {
-        removeItems_(uuids);
-        removed.append(uuids);
+        removed.append(removeItems_(uuids));
         return;
     }
     for (const QUuid &item : uuids)
@@ -473,15 +473,14 @@ void QueuePlaylist::toggle(const QUuid &playlistUuid, const QList<QUuid> &uuids,
             added.append(item);
 }
 
-void QueuePlaylist::toggleFromPlaylist(const QUuid &playlistUuid, QList<QUuid> &added, QList<QUuid> &removed)
+void QueuePlaylist::toggleFromPlaylist(const QUuid &playlistUuid, QList<QUuid> &added, QList<int> &removedIndices)
 {
     QWriteLocker lock(&listLock);
     auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
     QReadLocker plLock(&pl->listLock);
     if (contains_(pl->itemsByUuid.keys()) == pl->itemsByUuid.count()) {
         // remove all items from playlist
-        removeItems_(pl->itemsByUuid.keys());
-        removed.append(pl->itemsByUuid.keys());
+        removedIndices.append(removeItems_(pl->itemsByUuid.keys()));
     } else {
         for (QSharedPointer<Item> &item : pl->items) {
             if (!itemsByUuid.contains(item->uuid())) {
@@ -590,17 +589,25 @@ void QueuePlaylist::removeItem_(const QUuid &uuid)
         items[i]->setQueuePosition(i+1);
 }
 
-void QueuePlaylist::removeItems_(const QList<QUuid> &itemsToRemove)
+QList<int> QueuePlaylist::removeItems_(const QList<QUuid> &itemsToRemove)
 {
-    for (QUuid uuid : itemsToRemove) {
-        if (!itemsByUuid.contains(uuid))
-            continue;
-        QSharedPointer<Item> item = itemsByUuid.take(uuid);
-        items.removeOne(item);
-        item->setQueuePosition(0);
+    QList<int> removedIndices;
+    QSet<QUuid> removalSet(itemsToRemove.toSet());
+    QMutableListIterator<QSharedPointer<Item>> i(items);
+    int index = 0;
+    while (i.hasNext()) {
+        QSharedPointer<Item> item = i.next();
+        if (removalSet.contains(item->uuid())) {
+            itemsByUuid.remove(item->uuid());
+            item->setQueuePosition(0);
+            i.remove();
+            removedIndices.append(index);
+        }
+        index++;
     }
     for (int i = 0; i < items.count(); i++)
         items[i]->setQueuePosition(i+1);
+    return removedIndices;
 }
 
 

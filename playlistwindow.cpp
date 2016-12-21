@@ -507,12 +507,11 @@ void PlaylistWindow::quickQueue()
     if (itemUuids.isEmpty())
         return;
     auto qpl = PlaylistCollection::getSingleton()->queuePlaylist();
-    QList<QUuid> added, removed;
+    QList<QUuid> added;
+    QList<int>removed;
     qpl->toggle(qdp->uuid(), itemUuids, added, removed);
-    for (const QUuid &item : added)
-        queueWidget->addItem(item);
-    for (const QUuid &item : removed)
-        queueWidget->removeItem(item);
+    queueWidget->removeItems(removed);
+    queueWidget->addItems(added);
     qdp->viewport()->update();
     queueWidget->viewport()->update();
 }
@@ -522,15 +521,12 @@ void PlaylistWindow::visibleToQueue()
     if (ui->showQueue->isChecked())
         return;
 
-    QList<QUuid> added, removed;
+    QList<QUuid> added;
+    QList<int> removed;
     PlaylistCollection::getSingleton()->queuePlaylist()->\
             toggleFromPlaylist(currentPlaylistWidget()->uuid(), added, removed);
-    if (!added.isEmpty())
-        for (const QUuid &a : added)
-            queueWidget->addItem(a);
-    if (!removed.isEmpty())
-        for (const QUuid &a : removed)
-            queueWidget->removeItem(a);
+    queueWidget->removeItems(removed);
+    queueWidget->addItems(added);
     queueWidget->viewport()->update();
     currentPlaylistWidget()->viewport()->update();
 }
