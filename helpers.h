@@ -100,20 +100,22 @@ public:
         XButton13, XButton14, XButton15, XButton16, XButton17,
         XButton18, XButton19,XButton20, XButton21, XButton22,
         XButton23, XButton24 };
+    enum MousePress { MouseDown, MouseUp, PressTwice };
 
     MouseState();
     MouseState(const MouseState &m);
-    MouseState(int button, int mod, bool press);
+    MouseState(int button, int mod, MousePress press);
 
     // Components
     int button;
     int mod;
-    bool press;
+    MousePress press;
 
     // to Qt notation functions
     Qt::MouseButtons mouseButtons() const;
     Qt::KeyboardModifiers keyModifiers() const;
     bool isPress();
+    bool isTwice();
     bool isWheel();
 
     // I/O functions
@@ -128,7 +130,7 @@ public:
 
     // Conversion functions
     static MouseState fromWheelEvent(QWheelEvent *event);
-    static MouseState fromMouseEvent(QMouseEvent *event, bool press);
+    static MouseState fromMouseEvent(QMouseEvent *event, MousePress press);
 
     // Display mapping vars
     static QStringList buttonToText;

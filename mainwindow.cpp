@@ -110,11 +110,12 @@ QVariantMap MainWindow::mouseMapDefaults()
         c.mouseFullscreen = m;
         commandMap.insert(a->objectName(), c.toVMap());
     };
-    actionToMap(ui->actionPlayPause, {MouseState::Left,0,false});
-    actionToMap(ui->actionNavigateChaptersNext, {MouseState::Forward,0,true});
-    actionToMap(ui->actionNavigateChaptersPrevious, {MouseState::Back,0,true});
-    actionToMap(ui->actionPlayVolumeDown, {MouseState::Wheel,0,true});
-    actionToMap(ui->actionPlayVolumeUp, {MouseState::Wheel,0,false});
+    actionToMap(ui->actionViewFullscreen, {MouseState::Left,0,MouseState::PressTwice});
+    actionToMap(ui->actionPlayPause, {MouseState::Left,0,MouseState::MouseDown});
+    actionToMap(ui->actionNavigateChaptersNext, {MouseState::Forward,0,MouseState::MouseDown});
+    actionToMap(ui->actionNavigateChaptersPrevious, {MouseState::Back,0,MouseState::MouseDown});
+    actionToMap(ui->actionPlayVolumeDown, {MouseState::Wheel,0,MouseState::MouseDown});
+    actionToMap(ui->actionPlayVolumeUp, {MouseState::Wheel,0,MouseState::MouseUp});
     return commandMap;
 }
 
@@ -184,15 +185,24 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
-    if (mouseStateEvent(MouseState::fromMouseEvent(event, true)))
+    if (mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseDown)))
         event->accept();
     else
         QMainWindow::mousePressEvent(event);
 }
 
+void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
+{
+    if (mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::PressTwice)))
+        event->accept();
+    else
+        QMainWindow::mousePressEvent(event);
+    mousePressEvent(event);
+}
+
 void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
-    if (mouseStateEvent(MouseState::fromMouseEvent(event, false)))
+    if (mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseUp)))
         event->accept();
     else
         QMainWindow::mouseReleaseEvent(event);

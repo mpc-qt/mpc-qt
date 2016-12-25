@@ -282,7 +282,7 @@ void ButtonWidget::keyModMenu_selected(int item, bool yes)
 
 void ButtonWidget::pressMenu_selected(int item)
 {
-    state_.press = item > 0;
+    state_.press = static_cast<MouseState::MousePress>(item);
 }
 
 

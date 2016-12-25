@@ -598,11 +598,11 @@ QStringList MouseState::multiModToText = ([]() {
 
 QStringList MouseState::modToText = { "Shift", "Control", "Alt", "Meta" };
 
-QStringList MouseState::pressToText = { "Up", "Down" };
+QStringList MouseState::pressToText = { "Up", "Down", "Twice" };
 
 
 
-MouseState::MouseState() : button(0), mod(0), press(false) {}
+MouseState::MouseState() : button(0), mod(0), press(MouseUp) {}
 
 MouseState::MouseState(const MouseState &m) {
     button = m.button;
@@ -610,7 +610,7 @@ MouseState::MouseState(const MouseState &m) {
     press = m.press;
 }
 
-MouseState::MouseState(int button, int mod, bool press)
+MouseState::MouseState(int button, int mod, MousePress press)
     : button(button), mod(mod), press(press)
 {
 }
@@ -634,7 +634,12 @@ Qt::KeyboardModifiers MouseState::keyModifiers() const
 
 bool MouseState::isPress()
 {
-    return press;
+    return press != MouseUp;
+}
+
+bool MouseState::isTwice()
+{
+    return press == PressTwice;
 }
 
 bool MouseState::isWheel()
@@ -657,14 +662,14 @@ QString MouseState::toString() const
 
 QVariantMap MouseState::toVMap() const
 {
-    return QVariantMap({{"button", button}, {"mod", mod}, {"press", press}});
+    return QVariantMap({{"button", button}, {"mod", mod}, {"press", static_cast<int>(press)}});
 }
 
 void MouseState::fromVMap(const QVariantMap &map)
 {
     button = map.value("button").toInt();
     mod = map.value("mod").toInt();
-    press = map.value("press").toBool();
+    press = static_cast<MousePress>(map.value("press").toInt());
 }
 
 uint MouseState::mouseHash() const
@@ -672,7 +677,7 @@ uint MouseState::mouseHash() const
     if (button == 0)
         return 0;
 
-    return qHash(press ^ mod<<8 ^ button<<16);
+    return qHash(static_cast<int>(press) ^ mod<<9 ^ button<<17);
 }
 
 bool MouseState::operator ==(const MouseState &other) const {
@@ -693,10 +698,10 @@ MouseState MouseState::fromWheelEvent(QWheelEvent *event)
         return MouseState();
     return MouseState(1, // wheel button
                       (event->modifiers() >> 25)&15,
-                      delta.y() < 0); // towards = negative = down
+                      delta.y() < 0 ? MouseUp : MouseDown); // towards = negative = down
 }
 
-MouseState MouseState::fromMouseEvent(QMouseEvent *event, bool press)
+MouseState MouseState::fromMouseEvent(QMouseEvent *event, MousePress press)
 {
     Qt::MouseButtons mb = event->button();
     if (mb == Qt::NoButton)
