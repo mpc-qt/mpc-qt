@@ -195,8 +195,6 @@ void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
 {
     if (mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::PressTwice)))
         event->accept();
-    else
-        QMainWindow::mousePressEvent(event);
     mousePressEvent(event);
 }
 
