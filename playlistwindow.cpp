@@ -342,7 +342,7 @@ void PlaylistWindow::newTab()
     else if (title.isEmpty())
         title = tr("New Playlist");
 
-    auto pl = PlaylistCollection::getSingleton()->newPlaylist(title);
+    auto pl = PlaylistCollection::getSingleton()->newPlaylist(title.replace("&","+"));
     addNewTab(pl->uuid(), pl->title());
 }
 
@@ -607,7 +607,7 @@ void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
     qid->setAttribute(Qt::WA_DeleteOnClose);
     qid->setWindowModality(Qt::ApplicationModal);
     qid->setWindowTitle(tr("Enter playlist name"));
-    qid->setTextValue(ui->tabWidget->tabText(index));
+    qid->setTextValue(ui->tabWidget->tabText(index).replace(QRegExp("&{1,}"), ""));
     connect(qid, &QInputDialog::accepted, [=]() {
         int tabIndex = ui->tabWidget->indexOf(widget);
         if (tabIndex < 0)
@@ -616,7 +616,7 @@ void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
         if (!pl)
             return;
         pl->setTitle(qid->textValue());
-        ui->tabWidget->setTabText(tabIndex, qid->textValue());
+        ui->tabWidget->setTabText(tabIndex, qid->textValue().replace("&", "+"));
     });
     qid->show();
 }
