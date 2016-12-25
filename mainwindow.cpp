@@ -289,6 +289,14 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
         showMaximized();
     else
         showNormal();
+
+    //REMOVEME: work around OpenGL blackness bug after fullscreen
+    QTimer::singleShot(50, [this]() {
+        positionSlider_->update();
+        volumeSlider_->update();
+        timePosition->update();
+        timeDuration->update();
+    });
 }
 
 void MainWindow::setDiscState(bool playingADisc)
