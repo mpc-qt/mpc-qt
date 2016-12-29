@@ -125,7 +125,7 @@ void MpcQtServer::socketReturn(QLocalSocket *socket,
     }
     result["value"] = value;
     end:
-    socket->write(QJsonDocument::fromVariant(result).toJson());
+    socket->write(QJsonDocument::fromVariant(result).toJson(QJsonDocument::Compact).append('\n'));
     socket->flush();
     socket->deleteLater();
 }
@@ -342,7 +342,7 @@ MpvConnection::~MpvConnection()
 
 void MpvConnection::socketWrite(const QVariant &v)
 {
-    socket->write(QJsonDocument::fromVariant(v).toJson());
+    socket->write(QJsonDocument::fromVariant(v).toJson(QJsonDocument::Compact).append('\n'));
     socket->flush();
 }
 
