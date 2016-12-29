@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 
     // Register the error code type so that signals/slots will work with it
     qRegisterMetaType<MpvErrorCode>("MpvErrorCode");
+    qRegisterMetaType<uint64_t>("uint64_t");
 
     Flow f;
     if (!f.hasPrevious())
