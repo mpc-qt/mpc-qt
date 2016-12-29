@@ -320,7 +320,7 @@ void MpvWidget::setTime(double position)
 
 void MpvWidget::setLoopPoints(double first, double end)
 {
-    static const double mpvNoPts = -0x1p+63;
+    static const double mpvNoPts = -1.0e30;
     setMpvPropertyVariant("ab-loop-a", first < 0 ? mpvNoPts : first);
     setMpvPropertyVariant("ab-loop-b", end < 0 ? mpvNoPts : end);
 }
@@ -576,7 +576,7 @@ void MpvWidget::ctrl_update(void *ctx)
 
 #define HANDLE_PROP_1(p, method, converter, dflt) \
     if (name == p) { \
-        if (ok && v.canConvert<__typeof__ dflt>()) \
+        if (ok && v.canConvert<decltype(dflt)>()) \
             method(v.converter()); \
         else \
             method(dflt); \
