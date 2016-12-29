@@ -354,7 +354,7 @@ QByteArray Flow::makePayload() const
         {"directory", QVariant(QDir::currentPath())},
         {"files", QVariant(QCoreApplication::arguments().mid(1))}
     });
-    return QJsonDocument::fromVariant(map).toJson();
+    return QJsonDocument::fromVariant(map).toJson(QJsonDocument::Compact);
 }
 
 QString Flow::pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const

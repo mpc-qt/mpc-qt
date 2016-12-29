@@ -133,8 +133,11 @@ void MpcQtServer::socketReturn(QLocalSocket *socket,
 void MpcQtServer::self_newConnection(QLocalSocket *socket)
 {
     connect(socket, &QLocalSocket::readyRead, [=]() {
-        QByteArray data = socket->readAll();
-        socket_payloadReceived(data, socket);
+        QList<QByteArray> dataList = socket->readAll().split('\n');
+        foreach(QByteArray data, dataList) {
+            if(data.size())
+                socket_payloadReceived(data, socket);
+        }
     });
 }
 
@@ -367,41 +370,45 @@ void MpvConnection::commandReturnVariant(const QVariant &requestId, const QVaria
 
 void MpvConnection::socket_readyRead()
 {
-    QByteArray data = socket->readAll();
-    QVariantMap rawCommand = QJsonDocument::fromJson(data).toVariant().toMap();
-    QVariant requestId = rawCommand["request_id"];
-    qDebug() << QJsonDocument::fromBinaryData(data);
+    QList<QByteArray> dataList = socket->readAll().split('\n');
+    foreach(QByteArray data, dataList) {
+        if(!data.size())
+            continue;
 
-    QStringList list = rawCommand["command"].toStringList();
-    if (list.isEmpty()) {
-        commandReturn(MPV_ERROR_UNSUPPORTED, requestId);
-        return;
-    }
+        QVariantMap rawCommand = QJsonDocument::fromJson(data).toVariant().toMap();
+        QVariant requestId = rawCommand["request_id"];
 
-    QString command = list.at(0);
-    if (commandParsers.contains(command)) {
-        QMetaMethod m = commandParsers[command];
-        switch (m.parameterCount()) {
-        case 2:
-            if (Q_UNLIKELY(m.parameterType(0) == QMetaType::QVariantList))
-                m.invoke(this, Q_ARG(QVariantList, rawCommand["command"].toList()),
-                               Q_ARG(QVariant, requestId));
-            else
-                m.invoke(this, Q_ARG(QStringList, list),
-                               Q_ARG(QVariant, requestId));
-            break;
-        case 1:
-            m.invoke(this, Q_ARG(QVariant, requestId));
-            break;
-        case 0:
-            m.invoke(this);
-            break;
+        QStringList list = rawCommand["command"].toStringList();
+        if (list.isEmpty()) {
+            commandReturn(MPV_ERROR_UNSUPPORTED, requestId);
+            return;
         }
+
+        QString command = list.at(0);
+        if (commandParsers.contains(command)) {
+            QMetaMethod m = commandParsers[command];
+            switch (m.parameterCount()) {
+            case 2:
+                if (Q_UNLIKELY(m.parameterType(0) == QMetaType::QVariantList))
+                    m.invoke(this, Q_ARG(QVariantList, rawCommand["command"].toList()),
+                            Q_ARG(QVariant, requestId));
+                else
+                    m.invoke(this, Q_ARG(QStringList, list),
+                             Q_ARG(QVariant, requestId));
+                break;
+            case 1:
+                m.invoke(this, Q_ARG(QVariant, requestId));
+                break;
+            case 0:
+                m.invoke(this);
+                break;
+            }
+        }
+        else if (bannedCommands.contains(command))
+            command_forbidden();
+        else
+            command_raw(list, requestId);
     }
-    else if (bannedCommands.contains(command))
-        command_forbidden();
-    else
-        command_raw(list, requestId);
 }
 
 void MpvConnection::socket_disconnected()
