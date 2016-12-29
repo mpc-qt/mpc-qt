@@ -413,6 +413,11 @@ QVariantMap Flow::saveWindows()
                 { "geometry", Helpers::rectToVmap(mainWindow->playlistWindow()->window()->geometry()) },
                 { "floating", mainWindow->playlistWindow()->isFloating() }
             }
+        },
+        {
+            "settingsWindow", QVariantMap {
+                { "geometry", Helpers::rectToVmap(settingsWindow->geometry()) }
+            }
         }
     };
 }
@@ -421,8 +426,11 @@ void Flow::restoreWindows(const QVariantMap &map)
 {
     QVariantMap mainWindowMap = map["mainWindow"].toMap();
     QVariantMap playlistWindowMap = map["playlistWindow"].toMap();
-    if (rememberWindowGeometry && mainWindowMap.contains("geometry")
-            && playlistWindowMap.contains("geometry")) {
+    QVariantMap settingsWindowMap = map["settingsWindow"].toMap();
+    if (rememberWindowGeometry
+            && mainWindowMap.contains("geometry")
+            && playlistWindowMap.contains("geometry")
+            && settingsWindowMap.contains("geometry")) {
         if (playlistWindowMap["floating"].toBool()) {
             mainWindow->playlistWindow()->setFloating(true);
             mainWindow->playlistWindow()->window()->setGeometry(Helpers::vmapToRect(playlistWindowMap["geometry"].toMap()));
@@ -434,6 +442,7 @@ void Flow::restoreWindows(const QVariantMap &map)
             mainWindow->show();
             mainWindow->setState(mainWindowMap["state"].toMap());
         });
+        settingsWindow->setGeometry(Helpers::vmapToRect(settingsWindowMap["geometry"].toMap()));
     } else {
         mainWindow->fireUpdateSize();
         mainWindow->show();
