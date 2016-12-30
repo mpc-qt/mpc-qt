@@ -219,6 +219,12 @@ void QMediaSlider::setTick(double value, QString text)
     ticks.insert(value, text);
 }
 
+void QMediaSlider::resizeGL(int w, int h)
+{
+    QDrawnSlider::resizeGL(w, h);
+    updateLoopArea();
+}
+
 void QMediaSlider::drawGroove(QPainter *p)
 {
     // Draw inside area

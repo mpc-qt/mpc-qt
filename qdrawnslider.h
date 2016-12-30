@@ -37,7 +37,8 @@ protected:
     double valueToX(double value);
     double xToValue(double x);
 
-    void updateLoopArea();
+    void paintGL();
+    void resizeGL(int w, int h);
 
     QRectF drawnArea;
     QRectF grooveArea;
@@ -48,8 +49,6 @@ protected:
     int handleWidth, handleHeight, marginX, marginY;
 
 private:
-    void paintGL();
-    void resizeGL(int w, int h);
     void mousePressEvent(QMouseEvent *ev);
     void mouseReleaseEvent(QMouseEvent *ev);
     void mouseMoveEvent(QMouseEvent *ev);
@@ -81,6 +80,7 @@ signals:
     void hoverValue(double value, QString text, double x);
 
 protected:
+    void resizeGL(int w, int h);
     void drawGroove(QPainter *p);
     void drawHandle(QPainter *p, double x);
     void enterEvent(QEvent *event);
