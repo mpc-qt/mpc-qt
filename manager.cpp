@@ -312,9 +312,9 @@ void PlaybackManager::speedReset()
     setPlaybackSpeed(1.0);
 }
 
-void PlaybackManager::relativeSeek(bool forwards, bool small)
+void PlaybackManager::relativeSeek(bool forwards, bool isSmall)
 {
-    mpvWidget_->seek((forwards ? 1 : -1) * (small ? 1 : 5), small);
+    mpvWidget_->seek((forwards ? 1 : -1) * (isSmall ? 1 : 5), isSmall);
 }
 
 void PlaybackManager::setPlaybackSpeed(double speed)

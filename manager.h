@@ -61,7 +61,7 @@ public slots:
     void speedUp();
     void speedDown();
     void speedReset();
-    void relativeSeek(bool forwards, bool small);
+    void relativeSeek(bool forwards, bool isSmall);
 
     // output functions
     void setPlaybackSpeed(double speed);

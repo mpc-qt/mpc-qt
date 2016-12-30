@@ -106,7 +106,7 @@ signals:
     void speedDown();
     void speedUp();
     void speedReset();
-    void relativeSeek(bool forwards, bool small);
+    void relativeSeek(bool forwards, bool isSmall);
     void audioTrackSelected(int64_t id);
     void subtitleTrackSelected(int64_t id);
     void videoTrackSelected(int64_t id);

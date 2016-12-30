@@ -30,7 +30,7 @@ public:
     static QMap<QString, std::function<QVariant (QObject *)> > classFetcher;
     static QMap<QString, std::function<void (QObject *, const QVariant &)> > classSetter;
 
-private:
+//private:
     static QMap<QString,const char*> classToProperty;
 };
 
