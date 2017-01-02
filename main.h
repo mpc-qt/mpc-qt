@@ -21,6 +21,7 @@ public:
 
 signals:
     void recentFilesChanged(QList<TrackInfo> urls);
+    void windowsRestored();
 
 private:
     QByteArray makePayload() const;
@@ -29,8 +30,10 @@ private:
     void recentFromVList(const QVariantList &list);
     QVariantMap saveWindows();
     void restoreWindows(const QVariantMap &map);
+    void showWindows(const QVariantMap &mainWindowMap);
 
 private slots:
+    void self_windowsRestored();
     void mainwindow_applicationShouldQuit();
     void mainwindow_recentOpened(const TrackInfo &track);
     void mainwindow_recentClear();

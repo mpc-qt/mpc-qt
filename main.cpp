@@ -277,6 +277,10 @@ Flow::Flow(QObject *owner) :
     connect(this, &Flow::recentFilesChanged,
             mainWindow, &MainWindow::setRecentDocuments);
 
+    // this -> this
+    connect(this, &Flow::windowsRestored,
+            this, &Flow::self_windowsRestored);
+
     // update player framework
     settingsWindow->takeActions(mainWindow->editableActions());
     recentFromVList(storage.readVList("recent"));
@@ -333,11 +337,9 @@ Flow::~Flow()
 int Flow::run()
 {
     mainWindow->playlistWindow()->tabsFromVList(storage.readVList("playlists"));
-    QTimer::singleShot(50, [this]() {
+    QTimer::singleShot(50, this, [this]() {
         // wait for the internal geometry to update, then perform a resize
         restoreWindows(storage.readVMap("geometry"));
-        if (!hasPrevious_)
-            server->fakePayload(makePayload());
     });
     return qApp->exec();
 }
@@ -437,18 +439,25 @@ void Flow::restoreWindows(const QVariantMap &map)
             mainWindow->playlistWindow()->window()->setGeometry(Helpers::vmapToRect(playlistWindowMap["geometry"].toMap()));
         }
         mainWindow->setGeometry(Helpers::vmapToRect(mainWindowMap["geometry"].toMap()));
-        QTimer::singleShot(50, [=]() {
-            // once again, wait for the internal geometery to change, then
-            // show the window.
-            mainWindow->show();
-            mainWindow->setState(mainWindowMap["state"].toMap());
-        });
+        QTimer::singleShot(50, this, [=]() { showWindows(mainWindowMap); });
         settingsWindow->setGeometry(Helpers::vmapToRect(settingsWindowMap["geometry"].toMap()));
     } else {
         mainWindow->fireUpdateSize();
-        mainWindow->show();
-        mainWindow->setState(mainWindowMap["state"].toMap());
+        showWindows(mainWindowMap);
     }
+}
+
+void Flow::showWindows(const QVariantMap &mainWindowMap)
+{
+    mainWindow->show();
+    mainWindow->setState(mainWindowMap["state"].toMap());
+    QTimer::singleShot(50, this, &Flow::windowsRestored);
+}
+
+void Flow::self_windowsRestored()
+{
+    if (!hasPrevious_)
+        server->fakePayload(makePayload());
 }
 
 void Flow::mainwindow_applicationShouldQuit()
