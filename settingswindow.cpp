@@ -8,7 +8,7 @@
 #include "ui_settingswindow.h"
 #include "qactioneditor.h"
 
-#define SCALAR_SCALARS \
+#define SCALER_SCALERS \
     "bilinear", "bicubic_fast", "oversample", "spline16", "spline36",\
     "spline64", "sinc", "lanczos", "ginseng", "jinc", "ewa_lanczos",\
     "ewa_hanning", "ewa_ginseng", "ewa_lanczossharp", "ewa_lanczossoft",\
@@ -16,11 +16,11 @@
     "robidoux", "robidouxsharp", "ewa_robidoux", "ewa_robidouxsharp",\
     "box", "nearest", "triangle", "gaussian"
 
-#define SCALAR_WINDOWS \
+#define SCALER_WINDOWS \
     "box", "triable", "bartlett", "hanning", "hamming", "quadric", "welch",\
     "kaiser", "blackman", "gaussian", "sinc", "jinc", "sphinx"
 
-#define TIME_SCALARS \
+#define TIME_SCALERS \
     "oversample", "linear",  "spline16", "spline36", "spline64", "sinc", \
     "lanczos", "ginseng", "bicubic", "bcspline", "catmull_rom", "mitchell", \
     "robidoux", "robidouxsharp", "box", "nearest", "triangle", "gaussian"
@@ -32,15 +32,14 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
                           "rgb32f-rgba32f"}},
     {"videoAlphaMode", {"blend", "yes", "no"}},
     {"ditherType", {"fruit", "ordered", "no"}},
-    {"scaleScalar", {SCALAR_SCALARS}},
-    {"scaleWindowValue", {SCALAR_WINDOWS}},
-    {"dscaleScalar", {"unset", SCALAR_SCALARS}},
-    {"dscaleWindowValue", {SCALAR_WINDOWS}},
-    {"cscaleScalar", {SCALAR_SCALARS}},
-    {"cscaleWindowValue", {SCALAR_WINDOWS}},
-    {"tscaleScalar", {TIME_SCALARS}},
-    {"tscaleWindowValue", {SCALAR_WINDOWS}},
-    {"prescalarMethod", {"none", "superxbr", "nnedi3"}},
+    {"scaleScaler", {SCALER_SCALERS}},
+    {"scaleWindowValue", {SCALER_WINDOWS}},
+    {"dscaleScaler", {"unset", SCALER_SCALERS}},
+    {"dscaleWindowValue", {SCALER_WINDOWS}},
+    {"cscaleScaler", {SCALER_SCALERS}},
+    {"cscaleWindowValue", {SCALER_WINDOWS}},
+    {"tscaleScaler", {TIME_SCALERS}},
+    {"tscaleWindowValue", {SCALER_WINDOWS}},
     {"nnedi3Neurons", {"16", "32", "64", "128"}},
     {"nnedi3Window", {"8x4", "8x6"}},
     {"nnedi3Upload", {"ubo", "shader"}},
@@ -444,10 +443,10 @@ void SettingsWindow::sendSignals()
         voOption("sigmoid-upscaling", false);
     }
 
-    // Is this the right way to fall back to (the scalar's) defaults?
+    // Is this the right way to fall back to (the scaler's) defaults?
     // Bear in mind we're not setting what hasn't changed since last time.
     // Perhaps would should pass a blank QVariant or empty string instead.
-    voOption("scale", WIDGET_TO_TEXT(ui->scaleScalar));
+    voOption("scale", WIDGET_TO_TEXT(ui->scaleScaler));
     voOption("scale-param1", WIDGET_LOOKUP2(ui->scaleParam1Set, ui->scaleParam1Value, "nan"));
     voOption("scale-param2", WIDGET_LOOKUP2(ui->scaleParam2Set, ui->scaleParam2Value, "nan"));
     voOption("scale-radius", WIDGET_LOOKUP2(ui->scaleRadiusSet, ui->scaleRadiusValue, 0.0));
@@ -457,7 +456,7 @@ void SettingsWindow::sendSignals()
     voOption("scale-window", WIDGET_LOOKUP2_TEXT(ui->scaleWindowSet, ui->scaleWindowValue, ""));
     voOption("scale-clamp", WIDGET_LOOKUP(ui->scaleClamp));
 
-    voOption("dscale", WIDGET_TO_TEXT(ui->dscaleScalar));
+    voOption("dscale", WIDGET_TO_TEXT(ui->dscaleScaler));
     voOption("dscale-param1", WIDGET_LOOKUP2(ui->dscaleParam1Set, ui->dscaleParam1Value, "nan"));
     voOption("dscale-param2", WIDGET_LOOKUP2(ui->dscaleParam2Set, ui->dscaleParam2Value, "nan"));
     voOption("dscale-radius", WIDGET_LOOKUP2(ui->dscaleRadiusSet, ui->dscaleRadiusValue, 0.0));
@@ -467,7 +466,7 @@ void SettingsWindow::sendSignals()
     voOption("dscale-window", WIDGET_LOOKUP2_TEXT(ui->dscaleWindowSet, ui->dscaleWindowValue, ""));
     voOption("dscale-clamp", WIDGET_LOOKUP(ui->dscaleClamp));
 
-    voOption("cscale", WIDGET_TO_TEXT(ui->cscaleScalar));
+    voOption("cscale", WIDGET_TO_TEXT(ui->cscaleScaler));
     voOption("cscale-param1", WIDGET_LOOKUP2(ui->cscaleParam1Set, ui->cscaleParam1Value, "nan"));
     voOption("cscale-param2", WIDGET_LOOKUP2(ui->cscaleParam2Set, ui->cscaleParam2Value, "nan"));
     voOption("cscale-radius", WIDGET_LOOKUP2(ui->cscaleRadiusSet, ui->cscaleRadiusValue, 0.0));
@@ -477,7 +476,7 @@ void SettingsWindow::sendSignals()
     voOption("cscale-window", WIDGET_LOOKUP2_TEXT(ui->cscaleWindowSet, ui->cscaleWindowValue, ""));
     voOption("cscale-clamp", WIDGET_LOOKUP(ui->cscaleClamp));
 
-    voOption("tscale", WIDGET_TO_TEXT(ui->tscaleScalar));
+    voOption("tscale", WIDGET_TO_TEXT(ui->tscaleScaler));
     voOption("tscale-param1", WIDGET_LOOKUP2(ui->tscaleParam1Set, ui->tscaleParam1Value, "nan"));
     voOption("tscale-param2", WIDGET_LOOKUP2(ui->tscaleParam2Set, ui->tscaleParam2Value, "nan"));
     voOption("tscale-radius", WIDGET_LOOKUP2(ui->tscaleRadiusSet, ui->tscaleRadiusValue, 0.0));

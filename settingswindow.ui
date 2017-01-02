@@ -845,7 +845,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -1332,7 +1332,7 @@ media file played</string>
                       <item row="0" column="0">
                        <widget class="QLabel" name="label_98">
                         <property name="text">
-                         <string>Scalar</string>
+                         <string>Scaler</string>
                         </property>
                        </widget>
                       </item>
@@ -1621,7 +1621,7 @@ media file played</string>
                        </widget>
                       </item>
                       <item row="0" column="1" colspan="3">
-                       <widget class="QComboBox" name="scaleScalar">
+                       <widget class="QComboBox" name="scaleScaler">
                         <item>
                          <property name="text">
                           <string>Bilinear</string>
@@ -1664,7 +1664,7 @@ media file played</string>
                         </item>
                         <item>
                          <property name="text">
-                          <string>Gingseng</string>
+                          <string>Ginseng</string>
                          </property>
                         </item>
                         <item>
@@ -1774,12 +1774,12 @@ media file played</string>
                       <item row="0" column="0">
                        <widget class="QLabel" name="label_112">
                         <property name="text">
-                         <string>Scalar</string>
+                         <string>Scaler</string>
                         </property>
                        </widget>
                       </item>
                       <item row="0" column="1" colspan="3">
-                       <widget class="QComboBox" name="dscaleScalar">
+                       <widget class="QComboBox" name="dscaleScaler">
                         <item>
                          <property name="text">
                           <string>Unset</string>
@@ -1827,7 +1827,7 @@ media file played</string>
                         </item>
                         <item>
                          <property name="text">
-                          <string>Gingseng</string>
+                          <string>Ginseng</string>
                          </property>
                         </item>
                         <item>
@@ -2221,12 +2221,12 @@ media file played</string>
                       <item row="0" column="0">
                        <widget class="QLabel" name="label_120">
                         <property name="text">
-                         <string>Scalar</string>
+                         <string>Scaler</string>
                         </property>
                        </widget>
                       </item>
                       <item row="0" column="1" colspan="3">
-                       <widget class="QComboBox" name="cscaleScalar">
+                       <widget class="QComboBox" name="cscaleScaler">
                         <item>
                          <property name="text">
                           <string>Bilinear</string>
@@ -2269,7 +2269,7 @@ media file played</string>
                         </item>
                         <item>
                          <property name="text">
-                          <string>Gingseng</string>
+                          <string>Ginseng</string>
                          </property>
                         </item>
                         <item>
@@ -2663,12 +2663,12 @@ media file played</string>
                       <item row="0" column="0">
                        <widget class="QLabel" name="label_136">
                         <property name="text">
-                         <string>Scalar</string>
+                         <string>Scaler</string>
                         </property>
                        </widget>
                       </item>
                       <item row="0" column="1" colspan="3">
-                       <widget class="QComboBox" name="tscaleScalar">
+                       <widget class="QComboBox" name="tscaleScaler">
                         <item>
                          <property name="text">
                           <string>Oversample</string>
@@ -2706,7 +2706,7 @@ media file played</string>
                         </item>
                         <item>
                          <property name="text">
-                          <string>Gingseng</string>
+                          <string>Ginseng</string>
                          </property>
                         </item>
                         <item>
@@ -3055,7 +3055,7 @@ media file played</string>
                       <item>
                        <widget class="QLabel" name="prescalarsMoved">
                         <property name="text">
-                         <string>Prescalars have moved to mpv's user-shaders interface, and can be found at Playback/Shaders.</string>
+                         <string>Prescalers have moved to mpv's user-shaders interface, and can be found at Playback/Shaders.</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
