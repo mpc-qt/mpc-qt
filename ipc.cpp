@@ -170,13 +170,14 @@ void MpcQtServer::ipc_playFiles(const QVariantMap &map)
 {
     QString workingDirectory = map["directory"].toString();
     QStringList filesAsText = map["files"].toStringList();
+    bool important = !map.value("append", false).toBool();
     QList<QUrl> files;
     QUrl url;
     foreach (QString s, filesAsText) {
         files << QUrl::fromUserInput(s, workingDirectory);
     }
     if (!files.empty()) {
-        playbackManager->openSeveralFiles(files, true);
+        playbackManager->openSeveralFiles(files, important);
     }
 }
 

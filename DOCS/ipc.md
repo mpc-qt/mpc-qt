@@ -23,7 +23,9 @@ The *playFiles* command takes the extra parameter `files` (an array) and
 optionally `directory` (a string).  It processes the given filenames relative
 to the specified directory if provided, and processes it in the same manner as
 `File -> Quick Open`.  This command was designed for passing files specified
-on the command line through to an already-running process.
+on the command line through to an already-running process. If a parameter
+`append` (a boolean) with the value `true` is provided, then the command
+behaves the same as `File -> Quick Add To Playlist`.
 
 The *pause* command pauses the current playback.  If nothing is being played,
 nothing happens.
