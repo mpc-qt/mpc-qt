@@ -931,6 +931,11 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
         ui->actionPlayPause->setChecked(true);
         ui->pause->setChecked(true);
     }
+    if (state == PlaybackManager::WaitingState) {
+        mpvWidget()->setLoopPoints(-1, -1);
+        positionSlider_->setLoopA(-1.0e30);
+        positionSlider_->setLoopB(-1.0e30);
+    }
 }
 
 void MainWindow::setPlaybackType(PlaybackManager::PlaybackType type)
