@@ -320,7 +320,7 @@ void MpvWidget::setTime(double position)
 
 void MpvWidget::setLoopPoints(double first, double end)
 {
-    static const double mpvNoPts = -1.0e30;
+    static const double mpvNoPts = -0x1p+63;
     setMpvPropertyVariant("ab-loop-a", first < 0 ? mpvNoPts : first);
     setMpvPropertyVariant("ab-loop-b", end < 0 ? mpvNoPts : end);
 }

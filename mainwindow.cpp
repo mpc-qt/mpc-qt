@@ -933,8 +933,8 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
     }
     if (state == PlaybackManager::WaitingState) {
         mpvWidget()->setLoopPoints(-1, -1);
-        positionSlider_->setLoopA(-1.0e30);
-        positionSlider_->setLoopB(-1.0e30);
+        positionSlider_->setLoopA(-1);
+        positionSlider_->setLoopB(-1);
     }
 }
 
