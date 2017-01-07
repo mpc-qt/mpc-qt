@@ -257,6 +257,9 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
         for (int i = 0; i < item->childCount(); ++i)
             stack.push_front(item->child(i));
     }
+
+    int pageTreeWidth = ui->pageTree->fontMetrics().width(tr("MMMMMMMMMMMMM"));
+    ui->pageTree->setMaximumWidth(pageTreeWidth);
 }
 
 SettingsWindow::~SettingsWindow()
