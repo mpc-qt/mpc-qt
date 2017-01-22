@@ -79,6 +79,11 @@ MpvWidget *MainWindow::mpvWidget()
     return mpvw;
 }
 
+QMainWindow *MainWindow::mpvHost()
+{
+    return mpvHost_;
+}
+
 PlaylistWindow *MainWindow::playlistWindow()
 {
     return playlistWindow_;

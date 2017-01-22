@@ -412,6 +412,11 @@ QVariantMap Flow::saveWindows()
             }
         },
         {
+            "mpvHost", QVariantMap {
+                { "qtState", QString(mainWindow->mpvHost()->saveState().toBase64()) }
+            }
+        },
+        {
             "playlistWindow", QVariantMap {
                 { "geometry", Helpers::rectToVmap(mainWindow->playlistWindow()->window()->geometry()) },
                 { "floating", mainWindow->playlistWindow()->isFloating() }
@@ -428,6 +433,7 @@ QVariantMap Flow::saveWindows()
 void Flow::restoreWindows(const QVariantMap &map)
 {
     QVariantMap mainWindowMap = map["mainWindow"].toMap();
+    QVariantMap mpvHostMap = map["mpvHost"].toMap();
     QVariantMap playlistWindowMap = map["playlistWindow"].toMap();
     QVariantMap settingsWindowMap = map["settingsWindow"].toMap();
     if (rememberWindowGeometry
@@ -437,6 +443,10 @@ void Flow::restoreWindows(const QVariantMap &map)
         if (playlistWindowMap["floating"].toBool()) {
             mainWindow->playlistWindow()->setFloating(true);
             mainWindow->playlistWindow()->window()->setGeometry(Helpers::vmapToRect(playlistWindowMap["geometry"].toMap()));
+        } else if (mpvHostMap.contains("qtState")) {
+            QByteArray state = QByteArray::fromBase64(mpvHostMap["qtState"].toString().toLocal8Bit());
+            mainWindow->mpvHost()->restoreState(state);
+            mainWindow->mpvHost()->restoreDockWidget(mainWindow->playlistWindow());
         }
         mainWindow->setGeometry(Helpers::vmapToRect(mainWindowMap["geometry"].toMap()));
         QTimer::singleShot(50, this, [=]() { showWindows(mainWindowMap); });
