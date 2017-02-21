@@ -143,8 +143,8 @@ MpvWidget::MpvWidget(QWidget *parent, const QString &clientName) :
         { "duration", 0, MPV_FORMAT_DOUBLE },
         { "estimated-vf-fps", 0, MPV_FORMAT_DOUBLE },
         { "avsync", 0, MPV_FORMAT_DOUBLE },
-        { "vo-drop-frame-count", 0, MPV_FORMAT_INT64 },
-        { "drop-frame-count", 0, MPV_FORMAT_INT64 },
+        { "frame-drop-count", 0, MPV_FORMAT_INT64 },
+        { "decoder-frame-drop-count", 0, MPV_FORMAT_INT64 },
         { "audio-bitrate", 0, MPV_FORMAT_DOUBLE },
         { "video-bitrate", 0, MPV_FORMAT_DOUBLE },
         { "paused-for-cache", 0, MPV_FORMAT_FLAG },
@@ -152,8 +152,8 @@ MpvWidget::MpvWidget(QWidget *parent, const QString &clientName) :
         { "audio-device-list", 0, MPV_FORMAT_NODE }
     };
     QSet<QString> throttled = {
-        "time-pos", "avsync", "estimated-vf-fps", "vo-drop-frame-count",
-        "drop-frame-count", "audio-bitrate", "video-bitrate"
+        "time-pos", "avsync", "estimated-vf-fps", "frame-drop-count",
+        "decoder-frame-drop-count", "audio-bitrate", "video-bitrate"
     };
     QMetaObject::invokeMethod(ctrl, "observeProperties",
                               Qt::BlockingQueuedConnection,
@@ -607,8 +607,8 @@ void MpvWidget::ctrl_mpvPropertyChanged(QString name, QVariant v)
     HANDLE_PROP_1("track-list", tracksChanged, toList, QVariantList());
     HANDLE_PROP_1("estimated-vf-fps", fpsChanged, toDouble, 0.0);
     HANDLE_PROP_1("avsync", avsyncChanged, toDouble, 0.0);
-    HANDLE_PROP_1("vo-drop-frame-count", displayFramedropsChanged, toLongLong, 0ll);
-    HANDLE_PROP_1("drop-frame-count", decoderFramedropsChanged, toLongLong, 0ll);
+    HANDLE_PROP_1("frame-drop-count", displayFramedropsChanged, toLongLong, 0ll);
+    HANDLE_PROP_1("decoder-frame-drop-count", decoderFramedropsChanged, toLongLong, 0ll);
     HANDLE_PROP_1("audio-bitrate", audioBitrateChanged, toDouble, 0.0);
     HANDLE_PROP_1("video-bitrate", videoBitrateChanged, toDouble, 0.0);
     HANDLE_PROP_1("metadata", self_metadata, toMap, QVariantMap());
