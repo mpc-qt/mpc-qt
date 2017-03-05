@@ -41,7 +41,8 @@ SOURCES += main.cpp\
     settingswindow.cpp \
     qactioneditor.cpp \
     qdrawnstatus.cpp \
-    ipc.cpp
+    ipc.cpp \
+    openfiledialog.cpp
 
 HEADERS  += \
     mpvwidget.h \
@@ -57,12 +58,14 @@ HEADERS  += \
     settingswindow.h \
     qactioneditor.h \
     qdrawnstatus.h \
-    ipc.h
+    ipc.h \
+    openfiledialog.h
 
 FORMS    += \
     mainwindow.ui \
     playlistwindow.ui \
-    settingswindow.ui
+    settingswindow.ui \
+    openfiledialog.ui
 
 RESOURCES += \
     res.qrc
