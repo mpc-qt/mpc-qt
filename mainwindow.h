@@ -90,7 +90,7 @@ private:
 
 signals:
     void applicationShouldQuit();
-    void fileOpened(QUrl what);
+    void fileOpened(QUrl what, QUrl subs);
     void severalFilesOpened(QList<QUrl> what, bool important = false);
     void dvdbdOpened(QUrl what);
     void streamOpened(QUrl what);

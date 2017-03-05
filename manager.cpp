@@ -83,7 +83,8 @@ PlaybackManager::PlaybackState PlaybackManager::playbackState()
 }
 
 void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
-                                        QUuid itemUuid, bool isRepeating)
+                                        QUuid itemUuid, bool isRepeating,
+                                        QUrl with)
 {
     if (playbackState_ == WaitingState || what.isEmpty())
         return;
@@ -92,6 +93,7 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
     nowPlaying_ = what;
     mpvWidget_->fileOpen(what.isLocalFile() ? what.toLocalFile()
                                             : what.fromPercentEncoding(what.toEncoded()));
+    mpvWidget_->setSubFile(with.toString());
     this->nowPlayingList = playlistUuid;
     this->nowPlayingItem = itemUuid;
 
@@ -156,10 +158,10 @@ void PlaybackManager::openSeveralFiles(QList<QUrl> what, bool important)
     }
 }
 
-void PlaybackManager::openFile(QUrl what)
+void PlaybackManager::openFile(QUrl what, QUrl with)
 {
     auto info = playlistWindow_->urlToQuickPlaylist(what);
-    startPlayWithUuid(what, info.first, info.second, false);
+    startPlayWithUuid(what, info.first, info.second, false, with);
 }
 
 void PlaybackManager::playDiscFiles(QUrl where)

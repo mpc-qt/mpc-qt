@@ -31,13 +31,13 @@ public:
 
 private:
     void startPlayWithUuid(QUrl what, QUuid playlistUuid, QUuid itemUuid,
-                           bool isRepeating);
+                           bool isRepeating, QUrl with = QUrl());
     void selectDesiredTracks();
 
 public slots:
     // load functions
     void openSeveralFiles(QList<QUrl> what, bool important = false);
-    void openFile(QUrl what);                   // from load dialog
+    void openFile(QUrl what, QUrl with = QUrl());
 
     void playDiscFiles(QUrl where);             // from dvd/bd open
     void playDisc(QUrl where);                  // from menu

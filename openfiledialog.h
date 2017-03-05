@@ -15,6 +15,14 @@ public:
     explicit OpenFileDialog(QWidget *parent = 0);
     ~OpenFileDialog();
 
+    QString file();
+    QString subs();
+
+private slots:
+    void on_fileBrowse_clicked();
+
+    void on_subsBrowse_clicked();
+
 private:
     Ui::OpenFileDialog *ui;
 };

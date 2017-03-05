@@ -3,6 +3,7 @@
 #include <cmath>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "openfiledialog.h"
 #include "helpers.h"
 #include <QDesktopWidget>
 #include <QWindow>
@@ -1072,13 +1073,11 @@ void MainWindow::on_actionFileOpenQuick_triggered()
 
 void MainWindow::on_actionFileOpen_triggered()
 {
-    QUrl url;
-    static QUrl lastDir;
-    url = QFileDialog::getOpenFileUrl(this, tr("Open File"), lastDir);
-    if (url.isEmpty())
+    OpenFileDialog d;
+    if (!d.exec())
         return;
-    lastDir = url;
-    emit fileOpened(url);
+
+    emit fileOpened(d.file(), d.subs());
 }
 
 void MainWindow::on_actionFileOpenDvdbd_triggered()

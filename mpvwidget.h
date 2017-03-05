@@ -34,6 +34,7 @@ public:
     void seek(double amount, bool exact);
     void screenshot(const QString &fileName, bool subtitles);
     void setLogoUrl(const QString &filename);
+    void setSubFile(QString filename);
     void setLoopImages(bool yes);
 
     int64_t chapter();

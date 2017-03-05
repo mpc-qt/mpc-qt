@@ -7,11 +7,15 @@
     <x>0</x>
     <y>0</y>
     <width>640</width>
-    <height>108</height>
+    <height>112</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Open File</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="res.qrc">
+    <normaloff>:/images/bitmaps/icon.png</normaloff>:/images/bitmaps/icon.png</iconset>
   </property>
   <layout class="QFormLayout" name="formLayout">
    <item row="0" column="0">
@@ -84,7 +88,9 @@
   <tabstop>subsBrowse</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>

@@ -266,6 +266,11 @@ void MpvWidget::setLogoUrl(const QString &filename)
     doneCurrent();
 }
 
+void MpvWidget::setSubFile(QString filename)
+{
+    emit ctrlSetOptionVariant("sub-file", filename);
+}
+
 void MpvWidget::setLoopImages(bool yes)
 {
     emit ctrlSetOptionVariant("image-display-duration",
