@@ -199,7 +199,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->scalingTabs->setCurrentIndex(0);
     ui->audioTabs->setCurrentIndex(0);
 
-#ifdef Q_OS_LINUX
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
     // Detect a tiling desktop, and disable autozoom for the default.
     // Note that this only changes the default; if autozoom is already enabled
     // in the user's config, the application may still try to use an
@@ -237,7 +237,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->ccGammaAutodetect->setChecked(true);
 #endif
 
-#ifndef Q_OS_LINUX
+#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
     ui->ipcMpris->setVisible(false);
 #endif
 
