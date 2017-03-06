@@ -191,8 +191,9 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     logoWidget = new LogoWidget(this);
     ui->logoImageHost->layout()->addWidget(logoWidget);
 
-    defaultSettings = generateSettingMap();
+    defaultSettings = generateSettingMap(this);
     acceptedSettings = defaultSettings;
+    generateVideoPresets();
 
     ui->pageStack->setCurrentIndex(0);
     ui->videoTabs->setCurrentIndex(0);
@@ -268,18 +269,18 @@ SettingsWindow::~SettingsWindow()
 }
 
 void SettingsWindow::updateAcceptedSettings() {
-    acceptedSettings = generateSettingMap();
+    acceptedSettings = generateSettingMap(this);
     acceptedKeyMap = actionEditor->toVMap();
 }
 
-SettingMap SettingsWindow::generateSettingMap()
+SettingMap SettingsWindow::generateSettingMap(QWidget *root)
 {
     SettingMap settingMap;
 
     // The idea here is to discover all the widgets in the ui and only inspect
     // the widgets which we desire to know about.
     QObjectList toParse;
-    toParse.append(this);
+    toParse.append(root);
     while (!toParse.empty()) {
         QObject *item = toParse.takeFirst();
         if (Setting::classFetcher.keys().contains(item->metaObject()->className())
@@ -298,6 +299,57 @@ SettingMap SettingsWindow::generateSettingMap()
         }
     };
     return settingMap;
+}
+
+void SettingsWindow::generateVideoPresets()
+{
+    SettingMap videoWidgets;
+
+    videoWidgets.unite(generateSettingMap(ui->generalTab));
+    videoWidgets.unite(generateSettingMap(ui->ditherTab));
+    videoWidgets.unite(generateSettingMap(ui->scalingTab));
+    videoWidgets.unite(generateSettingMap(ui->debandTab));
+    videoWidgets.unite(generateSettingMap(ui->syncMode));
+    videoWidgets.remove(ui->videoPreset->objectName());
+
+    auto setWidget = [&videoWidgets](QWidget *x, auto y) {
+        videoWidgets[x->objectName()].value = QVariant(y);
+    };
+
+    // plain
+    // nothing to see here, use the defaults
+    videoPresets.append(videoWidgets);
+
+    // low
+    setWidget(ui->videoFramebuffer, 3);  // fbo=rgb16
+    setWidget(ui->scaleScaler, 18); //scale=catmull_rom
+    setWidget(ui->dscaleScaler, 20); //dscale=mitchell
+    videoPresets.append(videoWidgets);
+
+    // high
+    setWidget(ui->scaleScaler, 4);  // scale=spine36
+    setWidget(ui->scalingCorrectDownscaling, true); //correct-downscaling
+    setWidget(ui->scalingSigmoidizedUpscaling, true); //sigmoidized-upscaling
+    setWidget(ui->scalingInLinearLight, true); // linear-scaling
+    setWidget(ui->ditherDithering, true); // dither=fruit (i.e. yes)
+    videoPresets.append(videoWidgets);
+
+    // highest
+    setWidget(ui->videoUseAlpha, true);
+    setWidget(ui->scaleScaler, 13); // scale=ewa_lanczossharp
+    setWidget(ui->dscaleScaler, 15);  // dscale=ewa_lanczossoft
+    setWidget(ui->cscaleScaler, 13); // cscale=ewa_lanczossharp
+    setWidget(ui->debandEnabled, true); //deband=yes
+    videoPresets.append(videoWidgets);
+
+    // placebo
+    setWidget(ui->videoFramebuffer, 5); //fbo=rgba32f
+    setWidget(ui->ditherTemporal, true); //temporal-dither=yes
+    setWidget(ui->scalingTemporalInterpolation, true); //interpolation
+    setWidget(ui->scalingBlendSubtitles, true); //blend-subtitles
+    setWidget(ui->tscaleScaler, 11); // tscale=mitchell
+    setWidget(ui->syncMode, 1); //video-sync=display-resample
+    videoPresets.append(videoWidgets);
 }
 
 void SettingsWindow::updateLogoWidget()
@@ -688,6 +740,12 @@ void SettingsWindow::on_logoInternal_currentIndexChanged(int index)
 {
     Q_UNUSED(index);
     updateLogoWidget();
+}
+
+void SettingsWindow::on_videoPresetLoad_clicked()
+{
+    for (Setting &s : videoPresets[ui->videoPreset->currentIndex()])
+        s.sendToControl();
 }
 
 void SettingsWindow::on_screenshotFormat_currentIndexChanged(int index)

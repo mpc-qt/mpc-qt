@@ -55,7 +55,8 @@ public:
 
 private:
     void updateAcceptedSettings();
-    SettingMap generateSettingMap();
+    SettingMap generateSettingMap(QWidget *root);
+    void generateVideoPresets();
     void updateLogoWidget();
     QString selectedLogo();
     QString channelSwitcher();
@@ -211,6 +212,8 @@ private slots:
 
     void on_logoInternal_currentIndexChanged(int index);
 
+    void on_videoPresetLoad_clicked();
+
     void on_screenshotFormat_currentIndexChanged(int index);
 
     void on_jpgQuality_valueChanged(int value);
@@ -245,6 +248,7 @@ private:
     LogoWidget *logoWidget;
     SettingMap acceptedSettings;
     SettingMap defaultSettings;
+    QList<SettingMap> videoPresets;
     QVariantMap acceptedKeyMap;
     QVariantMap defaultKeyMap;
     QList<AudioDevice> audioDevices;

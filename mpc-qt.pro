@@ -15,7 +15,7 @@ QT += x11extras
 TARGET = mpc-qt
 TEMPLATE = app
 
-CONFIG += c++11
+CONFIG += c++14
 
 !win32 {
 CONFIG += link_pkgconfig

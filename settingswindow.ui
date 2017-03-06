@@ -863,11 +863,17 @@ media file played</string>
                    </widget>
                   </item>
                   <item row="0" column="1">
-                   <layout class="QHBoxLayout" name="horizontalLayout_29">
+                   <layout class="QHBoxLayout" name="horizontalLayout_29" stretch="1,1,2">
                     <item>
                      <widget class="QComboBox" name="videoFramebuffer">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
                       <property name="currentIndex">
-                       <number>3</number>
+                       <number>0</number>
                       </property>
                       <item>
                        <property name="text">
@@ -907,6 +913,19 @@ media file played</string>
                        <string>Alpha channel</string>
                       </property>
                      </widget>
+                    </item>
+                    <item>
+                     <spacer name="horizontalSpacer_5">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
                     </item>
                    </layout>
                   </item>
@@ -964,18 +983,40 @@ media file played</string>
                    </widget>
                   </item>
                   <item row="3" column="1">
-                   <layout class="QHBoxLayout" name="horizontalLayout_58">
+                   <layout class="QHBoxLayout" name="horizontalLayout_58" stretch="1,1,2">
                     <item>
-                     <widget class="QPushButton" name="videoPresetPlain">
-                      <property name="text">
-                       <string>Plain</string>
-                      </property>
+                     <widget class="QComboBox" name="videoPreset">
+                      <item>
+                       <property name="text">
+                        <string>Plain</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Low</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>High</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Highest</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Placebo</string>
+                       </property>
+                      </item>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="videoPresetHighQuality">
+                     <widget class="QPushButton" name="videoPresetLoad">
                       <property name="text">
-                       <string>High Quality</string>
+                       <string>Load</string>
                       </property>
                      </widget>
                     </item>
