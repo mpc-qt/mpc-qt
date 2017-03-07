@@ -3088,26 +3088,6 @@ media file played</string>
                       </item>
                      </layout>
                     </widget>
-                    <widget class="QWidget" name="prescalarTab">
-                     <attribute name="title">
-                      <string>Prescalar</string>
-                     </attribute>
-                     <layout class="QVBoxLayout" name="verticalLayout_35">
-                      <item>
-                       <widget class="QLabel" name="prescalarsMoved">
-                        <property name="text">
-                         <string>Prescalers have moved to mpv's user-shaders interface, and can be found at Playback/Shaders.</string>
-                        </property>
-                        <property name="alignment">
-                         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-                        </property>
-                        <property name="wordWrap">
-                         <bool>true</bool>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </widget>
                    </widget>
                   </item>
                  </layout>

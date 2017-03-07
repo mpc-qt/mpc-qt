@@ -40,9 +40,6 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"cscaleWindowValue", {SCALER_WINDOWS}},
     {"tscaleScaler", {TIME_SCALERS}},
     {"tscaleWindowValue", {SCALER_WINDOWS}},
-    {"nnedi3Neurons", {"16", "32", "64", "128"}},
-    {"nnedi3Window", {"8x4", "8x6"}},
-    {"nnedi3Upload", {"ubo", "shader"}},
     {"ccTargetPrim", {"auto", "bt.601-525", "bt.601-625", "bt.709",\
                       "bt.2020", "bt.470m", "apple", "adobe", "prophoto",\
                       "cie1931", "dvi-p3"}},
