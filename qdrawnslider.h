@@ -7,10 +7,10 @@
 // related attributes.  This is important because timestamps are usually more
 // accurate than a single second.
 
-#include <QOpenGLWidget>
+#include <QWidget>
 #include <QMouseEvent>
 
-class QDrawnSlider : public QOpenGLWidget {
+class QDrawnSlider : public QWidget {
     Q_OBJECT
 
 public:
@@ -37,8 +37,8 @@ protected:
     double valueToX(double value);
     double xToValue(double x);
 
-    void paintGL();
-    void resizeGL(int w, int h);
+    void paintEvent(QPaintEvent *event);
+    void resizeEvent(QResizeEvent *event);
 
     QRectF drawnArea;
     QRectF grooveArea;
@@ -80,7 +80,7 @@ signals:
     void hoverValue(double value, QString text, double x);
 
 protected:
-    void resizeGL(int w, int h);
+    void resizeEvent(QResizeEvent *event);
     void drawGroove(QPainter *p);
     void drawHandle(QPainter *p, double x);
     void enterEvent(QEvent *event);

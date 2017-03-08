@@ -1,5 +1,7 @@
 // A simple(?) set of sliders related to controlling multimedia players.
 #include <QPainter>
+#include <QOpenGLContext>
+#include <QTimer>
 #include <cmath>
 #include "qdrawnslider.h"
 
@@ -18,18 +20,13 @@ static void dr(QPainter *p, QRectF r) {
 
 
 QDrawnSlider::QDrawnSlider(QWidget *parent, QSize handle, QSize margin) :
-    QOpenGLWidget(parent)
+    QWidget(parent)
 {
     setFocusPolicy(Qt::NoFocus);
     setMouseTracking(true);
     setSliderGeometry(handle.width(), handle.height(),
                       margin.width(), margin.height());
     isDragging = false;
-
-    // Request multisampling surface for subpixel fuzzing
-    QSurfaceFormat fmt = QSurfaceFormat::defaultFormat();
-    fmt.setSamples(4);
-    this->setFormat(fmt);
 }
 
 void QDrawnSlider::setSliderGeometry(int handleWidth, int handleHeight,
@@ -65,7 +62,7 @@ double QDrawnSlider::xToValue(double x)
     return qBound(val, minimum(), maximum());
 }
 
-void QDrawnSlider::paintGL()
+void QDrawnSlider::paintEvent(QPaintEvent *event)
 {
     QPalette pal;
     pal = reinterpret_cast<QWidget*>(parentWidget())->palette();
@@ -87,7 +84,7 @@ void QDrawnSlider::paintGL()
         drawHandle(&p, isDragging ? xPosition : valueToX(value()));
 }
 
-void QDrawnSlider::resizeGL(int w, int h)
+void QDrawnSlider::resizeEvent(QResizeEvent *event)
 {
     /*
         MEDIA SLIDER CASE
@@ -154,7 +151,7 @@ height  |         +          ----    hH
     these relate to where the middle of the handle is.
     */
 
-    grooveArea = QRectF(0, 0, w, h);
+    grooveArea = QRectF(0, 0, width(), height());
     drawnArea = grooveArea;
     grooveArea.adjust(marginX, marginY, -marginX, -marginY);
     sliderArea = grooveArea;
@@ -219,9 +216,9 @@ void QMediaSlider::setTick(double value, QString text)
     ticks.insert(value, text);
 }
 
-void QMediaSlider::resizeGL(int w, int h)
+void QMediaSlider::resizeEvent(QResizeEvent *event)
 {
-    QDrawnSlider::resizeGL(w, h);
+    QDrawnSlider::resizeEvent(event);
     updateLoopArea();
 }
 

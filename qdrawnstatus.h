@@ -1,9 +1,9 @@
 #ifndef QDRAWNSTATUS_H
 #define QDRAWNSTATUS_H
 
-#include <QOpenGLWidget>
+#include <QWidget>
 
-class QStatusTime : public QOpenGLWidget
+class QStatusTime : public QWidget
 {
     Q_OBJECT
 public:
@@ -13,7 +13,7 @@ public:
     void setTime(double time);
 
 protected:
-    void paintGL();
+    void paintEvent(QPaintEvent *event);
 
 private:
     double currentTime;

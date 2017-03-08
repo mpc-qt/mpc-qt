@@ -1,8 +1,9 @@
 #include <QPainter>
+#include <QTimer>
 #include "helpers.h"
 #include "qdrawnstatus.h"
 
-QStatusTime::QStatusTime(QWidget *parent) : QOpenGLWidget(parent),
+QStatusTime::QStatusTime(QWidget *parent) : QWidget(parent),
     currentTime(-1)
 {
     setTime(0);
@@ -24,8 +25,9 @@ void QStatusTime::setTime(double time)
     update();
 }
 
-void QStatusTime::paintGL()
+void QStatusTime::paintEvent(QPaintEvent *event)
 {
+    Q_UNUSED(event);
     QPainter p(this);
     QColor bgColor = parentWidget()->palette().color(QPalette::Active, QPalette::Window);
     QColor txColor = parentWidget()->palette().color(QPalette::Active, QPalette::WindowText);
