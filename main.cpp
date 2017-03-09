@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 
 Flow::Flow(QObject *owner) :
     QObject(owner), server(NULL), mpvServer(NULL), mainWindow(NULL),
-    playbackManager(NULL), settingsWindow(NULL), startFullscreen(false)
+    playbackManager(NULL), settingsWindow(NULL)
 {
 }
 
