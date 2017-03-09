@@ -23,6 +23,8 @@ namespace Helpers {
                         double timeEnd);
     QRect vmapToRect(const QVariantMap &m);
     QVariantMap rectToVmap(const QRect &r);
+    bool sizeFromString(QSize &size, const QString &text);
+    bool pointFromString(QPoint &point, const QString &text);
 
     enum TitlePrefix { PrefixFullPath, PrefixFileName, NoPrefix };
     enum ControlHiding { NeverShown, ShowWhenMoving, ShowWhenHovering,

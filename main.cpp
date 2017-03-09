@@ -9,6 +9,7 @@
 #include <QUuid>
 #include <QJsonDocument>
 #include <QTimer>
+#include <QCommandLineParser>
 #include "main.h"
 #include "storage.h"
 #include "mainwindow.h"
@@ -31,6 +32,8 @@ int main(int argc, char *argv[])
     qRegisterMetaType<uint64_t>("uint64_t");
 
     Flow f;
+    f.parseArgs();
+    f.init();
     if (!f.hasPrevious())
         return f.run();
     else
@@ -39,8 +42,58 @@ int main(int argc, char *argv[])
 
 Flow::Flow(QObject *owner) :
     QObject(owner), server(NULL), mpvServer(NULL), mainWindow(NULL),
-    playbackManager(NULL), settingsWindow(NULL)
+    playbackManager(NULL), settingsWindow(NULL), startFullscreen(false)
 {
+}
+
+Flow::~Flow()
+{
+    if (server) {
+        delete server;
+        server = NULL;
+    }
+    if (mpvServer) {
+        delete mpvServer;
+        mpvServer = NULL;
+    }
+    if (mainWindow) {
+        storage.writeVList("playlists", mainWindow->playlistWindow()->tabsToVList());
+        delete mainWindow;
+        mainWindow = NULL;
+    }
+    if (playbackManager) {
+        delete playbackManager;
+        playbackManager = NULL;
+    }
+    if (settingsWindow) {
+        delete settingsWindow;
+        settingsWindow = NULL;
+    }
+}
+
+void Flow::parseArgs()
+{
+    QCommandLineParser parser;
+    parser.setApplicationDescription(tr("Media Player Classic Qute Theater"));
+    parser.addHelpOption();
+    parser.addVersionOption();
+
+    QCommandLineOption sizeOpt("size", tr("Main window size."), "w,h");
+    QCommandLineOption posOpt("pos", tr("Main window position."), "x,y");
+
+    parser.addOption(sizeOpt);
+    parser.addOption(posOpt);
+    parser.addPositionalArgument("urls", tr("URLs to open, optionally."), "[urls...]");
+
+    parser.process(QCoreApplication::arguments());
+
+    validCustomSize = parser.isSet(sizeOpt) && Helpers::sizeFromString(customSize, parser.value(sizeOpt));
+    validCustomPos = parser.isSet(posOpt) && Helpers::pointFromString(customPos, parser.value(posOpt));
+
+    customFiles = parser.positionalArguments();
+}
+
+void Flow::init() {
     mainWindow = new MainWindow();
     playbackManager = new PlaybackManager(this);
     playbackManager->setMpvWidget(mainWindow->mpvWidget(), true);
@@ -309,31 +362,6 @@ Flow::Flow(QObject *owner) :
                                                     available));
 }
 
-Flow::~Flow()
-{
-    if (server) {
-        delete server;
-        server = NULL;
-    }
-    if (mpvServer) {
-        delete mpvServer;
-        mpvServer = NULL;
-    }
-    if (mainWindow) {
-        storage.writeVList("playlists", mainWindow->playlistWindow()->tabsToVList());
-        delete mainWindow;
-        mainWindow = NULL;
-    }
-    if (playbackManager) {
-        delete playbackManager;
-        playbackManager = NULL;
-    }
-    if (settingsWindow) {
-        delete settingsWindow;
-        settingsWindow = NULL;
-    }
-}
-
 int Flow::run()
 {
     mainWindow->playlistWindow()->tabsFromVList(storage.readVList("playlists"));
@@ -354,7 +382,7 @@ QByteArray Flow::makePayload() const
     QVariantMap map({
         {"command", QVariant("playFiles")},
         {"directory", QVariant(QDir::currentPath())},
-        {"files", QVariant(QCoreApplication::arguments().mid(1))}
+        {"files", QVariant(customFiles)}
     });
     return QJsonDocument::fromVariant(map).toJson(QJsonDocument::Compact);
 }
@@ -448,11 +476,20 @@ void Flow::restoreWindows(const QVariantMap &map)
             mainWindow->mpvHost()->restoreState(state);
             mainWindow->mpvHost()->restoreDockWidget(mainWindow->playlistWindow());
         }
-        mainWindow->setGeometry(Helpers::vmapToRect(mainWindowMap["geometry"].toMap()));
+        QRect geometry = Helpers::vmapToRect(mainWindowMap["geometry"].toMap());
+        if (validCustomPos)
+            geometry.moveTopLeft(customPos);
+        if (validCustomSize)
+            geometry.setSize(customSize);
+        mainWindow->setGeometry(geometry);
         QTimer::singleShot(50, this, [=]() { showWindows(mainWindowMap); });
         settingsWindow->setGeometry(Helpers::vmapToRect(settingsWindowMap["geometry"].toMap()));
     } else {
         mainWindow->fireUpdateSize();
+        if (validCustomPos)
+            mainWindow->move(customPos);
+        if (validCustomSize)
+            mainWindow->resize(customSize);
         showWindows(mainWindowMap);
     }
 }

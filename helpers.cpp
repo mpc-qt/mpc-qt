@@ -10,6 +10,7 @@
 #include <QWheelEvent>
 #include <QAction>
 #include <cmath>
+#include <QRegularExpression>
 #include "helpers.h"
 
 QString Helpers::toDateFormat(double time)
@@ -201,6 +202,37 @@ QVariantMap Helpers::rectToVmap(const QRect &r) {
         { "w", r.width() },
         { "h", r.height() }
     };
+}
+
+template <class T>
+bool pairFromString(T &result, const QString &text)
+{
+    QStringList parts = text.split(QRegularExpression("[^\\d]+"));
+    int a, b;
+    if (parts.length() != 2)
+        return false;
+
+    bool success;
+    a = parts.value(0).toInt(&success);
+    if (!success)
+        return false;
+
+    b = parts.value(1).toInt(&success);
+    if (!success)
+        return false;
+
+    result = T(a,b);
+    return true;
+}
+
+bool Helpers::sizeFromString(QSize &size, const QString &text)
+{
+    return pairFromString<QSize>(size, text);
+}
+
+bool Helpers::pointFromString(QPoint &point, const QString &text)
+{
+    return pairFromString<QPoint>(point, text);
 }
 
 
@@ -781,4 +813,3 @@ QList<AudioDevice> AudioDevice::listFromVList(const QVariantList &list)
         audioDevices.append(AudioDevice(v.toMap()));
     return audioDevices;
 }
-

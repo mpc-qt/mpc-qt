@@ -16,6 +16,8 @@ public:
     explicit Flow(QObject *owner = 0);
     ~Flow();
 
+    void parseArgs();
+    void init();
     int run();
     bool hasPrevious();
 
@@ -62,6 +64,12 @@ private:
     QVariantMap settings;
     QVariantMap keyMap;
     QList<TrackInfo> recentFiles;
+
+    QSize customSize;
+    QPoint customPos;
+    bool validCustomSize;
+    bool validCustomPos;
+    QStringList customFiles;
 
     bool rememberWindowGeometry;
     QString screenshotDirectory;
