@@ -837,3 +837,13 @@ void SettingsWindow::on_playbackAutoZoom_toggled(bool checked)
     ui->playbackAutoCenterWindow->setEnabled(checked);
     ui->playbackAutozoomWarn->setEnabled(checked);
 }
+
+void SettingsWindow::on_playbackMouseHideFullscreen_toggled(bool checked)
+{
+    ui->playbackMouseHideFullscreenDuration->setEnabled(checked);
+}
+
+void SettingsWindow::on_playbackMouseHideWindowed_toggled(bool checked)
+{
+    ui->playbackMouseHideWindowedDuration->setEnabled(checked);
+}
