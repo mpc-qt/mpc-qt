@@ -468,6 +468,13 @@ void SettingsWindow::sendSignals()
             emit zoomPreset(preset, factor);
     }
 
+    emit mouseHideTimeFullscreen(WIDGET_LOOKUP(ui->playbackMouseHideFullscreen).toBool()
+                                 ? WIDGET_LOOKUP(ui->playbackMouseHideFullscreenDuration).toInt()
+                                 : 0);
+    emit mouseHideTimeWindowed(WIDGET_LOOKUP(ui->playbackMouseHideWindowed).toBool()
+                               ? WIDGET_LOOKUP(ui->playbackMouseHideWindowedDuration).toInt()
+                               : 0);
+
     displaySyncMode(WIDGET_TO_TEXT(ui->syncMode));
     voOption("opengl-dumb-mode", WIDGET_LOOKUP(ui->videoDumbMode));
     voOption("opengl-fbo-format", WIDGET_TO_TEXT(ui->videoFramebuffer).split('-').value(WIDGET_LOOKUP(ui->videoUseAlpha).toBool()));

@@ -214,6 +214,10 @@ void Flow::init() {
             mainWindow, &MainWindow::setZoomPreset);
     connect(settingsWindow, &SettingsWindow::zoomCenter,
             mainWindow, &MainWindow::setZoomCenter);
+    connect(settingsWindow, &SettingsWindow::mouseHideTimeFullscreen,
+            mainWindow, &MainWindow::setMouseHideTimeFullscreen);
+    connect(settingsWindow, &SettingsWindow::mouseHideTimeWindowed,
+            mainWindow, &MainWindow::setMouseHideTimeWindowed);
     connect(settingsWindow, &SettingsWindow::hideMethod,
             mainWindow, &MainWindow::setBottomAreaBehavior);
     connect(settingsWindow, &SettingsWindow::hideTime,

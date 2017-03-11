@@ -85,7 +85,9 @@ signals:
     void speedStep(double amount);
     void zoomPreset(int which, double fitFactor);
     void zoomCenter(bool yes);
-    void travkVideoPreference(const QString &pref);
+    void mouseHideTimeFullscreen(int msec);
+    void mouseHideTimeWindowed(int msec);
+    void trackVideoPreference(const QString &pref);
     void trackAudioPreference(const QString &pref);
     void autoLoadAudio(bool yes);
     void autoLoadSubs(bool yes);

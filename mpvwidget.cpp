@@ -8,6 +8,7 @@
 #include <QThread>
 #include <QTimer>
 #include <QOpenGLContext>
+#include <QMouseEvent>
 #include <QMetaObject>
 #include <QDir>
 #include <QDebug>
@@ -82,8 +83,8 @@ static void *get_proc_address(void *ctx, const char *name) {
 }
 
 MpvWidget::MpvWidget(QWidget *parent, const QString &clientName) :
-    QOpenGLWidget(parent), drawLogo(true),
-    logo(NULL), loopImages(true)
+    QOpenGLWidget(parent), worker(NULL), ctrl(NULL), hideTimer(NULL),
+    drawLogo(true), logo(NULL), loopImages(true)
 {
     debugMessages = false;
 
@@ -94,6 +95,11 @@ MpvWidget::MpvWidget(QWidget *parent, const QString &clientName) :
     // setup controller
     ctrl = new MpvController();
     ctrl->moveToThread(worker);
+
+    // setup timer
+    hideTimer = new QTimer(this);
+    hideTimer->setSingleShot(true);
+    hideTimer->setInterval(1000);
 
     // Wire the basic mpv functions to avoid littering the codebase with
     // QMetaObject::invokeMethod.  This way the compiler will catch our
@@ -116,6 +122,12 @@ MpvWidget::MpvWidget(QWidget *parent, const QString &clientName) :
             this, &MpvWidget::ctrl_unhandledMpvEvent, Qt::QueuedConnection);
     connect(ctrl, &MpvController::videoSizeChanged,
             this, &MpvWidget::ctrl_videoSizeChanged, Qt::QueuedConnection);
+
+    // Wire up the mouse and timer-related callbacks
+    connect(this, &MpvWidget::mouseMoved,
+            this, &MpvWidget::self_mouseMoved);
+    connect(hideTimer, &QTimer::timeout,
+            this, &MpvWidget::hideTimer_timeout);
 
     // Initialize mpv
     QMetaObject::invokeMethod(ctrl, "create", Qt::BlockingQueuedConnection);
@@ -195,6 +207,10 @@ MpvWidget::~MpvWidget()
         delete logo;
         logo = NULL;
     }
+    if (hideTimer) {
+        delete hideTimer;
+        hideTimer = NULL;
+    }
     worker->deleteLater();
 }
 
@@ -212,6 +228,7 @@ void MpvWidget::fileOpen(QString filename)
 {
     emit ctrlCommand(QStringList({"loadfile", filename}));
     setPaused(false);
+    setMouseHideTime(hideTimer->interval());
 }
 
 void MpvWidget::discFilesOpen(QString path) {
@@ -249,6 +266,15 @@ void MpvWidget::seek(double amount, bool exact)
 void MpvWidget::screenshot(const QString &fileName, bool subtitles)
 {
     emit ctrlCommand(QStringList({"screenshot-to-file", fileName, subtitles ? "subtitles" : "video"}));
+}
+
+void MpvWidget::setMouseHideTime(int msec)
+{
+    hideTimer->stop();
+    hideTimer->setInterval(msec);
+    showCursor();
+    if (msec > 0)
+        hideTimer->start();
 }
 
 void MpvWidget::setLogoUrl(const QString &filename)
@@ -548,6 +574,18 @@ void MpvWidget::resizeGL(int w, int h)
     logo->resizeGL(width(),height());
 }
 
+void MpvWidget::mouseMoveEvent(QMouseEvent *event)
+{
+    emit mouseMoved(event->x(), event->y());
+    QOpenGLWidget::mouseMoveEvent(event);
+}
+
+void MpvWidget::mousePressEvent(QMouseEvent *event)
+{
+    emit mousePress(event->x(), event->y());
+    QOpenGLWidget::mousePressEvent(event);
+}
+
 void MpvWidget::setMpvPropertyVariant(QString name, QVariant value)
 {
     if (debugMessages)
@@ -560,6 +598,16 @@ void MpvWidget::setMpvOptionVariant(QString name, QVariant value)
     if (debugMessages)
         qDebug() << "option set " << name << value;
     emit ctrlSetOptionVariant(name, value);
+}
+
+void MpvWidget::showCursor()
+{
+    setCursor(Qt::ArrowCursor);
+}
+
+void MpvWidget::hideCursor()
+{
+    setCursor(Qt::BlankCursor);
 }
 
 void MpvWidget::maybeUpdate()
@@ -719,6 +767,18 @@ void MpvWidget::self_metadata(QVariantMap metadata)
 void MpvWidget::self_audioDeviceList(const QVariantList &list)
 {
     emit audioDeviceList(AudioDevice::listFromVList(list));
+}
+
+void MpvWidget::self_mouseMoved()
+{
+    if (hideTimer->interval() > 0)
+        hideTimer->start();
+    showCursor();
+}
+
+void MpvWidget::hideTimer_timeout()
+{
+    hideCursor();
 }
 
 

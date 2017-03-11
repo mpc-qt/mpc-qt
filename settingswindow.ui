@@ -144,7 +144,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>5</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -796,7 +796,7 @@ media file played</string>
              </property>
             </spacer>
            </item>
-           <item row="2" column="0" colspan="2">
+           <item row="2" column="1">
             <widget class="QGroupBox" name="groupBox_11">
              <property name="title">
               <string>Default track preference</string>
@@ -821,6 +821,67 @@ media file played</string>
               </item>
               <item row="1" column="1">
                <widget class="QLineEdit" name="playbackAudioTracks"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QGroupBox" name="groupBox_15">
+             <property name="title">
+              <string>Mouse hiding</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_15">
+              <item row="0" column="0">
+               <widget class="QCheckBox" name="playbackMouseHideFullscreen">
+                <property name="text">
+                 <string>Fullscreen</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QSpinBox" name="playbackMouseHideFullscreenDuration">
+                <property name="suffix">
+                 <string>ms</string>
+                </property>
+                <property name="minimum">
+                 <number>10</number>
+                </property>
+                <property name="maximum">
+                 <number>30000</number>
+                </property>
+                <property name="value">
+                 <number>1000</number>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QCheckBox" name="playbackMouseHideWindowed">
+                <property name="text">
+                 <string>Windowed</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QSpinBox" name="playbackMouseHideWindowedDuration">
+                <property name="suffix">
+                 <string>ms</string>
+                </property>
+                <property name="minimum">
+                 <number>10</number>
+                </property>
+                <property name="maximum">
+                 <number>30000</number>
+                </property>
+                <property name="value">
+                 <number>1000</number>
+                </property>
+               </widget>
               </item>
              </layout>
             </widget>

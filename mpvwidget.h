@@ -3,6 +3,7 @@
 
 #include <QOpenGLWidget>
 #include <QOpenGLTexture>
+#include <QTimer>
 #include <QVariant>
 #include <QSet>
 #include <functional>
@@ -33,6 +34,7 @@ public:
     void stepForward();
     void seek(double amount, bool exact);
     void screenshot(const QString &fileName, bool subtitles);
+    void setMouseHideTime(int msec);
     void setLogoUrl(const QString &filename);
     void setSubFile(QString filename);
     void setLoopImages(bool yes);
@@ -84,11 +86,15 @@ protected:
     void initializeGL();
     void paintGL();
     void resizeGL(int w, int h);
+    void mouseMoveEvent(QMouseEvent *event);
+    void mousePressEvent(QMouseEvent *event);
 
 private:
     static void ctrl_update(void *ctx);
-    void     setMpvPropertyVariant(QString name, QVariant value);
-    void     setMpvOptionVariant(QString name, QVariant value);
+    void setMpvPropertyVariant(QString name, QVariant value);
+    void setMpvOptionVariant(QString name, QVariant value);
+    void showCursor();
+    void hideCursor();
 
 signals:
     void ctrlCommand(QVariant params);
@@ -120,6 +126,9 @@ signals:
 
     void logoSizeChanged(QSize size);
 
+    void mouseMoved(int x, int y);
+    void mousePress(int x, int y);
+
 private slots:
     void maybeUpdate();
     void ctrl_mpvPropertyChanged(QString name, QVariant v);
@@ -134,13 +143,16 @@ private slots:
     void self_playbackFinished();
     void self_metadata(QVariantMap metadata);
     void self_audioDeviceList(const QVariantList &list);
+    void self_mouseMoved();
+    void hideTimer_timeout();
 
 private:
     QThread *worker;
     MpvController *ctrl;
     mpv_opengl_cb_context *glMpv;
-    QVariantMap cachedState;
+    QTimer *hideTimer;
 
+    QVariantMap cachedState;
     QSize videoSize_;
     double playTime_;
     double playLength_;

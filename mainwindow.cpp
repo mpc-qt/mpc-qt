@@ -39,6 +39,9 @@ MainWindow::MainWindow(QWidget *parent) :
     zoomMode = RegularZoom;
     zoomCenter = true;
 
+    mouseHideTimeFullscreen = 1000;
+    mouseHideTimeWindowed = 1000;
+
     noVideoSize_ = QSize(500,270);
     decorationState_ = AllDecorations;
 
@@ -295,6 +298,8 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
         showMaximized();
     else
         showNormal();
+
+    updateMouseHideTime();
 
     //REMOVEME: work around OpenGL blackness bug after fullscreen
     QTimer::singleShot(50, [this]() {
@@ -790,6 +795,13 @@ void MainWindow::updateInfostats()
     ui->infoSection->adjustSize();
 }
 
+void MainWindow::updateMouseHideTime()
+{
+    mpvw->setMouseHideTime(fullscreenMode_
+                           ? mouseHideTimeFullscreen
+                           : mouseHideTimeWindowed);
+}
+
 void MainWindow::setNoVideoSize(const QSize &size)
 {
     noVideoSize_ = size.expandedTo(QSize(500,270));
@@ -888,6 +900,18 @@ void MainWindow::setZoomPreset(int which, double fitFactor)
 void MainWindow::setZoomCenter(bool yes)
 {
     zoomCenter = yes;
+}
+
+void MainWindow::setMouseHideTimeFullscreen(int msec)
+{
+    mouseHideTimeFullscreen = msec;
+    updateMouseHideTime();
+}
+
+void MainWindow::setMouseHideTimeWindowed(int msec)
+{
+    mouseHideTimeWindowed = msec;
+    updateMouseHideTime();
 }
 
 void MainWindow::setBottomAreaBehavior(ControlHiding method)

@@ -87,6 +87,7 @@ private:
     void updatePlaybackStatus();
     void updateSize(bool first_run = false);
     void updateInfostats();
+    void updateMouseHideTime();
 
 signals:
     void applicationShouldQuit();
@@ -136,6 +137,8 @@ public slots:
     void setZoomMode(ZoomMode mode);
     void setZoomPreset(int which, double fitFactor = -1.0);
     void setZoomCenter(bool yes);
+    void setMouseHideTimeFullscreen(int msec);
+    void setMouseHideTimeWindowed(int msec);
     void setBottomAreaBehavior(Helpers::ControlHiding method);
     void setBottomAreaHideTime(int milliseconds);
     void setTimeTooltip(bool show, bool above);
@@ -269,6 +272,8 @@ private:
     double fitFactor_;
     ZoomMode zoomMode;
     bool zoomCenter;
+    int mouseHideTimeWindowed;
+    int mouseHideTimeFullscreen;
     int64_t displayDrops;
     int64_t decoderDrops;
     double audioBitrate;
