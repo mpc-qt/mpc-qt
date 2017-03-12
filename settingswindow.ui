@@ -525,7 +525,7 @@ media file played</string>
           </layout>
          </widget>
          <widget class="QWidget" name="playbackPage">
-          <layout class="QGridLayout" name="gridLayout_6">
+          <layout class="QGridLayout" name="gridLayout_6" columnstretch="1,1">
            <item row="1" column="0">
             <widget class="QGroupBox" name="groupBox_8">
              <property name="title">
@@ -580,19 +580,15 @@ media file played</string>
              <property name="title">
               <string>Output</string>
              </property>
-             <layout class="QGridLayout" name="gridLayout_4">
-              <item row="4" column="0" colspan="2">
-               <widget class="QLabel" name="playbackAutozoomWarn">
-                <property name="text">
-                 <string>Autofitting in tiling window managers requires that the window be in floating mode.</string>
-                </property>
-                <property name="wordWrap">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
+             <layout class="QFormLayout" name="formLayout_19">
+              <item row="1" column="0">
                <widget class="QCheckBox" name="playbackAutoZoom">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="text">
                  <string>Auto zoom</string>
                 </property>
@@ -601,14 +597,7 @@ media file played</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="playbackAutoFitFactorLabel">
-                <property name="text">
-                 <string>Auto fit factor</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
+              <item row="1" column="1">
                <widget class="QComboBox" name="playbackAutoZoomMethod">
                 <property name="currentIndex">
                  <number>3</number>
@@ -670,6 +659,13 @@ media file played</string>
                 </item>
                </widget>
               </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="playbackAutoFitFactorLabel">
+                <property name="text">
+                 <string>Auto fit factor</string>
+                </property>
+               </widget>
+              </item>
               <item row="2" column="1">
                <widget class="QSpinBox" name="playbackAutoFitFactor">
                 <property name="suffix">
@@ -686,7 +682,24 @@ media file played</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="0" colspan="2">
+              <item row="4" column="0" colspan="2">
+               <widget class="QLabel" name="playbackAutozoomWarn">
+                <property name="text">
+                 <string>Autofitting in tiling window managers requires that the window be in floating mode.</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="label_55">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="2">
                <widget class="QCheckBox" name="playbackAutoCenterWindow">
                 <property name="text">
                  <string>Center window when zooming</string>
@@ -830,9 +843,15 @@ media file played</string>
              <property name="title">
               <string>Mouse hiding</string>
              </property>
-             <layout class="QGridLayout" name="gridLayout_15">
+             <layout class="QGridLayout" name="gridLayout_4">
               <item row="0" column="0">
                <widget class="QCheckBox" name="playbackMouseHideFullscreen">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="text">
                  <string>Fullscreen</string>
                 </property>
@@ -843,6 +862,12 @@ media file played</string>
               </item>
               <item row="0" column="1">
                <widget class="QSpinBox" name="playbackMouseHideFullscreenDuration">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="suffix">
                  <string>ms</string>
                 </property>
@@ -859,6 +884,12 @@ media file played</string>
               </item>
               <item row="1" column="0">
                <widget class="QCheckBox" name="playbackMouseHideWindowed">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="text">
                  <string>Windowed</string>
                 </property>
@@ -869,6 +900,12 @@ media file played</string>
               </item>
               <item row="1" column="1">
                <widget class="QSpinBox" name="playbackMouseHideWindowedDuration">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="suffix">
                  <string>ms</string>
                 </property>
@@ -3720,44 +3757,48 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="audioTabs">
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>6</number>
                 </property>
                 <widget class="QWidget" name="allTab">
                  <attribute name="title">
                   <string>All</string>
                  </attribute>
-                 <layout class="QGridLayout" name="gridLayout_11">
-                  <item row="0" column="0">
-                   <widget class="QCheckBox" name="audioStreamSilence">
-                    <property name="text">
-                     <string>Stream silence (HDMI fixup)</string>
-                    </property>
-                   </widget>
+                 <layout class="QVBoxLayout" name="verticalLayout_35">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_56">
+                    <item>
+                     <widget class="QCheckBox" name="audioStreamSilence">
+                      <property name="text">
+                       <string>Stream silence (HDMI fixup)</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QDoubleSpinBox" name="audioWaitTime">
+                      <property name="suffix">
+                       <string> seconds</string>
+                      </property>
+                      <property name="maximum">
+                       <double>9.990000000000000</double>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="horizontalSpacer_4">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>239</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
                   </item>
-                  <item row="0" column="1">
-                   <widget class="QDoubleSpinBox" name="audioWaitTime">
-                    <property name="suffix">
-                     <string> seconds</string>
-                    </property>
-                    <property name="maximum">
-                     <double>9.990000000000000</double>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="2">
-                   <spacer name="horizontalSpacer_4">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>239</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item row="1" column="0">
+                  <item>
                    <widget class="QCheckBox" name="audioPitchCorrection">
                     <property name="text">
                      <string>Pitch correction</string>
@@ -3767,14 +3808,14 @@ media file played</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="0">
+                  <item>
                    <widget class="QCheckBox" name="audioExclusiveMode">
                     <property name="text">
                      <string>Exclusive mode</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="3" column="0">
+                  <item>
                    <widget class="QCheckBox" name="audioNormalizeDownmix">
                     <property name="text">
                      <string>Normalize downmix</string>
@@ -3831,22 +3872,22 @@ media file played</string>
                  <attribute name="title">
                   <string>Alsa</string>
                  </attribute>
-                 <layout class="QGridLayout" name="gridLayout_12">
-                  <item row="0" column="0">
+                 <layout class="QVBoxLayout" name="verticalLayout_47">
+                  <item>
                    <widget class="QCheckBox" name="alsaResample">
                     <property name="text">
                      <string>Resample (may introduce latency)</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="0">
+                  <item>
                    <widget class="QCheckBox" name="alsaIgnoreChannelMap">
                     <property name="text">
                      <string>Ignore channel map (for specific alsa setups)</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="0">
+                  <item>
                    <spacer name="verticalSpacer_16">
                     <property name="orientation">
                      <enum>Qt::Vertical</enum>
@@ -3955,7 +3996,7 @@ media file played</string>
                  <attribute name="title">
                   <string>CoreAudio</string>
                  </attribute>
-                 <layout class="QGridLayout" name="gridLayout_13">
+                 <layout class="QFormLayout" name="formLayout_23">
                   <item row="0" column="0">
                    <widget class="QLabel" name="label_50">
                     <property name="text">
@@ -3972,7 +4013,7 @@ media file played</string>
                  <attribute name="title">
                   <string>Wasapi</string>
                  </attribute>
-                 <layout class="QGridLayout" name="gridLayout_14">
+                 <layout class="QFormLayout" name="formLayout_31">
                   <item row="0" column="0">
                    <widget class="QLabel" name="label_51">
                     <property name="text">
