@@ -244,6 +244,10 @@ private slots:
 
     void on_playbackAutoZoom_toggled(bool checked);
 
+    void on_playbackMouseHideFullscreen_toggled(bool checked);
+
+    void on_playbackMouseHideWindowed_toggled(bool checked);
+
 private:
     Ui::SettingsWindow *ui;
     QActionEditor *actionEditor;
