@@ -44,6 +44,7 @@ Flow::Flow(QObject *owner) :
     QObject(owner), server(NULL), mpvServer(NULL), mainWindow(NULL),
     playbackManager(NULL), settingsWindow(NULL)
 {
+    screenSaver.uninhibitSaver();
 }
 
 Flow::~Flow()
@@ -106,6 +107,12 @@ void Flow::init() {
     if (hasPrevious_)
         return;
     mpvServer = new MpvServer(playbackManager, mainWindow->mpvWidget(), this);
+
+    inhibitScreensaver = false;
+    QSet<QScreenSaver::Ability> desiredPowers;
+    desiredPowers << QScreenSaver::Inhibit << QScreenSaver::Uninhibit;
+    manipulateScreensaver = screenSaver.abilities().contains(desiredPowers);
+    settingsWindow->setScreensaverDisablingEnabled(manipulateScreensaver);
 
     // mainwindow -> manager
     connect(mainWindow, &MainWindow::severalFilesOpened,
@@ -305,12 +312,16 @@ void Flow::init() {
     // manager -> this
     connect(playbackManager, &PlaybackManager::nowPlayingChanged,
             this, &Flow::manager_nowPlayingChanged);
+    connect(playbackManager, &PlaybackManager::stateChanged,
+            this, &Flow::manager_stateChanged);
 
     // settings -> this
     connect(settingsWindow, &SettingsWindow::settingsData,
             this, &Flow::settingswindow_settingsData);
     connect(settingsWindow, &SettingsWindow::keyMapData,
             this, &Flow::settingswindow_keymapData);
+    connect(settingsWindow, &SettingsWindow::inhibitScreensaver,
+            this, &Flow::settingswindow_inhibitScreensaver);
     connect(settingsWindow, &SettingsWindow::rememberWindowGeometry,
             this, &Flow::settingswindow_rememberWindowGeometry);
     connect(settingsWindow, &SettingsWindow::screenshotDirectory,
@@ -592,9 +603,27 @@ void Flow::manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid)
     emit recentFilesChanged(recentFiles);
 }
 
+void Flow::manager_stateChanged(PlaybackManager::PlaybackState state)
+{
+    if (!manipulateScreensaver)
+        return;
+
+    if (!inhibitScreensaver || state == PlaybackManager::StoppedState) {
+        screenSaver.uninhibitSaver();
+        return;
+    }
+    screenSaver.inhibitSaver(tr("Playing Media"));
+}
+
 void Flow::settingswindow_settingsData(const QVariantMap &settings)
 {
     this->settings = settings;
+}
+
+void Flow::settingswindow_inhibitScreensaver(bool yes)
+{
+    this->inhibitScreensaver = yes;
+    manager_stateChanged(playbackManager->playbackState());
 }
 
 void Flow::settingswindow_rememberWindowGeometry(bool yes)

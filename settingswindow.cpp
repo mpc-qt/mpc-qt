@@ -439,6 +439,7 @@ void SettingsWindow::sendSignals()
     emit showOsd(WIDGET_LOOKUP(ui->playerOSD).toBool());
     emit limitProportions(WIDGET_LOOKUP(ui->playerDisableOpenDisc).toBool());
     emit disableOpenDiscMenu(WIDGET_LOOKUP(ui->playerDisableOpenDisc).toBool());
+    emit inhibitScreensaver(WIDGET_LOOKUP(ui->playerDisableScreensaver).toBool());
     emit titleBarFormat(WIDGET_LOOKUP(ui->playerTitleDisplayFullPath).toBool() ? Helpers::PrefixFullPath
                         : WIDGET_LOOKUP(ui->playerTitleFileNameOnly).toBool() ? Helpers::PrefixFileName : Helpers::NoPrefix);
     emit titleUseMediaTitle(WIDGET_LOOKUP(ui->playerTitleReplaceName).toBool());
@@ -644,6 +645,11 @@ void SettingsWindow::sendSignals()
     timeTooltip(WIDGET_LOOKUP(ui->tweaksTimeTooltip).toBool(),
                 WIDGET_LOOKUP(ui->tweaksTimeTooltipLocation).toInt() == 0);
     mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
+}
+
+void SettingsWindow::setScreensaverDisablingEnabled(bool enabled)
+{
+    ui->playerDisableScreensaver->setEnabled(enabled);
 }
 
 void SettingsWindow::setServerName(const QString &name)

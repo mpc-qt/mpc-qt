@@ -8,25 +8,28 @@ QT       += core gui network widgets
 
 QMAKE_CXXFLAGS += -Wall
 
-!win32 {
-QT += x11extras
-}
-
 TARGET = mpc-qt
 TEMPLATE = app
 
 CONFIG += c++14
 
-!win32 {
-CONFIG += link_pkgconfig
-PKGCONFIG += mpv
-}
+unix:QT += x11extras dbus
 
-win32 {
-LIBS += -L$$PWD/mpv-dev/lib/ -llibmpv
-INCLUDEPATH += $$PWD/mpv-dev/include
-DEPENDPATH += $$PWD/mpv-dev
-}
+!win32:CONFIG += link_pkgconfig
+!win32:PKGCONFIG += mpv
+
+win32:LIBS += -L$$PWD/mpv-dev/lib/ -llibmpv
+win32:INCLUDEPATH += $$PWD/mpv-dev/include
+win32:DEPENDPATH += $$PWD/mpv-dev
+
+unix:SOURCES += platform/unix_qscreensaver.cpp
+unix:HEADERS += platform/unix_qscreensaver.h
+
+win32:SOURCES += platform/win_qscreensaver.cpp
+win32:HEADERS += platform/win_qscreensaver.h
+
+macx:SOURCES += platform/mac_qscreensaver.cpp
+macx:HEADERS += platform/mac_qscreensaver.h
 
 SOURCES += main.cpp\
     mpvwidget.cpp \
@@ -42,7 +45,9 @@ SOURCES += main.cpp\
     qactioneditor.cpp \
     qdrawnstatus.cpp \
     ipc.cpp \
-    openfiledialog.cpp
+    openfiledialog.cpp \
+    platform/qabstractscreensaver.cpp \
+    QScreenSaver.cpp
 
 HEADERS  += \
     mpvwidget.h \
@@ -59,7 +64,10 @@ HEADERS  += \
     qactioneditor.h \
     qdrawnstatus.h \
     ipc.h \
-    openfiledialog.h
+    openfiledialog.h \
+    platform/qabstractscreensaver.h \
+    QScreenSaver.h
+
 
 FORMS    += \
     mainwindow.ui \

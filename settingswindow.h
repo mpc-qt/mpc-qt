@@ -71,6 +71,7 @@ signals:
     void showOsd(bool yes);
     void limitProportions(bool yes);
     void disableOpenDiscMenu(bool yes);
+    void inhibitScreensaver(bool yes);
     void titleBarFormat(Helpers::TitlePrefix format);
     void titleUseMediaTitle(bool yes);
     void rememberHistory(bool yes);
@@ -192,6 +193,7 @@ public slots:
     void setAudioDevices(const QList<AudioDevice> &devices);
     void sendSignals();
 
+    void setScreensaverDisablingEnabled(bool enabled);
     void setServerName(const QString &name);
 
     void setVolume(int level);
