@@ -918,7 +918,8 @@ QVariant MpvController::command(const QVariant &params)
     if (value < 0)
         return QVariant::fromValue(MpvErrorCode(value));
     mpv::qt::node_autofree f(&res);
-    return mpv::qt::node_to_variant(&res);
+    QVariant v = mpv::qt::node_to_variant(&res);
+    return v;
 }
 
 int MpvController::setPropertyVariant(const QString &name, const QVariant &value)
@@ -933,7 +934,8 @@ QVariant MpvController::getPropertyVariant(const QString &name)
     mpv::qt::node_autofree f(&node);
     if (r < 0)
         return QVariant::fromValue<MpvErrorCode>(MpvErrorCode(r));
-    return mpv::qt::node_to_variant(&node);
+    QVariant v = mpv::qt::node_to_variant(&node);
+    return v;
 }
 
 int MpvController::setPropertyString(const QString &name, const QString &value)
