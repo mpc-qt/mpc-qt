@@ -379,6 +379,8 @@ void MainWindow::setupPlaylist()
     mpvHost_->addDockWidget(Qt::RightDockWidgetArea, playlistWindow_);
     connect(playlistWindow_, &PlaylistWindow::windowDocked,
             this, &MainWindow::playlistWindow_windowDocked);
+    connect(playlistWindow_, &PlaylistWindow::currentPlaylistHasItems,
+            ui->play, &QPushButton::setEnabled);
     QList<QWidget *> playlistWidgets = playlistWindow_->findChildren<QWidget *>();
     foreach(QWidget *w, playlistWidgets)
         w->setMouseTracking(true);
@@ -537,7 +539,6 @@ void MainWindow::setUiEnabledState(bool enabled)
         positionSlider_->setLoopB(-1);
     }
 
-    ui->play->setEnabled(enabled);
     ui->pause->setEnabled(enabled);
     ui->stop->setEnabled(enabled);
     ui->stepBackward->setEnabled(enabled);

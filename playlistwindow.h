@@ -50,12 +50,14 @@ private:
 
     QDrawnPlaylist *currentPlaylistWidget();
     void updateCurrentPlaylist();
+    void updatePlaylistHasItems();
     void setPlaylistFilters(QString filterText);
     void addNewTab(QUuid playlist, QString title);
     void addQuickQueue();
 
 signals:
     void windowDocked();
+    void currentPlaylistHasItems(bool yes);
     void itemDesired(QUuid playlistUuid, QUuid itemUuid);
     void importPlaylist(QString fname);
     void exportPlaylist(QString fname, QStringList items);
@@ -99,8 +101,9 @@ public slots:
 
 private slots:
     void self_visibilityChanged();
-
     void self_dockLocationChanged(Qt::DockWidgetArea area);
+    void playlist_removeItemRequested();
+    void playlist_removeAllRequested();
 
     void on_tabWidget_tabCloseRequested(int index);
 

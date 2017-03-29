@@ -391,17 +391,16 @@ void QDrawnPlaylist::self_customContextMenuRequested(const QPoint &p)
     QMenu *m = new QMenu(this);
     QAction *a = new QAction(m);
     a->setText(tr("Remove"));
-    connect(a, &QAction::triggered, [=]() {
-        traverseSelected([this](const QUuid &item) { removeItem(item); });
-    });
+    connect(a, &QAction::triggered,
+            this, &QDrawnPlaylist::removeItemRequested);
     m->addAction(a);
     a = new QAction(m);
     a->setText(tr("Remove All"));
-    connect(a, &QAction::triggered, this, &QDrawnPlaylist::removeAll);
+    connect(a, &QAction::triggered,
+            this, &QDrawnPlaylist::removeAllRequested);
     m->addAction(a);
-    connect(m, &QMenu::aboutToHide, [=]() {
-        m->deleteLater();
-    });
+    connect(m, &QMenu::aboutToHide,
+            m, &QObject::deleteLater);
     m->exec(mapToGlobal(p));
 }
 

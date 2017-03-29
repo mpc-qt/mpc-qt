@@ -46,6 +46,7 @@ void PlaylistWindow::clearPlaylist(QUuid what)
 {
     if (widgets.contains(what))
         widgets[what]->removeAll();
+    updatePlaylistHasItems();
 }
 
 QPair<QUuid, QUuid> PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
@@ -57,6 +58,7 @@ QPair<QUuid, QUuid> PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
         if (info.second.isNull())
             info = itemInfo;
     }
+    updatePlaylistHasItems();
     return info;
 }
 
@@ -142,6 +144,8 @@ void PlaylistWindow::replaceItem(QUuid list, QUuid item, const QList<QUrl> &urls
     auto qdp = currentPlaylistWidget();
     if (qdp->uuid() == list)
         qdp->viewport()->update();
+
+    updatePlaylistHasItems();
 }
 
 int PlaylistWindow::extraPlayTimes(QUuid list, QUuid item)
@@ -182,13 +186,19 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
         auto qdp = new QDrawnPlaylist();
         qdp->setDisplayParser(&displayParser);
         qdp->fromVMap(v.toMap());
-        connect(qdp, &QDrawnPlaylist::itemDesired, this, &PlaylistWindow::itemDesired);
+        connect(qdp, &QDrawnPlaylist::itemDesired,
+                this, &PlaylistWindow::itemDesired);
+        connect(qdp, &QDrawnPlaylist::removeItemRequested,
+                this, &PlaylistWindow::playlist_removeItemRequested);
+        connect(qdp, &QDrawnPlaylist::removeAllRequested,
+                this, &PlaylistWindow::playlist_removeAllRequested);
         auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
         ui->tabWidget->addTab(qdp, pl->title());
         widgets.insert(pl->uuid(), qdp);
     }
     if (widgets.count() < 1)
         addNewTab(QUuid(), tr("Quick Playlist"));
+    updatePlaylistHasItems();
 }
 
 bool PlaylistWindow::eventFilter(QObject *obj, QEvent *event)
@@ -265,6 +275,15 @@ void PlaylistWindow::updateCurrentPlaylist()
     currentPlaylist = qdp->uuid();
     setTabOrder(ui->tabWidget->focusProxy(), qdp);
     setTabOrder(qdp, ui->searchField);
+    updatePlaylistHasItems();
+}
+
+void PlaylistWindow::updatePlaylistHasItems()
+{
+    auto qdp = currentPlaylistWidget();
+    if (!qdp)
+        return;
+    emit currentPlaylistHasItems(qdp->count() > 0);
 }
 
 void PlaylistWindow::setPlaylistFilters(QString filterText)
@@ -281,6 +300,10 @@ void PlaylistWindow::addNewTab(QUuid playlist, QString title)
     qdp->setDisplayParser(&displayParser);
     qdp->setUuid(playlist);
     connect(qdp, &QDrawnPlaylist::itemDesired, this, &PlaylistWindow::itemDesired);
+    connect(qdp, &QDrawnPlaylist::removeItemRequested,
+            this, &PlaylistWindow::playlist_removeItemRequested);
+    connect(qdp, &QDrawnPlaylist::removeAllRequested,
+            this, &PlaylistWindow::playlist_removeAllRequested);
     widgets.insert(playlist, qdp);
     ui->tabWidget->addTab(qdp, title);
     ui->tabWidget->setCurrentWidget(qdp);
@@ -579,6 +602,26 @@ void PlaylistWindow::self_dockLocationChanged(Qt::DockWidgetArea area)
 {
     if (area != Qt::NoDockWidgetArea)
         emit windowDocked();
+}
+
+void PlaylistWindow::playlist_removeItemRequested()
+{
+    auto qdp = currentPlaylistWidget();
+    if (!qdp)
+        return;
+
+    qdp->traverseSelected([qdp](QUuid uuid) { qdp->removeItem(uuid); });
+    updatePlaylistHasItems();
+}
+
+void PlaylistWindow::playlist_removeAllRequested()
+{
+    auto qdp = currentPlaylistWidget();
+    if (!qdp)
+        return;
+
+    qdp->removeAll();
+    updatePlaylistHasItems();
 }
 
 void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
