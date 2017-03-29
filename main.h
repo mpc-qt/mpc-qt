@@ -8,7 +8,7 @@
 #include "manager.h"
 #include "storage.h"
 #include "settingswindow.h"
-#include "QScreenSaver.h"
+#include "qscreensaver.h"
 
 // a simple class to control program exection and own application objects
 class Flow : public QObject {
