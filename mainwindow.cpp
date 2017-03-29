@@ -1601,8 +1601,10 @@ void MainWindow::position_hoverValue(double value, QString text, double x)
 
 void MainWindow::on_play_clicked()
 {
-    if (!isPlaying)
+    if (!isPlaying) {
+        emit playCurrentItemRequested();
         return;
+    }
     if (isPaused) {
         emit unpaused();
         isPaused = false;
