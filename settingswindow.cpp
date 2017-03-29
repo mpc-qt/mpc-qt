@@ -588,6 +588,7 @@ void SettingsWindow::sendSignals()
     aoOption("audio-pitch-correction", WIDGET_LOOKUP(ui->audioPitchCorrection).toBool());
     aoOption("audio-exclusive", WIDGET_LOOKUP(ui->audioExclusiveMode).toBool());
     aoOption("audio-normalize-downmix", WIDGET_LOOKUP(ui->audioNormalizeDownmix).toBool());
+    aoOption("audio-spdif", WIDGET_LOOKUP(ui->audioSpdif).toBool() ? "dts-hd,dts,ac3" : "");
     aoOption("pulse-buffer", WIDGET_LOOKUP(ui->pulseBuffer).toInt());
     aoOption("pulse-latency-hacks", WIDGET_LOOKUP(ui->pulseLatency).toBool());
     aoOption("alsa-resample", WIDGET_LOOKUP(ui->alsaResample).toBool());

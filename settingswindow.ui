@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>785</width>
-    <height>768</height>
+    <height>777</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -144,7 +144,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>0</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -265,7 +265,7 @@ media file played</string>
               <item>
                <widget class="QRadioButton" name="playerTitleFileNameOnly">
                 <property name="text">
-                 <string>&amp;File name only</string>
+                 <string>File &amp;name only</string>
                 </property>
                 <property name="checked">
                  <bool>true</bool>
@@ -3773,7 +3773,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="audioTabs">
                 <property name="currentIndex">
-                 <number>6</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="allTab">
                  <attribute name="title">
@@ -3835,6 +3835,13 @@ media file played</string>
                    <widget class="QCheckBox" name="audioNormalizeDownmix">
                     <property name="text">
                      <string>Normalize downmix</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="audioSpdif">
+                    <property name="text">
+                     <string>Use S/PDIF when available</string>
                     </property>
                    </widget>
                   </item>
