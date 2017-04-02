@@ -55,6 +55,19 @@ public:
     void setVolume(int64_t volume);
     bool eofReached();
     void setSubsAreGray(bool yes);
+    void setSubsFont(const QString &family);
+    void setSubsBold(bool yes);
+    void setSubsItalic(bool yes);
+    void setSubsSize(int size);
+    void setSubsBorderSize(int size);
+    void setSubsShadowOffset(int size);
+    void setSubsColor(const QColor &color);
+    void setSubsBorderColor(const QColor &border);
+    void setSubsShadowColor(const QColor &shadow);
+    void setSubsMarginX(int x);
+    void setSubsMarginY(int y);
+    void setSubsWeight(int x, int y);      // -1:top/left 0:center 1:bottom/right
+
     void setFramedropMode(QString mode);
     void setDecoderDropMode(QString mode);
     void setDisplaySyncMode(QString mode);

@@ -2,6 +2,7 @@
 #include <QStandardPaths>
 #include <QFileInfo>
 #include <QFileDialog>
+#include <QColorDialog>
 #include <QProcess>
 #include <QProcessEnvironment>
 #include "settingswindow.h"
@@ -258,11 +259,29 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
 
     int pageTreeWidth = ui->pageTree->fontMetrics().width(tr("MMMMMMMMMMMMM"));
     ui->pageTree->setMaximumWidth(pageTreeWidth);
+
+    setupColorPickers();
 }
 
 SettingsWindow::~SettingsWindow()
 {
     delete ui;
+}
+
+void SettingsWindow::setupColorPickers()
+{
+    struct ValuePick { QLineEdit *value; QPushButton *pick; };
+    QList<ValuePick> colors {
+        { ui->subsColorValue, ui->subsColorPick },
+        { ui->subsBorderColorValue, ui->subsBorderColorPick },
+        { ui->subsShadowColorValue, ui->subsShadowColorPick }
+    };
+    for (const ValuePick c : colors) {
+        connect(c.pick, &QPushButton::clicked,
+                this, [this,c]() { colorPick_clicked(c.value); });
+        connect(c.value, &QLineEdit::textChanged,
+                this, [this,c]() { colorPick_changed(c.value, c.pick); });
+    }
 }
 
 void SettingsWindow::updateAcceptedSettings() {
@@ -626,6 +645,38 @@ void SettingsWindow::sendSignals()
     playlistFormat(WIDGET_PLACEHOLD_LOOKUP(ui->playlistFormat));
     subsAreGray(WIDGET_LOOKUP(ui->subtitlesForceGrayscale).toBool());
 
+    subsFont(WIDGET_LOOKUP(ui->fontComboBox).toString());
+    subsBold(WIDGET_LOOKUP(ui->fontBold).toBool());
+    subsItalic(WIDGET_LOOKUP(ui->fontItalic).toBool());
+    subsSize(WIDGET_LOOKUP(ui->fontSize).toInt());
+    subsBorderSize(WIDGET_LOOKUP(ui->borderSize).toInt());
+    subsShadowOffset(WIDGET_LOOKUP(ui->borderShadowOffset).toInt());
+    {
+        struct AlignData { QRadioButton *btn; int x; int y; };
+        QList<AlignData> alignments {
+            { ui->subsAlignmentTopLeft, -1, -1 },
+            { ui->subsAlignmentTop, 0, -1 },
+            { ui->subsAlignmentTopRight, 1, -1 },
+            { ui->subsAlignmentLeft, -1, 0 },
+            { ui->subsAlignmentCenter, 0, 0 },
+            { ui->subsAlignmentRight, 1, 0 },
+            { ui->subsAlignmentBottomLeft, -1, 1 },
+            { ui->subsAlignmentBottom, 0, 1 },
+            { ui->subsAlignmentBottomRight, 1, 1 }
+        };
+        for (const AlignData &a : alignments) {
+            if (a.btn->isChecked()) {
+                subsWeight(a.x, a.y);
+                break;
+            }
+        }
+    }
+    subsMarginX(WIDGET_LOOKUP(ui->subsMarginX).toInt());
+    subsMarginY(WIDGET_LOOKUP(ui->subsMarginY).toInt());
+    subsColor(QString("#%1").arg(WIDGET_LOOKUP(ui->subsColorValue).toString()));
+    subsBorderColor(QString("#%1").arg(WIDGET_LOOKUP(ui->subsBorderColorValue).toString()));
+    subsShadowColor(QString("#%1").arg(WIDGET_LOOKUP(ui->subsShadowColorValue).toString()));
+
     screenshotDirectory(
                 WIDGET_LOOKUP(ui->screenshotDirectorySet).toBool() ?
                 QFileInfo(WIDGET_PLACEHOLD_LOOKUP(ui->screenshotDirectoryValue)).absoluteFilePath() : QString());
@@ -679,6 +730,22 @@ void SettingsWindow::setZoomPreset(int which)
     ui->playbackAutoZoomMethod->setCurrentIndex(zoomMethod);
 
     emit settingsData(acceptedSettings.toVMap());
+}
+
+void SettingsWindow::colorPick_clicked(QLineEdit *colorValue)
+{
+    QColor initial = QString("#%1").arg(colorValue->text());
+    QColor selected = QColorDialog::getColor(initial, this);
+    if (!selected.isValid())
+        return;
+    QString asText = selected.name().mid(1);
+    colorValue->setText(asText);
+    colorValue->setFocus();
+}
+
+void SettingsWindow::colorPick_changed(QLineEdit *colorValue, QPushButton *colorPick)
+{
+    colorPick->setStyleSheet(QString("background: #%1").arg(colorValue->text()));
 }
 
 void SettingsWindow::on_pageTree_itemSelectionChanged()

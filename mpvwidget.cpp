@@ -398,6 +398,86 @@ void MpvWidget::setSubsAreGray(bool yes)
     setCachedMpvOption("sub-gray", yes);
 }
 
+void MpvWidget::setSubsFont(const QString &family)
+{
+    setCachedMpvOption("sub-font", family);
+}
+
+void MpvWidget::setSubsBold(bool yes)
+{
+    setCachedMpvOption("sub-bold", yes);
+}
+
+void MpvWidget::setSubsItalic(bool yes)
+{
+    setCachedMpvOption("sub-italic", yes);
+
+}
+
+void MpvWidget::setSubsSize(int size)
+{
+    setCachedMpvOption("sub-font-size", size);
+
+}
+
+void MpvWidget::setSubsBorderSize(int size)
+{
+    setCachedMpvOption("sub-border-size", size);
+
+}
+
+void MpvWidget::setSubsShadowOffset(int size)
+{
+    setCachedMpvOption("sub-shadow-offset", size);
+
+}
+
+void MpvWidget::setSubsColor(const QColor &color)
+{
+    setCachedMpvOption("sub-color", color.name());
+
+}
+
+void MpvWidget::setSubsBorderColor(const QColor &border)
+{
+    setCachedMpvOption("sub-border-color", border.name());
+
+}
+
+void MpvWidget::setSubsShadowColor(const QColor &shadow)
+{
+    setCachedMpvOption("sub-shadow-color", shadow.name());
+
+}
+
+void MpvWidget::setSubsMarginX(int x)
+{
+    setCachedMpvOption("sub-margin-x", x);
+
+}
+
+void MpvWidget::setSubsMarginY(int y)
+{
+    setCachedMpvOption("sub-margin-y", y);
+
+}
+
+void MpvWidget::setSubsWeight(int x, int y)
+{
+    static QMap<int,const char*> xs {
+        { -1, "left" },
+        { 0, "center" },
+        { 1, "right" }
+    };
+    static QMap<int,const char*> ys {
+        { -1, "top" },
+        { 0, "center" },
+        { 1, "bottom" }
+    };
+    setCachedMpvOption("sub-align-x", xs.value(x, ""));
+    setCachedMpvOption("sub-align-y", ys.value(y, ""));
+}
+
 void MpvWidget::setFramedropMode(QString mode)
 {
     setCachedMpvOption("framedrop", mode);

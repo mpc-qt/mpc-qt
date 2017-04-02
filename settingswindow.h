@@ -12,6 +12,7 @@
 
 class QActionEditor;
 class LogoWidget;
+class QPushButton;
 
 class Setting {
 public:
@@ -54,6 +55,7 @@ public:
     ~SettingsWindow();
 
 private:
+    void setupColorPickers();
     void updateAcceptedSettings();
     SettingMap generateSettingMap(QWidget *root);
     void generateVideoPresets();
@@ -133,7 +135,7 @@ signals:
     void subsItalic(bool yes);
     void subsSize(int size);
     void subsBorderSize(int size);
-    void subsShadowSize(int size);
+    void subsShadowOffset(int size);
     void subsColor(const QColor &color);
     void subsBorderColor(const QColor &border);
     void subsShadowColor(const QColor &shadow);
@@ -200,6 +202,9 @@ public slots:
     void setZoomPreset(int which);
 
 private slots:
+    void colorPick_clicked(QLineEdit *colorValue);
+    void colorPick_changed(QLineEdit *colorValue, QPushButton *colorPick);
+
     void on_pageTree_itemSelectionChanged();
 
     void on_buttonBox_clicked(QAbstractButton *button);

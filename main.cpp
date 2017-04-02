@@ -260,6 +260,30 @@ void Flow::init() {
             mpvw, &MpvWidget::setLoopImages);
     connect(settingsWindow, &SettingsWindow::subsAreGray,
             mpvw, &MpvWidget::setSubsAreGray);
+    connect(settingsWindow, &SettingsWindow::subsFont,
+            mpvw, &MpvWidget::setSubsFont);
+    connect(settingsWindow, &SettingsWindow::subsBold,
+            mpvw, &MpvWidget::setSubsBold);
+    connect(settingsWindow, &SettingsWindow::subsItalic,
+            mpvw, &MpvWidget::setSubsItalic);
+    connect(settingsWindow, &SettingsWindow::subsSize,
+            mpvw, &MpvWidget::setSubsSize);
+    connect(settingsWindow, &SettingsWindow::subsBorderSize,
+            mpvw, &MpvWidget::setSubsBorderSize);
+    connect(settingsWindow, &SettingsWindow::subsShadowOffset,
+            mpvw, &MpvWidget::setSubsShadowOffset);
+    connect(settingsWindow, &SettingsWindow::subsColor,
+            mpvw, &MpvWidget::setSubsColor);
+    connect(settingsWindow, &SettingsWindow::subsBorderColor,
+            mpvw, &MpvWidget::setSubsBorderColor);
+    connect(settingsWindow, &SettingsWindow::subsShadowColor,
+            mpvw, &MpvWidget::setSubsShadowColor);
+    connect(settingsWindow, &SettingsWindow::subsMarginX,
+            mpvw, &MpvWidget::setSubsMarginX);
+    connect(settingsWindow, &SettingsWindow::subsMarginY,
+            mpvw, &MpvWidget::setSubsMarginY);
+    connect(settingsWindow, &SettingsWindow::subsWeight,
+            mpvw, &MpvWidget::setSubsWeight);
     connect(settingsWindow, &SettingsWindow::screenshotFormat,
             mpvw, &MpvWidget::setScreenshotFormat);
     connect(settingsWindow, &SettingsWindow::screenshotJpegQuality,

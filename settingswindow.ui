@@ -144,7 +144,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>5</number>
+          <number>11</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -5059,26 +5059,33 @@ media file played</string>
                    </widget>
                   </item>
                   <item row="0" column="1">
-                   <widget class="QCheckBox" name="fontStyle">
+                   <widget class="QCheckBox" name="fontBold">
                     <property name="text">
                      <string>Bold</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="0">
+                  <item row="2" column="0">
                    <widget class="QLabel" name="label_19">
                     <property name="text">
                      <string>Size</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="1">
+                  <item row="2" column="1">
                    <widget class="QSpinBox" name="fontSize">
                     <property name="maximum">
                      <number>9000</number>
                     </property>
                     <property name="value">
                      <number>55</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QCheckBox" name="fontItalic">
+                    <property name="text">
+                     <string>Italic</string>
                     </property>
                    </widget>
                   </item>
@@ -5304,6 +5311,9 @@ media file played</string>
                   </item>
                   <item>
                    <widget class="QPushButton" name="subsColorPick">
+                    <property name="styleSheet">
+                     <string notr="true">background: #FFFF00;</string>
+                    </property>
                     <property name="text">
                      <string/>
                     </property>
@@ -5332,6 +5342,9 @@ media file played</string>
                   </item>
                   <item>
                    <widget class="QPushButton" name="subsBorderColorPick">
+                    <property name="styleSheet">
+                     <string notr="true">background: #000000;</string>
+                    </property>
                     <property name="text">
                      <string/>
                     </property>
@@ -5360,6 +5373,9 @@ media file played</string>
                   </item>
                   <item>
                    <widget class="QPushButton" name="subsShadowColorPick">
+                    <property name="styleSheet">
+                     <string notr="true">background: #000000;</string>
+                    </property>
                     <property name="text">
                      <string/>
                     </property>
