@@ -10,6 +10,7 @@
 #include <QJsonDocument>
 #include <QTimer>
 #include <QCommandLineParser>
+#include <QSurfaceFormat>
 #include "main.h"
 #include "storage.h"
 #include "mainwindow.h"
@@ -44,7 +45,6 @@ Flow::Flow(QObject *owner) :
     QObject(owner), server(NULL), mpvServer(NULL), mainWindow(NULL),
     playbackManager(NULL), settingsWindow(NULL)
 {
-    screenSaver.uninhibitSaver();
 }
 
 Flow::~Flow()
@@ -70,6 +70,7 @@ Flow::~Flow()
         delete settingsWindow;
         settingsWindow = NULL;
     }
+    screenSaver.uninhibitSaver();
 }
 
 void Flow::parseArgs()
