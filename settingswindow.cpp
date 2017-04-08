@@ -620,6 +620,7 @@ void SettingsWindow::sendSignals()
     aoOption("jack-port", WIDGET_LOOKUP(ui->jackPort).toString());
 
     // FIXME: add icc-intent etc
+
     voOption("opengl-shaders", WIDGET_LOOKUP(ui->shadersActiveList).toStringList());
 
     if (WIDGET_LOOKUP(ui->fullscreenHideControls).toBool()) {
@@ -642,6 +643,29 @@ void SettingsWindow::sendSignals()
     audioDropSize(WIDGET_LOOKUP(ui->syncAudioDropSize).toDouble());
     maximumAudioChange(WIDGET_LOOKUP(ui->syncMaxAudioChange).toDouble());
     maximumVideoChange(WIDGET_LOOKUP(ui->syncMaxVideoChange).toDouble());
+    if (WIDGET_LOOKUP(ui->hwdecEnable).toBool()) {
+        voOption("hwdec", "auto-copy");
+        if (WIDGET_LOOKUP(ui->hwdecAll).toBool()) {
+            voOption("hwdec-codecs", "all");
+        } else {
+            QStringList codecs;
+            if (WIDGET_LOOKUP(ui->hwdecMJpeg).toBool()) codecs << "mjpeg";
+            if (WIDGET_LOOKUP(ui->hwdecMpeg1Video).toBool()) codecs << "mpeg1video";
+            if (WIDGET_LOOKUP(ui->hwdecMpeg2Video).toBool()) codecs << "mpeg2video";
+            if (WIDGET_LOOKUP(ui->hwdecMpeg4).toBool()) codecs << "mpeg4";
+            if (WIDGET_LOOKUP(ui->hwdecH263).toBool()) codecs << "h263";
+            if (WIDGET_LOOKUP(ui->hwdecH264).toBool()) codecs << "h264";
+            if (WIDGET_LOOKUP(ui->hwdecVc1).toBool()) codecs << "vc1";
+            if (WIDGET_LOOKUP(ui->hwdecWmv3).toBool()) codecs << "wmv3";
+            if (WIDGET_LOOKUP(ui->hwdecHevc).toBool()) codecs << "hevc";
+            if (WIDGET_LOOKUP(ui->hwdecVp9).toBool()) codecs << "vp9";
+            voOption("hwdec-codecs", codecs.join(','));
+        }
+    } else {
+        voOption("hwdec", "no");
+        voOption("hwdec-codecs", "");
+    }
+
     playlistFormat(WIDGET_PLACEHOLD_LOOKUP(ui->playlistFormat));
     subsAreGray(WIDGET_LOOKUP(ui->subtitlesForceGrayscale).toBool());
 
@@ -754,7 +778,7 @@ void SettingsWindow::on_pageTree_itemSelectionChanged()
     if (!modelIndex.isValid())
         return;
 
-    static int parentIndex[] = { 0, 4, 10, 13, 15, 16 };
+    static int parentIndex[] = { 0, 4, 11, 14, 16, 17 };
     int index = 0;
     if (!modelIndex.parent().isValid())
         index = parentIndex[modelIndex.row()];

@@ -86,6 +86,11 @@
        </item>
        <item>
         <property name="text">
+         <string>Hw. Decoding</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
          <string>Playlist</string>
         </property>
        </item>
@@ -144,7 +149,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>11</number>
+          <number>9</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -4737,6 +4742,153 @@ media file played</string>
            </item>
           </layout>
          </widget>
+         <widget class="QWidget" name="hwdecPage">
+          <layout class="QVBoxLayout" name="verticalLayout_35">
+           <item>
+            <widget class="QCheckBox" name="hwdecEnable">
+             <property name="text">
+              <string>Use hardware-accelerated decoding</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="hwdecGroupBox">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="title">
+              <string>Codec to allow hardware-acceleration</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_48">
+              <item>
+               <widget class="QCheckBox" name="hwdecAll">
+                <property name="text">
+                 <string>All</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="hwdecMJpeg">
+                <property name="text">
+                 <string>Motion JPEG</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="hwdecMpeg1Video">
+                <property name="text">
+                 <string>MPEG-1 Video</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="hwdecMpeg2Video">
+                <property name="text">
+                 <string>MPEG-2 Video</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="hwdecMpeg4">
+                <property name="text">
+                 <string>MPEG-4 Part 2</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="hwdecH263">
+                <property name="text">
+                 <string>H.263</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="hwdecH264">
+                <property name="text">
+                 <string>H.264</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="hwdecVc1">
+                <property name="text">
+                 <string>SMPTE VC-1</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="hwdecWmv3">
+                <property name="text">
+                 <string>Windows Media Video 9</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="hwdecHevc">
+                <property name="text">
+                 <string>High Efficency Video Coding</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="hwdecVp9">
+                <property name="text">
+                 <string>Google VP9</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="hwdecNotice">
+                <property name="text">
+                 <string>Hardware decoding may produce a smoother, more efficient overall experience and reduce strain on your cpu. However, some of the above codecs (depending upon your installed hardware and software) may not be available or may be broken and/or produce incorrect output. A safe but not always correct rule of thumb with respect to image quality is to always prefer software decoding if your cpu can handle it. Suit yourself.</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_24">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
          <widget class="QWidget" name="playlistPage">
           <layout class="QVBoxLayout" name="verticalLayout_41">
            <item>
@@ -6549,6 +6701,182 @@ media file played</string>
     <hint type="destinationlabel">
      <x>439</x>
      <y>589</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hwdecAll</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>hwdecH263</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>190</x>
+     <y>130</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>205</x>
+     <y>279</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hwdecAll</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>hwdecH264</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>320</x>
+     <y>130</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>301</x>
+     <y>318</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hwdecAll</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>hwdecMpeg1Video</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>335</x>
+     <y>136</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>369</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hwdecAll</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>hwdecMpeg2Video</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>451</x>
+     <y>137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>469</x>
+     <y>224</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hwdecAll</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>hwdecMpeg4</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>511</x>
+     <y>135</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>519</x>
+     <y>256</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hwdecAll</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>hwdecVc1</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>559</x>
+     <y>135</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>567</x>
+     <y>336</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hwdecAll</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>hwdecWmv3</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>604</x>
+     <y>131</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>611</x>
+     <y>368</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hwdecAll</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>hwdecHevc</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>455</x>
+     <y>129</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>639</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hwdecAll</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>hwdecVp9</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>680</x>
+     <y>133</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>676</x>
+     <y>430</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hwdecEnable</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>hwdecGroupBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>179</x>
+     <y>61</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>185</x>
+     <y>95</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hwdecAll</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>hwdecMJpeg</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>252</x>
+     <y>133</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>256</x>
+     <y>163</y>
     </hint>
    </hints>
   </connection>
