@@ -1011,10 +1011,10 @@ QVariant MpvController::getPropertyVariant(const QString &name)
 {
     mpv_node node;
     int r = mpv_get_property(mpv, name.toUtf8().data(), MPV_FORMAT_NODE, &node);
-    mpv::qt::node_autofree f(&node);
     if (r < 0)
         return QVariant::fromValue<MpvErrorCode>(MpvErrorCode(r));
     QVariant v = mpv::qt::node_to_variant(&node);
+    mpv_free_node_contents(&node);
     return v;
 }
 
