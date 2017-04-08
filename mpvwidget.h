@@ -82,7 +82,7 @@ public:
     void setScreenshotPngFilter(int64_t value);
     void setScreenshotPngColorspace(bool yes);
     void setClientDebuggingMessages(bool yes);
-    void setMpvLogLevel(QString level);
+    void setMpvLogLevel(QString logLevel);
 
     MpvController *controller();
     double playLength();
@@ -113,6 +113,7 @@ signals:
     void ctrlCommand(QVariant params);
     void ctrlSetOptionVariant(QString name, QVariant value);
     void ctrlSetPropertyVariant(QString name, QVariant value);
+    void ctrlSetLogLevel(QString level);
 
     void audioDeviceList(const QList<AudioDevice> audioDevices);
 
@@ -227,8 +228,6 @@ public:
             : name(name), userData(userData), format(format) {}
     };
     typedef QVector<MpvProperty> PropertyList;
-    enum LogLevel { LogNone, LogFatal, LogError, LogWarn, LogInfo, LogV,
-                    LogDebug, LogTrace, LogTerminalDefault };
 
     MpvController(QObject *parent = 0);
     ~MpvController();
@@ -254,7 +253,7 @@ public slots:
     int64_t timeMicroseconds();
     int64_t apiVersion();
 
-    void setLogLevel(MpvController::LogLevel level);
+    void setLogLevel(QString logLevel);
     mpv_opengl_cb_context *mpvDrawContext();
 
     int setOptionVariant(QString name, const QVariant &value);

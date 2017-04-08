@@ -110,6 +110,8 @@ MpvWidget::MpvWidget(QWidget *parent, const QString &clientName) :
             ctrl, &MpvController::setOptionVariant, Qt::QueuedConnection);
     connect(this, &MpvWidget::ctrlSetPropertyVariant,
             ctrl, &MpvController::setPropertyVariant, Qt::QueuedConnection);
+    connect(this, &MpvWidget::ctrlSetLogLevel,
+            ctrl, &MpvController::setLogLevel);
 
     // Wire up the event-handling callbacks
     connect(ctrl, &MpvController::mpvPropertyChanged,
@@ -177,13 +179,6 @@ MpvWidget::MpvWidget(QWidget *parent, const QString &clientName) :
                               Qt::BlockingQueuedConnection,
                               Q_ARG(QString, "on_unload"),
                               Q_ARG(int, HOOK_UNLOAD_CALLBACK_ID));
-
-    // Output debug messages from mpv
-    if (debugMessages)
-        QMetaObject::invokeMethod(ctrl, "setLogLevel",
-                                  Qt::BlockingQueuedConnection,
-                                  Q_ARG(MpvController::LogLevel,
-                                        MpvController::LogInfo));
 
     emit ctrlSetOptionVariant("ytdl", "yes");
     emit ctrlSetOptionVariant("audio-client-name", clientName);
@@ -548,9 +543,9 @@ void MpvWidget::setClientDebuggingMessages(bool yes)
     debugMessages = yes;
 }
 
-void MpvWidget::setMpvLogLevel(QString level)
+void MpvWidget::setMpvLogLevel(QString logLevel)
 {
-    setMpvOptionVariant("log-level", QString("all=%1").arg(level));
+    emit ctrlSetLogLevel(logLevel);
 }
 
 MpvController *MpvWidget::controller()
@@ -903,8 +898,6 @@ void MpvController::create(bool video, bool audio)
     if (mpv_initialize(mpv) < 0)
         throw std::runtime_error("could not initialize mpv context");
 
-    setLogLevel(LogTerminalDefault);
-
     if (!audio) {
         setOptionVariant("ao", "null");
         setOptionVariant("no-audio", true);
@@ -965,12 +958,9 @@ int64_t MpvController::apiVersion()
     return mpv_client_api_version();
 }
 
-void MpvController::setLogLevel(LogLevel level)
+void MpvController::setLogLevel(QString logLevel)
 {
-    QVector<const char*> logLevels = { "no", "fatal", "error", "warn ",
-                                       "info", "v", "debug", "trace",
-                                       "terminal-default" };
-    mpv_request_log_messages(mpv, logLevels.value(level));
+    mpv_request_log_messages(mpv, logLevel.toUtf8().data());
 }
 
 mpv_opengl_cb_context* MpvController::mpvDrawContext()
