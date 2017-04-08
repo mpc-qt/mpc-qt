@@ -27,6 +27,7 @@ QDrawnSlider::QDrawnSlider(QWidget *parent, QSize handle, QSize margin) :
     setSliderGeometry(handle.width(), handle.height(),
                       margin.width(), margin.height());
     isDragging = false;
+    vValue = vMaximum = vMinimum = 0;
 }
 
 void QDrawnSlider::setSliderGeometry(int handleWidth, int handleHeight,
