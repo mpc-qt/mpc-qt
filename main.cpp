@@ -241,9 +241,7 @@ void Flow::init() {
             mpvw, &MpvWidget::setLogoUrl);
     connect(settingsWindow, &SettingsWindow::volume,
             mpvw, &MpvWidget::setVolume);
-    connect(settingsWindow, &SettingsWindow::voOption,
-            mpvw, &MpvWidget::setCachedMpvOption);
-    connect(settingsWindow, &SettingsWindow::aoOption,
+    connect(settingsWindow, &SettingsWindow::option,
             mpvw, &MpvWidget::setCachedMpvOption);
     connect(settingsWindow, &SettingsWindow::framedropMode,
             mpvw, &MpvWidget::setFramedropMode);

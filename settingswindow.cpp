@@ -496,132 +496,132 @@ void SettingsWindow::sendSignals()
                                : 0);
 
     displaySyncMode(WIDGET_TO_TEXT(ui->syncMode));
-    voOption("opengl-dumb-mode", WIDGET_LOOKUP(ui->videoDumbMode));
-    voOption("opengl-fbo-format", WIDGET_TO_TEXT(ui->videoFramebuffer).split('-').value(WIDGET_LOOKUP(ui->videoUseAlpha).toBool()));
-    voOption("alpha", WIDGET_TO_TEXT(ui->videoAlphaMode));
-    voOption("sharpen", WIDGET_LOOKUP(ui->videoSharpen).toString());
+    option("opengl-dumb-mode", WIDGET_LOOKUP(ui->videoDumbMode));
+    option("opengl-fbo-format", WIDGET_TO_TEXT(ui->videoFramebuffer).split('-').value(WIDGET_LOOKUP(ui->videoUseAlpha).toBool()));
+    option("alpha", WIDGET_TO_TEXT(ui->videoAlphaMode));
+    option("sharpen", WIDGET_LOOKUP(ui->videoSharpen).toString());
 
     if (WIDGET_LOOKUP(ui->ditherDithering).toBool()) {
-        voOption("dither-depth", WIDGET_LOOKUP(ui->ditherDepth).toString());
-        voOption("dither", WIDGET_TO_TEXT(ui->ditherType));
-        voOption("dither-size-fruit", WIDGET_LOOKUP(ui->ditherFruitSize).toString());
+        option("dither-depth", WIDGET_LOOKUP(ui->ditherDepth).toString());
+        option("dither", WIDGET_TO_TEXT(ui->ditherType));
+        option("dither-size-fruit", WIDGET_LOOKUP(ui->ditherFruitSize).toString());
     } else {
-        voOption("dither", "no");
+        option("dither", "no");
     }
-    voOption("temporal-dither", WIDGET_LOOKUP(ui->ditherTemporal));
-    voOption("temporal-dither-period", WIDGET_LOOKUP2(ui->ditherTemporal, ui->ditherTemporalPeriod, 1));
-    voOption("correct-downscaling", WIDGET_LOOKUP(ui->scalingCorrectDownscaling));
-    voOption("linear-scaling", WIDGET_LOOKUP(ui->scalingInLinearLight));
-    voOption("interpolation", WIDGET_LOOKUP(ui->scalingTemporalInterpolation));
-    voOption("blend-subtitles", WIDGET_LOOKUP(ui->scalingBlendSubtitles));
+    option("temporal-dither", WIDGET_LOOKUP(ui->ditherTemporal));
+    option("temporal-dither-period", WIDGET_LOOKUP2(ui->ditherTemporal, ui->ditherTemporalPeriod, 1));
+    option("correct-downscaling", WIDGET_LOOKUP(ui->scalingCorrectDownscaling));
+    option("linear-scaling", WIDGET_LOOKUP(ui->scalingInLinearLight));
+    option("interpolation", WIDGET_LOOKUP(ui->scalingTemporalInterpolation));
+    option("blend-subtitles", WIDGET_LOOKUP(ui->scalingBlendSubtitles));
     if (WIDGET_LOOKUP(ui->scalingSigmoidizedUpscaling).toBool()) {
-        voOption("sigmoid-upscaling", true);
-        voOption("sigmoid-center", WIDGET_LOOKUP(ui->sigmoidizedCenter));
-        voOption("sigmoid-slope", WIDGET_LOOKUP(ui->sigmoidizedSlope));
+        option("sigmoid-upscaling", true);
+        option("sigmoid-center", WIDGET_LOOKUP(ui->sigmoidizedCenter));
+        option("sigmoid-slope", WIDGET_LOOKUP(ui->sigmoidizedSlope));
     } else {
-        voOption("sigmoid-upscaling", false);
+        option("sigmoid-upscaling", false);
     }
 
     // Is this the right way to fall back to (the scaler's) defaults?
     // Bear in mind we're not setting what hasn't changed since last time.
     // Perhaps would should pass a blank QVariant or empty string instead.
-    voOption("scale", WIDGET_TO_TEXT(ui->scaleScaler));
-    voOption("scale-param1", WIDGET_LOOKUP2(ui->scaleParam1Set, ui->scaleParam1Value, "nan"));
-    voOption("scale-param2", WIDGET_LOOKUP2(ui->scaleParam2Set, ui->scaleParam2Value, "nan"));
-    voOption("scale-radius", WIDGET_LOOKUP2(ui->scaleRadiusSet, ui->scaleRadiusValue, 0.0));
-    voOption("scale-antiring", WIDGET_LOOKUP2(ui->scaleAntiRingSet, ui->scaleAntiRingValue, 0.0));
-    voOption("scale-blur",   WIDGET_LOOKUP2(ui->scaleBlurSet,   ui->scaleBlurValue,  "nan"));
-    voOption("scale-wparam", WIDGET_LOOKUP2(ui->scaleWindowParamSet, ui->scaleWindowParamValue, "nan"));
-    voOption("scale-window", WIDGET_LOOKUP2_TEXT(ui->scaleWindowSet, ui->scaleWindowValue, ""));
-    voOption("scale-clamp", WIDGET_LOOKUP(ui->scaleClamp));
+    option("scale", WIDGET_TO_TEXT(ui->scaleScaler));
+    option("scale-param1", WIDGET_LOOKUP2(ui->scaleParam1Set, ui->scaleParam1Value, "nan"));
+    option("scale-param2", WIDGET_LOOKUP2(ui->scaleParam2Set, ui->scaleParam2Value, "nan"));
+    option("scale-radius", WIDGET_LOOKUP2(ui->scaleRadiusSet, ui->scaleRadiusValue, 0.0));
+    option("scale-antiring", WIDGET_LOOKUP2(ui->scaleAntiRingSet, ui->scaleAntiRingValue, 0.0));
+    option("scale-blur",   WIDGET_LOOKUP2(ui->scaleBlurSet,   ui->scaleBlurValue,  "nan"));
+    option("scale-wparam", WIDGET_LOOKUP2(ui->scaleWindowParamSet, ui->scaleWindowParamValue, "nan"));
+    option("scale-window", WIDGET_LOOKUP2_TEXT(ui->scaleWindowSet, ui->scaleWindowValue, ""));
+    option("scale-clamp", WIDGET_LOOKUP(ui->scaleClamp));
 
-    voOption("dscale", WIDGET_TO_TEXT(ui->dscaleScaler));
-    voOption("dscale-param1", WIDGET_LOOKUP2(ui->dscaleParam1Set, ui->dscaleParam1Value, "nan"));
-    voOption("dscale-param2", WIDGET_LOOKUP2(ui->dscaleParam2Set, ui->dscaleParam2Value, "nan"));
-    voOption("dscale-radius", WIDGET_LOOKUP2(ui->dscaleRadiusSet, ui->dscaleRadiusValue, 0.0));
-    voOption("dscale-antiring", WIDGET_LOOKUP2(ui->dscaleAntiRingSet, ui->dscaleAntiRingValue, 0.0));
-    voOption("dscale-blur",   WIDGET_LOOKUP2(ui->dscaleBlurSet,   ui->dscaleBlurValue,  "nan"));
-    voOption("dscale-wparam", WIDGET_LOOKUP2(ui->dscaleWindowParamSet, ui->dscaleWindowParamValue, "nan"));
-    voOption("dscale-window", WIDGET_LOOKUP2_TEXT(ui->dscaleWindowSet, ui->dscaleWindowValue, ""));
-    voOption("dscale-clamp", WIDGET_LOOKUP(ui->dscaleClamp));
+    option("dscale", WIDGET_TO_TEXT(ui->dscaleScaler));
+    option("dscale-param1", WIDGET_LOOKUP2(ui->dscaleParam1Set, ui->dscaleParam1Value, "nan"));
+    option("dscale-param2", WIDGET_LOOKUP2(ui->dscaleParam2Set, ui->dscaleParam2Value, "nan"));
+    option("dscale-radius", WIDGET_LOOKUP2(ui->dscaleRadiusSet, ui->dscaleRadiusValue, 0.0));
+    option("dscale-antiring", WIDGET_LOOKUP2(ui->dscaleAntiRingSet, ui->dscaleAntiRingValue, 0.0));
+    option("dscale-blur",   WIDGET_LOOKUP2(ui->dscaleBlurSet,   ui->dscaleBlurValue,  "nan"));
+    option("dscale-wparam", WIDGET_LOOKUP2(ui->dscaleWindowParamSet, ui->dscaleWindowParamValue, "nan"));
+    option("dscale-window", WIDGET_LOOKUP2_TEXT(ui->dscaleWindowSet, ui->dscaleWindowValue, ""));
+    option("dscale-clamp", WIDGET_LOOKUP(ui->dscaleClamp));
 
-    voOption("cscale", WIDGET_TO_TEXT(ui->cscaleScaler));
-    voOption("cscale-param1", WIDGET_LOOKUP2(ui->cscaleParam1Set, ui->cscaleParam1Value, "nan"));
-    voOption("cscale-param2", WIDGET_LOOKUP2(ui->cscaleParam2Set, ui->cscaleParam2Value, "nan"));
-    voOption("cscale-radius", WIDGET_LOOKUP2(ui->cscaleRadiusSet, ui->cscaleRadiusValue, 0.0));
-    voOption("cscale-antiring", WIDGET_LOOKUP2(ui->cscaleAntiRingSet, ui->cscaleAntiRingValue, 0.0));
-    voOption("cscale-blur",   WIDGET_LOOKUP2(ui->cscaleBlurSet,   ui->cscaleBlurValue,  "nan"));
-    voOption("cscale-wparam", WIDGET_LOOKUP2(ui->cscaleWindowParamSet, ui->cscaleWindowParamValue, "nan"));
-    voOption("cscale-window", WIDGET_LOOKUP2_TEXT(ui->cscaleWindowSet, ui->cscaleWindowValue, ""));
-    voOption("cscale-clamp", WIDGET_LOOKUP(ui->cscaleClamp));
+    option("cscale", WIDGET_TO_TEXT(ui->cscaleScaler));
+    option("cscale-param1", WIDGET_LOOKUP2(ui->cscaleParam1Set, ui->cscaleParam1Value, "nan"));
+    option("cscale-param2", WIDGET_LOOKUP2(ui->cscaleParam2Set, ui->cscaleParam2Value, "nan"));
+    option("cscale-radius", WIDGET_LOOKUP2(ui->cscaleRadiusSet, ui->cscaleRadiusValue, 0.0));
+    option("cscale-antiring", WIDGET_LOOKUP2(ui->cscaleAntiRingSet, ui->cscaleAntiRingValue, 0.0));
+    option("cscale-blur",   WIDGET_LOOKUP2(ui->cscaleBlurSet,   ui->cscaleBlurValue,  "nan"));
+    option("cscale-wparam", WIDGET_LOOKUP2(ui->cscaleWindowParamSet, ui->cscaleWindowParamValue, "nan"));
+    option("cscale-window", WIDGET_LOOKUP2_TEXT(ui->cscaleWindowSet, ui->cscaleWindowValue, ""));
+    option("cscale-clamp", WIDGET_LOOKUP(ui->cscaleClamp));
 
-    voOption("tscale", WIDGET_TO_TEXT(ui->tscaleScaler));
-    voOption("tscale-param1", WIDGET_LOOKUP2(ui->tscaleParam1Set, ui->tscaleParam1Value, "nan"));
-    voOption("tscale-param2", WIDGET_LOOKUP2(ui->tscaleParam2Set, ui->tscaleParam2Value, "nan"));
-    voOption("tscale-radius", WIDGET_LOOKUP2(ui->tscaleRadiusSet, ui->tscaleRadiusValue, 0.0));
-    voOption("tscale-antiring", WIDGET_LOOKUP2(ui->tscaleAntiRingSet, ui->tscaleAntiRingValue, 0.0));
-    voOption("tscale-blur",   WIDGET_LOOKUP2(ui->tscaleBlurSet,   ui->tscaleBlurValue,  "nan"));
-    voOption("tscale-wparam", WIDGET_LOOKUP2(ui->tscaleWindowParamSet, ui->tscaleWindowParamValue, "nan"));
-    voOption("tscale-window", WIDGET_LOOKUP2_TEXT(ui->tscaleWindowSet, ui->tscaleWindowValue, ""));
-    voOption("tscale-clamp", WIDGET_LOOKUP(ui->tscaleClamp));
+    option("tscale", WIDGET_TO_TEXT(ui->tscaleScaler));
+    option("tscale-param1", WIDGET_LOOKUP2(ui->tscaleParam1Set, ui->tscaleParam1Value, "nan"));
+    option("tscale-param2", WIDGET_LOOKUP2(ui->tscaleParam2Set, ui->tscaleParam2Value, "nan"));
+    option("tscale-radius", WIDGET_LOOKUP2(ui->tscaleRadiusSet, ui->tscaleRadiusValue, 0.0));
+    option("tscale-antiring", WIDGET_LOOKUP2(ui->tscaleAntiRingSet, ui->tscaleAntiRingValue, 0.0));
+    option("tscale-blur",   WIDGET_LOOKUP2(ui->tscaleBlurSet,   ui->tscaleBlurValue,  "nan"));
+    option("tscale-wparam", WIDGET_LOOKUP2(ui->tscaleWindowParamSet, ui->tscaleWindowParamValue, "nan"));
+    option("tscale-window", WIDGET_LOOKUP2_TEXT(ui->tscaleWindowSet, ui->tscaleWindowValue, ""));
+    option("tscale-clamp", WIDGET_LOOKUP(ui->tscaleClamp));
 
     if (WIDGET_LOOKUP(ui->debandEnabled).toBool()) {
-        voOption("deband", true);
-        voOption("deband-iterations", WIDGET_LOOKUP(ui->debandIterations));
-        voOption("deband-threshold", WIDGET_LOOKUP(ui->debandThreshold));
-        voOption("deband-range", WIDGET_LOOKUP(ui->debandRange));
-        voOption("deband-grain", WIDGET_LOOKUP(ui->debandGrain));
+        option("deband", true);
+        option("deband-iterations", WIDGET_LOOKUP(ui->debandIterations));
+        option("deband-threshold", WIDGET_LOOKUP(ui->debandThreshold));
+        option("deband-range", WIDGET_LOOKUP(ui->debandRange));
+        option("deband-grain", WIDGET_LOOKUP(ui->debandGrain));
     } else {
-        voOption("deband", false);
+        option("deband", false);
     }
 
-    voOption("gamma", WIDGET_LOOKUP(ui->ccGamma));
+    option("gamma", WIDGET_LOOKUP(ui->ccGamma));
 #ifdef Q_OS_MAC
-    voOption("gamma-auto", WIDGET_LOOKUP(ui->ccGammaAutodetect));
+    option("gamma-auto", WIDGET_LOOKUP(ui->ccGammaAutodetect));
 #endif
-    voOption("target-prim", WIDGET_TO_TEXT(ui->ccTargetPrim));
-    voOption("target-trc", WIDGET_TO_TEXT(ui->ccTargetTRC));
-    voOption("target-brightness", WIDGET_LOOKUP(ui->ccTargetBrightness));
-    voOption("hdr-tone-mapping", WIDGET_TO_TEXT(ui->ccHdrMapper));
+    option("target-prim", WIDGET_TO_TEXT(ui->ccTargetPrim));
+    option("target-trc", WIDGET_TO_TEXT(ui->ccTargetTRC));
+    option("target-brightness", WIDGET_LOOKUP(ui->ccTargetBrightness));
+    option("hdr-tone-mapping", WIDGET_TO_TEXT(ui->ccHdrMapper));
     {
         QList<QDoubleSpinBox*> boxen {NULL, ui->ccHdrReinhardParam, NULL, ui->ccHdrGammaParam, ui->ccHdrLinearParam};
         QDoubleSpinBox* toneParam = boxen[WIDGET_LOOKUP(ui->ccHdrMapper).toInt()];
-        voOption("tone-mapping-param", toneParam ? WIDGET_LOOKUP(toneParam) : QVariant("nan"));
+        option("tone-mapping-param", toneParam ? WIDGET_LOOKUP(toneParam) : QVariant("nan"));
     }
     if (WIDGET_LOOKUP(ui->ccICCAutodetect).toBool()) {
-        voOption("icc-profile", "");
-        voOption("icc-profile-auto", true);
+        option("icc-profile", "");
+        option("icc-profile-auto", true);
     } else {
-        voOption("icc-profile-auto", false);
-        voOption("icc-profile", WIDGET_LOOKUP(ui->ccICCLocation));
+        option("icc-profile-auto", false);
+        option("icc-profile", WIDGET_LOOKUP(ui->ccICCLocation));
     }
 
     int index = WIDGET_LOOKUP(ui->audioDevice).toInt();
-    aoOption("audio-device", audioDevices.value(index).deviceName());
+    option("audio-device", audioDevices.value(index).deviceName());
     index = WIDGET_LOOKUP(ui->audioChannels).toInt();
-    aoOption("audio-channels", index < 3 ? SettingMap::indexedValueToText[ui->audioChannels->objectName()][index]
+    option("audio-channels", index < 3 ? SettingMap::indexedValueToText[ui->audioChannels->objectName()][index]
                                          : channelSwitcher());
     bool flag = WIDGET_LOOKUP(ui->audioStreamSilence).toBool();
-    aoOption("stream-silence", flag);
-    aoOption("audio-wait-open", flag ? WIDGET_LOOKUP(ui->audioWaitTime).toDouble() : 0.0);
-    aoOption("audio-pitch-correction", WIDGET_LOOKUP(ui->audioPitchCorrection).toBool());
-    aoOption("audio-exclusive", WIDGET_LOOKUP(ui->audioExclusiveMode).toBool());
-    aoOption("audio-normalize-downmix", WIDGET_LOOKUP(ui->audioNormalizeDownmix).toBool());
-    aoOption("audio-spdif", WIDGET_LOOKUP(ui->audioSpdif).toBool() ? WIDGET_PLACEHOLD_LOOKUP(ui->audioSpdifCodecs) : "");
-    aoOption("pulse-buffer", WIDGET_LOOKUP(ui->pulseBuffer).toInt());
-    aoOption("pulse-latency-hacks", WIDGET_LOOKUP(ui->pulseLatency).toBool());
-    aoOption("alsa-resample", WIDGET_LOOKUP(ui->alsaResample).toBool());
-    aoOption("alsa-ignore-chmap", WIDGET_LOOKUP(ui->alsaIgnoreChannelMap).toBool());
-    aoOption("oss-mixer-channel", WIDGET_LOOKUP(ui->ossMixerChannel).toString());
-    aoOption("oss-mixer-device", WIDGET_LOOKUP(ui->ossMixerDevice).toString());
-    aoOption("jack-autostart", WIDGET_LOOKUP(ui->jackAutostart).toBool());
-    aoOption("jack-connect", WIDGET_LOOKUP(ui->jackConnect).toBool());
-    aoOption("jack-name", WIDGET_LOOKUP(ui->jackName).toString());
-    aoOption("jack-port", WIDGET_LOOKUP(ui->jackPort).toString());
+    option("stream-silence", flag);
+    option("audio-wait-open", flag ? WIDGET_LOOKUP(ui->audioWaitTime).toDouble() : 0.0);
+    option("audio-pitch-correction", WIDGET_LOOKUP(ui->audioPitchCorrection).toBool());
+    option("audio-exclusive", WIDGET_LOOKUP(ui->audioExclusiveMode).toBool());
+    option("audio-normalize-downmix", WIDGET_LOOKUP(ui->audioNormalizeDownmix).toBool());
+    option("audio-spdif", WIDGET_LOOKUP(ui->audioSpdif).toBool() ? WIDGET_PLACEHOLD_LOOKUP(ui->audioSpdifCodecs) : "");
+    option("pulse-buffer", WIDGET_LOOKUP(ui->pulseBuffer).toInt());
+    option("pulse-latency-hacks", WIDGET_LOOKUP(ui->pulseLatency).toBool());
+    option("alsa-resample", WIDGET_LOOKUP(ui->alsaResample).toBool());
+    option("alsa-ignore-chmap", WIDGET_LOOKUP(ui->alsaIgnoreChannelMap).toBool());
+    option("oss-mixer-channel", WIDGET_LOOKUP(ui->ossMixerChannel).toString());
+    option("oss-mixer-device", WIDGET_LOOKUP(ui->ossMixerDevice).toString());
+    option("jack-autostart", WIDGET_LOOKUP(ui->jackAutostart).toBool());
+    option("jack-connect", WIDGET_LOOKUP(ui->jackConnect).toBool());
+    option("jack-name", WIDGET_LOOKUP(ui->jackName).toString());
+    option("jack-port", WIDGET_LOOKUP(ui->jackPort).toString());
 
     // FIXME: add icc-intent etc
 
-    voOption("opengl-shaders", WIDGET_LOOKUP(ui->shadersActiveList).toStringList());
+    option("opengl-shaders", WIDGET_LOOKUP(ui->shadersActiveList).toStringList());
 
     if (WIDGET_LOOKUP(ui->fullscreenHideControls).toBool()) {
         Helpers::ControlHiding method = static_cast<Helpers::ControlHiding>(WIDGET_LOOKUP(ui->fullscreenShowWhen).toInt());
@@ -644,9 +644,9 @@ void SettingsWindow::sendSignals()
     maximumAudioChange(WIDGET_LOOKUP(ui->syncMaxAudioChange).toDouble());
     maximumVideoChange(WIDGET_LOOKUP(ui->syncMaxVideoChange).toDouble());
     if (WIDGET_LOOKUP(ui->hwdecEnable).toBool()) {
-        voOption("hwdec", "auto-copy");
+        option("hwdec", "auto-copy");
         if (WIDGET_LOOKUP(ui->hwdecAll).toBool()) {
-            voOption("hwdec-codecs", "all");
+            option("hwdec-codecs", "all");
         } else {
             QStringList codecs;
             if (WIDGET_LOOKUP(ui->hwdecMJpeg).toBool()) codecs << "mjpeg";
@@ -659,11 +659,11 @@ void SettingsWindow::sendSignals()
             if (WIDGET_LOOKUP(ui->hwdecWmv3).toBool()) codecs << "wmv3";
             if (WIDGET_LOOKUP(ui->hwdecHevc).toBool()) codecs << "hevc";
             if (WIDGET_LOOKUP(ui->hwdecVp9).toBool()) codecs << "vp9";
-            voOption("hwdec-codecs", codecs.join(','));
+            option("hwdec-codecs", codecs.join(','));
         }
     } else {
-        voOption("hwdec", "no");
-        voOption("hwdec-codecs", "");
+        option("hwdec", "no");
+        option("hwdec-codecs", "");
     }
 
     playlistFormat(WIDGET_PLACEHOLD_LOOKUP(ui->playlistFormat));
