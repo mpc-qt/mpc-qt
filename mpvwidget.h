@@ -54,33 +54,6 @@ public:
     QString mpvVersion();
     void setVolume(int64_t volume);
     bool eofReached();
-    void setSubsAreGray(bool yes);
-    void setSubsFont(const QString &family);
-    void setSubsBold(bool yes);
-    void setSubsItalic(bool yes);
-    void setSubsSize(int size);
-    void setSubsBorderSize(int size);
-    void setSubsShadowOffset(int size);
-    void setSubsColor(const QColor &color);
-    void setSubsBorderColor(const QColor &border);
-    void setSubsShadowColor(const QColor &shadow);
-    void setSubsMarginX(int x);
-    void setSubsMarginY(int y);
-    void setSubsWeight(int x, int y);      // -1:top/left 0:center 1:bottom/right
-
-    void setFramedropMode(QString mode);
-    void setDecoderDropMode(QString mode);
-    void setDisplaySyncMode(QString mode);
-    void setAudioDropSize(double size);
-    void setMaximumAudioChange(double change);
-    void setMaximumVideoChange(double change);
-    void setScreenshotFormat(QString format);
-    void setScreenshotJpegQuality(int64_t value);
-    void setScreenshotJpegSmooth(int64_t value);
-    void setScreenshotJpegSourceChroma(bool yes);
-    void setScreenshotPngCompression(int64_t value);
-    void setScreenshotPngFilter(int64_t value);
-    void setScreenshotPngColorspace(bool yes);
     void setClientDebuggingMessages(bool yes);
     void setMpvLogLevel(QString logLevel);
 

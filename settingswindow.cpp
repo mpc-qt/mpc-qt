@@ -495,7 +495,7 @@ void SettingsWindow::sendSignals()
                                ? WIDGET_LOOKUP(ui->playbackMouseHideWindowedDuration).toInt()
                                : 0);
 
-    displaySyncMode(WIDGET_TO_TEXT(ui->syncMode));
+    option("video-sync", WIDGET_TO_TEXT(ui->syncMode));
     option("opengl-dumb-mode", WIDGET_LOOKUP(ui->videoDumbMode));
     option("opengl-fbo-format", WIDGET_TO_TEXT(ui->videoFramebuffer).split('-').value(WIDGET_LOOKUP(ui->videoUseAlpha).toBool()));
     option("alpha", WIDGET_TO_TEXT(ui->videoAlphaMode));
@@ -638,11 +638,11 @@ void SettingsWindow::sendSignals()
         hideMethod(Helpers::AlwaysShow);
         hidePanels(false);
     }
-    framedropMode(WIDGET_TO_TEXT(ui->framedroppingMode));
-    decoderDropMode(WIDGET_TO_TEXT(ui->framedroppingDecoderMode));
-    audioDropSize(WIDGET_LOOKUP(ui->syncAudioDropSize).toDouble());
-    maximumAudioChange(WIDGET_LOOKUP(ui->syncMaxAudioChange).toDouble());
-    maximumVideoChange(WIDGET_LOOKUP(ui->syncMaxVideoChange).toDouble());
+    option("framedrop", WIDGET_TO_TEXT(ui->framedroppingMode));
+    option("vf-lavc-framedrop", WIDGET_TO_TEXT(ui->framedroppingDecoderMode));
+    option("video-sync-adrop-size", WIDGET_LOOKUP(ui->syncAudioDropSize).toDouble());
+    option("video-sync-max-audio-change", WIDGET_LOOKUP(ui->syncMaxAudioChange).toDouble());
+    option("video-sync-max-video-change", WIDGET_LOOKUP(ui->syncMaxVideoChange).toDouble());
     if (WIDGET_LOOKUP(ui->hwdecEnable).toBool()) {
         option("hwdec", "auto-copy");
         if (WIDGET_LOOKUP(ui->hwdecAll).toBool()) {
@@ -667,14 +667,14 @@ void SettingsWindow::sendSignals()
     }
 
     playlistFormat(WIDGET_PLACEHOLD_LOOKUP(ui->playlistFormat));
-    subsAreGray(WIDGET_LOOKUP(ui->subtitlesForceGrayscale).toBool());
+    option("sub-gray", WIDGET_LOOKUP(ui->subtitlesForceGrayscale).toBool());
 
-    subsFont(WIDGET_LOOKUP(ui->fontComboBox).toString());
-    subsBold(WIDGET_LOOKUP(ui->fontBold).toBool());
-    subsItalic(WIDGET_LOOKUP(ui->fontItalic).toBool());
-    subsSize(WIDGET_LOOKUP(ui->fontSize).toInt());
-    subsBorderSize(WIDGET_LOOKUP(ui->borderSize).toInt());
-    subsShadowOffset(WIDGET_LOOKUP(ui->borderShadowOffset).toInt());
+    option("sub-font", WIDGET_LOOKUP(ui->fontComboBox).toString());
+    option("sub-bold", WIDGET_LOOKUP(ui->fontBold).toBool());
+    option("sub-italic", WIDGET_LOOKUP(ui->fontItalic).toBool());
+    option("sub-font-size", WIDGET_LOOKUP(ui->fontSize).toInt());
+    option("sub-border-size", WIDGET_LOOKUP(ui->borderSize).toInt());
+    option("sub-shadow-offset", WIDGET_LOOKUP(ui->borderShadowOffset).toInt());
     {
         struct AlignData { QRadioButton *btn; int x; int y; };
         QList<AlignData> alignments {
@@ -688,18 +688,29 @@ void SettingsWindow::sendSignals()
             { ui->subsAlignmentBottom, 0, 1 },
             { ui->subsAlignmentBottomRight, 1, 1 }
         };
+        static QMap<int, const char *> wx {
+            { -1, "left" },
+            { 0, "center" },
+            { 1, "right" }
+        };
+        static QMap<int, const char *> wy {
+            { -1, "top" },
+            { 0, "center" },
+            { 1, "bottom" }
+        };
         for (const AlignData &a : alignments) {
             if (a.btn->isChecked()) {
-                subsWeight(a.x, a.y);
+                option("sub-align-x", wx[a.x]);
+                option("sub-align-y", wy[a.y]);
                 break;
             }
         }
     }
-    subsMarginX(WIDGET_LOOKUP(ui->subsMarginX).toInt());
-    subsMarginY(WIDGET_LOOKUP(ui->subsMarginY).toInt());
-    subsColor(QString("#%1").arg(WIDGET_LOOKUP(ui->subsColorValue).toString()));
-    subsBorderColor(QString("#%1").arg(WIDGET_LOOKUP(ui->subsBorderColorValue).toString()));
-    subsShadowColor(QString("#%1").arg(WIDGET_LOOKUP(ui->subsShadowColorValue).toString()));
+    option("sub-margin-x", WIDGET_LOOKUP(ui->subsMarginX).toInt());
+    option("sub-margin-y", WIDGET_LOOKUP(ui->subsMarginY).toInt());
+    option("sub-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsColorValue).toString()));
+    option("sub-border-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsBorderColorValue).toString()));
+    option("sub-shadow-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsShadowColorValue).toString()));
 
     screenshotDirectory(
                 WIDGET_LOOKUP(ui->screenshotDirectorySet).toBool() ?
@@ -711,12 +722,13 @@ void SettingsWindow::sendSignals()
     screenshotTemplate(WIDGET_PLACEHOLD_LOOKUP(ui->screenshotTemplate));
     encodeTemplate(WIDGET_PLACEHOLD_LOOKUP(ui->encodeTemplate));
     screenshotFormat(WIDGET_TO_TEXT(ui->screenshotFormat));
-    screenshotJpegQuality(WIDGET_LOOKUP(ui->jpgQuality).toInt());
-    screenshotJpegSmooth(WIDGET_LOOKUP(ui->jpgSmooth).toInt());
-    screenshotJpegSourceChroma(WIDGET_LOOKUP(ui->jpgSourceChroma).toBool());
-    screenshotPngCompression(WIDGET_LOOKUP(ui->pngCompression).toInt());
-    screenshotPngFilter(WIDGET_LOOKUP(ui->pngFilter).toInt());
-    screenshotPngColorspace(WIDGET_LOOKUP(ui->pngColorspace).toBool());
+    option("screenshot-format", WIDGET_TO_TEXT(ui->screenshotFormat));
+    option("screenshot-jpeg-quality", WIDGET_LOOKUP(ui->jpgQuality).toInt());
+    option("screenshot-jpeg-smooth", WIDGET_LOOKUP(ui->jpgSmooth).toInt());
+    option("screenshot-jpeg-source-chroma", WIDGET_LOOKUP(ui->jpgSourceChroma).toBool());
+    option("screenshot-png-compression", WIDGET_LOOKUP(ui->pngCompression).toInt());
+    option("screenshot-png-filter", WIDGET_LOOKUP(ui->pngFilter).toInt());
+    option("screenshot-tag-colorspace", WIDGET_LOOKUP(ui->pngColorspace).toBool());
     clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
     timeTooltip(WIDGET_LOOKUP(ui->tweaksTimeTooltip).toBool(),
                 WIDGET_LOOKUP(ui->tweaksTimeTooltipLocation).toInt() == 0);

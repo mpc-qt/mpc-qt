@@ -243,60 +243,6 @@ void Flow::init() {
             mpvw, &MpvWidget::setVolume);
     connect(settingsWindow, &SettingsWindow::option,
             mpvw, &MpvWidget::setCachedMpvOption);
-    connect(settingsWindow, &SettingsWindow::framedropMode,
-            mpvw, &MpvWidget::setFramedropMode);
-    connect(settingsWindow, &SettingsWindow::decoderDropMode,
-            mpvw, &MpvWidget::setDecoderDropMode);
-    connect(settingsWindow, &SettingsWindow::displaySyncMode,
-            mpvw, &MpvWidget::setDisplaySyncMode);
-    connect(settingsWindow, &SettingsWindow::audioDropSize,
-            mpvw, &MpvWidget::setAudioDropSize);
-    connect(settingsWindow, &SettingsWindow::maximumAudioChange,
-            mpvw, &MpvWidget::setMaximumAudioChange);
-    connect(settingsWindow, &SettingsWindow::maximumVideoChange,
-            mpvw, &MpvWidget::setMaximumVideoChange);
-    connect(settingsWindow, &SettingsWindow::playbackLoopImages,
-            mpvw, &MpvWidget::setLoopImages);
-    connect(settingsWindow, &SettingsWindow::subsAreGray,
-            mpvw, &MpvWidget::setSubsAreGray);
-    connect(settingsWindow, &SettingsWindow::subsFont,
-            mpvw, &MpvWidget::setSubsFont);
-    connect(settingsWindow, &SettingsWindow::subsBold,
-            mpvw, &MpvWidget::setSubsBold);
-    connect(settingsWindow, &SettingsWindow::subsItalic,
-            mpvw, &MpvWidget::setSubsItalic);
-    connect(settingsWindow, &SettingsWindow::subsSize,
-            mpvw, &MpvWidget::setSubsSize);
-    connect(settingsWindow, &SettingsWindow::subsBorderSize,
-            mpvw, &MpvWidget::setSubsBorderSize);
-    connect(settingsWindow, &SettingsWindow::subsShadowOffset,
-            mpvw, &MpvWidget::setSubsShadowOffset);
-    connect(settingsWindow, &SettingsWindow::subsColor,
-            mpvw, &MpvWidget::setSubsColor);
-    connect(settingsWindow, &SettingsWindow::subsBorderColor,
-            mpvw, &MpvWidget::setSubsBorderColor);
-    connect(settingsWindow, &SettingsWindow::subsShadowColor,
-            mpvw, &MpvWidget::setSubsShadowColor);
-    connect(settingsWindow, &SettingsWindow::subsMarginX,
-            mpvw, &MpvWidget::setSubsMarginX);
-    connect(settingsWindow, &SettingsWindow::subsMarginY,
-            mpvw, &MpvWidget::setSubsMarginY);
-    connect(settingsWindow, &SettingsWindow::subsWeight,
-            mpvw, &MpvWidget::setSubsWeight);
-    connect(settingsWindow, &SettingsWindow::screenshotFormat,
-            mpvw, &MpvWidget::setScreenshotFormat);
-    connect(settingsWindow, &SettingsWindow::screenshotJpegQuality,
-            mpvw, &MpvWidget::setScreenshotJpegQuality);
-    connect(settingsWindow, &SettingsWindow::screenshotJpegSmooth,
-            mpvw, &MpvWidget::setScreenshotJpegSmooth);
-    connect(settingsWindow, &SettingsWindow::screenshotJpegSourceChroma,
-            mpvw, &MpvWidget::setScreenshotJpegSourceChroma);
-    connect(settingsWindow, &SettingsWindow::screenshotPngCompression,
-            mpvw, &MpvWidget::setScreenshotPngCompression);
-    connect(settingsWindow, &SettingsWindow::screenshotPngFilter,
-            mpvw, &MpvWidget::setScreenshotPngFilter);
-    connect(settingsWindow, &SettingsWindow::screenshotPngColorspace,
-            mpvw, &MpvWidget::setScreenshotPngColorspace);
     connect(settingsWindow, &SettingsWindow::clientDebuggingMessages,
             mpvw, &MpvWidget::setClientDebuggingMessages);
     connect(settingsWindow, &SettingsWindow::mpvLogLevel,

@@ -108,39 +108,10 @@ signals:
     void xrandrResetDefault(bool yes);
     void xrandrResetOnExit(bool yes);
 
-    void preShaders(const QStringList &files);
-    void postShaders(const QStringList &files);
-    void userShaders(const QStringList &files);
-
-    void framedropMode(const QString &s);
-    void decoderDropMode(const QString &s);
-    void displaySyncMode(const QString &s);
-    void audioDropSize(double d);
-    void maximumAudioChange(double d);
-    void maximumVideoChange(double d);
-
     void playbackPlayTimes(int count);
     void playbackRewinds(bool yes);
     void playbackLoopImages(bool yes);
     void playlistFormat(const QString &fmt);
-
-    void subsAreGray(bool flag);
-    void subsGetFixedTiming(bool flag);
-    void subsClearOnSeek(bool flag);
-    void assOverride(const QString &option);
-
-    void subsFont(const QString &family);
-    void subsBold(bool yes);
-    void subsItalic(bool yes);
-    void subsSize(int size);
-    void subsBorderSize(int size);
-    void subsShadowOffset(int size);
-    void subsColor(const QColor &color);
-    void subsBorderColor(const QColor &border);
-    void subsShadowColor(const QColor &shadow);
-    void subsMarginX(int x);
-    void subsMarginY(int y);
-    void subsWeight(int x, int y);      // -1:top/left 0:center 1:bottom/right
 
     // does mpv even *need* this?
     void subsPreferDefault(bool yes);
@@ -155,12 +126,6 @@ signals:
     void encodeTemplate(const QString &s);
 
     void screenshotFormat(const QString &s);
-    void screenshotJpegQuality(int64_t value);
-    void screenshotJpegSmooth(int64_t value);
-    void screenshotJpegSourceChroma(bool yes);
-    void screenshotPngCompression(int64_t value);
-    void screenshotPngFilter(int64_t value);
-    void screenshotPngColorspace(bool yes);
     void encodeCodecs(const QString &videoCodec, const QString &audioCodec);
     void encodeStreams(bool noVideo, bool noAudio);
     void encodeHardsubs(bool yes);
