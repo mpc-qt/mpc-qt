@@ -708,6 +708,7 @@ void SettingsWindow::sendSignals()
     }
     option("sub-margin-x", WIDGET_LOOKUP(ui->subsMarginX).toInt());
     option("sub-margin-y", WIDGET_LOOKUP(ui->subsMarginY).toInt());
+    option("sub-use-margins", !WIDGET_LOOKUP(ui->subsRelativeToVideoFrame).toBool());
     option("sub-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsColorValue).toString()));
     option("sub-border-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsBorderColorValue).toString()));
     option("sub-shadow-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsShadowColorValue).toString()));
