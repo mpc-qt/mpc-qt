@@ -470,6 +470,7 @@ void SettingsWindow::sendSignals()
     emit logoSource(selectedLogo());
 
     emit volume(WIDGET_LOOKUP(ui->playbackVolume).toInt());
+    emit volumeStep(WIDGET_LOOKUP(ui->playbackVolumeStep).toInt());
 
     emit playbackPlayTimes(WIDGET_LOOKUP(ui->playbackRepeatForever).toBool() ?
                            0 : WIDGET_LOOKUP(ui->playbackPlayAmount).toInt());

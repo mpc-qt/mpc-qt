@@ -132,6 +132,7 @@ public slots:
     void setMediaTitle(QString title);
     void setChapterTitle(QString title);
     void setVideoSize(QSize size);
+    void setVolumeStep(int stepSize);
     void setSizeFactor(double factor);
     void setFitFactor(double fitFactor);
     void setZoomMode(ZoomMode mode);
@@ -268,6 +269,7 @@ private:
     QSize noVideoSize_;
     bool isPlaying;
     bool isPaused;
+    int volumeStep;
     double sizeFactor_;
     double fitFactor_;
     ZoomMode zoomMode;

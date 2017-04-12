@@ -218,6 +218,8 @@ void Flow::init() {
             mainWindow, &MainWindow::setFullscreenMouseMap);
     connect(settingsWindow, &SettingsWindow::volume,
             mainWindow, &MainWindow::setVolume);
+    connect(settingsWindow, &SettingsWindow::volumeStep,
+            mainWindow, &MainWindow::setVolumeStep);
     connect(settingsWindow, &SettingsWindow::zoomPreset,
             mainWindow, &MainWindow::setZoomPreset);
     connect(settingsWindow, &SettingsWindow::zoomCenter,

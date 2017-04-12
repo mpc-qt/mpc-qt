@@ -34,6 +34,8 @@ MainWindow::MainWindow(QWidget *parent) :
     bottomAreaHideTime = 0;
     timeTooltipAbove = false;
     isPlaying = false;
+
+    volumeStep = 10;
     sizeFactor_ = 1;
     fitFactor_ = 0.75;
     zoomMode = RegularZoom;
@@ -868,6 +870,11 @@ void MainWindow::setVideoSize(QSize size)
     updateSize();
 }
 
+void MainWindow::setVolumeStep(int stepSize)
+{
+    volumeStep = stepSize;
+}
+
 void MainWindow::setSizeFactor(double factor)
 {
     sizeFactor_ = factor;
@@ -1516,14 +1523,14 @@ void MainWindow::on_actionPlayLoopClear_triggered()
 
 void MainWindow::on_actionPlayVolumeUp_triggered()
 {
-    int newvol = std::min(volumeSlider_->value() + 10, 130.0);
+    int newvol = std::min(volumeSlider_->value() + volumeStep, 130.0);
     emit volumeChanged(newvol);
     volumeSlider_->setValue(newvol);
 }
 
 void MainWindow::on_actionPlayVolumeDown_triggered()
 {
-    int newvol = std::max(volumeSlider_->value() - 10, 0.0);
+    int newvol = std::max(volumeSlider_->value() - volumeStep, 0.0);
     emit volumeChanged(newvol);
     volumeSlider_->setValue(newvol);
 }
