@@ -731,6 +731,8 @@ void SettingsWindow::sendSignals()
     option("screenshot-png-filter", WIDGET_LOOKUP(ui->pngFilter).toInt());
     option("screenshot-tag-colorspace", WIDGET_LOOKUP(ui->pngColorspace).toBool());
     clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
+    option("hr-seek", WIDGET_LOOKUP(ui->tweaksFastSeek).toBool() ? "absolute" : "yes");
+    option("hr-seek-framedrop", WIDGET_LOOKUP(ui->tweaksSeekFramedrop).toBool());
     timeTooltip(WIDGET_LOOKUP(ui->tweaksTimeTooltip).toBool(),
                 WIDGET_LOOKUP(ui->tweaksTimeTooltipLocation).toInt() == 0);
     mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));

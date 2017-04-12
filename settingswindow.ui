@@ -149,7 +149,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>9</number>
+          <number>16</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -6304,14 +6304,28 @@ media file played</string>
           </layout>
          </widget>
          <widget class="QWidget" name="tweaksPage">
-          <layout class="QVBoxLayout" name="verticalLayout_63">
+          <layout class="QVBoxLayout" name="verticalLayout_49">
            <item>
             <widget class="QCheckBox" name="tweaksFastSeek">
              <property name="text">
-              <string>Fast seek</string>
+              <string>Fast seek (when skipping)</string>
              </property>
              <property name="checked">
               <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="tweaksSeekFramedrop">
+             <property name="text">
+              <string>Drop frames before the seek target in the decoder</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="tweaksOpenNextFile">
+             <property name="text">
+              <string>Open next/previous file in folder when there is only one item in the playlist</string>
              </property>
             </widget>
            </item>
@@ -6322,13 +6336,6 @@ media file played</string>
              </property>
              <property name="checked">
               <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="tweaksOpenNextFile">
-             <property name="text">
-              <string>Open next/previous file in folder when there is only one item in the playlist</string>
              </property>
             </widget>
            </item>

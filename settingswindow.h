@@ -137,7 +137,6 @@ signals:
     void encodeVideoQMax(int qmax);
     void encodeAudioBitrate(int kilobits);
 
-    void fastSeek(bool toKeyframes);
     void chapterMarks(bool yes);
     void fallbackToFolder(bool yes);
     void timeTooltip(bool yes, bool above);
