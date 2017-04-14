@@ -1164,11 +1164,20 @@
    </property>
   </action>
   <action name="actionViewOntopDefault">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>&amp;Default</string>
    </property>
   </action>
   <action name="actionViewOntopAlways">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>&amp;Always</string>
    </property>
@@ -1177,11 +1186,17 @@
    </property>
   </action>
   <action name="actionViewOntopPlaying">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>While &amp;Playing</string>
    </property>
   </action>
   <action name="actionViewOntopVideo">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>While Playing &amp;Video</string>
    </property>
@@ -1709,7 +1724,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Show Quick Queue</string>
+    <string>S&amp;how Quick Queue</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+`</string>

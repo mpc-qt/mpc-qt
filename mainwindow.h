@@ -23,6 +23,8 @@ private:
     enum DecorationState { AllDecorations, NoMenu, NoDecorations };
     enum ZoomMode { RegularZoom, Autofit, AutofitSmaller, AutofitLarger,
                     FitToWindow };
+    enum OnTopMode { OnTopDefault, AlwaysOnTop, OnTopWhenPlaying,
+                     OnTopForVideos };
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -63,6 +65,7 @@ private:
     void setDiscState(bool playingADisc);
 
     void setupMenu();
+    void setupActionGroups();
     void setupPositionSlider();
     void setupVolumeSlider();
     void setupMpvWidget();
@@ -87,6 +90,8 @@ private:
     void updatePlaybackStatus();
     void updateSize(bool first_run = false);
     void updateInfostats();
+    void updateOnTop();
+    void updateWindowFlags();
     void updateMouseHideTime();
 
 signals:
@@ -204,6 +209,11 @@ private slots:
     void on_actionViewZoomAutofitSmaller_triggered();
     void on_actionViewZoomDisable_triggered();
 
+    void on_actionViewOntopDefault_toggled(bool checked);
+    void on_actionViewOntopAlways_toggled(bool checked);
+    void on_actionViewOntopPlaying_toggled(bool checked);
+    void on_actionViewOntopVideo_toggled(bool checked);
+
     void on_actionViewOptions_triggered();
 
     void on_actionPlayPause_triggered(bool checked);
@@ -269,11 +279,16 @@ private:
     QSize noVideoSize_;
     bool isPlaying;
     bool isPaused;
+    bool hasVideo;
+    bool hasAudio;
+    bool hasSubs;
     int volumeStep;
     double sizeFactor_;
     double fitFactor_;
     ZoomMode zoomMode;
     bool zoomCenter;
+    OnTopMode onTopMode;
+    bool showOnTop;
     int mouseHideTimeWindowed;
     int mouseHideTimeFullscreen;
     int64_t displayDrops;

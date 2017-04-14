@@ -35,11 +35,16 @@ MainWindow::MainWindow(QWidget *parent) :
     timeTooltipAbove = false;
     isPlaying = false;
 
+    hasVideo = false;
+    hasAudio = false;
+    hasSubs = false;
+
     volumeStep = 10;
     sizeFactor_ = 1;
     fitFactor_ = 0.75;
     zoomMode = RegularZoom;
     zoomCenter = true;
+    onTopMode = OnTopDefault;
 
     mouseHideTimeFullscreen = 1000;
     mouseHideTimeWindowed = 1000;
@@ -54,6 +59,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->setupUi(this);
     setupMenu();
+    setupActionGroups();
     setupPositionSlider();
     setupVolumeSlider();
     setupMpvWidget();
@@ -144,7 +150,11 @@ QVariantMap MainWindow::state()
         { WRAP(ui->actionViewHideSubresync) },
         { WRAP(ui->actionViewHidePlaylist) },
         { WRAP(ui->actionViewHideCapture) },
-        { WRAP(ui->actionViewHideNavigation) }
+        { WRAP(ui->actionViewHideNavigation) },
+        { WRAP(ui->actionViewOntopDefault) },
+        { WRAP(ui->actionViewOntopAlways) },
+        { WRAP(ui->actionViewOntopPlaying) },
+        { WRAP(ui->actionViewOntopVideo) }
     };
 #undef WRAP
 }
@@ -164,6 +174,12 @@ void MainWindow::setState(const QVariantMap &map)
     UNWRAP(ui->actionViewHidePlaylist, true);
     UNWRAP(ui->actionViewHideCapture, false);
     UNWRAP(ui->actionViewHideNavigation, false);
+    UNWRAP(ui->actionViewOntopDefault, true);
+    UNWRAP(ui->actionViewOntopAlways, false);
+    UNWRAP(ui->actionViewOntopPlaying, false);
+    UNWRAP(ui->actionViewOntopVideo, false);
+    updateOnTop();
+
 #undef UNWRAP
 }
 
@@ -332,6 +348,17 @@ void MainWindow::setupMenu()
                                        tr("Every time"));
 
     ui->infoStats->setVisible(false);
+}
+
+void MainWindow::setupActionGroups()
+{
+    QActionGroup *ag;
+
+    ag = new QActionGroup(this);
+    ag->addAction(ui->actionViewOntopDefault);
+    ag->addAction(ui->actionViewOntopAlways);
+    ag->addAction(ui->actionViewOntopPlaying);
+    ag->addAction(ui->actionViewOntopVideo);
 }
 
 void MainWindow::setupPositionSlider()
@@ -524,13 +551,7 @@ void MainWindow::setUiDecorationState(DecorationState state)
         ui->menubar->hide();
     }
 
-    if (state == NoDecorations) {
-        setWindowFlags(windowFlags() | Qt::FramelessWindowHint);
-        show();
-    } else if (windowFlags() & Qt::FramelessWindowHint) {
-        setWindowFlags(windowFlags() & ~Qt::FramelessWindowHint);
-        show();
-    }
+    updateWindowFlags();
 }
 
 void MainWindow::setUiEnabledState(bool enabled)
@@ -798,6 +819,49 @@ void MainWindow::updateInfostats()
     ui->infoSection->adjustSize();
 }
 
+void MainWindow::updateOnTop()
+{
+    switch (onTopMode) {
+    case AlwaysOnTop:
+        showOnTop = true;
+        break;
+    case OnTopWhenPlaying:
+        showOnTop = isPlaying;
+        break;
+    case OnTopForVideos:
+        showOnTop = isPlaying && hasVideo;
+        break;
+    default:
+        showOnTop = false;
+    }
+    updateWindowFlags();
+}
+
+void MainWindow::updateWindowFlags()
+{
+    // FIXME: on top doesn't seem to stick at startup??
+
+    Qt::WindowFlags flags = windowFlags();
+    Qt::WindowFlags old = flags;
+    bool isOnTop = flags.testFlag(Qt::WindowStaysOnTopHint);
+    bool isFrameless = flags.testFlag(Qt::FramelessWindowHint);
+
+    if (showOnTop && !isOnTop)
+        flags |= Qt::WindowStaysOnTopHint;
+    else if (!showOnTop && isOnTop)
+        flags &= ~Qt::WindowStaysOnTopHint;
+
+    if (decorationState_ == NoDecorations && !isFrameless)
+        flags |= Qt::FramelessWindowHint;
+    else if (decorationState_ != NoDecorations && isFrameless);
+        flags &= ~Qt::FramelessWindowHint;
+
+    if (old != flags) {
+        setWindowFlags(flags);
+        show();
+    }
+}
+
 void MainWindow::updateMouseHideTime()
 {
     mpvw->setMouseHideTime(fullscreenMode_
@@ -974,6 +1038,7 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
         positionSlider_->setLoopA(-1);
         positionSlider_->setLoopB(-1);
     }
+    updateOnTop();
 }
 
 void MainWindow::setPlaybackType(PlaybackManager::PlaybackType type)
@@ -1009,6 +1074,7 @@ void MainWindow::setAudioTracks(QList<QPair<int64_t, QString>> tracks)
         });
         ui->menuPlayAudio->addAction(action);
     }
+    hasAudio = !tracks.isEmpty();
 }
 
 void MainWindow::setVideoTracks(QList<QPair<int64_t, QString>> tracks)
@@ -1022,6 +1088,8 @@ void MainWindow::setVideoTracks(QList<QPair<int64_t, QString>> tracks)
         });
         ui->menuPlayVideo->addAction(action);
     }
+    hasVideo = !tracks.isEmpty();
+    updateOnTop();
 }
 
 void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
@@ -1035,6 +1103,7 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
         });
         ui->menuPlaySubtitles->addAction(action);
     }
+    hasSubs = !tracks.isEmpty();
 }
 
 void MainWindow::setVolume(int level)
@@ -1417,6 +1486,38 @@ void MainWindow::on_actionViewZoomDisable_triggered()
 {
     setZoomPreset(-1);
     emit zoomPresetChanged(-1);
+}
+
+void MainWindow::on_actionViewOntopDefault_toggled(bool checked)
+{
+    if (!checked)
+        return;
+    onTopMode = OnTopDefault;
+    updateOnTop();
+}
+
+void MainWindow::on_actionViewOntopAlways_toggled(bool checked)
+{
+    if (!checked)
+        return;
+    onTopMode = AlwaysOnTop;
+    updateOnTop();
+}
+
+void MainWindow::on_actionViewOntopPlaying_toggled(bool checked)
+{
+    if (!checked)
+        return;
+    onTopMode = OnTopWhenPlaying;
+    updateOnTop();
+}
+
+void MainWindow::on_actionViewOntopVideo_toggled(bool checked)
+{
+    if (!checked)
+        return;
+    onTopMode = OnTopForVideos;
+    updateOnTop();
 }
 
 void MainWindow::on_actionViewOptions_triggered()
