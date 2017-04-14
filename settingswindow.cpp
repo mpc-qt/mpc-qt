@@ -474,7 +474,7 @@ void SettingsWindow::sendSignals()
 
     emit playbackPlayTimes(WIDGET_LOOKUP(ui->playbackRepeatForever).toBool() ?
                            0 : WIDGET_LOOKUP(ui->playbackPlayAmount).toInt());
-    emit playbackLoopImages(WIDGET_LOOKUP(ui->playbackLoopImages).toBool());
+    option("image-display-duration", WIDGET_LOOKUP(ui->playbackLoopImages).toBool() ? QVariant("inf") : QVariant(1.0));
 
     emit zoomCenter(WIDGET_LOOKUP(ui->playbackAutoCenterWindow).toBool());
     double factor = WIDGET_LOOKUP(ui->playbackAutoFitFactor).toInt() / 100.0;

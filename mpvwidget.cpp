@@ -292,12 +292,6 @@ void MpvWidget::setSubFile(QString filename)
     emit ctrlSetOptionVariant("sub-file", filename);
 }
 
-void MpvWidget::setLoopImages(bool yes)
-{
-    emit ctrlSetOptionVariant("image-display-duration",
-                              yes ? QVariant("inf") : QVariant(1.0));
-}
-
 int64_t MpvWidget::chapter()
 {
     return getMpvPropertyVariant("chapter").toLongLong();

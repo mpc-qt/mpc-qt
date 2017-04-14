@@ -37,7 +37,6 @@ public:
     void setMouseHideTime(int msec);
     void setLogoUrl(const QString &filename);
     void setSubFile(QString filename);
-    void setLoopImages(bool yes);
 
     int64_t chapter();
     bool setChapter(int64_t chapter);
