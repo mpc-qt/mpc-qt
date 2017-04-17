@@ -853,7 +853,7 @@ void MainWindow::updateWindowFlags()
 
     if (decorationState_ == NoDecorations && !isFrameless)
         flags |= Qt::FramelessWindowHint;
-    else if (decorationState_ != NoDecorations && isFrameless);
+    else if (decorationState_ != NoDecorations && isFrameless)
         flags &= ~Qt::FramelessWindowHint;
 
     if (old != flags) {
