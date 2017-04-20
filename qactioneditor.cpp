@@ -32,7 +32,7 @@ void QActionEditor::setCommands(const QList<Command> &commands)
             new QStandardItem(commands[i].mouseFullscreen.toString()),
         };
         items[0]->setEditable(false);
-        for (auto index : items) {
+        for (auto &index : items) {
             index->setData(i);
         }
         model.appendRow(items);
@@ -97,10 +97,10 @@ void QActionEditor::fromVMap(const QVariantMap &map)
     QMap<QString, int> nameToIndex;
     for (int i = 0; i < commands.count(); i++)
         nameToIndex[commands[i].action->objectName()] = i;
-    for (const QString &key : map.keys()) {
-        int index = nameToIndex[key];
-        Command c = commands[index];
-        c.fromVMap(map.value(key).toMap());
+    for (auto it = map.keyBegin(); it != map.keyEnd(); it++) {
+        int index = nameToIndex[*it];
+        Command c = commands.value(index);
+        c.fromVMap(map.value(*it).toMap());
         commands[index] = c;
     }
     setCommands(commands);

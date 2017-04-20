@@ -263,7 +263,7 @@ bool MainWindow::mouseStateEvent(const MouseState &state)
             return true;
         if (action->isCheckable())
             action->setChecked(!action->isChecked());
-        action->triggered(action->isChecked());
+        emit action->triggered(action->isChecked());
         return true;
     }
     return false;
@@ -872,7 +872,7 @@ void MainWindow::updateMouseHideTime()
 void MainWindow::setNoVideoSize(const QSize &size)
 {
     noVideoSize_ = size.expandedTo(QSize(500,270));
-    fireUpdateSize();
+    emit fireUpdateSize();
 }
 
 void MainWindow::setWindowedMouseMap(const MouseStateMap &map)
@@ -1051,11 +1051,11 @@ void MainWindow::setChapters(QList<QPair<double, QString>> chapters)
     positionSlider_->clearTicks();
     ui->menuNavigateChapters->clear();
     int64_t index = 0;
-    for (QPair<double,QString> chapter : chapters) {
+    for (const QPair<double,QString> &chapter : chapters) {
         positionSlider_->setTick(chapter.first, chapter.second);
         QAction *action = new QAction(this);
         action->setText(chapter.second);
-        connect (action, &QAction::triggered, [=]() {
+        connect (action, &QAction::triggered, [this,index]() {
            emit chapterSelected(index);
         });
         ui->menuNavigateChapters->addAction(action);
@@ -1066,11 +1066,12 @@ void MainWindow::setChapters(QList<QPair<double, QString>> chapters)
 void MainWindow::setAudioTracks(QList<QPair<int64_t, QString>> tracks)
 {
     ui->menuPlayAudio->clear();
-    for (QPair<int64_t, QString> track : tracks) {
+    for (const QPair<int64_t, QString> &track : tracks) {
         QAction *action = new QAction(this);
         action->setText(track.second);
-        connect(action, &QAction::triggered, [=]{
-            emit audioTrackSelected(track.first);
+        int64_t index = track.first;
+        connect(action, &QAction::triggered, [this,index] {
+            emit audioTrackSelected(index);
         });
         ui->menuPlayAudio->addAction(action);
     }
@@ -1080,11 +1081,12 @@ void MainWindow::setAudioTracks(QList<QPair<int64_t, QString>> tracks)
 void MainWindow::setVideoTracks(QList<QPair<int64_t, QString>> tracks)
 {
     ui->menuPlayVideo->clear();
-    for (QPair<int64_t, QString> track : tracks) {
+    for (const QPair<int64_t, QString> &track : tracks) {
         QAction *action = new QAction(this);
         action->setText(track.second);
-        connect(action, &QAction::triggered, [=]() {
-           emit videoTrackSelected(track.first);
+        int64_t index = track.first;
+        connect(action, &QAction::triggered, [this,index]() {
+           emit videoTrackSelected(index);
         });
         ui->menuPlayVideo->addAction(action);
     }
@@ -1095,11 +1097,12 @@ void MainWindow::setVideoTracks(QList<QPair<int64_t, QString>> tracks)
 void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
 {
     ui->menuPlaySubtitles->clear();
-    for (QPair<int64_t, QString> track : tracks) {
+    for (const QPair<int64_t, QString> &track : tracks) {
         QAction *action = new QAction(this);
         action->setText(track.second);
-        connect(action, &QAction::triggered, [=]() {
-            emit subtitleTrackSelected(track.first);
+        int64_t index = track.first;
+        connect(action, &QAction::triggered, [this,index]() {
+            emit subtitleTrackSelected(index);
         });
         ui->menuPlaySubtitles->addAction(action);
     }
@@ -1206,7 +1209,7 @@ void MainWindow::on_actionFileOpenDirectory_triggered()
     QDir dir(url.toLocalFile());
     QList<QUrl> list;
     QFileInfoList f = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
-    for(auto file : f)
+    for(auto &file : f)
         list.append(QUrl::fromLocalFile(file.absoluteFilePath()));
     emit severalFilesOpened(list);
 }
@@ -1268,7 +1271,7 @@ void MainWindow::on_actionViewHideMenu_triggered()
 
     DecorationState nextState[] = { NoMenu, NoDecorations, AllDecorations };
     setUiDecorationState(nextState[static_cast<int>(decorationState_)]);
-    fireUpdateSize();
+    emit fireUpdateSize();
 }
 
 void MainWindow::on_actionViewHideSeekbar_toggled(bool checked)
@@ -1278,7 +1281,7 @@ void MainWindow::on_actionViewHideSeekbar_toggled(bool checked)
     else if (!checked && ui->seekbar->isVisible())
         ui->seekbar->hide();
     ui->controlSection->adjustSize();
-    fireUpdateSize();
+    emit fireUpdateSize();
 }
 
 void MainWindow::on_actionViewHideControls_toggled(bool checked)
@@ -1288,21 +1291,21 @@ void MainWindow::on_actionViewHideControls_toggled(bool checked)
     else if (!checked && ui->controlbar->isVisible())
         ui->controlbar->hide();
     ui->controlSection->adjustSize();
-    fireUpdateSize();
+    emit fireUpdateSize();
 }
 
 void MainWindow::on_actionViewHideInformation_toggled(bool checked)
 {
     Q_UNUSED(checked);
     updateInfostats();
-    fireUpdateSize();
+    emit fireUpdateSize();
 }
 
 void MainWindow::on_actionViewHideStatistics_toggled(bool checked)
 {
     Q_UNUSED(checked);
     updateInfostats();
-    fireUpdateSize();
+    emit fireUpdateSize();
 }
 
 void MainWindow::on_actionViewHideStatus_toggled(bool checked)
@@ -1312,14 +1315,14 @@ void MainWindow::on_actionViewHideStatus_toggled(bool checked)
     else if (!checked && ui->statusbar->isVisible())
         ui->statusbar->hide();
     ui->infoSection->adjustSize();
-    fireUpdateSize();
+    emit fireUpdateSize();
 }
 
 void MainWindow::on_actionViewHideSubresync_toggled(bool checked)
 {
     (void)checked;
 
-    fireUpdateSize();
+    emit fireUpdateSize();
 }
 
 void MainWindow::on_actionViewHidePlaylist_toggled(bool checked)
@@ -1338,21 +1341,21 @@ void MainWindow::on_actionViewHidePlaylist_toggled(bool checked)
     if (fullscreenMode_ && !fullscreenHidePanels)
         updateBottomAreaGeometry();
 
-    fireUpdateSize();
+    emit fireUpdateSize();
 }
 
 void MainWindow::on_actionViewHideCapture_toggled(bool checked)
 {
     (void)checked;
 
-    fireUpdateSize();
+    emit fireUpdateSize();
 }
 
 void MainWindow::on_actionViewHideNavigation_toggled(bool checked)
 {
     (void)checked;
 
-    fireUpdateSize();
+    emit fireUpdateSize();
 }
 
 void MainWindow::on_actionViewPresetsMinimal_triggered()
@@ -1700,7 +1703,7 @@ void MainWindow::position_hoverValue(double value, QString text, double x)
     if (text.isEmpty())
         text = "<unknown>";
 
-    QString t = QString("%1 - %2").arg(Helpers::toDateFormat(value)).arg(text);
+    QString t = QString("%1 - %2").arg(Helpers::toDateFormat(value), text);
     QPoint where = positionSlider_->mapToGlobal(QPoint(x, timeTooltipAbove ? -40 : 0));
     QToolTip::showText(where, t, positionSlider_);
 

@@ -11,6 +11,7 @@ class QThread;
 class PlaylistSearcher;
 
 class PlayPainter : public QAbstractItemDelegate {
+    Q_OBJECT
 public:
     PlayPainter(QObject *parent = 0);
     void paint(QPainter *painter, const QStyleOptionViewItem &option,
@@ -106,6 +107,7 @@ private slots:
 
 
 class QDrawnQueue : public QDrawnPlaylist {
+    Q_OBJECT
 public:
     virtual QSharedPointer<Playlist> playlist() const;
     void addItem(QUuid uuid);

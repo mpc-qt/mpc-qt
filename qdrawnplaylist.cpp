@@ -154,14 +154,14 @@ QUuid QDrawnPlaylist::currentItemUuid() const
 QList<QUuid> QDrawnPlaylist::currentItemUuids() const
 {
     QList<QUuid> selected;
-    for (auto i : selectedItems())
+    for (auto &i : selectedItems())
         selected.append(QUuid(i->text()));
     return selected;
 }
 
 void QDrawnPlaylist::traverseSelected(std::function<void (QUuid)> callback)
 {
-    for (auto i : selectedItems())
+    for (auto &i : selectedItems())
         callback(QUuid(i->text()));
 }
 
@@ -383,7 +383,7 @@ void QDrawnPlaylist::self_currentItemChanged(QListWidgetItem *current,
 void QDrawnPlaylist::self_itemDoubleClicked(QListWidgetItem *item)
 {
     PlayItem *playItem = reinterpret_cast<PlayItem*>(item);
-    itemDesired(playItem->playlistUuid(), playItem->uuid());
+    emit itemDesired(playItem->playlistUuid(), playItem->uuid());
 }
 
 void QDrawnPlaylist::self_customContextMenuRequested(const QPoint &p)
@@ -475,7 +475,7 @@ void PlaylistSelection::appendToPlaylist(QDrawnPlaylist *list)
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list->uuid());
     if (Q_UNLIKELY(!pl))
         return;
-    for (auto i : d->items) {
+    for (auto &i : d->items) {
         list->addItem(pl->addItemClone(i)->uuid());
     }
     list->viewport()->update();
@@ -487,7 +487,7 @@ void PlaylistSelection::appendAndQuickQueue(QDrawnPlaylist *list)
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list->uuid());
     if (Q_UNLIKELY(!pl))
         return;
-    for (auto i : d->items) {
+    for (auto &i : d->items) {
         QUuid uuid = pl->addItemClone(i)->uuid();
         list->addItem(uuid);
         queue->toggle(pl->uuid(), uuid);

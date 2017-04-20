@@ -401,7 +401,7 @@ QString Flow::pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles 
 QVariantList Flow::recentToVList() const
 {
     QVariantList l;
-    for (TrackInfo track : recentFiles)
+    for (const TrackInfo &track : recentFiles)
         l.append(track.toVMap());
     return l;
 }
@@ -409,7 +409,7 @@ QVariantList Flow::recentToVList() const
 void Flow::recentFromVList(const QVariantList &list)
 {
     recentFiles.clear();
-    for (QVariant item : list) {
+    for (const QVariant &item : list) {
         TrackInfo t;
         t.fromVMap(item.toMap());
         recentFiles.append(t);
@@ -471,7 +471,7 @@ void Flow::restoreWindows(const QVariantMap &map)
         QTimer::singleShot(50, this, [=]() { showWindows(mainWindowMap); });
         settingsWindow->setGeometry(Helpers::vmapToRect(settingsWindowMap["geometry"].toMap()));
     } else {
-        mainWindow->fireUpdateSize();
+        emit mainWindow->fireUpdateSize();
         if (validCustomPos)
             mainWindow->move(customPos);
         if (validCustomSize)
@@ -521,7 +521,7 @@ void Flow::mainwindow_recentClear()
 void Flow::mainwindow_takeImage(bool subs)
 {
     QString fmt;
-#ifdef Q_OS_WINDOWS
+#ifdef Q_OS_WIN
     fmt = "C:\\WINDOWS\\TEMP\\mpc-qt_%1";
 #else
     fmt = "/dev/shm/mpc-qt_%1";
@@ -634,7 +634,8 @@ void Flow::settingswindow_screenshotFormat(const QString &fmt)
 
 void Flow::importPlaylist(QString fname)
 {
-    emit mainWindow->playlistWindow()->addSimplePlaylist(storage.readM3U(fname));
+    //CHECKME: addSimplePlaylist should be a slot?
+    mainWindow->playlistWindow()->addSimplePlaylist(storage.readM3U(fname));
 }
 
 void Flow::exportPlaylist(QString fname, QStringList items)

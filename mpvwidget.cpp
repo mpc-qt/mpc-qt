@@ -180,8 +180,8 @@ MpvWidget::MpvWidget(QWidget *parent, const QString &clientName) :
                               Q_ARG(QString, "on_unload"),
                               Q_ARG(int, HOOK_UNLOAD_CALLBACK_ID));
 
-    emit ctrlSetOptionVariant("ytdl", "yes");
-    emit ctrlSetOptionVariant("audio-client-name", clientName);
+    blockingSetMpvOptionVariant("ytdl", "yes");
+    blockingSetMpvOptionVariant("audio-client-name", clientName);
 
     connect(this, &QOpenGLWidget::frameSwapped,
             this, &MpvWidget::self_frameSwapped);
@@ -547,17 +547,9 @@ void MpvWidget::ctrl_update(void *ctx)
     QMetaObject::invokeMethod(reinterpret_cast<MpvWidget*>(ctx), "maybeUpdate");
 }
 
-#define HANDLE_PROP_1(p, method, converter, dflt) \
+#define HANDLE_PROP(p, method, converter, dflt) \
     if (name == p) { \
         if (ok && v.canConvert<decltype(dflt)>()) \
-            method(v.converter()); \
-        else \
-            method(dflt); \
-        return; \
-    }
-#define HANDLE_PROP_2(p, method, converter, dflt) \
-    if (name == p) { \
-        if (ok) \
             method(v.converter()); \
         else \
             method(dflt); \
@@ -570,21 +562,22 @@ void MpvWidget::ctrl_mpvPropertyChanged(QString name, QVariant v)
         qDebug() << "property changed " << name << v;
 
     bool ok = v.type() < QVariant::UserType;
-    HANDLE_PROP_1("time-pos", self_playTimeChanged, toDouble, -1.0);
-    HANDLE_PROP_1("duration", self_playLengthChanged, toDouble, -1.0);
-    HANDLE_PROP_1("pause", pausedChanged, toBool, true);
-    HANDLE_PROP_1("media-title", mediaTitleChanged, toString, QString());
-    HANDLE_PROP_1("chapter-metadata", chapterDataChanged, toMap, QVariantMap());
-    HANDLE_PROP_1("chapter-list", chaptersChanged, toList, QVariantList());
-    HANDLE_PROP_1("track-list", tracksChanged, toList, QVariantList());
-    HANDLE_PROP_1("estimated-vf-fps", fpsChanged, toDouble, 0.0);
-    HANDLE_PROP_1("avsync", avsyncChanged, toDouble, 0.0);
-    HANDLE_PROP_1("frame-drop-count", displayFramedropsChanged, toLongLong, 0ll);
-    HANDLE_PROP_1("decoder-frame-drop-count", decoderFramedropsChanged, toLongLong, 0ll);
-    HANDLE_PROP_1("audio-bitrate", audioBitrateChanged, toDouble, 0.0);
-    HANDLE_PROP_1("video-bitrate", videoBitrateChanged, toDouble, 0.0);
-    HANDLE_PROP_1("metadata", self_metadata, toMap, QVariantMap());
-    HANDLE_PROP_1("audio-device-list", self_audioDeviceList, toList, QVariantList());
+    //FIXME: use constant-time map to function lookup
+    HANDLE_PROP("time-pos", self_playTimeChanged, toDouble, -1.0);
+    HANDLE_PROP("duration", self_playLengthChanged, toDouble, -1.0);
+    HANDLE_PROP("pause", emit pausedChanged, toBool, true);
+    HANDLE_PROP("media-title", emit mediaTitleChanged, toString, QString());
+    HANDLE_PROP("chapter-metadata", emit chapterDataChanged, toMap, QVariantMap());
+    HANDLE_PROP("chapter-list", emit chaptersChanged, toList, QVariantList());
+    HANDLE_PROP("track-list", emit tracksChanged, toList, QVariantList());
+    HANDLE_PROP("estimated-vf-fps", emit fpsChanged, toDouble, 0.0);
+    HANDLE_PROP("avsync", emit avsyncChanged, toDouble, 0.0);
+    HANDLE_PROP("frame-drop-count", emit displayFramedropsChanged, toLongLong, 0ll);
+    HANDLE_PROP("decoder-frame-drop-count", emit decoderFramedropsChanged, toLongLong, 0ll);
+    HANDLE_PROP("audio-bitrate", emit audioBitrateChanged, toDouble, 0.0);
+    HANDLE_PROP("video-bitrate", emit videoBitrateChanged, toDouble, 0.0);
+    HANDLE_PROP("metadata", self_metadata, toMap, QVariantMap());
+    HANDLE_PROP("audio-device-list", self_audioDeviceList, toList, QVariantList());
 }
 
 void MpvWidget::ctrl_logMessage(QString message)
@@ -598,7 +591,7 @@ void MpvWidget::ctrl_clientMessage(uint64_t id, const QStringList &args)
     if (args[1] == QString::number(HOOK_UNLOAD_CALLBACK_ID)) {
         QVariantList playlist = getMpvPropertyVariant("playlist").toList();
         if (playlist.count() > 1)
-            playlistChanged(playlist);
+            emit playlistChanged(playlist);
         emit ctrlCommand(QStringList({"hook-ack", args[2]}));
     }
 }
@@ -609,31 +602,31 @@ void MpvWidget::ctrl_unhandledMpvEvent(int eventLevel)
     case MPV_EVENT_START_FILE: {
         if (debugMessages)
             qDebug() << "start file";
-        playbackLoading();
+        emit playbackLoading();
         break;
     }
     case MPV_EVENT_FILE_LOADED: {
         if (debugMessages)
             qDebug() << "file loaded";
-        playbackStarted();
+        emit playbackStarted();
         break;
     }
     case MPV_EVENT_END_FILE: {
         if (debugMessages)
             qDebug() << "end file";
-        playbackFinished();
+        emit playbackFinished();
         break;
     }
     case MPV_EVENT_IDLE: {
         if (debugMessages)
             qDebug() << "idling";
-        playbackIdling();
+        emit playbackIdling();
         break;
     }
     case MPV_EVENT_SHUTDOWN: {
         if (debugMessages)
             qDebug() << "event shutdown";
-        playbackFinished();
+        emit playbackFinished();
         break;
     }
     }
@@ -677,9 +670,8 @@ void MpvWidget::self_playbackFinished()
 void MpvWidget::self_metadata(QVariantMap metadata)
 {
     QVariantMap map;
-    for(QString key : metadata.keys()) {
-        map.insert(key.toLower(), metadata[key]);
-    }
+    for (auto it = metadata.keyBegin(); it != metadata.keyEnd(); it++)
+        map.insert(it->toLower(), metadata[*it]);
     emit metaDataChanged(map);
 }
 
@@ -820,7 +812,7 @@ int MpvController::setOptionVariant(QString name, const QVariant &value)
 QVariant MpvController::command(const QVariant &params)
 {
     if (params.canConvert<QString>()) {
-        int value = mpv_command_string(mpv, params.value<QString>().toUtf8().data());
+        int value = mpv_command_string(mpv, params.toString().toUtf8().data());
         if (value < 0)
             return QVariant::fromValue(MpvErrorCode(value));
         return QVariant();
@@ -909,9 +901,9 @@ void MpvController::setThrottledProperty(const QString &name, const QVariant &v,
 
 void MpvController::flushProperties()
 {
-    foreach (QString key, throttledValues.keys())
-        emit mpvPropertyChanged(key, throttledValues[key].first,
-                                throttledValues[key].second);
+    for (auto it = throttledValues.keyBegin(); it != throttledValues.keyEnd(); it++)
+        emit mpvPropertyChanged(*it, throttledValues[*it].first,
+                                throttledValues[*it].second);
     throttledValues.clear();
 }
 

@@ -65,6 +65,7 @@ double QDrawnSlider::xToValue(double x)
 
 void QDrawnSlider::paintEvent(QPaintEvent *event)
 {
+    Q_UNUSED(event);
     QPalette pal;
     pal = reinterpret_cast<QWidget*>(parentWidget())->palette();
     grooveBorder = pal.color(QPalette::Normal, QPalette::Shadow);
@@ -87,6 +88,7 @@ void QDrawnSlider::paintEvent(QPaintEvent *event)
 
 void QDrawnSlider::resizeEvent(QResizeEvent *event)
 {
+    Q_UNUSED(event);
     /*
         MEDIA SLIDER CASE
 
@@ -165,7 +167,7 @@ void QDrawnSlider::mousePressEvent(QMouseEvent *ev)
         isDragging = true;
         xPosition = ev->localPos().x();
         setValue(xToValue(ev->localPos().x()));
-        sliderMoved(value());
+        emit sliderMoved(value());
     }
 }
 
@@ -185,7 +187,7 @@ void QDrawnSlider::mouseMoveEvent(QMouseEvent *ev)
                                sliderArea.right());
         if (value() != mouseValue) {
             setValue(mouseValue);
-            sliderMoved(value());
+            emit sliderMoved(value());
         }
         if (mouseX != xPosition) {
             xPosition = mouseX;
@@ -278,21 +280,21 @@ void QMediaSlider::drawHandle(QPainter *p, double x)
 
 void QMediaSlider::enterEvent(QEvent *event)
 {
-    (void)event;
-    hoverBegin();
+    Q_UNUSED(event);
+    emit hoverBegin();
 }
 
 void QMediaSlider::leaveEvent(QEvent *event)
 {
-    (void)event;
-    hoverEnd();
+    Q_UNUSED(event);
+    emit hoverEnd();
 }
 
 void QMediaSlider::handleHover(double x)
 {
     double valueOfX = xToValue(x);
 
-    hoverValue(valueOfX, valueToTickText(valueOfX), x);
+    emit hoverValue(valueOfX, valueToTickText(valueOfX), x);
 }
 
 void QMediaSlider::updateLoopArea()

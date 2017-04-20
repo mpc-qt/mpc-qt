@@ -253,7 +253,8 @@ private:
 
     QTimer *throttler;
     QSet<QString> throttledProperties;
-    QMap<QString,QPair<QVariant,uint64_t>> throttledValues;
+    typedef QMap<QString,QPair<QVariant,uint64_t>> ThrottledValueMap;
+    ThrottledValueMap throttledValues;
 };
 
 #endif // MPVWIDGET_H

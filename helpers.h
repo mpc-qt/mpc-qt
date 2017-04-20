@@ -107,6 +107,7 @@ public:
     MouseState();
     MouseState(const MouseState &m);
     MouseState(int button, int mod, MousePress press);
+    MouseState operator =(const MouseState &other);
 
     // Components
     int button;

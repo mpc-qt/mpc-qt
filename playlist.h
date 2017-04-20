@@ -126,6 +126,7 @@ protected:
 };
 
 class QueuePlaylist : public Playlist {
+    Q_OBJECT
 public:
     QueuePlaylist(const QString &title = QString());
 

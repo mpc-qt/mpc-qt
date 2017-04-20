@@ -473,7 +473,7 @@ void DisplayParser::takeFormatString(QString fmt)
 
     // grab the text between % and {
     auto grabProp = [&position](QString source) {
-        int run = source.mid(position).indexOf(QChar('{'));
+        int run = source.midRef(position).indexOf(QChar('{'));
         if (run >= 0) {
             QString ret = source.mid(position, run);
             position += run;
@@ -647,6 +647,14 @@ MouseState::MouseState(int button, int mod, MousePress press)
 {
 }
 
+MouseState MouseState::operator =(const MouseState &other)
+{
+    button = other.button;
+    mod = other.mod;
+    press = other.press;
+    return *this;
+}
+
 Qt::MouseButtons MouseState::mouseButtons() const
 {
     if (button < 2)
@@ -788,7 +796,7 @@ void AudioDevice::setFromVMap(const QVariantMap &m)
     QString desc = m.value("description", "-").toString();
     deviceName_ = m.value("name", "null").toString();
     QString driver = deviceName_.split('/').first();
-    displayString_ = QString("[%1] %2").arg(driver).arg(desc);
+    displayString_ = QString("[%1] %2").arg(driver, desc);
 }
 
 bool AudioDevice::operator ==(const AudioDevice &other) const

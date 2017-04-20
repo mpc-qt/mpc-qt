@@ -1,6 +1,8 @@
 #ifndef QSCREENSAVER_H
 #define QSCREENSAVER_H
 
+#include <qglobal.h>
+
 #if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
 #include "platform/unix_qscreensaver.h"
 #elif defined(Q_OS_WIN)

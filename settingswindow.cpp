@@ -81,9 +81,9 @@ QMap<QString, const char *> Setting::classToProperty = {
 
 QMap<QString, std::function<QVariant(QObject *)>> Setting::classFetcher([]() {
     QMap<QString, std::function<QVariant(QObject*)>> fetchers;
-    for (const QString &i : Setting::classToProperty.keys()) {
-        const char *property = Setting::classToProperty[i];
-        fetchers.insert(i, [property](QObject *w) {
+    for (auto it = classToProperty.keyBegin(); it != classToProperty.keyEnd(); it++) {
+        const char *property = Setting::classToProperty[*it];
+        fetchers.insert(*it, [property](QObject *w) {
             return w->property(property);
         });
     }
@@ -102,9 +102,9 @@ QMap<QString, std::function<QVariant(QObject *)>> Setting::classFetcher([]() {
 
 QMap<QString, std::function<void (QObject *, const QVariant &)> > Setting::classSetter([]() {
     QMap<QString, std::function<void(QObject*, const QVariant &)>> setters;
-    for (const QString &i : Setting::classToProperty.keys()) {
-        const char *property = Setting::classToProperty[i];
-        setters.insert(i, [property](QObject *w, const QVariant &v) {
+    for (auto it = classToProperty.keyBegin(); it != classToProperty.keyEnd(); it++) {
+        const char *property = Setting::classToProperty[*it];
+        setters.insert(*it, [property](QObject *w, const QVariant &v) {
             w->setProperty(property, v);
         });
     }
@@ -114,7 +114,7 @@ QMap<QString, std::function<void (QObject *, const QVariant &)> > Setting::class
         if (!l)
             return;
         l->clear();
-        for (auto listItem : list)
+        for (auto &listItem : list)
             l->addItem(listItem);
     });
     return setters;
@@ -212,10 +212,10 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
         if (tilers.contains(desktop))
             return true;
         desktop = env.value("XDG_DATA_DIRS");
-        for (QString wm : tilers)
+        for (QString &wm : tilers)
             if (desktop.contains(wm))
                 return true;
-        for (QString wm: tilers) {
+        for (QString &wm: tilers) {
             QProcess process;
             process.start("pgrep", QStringList({wm}));
             process.waitForFinished();
@@ -271,7 +271,7 @@ SettingsWindow::~SettingsWindow()
 void SettingsWindow::setupColorPickers()
 {
     struct ValuePick { QLineEdit *value; QPushButton *pick; };
-    QList<ValuePick> colors {
+    QVector<ValuePick> colors {
         { ui->subsColorValue, ui->subsColorPick },
         { ui->subsBorderColorValue, ui->subsBorderColorPick },
         { ui->subsShadowColorValue, ui->subsShadowColorPick }
@@ -299,7 +299,7 @@ SettingMap SettingsWindow::generateSettingMap(QWidget *root)
     toParse.append(root);
     while (!toParse.empty()) {
         QObject *item = toParse.takeFirst();
-        if (Setting::classFetcher.keys().contains(item->metaObject()->className())
+        if (Setting::classFetcher.contains(item->metaObject()->className())
             && !item->objectName().isEmpty()
             && item->objectName() != "qt_spinbox_lineedit") {
             QString name = item->objectName();
@@ -474,7 +474,7 @@ void SettingsWindow::sendSignals()
 
     emit playbackPlayTimes(WIDGET_LOOKUP(ui->playbackRepeatForever).toBool() ?
                            0 : WIDGET_LOOKUP(ui->playbackPlayAmount).toInt());
-    option("image-display-duration", WIDGET_LOOKUP(ui->playbackLoopImages).toBool() ? QVariant("inf") : QVariant(1.0));
+    emit option("image-display-duration", WIDGET_LOOKUP(ui->playbackLoopImages).toBool() ? QVariant("inf") : QVariant(1.0));
 
     emit zoomCenter(WIDGET_LOOKUP(ui->playbackAutoCenterWindow).toBool());
     double factor = WIDGET_LOOKUP(ui->playbackAutoFitFactor).toInt() / 100.0;
@@ -496,158 +496,158 @@ void SettingsWindow::sendSignals()
                                ? WIDGET_LOOKUP(ui->playbackMouseHideWindowedDuration).toInt()
                                : 0);
 
-    option("video-sync", WIDGET_TO_TEXT(ui->syncMode));
-    option("opengl-dumb-mode", WIDGET_LOOKUP(ui->videoDumbMode));
-    option("opengl-fbo-format", WIDGET_TO_TEXT(ui->videoFramebuffer).split('-').value(WIDGET_LOOKUP(ui->videoUseAlpha).toBool()));
-    option("alpha", WIDGET_TO_TEXT(ui->videoAlphaMode));
-    option("sharpen", WIDGET_LOOKUP(ui->videoSharpen).toString());
+    emit option("video-sync", WIDGET_TO_TEXT(ui->syncMode));
+    emit option("opengl-dumb-mode", WIDGET_LOOKUP(ui->videoDumbMode));
+    emit option("opengl-fbo-format", WIDGET_TO_TEXT(ui->videoFramebuffer).split('-').value(WIDGET_LOOKUP(ui->videoUseAlpha).toBool()));
+    emit option("alpha", WIDGET_TO_TEXT(ui->videoAlphaMode));
+    emit option("sharpen", WIDGET_LOOKUP(ui->videoSharpen).toString());
 
     if (WIDGET_LOOKUP(ui->ditherDithering).toBool()) {
-        option("dither-depth", WIDGET_LOOKUP(ui->ditherDepth).toString());
-        option("dither", WIDGET_TO_TEXT(ui->ditherType));
-        option("dither-size-fruit", WIDGET_LOOKUP(ui->ditherFruitSize).toString());
+        emit option("dither-depth", WIDGET_LOOKUP(ui->ditherDepth).toString());
+        emit option("dither", WIDGET_TO_TEXT(ui->ditherType));
+        emit option("dither-size-fruit", WIDGET_LOOKUP(ui->ditherFruitSize).toString());
     } else {
-        option("dither", "no");
+        emit option("dither", "no");
     }
-    option("temporal-dither", WIDGET_LOOKUP(ui->ditherTemporal));
-    option("temporal-dither-period", WIDGET_LOOKUP2(ui->ditherTemporal, ui->ditherTemporalPeriod, 1));
-    option("correct-downscaling", WIDGET_LOOKUP(ui->scalingCorrectDownscaling));
-    option("linear-scaling", WIDGET_LOOKUP(ui->scalingInLinearLight));
-    option("interpolation", WIDGET_LOOKUP(ui->scalingTemporalInterpolation));
-    option("blend-subtitles", WIDGET_LOOKUP(ui->scalingBlendSubtitles));
+    emit option("temporal-dither", WIDGET_LOOKUP(ui->ditherTemporal));
+    emit option("temporal-dither-period", WIDGET_LOOKUP2(ui->ditherTemporal, ui->ditherTemporalPeriod, 1));
+    emit option("correct-downscaling", WIDGET_LOOKUP(ui->scalingCorrectDownscaling));
+    emit option("linear-scaling", WIDGET_LOOKUP(ui->scalingInLinearLight));
+    emit option("interpolation", WIDGET_LOOKUP(ui->scalingTemporalInterpolation));
+    emit option("blend-subtitles", WIDGET_LOOKUP(ui->scalingBlendSubtitles));
     if (WIDGET_LOOKUP(ui->scalingSigmoidizedUpscaling).toBool()) {
-        option("sigmoid-upscaling", true);
-        option("sigmoid-center", WIDGET_LOOKUP(ui->sigmoidizedCenter));
-        option("sigmoid-slope", WIDGET_LOOKUP(ui->sigmoidizedSlope));
+        emit option("sigmoid-upscaling", true);
+        emit option("sigmoid-center", WIDGET_LOOKUP(ui->sigmoidizedCenter));
+        emit option("sigmoid-slope", WIDGET_LOOKUP(ui->sigmoidizedSlope));
     } else {
-        option("sigmoid-upscaling", false);
+        emit option("sigmoid-upscaling", false);
     }
 
     // Is this the right way to fall back to (the scaler's) defaults?
     // Bear in mind we're not setting what hasn't changed since last time.
     // Perhaps would should pass a blank QVariant or empty string instead.
-    option("scale", WIDGET_TO_TEXT(ui->scaleScaler));
-    option("scale-param1", WIDGET_LOOKUP2(ui->scaleParam1Set, ui->scaleParam1Value, "nan"));
-    option("scale-param2", WIDGET_LOOKUP2(ui->scaleParam2Set, ui->scaleParam2Value, "nan"));
-    option("scale-radius", WIDGET_LOOKUP2(ui->scaleRadiusSet, ui->scaleRadiusValue, 0.0));
-    option("scale-antiring", WIDGET_LOOKUP2(ui->scaleAntiRingSet, ui->scaleAntiRingValue, 0.0));
-    option("scale-blur",   WIDGET_LOOKUP2(ui->scaleBlurSet,   ui->scaleBlurValue,  "nan"));
-    option("scale-wparam", WIDGET_LOOKUP2(ui->scaleWindowParamSet, ui->scaleWindowParamValue, "nan"));
-    option("scale-window", WIDGET_LOOKUP2_TEXT(ui->scaleWindowSet, ui->scaleWindowValue, ""));
-    option("scale-clamp", WIDGET_LOOKUP(ui->scaleClamp));
+    emit option("scale", WIDGET_TO_TEXT(ui->scaleScaler));
+    emit option("scale-param1", WIDGET_LOOKUP2(ui->scaleParam1Set, ui->scaleParam1Value, "nan"));
+    emit option("scale-param2", WIDGET_LOOKUP2(ui->scaleParam2Set, ui->scaleParam2Value, "nan"));
+    emit option("scale-radius", WIDGET_LOOKUP2(ui->scaleRadiusSet, ui->scaleRadiusValue, 0.0));
+    emit option("scale-antiring", WIDGET_LOOKUP2(ui->scaleAntiRingSet, ui->scaleAntiRingValue, 0.0));
+    emit option("scale-blur",   WIDGET_LOOKUP2(ui->scaleBlurSet,   ui->scaleBlurValue,  "nan"));
+    emit option("scale-wparam", WIDGET_LOOKUP2(ui->scaleWindowParamSet, ui->scaleWindowParamValue, "nan"));
+    emit option("scale-window", WIDGET_LOOKUP2_TEXT(ui->scaleWindowSet, ui->scaleWindowValue, ""));
+    emit option("scale-clamp", WIDGET_LOOKUP(ui->scaleClamp));
 
-    option("dscale", WIDGET_TO_TEXT(ui->dscaleScaler));
-    option("dscale-param1", WIDGET_LOOKUP2(ui->dscaleParam1Set, ui->dscaleParam1Value, "nan"));
-    option("dscale-param2", WIDGET_LOOKUP2(ui->dscaleParam2Set, ui->dscaleParam2Value, "nan"));
-    option("dscale-radius", WIDGET_LOOKUP2(ui->dscaleRadiusSet, ui->dscaleRadiusValue, 0.0));
-    option("dscale-antiring", WIDGET_LOOKUP2(ui->dscaleAntiRingSet, ui->dscaleAntiRingValue, 0.0));
-    option("dscale-blur",   WIDGET_LOOKUP2(ui->dscaleBlurSet,   ui->dscaleBlurValue,  "nan"));
-    option("dscale-wparam", WIDGET_LOOKUP2(ui->dscaleWindowParamSet, ui->dscaleWindowParamValue, "nan"));
-    option("dscale-window", WIDGET_LOOKUP2_TEXT(ui->dscaleWindowSet, ui->dscaleWindowValue, ""));
-    option("dscale-clamp", WIDGET_LOOKUP(ui->dscaleClamp));
+    emit option("dscale", WIDGET_TO_TEXT(ui->dscaleScaler));
+    emit option("dscale-param1", WIDGET_LOOKUP2(ui->dscaleParam1Set, ui->dscaleParam1Value, "nan"));
+    emit option("dscale-param2", WIDGET_LOOKUP2(ui->dscaleParam2Set, ui->dscaleParam2Value, "nan"));
+    emit option("dscale-radius", WIDGET_LOOKUP2(ui->dscaleRadiusSet, ui->dscaleRadiusValue, 0.0));
+    emit option("dscale-antiring", WIDGET_LOOKUP2(ui->dscaleAntiRingSet, ui->dscaleAntiRingValue, 0.0));
+    emit option("dscale-blur",   WIDGET_LOOKUP2(ui->dscaleBlurSet,   ui->dscaleBlurValue,  "nan"));
+    emit option("dscale-wparam", WIDGET_LOOKUP2(ui->dscaleWindowParamSet, ui->dscaleWindowParamValue, "nan"));
+    emit option("dscale-window", WIDGET_LOOKUP2_TEXT(ui->dscaleWindowSet, ui->dscaleWindowValue, ""));
+    emit option("dscale-clamp", WIDGET_LOOKUP(ui->dscaleClamp));
 
-    option("cscale", WIDGET_TO_TEXT(ui->cscaleScaler));
-    option("cscale-param1", WIDGET_LOOKUP2(ui->cscaleParam1Set, ui->cscaleParam1Value, "nan"));
-    option("cscale-param2", WIDGET_LOOKUP2(ui->cscaleParam2Set, ui->cscaleParam2Value, "nan"));
-    option("cscale-radius", WIDGET_LOOKUP2(ui->cscaleRadiusSet, ui->cscaleRadiusValue, 0.0));
-    option("cscale-antiring", WIDGET_LOOKUP2(ui->cscaleAntiRingSet, ui->cscaleAntiRingValue, 0.0));
-    option("cscale-blur",   WIDGET_LOOKUP2(ui->cscaleBlurSet,   ui->cscaleBlurValue,  "nan"));
-    option("cscale-wparam", WIDGET_LOOKUP2(ui->cscaleWindowParamSet, ui->cscaleWindowParamValue, "nan"));
-    option("cscale-window", WIDGET_LOOKUP2_TEXT(ui->cscaleWindowSet, ui->cscaleWindowValue, ""));
-    option("cscale-clamp", WIDGET_LOOKUP(ui->cscaleClamp));
+    emit option("cscale", WIDGET_TO_TEXT(ui->cscaleScaler));
+    emit option("cscale-param1", WIDGET_LOOKUP2(ui->cscaleParam1Set, ui->cscaleParam1Value, "nan"));
+    emit option("cscale-param2", WIDGET_LOOKUP2(ui->cscaleParam2Set, ui->cscaleParam2Value, "nan"));
+    emit option("cscale-radius", WIDGET_LOOKUP2(ui->cscaleRadiusSet, ui->cscaleRadiusValue, 0.0));
+    emit option("cscale-antiring", WIDGET_LOOKUP2(ui->cscaleAntiRingSet, ui->cscaleAntiRingValue, 0.0));
+    emit option("cscale-blur",   WIDGET_LOOKUP2(ui->cscaleBlurSet,   ui->cscaleBlurValue,  "nan"));
+    emit option("cscale-wparam", WIDGET_LOOKUP2(ui->cscaleWindowParamSet, ui->cscaleWindowParamValue, "nan"));
+    emit option("cscale-window", WIDGET_LOOKUP2_TEXT(ui->cscaleWindowSet, ui->cscaleWindowValue, ""));
+    emit option("cscale-clamp", WIDGET_LOOKUP(ui->cscaleClamp));
 
-    option("tscale", WIDGET_TO_TEXT(ui->tscaleScaler));
-    option("tscale-param1", WIDGET_LOOKUP2(ui->tscaleParam1Set, ui->tscaleParam1Value, "nan"));
-    option("tscale-param2", WIDGET_LOOKUP2(ui->tscaleParam2Set, ui->tscaleParam2Value, "nan"));
-    option("tscale-radius", WIDGET_LOOKUP2(ui->tscaleRadiusSet, ui->tscaleRadiusValue, 0.0));
-    option("tscale-antiring", WIDGET_LOOKUP2(ui->tscaleAntiRingSet, ui->tscaleAntiRingValue, 0.0));
-    option("tscale-blur",   WIDGET_LOOKUP2(ui->tscaleBlurSet,   ui->tscaleBlurValue,  "nan"));
-    option("tscale-wparam", WIDGET_LOOKUP2(ui->tscaleWindowParamSet, ui->tscaleWindowParamValue, "nan"));
-    option("tscale-window", WIDGET_LOOKUP2_TEXT(ui->tscaleWindowSet, ui->tscaleWindowValue, ""));
-    option("tscale-clamp", WIDGET_LOOKUP(ui->tscaleClamp));
+    emit option("tscale", WIDGET_TO_TEXT(ui->tscaleScaler));
+    emit option("tscale-param1", WIDGET_LOOKUP2(ui->tscaleParam1Set, ui->tscaleParam1Value, "nan"));
+    emit option("tscale-param2", WIDGET_LOOKUP2(ui->tscaleParam2Set, ui->tscaleParam2Value, "nan"));
+    emit option("tscale-radius", WIDGET_LOOKUP2(ui->tscaleRadiusSet, ui->tscaleRadiusValue, 0.0));
+    emit option("tscale-antiring", WIDGET_LOOKUP2(ui->tscaleAntiRingSet, ui->tscaleAntiRingValue, 0.0));
+    emit option("tscale-blur",   WIDGET_LOOKUP2(ui->tscaleBlurSet,   ui->tscaleBlurValue,  "nan"));
+    emit option("tscale-wparam", WIDGET_LOOKUP2(ui->tscaleWindowParamSet, ui->tscaleWindowParamValue, "nan"));
+    emit option("tscale-window", WIDGET_LOOKUP2_TEXT(ui->tscaleWindowSet, ui->tscaleWindowValue, ""));
+    emit option("tscale-clamp", WIDGET_LOOKUP(ui->tscaleClamp));
 
     if (WIDGET_LOOKUP(ui->debandEnabled).toBool()) {
-        option("deband", true);
-        option("deband-iterations", WIDGET_LOOKUP(ui->debandIterations));
-        option("deband-threshold", WIDGET_LOOKUP(ui->debandThreshold));
-        option("deband-range", WIDGET_LOOKUP(ui->debandRange));
-        option("deband-grain", WIDGET_LOOKUP(ui->debandGrain));
+        emit option("deband", true);
+        emit option("deband-iterations", WIDGET_LOOKUP(ui->debandIterations));
+        emit option("deband-threshold", WIDGET_LOOKUP(ui->debandThreshold));
+        emit option("deband-range", WIDGET_LOOKUP(ui->debandRange));
+        emit option("deband-grain", WIDGET_LOOKUP(ui->debandGrain));
     } else {
-        option("deband", false);
+        emit option("deband", false);
     }
 
-    option("gamma", WIDGET_LOOKUP(ui->ccGamma));
+    emit option("gamma", WIDGET_LOOKUP(ui->ccGamma));
 #ifdef Q_OS_MAC
     option("gamma-auto", WIDGET_LOOKUP(ui->ccGammaAutodetect));
 #endif
-    option("target-prim", WIDGET_TO_TEXT(ui->ccTargetPrim));
-    option("target-trc", WIDGET_TO_TEXT(ui->ccTargetTRC));
-    option("target-brightness", WIDGET_LOOKUP(ui->ccTargetBrightness));
-    option("hdr-tone-mapping", WIDGET_TO_TEXT(ui->ccHdrMapper));
+    emit option("target-prim", WIDGET_TO_TEXT(ui->ccTargetPrim));
+    emit option("target-trc", WIDGET_TO_TEXT(ui->ccTargetTRC));
+    emit option("target-brightness", WIDGET_LOOKUP(ui->ccTargetBrightness));
+    emit option("hdr-tone-mapping", WIDGET_TO_TEXT(ui->ccHdrMapper));
     {
         QList<QDoubleSpinBox*> boxen {NULL, ui->ccHdrReinhardParam, NULL, ui->ccHdrGammaParam, ui->ccHdrLinearParam};
         QDoubleSpinBox* toneParam = boxen[WIDGET_LOOKUP(ui->ccHdrMapper).toInt()];
-        option("tone-mapping-param", toneParam ? WIDGET_LOOKUP(toneParam) : QVariant("nan"));
+        emit option("tone-mapping-param", toneParam ? WIDGET_LOOKUP(toneParam) : QVariant("nan"));
     }
     if (WIDGET_LOOKUP(ui->ccICCAutodetect).toBool()) {
-        option("icc-profile", "");
-        option("icc-profile-auto", true);
+        emit option("icc-profile", "");
+        emit option("icc-profile-auto", true);
     } else {
-        option("icc-profile-auto", false);
-        option("icc-profile", WIDGET_LOOKUP(ui->ccICCLocation));
+        emit option("icc-profile-auto", false);
+        emit option("icc-profile", WIDGET_LOOKUP(ui->ccICCLocation));
     }
 
     int index = WIDGET_LOOKUP(ui->audioDevice).toInt();
-    option("audio-device", audioDevices.value(index).deviceName());
+    emit option("audio-device", audioDevices.value(index).deviceName());
     index = WIDGET_LOOKUP(ui->audioChannels).toInt();
-    option("audio-channels", index < 3 ? SettingMap::indexedValueToText[ui->audioChannels->objectName()][index]
+    emit option("audio-channels", index < 3 ? SettingMap::indexedValueToText[ui->audioChannels->objectName()][index]
                                          : channelSwitcher());
     bool flag = WIDGET_LOOKUP(ui->audioStreamSilence).toBool();
-    option("stream-silence", flag);
-    option("audio-wait-open", flag ? WIDGET_LOOKUP(ui->audioWaitTime).toDouble() : 0.0);
-    option("audio-pitch-correction", WIDGET_LOOKUP(ui->audioPitchCorrection).toBool());
-    option("audio-exclusive", WIDGET_LOOKUP(ui->audioExclusiveMode).toBool());
-    option("audio-normalize-downmix", WIDGET_LOOKUP(ui->audioNormalizeDownmix).toBool());
-    option("audio-spdif", WIDGET_LOOKUP(ui->audioSpdif).toBool() ? WIDGET_PLACEHOLD_LOOKUP(ui->audioSpdifCodecs) : "");
-    option("pulse-buffer", WIDGET_LOOKUP(ui->pulseBuffer).toInt());
-    option("pulse-latency-hacks", WIDGET_LOOKUP(ui->pulseLatency).toBool());
-    option("alsa-resample", WIDGET_LOOKUP(ui->alsaResample).toBool());
-    option("alsa-ignore-chmap", WIDGET_LOOKUP(ui->alsaIgnoreChannelMap).toBool());
-    option("oss-mixer-channel", WIDGET_LOOKUP(ui->ossMixerChannel).toString());
-    option("oss-mixer-device", WIDGET_LOOKUP(ui->ossMixerDevice).toString());
-    option("jack-autostart", WIDGET_LOOKUP(ui->jackAutostart).toBool());
-    option("jack-connect", WIDGET_LOOKUP(ui->jackConnect).toBool());
-    option("jack-name", WIDGET_LOOKUP(ui->jackName).toString());
-    option("jack-port", WIDGET_LOOKUP(ui->jackPort).toString());
+    emit option("stream-silence", flag);
+    emit option("audio-wait-open", flag ? WIDGET_LOOKUP(ui->audioWaitTime).toDouble() : 0.0);
+    emit option("audio-pitch-correction", WIDGET_LOOKUP(ui->audioPitchCorrection).toBool());
+    emit option("audio-exclusive", WIDGET_LOOKUP(ui->audioExclusiveMode).toBool());
+    emit option("audio-normalize-downmix", WIDGET_LOOKUP(ui->audioNormalizeDownmix).toBool());
+    emit option("audio-spdif", WIDGET_LOOKUP(ui->audioSpdif).toBool() ? WIDGET_PLACEHOLD_LOOKUP(ui->audioSpdifCodecs) : "");
+    emit option("pulse-buffer", WIDGET_LOOKUP(ui->pulseBuffer).toInt());
+    emit option("pulse-latency-hacks", WIDGET_LOOKUP(ui->pulseLatency).toBool());
+    emit option("alsa-resample", WIDGET_LOOKUP(ui->alsaResample).toBool());
+    emit option("alsa-ignore-chmap", WIDGET_LOOKUP(ui->alsaIgnoreChannelMap).toBool());
+    emit option("oss-mixer-channel", WIDGET_LOOKUP(ui->ossMixerChannel).toString());
+    emit option("oss-mixer-device", WIDGET_LOOKUP(ui->ossMixerDevice).toString());
+    emit option("jack-autostart", WIDGET_LOOKUP(ui->jackAutostart).toBool());
+    emit option("jack-connect", WIDGET_LOOKUP(ui->jackConnect).toBool());
+    emit option("jack-name", WIDGET_LOOKUP(ui->jackName).toString());
+    emit option("jack-port", WIDGET_LOOKUP(ui->jackPort).toString());
 
     // FIXME: add icc-intent etc
 
-    option("opengl-shaders", WIDGET_LOOKUP(ui->shadersActiveList).toStringList());
+    emit option("opengl-shaders", WIDGET_LOOKUP(ui->shadersActiveList).toStringList());
 
     if (WIDGET_LOOKUP(ui->fullscreenHideControls).toBool()) {
         Helpers::ControlHiding method = static_cast<Helpers::ControlHiding>(WIDGET_LOOKUP(ui->fullscreenShowWhen).toInt());
         int timeOut = WIDGET_LOOKUP(ui->fullscreenShowWhenDuration).toInt();
         if (method == Helpers::ShowWhenMoving && !timeOut) {
-            hideMethod(Helpers::ShowWhenHovering);
-            hideTime(0);
+            emit hideMethod(Helpers::ShowWhenHovering);
+            emit hideTime(0);
         } else {
-            hideMethod(method);
-            hideTime(timeOut);
+            emit hideMethod(method);
+            emit hideTime(timeOut);
         }
-        hidePanels(WIDGET_LOOKUP(ui->fullscreenHidePanels).toBool());
+        emit hidePanels(WIDGET_LOOKUP(ui->fullscreenHidePanels).toBool());
     } else {
-        hideMethod(Helpers::AlwaysShow);
-        hidePanels(false);
+        emit hideMethod(Helpers::AlwaysShow);
+        emit hidePanels(false);
     }
-    option("framedrop", WIDGET_TO_TEXT(ui->framedroppingMode));
-    option("vf-lavc-framedrop", WIDGET_TO_TEXT(ui->framedroppingDecoderMode));
-    option("video-sync-adrop-size", WIDGET_LOOKUP(ui->syncAudioDropSize).toDouble());
-    option("video-sync-max-audio-change", WIDGET_LOOKUP(ui->syncMaxAudioChange).toDouble());
-    option("video-sync-max-video-change", WIDGET_LOOKUP(ui->syncMaxVideoChange).toDouble());
+    emit option("framedrop", WIDGET_TO_TEXT(ui->framedroppingMode));
+    emit option("vf-lavc-framedrop", WIDGET_TO_TEXT(ui->framedroppingDecoderMode));
+    emit option("video-sync-adrop-size", WIDGET_LOOKUP(ui->syncAudioDropSize).toDouble());
+    emit option("video-sync-max-audio-change", WIDGET_LOOKUP(ui->syncMaxAudioChange).toDouble());
+    emit option("video-sync-max-video-change", WIDGET_LOOKUP(ui->syncMaxVideoChange).toDouble());
     if (WIDGET_LOOKUP(ui->hwdecEnable).toBool()) {
-        option("hwdec", "auto-copy");
+        emit option("hwdec", "auto-copy");
         if (WIDGET_LOOKUP(ui->hwdecAll).toBool()) {
-            option("hwdec-codecs", "all");
+            emit option("hwdec-codecs", "all");
         } else {
             QStringList codecs;
             if (WIDGET_LOOKUP(ui->hwdecMJpeg).toBool()) codecs << "mjpeg";
@@ -660,25 +660,25 @@ void SettingsWindow::sendSignals()
             if (WIDGET_LOOKUP(ui->hwdecWmv3).toBool()) codecs << "wmv3";
             if (WIDGET_LOOKUP(ui->hwdecHevc).toBool()) codecs << "hevc";
             if (WIDGET_LOOKUP(ui->hwdecVp9).toBool()) codecs << "vp9";
-            option("hwdec-codecs", codecs.join(','));
+            emit option("hwdec-codecs", codecs.join(','));
         }
     } else {
-        option("hwdec", "no");
-        option("hwdec-codecs", "");
+        emit option("hwdec", "no");
+        emit option("hwdec-codecs", "");
     }
 
-    playlistFormat(WIDGET_PLACEHOLD_LOOKUP(ui->playlistFormat));
-    option("sub-gray", WIDGET_LOOKUP(ui->subtitlesForceGrayscale).toBool());
+    emit playlistFormat(WIDGET_PLACEHOLD_LOOKUP(ui->playlistFormat));
+    emit option("sub-gray", WIDGET_LOOKUP(ui->subtitlesForceGrayscale).toBool());
 
-    option("sub-font", WIDGET_LOOKUP(ui->fontComboBox).toString());
-    option("sub-bold", WIDGET_LOOKUP(ui->fontBold).toBool());
-    option("sub-italic", WIDGET_LOOKUP(ui->fontItalic).toBool());
-    option("sub-font-size", WIDGET_LOOKUP(ui->fontSize).toInt());
-    option("sub-border-size", WIDGET_LOOKUP(ui->borderSize).toInt());
-    option("sub-shadow-offset", WIDGET_LOOKUP(ui->borderShadowOffset).toInt());
+    emit option("sub-font", WIDGET_LOOKUP(ui->fontComboBox).toString());
+    emit option("sub-bold", WIDGET_LOOKUP(ui->fontBold).toBool());
+    emit option("sub-italic", WIDGET_LOOKUP(ui->fontItalic).toBool());
+    emit option("sub-font-size", WIDGET_LOOKUP(ui->fontSize).toInt());
+    emit option("sub-border-size", WIDGET_LOOKUP(ui->borderSize).toInt());
+    emit option("sub-shadow-offset", WIDGET_LOOKUP(ui->borderShadowOffset).toInt());
     {
         struct AlignData { QRadioButton *btn; int x; int y; };
-        QList<AlignData> alignments {
+        QVector<AlignData> alignments {
             { ui->subsAlignmentTopLeft, -1, -1 },
             { ui->subsAlignmentTop, 0, -1 },
             { ui->subsAlignmentTopRight, 1, -1 },
@@ -701,42 +701,42 @@ void SettingsWindow::sendSignals()
         };
         for (const AlignData &a : alignments) {
             if (a.btn->isChecked()) {
-                option("sub-align-x", wx[a.x]);
-                option("sub-align-y", wy[a.y]);
+                emit option("sub-align-x", wx[a.x]);
+                emit option("sub-align-y", wy[a.y]);
                 break;
             }
         }
     }
-    option("sub-margin-x", WIDGET_LOOKUP(ui->subsMarginX).toInt());
-    option("sub-margin-y", WIDGET_LOOKUP(ui->subsMarginY).toInt());
-    option("sub-use-margins", !WIDGET_LOOKUP(ui->subsRelativeToVideoFrame).toBool());
-    option("sub-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsColorValue).toString()));
-    option("sub-border-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsBorderColorValue).toString()));
-    option("sub-shadow-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsShadowColorValue).toString()));
+    emit option("sub-margin-x", WIDGET_LOOKUP(ui->subsMarginX).toInt());
+    emit option("sub-margin-y", WIDGET_LOOKUP(ui->subsMarginY).toInt());
+    emit option("sub-use-margins", !WIDGET_LOOKUP(ui->subsRelativeToVideoFrame).toBool());
+    emit option("sub-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsColorValue).toString()));
+    emit option("sub-border-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsBorderColorValue).toString()));
+    emit option("sub-shadow-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsShadowColorValue).toString()));
 
-    screenshotDirectory(
+    emit screenshotDirectory(
                 WIDGET_LOOKUP(ui->screenshotDirectorySet).toBool() ?
                 QFileInfo(WIDGET_PLACEHOLD_LOOKUP(ui->screenshotDirectoryValue)).absoluteFilePath() : QString());
 
-    encodeDirectory(
+    emit encodeDirectory(
                 WIDGET_LOOKUP(ui->encodeDirectorySet).toBool() ?
                 QFileInfo(WIDGET_PLACEHOLD_LOOKUP(ui->encodeDirectoryValue)).absoluteFilePath() : QString());
-    screenshotTemplate(WIDGET_PLACEHOLD_LOOKUP(ui->screenshotTemplate));
-    encodeTemplate(WIDGET_PLACEHOLD_LOOKUP(ui->encodeTemplate));
-    screenshotFormat(WIDGET_TO_TEXT(ui->screenshotFormat));
-    option("screenshot-format", WIDGET_TO_TEXT(ui->screenshotFormat));
-    option("screenshot-jpeg-quality", WIDGET_LOOKUP(ui->jpgQuality).toInt());
-    option("screenshot-jpeg-smooth", WIDGET_LOOKUP(ui->jpgSmooth).toInt());
-    option("screenshot-jpeg-source-chroma", WIDGET_LOOKUP(ui->jpgSourceChroma).toBool());
-    option("screenshot-png-compression", WIDGET_LOOKUP(ui->pngCompression).toInt());
-    option("screenshot-png-filter", WIDGET_LOOKUP(ui->pngFilter).toInt());
-    option("screenshot-tag-colorspace", WIDGET_LOOKUP(ui->pngColorspace).toBool());
-    clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
-    option("hr-seek", WIDGET_LOOKUP(ui->tweaksFastSeek).toBool() ? "absolute" : "yes");
-    option("hr-seek-framedrop", WIDGET_LOOKUP(ui->tweaksSeekFramedrop).toBool());
-    timeTooltip(WIDGET_LOOKUP(ui->tweaksTimeTooltip).toBool(),
-                WIDGET_LOOKUP(ui->tweaksTimeTooltipLocation).toInt() == 0);
-    mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
+    emit screenshotTemplate(WIDGET_PLACEHOLD_LOOKUP(ui->screenshotTemplate));
+    emit encodeTemplate(WIDGET_PLACEHOLD_LOOKUP(ui->encodeTemplate));
+    emit screenshotFormat(WIDGET_TO_TEXT(ui->screenshotFormat));
+    emit option("screenshot-format", WIDGET_TO_TEXT(ui->screenshotFormat));
+    emit option("screenshot-jpeg-quality", WIDGET_LOOKUP(ui->jpgQuality).toInt());
+    emit option("screenshot-jpeg-smooth", WIDGET_LOOKUP(ui->jpgSmooth).toInt());
+    emit option("screenshot-jpeg-source-chroma", WIDGET_LOOKUP(ui->jpgSourceChroma).toBool());
+    emit option("screenshot-png-compression", WIDGET_LOOKUP(ui->pngCompression).toInt());
+    emit option("screenshot-png-filter", WIDGET_LOOKUP(ui->pngFilter).toInt());
+    emit option("screenshot-tag-colorspace", WIDGET_LOOKUP(ui->pngColorspace).toBool());
+    emit clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
+    emit option("hr-seek", WIDGET_LOOKUP(ui->tweaksFastSeek).toBool() ? "absolute" : "yes");
+    emit option("hr-seek-framedrop", WIDGET_LOOKUP(ui->tweaksSeekFramedrop).toBool());
+    emit timeTooltip(WIDGET_LOOKUP(ui->tweaksTimeTooltip).toBool(),
+                     WIDGET_LOOKUP(ui->tweaksTimeTooltipLocation).toInt() == 0);
+    emit mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
 }
 
 void SettingsWindow::setScreensaverDisablingEnabled(bool enabled)

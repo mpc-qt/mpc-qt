@@ -275,7 +275,7 @@ bool Playlist::contains(const QUuid &uuid)
 void Playlist::iterateItems(const std::function<void(QSharedPointer<Item>)> &callback)
 {
     QReadLocker locker(&listLock);
-    for (auto item : items)
+    for (auto &item : items)
         callback(item);
 }
 
@@ -308,7 +308,7 @@ void Playlist::takeItemsRaw(const QList<QSharedPointer<Item>> &itemsToRemove)
     // "takeItemsRaw", because we don't check if it's in a queue or whatever,
     // it's just taken raw, potentially damaging everything.  Only use if you
     // may know what you're doing.
-    for (QSharedPointer<Item> item: itemsToRemove) {
+    for (const QSharedPointer<Item> &item: itemsToRemove) {
         itemsByUuid.remove(item->uuid());
         items.removeAll(item);
     }
@@ -371,7 +371,7 @@ QStringList Playlist::toStringList()
 {
     QReadLocker locker(&listLock);
     QStringList sl;
-    for (auto i : items)
+    for (auto &i : items)
         sl << i->toString();
     return sl;
 }
@@ -381,7 +381,7 @@ void Playlist::fromStringList(QStringList sl)
     QWriteLocker locker(&listLock);
     items.clear();
     itemsByUuid.clear();
-    for (QString s : sl) {
+    for (QString &s : sl) {
         QSharedPointer<Item> item(new Item());
         item->setPlaylistUuid(uuid_);
         item->fromString(s);
@@ -398,7 +398,7 @@ QVariantMap Playlist::toVMap()
     qvm.insert("uuid", uuid_);
 
     QVariantList qvl;
-    for (auto i : items) {
+    for (auto &i : items) {
         qvl.append(i->toVMap());
     }
     qvm.insert("items", qvl);
@@ -448,7 +448,7 @@ QPair<QUuid,QUuid> QueuePlaylist::takeFirst()
     itemsByUuid.remove(item->uuid());
     item->setQueuePosition(0);
     int i = 1;
-    for (auto item : items)
+    for (auto &item : items)
         item->setQueuePosition(i++);
     return { item->playlistUuid(), item->uuid() };
 
@@ -533,7 +533,7 @@ void QueuePlaylist::removeItems(const QList<QUuid> &itemsToRemove)
 void QueuePlaylist::clear()
 {
     QWriteLocker lock(&listLock);
-    for (QSharedPointer<Item> item : items)
+    for (QSharedPointer<Item> &item : items)
         item->setQueuePosition(0);
     items.clear();
     itemsByUuid.clear();

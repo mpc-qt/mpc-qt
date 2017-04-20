@@ -53,7 +53,7 @@ QPair<QUuid, QUuid> PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
 {
     QPair<QUuid, QUuid> info;
     auto qdp = currentPlaylistWidget();
-    for (QUrl url : what) {
+    for (QUrl &url : what) {
         QPair<QUuid,QUuid> itemInfo = qdp->importUrl(url);
         if (info.second.isNull())
             info = itemInfo;
@@ -288,7 +288,7 @@ void PlaylistWindow::updatePlaylistHasItems()
 
 void PlaylistWindow::setPlaylistFilters(QString filterText)
 {
-    for (auto widget : widgets) {
+    for (auto &widget : widgets) {
         widget->setFilter(filterText);
     }
     queueWidget->setFilter(filterText);

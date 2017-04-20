@@ -437,7 +437,7 @@ void PlaybackManager::mpvw_chapterDataChanged(QVariantMap metadata)
 void PlaybackManager::mpvw_chaptersChanged(QVariantList chapters)
 {
     QList<QPair<double,QString>> list;
-    for (QVariant v : chapters) {
+    for (QVariant &v : chapters) {
         QMap<QString, QVariant> node = v.toMap();
         QString text = QString("[%1] - %2").arg(
                 toDateFormat(node["time"].toDouble()),
@@ -471,7 +471,7 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
         return output;
     };
 
-    for (QVariant track : tracks) {
+    for (QVariant &track : tracks) {
         QVariantMap t = track.toMap();
         item.first = t["id"].toLongLong();
         item.second = formatter(t);

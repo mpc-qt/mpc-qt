@@ -13,27 +13,28 @@
 
 
 
-static QSet<QString> bannedProperties {
+Q_GLOBAL_STATIC_WITH_ARGS(QSet<QString>, bannedProperties, ({
     "stream-open-filename", "file-local-options", "ab-loop-a",
     "ab-loop-b", "volume", "mute", "fullscreen"
-};
+}))
 
-static QSet<QString> bannedOptions {
+
+Q_GLOBAL_STATIC_WITH_ARGS(QSet<QString>, bannedOptions, ({
     "vo", "vo-defaults", "script", "script-opts",  "wid", "input-conf",
     "input-test", "input-file", "input-terminal", "no-input-terminal",
     "input-ipc-server", "input-media-keys", "input-vo-keyboard",
     "input-app-event", "osc", "no-osc", "no-osd-bar", "osd-bar",
     "no-terminal",  "terminal"
-};
+}))
 
-static QSet<QString> bannedCommands {
+Q_GLOBAL_STATIC_WITH_ARGS(QSet<QString>, bannedCommands, ({
     "openfile", "set", "add", "cycle", "multiply", "run", "quit",
     "quit-watch-later", "mouse", "keypress", "keydown", "keyup",
     "enable-section", "define-section", "script-message",
     "script-message-to", "script-binding", "vo-cmdline", "hook-add",
     "hook-ack", "set_property", "set_property_string", "enable_event",
     "suspend", "volume"
-};
+}))
 
 
 
@@ -112,7 +113,6 @@ void MpcQtServer::socketReturn(QLocalSocket *socket,
         return;
 
     QVariantMap result;
-    QString code;
     if (!wasParsed) {
         result["code"] = "unknown";
         goto end;
@@ -134,7 +134,7 @@ void MpcQtServer::self_newConnection(QLocalSocket *socket)
 {
     connect(socket, &QLocalSocket::readyRead, [=]() {
         QList<QByteArray> dataList = socket->readAll().split('\n');
-        foreach(QByteArray data, dataList) {
+        for (const QByteArray &data : dataList) {
             if(data.size())
                 socket_payloadReceived(data, socket);
         }
@@ -172,8 +172,7 @@ void MpcQtServer::ipc_playFiles(const QVariantMap &map)
     QStringList filesAsText = map["files"].toStringList();
     bool important = !map.value("append", false).toBool();
     QList<QUrl> files;
-    QUrl url;
-    foreach (QString s, filesAsText) {
+    for (const QString &s : filesAsText) {
         files << QUrl::fromUserInput(s, workingDirectory);
     }
     if (!files.empty()) {
@@ -258,7 +257,7 @@ QVariant MpcQtServer::ipc_getMpvProperty(const QVariantMap &map)
 QVariant MpcQtServer::ipc_setMpvProperty(const QVariantMap &map)
 {
     QString name = map.value("name").toString();
-    if (name.isEmpty() || bannedProperties.contains(name))
+    if (name.isEmpty() || bannedProperties->contains(name))
         return QVariant::fromValue(MpvErrorCode(-0xdedbeef));
 
     return mainWindow->mpvWidget()->blockingSetMpvPropertyVariant(name, map["value"]);
@@ -267,7 +266,7 @@ QVariant MpcQtServer::ipc_setMpvProperty(const QVariantMap &map)
 QVariant MpcQtServer::ipc_setMpvOption(const QVariantMap &map)
 {
     QString name = map.value("name").toString();
-    if (name.isEmpty() || bannedOptions.contains(name))
+    if (name.isEmpty() || bannedOptions->contains(name))
         return QVariant::fromValue(MpvErrorCode(-0xdedbeef));
 
     return mainWindow->mpvWidget()->blockingSetMpvOptionVariant(name, map["value"]);
@@ -276,7 +275,7 @@ QVariant MpcQtServer::ipc_setMpvOption(const QVariantMap &map)
 QVariant MpcQtServer::ipc_doMpvCommand(const QVariantMap &map)
 {
     QString name = map.value("name").toString();
-    if (name.isEmpty() || bannedCommands.contains(name))
+    if (name.isEmpty() || bannedCommands->contains(name))
         return QVariant::fromValue(MpvErrorCode(-0xdedbeef));
 
     QVariantList command = { name };
@@ -335,7 +334,7 @@ MpvConnection::MpvConnection(QLocalSocket *socket, PlaybackManager *manager,
     connect(socket, &QLocalSocket::disconnected,
             this, &MpvConnection::socket_disconnected);
     if (socket->bytesAvailable())
-        emit socket_readyRead();
+        socket_readyRead();
 
 }
 
@@ -372,7 +371,7 @@ void MpvConnection::commandReturnVariant(const QVariant &requestId, const QVaria
 void MpvConnection::socket_readyRead()
 {
     QList<QByteArray> dataList = socket->readAll().split('\n');
-    foreach(QByteArray data, dataList) {
+    for(QByteArray &data : dataList) {
         if(!data.size())
             continue;
 
@@ -405,7 +404,7 @@ void MpvConnection::socket_readyRead()
                 break;
             }
         }
-        else if (bannedCommands.contains(command))
+        else if (bannedCommands->contains(command))
             command_forbidden();
         else
             command_raw(list, requestId);
@@ -531,7 +530,7 @@ void MpvConnection::command_set_property(const QVariantList &list,
 {
     if (list.count() != 2
             || !list.at(1).canConvert<QString>()
-            || bannedProperties.contains(list.at(1).toString()))
+            || bannedProperties->contains(list.at(1).toString()))
         commandReturn(MPV_ERROR_INVALID_PARAMETER, requestId);
     else
         commandReturn(mpvWidget->controller()->setPropertyVariant(list.at(1).toString(), list.at(2)), requestId);
