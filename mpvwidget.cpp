@@ -671,7 +671,7 @@ void MpvWidget::self_metadata(QVariantMap metadata)
 {
     QVariantMap map;
     for (auto it = metadata.keyBegin(); it != metadata.keyEnd(); it++)
-        map.insert(it->toLower(), metadata[*it]);
+        map.insert(it->toLower(), metadata.value(*it));
     emit metaDataChanged(map);
 }
 
