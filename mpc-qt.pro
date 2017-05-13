@@ -47,7 +47,8 @@ SOURCES += main.cpp\
     ipc.cpp \
     openfiledialog.cpp \
     platform/qabstractscreensaver.cpp \
-    qscreensaver.cpp
+    qscreensaver.cpp \
+    propertieswindow.cpp
 
 HEADERS  += \
     mpvwidget.h \
@@ -66,14 +67,16 @@ HEADERS  += \
     ipc.h \
     openfiledialog.h \
     platform/qabstractscreensaver.h \
-    qscreensaver.h
+    qscreensaver.h \
+    propertieswindow.h
 
 
 FORMS    += \
     mainwindow.ui \
     playlistwindow.ui \
     settingswindow.ui \
-    openfiledialog.ui
+    openfiledialog.ui \
+    propertieswindow.ui
 
 RESOURCES += \
     res.qrc
