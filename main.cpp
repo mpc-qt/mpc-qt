@@ -94,8 +94,8 @@ void Flow::parseArgs()
 
     parser.process(QCoreApplication::arguments());
 
-    validCustomSize = parser.isSet(sizeOpt) && Helpers::sizeFromString(customSize, parser.value(sizeOpt));
-    validCustomPos = parser.isSet(posOpt) && Helpers::pointFromString(customPos, parser.value(posOpt));
+    validCliSize = parser.isSet(sizeOpt) && Helpers::sizeFromString(cliSize, parser.value(sizeOpt));
+    validCliPos = parser.isSet(posOpt) && Helpers::pointFromString(cliPos, parser.value(posOpt));
 
     customFiles = parser.positionalArguments();
 }
@@ -483,47 +483,65 @@ QVariantMap Flow::saveWindows()
 
 void Flow::restoreWindows(const QVariantMap &map)
 {
-    QVariantMap mainWindowMap = map["mainWindow"].toMap();
+    QVariantMap mainMap = map["mainWindow"].toMap();
     QVariantMap mpvHostMap = map["mpvHost"].toMap();
-    QVariantMap playlistWindowMap = map["playlistWindow"].toMap();
-    QVariantMap settingsWindowMap = map["settingsWindow"].toMap();
-    QVariantMap propertiesWindowMap = map["propertiesWindow"].toMap();
-    if (rememberWindowGeometry
-            && mainWindowMap.contains("geometry")
-            && playlistWindowMap.contains("geometry")
-            && settingsWindowMap.contains("geometry")
-            && propertiesWindowMap.contains("geometry")) {
-        if (playlistWindowMap["floating"].toBool()) {
-            mainWindow->playlistWindow()->setFloating(true);
-            mainWindow->playlistWindow()->window()->setGeometry(Helpers::vmapToRect(playlistWindowMap["geometry"].toMap()));
-        } else if (mpvHostMap.contains("qtState")) {
-            QByteArray state = QByteArray::fromBase64(mpvHostMap["qtState"].toString().toLocal8Bit());
-            mainWindow->mpvHost()->restoreState(state);
-            mainWindow->mpvHost()->restoreDockWidget(mainWindow->playlistWindow());
-        }
-        QRect geometry = Helpers::vmapToRect(mainWindowMap["geometry"].toMap());
-        if (validCustomPos)
-            geometry.moveTopLeft(customPos);
-        if (validCustomSize)
-            geometry.setSize(customSize);
-        mainWindow->setGeometry(geometry);
-        QTimer::singleShot(50, this, [=]() { showWindows(mainWindowMap); });
-        settingsWindow->setGeometry(Helpers::vmapToRect(settingsWindowMap["geometry"].toMap()));
-        propertiesWindow->setGeometry(Helpers::vmapToRect(propertiesWindowMap["geometry"].toMap()));
-    } else {
+    QVariantMap playlistMap = map["playlistWindow"].toMap();
+    QVariantMap settingsMap = map["settingsWindow"].toMap();
+    QVariantMap propertiesMap = map["propertiesWindow"].toMap();
+    QRect geometry;
+    bool restoreGeometry = rememberWindowGeometry
+            && mainMap.contains("geometry")
+            && playlistMap.contains("geometry")
+            && settingsMap.contains("geometry")
+            && propertiesMap.contains("geometry");
+
+    if (!restoreGeometry) {
+        // don't restore the geometry, so make sure everything appears on
+        // screen
         emit mainWindow->fireUpdateSize();
-        if (validCustomPos)
-            mainWindow->move(customPos);
-        if (validCustomSize)
-            mainWindow->resize(customSize);
-        showWindows(mainWindowMap);
+        if (validCliPos)
+            mainWindow->move(cliPos);
+        if (validCliSize)
+            mainWindow->resize(cliSize);
+        showWindows(mainMap);
+        return;
     }
+
+    if (playlistMap["floating"].toBool()) {
+        // the playlist window starts off floating, so restore it
+        mainWindow->playlistWindow()->setFloating(true);
+        geometry = Helpers::vmapToRect(playlistMap["geometry"].toMap());
+        mainWindow->playlistWindow()->window()->setGeometry(geometry);
+    } else if (mpvHostMap.contains("qtState")) {
+        // the playlist window is docked, so we place it back where it was
+        QByteArray encoded = mpvHostMap["qtState"].toString().toLocal8Bit();
+        QByteArray state = QByteArray::fromBase64(encoded);
+        mainWindow->mpvHost()->restoreState(state);
+        mainWindow->mpvHost()->restoreDockWidget(mainWindow->playlistWindow());
+    }
+
+    // restore main window geometry and override it if requested
+    geometry = Helpers::vmapToRect(mainMap["geometry"].toMap());
+    if (validCliPos)
+        geometry.moveTopLeft(cliPos);
+    if (validCliSize)
+        geometry.setSize(cliSize);
+    mainWindow->setGeometry(geometry);
+    QTimer::singleShot(50, this, [=]() { showWindows(mainMap); });
+
+    // restore settings and properties window
+    geometry = Helpers::vmapToRect(settingsMap["geometry"].toMap());
+    settingsWindow->setGeometry(geometry);
+    geometry = Helpers::vmapToRect(propertiesMap["geometry"].toMap());
+    propertiesWindow->setGeometry(geometry);
 }
 
 void Flow::showWindows(const QVariantMap &mainWindowMap)
 {
     mainWindow->show();
-    mainWindow->setState(mainWindowMap["state"].toMap());
+    if (mainWindowMap.contains("state"))
+        mainWindow->setState(mainWindowMap["state"].toMap());
+
     QTimer::singleShot(50, this, &Flow::windowsRestored);
 }
 

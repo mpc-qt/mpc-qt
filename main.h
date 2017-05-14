@@ -71,10 +71,10 @@ private:
     QList<TrackInfo> recentFiles;
     QScreenSaver screenSaver;
 
-    QSize customSize;
-    QPoint customPos;
-    bool validCustomSize;
-    bool validCustomPos;
+    QSize cliSize;
+    QPoint cliPos;
+    bool validCliSize;
+    bool validCliPos;
     QStringList customFiles;
 
     bool inhibitScreensaver;
