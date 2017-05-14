@@ -163,7 +163,13 @@ MpvWidget::MpvWidget(QWidget *parent, const QString &clientName) :
         { "video-bitrate", 0, MPV_FORMAT_DOUBLE },
         { "paused-for-cache", 0, MPV_FORMAT_FLAG },
         { "metadata", 0, MPV_FORMAT_NODE },
-        { "audio-device-list", 0, MPV_FORMAT_NODE }
+        { "audio-device-list", 0, MPV_FORMAT_NODE },
+        { "filename", 0, MPV_FORMAT_STRING },
+        { "file-format", 0, MPV_FORMAT_STRING },
+        { "file-size", 0, MPV_FORMAT_STRING },
+        { "file-date-created", 0, MPV_FORMAT_NODE },
+        { "format", 0, MPV_FORMAT_STRING },
+        { "path", 0, MPV_FORMAT_STRING }
     };
     QSet<QString> throttled = {
         "time-pos", "avsync", "estimated-vf-fps", "frame-drop-count",
@@ -563,8 +569,8 @@ void MpvWidget::ctrl_mpvPropertyChanged(QString name, QVariant v)
 
     bool ok = v.type() < QVariant::UserType;
     //FIXME: use constant-time map to function lookup
-    HANDLE_PROP("time-pos", self_playTimeChanged, toDouble, -1.0);
-    HANDLE_PROP("duration", self_playLengthChanged, toDouble, -1.0);
+    HANDLE_PROP("time-pos", emit self_playTimeChanged, toDouble, -1.0);
+    HANDLE_PROP("duration", emit self_playLengthChanged, toDouble, -1.0);
     HANDLE_PROP("pause", emit pausedChanged, toBool, true);
     HANDLE_PROP("media-title", emit mediaTitleChanged, toString, QString());
     HANDLE_PROP("chapter-metadata", emit chapterDataChanged, toMap, QVariantMap());
@@ -576,8 +582,13 @@ void MpvWidget::ctrl_mpvPropertyChanged(QString name, QVariant v)
     HANDLE_PROP("decoder-frame-drop-count", emit decoderFramedropsChanged, toLongLong, 0ll);
     HANDLE_PROP("audio-bitrate", emit audioBitrateChanged, toDouble, 0.0);
     HANDLE_PROP("video-bitrate", emit videoBitrateChanged, toDouble, 0.0);
-    HANDLE_PROP("metadata", self_metadata, toMap, QVariantMap());
-    HANDLE_PROP("audio-device-list", self_audioDeviceList, toList, QVariantList());
+    HANDLE_PROP("metadata", emit self_metadata, toMap, QVariantMap());
+    HANDLE_PROP("audio-device-list", emit self_audioDeviceList, toList, QVariantList());
+    HANDLE_PROP("filename", emit fileNameChanged, toString, QString());
+    HANDLE_PROP("file-format", emit fileFormatChanged, toString, QString());
+    HANDLE_PROP("file-date-created", emit fileCreationTimeChanged, toLongLong, 0ll);
+    HANDLE_PROP("file-size", emit fileSizeChanged, toLongLong, 0ll);
+    HANDLE_PROP("path", emit filePathChanged, toString, QString());
 }
 
 void MpvWidget::ctrl_logMessage(QString message)

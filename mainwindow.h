@@ -75,6 +75,7 @@ private:
     void setupSizing();
     void setupBottomArea();
     void setupHideTimer();
+    void connectActionsToSignals();
     void connectActionsToSlots();
     void connectButtonsToActions();
     void connectPlaylistWindowToActions();
@@ -104,6 +105,7 @@ signals:
     void recentClear();
     void takeImage(bool subs);
     void takeImageAutomatically(bool subs);
+    void showFileProperties();
     void optionsOpenRequested();
     void paused();
     void unpaused();

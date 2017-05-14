@@ -108,6 +108,11 @@ signals:
     void decoderFramedropsChanged(int64_t cout);
     void audioBitrateChanged(double bitrate);
     void videoBitrateChanged(double bitrate);
+    void fileNameChanged(QString filename);
+    void fileFormatChanged(QString format);
+    void fileSizeChanged(int64_t size);
+    void fileCreationTimeChanged(int64_t secsSinceEpoch);
+    void filePathChanged(QString path);
     void playlistChanged(QVariantList playlist);
 
     void logoSizeChanged(QSize size);

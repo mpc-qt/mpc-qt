@@ -73,6 +73,7 @@ MainWindow::MainWindow(QWidget *parent) :
     mpvw->installEventFilter(this);
     playlistWindow_->installEventFilter(this);
 
+    connectActionsToSignals();
     connectActionsToSlots();
     connectButtonsToActions();
     connectPlaylistWindowToActions();
@@ -449,6 +450,12 @@ void MainWindow::setupHideTimer()
     hideTimer.setSingleShot(true);
     connect(&hideTimer, &QTimer::timeout,
             this, &MainWindow::hideTimer_timeout);
+}
+
+void MainWindow::connectActionsToSignals()
+{
+    connect(ui->actionFileProperties, &QAction::triggered,
+            this, &MainWindow::showFileProperties);
 }
 
 void MainWindow::connectActionsToSlots()

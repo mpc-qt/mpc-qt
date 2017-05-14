@@ -8,6 +8,7 @@
 #include "manager.h"
 #include "storage.h"
 #include "settingswindow.h"
+#include "propertieswindow.h"
 #include "qscreensaver.h"
 
 // a simple class to control program exection and own application objects
@@ -63,6 +64,7 @@ private:
     MainWindow *mainWindow;
     PlaybackManager *playbackManager;
     SettingsWindow *settingsWindow;
+    PropertiesWindow *propertiesWindow;
     Storage storage;
     QVariantMap settings;
     QVariantMap keyMap;

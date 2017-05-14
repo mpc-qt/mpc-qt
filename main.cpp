@@ -17,6 +17,7 @@
 #include "manager.h"
 #include "settingswindow.h"
 #include "mpvwidget.h"
+#include "propertieswindow.h"
 
 int main(int argc, char *argv[])
 {
@@ -43,7 +44,7 @@ int main(int argc, char *argv[])
 
 Flow::Flow(QObject *owner) :
     QObject(owner), server(NULL), mpvServer(NULL), mainWindow(NULL),
-    playbackManager(NULL), settingsWindow(NULL)
+    playbackManager(NULL), settingsWindow(NULL), propertiesWindow(NULL)
 {
 }
 
@@ -69,6 +70,10 @@ Flow::~Flow()
     if (settingsWindow) {
         delete settingsWindow;
         settingsWindow = NULL;
+    }
+    if (propertiesWindow)  {
+        delete propertiesWindow;
+        propertiesWindow = NULL;
     }
     screenSaver.uninhibitSaver();
 }
@@ -102,6 +107,7 @@ void Flow::init() {
     playbackManager->setPlaylistWindow(mainWindow->playlistWindow());
     settingsWindow = new SettingsWindow();
     settingsWindow->setWindowModality(Qt::WindowModal);
+    propertiesWindow = new PropertiesWindow();
 
     server = new MpcQtServer(mainWindow, playbackManager, this);
     hasPrevious_ = server->sendPayload(makePayload());
@@ -254,6 +260,28 @@ void Flow::init() {
     connect(mpvw, &MpvWidget::audioDeviceList,
             settingsWindow, &SettingsWindow::setAudioDevices);
 
+    // mpvwidget -> properties
+    connect(mpvw, &MpvWidget::fileNameChanged,
+            propertiesWindow, &PropertiesWindow::setFileName);
+    connect(mpvw, &MpvWidget::fileFormatChanged,
+            propertiesWindow, &PropertiesWindow::setFileFormat);
+    connect(mpvw, &MpvWidget::fileSizeChanged,
+            propertiesWindow, &PropertiesWindow::setFileSize);
+    connect(mpvw, &MpvWidget::playLengthChanged,
+            propertiesWindow, &PropertiesWindow::setMediaLength);
+    connect(mpvw, &MpvWidget::videoSizeChanged,
+            propertiesWindow, &PropertiesWindow::setVideoSize);
+    connect(mpvw, &MpvWidget::fileCreationTimeChanged,
+            propertiesWindow, &PropertiesWindow::setFileCreationTime);
+    connect(mpvw, &MpvWidget::tracksChanged,
+            propertiesWindow, &PropertiesWindow::setTracks);
+    connect(mpvw, &MpvWidget::mediaTitleChanged,
+            propertiesWindow, &PropertiesWindow::setMediaTitle);
+    connect(mpvw, &MpvWidget::filePathChanged,
+            propertiesWindow, &PropertiesWindow::setFilePath);
+    connect(mpvw, &MpvWidget::metaDataChanged,
+            propertiesWindow, &PropertiesWindow::setMetaData);
+
     // settings -> playlistWindow
     connect(settingsWindow, &SettingsWindow::playlistFormat,
             mainWindow->playlistWindow(), &PlaylistWindow::setDisplayFormatSpecifier);
@@ -265,6 +293,10 @@ void Flow::init() {
     // manager -> settings
     connect(playbackManager, &PlaybackManager::playerSettingsRequested,
             settingsWindow, &SettingsWindow::sendSignals);
+
+    // mainwindow -> properties
+    connect(mainWindow, &MainWindow::showFileProperties,
+            propertiesWindow, &QWidget::show);
 
     // mainwindow -> this
     connect(mainWindow, &MainWindow::recentOpened,
