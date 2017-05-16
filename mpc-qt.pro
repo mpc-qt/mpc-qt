@@ -13,7 +13,7 @@ TEMPLATE = app
 
 CONFIG += c++14
 
-unix:QT += x11extras dbus
+unix:!macx:QT += x11extras dbus
 
 !win32:CONFIG += link_pkgconfig
 !win32:PKGCONFIG += mpv
@@ -22,8 +22,8 @@ win32:LIBS += -L$$PWD/mpv-dev/lib/ -llibmpv
 win32:INCLUDEPATH += $$PWD/mpv-dev/include
 win32:DEPENDPATH += $$PWD/mpv-dev
 
-unix:SOURCES += platform/unix_qscreensaver.cpp
-unix:HEADERS += platform/unix_qscreensaver.h
+unix:!macx:SOURCES += platform/unix_qscreensaver.cpp
+unix:!macx:HEADERS += platform/unix_qscreensaver.h
 
 win32:SOURCES += platform/win_qscreensaver.cpp
 win32:HEADERS += platform/win_qscreensaver.h
