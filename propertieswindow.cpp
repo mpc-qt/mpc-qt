@@ -77,8 +77,7 @@ void PropertiesWindow::setVideoSize(const QSize &sz)
 
 void PropertiesWindow::setFileCreationTime(const int64_t &secsSinceEpoch)
 {
-    QDateTime date;
-    date.setSecsSinceEpoch(secsSinceEpoch);
+    QDateTime date(QDateTime::fromMSecsSinceEpoch(secsSinceEpoch * 1000));
     ui->detailsCreated->setText(date.isNull() ? QString("-") : date.toString());
 }
 
