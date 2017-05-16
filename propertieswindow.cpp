@@ -94,17 +94,20 @@ void PropertiesWindow::setFilePath(const QString &path)
 void PropertiesWindow::setTracks(const QVariantList &tracks)
 {
     QMap<QString,QString> typeToText({
-        { "video", "Video:" },
-        { "audio", "Audio:" },
-        { "sub", "Subtitles:" }
+        { "video", tr("Video") },
+        { "audio", tr("Audio") },
+        { "sub", tr("Subtitles") }
     });
+
+    trackText.clear();
     QStringList lines;
     for (const QVariant &var : tracks) {
         QVariantMap track = var.toMap();
         QStringList line;
 
-        QString typ = track.contains("type") ? track["type"].toString() : QString();
-        line << typeToText.value(typ, "Unknown:");
+        QString type = track.contains("type") ? track["type"].toString() : QString();
+        QString typeText = typeToText.value(type, "Unknown:");
+        line << typeText << ":";
         if (track.contains("decoder-desc"))
             line << track["decoder-desc"].toString().remove('\n');
         else if (track.contains("codec"))
@@ -121,12 +124,21 @@ void PropertiesWindow::setTracks(const QVariantList &tracks)
         if (track.contains("audio-channels"))
             line << QString("%1ch").arg(track["audio-channels"].toInt());
         lines << line.join(' ');
+
+        int trackId = 0;
+        if (track.contains("id"))
+            trackId = track["id"].toInt();
+        track.remove("selected");
+        trackText += sectionText(typeText + " #" + QString::number(trackId), track);
     }
+
     QTextCursor cursor = ui->detailsTracks->textCursor();
     cursor.select(QTextCursor::Document);
     cursor.removeSelectedText();
     cursor.insertText(lines.join('\n'));
     ui->detailsTracks->setTextCursor(cursor);
+
+    updateLastTab();
 }
 
 void PropertiesWindow::setMetaData(QVariantMap data)
@@ -146,5 +158,54 @@ void PropertiesWindow::setMetaData(QVariantMap data)
     cursor.removeSelectedText();
     cursor.insertText(data.contains("description") ? data["description"].toString() : QString());
     ui->clipDescription->setTextCursor(cursor);
+
+    metadataText = sectionText(tr("General"), data);
+    updateLastTab();
+}
+
+void PropertiesWindow::setChapters(const QVariantList &chapters)
+{
+    chapterText.clear();
+    if (chapters.isEmpty())
+        return;
+
+    chapterText += tr("Menu\n");
+    for (const QVariant &v : chapters) {
+        QVariantMap node(v.toMap());
+        QString fmt("%1 - %2\n");
+        QString timeText = "[" + Helpers::toDateFormat(node["time"].toDouble()) + "]";
+        timeText.resize(25, ' ');
+        chapterText += fmt.arg(timeText, node["title"].toString());
+    }
+    chapterText += '\n';
+    updateLastTab();
+}
+
+void PropertiesWindow::updateLastTab()
+{
+    QTextCursor cursor = ui->mediaInfoText->textCursor();
+    cursor.select(QTextCursor::Document);
+    cursor.removeSelectedText();
+    cursor.insertText(metadataText + trackText + chapterText);
+    cursor.setPosition(0);
+    ui->mediaInfoText->setTextCursor(cursor);
+}
+
+QString PropertiesWindow::sectionText(const QString &header, const QVariantMap &fields)
+{
+    QString text;
+    text += header + '\n';
+    if (fields.isEmpty())
+        text.append(tr("File has no data for this section.\n"));
+
+    QVariantMap::const_iterator i = fields.constBegin();
+    while (i != fields.constEnd()) {
+        QString keyText = i.key();
+        keyText.resize(25, ' ');
+        text += QString("%1 : %2\n").arg(keyText, i.value().toString());
+        ++i;
+    }
+    text += '\n';
+    return text;
 }
 

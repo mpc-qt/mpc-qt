@@ -29,9 +29,17 @@ public slots:
     void setMediaTitle(const QString &title);
     void setFilePath(const QString &path);
     void setMetaData(QVariantMap data);
+    void setChapters(const QVariantList &chapters);
 
 private:
+    void updateLastTab();
+    QString sectionText(const QString &header, const QVariantMap &fields);
+
     Ui::PropertiesWindow *ui;
+
+    QString metadataText;
+    QString trackText;
+    QString chapterText;
 };
 
 #endif // PROPERTIESWINDOW_H

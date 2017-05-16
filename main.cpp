@@ -281,6 +281,8 @@ void Flow::init() {
             propertiesWindow, &PropertiesWindow::setFilePath);
     connect(mpvw, &MpvWidget::metaDataChanged,
             propertiesWindow, &PropertiesWindow::setMetaData);
+    connect(mpvw, &MpvWidget::chaptersChanged,
+            propertiesWindow, &PropertiesWindow::setChapters);
 
     // settings -> playlistWindow
     connect(settingsWindow, &SettingsWindow::playlistFormat,
