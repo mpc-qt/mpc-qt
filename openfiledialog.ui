@@ -17,7 +17,7 @@
    <iconset resource="res.qrc">
     <normaloff>:/images/bitmaps/icon.png</normaloff>:/images/bitmaps/icon.png</iconset>
   </property>
-  <layout class="QFormLayout" name="formLayout">
+  <layout class="QFormLayout" name="mainLayout">
    <item row="0" column="0">
     <widget class="QLabel" name="fileLabel">
      <property name="text">
@@ -29,7 +29,7 @@
     </widget>
    </item>
    <item row="0" column="1">
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QHBoxLayout" name="fileLayout">
      <item>
       <widget class="QLineEdit" name="fileField"/>
      </item>
@@ -53,7 +53,7 @@
     </widget>
    </item>
    <item row="1" column="1">
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <layout class="QHBoxLayout" name="subsLayout">
      <item>
       <widget class="QLineEdit" name="subsField"/>
      </item>

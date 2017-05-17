@@ -7,25 +7,25 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>400</height>
+    <height>481</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Properties</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="mainLayout">
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="detailsTab">
       <attribute name="title">
        <string>Details</string>
       </attribute>
-      <layout class="QFormLayout" name="formLayout_2">
+      <layout class="QFormLayout" name="detailsTabLayout">
        <item row="0" column="0" colspan="2">
-        <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1">
+        <layout class="QHBoxLayout" name="detailsFileLayout" stretch="0,1">
          <property name="spacing">
           <number>16</number>
          </property>
@@ -67,14 +67,14 @@
         </layout>
        </item>
        <item row="1" column="0" colspan="2">
-        <widget class="Line" name="line">
+        <widget class="Line" name="detailsLine">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="detailsTypeLabel">
          <property name="text">
           <string>Type:</string>
          </property>
@@ -88,7 +88,7 @@
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="detailsSizeLabel">
          <property name="text">
           <string>Size:</string>
          </property>
@@ -102,7 +102,7 @@
         </widget>
        </item>
        <item row="4" column="0">
-        <widget class="QLabel" name="label_9">
+        <widget class="QLabel" name="detailsLengthLabel">
          <property name="text">
           <string>Media length:</string>
          </property>
@@ -116,7 +116,7 @@
         </widget>
        </item>
        <item row="5" column="0">
-        <widget class="QLabel" name="label_5">
+        <widget class="QLabel" name="detailsVideoSizeLabel">
          <property name="text">
           <string>Video size:</string>
          </property>
@@ -130,7 +130,7 @@
         </widget>
        </item>
        <item row="6" column="0">
-        <widget class="QLabel" name="label_6">
+        <widget class="QLabel" name="detailsCreatedLabel">
          <property name="text">
           <string>Created:</string>
          </property>
@@ -144,7 +144,7 @@
         </widget>
        </item>
        <item row="7" column="0" colspan="2">
-        <widget class="Line" name="line_2">
+        <widget class="Line" name="detailsLine_2">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
@@ -172,9 +172,9 @@
       <attribute name="title">
        <string>Clip</string>
       </attribute>
-      <layout class="QFormLayout" name="formLayout_3">
+      <layout class="QFormLayout" name="clipTabLayout">
        <item row="0" column="0" colspan="2">
-        <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1">
+        <layout class="QHBoxLayout" name="clipFileLayout" stretch="0,1">
          <property name="spacing">
           <number>16</number>
          </property>
@@ -216,14 +216,14 @@
         </layout>
        </item>
        <item row="1" column="0" colspan="2">
-        <widget class="Line" name="line_3">
+        <widget class="Line" name="clipLine">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="clipTitleLabel">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
            <horstretch>0</horstretch>
@@ -249,7 +249,7 @@
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="clipAuthorLabel">
          <property name="text">
           <string>Author:</string>
          </property>
@@ -263,7 +263,7 @@
         </widget>
        </item>
        <item row="4" column="0">
-        <widget class="QLabel" name="label_7">
+        <widget class="QLabel" name="clipCopyrightLabel">
          <property name="text">
           <string>Copyright:</string>
          </property>
@@ -277,7 +277,7 @@
         </widget>
        </item>
        <item row="5" column="0">
-        <widget class="QLabel" name="label_8">
+        <widget class="QLabel" name="clipRatingLabel">
          <property name="text">
           <string>Rating:</string>
          </property>
@@ -297,14 +297,14 @@
         </widget>
        </item>
        <item row="6" column="0" colspan="2">
-        <widget class="Line" name="line_4">
+        <widget class="Line" name="clipLine_2">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
         </widget>
        </item>
        <item row="7" column="0">
-        <widget class="QLabel" name="label_10">
+        <widget class="QLabel" name="clipLocationLabel">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
            <horstretch>0</horstretch>
@@ -339,16 +339,19 @@
         </widget>
        </item>
        <item row="8" column="0" colspan="2">
-        <widget class="Line" name="line_5">
+        <widget class="Line" name="clipLine_3">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
         </widget>
        </item>
        <item row="9" column="0">
-        <widget class="QLabel" name="label_11">
+        <widget class="QLabel" name="clipDescriptionLabel">
          <property name="text">
           <string>Description:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
          </property>
         </widget>
        </item>
@@ -374,7 +377,7 @@
       <attribute name="title">
        <string>MediaInfo</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <layout class="QVBoxLayout" name="mediaInfoTabLayout">
        <item>
         <widget class="QPlainTextEdit" name="mediaInfoText">
          <property name="font">

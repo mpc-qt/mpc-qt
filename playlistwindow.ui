@@ -17,11 +17,11 @@
    <string>P&amp;laylist</string>
   </property>
   <widget class="QWidget" name="contents">
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="contentsLayout">
     <item>
      <widget class="QStackedWidget" name="playStack">
       <widget class="QWidget" name="collectionPage">
-       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <layout class="QVBoxLayout" name="collectionPageLayout">
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -50,7 +50,7 @@
        </layout>
       </widget>
       <widget class="QWidget" name="quickPage">
-       <layout class="QVBoxLayout" name="verticalLayout_3">
+       <layout class="QVBoxLayout" name="quickPageLayout">
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -69,7 +69,7 @@
     </item>
     <item>
      <widget class="QWidget" name="searchHost" native="true">
-      <layout class="QHBoxLayout" name="searchLayout" stretch="1,0">
+      <layout class="QHBoxLayout" name="searchHostLayout" stretch="1,0">
        <property name="leftMargin">
         <number>0</number>
        </property>
@@ -107,7 +107,7 @@
      </widget>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QHBoxLayout" name="tabButtonLayout">
       <item>
        <widget class="QPushButton" name="newTab">
         <property name="toolTip">

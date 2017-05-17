@@ -27,7 +27,7 @@
     <normaloff>:/images/bitmaps/icon.png</normaloff>:/images/bitmaps/icon.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_4">
+   <layout class="QVBoxLayout" name="centralwidgetLAyout">
     <property name="spacing">
      <number>0</number>
     </property>
@@ -45,7 +45,7 @@
     </property>
     <item>
      <widget class="QWidget" name="mpvWidget" native="true">
-      <layout class="QVBoxLayout" name="verticalLayout_5">
+      <layout class="QVBoxLayout" name="mpvWidgetLayout">
        <property name="spacing">
         <number>0</number>
        </property>
@@ -69,7 +69,7 @@
       <property name="autoFillBackground">
        <bool>true</bool>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="bottomAreaLayout">
        <property name="spacing">
         <number>0</number>
        </property>
@@ -96,7 +96,7 @@
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_6">
+         <layout class="QVBoxLayout" name="controlSectionLayout">
           <property name="spacing">
            <number>0</number>
           </property>
@@ -114,7 +114,7 @@
           </property>
           <item>
            <widget class="QWidget" name="seekbar" native="true">
-            <layout class="QHBoxLayout" name="horizontalLayout">
+            <layout class="QHBoxLayout" name="seekbarLayout">
              <property name="leftMargin">
               <number>6</number>
              </property>
@@ -126,7 +126,7 @@
           </item>
           <item>
            <widget class="QWidget" name="controlbar" native="true">
-            <layout class="QHBoxLayout" name="_3" stretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0">
+            <layout class="QHBoxLayout" name="controlbarLayout" stretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0">
              <property name="leftMargin">
               <number>6</number>
              </property>
@@ -194,7 +194,7 @@
               </widget>
              </item>
              <item>
-              <spacer name="horizontalSpacer_2">
+              <spacer name="controlbarSpacer1">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
@@ -278,7 +278,7 @@
               </widget>
              </item>
              <item>
-              <spacer name="horizontalSpacer_3">
+              <spacer name="controlbarSpacer2">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
@@ -328,7 +328,7 @@
               </widget>
              </item>
              <item>
-              <spacer name="horizontalSpacer_4">
+              <spacer name="controlbarSpacer3">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
@@ -378,7 +378,7 @@
               </widget>
              </item>
              <item>
-              <spacer name="horizontalSpacer">
+              <spacer name="controlbarSpacer4">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
@@ -425,7 +425,7 @@
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
+         <layout class="QVBoxLayout" name="infoSectionLayout">
           <property name="spacing">
            <number>0</number>
           </property>
@@ -443,7 +443,7 @@
           </property>
           <item>
            <widget class="QWidget" name="infoStats" native="true">
-            <layout class="QFormLayout" name="formLayout">
+            <layout class="QFormLayout" name="infoStatsLayout">
              <property name="verticalSpacing">
               <number>0</number>
              </property>
