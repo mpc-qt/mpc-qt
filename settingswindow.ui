@@ -149,7 +149,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>0</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -630,6 +630,12 @@ media file played</string>
               </item>
               <item row="1" column="1">
                <widget class="QComboBox" name="playbackAutoZoomMethod">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="currentIndex">
                  <number>3</number>
                 </property>
@@ -699,6 +705,12 @@ media file played</string>
               </item>
               <item row="2" column="1">
                <widget class="QSpinBox" name="playbackAutoFitFactor">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="suffix">
                  <string>%</string>
                 </property>
@@ -951,7 +963,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>4</number>
+                 <number>3</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -1182,6 +1194,12 @@ media file played</string>
                      </item>
                      <item row="1" column="1">
                       <widget class="QSpinBox" name="ditherDepth">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
                        <property name="specialValueText">
                         <string>Auto</string>
                        </property>
@@ -1199,6 +1217,12 @@ media file played</string>
                      </item>
                      <item row="2" column="1">
                       <widget class="QComboBox" name="ditherType">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
                        <item>
                         <property name="text">
                          <string>Fruit</string>
@@ -1225,6 +1249,12 @@ media file played</string>
                      </item>
                      <item row="3" column="1">
                       <widget class="QSpinBox" name="ditherFruitSize">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
                        <property name="minimum">
                         <number>2</number>
                        </property>
@@ -1283,6 +1313,12 @@ media file played</string>
                      </item>
                      <item row="1" column="1">
                       <widget class="QSpinBox" name="ditherTemporalPeriod">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
                        <property name="minimum">
                         <number>1</number>
                        </property>
@@ -1317,13 +1353,13 @@ media file played</string>
                   <item>
                    <widget class="QTabWidget" name="scalingTabs">
                     <property name="currentIndex">
-                     <number>4</number>
+                     <number>0</number>
                     </property>
                     <widget class="QWidget" name="scaleOptionsTab">
                      <attribute name="title">
                       <string>Options</string>
                      </attribute>
-                     <layout class="QHBoxLayout" name="scaleOptionsTabLayout">
+                     <layout class="QHBoxLayout" name="scaleOptionsTabLayout" stretch="1,1">
                       <item>
                        <layout class="QVBoxLayout" name="scalingLayout">
                         <item>
@@ -1396,6 +1432,12 @@ media file played</string>
                            </item>
                            <item row="1" column="1">
                             <widget class="QDoubleSpinBox" name="sigmoidizedCenter">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
                              <property name="decimals">
                               <number>6</number>
                              </property>
@@ -1416,6 +1458,12 @@ media file played</string>
                            </item>
                            <item row="2" column="1">
                             <widget class="QDoubleSpinBox" name="sigmoidizedSlope">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
                              <property name="decimals">
                               <number>6</number>
                              </property>
@@ -5020,6 +5068,12 @@ media file played</string>
               </item>
               <item row="2" column="1">
                <widget class="QSpinBox" name="subtitlesPosition">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="suffix">
                  <string>%</string>
                 </property>
@@ -5083,6 +5137,12 @@ media file played</string>
               </item>
               <item row="3" column="1">
                <widget class="QComboBox" name="subtitlesAssOverride">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <item>
                  <property name="text">
                   <string>No</string>
@@ -5159,6 +5219,12 @@ media file played</string>
                 </item>
                 <item row="3" column="1">
                  <widget class="QSpinBox" name="fontSize">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="maximum">
                    <number>9000</number>
                   </property>
@@ -6223,6 +6289,9 @@ media file played</string>
          </widget>
          <widget class="QWidget" name="tweaksPage">
           <layout class="QFormLayout" name="tweaksPageLayout">
+           <property name="formAlignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
            <item row="0" column="0" colspan="2">
             <widget class="QCheckBox" name="tweaksFastSeek">
              <property name="text">
@@ -6259,6 +6328,12 @@ media file played</string>
            </item>
            <item row="4" column="0">
             <widget class="QCheckBox" name="tweaksTimeTooltip">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="text">
               <string>Use time tooltip:</string>
              </property>
@@ -6266,6 +6341,12 @@ media file played</string>
            </item>
            <item row="4" column="1">
             <widget class="QComboBox" name="tweaksTimeTooltipLocation">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <item>
               <property name="text">
                <string>Above seekbar</string>
