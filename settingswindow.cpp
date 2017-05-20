@@ -126,7 +126,8 @@ QStringList internalLogos = {
     ":/not-a-real-resource.png",
     ":/images/bitmaps/blank-screen.png",
     ":/images/bitmaps/blank-screen-gray.png",
-    ":/images/bitmaps/blank-screen-triangle-circle.png"
+    ":/images/bitmaps/blank-screen-triangle-circle.png",
+    ":/images/bitmaps/blank-screen-mpv.png"
 };
 
 

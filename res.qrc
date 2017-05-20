@@ -27,5 +27,6 @@
         <file>text/playlistFormat.html</file>
         <file>text/encodeFormat.html</file>
         <file>images/controls/playlist/showqueue.png</file>
+        <file>images/bitmaps/blank-screen-mpv.png</file>
     </qresource>
 </RCC>

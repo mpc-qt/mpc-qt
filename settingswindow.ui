@@ -149,7 +149,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>4</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -517,7 +517,7 @@ media file played</string>
              <item row="0" column="1" colspan="2">
               <widget class="QComboBox" name="logoInternal">
                <property name="currentIndex">
-                <number>1</number>
+                <number>0</number>
                </property>
                <item>
                 <property name="text">
@@ -537,6 +537,11 @@ media file played</string>
                <item>
                 <property name="text">
                  <string>Triangle in circle</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Multi purpose vehicle</string>
                 </property>
                </item>
               </widget>
@@ -826,6 +831,12 @@ media file played</string>
             <spacer name="playbackSpacer">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
              </property>
             </spacer>
            </item>
