@@ -1651,8 +1651,6 @@ void MainWindow::on_actionPlayVolumeMute_toggled(bool checked)
     if (!isPlaying)
         return;
     emit volumeMuteChanged(checked);
-    ui->mute->setIcon(QIcon(checked ? ":/images/controls/speaker2.png" :
-                                      ":/images/controls/speaker1.png"));
     ui->actionPlayVolumeMute->setChecked(checked);
     ui->mute->setChecked(checked);
 }

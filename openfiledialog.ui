@@ -13,10 +13,6 @@
   <property name="windowTitle">
    <string>Open File</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="res.qrc">
-    <normaloff>:/images/bitmaps/icon.png</normaloff>:/images/bitmaps/icon.png</iconset>
-  </property>
   <layout class="QFormLayout" name="mainLayout">
    <item row="0" column="0">
     <widget class="QLabel" name="fileLabel">
@@ -88,9 +84,7 @@
   <tabstop>subsBrowse</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>
- <resources>
-  <include location="res.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>buttonBox</sender>

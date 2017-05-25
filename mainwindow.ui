@@ -22,10 +22,6 @@
   <property name="windowTitle">
    <string>Media Player Classic Qute Theater</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="res.qrc">
-    <normaloff>:/images/bitmaps/icon.png</normaloff>:/images/bitmaps/icon.png</iconset>
-  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="centralwidgetLAyout">
     <property name="spacing">
@@ -148,8 +144,9 @@
                 <string>Play</string>
                </property>
                <property name="icon">
-                <iconset resource="res.qrc">
-                 <normaloff>:/images/controls/play.png</normaloff>:/images/controls/play.png</iconset>
+                <iconset>
+                 <normalon>:/images/theme/black/media-playback-start.svg</normalon>
+                </iconset>
                </property>
                <property name="flat">
                 <bool>true</bool>
@@ -165,8 +162,9 @@
                 <string>Pause</string>
                </property>
                <property name="icon">
-                <iconset resource="res.qrc">
-                 <normaloff>:/images/controls/pause.png</normaloff>:/images/controls/pause.png</iconset>
+                <iconset>
+                 <normalon>:/images/theme/black/media-playback-pause.svg</normalon>
+                </iconset>
                </property>
                <property name="checkable">
                 <bool>true</bool>
@@ -185,8 +183,9 @@
                 <string>Stop</string>
                </property>
                <property name="icon">
-                <iconset resource="res.qrc">
-                 <normaloff>:/images/controls/stop.png</normaloff>:/images/controls/stop.png</iconset>
+                <iconset>
+                 <normalon>:/images/theme/black/media-playback-stop.svg</normalon>
+                </iconset>
                </property>
                <property name="flat">
                 <bool>true</bool>
@@ -218,8 +217,9 @@
                 <string>Skip Backward</string>
                </property>
                <property name="icon">
-                <iconset resource="res.qrc">
-                 <normaloff>:/images/controls/back1.png</normaloff>:/images/controls/back1.png</iconset>
+                <iconset>
+                 <normalon>:/images/theme/black/go-previous.svg</normalon>
+                </iconset>
                </property>
                <property name="flat">
                 <bool>true</bool>
@@ -235,8 +235,9 @@
                 <string>Speed Decrease</string>
                </property>
                <property name="icon">
-                <iconset resource="res.qrc">
-                 <normaloff>:/images/controls/back2.png</normaloff>:/images/controls/back2.png</iconset>
+                <iconset>
+                 <normalon>:/images/theme/black/media-seek-backward.svg</normalon>
+                </iconset>
                </property>
                <property name="flat">
                 <bool>true</bool>
@@ -252,8 +253,9 @@
                 <string>Speed Increase</string>
                </property>
                <property name="icon">
-                <iconset resource="res.qrc">
-                 <normaloff>:/images/controls/forward1.png</normaloff>:/images/controls/forward1.png</iconset>
+                <iconset>
+                 <normalon>:/images/theme/black/media-seek-forward.svg</normalon>
+                </iconset>
                </property>
                <property name="flat">
                 <bool>true</bool>
@@ -269,8 +271,9 @@
                 <string>Skip Forward</string>
                </property>
                <property name="icon">
-                <iconset resource="res.qrc">
-                 <normaloff>:/images/controls/forward2.png</normaloff>:/images/controls/forward2.png</iconset>
+                <iconset>
+                 <normalon>:/images/theme/black/go-next.svg</normalon>
+                </iconset>
                </property>
                <property name="flat">
                 <bool>true</bool>
@@ -302,8 +305,9 @@
                 <string>Step Backward</string>
                </property>
                <property name="icon">
-                <iconset resource="res.qrc">
-                 <normaloff>:/images/controls/back3.png</normaloff>:/images/controls/back3.png</iconset>
+                <iconset>
+                 <normalon>:/images/theme/black/media-skip-backward.svg</normalon>
+                </iconset>
                </property>
                <property name="flat">
                 <bool>true</bool>
@@ -319,8 +323,9 @@
                 <string>Step Forward</string>
                </property>
                <property name="icon">
-                <iconset resource="res.qrc">
-                 <normaloff>:/images/controls/forward3.png</normaloff>:/images/controls/forward3.png</iconset>
+                <iconset>
+                 <normalon>:/images/theme/black/media-skip-forward.svg</normalon>
+                </iconset>
                </property>
                <property name="flat">
                 <bool>true</bool>
@@ -352,8 +357,9 @@
                 <string>Set Loop Start</string>
                </property>
                <property name="icon">
-                <iconset resource="res.qrc">
-                 <normaloff>:/images/controls/loopa.png</normaloff>:/images/controls/loopa.png</iconset>
+                <iconset>
+                 <normalon>:/images/theme/black/zone-in.svg</normalon>
+                </iconset>
                </property>
                <property name="flat">
                 <bool>true</bool>
@@ -369,8 +375,9 @@
                 <string>Set Loop End</string>
                </property>
                <property name="icon">
-                <iconset resource="res.qrc">
-                 <normaloff>:/images/controls/loopb.png</normaloff>:/images/controls/loopb.png</iconset>
+                <iconset>
+                 <normalon>:/images/theme/black/zone-out.svg</normalon>
+                </iconset>
                </property>
                <property name="flat">
                 <bool>true</bool>
@@ -397,7 +404,8 @@
                </property>
                <property name="icon">
                 <iconset resource="res.qrc">
-                 <normaloff>:/images/controls/speaker1.png</normaloff>:/images/controls/speaker1.png</iconset>
+                 <normaloff>:/images/theme/black/player-volume.svg</normaloff>
+                 <normalon>:/images/theme/black/player-volume-muted.svg</normalon>:/images/theme/black/player-volume.svg</iconset>
                </property>
                <property name="checkable">
                 <bool>true</bool>
@@ -544,7 +552,7 @@
              <item>
               <widget class="QLabel" name="tinyicon">
                <property name="pixmap">
-                <pixmap resource="res.qrc">:/images/bitmaps/icon16.png</pixmap>
+                <pixmap resource="res.qrc">:/images/icon/logo16.svg</pixmap>
                </property>
               </widget>
              </item>

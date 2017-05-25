@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   id="svg10943"
+   version="1.1"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="logo16.svg"
+   inkscape:export-filename="/home/tux/Documents/logos/mpc-qt/icon.png"
+   inkscape:export-xdpi="89.999977"
+   inkscape:export-ydpi="89.999977">
+  <defs
+     id="defs10945">
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter10516"
+       x="-0.075599998"
+       width="1.1512001"
+       y="-0.075599998"
+       height="1.1512001">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.89"
+         id="feGaussianBlur10518" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.959798"
+     inkscape:cx="-9.4659975"
+     inkscape:cy="1.3868024"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1015"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid11523"
+       originx="-37"
+       originy="-36.999999" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata10948">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Layer 2"
+     style="display:inline"
+     transform="translate(-37,-37.000027)">
+    <rect
+       ry="0"
+       y="37.000027"
+       x="37"
+       height="16"
+       width="16"
+       id="rect11556"
+       style="display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.17777778;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-692,-301.50507)"
+     style="display:inline">
+    <g
+       transform="matrix(0.17777778,0,0,0.17777778,672.44444,144.64068)"
+       style="display:inline;opacity:1;filter:url(#filter10516)"
+       id="g5097">
+      <path
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path5101"
+         sodipodi:type="arc"
+         sodipodi:cx="155"
+         sodipodi:cy="927.36218"
+         sodipodi:rx="15"
+         sodipodi:ry="15"
+         sodipodi:start="0.78539816"
+         sodipodi:end="2.3561945"
+         sodipodi:open="true"
+         d="M 165.6066,937.96878 A 15,15 0 0 1 155,942.36218 15,15 0 0 1 144.3934,937.96878" />
+      <circle
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="circle5099"
+         cx="155"
+         cy="927.36218"
+         r="30" />
+      <rect
+         style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5103"
+         width="4"
+         height="10.999977"
+         x="141"
+         y="913.36218" />
+      <rect
+         style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5105"
+         width="4"
+         height="10.999977"
+         x="165"
+         y="913.36218" />
+    </g>
+    <g
+       transform="matrix(0.17777778,0,0,0.17777778,672.44444,144.64068)"
+       style="display:inline"
+       id="g5035">
+      <circle
+         r="30"
+         cy="927.36218"
+         cx="155"
+         id="path4170"
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#999999;stroke-width:4;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         d="M 165.6066,937.96878 A 15,15 0 0 1 155,942.36218 15,15 0 0 1 144.3934,937.96878"
+         sodipodi:open="true"
+         sodipodi:end="2.3561945"
+         sodipodi:start="0.78539816"
+         sodipodi:ry="15"
+         sodipodi:rx="15"
+         sodipodi:cy="927.36218"
+         sodipodi:cx="155"
+         sodipodi:type="arc"
+         id="path4172"
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#999999;stroke-width:4;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="913.36218"
+         x="141"
+         height="10.999977"
+         width="4"
+         id="rect4174"
+         style="opacity:1;fill:#999999;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="913.36218"
+         x="165"
+         height="10.999977"
+         width="4"
+         id="rect4176"
+         style="opacity:1;fill:#999999;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>

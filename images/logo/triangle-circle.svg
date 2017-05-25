@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="400"
+   height="300"
+   viewBox="0 0 400 300"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="triangle-circle.svg"
+   inkscape:export-filename="/home/tux/src/mpc-qt/mpc-qt/images/bitmaps/logo-gpl.png"
+   inkscape:export-xdpi="45"
+   inkscape:export-ydpi="45">
+  <defs
+     id="defs4">
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter5030"
+       x="-0.046541532"
+       width="1.0930831"
+       y="-0.040306149"
+       height="1.0806123">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.9088457"
+         id="feGaussianBlur5032" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6568542"
+     inkscape:cx="165.31936"
+     inkscape:cy="92.468555"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1015"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:snap-text-baseline="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4136"
+       originx="-213.40137"
+       originy="-128.02013"
+       empspacing="10"
+       spacingx="1"
+       spacingy="1" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-213.40137,-624.34201)"
+     style="display:inline">
+    <circle
+       style="opacity:1;fill:#636363;fill-opacity:0.50196078;stroke:none;stroke-width:4;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4138"
+       cx="413.40137"
+       cy="764.34198"
+       r="75" />
+    <g
+       id="g7978"
+       style="opacity:0.4"
+       transform="matrix(0.5,0,0,0.5,213.15136,388.41097)">
+      <path
+         sodipodi:type="star"
+         style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:8;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter5030)"
+         id="path7880"
+         sodipodi:sides="3"
+         sodipodi:cx="408.50003"
+         sodipodi:cy="759.86154"
+         sodipodi:r1="100"
+         sodipodi:r2="50"
+         sodipodi:arg1="0"
+         sodipodi:arg2="1.0471976"
+         inkscape:flatsided="false"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 508.50003,759.86151 -75,43.30127 -75,43.30127 0,-86.60254 0,-86.60254 75,43.30127 z"
+         inkscape:transform-center-x="-30" />
+      <path
+         inkscape:transform-center-x="-30"
+         d="m 500.5,751.86212 -75,43.30127 -75,43.30127 0,-86.60254 0,-86.60254 75,43.30127 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="1.0471976"
+         sodipodi:arg1="0"
+         sodipodi:r2="50"
+         sodipodi:r1="100"
+         sodipodi:cy="751.86212"
+         sodipodi:cx="400.5"
+         sodipodi:sides="3"
+         id="path4142"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:8;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="star" />
+    </g>
+    <g
+       id="g4658"
+       transform="matrix(0.5,0,0,0.5,213.40136,398.16094)">
+      <text
+         xml:space="preserve"
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:24.03283501px;line-height:0%;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro Semi-Bold';text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:12.0164175px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:middle;display:inline;overflow:visible;visibility:visible;fill:#868686;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.00273633px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate"
+         x="399.14642"
+         y="952.3028"
+         id="text4138"><tspan
+           sodipodi:role="line"
+           id="tspan4140"
+           x="399.14642"
+           y="952.3028"
+           style="font-size:30.04104424px;line-height:1;letter-spacing:0px;stroke-width:2.00273633px">M E D I A   P L A Y E R   C L A S S I C</tspan></text>
+      <text
+         xml:space="preserve"
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24.03283501px;line-height:0%;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro Bold';text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:8.01094532px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:middle;display:inline;overflow:visible;visibility:visible;fill:#868686;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.00273633px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate"
+         x="399.68774"
+         y="992.35754"
+         id="text4142"><tspan
+           sodipodi:role="line"
+           id="tspan4144"
+           x="399.68774"
+           y="992.35754"
+           style="font-size:22.5307827px;line-height:2;letter-spacing:0px;stroke-width:2.00273633px">Q U T E   T H E A T E R</tspan></text>
+    </g>
+  </g>
+</svg>
