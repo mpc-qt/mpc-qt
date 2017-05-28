@@ -244,7 +244,7 @@
     <message>
         <location filename="mainwindow.ui" line="807"/>
         <source>&amp;Extra Play Times</source>
-        <translation type="unfinished"></translation>
+        <translation>Riproduzione &amp;extra volte</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="845"/>
@@ -1087,7 +1087,7 @@
         <location filename="mainwindow.ui" line="1615"/>
         <source>&amp;Clear Play Times</source>
         <translatorcomment>numero?</translatorcomment>
-        <translation type="unfinished">&amp;Pulisci tempi di riproduzione</translation>
+        <translation>&amp;Pulisci tempi di riproduzione</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1618"/>
@@ -1849,7 +1849,7 @@ ogni file multimediale riprodotto</translation>
     <message>
         <location filename="settingswindow.ui" line="835"/>
         <source>Video Renderer</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Renderer video</translation>
     </message>
     <message>
         <location filename="settingswindow.ui" line="841"/>
@@ -2650,7 +2650,7 @@ ogni file multimediale riprodotto</translation>
     <message>
         <location filename="settingswindow.ui" line="3581"/>
         <source>Audio Renderer</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Renderer audio</translation>
     </message>
     <message>
         <location filename="settingswindow.ui" line="3589"/>
