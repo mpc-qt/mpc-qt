@@ -124,10 +124,10 @@ QMap<QString, std::function<void (QObject *, const QVariant &)> > Setting::class
 
 QStringList internalLogos = {
     ":/not-a-real-resource.png",
-    ":/images/bitmaps/blank-screen.png",
-    ":/images/bitmaps/blank-screen-gray.png",
-    ":/images/bitmaps/blank-screen-triangle-circle.png",
-    ":/images/bitmaps/blank-screen-mpv.png"
+    ":/images/logo/film-color.svg",
+    ":/images/logo/film-gray.svg",
+    ":/images/logo/triangle-circle.svg",
+    ":/images/logo/mpv-vlc.svg"
 };
 
 

@@ -40,7 +40,7 @@ if len(mpc) < 1:
   exit(1)
 print('Found mpc-qt binary at\n\t' + mpc + '\n')
 
-icon = path.abspath(getcwd() + '/images/bitmaps/icon.png')
+icon = path.abspath(getcwd() + '/images/icon/logo.svg')
 print('Icon appears to be at\n\t' + icon + '\n')
 
 print('Information gathered, creating desktop entry')

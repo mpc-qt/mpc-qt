@@ -1,32 +1,32 @@
 <RCC>
     <qresource prefix="/">
-        <file>images/controls/back1.png</file>
-        <file>images/controls/back2.png</file>
-        <file>images/controls/back3.png</file>
-        <file>images/controls/forward1.png</file>
-        <file>images/controls/forward2.png</file>
-        <file>images/controls/forward3.png</file>
-        <file>images/controls/pause.png</file>
-        <file>images/controls/play.png</file>
-        <file>images/controls/speaker1.png</file>
-        <file>images/controls/speaker2.png</file>
-        <file>images/controls/stop.png</file>
-        <file>images/bitmaps/blank-screen.png</file>
-        <file>images/bitmaps/icon.png</file>
-        <file>images/bitmaps/icon16.png</file>
-        <file>images/controls/playlist/closetab.png</file>
-        <file>images/controls/playlist/duplicatetab.png</file>
-        <file>images/controls/playlist/export.png</file>
-        <file>images/controls/playlist/import.png</file>
-        <file>images/controls/playlist/newtab.png</file>
-        <file>images/bitmaps/blank-screen-triangle-circle.png</file>
-        <file>images/bitmaps/blank-screen-gray.png</file>
-        <file>images/controls/loopa.png</file>
-        <file>images/controls/loopb.png</file>
-        <file>images/controls/playlist/quickqueue.png</file>
         <file>text/playlistFormat.html</file>
         <file>text/encodeFormat.html</file>
-        <file>images/controls/playlist/showqueue.png</file>
-        <file>images/bitmaps/blank-screen-mpv.png</file>
+        <file>images/logo/triangle-circle.svg</file>
+        <file>images/logo/mpv-vlc.svg</file>
+        <file>images/logo/film-color.svg</file>
+        <file>images/logo/film-gray.svg</file>
+        <file>images/theme/black/media-playback-start.svg</file>
+        <file>images/theme/black/media-playback-pause.svg</file>
+        <file>images/theme/black/media-playback-stop.svg</file>
+        <file>images/theme/black/media-seek-backward.svg</file>
+        <file>images/theme/black/media-seek-forward.svg</file>
+        <file>images/theme/black/go-previous.svg</file>
+        <file>images/theme/black/go-next.svg</file>
+        <file>images/theme/black/media-skip-backward.svg</file>
+        <file>images/theme/black/media-skip-forward.svg</file>
+        <file>images/theme/black/player-volume.svg</file>
+        <file>images/theme/black/player-volume-muted.svg</file>
+        <file>images/theme/black/zone-in.svg</file>
+        <file>images/theme/black/zone-out.svg</file>
+        <file>images/theme/black/tab-new.svg</file>
+        <file>images/theme/black/tab-close.svg</file>
+        <file>images/theme/black/tab-duplicate.svg</file>
+        <file>images/theme/black/document-import.svg</file>
+        <file>images/theme/black/document-export.svg</file>
+        <file>images/theme/black/media-queue-visible.svg</file>
+        <file>images/theme/black/view-media-queue.svg</file>
+        <file>images/icon/logo.svg</file>
+        <file>images/icon/logo16.svg</file>
     </qresource>
 </RCC>

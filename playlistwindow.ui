@@ -98,8 +98,9 @@
           <string>Visible Items to Quick Queue</string>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
-           <normaloff>:/images/controls/playlist/quickqueue.png</normaloff>:/images/controls/playlist/quickqueue.png</iconset>
+          <iconset>
+           <normalon>:/images/theme/black/media-queue-visible.svg</normalon>
+          </iconset>
          </property>
         </widget>
        </item>
@@ -114,8 +115,9 @@
          <string>New Tab</string>
         </property>
         <property name="icon">
-         <iconset resource="res.qrc">
-          <normaloff>:/images/controls/playlist/newtab.png</normaloff>:/images/controls/playlist/newtab.png</iconset>
+         <iconset>
+          <normalon>:/images/theme/black/tab-new.svg</normalon>
+         </iconset>
         </property>
        </widget>
       </item>
@@ -125,8 +127,9 @@
          <string>Close Tab</string>
         </property>
         <property name="icon">
-         <iconset resource="res.qrc">
-          <normaloff>:/images/controls/playlist/closetab.png</normaloff>:/images/controls/playlist/closetab.png</iconset>
+         <iconset>
+          <normalon>:/images/theme/black/tab-close.svg</normalon>
+         </iconset>
         </property>
        </widget>
       </item>
@@ -136,8 +139,9 @@
          <string>Duplicate Tab</string>
         </property>
         <property name="icon">
-         <iconset resource="res.qrc">
-          <normaloff>:/images/controls/playlist/duplicatetab.png</normaloff>:/images/controls/playlist/duplicatetab.png</iconset>
+         <iconset>
+          <normalon>:/images/theme/black/tab-duplicate.svg</normalon>
+         </iconset>
         </property>
        </widget>
       </item>
@@ -147,8 +151,9 @@
          <string>Import Playlist</string>
         </property>
         <property name="icon">
-         <iconset resource="res.qrc">
-          <normaloff>:/images/controls/playlist/import.png</normaloff>:/images/controls/playlist/import.png</iconset>
+         <iconset>
+          <normalon>:/images/theme/black/document-import.svg</normalon>
+         </iconset>
         </property>
        </widget>
       </item>
@@ -158,8 +163,9 @@
          <string>Export Playlist</string>
         </property>
         <property name="icon">
-         <iconset resource="res.qrc">
-          <normaloff>:/images/controls/playlist/export.png</normaloff>:/images/controls/playlist/export.png</iconset>
+         <iconset>
+          <normalon>:/images/theme/black/document-export.svg</normalon>
+         </iconset>
         </property>
        </widget>
       </item>
@@ -172,8 +178,9 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="res.qrc">
-          <normaloff>:/images/controls/playlist/showqueue.png</normaloff>:/images/controls/playlist/showqueue.png</iconset>
+         <iconset>
+          <normalon>:/images/theme/black/view-media-queue.svg</normalon>
+         </iconset>
         </property>
         <property name="checkable">
          <bool>true</bool>
@@ -188,8 +195,6 @@
    </layout>
   </widget>
  </widget>
- <resources>
-  <include location="res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
