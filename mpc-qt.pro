@@ -44,11 +44,15 @@ isEmpty(QMAKE_LRELEASE) {
     }
 }
 
+lupdate.input = TRANSLATIONS
+lupdate.output = translations/%{QMAKE_FILE_IN}.ts
+lupdate.commands = $${QMAKE_LUPDATE} $$_PRO_FILE_
+lupdate.CONFIG += no_link target_predeps
 lrelease.input = TRANSLATIONS
 lrelease.output = resources/translations/${QMAKE_FILE_BASE}.qm
 lrelease.commands = $$QMAKE_LRELEASE ${QMAKE_FILE_IN} -qm resources/translations/${QMAKE_FILE_BASE}.qm
 lrelease.CONFIG += no_link target_predeps
-QMAKE_EXTRA_COMPILERS += lrelease
+QMAKE_EXTRA_COMPILERS += lupdate lrelease
 
 unix:!macx:SOURCES += platform/unix_qscreensaver.cpp
 unix:!macx:HEADERS += platform/unix_qscreensaver.h
