@@ -1672,11 +1672,11 @@ void MainWindow::on_actionHelpHomepage_triggered()
 
 void MainWindow::on_actionHelpAbout_triggered()
 {
-    QMessageBox::about(this, "About Media Player Classic Qute Theater",
-      "<h2>Media Player Classic Qute Theater</h2>"
-      "<p>A clone of Media Player Classic written in Qt"
-      "<p>Based on Qt " QT_VERSION_STR " and " + mpvw->mpvVersion() +
-      "<p>Built on " __DATE__ " at " __TIME__
+    QMessageBox::about(this, tr("About Media Player Classic Qute Theater"),
+      "<h2>" + tr("Media Player Classic Qute Theater") + "</h2>" +
+      "<p>" + tr("A clone of Media Player Classic written in Qt") +
+      "<p>" + tr("Based on Qt ") + QT_VERSION_STR + tr(" and ") + mpvw->mpvVersion() +
+      "<p>" + tr("Built on ") + __DATE__ + tr(" at ") + __TIME__ +
       "<h3>LICENSE</h3>"
       "<p>   Copyright (C) 2015"
       "<p>"
@@ -1685,6 +1685,7 @@ void MainWindow::on_actionHelpAbout_triggered()
       "the Free Software Foundation; either version 2 of the License, or "
       "(at your option) any later version."
       "<p>"
+
       "This program is distributed in the hope that it will be useful, "
       "but WITHOUT ANY WARRANTY; without even the implied warranty of "
       "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the "

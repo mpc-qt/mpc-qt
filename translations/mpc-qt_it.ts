@@ -56,6 +56,7 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="23"/>
+        <location filename="../mainwindow.cpp" line="1676"/>
         <source>Media Player Classic Qute Theater</source>
         <translation>Media Player Classic Qute Theater</translation>
     </message>
@@ -1267,6 +1268,36 @@
         <location filename="../mainwindow.cpp" line="1178"/>
         <source>Quick Open</source>
         <translation>Apri rapidamente</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1675"/>
+        <source>About Media Player Classic Qute Theater</source>
+        <translation>Informazioni su Media Player Classic Qute Theater</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1677"/>
+        <source>A clone of Media Player Classic written in Qt</source>
+        <translation>Un clone di Media Player Classic scritto in Qt</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1678"/>
+        <source>Based on Qt </source>
+        <translation>Basato su Qt </translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1678"/>
+        <source> and </source>
+        <translation> e </translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1679"/>
+        <source>Built on </source>
+        <translation>Compilato in data </translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1679"/>
+        <source> at </source>
+        <translation> alle </translation>
     </message>
     <message>
         <source>Open File</source>
