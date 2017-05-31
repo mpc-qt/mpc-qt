@@ -138,36 +138,36 @@ private slots:
     void hideTimer_timeout();
 
 private:
-    QThread *worker;
-    MpvController *ctrl;
-    mpv_opengl_cb_context *glMpv;
-    QTimer *hideTimer;
+    QThread *worker = nullptr;
+    MpvController *ctrl = nullptr;
+    mpv_opengl_cb_context *glMpv = nullptr;
+    QTimer *hideTimer = nullptr;
 
     QVariantMap cachedState;
     QSize videoSize_;
-    double playTime_;
-    double playLength_;
-    int glWidth, glHeight;
+    double playTime_ = 0.0;
+    double playLength_ = 0.0;
+    int glWidth = 0, glHeight = 0;
 
-    bool drawLogo;
-    LogoDrawer *logo;
+    bool drawLogo = true;
+    LogoDrawer *logo = nullptr;
 
-    bool loopImages;
+    bool loopImages = true;
 
-    bool debugMessages;
+    bool debugMessages = false;
 };
 
 
 
 class MpvErrorCode {
 public:
-    MpvErrorCode() : value(0) {};
+    MpvErrorCode() {};
     MpvErrorCode(int value) : value(value) {};
     MpvErrorCode(const MpvErrorCode &mec) : value(mec.value) {}
     ~MpvErrorCode() {}
     int errorcode() { return value; }
 private:
-    int value;
+    int value = 0;
 };
 Q_DECLARE_METATYPE(MpvErrorCode)
 
@@ -253,10 +253,10 @@ private:
     static void mpvWakeup(void *ctx);
 
     mpv::qt::Handle mpv;
-    mpv_opengl_cb_context *glMpv;
-    QSize lastVideoSize;
+    mpv_opengl_cb_context *glMpv = nullptr;
+    QSize lastVideoSize = QSize(0,0);
 
-    QTimer *throttler;
+    QTimer *throttler = nullptr;
     QSet<QString> throttledProperties;
     typedef QMap<QString,QPair<QVariant,uint64_t>> ThrottledValueMap;
     ThrottledValueMap throttledValues;

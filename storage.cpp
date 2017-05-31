@@ -16,7 +16,7 @@ Storage::Storage(QObject *parent) :
                        QSettings::UserScope,
                        "mpc-qt", "mpc-qt");
     configPath = QFileInfo(settings.fileName()).absolutePath() + "/";
-     QDir().mkpath(configPath);
+    QDir().mkpath(configPath);
 }
 
 void Storage::writeVMap(QString name, const QVariantMap &qvm)

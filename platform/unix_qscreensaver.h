@@ -7,7 +7,7 @@
 #include <QDBusMessage>
 #include "qabstractscreensaver.h"
 
-Q_DECLARE_METATYPE(unsigned);
+Q_DECLARE_METATYPE(unsigned)
 Q_DECLARE_METATYPE(uint64_t)
 
 class QScreenSaver : public QAbstractScreenSaver
@@ -32,8 +32,8 @@ private slots:
 
 private:
     QDBusInterface dbus;
-    uint32_t inhibitToken;
-    bool inhibitCalled;
+    uint32_t inhibitToken = 0;
+    bool inhibitCalled = false;
 };
 
 #endif // UNIX_QSCREENSAVER_H

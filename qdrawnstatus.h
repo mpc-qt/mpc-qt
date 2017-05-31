@@ -16,7 +16,7 @@ protected:
     void paintEvent(QPaintEvent *event);
 
 private:
-    double currentTime;
+    double currentTime = 0;
     QString drawnText;
 };
 

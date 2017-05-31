@@ -52,8 +52,8 @@ private slots:
     void keyClear_clicked();
 
 private:
-    QKeySequenceEdit *keyEditor;
-    QToolButton *keyClear;
+    QKeySequenceEdit *keyEditor = nullptr;
+    QToolButton *keyClear = nullptr;
 };
 
 
@@ -68,7 +68,7 @@ public:
     virtual void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
 private:
-    QActionEditor *owner;
+    QActionEditor *owner = nullptr;
 };
 
 
@@ -90,9 +90,9 @@ private:
     QList<QAction*> buttonActions;
     QList<QAction*> keyModActions;
     QList<QAction*> pressActions;
-    QToolButton *button;
-    QToolButton *keyMod;
-    QToolButton *press;
+    QToolButton *button = nullptr;
+    QToolButton *keyMod = nullptr;
+    QToolButton *press = nullptr;
     MouseState state_;
 };
 
@@ -108,8 +108,8 @@ public:
     virtual void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
 private:
-    QActionEditor *owner;
-    bool fullscreen;
+    QActionEditor *owner = nullptr;
+    bool fullscreen = false;
 };
 
 #endif // QACTIONEDITOR_H

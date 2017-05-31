@@ -27,36 +27,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    fullscreenMode_ = false;
-    fullscreenMaximized = false;
-    bottomAreaBehavior = Helpers::ShowWhenHovering;
-    bottomAreaHeight = 0;
-    bottomAreaHideTime = 0;
-    timeTooltipAbove = false;
-    isPlaying = false;
-
-    hasVideo = false;
-    hasAudio = false;
-    hasSubs = false;
-
-    volumeStep = 10;
-    sizeFactor_ = 1;
-    fitFactor_ = 0.75;
-    zoomMode = RegularZoom;
-    zoomCenter = true;
-    onTopMode = OnTopDefault;
-
-    mouseHideTimeFullscreen = 1000;
-    mouseHideTimeWindowed = 1000;
-
-    noVideoSize_ = QSize(500,270);
-    decorationState_ = AllDecorations;
-
-    displayDrops = 0;
-    decoderDrops = 0;
-    audioBitrate = 0;
-    videoBitrate = 0;
-
     ui->setupUi(this);
     setupMenu();
     setupActionGroups();

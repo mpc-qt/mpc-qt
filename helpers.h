@@ -65,7 +65,7 @@ protected:
     void resizeGL(int w, int h);
 
 private:
-    LogoDrawer *logoDrawer;
+    LogoDrawer *logoDrawer = nullptr;
     QString logoUrl;
 };
 
@@ -79,7 +79,7 @@ public:
     QString parseMetadata(QVariantMap metaData, QString displayString,
                           Helpers::FileType fileType);
 private:
-    DisplayNode *node;
+    DisplayNode *node = nullptr;
 };
 
 class TrackInfo {
@@ -155,7 +155,7 @@ public:
     Command(QAction *a, MouseState mf, MouseState mw);
 
     // Components
-    QAction *action;
+    QAction *action = nullptr;
     QKeySequence keys;      // taken from the QAction in constructor
     MouseState mouseFullscreen;
     MouseState mouseWindowed;

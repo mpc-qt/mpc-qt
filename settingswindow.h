@@ -16,7 +16,7 @@ class QPushButton;
 
 class Setting {
 public:
-    Setting() : name(), widget(NULL), value() {}
+    Setting() {}
     Setting(const Setting &s) : name(s.name), widget(s.widget), value(s.value) {}
     Setting(QString name, QWidget *widget, QVariant value) : name(name), widget(widget), value(value) {}
 
@@ -25,7 +25,7 @@ public:
 
     ~Setting() {}
     QString name;
-    QWidget *widget;
+    QWidget *widget = nullptr;
     QVariant value;
 
     static QMap<QString, std::function<QVariant (QObject *)> > classFetcher;
@@ -219,16 +219,15 @@ private slots:
     void on_playbackMouseHideWindowed_toggled(bool checked);
 
 private:
-    Ui::SettingsWindow *ui;
-    QActionEditor *actionEditor;
-    LogoWidget *logoWidget;
+    Ui::SettingsWindow *ui = nullptr;
+    QActionEditor *actionEditor = nullptr;
+    LogoWidget *logoWidget = nullptr;
     SettingMap acceptedSettings;
     SettingMap defaultSettings;
     QList<SettingMap> videoPresets;
     QVariantMap acceptedKeyMap;
     QVariantMap defaultKeyMap;
     QList<AudioDevice> audioDevices;
-    bool parseNnedi3Fields;
 };
 
 #endif // SETTINGSWINDOW_H

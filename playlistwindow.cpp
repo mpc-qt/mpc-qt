@@ -12,8 +12,7 @@
 PlaylistWindow::PlaylistWindow(QWidget *parent) :
     QDockWidget(parent),
     ui(new Ui::PlaylistWindow),
-    currentPlaylist(),
-    showSearch(false)
+    currentPlaylist()
 {
     clipboard = new PlaylistSelection;
 

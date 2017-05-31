@@ -59,12 +59,12 @@ private slots:
     void exportPlaylist(QString fname, QStringList items);
 
 private:
-    MpcQtServer *server;
-    MpvServer *mpvServer;
-    MainWindow *mainWindow;
-    PlaybackManager *playbackManager;
-    SettingsWindow *settingsWindow;
-    PropertiesWindow *propertiesWindow;
+    MpcQtServer *server = nullptr;
+    MpvServer *mpvServer = nullptr;
+    MainWindow *mainWindow = nullptr;
+    PlaybackManager *playbackManager = nullptr;
+    SettingsWindow *settingsWindow = nullptr;
+    PropertiesWindow *propertiesWindow = nullptr;
     Storage storage;
     QVariantMap settings;
     QVariantMap keyMap;
@@ -73,19 +73,19 @@ private:
 
     QSize cliSize;
     QPoint cliPos;
-    bool validCliSize;
-    bool validCliPos;
+    bool validCliSize = false;
+    bool validCliPos = false;
     QStringList customFiles;
 
-    bool inhibitScreensaver;
-    bool manipulateScreensaver;
-    bool rememberWindowGeometry;
+    bool inhibitScreensaver = false;
+    bool manipulateScreensaver = false;
+    bool rememberWindowGeometry = false;
     QString screenshotDirectory;
     QString encodeDirectory;
     QString screenshotTemplate;
     QString encodeTemplate;
     QString screenshotFormat;
-    bool hasPrevious_;
+    bool hasPrevious_ = false;
 };
 
 #endif // MAIN_H

@@ -30,7 +30,7 @@ signals:
     void failed(Ability what);
 
 protected:
-    bool isInhibiting;
+    bool isInhibiting = false;
 };
 
 #endif // QABSTRACTSCREENSAVER_H

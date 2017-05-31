@@ -80,8 +80,8 @@ private:
     QHash <QUuid, PlayItem*> itemsByUuid;
     QUuid lastSelectedItem;
     QUuid nowPlayingItem_;
-    DisplayParser *displayParser_;
-    QThread *worker;
+    DisplayParser *displayParser_ = nullptr;
+    QThread *worker = nullptr;
     PlaylistSearcher *searcher;
     QString currentFilterText;
     QStringList currentFilterList;
@@ -127,6 +127,6 @@ public:
     void appendAndQuickQueue(QDrawnPlaylist *list);
 
 private:
-    PlaylistSelectionPrivate *d;
+    PlaylistSelectionPrivate *d = nullptr;
 };
 #endif // QDRAWNPLAYLIST_H

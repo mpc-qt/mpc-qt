@@ -238,7 +238,7 @@ bool Helpers::pointFromString(QPoint &point, const QString &text)
 
 
 LogoDrawer::LogoDrawer(QObject *parent)
-    : QObject(parent), logo(NULL)
+    : QObject(parent)
 {
     setLogoUrl("");
 }
@@ -297,8 +297,7 @@ void LogoDrawer::regenerateTexture()
 
 
 LogoWidget::LogoWidget(QWidget *parent)
-    : QOpenGLWidget(parent),
-      logoDrawer(NULL)
+    : QOpenGLWidget(parent)
 {
 }
 
@@ -348,10 +347,7 @@ void LogoWidget::resizeGL(int w, int h)
 class DisplayNode {
 public:
     enum NodeType { NullNode, PlainText, Trie, Property, DisplayName };
-    DisplayNode() :
-        type(NullNode), tagNode(NULL), audioNode(NULL), videoNode(NULL),
-        next(NULL) {
-    }
+    DisplayNode() { }
     ~DisplayNode() {
         empty();
         if (next)
@@ -438,17 +434,17 @@ public:
     }
 
 private:
-    NodeType type;
+    NodeType type = NullNode;
     QString data;
-    DisplayNode *tagNode;
-    DisplayNode *audioNode;
-    DisplayNode *videoNode;
-    DisplayNode *next;
+    DisplayNode *tagNode = nullptr;
+    DisplayNode *audioNode = nullptr;
+    DisplayNode *videoNode = nullptr;
+    DisplayNode *next = nullptr;
 };
 
 
 
-DisplayParser::DisplayParser() : node(NULL)
+DisplayParser::DisplayParser()
 {
 
 }
@@ -752,7 +748,7 @@ MouseState MouseState::fromMouseEvent(QMouseEvent *event, MousePress press)
 
 
 
-Command::Command() : action(NULL), mouseFullscreen(), mouseWindowed() {}
+Command::Command() {}
 
 Command::Command(QAction *a, MouseState mf, MouseState mw) : action(a),
     mouseFullscreen(mf), mouseWindowed(mw) {}

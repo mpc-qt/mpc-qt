@@ -123,15 +123,15 @@ signals:
     void videoBitrateChanged(double bitrate);
 
 private:
-    MpvWidget *mpvWidget_;
-    PlaylistWindow *playlistWindow_;
+    MpvWidget *mpvWidget_ = nullptr;
+    PlaylistWindow *playlistWindow_ = nullptr;
     QUrl  nowPlaying_;
     QUuid nowPlayingList;
     QUuid nowPlayingItem;
 
-    double mpvLength;
-    double mpvSpeed;
-    PlaybackState playbackState_;
+    double mpvLength = 0.0;
+    double mpvSpeed = 1.0;
+    PlaybackState playbackState_ = StoppedState;
 
     QList<QPair<int64_t,QString>> videoList;
     QList<QPair<int64_t,QString>> audioList;
@@ -139,9 +139,9 @@ private:
     QString videoListSelected;
     QString audioListSelected;
     QString subtitleListSelected;
-    int numChapters;
+    int numChapters = 0;
 
-    int playbackPlayTimes;
+    int playbackPlayTimes = 1;
 };
 
 #endif // MANAGER_H

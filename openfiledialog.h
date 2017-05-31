@@ -24,7 +24,7 @@ private slots:
     void on_subsBrowse_clicked();
 
 private:
-    Ui::OpenFileDialog *ui;
+    Ui::OpenFileDialog *ui = nullptr;
 };
 
 #endif // OPENFILEDIALOG_H

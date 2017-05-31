@@ -26,8 +26,6 @@ QDrawnSlider::QDrawnSlider(QWidget *parent, QSize handle, QSize margin) :
     setMouseTracking(true);
     setSliderGeometry(handle.width(), handle.height(),
                       margin.width(), margin.height());
-    isDragging = false;
-    vValue = vMaximum = vMinimum = 0;
 }
 
 void QDrawnSlider::setSliderGeometry(int handleWidth, int handleHeight,
@@ -202,8 +200,7 @@ void QDrawnSlider::mouseMoveEvent(QMouseEvent *ev)
 
 
 QMediaSlider::QMediaSlider(QWidget *parent) :
-    QDrawnSlider(parent, QSize(11, 12), QSize(5, 3)),
-    vLoopA(-1), vLoopB(-1), loopArea(-1,-1,0,0)
+    QDrawnSlider(parent, QSize(11, 12), QSize(5, 3))
 {
 }
 
@@ -211,7 +208,7 @@ void QMediaSlider::clearTicks()
 {
     ticks.clear();
     vLoopA = vLoopB = -1;
-    loopArea = {-1, -1, 0, 0};
+    loopArea = noLoopArea;
 }
 
 void QMediaSlider::setTick(double value, QString text)

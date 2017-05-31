@@ -53,12 +53,12 @@ private:
     void mouseReleaseEvent(QMouseEvent *ev);
     void mouseMoveEvent(QMouseEvent *ev);
 
-    bool isDragging;
-    double xPosition;
+    bool isDragging = false;
+    double xPosition = 0.0;
 
-    double vValue;
-    double vMaximum;
-    double vMinimum;
+    double vValue = 0.0;
+    double vMaximum = 0.0;
+    double vMinimum = 0.0;
 };
 
 class QMediaSlider : public QDrawnSlider {
@@ -91,9 +91,10 @@ protected:
 
     QString valueToTickText(double value);
     QMap<double, QString> ticks;
-    double vLoopA;
-    double vLoopB;
-    QRectF loopArea;
+    double vLoopA = -1;
+    double vLoopB = -1;
+    static constexpr QRectF noLoopArea = { -1, -1, 0, 0 };
+    QRectF loopArea = noLoopArea;
 };
 
 class QVolumeSlider : public QDrawnSlider {

@@ -118,14 +118,14 @@ private slots:
     void on_searchField_returnPressed();
 
 private:
-    Ui::PlaylistWindow *ui;
+    Ui::PlaylistWindow *ui = nullptr;
     QUuid currentPlaylist;
     DisplayParser displayParser;
-    bool showSearch;
+    bool showSearch = false;
 
     QHash<QUuid, QDrawnPlaylist*> widgets;
-    QDrawnPlaylist* queueWidget;
-    PlaylistSelection *clipboard;
+    QDrawnPlaylist* queueWidget = nullptr;
+    PlaylistSelection *clipboard = nullptr;
 };
 
 #endif // PLAYLISTWINDOW_H

@@ -83,11 +83,8 @@ static void *get_proc_address(void *ctx, const char *name) {
 }
 
 MpvWidget::MpvWidget(QWidget *parent, const QString &clientName) :
-    QOpenGLWidget(parent), worker(NULL), ctrl(NULL), hideTimer(NULL),
-    drawLogo(true), logo(NULL), loopImages(true)
+    QOpenGLWidget(parent)
 {
-    debugMessages = false;
-
     // Setup threads
     worker = new QThread();
     worker->start();

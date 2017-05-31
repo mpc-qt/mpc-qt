@@ -8,9 +8,7 @@ QScreenSaver::QScreenSaver(QObject *parent)
     : QAbstractScreenSaver(parent),
       dbus("org.freedesktop.ScreenSaver",
            "/ScreenSaver",
-           "org.freedesktop.ScreenSaver"),
-      inhibitToken(0),
-      inhibitCalled(false)
+           "org.freedesktop.ScreenSaver")
 {
 
 }

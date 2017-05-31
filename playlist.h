@@ -52,9 +52,9 @@ private:
     QUuid playlistUuid_;
     QUrl url_;
     QVariantMap metadata_;
-    int queuePosition_;
-    int extraPlayTimes_;
-    bool hidden_;
+    int queuePosition_ = 0;
+    int extraPlayTimes_ = 0;
+    bool hidden_ = false;
 };
 
 class ItemCollection : public QObject {
@@ -182,7 +182,7 @@ class PlaylistSearcher : public QObject {
     Q_OBJECT
 public:
 
-    PlaylistSearcher() : QObject(), bumps_(0) {}
+    PlaylistSearcher() : QObject() {}
     void bump();
     void unbump();
     int bumps();
@@ -203,7 +203,7 @@ private:
                             QSet<QString> &found);
 
     QReadWriteLock bumpLock;
-    volatile int bumps_;
+    volatile int bumps_ = 0;
 };
 
 
