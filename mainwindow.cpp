@@ -156,8 +156,9 @@ void MainWindow::setState(const QVariantMap &map)
 
 QSize MainWindow::desirableSize(bool first_run)
 {
-    if (zoomMode == FitToWindow || fullscreenMode() || isMaximized())
+    if (!first_run && (zoomMode == FitToWindow || fullscreenMode() || isMaximized())) {
         return QSize();
+    }
 
     // Grab device pixel ratio (2=HiDPI screen)
     qreal ratio = devicePixelRatio();
@@ -168,11 +169,6 @@ QSize MainWindow::desirableSize(bool first_run)
                                       desktop->screenNumber(QCursor::pos()))
                                 : desktop->availableGeometry(this);
 
-    // remove the window frame size from the size available
-    QSize fudgeFactor = this->frameGeometry().size() - this->geometry().size();
-    fudgeFactor /= ratio;
-    available.adjust(0,0, -fudgeFactor.width(), -fudgeFactor.height());
-
     // calculate player size
     QSize player = mpvw->videoSize() / ratio;
     double factor = sizeFactor();
@@ -182,7 +178,7 @@ QSize MainWindow::desirableSize(bool first_run)
     }
 
     // calculate the amount taken by widgets outside the video frame
-    fudgeFactor = size() - mpvw->size();
+    QRect fudgeFactor = size() - mpvw->size();
 
     // calculate desired client size, depending upon the zoom mode
     QSize wanted;
@@ -218,6 +214,27 @@ QSize MainWindow::desirableSize(bool first_run)
         }
     }
     return wanted + fudgeFactor;
+}
+
+QPoint MainWindow::desirablePosition(QSize &size, bool first_run)
+{
+    QDesktopWidget *desktop = qApp->desktop();
+
+    QRect available = first_run ? desktop->availableGeometry(
+                                      desktop->screenNumber(QCursor::pos()))
+                                : desktop->availableGeometry(this);
+    if (size.height() > available.height())
+        size.setHeight(available.height());
+    if (size.width() > available.width())
+        size.setWidth(available.width());
+
+    return QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter,
+                               size, available).topLeft();
+}
+
+void MainWindow::unfreezeWindow()
+{
+    frozenWindow = false;
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)
@@ -749,32 +766,17 @@ void MainWindow::updateBitrate()
 
 void MainWindow::updateSize(bool first_run)
 {
+    if (frozenWindow)
+        return;
+
     QSize desired = desirableSize(first_run);
     if (desired.isNull()) {
         ui->infoSection->layout()->update();
         return;
     }
-    QDesktopWidget *desktop = qApp->desktop();
-
-    QRect available = first_run ? desktop->availableGeometry(
-                                      desktop->screenNumber(QCursor::pos()))
-                                : desktop->availableGeometry(this);
-
-    auto centerIn = [this](QSize &desired, const QRect &available) {
-        if (desired.height() > available.height())
-            desired.setHeight(available.height());
-        if (desired.width() > available.width())
-            desired.setWidth(available.width());
-
-        return QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter,
-                                   desired, available);
-    };
-
-    if (zoomCenter) {
-        QRect geom = centerIn(desired, available);
-        move(geom.topLeft());
-    }
-
+    QPoint desiredPlace = desirablePosition(desired, first_run);
+    if (zoomCenter)
+        move(desiredPlace);
     resize(desired.width(), desired.height());
 }
 

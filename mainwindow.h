@@ -38,6 +38,8 @@ public:
     QVariantMap state();
     void setState(const QVariantMap &map);
     QSize desirableSize(bool first_run = false);
+    QPoint desirablePosition(QSize &size, bool first_run = false);
+    void unfreezeWindow();
 
 protected:
     void resizeEvent(QResizeEvent *event);
@@ -286,6 +288,7 @@ private:
     bool hasAudio = false;
     bool hasSubs = false;
     int volumeStep = 10;
+    bool frozenWindow = true;
     double sizeFactor_ = 1;
     double fitFactor_ = 0.75;
     ZoomMode zoomMode = RegularZoom;

@@ -467,7 +467,8 @@ QVariantMap Flow::saveWindows()
     return QVariantMap {
         {
             "mainWindow", QVariantMap {
-                { "geometry", Helpers::rectToVmap(mainWindow->geometry()) },
+                { "geometry", Helpers::rectToVmap(QRect(mainWindow->geometry().topLeft(),
+                                                        mainWindow->size())) },
                 { "state", mainWindow->state() }
             }
         },
@@ -509,24 +510,12 @@ void Flow::restoreWindows(const QVariantMap &map)
             && settingsMap.contains("geometry")
             && propertiesMap.contains("geometry");
 
-    if (!restoreGeometry) {
-        // don't restore the geometry, so make sure everything appears on
-        // screen
-        emit mainWindow->fireUpdateSize();
-        if (validCliPos)
-            mainWindow->move(cliPos);
-        if (validCliSize)
-            mainWindow->resize(cliSize);
-        showWindows(mainMap);
-        return;
-    }
-
-    if (playlistMap["floating"].toBool()) {
+    if (restoreGeometry && playlistMap["floating"].toBool()) {
         // the playlist window starts off floating, so restore it
         mainWindow->playlistWindow()->setFloating(true);
         geometry = Helpers::vmapToRect(playlistMap["geometry"].toMap());
         mainWindow->playlistWindow()->window()->setGeometry(geometry);
-    } else if (mpvHostMap.contains("qtState")) {
+    } else if (restoreGeometry && mpvHostMap.contains("qtState")) {
         // the playlist window is docked, so we place it back where it was
         QByteArray encoded = mpvHostMap["qtState"].toString().toLocal8Bit();
         QByteArray state = QByteArray::fromBase64(encoded);
@@ -536,12 +525,24 @@ void Flow::restoreWindows(const QVariantMap &map)
 
     // restore main window geometry and override it if requested
     geometry = Helpers::vmapToRect(mainMap["geometry"].toMap());
-    if (validCliPos)
-        geometry.moveTopLeft(cliPos);
+    QPoint desiredPlace = geometry.topLeft();
+    QSize desiredSize = geometry.size();
+    bool checkMainWindow = geometry.isEmpty() || !restoreGeometry;
+
+    if (checkMainWindow)
+        desiredSize = mainWindow->desirableSize(true);
     if (validCliSize)
-        geometry.setSize(cliSize);
-    mainWindow->setGeometry(geometry);
-    QTimer::singleShot(50, this, [=]() { showWindows(mainMap); });
+        desiredSize = cliSize;
+
+    if (checkMainWindow)
+        desiredPlace = mainWindow->desirablePosition(desiredSize, true);
+    if (validCliPos)
+        desiredPlace = cliPos;
+
+    mainWindow->move(desiredPlace);
+    mainWindow->resize(desiredSize);
+    mainWindow->unfreezeWindow();
+    showWindows(mainMap);
 
     // restore settings and properties window
     geometry = Helpers::vmapToRect(settingsMap["geometry"].toMap());
