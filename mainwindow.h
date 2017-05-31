@@ -37,6 +37,7 @@ public:
     QVariantMap mouseMapDefaults();
     QVariantMap state();
     void setState(const QVariantMap &map);
+    QSize desirableSize(bool first_run = false);
 
 protected:
     void resizeEvent(QResizeEvent *event);

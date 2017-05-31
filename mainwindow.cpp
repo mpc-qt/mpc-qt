@@ -154,6 +154,72 @@ void MainWindow::setState(const QVariantMap &map)
 #undef UNWRAP
 }
 
+QSize MainWindow::desirableSize(bool first_run)
+{
+    if (zoomMode == FitToWindow || fullscreenMode() || isMaximized())
+        return QSize();
+
+    // Grab device pixel ratio (2=HiDPI screen)
+    qreal ratio = devicePixelRatio();
+
+    // calculate available area for the window
+    QDesktopWidget *desktop = qApp->desktop();
+    QRect available = first_run ? desktop->availableGeometry(
+                                      desktop->screenNumber(QCursor::pos()))
+                                : desktop->availableGeometry(this);
+
+    // remove the window frame size from the size available
+    QSize fudgeFactor = this->frameGeometry().size() - this->geometry().size();
+    fudgeFactor /= ratio;
+    available.adjust(0,0, -fudgeFactor.width(), -fudgeFactor.height());
+
+    // calculate player size
+    QSize player = mpvw->videoSize() / ratio;
+    double factor = sizeFactor();
+    if (!isPlaying || player.isEmpty()) {
+        player = noVideoSize_;
+        factor = std::max(1.0, sizeFactor());
+    }
+
+    // calculate the amount taken by widgets outside the video frame
+    fudgeFactor = size() - mpvw->size();
+
+    // calculate desired client size, depending upon the zoom mode
+    QSize wanted;
+    if (zoomMode == RegularZoom) {
+        wanted = QSize(player.width()*factor + 0.5,
+                       player.height()*factor + 0.5);
+    } else {
+        wanted = (available.size() - fudgeFactor) * fitFactor_;
+        if (zoomMode == Autofit) {
+            wanted = player.scaled(wanted.width(), wanted.height(),
+                                   Qt::KeepAspectRatio);
+        } else if (zoomMode == AutofitLarger) {
+            if (wanted.height() > player.height()
+                    || wanted.width() > player.width()) {
+                // window is larger than player size, so set to player size
+                wanted = player;
+            } else {
+                // window is smaller than player size, so limit new window
+                // size to contain a player rectangle
+                wanted = player.scaled(wanted.width(), wanted.height(),
+                                       Qt::KeepAspectRatio);
+            }
+        } else { // zoomMode == AutofitSmaller
+            if (player.height() < wanted.height()
+                    || player.width() < wanted.width()) {
+                // player size is smaller than wanted window, so make it larger
+                wanted = player.scaled(wanted.width(), wanted.height(),
+                                       Qt::KeepAspectRatioByExpanding);
+            } else {
+                // player size is larger than wanted, so use the player size
+                wanted = player;
+            }
+        }
+    }
+    return wanted + fudgeFactor;
+}
+
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
     Q_UNUSED(event);
@@ -683,95 +749,33 @@ void MainWindow::updateBitrate()
 
 void MainWindow::updateSize(bool first_run)
 {
-    if (zoomMode == FitToWindow || fullscreenMode() || isMaximized()) {
+    QSize desired = desirableSize(first_run);
+    if (desired.isNull()) {
         ui->infoSection->layout()->update();
         return;
     }
-
-    // Grab device pixel ratio (2=HiDPI screen)
-    qreal ratio = devicePixelRatio();
-
-    // calculate available area for the window
     QDesktopWidget *desktop = qApp->desktop();
+
     QRect available = first_run ? desktop->availableGeometry(
                                       desktop->screenNumber(QCursor::pos()))
                                 : desktop->availableGeometry(this);
 
-    // remove the window frame size from the size available
-    QSize fudgeFactor = this->frameGeometry().size() - this->geometry().size();
-    fudgeFactor /= ratio;
-    available.adjust(0,0, -fudgeFactor.width(), -fudgeFactor.height());
-
-    // calculate player size
-    QSize player = mpvw->videoSize() / ratio;
-    double factor = sizeFactor();
-    if (!isPlaying || player.isEmpty()) {
-        player = noVideoSize_;
-        factor = std::max(1.0, sizeFactor());
-    }
-
-    // calculate the amount taken by widgets outside the video frame
-    fudgeFactor = size() - mpvw->size();
-
-    // calculate desired client size, depending upon the zoom mode
-    QSize wanted, desired;
-    if (zoomMode == RegularZoom) {
-        wanted = QSize(player.width()*factor + 0.5,
-                       player.height()*factor + 0.5);
-    } else {
-        wanted = (available.size() - fudgeFactor) * fitFactor_;
-        if (zoomMode == Autofit) {
-            wanted = player.scaled(wanted.width(), wanted.height(),
-                                   Qt::KeepAspectRatio);
-        } else if (zoomMode == AutofitLarger) {
-            if (wanted.height() > player.height()
-                    || wanted.width() > player.width()) {
-                // window is larger than player size, so set to player size
-                wanted = player;
-            } else {
-                // window is smaller than player size, so limit new window
-                // size to contain a player rectangle
-                wanted = player.scaled(wanted.width(), wanted.height(),
-                                       Qt::KeepAspectRatio);
-            }
-        } else { // zoomMode == AutofitSmaller
-            if (player.height() < wanted.height()
-                    || player.width() < wanted.width()) {
-                // player size is smaller than wanted window, so make it larger
-                wanted = player.scaled(wanted.width(), wanted.height(),
-                                       Qt::KeepAspectRatioByExpanding);
-            } else {
-                // player size is larger than wanted, so use the player size
-                wanted = player;
-            }
-        }
-    }
-    desired = wanted + fudgeFactor;
-
-    if (!zoomCenter) {
-        resize(desired.width(), desired.height());
-        return;
-    }
-
-    auto setToSize = [this](QSize &desired, const QRect &available) {
-        // limit window to available desktop area
+    auto centerIn = [this](QSize &desired, const QRect &available) {
         if (desired.height() > available.height())
             desired.setHeight(available.height());
         if (desired.width() > available.width())
             desired.setWidth(available.width());
 
-        setGeometry(QStyle::alignedRect(
-                        Qt::LeftToRight, Qt::AlignCenter, desired, available));
-        return;
+        return QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter,
+                                   desired, available);
     };
 
-    // get it right first time, and try again with slight adjustment if needed
-    setToSize(desired, available);
-    QSize finalAdjustment = mpvw->size() - wanted;
-    if (!finalAdjustment.isEmpty()) {
-        desired += finalAdjustment;
-        setToSize(desired, available);
+    if (zoomCenter) {
+        QRect geom = centerIn(desired, available);
+        move(geom.topLeft());
     }
+
+    resize(desired.width(), desired.height());
 }
 
 void MainWindow::updateInfostats()
