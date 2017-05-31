@@ -1676,7 +1676,8 @@ void MainWindow::on_actionHelpAbout_triggered()
       "<h2>" + tr("Media Player Classic Qute Theater") + "</h2>" +
       "<p>" + tr("A clone of Media Player Classic written in Qt") +
       "<p>" + tr("Based on Qt ") + QT_VERSION_STR + tr(" and ") + mpvw->mpvVersion() +
-      "<p>" + tr("Built on ") + __DATE__ + tr(" at ") + __TIME__ +
+      "<p>" + tr("Built on ") + QDateTime::currentDateTimeUtc().date().toString(Qt::DefaultLocaleShortDate) +
+              tr(" at ") + QDateTime::currentDateTimeUtc().time().toString(Qt::DefaultLocaleShortDate) +
       "<h3>LICENSE</h3>"
       "<p>   Copyright (C) 2015"
       "<p>"
