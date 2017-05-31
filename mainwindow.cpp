@@ -178,7 +178,7 @@ QSize MainWindow::desirableSize(bool first_run)
     }
 
     // calculate the amount taken by widgets outside the video frame
-    QRect fudgeFactor = size() - mpvw->size();
+    QSize fudgeFactor = size() - mpvw->size();
 
     // calculate desired client size, depending upon the zoom mode
     QSize wanted;
