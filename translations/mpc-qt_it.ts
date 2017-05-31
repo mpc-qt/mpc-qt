@@ -56,7 +56,7 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="23"/>
-        <location filename="../mainwindow.cpp" line="1676"/>
+        <location filename="../mainwindow.cpp" line="1677"/>
         <source>Media Player Classic Qute Theater</source>
         <translation>Media Player Classic Qute Theater</translation>
     </message>
@@ -1270,32 +1270,32 @@
         <translation>Apri rapidamente</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1675"/>
+        <location filename="../mainwindow.cpp" line="1676"/>
         <source>About Media Player Classic Qute Theater</source>
         <translation>Informazioni su Media Player Classic Qute Theater</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1677"/>
+        <location filename="../mainwindow.cpp" line="1678"/>
         <source>A clone of Media Player Classic written in Qt</source>
         <translation>Un clone di Media Player Classic scritto in Qt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1678"/>
+        <location filename="../mainwindow.cpp" line="1679"/>
         <source>Based on Qt </source>
         <translation>Basato su Qt </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1678"/>
+        <location filename="../mainwindow.cpp" line="1679"/>
         <source> and </source>
         <translation> e </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1679"/>
+        <location filename="../mainwindow.cpp" line="1680"/>
         <source>Built on </source>
-        <translation>Compilato in data </translation>
+        <translation>Compilato il </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1679"/>
+        <location filename="../mainwindow.cpp" line="1681"/>
         <source> at </source>
         <translation> alle </translation>
     </message>
@@ -2906,8 +2906,8 @@ ogni file multimediale riprodotto</translation>
     <message>
         <location filename="../settingswindow.ui" line="3847"/>
         <source>Normalize downmix</source>
-        <translatorcomment>questa non riesce proprio a convincermi</translatorcomment>
-        <translation type="unfinished">Normalizza audio ridotto</translation>
+        <translatorcomment>cercare se possibile una traduzione migliore per downmix</translatorcomment>
+        <translation>Normalizza audio canali miscelati</translation>
     </message>
     <message>
         <location filename="../settingswindow.ui" line="3875"/>
@@ -3554,8 +3554,8 @@ ogni file multimediale riprodotto</translation>
     <message>
         <location filename="../settingswindow.ui" line="5175"/>
         <source>Yes and only zoom signs</source>
-        <translatorcomment>I &quot;segni&quot; non mi convincono</translatorcomment>
-        <translation type="unfinished">Sì e solo per i segni a schermo</translation>
+        <translatorcomment>I &quot;segni&quot; non mi convincono del tutto</translatorcomment>
+        <translation>Sì e solo per i segni a schermo</translation>
     </message>
     <message>
         <location filename="../settingswindow.ui" line="5180"/>
