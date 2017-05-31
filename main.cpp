@@ -11,6 +11,8 @@
 #include <QTimer>
 #include <QCommandLineParser>
 #include <QSurfaceFormat>
+#include <QTranslator>
+#include <QLibraryInfo>
 #include "main.h"
 #include "storage.h"
 #include "mainwindow.h"
@@ -18,6 +20,7 @@
 #include "settingswindow.h"
 #include "mpvwidget.h"
 #include "propertieswindow.h"
+#include "platform/resources_paths.h"
 
 int main(int argc, char *argv[])
 {
@@ -32,6 +35,15 @@ int main(int argc, char *argv[])
     // Register the error code type so that signals/slots will work with it
     qRegisterMetaType<MpvErrorCode>("MpvErrorCode");
     qRegisterMetaType<uint64_t>("uint64_t");
+
+    QTranslator qtTranslator;
+    qtTranslator.load("qt_" + QLocale::system().name(),
+       QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    a.installTranslator(&qtTranslator);
+
+    QTranslator aTranslator;
+    aTranslator.load("mpc-qt_" + QLocale::system().name(), APP_LANG_PATH);
+    a.installTranslator(&aTranslator);
 
     Flow f;
     f.parseArgs();

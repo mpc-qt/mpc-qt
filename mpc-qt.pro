@@ -22,6 +22,38 @@ win32:LIBS += -L$$PWD/mpv-dev/lib/ -llibmpv
 win32:INCLUDEPATH += $$PWD/mpv-dev/include
 win32:DEPENDPATH += $$PWD/mpv-dev
 
+TRANSLATIONS += translations/mpc-qt_it.ts
+
+isEmpty(QMAKE_LUPDATE) {
+    win32:QMAKE_LUPDATE = $$[QT_INSTALL_BINS]\\lupdate.exe
+    else:QMAKE_LUPDATE = $$[QT_INSTALL_BINS]/lupdate
+    unix {
+        !exists($$QMAKE_LUPDATE) { QMAKE_LUPDATE = lupdate-qt5 }
+    } else {
+        !exists($$QMAKE_LUPDATE) { QMAKE_LUPDATE = lupdate }
+    }
+}
+
+isEmpty(QMAKE_LRELEASE) {
+    win32:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]\\lrelease.exe
+    else:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]/lrelease
+    unix {
+        !exists($$QMAKE_LRELEASE) { QMAKE_LRELEASE = lrelease-qt5 }
+    } else {
+        !exists($$QMAKE_LRELEASE) { QMAKE_LRELEASE = lrelease }
+    }
+}
+
+lupdate.input = TRANSLATIONS
+lupdate.output = translations/%{QMAKE_FILE_IN}.ts
+lupdate.commands = $${QMAKE_LUPDATE} $$_PRO_FILE_
+lupdate.CONFIG += no_link target_predeps
+lrelease.input = TRANSLATIONS
+lrelease.output = resources/translations/${QMAKE_FILE_BASE}.qm
+lrelease.commands = $$QMAKE_LRELEASE ${QMAKE_FILE_IN} -qm resources/translations/${QMAKE_FILE_BASE}.qm
+lrelease.CONFIG += no_link target_predeps
+QMAKE_EXTRA_COMPILERS += lupdate lrelease
+
 unix:!macx:SOURCES += platform/unix_qscreensaver.cpp
 unix:!macx:HEADERS += platform/unix_qscreensaver.h
 

@@ -1672,11 +1672,13 @@ void MainWindow::on_actionHelpHomepage_triggered()
 
 void MainWindow::on_actionHelpAbout_triggered()
 {
-    QMessageBox::about(this, "About Media Player Classic Qute Theater",
-      "<h2>Media Player Classic Qute Theater</h2>"
-      "<p>A clone of Media Player Classic written in Qt"
-      "<p>Based on Qt " QT_VERSION_STR " and " + mpvw->mpvVersion() +
-      "<p>Built on " __DATE__ " at " __TIME__
+    QDateTime buildDate = QDateTime::currentDateTimeUtc();
+    QMessageBox::about(this, tr("About Media Player Classic Qute Theater"),
+      "<h2>" + tr("Media Player Classic Qute Theater") + "</h2>" +
+      "<p>" + tr("A clone of Media Player Classic written in Qt") +
+      "<p>" + tr("Based on Qt ") + QT_VERSION_STR + tr(" and ") + mpvw->mpvVersion() +
+      "<p>" + tr("Built on ") + buildDate.date().toString(Qt::DefaultLocaleShortDate) +
+              tr(" at ") + buildDate.time().toString(Qt::DefaultLocaleShortDate) +
       "<h3>LICENSE</h3>"
       "<p>   Copyright (C) 2015"
       "<p>"
