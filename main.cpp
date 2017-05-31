@@ -554,6 +554,7 @@ void Flow::restoreWindows(const QVariantMap &map)
 void Flow::showWindows(const QVariantMap &mainWindowMap)
 {
     mainWindow->show();
+    mainWindow->raise();
     if (mainWindowMap.contains("state"))
         mainWindow->setState(mainWindowMap["state"].toMap());
 

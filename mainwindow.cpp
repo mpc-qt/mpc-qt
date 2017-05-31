@@ -1,3 +1,4 @@
+#include <QDebug>
 #include <sstream>
 #include <stdexcept>
 #include <cmath>
@@ -822,7 +823,8 @@ void MainWindow::updateOnTop()
 
 void MainWindow::updateWindowFlags()
 {
-    // FIXME: on top doesn't seem to stick at startup??
+    if (frozenWindow)
+        return;
 
     Qt::WindowFlags flags = windowFlags();
     Qt::WindowFlags old = flags;
@@ -840,8 +842,10 @@ void MainWindow::updateWindowFlags()
         flags &= ~Qt::FramelessWindowHint;
 
     if (old != flags) {
-        setWindowFlags(flags);
-        show();
+        QTimer::singleShot(50, this, [this,flags]() {
+            setWindowFlags(flags);
+            show();
+        });
     }
 }
 
