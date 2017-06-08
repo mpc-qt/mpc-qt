@@ -767,7 +767,7 @@ void MainWindow::updateBitrate()
 
 void MainWindow::updateSize(bool first_run)
 {
-    if (frozenWindow)
+    if (frozenWindow || isMaximized() || isFullScreen())
         return;
 
     QSize desired = desirableSize(first_run);
@@ -779,6 +779,7 @@ void MainWindow::updateSize(bool first_run)
     if (zoomCenter)
         move(desiredPlace);
     resize(desired.width(), desired.height());
+    show();
 }
 
 void MainWindow::updateInfostats()
