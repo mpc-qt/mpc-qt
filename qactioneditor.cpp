@@ -10,14 +10,31 @@
 QActionEditor::QActionEditor(QWidget *parent) :
     QTableView(parent)
 {
-    model.setHorizontalHeaderLabels({"Command", "Key",
-                                     "Mouse Window ",
-                                     "Mouse Fullscr "});
+    model.setHorizontalHeaderLabels({tr("Command"), tr("Key"),
+                                     tr("Mouse Window"),
+                                     tr("Mouse Fullscr")});
     setModel(&model);
     setItemDelegateForColumn(1, new ShortcutDelegate(this));
     setItemDelegateForColumn(2, new ButtonDelegate(this, false));
     setItemDelegateForColumn(3, new ButtonDelegate(this, true));
+    setColumnWidth(0, sizeHintForColumn(0));
+    setColumnWidth(1, sizeHintForColumn(1));
+    setColumnWidth(2, sizeHintForColumn(2));
+    setColumnWidth(3, sizeHintForColumn(3));
     setEditTriggers(QAbstractItemView::AllEditTriggers);
+}
+
+int QActionEditor::sizeHintForColumn(int column) const
+{
+    // TL note: not actually the widest, but unobnoxious
+    QStringList maxWidthStrings {
+        tr("Open Network Stream..."),
+        tr("Alt+Ctrl+Backspace"),
+        tr("Mouse Window"),
+        tr("Mouse Fullscr")
+    };
+    QString maxWidthString = maxWidthStrings.value(column, "...");
+    return fontMetrics().boundingRect("_" + maxWidthString + "_").width();
 }
 
 void QActionEditor::setCommands(const QList<Command> &commands)
