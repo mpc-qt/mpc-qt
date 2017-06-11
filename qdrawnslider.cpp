@@ -28,6 +28,46 @@ QDrawnSlider::QDrawnSlider(QWidget *parent, QSize handle, QSize margin) :
                       margin.width(), margin.height());
 }
 
+void QDrawnSlider::setValue(double v)
+{
+    vValue = qBound(vMinimum, v, vMaximum);
+    xPosition = valueToX(vValue);
+    update();
+}
+
+void QDrawnSlider::setMaximum(double v)
+{
+    vMaximum = v;
+    if (vValue > v)
+        setValue(v);
+    else
+        update();
+}
+
+void QDrawnSlider::setMinimum(double v)
+{
+    vMinimum = v;
+    if (vValue < v)
+        setValue(v);
+    else
+        update();
+}
+
+double QDrawnSlider::value()
+{
+    return vValue;
+}
+
+double QDrawnSlider::maximum()
+{
+    return vMaximum;
+}
+
+double QDrawnSlider::minimum()
+{
+    return vMinimum;
+}
+
 void QDrawnSlider::setSliderGeometry(int handleWidth, int handleHeight,
                                      int marginX, int marginY)
 {
@@ -181,15 +221,9 @@ void QDrawnSlider::mouseMoveEvent(QMouseEvent *ev)
 {
     if (isDragging && ev->buttons() & Qt::LeftButton) {
         double mouseValue = xToValue(ev->localPos().x());
-        double mouseX = qBound(ev->localPos().x(), sliderArea.left(),
-                               sliderArea.right());
         if (value() != mouseValue) {
             setValue(mouseValue);
             emit sliderMoved(value());
-        }
-        if (mouseX != xPosition) {
-            xPosition = mouseX;
-            update();
         }
     }
     handleHover(ev->localPos().x());
@@ -214,6 +248,30 @@ void QMediaSlider::clearTicks()
 void QMediaSlider::setTick(double value, QString text)
 {
     ticks.insert(value, text);
+}
+
+void QMediaSlider::setLoopA(double a)
+{
+    vLoopA = a; updateLoopArea();
+}
+
+void QMediaSlider::setLoopB(double b)
+{
+    vLoopB = b; updateLoopArea();
+}
+
+double QMediaSlider::loopA()
+{
+    return vLoopA;
+}
+
+double QMediaSlider::loopB() {
+    return vLoopB;
+}
+
+bool QMediaSlider::isLoopEmpty()
+{
+    return vLoopA < 0 || vLoopB < 0;
 }
 
 void QMediaSlider::resizeEvent(QResizeEvent *event)

@@ -15,12 +15,12 @@ class QDrawnSlider : public QWidget {
 
 public:
     explicit QDrawnSlider(QWidget *parent, QSize handle, QSize margin);
-    void setValue(double v) { vValue= v; update(); }
-    void setMaximum(double v) { vMaximum = v; update(); }
-    void setMinimum(double v) { vMinimum = v; update(); }
-    double value() { return vValue; }
-    double maximum() { return vMaximum; }
-    double minimum() { return vMinimum; }
+    void setValue(double v);
+    void setMaximum(double v);
+    void setMinimum(double v);
+    double value();
+    double maximum();
+    double minimum();
 
 signals:
     void sliderMoved(double v);
@@ -68,11 +68,11 @@ public:
 
     void clearTicks();
     void setTick(double value, QString text);
-    void setLoopA(double a) { vLoopA = a; updateLoopArea(); }
-    void setLoopB(double b) { vLoopB = b; updateLoopArea(); }
-    double loopA() { return vLoopA; }
-    double loopB() { return vLoopB; }
-    bool isLoopEmpty() { return vLoopA < 0 || vLoopB < 0; }
+    void setLoopA(double a);
+    void setLoopB(double b);
+    double loopA();
+    double loopB();
+    bool isLoopEmpty();
 
 signals:
     void hoverBegin();
