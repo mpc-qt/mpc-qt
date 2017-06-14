@@ -100,7 +100,8 @@ HEADERS  += \
     openfiledialog.h \
     platform/qabstractscreensaver.h \
     qscreensaver.h \
-    propertieswindow.h
+    propertieswindow.h \
+    platform/resources_paths.h
 
 
 FORMS    += \
