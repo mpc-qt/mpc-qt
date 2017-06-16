@@ -233,6 +233,8 @@ void QDrawnSlider::mouseMoveEvent(QMouseEvent *ev)
 
 
 
+constexpr QRectF QMediaSlider::noLoopArea;
+
 QMediaSlider::QMediaSlider(QWidget *parent) :
     QDrawnSlider(parent, QSize(11, 12), QSize(5, 3))
 {
