@@ -1,3 +1,4 @@
+#include <QStandardPaths>
 #include <QSettings>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -11,11 +12,11 @@
 Storage::Storage(QObject *parent) :
     QObject(parent)
 {
-    // CHECKME: is this the right org domain for OSX?
-    QSettings settings(QSettings::IniFormat,
-                       QSettings::UserScope,
-                       "mpc-qt", "mpc-qt");
-    configPath = QFileInfo(settings.fileName()).absolutePath() + "/";
+    configPath = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
+#ifdef Q_OS_WIN
+    // backward compatability sucks
+    configPath.replace("AppData/Local","AppData/Roaming");
+#endif
     QDir().mkpath(configPath);
 }
 
