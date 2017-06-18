@@ -593,13 +593,9 @@ void Flow::mainwindow_recentClear()
 
 void Flow::mainwindow_takeImage(bool subs)
 {
-    QString fmt;
-#ifdef Q_OS_WIN
-    fmt = "C:\\WINDOWS\\TEMP\\mpc-qt_%1";
-#else
-    fmt = "/dev/shm/mpc-qt_%1";
-#endif
-    QString tempFile = QString(fmt).arg(QUuid::createUuid().toString());
+    QString fmt("%1/mpc-qt_%2");
+    QString tempDir = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
+    QString tempFile = QString(fmt).arg(tempDir, QUuid::createUuid().toString());
     mainWindow->mpvWidget()->screenshot(tempFile, subs);
     tempFile += "." + screenshotFormat;
 
