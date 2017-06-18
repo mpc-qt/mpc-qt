@@ -539,8 +539,7 @@ void Flow::restoreWindows(const QVariantMap &map)
     if (validCliPos)
         desiredPlace = cliPos;
 
-    mainWindow->move(desiredPlace);
-    mainWindow->resize(desiredSize);
+    mainWindow->setGeometry(QRect(desiredPlace, desiredSize));
     mainWindow->unfreezeWindow();
     showWindows(mainMap);
 

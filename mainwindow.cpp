@@ -776,9 +776,11 @@ void MainWindow::updateSize(bool first_run)
         return;
     }
     QPoint desiredPlace = desirablePosition(desired, first_run);
+    QRect where = geometry();
     if (zoomCenter)
-        move(desiredPlace);
-    resize(desired.width(), desired.height());
+        where.moveTopLeft(desiredPlace);
+    where.setSize(desired);
+    setGeometry(where);
     show();
 }
 
