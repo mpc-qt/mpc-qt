@@ -1667,10 +1667,10 @@ void MainWindow::on_actionHelpAbout_triggered()
     QMessageBox::about(this, tr("About Media Player Classic Qute Theater"),
       "<h2>" + tr("Media Player Classic Qute Theater") + "</h2>" +
       "<p>" +  tr("A clone of Media Player Classic written in Qt") +
-      "<br>" + tr("Based on Qt ") + QT_VERSION_STR + tr(" and ") + mpvw->mpvVersion() +
+      "<br>" + tr("Based on Qt %1 and %2").arg(QT_VERSION_STR, mpvw->mpvVersion()) +
       "<p>" +  BUILD_VERSION_STR +
-      "<br>" + tr("Built on ") + buildDate.toString(Qt::DefaultLocaleShortDate) +
-              tr(" at ") + buildTime.toString(Qt::DefaultLocaleShortDate) +
+      "<br>" + tr("Built on %1 at %2").arg(buildDate.toString(Qt::DefaultLocaleShortDate),
+                                           buildTime.toString(Qt::DefaultLocaleShortDate)) +
       "<h3>LICENSE</h3>"
       "<p>   Copyright (C) 2015"
       "<p>"

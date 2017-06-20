@@ -4,17 +4,17 @@
 <context>
     <name>ButtonWidget</name>
     <message>
-        <location filename="../qactioneditor.cpp" line="195"/>
+        <location filename="../qactioneditor.cpp" line="212"/>
         <source>B</source>
         <translation>B</translation>
     </message>
     <message>
-        <location filename="../qactioneditor.cpp" line="214"/>
+        <location filename="../qactioneditor.cpp" line="231"/>
         <source>K</source>
         <translation>T</translation>
     </message>
     <message>
-        <location filename="../qactioneditor.cpp" line="231"/>
+        <location filename="../qactioneditor.cpp" line="248"/>
         <source>↑↓</source>
         <translation>↑↓</translation>
     </message>
@@ -42,12 +42,12 @@
         <translation>URL da aprire, opzionali.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="609"/>
+        <location filename="../main.cpp" line="606"/>
         <source>Save Image</source>
         <translation>Salva immagine</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="658"/>
+        <location filename="../main.cpp" line="655"/>
         <source>Playing Media</source>
         <translation>Riproduzione in corso</translation>
     </message>
@@ -56,7 +56,7 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="23"/>
-        <location filename="../mainwindow.cpp" line="1677"/>
+        <location filename="../mainwindow.cpp" line="1668"/>
         <source>Media Player Classic Qute Theater</source>
         <translation>Media Player Classic Qute Theater</translation>
     </message>
@@ -415,7 +415,7 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="974"/>
-        <location filename="../mainwindow.cpp" line="550"/>
+        <location filename="../mainwindow.cpp" line="604"/>
         <source>Hide &amp;Menu</source>
         <translation>Nascondi &amp;menu</translation>
     </message>
@@ -1235,87 +1235,103 @@
         <translation>Ctrl+`</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="347"/>
+        <location filename="../mainwindow.cpp" line="401"/>
         <source>Once</source>
         <translation>Una volta</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="349"/>
+        <location filename="../mainwindow.cpp" line="403"/>
         <source>Every time</source>
         <translation>Ogni volta</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="550"/>
+        <location filename="../mainwindow.cpp" line="604"/>
         <source>Hide &amp;Borders</source>
         <translation>Nascondi &amp;bordi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="551"/>
+        <location filename="../mainwindow.cpp" line="605"/>
         <source>Sho&amp;w Caption and Menu</source>
         <translation>Mos&amp;tra sottotitoli e menu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1162"/>
+        <location filename="../mainwindow.cpp" line="1145"/>
         <source>&amp;Quick Add To Playlist</source>
         <translation>Aggiungi &amp;rapidamente alla scaletta</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1163"/>
+        <location filename="../mainwindow.cpp" line="1146"/>
         <source>&amp;Quick Open File</source>
         <translation>Apri file &amp;rapidamente</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1178"/>
+        <location filename="../mainwindow.cpp" line="1161"/>
         <source>Quick Open</source>
         <translation>Apri rapidamente</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1676"/>
+        <location filename="../mainwindow.cpp" line="1663"/>
+        <source>Development Build</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1664"/>
+        <source>Version %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1667"/>
         <source>About Media Player Classic Qute Theater</source>
         <translation>Informazioni su Media Player Classic Qute Theater</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1678"/>
+        <location filename="../mainwindow.cpp" line="1669"/>
         <source>A clone of Media Player Classic written in Qt</source>
         <translation>Un clone di Media Player Classic scritto in Qt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1679"/>
+        <location filename="../mainwindow.cpp" line="1670"/>
+        <source>Based on Qt %1 and %2</source>
+        <translation>Basato su Qt %1 e %2</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1672"/>
+        <source>Built on %1 at %2</source>
+        <translation>Compilato il %1 alle %2</translation>
+    </message>
+    <message>
         <source>Based on Qt </source>
-        <translation>Basato su Qt </translation>
+        <translation type="vanished">Basato su Qt </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1679"/>
         <source> and </source>
-        <translation> e </translation>
+        <translation type="vanished"> e </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1680"/>
         <source>Built on </source>
-        <translation>Compilato il </translation>
+        <translation type="vanished">Compilato il </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1681"/>
         <source> at </source>
-        <translation> alle </translation>
+        <translation type="vanished"> alle </translation>
     </message>
     <message>
         <source>Open File</source>
         <translation type="vanished">Apri file</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1198"/>
-        <location filename="../mainwindow.cpp" line="1210"/>
+        <location filename="../mainwindow.cpp" line="1181"/>
+        <location filename="../mainwindow.cpp" line="1193"/>
         <source>Open Directory</source>
         <translation>Apri cartella</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1229"/>
+        <location filename="../mainwindow.cpp" line="1212"/>
         <source>Enter Network Stream</source>
         <translation>Inserisci flusso di rete</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1230"/>
+        <location filename="../mainwindow.cpp" line="1213"/>
         <source>Network Stream</source>
         <translation>Flusso di rete</translation>
     </message>
@@ -1347,22 +1363,22 @@
 <context>
     <name>PlaybackManager</name>
     <message>
-        <location filename="../manager.cpp" line="326"/>
+        <location filename="../manager.cpp" line="325"/>
         <source>Speed: %1%</source>
         <translation>Velocità: %1%</translation>
     </message>
     <message>
-        <location filename="../manager.cpp" line="358"/>
+        <location filename="../manager.cpp" line="357"/>
         <source>Volume: %1%</source>
         <translation>Volume: %1%</translation>
     </message>
     <message>
-        <location filename="../manager.cpp" line="364"/>
+        <location filename="../manager.cpp" line="363"/>
         <source>Mute: on</source>
         <translation>Muto: on</translation>
     </message>
     <message>
-        <location filename="../manager.cpp" line="364"/>
+        <location filename="../manager.cpp" line="363"/>
         <source>Mute: off</source>
         <translation>Muto: off</translation>
     </message>
@@ -1423,66 +1439,66 @@
         <translation>Mostra coda</translation>
     </message>
     <message>
-        <location filename="../playlistwindow.cpp" line="22"/>
-        <location filename="../playlistwindow.cpp" line="200"/>
+        <location filename="../playlistwindow.cpp" line="21"/>
+        <location filename="../playlistwindow.cpp" line="199"/>
         <source>Quick Playlist</source>
         <translation>Scaletta rapida</translation>
     </message>
     <message>
-        <location filename="../playlistwindow.cpp" line="347"/>
-        <location filename="../playlistwindow.cpp" line="363"/>
-        <location filename="../playlistwindow.cpp" line="367"/>
+        <location filename="../playlistwindow.cpp" line="346"/>
+        <location filename="../playlistwindow.cpp" line="362"/>
+        <location filename="../playlistwindow.cpp" line="366"/>
         <source>New Playlist</source>
         <translation>Nuova scaletta</translation>
     </message>
     <message>
-        <location filename="../playlistwindow.cpp" line="361"/>
+        <location filename="../playlistwindow.cpp" line="360"/>
         <source>Enter Playlist Name</source>
         <translation>Inserisci nome scaletta</translation>
     </message>
     <message>
-        <location filename="../playlistwindow.cpp" line="390"/>
+        <location filename="../playlistwindow.cpp" line="389"/>
         <source>Import File</source>
         <translation>Importa file</translation>
     </message>
     <message>
-        <location filename="../playlistwindow.cpp" line="391"/>
-        <location filename="../playlistwindow.cpp" line="402"/>
+        <location filename="../playlistwindow.cpp" line="390"/>
+        <location filename="../playlistwindow.cpp" line="401"/>
         <source>Playlist files (*.m3u *.m3u8)</source>
         <translation>File di scaletta (*.mp3u *.m3u8)</translation>
     </message>
     <message>
-        <location filename="../playlistwindow.cpp" line="401"/>
+        <location filename="../playlistwindow.cpp" line="400"/>
         <source>Export File</source>
         <translation>Esporta file</translation>
     </message>
     <message>
-        <location filename="../playlistwindow.cpp" line="653"/>
+        <location filename="../playlistwindow.cpp" line="652"/>
         <source>Enter playlist name</source>
         <translation>Inserisci nome scaletta</translation>
     </message>
     <message>
-        <location filename="../playlistwindow.cpp" line="671"/>
+        <location filename="../playlistwindow.cpp" line="670"/>
         <source>&amp;New Playlist</source>
         <translation>&amp;Nuova scaletta</translation>
     </message>
     <message>
-        <location filename="../playlistwindow.cpp" line="672"/>
+        <location filename="../playlistwindow.cpp" line="671"/>
         <source>&amp;Remove Playlist</source>
         <translation>&amp;Rimuovi scaletta</translation>
     </message>
     <message>
-        <location filename="../playlistwindow.cpp" line="673"/>
+        <location filename="../playlistwindow.cpp" line="672"/>
         <source>&amp;Duplicate Playlist</source>
         <translation>&amp;Duplica scaletta</translation>
     </message>
     <message>
-        <location filename="../playlistwindow.cpp" line="674"/>
+        <location filename="../playlistwindow.cpp" line="673"/>
         <source>&amp;Import Playlist</source>
         <translation>&amp;Importa scaletta</translation>
     </message>
     <message>
-        <location filename="../playlistwindow.cpp" line="675"/>
+        <location filename="../playlistwindow.cpp" line="674"/>
         <source>&amp;Export Playlist</source>
         <translation>&amp;Esporta scaletta</translation>
     </message>
@@ -1613,6 +1629,41 @@
 </source>
         <translation>Il file non ha dati in questa sezione.
 </translation>
+    </message>
+</context>
+<context>
+    <name>QActionEditor</name>
+    <message>
+        <location filename="../qactioneditor.cpp" line="13"/>
+        <source>Command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qactioneditor.cpp" line="13"/>
+        <source>Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qactioneditor.cpp" line="14"/>
+        <location filename="../qactioneditor.cpp" line="33"/>
+        <source>Mouse Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qactioneditor.cpp" line="15"/>
+        <location filename="../qactioneditor.cpp" line="34"/>
+        <source>Mouse Fullscr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qactioneditor.cpp" line="31"/>
+        <source>Open Network Stream...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qactioneditor.cpp" line="32"/>
+        <source>Alt+Ctrl+Backspace</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
