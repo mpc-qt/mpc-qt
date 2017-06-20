@@ -1655,13 +1655,21 @@ void MainWindow::on_actionHelpHomepage_triggered()
 
 void MainWindow::on_actionHelpAbout_triggered()
 {
+#ifdef MPCQT_VERSION_STR
+#define BUILD_VERSION_STR versionFmt.arg(MPCQT_VERSION_STR)
+#else
+#define BUILD_VERSION_STR devBuild
+#endif
+    QString devBuild = tr("Development Build");
+    QString versionFmt = tr("Version %1");
     QDate buildDate = QLocale::c().toDate(__DATE__, "MMM d yyyy");
     QTime buildTime = QLocale::c().toTime(__TIME__, "hh:mm:ss");
     QMessageBox::about(this, tr("About Media Player Classic Qute Theater"),
       "<h2>" + tr("Media Player Classic Qute Theater") + "</h2>" +
-      "<p>" + tr("A clone of Media Player Classic written in Qt") +
-      "<p>" + tr("Based on Qt ") + QT_VERSION_STR + tr(" and ") + mpvw->mpvVersion() +
-      "<p>" + tr("Built on ") + buildDate.toString(Qt::DefaultLocaleShortDate) +
+      "<p>" +  tr("A clone of Media Player Classic written in Qt") +
+      "<br>" + tr("Based on Qt ") + QT_VERSION_STR + tr(" and ") + mpvw->mpvVersion() +
+      "<p>" +  BUILD_VERSION_STR +
+      "<br>" + tr("Built on ") + buildDate.toString(Qt::DefaultLocaleShortDate) +
               tr(" at ") + buildTime.toString(Qt::DefaultLocaleShortDate) +
       "<h3>LICENSE</h3>"
       "<p>   Copyright (C) 2015"
