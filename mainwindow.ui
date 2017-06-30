@@ -594,7 +594,7 @@
     <property name="title">
      <string>&amp;File</string>
     </property>
-    <widget class="QMenu" name="action_file_open_disc">
+    <widget class="QMenu" name="menuFileOpenDisc">
      <property name="title">
       <string>O&amp;pen Disc</string>
      </property>
@@ -621,7 +621,7 @@
     <addaction name="actionFileOpenDevice"/>
     <addaction name="actionFileOpenDirectory"/>
     <addaction name="actionFileOpenNetworkStream"/>
-    <addaction name="action_file_open_disc"/>
+    <addaction name="menuFileOpenDisc"/>
     <addaction name="menuFileRecent"/>
     <addaction name="actionFileClose"/>
     <addaction name="separator"/>

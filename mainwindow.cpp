@@ -640,17 +640,18 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->pause->setChecked(false);
     ui->actionPlayPause->setChecked(false);
 
+    ui->actionFileOpenDevice->setEnabled(false);
     ui->actionFileClose->setEnabled(enabled);
     ui->actionFileSaveCopy->setEnabled(enabled);
     ui->actionFileSaveImage->setEnabled(enabled);
     ui->actionFileSaveImageAuto->setEnabled(enabled);
     ui->actionFileSavePlainImage->setEnabled(enabled);
     ui->actionFileSavePlainImageAuto->setEnabled(enabled);
-    ui->actionFileSaveThumbnails->setEnabled(enabled);
-    ui->actionFileExportEncode->setEnabled(enabled);
-    ui->actionFileLoadSubtitle->setEnabled(enabled);
-    ui->actionFileSaveSubtitle->setEnabled(enabled);
-    ui->actionFileSubtitleDatabaseDownload->setEnabled(enabled);
+    ui->actionFileSaveThumbnails->setEnabled(enabled && false);
+    ui->actionFileExportEncode->setEnabled(enabled && false);
+    ui->actionFileLoadSubtitle->setEnabled(enabled && false);
+    ui->actionFileSaveSubtitle->setEnabled(enabled && false);
+    ui->actionFileSubtitleDatabaseDownload->setEnabled(enabled && false);
     ui->actionPlayPause->setEnabled(enabled);
     ui->actionPlayStop->setEnabled(enabled);
     ui->actionPlayFrameBackward->setEnabled(enabled);
@@ -663,13 +664,17 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionPlayVolumeMute->setEnabled(enabled);
     ui->actionNavigateChaptersPrevious->setEnabled(enabled);
     ui->actionNavigateChaptersNext->setEnabled(enabled);
-    ui->actionFavoritesAdd->setEnabled(enabled);
+    ui->actionNavigateGoto->setEnabled(false);
+    ui->actionFavoritesAdd->setEnabled(enabled && false);
 
+    ui->menuFileOpenDisc->setEnabled(false);
+    ui->menuFileSubtitleDatabase->setEnabled(false);
     ui->menuPlayLoop->setEnabled(enabled);
     ui->menuPlayAudio->setEnabled(enabled);
     ui->menuPlaySubtitles->setEnabled(enabled);
     ui->menuPlayVideo->setEnabled(enabled);
-    ui->menuNavigateChapters->setEnabled(enabled);
+    ui->menuNavigateChapters->setEnabled(enabled && false);
+    ui->menuFavorites->setEnabled(false);
 }
 
 void MainWindow::reparentBottomArea(bool overlay)
