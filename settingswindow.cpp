@@ -262,6 +262,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->pageTree->setMaximumWidth(pageTreeWidth);
 
     setupColorPickers();
+    setupUnimplementedWidgets();
 }
 
 SettingsWindow::~SettingsWindow()
@@ -283,6 +284,52 @@ void SettingsWindow::setupColorPickers()
         connect(c.value, &QLineEdit::textChanged,
                 this, [this,c]() { colorPick_changed(c.value, c.pick); });
     }
+}
+
+void SettingsWindow::setupUnimplementedWidgets()
+{
+    ui->playerOpenBox->setEnabled(false);
+    ui->playerTrayIcon->setEnabled(false);
+    ui->playerOSD->setEnabled(false);
+    ui->playerLimitProportions->setEnabled(false);
+    ui->playerDisableOpenDisc->setEnabled(false);
+    ui->playerTitleBox->setEnabled(false);
+    ui->playerKeepHistory->setEnabled(false);
+    ui->playerRememberLastPlaylist->setEnabled(false);
+    ui->playerRememberPanScanZoom->setEnabled(false);
+
+    ui->formatPage->setEnabled(false);
+
+    ui->ipcMpris->setEnabled(false);
+
+    ui->playbackBalance->setEnabled(false);
+    ui->playbackTracksBox->setEnabled(false);
+    ui->playbackAutoloadBox->setEnabled(false);
+
+    ui->shadersWikiTab->setEnabled(false);
+    ui->shadersPresetsBox->setEnabled(false);
+
+    ui->fullscreenMonitorBox->setEnabled(false);
+    ui->xrandrBox->setEnabled(false);
+
+    ui->subtitlePlacementBox->setEnabled(false);
+    ui->subtitlesFixTiming->setEnabled(false);
+    ui->subtitlesClearOnSeek->setEnabled(false);
+    ui->subtitlesAssOverride->setEnabled(false);
+
+    ui->subsMiscPage->setEnabled(false);
+
+    ui->encodeBox->setEnabled(false);
+
+    ui->tweaksShowChapterMarks->setEnabled(false);
+    ui->tweaksTimeTooltipLocation->setEnabled(false);
+    ui->tweaksOsdFont->setEnabled(false);
+    ui->tweaksOsdSize->setEnabled(false);
+
+    ui->miscColorBox->setEnabled(false);
+    ui->miscExportKeys->setEnabled(false);
+    ui->miscExportSettings->setEnabled(false);
+
 }
 
 void SettingsWindow::updateAcceptedSettings() {

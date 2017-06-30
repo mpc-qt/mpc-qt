@@ -56,6 +56,7 @@ public:
 
 private:
     void setupColorPickers();
+    void setupUnimplementedWidgets();
     void updateAcceptedSettings();
     SettingMap generateSettingMap(QWidget *root);
     void generateVideoPresets();

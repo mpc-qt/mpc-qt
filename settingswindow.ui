@@ -149,7 +149,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>3</number>
+          <number>17</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -218,6 +218,9 @@ media file played</string>
                <widget class="QCheckBox" name="playerLimitProportions">
                 <property name="text">
                  <string>Limit window proportions on resize</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -517,7 +520,7 @@ media file played</string>
              <item row="0" column="1" colspan="2">
               <widget class="QComboBox" name="logoInternal">
                <property name="currentIndex">
-                <number>0</number>
+                <number>1</number>
                </property>
                <item>
                 <property name="text">
