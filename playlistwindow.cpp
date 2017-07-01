@@ -18,6 +18,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
 
     ui->setupUi(this);
     setObjectName("playlistWindow");
+    setWindowTitle(tr("Playlist"));
     addNewTab(QUuid(), tr("Quick Playlist"));
     addQuickQueue();
     ui->searchHost->setVisible(false);
