@@ -33,7 +33,7 @@ private:
     QVariantList recentToVList() const;
     void recentFromVList(const QVariantList &list);
     QVariantMap saveWindows();
-    void restoreWindows(const QVariantMap &map);
+    void restoreWindows(const QVariantMap &geometryMap);
     void showWindows(const QVariantMap &mainWindowMap);
 
 private slots:

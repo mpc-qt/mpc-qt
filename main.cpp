@@ -496,8 +496,16 @@ QVariantMap Flow::saveWindows()
     };
 }
 
-void Flow::restoreWindows(const QVariantMap &map)
+void Flow::restoreWindows(const QVariantMap &geometryMap)
 {
+    // fetch defaults and overwrite them with saved state
+    QVariantMap map = saveWindows();
+    QMapIterator<QString, QVariant> i(geometryMap);
+    while (i.hasNext()) {
+        i.next();
+        map.insert(i.key(), i.value());
+    }
+
     QVariantMap mainMap = map["mainWindow"].toMap();
     QVariantMap mpvHostMap = map["mpvHost"].toMap();
     QVariantMap playlistMap = map["playlistWindow"].toMap();
@@ -527,7 +535,8 @@ void Flow::restoreWindows(const QVariantMap &map)
     geometry = Helpers::vmapToRect(mainMap["geometry"].toMap());
     QPoint desiredPlace = geometry.topLeft();
     QSize desiredSize = geometry.size();
-    bool checkMainWindow = geometry.isEmpty() || !restoreGeometry;
+    bool checkMainWindow = !geometryMap.contains("mainWindow")
+            || geometry.isEmpty() || !restoreGeometry;
 
     if (checkMainWindow)
         desiredSize = mainWindow->desirableSize(true);
