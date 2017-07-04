@@ -647,6 +647,8 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionFileSaveImageAuto->setEnabled(enabled);
     ui->actionFileSavePlainImage->setEnabled(enabled);
     ui->actionFileSavePlainImageAuto->setEnabled(enabled);
+    ui->actionFileSaveWindowImage->setEnabled(enabled);
+    ui->actionFileSaveWindowImageAuto->setEnabled(enabled);
     ui->actionFileSaveThumbnails->setEnabled(enabled && false);
     ui->actionFileExportEncode->setEnabled(enabled && false);
     ui->actionFileLoadSubtitle->setEnabled(enabled && false);
@@ -1229,24 +1231,33 @@ void MainWindow::on_actionFileRecentClear_triggered()
 
 void MainWindow::on_actionFileSaveImage_triggered()
 {
-    emit takeImage(true);
+    emit takeImage(Helpers::VideoRender);
 }
 
 void MainWindow::on_actionFileSaveImageAuto_triggered()
 {
-    emit takeImageAutomatically(true);
+    emit takeImageAutomatically(Helpers::VideoRender);
 }
 
 void MainWindow::on_actionFileSavePlainImage_triggered()
 {
-    emit takeImage(false);
+    emit takeImage(Helpers::SubsRender);
 }
 
 void MainWindow::on_actionFileSavePlainImageAuto_triggered()
 {
-    emit takeImageAutomatically(false);
+    emit takeImageAutomatically(Helpers::SubsRender);
 }
 
+void MainWindow::on_actionFileSaveWindowImage_triggered()
+{
+    emit takeImage(Helpers::WindowRender);
+}
+
+void MainWindow::on_actionFileSaveWindowImageAuto_triggered()
+{
+    emit takeImageAutomatically(Helpers::WindowRender);
+}
 
 void MainWindow::on_actionFileClose_triggered()
 {

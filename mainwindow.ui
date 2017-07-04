@@ -630,6 +630,8 @@
     <addaction name="actionFileSaveImageAuto"/>
     <addaction name="actionFileSavePlainImage"/>
     <addaction name="actionFileSavePlainImageAuto"/>
+    <addaction name="actionFileSaveWindowImage"/>
+    <addaction name="actionFileSaveWindowImageAuto"/>
     <addaction name="actionFileSaveThumbnails"/>
     <addaction name="separator"/>
     <addaction name="actionFileExportEncode"/>
@@ -1736,6 +1738,25 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+`</string>
+   </property>
+  </action>
+  <action name="actionFileSaveWindowImage">
+   <property name="text">
+    <string>Save &amp;Window Image...</string>
+   </property>
+   <property name="toolTip">
+    <string>Save Window Image</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+I</string>
+   </property>
+  </action>
+  <action name="actionFileSaveWindowImageAuto">
+   <property name="text">
+    <string>Save Window Image (Auto)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F5</string>
    </property>
   </action>
  </widget>

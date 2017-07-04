@@ -106,8 +106,8 @@ signals:
     void streamOpened(QUrl what);
     void recentOpened(TrackInfo info);
     void recentClear();
-    void takeImage(bool subs);
-    void takeImageAutomatically(bool subs);
+    void takeImage(Helpers::ScreenshotRender render);
+    void takeImageAutomatically(Helpers::ScreenshotRender render);
     void showFileProperties();
     void optionsOpenRequested();
     void paused();
@@ -180,7 +180,9 @@ private slots:
     void on_actionFileSaveImage_triggered();
     void on_actionFileSaveImageAuto_triggered();
     void on_actionFileSavePlainImage_triggered();
-    void on_actionFileSavePlainImageAuto_triggered();
+    void on_actionFileSavePlainImageAuto_triggered(); 
+    void on_actionFileSaveWindowImage_triggered();
+    void on_actionFileSaveWindowImageAuto_triggered();
     void on_actionFileClose_triggered();
     void on_actionFileExit_triggered();
 

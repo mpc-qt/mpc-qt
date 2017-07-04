@@ -262,9 +262,19 @@ void MpvWidget::seek(double amount, bool exact)
     emit ctrlCommand(payload);
 }
 
-void MpvWidget::screenshot(const QString &fileName, bool subtitles)
+void MpvWidget::screenshot(const QString &fileName, Helpers::ScreenshotRender render)
 {
-    emit ctrlCommand(QStringList({"screenshot-to-file", fileName, subtitles ? "subtitles" : "video"}));
+    static QMap <Helpers::ScreenshotRender,const char*> methods {
+        { Helpers::VideoRender, "video" },
+        { Helpers::SubsRender, "subtitles" },
+        { Helpers::WindowRender, "window" }
+    };
+    if (render == Helpers::WindowRender) {
+        grab().save(fileName);
+        return;
+    }
+    emit ctrlCommand(QStringList({"screenshot-to-file", fileName,
+                                  methods.value(render, "video")}));
 }
 
 void MpvWidget::setMouseHideTime(int msec)

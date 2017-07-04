@@ -18,6 +18,7 @@ namespace Helpers {
     enum DisabledTrack { NothingDisabled, DisabledAudio, DisabledVideo };
     enum Subtitles { NoSubtitles, SubtitlesPresent, SubtitlesDisabled, };
     enum FileType { AudioFile, VideoFile };
+    enum ScreenshotRender { VideoRender, SubsRender, WindowRender };
     QString parseFormat(QString fmt, QString fileName, DisabledTrack disabled,
                         Subtitles subtitles, double timeNav, double timeBegin,
                         double timeEnd);

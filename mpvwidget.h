@@ -33,7 +33,7 @@ public:
     void stepBackward();
     void stepForward();
     void seek(double amount, bool exact);
-    void screenshot(const QString &fileName, bool subtitles);
+    void screenshot(const QString &fileName, Helpers::ScreenshotRender render);
     void setMouseHideTime(int msec);
     void setLogoUrl(const QString &filename);
     void setSubFile(QString filename);
