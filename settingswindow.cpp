@@ -259,6 +259,9 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     }
 
     int pageTreeWidth = ui->pageTree->fontMetrics().width(tr("MMMMMMMMMMMMM"));
+#ifdef Q_OS_WIN
+    pageTreeWidth *= 1.3;
+#endif
     ui->pageTree->setMaximumWidth(pageTreeWidth);
 
     setupColorPickers();
