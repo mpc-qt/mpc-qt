@@ -651,7 +651,7 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionFileSaveWindowImageAuto->setEnabled(enabled);
     ui->actionFileSaveThumbnails->setEnabled(enabled && false);
     ui->actionFileExportEncode->setEnabled(enabled && false);
-    ui->actionFileLoadSubtitle->setEnabled(enabled && false);
+    ui->actionFileLoadSubtitle->setEnabled(enabled);
     ui->actionFileSaveSubtitle->setEnabled(enabled && false);
     ui->actionFileSubtitleDatabaseDownload->setEnabled(enabled && false);
     ui->actionPlayPause->setEnabled(enabled);
@@ -1257,6 +1257,17 @@ void MainWindow::on_actionFileSaveWindowImage_triggered()
 void MainWindow::on_actionFileSaveWindowImageAuto_triggered()
 {
     emit takeImageAutomatically(Helpers::WindowRender);
+}
+
+void MainWindow::on_actionFileLoadSubtitle_triggered()
+{
+    QUrl url;
+    static QUrl lastUrl;
+    url = QFileDialog::getOpenFileUrl(this, tr("Open Subtitle"), lastUrl);
+    if (url.isEmpty())
+        return;
+    lastUrl = url;
+    emit subtitlesLoaded(url);
 }
 
 void MainWindow::on_actionFileClose_triggered()

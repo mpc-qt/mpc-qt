@@ -108,6 +108,7 @@ signals:
     void recentClear();
     void takeImage(Helpers::ScreenshotRender render);
     void takeImageAutomatically(Helpers::ScreenshotRender render);
+    void subtitlesLoaded(QUrl subs);
     void showFileProperties();
     void optionsOpenRequested();
     void paused();
@@ -260,6 +261,8 @@ private slots:
     void hideTimer_timeout();
 
     void sendUpdateSize();
+
+    void on_actionFileLoadSubtitle_triggered();
 
 private:
     Ui::MainWindow *ui = nullptr;
