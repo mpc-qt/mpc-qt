@@ -306,6 +306,11 @@ void MpvWidget::setSubFile(QString filename)
     emit ctrlSetOptionVariant("sub-file", filename);
 }
 
+void MpvWidget::addSubFile(QString filename)
+{
+    emit ctrlCommand(QStringList({"sub-add", filename}));
+}
+
 int64_t MpvWidget::chapter()
 {
     return getMpvPropertyVariant("chapter").toLongLong();
