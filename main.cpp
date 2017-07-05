@@ -142,6 +142,8 @@ void Flow::init() {
             playbackManager, &PlaybackManager::playDiscFiles);
     connect(mainWindow, &MainWindow::streamOpened,
             playbackManager, &PlaybackManager::playStream);
+    connect(mainWindow, &MainWindow::subtitlesLoaded,
+            playbackManager, &PlaybackManager::loadSubtitle);
     connect(mainWindow, &MainWindow::paused,
             playbackManager, &PlaybackManager::pausePlayer);
     connect(mainWindow, &MainWindow::unpaused,
