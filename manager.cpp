@@ -199,6 +199,13 @@ void PlaybackManager::playDevice(QUrl device)
     //FIXME: detect dvb dongles, and use a channel map (or make one?)
 }
 
+void PlaybackManager::loadSubtitle(QUrl with)
+{
+    QString f = with.isLocalFile() ? with.toLocalFile()
+                                   : with.fromPercentEncoding(with.toEncoded());
+    mpvWidget_->addSubFile(f);
+}
+
 void PlaybackManager::pausePlayer()
 {
     if (playbackState_ == PlayingState)

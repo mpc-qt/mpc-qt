@@ -45,6 +45,8 @@ public slots:
     void playItem(QUuid playlist, QUuid item);  // called by playlistwindow
     void playDevice(QUrl device);   // I don't have a device to test this
 
+    void loadSubtitle(QUrl with);
+
     // control functions
     void pausePlayer();
     void unpausePlayer();
