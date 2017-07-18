@@ -46,7 +46,7 @@ void PropertiesWindow::setFileSize(const int64_t &bytes)
     } else {
         QString concise;
         QString unit;
-        int64_t divisor;
+        double divisor;
         if (bytes < 1024*1024) {
             divisor = 1024;
             unit = "KiB";
@@ -55,9 +55,9 @@ void PropertiesWindow::setFileSize(const int64_t &bytes)
             unit = "MiB";
         } else {
             divisor = 1024*1024*1024;
-            unit = "TiB";
+            unit = "GiB";
         }
-        text = QString("%1 %2 (%3 bytes)").arg(QString::number((bytes+divisor-1)/divisor),
+        text = QString("%1 %2 (%3 bytes)").arg(QString::number(bytes/divisor,'g',3),
                                                unit, QString::number(bytes));
     }
     ui->detailsSize->setText(text);
