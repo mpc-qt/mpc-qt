@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>785</width>
-    <height>788</height>
+    <height>778</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -3334,10 +3334,7 @@ media file played</string>
                  <attribute name="title">
                   <string>Color Correction</string>
                  </attribute>
-                 <layout class="QFormLayout" name="ccTabLayout">
-                  <property name="fieldGrowthPolicy">
-                   <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-                  </property>
+                 <layout class="QFormLayout" name="formLayout_3">
                   <item row="0" column="0">
                    <widget class="QLabel" name="ccGammaLabel">
                     <property name="text">
@@ -3497,66 +3494,15 @@ media file played</string>
                     </item>
                    </widget>
                   </item>
-                  <item row="6" column="0">
-                   <widget class="QLabel" name="ccTargetICCLabel">
-                    <property name="text">
-                     <string>ICC Profile</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="6" column="1">
-                   <layout class="QHBoxLayout" name="ccICCLayout" stretch="0,1,0">
-                    <item>
-                     <widget class="QCheckBox" name="ccICCAutodetect">
-                      <property name="text">
-                       <string>Autodetect</string>
-                      </property>
-                      <property name="checked">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLineEdit" name="ccICCLocation"/>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="ccICCBrowse">
-                      <property name="text">
-                       <string>Browse</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
                   <item row="3" column="0">
-                   <widget class="QLabel" name="ccTargetBrightnessLabel">
-                    <property name="text">
-                     <string>Target Brightness</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="1">
-                   <widget class="QSpinBox" name="ccTargetBrightness">
-                    <property name="minimum">
-                     <number>1</number>
-                    </property>
-                    <property name="maximum">
-                     <number>100000</number>
-                    </property>
-                    <property name="value">
-                     <number>250</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="0">
                    <widget class="QLabel" name="ccHdrLabel">
                     <property name="text">
                      <string>HDR Tone mapping</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="1">
-                   <layout class="QHBoxLayout" name="ccHdrLayout">
+                  <item row="3" column="1">
+                   <layout class="QHBoxLayout" name="horizontalLayout_2">
                     <item>
                      <widget class="QComboBox" name="ccHdrMapper">
                       <property name="currentIndex">
@@ -3596,8 +3542,14 @@ media file played</string>
                     </item>
                     <item>
                      <widget class="QStackedWidget" name="ccHdrStack">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
                       <property name="currentIndex">
-                       <number>1</number>
+                       <number>5</number>
                       </property>
                       <widget class="QWidget" name="ccHdrClipPage">
                        <layout class="QFormLayout" name="formLayout_2">
@@ -3805,14 +3757,14 @@ media file played</string>
                     </item>
                    </layout>
                   </item>
-                  <item row="5" column="0">
+                  <item row="4" column="0">
                    <widget class="QLabel" name="ccHdrDesaturate">
                     <property name="text">
                      <string>HDR Desaturate</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="5" column="1">
+                  <item row="4" column="1">
                    <widget class="QDoubleSpinBox" name="ccHdrDesaturation">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
@@ -3827,6 +3779,37 @@ media file played</string>
                      <double>2.000000000000000</double>
                     </property>
                    </widget>
+                  </item>
+                  <item row="5" column="0">
+                   <widget class="QLabel" name="ccTargetICCLabel">
+                    <property name="text">
+                     <string>ICC Profile</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="1">
+                   <layout class="QHBoxLayout" name="ccICCLayout" stretch="0,1,0">
+                    <item>
+                     <widget class="QCheckBox" name="ccICCAutodetect">
+                      <property name="text">
+                       <string>Autodetect</string>
+                      </property>
+                      <property name="checked">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="ccICCLocation"/>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="ccICCBrowse">
+                      <property name="text">
+                       <string>Browse</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </item>
                  </layout>
                 </widget>

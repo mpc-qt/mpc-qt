@@ -634,7 +634,6 @@ void SettingsWindow::sendSignals()
 #endif
     emit option("target-prim", WIDGET_TO_TEXT(ui->ccTargetPrim));
     emit option("target-trc", WIDGET_TO_TEXT(ui->ccTargetTRC));
-    emit option("target-brightness", WIDGET_LOOKUP(ui->ccTargetBrightness));
     emit option("hdr-tone-mapping", WIDGET_TO_TEXT(ui->ccHdrMapper));
     {
         QList<QDoubleSpinBox*> boxen {ui->ccHdrClipParam,
