@@ -13,13 +13,24 @@ DirectShow.
 
 ## Releases
 
-There is no RC.
+There is no RC.  Despite this situation, you may test it out and determine if
+what works is satisfying for you.  If not, please open an issue that may
+motivate the developer in a helpful direction.
 
-However, if you are willing to compile from source, you may test it out and
-determine if what works is satisfying for you.  If not, please open an issue
-that may motivate the developer in a helpful direction.  There could even be
-packages in your distro that help with this.  (e.g. [aur], [ports].)  See the
-compiling section below.
+The best version is git master, and everyone are encouraged to increase their
+computer-fu by compiling from source. (see section below.)  Compiling from
+source gives you several advantages over the usual user, such the ability to
+use latest and pre-release software regardless of where it comes from.  Unix
+users, there could even be packages in your distro that help with this. (e.g.
+[aur], [ports].)  See the compiling sections below.
+
+There are builds for Windows users on the release page.  Every now and then
+the developer makes a Windows build based on a recent commit and posts it on
+the releases page.  These use time-based versioning (e.g. 17.07 corresponds to
+2017 July), are provided for the convenience of Windows users who usually do
+not have a development environment, and should not be considered to represent
+any serious release-worthy snapshot in any way.  This may change when the
+program is more feature-complete.
 
 
 ## Features
