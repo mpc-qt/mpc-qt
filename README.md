@@ -18,11 +18,11 @@ what works is satisfying for you.  If not, please open an issue that may
 motivate the developer in a helpful direction.
 
 The best version is git master, and everyone are encouraged to increase their
-computer-fu by compiling from source. (see section below.)  Compiling from
+computer-fu by compiling from source. (see sections below.)  Compiling from
 source gives you several advantages over the usual user, such the ability to
 use latest and pre-release software regardless of where it comes from.  Unix
 users, there could even be packages in your distro that help with this. (e.g.
-[aur], [ports].)  See the compiling sections below.
+[aur], [ports].)
 
 There are builds for Windows users on the release page.  Every now and then
 the developer makes a Windows build based on a recent commit and posts it on
