@@ -303,7 +303,7 @@ void MpvWidget::setLogoUrl(const QString &filename)
 
 void MpvWidget::setSubFile(QString filename)
 {
-    emit ctrlSetOptionVariant("sub-file", filename);
+    emit ctrlSetOptionVariant("sub-files", filename);
 }
 
 void MpvWidget::addSubFile(QString filename)
