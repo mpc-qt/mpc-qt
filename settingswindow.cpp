@@ -46,7 +46,8 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
                       "cie1931", "dvi-p3"}},
     {"ccTargetTRC", {"auto", "by.1886", "srgb", "linear", "gamma1.8",\
                      "gamma2.2", "gamma2.8", "prophoto", "st2084"}},
-    {"ccHdrMapper", {"clip", "reinhard", "hable", "gamma", "linear"}},
+    {"ccHdrMapper", {"clip", "mobius", "reinhard", "hable", "gamma", \
+                     "linear"}},
     {"audioChannels", {"auto-safe", "auto", "stereo"}},
     {"audioRenderer", {"pulse", "alsa", "oss", "null"}},
     {"framedroppingMode", {"no", "vo", "decoder", "decoder+vo"}},
@@ -636,7 +637,9 @@ void SettingsWindow::sendSignals()
     emit option("target-brightness", WIDGET_LOOKUP(ui->ccTargetBrightness));
     emit option("hdr-tone-mapping", WIDGET_TO_TEXT(ui->ccHdrMapper));
     {
-        QList<QDoubleSpinBox*> boxen {NULL, ui->ccHdrReinhardParam, NULL, ui->ccHdrGammaParam, ui->ccHdrLinearParam};
+        QList<QDoubleSpinBox*> boxen {ui->ccHdrClipParam,
+                    ui->ccHdrMobiusParam, ui->ccHdrReinhardParam, NULL,
+                    ui->ccHdrGammaParam, ui->ccHdrLinearParam};
         QDoubleSpinBox* toneParam = boxen[WIDGET_LOOKUP(ui->ccHdrMapper).toInt()];
         emit option("tone-mapping-param", toneParam ? WIDGET_LOOKUP(toneParam) : QVariant("nan"));
     }

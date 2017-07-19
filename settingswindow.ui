@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>785</width>
-    <height>777</height>
+    <height>778</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -149,7 +149,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>17</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -977,7 +977,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>3</number>
+                 <number>4</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -3560,11 +3560,16 @@ media file played</string>
                     <item>
                      <widget class="QComboBox" name="ccHdrMapper">
                       <property name="currentIndex">
-                       <number>2</number>
+                       <number>1</number>
                       </property>
                       <item>
                        <property name="text">
                         <string>Clip</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Mobius</string>
                        </property>
                       </item>
                       <item>
@@ -3592,9 +3597,86 @@ media file played</string>
                     <item>
                      <widget class="QStackedWidget" name="ccHdrStack">
                       <property name="currentIndex">
-                       <number>2</number>
+                       <number>1</number>
                       </property>
-                      <widget class="QWidget" name="ccHdrClipPage"/>
+                      <widget class="QWidget" name="ccHdrClipPage">
+                       <layout class="QFormLayout" name="formLayout_2">
+                        <property name="leftMargin">
+                         <number>3</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="ccHdrClipParamLabel">
+                          <property name="text">
+                           <string>Luma</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="1">
+                         <widget class="QDoubleSpinBox" name="ccHdrClipParam">
+                          <property name="maximum">
+                           <double>1.000000000000000</double>
+                          </property>
+                          <property name="singleStep">
+                           <double>0.100000000000000</double>
+                          </property>
+                          <property name="value">
+                           <double>1.000000000000000</double>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                      <widget class="QWidget" name="ccHdrMobiusPage">
+                       <layout class="QFormLayout" name="formLayout">
+                        <property name="leftMargin">
+                         <number>3</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="ccHdrMobiusParamLabel">
+                          <property name="text">
+                           <string>Juncture</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="1">
+                         <widget class="QDoubleSpinBox" name="ccHdrMobiusParam">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimum">
+                           <double>0.300000000000000</double>
+                          </property>
+                          <property name="maximum">
+                           <double>1.000000000000000</double>
+                          </property>
+                          <property name="singleStep">
+                           <double>0.100000000000000</double>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
                       <widget class="QWidget" name="ccHdrReinhardPage">
                        <layout class="QFormLayout" name="ccReinhardPageLayout">
                         <property name="leftMargin">
