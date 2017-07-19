@@ -643,6 +643,7 @@ void SettingsWindow::sendSignals()
         QDoubleSpinBox* toneParam = boxen[WIDGET_LOOKUP(ui->ccHdrMapper).toInt()];
         emit option("tone-mapping-param", toneParam ? WIDGET_LOOKUP(toneParam) : QVariant("nan"));
     }
+    emit option("tone-mapping-desaturate", WIDGET_LOOKUP(ui->ccHdrDesaturate));
     if (WIDGET_LOOKUP(ui->ccICCAutodetect).toBool()) {
         emit option("icc-profile", "");
         emit option("icc-profile-auto", true);
