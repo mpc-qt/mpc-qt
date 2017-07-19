@@ -1,7 +1,9 @@
 ## Media Player Classic Qute Theater
 
 A clone of Media Player Classic reimplemented in Qt.
+
 ![screenshot]
+
 [Media Player Classic Home Cinema][mpc-hc] (mpc-hc) is considered by many to
 be the quintessential media player for the Windows desktop.  Media Player
 Classic Qute Theater (mpc-qt) aims to reproduce most of the interface and
