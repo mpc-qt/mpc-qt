@@ -746,6 +746,7 @@ void MainWindow::updateBottomAreaGeometry()
         return;
 
     QSize sz = size();
+    bottomAreaHeight = ui->bottomArea->height();
     if (playlistWindow_->isVisible() && !fullscreenHidePanels)
         sz -= QSize(playlistWindow_->width(), 0);
     ui->bottomArea->setGeometry(0, sz.height() - bottomAreaHeight,
