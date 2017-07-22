@@ -146,7 +146,7 @@ private:
     int numChapters = 0;
 
     int playbackPlayTimes = 1;
-    bool playbackStartPaused = PlayingState;
+    bool playbackStartPaused = false;
     bool playbackForever = false;
 };
 
