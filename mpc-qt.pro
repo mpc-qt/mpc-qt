@@ -14,6 +14,7 @@ TEMPLATE = app
 CONFIG += c++14
 
 unix:!macx:QT += x11extras dbus
+unix:!macx:LIBS += -ldl
 
 !win32:CONFIG += link_pkgconfig
 !win32:PKGCONFIG += mpv
@@ -80,7 +81,8 @@ SOURCES += main.cpp\
     openfiledialog.cpp \
     platform/qabstractscreensaver.cpp \
     qscreensaver.cpp \
-    propertieswindow.cpp
+    propertieswindow.cpp \
+    platform/unify.cpp
 
 HEADERS  += \
     mpvwidget.h \
@@ -101,8 +103,8 @@ HEADERS  += \
     platform/qabstractscreensaver.h \
     qscreensaver.h \
     propertieswindow.h \
-    platform/resources_paths.h
-
+    platform/resources_paths.h \
+    platform/unify.h
 
 FORMS    += \
     mainwindow.ui \

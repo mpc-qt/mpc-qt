@@ -21,6 +21,7 @@
 #include "mpvwidget.h"
 #include "propertieswindow.h"
 #include "platform/resources_paths.h"
+#include "platform/unify.h"
 
 int main(int argc, char *argv[])
 {
@@ -440,9 +441,7 @@ QString Flow::pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles 
             filePath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
     }
     QDir().mkpath(filePath);
-#ifdef Q_OS_WIN
-    fileName.replace(':', '.');
-#endif
+    fileName = Platform::sanitizedFilename(fileName);
     return filePath + "/" + fileName + "." + screenshotFormat;
 }
 

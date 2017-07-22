@@ -8,6 +8,7 @@
 #include "settingswindow.h"
 #include "ui_settingswindow.h"
 #include "qactioneditor.h"
+#include "platform/unify.h"
 
 #define SCALER_SCALERS \
     "bilinear", "bicubic_fast", "oversample", "spline16", "spline36",\
@@ -200,37 +201,17 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->scalingTabs->setCurrentIndex(0);
     ui->audioTabs->setCurrentIndex(0);
 
-#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
     // Detect a tiling desktop, and disable autozoom for the default.
     // Note that this only changes the default; if autozoom is already enabled
     // in the user's config, the application may still try to use an
     // autozooming in a tiling context.  And, in fact, it may still do so if
     // autozoom is enabled after-the-fact.
-    auto isTilingDesktop =[]() {
-        QProcessEnvironment env;
-        QStringList tilers({ "awesome", "bspwm", "dwm", "i3", "larswm", "ion",
-            "qtile", "ratpoison", "stumpwm", "wmii", "xmonad"});
-        QString desktop = env.value("XDG_DESKTOP_SESSION");
-        if (tilers.contains(desktop))
-            return true;
-        desktop = env.value("XDG_DATA_DIRS");
-        for (QString &wm : tilers)
-            if (desktop.contains(wm))
-                return true;
-        for (QString &wm: tilers) {
-            QProcess process;
-            process.start("pgrep", QStringList({wm}));
-            process.waitForFinished();
-            if (!process.readAllStandardOutput().isEmpty())
-                return true;
-        }
-        return false;
-    };
-    if (isTilingDesktop())
+    if (Platform::tilingDesktopActive()) {
         ui->playbackAutoZoom->setChecked(false);
-#else
-    ui->playbackAutozoomWarn->setVisible(false);
-#endif
+    }
+    if (!Platform::tiledDesktopsExist()) {
+        ui->playbackAutozoomWarn->setVisible(false);
+    }
 
 #ifndef Q_OS_MAC
     ui->ccGammaAutodetect->setEnabled(false);

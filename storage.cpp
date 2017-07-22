@@ -8,16 +8,13 @@
 #include <QTextStream>
 #include <QUrl>
 #include "storage.h"
+#include "platform/unify.h"
 
 Storage::Storage(QObject *parent) :
     QObject(parent)
 {
     configPath = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
-#ifdef Q_OS_WIN
-    // backward compatability sucks
-    configPath.replace("AppData/Local","AppData/Roaming");
-#endif
-    QDir().mkpath(configPath);
+    QDir().mkpath(Platform::fixedConfigPath(configPath));
 }
 
 void Storage::writeVMap(QString name, const QVariantMap &qvm)
