@@ -810,8 +810,6 @@ void MainWindow::updateInfostats()
     ui->bitrateLabel->setVisible(statShow);
 
     ui->infoStats->setVisible(infoShow || statShow);
-    ui->infoStats->adjustSize();
-    ui->infoSection->adjustSize();
 }
 
 void MainWindow::updateOnTop()
