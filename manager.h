@@ -75,6 +75,7 @@ public slots:
 
     // playback options
     void setPlaybackPlayTimes(int times);
+    void setPlaybackForever(bool yes);
 
 private slots:
     void mpvw_playTimeChanged(double time);
@@ -134,6 +135,7 @@ private:
     double mpvLength = 0.0;
     double mpvSpeed = 1.0;
     PlaybackState playbackState_ = StoppedState;
+    PlaybackState playbackStartState = PlayingState;
 
     QList<QPair<int64_t,QString>> videoList;
     QList<QPair<int64_t,QString>> audioList;
@@ -144,6 +146,8 @@ private:
     int numChapters = 0;
 
     int playbackPlayTimes = 1;
+    bool playbackStartPaused = PlayingState;
+    bool playbackForever = false;
 };
 
 #endif // MANAGER_H

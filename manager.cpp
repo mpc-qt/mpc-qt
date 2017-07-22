@@ -93,8 +93,10 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
     mpvWidget_->fileOpen(what.isLocalFile() ? what.toLocalFile()
                                             : what.fromPercentEncoding(what.toEncoded()));
     mpvWidget_->setSubFile(with.toString());
-    this->nowPlayingList = playlistUuid;
-    this->nowPlayingItem = itemUuid;
+    mpvWidget_->setPaused(playbackStartPaused);
+    playbackStartState = playbackStartPaused ? PausedState : PlayingState;
+    nowPlayingList = playlistUuid;
+    nowPlayingItem = itemUuid;
 
     if (!isRepeating && playbackPlayTimes > 1
             && playlistWindow_->extraPlayTimes(playlistUuid, itemUuid) <= 0) {
@@ -171,6 +173,8 @@ void PlaybackManager::playDiscFiles(QUrl where)
         mpvWidget_->stopPlayback();
     }
     mpvWidget_->discFilesOpen(where.toLocalFile());
+    mpvWidget_->setPaused(false);
+    playbackStartState = PlayingState;
     nowPlayingItem = QUuid();
     nowPlayingList = QUuid();
     emit nowPlayingChanged(where, QUuid(), QUuid());
@@ -372,7 +376,13 @@ void PlaybackManager::setMute(bool muted)
 
 void PlaybackManager::setPlaybackPlayTimes(int times)
 {
-    this->playbackPlayTimes = std::max(0, times);
+    this->playbackPlayTimes = times > 1 ? times : 1;
+    this->playbackStartPaused = times < 1;
+}
+
+void PlaybackManager::setPlaybackForever(bool yes)
+{
+    this->playbackForever = yes;
 }
 
 void PlaybackManager::mpvw_playTimeChanged(double time)
@@ -397,7 +407,7 @@ void PlaybackManager::mpvw_playbackLoading()
 
 void PlaybackManager::mpvw_playbackStarted()
 {
-    playbackState_ = PlayingState;
+    playbackState_ = playbackStartState;
     emit stateChanged(playbackState_);
     emit playerSettingsRequested();
 }
@@ -423,7 +433,7 @@ void PlaybackManager::mpvw_playbackIdling()
     int extraTimes = playlistWindow_->extraPlayTimes(nowPlayingList, nowPlayingItem);
     playlistWindow_->setExtraPlayTimes(nowPlayingList, nowPlayingItem, extraTimes - 1);
 
-    bool isRepeating = playbackPlayTimes < 1 || extraTimes > 0;
+    bool isRepeating = playbackForever || extraTimes > 0;
     if (isRepeating)
         repeatThisFile();
     else

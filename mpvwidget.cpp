@@ -226,7 +226,6 @@ void MpvWidget::fileOpen(QString filename)
 {
     setSubFile("\n");
     emit ctrlCommand(QStringList({"loadfile", filename}));
-    setPaused(false);
     setMouseHideTime(hideTimer->interval());
 }
 

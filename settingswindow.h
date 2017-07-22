@@ -110,6 +110,7 @@ signals:
     void xrandrResetOnExit(bool yes);
 
     void playbackPlayTimes(int count);
+    void playbackForever(bool yes);
     void playbackRewinds(bool yes);
     void playbackLoopImages(bool yes);
     void playlistFormat(const QString &fmt);
