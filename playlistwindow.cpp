@@ -1,13 +1,13 @@
-#include "playlistwindow.h"
-#include "ui_playlistwindow.h"
-#include "qdrawnplaylist.h"
-#include "playlist.h"
 #include <QDragEnterEvent>
 #include <QMimeData>
 #include <QInputDialog>
 #include <QFileDialog>
 #include <QMenu>
 #include <QThread>
+#include "playlistwindow.h"
+#include "ui_playlistwindow.h"
+#include "qdrawnplaylist.h"
+#include "playlist.h"
 #include "platform/unify.h"
 
 PlaylistWindow::PlaylistWindow(QWidget *parent) :
