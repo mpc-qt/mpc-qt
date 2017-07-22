@@ -2,6 +2,11 @@
 #include <QProcess>
 #include "unify.h"
 
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
+#include <dlfcn.h>
+#endif
+
+
 QString Platform::fixedConfigPath(QString configPath)
 {
 #ifdef Q_OS_WIN
@@ -49,4 +54,21 @@ bool Platform::tilingDesktopActive()
     }
 #endif
     return false;
+}
+
+void Platform::disableAutomaticAccel(QWidget *what)
+{
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
+    static auto symbol = "_ZN19KAcceleratorManager10setNoAccelEP7QWidget";
+
+    void *d = dlopen("libKF5WidgetsAddons.so", RTLD_LAZY);
+    if (!d)
+        return;
+    typedef void (*DisablerFunc)(QWidget *);
+    DisablerFunc setNoAccel;
+    setNoAccel = reinterpret_cast<DisablerFunc>(dlsym(d, symbol));
+    if (setNoAccel)
+        setNoAccel(what);
+    dlclose(d);
+#endif
 }

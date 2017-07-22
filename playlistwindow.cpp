@@ -8,6 +8,7 @@
 #include <QFileDialog>
 #include <QMenu>
 #include <QThread>
+#include "platform/unify.h"
 
 PlaylistWindow::PlaylistWindow(QWidget *parent) :
     QDockWidget(parent),
@@ -25,6 +26,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     ui->searchField->installEventFilter(this);
 
     connectSignalsToSlots();
+    Platform::disableAutomaticAccel(this);
 }
 
 PlaylistWindow::~PlaylistWindow()
