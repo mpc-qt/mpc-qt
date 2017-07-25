@@ -44,3 +44,21 @@ void QScreenSaver::lockScreen()
     else
         emit failed(LockScreen);
 }
+
+void QScreenSaver::hibernateSystem()
+{
+    // FIXME
+    emit failed(Hibernate);
+}
+
+void QScreenSaver::suspendSystem()
+{
+    // FIXME
+    emit failed(Suspend);
+}
+
+void QScreenSaver::shutdownSystem()
+{
+    // FIXME
+    emit failed(Shutdown);
+}

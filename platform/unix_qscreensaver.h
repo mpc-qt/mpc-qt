@@ -23,15 +23,22 @@ public slots:
     void uninhibitSaver();
     void launchSaver();
     void lockScreen();
+    void hibernateSystem();
+    void suspendSystem();
+    void shutdownSystem();
 
 private slots:
-    void dbus_inhibit(QDBusPendingCallWatcher *call);
-    void dbus_uninhibit(QDBusPendingCallWatcher *call);
-    void dbus_launch(QDBusPendingCallWatcher *call);
-    void dbus_lock(QDBusPendingCallWatcher *call);
+    void dbusScreensaver_inhibit(QDBusPendingCallWatcher *call);
+    void dbusScreensaver_uninhibit(QDBusPendingCallWatcher *call);
+    void dbusScreensaver_launch(QDBusPendingCallWatcher *call);
+    void dbusScreensaver_lock(QDBusPendingCallWatcher *call);
+    void dbusLogin_hibernate(QDBusPendingCallWatcher *call);
+    void dbusLogin_suspend(QDBusPendingCallWatcher *call);
+    void dbusLogin_shutdown(QDBusPendingCallWatcher *call);
 
 private:
-    QDBusInterface dbus;
+    QDBusInterface dbusScreensaver;
+    QDBusInterface dbusLogin;
     uint32_t inhibitToken = 0;
     bool inhibitCalled = false;
 };

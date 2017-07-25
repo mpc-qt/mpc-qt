@@ -29,3 +29,18 @@ void QScreenSaver::launchSaver() {
 void QScreenSaver::lockScreen() {
     emit failed(LockScreen);
 }
+
+void QScreenSaver::hibernateSystem()
+{
+    emit failed(Hibernate);
+}
+
+void QScreenSaver::suspendSystem()
+{
+    emit failed(Suspend);
+}
+
+void QScreenSaver::shutdownSystem()
+{
+    emit failed(Shutdown);
+}

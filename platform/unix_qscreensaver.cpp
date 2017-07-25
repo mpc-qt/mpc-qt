@@ -2,24 +2,40 @@
 #include <QDBusPendingReply>
 #include <QDBusPendingCall>
 #include <QDBusPendingCallWatcher>
+#include <QDBusReply>
 #include "unix_qscreensaver.h"
 
 QScreenSaver::QScreenSaver(QObject *parent)
     : QAbstractScreenSaver(parent),
-      dbus("org.freedesktop.ScreenSaver",
+      dbusScreensaver("org.freedesktop.ScreenSaver",
            "/ScreenSaver",
-           "org.freedesktop.ScreenSaver")
+           "org.freedesktop.ScreenSaver"),
+      dbusLogin("org.freedesktop.login1",
+                "/org/freedesktop/login1",
+                "org.freedesktop.login1.Manager",
+               QDBusConnection::systemBus())
 {
 
 }
 
 QSet<QScreenSaver::Ability> QScreenSaver::abilities()
 {
-    if (!dbus.isValid())
-        return QSet<Ability>();
+    QSet<Ability> abilities;
 
-    return QSet<Ability>() << Inhibit << Uninhibit
-                           << LaunchSaver << LockScreen;
+    if (dbusScreensaver.isValid())
+        abilities << Inhibit << Uninhibit << LaunchSaver << LockScreen;
+
+    if (dbusLogin.isValid()) {
+        auto check = [&](QString method, QScreenSaver::Ability ability) {
+            QDBusReply<QString> reply = dbusLogin.call(method);
+            if (reply.isValid() && reply.value() == "yes")
+                abilities << ability;
+        };
+        check("CanHibernate", Hibernate);
+        check("CanSuspend", Suspend);
+        check("CanPowerOff", Shutdown);
+    }
+    return abilities;
 }
 
 void QScreenSaver::inhibitSaver(const QString &reason)
@@ -29,12 +45,12 @@ void QScreenSaver::inhibitSaver(const QString &reason)
 
     inhibitCalled = true;
 
-    QDBusPendingCall async = dbus.asyncCall("Inhibit",
+    QDBusPendingCall async = dbusScreensaver.asyncCall("Inhibit",
         QCoreApplication::applicationName(), reason);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
 
     connect(watcher, &QDBusPendingCallWatcher::finished,
-            this, &QScreenSaver::dbus_inhibit);
+            this, &QScreenSaver::dbusScreensaver_inhibit);
 }
 
 void QScreenSaver::uninhibitSaver()
@@ -42,35 +58,71 @@ void QScreenSaver::uninhibitSaver()
     if (!isInhibiting)
         return;
 
-    QDBusPendingCall async = dbus.asyncCall("UnInhibit", inhibitToken);
+    QDBusPendingCall async = dbusScreensaver.asyncCall("UnInhibit", inhibitToken);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
 
     connect(watcher, &QDBusPendingCallWatcher::finished,
-            this, &QScreenSaver::dbus_uninhibit);
+            this, &QScreenSaver::dbusScreensaver_uninhibit);
 
 }
 
 void QScreenSaver::launchSaver()
 {
-    QDBusPendingCall async = dbus.asyncCall("SetActive", true);
+    QDBusPendingCall async = dbusScreensaver.asyncCall("SetActive", true);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
 
     connect(watcher, &QDBusPendingCallWatcher::finished,
-            this, &QScreenSaver::dbus_launch);
+            this, &QScreenSaver::dbusScreensaver_launch);
 
 }
 
 void QScreenSaver::lockScreen()
 {
-    QDBusPendingCall async = dbus.asyncCall("Lock");
+    QDBusPendingCall async = dbusScreensaver.asyncCall("Lock");
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
 
     connect(watcher, &QDBusPendingCallWatcher::finished,
-            this, &QScreenSaver::dbus_lock);
+            this, &QScreenSaver::dbusScreensaver_lock);
 
 }
 
-void QScreenSaver::dbus_inhibit(QDBusPendingCallWatcher *call)
+void QScreenSaver::hibernateSystem()
+{
+    if (!isInhibiting)
+        return;
+
+    QDBusPendingCall async = dbusLogin.asyncCall("Hibernate", inhibitToken);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
+
+    connect(watcher, &QDBusPendingCallWatcher::finished,
+            this, &QScreenSaver::dbusLogin_hibernate);
+}
+
+void QScreenSaver::suspendSystem()
+{
+    if (!isInhibiting)
+        return;
+
+    QDBusPendingCall async = dbusLogin.asyncCall("Suspend", inhibitToken);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
+
+    connect(watcher, &QDBusPendingCallWatcher::finished,
+            this, &QScreenSaver::dbusLogin_suspend);
+}
+
+void QScreenSaver::shutdownSystem()
+{
+    if (!isInhibiting)
+        return;
+
+    QDBusPendingCall async = dbusLogin.asyncCall("PowerOff", inhibitToken);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
+
+    connect(watcher, &QDBusPendingCallWatcher::finished,
+            this, &QScreenSaver::dbusLogin_shutdown);
+}
+
+void QScreenSaver::dbusScreensaver_inhibit(QDBusPendingCallWatcher *call)
 {
     QDBusPendingReply<uint32_t> reply = *call;
     if (reply.isError()) {
@@ -84,7 +136,7 @@ void QScreenSaver::dbus_inhibit(QDBusPendingCallWatcher *call)
     call->deleteLater();
 }
 
-void QScreenSaver::dbus_uninhibit(QDBusPendingCallWatcher *call)
+void QScreenSaver::dbusScreensaver_uninhibit(QDBusPendingCallWatcher *call)
 {
     QDBusPendingReply<> reply = *call;
     if (reply.isError()) {
@@ -96,7 +148,7 @@ void QScreenSaver::dbus_uninhibit(QDBusPendingCallWatcher *call)
     call->deleteLater();
 }
 
-void QScreenSaver::dbus_launch(QDBusPendingCallWatcher *call)
+void QScreenSaver::dbusScreensaver_launch(QDBusPendingCallWatcher *call)
 {
     QDBusPendingReply<> reply = *call;
     if (reply.isError())
@@ -106,12 +158,42 @@ void QScreenSaver::dbus_launch(QDBusPendingCallWatcher *call)
     call->deleteLater();
 }
 
-void QScreenSaver::dbus_lock(QDBusPendingCallWatcher *call)
+void QScreenSaver::dbusScreensaver_lock(QDBusPendingCallWatcher *call)
 {
     QDBusPendingReply<> reply = *call;
     if (reply.isError())
         emit failed(LockScreen);
     else
         emit screenLocked();
+    call->deleteLater();
+}
+
+void QScreenSaver::dbusLogin_hibernate(QDBusPendingCallWatcher *call)
+{
+    QDBusPendingReply<> reply = *call;
+    if (reply.isError())
+        emit failed(Hibernate);
+    else
+        emit systemHibernated();
+    call->deleteLater();
+}
+
+void QScreenSaver::dbusLogin_suspend(QDBusPendingCallWatcher *call)
+{
+    QDBusPendingReply<> reply = *call;
+    if (reply.isError())
+        emit failed(Suspend);
+    else
+        emit systemSuspended();
+    call->deleteLater();
+}
+
+void QScreenSaver::dbusLogin_shutdown(QDBusPendingCallWatcher *call)
+{
+    QDBusPendingReply<> reply = *call;
+    if (reply.isError())
+        emit failed(Shutdown);
+    else
+        emit systemShutdown();
     call->deleteLater();
 }

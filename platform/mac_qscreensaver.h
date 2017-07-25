@@ -15,6 +15,9 @@ public slots:
     void uninhibitSaver();
     void launchSaver();
     void lockScreen();
+    void hibernateSystem();
+    void suspendSystem();
+    void shutdownSystem();
 
 };
 
