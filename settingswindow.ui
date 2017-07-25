@@ -149,7 +149,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>10</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -5000,7 +5000,7 @@ media file played</string>
                 <item>
                  <widget class="QRadioButton" name="playbackPlayTimes">
                   <property name="text">
-                   <string>P&amp;lay</string>
+                   <string>Pla&amp;y</string>
                   </property>
                   <property name="checked">
                    <bool>true</bool>
@@ -5030,13 +5030,6 @@ media file played</string>
                <widget class="QRadioButton" name="playbackRepeatForever">
                 <property name="text">
                  <string>Repeat fore&amp;ver</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="playbackRewindWhenDone">
-                <property name="text">
-                 <string>Rewind when done playing</string>
                 </property>
                </widget>
               </item>

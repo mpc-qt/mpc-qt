@@ -400,7 +400,7 @@ void MainWindow::setupMenu()
     ui->menuPlayAfter->insertSection(ui->actionPlayAfterOnceExit,
                                        tr("Once"));
     ui->menuPlayAfter->insertSection(ui->actionPlayAfterAlwaysExit,
-                                       tr("Every time"));
+                                      tr("Every time"));
 
     ui->infoStats->setVisible(false);
 }

@@ -732,9 +732,12 @@
      <addaction name="actionPlayAfterOnceShutdown"/>
      <addaction name="actionPlayAfterOnceLogoff"/>
      <addaction name="actionPlayAfterOnceLock"/>
+     <addaction name="actionPlayAfterOnceRepeat"/>
+     <addaction name="actionPlayAfterOnceNothing"/>
      <addaction name="actionPlayAfterAlwaysExit"/>
-     <addaction name="actionPlayAfterAlwaysNothing"/>
      <addaction name="actionPlayAfterAlwaysNext"/>
+     <addaction name="actionPlayAfterAlwaysRepeat"/>
+     <addaction name="actionPlayAfterAlwaysNothing"/>
     </widget>
     <widget class="QMenu" name="menuPlayLoop">
      <property name="title">
@@ -1751,6 +1754,21 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+F5</string>
+   </property>
+  </action>
+  <action name="actionPlayAfterOnceNothing">
+   <property name="text">
+    <string>Do No&amp;thing</string>
+   </property>
+  </action>
+  <action name="actionPlayAfterAlwaysRepeat">
+   <property name="text">
+    <string>Repe&amp;at</string>
+   </property>
+  </action>
+  <action name="actionPlayAfterOnceRepeat">
+   <property name="text">
+    <string>&amp;Repeat</string>
    </property>
   </action>
  </widget>
