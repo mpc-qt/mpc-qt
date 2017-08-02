@@ -10,7 +10,7 @@ class QAbstractScreenSaver : public QObject
     Q_OBJECT
 public:
     enum Ability { Inhibit, Uninhibit, LaunchSaver, LockScreen,
-                 Hibernate, Suspend, Shutdown };
+                 Hibernate, Suspend, Shutdown, LogOff };
 
     explicit QAbstractScreenSaver(QObject *parent = 0);
 
@@ -25,6 +25,7 @@ public slots:
     virtual void hibernateSystem() = 0;
     virtual void suspendSystem() = 0;
     virtual void shutdownSystem() = 0;
+    virtual void logOff() = 0;
 
 signals:
     void inhibitedSaver();
@@ -34,6 +35,7 @@ signals:
     void systemHibernated();
     void systemSuspended();
     void systemShutdown();
+    void loggedOff();
     void failed(Ability what);
 
 protected:

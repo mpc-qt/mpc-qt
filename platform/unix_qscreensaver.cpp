@@ -13,9 +13,12 @@ QScreenSaver::QScreenSaver(QObject *parent)
       dbusLogin("org.freedesktop.login1",
                 "/org/freedesktop/login1",
                 "org.freedesktop.login1.Manager",
-               QDBusConnection::systemBus())
+               QDBusConnection::systemBus()),
+      dbusLoginSelf("org.freedesktop.login1",
+                    "/org/freedesktop/login1/user/self",
+                    "org.freedesktop.login1.User",
+                    QDBusConnection::systemBus())
 {
-
 }
 
 QSet<QScreenSaver::Ability> QScreenSaver::abilities()
@@ -34,6 +37,10 @@ QSet<QScreenSaver::Ability> QScreenSaver::abilities()
         check("CanHibernate", Hibernate);
         check("CanSuspend", Suspend);
         check("CanPowerOff", Shutdown);
+    }
+    if (dbusLoginSelf.isValid()
+            && dbusLoginSelf.metaObject()->indexOfMethod("Kill") != -1) {
+        abilities << LogOff;
     }
     return abilities;
 }
@@ -91,7 +98,7 @@ void QScreenSaver::hibernateSystem()
     if (!isInhibiting)
         return;
 
-    QDBusPendingCall async = dbusLogin.asyncCall("Hibernate", inhibitToken);
+    QDBusPendingCall async = dbusLogin.asyncCall("Hibernate");
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
 
     connect(watcher, &QDBusPendingCallWatcher::finished,
@@ -103,7 +110,7 @@ void QScreenSaver::suspendSystem()
     if (!isInhibiting)
         return;
 
-    QDBusPendingCall async = dbusLogin.asyncCall("Suspend", inhibitToken);
+    QDBusPendingCall async = dbusLogin.asyncCall("Suspend");
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
 
     connect(watcher, &QDBusPendingCallWatcher::finished,
@@ -115,11 +122,23 @@ void QScreenSaver::shutdownSystem()
     if (!isInhibiting)
         return;
 
-    QDBusPendingCall async = dbusLogin.asyncCall("PowerOff", inhibitToken);
+    QDBusPendingCall async = dbusLogin.asyncCall("PowerOff");
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
 
     connect(watcher, &QDBusPendingCallWatcher::finished,
             this, &QScreenSaver::dbusLogin_shutdown);
+}
+
+
+void QScreenSaver::logOff()
+{
+    QDBusPendingCall async = dbusLoginSelf.asyncCall("Kill");
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
+
+    connect(watcher, &QDBusPendingCallWatcher::finished,
+            this, &QScreenSaver::dbusLoginSelf_logoff);
+
+    emit failed(LogOff);
 }
 
 void QScreenSaver::dbusScreensaver_inhibit(QDBusPendingCallWatcher *call)
@@ -197,3 +216,15 @@ void QScreenSaver::dbusLogin_shutdown(QDBusPendingCallWatcher *call)
         emit systemShutdown();
     call->deleteLater();
 }
+
+void QScreenSaver::dbusLoginSelf_logoff(QDBusPendingCallWatcher *call)
+{
+    QDBusPendingReply<> reply = *call;
+    if (reply.isError())
+        emit failed(LogOff);
+    else
+        emit loggedOff();
+    call->deleteLater();
+}
+
+

@@ -44,3 +44,8 @@ void QScreenSaver::shutdownSystem()
 {
     emit failed(Shutdown);
 }
+
+void QScreenSaver::logOff()
+{
+    emit failed(LogOff);
+}

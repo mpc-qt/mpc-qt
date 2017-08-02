@@ -62,3 +62,10 @@ void QScreenSaver::shutdownSystem()
     // FIXME
     emit failed(Shutdown);
 }
+
+void QScreenSaver::logOff()
+{
+    // FIXME
+    emit failed(LogOff);
+}
+

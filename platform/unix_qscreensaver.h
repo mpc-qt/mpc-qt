@@ -26,6 +26,7 @@ public slots:
     void hibernateSystem();
     void suspendSystem();
     void shutdownSystem();
+    void logOff();
 
 private slots:
     void dbusScreensaver_inhibit(QDBusPendingCallWatcher *call);
@@ -35,10 +36,12 @@ private slots:
     void dbusLogin_hibernate(QDBusPendingCallWatcher *call);
     void dbusLogin_suspend(QDBusPendingCallWatcher *call);
     void dbusLogin_shutdown(QDBusPendingCallWatcher *call);
+    void dbusLoginSelf_logoff(QDBusPendingCallWatcher *call);
 
 private:
     QDBusInterface dbusScreensaver;
     QDBusInterface dbusLogin;
+    QDBusInterface dbusLoginSelf;
     uint32_t inhibitToken = 0;
     bool inhibitCalled = false;
 };

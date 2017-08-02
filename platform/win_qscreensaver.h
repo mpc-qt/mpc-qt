@@ -18,6 +18,7 @@ public slots:
     void hibernateSystem();
     void suspendSystem();
     void shutdownSystem();
+    void logOff();
 };
 
 #endif // WIN_QSCREENSAVER_H

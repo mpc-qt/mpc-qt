@@ -18,7 +18,7 @@ public slots:
     void hibernateSystem();
     void suspendSystem();
     void shutdownSystem();
-
+    void logOff();
 };
 
 #endif // MAC_QSCREENSAVER_H
