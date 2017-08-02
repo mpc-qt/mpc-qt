@@ -1303,46 +1303,79 @@
    </property>
   </action>
   <action name="actionPlayAfterOnceExit">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>&amp;Exit</string>
    </property>
   </action>
   <action name="actionPlayAfterOnceStandby">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>&amp;Stand by</string>
    </property>
   </action>
   <action name="actionPlayAfterOnceHibernate">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>&amp;Hibernate</string>
    </property>
   </action>
   <action name="actionPlayAfterOnceShutdown">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Shut&amp;down</string>
    </property>
   </action>
   <action name="actionPlayAfterOnceLogoff">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Log &amp;Off</string>
    </property>
   </action>
   <action name="actionPlayAfterOnceLock">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>&amp;Lock</string>
    </property>
   </action>
   <action name="actionPlayAfterAlwaysExit">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>E&amp;xit</string>
    </property>
   </action>
   <action name="actionPlayAfterAlwaysNothing">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Do &amp;Nothing</string>
    </property>
   </action>
   <action name="actionPlayAfterAlwaysNext">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Play next in the &amp;folder</string>
    </property>
@@ -1757,16 +1790,28 @@
    </property>
   </action>
   <action name="actionPlayAfterOnceNothing">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Do No&amp;thing</string>
    </property>
   </action>
   <action name="actionPlayAfterAlwaysRepeat">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Repe&amp;at</string>
    </property>
   </action>
   <action name="actionPlayAfterOnceRepeat">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>&amp;Repeat</string>
    </property>

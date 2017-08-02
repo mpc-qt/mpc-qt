@@ -414,6 +414,22 @@ void MainWindow::setupActionGroups()
     ag->addAction(ui->actionViewOntopAlways);
     ag->addAction(ui->actionViewOntopPlaying);
     ag->addAction(ui->actionViewOntopVideo);
+
+    ag = new QActionGroup(this);
+    ag->addAction(ui->actionPlayAfterOnceExit);
+    ag->addAction(ui->actionPlayAfterOnceHibernate);
+    ag->addAction(ui->actionPlayAfterOnceLock);
+    ag->addAction(ui->actionPlayAfterOnceLogoff);
+    ag->addAction(ui->actionPlayAfterOnceNothing);
+    ag->addAction(ui->actionPlayAfterOnceRepeat);
+    ag->addAction(ui->actionPlayAfterOnceShutdown);
+    ag->addAction(ui->actionPlayAfterOnceStandby);
+
+    ag = new QActionGroup(this);
+    ag->addAction(ui->actionPlayAfterAlwaysExit);
+    ag->addAction(ui->actionPlayAfterAlwaysNext);
+    ag->addAction(ui->actionPlayAfterAlwaysNothing);
+    ag->addAction(ui->actionPlayAfterAlwaysRepeat);
 }
 
 void MainWindow::setupPositionSlider()
