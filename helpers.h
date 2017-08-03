@@ -30,6 +30,9 @@ namespace Helpers {
     enum TitlePrefix { PrefixFullPath, PrefixFileName, NoPrefix };
     enum ControlHiding { NeverShown, ShowWhenMoving, ShowWhenHovering,
                          AlwaysShow };
+    enum AfterPlayback { DoNothingAfter, RepeatAfter, PlayNextAfter,
+                         ExitAfter, StandByAfter, HibernateAfter,
+                         ShutdownAfter, LogOffAfter, LockAfter };
 }
 
 class LogoDrawer : public QObject {

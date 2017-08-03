@@ -11,6 +11,7 @@
 #include <QUuid>
 #include <QSize>
 #include <QVariant>
+#include "helpers.h"
 
 class MpvWidget;
 class PlaylistWindow;
@@ -33,6 +34,7 @@ private:
     void startPlayWithUuid(QUrl what, QUuid playlistUuid, QUuid itemUuid,
                            bool isRepeating, QUrl with = QUrl());
     void selectDesiredTracks();
+    void checkAfterPlayback(bool playlistMode);
 
 public slots:
     // load functions
@@ -72,6 +74,8 @@ public slots:
     void setVideoTrack(int64_t id);
     void setVolume(int64_t volume);
     void setMute(bool muted);
+    void setAfterPlaybackOnce(Helpers::AfterPlayback mode);
+    void setAfterPlaybackAlways(Helpers::AfterPlayback mode);
 
     // playback options
     void setPlaybackPlayTimes(int times);
@@ -117,6 +121,13 @@ signals:
     void hasNoSubtitles(bool empty);
     void nowPlayingChanged(QUrl itemUrl, QUuid listUuid, QUuid itemUuid);
     void finishedPlaying(QUuid item);
+    void afterPlaybackReset();
+    void instanceShouldClose();
+    void systemShouldShutdown();
+    void systemShouldLogOff();
+    void systemShouldLock();
+    void systemShouldStandby();
+    void systemShouldHibernate();
 
     void fpsChanged(double fps);
     void avsyncChanged(double sync);
@@ -148,6 +159,9 @@ private:
     int playbackPlayTimes = 1;
     bool playbackStartPaused = false;
     bool playbackForever = false;
+
+    Helpers::AfterPlayback afterPlaybackOnce = Helpers::DoNothingAfter;
+    Helpers::AfterPlayback afterPlaybackAlways = Helpers::DoNothingAfter;
 };
 
 #endif // MANAGER_H

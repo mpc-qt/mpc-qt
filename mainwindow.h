@@ -10,6 +10,7 @@
 #include "qdrawnstatus.h"
 #include "manager.h"
 #include "playlistwindow.h"
+#include "qscreensaver.h"
 
 namespace Ui {
 class MainWindow;
@@ -37,6 +38,7 @@ public:
     QVariantMap mouseMapDefaults();
     QVariantMap state();
     void setState(const QVariantMap &map);
+    void setScreensaverAbilities(QSet<QScreenSaver::Ability> ab);
     QSize desirableSize(bool first_run = false);
     QPoint desirablePosition(QSize &size, bool first_run = false);
     void unfreezeWindow();
@@ -125,6 +127,8 @@ signals:
     void videoTrackSelected(int64_t id);
     void volumeChanged(int64_t volume);
     void volumeMuteChanged(bool muted);
+    void afterPlaybackOnce(Helpers::AfterPlayback action);
+    void afterPlaybackAlways(Helpers::AfterPlayback action);
     void chapterPrevious();
     void chapterNext();
     void chapterSelected(int64_t id);
@@ -162,6 +166,8 @@ public slots:
     void setVideoTracks(QList<QPair<int64_t,QString>> tracks);
     void setSubtitleTracks(QList<QPair<int64_t,QString>> tracks);
     void setVolume(int level);
+    void resetPlayAfterOnce();
+    void setPlayAfterAlways(Helpers::AfterPlayback action);
     void setFps(double fps);
     void setAvsync(double sync);
     void setDisplayFramedrops(int64_t count);
@@ -244,6 +250,19 @@ private slots:
     void on_actionPlayVolumeUp_triggered();
     void on_actionPlayVolumeDown_triggered();
     void on_actionPlayVolumeMute_toggled(bool checked);
+
+    void on_actionPlayAfterOnceExit_triggered();
+    void on_actionPlayAfterOnceStandby_triggered();
+    void on_actionPlayAfterOnceHibernate_triggered();
+    void on_actionPlayAfterOnceShutdown_triggered();
+    void on_actionPlayAfterOnceLogoff_triggered();
+    void on_actionPlayAfterOnceLock_triggered();
+    void on_actionPlayAfterOnceNothing_triggered();
+    void on_actionPlayAfterOnceRepeat_triggered();
+    void on_actionPlayAfterAlwaysRepeat_triggered();
+    void on_actionPlayAfterAlwaysExit_triggered();
+    void on_actionPlayAfterAlwaysNothing_triggered();
+    void on_actionPlayAfterAlwaysNext_triggered();
 
     void on_actionNavigateChaptersPrevious_triggered();
     void on_actionNavigateChaptersNext_triggered();

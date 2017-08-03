@@ -129,9 +129,11 @@ void Flow::init() {
     mpvServer = new MpvServer(playbackManager, mainWindow->mpvWidget(), this);
 
     inhibitScreensaver = false;
+    QSet<QScreenSaver::Ability> actualPowers = screenSaver.abilities();
+    mainWindow->setScreensaverAbilities(actualPowers);
     QSet<QScreenSaver::Ability> desiredPowers;
     desiredPowers << QScreenSaver::Inhibit << QScreenSaver::Uninhibit;
-    manipulateScreensaver = screenSaver.abilities().contains(desiredPowers);
+    manipulateScreensaver = actualPowers.contains(desiredPowers);
     settingsWindow->setScreensaverDisablingEnabled(manipulateScreensaver);
 
     // mainwindow -> manager
@@ -173,6 +175,10 @@ void Flow::init() {
             playbackManager, &PlaybackManager::setVolume);
     connect(mainWindow, &MainWindow::volumeMuteChanged,
             playbackManager, &PlaybackManager::setMute);
+    connect(mainWindow, &MainWindow::afterPlaybackOnce,
+            playbackManager, &PlaybackManager::setAfterPlaybackOnce);
+    connect(mainWindow, &MainWindow::afterPlaybackAlways,
+            playbackManager, &PlaybackManager::setAfterPlaybackAlways);
     connect(mainWindow, &MainWindow::chapterPrevious,
             playbackManager, &PlaybackManager::navigateToPrevChapter);
     connect(mainWindow, &MainWindow::chapterNext,
@@ -225,6 +231,8 @@ void Flow::init() {
             mainWindow, &MainWindow::setAudioBitrate);
     connect(playbackManager, &PlaybackManager::videoBitrateChanged,
             mainWindow, &MainWindow::setVideoBitrate);
+    connect(playbackManager, &PlaybackManager::afterPlaybackReset,
+            mainWindow, &MainWindow::resetPlayAfterOnce);
 
     // mainwindow -> settings
     connect(mainWindow, &MainWindow::volumeChanged,
@@ -336,6 +344,8 @@ void Flow::init() {
             this, &Flow::manager_nowPlayingChanged);
     connect(playbackManager, &PlaybackManager::stateChanged,
             this, &Flow::manager_stateChanged);
+    connect(playbackManager, &PlaybackManager::instanceShouldClose,
+            this, &Flow::mainwindow_applicationShouldQuit);
 
     // settings -> this
     connect(settingsWindow, &SettingsWindow::settingsData,
@@ -362,6 +372,18 @@ void Flow::init() {
             this, &Flow::importPlaylist);
     connect(mainWindow->playlistWindow(), &PlaylistWindow::exportPlaylist,
             this, &Flow::exportPlaylist);
+
+    // manager -> this.screensaver
+    connect(playbackManager, &PlaybackManager::systemShouldHibernate,
+            &screenSaver, &QScreenSaver::hibernateSystem);
+    connect(playbackManager, &PlaybackManager::systemShouldLock,
+            &screenSaver, &QScreenSaver::lockScreen);
+    connect(playbackManager, &PlaybackManager::systemShouldLogOff,
+            &screenSaver, &QScreenSaver::logOff);
+    connect(playbackManager, &PlaybackManager::systemShouldShutdown,
+            &screenSaver, &QScreenSaver::shutdownSystem);
+    connect(playbackManager, &PlaybackManager::systemShouldStandby,
+            &screenSaver, &QScreenSaver::suspendSystem);
 
     // this -> mainwindow
     connect(this, &Flow::recentFilesChanged,

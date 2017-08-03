@@ -144,6 +144,46 @@ void PlaybackManager::selectDesiredTracks()
         subtitleListSelected.clear();
 }
 
+void PlaybackManager::checkAfterPlayback(bool playlistMode)
+{
+    Helpers::AfterPlayback action = afterPlaybackOnce;
+    if (afterPlaybackOnce == Helpers::DoNothingAfter)
+        action = afterPlaybackAlways;
+
+    afterPlaybackOnce = Helpers::DoNothingAfter;
+    emit afterPlaybackReset();
+
+    switch (action) {
+    case Helpers::ExitAfter:
+        emit instanceShouldClose();
+        break;
+    case Helpers::StandByAfter:
+        emit systemShouldStandby();
+        break;
+    case Helpers::HibernateAfter:
+        emit systemShouldHibernate();
+        break;
+    case Helpers::ShutdownAfter:
+        emit systemShouldShutdown();
+        break;
+    case Helpers::LogOffAfter:
+        emit systemShouldLogOff();
+        break;
+    case Helpers::LockAfter:
+        emit systemShouldLock();
+        break;
+    case Helpers::RepeatAfter:
+        if (playlistMode)
+            repeatThisFile();
+        break;
+    case Helpers::PlayNextAfter:
+        // FIXME: play next in folder
+    case Helpers::DoNothingAfter:
+        if (playlistMode)
+            playNextFile();
+    }
+}
+
 void PlaybackManager::openSeveralFiles(QList<QUrl> what, bool important)
 {
     if (important) {
@@ -374,6 +414,16 @@ void PlaybackManager::setMute(bool muted)
     mpvWidget_->showMessage(muted ? tr("Mute: on") : tr("Mute: off"));
 }
 
+void PlaybackManager::setAfterPlaybackOnce(AfterPlayback mode)
+{
+    afterPlaybackOnce = mode;
+}
+
+void PlaybackManager::setAfterPlaybackAlways(AfterPlayback mode)
+{
+    afterPlaybackAlways = mode;
+}
+
 void PlaybackManager::setPlaybackPlayTimes(int times)
 {
     this->playbackPlayTimes = times > 1 ? times : 1;
@@ -427,6 +477,7 @@ void PlaybackManager::mpvw_playbackIdling()
         nowPlaying_.clear();
         playbackState_ = StoppedState;
         emit stateChanged(playbackState_);
+        checkAfterPlayback(false);
         return;
     }
 
@@ -437,7 +488,7 @@ void PlaybackManager::mpvw_playbackIdling()
     if (isRepeating)
         repeatThisFile();
     else
-        playNextFile();
+        checkAfterPlayback(true);
 }
 
 void PlaybackManager::mpvw_mediaTitleChanged(QString title)

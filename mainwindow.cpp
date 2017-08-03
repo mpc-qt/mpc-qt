@@ -56,6 +56,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    ui = nullptr;
 }
 
 MpvWidget *MainWindow::mpvWidget()
@@ -153,6 +154,15 @@ void MainWindow::setState(const QVariantMap &map)
     updateOnTop();
 
 #undef UNWRAP
+}
+
+void MainWindow::setScreensaverAbilities(QSet<QAbstractScreenSaver::Ability> ab)
+{
+    ui->actionPlayAfterOnceStandby->setVisible(ab.contains(QScreenSaver::Suspend));
+    ui->actionPlayAfterOnceHibernate->setVisible(ab.contains(QScreenSaver::Hibernate));
+    ui->actionPlayAfterOnceShutdown->setVisible(ab.contains(QScreenSaver::Shutdown));
+    ui->actionPlayAfterOnceLogoff->setVisible(ab.contains(QScreenSaver::LogOff));
+    ui->actionPlayAfterOnceLock->setVisible(ab.contains(QScreenSaver::LockScreen));
 }
 
 QSize MainWindow::desirableSize(bool first_run)
@@ -1126,6 +1136,23 @@ void MainWindow::setVolume(int level)
     volumeSlider_->setValue(level);
 }
 
+void MainWindow::resetPlayAfterOnce()
+{
+    ui->actionPlayAfterOnceNothing->setChecked(true);
+}
+
+void MainWindow::setPlayAfterAlways(AfterPlayback action)
+{
+    QMap<Helpers::AfterPlayback, QAction*> map {
+        { Helpers::DoNothingAfter, ui->actionPlayAfterAlwaysNothing },
+        { Helpers::RepeatAfter, ui->actionPlayAfterAlwaysRepeat },
+        { Helpers::PlayNextAfter, ui->actionPlayAfterAlwaysNext },
+        { Helpers::ExitAfter, ui->actionPlayAfterAlwaysExit }
+    };
+    if (map.contains(action))
+        map[action]->setChecked(true);
+}
+
 void MainWindow::setFps(double fps)
 {
     ui->framerate->setText(std::isnan(fps) ? "-" : QString::number(fps, 'f', 2));
@@ -1163,7 +1190,8 @@ void MainWindow::setVideoBitrate(double bitrate)
 void MainWindow::setPlaylistVisibleState(bool yes) {
     if (fullscreenMode_)
         return;
-
+    if (!ui)
+        return;
     ui->actionFileOpenQuick->setText(yes ? tr("&Quick Add To Playlist")
                                          : tr("&Quick Open File"));
     ui->actionViewHidePlaylist->setChecked(yes);
@@ -1171,6 +1199,8 @@ void MainWindow::setPlaylistVisibleState(bool yes) {
 
 void MainWindow::setPlaylistQuickQueueMode(bool yes)
 {
+    if (!ui)
+        return;
     ui->actionPlaylistShowQuickQueue->setChecked(yes);
     ui->actionPlaylistQuickQueue->setEnabled(!yes);
     ui->actionPlaylistQueueVisible->setEnabled(!yes);
@@ -1680,6 +1710,66 @@ void MainWindow::on_actionPlayVolumeMute_toggled(bool checked)
     ui->mute->setChecked(checked);
 }
 
+void MainWindow::on_actionPlayAfterOnceExit_triggered()
+{
+    emit afterPlaybackOnce(Helpers::ExitAfter);
+}
+
+void MainWindow::on_actionPlayAfterOnceStandby_triggered()
+{
+    emit afterPlaybackOnce(Helpers::StandByAfter);
+}
+
+void MainWindow::on_actionPlayAfterOnceHibernate_triggered()
+{
+    emit afterPlaybackOnce(Helpers::HibernateAfter);
+}
+
+void MainWindow::on_actionPlayAfterOnceShutdown_triggered()
+{
+    emit afterPlaybackOnce(Helpers::ShutdownAfter);
+}
+
+void MainWindow::on_actionPlayAfterOnceLogoff_triggered()
+{
+    emit afterPlaybackOnce(Helpers::LogOffAfter);
+}
+
+void MainWindow::on_actionPlayAfterOnceLock_triggered()
+{
+    emit afterPlaybackOnce(Helpers::LockAfter);
+}
+
+void MainWindow::on_actionPlayAfterOnceNothing_triggered()
+{
+    emit afterPlaybackOnce(Helpers::DoNothingAfter);
+}
+
+void MainWindow::on_actionPlayAfterOnceRepeat_triggered()
+{
+    emit afterPlaybackOnce(Helpers::RepeatAfter);
+}
+
+void MainWindow::on_actionPlayAfterAlwaysRepeat_triggered()
+{
+    emit afterPlaybackAlways(Helpers::RepeatAfter);
+}
+
+void MainWindow::on_actionPlayAfterAlwaysExit_triggered()
+{
+    emit afterPlaybackAlways(Helpers::ExitAfter);
+}
+
+void MainWindow::on_actionPlayAfterAlwaysNothing_triggered()
+{
+    emit afterPlaybackAlways(Helpers::DoNothingAfter);
+}
+
+void MainWindow::on_actionPlayAfterAlwaysNext_triggered()
+{
+    emit afterPlaybackAlways(Helpers::PlayNextAfter);
+}
+
 void MainWindow::on_actionNavigateChaptersPrevious_triggered()
 {
     emit chapterPrevious();
@@ -1798,3 +1888,4 @@ void MainWindow::on_actionPlaylistSearch_triggered()
         playlistWindow_->show();
     playlistWindow_->revealSearch();
 }
+

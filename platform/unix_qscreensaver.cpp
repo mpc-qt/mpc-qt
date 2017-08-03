@@ -39,7 +39,7 @@ QSet<QScreenSaver::Ability> QScreenSaver::abilities()
         check("CanPowerOff", Shutdown);
     }
     if (dbusLoginSelf.isValid()
-            && dbusLoginSelf.metaObject()->indexOfMethod("Kill") != -1) {
+            && dbusLoginSelf.metaObject()->indexOfMethod("Terminate()") != -1) {
         abilities << LogOff;
     }
     return abilities;
@@ -132,7 +132,7 @@ void QScreenSaver::shutdownSystem()
 
 void QScreenSaver::logOff()
 {
-    QDBusPendingCall async = dbusLoginSelf.asyncCall("Kill");
+    QDBusPendingCall async = dbusLoginSelf.asyncCall("Terminate");
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
 
     connect(watcher, &QDBusPendingCallWatcher::finished,
