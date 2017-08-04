@@ -7,6 +7,8 @@
 #include <QUrl>
 #include <QUuid>
 #include <QOpenGLWidget>
+#include <QDate>
+#include <QTime>
 
 class QFileDialog;
 class QLocalServer;
@@ -15,6 +17,8 @@ class QOpenGLTexture;
 
 namespace Helpers {
     QString toDateFormat(double time);
+    QDate dateFromCFormat(const char date[]);
+    QTime timeFromCFormat(const char time[]);
     enum DisabledTrack { NothingDisabled, DisabledAudio, DisabledVideo };
     enum Subtitles { NoSubtitles, SubtitlesPresent, SubtitlesDisabled, };
     enum FileType { AudioFile, VideoFile };

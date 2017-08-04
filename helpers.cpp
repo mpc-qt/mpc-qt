@@ -28,6 +28,22 @@ QString Helpers::toDateFormat(double time)
             .arg(QString().number(fr),3,'0');
 }
 
+QDate Helpers::dateFromCFormat(const char date[])
+{
+    QStringList dates = QString(date).simplified().split(QRegExp("\\s+"));
+    QStringList months = { "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                           "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+    QDate d(dates[2].toInt(), months.indexOf(dates[0])+1, dates[1].toInt());
+    return d;
+}
+
+QTime Helpers::timeFromCFormat(const char time[])
+{
+    QStringList times = QString(time).split(':');
+    QTime t(times[0].toInt(), times[1].toInt(), times[2].toInt());
+    return t;
+}
+
 
 static QString grabBrackets(QString source, int &position, int &length) {
     QString match;

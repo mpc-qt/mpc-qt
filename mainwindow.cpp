@@ -1794,8 +1794,8 @@ void MainWindow::on_actionHelpAbout_triggered()
 #endif
     QString devBuild = tr("Development Build");
     QString versionFmt = tr("Version %1");
-    QDate buildDate = QLocale::c().toDate(__DATE__, "MMM d yyyy");
-    QTime buildTime = QLocale::c().toTime(__TIME__, "hh:mm:ss");
+    QDate buildDate = Helpers::dateFromCFormat(__DATE__);
+    QTime buildTime = Helpers::timeFromCFormat(__TIME__);
     QMessageBox::about(this, tr("About Media Player Classic Qute Theater"),
       "<h2>" + tr("Media Player Classic Qute Theater") + "</h2>" +
       "<p>" +  tr("A clone of Media Player Classic written in Qt") +
