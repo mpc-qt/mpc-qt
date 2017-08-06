@@ -55,6 +55,7 @@ public:
     ~SettingsWindow();
 
 private:
+    void setupPlatformWidgets();
     void setupColorPickers();
     void setupUnimplementedWidgets();
     void updateAcceptedSettings();

@@ -192,6 +192,8 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     logoWidget = new LogoWidget(this);
     ui->logoImageHost->layout()->addWidget(logoWidget);
 
+    setupPlatformWidgets();
+
     defaultSettings = generateSettingMap(this);
     acceptedSettings = defaultSettings;
     generateVideoPresets();
@@ -200,28 +202,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->videoTabs->setCurrentIndex(0);
     ui->scalingTabs->setCurrentIndex(0);
     ui->audioTabs->setCurrentIndex(0);
-
-    // Detect a tiling desktop, and disable autozoom for the default.
-    // Note that this only changes the default; if autozoom is already enabled
-    // in the user's config, the application may still try to use an
-    // autozooming in a tiling context.  And, in fact, it may still do so if
-    // autozoom is enabled after-the-fact.
-    if (Platform::tilingDesktopActive()) {
-        ui->playbackAutoZoom->setChecked(false);
-    }
-    if (!Platform::tiledDesktopsExist()) {
-        ui->playbackAutozoomWarn->setVisible(false);
-    }
-
-#ifndef Q_OS_MAC
-    ui->ccGammaAutodetect->setEnabled(false);
-#else
-    ui->ccGammaAutodetect->setChecked(true);
-#endif
-
-#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
-    ui->ipcMpris->setVisible(false);
-#endif
+    ui->hwdecTabs->setCurrentIndex(0);
 
     ui->screenshotDirectoryValue->setPlaceholderText(
                 QStandardPaths::writableLocation(
@@ -241,9 +222,8 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     }
 
     int pageTreeWidth = ui->pageTree->fontMetrics().width(tr("MMMMMMMMMMMMM"));
-#ifdef Q_OS_WIN
-    pageTreeWidth *= 1.3;
-#endif
+    if (Platform::isWindows)
+        pageTreeWidth *= 1.3;
     ui->pageTree->setMaximumWidth(pageTreeWidth);
 
     setupColorPickers();
@@ -253,6 +233,35 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
 SettingsWindow::~SettingsWindow()
 {
     delete ui;
+}
+
+void SettingsWindow::setupPlatformWidgets()
+{
+    // Detect a tiling desktop, and disable autozoom for the default.
+    // Note that this only changes the default; if autozoom is already enabled
+    // in the user's config, the application may still try to use an
+    // autozooming in a tiling context.  And, in fact, it may still do so if
+    // autozoom is enabled after-the-fact.
+    if (Platform::tilingDesktopActive()) {
+        ui->playbackAutoZoom->setChecked(false);
+    }
+    if (!Platform::tiledDesktopsExist()) {
+        ui->playbackAutozoomWarn->setVisible(false);
+    }
+
+    if (Platform::isMac) {
+        ui->ccGammaAutodetect->setEnabled(false);
+    } else {
+        ui->ccGammaAutodetect->setChecked(true);
+    }
+
+    ui->ipcMpris->setVisible(Platform::isUnix);
+    ui->hwdecBackendVaapi->setEnabled(Platform::isUnix);
+    ui->hwdecBackendVdpau->setEnabled(Platform::isUnix);
+    ui->hwdecBackendDxva2->setEnabled(Platform::isWindows);
+    ui->hwdecBackendD3d11va->setEnabled(Platform::isWindows);
+    ui->hwdecBackendRaspberryPi->setEnabled(Platform::isUnix);
+    ui->hwdecBackendVideoToolbox->setEnabled(Platform::isMac);
 }
 
 void SettingsWindow::setupColorPickers()
@@ -610,9 +619,8 @@ void SettingsWindow::sendSignals()
     }
 
     emit option("gamma", WIDGET_LOOKUP(ui->ccGamma));
-#ifdef Q_OS_MAC
-    option("gamma-auto", WIDGET_LOOKUP(ui->ccGammaAutodetect));
-#endif
+    if (Platform::isMac)
+        option("gamma-auto", WIDGET_LOOKUP(ui->ccGammaAutodetect));
     emit option("target-prim", WIDGET_TO_TEXT(ui->ccTargetPrim));
     emit option("target-trc", WIDGET_TO_TEXT(ui->ccTargetTRC));
     emit option("hdr-tone-mapping", WIDGET_TO_TEXT(ui->ccHdrMapper));
@@ -680,7 +688,24 @@ void SettingsWindow::sendSignals()
     emit option("video-sync-max-audio-change", WIDGET_LOOKUP(ui->syncMaxAudioChange).toDouble());
     emit option("video-sync-max-video-change", WIDGET_LOOKUP(ui->syncMaxVideoChange).toDouble());
     if (WIDGET_LOOKUP(ui->hwdecEnable).toBool()) {
-        emit option("hwdec", "auto-copy");
+        QString backend = "auto-copy";
+        if (WIDGET_LOOKUP(ui->hwdecBackendVaapi).toBool())
+            backend = "vaapi-copy";
+        if (WIDGET_LOOKUP(ui->hwdecBackendVdpau).toBool())
+            backend = "vdpau-copy";
+        if (WIDGET_LOOKUP(ui->hwdecBackendDxva2).toBool())
+            backend = "dxva2-copy";
+        if (WIDGET_LOOKUP(ui->hwdecBackendD3d11va).toBool())
+            backend = "d3d11va-copy";
+        if (WIDGET_LOOKUP(ui->hwdecBackendRaspberryPi).toBool())
+            backend = "rpi-copy";
+        if (WIDGET_LOOKUP(ui->hwdecBackendVideoToolbox).toBool())
+            backend = "videotoolbox-copy";
+        if (WIDGET_LOOKUP(ui->hwdecBackendCuda).toBool())
+            backend = "cuda-copy";
+        if (WIDGET_LOOKUP(ui->hwdecBackendCrystalHd).toBool())
+            backend = "crystalhd";
+        emit option("hwdec", backend);
         if (WIDGET_LOOKUP(ui->hwdecAll).toBool()) {
             emit option("hwdec-codecs", "all");
         } else {
