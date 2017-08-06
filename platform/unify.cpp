@@ -7,34 +7,56 @@
 #endif
 
 
+const bool Platform::isMac =
+#if defined(Q_OS_MAC)
+    true
+#else
+    false
+#endif
+;
+
+const bool Platform::isWindows =
+#if defined(Q_OS_WIN)
+    true
+#else
+    false
+#endif
+;
+
+const bool Platform::isUnix =
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
+    true
+#else
+    false
+#endif
+;
+
 QString Platform::fixedConfigPath(QString configPath)
 {
-#ifdef Q_OS_WIN
-    // backward compatability sucks
-    configPath.replace("AppData/Local","AppData/Roaming");
-#endif
+    if (isWindows) {
+        // backward compatability sucks
+        configPath.replace("AppData/Local","AppData/Roaming");
+    }
     return configPath;
 }
 
 QString Platform::sanitizedFilename(QString fileName)
 {
-#ifdef Q_OS_WIN
-    fileName.replace(':', '.');
-#endif
+    if (isWindows)
+        fileName.replace(':', '.');
     return fileName;
 }
 
 bool Platform::tiledDesktopsExist()
 {
-#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
-    return true;
-#endif
-    return false;
+    return isUnix;
 }
 
 bool Platform::tilingDesktopActive()
 {
-#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
+    if (!isUnix)
+        return false;
+
     QProcessEnvironment env;
     QStringList tilers({ "awesome", "bspwm", "dwm", "i3", "larswm", "ion",
         "qtile", "ratpoison", "stumpwm", "wmii", "xmonad"});
@@ -52,7 +74,6 @@ bool Platform::tilingDesktopActive()
         if (!process.readAllStandardOutput().isEmpty())
             return true;
     }
-#endif
     return false;
 }
 
@@ -72,3 +93,4 @@ void Platform::disableAutomaticAccel(QWidget *what)
     dlclose(d);
 #endif
 }
+
