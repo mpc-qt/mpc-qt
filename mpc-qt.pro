@@ -14,7 +14,7 @@ TEMPLATE = app
 CONFIG += c++14
 
 unix:!macx:QT += x11extras dbus
-unix:!macx:LIBS += -ldl
+unix:!macx:LIBS += $$QMAKE_LIBS_DYNLOAD
 
 !win32:CONFIG += link_pkgconfig
 !win32:PKGCONFIG += mpv
