@@ -385,6 +385,12 @@ void Flow::init() {
     connect(playbackManager, &PlaybackManager::systemShouldStandby,
             &screenSaver, &QScreenSaver::suspendSystem);
 
+    // this.screensaver -> this
+    connect(&screenSaver, &QScreenSaver::systemShutdown,
+            this, &Flow::endProgram);
+    connect(&screenSaver, &QScreenSaver::loggedOff,
+            this, &Flow::endProgram);
+
     // this -> mainwindow
     connect(this, &Flow::recentFilesChanged,
             mainWindow, &MainWindow::setRecentDocuments);
@@ -602,11 +608,10 @@ void Flow::self_windowsRestored()
 
 void Flow::mainwindow_instanceShouldQuit()
 {
-    storage.writeVMap("settings", settings);
-    storage.writeVMap("keys", keyMap);
-    storage.writeVList("recent", recentToVList());
-    storage.writeVMap("geometry", saveWindows());
-    qApp->quit();
+    // this should eventually be different from endProgram():
+    //windows.remove(window);
+    //if (windows.isEmpty())
+    endProgram();
 }
 
 void Flow::mainwindow_recentOpened(const TrackInfo &track)
@@ -735,6 +740,15 @@ void Flow::settingswindow_encodeTemplate(const QString &fmt)
 void Flow::settingswindow_screenshotFormat(const QString &fmt)
 {
     this->screenshotFormat = fmt;
+}
+
+void Flow::endProgram()
+{
+    storage.writeVMap("settings", settings);
+    storage.writeVMap("keys", keyMap);
+    storage.writeVList("recent", recentToVList());
+    storage.writeVMap("geometry", saveWindows());
+    qApp->quit();
 }
 
 void Flow::importPlaylist(QString fname)
