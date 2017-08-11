@@ -336,8 +336,8 @@ void Flow::init() {
             this, &Flow::mainwindow_takeImageAutomatically);
     connect(mainWindow, &MainWindow::optionsOpenRequested,
             this, &Flow::mainwindow_optionsOpenRequested);
-    connect(mainWindow, &MainWindow::applicationShouldQuit,
-            this, &Flow::mainwindow_applicationShouldQuit);
+    connect(mainWindow, &MainWindow::instanceShouldQuit,
+            this, &Flow::mainwindow_instanceShouldQuit);
 
     // manager -> this
     connect(playbackManager, &PlaybackManager::nowPlayingChanged,
@@ -345,7 +345,7 @@ void Flow::init() {
     connect(playbackManager, &PlaybackManager::stateChanged,
             this, &Flow::manager_stateChanged);
     connect(playbackManager, &PlaybackManager::instanceShouldClose,
-            this, &Flow::mainwindow_applicationShouldQuit);
+            this, &Flow::mainwindow_instanceShouldQuit);
 
     // settings -> this
     connect(settingsWindow, &SettingsWindow::settingsData,
@@ -600,7 +600,7 @@ void Flow::self_windowsRestored()
         server->fakePayload(makePayload());
 }
 
-void Flow::mainwindow_applicationShouldQuit()
+void Flow::mainwindow_instanceShouldQuit()
 {
     storage.writeVMap("settings", settings);
     storage.writeVMap("keys", keyMap);

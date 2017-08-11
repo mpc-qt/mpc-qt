@@ -101,7 +101,7 @@ private:
     void updateMouseHideTime();
 
 signals:
-    void applicationShouldQuit();
+    void instanceShouldQuit();
     void fileOpened(QUrl what, QUrl subs);
     void severalFilesOpened(QList<QUrl> what, bool important = false);
     void dvdbdOpened(QUrl what);

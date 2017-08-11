@@ -38,7 +38,7 @@ private:
 
 private slots:
     void self_windowsRestored();
-    void mainwindow_applicationShouldQuit();
+    void mainwindow_instanceShouldQuit();
     void mainwindow_recentOpened(const TrackInfo &track);
     void mainwindow_recentClear();
     void mainwindow_takeImage(Helpers::ScreenshotRender render);

@@ -266,7 +266,7 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     event->accept();
-    emit applicationShouldQuit();
+    emit instanceShouldQuit();
 }
 
 void MainWindow::mouseMoveEvent(QMouseEvent *event)
