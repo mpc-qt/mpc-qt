@@ -19,6 +19,9 @@ public slots:
     void suspendSystem();
     void shutdownSystem();
     void logOff();
+
+private:
+    bool canShutdown();
 };
 
 #endif // WIN_QSCREENSAVER_H

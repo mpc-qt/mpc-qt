@@ -19,7 +19,7 @@ unix:!macx:LIBS += $$QMAKE_LIBS_DYNLOAD
 !win32:CONFIG += link_pkgconfig
 !win32:PKGCONFIG += mpv
 
-win32:LIBS += -L$$PWD/mpv-dev/lib/ -llibmpv
+win32:LIBS += -L$$PWD/mpv-dev/lib/ -llibmpv -lpowrprof
 win32:INCLUDEPATH += $$PWD/mpv-dev/include
 win32:DEPENDPATH += $$PWD/mpv-dev
 
