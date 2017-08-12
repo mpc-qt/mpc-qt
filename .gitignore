@@ -45,3 +45,8 @@ Makefile*
 /debug/
 /object_script.*.Debug
 /object_script.*.Release
+/resources/translations/
+
+# make release scripts
+/mpc-qt-*/
+*.zip 
