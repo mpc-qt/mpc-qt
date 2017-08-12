@@ -550,6 +550,9 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
             subtitleList.append(item);
         }
     }
+    if (!subtitleList.isEmpty())
+        subtitleList.append({0, tr("0: None")});
+
     emit videoTracksAvailable(videoList);
     emit audioTracksAvailable(audioList);
     emit subtitleTracksAvailable(subtitleList);
