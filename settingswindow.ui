@@ -149,7 +149,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>9</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -3335,6 +3335,9 @@ media file played</string>
                   <string>Color Correction</string>
                  </attribute>
                  <layout class="QFormLayout" name="formLayout_3">
+                  <property name="fieldGrowthPolicy">
+                   <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+                  </property>
                   <item row="0" column="0">
                    <widget class="QLabel" name="ccGammaLabel">
                     <property name="text">
@@ -3489,7 +3492,27 @@ media file played</string>
                     </item>
                     <item>
                      <property name="text">
-                      <string>ST2084</string>
+                      <string>PQ</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>HLG</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Panasonic V-Log</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Sony S-Log1</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Sony S-Log2</string>
                      </property>
                     </item>
                    </widget>
@@ -3826,6 +3849,9 @@ media file played</string>
              <layout class="QVBoxLayout" name="audioBoxLayout">
               <item>
                <layout class="QFormLayout" name="audioDeviceLayout">
+                <property name="fieldGrowthPolicy">
+                 <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+                </property>
                 <item row="0" column="0">
                  <widget class="QLabel" name="audioDeviceLabel">
                   <property name="text">

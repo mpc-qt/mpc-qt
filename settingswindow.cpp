@@ -46,7 +46,8 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
                       "bt.2020", "bt.470m", "apple", "adobe", "prophoto",\
                       "cie1931", "dvi-p3"}},
     {"ccTargetTRC", {"auto", "by.1886", "srgb", "linear", "gamma1.8",\
-                     "gamma2.2", "gamma2.8", "prophoto", "st2084"}},
+                     "gamma2.2", "gamma2.8", "prophoto", "pq", "hlg", "v-log",
+                     "s-log1", "s-log2"}},
     {"ccHdrMapper", {"clip", "mobius", "reinhard", "hable", "gamma", \
                      "linear"}},
     {"audioChannels", {"auto-safe", "auto", "stereo"}},
