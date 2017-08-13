@@ -119,9 +119,9 @@ RESOURCES += \
 OTHER_FILES += \
     LICENSE \
     README.md \
+    generate-localinstall-desktop.py \
+    DOCS/codebase2.svg \
     DOCS/codebase.svg
 
 DISTFILES += \
-    generate-localinstall-desktop.py \
-    DOCS/codebase2.svg \
     DOCS/ipc.md
