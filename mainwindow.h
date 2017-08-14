@@ -134,9 +134,7 @@ signals:
     void chapterSelected(int64_t id);
     void timeSelected(double time);
     void zoomPresetChanged(int which);
-
     void playCurrentItemRequested();
-    void fireUpdateSize();
 
 public slots:
     void setNoVideoSize(const QSize &sz);
@@ -278,8 +276,6 @@ private slots:
     void volume_sliderMoved(double position);
     void playlistWindow_windowDocked();
     void hideTimer_timeout();
-
-    void sendUpdateSize();
 
     void on_actionFileLoadSubtitle_triggered();
 

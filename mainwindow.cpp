@@ -6,6 +6,7 @@
 #include "ui_mainwindow.h"
 #include "openfiledialog.h"
 #include "helpers.h"
+#include "platform/unify.h"
 #include <QDesktopWidget>
 #include <QWindow>
 #include <QMenuBar>
@@ -51,6 +52,18 @@ MainWindow::MainWindow(QWidget *parent) :
     globalizeAllActions();
     setUiEnabledState(false);
     setDiscState(false);
+
+    // Sync with X11
+    if (Platform::isUnix) {
+        setAttribute(Qt::WA_DontShowOnScreen, true);
+        show();
+        updateSize(true);
+        qApp->processEvents(QEventLoop::AllEvents |
+                            QEventLoop::WaitForMoreEvents,
+                            50);
+        hide();
+        setAttribute(Qt::WA_DontShowOnScreen, false);
+    }
 }
 
 MainWindow::~MainWindow()
@@ -167,10 +180,6 @@ void MainWindow::setScreensaverAbilities(QSet<QAbstractScreenSaver::Ability> ab)
 
 QSize MainWindow::desirableSize(bool first_run)
 {
-    if (!first_run && (zoomMode == FitToWindow || fullscreenMode() || isMaximized())) {
-        return QSize();
-    }
-
     // Grab device pixel ratio (2=HiDPI screen)
     qreal ratio = devicePixelRatio();
 
@@ -507,12 +516,6 @@ void MainWindow::setupStatus()
 
 void MainWindow::setupSizing()
 {
-    // The point of requesting calls to updateSize through a _queued_ slot is
-    // to give Qt time to respond to layout and window size changes.
-    connect(this, &MainWindow::fireUpdateSize,
-            this, &MainWindow::sendUpdateSize,
-            Qt::QueuedConnection);
-
     QSizeGrip *gripper = new QSizeGrip(this);
     ui->statusbar->layout()->addWidget(gripper);
 }
@@ -801,14 +804,10 @@ void MainWindow::updateBitrate()
 
 void MainWindow::updateSize(bool first_run)
 {
-    if (frozenWindow || isMaximized() || isFullScreen())
+    if (!first_run && (frozenWindow || isMaximized() || isFullScreen()))
         return;
 
     QSize desired = desirableSize(first_run);
-    if (desired.isNull()) {
-        ui->infoSection->layout()->update();
-        return;
-    }
     QPoint desiredPlace = desirablePosition(desired, first_run);
     QRect where = geometry();
     if (zoomCenter)
@@ -894,7 +893,7 @@ void MainWindow::updateMouseHideTime()
 void MainWindow::setNoVideoSize(const QSize &size)
 {
     noVideoSize_ = size.expandedTo(QSize(500,270));
-    emit fireUpdateSize();
+    updateSize();
 }
 
 void MainWindow::setWindowedMouseMap(const MouseStateMap &map)
@@ -1333,7 +1332,7 @@ void MainWindow::on_actionViewHideMenu_triggered()
 
     DecorationState nextState[] = { NoMenu, NoDecorations, AllDecorations };
     setUiDecorationState(nextState[static_cast<int>(decorationState_)]);
-    emit fireUpdateSize();
+    updateSize();
 }
 
 void MainWindow::on_actionViewHideSeekbar_toggled(bool checked)
@@ -1343,7 +1342,7 @@ void MainWindow::on_actionViewHideSeekbar_toggled(bool checked)
     else if (!checked && ui->seekbar->isVisible())
         ui->seekbar->hide();
     ui->controlSection->adjustSize();
-    emit fireUpdateSize();
+    updateSize();
 }
 
 void MainWindow::on_actionViewHideControls_toggled(bool checked)
@@ -1353,21 +1352,21 @@ void MainWindow::on_actionViewHideControls_toggled(bool checked)
     else if (!checked && ui->controlbar->isVisible())
         ui->controlbar->hide();
     ui->controlSection->adjustSize();
-    emit fireUpdateSize();
+    updateSize();
 }
 
 void MainWindow::on_actionViewHideInformation_toggled(bool checked)
 {
     Q_UNUSED(checked);
     updateInfostats();
-    emit fireUpdateSize();
+    updateSize();
 }
 
 void MainWindow::on_actionViewHideStatistics_toggled(bool checked)
 {
     Q_UNUSED(checked);
     updateInfostats();
-    emit fireUpdateSize();
+    updateSize();
 }
 
 void MainWindow::on_actionViewHideStatus_toggled(bool checked)
@@ -1376,15 +1375,14 @@ void MainWindow::on_actionViewHideStatus_toggled(bool checked)
         ui->statusbar->show();
     else if (!checked && ui->statusbar->isVisible())
         ui->statusbar->hide();
-    ui->infoSection->adjustSize();
-    emit fireUpdateSize();
+    updateSize();
 }
 
 void MainWindow::on_actionViewHideSubresync_toggled(bool checked)
 {
     (void)checked;
 
-    emit fireUpdateSize();
+    updateSize();
 }
 
 void MainWindow::on_actionViewHidePlaylist_toggled(bool checked)
@@ -1403,21 +1401,21 @@ void MainWindow::on_actionViewHidePlaylist_toggled(bool checked)
     if (fullscreenMode_ && !fullscreenHidePanels)
         updateBottomAreaGeometry();
 
-    emit fireUpdateSize();
+    updateSize();
 }
 
 void MainWindow::on_actionViewHideCapture_toggled(bool checked)
 {
     (void)checked;
 
-    emit fireUpdateSize();
+    updateSize();
 }
 
 void MainWindow::on_actionViewHideNavigation_toggled(bool checked)
 {
     (void)checked;
 
-    emit fireUpdateSize();
+    updateSize();
 }
 
 void MainWindow::on_actionViewPresetsMinimal_triggered()
@@ -1875,11 +1873,6 @@ void MainWindow::hideTimer_timeout()
     if (fullscreenMode_ &&
             !ui->bottomArea->geometry().contains(mpvw->mapFromGlobal(QCursor::pos())))
         ui->bottomArea->hide();
-}
-
-void MainWindow::sendUpdateSize()
-{
-    updateSize();
 }
 
 void MainWindow::on_actionPlaylistSearch_triggered()
