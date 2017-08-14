@@ -1022,3 +1022,10 @@ void SettingsWindow::on_playbackMouseHideWindowed_toggled(bool checked)
 {
     ui->playbackMouseHideWindowedDuration->setEnabled(checked);
 }
+
+void SettingsWindow::on_miscResetSettings_clicked()
+{
+    for (Setting &s : defaultSettings) {
+        s.sendToControl();
+    }
+}

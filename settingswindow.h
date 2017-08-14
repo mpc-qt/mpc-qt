@@ -221,6 +221,8 @@ private slots:
 
     void on_playbackMouseHideWindowed_toggled(bool checked);
 
+    void on_miscResetSettings_clicked();
+
 private:
     Ui::SettingsWindow *ui = nullptr;
     QActionEditor *actionEditor = nullptr;
