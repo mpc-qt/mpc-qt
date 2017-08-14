@@ -60,16 +60,16 @@ bool Platform::tilingDesktopActive()
     QProcessEnvironment env;
     QStringList tilers({ "awesome", "bspwm", "dwm", "i3", "larswm", "ion",
         "qtile", "ratpoison", "stumpwm", "wmii", "xmonad"});
-    QString desktop = env.value("XDG_DESKTOP_SESSION");
+    QString desktop = env.value("XDG_SESSION_DESKTOP", "=");
     if (tilers.contains(desktop))
         return true;
-    desktop = env.value("XDG_DATA_DIRS");
+    desktop = env.value("XDG_DATA_DIRS", "=");
     for (QString &wm : tilers)
         if (desktop.contains(wm))
             return true;
     for (QString &wm: tilers) {
         QProcess process;
-        process.start("pgrep", QStringList({wm}));
+        process.start("pgrep", QStringList({"-x", wm}));
         process.waitForFinished();
         if (!process.readAllStandardOutput().isEmpty())
             return true;
