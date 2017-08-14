@@ -53,6 +53,8 @@ class SettingsWindow : public QWidget
 public:
     explicit SettingsWindow(QWidget *parent = 0);
     ~SettingsWindow();
+    QVariantMap settings();
+    QVariantMap keyMap();
 
 private:
     void setupPlatformWidgets();
@@ -160,6 +162,7 @@ public slots:
     void setMouseMapDefaults(const QVariantMap &payload);
     void setAudioDevices(const QList<AudioDevice> &devices);
     void sendSignals();
+    void sendAcceptedSettings();
 
     void setScreensaverDisablingEnabled(bool enabled);
     void setServerName(const QString &name);

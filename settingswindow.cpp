@@ -800,6 +800,12 @@ void SettingsWindow::sendSignals()
     emit mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
 }
 
+void SettingsWindow::sendAcceptedSettings()
+{
+    emit settingsData(acceptedSettings.toVMap());
+    emit keyMapData(acceptedKeyMap);
+}
+
 void SettingsWindow::setScreensaverDisablingEnabled(bool enabled)
 {
     ui->playerDisableScreensaver->setEnabled(enabled);
@@ -873,8 +879,7 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
     if (buttonRole == QDialogButtonBox::ApplyRole ||
             buttonRole == QDialogButtonBox::AcceptRole) {\
         updateAcceptedSettings();
-        emit settingsData(acceptedSettings.toVMap());
-        emit keyMapData(acceptedKeyMap);
+        sendAcceptedSettings();
         actionEditor->updateActions();
         sendSignals();
     }
@@ -1028,4 +1033,5 @@ void SettingsWindow::on_miscResetSettings_clicked()
     for (Setting &s : defaultSettings) {
         s.sendToControl();
     }
+    updateLogoWidget();
 }

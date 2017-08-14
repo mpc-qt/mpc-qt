@@ -411,6 +411,7 @@ void Flow::init() {
     settingsWindow->takeKeyMap(keyMap);
     settingsWindow->setServerName(server->fullServerName());
     settingsWindow->sendSignals();
+    settingsWindow->sendAcceptedSettings();
 
     // Push all our windows on to the same (moused) screen... similar code is
     // in mainwindow.cpp.  Prevents jumping screens on multiple screens for
