@@ -192,6 +192,8 @@ MpvWidget::MpvWidget(QWidget *parent, const QString &clientName) :
             this, &MpvWidget::self_playbackStarted);
     connect(this, &MpvWidget::playbackFinished,
             this, &MpvWidget::self_playbackFinished);
+
+    this->setContextMenuPolicy(Qt::CustomContextMenu);
 }
 
 MpvWidget::~MpvWidget()

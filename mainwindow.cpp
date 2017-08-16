@@ -31,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     setupMenu();
+    setupContextMenu();
     setupActionGroups();
     setupPositionSlider();
     setupVolumeSlider();
@@ -424,6 +425,49 @@ void MainWindow::setupMenu()
     ui->infoStats->setVisible(false);
 }
 
+void MainWindow::setupContextMenu()
+{
+    contextMenu = new QMenu(this);
+
+    contextMenu->addMenu(ui->menuFile);
+    contextMenu->addSeparator();
+    contextMenu->addAction(ui->actionPlayPause);
+    contextMenu->addAction(ui->actionPlayStop);
+    contextMenu->addSeparator();
+    contextMenu->addAction(ui->actionViewFullscreen);
+    contextMenu->addMenu(ui->menuNavigate);
+    contextMenu->addMenu(ui->menuFavorites);
+    contextMenu->addSeparator();
+    contextMenu->addMenu(ui->menuPlayAudio);
+    contextMenu->addMenu(ui->menuPlaySubtitles);
+    contextMenu->addMenu(ui->menuPlayVideo);
+    contextMenu->addSeparator();
+    contextMenu->addMenu(ui->menuPlayVolume);
+    contextMenu->addMenu(ui->menuPlayAfter);
+    contextMenu->addSeparator();
+
+    QMenu *contextView = new QMenu(tr("View"), this);
+    contextView->addMenu(ui->menuViewOntop);
+    contextView->addSeparator();
+    contextView->addAction(ui->actionViewHideMenu);
+    contextView->addAction(ui->actionViewHideSeekbar);
+    contextView->addAction(ui->actionViewHideControls);
+    contextView->addAction(ui->actionViewHideInformation);
+    contextView->addAction(ui->actionViewHideStatistics);
+    contextView->addAction(ui->actionViewHideStatus);
+    contextView->addAction(ui->actionViewHideSubresync);
+    contextView->addAction(ui->actionViewHidePlaylist);
+    contextView->addAction(ui->actionViewHideCapture);
+    contextView->addAction(ui->actionViewHideNavigation);
+    contextView->addMenu(ui->menuViewPresets);
+
+    contextMenu->addMenu(contextView);
+    contextMenu->addAction(ui->actionFileProperties);
+    contextMenu->addAction(ui->actionViewOptions);
+    contextMenu->addSeparator();
+    contextMenu->addAction(ui->actionFileExit);
+}
+
 void MainWindow::setupActionGroups()
 {
     QActionGroup *ag;
@@ -478,6 +522,8 @@ void MainWindow::setupMpvWidget()
     mpvw = new MpvWidget(this, "Media Player Classic Qute Theater");
     connect(mpvw, &MpvWidget::logoSizeChanged,
             this, &MainWindow::setNoVideoSize);
+    connect(mpvw, &MpvWidget::customContextMenuRequested,
+            this, &MainWindow::mpvw_customContextMenuRequested);
     mpvw->setMouseTracking(true);
 }
 
@@ -1818,6 +1864,12 @@ void MainWindow::on_actionHelpAbout_triggered()
       "along with this program; if not, write to the Free Software "
       "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA "
       "02110-1301 USA.");
+}
+
+
+void MainWindow::mpvw_customContextMenuRequested(const QPoint &pos)
+{
+    contextMenu->popup(mpvw->mapToGlobal(pos));
 }
 
 void MainWindow::position_sliderMoved(int position)

@@ -70,6 +70,7 @@ private:
     void setDiscState(bool playingADisc);
 
     void setupMenu();
+    void setupContextMenu();
     void setupActionGroups();
     void setupPositionSlider();
     void setupVolumeSlider();
@@ -270,6 +271,7 @@ private slots:
 
     void on_actionPlaylistSearch_triggered();
 
+    void mpvw_customContextMenuRequested(const QPoint &pos);
     void position_sliderMoved(int position);
     void position_hoverValue(double value, QString text, double x);
     void on_play_clicked();
@@ -288,6 +290,7 @@ private:
     QStatusTime *timePosition = nullptr;
     QStatusTime *timeDuration = nullptr;
     PlaylistWindow *playlistWindow_ = nullptr;
+    QMenu *contextMenu = nullptr;
     QTimer hideTimer;
 
     DecorationState decorationState_ = AllDecorations;
