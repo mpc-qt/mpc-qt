@@ -216,7 +216,7 @@ MpvWidget::~MpvWidget()
 
 QList<AudioDevice> MpvWidget::audioDevices()
 {
-    return AudioDevice::listFromVList(getMpvPropertyVariant("audio-devices").toList());
+    return AudioDevice::listFromVList(getMpvPropertyVariant("audio-device-list").toList());
 }
 
 void MpvWidget::showMessage(QString message)
