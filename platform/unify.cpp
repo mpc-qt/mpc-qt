@@ -1,5 +1,7 @@
 #include <QObject>
 #include <QProcess>
+#include <QApplication>
+#include <QDir>
 #include "unify.h"
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
@@ -30,6 +32,25 @@ const bool Platform::isUnix =
     false
 #endif
 ;
+
+QString Platform::resourcesPath()
+{
+    if (Platform::isMac)
+        return QApplication::applicationDirPath() + "/../Resources";
+    if (Platform::isWindows)
+        return QApplication::applicationDirPath();
+    if (Platform::isUnix) {
+        QStringList candidates {
+            "/usr/local/share/mpc-qt",
+            "/usr/share/mpc-qt"
+        };
+        for (QString &path : candidates) {
+            if (QDir(path).exists())
+                return path;
+        }
+    }
+    return ".";
+}
 
 QString Platform::fixedConfigPath(QString configPath)
 {
@@ -93,4 +114,7 @@ void Platform::disableAutomaticAccel(QWidget *what)
     dlclose(d);
 #endif
 }
+
+
+
 

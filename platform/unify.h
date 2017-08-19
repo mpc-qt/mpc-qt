@@ -9,6 +9,7 @@ namespace Platform {
     extern const bool isWindows;
     extern const bool isUnix;
 
+    QString resourcesPath();
     QString fixedConfigPath(QString configPath);
     QString sanitizedFilename(QString fileName);
     bool tiledDesktopsExist();

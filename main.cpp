@@ -20,7 +20,6 @@
 #include "settingswindow.h"
 #include "mpvwidget.h"
 #include "propertieswindow.h"
-#include "platform/resources_paths.h"
 #include "platform/unify.h"
 
 int main(int argc, char *argv[])
@@ -43,7 +42,8 @@ int main(int argc, char *argv[])
     a.installTranslator(&qtTranslator);
 
     QTranslator aTranslator;
-    aTranslator.load("mpc-qt_" + QLocale::system().name(), APP_LANG_PATH);
+    aTranslator.load("mpc-qt_" + QLocale::system().name(),
+                     Platform::resourcesPath() + "/translations/");
     a.installTranslator(&aTranslator);
 
     Flow f;

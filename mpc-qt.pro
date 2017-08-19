@@ -127,7 +127,6 @@ HEADERS  += \
     platform/qabstractscreensaver.h \
     qscreensaver.h \
     propertieswindow.h \
-    platform/resources_paths.h \
     platform/unify.h
 
 FORMS    += \
