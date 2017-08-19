@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normalon>:/images/icon/logo.svg</normalon>
+    <normalon>:/images/icon/mpc-qt.svg</normalon>
    </iconset>
   </property>
   <layout class="QVBoxLayout" name="mainLayout">

@@ -21,10 +21,12 @@
 *.qbs.user.*
 *.moc
 moc_*.cpp
+moc_*.h
 qrc_*.cpp
 ui_*.h
 Makefile*
 *-build-*
+mpc-qt
 
 # QtCreator
 
@@ -36,9 +38,6 @@ Makefile*
 
 #Python
 *.pyc
-
-#.desktop
-*.desktop
 
 # qmake
 /release/

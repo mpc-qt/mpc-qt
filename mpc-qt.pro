@@ -55,6 +55,30 @@ lrelease.commands = $$QMAKE_LRELEASE ${QMAKE_FILE_IN} -qm resources/translations
 lrelease.CONFIG += no_link target_predeps
 QMAKE_EXTRA_COMPILERS += lupdate lrelease
 
+unix {
+    isEmpty(PREFIX) {
+        PREFIX=/usr/local
+    }
+    target.path = $$PREFIX/bin
+
+    docs.files = DOCS/ipc.md
+    docs.path = $$PREFIX/share/doc/mpc-qt/
+
+    translations.files = resources/translations
+    translations.path = $$PREFIX/share/mpc-qt/
+
+    shortcut.files = mpc-qt.desktop
+    shortcut.path = $$PREFIX/share/applications/
+
+    logo.files = images/icon/mpc-qt.svg
+    logo.path = $$PREFIX/share/icons/hicolor/scalable/apps/
+
+    scripts.files = external/mpv-stats/stats.lua
+    scripts.path = $$PREFIX/share/mpc-qt/scripts/
+
+    INSTALLS += target docs shortcut logo scripts translations
+}
+
 unix:!macx:SOURCES += platform/unix_qscreensaver.cpp
 unix:!macx:HEADERS += platform/unix_qscreensaver.h
 
@@ -124,4 +148,5 @@ OTHER_FILES += \
     DOCS/codebase.svg
 
 DISTFILES += \
-    DOCS/ipc.md
+    DOCS/ipc.md \
+    mpc-qt.desktop

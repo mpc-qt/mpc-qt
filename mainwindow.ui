@@ -546,7 +546,7 @@
              <item>
               <widget class="QLabel" name="tinyicon">
                <property name="pixmap">
-                <pixmap resource="res.qrc">:/images/icon/logo16.svg</pixmap>
+                <pixmap resource="res.qrc">:/images/icon/tinyicon.svg</pixmap>
                </property>
               </widget>
              </item>

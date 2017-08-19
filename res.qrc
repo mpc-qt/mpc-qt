@@ -26,7 +26,7 @@
         <file>images/theme/black/document-export.svg</file>
         <file>images/theme/black/media-queue-visible.svg</file>
         <file>images/theme/black/view-media-queue.svg</file>
-        <file>images/icon/logo.svg</file>
-        <file>images/icon/logo16.svg</file>
+        <file>images/icon/mpc-qt.svg</file>
+        <file>images/icon/tinyicon.svg</file>
     </qresource>
 </RCC>
