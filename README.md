@@ -93,9 +93,6 @@ after compiling libmpv, or you may end up with linker errors.
 
 ### I don't know git, how do I do this?
 
-You'll have to perform a little bit of footwork beforehand.  What you're going
-to do is make a directory for this repo to sit in, and then compile it.
-
 First ensure you have the prerequisites as mentioned above, then open a terminal
 and `cd` into your general source-code directory. If one does not exist,
 `mkdir` one.
@@ -104,43 +101,26 @@ and `cd` into your general source-code directory. If one does not exist,
 
 >cd ~/src
 
-Then, make a directory to checkout this git into, and `cd` into that.
-
->mkdir mpc-qt
-
->cd mpc-qt
-
-At this stage you can clone this git repository using the following command:
+Then clone this git repository using the following command:
 
 >git clone https://github.com/cmdrkotori/mpc-qt.git
 
-Finally, `cd` into the checked-out repository and run qtcreator.
+Finally, `cd` into the checked-out repository and run qmake+make as usual.
 
 >cd mpc-qt
 
->qtcreator mpc-qt.pro
+>qmake
 
-Use qtcreator's suggested build setup and click "Configure Project", then
-press the big green arrow button in the bottom-left corner.  After this, the
-executable should be in `~/src/mpc-qt/build-mpc-qt...`.
+>make -j *threads*
 
-Now you can create a desktop entry with the provided script, for the purposes
-of sticking a shortcut to mpc-qt on your desktop. (requires Python 3.)
-
->./generate-localinstall-desktop.py
-
-This will search the file system for the needed binaries and create the file
-`Media Player Classic Qute Theater.desktop`, a usuable `.desktop` file, even
-if you forgot to (or can't) run ldconfig.
+>sudo make install
 
 You're done!  Later on, performing a git pull from inside the source code
 directory will get the latest changes.
 
 >git pull origin master
 
-Then in Qt Creator, select `Build->Rebuild All`, and run mpc-qt as you were.
-Do this regularly to keep your local build up to date.
-
+Rebuild by following the qmake+make steps as described above.
 
 ## Compiling on Windows
 
