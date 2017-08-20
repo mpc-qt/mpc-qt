@@ -40,14 +40,9 @@ QString Platform::resourcesPath()
     if (Platform::isWindows)
         return QApplication::applicationDirPath();
     if (Platform::isUnix) {
-        QStringList candidates {
-            "/usr/local/share/mpc-qt",
-            "/usr/share/mpc-qt"
-        };
-        for (QString &path : candidates) {
-            if (QDir(path).exists())
-                return path;
-        }
+#ifdef MPCQT_PREFIX
+        return MPCQT_PREFIX "/share/mpc-qt";
+#endif
     }
     return ".";
 }

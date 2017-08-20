@@ -59,6 +59,8 @@ unix {
     isEmpty(PREFIX) {
         PREFIX=/usr/local
     }
+    DEFINES += MPCQT_PREFIX=\\\"$$PREFIX\\\"
+
     target.path = $$PREFIX/bin
 
     docs.files = DOCS/ipc.md
