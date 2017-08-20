@@ -473,6 +473,11 @@ void MainWindow::setupActionGroups()
     QActionGroup *ag;
 
     ag = new QActionGroup(this);
+    ag->addAction(ui->actionViewOSDMessages);
+    ag->addAction(ui->actionViewOSDStatistics);
+    ag->addAction(ui->actionViewOSDFrameTimings);
+
+    ag = new QActionGroup(this);
     ag->addAction(ui->actionViewOntopDefault);
     ag->addAction(ui->actionViewOntopAlways);
     ag->addAction(ui->actionViewOntopPlaying);
@@ -1505,6 +1510,33 @@ void MainWindow::on_actionViewPresetsNormal_triggered()
     ui->actionViewHideSubresync->setChecked(false);
     ui->actionViewHideCapture->setChecked(false);
     ui->actionViewHideNavigation->setChecked(false);
+}
+
+void MainWindow::on_actionViewOSDMessages_triggered()
+{
+    mpvw->showStatsPage(0);
+}
+
+void MainWindow::on_actionViewOSDStatistics_triggered()
+{
+    mpvw->showStatsPage(1);
+}
+
+void MainWindow::on_actionViewOSDFrameTimings_triggered()
+{
+    mpvw->showStatsPage(2);
+}
+
+void MainWindow::on_actionViewOSDCycle_triggered()
+{
+    QActionGroup *osdActionGroup = ui->actionViewOSDMessages->actionGroup();
+    QAction *nextOsdAction;
+    int newpage;
+
+    newpage = mpvw->cycleStatsPage();
+    nextOsdAction = osdActionGroup->actions().value(newpage, nullptr);
+    if (nextOsdAction)
+        nextOsdAction->setChecked(true);
 }
 
 void MainWindow::on_actionViewFullscreen_toggled(bool checked)

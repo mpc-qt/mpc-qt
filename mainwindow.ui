@@ -677,6 +677,16 @@
      <addaction name="actionViewOntopPlaying"/>
      <addaction name="actionViewOntopVideo"/>
     </widget>
+    <widget class="QMenu" name="menuOSD">
+     <property name="title">
+      <string>OS&amp;D</string>
+     </property>
+     <addaction name="actionViewOSDMessages"/>
+     <addaction name="actionViewOSDStatistics"/>
+     <addaction name="actionViewOSDFrameTimings"/>
+     <addaction name="separator"/>
+     <addaction name="actionViewOSDCycle"/>
+    </widget>
     <addaction name="actionViewHideMenu"/>
     <addaction name="actionViewHideSeekbar"/>
     <addaction name="actionViewHideControls"/>
@@ -687,6 +697,7 @@
     <addaction name="actionViewHidePlaylist"/>
     <addaction name="actionViewHideCapture"/>
     <addaction name="actionViewHideNavigation"/>
+    <addaction name="menuOSD"/>
     <addaction name="menuViewPresets"/>
     <addaction name="separator"/>
     <addaction name="actionViewFullscreen"/>
@@ -1814,6 +1825,41 @@
    </property>
    <property name="text">
     <string>&amp;Repeat</string>
+   </property>
+  </action>
+  <action name="actionViewOSDMessages">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Application Messages</string>
+   </property>
+  </action>
+  <action name="actionViewOSDStatistics">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;General Statistics</string>
+   </property>
+  </action>
+  <action name="actionViewOSDFrameTimings">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Frame Timings</string>
+   </property>
+  </action>
+  <action name="actionViewOSDCycle">
+   <property name="text">
+    <string>Cycle</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+J</string>
    </property>
   </action>
  </widget>

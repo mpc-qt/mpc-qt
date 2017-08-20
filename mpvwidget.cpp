@@ -17,6 +17,7 @@
 #include <mpv/qthelper.hpp>
 #include "mpvwidget.h"
 #include "helpers.h"
+#include "platform/unify.h"
 
 #ifndef Q_PROCESSOR_ARM
     #ifndef GLAPIENTRY
@@ -221,7 +222,33 @@ QList<AudioDevice> MpvWidget::audioDevices()
 
 void MpvWidget::showMessage(QString message)
 {
-    emit ctrlCommand(QVariantList({"show_text", message, "1000"}));
+    if (shownStatsPage <= 0 || shownStatsPage >= 3)
+        emit ctrlCommand(QVariantList({"show_text", message, "1000"}));
+}
+
+void MpvWidget::showStatsPage(int page)
+{
+    bool statsVisible = (shownStatsPage > 0 && shownStatsPage < 3);
+    bool wantVisible = (page > 0 && page < 3);
+
+    if (wantVisible ^ statsVisible) {
+        qDebug() << "toggling stats page";
+        ctrlCommand(QStringList({"script-binding",
+                                 "stats/display-stats-toggle"}));
+    }
+    if (wantVisible) {
+        qDebug() << "setting page to " << page;
+        QStringList cmd { "script-binding",
+                          QString("stats/display-page-%1").arg(QString::number(page)) };
+        ctrlCommand(cmd);
+    }
+    shownStatsPage = page;
+}
+
+int MpvWidget::cycleStatsPage()
+{
+    showStatsPage(shownStatsPage < 2 ? shownStatsPage+1 : 0);
+    return shownStatsPage;
 }
 
 void MpvWidget::fileOpen(QString filename)
@@ -755,6 +782,8 @@ void MpvController::create(bool video, bool audio)
     mpv = mpv::qt::Handle::FromRawHandle(mpv_create());
     if (!mpv)
         throw std::runtime_error("could not create mpv context");
+
+    setOptionVariant("scripts", Platform::resourcesPath() + "/scripts/stats.lua");
 
     if (mpv_initialize(mpv) < 0)
         throw std::runtime_error("could not initialize mpv context");

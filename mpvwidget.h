@@ -26,6 +26,8 @@ public:
     QList<AudioDevice> audioDevices();
 
     void showMessage(QString message);
+    void showStatsPage(int page);
+    int cycleStatsPage();
 
     void fileOpen(QString filename);
     void discFilesOpen(QString path);
@@ -150,6 +152,7 @@ private:
     double playLength_ = 0.0;
     int glWidth = 0, glHeight = 0;
 
+    int shownStatsPage = 0;
     bool drawLogo = true;
     LogoDrawer *logo = nullptr;
 
