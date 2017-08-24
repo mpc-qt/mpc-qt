@@ -38,6 +38,7 @@ public:
     void screenshot(const QString &fileName, Helpers::ScreenshotRender render);
     void setMouseHideTime(int msec);
     void setLogoUrl(const QString &filename);
+    void setLogoBackground(const QColor &color);
     void setSubFile(QString filename);
     void addSubFile(QString filename);
 

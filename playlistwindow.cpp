@@ -25,6 +25,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     ui->searchHost->setVisible(false);
     ui->searchField->installEventFilter(this);
 
+    setupIconThemer();
     connectSignalsToSlots();
     Platform::disableAutomaticAccel(this);
 }
@@ -241,6 +242,21 @@ void PlaylistWindow::wheelEvent(QWheelEvent *event)
     event->accept();
 }
 
+void PlaylistWindow::setupIconThemer()
+{
+    QList<IconThemer::IconData> data {
+        { ui->newTab, "tab-new" },
+        { ui->closeTab, "tab-close" },
+        { ui->duplicateTab, "tab-duplicate" },
+        { ui->importList, "document-import" },
+        { ui->exportList, "document-export" },
+        { ui->visibleToQueue, "media-queue-visible" },
+        { ui->showQueue, "view-media-queue" }
+    };
+    for (auto &d : data)
+        themer.addIconData(d);
+}
+
 void PlaylistWindow::connectSignalsToSlots()
 {
     connect(this, &PlaylistWindow::visibilityChanged,
@@ -319,6 +335,12 @@ void PlaylistWindow::addQuickQueue()
     connect(queueWidget, &QDrawnQueue::itemDesired,
             this, &PlaylistWindow::itemDesired);
     ui->quickPage->layout()->addWidget(queueWidget);
+}
+
+void PlaylistWindow::setIconTheme(const QString &fallback,
+                                  const QString &custom)
+{
+    themer.setIconFolders(fallback, custom);
 }
 
 bool PlaylistWindow::activateItem(QUuid playlistUuid, QUuid itemUuid)

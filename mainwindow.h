@@ -80,6 +80,7 @@ private:
     void setupStatus();
     void setupSizing();
     void setupBottomArea();
+    void setupIconThemer();
     void setupHideTimer();
     void connectActionsToSignals();
     void connectActionsToSlots();
@@ -142,6 +143,8 @@ public slots:
     void setWindowedMouseMap(const MouseStateMap &map);
     void setFullscreenMouseMap(const MouseStateMap &map);
     void setRecentDocuments(QList<TrackInfo> tracks);
+    void setIconTheme(QString fallback, QString custom);
+    void setInfoColors(const QColor &foreground, const QColor &background);
     void setTime(double time, double length);
     void setMediaTitle(QString title);
     void setChapterTitle(QString title);
@@ -330,6 +333,7 @@ private:
     double audioBitrate = 0;
     double videoBitrate = 0;
 
+    IconThemer themer;
     MouseStateMap mouseMapWindowed;
     MouseStateMap mouseMapFullscreen;
 };

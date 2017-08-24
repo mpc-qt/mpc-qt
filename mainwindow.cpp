@@ -42,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setupSizing();
     setupBottomArea();
     setupHideTimer();
+    setupIconThemer();
 
     mpvw->installEventFilter(this);
     playlistWindow_->installEventFilter(this);
@@ -579,6 +580,26 @@ void MainWindow::setupBottomArea()
     ui->bottomArea->setMouseTracking(true);
 }
 
+void MainWindow::setupIconThemer()
+{
+    QList<IconThemer::IconData> data {
+        { ui->play, "media-playback-start" },
+        { ui->pause, "media-playback-pause" },
+        { ui->stop, "media-playback-stop" },
+        { ui->skipBackward, "go-previous" },
+        { ui->skipForward, "go-next" },
+        { ui->speedDecrease, "media-seek-backward" },
+        { ui->speedIncrease, "media-seek-forward" },
+        { ui->stepBackward, "media-skip-backward" },
+        { ui->stepForward, "media-skip-forward" },
+        { ui->loopA, "zone-in" },
+        { ui->loopB, "zone-out" },
+        { ui->mute, "player-volume", "player-volume-muted" }
+    };
+    for (auto &d : data)
+        themer.addIconData(d);
+}
+
 void MainWindow::setupHideTimer()
 {
     hideTimer.setSingleShot(true);
@@ -977,6 +998,19 @@ void MainWindow::setRecentDocuments(QList<TrackInfo> tracks)
     }
     ui->menuFileRecent->addSeparator();
     ui->menuFileRecent->addAction(ui->actionFileRecentClear);
+}
+
+void MainWindow::setIconTheme(QString fallback, QString custom)
+{
+    themer.setIconFolders(fallback, custom);
+}
+
+void MainWindow::setInfoColors(const QColor &foreground, const QColor &background)
+{
+    QColor fg = foreground.isValid() ? foreground : QColor(255,255,255);
+    QColor bg = background.isValid() ? background : QColor(0,0,0);
+    QString css = QString("color: %1; background: %2;").arg(fg.name(), bg.name());
+    ui->infoSection->setStyleSheet(css);
 }
 
 void MainWindow::setTime(double time, double length)
@@ -1784,6 +1818,8 @@ void MainWindow::on_actionPlayVolumeMute_toggled(bool checked)
     emit volumeMuteChanged(checked);
     ui->actionPlayVolumeMute->setChecked(checked);
     ui->mute->setChecked(checked);
+    ui->mute->setIcon(themer.fetchIcon(checked ? "player-volume-muted"
+                                               : "player-volume"));
 }
 
 void MainWindow::on_actionPlayAfterOnceExit_triggered()

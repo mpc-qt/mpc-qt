@@ -245,6 +245,10 @@ void Flow::init() {
             mainWindow, &MainWindow::setWindowedMouseMap);
     connect(settingsWindow, &SettingsWindow::mouseFullscreenMap,
             mainWindow, &MainWindow::setFullscreenMouseMap);
+    connect(settingsWindow, &SettingsWindow::iconTheme,
+            mainWindow, &MainWindow::setIconTheme);
+    connect(settingsWindow, &SettingsWindow::infoStatsColors,
+            mainWindow, &MainWindow::setInfoColors);
     connect(settingsWindow, &SettingsWindow::volume,
             mainWindow, &MainWindow::setVolume);
     connect(settingsWindow, &SettingsWindow::volumeStep,
@@ -268,6 +272,8 @@ void Flow::init() {
 
     // settings -> mpvwidget
     auto mpvw = mainWindow->mpvWidget();
+    connect(settingsWindow, &SettingsWindow::videoColor,
+            mpvw, &MpvWidget::setLogoBackground);
     connect(settingsWindow, &SettingsWindow::logoSource,
             mpvw, &MpvWidget::setLogoUrl);
     connect(settingsWindow, &SettingsWindow::volume,
@@ -308,6 +314,8 @@ void Flow::init() {
             propertiesWindow, &PropertiesWindow::setChapters);
 
     // settings -> playlistWindow
+    connect(settingsWindow, &SettingsWindow::iconTheme,
+            mainWindow->playlistWindow(), &PlaylistWindow::setIconTheme);
     connect(settingsWindow, &SettingsWindow::playlistFormat,
             mainWindow->playlistWindow(), &PlaylistWindow::setDisplayFormatSpecifier);
 
@@ -316,6 +324,10 @@ void Flow::init() {
             playbackManager, &PlaybackManager::setPlaybackForever);
     connect(settingsWindow, &SettingsWindow::playbackPlayTimes,
             playbackManager, &PlaybackManager::setPlaybackPlayTimes);
+
+    // settings -> application
+    connect(settingsWindow, &SettingsWindow::applicationPalette,
+            qApp, [](const QPalette &pal) { qApp->setPalette(pal); });
 
     // manager -> settings
     connect(playbackManager, &PlaybackManager::playerSettingsRequested,

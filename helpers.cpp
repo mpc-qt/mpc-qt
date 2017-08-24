@@ -1,4 +1,5 @@
 #include <QDateTime>
+#include <QPushButton>
 #include <QFileDialog>
 #include <QApplication>
 #include <QLocalServer>
@@ -253,10 +254,50 @@ bool Helpers::pointFromString(QPoint &point, const QString &text)
 
 
 
+IconThemer::IconThemer(QObject *parent)
+    : QObject(parent)
+{
+
+}
+
+void IconThemer::addIconData(const IconThemer::IconData &data)
+{
+    iconDataList.append(data);
+}
+
+QIcon IconThemer::fetchIcon(const QString &name)
+{
+    QDir customDir(custom);
+    if (customDir.exists() && customDir.exists(name)) {
+        return QIcon(custom + name + ".svg");
+    }
+    if (!fallback.isEmpty()) {
+        return QIcon(fallback + name + ".svg");
+    }
+    return QIcon::fromTheme(name, QIcon(":/images/theme/black/" + name));
+}
+
+void IconThemer::setIconFolders(const QString &fallbackFolder,
+                                const QString &customFolder)
+{
+    fallback = fallbackFolder;
+    custom = customFolder;
+    for (const IconData &data : iconDataList)  {
+        QString nameToUse = data.iconNormal;
+        if (data.button->isChecked() && !data.iconChecked.isEmpty())
+            nameToUse = data.iconChecked;
+        QIcon icon(fetchIcon(nameToUse));
+        data.button->setIcon(icon);
+    }
+}
+
+
+
 LogoDrawer::LogoDrawer(QObject *parent)
     : QObject(parent)
 {
     setLogoUrl("");
+    setLogoBackground(QColor(0,0,0));
 }
 
 LogoDrawer::~LogoDrawer()
@@ -269,6 +310,11 @@ void LogoDrawer::setLogoUrl(const QString &filename)
     logoUrl = filename.isEmpty() ? ":/images/bitmaps/blank-screen.png"
                                  : filename;
     regenerateTexture();
+}
+
+void LogoDrawer::setLogoBackground(const QColor &color)
+{
+    logoBackground = color.isValid() ? color : QColor(0,0,0);
 }
 
 void LogoDrawer::resizeGL(int w, int h)
@@ -299,7 +345,7 @@ void LogoDrawer::paintGL(QOpenGLWidget *widget)
     QRect window(-1, -1, 2*ratio, 2*ratio);
     painter.setWindow(window);
     painter.setRenderHint(QPainter::SmoothPixmapTransform);
-    painter.fillRect(window, QBrush(QColor(0,0,0)));
+    painter.fillRect(window, QBrush(logoBackground));
     if (!logo.isNull())
         painter.drawImage(logoLocation, logo);
 }
@@ -337,11 +383,19 @@ void LogoWidget::setLogo(const QString &filename) {
     }
 }
 
+void LogoWidget::setLogoBackground(const QColor &color)
+{
+    logoBackground = color;
+    if (logoDrawer)
+        logoDrawer->setLogoBackground(color);
+}
+
 void LogoWidget::initializeGL()
 {
     if (!logoDrawer) {
         logoDrawer = new LogoDrawer(this);
         logoDrawer->setLogoUrl(logoUrl);
+        logoDrawer->setLogoBackground(logoBackground);
     }
 }
 

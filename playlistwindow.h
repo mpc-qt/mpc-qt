@@ -45,6 +45,7 @@ protected:
     void wheelEvent(QWheelEvent *event);
 
 private:
+    void setupIconThemer();
     void connectButtonsToActions();
     void connectSignalsToSlots();
 
@@ -64,6 +65,8 @@ signals:
     void quickQueueMode(bool yes);
 
 public slots:
+    void setIconTheme(const QString &fallback, const QString &custom);
+
     bool activateItem(QUuid playlistUuid, QUuid itemUuid);
     void changePlaylistSelection(QUrl itemUrl, QUuid playlistUuid, QUuid itemUuid);
     void addSimplePlaylist(QStringList data);
@@ -119,6 +122,7 @@ private slots:
 
 private:
     Ui::PlaylistWindow *ui = nullptr;
+    IconThemer themer;
     QUuid currentPlaylist;
     DisplayParser displayParser;
     bool showSearch = false;

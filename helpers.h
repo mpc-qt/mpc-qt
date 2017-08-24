@@ -9,7 +9,9 @@
 #include <QOpenGLWidget>
 #include <QDate>
 #include <QTime>
+#include <QDir>
 
+class QPushButton;
 class QFileDialog;
 class QLocalServer;
 class QLocalSocket;
@@ -39,12 +41,35 @@ namespace Helpers {
                          ShutdownAfter, LogOffAfter, LockAfter };
 }
 
+class IconThemer : public QObject {
+    Q_OBJECT
+public:
+    class IconData {
+    public:
+        IconData(QPushButton *b, QString on, QString off = QString()) :
+             button(b), iconNormal(on), iconChecked(off) {}
+        QPushButton *button; QString iconNormal; QString iconChecked;
+    };
+    explicit IconThemer(QObject *parent = 0);
+    void addIconData(const IconData &data);
+    QIcon fetchIcon(const QString &name);
+
+public slots:
+    void setIconFolders(const QString &fallbackFolder, const QString &customFolder);
+
+private:
+    QList<IconData> iconDataList;
+    QString fallback;
+    QString custom;
+};
+
 class LogoDrawer : public QObject {
     Q_OBJECT
 public:
     explicit LogoDrawer(QObject *parent = 0);
     ~LogoDrawer();
     void setLogoUrl(const QString &filename);
+    void setLogoBackground(const QColor &color);
     void resizeGL(int w, int h);
     void paintGL(QOpenGLWidget *widget);
 
@@ -58,6 +83,7 @@ private:
     QRectF logoLocation;
     QImage logo;
     QString logoUrl;
+    QColor logoBackground;
 };
 
 class LogoWidget : public QOpenGLWidget {
@@ -66,6 +92,7 @@ public:
     explicit LogoWidget(QWidget *parent = 0);
     ~LogoWidget();
     void setLogo(const QString &filename);
+    void setLogoBackground(const QColor &color);
 
 protected:
     void initializeGL();
@@ -75,6 +102,7 @@ protected:
 private:
     LogoDrawer *logoDrawer = nullptr;
     QString logoUrl;
+    QColor logoBackground;
 };
 
 class DisplayNode;

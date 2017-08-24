@@ -329,6 +329,11 @@ void MpvWidget::setLogoUrl(const QString &filename)
     doneCurrent();
 }
 
+void MpvWidget::setLogoBackground(const QColor &color)
+{
+    logo->setLogoBackground(color);
+}
+
 void MpvWidget::setSubFile(QString filename)
 {
     emit ctrlSetOptionVariant("sub-files", filename);

@@ -5,6 +5,7 @@
 #include <QColorDialog>
 #include <QProcess>
 #include <QProcessEnvironment>
+#include <QList>
 #include "settingswindow.h"
 #include "ui_settingswindow.h"
 #include "qactioneditor.h"
@@ -29,6 +30,8 @@
 
 
 QHash<QString, QStringList> SettingMap::indexedValueToText = {
+    {"interfaceIconsFallback", { ":/images/theme/black/", \
+                                 ":/images/theme/white/", "" }},
     {"videoFramebuffer", {"rgb8-rgba8", "rgb10-rgb10_a2", "rgba12-rgba12",\
                           "rgb16-rgba16", "rgb16f-rgba16f",\
                           "rgb32f-rgba32f"}},
@@ -194,6 +197,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->logoImageHost->layout()->addWidget(logoWidget);
 
     setupPlatformWidgets();
+    paletteToWidgets(qApp->palette());
 
     defaultSettings = generateSettingMap(this);
     acceptedSettings = defaultSettings;
@@ -269,6 +273,15 @@ void SettingsWindow::setupColorPickers()
 {
     struct ValuePick { QLineEdit *value; QPushButton *pick; };
     QVector<ValuePick> colors {
+        { ui->customButtonValue, ui->customButtonPick },
+        { ui->customWindowValue, ui->customWindowPick },
+        { ui->customWindowTextValue, ui->customWindowTextPick },
+        { ui->customLightValue, ui->customLightPick },
+        { ui->customMidValue, ui->customMidPick },
+        { ui->customDarkValue, ui->customDarkPick },
+        { ui->customTextValue, ui->customTextPick },
+        { ui->customBrightTextValue, ui->customBrightTextPick },
+        { ui->customBaseValue, ui->customBasePick },
         { ui->subsColorValue, ui->subsColorPick },
         { ui->subsBorderColorValue, ui->subsBorderColorPick },
         { ui->subsShadowColorValue, ui->subsShadowColorPick }
@@ -416,6 +429,27 @@ void SettingsWindow::updateLogoWidget()
     logoWidget->setLogo(selectedLogo());
 }
 
+void SettingsWindow::paletteToWidgets(const QPalette &p)
+{
+    struct tuple { QLineEdit *value; QPushButton *pick; QColor color; };
+    QList<tuple> widgets {
+        { ui->customButtonValue, ui->customButtonPick, p.button().color() },
+        { ui->customWindowValue, ui->customWindowTextPick, p.window().color() },
+        { ui->customWindowTextValue, ui->customWindowTextPick, p.windowText().color() },
+        { ui->customWindowTextValue, ui->customWindowTextPick, p.windowText().color() },
+        { ui->customLightValue, ui->customLightPick, p.light().color() },
+        { ui->customMidValue, ui->customMidPick, p.mid().color() },
+        { ui->customDarkValue, ui->customDarkPick, p.dark().color() },
+        { ui->customTextValue, ui->customTextPick, p.text().color() },
+        { ui->customBrightTextValue, ui->customBrightTextPick, p.brightText().color() },
+        { ui->customBaseValue, ui->customBasePick, p.base().color() },
+    };
+    for (const tuple &t : widgets) {
+        t.value->setText(t.color.name().mid(1).toUpper());
+        t.pick->setStyleSheet(QString("background: %1").arg(t.color.name()));
+    }
+}
+
 QString SettingsWindow::selectedLogo()
 {
     return ui->logoExternal->isChecked()
@@ -511,6 +545,23 @@ void SettingsWindow::sendSignals()
     emit rememberPanNScan(WIDGET_LOOKUP(ui->playerRememberPanScanZoom).toBool());
 
     emit logoSource(selectedLogo());
+    emit iconTheme(WIDGET_TO_TEXT(ui->interfaceIconsFallback),
+                   WIDGET_LOOKUP(ui->interfaceIconsCustomFolder).toString());
+    emit applicationPalette(QPalette(
+        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customWindowTextValue).toString())),
+        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customButtonValue).toString())),
+        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customLightValue).toString())),
+        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customDarkValue).toString())),
+        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customMidValue).toString())),
+        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customTextValue).toString())),
+        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customBrightTextValue).toString())),
+        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customBaseValue).toString())),
+        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customWindowValue).toString()))
+    ));
+    QPalette::ColorRole cr;
+    emit videoColor(QString("#%1").arg(WIDGET_LOOKUP(ui->windowVideoValue).toString()));
+    emit infoStatsColors(QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoForegroundValue).toString()),
+                         QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoBackgroundValue).toString()));
 
     emit volume(WIDGET_LOOKUP(ui->playbackVolume).toInt());
     emit volumeStep(WIDGET_LOOKUP(ui->playbackVolumeStep).toInt());
@@ -845,7 +896,7 @@ void SettingsWindow::colorPick_clicked(QLineEdit *colorValue)
     QColor selected = QColorDialog::getColor(initial, this);
     if (!selected.isValid())
         return;
-    QString asText = selected.name().mid(1);
+    QString asText = selected.name().mid(1).toUpper();
     colorValue->setText(asText);
     colorValue->setFocus();
 }
@@ -861,7 +912,7 @@ void SettingsWindow::on_pageTree_itemSelectionChanged()
     if (!modelIndex.isValid())
         return;
 
-    static int parentIndex[] = { 0, 4, 11, 14, 16, 17 };
+    static int parentIndex[] = { 0, 5, 12, 15, 17, 18 };
     int index = 0;
     if (!modelIndex.parent().isValid())
         index = parentIndex[modelIndex.row()];
@@ -1034,4 +1085,41 @@ void SettingsWindow::on_miscResetSettings_clicked()
         s.sendToControl();
     }
     updateLogoWidget();
+}
+
+static QColor colorFromWidget(QLineEdit *edit)
+{
+    return QColor(QString("#%1").arg(edit->text()));
+}
+
+void SettingsWindow::on_customGenerateButton_clicked()
+{
+    QPalette pal(colorFromWidget(ui->customButtonValue));
+    paletteToWidgets(pal);
+}
+
+void SettingsWindow::on_customGenerateButtonWindow_clicked()
+{
+    QPalette pal(colorFromWidget(ui->customButtonValue),
+                 colorFromWidget(ui->customWindowValue));
+    paletteToWidgets(pal);
+}
+
+void SettingsWindow::on_customGenerateSystem_clicked()
+{/*
+    QPalette pal(colorFromWidget(ui->customWindowTextValue),
+                 colorFromWidget(ui->customButtonValue),
+                 colorFromWidget(ui->customLightValue),
+                 colorFromWidget(ui->customDarkValue),
+                 colorFromWidget(ui->customMidValue),
+                 colorFromWidget(ui->customTextValue),
+                 colorFromWidget(ui->customBrightTextValue),
+                 colorFromWidget(ui->customBaseValue),
+                 colorFromWidget(ui->customWindowValue));*/
+    paletteToWidgets(QPalette());
+}
+
+void SettingsWindow::on_windowVideoValue_textChanged(const QString &arg1)
+{
+    logoWidget->setLogoBackground(QString("#%1").arg(ui->windowVideoValue->text()));
 }
