@@ -66,7 +66,6 @@ private:
     SettingMap generateSettingMap(QWidget *root);
     void generateVideoPresets();
     void updateLogoWidget();
-    //void paletteToWidgets(const QPalette &p);
     QString selectedLogo();
     QString channelSwitcher();
 
@@ -233,13 +232,7 @@ private slots:
     void on_playbackMouseHideWindowed_toggled(bool checked);
 
     void on_miscResetSettings_clicked();
-/*
-    void on_customGenerateButton_clicked();
 
-    void on_customGenerateButtonWindow_clicked();
-
-    void on_customGenerateSystem_clicked();
-*/
     void on_windowVideoValue_textChanged(const QString &arg1);
 
 private:

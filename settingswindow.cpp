@@ -428,27 +428,6 @@ void SettingsWindow::updateLogoWidget()
 {
     logoWidget->setLogo(selectedLogo());
 }
-/*
-void SettingsWindow::paletteToWidgets(const QPalette &p)
-{
-    struct tuple { QLineEdit *value; QPushButton *pick; QColor color; };
-    QList<tuple> widgets {
-        { ui->customButtonValue, ui->customButtonPick, p.button().color() },
-        { ui->customWindowValue, ui->customWindowTextPick, p.window().color() },
-        { ui->customWindowTextValue, ui->customWindowTextPick, p.windowText().color() },
-        { ui->customWindowTextValue, ui->customWindowTextPick, p.windowText().color() },
-        { ui->customLightValue, ui->customLightPick, p.light().color() },
-        { ui->customMidValue, ui->customMidPick, p.mid().color() },
-        { ui->customDarkValue, ui->customDarkPick, p.dark().color() },
-        { ui->customTextValue, ui->customTextPick, p.text().color() },
-        { ui->customBrightTextValue, ui->customBrightTextPick, p.brightText().color() },
-        { ui->customBaseValue, ui->customBasePick, p.base().color() },
-    };
-    for (const tuple &t : widgets) {
-        t.value->setText(t.color.name().mid(1).toUpper());
-        t.pick->setStyleSheet(QString("background: %1").arg(t.color.name()));
-    }
-}*/
 
 QString SettingsWindow::selectedLogo()
 {
@@ -1077,39 +1056,7 @@ void SettingsWindow::on_miscResetSettings_clicked()
     }
     updateLogoWidget();
 }
-/*
-static QColor colorFromWidget(QLineEdit *edit)
-{
-    return QColor(QString("#%1").arg(edit->text()));
-}
 
-void SettingsWindow::on_customGenerateButton_clicked()
-{
-    QPalette pal(colorFromWidget(ui->customButtonValue));
-    paletteToWidgets(pal);
-}
-
-void SettingsWindow::on_customGenerateButtonWindow_clicked()
-{
-    QPalette pal(colorFromWidget(ui->customButtonValue),
-                 colorFromWidget(ui->customWindowValue));
-    paletteToWidgets(pal);
-}
-
-void SettingsWindow::on_customGenerateSystem_clicked()
-{
-    QPalette pal(colorFromWidget(ui->customWindowTextValue),
-                 colorFromWidget(ui->customButtonValue),
-                 colorFromWidget(ui->customLightValue),
-                 colorFromWidget(ui->customDarkValue),
-                 colorFromWidget(ui->customMidValue),
-                 colorFromWidget(ui->customTextValue),
-                 colorFromWidget(ui->customBrightTextValue),
-                 colorFromWidget(ui->customBaseValue),
-                 colorFromWidget(ui->customWindowValue));
-    paletteToWidgets(QPalette());
-}
-*/
 void SettingsWindow::on_windowVideoValue_textChanged(const QString &arg1)
 {
     logoWidget->setLogoBackground(QString("#%1").arg(ui->windowVideoValue->text()));
