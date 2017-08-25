@@ -643,9 +643,9 @@ media file played</string>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_5">
               <item>
-               <widget class="QRadioButton" name="interfaceWidgetSystem">
+               <widget class="QCheckBox" name="interfaceWidgetCustom">
                 <property name="text">
-                 <string>Syste&amp;m theme</string>
+                 <string>Use custom theme</string>
                 </property>
                 <property name="checked">
                  <bool>true</bool>
@@ -653,288 +653,23 @@ media file played</string>
                </widget>
               </item>
               <item>
-               <widget class="QRadioButton" name="interfaceWidgetCustom">
-                <property name="text">
-                 <string>Custom</string>
-                </property>
-               </widget>
-              </item>
-              <item>
                <widget class="QScrollArea" name="interfaceWidgetCustomScrollArea">
-                <property name="enabled">
-                 <bool>false</bool>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAlwaysOff</enum>
                 </property>
                 <property name="widgetResizable">
                  <bool>true</bool>
                 </property>
-                <widget class="QWidget" name="interfaceWidgetCustomScrollAreaContents">
+                <widget class="QWidget" name="interfaceWidgetCustomHost">
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-78</y>
-                   <width>542</width>
-                   <height>352</height>
+                   <y>0</y>
+                   <width>556</width>
+                   <height>178</height>
                   </rect>
                  </property>
-                 <layout class="QFormLayout" name="formLayout_4">
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="customButtonLabel">
-                    <property name="text">
-                     <string>Button</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <layout class="QHBoxLayout" name="customButtonLayout">
-                    <item>
-                     <widget class="QLineEdit" name="customButtonValue">
-                      <property name="inputMask">
-                       <string>HHHHHH</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="customButtonPick">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="customWindowLabel">
-                    <property name="text">
-                     <string>Window</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <layout class="QHBoxLayout" name="customWindowLayout">
-                    <item>
-                     <widget class="QLineEdit" name="customWindowValue">
-                      <property name="inputMask">
-                       <string>HHHHHH</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="customWindowPick">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QLabel" name="customWindowTextLabel">
-                    <property name="text">
-                     <string>WindowText</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="1">
-                   <layout class="QHBoxLayout" name="customWindowTextLayout">
-                    <item>
-                     <widget class="QLineEdit" name="customWindowTextValue">
-                      <property name="inputMask">
-                       <string>HHHHHH</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="customWindowTextPick">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QLabel" name="customLightLabel">
-                    <property name="text">
-                     <string>Light</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="1">
-                   <layout class="QHBoxLayout" name="customLightLayout">
-                    <item>
-                     <widget class="QLineEdit" name="customLightValue">
-                      <property name="inputMask">
-                       <string>HHHHHH</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="customLightPick">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="4" column="0">
-                   <widget class="QLabel" name="customMidLabel">
-                    <property name="text">
-                     <string>Mid</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="1">
-                   <layout class="QHBoxLayout" name="customMidLayout">
-                    <item>
-                     <widget class="QLineEdit" name="customMidValue">
-                      <property name="inputMask">
-                       <string>HHHHHH</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="customMidPick">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="5" column="0">
-                   <widget class="QLabel" name="customDarkLabel">
-                    <property name="text">
-                     <string>Dark</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="5" column="1">
-                   <layout class="QHBoxLayout" name="customDarkLayout">
-                    <item>
-                     <widget class="QLineEdit" name="customDarkValue">
-                      <property name="inputMask">
-                       <string>HHHHHH</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="customDarkPick">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="6" column="0">
-                   <widget class="QLabel" name="customTextLabel">
-                    <property name="text">
-                     <string>Text</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="6" column="1">
-                   <layout class="QHBoxLayout" name="customTextLayout">
-                    <item>
-                     <widget class="QLineEdit" name="customTextValue">
-                      <property name="inputMask">
-                       <string>HHHHHH</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="customTextPick">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="7" column="0">
-                   <widget class="QLabel" name="customBrightTextLabel">
-                    <property name="text">
-                     <string>Bright Text</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="7" column="1">
-                   <layout class="QHBoxLayout" name="customBrightTextLayout">
-                    <item>
-                     <widget class="QLineEdit" name="customBrightTextValue">
-                      <property name="inputMask">
-                       <string>HHHHHH</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="customBrightTextPick">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="8" column="0">
-                   <widget class="QLabel" name="customBaseLabel">
-                    <property name="text">
-                     <string>Base</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="8" column="1">
-                   <layout class="QHBoxLayout" name="customBaseLayout">
-                    <item>
-                     <widget class="QLineEdit" name="customBaseValue">
-                      <property name="inputMask">
-                       <string>HHHHHH</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="customBasePick">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="9" column="0">
-                   <widget class="QLabel" name="customGenerateLabel">
-                    <property name="text">
-                     <string>Generate</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="9" column="1">
-                   <layout class="QHBoxLayout" name="customGenerateLayout" stretch="1,1,1">
-                    <item>
-                     <widget class="QPushButton" name="customGenerateButton">
-                      <property name="text">
-                       <string>Button</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="customGenerateButtonWindow">
-                      <property name="text">
-                       <string>Button and Window</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="customGenerateSystem">
-                      <property name="text">
-                       <string>System</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                 </layout>
+                 <layout class="QVBoxLayout" name="verticalLayout_6"/>
                 </widget>
                </widget>
               </item>
@@ -7497,22 +7232,6 @@ media file played</string>
     <hint type="destinationlabel">
      <x>236</x>
      <y>275</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>interfaceWidgetCustom</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>interfaceWidgetCustomScrollArea</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>466</x>
-     <y>265</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>466</x>
-     <y>421</y>
     </hint>
    </hints>
   </connection>

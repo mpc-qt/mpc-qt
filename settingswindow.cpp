@@ -9,6 +9,7 @@
 #include "settingswindow.h"
 #include "ui_settingswindow.h"
 #include "qactioneditor.h"
+#include "paletteeditor.h"
 #include "platform/unify.h"
 
 #define SCALER_SCALERS \
@@ -82,7 +83,8 @@ QMap<QString, const char *> Setting::classToProperty = {
     { "QComboBox", "currentIndex" },
     { "QFontComboBox", "currentText" },
     { "QScrollBar", "value" },
-    { "QSlider", "value" }
+    { "QSlider", "value" },
+    { "PaletteEditor", "value" }
 };
 
 QMap<QString, std::function<QVariant(QObject *)>> Setting::classFetcher([]() {
@@ -197,7 +199,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->logoImageHost->layout()->addWidget(logoWidget);
 
     setupPlatformWidgets();
-    paletteToWidgets(qApp->palette());
+    setupPaletteEditor();
 
     defaultSettings = generateSettingMap(this);
     acceptedSettings = defaultSettings;
@@ -269,19 +271,17 @@ void SettingsWindow::setupPlatformWidgets()
     ui->hwdecBackendVideoToolbox->setEnabled(Platform::isMac);
 }
 
+void SettingsWindow::setupPaletteEditor()
+{
+    paletteEditor = new PaletteEditor(this);
+    paletteEditor->setObjectName("interfaceWidgetCustomPalette");
+    ui->interfaceWidgetCustomHost->layout()->addWidget(paletteEditor);
+}
+
 void SettingsWindow::setupColorPickers()
 {
     struct ValuePick { QLineEdit *value; QPushButton *pick; };
     QVector<ValuePick> colors {
-        { ui->customButtonValue, ui->customButtonPick },
-        { ui->customWindowValue, ui->customWindowPick },
-        { ui->customWindowTextValue, ui->customWindowTextPick },
-        { ui->customLightValue, ui->customLightPick },
-        { ui->customMidValue, ui->customMidPick },
-        { ui->customDarkValue, ui->customDarkPick },
-        { ui->customTextValue, ui->customTextPick },
-        { ui->customBrightTextValue, ui->customBrightTextPick },
-        { ui->customBaseValue, ui->customBasePick },
         { ui->subsColorValue, ui->subsColorPick },
         { ui->subsBorderColorValue, ui->subsBorderColorPick },
         { ui->subsShadowColorValue, ui->subsShadowColorPick }
@@ -428,7 +428,7 @@ void SettingsWindow::updateLogoWidget()
 {
     logoWidget->setLogo(selectedLogo());
 }
-
+/*
 void SettingsWindow::paletteToWidgets(const QPalette &p)
 {
     struct tuple { QLineEdit *value; QPushButton *pick; QColor color; };
@@ -448,7 +448,7 @@ void SettingsWindow::paletteToWidgets(const QPalette &p)
         t.value->setText(t.color.name().mid(1).toUpper());
         t.pick->setStyleSheet(QString("background: %1").arg(t.color.name()));
     }
-}
+}*/
 
 QString SettingsWindow::selectedLogo()
 {
@@ -547,18 +547,9 @@ void SettingsWindow::sendSignals()
     emit logoSource(selectedLogo());
     emit iconTheme(WIDGET_TO_TEXT(ui->interfaceIconsFallback),
                    WIDGET_LOOKUP(ui->interfaceIconsCustomFolder).toString());
-    emit applicationPalette(QPalette(
-        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customWindowTextValue).toString())),
-        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customButtonValue).toString())),
-        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customLightValue).toString())),
-        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customDarkValue).toString())),
-        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customMidValue).toString())),
-        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customTextValue).toString())),
-        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customBrightTextValue).toString())),
-        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customBaseValue).toString())),
-        QColor(QString("#%1").arg(WIDGET_LOOKUP(ui->customWindowValue).toString()))
-    ));
-    QPalette::ColorRole cr;
+    emit applicationPalette(WIDGET_LOOKUP(ui->interfaceWidgetCustom).toBool()
+                            ? paletteEditor->variantToPalette(WIDGET_LOOKUP(paletteEditor))
+                            : paletteEditor->systemPalette());
     emit videoColor(QString("#%1").arg(WIDGET_LOOKUP(ui->windowVideoValue).toString()));
     emit infoStatsColors(QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoForegroundValue).toString()),
                          QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoBackgroundValue).toString()));
@@ -1086,7 +1077,7 @@ void SettingsWindow::on_miscResetSettings_clicked()
     }
     updateLogoWidget();
 }
-
+/*
 static QColor colorFromWidget(QLineEdit *edit)
 {
     return QColor(QString("#%1").arg(edit->text()));
@@ -1106,7 +1097,7 @@ void SettingsWindow::on_customGenerateButtonWindow_clicked()
 }
 
 void SettingsWindow::on_customGenerateSystem_clicked()
-{/*
+{
     QPalette pal(colorFromWidget(ui->customWindowTextValue),
                  colorFromWidget(ui->customButtonValue),
                  colorFromWidget(ui->customLightValue),
@@ -1115,10 +1106,10 @@ void SettingsWindow::on_customGenerateSystem_clicked()
                  colorFromWidget(ui->customTextValue),
                  colorFromWidget(ui->customBrightTextValue),
                  colorFromWidget(ui->customBaseValue),
-                 colorFromWidget(ui->customWindowValue));*/
+                 colorFromWidget(ui->customWindowValue));
     paletteToWidgets(QPalette());
 }
-
+*/
 void SettingsWindow::on_windowVideoValue_textChanged(const QString &arg1)
 {
     logoWidget->setLogoBackground(QString("#%1").arg(ui->windowVideoValue->text()));

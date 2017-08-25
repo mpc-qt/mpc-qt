@@ -108,7 +108,8 @@ SOURCES += main.cpp\
     platform/qabstractscreensaver.cpp \
     qscreensaver.cpp \
     propertieswindow.cpp \
-    platform/unify.cpp
+    platform/unify.cpp \
+    paletteeditor.cpp
 
 HEADERS  += \
     mpvwidget.h \
@@ -129,7 +130,8 @@ HEADERS  += \
     platform/qabstractscreensaver.h \
     qscreensaver.h \
     propertieswindow.h \
-    platform/unify.h
+    platform/unify.h \
+    paletteeditor.h
 
 FORMS    += \
     mainwindow.ui \

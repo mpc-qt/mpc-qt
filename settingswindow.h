@@ -12,6 +12,7 @@
 
 class QActionEditor;
 class LogoWidget;
+class PaletteEditor;
 class QPushButton;
 
 class Setting {
@@ -58,13 +59,14 @@ public:
 
 private:
     void setupPlatformWidgets();
+    void setupPaletteEditor();
     void setupColorPickers();
     void setupUnimplementedWidgets();
     void updateAcceptedSettings();
     SettingMap generateSettingMap(QWidget *root);
     void generateVideoPresets();
     void updateLogoWidget();
-    void paletteToWidgets(const QPalette &p);
+    //void paletteToWidgets(const QPalette &p);
     QString selectedLogo();
     QString channelSwitcher();
 
@@ -231,19 +233,20 @@ private slots:
     void on_playbackMouseHideWindowed_toggled(bool checked);
 
     void on_miscResetSettings_clicked();
-
+/*
     void on_customGenerateButton_clicked();
 
     void on_customGenerateButtonWindow_clicked();
 
     void on_customGenerateSystem_clicked();
-
+*/
     void on_windowVideoValue_textChanged(const QString &arg1);
 
 private:
     Ui::SettingsWindow *ui = nullptr;
     QActionEditor *actionEditor = nullptr;
     LogoWidget *logoWidget = nullptr;
+    PaletteEditor *paletteEditor = nullptr;
     SettingMap acceptedSettings;
     SettingMap defaultSettings;
     QList<SettingMap> videoPresets;
