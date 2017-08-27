@@ -109,7 +109,6 @@ void Flow::parseArgs()
 
     validCliSize = parser.isSet(sizeOpt) && Helpers::sizeFromString(cliSize, parser.value(sizeOpt));
     validCliPos = parser.isSet(posOpt) && Helpers::pointFromString(cliPos, parser.value(posOpt));
-
     customFiles = parser.positionalArguments();
 }
 
@@ -424,29 +423,12 @@ void Flow::init() {
     settingsWindow->setServerName(server->fullServerName());
     settingsWindow->sendSignals();
     settingsWindow->sendAcceptedSettings();
-
-    // Push all our windows on to the same (moused) screen... similar code is
-    // in mainwindow.cpp.  Prevents jumping screens on multiple screens for
-    // whatever underlying reason.
-    QDesktopWidget *desktop = qApp->desktop();
-    QRect available = desktop->availableGeometry(desktop->screenNumber(QCursor::pos()));
-    settingsWindow->setGeometry(QStyle::alignedRect(Qt::LeftToRight,
-                                                    Qt::AlignCenter,
-                                                    settingsWindow->size(),
-                                                    available));
-    mainWindow->setGeometry(QStyle::alignedRect(Qt::LeftToRight,
-                                                    Qt::AlignCenter,
-                                                    mainWindow->size(),
-                                                    available));
 }
 
 int Flow::run()
 {
     mainWindow->playlistWindow()->tabsFromVList(storage.readVList("playlists"));
-    QTimer::singleShot(50, this, [this]() {
-        // wait for the internal geometry to update, then perform a resize
-        restoreWindows(storage.readVMap("geometry"));
-    });
+    restoreWindows(storage.readVMap("geometry"));
     return qApp->exec();
 }
 
@@ -593,7 +575,6 @@ void Flow::restoreWindows(const QVariantMap &geometryMap)
         desiredPlace = cliPos;
 
     mainWindow->setGeometry(QRect(desiredPlace, desiredSize));
-    mainWindow->unfreezeWindow();
     showWindows(mainMap);
 
     // restore settings and properties window
@@ -609,7 +590,7 @@ void Flow::showWindows(const QVariantMap &mainWindowMap)
     mainWindow->raise();
     if (mainWindowMap.contains("state"))
         mainWindow->setState(mainWindowMap["state"].toMap());
-
+    mainWindow->unfreezeWindow();
     QTimer::singleShot(50, this, &Flow::windowsRestored);
 }
 

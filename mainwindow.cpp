@@ -59,7 +59,6 @@ MainWindow::MainWindow(QWidget *parent) :
     if (Platform::isUnix) {
         setAttribute(Qt::WA_DontShowOnScreen, true);
         show();
-        updateSize(true);
         qApp->processEvents(QEventLoop::AllEvents |
                             QEventLoop::WaitForMoreEvents,
                             50);
@@ -876,7 +875,10 @@ void MainWindow::updateBitrate()
 
 void MainWindow::updateSize(bool first_run)
 {
-    if (!first_run && (frozenWindow || isMaximized() || isFullScreen()))
+    if (frozenWindow)
+        return;
+
+    if (!first_run && (isMaximized() || isFullScreen()))
         return;
 
     QSize desired = desirableSize(first_run);
