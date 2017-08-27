@@ -1976,7 +1976,6 @@ void MainWindow::on_play_clicked()
         isPaused = true;
         ui->pause->setChecked(true);
     }
-    on_actionPlayRateReset_triggered();
 }
 
 void MainWindow::volume_sliderMoved(double position)
