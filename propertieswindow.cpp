@@ -6,12 +6,19 @@
 #include <QTextCursor>
 #include <QVariantMap>
 #include <QProcess>
+#include <QStandardPaths>
+#include <QFileDialog>
 
 PropertiesWindow::PropertiesWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::PropertiesWindow)
 {
     ui->setupUi(this);
+    ui->tabWidget->setCurrentIndex(0);
+    setMetaData(QVariantMap());
+    updateSaveVisibility();
+    connect(ui->tabWidget, &QTabWidget::currentChanged,
+            this, &PropertiesWindow::updateSaveVisibility);
 }
 
 PropertiesWindow::~PropertiesWindow()
@@ -21,6 +28,7 @@ PropertiesWindow::~PropertiesWindow()
 
 void PropertiesWindow::setFileName(const QString &filename)
 {
+    this->filename = filename;
     QString text = filename.isEmpty() ? QString("-") : filename;
     ui->detailsFilename->setText(text);
     ui->clipFilename->setText(text);
@@ -30,6 +38,8 @@ void PropertiesWindow::setFileName(const QString &filename)
     QIcon icon = QIcon::fromTheme(mime.iconName(), QIcon(":/images/icon.png"));
     ui->detailsIcon->setPixmap(icon.pixmap(32, 32));
     ui->clipIcon->setPixmap(icon.pixmap(32, 32));
+
+    updateSaveVisibility();
 }
 
 void PropertiesWindow::setFileFormat(const QString &format)
@@ -186,6 +196,12 @@ void PropertiesWindow::setChapters(const QVariantList &chapters)
     updateLastTab();
 }
 
+void PropertiesWindow::updateSaveVisibility()
+{
+    ui->save->setVisible(ui->tabWidget->currentIndex()==2
+                         && !filename.isEmpty());
+}
+
 void PropertiesWindow::updateLastTab()
 {
     QTextCursor cursor = ui->mediaInfoText->textCursor();
@@ -219,3 +235,19 @@ QString PropertiesWindow::sectionText(const QString &header, const QVariantMap &
     return text;
 }
 
+void PropertiesWindow::on_save_clicked()
+{
+    QString docsFolder = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+    QFileInfo info(filename + ".MediaInfo.txt");
+    QString filename = QString("%1/%2").arg(docsFolder, info.fileName());
+    QString metadataText = ui->mediaInfoText->document()->toPlainText();
+    filename = QFileDialog::getSaveFileName(this, QString(), filename,
+                                            tr("Text documents (*.txt);;"
+                                               "All files (*.*)"));
+    if (filename.isEmpty())
+        return;
+    QFile file(filename);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+        return;
+    file.write(metadataText.toUtf8());
+}

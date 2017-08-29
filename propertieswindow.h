@@ -31,12 +31,17 @@ public slots:
     void setMetaData(QVariantMap data);
     void setChapters(const QVariantList &chapters);
 
+private slots:
+    void on_save_clicked();
+    void updateSaveVisibility();
+
 private:
     void updateLastTab();
     QString sectionText(const QString &header, const QVariantMap &fields);
 
     Ui::PropertiesWindow *ui;
 
+    QString filename;
     QString metadataText;
     QString trackText;
     QString chapterText;
