@@ -696,7 +696,7 @@ QStringList MouseState::multiModToText = ([]() {
 
 QStringList MouseState::modToText = { "Shift", "Control", "Alt", "Meta" };
 
-QStringList MouseState::pressToText = { "Up", "Down", "Twice" };
+QStringList MouseState::pressToText = { "Down", "Up", "Twice" };
 
 
 
@@ -804,7 +804,7 @@ MouseState MouseState::fromWheelEvent(QWheelEvent *event)
         return MouseState();
     return MouseState(1, // wheel button
                       (event->modifiers() >> 25)&15,
-                      delta.y() < 0 ? MouseUp : MouseDown); // towards = negative = down
+                      delta.y() < 0 ? MouseDown : MouseUp); // towards = negative = down
 }
 
 MouseState MouseState::fromMouseEvent(QMouseEvent *event, MousePress press)
