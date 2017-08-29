@@ -626,11 +626,10 @@ void Flow::mainwindow_recentClear()
 
 void Flow::mainwindow_takeImage(Helpers::ScreenshotRender render)
 {
-    QString fmt("%1/mpc-qt_%2");
+    QString fmt("%1/mpc-qt_%2.%3");
     QString tempDir = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
-    QString tempFile = QString(fmt).arg(tempDir, QUuid::createUuid().toString());
+    QString tempFile = fmt.arg(tempDir, QUuid::createUuid().toString(), screenshotFormat);
     mainWindow->mpvWidget()->screenshot(tempFile, render);
-    tempFile += "." + screenshotFormat;
 
     bool subsVisible = render != Helpers::VideoRender;
     QString fileName = pictureTemplate(Helpers::DisabledAudio,
