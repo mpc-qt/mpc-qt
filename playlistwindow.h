@@ -58,6 +58,7 @@ private:
 
 signals:
     void windowDocked();
+    void viewActionChanged(bool visible);
     void currentPlaylistHasItems(bool yes);
     void itemDesired(QUuid playlistUuid, QUuid itemUuid);
     void importPlaylist(QString fname);

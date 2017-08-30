@@ -188,7 +188,7 @@ void Flow::init() {
             playbackManager, &PlaybackManager::navigateToTime);
 
     // playlistwindow -> mainwindow
-    connect(mainWindow->playlistWindow(), &PlaylistWindow::visibilityChanged,
+    connect(mainWindow->playlistWindow(), &PlaylistWindow::viewActionChanged,
             mainWindow, &MainWindow::setPlaylistVisibleState);
     connect(mainWindow->playlistWindow(), &PlaylistWindow::quickQueueMode,
             mainWindow, &MainWindow::setPlaylistQuickQueueMode);

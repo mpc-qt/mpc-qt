@@ -1,3 +1,4 @@
+#include <QAction>
 #include <QDragEnterEvent>
 #include <QMimeData>
 #include <QInputDialog>
@@ -263,6 +264,8 @@ void PlaylistWindow::connectSignalsToSlots()
             this, &PlaylistWindow::self_visibilityChanged);
     connect(this, &PlaylistWindow::dockLocationChanged,
             this, &PlaylistWindow::self_dockLocationChanged);
+    connect(this->toggleViewAction(), &QAction::toggled,
+            this, &PlaylistWindow::viewActionChanged);
 
     connect(ui->newTab, &QPushButton::clicked,
             this, &PlaylistWindow::newTab);
