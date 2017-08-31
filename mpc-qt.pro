@@ -81,8 +81,10 @@ unix {
     INSTALLS += target docs shortcut logo scripts translations
 }
 
-unix:!macx:SOURCES += platform/unix_qscreensaver.cpp
-unix:!macx:HEADERS += platform/unix_qscreensaver.h
+unix:!macx:SOURCES += platform/unix_qscreensaver.cpp \
+                      ipcmpris.cpp
+unix:!macx:HEADERS += platform/unix_qscreensaver.h \
+                      ipcmpris.h
 
 win32:SOURCES += platform/win_qscreensaver.cpp
 win32:HEADERS += platform/win_qscreensaver.h
