@@ -1,5 +1,5 @@
-#ifndef MPVSERVER_H
-#define MPVSERVER_H
+#ifndef IPCJSON_H
+#define IPCJSON_H
 
 #include <QObject>
 #include <QVariant>
@@ -142,4 +142,4 @@ private:
     QMap<QString,QMetaMethod> commandParsers;
 };
 
-#endif // MPVSERVER_H
+#endif // IPCJSON_H

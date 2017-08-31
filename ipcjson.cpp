@@ -9,7 +9,7 @@
 #include "mainwindow.h"
 #include "manager.h"
 #include "mpvwidget.h"
-#include "ipc.h"
+#include "ipcjson.h"
 
 
 

@@ -2,7 +2,7 @@
 #define MAIN_H
 #include <QHash>
 #include <QMetaMethod>
-#include "ipc.h"
+#include "ipcjson.h"
 #include "helpers.h"
 #include "mainwindow.h"
 #include "manager.h"

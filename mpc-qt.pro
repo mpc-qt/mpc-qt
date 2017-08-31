@@ -103,7 +103,7 @@ SOURCES += main.cpp\
     settingswindow.cpp \
     qactioneditor.cpp \
     qdrawnstatus.cpp \
-    ipc.cpp \
+    ipcjson.cpp \
     openfiledialog.cpp \
     platform/qabstractscreensaver.cpp \
     qscreensaver.cpp \
@@ -125,7 +125,7 @@ HEADERS  += \
     settingswindow.h \
     qactioneditor.h \
     qdrawnstatus.h \
-    ipc.h \
+    ipcjson.h \
     openfiledialog.h \
     platform/qabstractscreensaver.h \
     qscreensaver.h \
