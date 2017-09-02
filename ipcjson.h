@@ -16,9 +16,8 @@ class JsonServer : public QObject
 public:
     explicit JsonServer(const QString &socketName, QObject *parent = 0);
     bool sendPayload(const QByteArray &payload);
+    static bool sendPayload(const QByteArray &payload, const QString &serverName);
     QString fullServerName();
-
-protected:
     void listen();
 
 signals:
@@ -44,6 +43,9 @@ public:
                          PlaybackManager *playbackManager,
                          QObject *parent);
     void fakePayload(const QByteArray &payload);
+    static QString defaultSocketName();
+    void setMainWindow(MainWindow *mainWindow);
+    void setPlaybackManger(PlaybackManager *playbackManager);
 
 signals:
 
@@ -72,8 +74,8 @@ private slots:
     QVariant ipc_doMpvCommand(const QVariantMap &map);
 
 private:
-    PlaybackManager *playbackManager;
-    MainWindow *mainWindow;
+    PlaybackManager *playbackManager = nullptr;
+    MainWindow *mainWindow = nullptr;
     QHash<QString, QMetaMethod> ipcCommands;
 };
 
@@ -84,15 +86,16 @@ class MpvServer : public JsonServer
 {
     Q_OBJECT
 public:
-    explicit MpvServer(PlaybackManager *playbackManager, MpvWidget *mpvWidget,
-                       QObject *parent = 0);
+    explicit MpvServer(QObject *parent = 0);
+    void setPlaybackManger(PlaybackManager *manager);
+    void setMpvWidget(MpvWidget *widget);
 
 private slots:
     void server_newConnection(QLocalSocket *socket);
 
 private:
-    PlaybackManager *playbackManager;
-    MpvWidget *mpvWidget;
+    PlaybackManager *playbackManager = nullptr;
+    MpvWidget *mpvWidget = nullptr;
 };
 
 

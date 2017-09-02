@@ -113,6 +113,10 @@ void Flow::parseArgs()
 }
 
 void Flow::init() {
+    hasPrevious_ = server->sendPayload(makePayload(), MpcQtServer::defaultSocketName());
+    if (hasPrevious_)
+        return;
+
     mainWindow = new MainWindow();
     playbackManager = new PlaybackManager(this);
     playbackManager->setMpvWidget(mainWindow->mpvWidget(), true);
@@ -122,10 +126,12 @@ void Flow::init() {
     propertiesWindow = new PropertiesWindow();
 
     server = new MpcQtServer(mainWindow, playbackManager, this);
-    hasPrevious_ = server->sendPayload(makePayload());
-    if (hasPrevious_)
-        return;
-    mpvServer = new MpvServer(playbackManager, mainWindow->mpvWidget(), this);
+    server->setMainWindow(mainWindow);
+    server->setPlaybackManger(playbackManager);
+
+    mpvServer = new MpvServer(this);
+    mpvServer->setPlaybackManger(playbackManager);
+    mpvServer->setMpvWidget(mainWindow->mpvWidget());
 
     inhibitScreensaver = false;
     QSet<QScreenSaver::Ability> actualPowers = screenSaver.abilities();
@@ -423,6 +429,8 @@ void Flow::init() {
     settingsWindow->setServerName(server->fullServerName());
     settingsWindow->sendSignals();
     settingsWindow->sendAcceptedSettings();
+    server->listen();
+    mpvServer->listen();
 }
 
 int Flow::run()
@@ -596,8 +604,7 @@ void Flow::showWindows(const QVariantMap &mainWindowMap)
 
 void Flow::self_windowsRestored()
 {
-    if (!hasPrevious_)
-        server->fakePayload(makePayload());
+    server->fakePayload(makePayload());
 }
 
 void Flow::mainwindow_instanceShouldQuit()

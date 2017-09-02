@@ -46,13 +46,16 @@ JsonServer::JsonServer(const QString &socketName, QObject *parent) :
 
 bool JsonServer::sendPayload(const QByteArray &payload)
 {
+    return sendPayload(payload, socketName);
+}
+
+bool JsonServer::sendPayload(const QByteArray &payload, const QString &serverName)
+{
     QLocalSocket socket;
-    socket.setServerName(socketName);
+    socket.setServerName(serverName);
     socket.connectToServer();
-    if (!socket.waitForConnected(100)) {
-        listen();
+    if (!socket.waitForConnected(100))
         return false;
-    }
     socket.write(payload);
     return socket.waitForReadyRead(100);
 }
@@ -83,7 +86,7 @@ void JsonServer::server_newConnection()
 MpcQtServer::MpcQtServer(MainWindow *mainWindow,
                          PlaybackManager *playbackManager,
                          QObject *parent)
-    : JsonServer(QCoreApplication::organizationDomain(), parent),
+    : JsonServer(defaultSocketName(), parent),
       playbackManager(playbackManager), mainWindow(mainWindow)
 {
     setupIpcCommands();
@@ -94,6 +97,21 @@ MpcQtServer::MpcQtServer(MainWindow *mainWindow,
 void MpcQtServer::fakePayload(const QByteArray &payload)
 {
     socket_payloadReceived(payload, NULL);
+}
+
+QString MpcQtServer::defaultSocketName()
+{
+    return QCoreApplication::organizationDomain();
+}
+
+void MpcQtServer::setMainWindow(MainWindow *mainWindow)
+{
+    this->mainWindow = mainWindow;
+}
+
+void MpcQtServer::setPlaybackManger(PlaybackManager *playbackManager)
+{
+    this->playbackManager = playbackManager;
 }
 
 void MpcQtServer::setupIpcCommands()
@@ -132,6 +150,11 @@ void MpcQtServer::socketReturn(QLocalSocket *socket,
 
 void MpcQtServer::self_newConnection(QLocalSocket *socket)
 {
+    if (!mainWindow || !playbackManager) {
+        socket->deleteLater();
+        return;
+    }
+
     connect(socket, &QLocalSocket::readyRead, [=]() {
         QList<QByteArray> dataList = socket->readAll().split('\n');
         for (const QByteArray &data : dataList) {
@@ -291,8 +314,7 @@ QVariant MpcQtServer::ipc_doMpvCommand(const QVariantMap &map)
 }
 
 
-MpvServer::MpvServer(PlaybackManager *playbackManager, MpvWidget *mpvWidget,
-                     QObject *parent)
+MpvServer::MpvServer(QObject *parent)
     : JsonServer(QCoreApplication::organizationDomain() + ".mpv", parent),
       playbackManager(playbackManager), mpvWidget(mpvWidget)
 {
@@ -301,8 +323,23 @@ MpvServer::MpvServer(PlaybackManager *playbackManager, MpvWidget *mpvWidget,
     listen();
 }
 
+void MpvServer::setPlaybackManger(PlaybackManager *manager)
+{
+    playbackManager = manager;
+}
+
+void MpvServer::setMpvWidget(MpvWidget *widget)
+{
+    mpvWidget = widget;
+}
+
 void MpvServer::server_newConnection(QLocalSocket *socket)
 {
+    if (!playbackManager || !mpvWidget) {
+        socket->deleteLater();
+        return;
+    }
+
     qDebug() << "new connection";
     new MpvConnection(socket, playbackManager, mpvWidget, this);
 }
