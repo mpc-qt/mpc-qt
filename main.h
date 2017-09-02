@@ -28,6 +28,7 @@ signals:
     void windowsRestored();
 
 private:
+    void setupMpris();
     QByteArray makePayload() const;
     QString pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const;
     QVariantList recentToVList() const;

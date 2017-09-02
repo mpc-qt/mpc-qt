@@ -20,6 +20,7 @@
 #include "settingswindow.h"
 #include "mpvwidget.h"
 #include "propertieswindow.h"
+#include "ipcmpris.h"
 #include "platform/unify.h"
 
 int main(int argc, char *argv[])
@@ -426,11 +427,13 @@ void Flow::init() {
     settingsWindow->takeSettings(settings);
     settingsWindow->setMouseMapDefaults(mainWindow->mouseMapDefaults());
     settingsWindow->takeKeyMap(keyMap);
-    settingsWindow->setServerName(server->fullServerName());
     settingsWindow->sendSignals();
     settingsWindow->sendAcceptedSettings();
+
     server->listen();
     mpvServer->listen();
+    settingsWindow->setServerName(server->fullServerName());
+    setupMpris();
 }
 
 int Flow::run()
@@ -443,6 +446,53 @@ int Flow::run()
 bool Flow::hasPrevious()
 {
     return hasPrevious_;
+}
+
+void Flow::setupMpris()
+{
+    auto mpris = new MprisInstance(this);
+    connect(mainWindow, &MainWindow::fullscreenModeChanged,
+            mpris, &MprisInstance::mainwindow_fullscreenModeChanged);
+    connect(playbackManager, &PlaybackManager::timeChanged,
+            mpris, &MprisInstance::manager_timeChanged);
+    connect(playbackManager, &PlaybackManager::stateChanged,
+            mpris, &MprisInstance::manager_stateChanged);
+    connect(playbackManager, &PlaybackManager::nowPlayingChanged,
+            mpris, &MprisInstance::manager_nowPlayingChanged);
+    connect(mainWindow->mpvWidget(), &MpvWidget::metaDataChanged,
+            mpris, &MprisInstance::mpvwidget_metaDataChanged);
+    connect(mainWindow->playlistWindow(), &PlaylistWindow::currentPlaylistHasItems,
+            mpris, &MprisInstance::playlistwindow_currentPlaylistHasItems);
+
+    connect(mpris, &MprisInstance::fullscreenMode,
+            mainWindow, &MainWindow::setFullscreenMode);
+    connect(mpris, &MprisInstance::raiseWindow,
+            mainWindow, &MainWindow::raise);
+    connect(mpris, &MprisInstance::closeInstance,
+            mainWindow, &MainWindow::instanceShouldQuit);
+    connect(mpris, &MprisInstance::volumeChange,
+            mainWindow, &MainWindow::setVolume);
+    connect(mpris, &MprisInstance::playNextTrack,
+            playbackManager, &PlaybackManager::playNextFile);
+    connect(mpris, &MprisInstance::playPreviousTrack,
+            playbackManager, &PlaybackManager::playPrevFile);
+    connect(mpris, &MprisInstance::pause,
+            playbackManager, &PlaybackManager::pausePlayer);
+    connect(mpris, &MprisInstance::playpause,
+            playbackManager, &PlaybackManager::unpausePlayer);
+    connect(mpris, &MprisInstance::stop,
+            playbackManager, &PlaybackManager::stopPlayer);
+    //connect(mpris, &MprisInstance::play,
+    //        playbackManager, &PlaybackManager::playPlayer);
+    connect(mpris, &MprisInstance::relativeSeek,
+            mainWindow->mpvWidget(), [this](double amount) {
+        mainWindow->mpvWidget()->seek(amount, false);
+    });
+    connect(mpris, &MprisInstance::absoluteSeek,
+            mainWindow->mpvWidget(), &MpvWidget::setTime);
+
+    mpris->setProtocolList(mainWindow->mpvWidget()->supportedProtocols());
+    mpris->registerDBus();
 }
 
 QByteArray Flow::makePayload() const

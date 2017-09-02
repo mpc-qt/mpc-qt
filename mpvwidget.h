@@ -24,6 +24,7 @@ public:
     explicit MpvWidget(QWidget *parent = 0, const QString &clientName = "mpv");
     ~MpvWidget();
     QList<AudioDevice> audioDevices();
+    QStringList supportedProtocols();
 
     void showMessage(QString message);
     void showStatsPage(int page);
@@ -232,6 +233,7 @@ public slots:
     void setThrottleTime(int msec);
 
     QString clientName();
+    QStringList protocolList();
     int64_t timeMicroseconds();
     int64_t apiVersion();
 
@@ -259,6 +261,7 @@ private:
 
     mpv::qt::Handle mpv;
     mpv_opengl_cb_context *glMpv = nullptr;
+    QStringList protocolList_;
     QSize lastVideoSize = QSize(0,0);
 
     QTimer *throttler = nullptr;

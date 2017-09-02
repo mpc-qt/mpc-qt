@@ -66,7 +66,6 @@ private:
     QSize noVideoSize();
     double sizeFactor();
 
-    void setFullscreenMode(bool fullscreenMode);
     void setDiscState(bool playingADisc);
 
     void setupMenu();
@@ -135,10 +134,12 @@ signals:
     void chapterNext();
     void chapterSelected(int64_t id);
     void timeSelected(double time);
+    void fullscreenModeChanged(bool fullscreen);
     void zoomPresetChanged(int which);
     void playCurrentItemRequested();
 
 public slots:
+    void setFullscreenMode(bool fullscreenMode);
     void setNoVideoSize(const QSize &sz);
     void setWindowedMouseMap(const MouseStateMap &map);
     void setFullscreenMouseMap(const MouseStateMap &map);

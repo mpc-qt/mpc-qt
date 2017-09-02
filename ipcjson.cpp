@@ -315,8 +315,7 @@ QVariant MpcQtServer::ipc_doMpvCommand(const QVariantMap &map)
 
 
 MpvServer::MpvServer(QObject *parent)
-    : JsonServer(QCoreApplication::organizationDomain() + ".mpv", parent),
-      playbackManager(playbackManager), mpvWidget(mpvWidget)
+    : JsonServer(QCoreApplication::organizationDomain() + ".mpv", parent)
 {
     connect(this, &MpvServer::newConnection,
             this, &MpvServer::server_newConnection);

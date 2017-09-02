@@ -377,6 +377,9 @@ double MainWindow::sizeFactor()
 
 void MainWindow::setFullscreenMode(bool fullscreenMode)
 {
+    if (fullscreenMode_ == fullscreenMode)
+        return;
+
     // This is where the monitor settings should be honored.
     // For now, use the current screen.
     windowHandle()->setScreen(windowHandle()->screen());
@@ -401,6 +404,7 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
         timePosition->update();
         timeDuration->update();
     });
+    emit fullscreenModeChanged(fullscreenMode_);
 }
 
 void MainWindow::setDiscState(bool playingADisc)

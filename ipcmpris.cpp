@@ -75,10 +75,9 @@ void MprisInstance::dbusPropertyChange(QDBusAbstractAdaptor *who, QVariantMap pr
     if (!registered_)
         return;
 
-    QDBusMessage msg = QDBusMessage::createTargetedSignal("/org/mpris/MediaPlayer2",
-                                                          dbusName_,
-                                                          "org.freedesktop.DBus.Properties",
-                                                          "PropertiesChanged");
+    QDBusMessage msg = QDBusMessage::createSignal("/org/mpris/MediaPlayer2",
+                                                  "org.freedesktop.DBus.Properties",
+                                                  "PropertiesChanged");
     msg << who->metaObject()->classInfo(0).value();
     msg << propertyMap;
     msg << QStringList();
@@ -330,7 +329,7 @@ void MprisPlayerServer::instance_setNowPlayingUrl(const QUrl &nowPlayingUrl)
         nowPlayingUrl_ = nowPlayingUrl;
         bool updateMetadata = false;
         if (nowPlayingUrl_.isValid() && !metadata_.contains("xesam:url")) {
-            metadata_.insert("xesam:url", nowPlayingUrl_);
+            metadata_.insert("xesam:url", nowPlayingUrl_.toString());
             updateMetadata = true;
         }
         if (!nowPlayingUrl_.isValid() && metadata_.contains("xesam:url")) {
@@ -373,7 +372,7 @@ void MprisPlayerServer::instance_setMetadata(const QVariantMap &metadata)
     if (!(playbackDuration_ < 0))
         data.insert("mpris:length", qlonglong(playbackDuration_ * 1000));
     if (nowPlayingUrl_.isValid())
-        data.insert("xesam:url", nowPlayingUrl_);
+        data.insert("xesam:url", nowPlayingUrl_.toString());
 
     for (auto it = metadata.constBegin(); it != metadata.constEnd(); it++)
         data.insert("xesam:" + it.key(), it.value());

@@ -220,6 +220,11 @@ QList<AudioDevice> MpvWidget::audioDevices()
     return AudioDevice::listFromVList(getMpvPropertyVariant("audio-device-list").toList());
 }
 
+QStringList MpvWidget::supportedProtocols()
+{
+    return ctrl->protocolList();
+}
+
 void MpvWidget::showMessage(QString message)
 {
     if (shownStatsPage <= 0 || shownStatsPage >= 3)
@@ -808,6 +813,8 @@ void MpvController::create(bool video, bool audio)
             throw std::runtime_error("OpenGL not compiled in");
     }
     mpv_set_wakeup_callback(mpv, MpvController::mpvWakeup, this);
+
+    protocolList_ = getPropertyVariant("protocol-list").toStringList();
 }
 
 void MpvController::addHook(const QString &name, int id)
@@ -841,6 +848,11 @@ void MpvController::setThrottleTime(int msec)
 QString MpvController::clientName()
 {
     return QString::fromUtf8(mpv_client_name(mpv));
+}
+
+QStringList MpvController::protocolList()
+{
+    return protocolList_;
 }
 
 int64_t MpvController::timeMicroseconds()
