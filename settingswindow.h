@@ -163,7 +163,7 @@ signals:
     void audioFilter(const QString &s);
 
 public slots:
-    void takeActions(const QList<QAction*> actions);
+    void takeActions(const QList<QAction*> actions); // FIXME: multiwindow
     void takeSettings(QVariantMap payload);
     void takeKeyMap(const QVariantMap &payload);
     void setMouseMapDefaults(const QVariantMap &payload);

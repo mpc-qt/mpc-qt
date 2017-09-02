@@ -901,7 +901,7 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
             buttonRole == QDialogButtonBox::AcceptRole) {\
         updateAcceptedSettings();
         sendAcceptedSettings();
-        actionEditor->updateActions();
+        actionEditor->updateActions(); // FIXME: multiwindow
         sendSignals();
     }
     if (buttonRole == QDialogButtonBox::AcceptRole ||
