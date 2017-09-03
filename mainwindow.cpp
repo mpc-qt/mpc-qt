@@ -181,6 +181,9 @@ void MainWindow::setScreensaverAbilities(QSet<QAbstractScreenSaver::Ability> ab)
 
 QSize MainWindow::desirableSize(bool first_run)
 {
+    if (zoomMode == FitToWindow)
+        return size();
+
     // Grab device pixel ratio (2=HiDPI screen)
     qreal ratio = devicePixelRatio();
 
@@ -883,6 +886,9 @@ void MainWindow::updateSize(bool first_run)
         return;
 
     if (!first_run && (isMaximized() || isFullScreen()))
+        return;
+
+    if (zoomMode == FitToWindow)
         return;
 
     QSize desired = desirableSize(first_run);
