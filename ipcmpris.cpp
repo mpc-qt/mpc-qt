@@ -346,6 +346,7 @@ void MprisPlayerServer::instance_setPlaybackState(PlaybackManager::PlaybackState
 {
     if (playbackState == state)
         return;
+    playbackState = state;
     QVariantMap propertyMap;
     propertyMap.insert("PlaybackStatus", playbackStatus());
 
