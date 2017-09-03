@@ -308,8 +308,6 @@ void SettingsWindow::setupUnimplementedWidgets()
 
     ui->formatPage->setEnabled(false);
 
-    ui->ipcMpris->setEnabled(false);
-
     ui->playbackBalance->setEnabled(false);
     ui->playbackTracksBox->setEnabled(false);
     ui->playbackAutoloadBox->setEnabled(false);
@@ -522,6 +520,8 @@ void SettingsWindow::sendSignals()
     emit rememberSelectedPlaylist(WIDGET_LOOKUP(ui->playerRememberLastPlaylist).toBool());
     emit rememberWindowGeometry(WIDGET_LOOKUP(ui->playerRememberWindowGeometry).toBool());
     emit rememberPanNScan(WIDGET_LOOKUP(ui->playerRememberPanScanZoom).toBool());
+
+    emit mprisIpc(WIDGET_LOOKUP(ui->ipcMpris).toBool());
 
     emit logoSource(selectedLogo());
     emit iconTheme(WIDGET_TO_TEXT(ui->interfaceIconsFallback),

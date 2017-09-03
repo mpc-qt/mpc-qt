@@ -11,6 +11,8 @@
 #include "propertieswindow.h"
 #include "qscreensaver.h"
 
+class MprisInstance;
+
 // a simple class to control program exection and own application objects
 class Flow : public QObject {
     Q_OBJECT
@@ -51,6 +53,7 @@ private slots:
     void settingswindow_inhibitScreensaver(bool yes);
     void settingswindow_rememberWindowGeometry(bool yes);
     void settingswindow_keymapData(const QVariantMap &keyMap);
+    void settingswindow_mprisIpc(bool enabled);
     void settingswindow_screenshotDirectory(const QString &where);
     void settingswindow_encodeDirectory(const QString &where);
     void settingswindow_screenshotTemplate(const QString &fmt);
@@ -64,6 +67,7 @@ private slots:
 private:
     MpcQtServer *server = nullptr;
     MpvServer *mpvServer = nullptr;
+    MprisInstance *mpris = nullptr;
     MainWindow *mainWindow = nullptr;
     PlaybackManager *playbackManager = nullptr;
     SettingsWindow *settingsWindow = nullptr;

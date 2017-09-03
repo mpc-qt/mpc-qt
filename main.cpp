@@ -374,6 +374,8 @@ void Flow::init() {
             this, &Flow::settingswindow_inhibitScreensaver);
     connect(settingsWindow, &SettingsWindow::rememberWindowGeometry,
             this, &Flow::settingswindow_rememberWindowGeometry);
+    connect(settingsWindow, &SettingsWindow::mprisIpc,
+            this, &Flow::settingswindow_mprisIpc);
     connect(settingsWindow, &SettingsWindow::screenshotDirectory,
             this, &Flow::settingswindow_screenshotDirectory);
     connect(settingsWindow, &SettingsWindow::encodeDirectory,
@@ -417,6 +419,8 @@ void Flow::init() {
     connect(this, &Flow::windowsRestored,
             this, &Flow::self_windowsRestored);
 
+    setupMpris();
+
     // update player framework
     settingsWindow->takeActions(mainWindow->editableActions());
     recentFromVList(storage.readVList("recent"));
@@ -433,7 +437,6 @@ void Flow::init() {
     server->listen();
     mpvServer->listen();
     settingsWindow->setServerName(server->fullServerName());
-    setupMpris();
 }
 
 int Flow::run()
@@ -451,7 +454,7 @@ bool Flow::hasPrevious()
 void Flow::setupMpris()
 {
 #ifdef QT_DBUS_LIB
-    auto mpris = new MprisInstance(this);
+    mpris = new MprisInstance(this);
     connect(mainWindow, &MainWindow::fullscreenModeChanged,
             mpris, &MprisInstance::mainwindow_fullscreenModeChanged);
     connect(playbackManager, &PlaybackManager::timeChanged,
@@ -493,7 +496,6 @@ void Flow::setupMpris()
             mainWindow->mpvWidget(), &MpvWidget::setTime);
 
     mpris->setProtocolList(mainWindow->mpvWidget()->supportedProtocols());
-    mpris->registerDBus();
 #endif
 }
 
@@ -767,6 +769,19 @@ void Flow::settingswindow_rememberWindowGeometry(bool yes)
 void Flow::settingswindow_keymapData(const QVariantMap &keyMap)
 {
     this->keyMap = keyMap;
+}
+
+void Flow::settingswindow_mprisIpc(bool enabled)
+{
+    if (!mpris)
+        return;
+
+    if (!enabled && mpris->registered()) {
+        mpris->unregisterDBus();
+    }
+    if (enabled && !mpris->registered()) {
+        mpris->registerDBus();
+    }
 }
 
 void Flow::settingswindow_screenshotDirectory(const QString &where)

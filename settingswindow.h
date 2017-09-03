@@ -87,6 +87,7 @@ signals:
     void rememberWindowGeometry(bool yes);
     void rememberPanNScan(bool yes);
 
+    void mprisIpc(bool enabled);
     void logoSource(const QString &s);
     void iconTheme(const QString &fallback, const QString &custom);
     void applicationPalette(const QPalette s);
