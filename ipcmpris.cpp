@@ -308,14 +308,14 @@ void MprisPlayerServer::Play()
 void MprisPlayerServer::Seek(qlonglong Offset)
 {
     if (canSeek_)
-        emit instance()->relativeSeek(Offset / 1000.0);
+        emit instance()->relativeSeek(Offset / 1000000.0);
 }
 
 void MprisPlayerServer::SetPosition(const QDBusObjectPath &TrackId, qlonglong Position)
 {
     Q_UNUSED(TrackId);
     if (canSeek_ && !(Position < 0) && Position <= playbackDuration_)
-        emit instance()->absoluteSeek(Position / 1000.0);
+        emit instance()->absoluteSeek(Position / 1000000.0);
 }
 
 void MprisPlayerServer::OpenUri(QString uri)
@@ -327,18 +327,8 @@ void MprisPlayerServer::instance_setNowPlayingUrl(const QUrl &nowPlayingUrl)
 {
     if (nowPlayingUrl_ != nowPlayingUrl) {
         nowPlayingUrl_ = nowPlayingUrl;
-        bool updateMetadata = false;
-        if (nowPlayingUrl_.isValid() && !metadata_.contains("xesam:url")) {
-            metadata_.insert("xesam:url", nowPlayingUrl_.toString());
-            updateMetadata = true;
-        }
-        if (!nowPlayingUrl_.isValid() && metadata_.contains("xesam:url")) {
-            metadata_.remove("xesam:url");
-            updateMetadata = true;
-        }
-        if (updateMetadata) {
+        if (maybeChangeMetadata())
             instance()->dbusPropertyChange(this, {{"Metadata", metadata_}});
-        }
     }
 }
 
@@ -366,23 +356,9 @@ void MprisPlayerServer::instance_setPlaybackState(PlaybackManager::PlaybackState
 void MprisPlayerServer::instance_setMetadata(const QVariantMap &metadata)
 {
     QVariantMap data;
-    if (metadata.isEmpty())
-        goto end;
-
-    data.insert("mpris:trackid", "/no/text"); //FIXME
-    if (!(playbackDuration_ < 0))
-        data.insert("mpris:length", qlonglong(playbackDuration_ * 1000));
-    if (nowPlayingUrl_.isValid())
-        data.insert("xesam:url", nowPlayingUrl_.toString());
-
-    for (auto it = metadata.constBegin(); it != metadata.constEnd(); it++)
-        data.insert("xesam:" + it.key(), it.value());
-
-    end:
-    if (metadata_ != data) {
-        metadata_ = data;
+    mpvMetadata = metadata;
+    if (maybeChangeMetadata())
         instance()->dbusPropertyChange(this, {{"Metadata", metadata_}});
-    }
 }
 
 void MprisPlayerServer::instance_setVolume(double volume)
@@ -398,15 +374,12 @@ void MprisPlayerServer::instance_timeChange(double time, double length)
     QVariantMap propertyMap;
     if (playbackTime_ != time) {
         playbackTime_ = time;
-        propertyMap.insert("Position", time);
+        propertyMap.insert("Position", qlonglong(time * 1000000));
     }
     if (playbackDuration_ != length) {
         playbackDuration_ = length;
-        if (playbackDuration_ < 0)
-            metadata_.remove("mpris:length");
-        else
-            metadata_.insert("mpris.length", qlonglong(playbackDuration_ * 1000));
-        propertyMap.insert("Metadata", metadata_);
+        if (maybeChangeMetadata())
+            propertyMap.insert("Metadata", metadata_);
     }
     if (!propertyMap.isEmpty()) {
         instance()->dbusPropertyChange(this, propertyMap);
@@ -428,4 +401,21 @@ bool MprisPlayerServer::maybeChangeCanPlay()
         return true;
     }
     return false;
+}
+
+bool MprisPlayerServer::maybeChangeMetadata()
+{
+    bool haveInfo = !(mpvMetadata.isEmpty() || playbackDuration_ < 0 || !nowPlayingUrl_.isValid());
+    bool changed = (haveInfo && metadata_.isEmpty()) || (!haveInfo && !metadata_.isEmpty());
+    if (!changed)
+        return false;
+
+    metadata_.clear();
+    metadata_.insert("mpris:trackid", "/no/text"); //FIXME
+    metadata_.insert("mpris:length", qlonglong(playbackDuration_ * 1000000));
+    metadata_.insert("xesam:url", nowPlayingUrl_.toString());
+
+    for (auto it = mpvMetadata.constBegin(); it != mpvMetadata.constEnd(); it++)
+        metadata_.insert("xesam:" + it.key(), it.value());
+    return true;
 }

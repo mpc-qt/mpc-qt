@@ -178,8 +178,10 @@ private slots:
 
 private:
     bool maybeChangeCanPlay();
+    bool maybeChangeMetadata();
 
     PlaybackManager::PlaybackState playbackState = PlaybackManager::StoppedState;
+    QVariantMap mpvMetadata;
     QVariantMap metadata_;
     double volume_ = 100;
     double playbackTime_ = -1;
