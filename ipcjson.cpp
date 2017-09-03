@@ -222,8 +222,7 @@ void MpcQtServer::ipc_unpause()
 
 void MpcQtServer::ipc_start()
 {
-    if (!mainWindow->playlistWindow()->playActiveItem())
-        mainWindow->playlistWindow()->playCurrentItem();
+    playbackManager->startPlayer();
 }
 
 void MpcQtServer::ipc_stop()

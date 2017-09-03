@@ -250,6 +250,34 @@ void PlaybackManager::loadSubtitle(QUrl with)
     mpvWidget_->addSubFile(f);
 }
 
+void PlaybackManager::playPlayer()
+{
+    unpausePlayer();
+    if (playbackState_ == StoppedState) {
+        startPlayer();
+    }
+}
+
+void PlaybackManager::startPlayer()
+{
+    if (!playlistWindow_->playActiveItem())
+        playlistWindow_->playCurrentItem();
+}
+
+void PlaybackManager::playPausePlayer()
+{
+    switch (playbackState_) {
+    case PausedState:
+        unpausePlayer();
+        break;
+    case StoppedState:
+        startPlayer();
+        break;
+    default:
+        pausePlayer();
+    }
+}
+
 void PlaybackManager::pausePlayer()
 {
     if (playbackState_ == PlayingState)

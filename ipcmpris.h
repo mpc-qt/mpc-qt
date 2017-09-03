@@ -1,5 +1,6 @@
 #ifndef IPCMPRIS_H
 #define IPCMPRIS_H
+#ifdef QT_DBUS_LIB
 
 #include <QDBusAbstractAdaptor>
 #include <QDBusConnection>
@@ -191,5 +192,5 @@ private:
 
     friend MprisInstance;
 };
-
+#endif // QT_DBUS_LIB
 #endif // IPCMPRIS_H

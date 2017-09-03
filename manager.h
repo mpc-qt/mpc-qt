@@ -50,6 +50,9 @@ public slots:
     void loadSubtitle(QUrl with);
 
     // control functions
+    void playPlayer();
+    void startPlayer();
+    void playPausePlayer();
     void pausePlayer();
     void unpausePlayer();
     void stopPlayer();

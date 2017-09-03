@@ -450,6 +450,7 @@ bool Flow::hasPrevious()
 
 void Flow::setupMpris()
 {
+#ifdef QT_DBUS_LIB
     auto mpris = new MprisInstance(this);
     connect(mainWindow, &MainWindow::fullscreenModeChanged,
             mpris, &MprisInstance::mainwindow_fullscreenModeChanged);
@@ -479,11 +480,11 @@ void Flow::setupMpris()
     connect(mpris, &MprisInstance::pause,
             playbackManager, &PlaybackManager::pausePlayer);
     connect(mpris, &MprisInstance::playpause,
-            playbackManager, &PlaybackManager::unpausePlayer);
+            playbackManager, &PlaybackManager::playPausePlayer);
     connect(mpris, &MprisInstance::stop,
             playbackManager, &PlaybackManager::stopPlayer);
-    //connect(mpris, &MprisInstance::play,
-    //        playbackManager, &PlaybackManager::playPlayer);
+    connect(mpris, &MprisInstance::play,
+            playbackManager, &PlaybackManager::playPlayer);
     connect(mpris, &MprisInstance::relativeSeek,
             mainWindow->mpvWidget(), [this](double amount) {
         mainWindow->mpvWidget()->seek(amount, false);
@@ -493,6 +494,7 @@ void Flow::setupMpris()
 
     mpris->setProtocolList(mainWindow->mpvWidget()->supportedProtocols());
     mpris->registerDBus();
+#endif
 }
 
 QByteArray Flow::makePayload() const
