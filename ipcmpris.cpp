@@ -406,11 +406,15 @@ bool MprisPlayerServer::maybeChangeCanPlay()
 bool MprisPlayerServer::maybeChangeMetadata()
 {
     bool haveInfo = !(mpvMetadata.isEmpty() || playbackDuration_ < 0 || !nowPlayingUrl_.isValid());
-    bool changed = (haveInfo && metadata_.isEmpty()) || (!haveInfo && !metadata_.isEmpty());
+    bool hadData = !metadata_.isEmpty();
+    bool changed = (haveInfo && !hadData) || (!haveInfo && hadData);
     if (!changed)
         return false;
 
     metadata_.clear();
+    if (!haveInfo)
+        return true;
+
     metadata_.insert("mpris:trackid", "/no/text"); //FIXME
     metadata_.insert("mpris:length", qlonglong(playbackDuration_ * 1000000));
     metadata_.insert("xesam:url", nowPlayingUrl_.toString());
