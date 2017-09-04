@@ -108,7 +108,7 @@ private:
     void instance_setFullscreen(bool yes);
     void instance_setProtocolList(const QStringList &protocolList);
 
-    bool fullscreen_;
+    bool fullscreen_ = false;
     QStringList protocolList_;
     QStringList mimeTypes_;
 
