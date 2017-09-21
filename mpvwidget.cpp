@@ -186,6 +186,7 @@ MpvWidget::MpvWidget(QWidget *parent, const QString &clientName) :
 
     blockingSetMpvOptionVariant("ytdl", "yes");
     blockingSetMpvOptionVariant("audio-client-name", clientName);
+    ctrl->setLogLevel("info");
 
     connect(this, &QOpenGLWidget::frameSwapped,
             this, &MpvWidget::self_frameSwapped);
