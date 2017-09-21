@@ -645,7 +645,7 @@ void SettingsWindow::sendSignals()
         option("gamma-auto", WIDGET_LOOKUP(ui->ccGammaAutodetect));
     emit option("target-prim", WIDGET_TO_TEXT(ui->ccTargetPrim));
     emit option("target-trc", WIDGET_TO_TEXT(ui->ccTargetTRC));
-    emit option("hdr-tone-mapping", WIDGET_TO_TEXT(ui->ccHdrMapper));
+    emit option("tone-mapping", WIDGET_TO_TEXT(ui->ccHdrMapper));
     {
         QList<QDoubleSpinBox*> boxen {ui->ccHdrClipParam,
                     ui->ccHdrMobiusParam, ui->ccHdrReinhardParam, NULL,
