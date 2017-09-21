@@ -134,7 +134,7 @@ void Item::fromVMap(const QVariantMap &qvm)
 
 QSharedPointer<ItemCollection> ItemCollection::collection;
 
-ItemCollection::ItemCollection() : QObject(NULL)
+ItemCollection::ItemCollection() : QObject(nullptr)
 {
 
 }
@@ -662,7 +662,7 @@ void PlaylistCollection::removePlaylist(const QUuid &uuid)
 
 void PlaylistCollection::removePlaylist(const QSharedPointer<Playlist> &p)
 {
-    if (p == NULL)
+    if (p == nullptr)
         return;
     removePlaylist(p->uuid());
 }

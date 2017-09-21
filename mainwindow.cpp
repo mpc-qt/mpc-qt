@@ -128,7 +128,7 @@ QVariantMap MainWindow::state()
 #define WRAP(a) \
     a->objectName(), a->isChecked()
     return QVariantMap {
-        { "decorationState", (int)decorationState_ },
+        { "decorationState", int(decorationState_) },
         { WRAP(ui->actionViewHideSeekbar) },
         { WRAP(ui->actionViewHideControls) },
         { WRAP(ui->actionViewHideInformation) },
@@ -151,7 +151,7 @@ void MainWindow::setState(const QVariantMap &map)
 #define UNWRAP(a,b) \
     a->setChecked(map.value(a->objectName(), b).toBool())
 
-    setUiDecorationState((DecorationState)map["decorationState"].toInt());
+    setUiDecorationState(DecorationState(map["decorationState"].toInt()));
     UNWRAP(ui->actionViewHideSeekbar, true);
     UNWRAP(ui->actionViewHideControls, true);
     UNWRAP(ui->actionViewHideInformation, false);
@@ -207,8 +207,8 @@ QSize MainWindow::desirableSize(bool first_run)
     // calculate desired client size, depending upon the zoom mode
     QSize wanted;
     if (zoomMode == RegularZoom) {
-        wanted = QSize(player.width()*factor + 0.5,
-                       player.height()*factor + 0.5);
+        wanted = QSize(int(player.width()*factor + 0.5),
+                       int(player.height()*factor + 0.5));
     } else {
         wanted = (available.size() - fudgeFactor) * fitFactor_;
         if (zoomMode == Autofit) {
@@ -792,11 +792,11 @@ void MainWindow::reparentBottomArea(bool overlay)
     if (overlay && inLayout) {
         bottomAreaHeight = ui->bottomArea->height();
         ui->centralwidget->layout()->removeWidget(ui->bottomArea);
-        ui->bottomArea->setParent(NULL);
+        ui->bottomArea->setParent(nullptr);
         ui->bottomArea->setParent(mpvw);
     }
     if (!overlay && !inLayout) {
-        ui->bottomArea->setParent(NULL);
+        ui->bottomArea->setParent(nullptr);
         ui->centralwidget->layout()->addWidget(ui->bottomArea);
         ui->bottomArea->show();
     }
@@ -1811,14 +1811,14 @@ void MainWindow::on_actionPlayLoopClear_triggered()
 
 void MainWindow::on_actionPlayVolumeUp_triggered()
 {
-    int newvol = std::min(volumeSlider_->value() + volumeStep, 130.0);
+    int newvol = int(std::min(volumeSlider_->value() + volumeStep, 130.0));
     emit volumeChanged(newvol);
     volumeSlider_->setValue(newvol);
 }
 
 void MainWindow::on_actionPlayVolumeDown_triggered()
 {
-    int newvol = std::max(volumeSlider_->value() - volumeStep, 0.0);
+    int newvol = int(std::max(volumeSlider_->value() - volumeStep, 0.0));
     emit volumeChanged(newvol);
     volumeSlider_->setValue(newvol);
 }
@@ -1965,7 +1965,7 @@ void MainWindow::position_hoverValue(double value, QString text, double x)
         text = "<unknown>";
 
     QString t = QString("%1 - %2").arg(Helpers::toDateFormat(value), text);
-    QPoint where = positionSlider_->mapToGlobal(QPoint(x, timeTooltipAbove ? -40 : 0));
+    QPoint where = positionSlider_->mapToGlobal(QPoint(int(x), timeTooltipAbove ? -40 : 0));
     QToolTip::showText(where, t, positionSlider_);
 
     //FIXME: use a widget not the system tooltip?
@@ -1990,7 +1990,7 @@ void MainWindow::on_play_clicked()
 
 void MainWindow::volume_sliderMoved(double position)
 {
-    emit volumeChanged(position);
+    emit volumeChanged(int(position));
 }
 
 void MainWindow::playlistWindow_windowDocked()

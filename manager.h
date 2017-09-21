@@ -24,7 +24,7 @@ public:
                          BufferingState, WaitingState };
     enum PlaybackType { None, File, Disc, Stream, Device };
 
-    explicit PlaybackManager(QObject *parent = 0);
+    explicit PlaybackManager(QObject *parent = nullptr);
     void setMpvWidget(MpvWidget *mpvWidget, bool makeConnections = false);
     void setPlaylistWindow(PlaylistWindow *playlistWindow);
     QUrl nowPlaying();

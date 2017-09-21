@@ -319,7 +319,7 @@ void PlaybackManager::navigateToPrevChapter()
 {
     int64_t chapter = mpvWidget_->chapter();
     if (chapter > 0)
-        navigateToChapter(std::max((int64_t)0, chapter - 1));
+        navigateToChapter(std::max(int64_t(0), chapter - 1));
     else
         playPrevFile();
 }

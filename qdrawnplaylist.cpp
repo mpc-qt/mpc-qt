@@ -15,10 +15,10 @@ void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
 {
     auto playWidget = qobject_cast<QDrawnPlaylist*>(parent());
     auto p = playWidget->playlist();
-    if (p == NULL)
+    if (p == nullptr)
         return;
     QSharedPointer<Item> i = p->itemOf(QUuid(index.data(Qt::DisplayRole).toString()));
-    if (i == NULL)
+    if (i == nullptr)
         return;
 
     QStyleOptionViewItem o2 = option;
@@ -96,7 +96,7 @@ QUuid PlayItem::uuid()
 }
 
 QDrawnPlaylist::QDrawnPlaylist(QWidget *parent) : QListWidget(parent),
-    displayParser_(NULL), worker(NULL), searcher(NULL)
+    displayParser_(nullptr), worker(nullptr), searcher(nullptr)
 {
     worker = new QThread();
     worker->start();
@@ -339,7 +339,7 @@ void QDrawnPlaylist::repopulateItems()
     clear();
 
     auto playlist = this->playlist();
-    if (playlist == NULL)
+    if (playlist == nullptr)
         return;
 
     auto itemAdder = [&](QSharedPointer<Item> item) {

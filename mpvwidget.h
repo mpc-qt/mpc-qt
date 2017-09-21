@@ -235,7 +235,7 @@ public slots:
     QString clientName();
     QStringList protocolList();
     int64_t timeMicroseconds();
-    int64_t apiVersion();
+    unsigned long apiVersion();
 
     void setLogLevel(QString logLevel);
     mpv_opengl_cb_context *mpvDrawContext();

@@ -96,7 +96,7 @@ MpcQtServer::MpcQtServer(MainWindow *mainWindow,
 
 void MpcQtServer::fakePayload(const QByteArray &payload)
 {
-    socket_payloadReceived(payload, NULL);
+    socket_payloadReceived(payload, nullptr);
 }
 
 QString MpcQtServer::defaultSocketName()
@@ -555,7 +555,7 @@ void MpvConnection::command_get_property_string(const QStringList &list,
     }
     QString s = mpvWidget->controller()->getPropertyString(list.at(1));
     if (s.isEmpty())
-        commandReturn(MPV_ERROR_INVALID_PARAMETER, requestId, QVariant(static_cast<char*>(NULL)));
+        commandReturn(MPV_ERROR_INVALID_PARAMETER, requestId, QVariant(static_cast<char*>(nullptr)));
     else
         commandReturn(MPV_ERROR_SUCCESS, requestId, s);
 }
@@ -585,7 +585,7 @@ void MpvConnection::command_observe_property(const QVariantList &list,
 {
     uint64_t id;
     if (list.count() != 3
-            || (id = list.at(1).toInt())==0
+            || (id = list.at(1).toULongLong())==0
             || !list.at(2).canConvert<QString>()) {
         commandReturn(MPV_ERROR_INVALID_PARAMETER, requestId);
         return;
@@ -601,7 +601,7 @@ void MpvConnection::command_observe_property_string(const QVariantList &list,
 {
     uint64_t id;
     if (list.count() != 3
-            || (id = list.at(1).toInt())==0
+            || (id = list.at(1).toULongLong())==0
             || !list.at(2).canConvert<QString>())
         commandReturn(MPV_ERROR_INVALID_PARAMETER, requestId);
     else
@@ -612,7 +612,7 @@ void MpvConnection::command_unobserve_property(const QVariantList &list,
                                                const QVariant &requestId)
 {
     uint64_t id;
-    if (list.count() != 2 || (id = list.at(1).toInt())==0)
+    if (list.count() != 2 || (id = list.at(1).toULongLong())==0)
         commandReturn(MPV_ERROR_INVALID_PARAMETER, requestId);
     else
         commandReturn(mpvWidget->controller()->unobservePropertiesById(QSet<uint64_t>() << id), requestId);

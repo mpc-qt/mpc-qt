@@ -130,7 +130,7 @@ QMap<QString, std::function<void (QObject *, const QVariant &)> > Setting::class
 
 
 
-QStringList internalLogos = {
+static QStringList internalLogos = {
     ":/not-a-real-resource.png",
     ":/images/logo/film-color.svg",
     ":/images/logo/film-gray.svg",
@@ -648,7 +648,7 @@ void SettingsWindow::sendSignals()
     emit option("tone-mapping", WIDGET_TO_TEXT(ui->ccHdrMapper));
     {
         QList<QDoubleSpinBox*> boxen {ui->ccHdrClipParam,
-                    ui->ccHdrMobiusParam, ui->ccHdrReinhardParam, NULL,
+                    ui->ccHdrMobiusParam, ui->ccHdrReinhardParam, nullptr,
                     ui->ccHdrGammaParam, ui->ccHdrLinearParam};
         QDoubleSpinBox* toneParam = boxen[WIDGET_LOOKUP(ui->ccHdrMapper).toInt()];
         emit option("tone-mapping-param", toneParam ? WIDGET_LOOKUP(toneParam) : QVariant("nan"));

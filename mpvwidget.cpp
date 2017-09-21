@@ -31,14 +31,14 @@
 
 
 
-static const int HOOK_UNLOAD_CALLBACK_ID = 0xdeaddead;
+static const int HOOK_UNLOAD_CALLBACK_ID = 0xbeefdab;
 
 
 
 static void* GLAPIENTRY glMPGetNativeDisplay(const char* name) {
 #if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
     if (!strcmp(name, "x11")) {
-        return (void*)QX11Info::display();
+        return QX11Info::display();
     }
 #elif defined(Q_OS_WIN)
     if (!strcmp(name, "IDirect3DDevice9")) {
@@ -47,7 +47,7 @@ static void* GLAPIENTRY glMPGetNativeDisplay(const char* name) {
 #else
     Q_UNUSED(name);
 #endif
-    return NULL;
+    return nullptr;
 }
 
 static void *get_proc_address(void *ctx, const char *name) {
@@ -55,7 +55,7 @@ static void *get_proc_address(void *ctx, const char *name) {
     auto glctx = QOpenGLContext::currentContext();
     if (!strcmp(name, "glMPGetNativeDisplay"))
         return (void*)glMPGetNativeDisplay;
-    void *res = glctx ? (void*)glctx->getProcAddress(QByteArray(name)) : NULL;
+    void *res = glctx ? (void*)glctx->getProcAddress(QByteArray(name)) : nullptr;
 
 #ifdef Q_OS_WIN32
     // QOpenGLContext::getProcAddress() in Qt 5.6 and below doesn't resolve all
@@ -202,16 +202,16 @@ MpvWidget::~MpvWidget()
 {
     if (glMpv) {
         makeCurrent();
-        mpv_opengl_cb_set_update_callback(glMpv, NULL, NULL);
+        mpv_opengl_cb_set_update_callback(glMpv, nullptr, nullptr);
         mpv_opengl_cb_uninit_gl(glMpv);
     }
     if (logo) {
         delete logo;
-        logo = NULL;
+        logo = nullptr;
     }
     if (hideTimer) {
         delete hideTimer;
-        hideTimer = NULL;
+        hideTimer = nullptr;
     }
     worker->deleteLater();
 }
@@ -367,7 +367,7 @@ bool MpvWidget::setChapter(int64_t chapter)
                               Qt::BlockingQueuedConnection,
                               Q_RETURN_ARG(int, r),
                               Q_ARG(QString, "chapter"),
-                              Q_ARG(QVariant, QVariant((qlonglong)chapter)));
+                              Q_ARG(QVariant, QVariant(qlonglong(chapter))));
     return r == MPV_ERROR_SUCCESS;
 }
 
@@ -406,17 +406,17 @@ void MpvWidget::setLoopPoints(double first, double end)
 
 void MpvWidget::setAudioTrack(int64_t id)
 {
-    setMpvPropertyVariant("aid", (long long)id);
+    setMpvPropertyVariant("aid", qlonglong(id));
 }
 
 void MpvWidget::setSubtitleTrack(int64_t id)
 {
-    setMpvPropertyVariant("sid", (long long)id);
+    setMpvPropertyVariant("sid", qlonglong(id));
 }
 
 void MpvWidget::setVideoTrack(int64_t id)
 {
-    setMpvPropertyVariant("vid", (long long)id);
+    setMpvPropertyVariant("vid", qlonglong(id));
 }
 
 void MpvWidget::setDrawLogo(bool yes)
@@ -432,7 +432,7 @@ QString MpvWidget::mpvVersion()
 
 void MpvWidget::setVolume(int64_t volume)
 {
-    setMpvPropertyVariant("volume", (long long)volume);
+    setMpvPropertyVariant("volume", qlonglong(volume));
 }
 
 bool MpvWidget::eofReached()
@@ -524,7 +524,7 @@ QVariant MpvWidget::getMpvPropertyVariant(QString name)
 
 void MpvWidget::initializeGL()
 {
-    if (mpv_opengl_cb_init_gl(glMpv, NULL, get_proc_address, NULL) < 0)
+    if (mpv_opengl_cb_init_gl(glMpv, nullptr, get_proc_address, nullptr) < 0)
         throw std::runtime_error("[MpvWidget] cb init gl failed.");
 
     if (!logo)
@@ -546,8 +546,8 @@ void MpvWidget::paintGL()
 void MpvWidget::resizeGL(int w, int h)
 {
     qreal r = devicePixelRatio();
-    glWidth = w * r;
-    glHeight = h * r;
+    glWidth = int(w * r);
+    glHeight = int(h * r);
     logo->resizeGL(width(),height());
 }
 
@@ -773,7 +773,7 @@ void MpvCallback::reply(QVariant value)
 
 
 MpvController::MpvController(QObject *parent) : QObject(parent),
-    glMpv(NULL), lastVideoSize(0,0)
+    glMpv(nullptr), lastVideoSize(0,0)
 {
     throttler = new QTimer(this);
     connect(throttler, &QTimer::timeout,
@@ -784,7 +784,7 @@ MpvController::MpvController(QObject *parent) : QObject(parent),
 
 MpvController::~MpvController()
 {
-    mpv_set_wakeup_callback(mpv, NULL, NULL);
+    mpv_set_wakeup_callback(mpv, nullptr, nullptr);
     throttler->deleteLater();
 }
 
@@ -861,7 +861,7 @@ int64_t MpvController::timeMicroseconds()
     return mpv_get_time_us(mpv);
 }
 
-int64_t MpvController::apiVersion()
+unsigned long MpvController::apiVersion()
 {
     return mpv_client_api_version();
 }
@@ -983,34 +983,34 @@ void MpvController::handleMpvEvent(mpv_event *event)
 {
     auto propertyToVariant = [event](mpv_event_property *prop) -> QVariant {
         auto asBool = [&](bool dflt = false) {
-            return (prop->format != MPV_FORMAT_FLAG || prop->data == NULL) ?
+            return (prop->format != MPV_FORMAT_FLAG || prop->data == nullptr) ?
                         dflt : *reinterpret_cast<bool*>(prop->data);
         };
         auto asDouble = [&](double dflt = nan("")) {
-            return (prop->format != MPV_FORMAT_DOUBLE || prop->data == NULL) ?
+            return (prop->format != MPV_FORMAT_DOUBLE || prop->data == nullptr) ?
                         dflt : *reinterpret_cast<double*>(prop->data);
         };
         auto asInt64 = [&](int64_t dflt = -1) {
-            return (prop->format != MPV_FORMAT_INT64 || prop->data == NULL) ?
+            return (prop->format != MPV_FORMAT_INT64 || prop->data == nullptr) ?
                         dflt : *reinterpret_cast<int64_t*>(prop->data);
         };
         auto asString = [&](QString dflt = QString()) {
             return (!(prop->format == MPV_FORMAT_STRING ||
                       prop->format == MPV_FORMAT_OSD_STRING) ||
-                    prop->data == NULL) ?
+                    prop->data == nullptr) ?
                         dflt : QString(*reinterpret_cast<char**>(prop->data));
         };
         auto asNode = [&](QVariant dflt = QVariant()) {
-            return (prop->format != MPV_FORMAT_NODE || prop->data == NULL) ?
+            return (prop->format != MPV_FORMAT_NODE || prop->data == nullptr) ?
                         dflt : mpv::qt::node_to_variant(
                             reinterpret_cast<mpv_node*>(prop->data));
         };
-        if (prop->data == NULL) {
+        if (prop->data == nullptr) {
             return QVariant::fromValue<MpvErrorCode>(MpvErrorCode(event->error));
         } else if (prop->format == MPV_FORMAT_NODE) {
             return asNode();
         } else if (prop->format == MPV_FORMAT_INT64) {
-            return (long long)asInt64();
+            return qlonglong(asInt64());
         } else if (prop->format == MPV_FORMAT_DOUBLE) {
             return asDouble();
         } else if (prop->format == MPV_FORMAT_STRING ||

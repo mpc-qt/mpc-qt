@@ -16,7 +16,7 @@
 
 QString Helpers::toDateFormat(double time)
 {
-    int t = time*1000 + 0.5;
+    int t = int(time*1000 + 0.5);
     if (t < 0)
         t = 0;
     int hr = t/3600000;
@@ -82,7 +82,7 @@ QString Helpers::parseFormat(QString fmt, QString fileName,
     struct TimeParse {
         TimeParse(double time) {
             this->time = time;
-            int t = time*1000 + 0.5;
+            int t = int(time*1000 + 0.5);
             hr = t/3600000;
             mn = t/60000 % 60;
             se = t%60000 / 1000;
@@ -112,9 +112,9 @@ QString Helpers::parseFormat(QString fmt, QString fileName,
             case 'h':
                 return QString::number(hr);
             case 'm':
-                return QString::number((int)(time)/60);
+                return QString::number(int(time)/60);
             case 's':
-                return QString::number((int)time);
+                return QString::number(int(time));
             case 'f':
                 return QString::number(time,'f');
             }
@@ -368,7 +368,7 @@ LogoWidget::~LogoWidget()
     if (logoDrawer) {
         makeCurrent();
         delete logoDrawer;
-        logoDrawer = NULL;
+        logoDrawer = nullptr;
     }
 }
 
@@ -422,7 +422,7 @@ public:
         empty();
         if (next)
             delete next;
-        next = NULL;
+        next = nullptr;
     }
 
     bool isNull() {
@@ -465,9 +465,9 @@ public:
     }
 
     void empty() {
-        if (tagNode)    { delete tagNode;   tagNode = NULL; }
-        if (audioNode)  { delete audioNode; audioNode = NULL; }
-        if (videoNode)  { delete videoNode; videoNode = NULL; }
+        if (tagNode)    { delete tagNode;   tagNode = nullptr; }
+        if (audioNode)  { delete audioNode; audioNode = nullptr; }
+        if (videoNode)  { delete videoNode; videoNode = nullptr; }
     }
 
     QString output(const QVariantMap &metaData, const QString &displayString,
@@ -495,7 +495,6 @@ public:
             break;
         case DisplayName:
             t += displayString;
-        default:
             break;
         }
         if (next)
@@ -521,7 +520,7 @@ DisplayParser::DisplayParser()
 
 DisplayParser::~DisplayParser()
 {
-    if (node) { delete node; node = NULL; }
+    if (node) { delete node; node = nullptr; }
 }
 
 void DisplayParser::takeFormatString(QString fmt)
@@ -812,7 +811,7 @@ MouseState MouseState::fromMouseEvent(QMouseEvent *event, MousePress press)
     Qt::MouseButtons mb = event->button();
     if (mb == Qt::NoButton)
         return MouseState();
-    int btn = std::log2(int(mb)) + 2.5; // 1->0+2, 2->1+2, 4->2+2 etc.
+    int btn = int(std::log2(int(mb)) + 2.5); // 1->0+2, 2->1+2, 4->2+2 etc.
     return MouseState(btn, (event->modifiers() >> 25)&15, press);
 }
 
