@@ -17,7 +17,7 @@ class MprisInstance;
 class Flow : public QObject {
     Q_OBJECT
 public:
-    explicit Flow(QObject *owner = 0);
+    explicit Flow(QObject *owner = nullptr);
     ~Flow();
 
     void parseArgs();

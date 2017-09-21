@@ -57,8 +57,8 @@ int main(int argc, char *argv[])
 }
 
 Flow::Flow(QObject *owner) :
-    QObject(owner), server(NULL), mpvServer(NULL), mainWindow(NULL),
-    playbackManager(NULL), settingsWindow(NULL), propertiesWindow(NULL)
+    QObject(owner), server(nullptr), mpvServer(nullptr), mainWindow(nullptr),
+    playbackManager(nullptr), settingsWindow(nullptr), propertiesWindow(nullptr)
 {
 }
 
@@ -66,28 +66,28 @@ Flow::~Flow()
 {
     if (server) {
         delete server;
-        server = NULL;
+        server = nullptr;
     }
     if (mpvServer) {
         delete mpvServer;
-        mpvServer = NULL;
+        mpvServer = nullptr;
     }
     if (mainWindow) {
         storage.writeVList("playlists", mainWindow->playlistWindow()->tabsToVList());
         delete mainWindow;
-        mainWindow = NULL;
+        mainWindow = nullptr;
     }
     if (playbackManager) {
         delete playbackManager;
-        playbackManager = NULL;
+        playbackManager = nullptr;
     }
     if (settingsWindow) {
         delete settingsWindow;
-        settingsWindow = NULL;
+        settingsWindow = nullptr;
     }
     if (propertiesWindow)  {
         delete propertiesWindow;
-        propertiesWindow = NULL;
+        propertiesWindow = nullptr;
     }
     screenSaver.uninhibitSaver();
 }
@@ -586,20 +586,13 @@ QVariantMap Flow::saveWindows()
 
 void Flow::restoreWindows(const QVariantMap &geometryMap)
 {
-    // fetch defaults and overwrite them with saved state
-    QVariantMap map = saveWindows();
-    QMapIterator<QString, QVariant> i(geometryMap);
-    while (i.hasNext()) {
-        i.next();
-        map.insert(i.key(), i.value());
-    }
-
-    QVariantMap mainMap = map["mainWindow"].toMap();
-    QVariantMap mpvHostMap = map["mpvHost"].toMap();
-    QVariantMap playlistMap = map["playlistWindow"].toMap();
-    QVariantMap settingsMap = map["settingsWindow"].toMap();
-    QVariantMap propertiesMap = map["propertiesWindow"].toMap();
+    QVariantMap mainMap = geometryMap["mainWindow"].toMap();
+    QVariantMap mpvHostMap = geometryMap["mpvHost"].toMap();
+    QVariantMap playlistMap = geometryMap["playlistWindow"].toMap();
+    QVariantMap settingsMap = geometryMap["settingsWindow"].toMap();
+    QVariantMap propertiesMap = geometryMap["propertiesWindow"].toMap();
     QRect geometry;
+    QDesktopWidget desktop;
     bool restoreGeometry = rememberWindowGeometry
             && mainMap.contains("geometry")
             && playlistMap.contains("geometry")
@@ -637,13 +630,22 @@ void Flow::restoreWindows(const QVariantMap &geometryMap)
         desiredPlace = cliPos;
 
     mainWindow->setGeometry(QRect(desiredPlace, desiredSize));
-    showWindows(mainMap);
 
+    // helper: fetch geometry from map and center if not exists
+    auto applyVariantToWindow = [&](QWidget *window, const QVariantMap &map) {
+        geometry = Helpers::vmapToRect(map["geometry"].toMap());
+        if (geometry.isEmpty()) {
+            int mouseScreenNumber = desktop.screenNumber(QCursor::pos());
+            QRect available = desktop.availableGeometry(mouseScreenNumber);
+            geometry = QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter,
+                                           window->size(), available);
+        }
+        window->setGeometry(geometry);
+    };
     // restore settings and properties window
-    geometry = Helpers::vmapToRect(settingsMap["geometry"].toMap());
-    settingsWindow->setGeometry(geometry);
-    geometry = Helpers::vmapToRect(propertiesMap["geometry"].toMap());
-    propertiesWindow->setGeometry(geometry);
+    applyVariantToWindow(settingsWindow, settingsMap);
+    applyVariantToWindow(propertiesWindow, propertiesMap);
+    showWindows(mainMap);
 }
 
 void Flow::showWindows(const QVariantMap &mainWindowMap)
