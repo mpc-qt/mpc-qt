@@ -47,7 +47,7 @@ isEmpty(QMAKE_LRELEASE) {
 
 lupdate.input = TRANSLATIONS
 lupdate.output = translations/%{QMAKE_FILE_IN}.ts
-lupdate.commands = $${QMAKE_LUPDATE} $$_PRO_FILE_
+lupdate.commands = $${QMAKE_LUPDATE} -locations none -no-ui-lines $$_PRO_FILE_
 lupdate.CONFIG += no_link target_predeps
 lrelease.input = TRANSLATIONS
 lrelease.output = resources/translations/${QMAKE_FILE_BASE}.qm
