@@ -701,13 +701,14 @@ void Flow::mainwindow_takeImage(Helpers::ScreenshotRender render)
     QString picFile;
     picFile = QFileDialog::getSaveFileName(this->mainWindow, tr("Save Image"),
                                            fileName);
-    if (picFile.isEmpty()) {
-        QFile(tempFile).remove();
-        return;
+    QFile tf(tempFile);
+    if (!picFile.isEmpty()) {
+        QFile pf(picFile);
+        if (pf.exists())
+            pf.remove();
+        tf.copy(picFile);
     }
-    QFileInfo qfi(picFile);
-    QString dest = qfi.absolutePath() + "/" + qfi.completeBaseName();
-    QFile(tempFile).copy(dest);
+    tf.remove();
 }
 
 void Flow::mainwindow_takeImageAutomatically(Helpers::ScreenshotRender render)
