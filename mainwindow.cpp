@@ -545,8 +545,8 @@ void MainWindow::setupMpvHost()
     // dock around it rather than ourselves
     mpvHost_ = new QMainWindow(this);
     mpvHost_->setCentralWidget(mpvw);
-    mpvHost_->setSizePolicy(QSizePolicy(QSizePolicy::Preferred,
-                                        QSizePolicy::Preferred));
+    mpvHost_->setSizePolicy(QSizePolicy(QSizePolicy::Ignored,
+                                        QSizePolicy::Ignored));
     ui->mpvWidget->layout()->addWidget(mpvHost_);
 }
 
