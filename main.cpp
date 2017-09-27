@@ -775,6 +775,7 @@ void Flow::settingswindow_keymapData(const QVariantMap &keyMap)
 
 void Flow::settingswindow_mprisIpc(bool enabled)
 {
+#ifdef QT_DBUS_LIB
     if (!mpris)
         return;
 
@@ -784,6 +785,9 @@ void Flow::settingswindow_mprisIpc(bool enabled)
     if (enabled && !mpris->registered()) {
         mpris->registerDBus();
     }
+#else
+    Q_UNUSED(enabled)
+#endif
 }
 
 void Flow::settingswindow_screenshotDirectory(const QString &where)
