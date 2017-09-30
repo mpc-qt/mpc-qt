@@ -61,7 +61,7 @@ being played, attempts to start one in the same manner as *start*.
 The ipc interface also provides a mechanism for passing through custom queries
 of the internal mpv state, and executing some commands.  These ipc commands
 are called *setMpvOption*, *setMpvProperty*, *getMpvProperty*, and
-doMpvCommand*.  Note that some mpv properties and commands are filtered
+*doMpvCommand*.  Note that some mpv properties and commands are filtered
 because they are managed internally by mpv or would cause undefined behavior,
 and will return an error code of -0xdedbeef.  See the section below.
 
@@ -124,7 +124,11 @@ code in the same manner.
 
 ### MPRIS
 
-Currently unimplemented.
+Available only on Linux.  When mpris is enabled, mpc-qt registers
+`org.mpris.MediaPlayer2.MpcQt` on DBus.  When multiple-windows are enabled,
+each successive window registers `org.mpris.MediaPlayer2.MpcQt.instanceN`,
+where N is the window number.  Tracklist and Playlists are not exposed over
+DBus.
 
 
 [mpv manual]:https://github.com/mpv-player/mpv/blob/master/DOCS/man/ipc.rst
