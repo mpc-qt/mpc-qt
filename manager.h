@@ -84,6 +84,9 @@ public slots:
     void setPlaybackPlayTimes(int times);
     void setPlaybackForever(bool yes);
 
+    // misc functions
+    void sendCurrentTrackInfo();
+
 private slots:
     void mpvw_playTimeChanged(double time);
     void mpvw_playLengthChanged(double length);
@@ -131,6 +134,7 @@ signals:
     void systemShouldLock();
     void systemShouldStandby();
     void systemShouldHibernate();
+    void currentTrackInfo(TrackInfo track);
 
     void fpsChanged(double fps);
     void avsyncChanged(double sync);
@@ -145,6 +149,7 @@ private:
     QUrl  nowPlaying_;
     QUuid nowPlayingList;
     QUuid nowPlayingItem;
+    QString nowPlayingTitle;
 
     double mpvLength = 0.0;
     double mpvSpeed = 1.0;

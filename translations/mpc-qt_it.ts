@@ -17,6 +17,33 @@
     </message>
 </context>
 <context>
+    <name>FavoritesWindow</name>
+    <message>
+        <source>Organize Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="obsolete">Elimina</translation>
+    </message>
+    <message>
+        <source>&amp;Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Streams</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
@@ -1141,6 +1168,14 @@
     <message>
         <source>Network Stream</source>
         <translation>Flusso di rete</translation>
+    </message>
+    <message>
+        <source>No files favorited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No streams favorited</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

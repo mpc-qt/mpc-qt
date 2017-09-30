@@ -111,7 +111,8 @@ SOURCES += main.cpp\
     qscreensaver.cpp \
     propertieswindow.cpp \
     platform/unify.cpp \
-    paletteeditor.cpp
+    paletteeditor.cpp \
+    favoriteswindow.cpp
 
 HEADERS  += \
     mpvwidget.h \
@@ -133,14 +134,16 @@ HEADERS  += \
     qscreensaver.h \
     propertieswindow.h \
     platform/unify.h \
-    paletteeditor.h
+    paletteeditor.h \
+    favoriteswindow.h
 
 FORMS    += \
     mainwindow.ui \
     playlistwindow.ui \
     settingswindow.ui \
     openfiledialog.ui \
-    propertieswindow.ui
+    propertieswindow.ui \
+    favoriteswindow.ui
 
 RESOURCES += \
     res.qrc

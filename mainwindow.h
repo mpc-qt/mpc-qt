@@ -137,6 +137,8 @@ signals:
     void fullscreenModeChanged(bool fullscreen);
     void zoomPresetChanged(int which);
     void playCurrentItemRequested();
+    void favoriteCurrentTrack();
+    void organizeFavorites();
 
 public slots:
     void setFullscreenMode(bool fullscreenMode);
@@ -144,6 +146,7 @@ public slots:
     void setWindowedMouseMap(const MouseStateMap &map);
     void setFullscreenMouseMap(const MouseStateMap &map);
     void setRecentDocuments(QList<TrackInfo> tracks);
+    void setFavoriteTracks(QList<TrackInfo> files, QList<TrackInfo> streams);
     void setIconTheme(QString fallback, QString custom);
     void setInfoColors(const QColor &foreground, const QColor &background);
     void setTime(double time, double length);
@@ -290,6 +293,10 @@ private slots:
 
     void on_actionFileLoadSubtitle_triggered();
 
+    void on_actionFavoritesAdd_triggered();
+
+    void on_actionFavoritesOrganize_triggered();
+
 private:
     Ui::MainWindow *ui = nullptr;
     QMainWindow *mpvHost_ = nullptr;
@@ -335,6 +342,7 @@ private:
     double videoBitrate = 0;
 
     IconThemer themer;
+    QList<QAction *> menuFavoritesTail;
     MouseStateMap mouseMapWindowed;
     MouseStateMap mouseMapFullscreen;
 };

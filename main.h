@@ -9,6 +9,7 @@
 #include "storage.h"
 #include "settingswindow.h"
 #include "propertieswindow.h"
+#include "favoriteswindow.h"
 #include "qscreensaver.h"
 
 class MprisInstance;
@@ -35,6 +36,8 @@ private:
     QString pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const;
     QVariantList recentToVList() const;
     void recentFromVList(const QVariantList &list);
+    QVariantMap favoritesToVMap() const;
+    void favoritesFromVMap(const QVariantMap &map);
     QVariantMap saveWindows();
     void restoreWindows(const QVariantMap &geometryMap);
     void showWindows(const QVariantMap &mainWindowMap);
@@ -59,6 +62,7 @@ private slots:
     void settingswindow_screenshotTemplate(const QString &fmt);
     void settingswindow_encodeTemplate(const QString &fmt);
     void settingswindow_screenshotFormat(const QString &fmt);
+    void favoriteswindow_favoriteTracks(const QList<TrackInfo> &files, const QList<TrackInfo> &streams);
 
     void endProgram();
     void importPlaylist(QString fname);
@@ -72,10 +76,13 @@ private:
     PlaybackManager *playbackManager = nullptr;
     SettingsWindow *settingsWindow = nullptr;
     PropertiesWindow *propertiesWindow = nullptr;
+    FavoritesWindow *favoritesWindow = nullptr;
     Storage storage;
     QVariantMap settings;
     QVariantMap keyMap;
     QList<TrackInfo> recentFiles;
+    QList<TrackInfo> favoriteFiles;
+    QList<TrackInfo> favoriteStreams;
     QScreenSaver screenSaver;
 
     QSize cliSize;

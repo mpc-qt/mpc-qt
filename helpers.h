@@ -121,13 +121,18 @@ private:
 class TrackInfo {
 public:
     TrackInfo() {}
-    TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item);
+    TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item, QString text, double length);
     QUrl url;
     QUuid list;
     QUuid item;
+    QString text;
+    double length;
     QVariantMap toVMap() const;
     void fromVMap(const QVariantMap &map);
     bool operator ==(const TrackInfo &track) const;
+
+    static QVariantList tracksToVList(const QList<TrackInfo> &list);
+    static QList<TrackInfo> tracksFromVList(const QVariantList &list);
 };
 
 class MouseState {

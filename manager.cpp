@@ -463,6 +463,12 @@ void PlaybackManager::setPlaybackForever(bool yes)
     this->playbackForever = yes;
 }
 
+void PlaybackManager::sendCurrentTrackInfo()
+{
+    QUrl url(playlistWindow_->getUrlOf(nowPlayingList, nowPlayingItem));
+    emit currentTrackInfo({url, nowPlayingList, nowPlayingItem, nowPlayingTitle, mpvLength});
+}
+
 void PlaybackManager::mpvw_playTimeChanged(double time)
 {
     // in case the duration property is not available, update the play length
@@ -521,6 +527,7 @@ void PlaybackManager::mpvw_playbackIdling()
 
 void PlaybackManager::mpvw_mediaTitleChanged(QString title)
 {
+    nowPlayingTitle = title;
     emit titleChanged(title);
 }
 

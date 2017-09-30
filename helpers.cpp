@@ -646,16 +646,19 @@ QString DisplayParser::parseMetadata(QVariantMap metaData,
 
 
 
-TrackInfo::TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item)
+TrackInfo::TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item, QString text, double length)
 {
     this->url = url;
     this->list = list;
     this->item = item;
+    this->text = text.isEmpty() ? url.toString() : text;
+    this->length = length;
 }
 
 QVariantMap TrackInfo::toVMap() const
 {
-    return QVariantMap({{"url", url}, {"list", list}, {"item", item}});
+    return QVariantMap({{"url", url}, {"list", list}, {"item", item},
+                        {"text", text}, {"length", length}});
 }
 
 void TrackInfo::fromVMap(const QVariantMap &map)
@@ -663,11 +666,34 @@ void TrackInfo::fromVMap(const QVariantMap &map)
     url = map.value("url").toUrl();
     list = map.value("list").toUuid();
     item = map.value("item").toUuid();
+    text = map.value("text").toString();
+    if (text.isEmpty())
+        text = url.toString();
+    length = map.value("length").toDouble();
 }
 
 bool TrackInfo::operator ==(const TrackInfo &track) const
 {
     return url == track.url;
+}
+
+QVariantList TrackInfo::tracksToVList(const QList<TrackInfo> &list)
+{
+    QVariantList l;
+    for (const TrackInfo &track : list)
+        l.append(track.toVMap());
+    return l;
+}
+
+QList<TrackInfo> TrackInfo::tracksFromVList(const QVariantList &list)
+{
+    QList<TrackInfo> l;
+    for (const QVariant &v : list) {
+        TrackInfo track;
+        track.fromVMap(v.toMap());
+        l.append(track);
+    }
+    return l;
 }
 
 

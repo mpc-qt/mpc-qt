@@ -89,6 +89,10 @@ Flow::~Flow()
         delete propertiesWindow;
         propertiesWindow = nullptr;
     }
+    if (favoritesWindow) {
+        delete favoritesWindow;
+        favoritesWindow = nullptr;
+    }
     screenSaver.uninhibitSaver();
 }
 
@@ -125,6 +129,7 @@ void Flow::init() {
     settingsWindow = new SettingsWindow();
     settingsWindow->setWindowModality(Qt::WindowModal);
     propertiesWindow = new PropertiesWindow();
+    favoritesWindow = new FavoritesWindow();
 
     server = new MpcQtServer(mainWindow, playbackManager, this);
     server->setMainWindow(mainWindow);
@@ -193,6 +198,8 @@ void Flow::init() {
             playbackManager, &PlaybackManager::navigateToChapter);
     connect(mainWindow, &MainWindow::timeSelected,
             playbackManager, &PlaybackManager::navigateToTime);
+    connect(mainWindow, &MainWindow::favoriteCurrentTrack,
+            playbackManager, &PlaybackManager::sendCurrentTrackInfo);
 
     // playlistwindow -> mainwindow
     connect(mainWindow->playlistWindow(), &PlaylistWindow::viewActionChanged,
@@ -239,6 +246,18 @@ void Flow::init() {
             mainWindow, &MainWindow::setVideoBitrate);
     connect(playbackManager, &PlaybackManager::afterPlaybackReset,
             mainWindow, &MainWindow::resetPlayAfterOnce);
+
+    // mainwindow -> favorites
+    connect(mainWindow, &MainWindow::organizeFavorites,
+            favoritesWindow, &FavoritesWindow::show);
+
+    // favorites -> mainwindow
+    connect(favoritesWindow, &FavoritesWindow::favoriteTracks,
+            mainWindow, &MainWindow::setFavoriteTracks);
+
+    // manager -> favorites
+    connect(playbackManager, &PlaybackManager::currentTrackInfo,
+            favoritesWindow, &FavoritesWindow::addTrack);
 
     // mainwindow -> settings
     connect(mainWindow, &MainWindow::volumeChanged,
@@ -405,6 +424,10 @@ void Flow::init() {
     connect(playbackManager, &PlaybackManager::systemShouldStandby,
             &screenSaver, &QScreenSaver::suspendSystem);
 
+    // favorites -> this.favorite*
+    connect(favoritesWindow, &FavoritesWindow::favoriteTracks,
+            this, &Flow::favoriteswindow_favoriteTracks);
+
     // this.screensaver -> this
     connect(&screenSaver, &QScreenSaver::systemShutdown,
             this, &Flow::endProgram);
@@ -425,6 +448,10 @@ void Flow::init() {
     settingsWindow->takeActions(mainWindow->editableActions());
     recentFromVList(storage.readVList("recent"));
     mainWindow->setRecentDocuments(recentFiles);
+    favoritesFromVMap(storage.readVMap("favorites"));
+    mainWindow->setFavoriteTracks(favoriteFiles, favoriteStreams);
+    favoritesWindow->setFiles(favoriteFiles);
+    favoritesWindow->setStreams(favoriteStreams);
     settings = storage.readVMap("settings");
     keyMap = storage.readVMap("keys");
     settingsWindow->setAudioDevices(mpvw->audioDevices());
@@ -534,20 +561,26 @@ QString Flow::pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles 
 
 QVariantList Flow::recentToVList() const
 {
-    QVariantList l;
-    for (const TrackInfo &track : recentFiles)
-        l.append(track.toVMap());
-    return l;
+    return TrackInfo::tracksToVList(recentFiles);
 }
 
 void Flow::recentFromVList(const QVariantList &list)
 {
-    recentFiles.clear();
-    for (const QVariant &item : list) {
-        TrackInfo t;
-        t.fromVMap(item.toMap());
-        recentFiles.append(t);
-    }
+    recentFiles = TrackInfo::tracksFromVList(list);
+}
+
+QVariantMap Flow::favoritesToVMap() const
+{
+    return QVariantMap {
+        { "files", TrackInfo::tracksToVList(favoriteFiles) },
+        { "streams", TrackInfo::tracksToVList(favoriteStreams) }
+    };
+}
+
+void Flow::favoritesFromVMap(const QVariantMap &map)
+{
+    favoriteFiles = TrackInfo::tracksFromVList(map.value("files").toList());
+    favoriteStreams = TrackInfo::tracksFromVList(map.value("streams").toList());
 }
 
 QVariantMap Flow::saveWindows()
@@ -730,7 +763,7 @@ void Flow::mainwindow_optionsOpenRequested()
 
 void Flow::manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid)
 {
-    TrackInfo track(url, listUuid, itemUuid);
+    TrackInfo track(url, listUuid, itemUuid, QString(), 0);
     if (recentFiles.contains(track)) {
         recentFiles.removeAll(track);
     }
@@ -816,11 +849,18 @@ void Flow::settingswindow_screenshotFormat(const QString &fmt)
     this->screenshotFormat = fmt;
 }
 
+void Flow::favoriteswindow_favoriteTracks(const QList<TrackInfo> &files, const QList<TrackInfo> &streams)
+{
+    favoriteFiles = files;
+    favoriteStreams = streams;
+}
+
 void Flow::endProgram()
 {
     storage.writeVMap("settings", settings);
     storage.writeVMap("keys", keyMap);
     storage.writeVList("recent", recentToVList());
+    storage.writeVMap("favorites", favoritesToVMap());
     storage.writeVMap("geometry", saveWindows());
     qApp->quit();
 }

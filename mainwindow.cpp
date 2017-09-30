@@ -774,7 +774,7 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionNavigateChaptersPrevious->setEnabled(enabled);
     ui->actionNavigateChaptersNext->setEnabled(enabled);
     ui->actionNavigateGoto->setEnabled(false);
-    ui->actionFavoritesAdd->setEnabled(enabled && false);
+    ui->actionFavoritesAdd->setEnabled(enabled);
 
     ui->menuFileOpenDisc->setEnabled(false);
     ui->menuFileSubtitleDatabase->setEnabled(false);
@@ -783,7 +783,6 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->menuPlaySubtitles->setEnabled(enabled);
     ui->menuPlayVideo->setEnabled(enabled);
     ui->menuNavigateChapters->setEnabled(enabled && false);
-    ui->menuFavorites->setEnabled(false);
 }
 
 void MainWindow::reparentBottomArea(bool overlay)
@@ -1010,6 +1009,51 @@ void MainWindow::setRecentDocuments(QList<TrackInfo> tracks)
     }
     ui->menuFileRecent->addSeparator();
     ui->menuFileRecent->addAction(ui->actionFileRecentClear);
+}
+
+void MainWindow::setFavoriteTracks(QList<TrackInfo> files, QList<TrackInfo> streams)
+{
+    auto addAction = [&](QAction *a) {
+        menuFavoritesTail.append(a);
+        ui->menuFavorites->addAction(a);
+    };
+    auto addSeperator = [&]() {
+        auto a = new QAction(this);
+        a->setSeparator(true);
+        addAction(a);
+    };
+    auto addNotice = [&](QString notice) {
+        auto a = new QAction(this);
+        a->setText(notice);
+        a->setEnabled(false);
+        addAction(a);
+    };
+    auto addTracks = [&](const QList<TrackInfo> &tracks) {
+        for (const auto t : tracks) {
+            auto a = new QAction(this);
+            a->setText(t.text);
+            connect(a, &QAction::triggered,
+                    a, [t, this]() {
+                this->recentOpened(t);
+            });
+            addAction(a);
+        }
+    };
+
+    for (auto a : menuFavoritesTail)
+        delete a;
+    menuFavoritesTail.clear();
+
+    addSeperator();
+    if (files.empty())
+        addNotice(tr("No files favorited"));
+    else
+        addTracks(files);
+    addSeperator();
+    if (streams.empty())
+        addNotice(tr("No streams favorited"));
+    else
+        addTracks(streams);
 }
 
 void MainWindow::setIconTheme(QString fallback, QString custom)
@@ -2013,3 +2057,13 @@ void MainWindow::on_actionPlaylistSearch_triggered()
     playlistWindow_->revealSearch();
 }
 
+
+void MainWindow::on_actionFavoritesAdd_triggered()
+{
+    emit favoriteCurrentTrack();
+}
+
+void MainWindow::on_actionFavoritesOrganize_triggered()
+{
+    emit organizeFavorites();
+}
