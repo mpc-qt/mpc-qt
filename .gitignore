@@ -49,3 +49,4 @@ mpc-qt
 # make release scripts
 /mpc-qt-*/
 *.zip 
+*.sha512
