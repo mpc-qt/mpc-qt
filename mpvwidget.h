@@ -50,6 +50,7 @@ public:
     void setPaused(bool yes);
     void setSpeed(double speed);
     void setTime(double position);
+    void setTimeSync(double position);
     void setLoopPoints(double first, double end);
     void setAudioTrack(int64_t id);
     void setSubtitleTrack(int64_t id);
@@ -96,6 +97,7 @@ signals:
 
     void playTimeChanged(double time);
     void playLengthChanged(double length);
+    void seekableChanged(bool yes);
     void playbackLoading();
     void playbackStarted();
     void pausedChanged(bool yes);

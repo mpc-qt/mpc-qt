@@ -121,12 +121,13 @@ private:
 class TrackInfo {
 public:
     TrackInfo() {}
-    TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item, QString text, double length);
+    TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item, QString text, double length, double position);
     QUrl url;
     QUuid list;
     QUuid item;
     QString text;
     double length;
+    double position;
     QVariantMap toVMap() const;
     void fromVMap(const QVariantMap &map);
     bool operator ==(const TrackInfo &track) const;

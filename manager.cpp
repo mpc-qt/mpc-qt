@@ -22,6 +22,8 @@ void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)
                 this, &PlaybackManager::mpvw_playTimeChanged);
         connect(mpvWidget, &MpvWidget::playLengthChanged,
                 this, &PlaybackManager::mpvw_playLengthChanged);
+        connect(mpvWidget, &MpvWidget::seekableChanged,
+                this, &PlaybackManager::mpvw_seekableChanged);
         connect(mpvWidget, &MpvWidget::playbackLoading,
                 this, &PlaybackManager::mpvw_playbackLoading);
         connect(mpvWidget, &MpvWidget::playbackStarted,
@@ -89,6 +91,7 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
         return;
     emit stateChanged(playbackState_ = WaitingState);
 
+    mpvStartTime = -1.0;
     nowPlaying_ = what;
     mpvWidget_->fileOpen(what.isLocalFile() ? what.toLocalFile()
                                             : what.fromPercentEncoding(what.toEncoded()));
@@ -212,6 +215,7 @@ void PlaybackManager::playDiscFiles(QUrl where)
         emit stateChanged(playbackState_);
         mpvWidget_->stopPlayback();
     }
+    mpvStartTime = -1.0;
     mpvWidget_->discFilesOpen(where.toLocalFile());
     mpvWidget_->setPaused(false);
     playbackStartState = PlayingState;
@@ -374,7 +378,13 @@ void PlaybackManager::navigateToChapter(int64_t chapter)
 
 void PlaybackManager::navigateToTime(double time)
 {
-    mpvWidget_->setTime(time);
+    if (playbackState_ == WaitingState || playbackState_ == StoppedState) {
+        qDebug() << "asking for" << time;
+        mpvStartTime = time;
+    } else {
+        qDebug() << "direct time" << time;
+        mpvWidget_->setTime(time);
+    }
 }
 
 void PlaybackManager::speedUp()
@@ -466,7 +476,8 @@ void PlaybackManager::setPlaybackForever(bool yes)
 void PlaybackManager::sendCurrentTrackInfo()
 {
     QUrl url(playlistWindow_->getUrlOf(nowPlayingList, nowPlayingItem));
-    emit currentTrackInfo({url, nowPlayingList, nowPlayingItem, nowPlayingTitle, mpvLength});
+    emit currentTrackInfo({url, nowPlayingList, nowPlayingItem,
+                           nowPlayingTitle, mpvLength, mpvTime});
 }
 
 void PlaybackManager::mpvw_playTimeChanged(double time)
@@ -475,12 +486,21 @@ void PlaybackManager::mpvw_playTimeChanged(double time)
     // to indicate that the time is in fact available.
     if (mpvLength < time)
         mpvLength = time;
+    mpvTime = time;
     emit timeChanged(time, mpvLength);
 }
 
 void PlaybackManager::mpvw_playLengthChanged(double length)
 {
     mpvLength = length;
+}
+
+void PlaybackManager::mpvw_seekableChanged(bool yes)
+{
+    if (yes && mpvStartTime > 0) {
+        mpvWidget_->setTimeSync(mpvStartTime);
+        mpvStartTime = -1;
+    }
 }
 
 void PlaybackManager::mpvw_playbackLoading()

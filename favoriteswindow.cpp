@@ -98,10 +98,10 @@ FavoritesItem::FavoritesItem(QListWidget *owner, const TrackInfo &t)
 {
     track_ = t;
     Qt::ItemFlags f = flags();
-#if QT_VERSION >= 0x057000
+#if QT_VERSION >= 0x050700
     f.setFlag(Qt::ItemIsEditable);
 #else
-    f &= ~Qt::ItemIsEditable;
+    f |= Qt::ItemIsEditable;
 #endif
     this->setFlags(f);
 }
@@ -164,7 +164,8 @@ void FavoritesDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     QApplication::style()->drawControl(QStyle::CE_ItemViewItem, &option, painter);
 
     QString text = listItem->track().text;
-    QString time = Helpers::toDateFormat(listItem->track().length);
+    QString time = Helpers::toDateFormat(listItem->track().position) + " / "
+                   + Helpers::toDateFormat(listItem->track().length);
     QRect rc = option.rect.adjusted(3, 0, -3, 0);
     painter->drawText(rc, Qt::AlignRight|Qt::AlignCenter, time);
     rc.adjust(0, 0, -(3 + option.fontMetrics.width(time)), 0);

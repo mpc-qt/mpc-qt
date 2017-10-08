@@ -712,6 +712,8 @@ void Flow::mainwindow_recentOpened(const TrackInfo &track)
         playbackManager->playItem(track.list, track.item);
     else
         playbackManager->openFile(track.url);
+    if (track.position > 0 && track.url.isLocalFile())
+        playbackManager->navigateToTime(track.position);
 }
 
 void Flow::mainwindow_recentClear()
@@ -763,7 +765,7 @@ void Flow::mainwindow_optionsOpenRequested()
 
 void Flow::manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid)
 {
-    TrackInfo track(url, listUuid, itemUuid, QString(), 0);
+    TrackInfo track(url, listUuid, itemUuid, QString(), 0, 0);
     if (recentFiles.contains(track)) {
         recentFiles.removeAll(track);
     }

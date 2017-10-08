@@ -90,6 +90,7 @@ public slots:
 private slots:
     void mpvw_playTimeChanged(double time);
     void mpvw_playLengthChanged(double length);
+    void mpvw_seekableChanged(bool yes);
     void mpvw_playbackLoading();
     void mpvw_playbackStarted();
     void mpvw_pausedChanged(bool yes);
@@ -151,6 +152,8 @@ private:
     QUuid nowPlayingItem;
     QString nowPlayingTitle;
 
+    double mpvStartTime = -1.0;
+    double mpvTime = 0.0;
     double mpvLength = 0.0;
     double mpvSpeed = 1.0;
     PlaybackState playbackState_ = StoppedState;

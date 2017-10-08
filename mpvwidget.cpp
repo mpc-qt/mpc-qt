@@ -167,7 +167,8 @@ MpvWidget::MpvWidget(QWidget *parent, const QString &clientName) :
         { "file-size", 0, MPV_FORMAT_STRING },
         { "file-date-created", 0, MPV_FORMAT_NODE },
         { "format", 0, MPV_FORMAT_STRING },
-        { "path", 0, MPV_FORMAT_STRING }
+        { "path", 0, MPV_FORMAT_STRING },
+        { "seekable", 0, MPV_FORMAT_FLAG }
     };
     QSet<QString> throttled = {
         "time-pos", "avsync", "estimated-vf-fps", "frame-drop-count",
@@ -260,6 +261,7 @@ int MpvWidget::cycleStatsPage()
 void MpvWidget::fileOpen(QString filename)
 {
     setSubFile("\n");
+    //setStartTime(0.0);
     emit ctrlCommand(QStringList({"loadfile", filename}));
     setMouseHideTime(hideTimer->interval());
 }
@@ -394,6 +396,11 @@ void MpvWidget::setSpeed(double speed)
 void MpvWidget::setTime(double position)
 {
     setMpvPropertyVariant("time-pos", position);
+}
+
+void MpvWidget::setTimeSync(double position)
+{
+    controller()->command(QVariantList() << "seek" << position << "absolute");
 }
 
 void MpvWidget::setLoopPoints(double first, double end)
@@ -623,6 +630,7 @@ void MpvWidget::ctrl_mpvPropertyChanged(QString name, QVariant v)
     //FIXME: use constant-time map to function lookup
     HANDLE_PROP("time-pos", emit self_playTimeChanged, toDouble, -1.0);
     HANDLE_PROP("duration", emit self_playLengthChanged, toDouble, -1.0);
+    HANDLE_PROP("seekable", emit seekableChanged, toBool, false);
     HANDLE_PROP("pause", emit pausedChanged, toBool, true);
     HANDLE_PROP("media-title", emit mediaTitleChanged, toString, QString());
     HANDLE_PROP("chapter-metadata", emit chapterDataChanged, toMap, QVariantMap());

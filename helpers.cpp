@@ -646,19 +646,21 @@ QString DisplayParser::parseMetadata(QVariantMap metaData,
 
 
 
-TrackInfo::TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item, QString text, double length)
+TrackInfo::TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item, QString text, double length, double position)
 {
     this->url = url;
     this->list = list;
     this->item = item;
     this->text = text.isEmpty() ? url.toString() : text;
     this->length = length;
+    this->position = position;
 }
 
 QVariantMap TrackInfo::toVMap() const
 {
     return QVariantMap({{"url", url}, {"list", list}, {"item", item},
-                        {"text", text}, {"length", length}});
+                        {"text", text}, {"length", length},
+                        {"position", position}});
 }
 
 void TrackInfo::fromVMap(const QVariantMap &map)
@@ -670,6 +672,7 @@ void TrackInfo::fromVMap(const QVariantMap &map)
     if (text.isEmpty())
         text = url.toString();
     length = map.value("length").toDouble();
+    position = map.value("position").toDouble();
 }
 
 bool TrackInfo::operator ==(const TrackInfo &track) const
