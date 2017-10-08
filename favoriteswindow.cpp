@@ -1,5 +1,6 @@
 #include <QLineEdit>
 #include <QPainter>
+#include <QtGlobal>
 
 #include "favoriteswindow.h"
 #include "ui_favoriteswindow.h"
@@ -97,7 +98,11 @@ FavoritesItem::FavoritesItem(QListWidget *owner, const TrackInfo &t)
 {
     track_ = t;
     Qt::ItemFlags f = flags();
+#if QT_VERSION >= 0x057000
     f.setFlag(Qt::ItemIsEditable);
+#else
+    f &= ~Qt::ItemIsEditable;
+#endif
     this->setFlags(f);
 }
 
