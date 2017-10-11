@@ -14,7 +14,8 @@ Storage::Storage(QObject *parent) :
     QObject(parent)
 {
     configPath = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
-    QDir().mkpath(Platform::fixedConfigPath(configPath));
+    configPath = Platform::fixedConfigPath(configPath);
+    QDir().mkpath(configPath);
 }
 
 void Storage::writeVMap(QString name, const QVariantMap &qvm)
