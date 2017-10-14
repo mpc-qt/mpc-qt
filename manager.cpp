@@ -378,13 +378,10 @@ void PlaybackManager::navigateToChapter(int64_t chapter)
 
 void PlaybackManager::navigateToTime(double time)
 {
-    if (playbackState_ == WaitingState || playbackState_ == StoppedState) {
-        qDebug() << "asking for" << time;
+    if (playbackState_ == WaitingState || playbackState_ == StoppedState)
         mpvStartTime = time;
-    } else {
-        qDebug() << "direct time" << time;
+    else
         mpvWidget_->setTime(time);
-    }
 }
 
 void PlaybackManager::speedUp()
