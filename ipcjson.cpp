@@ -70,15 +70,18 @@ QString JsonServer::fullServerName()
 void JsonServer::listen()
 {
     server = new QLocalServer(this);
-    server->removeServer(socketName);
-    server->listen(socketName);
     connect(server, &QLocalServer::newConnection,
             this, &JsonServer::server_newConnection);
+
+    server->removeServer(socketName);
+    server->listen(socketName);
 }
 
 void JsonServer::server_newConnection()
 {
-    emit newConnection(server->nextPendingConnection());
+    QLocalSocket *connection = server->nextPendingConnection();
+    if (connection)
+        emit newConnection(connection);
 }
 
 
