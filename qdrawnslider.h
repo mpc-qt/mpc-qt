@@ -93,8 +93,7 @@ protected:
     QMap<double, QString> ticks;
     double vLoopA = -1;
     double vLoopB = -1;
-    static constexpr QRectF noLoopArea = { -1, -1, 0, 0 };
-    QRectF loopArea = noLoopArea;
+    QRectF loopArea = { -1, -1, 0, 0};
 };
 
 class QVolumeSlider : public QDrawnSlider {

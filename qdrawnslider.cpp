@@ -231,10 +231,6 @@ void QDrawnSlider::mouseMoveEvent(QMouseEvent *ev)
     ev->ignore();
 }
 
-
-
-constexpr QRectF QMediaSlider::noLoopArea;
-
 QMediaSlider::QMediaSlider(QWidget *parent) :
     QDrawnSlider(parent, QSize(11, 12), QSize(5, 3))
 {
@@ -244,7 +240,7 @@ void QMediaSlider::clearTicks()
 {
     ticks.clear();
     vLoopA = vLoopB = -1;
-    loopArea = noLoopArea;
+    loopArea = { -1, -1, 0, 0 };
 }
 
 void QMediaSlider::setTick(double value, QString text)
