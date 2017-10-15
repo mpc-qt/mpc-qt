@@ -36,8 +36,7 @@ program is more feature-complete.
 ## Features
 
 Nearly everything that mpc-hc does.  For the most part, unwritten
-portions relate to setting options, streaming from devices, and storing
-favorites.
+portions relate to setting options and streaming from devices.
 
 
 ### Improvements over mpc-hc
