@@ -192,6 +192,8 @@ QSize MainWindow::desirableSize(bool first_run)
     QRect available = first_run ? desktop->availableGeometry(
                                       desktop->screenNumber(QCursor::pos()))
                                 : desktop->availableGeometry(this);
+    QSize frameDiff = this->frameGeometry().size() - this->geometry().size();
+    available.adjust(0, 0, -frameDiff.width(), -frameDiff.height());
 
     // calculate player size
     QSize player = mpvw->videoSize() / ratio;
@@ -247,13 +249,16 @@ QPoint MainWindow::desirablePosition(QSize &size, bool first_run)
     QRect available = first_run ? desktop->availableGeometry(
                                       desktop->screenNumber(QCursor::pos()))
                                 : desktop->availableGeometry(this);
+    QSize frameDiff = this->frameGeometry().size() - this->geometry().size();
+    available.adjust(0, 0, -frameDiff.width(), -frameDiff.height());
     if (size.height() > available.height())
         size.setHeight(available.height());
     if (size.width() > available.width())
         size.setWidth(available.width());
 
+    QPoint clientOffset = geometry().topLeft() - pos();
     return QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter,
-                               size, available).topLeft();
+                               size, available).topLeft() + clientOffset;
 }
 
 void MainWindow::unfreezeWindow()
