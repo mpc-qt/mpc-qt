@@ -31,7 +31,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    MpvWidget *mpvWidget();
+    MpvObject *mpvObject();
     QMainWindow *mpvHost();
     PlaylistWindow *playlistWindow();
     QList<QAction *> editableActions();
@@ -73,8 +73,8 @@ private:
     void setupActionGroups();
     void setupPositionSlider();
     void setupVolumeSlider();
-    void setupMpvWidget();
     void setupMpvHost();
+    void setupMpvObject();
     void setupPlaylist();
     void setupStatus();
     void setupSizing();
@@ -300,7 +300,9 @@ private slots:
 private:
     Ui::MainWindow *ui = nullptr;
     QMainWindow *mpvHost_ = nullptr;
-    MpvWidget *mpvw = nullptr;
+    MpvObject *mpvObject_ = nullptr;
+    QWidget *mpvw = nullptr;
+    //MpvGlCbWidget *mpvw = nullptr;
     QMediaSlider *positionSlider_ = nullptr;
     QVolumeSlider *volumeSlider_ = nullptr;
     QStatusTime *timePosition = nullptr;

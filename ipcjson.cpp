@@ -276,7 +276,7 @@ QVariant MpcQtServer::ipc_getMpvProperty(const QVariantMap &map)
 {
     if (!map.contains("name"))
         return QVariant::fromValue(MpvErrorCode(-0xdedbeef));
-    return mainWindow->mpvWidget()->getMpvPropertyVariant(map["name"].toString());
+    return mainWindow->mpvObject()->getMpvPropertyVariant(map["name"].toString());
 }
 
 QVariant MpcQtServer::ipc_setMpvProperty(const QVariantMap &map)
@@ -285,7 +285,7 @@ QVariant MpcQtServer::ipc_setMpvProperty(const QVariantMap &map)
     if (name.isEmpty() || bannedProperties->contains(name))
         return QVariant::fromValue(MpvErrorCode(-0xdedbeef));
 
-    return mainWindow->mpvWidget()->blockingSetMpvPropertyVariant(name, map["value"]);
+    return mainWindow->mpvObject()->blockingSetMpvPropertyVariant(name, map["value"]);
 }
 
 QVariant MpcQtServer::ipc_setMpvOption(const QVariantMap &map)
@@ -294,7 +294,7 @@ QVariant MpcQtServer::ipc_setMpvOption(const QVariantMap &map)
     if (name.isEmpty() || bannedOptions->contains(name))
         return QVariant::fromValue(MpvErrorCode(-0xdedbeef));
 
-    return mainWindow->mpvWidget()->blockingSetMpvOptionVariant(name, map["value"]);
+    return mainWindow->mpvObject()->blockingSetMpvOptionVariant(name, map["value"]);
 }
 
 QVariant MpcQtServer::ipc_doMpvCommand(const QVariantMap &map)
@@ -312,7 +312,7 @@ QVariant MpcQtServer::ipc_doMpvCommand(const QVariantMap &map)
     else
         command.append(options);
     end:
-    return mainWindow->mpvWidget()->blockingMpvCommand(QVariant(command));
+    return mainWindow->mpvObject()->blockingMpvCommand(QVariant(command));
 }
 
 
@@ -329,27 +329,27 @@ void MpvServer::setPlaybackManger(PlaybackManager *manager)
     playbackManager = manager;
 }
 
-void MpvServer::setMpvWidget(MpvWidget *widget)
+void MpvServer::setMpvObject(MpvObject *object)
 {
-    mpvWidget = widget;
+    mpvObject = object;
 }
 
 void MpvServer::server_newConnection(QLocalSocket *socket)
 {
-    if (!playbackManager || !mpvWidget) {
+    if (!playbackManager || !mpvObject) {
         socket->deleteLater();
         return;
     }
 
     qDebug() << "new connection";
-    new MpvConnection(socket, playbackManager, mpvWidget, this);
+    new MpvConnection(socket, playbackManager, mpvObject, this);
 }
 
 MpvConnection::MpvConnection(QLocalSocket *socket, PlaybackManager *manager,
-                             MpvWidget *mpvWidget, QObject *parent)
-    : QObject(parent), socket(socket), manager(manager), mpvWidget(mpvWidget)
+                             MpvObject *mpvObject, QObject *parent)
+    : QObject(parent), socket(socket), manager(manager), mpvObject(mpvObject)
 {
-    MpvController* ctrl = mpvWidget->controller();
+    MpvController* ctrl = mpvObject->controller();
     connect(ctrl, &MpvController::mpvPropertyChanged,
             this, &MpvConnection::ctrl_mpvPropertyChanged);
     connect(ctrl, &MpvController::clientMessage,
@@ -510,7 +510,7 @@ void MpvConnection::ctrl_unhandledMpvEvent(int eventNumber)
 
 void MpvConnection::command_raw(const QStringList &list, const QVariant &requestId)
 {
-    QVariant v = mpvWidget->controller()->command(list);
+    QVariant v = mpvObject->controller()->command(list);
     commandReturn(v.value<MpvErrorCode>().errorcode(), requestId);
 }
 
@@ -524,19 +524,19 @@ void MpvConnection::command_forbidden()
 
 void MpvConnection::command_client_name(const QVariant &requestId)
 {
-    commandReturn(MPV_ERROR_SUCCESS, requestId, mpvWidget->controller()->clientName());
+    commandReturn(MPV_ERROR_SUCCESS, requestId, mpvObject->controller()->clientName());
 }
 
 void MpvConnection::command_get_time_us(const QVariant &requestId)
 {
     commandReturn(MPV_ERROR_SUCCESS, requestId,
-                  static_cast<long long>(mpvWidget->controller()->timeMicroseconds()));
+                  static_cast<long long>(mpvObject->controller()->timeMicroseconds()));
 }
 
 void MpvConnection::command_get_version(const QVariant &requestId)
 {
     commandReturn(MPV_ERROR_SUCCESS, requestId,
-                  static_cast<long long>(mpvWidget->controller()->apiVersion()));
+                  static_cast<long long>(mpvObject->controller()->apiVersion()));
 }
 
 void MpvConnection::command_get_property(const QStringList &list,
@@ -546,7 +546,7 @@ void MpvConnection::command_get_property(const QStringList &list,
         commandReturn(MPV_ERROR_INVALID_PARAMETER, requestId);
         return;
     }
-    commandReturnVariant(requestId, mpvWidget->controller()->getPropertyVariant(list.at(1)));
+    commandReturnVariant(requestId, mpvObject->controller()->getPropertyVariant(list.at(1)));
 }
 
 void MpvConnection::command_get_property_string(const QStringList &list,
@@ -556,7 +556,7 @@ void MpvConnection::command_get_property_string(const QStringList &list,
         commandReturn(MPV_ERROR_INVALID_PARAMETER, requestId);
         return;
     }
-    QString s = mpvWidget->controller()->getPropertyString(list.at(1));
+    QString s = mpvObject->controller()->getPropertyString(list.at(1));
     if (s.isEmpty())
         commandReturn(MPV_ERROR_INVALID_PARAMETER, requestId, QVariant(static_cast<char*>(nullptr)));
     else
@@ -571,7 +571,7 @@ void MpvConnection::command_set_property(const QVariantList &list,
             || bannedProperties->contains(list.at(1).toString()))
         commandReturn(MPV_ERROR_INVALID_PARAMETER, requestId);
     else
-        commandReturn(mpvWidget->controller()->setPropertyVariant(list.at(1).toString(), list.at(2)), requestId);
+        commandReturn(mpvObject->controller()->setPropertyVariant(list.at(1).toString(), list.at(2)), requestId);
 }
 
 void MpvConnection::command_set_property_string(const QStringList &list,
@@ -580,7 +580,7 @@ void MpvConnection::command_set_property_string(const QStringList &list,
     if (list.count() != 2)
         commandReturn(MPV_ERROR_INVALID_PARAMETER, requestId);
     else
-        commandReturn(mpvWidget->controller()->setPropertyString(list.at(1), list.at(2)), requestId);
+        commandReturn(mpvObject->controller()->setPropertyString(list.at(1), list.at(2)), requestId);
 }
 
 void MpvConnection::command_observe_property(const QVariantList &list,
@@ -596,7 +596,7 @@ void MpvConnection::command_observe_property(const QVariantList &list,
     MpvController::PropertyList property = {
         { list[2].toString(), id, MPV_FORMAT_NODE }
     };
-    commandReturn(mpvWidget->controller()->observeProperties(property), requestId);
+    commandReturn(mpvObject->controller()->observeProperties(property), requestId);
 }
 
 void MpvConnection::command_observe_property_string(const QVariantList &list,
@@ -608,7 +608,7 @@ void MpvConnection::command_observe_property_string(const QVariantList &list,
             || !list.at(2).canConvert<QString>())
         commandReturn(MPV_ERROR_INVALID_PARAMETER, requestId);
     else
-        commandReturn(mpvWidget->controller()->observeProperties({{list[2].toString(), id, MPV_FORMAT_STRING}}), requestId);
+        commandReturn(mpvObject->controller()->observeProperties({{list[2].toString(), id, MPV_FORMAT_STRING}}), requestId);
 }
 
 void MpvConnection::command_unobserve_property(const QVariantList &list,
@@ -618,6 +618,6 @@ void MpvConnection::command_unobserve_property(const QVariantList &list,
     if (list.count() != 2 || (id = list.at(1).toULongLong())==0)
         commandReturn(MPV_ERROR_INVALID_PARAMETER, requestId);
     else
-        commandReturn(mpvWidget->controller()->unobservePropertiesById(QSet<uint64_t>() << id), requestId);
+        commandReturn(mpvObject->controller()->unobservePropertiesById(QSet<uint64_t>() << id), requestId);
 }
 

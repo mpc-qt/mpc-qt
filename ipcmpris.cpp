@@ -106,7 +106,7 @@ void MprisInstance::manager_nowPlayingChanged(QUrl itemUrl, QUuid listUuid, QUui
     player->instance_setNowPlayingUrl(itemUrl);
 }
 
-void MprisInstance::mpvwidget_metaDataChanged(const QVariantMap &metadata)
+void MprisInstance::mpvObject_metaDataChanged(const QVariantMap &metadata)
 {
     player->instance_setMetadata(metadata);
 }

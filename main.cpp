@@ -124,7 +124,7 @@ void Flow::init() {
 
     mainWindow = new MainWindow();
     playbackManager = new PlaybackManager(this);
-    playbackManager->setMpvWidget(mainWindow->mpvWidget(), true);
+    playbackManager->setMpvObject(mainWindow->mpvObject(), true);
     playbackManager->setPlaylistWindow(mainWindow->playlistWindow());
     settingsWindow = new SettingsWindow();
     settingsWindow->setWindowModality(Qt::WindowModal);
@@ -137,7 +137,7 @@ void Flow::init() {
 
     mpvServer = new MpvServer(this);
     mpvServer->setPlaybackManger(playbackManager);
-    mpvServer->setMpvWidget(mainWindow->mpvWidget());
+    mpvServer->setMpvObject(mainWindow->mpvObject());
 
     inhibitScreensaver = false;
     QSet<QScreenSaver::Ability> actualPowers = screenSaver.abilities();
@@ -296,46 +296,46 @@ void Flow::init() {
             mainWindow, &MainWindow::setTimeTooltip);
 
     // settings -> mpvwidget
-    auto mpvw = mainWindow->mpvWidget();
+    auto mpvObject = mainWindow->mpvObject();
     connect(settingsWindow, &SettingsWindow::videoColor,
-            mpvw, &MpvWidget::setLogoBackground);
+            mpvObject, &MpvObject::setLogoBackground);
     connect(settingsWindow, &SettingsWindow::logoSource,
-            mpvw, &MpvWidget::setLogoUrl);
+            mpvObject, &MpvObject::setLogoUrl);
     connect(settingsWindow, &SettingsWindow::volume,
-            mpvw, &MpvWidget::setVolume);
+            mpvObject, &MpvObject::setVolume);
     connect(settingsWindow, &SettingsWindow::option,
-            mpvw, &MpvWidget::setCachedMpvOption);
+            mpvObject, &MpvObject::setCachedMpvOption);
     connect(settingsWindow, &SettingsWindow::clientDebuggingMessages,
-            mpvw, &MpvWidget::setClientDebuggingMessages);
+            mpvObject, &MpvObject::setClientDebuggingMessages);
     connect(settingsWindow, &SettingsWindow::mpvLogLevel,
-            mpvw, &MpvWidget::setMpvLogLevel);
+            mpvObject, &MpvObject::setMpvLogLevel);
 
     // mpvwidget -> settings
-    connect(mpvw, &MpvWidget::audioDeviceList,
+    connect(mpvObject, &MpvObject::audioDeviceList,
             settingsWindow, &SettingsWindow::setAudioDevices);
 
     // mpvwidget -> properties
-    connect(mpvw, &MpvWidget::fileNameChanged,
+    connect(mpvObject, &MpvObject::fileNameChanged,
             propertiesWindow, &PropertiesWindow::setFileName);
-    connect(mpvw, &MpvWidget::fileFormatChanged,
+    connect(mpvObject, &MpvObject::fileFormatChanged,
             propertiesWindow, &PropertiesWindow::setFileFormat);
-    connect(mpvw, &MpvWidget::fileSizeChanged,
+    connect(mpvObject, &MpvObject::fileSizeChanged,
             propertiesWindow, &PropertiesWindow::setFileSize);
-    connect(mpvw, &MpvWidget::playLengthChanged,
+    connect(mpvObject, &MpvObject::playLengthChanged,
             propertiesWindow, &PropertiesWindow::setMediaLength);
-    connect(mpvw, &MpvWidget::videoSizeChanged,
+    connect(mpvObject, &MpvObject::videoSizeChanged,
             propertiesWindow, &PropertiesWindow::setVideoSize);
-    connect(mpvw, &MpvWidget::fileCreationTimeChanged,
+    connect(mpvObject, &MpvObject::fileCreationTimeChanged,
             propertiesWindow, &PropertiesWindow::setFileCreationTime);
-    connect(mpvw, &MpvWidget::tracksChanged,
+    connect(mpvObject, &MpvObject::tracksChanged,
             propertiesWindow, &PropertiesWindow::setTracks);
-    connect(mpvw, &MpvWidget::mediaTitleChanged,
+    connect(mpvObject, &MpvObject::mediaTitleChanged,
             propertiesWindow, &PropertiesWindow::setMediaTitle);
-    connect(mpvw, &MpvWidget::filePathChanged,
+    connect(mpvObject, &MpvObject::filePathChanged,
             propertiesWindow, &PropertiesWindow::setFilePath);
-    connect(mpvw, &MpvWidget::metaDataChanged,
+    connect(mpvObject, &MpvObject::metaDataChanged,
             propertiesWindow, &PropertiesWindow::setMetaData);
-    connect(mpvw, &MpvWidget::chaptersChanged,
+    connect(mpvObject, &MpvObject::chaptersChanged,
             propertiesWindow, &PropertiesWindow::setChapters);
 
     // settings -> playlistWindow
@@ -454,7 +454,7 @@ void Flow::init() {
     favoritesWindow->setStreams(favoriteStreams);
     settings = storage.readVMap("settings");
     keyMap = storage.readVMap("keys");
-    settingsWindow->setAudioDevices(mpvw->audioDevices());
+    settingsWindow->setAudioDevices(mpvObject->audioDevices());
     settingsWindow->takeSettings(settings);
     settingsWindow->setMouseMapDefaults(mainWindow->mouseMapDefaults());
     settingsWindow->takeKeyMap(keyMap);
@@ -490,8 +490,8 @@ void Flow::setupMpris()
             mpris, &MprisInstance::manager_stateChanged);
     connect(playbackManager, &PlaybackManager::nowPlayingChanged,
             mpris, &MprisInstance::manager_nowPlayingChanged);
-    connect(mainWindow->mpvWidget(), &MpvWidget::metaDataChanged,
-            mpris, &MprisInstance::mpvwidget_metaDataChanged);
+    connect(mainWindow->mpvObject(), &MpvObject::metaDataChanged,
+            mpris, &MprisInstance::mpvObject_metaDataChanged);
     connect(mainWindow->playlistWindow(), &PlaylistWindow::currentPlaylistHasItems,
             mpris, &MprisInstance::playlistwindow_currentPlaylistHasItems);
 
@@ -516,13 +516,13 @@ void Flow::setupMpris()
     connect(mpris, &MprisInstance::play,
             playbackManager, &PlaybackManager::playPlayer);
     connect(mpris, &MprisInstance::relativeSeek,
-            mainWindow->mpvWidget(), [this](double amount) {
-        mainWindow->mpvWidget()->seek(amount, false);
+            mainWindow->mpvObject(), [this](double amount) {
+        mainWindow->mpvObject()->seek(amount, false);
     });
     connect(mpris, &MprisInstance::absoluteSeek,
-            mainWindow->mpvWidget(), &MpvWidget::setTime);
+            mainWindow->mpvObject(), &MpvObject::setTime);
 
-    mpris->setProtocolList(mainWindow->mpvWidget()->supportedProtocols());
+    mpris->setProtocolList(mainWindow->mpvObject()->supportedProtocols());
 #endif
 }
 
@@ -538,7 +538,7 @@ QByteArray Flow::makePayload() const
 
 QString Flow::pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const
 {
-    double playTime = mainWindow->mpvWidget()->playTime();
+    double playTime = mainWindow->mpvObject()->playTime();
     QUrl nowPlaying = playbackManager->nowPlaying();
     QString basename = QFileInfo(nowPlaying.toDisplayString().split('/').last())
                        .completeBaseName();
@@ -727,7 +727,7 @@ void Flow::mainwindow_takeImage(Helpers::ScreenshotRender render)
     QString fmt("%1/mpc-qt_%2.%3");
     QString tempDir = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
     QString tempFile = fmt.arg(tempDir, QUuid::createUuid().toString(), screenshotFormat);
-    mainWindow->mpvWidget()->screenshot(tempFile, render);
+    mainWindow->mpvObject()->screenshot(tempFile, render);
 
     bool subsVisible = render != Helpers::VideoRender;
     QString fileName = pictureTemplate(Helpers::DisabledAudio,
@@ -752,7 +752,7 @@ void Flow::mainwindow_takeImageAutomatically(Helpers::ScreenshotRender render)
     QString fileName = pictureTemplate(Helpers::DisabledAudio,
                                        subsVisible ? Helpers::SubtitlesPresent
                                                    : Helpers::SubtitlesDisabled);
-    mainWindow->mpvWidget()->screenshot(fileName, render);
+    mainWindow->mpvObject()->screenshot(fileName, render);
 }
 
 void Flow::mainwindow_optionsOpenRequested()

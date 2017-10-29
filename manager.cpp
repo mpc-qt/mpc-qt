@@ -13,54 +13,54 @@ PlaybackManager::PlaybackManager(QObject *parent) :
 {
 }
 
-void PlaybackManager::setMpvWidget(MpvWidget *mpvWidget, bool makeConnections)
+void PlaybackManager::setMpvObject(MpvObject *mpvWidget, bool makeConnections)
 {
-    mpvWidget_ = mpvWidget;
+    mpvObject_ = mpvWidget;
 
     if (makeConnections) {
-        connect(mpvWidget, &MpvWidget::playTimeChanged,
+        connect(mpvWidget, &MpvObject::playTimeChanged,
                 this, &PlaybackManager::mpvw_playTimeChanged);
-        connect(mpvWidget, &MpvWidget::playLengthChanged,
+        connect(mpvWidget, &MpvObject::playLengthChanged,
                 this, &PlaybackManager::mpvw_playLengthChanged);
-        connect(mpvWidget, &MpvWidget::seekableChanged,
+        connect(mpvWidget, &MpvObject::seekableChanged,
                 this, &PlaybackManager::mpvw_seekableChanged);
-        connect(mpvWidget, &MpvWidget::playbackLoading,
+        connect(mpvWidget, &MpvObject::playbackLoading,
                 this, &PlaybackManager::mpvw_playbackLoading);
-        connect(mpvWidget, &MpvWidget::playbackStarted,
+        connect(mpvWidget, &MpvObject::playbackStarted,
                 this, &PlaybackManager::mpvw_playbackStarted);
-        connect(mpvWidget, &MpvWidget::pausedChanged,
+        connect(mpvWidget, &MpvObject::pausedChanged,
                 this, &PlaybackManager::mpvw_pausedChanged);
-        connect(mpvWidget, &MpvWidget::playbackIdling,
+        connect(mpvWidget, &MpvObject::playbackIdling,
                 this, &PlaybackManager::mpvw_playbackIdling);
-        connect(mpvWidget, &MpvWidget::mediaTitleChanged,
+        connect(mpvWidget, &MpvObject::mediaTitleChanged,
                 this, &PlaybackManager::mpvw_mediaTitleChanged);
-        connect(mpvWidget, &MpvWidget::chapterDataChanged,
+        connect(mpvWidget, &MpvObject::chapterDataChanged,
                 this, &PlaybackManager::mpvw_chapterDataChanged);
-        connect(mpvWidget, &MpvWidget::chaptersChanged,
+        connect(mpvWidget, &MpvObject::chaptersChanged,
                 this, &PlaybackManager::mpvw_chaptersChanged);
-        connect(mpvWidget, &MpvWidget::tracksChanged,
+        connect(mpvWidget, &MpvObject::tracksChanged,
                 this, &PlaybackManager::mpvw_tracksChanged);
-        connect(mpvWidget, &MpvWidget::videoSizeChanged,
+        connect(mpvWidget, &MpvObject::videoSizeChanged,
                 this, &PlaybackManager::mpvw_videoSizeChanged);
-        connect(mpvWidget, &MpvWidget::fpsChanged,
+        connect(mpvWidget, &MpvObject::fpsChanged,
                 this, &PlaybackManager::mpvw_fpsChanged);
-        connect(mpvWidget, &MpvWidget::avsyncChanged,
+        connect(mpvWidget, &MpvObject::avsyncChanged,
                 this, &PlaybackManager::mpvw_avsyncChanged);
-        connect(mpvWidget, &MpvWidget::displayFramedropsChanged,
+        connect(mpvWidget, &MpvObject::displayFramedropsChanged,
                 this, &PlaybackManager::mpvw_displayFramedropsChanged);
-        connect(mpvWidget, &MpvWidget::decoderFramedropsChanged,
+        connect(mpvWidget, &MpvObject::decoderFramedropsChanged,
                 this, &PlaybackManager::mpvw_decoderFramedropsChanged);
-        connect(mpvWidget, &MpvWidget::metaDataChanged,
+        connect(mpvWidget, &MpvObject::metaDataChanged,
                 this, &PlaybackManager::mpvw_metadataChanged);
-        connect(mpvWidget, &MpvWidget::playlistChanged,
+        connect(mpvWidget, &MpvObject::playlistChanged,
                 this, &PlaybackManager::mpvw_playlistChanged);
-        connect(mpvWidget, &MpvWidget::audioBitrateChanged,
+        connect(mpvWidget, &MpvObject::audioBitrateChanged,
                 this, &PlaybackManager::mpvw_audioBitrateChanged);
-        connect(mpvWidget, &MpvWidget::videoBitrateChanged,
+        connect(mpvWidget, &MpvObject::videoBitrateChanged,
                 this, &PlaybackManager::mpvw_videoBitrateChanged);
 
         connect(this, &PlaybackManager::hasNoVideo,
-                mpvWidget, &MpvWidget::setDrawLogo);
+                mpvWidget, &MpvObject::setDrawLogo);
     }
 }
 
@@ -93,10 +93,10 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
 
     mpvStartTime = -1.0;
     nowPlaying_ = what;
-    mpvWidget_->fileOpen(what.isLocalFile() ? what.toLocalFile()
+    mpvObject_->fileOpen(what.isLocalFile() ? what.toLocalFile()
                                             : what.fromPercentEncoding(what.toEncoded()));
-    mpvWidget_->setSubFile(with.toString());
-    mpvWidget_->setPaused(playbackStartPaused);
+    mpvObject_->setSubFile(with.toString());
+    mpvObject_->setPaused(playbackStartPaused);
     playbackStartState = playbackStartPaused ? PausedState : PlayingState;
     nowPlayingList = playlistUuid;
     nowPlayingItem = itemUuid;
@@ -213,11 +213,11 @@ void PlaybackManager::playDiscFiles(QUrl where)
     if (playbackState_ != StoppedState) {
         playbackState_ = StoppedState;
         emit stateChanged(playbackState_);
-        mpvWidget_->stopPlayback();
+        mpvObject_->stopPlayback();
     }
     mpvStartTime = -1.0;
-    mpvWidget_->discFilesOpen(where.toLocalFile());
-    mpvWidget_->setPaused(false);
+    mpvObject_->discFilesOpen(where.toLocalFile());
+    mpvObject_->setPaused(false);
     playbackStartState = PlayingState;
     nowPlayingItem = QUuid();
     nowPlayingList = QUuid();
@@ -251,7 +251,7 @@ void PlaybackManager::loadSubtitle(QUrl with)
 {
     QString f = with.isLocalFile() ? with.toLocalFile()
                                    : with.fromPercentEncoding(with.toEncoded());
-    mpvWidget_->addSubFile(f);
+    mpvObject_->addSubFile(f);
 }
 
 void PlaybackManager::playPlayer()
@@ -285,34 +285,34 @@ void PlaybackManager::playPausePlayer()
 void PlaybackManager::pausePlayer()
 {
     if (playbackState_ == PlayingState)
-        mpvWidget_->setPaused(true);
+        mpvObject_->setPaused(true);
 }
 
 void PlaybackManager::unpausePlayer()
 {
     if (playbackState_ == PausedState)
-        mpvWidget_->setPaused(false);
+        mpvObject_->setPaused(false);
 }
 
 void PlaybackManager::stopPlayer()
 {
     nowPlayingItem = QUuid();
-    mpvWidget_->stopPlayback();
+    mpvObject_->stopPlayback();
 }
 
 void PlaybackManager::stepBackward()
 {
-    mpvWidget_->stepBackward();
+    mpvObject_->stepBackward();
 }
 
 void PlaybackManager::stepForward()
 {
-    mpvWidget_->stepForward();
+    mpvObject_->stepForward();
 }
 
 void PlaybackManager::navigateToNextChapter()
 {
-    int64_t nextChapter = mpvWidget_->chapter() + 1;
+    int64_t nextChapter = mpvObject_->chapter() + 1;
     if (nextChapter >= numChapters)
         playNextFile();
     else
@@ -321,7 +321,7 @@ void PlaybackManager::navigateToNextChapter()
 
 void PlaybackManager::navigateToPrevChapter()
 {
-    int64_t chapter = mpvWidget_->chapter();
+    int64_t chapter = mpvObject_->chapter();
     if (chapter > 0)
         navigateToChapter(std::max(int64_t(0), chapter - 1));
     else
@@ -334,7 +334,7 @@ void PlaybackManager::playNextFile()
     next = playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
     QUrl url = playlistWindow_->getUrlOf(next.first, next.second);
     if (url.isEmpty()) {
-        mpvWidget_->stopPlayback();
+        mpvObject_->stopPlayback();
         nowPlaying_.clear();
         nowPlayingList = QUuid();
         nowPlayingItem = QUuid();
@@ -350,7 +350,7 @@ void PlaybackManager::playPrevFile()
     QUuid uuid = playlistWindow_->getItemBefore(nowPlayingList, nowPlayingItem);
     QUrl url = playlistWindow_->getUrlOf(nowPlayingList, uuid);
     if (url.isEmpty()) {
-        mpvWidget_->stopPlayback();
+        mpvObject_->stopPlayback();
         nowPlaying_.clear();
         nowPlayingItem = QUuid();
         playbackState_ = StoppedState;
@@ -367,12 +367,12 @@ void PlaybackManager::repeatThisFile()
 
 void PlaybackManager::navigateToChapter(int64_t chapter)
 {
-    if (!mpvWidget_->setChapter(chapter)) {
+    if (!mpvObject_->setChapter(chapter)) {
         // Out-of-bounds chapter navigation request. i.e. unseekable chapter
         // from either past-the-end or invalid.  So stop playback and continue
         // on the next via the playback finished slot.
-        mpvWidget_->setPaused(false);
-        mpvWidget_->stopPlayback();
+        mpvObject_->setPaused(false);
+        mpvObject_->stopPlayback();
     }
 }
 
@@ -381,7 +381,7 @@ void PlaybackManager::navigateToTime(double time)
     if (playbackState_ == WaitingState || playbackState_ == StoppedState)
         mpvStartTime = time;
     else
-        mpvWidget_->setTime(time);
+        mpvObject_->setTime(time);
 }
 
 void PlaybackManager::speedUp()
@@ -401,14 +401,14 @@ void PlaybackManager::speedReset()
 
 void PlaybackManager::relativeSeek(bool forwards, bool isSmall)
 {
-    mpvWidget_->seek((forwards ? 1 : -1) * (isSmall ? 1 : 5), isSmall);
+    mpvObject_->seek((forwards ? 1 : -1) * (isSmall ? 1 : 5), isSmall);
 }
 
 void PlaybackManager::setPlaybackSpeed(double speed)
 {
     mpvSpeed = speed;
-    mpvWidget_->setSpeed(speed);
-    mpvWidget_->showMessage(tr("Speed: %1%").arg(speed*100));
+    mpvObject_->setSpeed(speed);
+    mpvObject_->showMessage(tr("Speed: %1%").arg(speed*100));
 }
 
 static QString findSecondById(QList<QPair<int64_t,QString>> list, int64_t id) {
@@ -422,31 +422,31 @@ static QString findSecondById(QList<QPair<int64_t,QString>> list, int64_t id) {
 void PlaybackManager::setAudioTrack(int64_t id)
 {
     audioListSelected = findSecondById(audioList, id);
-    mpvWidget_->setAudioTrack(id);
+    mpvObject_->setAudioTrack(id);
 }
 
 void PlaybackManager::setSubtitleTrack(int64_t id)
 {
     subtitleListSelected = findSecondById(subtitleList, id);
-    mpvWidget_->setSubtitleTrack(id);
+    mpvObject_->setSubtitleTrack(id);
 }
 
 void PlaybackManager::setVideoTrack(int64_t id)
 {
     videoListSelected = findSecondById(videoList, id);
-    mpvWidget_->setVideoTrack(id);
+    mpvObject_->setVideoTrack(id);
 }
 
 void PlaybackManager::setVolume(int64_t volume)
 {
-    mpvWidget_->setVolume(volume);
-    mpvWidget_->showMessage(tr("Volume: %1%").arg(volume));
+    mpvObject_->setVolume(volume);
+    mpvObject_->showMessage(tr("Volume: %1%").arg(volume));
 }
 
 void PlaybackManager::setMute(bool muted)
 {
-    mpvWidget_->setMute(muted);
-    mpvWidget_->showMessage(muted ? tr("Mute: on") : tr("Mute: off"));
+    mpvObject_->setMute(muted);
+    mpvObject_->showMessage(muted ? tr("Mute: on") : tr("Mute: off"));
 }
 
 void PlaybackManager::setAfterPlaybackOnce(AfterPlayback mode)
@@ -495,7 +495,7 @@ void PlaybackManager::mpvw_playLengthChanged(double length)
 void PlaybackManager::mpvw_seekableChanged(bool yes)
 {
     if (yes && mpvStartTime > 0) {
-        mpvWidget_->setTimeSync(mpvStartTime);
+        mpvObject_->setTimeSync(mpvStartTime);
         mpvStartTime = -1;
     }
 }

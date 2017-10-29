@@ -35,8 +35,8 @@ MainWindow::MainWindow(QWidget *parent) :
     setupActionGroups();
     setupPositionSlider();
     setupVolumeSlider();
-    setupMpvWidget();
     setupMpvHost();
+    setupMpvObject();
     setupPlaylist();
     setupStatus();
     setupSizing();
@@ -69,13 +69,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    mpvObject_->setWidgetType(Helpers::NullWidget);
+
     delete ui;
     ui = nullptr;
 }
 
-MpvWidget *MainWindow::mpvWidget()
+MpvObject *MainWindow::mpvObject()
 {
-    return mpvw;
+    return mpvObject_;
 }
 
 QMainWindow *MainWindow::mpvHost()
@@ -196,7 +198,7 @@ QSize MainWindow::desirableSize(bool first_run)
     available.adjust(0, 0, -frameDiff.width(), -frameDiff.height());
 
     // calculate player size
-    QSize player = mpvw->videoSize() / ratio;
+    QSize player = mpvObject_->videoSize() / ratio;
     double factor = sizeFactor();
     if (!isPlaying || player.isEmpty()) {
         player = noVideoSize_;
@@ -534,25 +536,31 @@ void MainWindow::setupVolumeSlider()
             this, &MainWindow::volume_sliderMoved);
 }
 
-void MainWindow::setupMpvWidget()
-{
-    mpvw = new MpvWidget(this, "Media Player Classic Qute Theater");
-    connect(mpvw, &MpvWidget::logoSizeChanged,
-            this, &MainWindow::setNoVideoSize);
-    connect(mpvw, &MpvWidget::customContextMenuRequested,
-            this, &MainWindow::mpvw_customContextMenuRequested);
-    mpvw->setMouseTracking(true);
-}
-
 void MainWindow::setupMpvHost()
 {
     // Crate a special QMainWindow widget so that the playlist window will
     // dock around it rather than ourselves
     mpvHost_ = new QMainWindow(this);
-    mpvHost_->setCentralWidget(mpvw);
     mpvHost_->setSizePolicy(QSizePolicy(QSizePolicy::Ignored,
                                         QSizePolicy::Ignored));
     ui->mpvWidget->layout()->addWidget(mpvHost_);
+}
+
+void MainWindow::setupMpvObject()
+{
+    mpvObject_ = new MpvObject(this, "Media Player Classic Qute Theater");
+    mpvObject_->setHostWindow(mpvHost_);
+    mpvObject_->setWidgetType(Helpers::GlCbWidget);
+    mpvw = mpvObject_->mpvWidget();
+    if (!mpvw)
+        throw(std::runtime_error("Video widget not created"));
+    connect(mpvObject_, &MpvObject::logoSizeChanged,
+            this, &MainWindow::setNoVideoSize);
+    // CHECKME: signal could be in mpvObject and reflected internally
+    connect(mpvw, &QWidget::customContextMenuRequested,
+            this, &MainWindow::mpvw_customContextMenuRequested);
+    // CHECKME: mouse tracking could be set by mpvObject's setWidgetType func
+    mpvObject_->mpvWidget()->setMouseTracking(true);
 }
 
 void MainWindow::setupPlaylist()
@@ -792,12 +800,13 @@ void MainWindow::setUiEnabledState(bool enabled)
 
 void MainWindow::reparentBottomArea(bool overlay)
 {
+    // FIXME: doesn't handle mpvWidget getting deleted while it's reparented
     bool inLayout = ui->centralwidget->layout()->indexOf(ui->bottomArea) >= 0;
     if (overlay && inLayout) {
         bottomAreaHeight = ui->bottomArea->height();
         ui->centralwidget->layout()->removeWidget(ui->bottomArea);
         ui->bottomArea->setParent(nullptr);
-        ui->bottomArea->setParent(mpvw);
+        ui->bottomArea->setParent(mpvObject_->mpvWidget());
     }
     if (!overlay && !inLayout) {
         ui->bottomArea->setParent(nullptr);
@@ -866,8 +875,8 @@ void MainWindow::updateBottomAreaGeometry()
 
 void MainWindow::updateTime()
 {
-    timeDuration->setTime(mpvw->playLength());
-    timePosition->setTime(mpvw->playTime());
+    timeDuration->setTime(mpvObject_->playLength());
+    timePosition->setTime(mpvObject_->playTime());
 }
 
 void MainWindow::updateFramedrops()
@@ -973,9 +982,9 @@ void MainWindow::updateWindowFlags()
 
 void MainWindow::updateMouseHideTime()
 {
-    mpvw->setMouseHideTime(fullscreenMode_
-                           ? mouseHideTimeFullscreen
-                           : mouseHideTimeWindowed);
+    mpvObject_->setMouseHideTime(fullscreenMode_
+                                 ? mouseHideTimeFullscreen
+                                 : mouseHideTimeWindowed);
 }
 
 void MainWindow::setNoVideoSize(const QSize &size)
@@ -1034,7 +1043,7 @@ void MainWindow::setFavoriteTracks(QList<TrackInfo> files, QList<TrackInfo> stre
         addAction(a);
     };
     auto addTracks = [&](const QList<TrackInfo> &tracks) {
-        for (const auto t : tracks) {
+        for (const auto &t : tracks) {
             auto a = new QAction(this);
             a->setText(t.text);
             connect(a, &QAction::triggered,
@@ -1201,7 +1210,7 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
         ui->pause->setChecked(true);
     }
     if (state == PlaybackManager::WaitingState) {
-        mpvWidget()->setLoopPoints(-1, -1);
+        mpvObject_->setLoopPoints(-1, -1);
         positionSlider_->setLoopA(-1);
         positionSlider_->setLoopB(-1);
     }
@@ -1609,17 +1618,17 @@ void MainWindow::on_actionViewPresetsNormal_triggered()
 
 void MainWindow::on_actionViewOSDMessages_triggered()
 {
-    mpvw->showStatsPage(0);
+    mpvObject_->showStatsPage(0);
 }
 
 void MainWindow::on_actionViewOSDStatistics_triggered()
 {
-    mpvw->showStatsPage(1);
+    mpvObject_->showStatsPage(1);
 }
 
 void MainWindow::on_actionViewOSDFrameTimings_triggered()
 {
-    mpvw->showStatsPage(2);
+    mpvObject_->showStatsPage(2);
 }
 
 void MainWindow::on_actionViewOSDCycle_triggered()
@@ -1628,7 +1637,7 @@ void MainWindow::on_actionViewOSDCycle_triggered()
     QAction *nextOsdAction;
     int newpage;
 
-    newpage = mpvw->cycleStatsPage();
+    newpage = mpvObject_->cycleStatsPage();
     nextOsdAction = osdActionGroup->actions().value(newpage, nullptr);
     if (nextOsdAction)
         nextOsdAction->setChecked(true);
@@ -1824,36 +1833,36 @@ void MainWindow::on_actionPlaySeekBackwardsFine_triggered()
 
 void MainWindow::on_actionPlayLoopStart_triggered()
 {
-    positionSlider_->setLoopA(mpvw->playTime());
+    positionSlider_->setLoopA(mpvObject_->playTime());
     if (ui->actionPlayLoopUse->isChecked())
-        mpvw->setLoopPoints(positionSlider_->loopA(),
-                            positionSlider_->loopB());
+        mpvObject_->setLoopPoints(positionSlider_->loopA(),
+                                  positionSlider_->loopB());
 }
 
 void MainWindow::on_actionPlayLoopEnd_triggered()
 {
-    positionSlider_->setLoopB(mpvw->playTime());
+    positionSlider_->setLoopB(mpvObject_->playTime());
     if (ui->actionPlayLoopUse->isChecked())
-        mpvw->setLoopPoints(positionSlider_->loopA(),
-                            positionSlider_->loopB());
+        mpvObject_->setLoopPoints(positionSlider_->loopA(),
+                                  positionSlider_->loopB());
 }
 
 void MainWindow::on_actionPlayLoopUse_triggered(bool checked)
 {
     if (checked && !positionSlider_->isLoopEmpty()) {
-        mpvw->setLoopPoints(positionSlider_->loopA(),
-                            positionSlider_->loopB());
+        mpvObject_->setLoopPoints(positionSlider_->loopA(),
+                                  positionSlider_->loopB());
     } else if (checked) {
         ui->actionPlayLoopUse->setChecked(false);
     } else {
-        mpvw->setLoopPoints(-1, -1);
+        mpvObject_->setLoopPoints(-1, -1);
     }
 }
 
 void MainWindow::on_actionPlayLoopClear_triggered()
 {
     ui->actionPlayLoopUse->setChecked(false);
-    mpvw->setLoopPoints(-1, -1);
+    mpvObject_->setLoopPoints(-1, -1);
     positionSlider_->setLoopA(-1);
     positionSlider_->setLoopB(-1);
 }
@@ -1972,7 +1981,7 @@ void MainWindow::on_actionHelpAbout_triggered()
     QMessageBox::about(this, tr("About Media Player Classic Qute Theater"),
       "<h2>" + tr("Media Player Classic Qute Theater") + "</h2>" +
       "<p>" +  tr("A clone of Media Player Classic written in Qt") +
-      "<br>" + tr("Based on Qt %1 and %2").arg(QT_VERSION_STR, mpvw->mpvVersion()) +
+      "<br>" + tr("Based on Qt %1 and %2").arg(QT_VERSION_STR, mpvObject_->mpvVersion()) +
       "<p>" +  BUILD_VERSION_STR +
       "<br>" + tr("Built on %1 at %2").arg(buildDate.toString(Qt::DefaultLocaleShortDate),
                                            buildTime.toString(Qt::DefaultLocaleShortDate)) +

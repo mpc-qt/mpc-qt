@@ -5,6 +5,8 @@
 #if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
 #include <QtX11Extras/QX11Info>
 #endif
+#include <QLayout>
+#include <QMainWindow>
 #include <QThread>
 #include <QTimer>
 #include <QOpenGLContext>
@@ -34,6 +36,671 @@
 static const int HOOK_UNLOAD_CALLBACK_ID = 0xbeefdab;
 
 
+
+MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
+{
+    // Setup threads
+    worker = new QThread();
+    worker->start();
+
+    // setup controller
+    ctrl = new MpvController();
+    ctrl->moveToThread(worker);
+
+    // setup timer
+    hideTimer = new QTimer(this);
+    hideTimer->setSingleShot(true);
+    hideTimer->setInterval(1000);
+
+    // Wire the basic mpv functions to avoid littering the codebase with
+    // QMetaObject::invokeMethod.  This way the compiler will catch our
+    // typos rather than a runtime error.
+    connect(this, &MpvObject::ctrlCommand,
+            ctrl, &MpvController::command, Qt::QueuedConnection);
+    connect(this, &MpvObject::ctrlSetOptionVariant,
+            ctrl, &MpvController::setOptionVariant, Qt::QueuedConnection);
+    connect(this, &MpvObject::ctrlSetPropertyVariant,
+            ctrl, &MpvController::setPropertyVariant, Qt::QueuedConnection);
+    connect(this, &MpvObject::ctrlSetLogLevel,
+            ctrl, &MpvController::setLogLevel);
+
+    // Wire up the event-handling callbacks
+    connect(ctrl, &MpvController::mpvPropertyChanged,
+            this, &MpvObject::ctrl_mpvPropertyChanged, Qt::QueuedConnection);
+    connect(ctrl, &MpvController::logMessage,
+            this, &MpvObject::ctrl_logMessage, Qt::QueuedConnection);
+    connect(ctrl, &MpvController::clientMessage,
+            this, &MpvObject::ctrl_clientMessage, Qt::QueuedConnection);
+    connect(ctrl, &MpvController::unhandledMpvEvent,
+            this, &MpvObject::ctrl_unhandledMpvEvent, Qt::QueuedConnection);
+    connect(ctrl, &MpvController::videoSizeChanged,
+            this, &MpvObject::ctrl_videoSizeChanged, Qt::QueuedConnection);
+
+    // Wire up the mouse and timer-related callbacks
+    connect(this, &MpvObject::mouseMoved,
+            this, &MpvObject::self_mouseMoved);
+    connect(hideTimer, &QTimer::timeout,
+            this, &MpvObject::hideTimer_timeout);
+
+    // Initialize mpv
+    QMetaObject::invokeMethod(ctrl, "create", Qt::BlockingQueuedConnection);
+
+    // clean up objects when the worker thread is deleted
+    connect(worker, &QThread::finished, ctrl, &MpvController::deleteLater);
+
+    // Observe some properties
+    MpvController::PropertyList options = {
+        { "time-pos", 0, MPV_FORMAT_DOUBLE },
+        { "pause", 0, MPV_FORMAT_FLAG },
+        { "media-title", 0, MPV_FORMAT_STRING },
+        { "chapter-metadata", 0, MPV_FORMAT_NODE },
+        { "track-list", 0, MPV_FORMAT_NODE },
+        { "chapter-list", 0, MPV_FORMAT_NODE },
+        { "duration", 0, MPV_FORMAT_DOUBLE },
+        { "estimated-vf-fps", 0, MPV_FORMAT_DOUBLE },
+        { "avsync", 0, MPV_FORMAT_DOUBLE },
+        { "frame-drop-count", 0, MPV_FORMAT_INT64 },
+        { "decoder-frame-drop-count", 0, MPV_FORMAT_INT64 },
+        { "audio-bitrate", 0, MPV_FORMAT_DOUBLE },
+        { "video-bitrate", 0, MPV_FORMAT_DOUBLE },
+        { "paused-for-cache", 0, MPV_FORMAT_FLAG },
+        { "metadata", 0, MPV_FORMAT_NODE },
+        { "audio-device-list", 0, MPV_FORMAT_NODE },
+        { "filename", 0, MPV_FORMAT_STRING },
+        { "file-format", 0, MPV_FORMAT_STRING },
+        { "file-size", 0, MPV_FORMAT_STRING },
+        { "file-date-created", 0, MPV_FORMAT_NODE },
+        { "format", 0, MPV_FORMAT_STRING },
+        { "path", 0, MPV_FORMAT_STRING },
+        { "seekable", 0, MPV_FORMAT_FLAG }
+    };
+    QSet<QString> throttled = {
+        "time-pos", "avsync", "estimated-vf-fps", "frame-drop-count",
+        "decoder-frame-drop-count", "audio-bitrate", "video-bitrate"
+    };
+    QMetaObject::invokeMethod(ctrl, "observeProperties",
+                              Qt::BlockingQueuedConnection,
+                              Q_ARG(const MpvController::PropertyList &, options),
+                              Q_ARG(const QSet<QString> &, throttled));
+
+    // Add hooks
+    QMetaObject::invokeMethod(ctrl, "addHook",
+                              Qt::BlockingQueuedConnection,
+                              Q_ARG(QString, "on_unload"),
+                              Q_ARG(int, HOOK_UNLOAD_CALLBACK_ID));
+
+    blockingSetMpvOptionVariant("ytdl", "yes");
+    blockingSetMpvOptionVariant("audio-client-name", clientName);
+    ctrl->setLogLevel("info");
+}
+
+MpvObject::~MpvObject()
+{
+    if (widget)
+        delete widget;
+    if (hideTimer) {
+        delete hideTimer;
+        hideTimer = nullptr;
+    }
+    worker->deleteLater();
+}
+
+void MpvObject::setHostLayout(QLayout *hostLayout)
+{
+    if (!this->hostLayout)
+        this->hostLayout = hostLayout;
+}
+
+void MpvObject::setHostWindow(QMainWindow *hostWindow)
+{
+    if (!this->hostWindow)
+        this->hostWindow = hostWindow;
+}
+
+void MpvObject::setWidgetType(Helpers::MpvWidgetType widgetType)
+{
+    if (!hostLayout && !hostWindow)
+        return;
+
+    if (this->widgetType == widgetType)
+        return;
+    this->widgetType = widgetType;
+
+    if (widget) {
+        delete widget;
+        widget = nullptr;
+    }
+
+    switch(widgetType) {
+    case Helpers::NullWidget:
+        widget = nullptr;
+        break;
+    case Helpers::EmbedWidget:
+        widget = new MpvEmbedWidget(this);
+        break;
+    case Helpers::GlCbWidget:
+        widget = new MpvGlCbWidget(this);
+        break;
+    case Helpers::VulkanCbWidget:
+        widget = new MpvVulkanCbWidget(this);
+        break;
+    }
+    if (!widget)
+        return;
+
+    if (hostLayout)
+        hostLayout->addWidget(widget->self());
+    else if (hostWindow)
+        hostWindow->setCentralWidget(widget->self());
+    widget->setController(ctrl);
+    widget->initMpv();
+}
+
+QString MpvObject::mpvVersion()
+{
+    return getMpvPropertyVariant("mpv-version").toString();
+}
+
+MpvController *MpvObject::controller()
+{
+    return ctrl;
+}
+
+QWidget *MpvObject::mpvWidget()
+{
+    return widget->self();
+}
+
+QList<AudioDevice> MpvObject::audioDevices()
+{
+    return AudioDevice::listFromVList(getMpvPropertyVariant("audio-device-list").toList());
+}
+
+QStringList MpvObject::supportedProtocols()
+{
+    return ctrl->protocolList();
+}
+
+void MpvObject::showMessage(QString message)
+{
+    if (shownStatsPage <= 0 || shownStatsPage >= 3)
+        emit ctrlCommand(QVariantList({"show_text", message, "1000"}));
+}
+
+void MpvObject::showStatsPage(int page)
+{
+    bool statsVisible = (shownStatsPage > 0 && shownStatsPage < 3);
+    bool wantVisible = (page > 0 && page < 3);
+
+    if (wantVisible ^ statsVisible) {
+        qDebug() << "toggling stats page";
+        ctrlCommand(QStringList({"script-binding",
+                                 "stats/display-stats-toggle"}));
+    }
+    if (wantVisible) {
+        qDebug() << "setting page to " << page;
+        QStringList cmd { "script-binding",
+                          QString("stats/display-page-%1").arg(QString::number(page)) };
+        ctrlCommand(cmd);
+    }
+    shownStatsPage = page;
+}
+
+int MpvObject::cycleStatsPage()
+{
+    showStatsPage(shownStatsPage < 2 ? shownStatsPage+1 : 0);
+    return shownStatsPage;
+}
+
+void MpvObject::fileOpen(QString filename)
+{
+    setSubFile("\n");
+    //setStartTime(0.0);
+    emit ctrlCommand(QStringList({"loadfile", filename}));
+    setMouseHideTime(hideTimer->interval());
+}
+
+void MpvObject::discFilesOpen(QString path) {
+    QStringList entryList = QDir(path).entryList();
+    if (entryList.contains("VIDEO_TS") || entryList.contains("AUDIO_TS")) {
+        fileOpen(path + "/VIDEO_TS/VIDEO_TS.IFO");
+    } else if (entryList.contains("BDMV") || entryList.contains("AACS")) {
+        fileOpen("bluray://" + path);
+    }
+}
+
+void MpvObject::stopPlayback()
+{
+    emit ctrlCommand("stop");
+}
+
+void MpvObject::stepBackward()
+{
+    emit ctrlCommand("frame_back_step");
+}
+
+void MpvObject::stepForward()
+{
+    emit ctrlCommand("frame_step");
+}
+
+void MpvObject::seek(double amount, bool exact)
+{
+    QVariantList payload({"seek", amount});
+    if (exact)
+        payload.append("exact");
+    emit ctrlCommand(payload);
+}
+
+void MpvObject::screenshot(const QString &fileName, Helpers::ScreenshotRender render)
+{
+    static QMap <Helpers::ScreenshotRender,const char*> methods {
+        { Helpers::VideoRender, "video" },
+        { Helpers::SubsRender, "subtitles" },
+        { Helpers::WindowRender, "window" }
+    };
+    if (render == Helpers::WindowRender) {
+        widget->self()->grab().save(fileName);
+        return;
+    }
+    emit ctrlCommand(QStringList({"screenshot-to-file", fileName,
+                                  methods.value(render, "video")}));
+}
+
+void MpvObject::setMouseHideTime(int msec)
+{
+    hideTimer->stop();
+    hideTimer->setInterval(msec);
+    showCursor();
+    if (msec > 0)
+        hideTimer->start();
+}
+
+void MpvObject::setLogoUrl(const QString &filename)
+{
+    widget->setLogoUrl(filename);
+}
+
+void MpvObject::setLogoBackground(const QColor &color)
+{
+    widget->setLogoBackground(color);
+}
+
+void MpvObject::setSubFile(QString filename)
+{
+    emit ctrlSetOptionVariant("sub-files", filename);
+}
+
+void MpvObject::addSubFile(QString filename)
+{
+    emit ctrlCommand(QStringList({"sub-add", filename}));
+}
+
+int64_t MpvObject::chapter()
+{
+    return getMpvPropertyVariant("chapter").toLongLong();
+}
+
+bool MpvObject::setChapter(int64_t chapter)
+{
+    // As this requires knowledge of mpv's return value, it cannot be
+    // queued as a simple message.  The usual return values are:
+    // MPV_ERROR_PROPERTY_UNAVAILABLE: unchaptered file
+    // MPV_ERROR_PROPERTY_FORMAT: past-the-end value requested
+    // MPV_ERROR_SUCCESS: success
+    int r;
+    QMetaObject::invokeMethod(ctrl, "setPropertyVariant",
+                              Qt::BlockingQueuedConnection,
+                              Q_RETURN_ARG(int, r),
+                              Q_ARG(QString, "chapter"),
+                              Q_ARG(QVariant, QVariant(qlonglong(chapter))));
+    return r == MPV_ERROR_SUCCESS;
+}
+
+QString MpvObject::mediaTitle()
+{
+    return getMpvPropertyVariant("media-title").toString();
+}
+
+void MpvObject::setMute(bool yes)
+{
+    setMpvPropertyVariant("mute", yes);
+}
+
+void MpvObject::setPaused(bool yes)
+{
+    setMpvPropertyVariant("pause", yes);
+}
+
+void MpvObject::setSpeed(double speed)
+{
+    setMpvPropertyVariant("speed", speed);
+}
+
+void MpvObject::setTime(double position)
+{
+    setMpvPropertyVariant("time-pos", position);
+}
+
+void MpvObject::setTimeSync(double position)
+{
+    ctrl->command(QVariantList() << "seek" << position << "absolute");
+}
+
+void MpvObject::setLoopPoints(double first, double end)
+{
+    setMpvPropertyVariant("ab-loop-a",
+                          first < 0 ? QVariant("no") : QVariant(first));
+    setMpvPropertyVariant("ab-loop-b",
+                          end < 0 ? QVariant("no") : QVariant(end));
+}
+
+void MpvObject::setAudioTrack(int64_t id)
+{
+    setMpvPropertyVariant("aid", qlonglong(id));
+}
+
+void MpvObject::setSubtitleTrack(int64_t id)
+{
+    setMpvPropertyVariant("sid", qlonglong(id));
+}
+
+void MpvObject::setVideoTrack(int64_t id)
+{
+    setMpvPropertyVariant("vid", qlonglong(id));
+}
+
+void MpvObject::setDrawLogo(bool yes)
+{
+    widget->setDrawLogo(yes);
+}
+
+void MpvObject::setVolume(int64_t volume)
+{
+    setMpvPropertyVariant("volume", qlonglong(volume));
+}
+
+bool MpvObject::eofReached()
+{
+    return getMpvPropertyVariant("eof-reached").toBool();
+}
+
+void MpvObject::setClientDebuggingMessages(bool yes)
+{
+    debugMessages = yes;
+}
+
+void MpvObject::setMpvLogLevel(QString logLevel)
+{
+    emit ctrlSetLogLevel(logLevel);
+}
+
+double MpvObject::playLength()
+{
+    return playLength_;
+}
+
+double MpvObject::playTime()
+{
+    return playTime_;
+}
+
+QSize MpvObject::videoSize()
+{
+    return videoSize_;
+}
+
+bool MpvObject::clientDebuggingMessages()
+{
+    return debugMessages;
+}
+
+void MpvObject::setCachedMpvOption(const QString &option, const QVariant &value)
+{
+    if (cachedState.contains(option) && cachedState.value(option) == value)
+        return;
+    cachedState.insert(option, value);
+    setMpvOptionVariant(option, value);
+}
+
+QVariant MpvObject::blockingMpvCommand(QVariant params)
+{
+    QVariant v;
+    QMetaObject::invokeMethod(ctrl, "command",
+                              Qt::BlockingQueuedConnection,
+                              Q_RETURN_ARG(QVariant, v),
+                              Q_ARG(QVariant, params));
+    return v;
+}
+
+QVariant MpvObject::blockingSetMpvPropertyVariant(QString name, QVariant value)
+{
+    int v;
+    QMetaObject::invokeMethod(ctrl, "setPropertyVariant",
+                              Qt::BlockingQueuedConnection,
+                              Q_RETURN_ARG(int, v),
+                              Q_ARG(QString, name),
+                              Q_ARG(QVariant, value));
+    return v == MPV_ERROR_SUCCESS ? QVariant()
+                                  : QVariant::fromValue(MpvErrorCode(v));
+}
+
+QVariant MpvObject::blockingSetMpvOptionVariant(QString name, QVariant value)
+{
+    int v;
+    QMetaObject::invokeMethod(ctrl, "setOptionVariant",
+                              Qt::BlockingQueuedConnection,
+                              Q_RETURN_ARG(int, v),
+                              Q_ARG(QString, name),
+                              Q_ARG(QVariant, value));
+    return v == MPV_ERROR_SUCCESS ? QVariant()
+                                  : QVariant::fromValue(MpvErrorCode(v));
+}
+
+QVariant MpvObject::getMpvPropertyVariant(QString name)
+{
+    QVariant v;
+    QMetaObject::invokeMethod(ctrl, "getPropertyVariant",
+                              Qt::BlockingQueuedConnection,
+                              Q_RETURN_ARG(QVariant, v),
+                              Q_ARG(QString, name));
+    return v;
+}
+
+
+void MpvObject::setMpvPropertyVariant(QString name, QVariant value)
+{
+    if (debugMessages)
+        qDebug() << "property set " << name << value;
+    emit ctrlSetPropertyVariant(name, value);
+}
+
+void MpvObject::setMpvOptionVariant(QString name, QVariant value)
+{
+    if (debugMessages)
+        qDebug() << "option set " << name << value;
+    emit ctrlSetOptionVariant(name, value);
+}
+
+void MpvObject::showCursor()
+{
+    widget->self()->setCursor(Qt::ArrowCursor);
+}
+
+void MpvObject::hideCursor()
+{
+    widget->self()->setCursor(Qt::BlankCursor);
+}
+
+
+#define HANDLE_PROP(p, method, converter, dflt) \
+    if (name == p) { \
+        if (ok && v.canConvert<decltype(dflt)>()) \
+            method(v.converter()); \
+        else \
+            method(dflt); \
+        return; \
+    }
+
+void MpvObject::ctrl_mpvPropertyChanged(QString name, QVariant v)
+{
+    if (debugMessages)
+        qDebug() << "property changed " << name << v;
+
+    bool ok = v.type() < QVariant::UserType;
+    //FIXME: use constant-time map to function lookup
+    HANDLE_PROP("time-pos", emit self_playTimeChanged, toDouble, -1.0);
+    HANDLE_PROP("duration", emit self_playLengthChanged, toDouble, -1.0);
+    HANDLE_PROP("seekable", emit seekableChanged, toBool, false);
+    HANDLE_PROP("pause", emit pausedChanged, toBool, true);
+    HANDLE_PROP("media-title", emit mediaTitleChanged, toString, QString());
+    HANDLE_PROP("chapter-metadata", emit chapterDataChanged, toMap, QVariantMap());
+    HANDLE_PROP("chapter-list", emit chaptersChanged, toList, QVariantList());
+    HANDLE_PROP("track-list", emit tracksChanged, toList, QVariantList());
+    HANDLE_PROP("estimated-vf-fps", emit fpsChanged, toDouble, 0.0);
+    HANDLE_PROP("avsync", emit avsyncChanged, toDouble, 0.0);
+    HANDLE_PROP("frame-drop-count", emit displayFramedropsChanged, toLongLong, 0ll);
+    HANDLE_PROP("decoder-frame-drop-count", emit decoderFramedropsChanged, toLongLong, 0ll);
+    HANDLE_PROP("audio-bitrate", emit audioBitrateChanged, toDouble, 0.0);
+    HANDLE_PROP("video-bitrate", emit videoBitrateChanged, toDouble, 0.0);
+    HANDLE_PROP("metadata", emit self_metadata, toMap, QVariantMap());
+    HANDLE_PROP("audio-device-list", emit self_audioDeviceList, toList, QVariantList());
+    HANDLE_PROP("filename", emit fileNameChanged, toString, QString());
+    HANDLE_PROP("file-format", emit fileFormatChanged, toString, QString());
+    HANDLE_PROP("file-date-created", emit fileCreationTimeChanged, toLongLong, 0ll);
+    HANDLE_PROP("file-size", emit fileSizeChanged, toLongLong, 0ll);
+    HANDLE_PROP("path", emit filePathChanged, toString, QString());
+}
+
+void MpvObject::ctrl_logMessage(QString message)
+{
+    qDebug() << message;
+}
+
+void MpvObject::ctrl_clientMessage(uint64_t id, const QStringList &args)
+{
+    Q_UNUSED(id);
+    if (args[1] == QString::number(HOOK_UNLOAD_CALLBACK_ID)) {
+        QVariantList playlist = getMpvPropertyVariant("playlist").toList();
+        if (playlist.count() > 1)
+            emit playlistChanged(playlist);
+        emit ctrlCommand(QStringList({"hook-ack", args[2]}));
+    }
+}
+
+void MpvObject::ctrl_unhandledMpvEvent(int eventLevel)
+{
+    switch(eventLevel) {
+    case MPV_EVENT_START_FILE: {
+        if (debugMessages)
+            qDebug() << "start file";
+        emit playbackLoading();
+        break;
+    }
+    case MPV_EVENT_FILE_LOADED: {
+        if (debugMessages)
+            qDebug() << "file loaded";
+        emit playbackStarted();
+        break;
+    }
+    case MPV_EVENT_END_FILE: {
+        if (debugMessages)
+            qDebug() << "end file";
+        emit playbackFinished();
+        break;
+    }
+    case MPV_EVENT_IDLE: {
+        if (debugMessages)
+            qDebug() << "idling";
+        emit playbackIdling();
+        break;
+    }
+    case MPV_EVENT_SHUTDOWN: {
+        if (debugMessages)
+            qDebug() << "event shutdown";
+        emit playbackFinished();
+        break;
+    }
+    }
+}
+
+void MpvObject::ctrl_videoSizeChanged(QSize size)
+{
+    videoSize_ = size;
+    emit videoSizeChanged(videoSize_);
+}
+
+void MpvObject::self_playTimeChanged(double playTime)
+{
+    playTime_ = playTime;
+    emit playTimeChanged(playTime);
+}
+
+void MpvObject::self_playLengthChanged(double playLength)
+{
+    playLength_ = playLength;
+    emit playLengthChanged(playLength);
+}
+
+void MpvObject::self_metadata(QVariantMap metadata)
+{
+    QVariantMap map;
+    for (auto it = metadata.keyBegin(); it != metadata.keyEnd(); it++)
+        map.insert(it->toLower(), metadata.value(*it));
+    emit metaDataChanged(map);
+}
+
+void MpvObject::self_audioDeviceList(const QVariantList &list)
+{
+    emit audioDeviceList(AudioDevice::listFromVList(list));
+}
+
+void MpvObject::self_mouseMoved()
+{
+    if (hideTimer->interval() > 0)
+        hideTimer->start();
+    showCursor();
+}
+
+void MpvObject::hideTimer_timeout()
+{
+    hideCursor();
+}
+
+//----------------------------------------------------------------------------
+
+MpvWidgetInterface::MpvWidgetInterface(MpvObject *object)
+    : mpvObject(object)
+{
+}
+
+MpvWidgetInterface::~MpvWidgetInterface()
+{
+    ctrl = nullptr;
+}
+
+void MpvWidgetInterface::setController(MpvController *controller)
+{
+    ctrl = controller;
+}
+
+void MpvWidgetInterface::setLogoUrl(const QString &filename)
+{
+    Q_UNUSED(filename);
+}
+
+void MpvWidgetInterface::setLogoBackground(const QColor &color)
+{
+    Q_UNUSED(color);
+}
+
+void MpvWidgetInterface::setDrawLogo(bool yes)
+{
+    Q_UNUSED(yes);
+}
+
+
+//----------------------------------------------------------------------------
 
 static void* GLAPIENTRY glMPGetNativeDisplay(const char* name) {
 #if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
@@ -83,123 +750,19 @@ static void *get_proc_address(void *ctx, const char *name) {
     return res;
 }
 
-MpvWidget::MpvWidget(QWidget *parent, const QString &clientName) :
-    QOpenGLWidget(parent)
+MpvGlCbWidget::MpvGlCbWidget(MpvObject *object, QWidget *parent) :
+    QOpenGLWidget(parent), MpvWidgetInterface(object)
 {
-    // Setup threads
-    worker = new QThread();
-    worker->start();
-
-    // setup controller
-    ctrl = new MpvController();
-    ctrl->moveToThread(worker);
-
-    // setup timer
-    hideTimer = new QTimer(this);
-    hideTimer->setSingleShot(true);
-    hideTimer->setInterval(1000);
-
-    // Wire the basic mpv functions to avoid littering the codebase with
-    // QMetaObject::invokeMethod.  This way the compiler will catch our
-    // typos rather than a runtime error.
-    connect(this, &MpvWidget::ctrlCommand,
-            ctrl, &MpvController::command, Qt::QueuedConnection);
-    connect(this, &MpvWidget::ctrlSetOptionVariant,
-            ctrl, &MpvController::setOptionVariant, Qt::QueuedConnection);
-    connect(this, &MpvWidget::ctrlSetPropertyVariant,
-            ctrl, &MpvController::setPropertyVariant, Qt::QueuedConnection);
-    connect(this, &MpvWidget::ctrlSetLogLevel,
-            ctrl, &MpvController::setLogLevel);
-
-    // Wire up the event-handling callbacks
-    connect(ctrl, &MpvController::mpvPropertyChanged,
-            this, &MpvWidget::ctrl_mpvPropertyChanged, Qt::QueuedConnection);
-    connect(ctrl, &MpvController::logMessage,
-            this, &MpvWidget::ctrl_logMessage, Qt::QueuedConnection);
-    connect(ctrl, &MpvController::clientMessage,
-            this, &MpvWidget::ctrl_clientMessage, Qt::QueuedConnection);
-    connect(ctrl, &MpvController::unhandledMpvEvent,
-            this, &MpvWidget::ctrl_unhandledMpvEvent, Qt::QueuedConnection);
-    connect(ctrl, &MpvController::videoSizeChanged,
-            this, &MpvWidget::ctrl_videoSizeChanged, Qt::QueuedConnection);
-
-    // Wire up the mouse and timer-related callbacks
-    connect(this, &MpvWidget::mouseMoved,
-            this, &MpvWidget::self_mouseMoved);
-    connect(hideTimer, &QTimer::timeout,
-            this, &MpvWidget::hideTimer_timeout);
-
-    // Initialize mpv
-    QMetaObject::invokeMethod(ctrl, "create", Qt::BlockingQueuedConnection);
-
-    // grab a copy of the mpvGl draw context
-    QMetaObject::invokeMethod(ctrl, "mpvDrawContext",
-                              Qt::BlockingQueuedConnection,
-                              Q_RETURN_ARG(mpv_opengl_cb_context *, glMpv));
-
-    // ask mpv to make draw requests to us
-    mpv_opengl_cb_set_update_callback(glMpv, MpvWidget::ctrl_update,
-                                      (void *)this);
-
-    // clean up objects when the worker thread is deleted
-    connect(worker, &QThread::finished, ctrl, &MpvController::deleteLater);
-
-    // Observe some properties
-    MpvController::PropertyList options = {
-        { "time-pos", 0, MPV_FORMAT_DOUBLE },
-        { "pause", 0, MPV_FORMAT_FLAG },
-        { "media-title", 0, MPV_FORMAT_STRING },
-        { "chapter-metadata", 0, MPV_FORMAT_NODE },
-        { "track-list", 0, MPV_FORMAT_NODE },
-        { "chapter-list", 0, MPV_FORMAT_NODE },
-        { "duration", 0, MPV_FORMAT_DOUBLE },
-        { "estimated-vf-fps", 0, MPV_FORMAT_DOUBLE },
-        { "avsync", 0, MPV_FORMAT_DOUBLE },
-        { "frame-drop-count", 0, MPV_FORMAT_INT64 },
-        { "decoder-frame-drop-count", 0, MPV_FORMAT_INT64 },
-        { "audio-bitrate", 0, MPV_FORMAT_DOUBLE },
-        { "video-bitrate", 0, MPV_FORMAT_DOUBLE },
-        { "paused-for-cache", 0, MPV_FORMAT_FLAG },
-        { "metadata", 0, MPV_FORMAT_NODE },
-        { "audio-device-list", 0, MPV_FORMAT_NODE },
-        { "filename", 0, MPV_FORMAT_STRING },
-        { "file-format", 0, MPV_FORMAT_STRING },
-        { "file-size", 0, MPV_FORMAT_STRING },
-        { "file-date-created", 0, MPV_FORMAT_NODE },
-        { "format", 0, MPV_FORMAT_STRING },
-        { "path", 0, MPV_FORMAT_STRING },
-        { "seekable", 0, MPV_FORMAT_FLAG }
-    };
-    QSet<QString> throttled = {
-        "time-pos", "avsync", "estimated-vf-fps", "frame-drop-count",
-        "decoder-frame-drop-count", "audio-bitrate", "video-bitrate"
-    };
-    QMetaObject::invokeMethod(ctrl, "observeProperties",
-                              Qt::BlockingQueuedConnection,
-                              Q_ARG(const MpvController::PropertyList &, options),
-                              Q_ARG(const QSet<QString> &, throttled));
-
-    // Add hooks
-    QMetaObject::invokeMethod(ctrl, "addHook",
-                              Qt::BlockingQueuedConnection,
-                              Q_ARG(QString, "on_unload"),
-                              Q_ARG(int, HOOK_UNLOAD_CALLBACK_ID));
-
-    blockingSetMpvOptionVariant("ytdl", "yes");
-    blockingSetMpvOptionVariant("audio-client-name", clientName);
-    ctrl->setLogLevel("info");
-
     connect(this, &QOpenGLWidget::frameSwapped,
-            this, &MpvWidget::self_frameSwapped);
-    connect(this, &MpvWidget::playbackStarted,
-            this, &MpvWidget::self_playbackStarted);
-    connect(this, &MpvWidget::playbackFinished,
-            this, &MpvWidget::self_playbackFinished);
-
-    this->setContextMenuPolicy(Qt::CustomContextMenu);
+            this, &MpvGlCbWidget::self_frameSwapped);
+    connect(mpvObject, &MpvObject::playbackStarted,
+            this, &MpvGlCbWidget::self_playbackStarted);
+    connect(mpvObject, &MpvObject::playbackFinished,
+            this, &MpvGlCbWidget::self_playbackFinished);
+    setContextMenuPolicy(Qt::CustomContextMenu);
 }
 
-MpvWidget::~MpvWidget()
+MpvGlCbWidget::~MpvGlCbWidget()
 {
     if (glMpv) {
         makeCurrent();
@@ -210,125 +773,32 @@ MpvWidget::~MpvWidget()
         delete logo;
         logo = nullptr;
     }
-    if (hideTimer) {
-        delete hideTimer;
-        hideTimer = nullptr;
-    }
-    worker->deleteLater();
 }
 
-QList<AudioDevice> MpvWidget::audioDevices()
+QWidget *MpvGlCbWidget::self()
 {
-    return AudioDevice::listFromVList(getMpvPropertyVariant("audio-device-list").toList());
+    return this;
 }
 
-QStringList MpvWidget::supportedProtocols()
+void MpvGlCbWidget::initMpv()
 {
-    return ctrl->protocolList();
+    // grab a copy of the mpvGl draw context
+    QMetaObject::invokeMethod(ctrl, "mpvDrawContext",
+                              Qt::BlockingQueuedConnection,
+                              Q_RETURN_ARG(mpv_opengl_cb_context *, glMpv));
+
+    // ask mpv to make draw requests to us
+    mpv_opengl_cb_set_update_callback(glMpv, MpvGlCbWidget::ctrl_update,
+                                      (void *)this);
 }
 
-void MpvWidget::showMessage(QString message)
-{
-    if (shownStatsPage <= 0 || shownStatsPage >= 3)
-        emit ctrlCommand(QVariantList({"show_text", message, "1000"}));
-}
-
-void MpvWidget::showStatsPage(int page)
-{
-    bool statsVisible = (shownStatsPage > 0 && shownStatsPage < 3);
-    bool wantVisible = (page > 0 && page < 3);
-
-    if (wantVisible ^ statsVisible) {
-        qDebug() << "toggling stats page";
-        ctrlCommand(QStringList({"script-binding",
-                                 "stats/display-stats-toggle"}));
-    }
-    if (wantVisible) {
-        qDebug() << "setting page to " << page;
-        QStringList cmd { "script-binding",
-                          QString("stats/display-page-%1").arg(QString::number(page)) };
-        ctrlCommand(cmd);
-    }
-    shownStatsPage = page;
-}
-
-int MpvWidget::cycleStatsPage()
-{
-    showStatsPage(shownStatsPage < 2 ? shownStatsPage+1 : 0);
-    return shownStatsPage;
-}
-
-void MpvWidget::fileOpen(QString filename)
-{
-    setSubFile("\n");
-    //setStartTime(0.0);
-    emit ctrlCommand(QStringList({"loadfile", filename}));
-    setMouseHideTime(hideTimer->interval());
-}
-
-void MpvWidget::discFilesOpen(QString path) {
-    QStringList entryList = QDir(path).entryList();
-    if (entryList.contains("VIDEO_TS") || entryList.contains("AUDIO_TS")) {
-        fileOpen(path + "/VIDEO_TS/VIDEO_TS.IFO");
-    } else if (entryList.contains("BDMV") || entryList.contains("AACS")) {
-        fileOpen("bluray://" + path);
-    }
-}
-
-void MpvWidget::stopPlayback()
-{
-    emit ctrlCommand("stop");
-}
-
-void MpvWidget::stepBackward()
-{
-    emit ctrlCommand("frame_back_step");
-}
-
-void MpvWidget::stepForward()
-{
-    emit ctrlCommand("frame_step");
-}
-
-void MpvWidget::seek(double amount, bool exact)
-{
-    QVariantList payload({"seek", amount});
-    if (exact)
-        payload.append("exact");
-    emit ctrlCommand(payload);
-}
-
-void MpvWidget::screenshot(const QString &fileName, Helpers::ScreenshotRender render)
-{
-    static QMap <Helpers::ScreenshotRender,const char*> methods {
-        { Helpers::VideoRender, "video" },
-        { Helpers::SubsRender, "subtitles" },
-        { Helpers::WindowRender, "window" }
-    };
-    if (render == Helpers::WindowRender) {
-        grab().save(fileName);
-        return;
-    }
-    emit ctrlCommand(QStringList({"screenshot-to-file", fileName,
-                                  methods.value(render, "video")}));
-}
-
-void MpvWidget::setMouseHideTime(int msec)
-{
-    hideTimer->stop();
-    hideTimer->setInterval(msec);
-    showCursor();
-    if (msec > 0)
-        hideTimer->start();
-}
-
-void MpvWidget::setLogoUrl(const QString &filename)
+void MpvGlCbWidget::setLogoUrl(const QString &filename)
 {
     makeCurrent();
     if (!logo) {
         logo = new LogoDrawer(this);
         connect(logo, &LogoDrawer::logoSize,
-                this, &MpvWidget::logoSizeChanged);
+                mpvObject, &MpvObject::logoSizeChanged);
     }
     logo->setLogoUrl(filename);
     logo->resizeGL(width(), height());
@@ -337,199 +807,18 @@ void MpvWidget::setLogoUrl(const QString &filename)
     doneCurrent();
 }
 
-void MpvWidget::setLogoBackground(const QColor &color)
+void MpvGlCbWidget::setLogoBackground(const QColor &color)
 {
     logo->setLogoBackground(color);
 }
 
-void MpvWidget::setSubFile(QString filename)
-{
-    emit ctrlSetOptionVariant("sub-files", filename);
-}
-
-void MpvWidget::addSubFile(QString filename)
-{
-    emit ctrlCommand(QStringList({"sub-add", filename}));
-}
-
-int64_t MpvWidget::chapter()
-{
-    return getMpvPropertyVariant("chapter").toLongLong();
-}
-
-bool MpvWidget::setChapter(int64_t chapter)
-{
-    // As this requires knowledge of mpv's return value, it cannot be
-    // queued as a simple message.  The usual return values are:
-    // MPV_ERROR_PROPERTY_UNAVAILABLE: unchaptered file
-    // MPV_ERROR_PROPERTY_FORMAT: past-the-end value requested
-    // MPV_ERROR_SUCCESS: success
-    int r;
-    QMetaObject::invokeMethod(ctrl, "setPropertyVariant",
-                              Qt::BlockingQueuedConnection,
-                              Q_RETURN_ARG(int, r),
-                              Q_ARG(QString, "chapter"),
-                              Q_ARG(QVariant, QVariant(qlonglong(chapter))));
-    return r == MPV_ERROR_SUCCESS;
-}
-
-QString MpvWidget::mediaTitle()
-{
-    return getMpvPropertyVariant("media-title").toString();
-}
-
-void MpvWidget::setMute(bool yes)
-{
-    setMpvPropertyVariant("mute", yes);
-}
-
-void MpvWidget::setPaused(bool yes)
-{
-    setMpvPropertyVariant("pause", yes);
-}
-
-void MpvWidget::setSpeed(double speed)
-{
-    setMpvPropertyVariant("speed", speed);
-}
-
-void MpvWidget::setTime(double position)
-{
-    setMpvPropertyVariant("time-pos", position);
-}
-
-void MpvWidget::setTimeSync(double position)
-{
-    controller()->command(QVariantList() << "seek" << position << "absolute");
-}
-
-void MpvWidget::setLoopPoints(double first, double end)
-{
-    setMpvPropertyVariant("ab-loop-a",
-                          first < 0 ? QVariant("no") : QVariant(first));
-    setMpvPropertyVariant("ab-loop-b",
-                          end < 0 ? QVariant("no") : QVariant(end));
-}
-
-void MpvWidget::setAudioTrack(int64_t id)
-{
-    setMpvPropertyVariant("aid", qlonglong(id));
-}
-
-void MpvWidget::setSubtitleTrack(int64_t id)
-{
-    setMpvPropertyVariant("sid", qlonglong(id));
-}
-
-void MpvWidget::setVideoTrack(int64_t id)
-{
-    setMpvPropertyVariant("vid", qlonglong(id));
-}
-
-void MpvWidget::setDrawLogo(bool yes)
+void MpvGlCbWidget::setDrawLogo(bool yes)
 {
     drawLogo = yes;
     update();
 }
 
-QString MpvWidget::mpvVersion()
-{
-    return getMpvPropertyVariant("mpv-version").toString();
-}
-
-void MpvWidget::setVolume(int64_t volume)
-{
-    setMpvPropertyVariant("volume", qlonglong(volume));
-}
-
-bool MpvWidget::eofReached()
-{
-    return getMpvPropertyVariant("eof-reached").toBool();
-}
-
-void MpvWidget::setClientDebuggingMessages(bool yes)
-{
-    debugMessages = yes;
-}
-
-void MpvWidget::setMpvLogLevel(QString logLevel)
-{
-    emit ctrlSetLogLevel(logLevel);
-}
-
-MpvController *MpvWidget::controller()
-{
-    return ctrl;
-}
-
-double MpvWidget::playLength()
-{
-    return playLength_;
-}
-
-double MpvWidget::playTime()
-{
-    return playTime_;
-}
-
-QSize MpvWidget::videoSize()
-{
-    return videoSize_;
-}
-
-void MpvWidget::setCachedMpvOption(const QString &option, const QVariant &value)
-{
-    if (cachedState.contains(option) && cachedState.value(option) == value)
-        return;
-    cachedState.insert(option, value);
-    setMpvOptionVariant(option, value);
-}
-
-QVariant MpvWidget::blockingMpvCommand(QVariant params)
-{
-    QVariant v;
-    QMetaObject::invokeMethod(ctrl, "command",
-                              Qt::BlockingQueuedConnection,
-                              Q_RETURN_ARG(QVariant, v),
-                              Q_ARG(QVariant, params));
-    return v;
-}
-
-QVariant MpvWidget::blockingSetMpvPropertyVariant(QString name, QVariant value)
-{
-    int v;
-    QMetaObject::invokeMethod(ctrl, "setPropertyVariant",
-                              Qt::BlockingQueuedConnection,
-                              Q_RETURN_ARG(int, v),
-                              Q_ARG(QString, name),
-                              Q_ARG(QVariant, value));
-    return v == MPV_ERROR_SUCCESS ? QVariant()
-                                  : QVariant::fromValue(MpvErrorCode(v));
-}
-
-QVariant MpvWidget::blockingSetMpvOptionVariant(QString name, QVariant value)
-{
-    int v;
-    QMetaObject::invokeMethod(ctrl, "setOptionVariant",
-                              Qt::BlockingQueuedConnection,
-                              Q_RETURN_ARG(int, v),
-                              Q_ARG(QString, name),
-                              Q_ARG(QVariant, value));
-    return v == MPV_ERROR_SUCCESS ? QVariant()
-                                  : QVariant::fromValue(MpvErrorCode(v));
-}
-
-QVariant MpvWidget::getMpvPropertyVariant(QString name)
-{
-    QVariant v;
-    QMetaObject::invokeMethod(ctrl, "getPropertyVariant",
-                              Qt::BlockingQueuedConnection,
-                              Q_RETURN_ARG(QVariant, v),
-                              Q_ARG(QString, name));
-    return v;
-}
-
-void MpvWidget::initializeGL()
+void MpvGlCbWidget::initializeGL()
 {
     if (mpv_opengl_cb_init_gl(glMpv, nullptr, get_proc_address, nullptr) < 0)
         throw std::runtime_error("[MpvWidget] cb init gl failed.");
@@ -538,9 +827,10 @@ void MpvWidget::initializeGL()
         logo = new LogoDrawer(this);
 }
 
-void MpvWidget::paintGL()
+void MpvGlCbWidget::paintGL()
 {
-    if (debugMessages)
+    //FIXME: use log()
+    if (mpvObject->clientDebuggingMessages())
         qDebug() << "paintGL";
     if (!drawLogo) {
         mpv_opengl_cb_draw(glMpv, defaultFramebufferObject(),
@@ -550,7 +840,7 @@ void MpvWidget::paintGL()
     }
 }
 
-void MpvWidget::resizeGL(int w, int h)
+void MpvGlCbWidget::resizeGL(int w, int h)
 {
     qreal r = devicePixelRatio();
     glWidth = int(w * r);
@@ -558,43 +848,24 @@ void MpvWidget::resizeGL(int w, int h)
     logo->resizeGL(width(),height());
 }
 
-void MpvWidget::mouseMoveEvent(QMouseEvent *event)
+void MpvGlCbWidget::mouseMoveEvent(QMouseEvent *event)
 {
-    emit mouseMoved(event->x(), event->y());
+    emit mpvObject->mouseMoved(event->x(), event->y());
     QOpenGLWidget::mouseMoveEvent(event);
 }
 
-void MpvWidget::mousePressEvent(QMouseEvent *event)
+void MpvGlCbWidget::mousePressEvent(QMouseEvent *event)
 {
-    emit mousePress(event->x(), event->y());
+    emit mpvObject->mousePress(event->x(), event->y());
     QOpenGLWidget::mousePressEvent(event);
 }
 
-void MpvWidget::setMpvPropertyVariant(QString name, QVariant value)
+void MpvGlCbWidget::ctrl_update(void *ctx)
 {
-    if (debugMessages)
-        qDebug() << "property set " << name << value;
-    emit ctrlSetPropertyVariant(name, value);
+    QMetaObject::invokeMethod(reinterpret_cast<MpvGlCbWidget*>(ctx), "maybeUpdate");
 }
 
-void MpvWidget::setMpvOptionVariant(QString name, QVariant value)
-{
-    if (debugMessages)
-        qDebug() << "option set " << name << value;
-    emit ctrlSetOptionVariant(name, value);
-}
-
-void MpvWidget::showCursor()
-{
-    setCursor(Qt::ArrowCursor);
-}
-
-void MpvWidget::hideCursor()
-{
-    setCursor(Qt::BlankCursor);
-}
-
-void MpvWidget::maybeUpdate()
+void MpvGlCbWidget::maybeUpdate()
 {
     if (window()->isMinimized()) {
         makeCurrent();
@@ -607,160 +878,21 @@ void MpvWidget::maybeUpdate()
     }
 }
 
-void MpvWidget::ctrl_update(void *ctx)
-{
-    QMetaObject::invokeMethod(reinterpret_cast<MpvWidget*>(ctx), "maybeUpdate");
-}
-
-#define HANDLE_PROP(p, method, converter, dflt) \
-    if (name == p) { \
-        if (ok && v.canConvert<decltype(dflt)>()) \
-            method(v.converter()); \
-        else \
-            method(dflt); \
-        return; \
-    }
-
-void MpvWidget::ctrl_mpvPropertyChanged(QString name, QVariant v)
-{
-    if (debugMessages)
-        qDebug() << "property changed " << name << v;
-
-    bool ok = v.type() < QVariant::UserType;
-    //FIXME: use constant-time map to function lookup
-    HANDLE_PROP("time-pos", emit self_playTimeChanged, toDouble, -1.0);
-    HANDLE_PROP("duration", emit self_playLengthChanged, toDouble, -1.0);
-    HANDLE_PROP("seekable", emit seekableChanged, toBool, false);
-    HANDLE_PROP("pause", emit pausedChanged, toBool, true);
-    HANDLE_PROP("media-title", emit mediaTitleChanged, toString, QString());
-    HANDLE_PROP("chapter-metadata", emit chapterDataChanged, toMap, QVariantMap());
-    HANDLE_PROP("chapter-list", emit chaptersChanged, toList, QVariantList());
-    HANDLE_PROP("track-list", emit tracksChanged, toList, QVariantList());
-    HANDLE_PROP("estimated-vf-fps", emit fpsChanged, toDouble, 0.0);
-    HANDLE_PROP("avsync", emit avsyncChanged, toDouble, 0.0);
-    HANDLE_PROP("frame-drop-count", emit displayFramedropsChanged, toLongLong, 0ll);
-    HANDLE_PROP("decoder-frame-drop-count", emit decoderFramedropsChanged, toLongLong, 0ll);
-    HANDLE_PROP("audio-bitrate", emit audioBitrateChanged, toDouble, 0.0);
-    HANDLE_PROP("video-bitrate", emit videoBitrateChanged, toDouble, 0.0);
-    HANDLE_PROP("metadata", emit self_metadata, toMap, QVariantMap());
-    HANDLE_PROP("audio-device-list", emit self_audioDeviceList, toList, QVariantList());
-    HANDLE_PROP("filename", emit fileNameChanged, toString, QString());
-    HANDLE_PROP("file-format", emit fileFormatChanged, toString, QString());
-    HANDLE_PROP("file-date-created", emit fileCreationTimeChanged, toLongLong, 0ll);
-    HANDLE_PROP("file-size", emit fileSizeChanged, toLongLong, 0ll);
-    HANDLE_PROP("path", emit filePathChanged, toString, QString());
-}
-
-void MpvWidget::ctrl_logMessage(QString message)
-{
-    qDebug() << message;
-}
-
-void MpvWidget::ctrl_clientMessage(uint64_t id, const QStringList &args)
-{
-    Q_UNUSED(id);
-    if (args[1] == QString::number(HOOK_UNLOAD_CALLBACK_ID)) {
-        QVariantList playlist = getMpvPropertyVariant("playlist").toList();
-        if (playlist.count() > 1)
-            emit playlistChanged(playlist);
-        emit ctrlCommand(QStringList({"hook-ack", args[2]}));
-    }
-}
-
-void MpvWidget::ctrl_unhandledMpvEvent(int eventLevel)
-{
-    switch(eventLevel) {
-    case MPV_EVENT_START_FILE: {
-        if (debugMessages)
-            qDebug() << "start file";
-        emit playbackLoading();
-        break;
-    }
-    case MPV_EVENT_FILE_LOADED: {
-        if (debugMessages)
-            qDebug() << "file loaded";
-        emit playbackStarted();
-        break;
-    }
-    case MPV_EVENT_END_FILE: {
-        if (debugMessages)
-            qDebug() << "end file";
-        emit playbackFinished();
-        break;
-    }
-    case MPV_EVENT_IDLE: {
-        if (debugMessages)
-            qDebug() << "idling";
-        emit playbackIdling();
-        break;
-    }
-    case MPV_EVENT_SHUTDOWN: {
-        if (debugMessages)
-            qDebug() << "event shutdown";
-        emit playbackFinished();
-        break;
-    }
-    }
-}
-
-void MpvWidget::ctrl_videoSizeChanged(QSize size)
-{
-    videoSize_ = size;
-    emit videoSizeChanged(videoSize_);
-}
-
-void MpvWidget::self_playTimeChanged(double playTime)
-{
-    playTime_ = playTime;
-    emit playTimeChanged(playTime);
-}
-
-void MpvWidget::self_playLengthChanged(double playLength)
-{
-    playLength_ = playLength;
-    emit playLengthChanged(playLength);
-}
-
-void MpvWidget::self_frameSwapped()
+void MpvGlCbWidget::self_frameSwapped()
 {
     if (!drawLogo)
         mpv_opengl_cb_report_flip(glMpv, 0);
 }
 
-void MpvWidget::self_playbackStarted()
+void MpvGlCbWidget::self_playbackStarted()
 {
     drawLogo = false;
 }
 
-void MpvWidget::self_playbackFinished()
+void MpvGlCbWidget::self_playbackFinished()
 {
     drawLogo = true;
     update();
-}
-
-void MpvWidget::self_metadata(QVariantMap metadata)
-{
-    QVariantMap map;
-    for (auto it = metadata.keyBegin(); it != metadata.keyEnd(); it++)
-        map.insert(it->toLower(), metadata.value(*it));
-    emit metaDataChanged(map);
-}
-
-void MpvWidget::self_audioDeviceList(const QVariantList &list)
-{
-    emit audioDeviceList(AudioDevice::listFromVList(list));
-}
-
-void MpvWidget::self_mouseMoved()
-{
-    if (hideTimer->interval() > 0)
-        hideTimer->start();
-    showCursor();
-}
-
-void MpvWidget::hideTimer_timeout()
-{
-    hideCursor();
 }
 
 

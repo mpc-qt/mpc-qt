@@ -12,17 +12,29 @@
 #include <mpv/qthelper.hpp>
 #include "helpers.h"
 
+class QLayout;
+class QMainWindow;
 class QThread;
 class QTimer;
+class MpvWidgetInterface;
 class MpvController;
 class LogoDrawer;
 
-class MpvWidget : public QOpenGLWidget
+class MpvObject : public QObject
 {
     Q_OBJECT
 public:
-    explicit MpvWidget(QWidget *parent = 0, const QString &clientName = "mpv");
-    ~MpvWidget();
+    explicit MpvObject(QObject *owner, const QString &clientName = "mpv");
+    ~MpvObject();
+
+    void setHostLayout(QLayout *hostLayout);
+    void setHostWindow(QMainWindow *hostWindow);
+    void setWidgetType(Helpers::MpvWidgetType widgetType);
+
+    QString mpvVersion();
+    MpvController *controller();
+    QWidget *mpvWidget();
+
     QList<AudioDevice> audioDevices();
     QStringList supportedProtocols();
 
@@ -56,36 +68,21 @@ public:
     void setSubtitleTrack(int64_t id);
     void setVideoTrack(int64_t id);
     void setDrawLogo(bool yes);
-    QString mpvVersion();
     void setVolume(int64_t volume);
     bool eofReached();
     void setClientDebuggingMessages(bool yes);
     void setMpvLogLevel(QString logLevel);
 
-    MpvController *controller();
     double playLength();
     double playTime();
     QSize videoSize();
+    bool clientDebuggingMessages();
 
     void setCachedMpvOption(const QString &option, const QVariant &value);
     QVariant blockingMpvCommand(QVariant params);
     QVariant blockingSetMpvPropertyVariant(QString name, QVariant value);
     QVariant blockingSetMpvOptionVariant(QString name, QVariant value);
     QVariant getMpvPropertyVariant(QString name);
-
-protected:
-    void initializeGL();
-    void paintGL();
-    void resizeGL(int w, int h);
-    void mouseMoveEvent(QMouseEvent *event);
-    void mousePressEvent(QMouseEvent *event);
-
-private:
-    static void ctrl_update(void *ctx);
-    void setMpvPropertyVariant(QString name, QVariant value);
-    void setMpvOptionVariant(QString name, QVariant value);
-    void showCursor();
-    void hideCursor();
 
 signals:
     void ctrlCommand(QVariant params);
@@ -127,8 +124,13 @@ signals:
     void mouseMoved(int x, int y);
     void mousePress(int x, int y);
 
+private:
+    void setMpvPropertyVariant(QString name, QVariant value);
+    void setMpvOptionVariant(QString name, QVariant value);
+    void showCursor();
+    void hideCursor();
+
 private slots:
-    void maybeUpdate();
     void ctrl_mpvPropertyChanged(QString name, QVariant v);
     void ctrl_logMessage(QString message);
     void ctrl_clientMessage(uint64_t id, const QStringList &args);
@@ -136,34 +138,103 @@ private slots:
     void ctrl_videoSizeChanged(QSize size);
     void self_playTimeChanged(double playTime);
     void self_playLengthChanged(double playLength);
-    void self_frameSwapped();
-    void self_playbackStarted();
-    void self_playbackFinished();
     void self_metadata(QVariantMap metadata);
     void self_audioDeviceList(const QVariantList &list);
-    void self_mouseMoved();
     void hideTimer_timeout();
 
+    void self_mouseMoved();
+
 private:
-    QThread *worker = nullptr;
+    Helpers::MpvWidgetType widgetType = Helpers::NullWidget;
+    QLayout *hostLayout = nullptr;
+    QMainWindow *hostWindow = nullptr;
     MpvController *ctrl = nullptr;
-    mpv_opengl_cb_context *glMpv = nullptr;
+    MpvWidgetInterface *widget = nullptr;
+
+    QThread *worker = nullptr;
     QTimer *hideTimer = nullptr;
 
     QVariantMap cachedState;
     QSize videoSize_;
     double playTime_ = 0.0;
     double playLength_ = 0.0;
-    int glWidth = 0, glHeight = 0;
 
     int shownStatsPage = 0;
-    bool drawLogo = true;
-    LogoDrawer *logo = nullptr;
-
     bool loopImages = true;
-
     bool debugMessages = false;
 };
+
+class MpvWidgetInterface
+{
+public:
+    explicit MpvWidgetInterface(MpvObject *object);
+    virtual ~MpvWidgetInterface();
+    void setController(MpvController *controller);
+
+    virtual QWidget *self() = 0;
+    virtual void initMpv() = 0;
+    virtual void setLogoUrl(const QString &filename);
+    virtual void setLogoBackground(const QColor &color);
+    virtual void setDrawLogo(bool yes);
+
+protected:
+    MpvObject *mpvObject = nullptr;
+    MpvController *ctrl = nullptr;
+};
+Q_DECLARE_INTERFACE(MpvWidgetInterface, "cmdrkotori.mpc-qt.MpvWidgetInterface/1.0");
+
+
+class MpvGlCbWidget : public QOpenGLWidget, public MpvWidgetInterface
+{
+    Q_OBJECT
+    Q_INTERFACES(MpvWidgetInterface)
+
+public:
+    explicit MpvGlCbWidget(MpvObject *object, QWidget *parent = nullptr);
+    ~MpvGlCbWidget();
+
+    QWidget *self();
+    void initMpv();
+    void setLogoUrl(const QString &filename);
+    void setLogoBackground(const QColor &color);
+    void setDrawLogo(bool yes);
+
+signals:
+    void mouseMoved(int x, int y);
+    void mousePress(int x, int y);
+
+protected:
+    void initializeGL();
+    void paintGL();
+    void resizeGL(int w, int h);
+    void mouseMoveEvent(QMouseEvent *event);
+    void mousePressEvent(QMouseEvent *event);
+
+private:
+    static void ctrl_update(void *ctx);
+
+private slots:
+    void maybeUpdate();
+    void self_frameSwapped();
+    void self_playbackStarted();
+    void self_playbackFinished();
+
+private:
+    mpv_opengl_cb_context *glMpv = nullptr;
+    bool drawLogo = true;
+    LogoDrawer *logo = nullptr;
+    int glWidth = 0, glHeight = 0;
+};
+
+
+// FIXME: implement MpvVulkanCbWidget
+typedef MpvGlCbWidget MpvVulkanCbWidget;
+
+// FIXME: implement MpvEmbedWidget
+typedef MpvGlCbWidget MpvEmbedWidget;
+
+
+
 
 
 

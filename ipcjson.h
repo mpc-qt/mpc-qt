@@ -14,7 +14,7 @@ class JsonServer : public QObject
 {
     Q_OBJECT
 public:
-    explicit JsonServer(const QString &socketName, QObject *parent = 0);
+    explicit JsonServer(const QString &socketName, QObject *parent = nullptr);
     bool sendPayload(const QByteArray &payload);
     static bool sendPayload(const QByteArray &payload, const QString &serverName);
     QString fullServerName();
@@ -81,21 +81,21 @@ private:
 
 
 class MpvConnection;
-class MpvWidget;
+class MpvObject;
 class MpvServer : public JsonServer
 {
     Q_OBJECT
 public:
-    explicit MpvServer(QObject *parent = 0);
+    explicit MpvServer(QObject *parent = nullptr);
     void setPlaybackManger(PlaybackManager *manager);
-    void setMpvWidget(MpvWidget *widget);
+    void setMpvObject(MpvObject *object);
 
 private slots:
     void server_newConnection(QLocalSocket *socket);
 
 private:
     PlaybackManager *playbackManager = nullptr;
-    MpvWidget *mpvWidget = nullptr;
+    MpvObject *mpvObject = nullptr;
 };
 
 
@@ -105,7 +105,7 @@ class MpvConnection : public QObject
     Q_OBJECT
 public:
     explicit MpvConnection(QLocalSocket *socket, PlaybackManager *manager,
-                           MpvWidget *mpvWidget, QObject *parent = 0);
+                           MpvObject *mpvObject, QObject *parent = nullptr);
     ~MpvConnection();
 
 signals:
@@ -141,7 +141,7 @@ private slots:
 private:
     QLocalSocket *socket;
     PlaybackManager *manager;
-    MpvWidget *mpvWidget;
+    MpvObject *mpvObject;
     QMap<QString,QMetaMethod> commandParsers;
 };
 

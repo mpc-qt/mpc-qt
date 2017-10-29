@@ -34,6 +34,7 @@ namespace Helpers {
     bool pointFromString(QPoint &point, const QString &text);
 
     enum TitlePrefix { PrefixFullPath, PrefixFileName, NoPrefix };
+    enum MpvWidgetType { NullWidget, EmbedWidget, GlCbWidget, VulkanCbWidget };
     enum ControlHiding { NeverShown, ShowWhenMoving, ShowWhenHovering,
                          AlwaysShow };
     enum AfterPlayback { DoNothingAfter, RepeatAfter, PlayNextAfter,

@@ -13,7 +13,7 @@
 #include <QVariant>
 #include "helpers.h"
 
-class MpvWidget;
+class MpvObject;
 class PlaylistWindow;
 
 class PlaybackManager : public QObject
@@ -25,7 +25,7 @@ public:
     enum PlaybackType { None, File, Disc, Stream, Device };
 
     explicit PlaybackManager(QObject *parent = nullptr);
-    void setMpvWidget(MpvWidget *mpvWidget, bool makeConnections = false);
+    void setMpvObject(MpvObject *mpvWidget, bool makeConnections = false);
     void setPlaylistWindow(PlaylistWindow *playlistWindow);
     QUrl nowPlaying();
     PlaybackState playbackState();
@@ -145,7 +145,7 @@ signals:
     void videoBitrateChanged(double bitrate);
 
 private:
-    MpvWidget *mpvWidget_ = nullptr;
+    MpvObject *mpvObject_ = nullptr;
     PlaylistWindow *playlistWindow_ = nullptr;
     QUrl  nowPlaying_;
     QUuid nowPlayingList;

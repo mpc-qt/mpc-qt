@@ -9,7 +9,7 @@
 #include <QVariantMap>
 #include "manager.h"
 
-class MpvWidget;
+class MpvGlCbWidget;
 class MprisServer;
 class MprisPlayerServer;
 
@@ -52,7 +52,7 @@ public slots:
     void manager_timeChanged(double time, double length);
     void manager_stateChanged(PlaybackManager::PlaybackState state);
     void manager_nowPlayingChanged(QUrl itemUrl, QUuid listUuid, QUuid itemUuid);
-    void mpvwidget_metaDataChanged(const QVariantMap &metadata);
+    void mpvObject_metaDataChanged(const QVariantMap &metadata);
     void playlistwindow_currentPlaylistHasItems(bool yes);
 
 private:
