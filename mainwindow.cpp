@@ -492,6 +492,20 @@ void MainWindow::setupActionGroups()
     ag->addAction(ui->actionViewOSDFrameTimings);
 
     ag = new QActionGroup(this);
+    ag->addAction(ui->actionViewZoom025);
+    ag->addAction(ui->actionViewZoom050);
+    ag->addAction(ui->actionViewZoom075);
+    ag->addAction(ui->actionViewZoom100);
+    ag->addAction(ui->actionViewZoom150);
+    ag->addAction(ui->actionViewZoom200);
+    ag->addAction(ui->actionViewZoom300);
+    ag->addAction(ui->actionViewZoom400);
+    ag->addAction(ui->actionViewZoomAutofit);
+    ag->addAction(ui->actionViewZoomAutofitLarger);
+    ag->addAction(ui->actionViewZoomAutofitSmaller);
+    ag->addAction(ui->actionViewZoomDisable);
+
+    ag = new QActionGroup(this);
     ag->addAction(ui->actionViewOntopDefault);
     ag->addAction(ui->actionViewOntopAlways);
     ag->addAction(ui->actionViewOntopPlaying);
@@ -1139,10 +1153,18 @@ void MainWindow::setZoomPreset(int which, double fitFactor)
     ZoomMode mode[] = { Autofit, AutofitLarger, AutofitSmaller, FitToWindow,
                         RegularZoom, RegularZoom, RegularZoom, RegularZoom,
                         RegularZoom, RegularZoom, RegularZoom, RegularZoom };
+    QAction *action[] = {
+        ui->actionViewZoomAutofit, ui->actionViewZoomAutofitLarger,
+        ui->actionViewZoomAutofitSmaller, ui->actionViewZoomDisable,
+        ui->actionViewZoom025, ui->actionViewZoom050, ui->actionViewZoom075,
+        ui->actionViewZoom100, ui->actionViewZoom150, ui->actionViewZoom200,
+        ui->actionViewZoom300, ui->actionViewZoom400 };
+
     if (fitFactor >= 0.0)
         setFitFactor(fitFactor);
     setZoomMode(mode[which + 4]);
     setSizeFactor(factor[which + 4]);
+    action[which+4]->setChecked(true);
 }
 
 void MainWindow::setZoomCenter(bool yes)

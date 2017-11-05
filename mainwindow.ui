@@ -1134,6 +1134,9 @@
    </property>
   </action>
   <action name="actionViewZoom050">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>&amp;50%</string>
    </property>
@@ -1142,6 +1145,9 @@
    </property>
   </action>
   <action name="actionViewZoom100">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>&amp;100%</string>
    </property>
@@ -1150,6 +1156,9 @@
    </property>
   </action>
   <action name="actionViewZoom200">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>&amp;200%</string>
    </property>
@@ -1158,6 +1167,9 @@
    </property>
   </action>
   <action name="actionViewZoomAutofit">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Auto &amp;Fit</string>
    </property>
@@ -1166,6 +1178,9 @@
    </property>
   </action>
   <action name="actionViewZoomAutofitLarger">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Auto Fit (&amp;Larger Only)</string>
    </property>
@@ -1174,6 +1189,9 @@
    </property>
   </action>
   <action name="actionViewZoomDisable">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>&amp;Disable snapping</string>
    </property>
@@ -1503,6 +1521,9 @@
    </property>
   </action>
   <action name="actionViewZoomAutofitSmaller">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Auto Fit (&amp;Smaller Only)</string>
    </property>
@@ -1722,26 +1743,41 @@
    </property>
   </action>
   <action name="actionViewZoom025">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>25%</string>
    </property>
   </action>
   <action name="actionViewZoom075">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>&amp;75%</string>
    </property>
   </action>
   <action name="actionViewZoom150">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>15&amp;0%</string>
    </property>
   </action>
   <action name="actionViewZoom400">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>&amp;400%</string>
    </property>
   </action>
   <action name="actionViewZoom300">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>&amp;300%</string>
    </property>
@@ -1856,7 +1892,7 @@
   </action>
   <action name="actionViewOSDCycle">
    <property name="text">
-    <string>Cycle</string>
+    <string>&amp;Cycle</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+J</string>

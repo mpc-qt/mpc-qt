@@ -1062,10 +1062,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cycle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ctrl+J</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1175,6 +1171,10 @@
     </message>
     <message>
         <source>No streams favorited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cycle</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
