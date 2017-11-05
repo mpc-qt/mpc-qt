@@ -23,7 +23,8 @@ win32:LIBS += -L$$PWD/mpv-dev/lib/ -llibmpv -lpowrprof
 win32:INCLUDEPATH += $$PWD/mpv-dev/include
 win32:DEPENDPATH += $$PWD/mpv-dev
 
-TRANSLATIONS += translations/mpc-qt_it.ts
+TRANSLATIONS += translations/mpc-qt_it.ts\
+                            translations/mpc-qt_ru.ts
 
 isEmpty(QMAKE_LUPDATE) {
     win32:QMAKE_LUPDATE = $$[QT_INSTALL_BINS]\\lupdate.exe
