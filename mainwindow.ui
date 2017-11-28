@@ -465,7 +465,7 @@
              <item row="0" column="1">
               <widget class="QLabel" name="chapter">
                <property name="text">
-                <string>-</string>
+                <string notr="true">-</string>
                </property>
               </widget>
              </item>
@@ -479,7 +479,7 @@
              <item row="1" column="1">
               <widget class="QLabel" name="framerate">
                <property name="text">
-                <string>-</string>
+                <string notr="true">-</string>
                </property>
               </widget>
              </item>
@@ -493,7 +493,7 @@
              <item row="2" column="1">
               <widget class="QLabel" name="avsync">
                <property name="text">
-                <string>-</string>
+                <string notr="true">-</string>
                </property>
               </widget>
              </item>
@@ -521,7 +521,7 @@
              <item row="4" column="1">
               <widget class="QLabel" name="bitrate">
                <property name="text">
-                <string>v: 0 kb/s, a: 0kb/s</string>
+                <string notr="true">v: 0 kb/s, a: 0kb/s</string>
                </property>
               </widget>
              </item>
@@ -560,7 +560,7 @@
              <item>
               <widget class="QLabel" name="timeGap">
                <property name="text">
-                <string>/</string>
+                <string notr="true">/</string>
                </property>
               </widget>
              </item>
@@ -1138,7 +1138,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>&amp;50%</string>
+    <string notr="true">&amp;50%</string>
    </property>
    <property name="shortcut">
     <string>Alt+1</string>
@@ -1149,7 +1149,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>&amp;100%</string>
+    <string notr="true">&amp;100%</string>
    </property>
    <property name="shortcut">
     <string>Alt+2</string>
@@ -1160,7 +1160,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>&amp;200%</string>
+    <string notr="true">&amp;200%</string>
    </property>
    <property name="shortcut">
     <string>Alt+3</string>
@@ -1747,7 +1747,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>25%</string>
+    <string notr="true">25%</string>
    </property>
   </action>
   <action name="actionViewZoom075">
@@ -1755,7 +1755,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>&amp;75%</string>
+    <string notr="true">&amp;75%</string>
    </property>
   </action>
   <action name="actionViewZoom150">
@@ -1763,7 +1763,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>15&amp;0%</string>
+    <string notr="true">15&amp;0%</string>
    </property>
   </action>
   <action name="actionViewZoom400">
@@ -1771,7 +1771,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>&amp;400%</string>
+    <string notr="true">&amp;400%</string>
    </property>
   </action>
   <action name="actionViewZoom300">
@@ -1779,7 +1779,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>&amp;300%</string>
+    <string notr="true">&amp;300%</string>
    </property>
   </action>
   <action name="actionFileSavePlainImage">

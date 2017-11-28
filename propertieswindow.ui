@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>481</height>
+    <height>483</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -62,7 +62,7 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>-</string>
+            <string notr="true">-</string>
            </property>
            <property name="wordWrap">
             <bool>true</bool>
@@ -88,7 +88,7 @@
        <item row="2" column="1">
         <widget class="QLabel" name="detailsType">
          <property name="text">
-          <string>-</string>
+          <string notr="true">-</string>
          </property>
         </widget>
        </item>
@@ -102,7 +102,7 @@
        <item row="3" column="1">
         <widget class="QLabel" name="detailsSize">
          <property name="text">
-          <string>-</string>
+          <string notr="true">-</string>
          </property>
         </widget>
        </item>
@@ -116,7 +116,7 @@
        <item row="4" column="1">
         <widget class="QLabel" name="detailsLength">
          <property name="text">
-          <string>-</string>
+          <string notr="true">-</string>
          </property>
         </widget>
        </item>
@@ -130,7 +130,7 @@
        <item row="5" column="1">
         <widget class="QLabel" name="detailsVideoSize">
          <property name="text">
-          <string>-</string>
+          <string notr="true">-</string>
          </property>
         </widget>
        </item>
@@ -144,7 +144,7 @@
        <item row="6" column="1">
         <widget class="QLabel" name="detailsCreated">
          <property name="text">
-          <string>-</string>
+          <string notr="true">-</string>
          </property>
         </widget>
        </item>
@@ -211,7 +211,7 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>-</string>
+            <string notr="true">-</string>
            </property>
            <property name="wordWrap">
             <bool>true</bool>
@@ -246,7 +246,7 @@
        <item row="2" column="1">
         <widget class="QLabel" name="clipTitle">
          <property name="text">
-          <string>-</string>
+          <string notr="true">-</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -263,7 +263,7 @@
        <item row="3" column="1">
         <widget class="QLabel" name="clipAuthor">
          <property name="text">
-          <string>-</string>
+          <string notr="true">-</string>
          </property>
         </widget>
        </item>
@@ -277,7 +277,7 @@
        <item row="4" column="1">
         <widget class="QLabel" name="clipCopyright">
          <property name="text">
-          <string>-</string>
+          <string notr="true">-</string>
          </property>
         </widget>
        </item>
@@ -291,7 +291,7 @@
        <item row="5" column="1">
         <widget class="QLabel" name="clipRating">
          <property name="text">
-          <string>-</string>
+          <string notr="true">-</string>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
@@ -333,7 +333,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>-</string>
+          <string notr="true">-</string>
          </property>
          <property name="textFormat">
           <enum>Qt::PlainText</enum>

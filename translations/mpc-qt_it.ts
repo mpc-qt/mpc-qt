@@ -126,7 +126,7 @@
     </message>
     <message>
         <source>-</source>
-        <translation>-</translation>
+        <translation type="vanished">-</translation>
     </message>
     <message>
         <source>Frame rate</source>
@@ -150,7 +150,7 @@
     </message>
     <message>
         <source>v: 0 kb/s, a: 0kb/s</source>
-        <translation>v: 0 kb/s, a: 0kb/s</translation>
+        <translation type="vanished">v: 0 kb/s, a: 0kb/s</translation>
     </message>
     <message>
         <source>Stopped</source>
@@ -158,7 +158,7 @@
     </message>
     <message>
         <source>/</source>
-        <translation>/</translation>
+        <translation type="vanished">/</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -482,7 +482,7 @@
     </message>
     <message>
         <source>&amp;50%</source>
-        <translation>&amp;50%</translation>
+        <translation type="vanished">&amp;50%</translation>
     </message>
     <message>
         <source>Alt+1</source>
@@ -490,7 +490,7 @@
     </message>
     <message>
         <source>&amp;100%</source>
-        <translation>&amp;100%</translation>
+        <translation type="vanished">&amp;100%</translation>
     </message>
     <message>
         <source>Alt+2</source>
@@ -498,7 +498,7 @@
     </message>
     <message>
         <source>&amp;200%</source>
-        <translation>&amp;200%</translation>
+        <translation type="vanished">&amp;200%</translation>
     </message>
     <message>
         <source>Alt+3</source>
@@ -971,23 +971,23 @@
     </message>
     <message>
         <source>25%</source>
-        <translation>25%</translation>
+        <translation type="vanished">25%</translation>
     </message>
     <message>
         <source>&amp;75%</source>
-        <translation>&amp;75%</translation>
+        <translation type="vanished">&amp;75%</translation>
     </message>
     <message>
         <source>15&amp;0%</source>
-        <translation>15&amp;0%</translation>
+        <translation type="vanished">15&amp;0%</translation>
     </message>
     <message>
         <source>&amp;400%</source>
-        <translation>&amp;400%</translation>
+        <translation type="vanished">&amp;400%</translation>
     </message>
     <message>
         <source>&amp;300%</source>
-        <translation>&amp;300%</translation>
+        <translation type="vanished">&amp;300%</translation>
     </message>
     <message>
         <source>Save Pl&amp;ain Image...</source>
@@ -1337,7 +1337,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>&amp;Subtitles</source>
@@ -1492,7 +1492,7 @@
     </message>
     <message>
         <source>-</source>
-        <translation>-</translation>
+        <translation type="vanished">-</translation>
     </message>
     <message>
         <source>Type:</source>
@@ -1944,7 +1944,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>%</source>
-        <translation>%</translation>
+        <translation type="vanished">%</translation>
     </message>
     <message>
         <source>Speed step</source>
@@ -1968,35 +1968,35 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>25%</source>
-        <translation>25%</translation>
+        <translation type="vanished">25%</translation>
     </message>
     <message>
         <source>50%</source>
-        <translation>50%</translation>
+        <translation type="vanished">50%</translation>
     </message>
     <message>
         <source>75%</source>
-        <translation>75%</translation>
+        <translation type="vanished">75%</translation>
     </message>
     <message>
         <source>100%</source>
-        <translation>100%</translation>
+        <translation type="vanished">100%</translation>
     </message>
     <message>
         <source>150%</source>
-        <translation>150%</translation>
+        <translation type="vanished">150%</translation>
     </message>
     <message>
         <source>200%</source>
-        <translation>200%</translation>
+        <translation type="vanished">200%</translation>
     </message>
     <message>
         <source>300%</source>
-        <translation>300%</translation>
+        <translation type="vanished">300%</translation>
     </message>
     <message>
         <source>400%</source>
-        <translation>400%</translation>
+        <translation type="vanished">400%</translation>
     </message>
     <message>
         <source>Autofit</source>
@@ -2642,7 +2642,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>/dev/mixer</source>
-        <translation>/dev/mixer</translation>
+        <translation type="vanished">/dev/mixer</translation>
     </message>
     <message>
         <source>Mixer channel</source>
@@ -2650,7 +2650,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>pcm</source>
-        <translation>pcm</translation>
+        <translation type="vanished">pcm</translation>
     </message>
     <message>
         <source>Jack</source>
@@ -2670,7 +2670,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>mpc-qt</source>
-        <translation>mpc-qt</translation>
+        <translation type="vanished">mpc-qt</translation>
     </message>
     <message>
         <source>Port</source>
@@ -2754,7 +2754,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>ms</source>
-        <translation>ms</translation>
+        <translation type="vanished">ms</translation>
     </message>
     <message>
         <source>Interface</source>
@@ -2826,10 +2826,6 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>FFFFFF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2974,7 +2970,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>s</source>
-        <translation>s</translation>
+        <translation type="vanished">s</translation>
     </message>
     <message>
         <source>Apply default monitor mode on fullscreen exit</source>
@@ -3066,43 +3062,43 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Motion JPEG</source>
-        <translation>Motion JPEG</translation>
+        <translation type="vanished">Motion JPEG</translation>
     </message>
     <message>
         <source>MPEG-1 Video</source>
-        <translation>MPEG-1 Video</translation>
+        <translation type="vanished">MPEG-1 Video</translation>
     </message>
     <message>
         <source>MPEG-2 Video</source>
-        <translation>MPEG-2 Video</translation>
+        <translation type="vanished">MPEG-2 Video</translation>
     </message>
     <message>
         <source>MPEG-4 Part 2</source>
-        <translation>MPEG-4 Part 2</translation>
+        <translation type="vanished">MPEG-4 Part 2</translation>
     </message>
     <message>
         <source>H.263</source>
-        <translation>H.263</translation>
+        <translation type="vanished">H.263</translation>
     </message>
     <message>
         <source>H.264</source>
-        <translation>H.264</translation>
+        <translation type="vanished">H.264</translation>
     </message>
     <message>
         <source>SMPTE VC-1</source>
-        <translation>SMPTE VC-1</translation>
+        <translation type="vanished">SMPTE VC-1</translation>
     </message>
     <message>
         <source>Windows Media Video 9</source>
-        <translation>Windows Media Video 9</translation>
+        <translation type="vanished">Windows Media Video 9</translation>
     </message>
     <message>
         <source>High Efficency Video Coding</source>
-        <translation>High Efficency Video Coding</translation>
+        <translation type="vanished">High Efficency Video Coding</translation>
     </message>
     <message>
         <source>Google VP9</source>
-        <translation>Google VP9</translation>
+        <translation type="vanished">Google VP9</translation>
     </message>
     <message>
         <source>Hardware decoding may produce a smoother, more efficient overall experience and reduce strain on your cpu. However, some of the above codecs (depending upon your installed hardware and software) may not be available or may be broken and/or produce incorrect output. A safe but not always correct rule of thumb with respect to image quality is to always prefer software decoding if your cpu can handle it. Suit yourself.</source>
@@ -3138,7 +3134,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>%track{#. }{}{}%artist{# - }{Unknown Artist - }{}%title{#}{$}{$}</source>
-        <translation>%track{#. }{}{}%artist{# - }{Artista sconosciuto - }{}%title{#}{$}{$}</translation>
+        <translation type="vanished">%track{#. }{}{}%artist{# - }{Artista sconosciuto - }{}%title{#}{$}{$}</translation>
     </message>
     <message>
         <source>qrc:/text/playlistFormat.html</source>
@@ -3259,7 +3255,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>FFFF00</source>
-        <translation>FFFF00</translation>
+        <translation type="vanished">FFFF00</translation>
     </message>
     <message>
         <source>Border color</source>
@@ -3267,7 +3263,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>000000</source>
-        <translation>000000</translation>
+        <translation type="vanished">000000</translation>
     </message>
     <message>
         <source>Codecs to allow hardware decoding</source>
@@ -3294,15 +3290,7 @@ ogni file multimediale riprodotto</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;VAAPI</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Linux - some gpus, does not always treat certain colorspaces like BT.2020 correctly</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>V&amp;DPAU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3310,15 +3298,7 @@ ogni file multimediale riprodotto</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>D&amp;XVA2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Windows 8+ - usually safe but rounds 10 bit to 8 bit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>D&amp;3D11VA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3326,15 +3306,7 @@ ogni file multimediale riprodotto</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Raspberry Pi</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>MacOS - safe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Video &amp;Toolbox</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3342,15 +3314,7 @@ ogni file multimediale riprodotto</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>CUDA</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>PCI-E decoder card - safe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cr&amp;ystalHD</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3379,7 +3343,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>.;.\subtitles;.\subs</source>
-        <translation>.;.\subtitles;.\subs</translation>
+        <translation type="vanished">.;.\subtitles;.\subs</translation>
     </message>
     <message>
         <source>Online database</source>
@@ -3395,7 +3359,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>www.opensubtitles.org/isdb</source>
-        <translation>www.opensubtitles.org/isdb</translation>
+        <translation type="vanished">www.opensubtitles.org/isdb</translation>
     </message>
     <message>
         <source>Test</source>
@@ -3411,7 +3375,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>~/Pictures/mpc_shots</source>
-        <translation>~/Immagini/mpc_shots</translation>
+        <translation type="vanished">~/Immagini/mpc_shots</translation>
     </message>
     <message>
         <source>...</source>
@@ -3423,7 +3387,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>~/Videos/mpc_encodes</source>
-        <translation>~/Video/mpc_encodes</translation>
+        <translation type="vanished">~/Video/mpc_encodes</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Unchecked directories will place output files in the source directory. Streams do not have a source directory and will bring up a dialog when a field is left blank; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; will always ask where to place files. Directories will be created if necessary; this may not work across all filesystems.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -3435,11 +3399,11 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>%f_snapshot_%wP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}</source>
-        <translation>%f_snapshot_%wP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}</translation>
+        <translation type="vanished">%f_snapshot_%wP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}</translation>
     </message>
     <message>
         <source>%f_encode_%aP-%bP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}%d{_novideo}{_noaudio}</source>
-        <translation>%f_encode_%aP-%bP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}%d{_novideo}{_noaudio}</translation>
+        <translation type="vanished">%f_encode_%aP-%bP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}%d{_novideo}{_noaudio}</translation>
     </message>
     <message>
         <source>qrc:/text/encodeFormat.html</source>
@@ -3447,11 +3411,11 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>jpg</source>
-        <translation>jpg</translation>
+        <translation type="vanished">jpg</translation>
     </message>
     <message>
         <source>png</source>
-        <translation>png</translation>
+        <translation type="vanished">png</translation>
     </message>
     <message>
         <source>Quality</source>
@@ -3459,7 +3423,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>090</source>
-        <translation>090</translation>
+        <translation type="vanished">090</translation>
     </message>
     <message>
         <source>Smooth</source>
@@ -3467,7 +3431,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>000</source>
-        <translation>000</translation>
+        <translation type="vanished">000</translation>
     </message>
     <message>
         <source>Source Chroma</source>
@@ -3479,7 +3443,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>7</source>
-        <translation>7</translation>
+        <translation type="vanished">7</translation>
     </message>
     <message>
         <source>Filter</source>
@@ -3487,7 +3451,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>5</source>
-        <translation>5</translation>
+        <translation type="vanished">5</translation>
     </message>
     <message>
         <source>Colorspace</source>
@@ -3535,11 +3499,11 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>WebM (VP8+OGG)</source>
-        <translation>WebM (VP8+OGG)</translation>
+        <translation type="vanished">WebM (VP8+OGG)</translation>
     </message>
     <message>
         <source>MP4 (x264+MP3)</source>
-        <translation>MP4 (x264+MP3)</translation>
+        <translation type="vanished">MP4 (x264+MP3)</translation>
     </message>
     <message>
         <source>Don&apos;t encode the audio</source>
@@ -3595,7 +3559,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>0</source>
-        <translation>0</translation>
+        <translation type="vanished">0</translation>
     </message>
     <message>
         <source>Hue</source>

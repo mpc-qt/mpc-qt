@@ -122,7 +122,7 @@
     </message>
     <message>
         <source>-</source>
-        <translation>-</translation>
+        <translation type="vanished">-</translation>
     </message>
     <message>
         <source>Frame rate</source>
@@ -146,7 +146,7 @@
     </message>
     <message>
         <source>v: 0 kb/s, a: 0kb/s</source>
-        <translation>в: 0 kb/s, а: 0kb/s</translation>
+        <translation type="vanished">в: 0 kb/s, а: 0kb/s</translation>
     </message>
     <message>
         <source>Stopped</source>
@@ -154,7 +154,7 @@
     </message>
     <message>
         <source>/</source>
-        <translation>/</translation>
+        <translation type="vanished">/</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -469,23 +469,11 @@
         <translation>Alt+Return</translation>
     </message>
     <message>
-        <source>&amp;50%</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Alt+1</source>
         <translation></translation>
     </message>
     <message>
-        <source>&amp;100%</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Alt+2</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>&amp;200%</source>
         <translation></translation>
     </message>
     <message>
@@ -957,26 +945,6 @@
         <translation>О &amp;Qt...</translation>
     </message>
     <message>
-        <source>25%</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>&amp;75%</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>15&amp;0%</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>&amp;400%</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>&amp;300%</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Save Pl&amp;ain Image...</source>
         <translation>Сохранить об&amp;ычное изображение...</translation>
     </message>
@@ -1304,7 +1272,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>&amp;Subtitles</source>
@@ -1456,10 +1424,6 @@
     <message>
         <source>Details</source>
         <translation>Детали</translation>
-    </message>
-    <message>
-        <source>-</source>
-        <translation></translation>
     </message>
     <message>
         <source>Type:</source>
@@ -1964,10 +1928,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>000000</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Info Background</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1976,19 +1936,11 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>FFFFFF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Volume step</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2005,38 +1957,6 @@ media file played</source>
     </message>
     <message>
         <source>Auto zoom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>25%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>50%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>75%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>100%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>150%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>200%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>300%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>400%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2085,10 +2005,6 @@ media file played</source>
     </message>
     <message>
         <source>Mouse hiding</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ms</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2736,15 +2652,7 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>/dev/mixer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Mixer channel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>pcm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2753,10 +2661,6 @@ media file played</source>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>mpc-qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2912,10 +2816,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Apply default monitor mode on fullscreen exit</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3004,46 +2904,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Motion JPEG</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>MPEG-1 Video</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>MPEG-2 Video</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>MPEG-4 Part 2</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>H.263</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>H.264</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>SMPTE VC-1</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Windows Media Video 9</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>High Efficency Video Coding</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Google VP9</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Hardware decoding backend</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3064,39 +2924,19 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;VAAPI</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Linux - some gpus, does not always treat certain colorspaces like BT.2020 correctly</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>V&amp;DPAU</source>
-        <translation></translation>
     </message>
     <message>
         <source>Windows - not safe; it appears to always use BT.601 for forced RGB conversion, but actual behavior depends on the GPU drivers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>D&amp;XVA2</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Windows 8+ - usually safe but rounds 10 bit to 8 bit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>D&amp;3D11VA</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Raspberry PI - hardware overlay renderer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Raspberry Pi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3104,24 +2944,12 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Video &amp;Toolbox</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>nVidia only (likely 10x0+ only) - safe</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>CUDA</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>PCI-E decoder card - safe</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cr&amp;ystalHD</source>
-        <translation></translation>
     </message>
     <message>
         <source>Playback progression</source>
@@ -3145,10 +2973,6 @@ media file played</source>
     </message>
     <message>
         <source>Display Format</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%track{#. }{}{}%artist{# - }{Unknown Artist - }{}%title{#}{$}{$}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3264,10 +3088,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>FFFF00</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Border color</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3292,10 +3112,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>.;.\subtitles;.\subs</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Online database</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3306,10 +3122,6 @@ media file played</source>
     <message>
         <source>https://</source>
         <translation></translation>
-    </message>
-    <message>
-        <source>www.opensubtitles.org/isdb</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Test</source>
@@ -3324,19 +3136,11 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>~/Pictures/mpc_shots</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
         <source>Encode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>~/Videos/mpc_encodes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3348,39 +3152,15 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%f_snapshot_%wP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%f_encode_%aP-%bP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}%d{_novideo}{_noaudio}</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>qrc:/text/encodeFormat.html</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>jpg</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>png</source>
-        <translation></translation>
     </message>
     <message>
         <source>Quality</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>090</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Smooth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3392,15 +3172,7 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>7</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Filter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3448,14 +3220,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>WebM (VP8+OGG)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>MP4 (x264+MP3)</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Don&apos;t encode the audio</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3501,10 +3265,6 @@ media file played</source>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

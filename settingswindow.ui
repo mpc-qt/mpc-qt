@@ -154,7 +154,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>5</number>
+          <number>16</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -668,8 +668,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>42</width>
-                   <height>18</height>
+                   <width>556</width>
+                   <height>178</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -700,7 +700,7 @@ media file played</string>
                    <string>HHHHHH</string>
                   </property>
                   <property name="text">
-                   <string>000000</string>
+                   <string notr="true">000000</string>
                   </property>
                  </widget>
                 </item>
@@ -728,7 +728,7 @@ media file played</string>
                    <string>HHHHHH</string>
                   </property>
                   <property name="text">
-                   <string>000000</string>
+                   <string notr="true">000000</string>
                   </property>
                  </widget>
                 </item>
@@ -756,7 +756,7 @@ media file played</string>
                    <string>HHHHHH</string>
                   </property>
                   <property name="text">
-                   <string>FFFFFF</string>
+                   <string notr="true">FFFFFF</string>
                   </property>
                  </widget>
                 </item>
@@ -795,7 +795,7 @@ media file played</string>
               <item row="0" column="1">
                <widget class="QSpinBox" name="playbackVolumeStep">
                 <property name="suffix">
-                 <string>%</string>
+                 <string notr="true">%</string>
                 </property>
                 <property name="minimum">
                  <number>1</number>
@@ -818,7 +818,7 @@ media file played</string>
                  <string>Auto</string>
                 </property>
                 <property name="suffix">
-                 <string>%</string>
+                 <string notr="true">%</string>
                 </property>
                </widget>
               </item>
@@ -839,7 +839,7 @@ media file played</string>
               <item row="2" column="1">
                <widget class="QSpinBox" name="playbackTimeStep">
                 <property name="suffix">
-                 <string>ms</string>
+                 <string notr="true">ms</string>
                 </property>
                 <property name="minimum">
                  <number>1</number>
@@ -855,7 +855,7 @@ media file played</string>
               <item row="3" column="1">
                <widget class="QSpinBox" name="playbackFineStep">
                 <property name="suffix">
-                 <string>ms</string>
+                 <string notr="true">ms</string>
                 </property>
                 <property name="minimum">
                  <number>1</number>
@@ -911,47 +911,50 @@ media file played</string>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="currentText">
+                 <string notr="true">25%</string>
+                </property>
                 <property name="currentIndex">
-                 <number>3</number>
+                 <number>0</number>
                 </property>
                 <item>
                  <property name="text">
-                  <string>25%</string>
+                  <string notr="true">25%</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>50%</string>
+                  <string notr="true">50%</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>75%</string>
+                  <string notr="true">75%</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>100%</string>
+                  <string notr="true">100%</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>150%</string>
+                  <string notr="true">150%</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>200%</string>
+                  <string notr="true">200%</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>300%</string>
+                  <string notr="true">300%</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>400%</string>
+                  <string notr="true">400%</string>
                  </property>
                 </item>
                 <item>
@@ -987,7 +990,7 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="suffix">
-                 <string>%</string>
+                 <string notr="true">%</string>
                 </property>
                 <property name="minimum">
                  <number>25</number>
@@ -1170,7 +1173,7 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="suffix">
-                 <string>ms</string>
+                 <string notr="true">ms</string>
                 </property>
                 <property name="minimum">
                  <number>10</number>
@@ -1208,7 +1211,7 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="suffix">
-                 <string>ms</string>
+                 <string notr="true">ms</string>
                 </property>
                 <property name="minimum">
                  <number>10</number>
@@ -1244,7 +1247,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>4</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -4174,7 +4177,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="audioTabs">
                 <property name="currentIndex">
-                 <number>3</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="allTab">
                  <attribute name="title">
@@ -4185,6 +4188,9 @@ media file played</string>
                    <widget class="QLineEdit" name="audioSpdifCodecs">
                     <property name="enabled">
                      <bool>false</bool>
+                    </property>
+                    <property name="text">
+                     <string notr="true"/>
                     </property>
                     <property name="placeholderText">
                      <string notr="true">dts-hd,dts,ac3</string>
@@ -4350,7 +4356,7 @@ media file played</string>
                   <item row="0" column="1">
                    <widget class="QLineEdit" name="ossMixerDevice">
                     <property name="text">
-                     <string>/dev/mixer</string>
+                     <string notr="true">/dev/mixer</string>
                     </property>
                    </widget>
                   </item>
@@ -4364,7 +4370,7 @@ media file played</string>
                   <item row="1" column="1">
                    <widget class="QLineEdit" name="ossMixerChannel">
                     <property name="text">
-                     <string>pcm</string>
+                     <string notr="true">pcm</string>
                     </property>
                    </widget>
                   </item>
@@ -4385,7 +4391,7 @@ media file played</string>
                   <item row="2" column="1">
                    <widget class="QLineEdit" name="jackName">
                     <property name="text">
-                     <string>mpc-qt</string>
+                     <string notr="true">mpc-qt</string>
                     </property>
                    </widget>
                   </item>
@@ -4397,7 +4403,11 @@ media file played</string>
                    </widget>
                   </item>
                   <item row="3" column="1">
-                   <widget class="QLineEdit" name="jackPort"/>
+                   <widget class="QLineEdit" name="jackPort">
+                    <property name="text">
+                     <string notr="true"/>
+                    </property>
+                   </widget>
                   </item>
                   <item row="1" column="1">
                    <widget class="QCheckBox" name="jackConnect">
@@ -4736,7 +4746,7 @@ media file played</string>
               <item row="1" column="1">
                <widget class="QSpinBox" name="fullscreenShowWhenDuration">
                 <property name="suffix">
-                 <string>ms</string>
+                 <string notr="true">ms</string>
                 </property>
                 <property name="maximum">
                  <number>5000</number>
@@ -4866,7 +4876,7 @@ media file played</string>
                      <item>
                       <widget class="QSpinBox" name="xrandrChangeDelay">
                        <property name="suffix">
-                        <string>s</string>
+                        <string notr="true">s</string>
                        </property>
                       </widget>
                      </item>
@@ -5190,14 +5200,14 @@ media file played</string>
                   <item>
                    <widget class="QCheckBox" name="hwdecMJpeg">
                     <property name="text">
-                     <string>Motion JPEG</string>
+                     <string notr="true">Motion JPEG</string>
                     </property>
                    </widget>
                   </item>
                   <item>
                    <widget class="QCheckBox" name="hwdecMpeg1Video">
                     <property name="text">
-                     <string>MPEG-1 Video</string>
+                     <string notr="true">MPEG-1 Video</string>
                     </property>
                     <property name="checked">
                      <bool>false</bool>
@@ -5207,7 +5217,7 @@ media file played</string>
                   <item>
                    <widget class="QCheckBox" name="hwdecMpeg2Video">
                     <property name="text">
-                     <string>MPEG-2 Video</string>
+                     <string notr="true">MPEG-2 Video</string>
                     </property>
                     <property name="checked">
                      <bool>true</bool>
@@ -5217,7 +5227,7 @@ media file played</string>
                   <item>
                    <widget class="QCheckBox" name="hwdecMpeg4">
                     <property name="text">
-                     <string>MPEG-4 Part 2</string>
+                     <string notr="true">MPEG-4 Part 2</string>
                     </property>
                     <property name="checked">
                      <bool>false</bool>
@@ -5227,14 +5237,14 @@ media file played</string>
                   <item>
                    <widget class="QCheckBox" name="hwdecH263">
                     <property name="text">
-                     <string>H.263</string>
+                     <string notr="true">H.263</string>
                     </property>
                    </widget>
                   </item>
                   <item>
                    <widget class="QCheckBox" name="hwdecH264">
                     <property name="text">
-                     <string>H.264</string>
+                     <string notr="true">H.264</string>
                     </property>
                     <property name="checked">
                      <bool>true</bool>
@@ -5244,7 +5254,7 @@ media file played</string>
                   <item>
                    <widget class="QCheckBox" name="hwdecVc1">
                     <property name="text">
-                     <string>SMPTE VC-1</string>
+                     <string notr="true">SMPTE VC-1</string>
                     </property>
                     <property name="checked">
                      <bool>true</bool>
@@ -5254,7 +5264,7 @@ media file played</string>
                   <item>
                    <widget class="QCheckBox" name="hwdecWmv3">
                     <property name="text">
-                     <string>Windows Media Video 9</string>
+                     <string notr="true">Windows Media Video 9</string>
                     </property>
                     <property name="checked">
                      <bool>true</bool>
@@ -5264,7 +5274,7 @@ media file played</string>
                   <item>
                    <widget class="QCheckBox" name="hwdecHevc">
                     <property name="text">
-                     <string>High Efficency Video Coding</string>
+                     <string notr="true">High Efficency Video Coding</string>
                     </property>
                     <property name="checked">
                      <bool>true</bool>
@@ -5274,7 +5284,7 @@ media file played</string>
                   <item>
                    <widget class="QCheckBox" name="hwdecVp9">
                     <property name="text">
-                     <string>Google VP9</string>
+                     <string notr="true">Google VP9</string>
                     </property>
                     <property name="checked">
                      <bool>true</bool>
@@ -5317,7 +5327,7 @@ media file played</string>
                   <string>Linux - requires Mesa 11 and most likely works with Intel GPUs only; may only be correct in BT.601 and BT.709</string>
                  </property>
                  <property name="text">
-                  <string>&amp;VAAPI</string>
+                  <string notr="true">&amp;VAAPI</string>
                  </property>
                 </widget>
                </item>
@@ -5327,7 +5337,7 @@ media file played</string>
                   <string>Linux - some gpus, does not always treat certain colorspaces like BT.2020 correctly</string>
                  </property>
                  <property name="text">
-                  <string>V&amp;DPAU</string>
+                  <string notr="true">V&amp;DPAU</string>
                  </property>
                 </widget>
                </item>
@@ -5337,7 +5347,7 @@ media file played</string>
                   <string>Windows - not safe; it appears to always use BT.601 for forced RGB conversion, but actual behavior depends on the GPU drivers</string>
                  </property>
                  <property name="text">
-                  <string>D&amp;XVA2</string>
+                  <string notr="true">D&amp;XVA2</string>
                  </property>
                 </widget>
                </item>
@@ -5347,7 +5357,7 @@ media file played</string>
                   <string>Windows 8+ - usually safe but rounds 10 bit to 8 bit</string>
                  </property>
                  <property name="text">
-                  <string>D&amp;3D11VA</string>
+                  <string notr="true">D&amp;3D11VA</string>
                  </property>
                 </widget>
                </item>
@@ -5357,7 +5367,7 @@ media file played</string>
                   <string>Raspberry PI - hardware overlay renderer</string>
                  </property>
                  <property name="text">
-                  <string>&amp;Raspberry Pi</string>
+                  <string notr="true">&amp;Raspberry Pi</string>
                  </property>
                 </widget>
                </item>
@@ -5367,7 +5377,7 @@ media file played</string>
                   <string>MacOS - safe</string>
                  </property>
                  <property name="text">
-                  <string>Video &amp;Toolbox</string>
+                  <string notr="true">Video &amp;Toolbox</string>
                  </property>
                 </widget>
                </item>
@@ -5377,7 +5387,7 @@ media file played</string>
                   <string>nVidia only (likely 10x0+ only) - safe</string>
                  </property>
                  <property name="text">
-                  <string>CUDA</string>
+                  <string notr="true">CUDA</string>
                  </property>
                 </widget>
                </item>
@@ -5387,7 +5397,7 @@ media file played</string>
                   <string>PCI-E decoder card - safe</string>
                  </property>
                  <property name="text">
-                  <string>Cr&amp;ystalHD</string>
+                  <string notr="true">Cr&amp;ystalHD</string>
                  </property>
                 </widget>
                </item>
@@ -5497,7 +5507,7 @@ media file played</string>
                  <string/>
                 </property>
                 <property name="placeholderText">
-                 <string>%track{#. }{}{}%artist{# - }{Unknown Artist - }{}%title{#}{$}{$}</string>
+                 <string notr="true">%track{#. }{}{}%artist{# - }{Unknown Artist - }{}%title{#}{$}{$}</string>
                 </property>
                </widget>
               </item>
@@ -5615,7 +5625,7 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="suffix">
-                 <string>%</string>
+                 <string notr="true">%</string>
                 </property>
                 <property name="maximum">
                  <number>100</number>
@@ -5994,7 +6004,7 @@ media file played</string>
                      <string>HHHHHH</string>
                     </property>
                     <property name="text">
-                     <string>FFFF00</string>
+                     <string notr="true">FFFF00</string>
                     </property>
                    </widget>
                   </item>
@@ -6025,7 +6035,7 @@ media file played</string>
                      <string>HHHHHH</string>
                     </property>
                     <property name="text">
-                     <string>000000</string>
+                     <string notr="true">000000</string>
                     </property>
                    </widget>
                   </item>
@@ -6056,7 +6066,7 @@ media file played</string>
                      <string>HHHHHH</string>
                     </property>
                     <property name="text">
-                     <string>000000</string>
+                     <string notr="true">000000</string>
                     </property>
                    </widget>
                   </item>
@@ -6130,7 +6140,7 @@ media file played</string>
               <item>
                <widget class="QLineEdit" name="subtitlesAutoloadPath">
                 <property name="text">
-                 <string>.;.\subtitles;.\subs</string>
+                 <string notr="true">.;.\subtitles;.\subs</string>
                 </property>
                </widget>
               </item>
@@ -6168,7 +6178,7 @@ media file played</string>
                <widget class="QComboBox" name="subtitlesDatabaseLocation">
                 <item>
                  <property name="text">
-                  <string>www.opensubtitles.org/isdb</string>
+                  <string notr="true">www.opensubtitles.org/isdb</string>
                  </property>
                 </item>
                </widget>
@@ -6228,7 +6238,7 @@ media file played</string>
                 <item>
                  <widget class="QLineEdit" name="screenshotDirectoryValue">
                   <property name="placeholderText">
-                   <string>~/Pictures/mpc_shots</string>
+                   <string notr="true">~/Pictures/mpc_shots</string>
                   </property>
                  </widget>
                 </item>
@@ -6263,7 +6273,7 @@ media file played</string>
                 <item>
                  <widget class="QLineEdit" name="encodeDirectoryValue">
                   <property name="placeholderText">
-                   <string>~/Videos/mpc_encodes</string>
+                   <string notr="true">~/Videos/mpc_encodes</string>
                   </property>
                  </widget>
                 </item>
@@ -6305,7 +6315,7 @@ media file played</string>
               <item row="0" column="1">
                <widget class="QLineEdit" name="screenshotTemplate">
                 <property name="placeholderText">
-                 <string>%f_snapshot_%wP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}</string>
+                 <string notr="true">%f_snapshot_%wP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}</string>
                 </property>
                </widget>
               </item>
@@ -6319,7 +6329,7 @@ media file played</string>
               <item row="1" column="1">
                <widget class="QLineEdit" name="encodeTemplate">
                 <property name="placeholderText">
-                 <string>%f_encode_%aP-%bP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}%d{_novideo}{_noaudio}</string>
+                 <string notr="true">%f_encode_%aP-%bP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}%d{_novideo}{_noaudio}</string>
                 </property>
                </widget>
               </item>
@@ -6349,12 +6359,12 @@ media file played</string>
                <widget class="QComboBox" name="screenshotFormat">
                 <item>
                  <property name="text">
-                  <string>jpg</string>
+                  <string notr="true">jpg</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>png</string>
+                  <string notr="true">png</string>
                  </property>
                 </item>
                </widget>
@@ -6397,7 +6407,7 @@ media file played</string>
                     <item>
                      <widget class="QLabel" name="jpgQualityValue">
                       <property name="text">
-                       <string>090</string>
+                       <string notr="true">090</string>
                       </property>
                      </widget>
                     </item>
@@ -6431,7 +6441,7 @@ media file played</string>
                     <item>
                      <widget class="QLabel" name="jpgSmoothValue">
                       <property name="text">
-                       <string>000</string>
+                       <string notr="true">000</string>
                       </property>
                      </widget>
                     </item>
@@ -6486,7 +6496,7 @@ media file played</string>
                     <item>
                      <widget class="QLabel" name="pngCompressionValue">
                       <property name="text">
-                       <string>7</string>
+                       <string notr="true">7</string>
                       </property>
                      </widget>
                     </item>
@@ -6523,7 +6533,7 @@ media file played</string>
                     <item>
                      <widget class="QLabel" name="pngFilterValue">
                       <property name="text">
-                       <string>5</string>
+                       <string notr="true">5</string>
                       </property>
                      </widget>
                     </item>
@@ -6753,12 +6763,12 @@ media file played</string>
                <widget class="QComboBox" name="encodeFormat">
                 <item>
                  <property name="text">
-                  <string>WebM (VP8+OGG)</string>
+                  <string notr="true">WebM (VP8+OGG)</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>MP4 (x264+MP3)</string>
+                  <string notr="true">MP4 (x264+MP3)</string>
                  </property>
                 </item>
                </widget>
@@ -6967,7 +6977,7 @@ media file played</string>
                 <item row="0" column="1">
                  <widget class="QLabel" name="miscBrightnessValue">
                   <property name="text">
-                   <string>0</string>
+                   <string notr="true">0</string>
                   </property>
                  </widget>
                 </item>
@@ -6994,7 +7004,7 @@ media file played</string>
                 <item row="1" column="1">
                  <widget class="QLabel" name="miscContrastValue">
                   <property name="text">
-                   <string>0</string>
+                   <string notr="true">0</string>
                   </property>
                  </widget>
                 </item>
@@ -7021,7 +7031,7 @@ media file played</string>
                 <item row="2" column="1">
                  <widget class="QLabel" name="miscHueValue">
                   <property name="text">
-                   <string>0</string>
+                   <string notr="true">0</string>
                   </property>
                  </widget>
                 </item>
@@ -7051,7 +7061,7 @@ media file played</string>
                 <item row="3" column="1">
                  <widget class="QLabel" name="miscSaturationValue">
                   <property name="text">
-                   <string>0</string>
+                   <string notr="true">0</string>
                   </property>
                  </widget>
                 </item>
