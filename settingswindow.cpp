@@ -535,6 +535,8 @@ void SettingsWindow::sendSignals()
 
     emit volume(WIDGET_LOOKUP(ui->playbackVolume).toInt());
     emit volumeStep(WIDGET_LOOKUP(ui->playbackVolumeStep).toInt());
+    emit stepTimeLarge(WIDGET_LOOKUP(ui->playbackTimeStep).toInt());
+    emit stepTimeSmall(WIDGET_LOOKUP(ui->playbackFineStep).toInt());
 
     emit playbackPlayTimes(WIDGET_LOOKUP(ui->playbackPlayAmount).toInt());
     emit playbackForever(WIDGET_LOOKUP(ui->playbackRepeatForever).toBool());

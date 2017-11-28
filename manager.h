@@ -72,6 +72,8 @@ public slots:
 
     // output functions
     void setPlaybackSpeed(double speed);
+    void setStepTimeLarge(int largeMsec);
+    void setStepTimeSmall(int smallMsec);
     void setAudioTrack(int64_t id);
     void setSubtitleTrack(int64_t id);
     void setVideoTrack(int64_t id);
@@ -156,6 +158,8 @@ private:
     double mpvTime = 0.0;
     double mpvLength = 0.0;
     double mpvSpeed = 1.0;
+    double stepTimeLarge = 5.0;
+    double stepTimeSmall = 1.0;
     PlaybackState playbackState_ = StoppedState;
     PlaybackState playbackStartState = PlayingState;
 

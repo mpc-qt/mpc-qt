@@ -98,6 +98,8 @@ signals:
     void balance(double pan);
     void volumeStep(int amount);
     void speedStep(double amount);
+    void stepTimeLarge(int msec);
+    void stepTimeSmall(int msec);
     void zoomPreset(int which, double fitFactor);
     void zoomCenter(bool yes);
     void mouseHideTimeFullscreen(int msec);

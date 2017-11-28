@@ -345,6 +345,10 @@ void Flow::init() {
             mainWindow->playlistWindow(), &PlaylistWindow::setDisplayFormatSpecifier);
 
     // settings -> manager
+    connect(settingsWindow, &SettingsWindow::stepTimeLarge,
+            playbackManager, &PlaybackManager::setStepTimeLarge);
+    connect(settingsWindow, &SettingsWindow::stepTimeSmall,
+            playbackManager, &PlaybackManager::setStepTimeSmall);
     connect(settingsWindow, &SettingsWindow::playbackForever,
             playbackManager, &PlaybackManager::setPlaybackForever);
     connect(settingsWindow, &SettingsWindow::playbackPlayTimes,

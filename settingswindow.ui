@@ -154,7 +154,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>7</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -668,8 +668,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>556</width>
-                   <height>178</height>
+                   <width>42</width>
+                   <height>18</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -819,6 +819,52 @@ media file played</string>
                 </property>
                 <property name="suffix">
                  <string>%</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="playbackTimeStepLabel">
+                <property name="text">
+                 <string>Time step</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="playbackFineStepLabel">
+                <property name="text">
+                 <string>Fine step</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QSpinBox" name="playbackTimeStep">
+                <property name="suffix">
+                 <string>ms</string>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>60000</number>
+                </property>
+                <property name="value">
+                 <number>5000</number>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QSpinBox" name="playbackFineStep">
+                <property name="suffix">
+                 <string>ms</string>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>60000</number>
+                </property>
+                <property name="value">
+                 <number>1000</number>
                 </property>
                </widget>
               </item>

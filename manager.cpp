@@ -401,7 +401,8 @@ void PlaybackManager::speedReset()
 
 void PlaybackManager::relativeSeek(bool forwards, bool isSmall)
 {
-    mpvObject_->seek((forwards ? 1 : -1) * (isSmall ? 1 : 5), isSmall);
+    mpvObject_->seek((forwards ? 1.0 : -1.0) *
+                     (isSmall ? stepTimeSmall : stepTimeLarge), isSmall);
 }
 
 void PlaybackManager::setPlaybackSpeed(double speed)
@@ -409,6 +410,16 @@ void PlaybackManager::setPlaybackSpeed(double speed)
     mpvSpeed = speed;
     mpvObject_->setSpeed(speed);
     mpvObject_->showMessage(tr("Speed: %1%").arg(speed*100));
+}
+
+void PlaybackManager::setStepTimeLarge(int largeMsec)
+{
+    stepTimeLarge = largeMsec / 1000.0;
+}
+
+void PlaybackManager::setStepTimeSmall(int smallMsec)
+{
+    stepTimeSmall = smallMsec / 1000.0;
 }
 
 static QString findSecondById(QList<QPair<int64_t,QString>> list, int64_t id) {
