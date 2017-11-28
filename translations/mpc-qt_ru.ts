@@ -1054,7 +1054,7 @@
     </message>
     <message>
         <source>Cycle</source>
-        <translation>Включить следующий режим</translation>
+        <translation type="vanished">Включить следующий режим</translation>
     </message>
     <message>
         <source>Ctrl+J</source>
@@ -1139,6 +1139,157 @@
     <message>
         <source>Built on %1 at %2</source>
         <translation>Скомпилировано %1 в %2</translation>
+    </message>
+    <message>
+        <source>&amp;Cycle</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MouseState</name>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished">Влево</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished">Вправо</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wheel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Task</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton7</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton9</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton10</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton11</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton12</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton13</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton14</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton15</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton16</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton17</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton18</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton19</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton20</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton21</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton22</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton23</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XButton24</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Meta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Twice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3018,11 +3169,11 @@ media file played</source>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Влево</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Вправо</translation>
     </message>
     <message>
         <source>Y</source>
@@ -3426,6 +3577,14 @@ media file played</source>
     </message>
     <message>
         <source>Open Logo Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fine step</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

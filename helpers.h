@@ -2,6 +2,7 @@
 #ifndef HELPERS_H
 #define HELPERS_H
 #include <QObject>
+#include <QCoreApplication>
 #include <QWidget>
 #include <QList>
 #include <QUrl>
@@ -138,6 +139,7 @@ public:
 };
 
 class MouseState {
+    Q_DECLARE_TR_FUNCTIONS(MouseState)
 public:
     enum MouseButtons { None, Wheel, Left, Right, Middle, Back,
         Forward, Task, XButton4, XButton5, XButton6, XButton7,
@@ -179,10 +181,14 @@ public:
     static MouseState fromMouseEvent(QMouseEvent *event, MousePress press);
 
     // Display mapping vars
-    static QStringList buttonToText;
-    static QStringList modToText;
-    static QStringList multiModToText;
-    static QStringList pressToText;
+    static QString buttonToText(int index);
+    static int     buttonToTextCount();
+    static QString modToText(int index);
+    static int     modToTextCount();
+    static QString multiModToText(int index);
+    static int     multiModToTextCount();
+    static QString pressToText(int index);
+    static int     pressToTextCount();
 };
 
 inline uint qHash(const MouseState &m, uint seed) {

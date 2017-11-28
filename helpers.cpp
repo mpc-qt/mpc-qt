@@ -701,33 +701,6 @@ QList<TrackInfo> TrackInfo::tracksFromVList(const QVariantList &list)
 
 
 
-QStringList MouseState::buttonToText = {
-    "None", "Wheel", "Left", "Right", "Middle", "Back",
-    "Forward", "Task", "XButton4", "XButton5", "XButton6", "XButton7",
-    "XButton8", "XButton9", "XButton10", "XButton11", "XButton12",
-    "XButton13", "XButton14", "XButton15", "XButton16", "XButton17",
-    "XButton18", "XButton19","XButton20", "XButton21", "XButton22",
-    "XButton23", "XButton24" };
-
-QStringList MouseState::multiModToText = ([]() {
-    QStringList items = {"None"};
-    for (int i = 1; i < 16; i++) {
-        QStringList item;
-        if (i & 1)  item << "Shift";
-        if (i & 2)  item << "Control";
-        if (i & 4)  item << "Alt";
-        if (i & 8)  item << "Meta";
-        items << item.join("+");
-    }
-    return items;
-})();
-
-QStringList MouseState::modToText = { "Shift", "Control", "Alt", "Meta" };
-
-QStringList MouseState::pressToText = { "Down", "Up", "Twice" };
-
-
-
 MouseState::MouseState() : button(0), mod(0), press(MouseUp) {}
 
 MouseState::MouseState(const MouseState &m) {
@@ -784,14 +757,14 @@ bool MouseState::isWheel()
 QString MouseState::toString() const
 {
     if (button == 0)
-        return buttonToText[0];
+        return buttonToText(0);
     if (mod)
-        return QString("%3 %1 %2").arg(buttonToText[button],
-                                       pressToText[press],
-                                       multiModToText[mod]);
+        return QString("%3 %1 %2").arg(buttonToText(button),
+                                       pressToText(press),
+                                       multiModToText(mod));
     else
-        return QString("%1 %2").arg(buttonToText[button],
-                                    pressToText[press]);
+        return QString("%1 %2").arg(buttonToText(button),
+                                    pressToText(press));
 }
 
 QVariantMap MouseState::toVMap() const
@@ -842,6 +815,97 @@ MouseState MouseState::fromMouseEvent(QMouseEvent *event, MousePress press)
         return MouseState();
     int btn = int(std::log2(int(mb)) + 2.5); // 1->0+2, 2->1+2, 4->2+2 etc.
     return MouseState(btn, (event->modifiers() >> 25)&15, press);
+}
+
+QString MouseState::buttonToText(int index)
+{
+    static QList<const char *> text = {
+        QT_TR_NOOP("None"),
+        QT_TR_NOOP("Wheel"),
+        QT_TR_NOOP("Left"),
+        QT_TR_NOOP("Right"),
+        QT_TR_NOOP("Middle"),
+        QT_TR_NOOP("Back"),
+        QT_TR_NOOP("Forward"),
+        QT_TR_NOOP("Task"),
+        QT_TR_NOOP("XButton4"),
+        QT_TR_NOOP("XButton5"),
+        QT_TR_NOOP("XButton6"),
+        QT_TR_NOOP("XButton7"),
+        QT_TR_NOOP("XButton8"),
+        QT_TR_NOOP("XButton9"),
+        QT_TR_NOOP("XButton10"),
+        QT_TR_NOOP("XButton11"),
+        QT_TR_NOOP("XButton12"),
+        QT_TR_NOOP("XButton13"),
+        QT_TR_NOOP("XButton14"),
+        QT_TR_NOOP("XButton15"),
+        QT_TR_NOOP("XButton16"),
+        QT_TR_NOOP("XButton17"),
+        QT_TR_NOOP("XButton18"),
+        QT_TR_NOOP("XButton19"),
+        QT_TR_NOOP("XButton20"),
+        QT_TR_NOOP("XButton21"),
+        QT_TR_NOOP("XButton22"),
+        QT_TR_NOOP("XButton23"),
+        QT_TR_NOOP("XButton24"),
+    };
+    return tr(text.value(index));
+}
+
+int MouseState::buttonToTextCount()
+{
+    return 29;
+}
+
+QString MouseState::modToText(int index)
+{
+    static QList<const char *> text = {
+        QT_TR_NOOP("Shift"),
+        QT_TR_NOOP("Control"),
+        QT_TR_NOOP("Alt"),
+        QT_TR_NOOP("Meta")
+    };
+    return tr(text.value(index));
+}
+
+int MouseState::modToTextCount()
+{
+    return 4;
+}
+
+QString MouseState::multiModToText(int index)
+{
+    QString str = tr("None");
+    if (index > 0) {
+        QStringList items;
+        if (index & 1)  items << tr("Shift");
+        if (index & 2)  items << tr("Control");
+        if (index & 4)  items << tr("Alt");
+        if (index & 8)  items << tr("Meta");
+        str = items.join("+");
+    }
+    return str;
+}
+
+int MouseState::multiModToTextCount()
+{
+    return 16;
+}
+
+QString MouseState::pressToText(int index)
+{
+    QList <const char *> text = {
+        QT_TR_NOOP("Down"),
+        QT_TR_NOOP("Up"),
+        QT_TR_NOOP("Twice")
+    };
+    return tr(text.value(index));
+}
+
+int MouseState::pressToTextCount()
+{
+    return 3;
 }
 
 

@@ -214,8 +214,8 @@ ButtonWidget::ButtonWidget(QWidget *parent) : QWidget(parent)
     QMenu *menu = new QMenu;
     QActionGroup *group = new QActionGroup(this);
     group->setExclusive(true);
-    for (int i = 0; i < MouseState::buttonToText.count(); i++) {
-        QAction *a = new QAction( MouseState::buttonToText[i], this);
+    for (int i = 0; i < MouseState::buttonToTextCount(); i++) {
+        QAction *a = new QAction( MouseState::buttonToText(i), this);
         connect(a, &QAction::triggered, [i, this]() {
             buttonMenu_selected(i);
         });
@@ -231,8 +231,8 @@ ButtonWidget::ButtonWidget(QWidget *parent) : QWidget(parent)
     keyMod->setText(tr("K"));
     keyMod->setPopupMode(QToolButton::InstantPopup);
     menu = new QMenu;
-    for (int i = 0; i < MouseState::modToText.count(); i++) {
-        QAction *a = new QAction(MouseState::modToText[i], this);
+    for (int i = 0; i < MouseState::modToTextCount(); i++) {
+        QAction *a = new QAction(MouseState::modToText(i), this);
         connect(a, &QAction::toggled, [i, this](bool yes) {
             keyModMenu_selected(i, yes);
         });
@@ -250,8 +250,8 @@ ButtonWidget::ButtonWidget(QWidget *parent) : QWidget(parent)
     menu = new QMenu;
     group = new QActionGroup(this);
     group->setExclusive(true);
-    for (int i = 0; i < MouseState::pressToText.count(); i++) {
-        QAction *a = new QAction(MouseState::pressToText[i], this);
+    for (int i = 0; i < MouseState::pressToTextCount(); i++) {
+        QAction *a = new QAction(MouseState::pressToText(i), this);
         connect(a, &QAction::triggered, [i, this]() {
             pressMenu_selected(i);
         });
