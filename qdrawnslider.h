@@ -8,6 +8,7 @@
 // accurate than a single second.
 
 #include <QWidget>
+#include <QImage>
 #include <QMouseEvent>
 
 class QDrawnSlider : public QWidget {
@@ -25,13 +26,11 @@ public:
 signals:
     void sliderMoved(double v);
 
-public slots:
-
 protected:
     void setSliderGeometry(int handleWidth, int handleHeight,
                            int marginX, int marginY);
-    virtual void drawGroove(QPainter *p) = 0;
-    virtual void drawHandle(QPainter *p, double x) = 0;
+    virtual void makeBackground() = 0;
+    virtual void makeHandle() = 0;
     virtual void handleHover(double x);
 
     double valueToX(double value);
@@ -39,6 +38,10 @@ protected:
 
     void paintEvent(QPaintEvent *event);
     void resizeEvent(QResizeEvent *event);
+
+    bool redrawPics = true;
+    QImage backgroundPic;
+    QImage handlePics[16];
 
     QRectF drawnArea;
     QRectF grooveArea;
@@ -81,8 +84,8 @@ signals:
 
 protected:
     void resizeEvent(QResizeEvent *event);
-    void drawGroove(QPainter *p);
-    void drawHandle(QPainter *p, double x);
+    void makeBackground();
+    void makeHandle();
     void enterEvent(QEvent *event);
     void leaveEvent(QEvent *event);
     void handleHover(double x);
@@ -103,7 +106,7 @@ public:
     explicit QVolumeSlider(QWidget *parent = 0);
 
 protected:
-    void drawGroove(QPainter *p);
-    void drawHandle(QPainter *p, double x);
+    void makeBackground();
+    void makeHandle();
 };
 #endif // QDRAWNSLIDER_H

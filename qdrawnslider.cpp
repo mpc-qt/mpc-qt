@@ -114,14 +114,28 @@ void QDrawnSlider::paintEvent(QPaintEvent *event)
     loopColor    = pal.color(QPalette::Normal, QPalette::Highlight);
     markColor    = pal.color(QPalette::Normal, QPalette::Shadow);
 
+    if (redrawPics) {
+        makeBackground();
+        makeHandle();
+        redrawPics = false;
+    }
+
     QPainter p(this);
-    p.fillRect(QRect(0, 0, width(), height()), bgColor);
-    p.setRenderHint(QPainter::Antialiasing, true);
+    int pr = devicePixelRatio();
+    p.scale(1.0/pr, 1.0/pr);
+    p.setRenderHint(QPainter::Antialiasing);
+    p.setRenderHint(QPainter::SmoothPixmapTransform);
+    p.drawImage(0, 0, backgroundPic);
     p.setOpacity(isEnabled() ? 1.0 : 0.333);
 
-    drawGroove(&p);
-    if (minimum() != maximum())
-        drawHandle(&p, isDragging ? xPosition : valueToX(value()));
+    if (minimum() != maximum()) {
+        double px;
+        double x = isDragging ? xPosition : valueToX(value());
+        x -= handleWidth/2.0;
+        x *= pr;
+        int index = ((int)(modf(x, &px) * 16.0))&15;
+        p.drawImage(QPointF(px - 0.5, (height() - handleHeight)/2), handlePics[index]);
+    }
 }
 
 void QDrawnSlider::resizeEvent(QResizeEvent *event)
@@ -197,6 +211,7 @@ height  |         +          ----    hH
     grooveArea.adjust(marginX, marginY, -marginX, -marginY);
     sliderArea = grooveArea;
     sliderArea.adjust(0, 0, -(handleWidth&1), 0);
+    redrawPics = true;
 }
 
 void QDrawnSlider::mousePressEvent(QMouseEvent *ev)
@@ -241,6 +256,7 @@ void QMediaSlider::clearTicks()
     ticks.clear();
     vLoopA = vLoopB = -1;
     loopArea = { -1, -1, 0, 0 };
+    redrawPics = true;
 }
 
 void QMediaSlider::setTick(double value, QString text)
@@ -278,34 +294,42 @@ void QMediaSlider::resizeEvent(QResizeEvent *event)
     updateLoopArea();
 }
 
-void QMediaSlider::drawGroove(QPainter *p)
+void QMediaSlider::makeBackground()
 {
+    int pr = devicePixelRatio();
+    int pw = width() * pr;
+    int ph = width() * pr;
+    backgroundPic = QImage(pw, ph, QImage::Format_RGB32);
+    backgroundPic.fill(bgColor);
+    QPainter p(&backgroundPic);
+    p.scale(pr, pr);
+
     // Draw inside area
-    p->setPen(Qt::NoPen);
-    p->setBrush(grooveFill);
-    dr(p, grooveArea);
+    p.setPen(Qt::NoPen);
+    p.setBrush(grooveFill);
+    dr(&p, grooveArea);
 
     // Draw any highlighted area
-    p->setPen(loopColor);
-    p->setBrush(loopColor);
+    p.setPen(loopColor);
+    p.setBrush(loopColor);
     if (vLoopA >= 0 && vLoopB >= 0) {
-        p->setBrush(loopColor);
-        dr(p, loopArea);
+        p.setBrush(loopColor);
+        dr(&p, loopArea);
     } else if (vLoopA >= 0) {
         double pos = valueToX(vLoopA);
-        p->drawLine(QPointF(pos + 0.5, grooveArea.top() + 1.5),
-                    QPointF(pos + 0.5, grooveArea.bottom() - 1.5));
+        p.drawLine(QPointF(pos + 0.5, grooveArea.top() + 1.5),
+                   QPointF(pos + 0.5, grooveArea.bottom() - 1.5));
     } else if (vLoopB >= 0) {
         double pos = valueToX(vLoopB);
-        p->drawLine(QPointF(pos + 0.5, grooveArea.top() + 1.5),
+        p.drawLine(QPointF(pos + 0.5, grooveArea.top() + 1.5),
                     QPointF(pos + 0.5, grooveArea.bottom() - 1.5));
 
     }
 
     // Draw outside groove
-    p->setPen(grooveBorder);
-    p->setBrush(Qt::NoBrush);
-    dr(p, grooveArea);
+    p.setPen(grooveBorder);
+    p.setBrush(Qt::NoBrush);
+    dr(&p, grooveArea);
 
     // Draw chapter marks
     for (auto i = ticks.constBegin(); i != ticks.constEnd(); i++) {
@@ -314,21 +338,33 @@ void QMediaSlider::drawGroove(QPainter *p)
         // affected groove sides don't appear dark.
         if (isEnabled() || (pos > grooveArea.left() + 1.0 &&
                             pos < grooveArea.right() - 1.0)) {
-            p->drawLine(QPointF(pos + 0.5, grooveArea.top() + 0.5),
-                        QPointF(pos + 0.5, grooveArea.bottom() - 0.5));
+            p.drawLine(QPointF(pos + 0.5, grooveArea.top() + 0.5),
+                       QPointF(pos + 0.5, grooveArea.bottom() - 0.5));
         }
     }
 }
 
-void QMediaSlider::drawHandle(QPainter *p, double x)
+void QMediaSlider::makeHandle()
 {
-    QRectF slider(x - 5, 0, handleWidth, handleHeight);
-    slider.adjust(1.5, 1.5, -1.5, -1.5);
-    p->setBrush(Qt::NoBrush);
-    p->setPen(QPen(handleBorder, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
-    dr(p, slider);
-    p->setPen(QPen(handleFill, 2, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
-    dr(p, slider);
+    int pr = devicePixelRatio();
+    int pw = handleWidth * pr;
+    int ph = handleHeight * pr;
+
+    for (int i = 0; i < 16; i++) {
+        QImage handlePic(pw+1, ph, QImage::Format_ARGB32_Premultiplied);
+        handlePic.fill(0);
+        QPainter p(&handlePic);
+        p.setRenderHint(QPainter::Antialiasing);
+        p.setTransform(QTransform().translate(i/16.0,0).scale(pr,pr));
+        QRectF slider(0, 0, handleWidth, handleHeight);
+        slider.adjust(1.5, 1.5, -1.5, -1.5);
+        p.setBrush(Qt::NoBrush);
+        p.setPen(QPen(handleBorder, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
+        dr(&p, slider);
+        p.setPen(QPen(handleFill, 2, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
+        dr(&p, slider);
+        handlePics[i] = handlePic;
+    }
 }
 
 void QMediaSlider::enterEvent(QEvent *event)
@@ -379,27 +415,43 @@ QVolumeSlider::QVolumeSlider(QWidget *parent) :
 {
 }
 
-void QVolumeSlider::drawGroove(QPainter *p)
+void QVolumeSlider::makeBackground()
 {
+    int pr = devicePixelRatio();
+    int pw = drawnArea.width() * pr;
+    int ph = drawnArea.height() * pr;
+    backgroundPic = QImage(pw, ph, QImage::Format_RGB32);
+    backgroundPic.fill(bgColor);
+    QPainter p(&backgroundPic);
+    p.scale(pr, pr);
+
     double x1 = drawnArea.left() + 0.5;
     double y1 = drawnArea.top() + 0.5;
     double x2 = drawnArea.width() - 0.5;
     double y2 = drawnArea.height() - 0.5;
     QPointF groove[] = { QPointF(x1, y2), QPointF(x2, y2), QPointF(x2, y1) };
 
-    p->setPen(grooveBorder);
-    p->setBrush(grooveFill);
-    p->drawConvexPolygon(groove, 3);
+    p.setRenderHint(QPainter::Antialiasing);
+    p.setPen(grooveBorder);
+    p.setBrush(grooveFill);
+    p.drawConvexPolygon(groove, 3);
 }
 
-void QVolumeSlider::drawHandle(QPainter *p, double x)
+void QVolumeSlider::makeHandle()
 {
-    QRectF slider(QPointF(x - (handleWidth / 2),
-                          sliderArea.top() - (handleHeight / 2)),
-                  QSizeF(handleWidth, handleHeight));
-
-    p->setBrush(handleFill);
-    p->setPen(handleBorder);
-    dr(p, slider);
+    int pr = devicePixelRatio();
+    int pw = handleWidth * pr;
+    int ph = handleHeight * pr;
+    for (int i = 0; i < 16; i++) {
+        QImage handlePic(pw+1, ph, QImage::Format_ARGB32);
+        handlePic.fill(0);
+        QPainter p(&handlePic);
+        p.setRenderHint(QPainter::Antialiasing);
+        p.scale(pr, pr);
+        p.translate(i/16.0,0);
+        p.setBrush(handleFill);
+        p.setPen(handleBorder);
+        dr(&p, QRectF(0,0,handleWidth,handleHeight));
+        handlePics[i] = handlePic;
+    }
 }
-
