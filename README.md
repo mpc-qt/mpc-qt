@@ -83,11 +83,12 @@ Suggestions welcome.
 ### Prerequisites
 
 You need the Qt5 SDK installed and a recent edition of libmpv.  On Ubuntu you
-can usually install the Qt5 SDK with the ``ubuntu-sdk`` or ``qtcreator``
-packages.  You will need to compile [libmpv] from git head or at least version
-0.26.0 with the ``--enable-libmpv-shared`` option, and ``--enable-libarchive``
-if you want to use mpc-qt as a comic book viewer.  Make sure ldconfig is run
-after compiling libmpv, or you may end up with linker errors.
+can usually install the required libraries with the ``qtcreator``,
+``qt5-default``, ``libqt5x11extras5-dev`` and ``libmpv-dev`` packages.
+A recent edition of [libmpv] means either from git head or at least version
+0.26.0.  The mpv options for this are ``--enable-libmpv-shared`` for shared
+library support, and ``--enable-libarchive`` if you want to use mpc-qt as a
+comic book viewer.
 
 
 ### I don't know git, how do I do this?
