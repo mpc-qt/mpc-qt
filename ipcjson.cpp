@@ -321,7 +321,6 @@ MpvServer::MpvServer(QObject *parent)
 {
     connect(this, &MpvServer::newConnection,
             this, &MpvServer::server_newConnection);
-    listen();
 }
 
 void MpvServer::setPlaybackManger(PlaybackManager *manager)
