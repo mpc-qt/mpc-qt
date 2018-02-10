@@ -89,9 +89,9 @@ QMap<QString, const char *> Setting::classToProperty = {
 
 QMap<QString, std::function<QVariant(QObject *)>> Setting::classFetcher([]() {
     QMap<QString, std::function<QVariant(QObject*)>> fetchers;
-    for (auto it = classToProperty.keyBegin(); it != classToProperty.keyEnd(); it++) {
-        const char *property = Setting::classToProperty[*it];
-        fetchers.insert(*it, [property](QObject *w) {
+    for (auto it = classToProperty.begin(); it != classToProperty.end(); it++) {
+        const char *property = it.value();
+        fetchers.insert(it.key(), [property](QObject *w) {
             return w->property(property);
         });
     }
@@ -110,9 +110,9 @@ QMap<QString, std::function<QVariant(QObject *)>> Setting::classFetcher([]() {
 
 QMap<QString, std::function<void (QObject *, const QVariant &)> > Setting::classSetter([]() {
     QMap<QString, std::function<void(QObject*, const QVariant &)>> setters;
-    for (auto it = classToProperty.keyBegin(); it != classToProperty.keyEnd(); it++) {
-        const char *property = Setting::classToProperty[*it];
-        setters.insert(*it, [property](QObject *w, const QVariant &v) {
+    for (auto it = classToProperty.begin(); it != classToProperty.end(); it++) {
+        const char *property = it.value();
+        setters.insert(it.key(), [property](QObject *w, const QVariant &v) {
             w->setProperty(property, v);
         });
     }

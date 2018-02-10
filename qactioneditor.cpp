@@ -114,10 +114,10 @@ void QActionEditor::fromVMap(const QVariantMap &map)
     QMap<QString, int> nameToIndex;
     for (int i = 0; i < commands.count(); i++)
         nameToIndex[commands[i].action->objectName()] = i;
-    for (auto it = map.keyBegin(); it != map.keyEnd(); it++) {
-        int index = nameToIndex[*it];
+    for (auto it = map.begin(); it != map.end(); it++) {
+        int index = nameToIndex[it.key()];
         Command c = commands.value(index);
-        c.fromVMap(map.value(*it).toMap());
+        c.fromVMap(it.value().toMap());
         commands[index] = c;
     }
     setCommands(commands);

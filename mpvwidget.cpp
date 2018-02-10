@@ -645,8 +645,8 @@ void MpvObject::self_playLengthChanged(double playLength)
 void MpvObject::self_metadata(QVariantMap metadata)
 {
     QVariantMap map;
-    for (auto it = metadata.keyBegin(); it != metadata.keyEnd(); it++)
-        map.insert(it->toLower(), metadata.value(*it));
+    for (auto it = metadata.begin(); it != metadata.end(); it++)
+        map.insert(it.key().toLower(), it.value());
     emit metaDataChanged(map);
 }
 
@@ -1113,9 +1113,8 @@ void MpvController::setThrottledProperty(const QString &name, const QVariant &v,
 
 void MpvController::flushProperties()
 {
-    for (auto it = throttledValues.keyBegin(); it != throttledValues.keyEnd(); it++)
-        emit mpvPropertyChanged(*it, throttledValues[*it].first,
-                                throttledValues[*it].second);
+    for (auto it = throttledValues.begin(); it != throttledValues.end(); it++)
+        emit mpvPropertyChanged(it.key(), it.value().first, it.value().second);
     throttledValues.clear();
 }
 
