@@ -2,7 +2,9 @@
 Type=Application
 Name=Media Player Classic Qute Theater
 GenericName=Multimedia Player
+GenericName[pt]=Reprodutor multimédia
 Comment=Qt media player based on libmpv
+Comment[pt]=Reprodutor multimédia baseado em Qt e libmppv
 Exec=mpc-qt %U
 TryExec=mpc-qt
 Icon=mpc-qt
