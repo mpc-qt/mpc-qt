@@ -154,8 +154,10 @@ OTHER_FILES += \
     README.md \
     generate-localinstall-desktop.py \
     DOCS/codebase2.svg \
-    DOCS/codebase.svg
+    DOCS/codebase.svg \
+    'DOCS/coding standards.md'
 
 DISTFILES += \
     DOCS/ipc.md \
     mpc-qt.desktop
+
