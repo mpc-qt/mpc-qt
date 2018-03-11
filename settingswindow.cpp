@@ -563,8 +563,8 @@ void SettingsWindow::sendSignals()
                                : 0);
 
     emit option("video-sync", WIDGET_TO_TEXT(ui->syncMode));
-    emit option("opengl-dumb-mode", WIDGET_LOOKUP(ui->videoDumbMode));
-    emit option("opengl-fbo-format", WIDGET_TO_TEXT(ui->videoFramebuffer).split('-').value(WIDGET_LOOKUP(ui->videoUseAlpha).toBool()));
+    emit option("gpu-dumb-mode", WIDGET_LOOKUP(ui->videoDumbMode));
+    emit option("fbo-format", WIDGET_TO_TEXT(ui->videoFramebuffer).split('-').value(WIDGET_LOOKUP(ui->videoUseAlpha).toBool()));
     emit option("alpha", WIDGET_TO_TEXT(ui->videoAlphaMode));
     emit option("sharpen", WIDGET_LOOKUP(ui->videoSharpen).toString());
 
@@ -689,7 +689,7 @@ void SettingsWindow::sendSignals()
 
     // FIXME: add icc-intent etc
 
-    emit option("opengl-shaders", WIDGET_LOOKUP(ui->shadersActiveList).toStringList());
+    emit option("glsl-shaders", WIDGET_LOOKUP(ui->shadersActiveList).toStringList());
 
     if (WIDGET_LOOKUP(ui->fullscreenHideControls).toBool()) {
         Helpers::ControlHiding method = static_cast<Helpers::ControlHiding>(WIDGET_LOOKUP(ui->fullscreenShowWhen).toInt());
