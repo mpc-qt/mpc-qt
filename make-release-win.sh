@@ -75,6 +75,11 @@ read -r -d '' docs <<'EOF'
 ipc.md
 EOF
 
+read -r -d '' binaries <<'EOF'
+youtube-dl.exe
+msvcr100.dll
+EOF
+
 translations=`ls resources/translations`
 
 (while read -r dir; do
@@ -96,6 +101,10 @@ done)<<<"$translations"
 (while read -r doc; do
 	cp "DOCS/$doc" "$DEST/doc/$doc"
 done)<<<"$docs"
+
+(while read -r binary; do
+        cp "binaries/$binary" "$DEST/$binary"
+done)<<<"$binaries"
 
 cp "$BUILD/mpc-qt.exe" "$DEST/mpc-qt.exe"
 cp mpv-dev/lib/mpv-1.dll "$DEST/mpv-1.dll"
