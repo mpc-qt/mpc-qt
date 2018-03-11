@@ -28,6 +28,7 @@ read -r -d '' dirs <<'EOF'
 /iconengines
 /imageformats
 /platforms
+/styles
 /translations
 EOF
 
@@ -43,7 +44,9 @@ libicudt58.dll
 libicuin58.dll
 libicuuc58.dll
 libintl-8.dll
+libjpeg-8.dll
 libpcre-1.dll
+libpcre2-16-0.dll
 libpng16-16.dll
 libstdc++-6.dll
 libwinpthread-1.dll
@@ -63,7 +66,9 @@ imageformats/qsvg.dll
 platforms/qdirect2d.dll
 platforms/qminimal.dll
 platforms/qoffscreen.dll
+platforms/qwebgl.dll
 platforms/qwindows.dll
+styles/qwindowsvistastyle.dll
 EOF
 
 read -r -d '' docs <<'EOF'
