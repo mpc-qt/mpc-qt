@@ -8,6 +8,7 @@
 #include "helpers.h"
 #include "platform/unify.h"
 #include <QDesktopWidget>
+#include <QStyle>
 #include <QWindow>
 #include <QMenuBar>
 #include <QSizeGrip>
