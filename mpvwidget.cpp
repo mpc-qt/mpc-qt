@@ -764,8 +764,8 @@ MpvGlCbWidget::MpvGlCbWidget(MpvObject *object, QWidget *parent) :
 
 MpvGlCbWidget::~MpvGlCbWidget()
 {
+    makeCurrent();
     if (render) {
-        makeCurrent();
         ctrl->destroyRenderContext(render);
         render = nullptr;
     }
