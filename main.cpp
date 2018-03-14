@@ -353,6 +353,8 @@ void Flow::init() {
             playbackManager, &PlaybackManager::setPlaybackForever);
     connect(settingsWindow, &SettingsWindow::playbackPlayTimes,
             playbackManager, &PlaybackManager::setPlaybackPlayTimes);
+    connect(settingsWindow, &SettingsWindow::fallbackToFolder,
+            playbackManager, &PlaybackManager::setFolderFallback);
 
     // settings -> application
     connect(settingsWindow, &SettingsWindow::applicationPalette,

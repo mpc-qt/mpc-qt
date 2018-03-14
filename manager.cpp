@@ -226,7 +226,7 @@ void PlaybackManager::navigateToPrevChapter()
 
 void PlaybackManager::playNext()
 {
-    if (playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
+    if (folderFallback && playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
         playNextFile();
     } else {
         playNextTrack();
@@ -235,7 +235,7 @@ void PlaybackManager::playNext()
 
 void PlaybackManager::playPrev()
 {
-    if (playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
+    if (folderFallback && playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
         playPrevFile();
     } else {
         playPrevTrack();
@@ -361,6 +361,11 @@ void PlaybackManager::setPlaybackPlayTimes(int times)
 void PlaybackManager::setPlaybackForever(bool yes)
 {
     this->playbackForever = yes;
+}
+
+void PlaybackManager::setFolderFallback(bool yes)
+{
+    folderFallback = yes;
 }
 
 void PlaybackManager::sendCurrentTrackInfo()

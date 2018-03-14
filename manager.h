@@ -114,6 +114,7 @@ public slots:
     // playback options
     void setPlaybackPlayTimes(int times);
     void setPlaybackForever(bool yes);
+    void setFolderFallback(bool yes);
 
     // misc functions
     void sendCurrentTrackInfo();
@@ -179,6 +180,7 @@ private:
     int playbackPlayTimes = 1;
     bool playbackStartPaused = false;
     bool playbackForever = false;
+    bool folderFallback = false;
 
     Helpers::AfterPlayback afterPlaybackOnce = Helpers::DoNothingAfter;
     Helpers::AfterPlayback afterPlaybackAlways = Helpers::DoNothingAfter;

@@ -818,6 +818,7 @@ void SettingsWindow::sendSignals()
     emit clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
     emit option("hr-seek", WIDGET_LOOKUP(ui->tweaksFastSeek).toBool() ? "absolute" : "yes");
     emit option("hr-seek-framedrop", WIDGET_LOOKUP(ui->tweaksSeekFramedrop).toBool());
+    emit fallbackToFolder(WIDGET_LOOKUP(ui->tweaksOpenNextFile).toBool());
     emit timeTooltip(WIDGET_LOOKUP(ui->tweaksTimeTooltip).toBool(),
                      WIDGET_LOOKUP(ui->tweaksTimeTooltipLocation).toInt() == 0);
     emit mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
