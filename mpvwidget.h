@@ -8,8 +8,10 @@
 #include <QSet>
 #include <functional>
 #include <mpv/client.h>
-#include <mpv/opengl_cb.h>
+//#include <mpv/opengl_cb.h>
 #include <mpv/qthelper.hpp>
+#include <mpv/render.h>
+#include <mpv/render_gl.h>
 #include "helpers.h"
 
 class QLayout;
@@ -211,7 +213,7 @@ protected:
     void mousePressEvent(QMouseEvent *event);
 
 private:
-    static void ctrl_update(void *ctx);
+    static void render_update(void *ctx);
 
 private slots:
     void maybeUpdate();
@@ -220,9 +222,9 @@ private slots:
     void self_playbackFinished();
 
 private:
-    mpv_opengl_cb_context *glMpv = nullptr;
-    bool drawLogo = true;
+    mpv_render_context *render = nullptr;
     LogoDrawer *logo = nullptr;
+    bool drawLogo = true;
     int glWidth = 0, glHeight = 0;
 };
 
@@ -299,6 +301,9 @@ signals:
 
 public slots:
     void create(bool video = true, bool audio = true);
+    mpv_render_context *createRenderContext(mpv_render_param *params);
+    void destroyRenderContext(mpv_render_context *render);
+
     void addHook(const QString &name, int id);
     int observeProperties(const MpvController::PropertyList &properties,
                           const QSet<QString> &throttled = QSet<QString>());
@@ -311,7 +316,6 @@ public slots:
     unsigned long apiVersion();
 
     void setLogLevel(QString logLevel);
-    mpv_opengl_cb_context *mpvDrawContext();
 
     int setOptionVariant(QString name, const QVariant &value);
     QVariant command(const QVariant &params);
@@ -333,7 +337,6 @@ private:
     static void mpvWakeup(void *ctx);
 
     mpv::qt::Handle mpv;
-    mpv_opengl_cb_context *glMpv = nullptr;
     QStringList protocolList_;
     QSize lastVideoSize = QSize(0,0);
 

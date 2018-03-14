@@ -764,15 +764,16 @@ MpvGlCbWidget::MpvGlCbWidget(MpvObject *object, QWidget *parent) :
 
 MpvGlCbWidget::~MpvGlCbWidget()
 {
-    if (glMpv) {
+    if (render) {
         makeCurrent();
-        mpv_opengl_cb_set_update_callback(glMpv, nullptr, nullptr);
-        mpv_opengl_cb_uninit_gl(glMpv);
+        ctrl->destroyRenderContext(render);
+        render = nullptr;
     }
     if (logo) {
         delete logo;
         logo = nullptr;
     }
+    doneCurrent();
 }
 
 QWidget *MpvGlCbWidget::self()
@@ -782,15 +783,9 @@ QWidget *MpvGlCbWidget::self()
 
 void MpvGlCbWidget::initMpv()
 {
-    // grab a copy of the mpvGl draw context
-    QMetaObject::invokeMethod(ctrl, "mpvDrawContext",
-                              Qt::BlockingQueuedConnection,
-                              Q_RETURN_ARG(mpv_opengl_cb_context *, glMpv));
 
-    // ask mpv to make draw requests to us
-    mpv_opengl_cb_set_update_callback(glMpv, MpvGlCbWidget::ctrl_update,
-                                      (void *)this);
 }
+
 
 void MpvGlCbWidget::setLogoUrl(const QString &filename)
 {
@@ -820,9 +815,19 @@ void MpvGlCbWidget::setDrawLogo(bool yes)
 
 void MpvGlCbWidget::initializeGL()
 {
-    if (mpv_opengl_cb_init_gl(glMpv, nullptr, get_proc_address, nullptr) < 0)
-        throw std::runtime_error("[MpvWidget] cb init gl failed.");
+    auto check = [](int r) {
+        if (r < 0)
+            throw std::runtime_error("[MpvGlCbWidget] render init failed.");
+    };
 
+    mpv_opengl_init_params glInit { &get_proc_address, this, nullptr };
+    mpv_render_param params[] {
+        { MPV_RENDER_PARAM_API_TYPE, (void*)MPV_RENDER_API_TYPE_OPENGL },
+        { MPV_RENDER_PARAM_OPENGL_INIT_PARAMS, (void*)&glInit },
+        { MPV_RENDER_PARAM_INVALID, nullptr }
+    };
+    render = ctrl->createRenderContext(params);
+    mpv_render_context_set_update_callback(render, MpvGlCbWidget::render_update, (void *)this);
     if (!logo)
         logo = new LogoDrawer(this);
 }
@@ -832,9 +837,15 @@ void MpvGlCbWidget::paintGL()
     //FIXME: use log()
     if (mpvObject->clientDebuggingMessages())
         qDebug() << "paintGL";
+    bool yes = true;
+
     if (!drawLogo) {
-        mpv_opengl_cb_draw(glMpv, defaultFramebufferObject(),
-                           glWidth, -glHeight);
+        mpv_opengl_fbo fbo { (int)defaultFramebufferObject(), glWidth, glHeight, 0 };
+        mpv_render_param params[] {
+            {MPV_RENDER_PARAM_OPENGL_FBO, (void*)&fbo },
+            {MPV_RENDER_PARAM_FLIP_Y, &yes}
+        };
+        mpv_render_context_render(render, params);
     } else {
         logo->paintGL(this);
     }
@@ -860,7 +871,7 @@ void MpvGlCbWidget::mousePressEvent(QMouseEvent *event)
     QOpenGLWidget::mousePressEvent(event);
 }
 
-void MpvGlCbWidget::ctrl_update(void *ctx)
+void MpvGlCbWidget::render_update(void *ctx)
 {
     QMetaObject::invokeMethod(reinterpret_cast<MpvGlCbWidget*>(ctx), "maybeUpdate");
 }
@@ -881,7 +892,7 @@ void MpvGlCbWidget::maybeUpdate()
 void MpvGlCbWidget::self_frameSwapped()
 {
     if (!drawLogo)
-        mpv_opengl_cb_report_flip(glMpv, 0);
+        mpv_render_context_report_swap(render);
 }
 
 void MpvGlCbWidget::self_playbackStarted()
@@ -913,7 +924,7 @@ void MpvCallback::reply(QVariant value)
 
 
 MpvController::MpvController(QObject *parent) : QObject(parent),
-    glMpv(nullptr), lastVideoSize(0,0)
+    lastVideoSize(0,0)
 {
     throttler = new QTimer(this);
     connect(throttler, &QTimer::timeout,
@@ -948,14 +959,25 @@ void MpvController::create(bool video, bool audio)
         setOptionVariant("vo", "null");
         setOptionVariant("no-video", true);
     } else {
-        setOptionVariant("vo", "opengl-cb");
-        glMpv = (mpv_opengl_cb_context *)mpv_get_sub_api(mpv, MPV_SUB_API_OPENGL_CB);
-        if (!glMpv)
-            throw std::runtime_error("OpenGL not compiled in");
+        setOptionVariant("vo", "libmpv");
     }
     mpv_set_wakeup_callback(mpv, MpvController::mpvWakeup, this);
 
     protocolList_ = getPropertyVariant("protocol-list").toStringList();
+}
+
+mpv_render_context *MpvController::createRenderContext(mpv_render_param *params)
+{
+    mpv_render_context *render = nullptr;
+    if (mpv_render_context_create(&render, mpv, params) < 0)
+        throw std::runtime_error("Could not create render context");
+    return render;
+}
+
+void MpvController::destroyRenderContext(mpv_render_context *render)
+{
+    mpv_render_context_set_update_callback(render, nullptr, nullptr);
+    mpv_render_context_free(render);
 }
 
 void MpvController::addHook(const QString &name, int id)
@@ -1009,11 +1031,6 @@ unsigned long MpvController::apiVersion()
 void MpvController::setLogLevel(QString logLevel)
 {
     mpv_request_log_messages(mpv, logLevel.toUtf8().data());
-}
-
-mpv_opengl_cb_context* MpvController::mpvDrawContext()
-{
-    return glMpv;
 }
 
 int MpvController::setOptionVariant(QString name, const QVariant &value)
