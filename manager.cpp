@@ -83,110 +83,6 @@ PlaybackManager::PlaybackState PlaybackManager::playbackState()
     return playbackState_;
 }
 
-void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
-                                        QUuid itemUuid, bool isRepeating,
-                                        QUrl with)
-{
-    if (playbackState_ == WaitingState || what.isEmpty())
-        return;
-    emit stateChanged(playbackState_ = WaitingState);
-
-    mpvStartTime = -1.0;
-    nowPlaying_ = what;
-    mpvObject_->fileOpen(what.isLocalFile() ? what.toLocalFile()
-                                            : what.fromPercentEncoding(what.toEncoded()));
-    mpvObject_->setSubFile(with.toString());
-    mpvObject_->setPaused(playbackStartPaused);
-    playbackStartState = playbackStartPaused ? PausedState : PlayingState;
-    nowPlayingList = playlistUuid;
-    nowPlayingItem = itemUuid;
-
-    if (!isRepeating && playbackPlayTimes > 1
-            && playlistWindow_->extraPlayTimes(playlistUuid, itemUuid) <= 0) {
-        // On first play, when playing more than once, and when the extra
-        // play times has not been set, set the extra play times to the one
-        // configured in the settings dialog.
-        playlistWindow_->setExtraPlayTimes(playlistUuid, itemUuid, playbackPlayTimes - 1);
-    }
-    emit nowPlayingChanged(nowPlaying_, nowPlayingList, nowPlayingItem);
-}
-
-void PlaybackManager::selectDesiredTracks()
-{
-    // search current tracks by mangled string of no id and no spaces
-    auto mangle = [](QString s) {
-        return QStringList(s.split(' ').mid(1)).join("");
-    };
-    auto findIdBySecond = [&](QList<QPair<int64_t,QString>> list,
-                                   QString needle) -> int64_t {
-        if (list.isEmpty() || (needle = mangle(needle)).isEmpty())
-            return -1;
-        for (int i = 0; i < list.count(); i++) {
-            if (mangle(list[i].second) == needle) {
-                return list[i].first;
-            }
-        }
-        return -1;
-    };
-    int64_t videoId = findIdBySecond(videoList, videoListSelected);
-    int64_t audioId = findIdBySecond(audioList, audioListSelected);
-    int64_t subsId = findIdBySecond(subtitleList, subtitleListSelected);
-    // Set detected tracks; if no preferred track from a list could be found,
-    // clear user selection
-    if (videoId >= 0)
-        setVideoTrack(videoId);
-    else if (!videoList.isEmpty())
-        videoListSelected.clear();
-    if (audioId >= 0)
-        setAudioTrack(audioId);
-    else if (!audioList.isEmpty())
-        audioListSelected.clear();
-    if (subsId >= 0)
-        setSubtitleTrack(subsId);
-    else if (!subtitleList.isEmpty())
-        subtitleListSelected.clear();
-}
-
-void PlaybackManager::checkAfterPlayback(bool playlistMode)
-{
-    Helpers::AfterPlayback action = afterPlaybackOnce;
-    if (afterPlaybackOnce == Helpers::DoNothingAfter)
-        action = afterPlaybackAlways;
-
-    afterPlaybackOnce = Helpers::DoNothingAfter;
-    emit afterPlaybackReset();
-
-    switch (action) {
-    case Helpers::ExitAfter:
-        emit instanceShouldClose();
-        break;
-    case Helpers::StandByAfter:
-        emit systemShouldStandby();
-        break;
-    case Helpers::HibernateAfter:
-        emit systemShouldHibernate();
-        break;
-    case Helpers::ShutdownAfter:
-        emit systemShouldShutdown();
-        break;
-    case Helpers::LogOffAfter:
-        emit systemShouldLogOff();
-        break;
-    case Helpers::LockAfter:
-        emit systemShouldLock();
-        break;
-    case Helpers::RepeatAfter:
-        if (playlistMode)
-            repeatThisFile();
-        break;
-    case Helpers::PlayNextAfter:
-        // FIXME: play next in folder
-    case Helpers::DoNothingAfter:
-        if (playlistMode)
-            playNextFile();
-    }
-}
-
 void PlaybackManager::openSeveralFiles(QList<QUrl> what, bool important)
 {
     if (important) {
@@ -486,6 +382,110 @@ void PlaybackManager::sendCurrentTrackInfo()
     QUrl url(playlistWindow_->getUrlOf(nowPlayingList, nowPlayingItem));
     emit currentTrackInfo({url, nowPlayingList, nowPlayingItem,
                            nowPlayingTitle, mpvLength, mpvTime});
+}
+
+void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
+                                        QUuid itemUuid, bool isRepeating,
+                                        QUrl with)
+{
+    if (playbackState_ == WaitingState || what.isEmpty())
+        return;
+    emit stateChanged(playbackState_ = WaitingState);
+
+    mpvStartTime = -1.0;
+    nowPlaying_ = what;
+    mpvObject_->fileOpen(what.isLocalFile() ? what.toLocalFile()
+                                            : what.fromPercentEncoding(what.toEncoded()));
+    mpvObject_->setSubFile(with.toString());
+    mpvObject_->setPaused(playbackStartPaused);
+    playbackStartState = playbackStartPaused ? PausedState : PlayingState;
+    nowPlayingList = playlistUuid;
+    nowPlayingItem = itemUuid;
+
+    if (!isRepeating && playbackPlayTimes > 1
+            && playlistWindow_->extraPlayTimes(playlistUuid, itemUuid) <= 0) {
+        // On first play, when playing more than once, and when the extra
+        // play times has not been set, set the extra play times to the one
+        // configured in the settings dialog.
+        playlistWindow_->setExtraPlayTimes(playlistUuid, itemUuid, playbackPlayTimes - 1);
+    }
+    emit nowPlayingChanged(nowPlaying_, nowPlayingList, nowPlayingItem);
+}
+
+void PlaybackManager::selectDesiredTracks()
+{
+    // search current tracks by mangled string of no id and no spaces
+    auto mangle = [](QString s) {
+        return QStringList(s.split(' ').mid(1)).join("");
+    };
+    auto findIdBySecond = [&](QList<QPair<int64_t,QString>> list,
+                                   QString needle) -> int64_t {
+        if (list.isEmpty() || (needle = mangle(needle)).isEmpty())
+            return -1;
+        for (int i = 0; i < list.count(); i++) {
+            if (mangle(list[i].second) == needle) {
+                return list[i].first;
+            }
+        }
+        return -1;
+    };
+    int64_t videoId = findIdBySecond(videoList, videoListSelected);
+    int64_t audioId = findIdBySecond(audioList, audioListSelected);
+    int64_t subsId = findIdBySecond(subtitleList, subtitleListSelected);
+    // Set detected tracks; if no preferred track from a list could be found,
+    // clear user selection
+    if (videoId >= 0)
+        setVideoTrack(videoId);
+    else if (!videoList.isEmpty())
+        videoListSelected.clear();
+    if (audioId >= 0)
+        setAudioTrack(audioId);
+    else if (!audioList.isEmpty())
+        audioListSelected.clear();
+    if (subsId >= 0)
+        setSubtitleTrack(subsId);
+    else if (!subtitleList.isEmpty())
+        subtitleListSelected.clear();
+}
+
+void PlaybackManager::checkAfterPlayback(bool playlistMode)
+{
+    Helpers::AfterPlayback action = afterPlaybackOnce;
+    if (afterPlaybackOnce == Helpers::DoNothingAfter)
+        action = afterPlaybackAlways;
+
+    afterPlaybackOnce = Helpers::DoNothingAfter;
+    emit afterPlaybackReset();
+
+    switch (action) {
+    case Helpers::ExitAfter:
+        emit instanceShouldClose();
+        break;
+    case Helpers::StandByAfter:
+        emit systemShouldStandby();
+        break;
+    case Helpers::HibernateAfter:
+        emit systemShouldHibernate();
+        break;
+    case Helpers::ShutdownAfter:
+        emit systemShouldShutdown();
+        break;
+    case Helpers::LogOffAfter:
+        emit systemShouldLogOff();
+        break;
+    case Helpers::LockAfter:
+        emit systemShouldLock();
+        break;
+    case Helpers::RepeatAfter:
+        if (playlistMode)
+            repeatThisFile();
+        break;
+    case Helpers::PlayNextAfter:
+        // FIXME: play next in folder
+    case Helpers::DoNothingAfter:
+        if (playlistMode)
+            playNextFile();
+    }
 }
 
 void PlaybackManager::mpvw_playTimeChanged(double time)

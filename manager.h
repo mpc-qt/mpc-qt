@@ -30,11 +30,40 @@ public:
     QUrl nowPlaying();
     PlaybackState playbackState();
 
-private:
-    void startPlayWithUuid(QUrl what, QUuid playlistUuid, QUuid itemUuid,
-                           bool isRepeating, QUrl with = QUrl());
-    void selectDesiredTracks();
-    void checkAfterPlayback(bool playlistMode);
+signals:
+    void playerSettingsRequested();
+    void timeChanged(double time, double length);
+    void titleChanged(QString title);
+    void chapterTitleChanged(QString title);
+    void videoSizeChanged(QSize size);
+    void stateChanged(PlaybackState state);
+    void typeChanged(PlaybackType type);
+    // Transmit a map of chapter index to time,description pairs
+    void chaptersAvailable(QList<QPair<double,QString>> chapters);
+    // These signals transmit a list of (id, description) pairs
+    void audioTracksAvailable(QList<QPair<int64_t,QString>> tracks);
+    void videoTracksAvailable(QList<QPair<int64_t,QString>> tracks);
+    void subtitleTracksAvailable(QList<QPair<int64_t,QString>> tracks);
+    void hasNoVideo(bool empty);
+    void hasNoAudio(bool empty);
+    void hasNoSubtitles(bool empty);
+    void nowPlayingChanged(QUrl itemUrl, QUuid listUuid, QUuid itemUuid);
+    void finishedPlaying(QUuid item);
+    void afterPlaybackReset();
+    void instanceShouldClose();
+    void systemShouldShutdown();
+    void systemShouldLogOff();
+    void systemShouldLock();
+    void systemShouldStandby();
+    void systemShouldHibernate();
+    void currentTrackInfo(TrackInfo track);
+
+    void fpsChanged(double fps);
+    void avsyncChanged(double sync);
+    void displayFramedropsChanged(int64_t count);
+    void decoderFramedropsChanged(int64_t count);
+    void audioBitrateChanged(double bitrate);
+    void videoBitrateChanged(double bitrate);
 
 public slots:
     // load functions
@@ -89,6 +118,12 @@ public slots:
     // misc functions
     void sendCurrentTrackInfo();
 
+private:
+    void startPlayWithUuid(QUrl what, QUuid playlistUuid, QUuid itemUuid,
+                           bool isRepeating, QUrl with = QUrl());
+    void selectDesiredTracks();
+    void checkAfterPlayback(bool playlistMode);
+
 private slots:
     void mpvw_playTimeChanged(double time);
     void mpvw_playLengthChanged(double length);
@@ -110,41 +145,6 @@ private slots:
     void mpvw_playlistChanged(const QVariantList &playlist);
     void mpvw_audioBitrateChanged(double bitrate);
     void mpvw_videoBitrateChanged(double bitrate);
-
-signals:
-    void playerSettingsRequested();
-    void timeChanged(double time, double length);
-    void titleChanged(QString title);
-    void chapterTitleChanged(QString title);
-    void videoSizeChanged(QSize size);
-    void stateChanged(PlaybackState state);
-    void typeChanged(PlaybackType type);
-    // Transmit a map of chapter index to time,description pairs
-    void chaptersAvailable(QList<QPair<double,QString>> chapters);
-    // These signals transmit a list of (id, description) pairs
-    void audioTracksAvailable(QList<QPair<int64_t,QString>> tracks);
-    void videoTracksAvailable(QList<QPair<int64_t,QString>> tracks);
-    void subtitleTracksAvailable(QList<QPair<int64_t,QString>> tracks);
-    void hasNoVideo(bool empty);
-    void hasNoAudio(bool empty);
-    void hasNoSubtitles(bool empty);
-    void nowPlayingChanged(QUrl itemUrl, QUuid listUuid, QUuid itemUuid);
-    void finishedPlaying(QUuid item);
-    void afterPlaybackReset();
-    void instanceShouldClose();
-    void systemShouldShutdown();
-    void systemShouldLogOff();
-    void systemShouldLock();
-    void systemShouldStandby();
-    void systemShouldHibernate();
-    void currentTrackInfo(TrackInfo track);
-
-    void fpsChanged(double fps);
-    void avsyncChanged(double sync);
-    void displayFramedropsChanged(int64_t count);
-    void decoderFramedropsChanged(int64_t count);
-    void audioBitrateChanged(double bitrate);
-    void videoBitrateChanged(double bitrate);
 
 private:
     MpvObject *mpvObject_ = nullptr;
