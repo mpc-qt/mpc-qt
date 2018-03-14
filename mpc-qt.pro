@@ -76,10 +76,7 @@ unix {
     logo.files = images/icon/mpc-qt.svg
     logo.path = $$PREFIX/share/icons/hicolor/scalable/apps/
 
-    scripts.files = external/mpv-stats/stats.lua
-    scripts.path = $$PREFIX/share/mpc-qt/scripts/
-
-    INSTALLS += target docs shortcut logo scripts translations
+    INSTALLS += target docs shortcut logo translations
 }
 
 unix:!macx:SOURCES += platform/unix_qscreensaver.cpp \
