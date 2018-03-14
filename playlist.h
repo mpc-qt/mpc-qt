@@ -92,6 +92,9 @@ public:
     QSharedPointer<Item> itemOf(const QUuid &uuid);
     QSharedPointer<Item> itemAfter(const QUuid &uuid);
     QSharedPointer<Item> itemBefore(const QUuid &uuid);
+    QSharedPointer<Item> itemFirst();
+    QSharedPointer<Item> itemLast();
+    int count();
     bool isEmpty();
     bool contains(const QUuid &uuid);
     void iterateItems(const std::function<void(QSharedPointer<Item>)> &callback);

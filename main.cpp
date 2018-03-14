@@ -508,9 +508,9 @@ void Flow::setupMpris()
     connect(mpris, &MprisInstance::volumeChange,
             mainWindow, &MainWindow::setVolume);
     connect(mpris, &MprisInstance::playNextTrack,
-            playbackManager, &PlaybackManager::playNextFile);
+            playbackManager, &PlaybackManager::playNext);
     connect(mpris, &MprisInstance::playPreviousTrack,
-            playbackManager, &PlaybackManager::playPrevFile);
+            playbackManager, &PlaybackManager::playPrev);
     connect(mpris, &MprisInstance::pause,
             playbackManager, &PlaybackManager::pausePlayer);
     connect(mpris, &MprisInstance::playpause,

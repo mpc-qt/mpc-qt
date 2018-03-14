@@ -27,9 +27,11 @@ public:
     QPair<QUuid, QUuid> addToCurrentPlaylist(QList<QUrl> what);
     QPair<QUuid, QUuid> urlToQuickPlaylist(QUrl what);
     bool isCurrentPlaylistEmpty();
+    bool isPlaylistSingularFile(QUuid list);
     QPair<QUuid, QUuid> getItemAfter(QUuid list, QUuid item);
     QUuid getItemBefore(QUuid list, QUuid item);
     QUrl getUrlOf(QUuid list, QUuid item);
+    QUrl getUrlOfFirst(QUuid list);
     void setMetadata(QUuid list, QUuid item, const QVariantMap &map);
     void replaceItem(QUuid list, QUuid item, const QList<QUrl> &urls);
     int extraPlayTimes(QUuid list, QUuid item);

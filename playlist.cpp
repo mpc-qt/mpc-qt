@@ -260,6 +260,28 @@ QSharedPointer<Item> Playlist::itemBefore(const QUuid &uuid)
     return items[index - 1];
 }
 
+QSharedPointer<Item> Playlist::itemFirst()
+{
+    QReadLocker locker(&listLock);
+    if (items.isEmpty())
+        return QSharedPointer<Item>();
+    return items.first();
+}
+
+QSharedPointer<Item> Playlist::itemLast()
+{
+    QReadLocker locker(&listLock);
+    if (items.isEmpty())
+        return QSharedPointer<Item>();
+    return items.last();
+}
+
+int Playlist::count()
+{
+    QReadLocker lock(&listLock);
+    return items.count();
+}
+
 bool Playlist::isEmpty()
 {
     QReadLocker lock(&listLock);

@@ -210,7 +210,7 @@ void PlaybackManager::navigateToNextChapter()
 {
     int64_t nextChapter = mpvObject_->chapter() + 1;
     if (nextChapter >= numChapters)
-        playNextFile();
+        playNext();
     else
         navigateToChapter(nextChapter);
 }
@@ -221,39 +221,25 @@ void PlaybackManager::navigateToPrevChapter()
     if (chapter > 0)
         navigateToChapter(std::max(int64_t(0), chapter - 1));
     else
+        playPrev();
+}
+
+void PlaybackManager::playNext()
+{
+    if (playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
+        playNextFile();
+    } else {
+        playNextTrack();
+    }
+}
+
+void PlaybackManager::playPrev()
+{
+    if (playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
         playPrevFile();
-}
-
-void PlaybackManager::playNextFile()
-{
-    QPair<QUuid, QUuid> next;
-    next = playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
-    QUrl url = playlistWindow_->getUrlOf(next.first, next.second);
-    if (url.isEmpty()) {
-        mpvObject_->stopPlayback();
-        nowPlaying_.clear();
-        nowPlayingList = QUuid();
-        nowPlayingItem = QUuid();
-        playbackState_ = StoppedState;
-        emit stateChanged(playbackState_);
-        return;
+    } else {
+        playPrevTrack();
     }
-    startPlayWithUuid(url, next.first, next.second, false);
-}
-
-void PlaybackManager::playPrevFile()
-{
-    QUuid uuid = playlistWindow_->getItemBefore(nowPlayingList, nowPlayingItem);
-    QUrl url = playlistWindow_->getUrlOf(nowPlayingList, uuid);
-    if (url.isEmpty()) {
-        mpvObject_->stopPlayback();
-        nowPlaying_.clear();
-        nowPlayingItem = QUuid();
-        playbackState_ = StoppedState;
-        emit stateChanged(playbackState_);
-        return;
-    }
-    startPlayWithUuid(url, nowPlayingList, uuid, false);
 }
 
 void PlaybackManager::repeatThisFile()
@@ -484,8 +470,104 @@ void PlaybackManager::checkAfterPlayback(bool playlistMode)
         // FIXME: play next in folder
     case Helpers::DoNothingAfter:
         if (playlistMode)
-            playNextFile();
+            playNext();
     }
+}
+
+void PlaybackManager::playNextTrack()
+{
+    QPair<QUuid, QUuid> next;
+    next = playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
+    QUrl url = playlistWindow_->getUrlOf(next.first, next.second);
+    if (url.isEmpty()) {
+        playHalt();
+        return;
+    }
+    startPlayWithUuid(url, next.first, next.second, false);
+}
+
+void PlaybackManager::playPrevTrack()
+{
+    QUuid uuid = playlistWindow_->getItemBefore(nowPlayingList, nowPlayingItem);
+    QUrl url = playlistWindow_->getUrlOf(nowPlayingList, uuid);
+    if (url.isEmpty()) {
+        playHalt();
+        return;
+    }
+    startPlayWithUuid(url, nowPlayingList, uuid, false);
+}
+
+void PlaybackManager::playNextFile()
+{
+    QUrl url;
+    QFileInfo info;
+    QDir dir;
+    QStringList files;
+    int index;
+    QString nextFile;
+
+    url = playlistWindow_->getUrlOfFirst(nowPlayingList);
+    if (url.isEmpty())
+        goto stop;
+    info = QFileInfo(url.toLocalFile());
+    if (!info.exists())
+        goto stop;
+    dir = info.dir();
+    files = dir.entryList(QDir::Files, QDir::Name);
+    index = files.indexOf(info.fileName()) + 1;
+    if (index <= 0 || index >= files.count())
+        goto stop;
+    nextFile = dir.filePath(files.value(index));
+    qDebug() << index << info.fileName() << files.value(index-1) << nextFile;
+    url = QUrl::fromLocalFile(nextFile);
+    playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, { url });
+    startPlayWithUuid(url, nowPlayingList, nowPlayingItem, false);
+    return;
+
+stop:
+    playHalt();
+    return;
+}
+
+void PlaybackManager::playPrevFile()
+{
+    QUrl url;
+    QFileInfo info;
+    QDir dir;
+    QStringList files;
+    int index;
+    QString nextFile;
+
+    url = playlistWindow_->getUrlOfFirst(nowPlayingList);
+    if (url.isEmpty())
+        goto stop;
+    info = QFileInfo(url.toLocalFile());
+    if (!info.exists())
+        goto stop;
+    dir = info.dir();
+    files = dir.entryList(QDir::Files, QDir::Name);
+    index = files.indexOf(info.fileName()) - 1;
+    if (index < 0)
+        goto stop;
+    nextFile = dir.filePath(files.value(index));
+    qDebug() << index << info.fileName() << files.value(index + 1) << nextFile;
+    url = QUrl::fromLocalFile(nextFile);
+    playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, { url });
+    startPlayWithUuid(url, nowPlayingList, nowPlayingItem, false);
+    return;
+
+stop:
+    playHalt();
+    return;
+}
+
+void PlaybackManager::playHalt()
+{
+    mpvObject_->stopPlayback();
+    nowPlaying_.clear();
+    nowPlayingItem = QUuid();
+    playbackState_ = StoppedState;
+    emit stateChanged(playbackState_);
 }
 
 void PlaybackManager::mpvw_playTimeChanged(double time)

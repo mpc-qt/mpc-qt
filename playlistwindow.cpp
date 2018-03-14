@@ -81,6 +81,15 @@ bool PlaylistWindow::isCurrentPlaylistEmpty()
     return pl ? pl->isEmpty() : true;
 }
 
+bool PlaylistWindow::isPlaylistSingularFile(QUuid list)
+{
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    if (!pl || pl->count() != 1)
+        return false;
+    auto item = pl->itemFirst();
+    return item->url().isLocalFile();
+}
+
 QPair<QUuid,QUuid> PlaylistWindow::getItemAfter(QUuid list, QUuid item)
 {
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
@@ -116,6 +125,15 @@ QUrl PlaylistWindow::getUrlOf(QUuid list, QUuid item)
     if (!i)
         return QUrl();
     return i->url();
+}
+
+QUrl PlaylistWindow::getUrlOfFirst(QUuid list)
+{
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    auto item = pl->itemFirst();
+    if (item.isNull())
+        return QUrl();
+    return item->url();
 }
 
 void PlaylistWindow::setMetadata(QUuid list, QUuid item, const QVariantMap &map)

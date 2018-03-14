@@ -89,8 +89,8 @@ public slots:
     void stepForward();
     void navigateToNextChapter();
     void navigateToPrevChapter();
-    void playNextFile();
-    void playPrevFile();
+    void playNext();
+    void playPrev();
     void repeatThisFile();
     void navigateToChapter(int64_t chapter);
     void navigateToTime(double time);
@@ -123,6 +123,11 @@ private:
                            bool isRepeating, QUrl with = QUrl());
     void selectDesiredTracks();
     void checkAfterPlayback(bool playlistMode);
+    void playNextTrack();
+    void playPrevTrack();
+    void playNextFile();
+    void playPrevFile();
+    void playHalt();
 
 private slots:
     void mpvw_playTimeChanged(double time);
