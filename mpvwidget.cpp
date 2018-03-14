@@ -239,9 +239,9 @@ void MpvObject::showStatsPage(int page)
     }
     if (wantVisible) {
         qDebug() << "setting page to " << page;
-        QStringList cmd { "script-binding",
-                          QString("stats/display-page-%1").arg(QString::number(page)) };
-        ctrlCommand(cmd);
+        QString pageCommand("stats/display-page-%1");
+        ctrlCommand(QStringList({"script-binding",
+                                pageCommand.arg(QString::number(page))}));
     }
     shownStatsPage = page;
 }
@@ -939,8 +939,6 @@ void MpvController::create(bool video, bool audio)
     mpv = mpv::qt::Handle::FromRawHandle(mpv_create());
     if (!mpv)
         throw std::runtime_error("could not create mpv context");
-
-    setOptionVariant("scripts", Platform::resourcesPath() + "/scripts/stats.lua");
 
     if (mpv_initialize(mpv) < 0)
         throw std::runtime_error("could not initialize mpv context");

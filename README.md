@@ -109,8 +109,6 @@ Finally, `cd` into the checked-out repository and fetch the stats submodule
 
 >cd mpc-qt
 
->git submodule update --init
-
 Then build with qmake+make.
 
 >qmake
@@ -123,8 +121,6 @@ You're done!  Later on, performing a git pull from inside the source code
 directory will get the latest changes.
 
 >git pull origin master
-
->git submodule update
 
 Rebuild by following the qmake+make steps as described above.
 

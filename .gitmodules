@@ -1,3 +1,0 @@
-[submodule "external/mpv-stats"]
-	path = external/mpv-stats
-	url = https://github.com/Argon-/mpv-stats.git
