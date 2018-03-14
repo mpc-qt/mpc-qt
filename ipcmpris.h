@@ -9,7 +9,6 @@
 #include <QVariantMap>
 #include "manager.h"
 
-class MpvGlCbWidget;
 class MprisServer;
 class MprisPlayerServer;
 

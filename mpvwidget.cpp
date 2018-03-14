@@ -179,7 +179,7 @@ void MpvObject::setWidgetType(Helpers::MpvWidgetType widgetType)
         widget = new MpvEmbedWidget(this);
         break;
     case Helpers::GlCbWidget:
-        widget = new MpvGlCbWidget(this);
+        widget = new MpvGlWidget(this);
         break;
     case Helpers::VulkanCbWidget:
         widget = new MpvVulkanCbWidget(this);
@@ -750,19 +750,19 @@ static void *get_proc_address(void *ctx, const char *name) {
     return res;
 }
 
-MpvGlCbWidget::MpvGlCbWidget(MpvObject *object, QWidget *parent) :
+MpvGlWidget::MpvGlWidget(MpvObject *object, QWidget *parent) :
     QOpenGLWidget(parent), MpvWidgetInterface(object)
 {
     connect(this, &QOpenGLWidget::frameSwapped,
-            this, &MpvGlCbWidget::self_frameSwapped);
+            this, &MpvGlWidget::self_frameSwapped);
     connect(mpvObject, &MpvObject::playbackStarted,
-            this, &MpvGlCbWidget::self_playbackStarted);
+            this, &MpvGlWidget::self_playbackStarted);
     connect(mpvObject, &MpvObject::playbackFinished,
-            this, &MpvGlCbWidget::self_playbackFinished);
+            this, &MpvGlWidget::self_playbackFinished);
     setContextMenuPolicy(Qt::CustomContextMenu);
 }
 
-MpvGlCbWidget::~MpvGlCbWidget()
+MpvGlWidget::~MpvGlWidget()
 {
     makeCurrent();
     if (render) {
@@ -776,18 +776,18 @@ MpvGlCbWidget::~MpvGlCbWidget()
     doneCurrent();
 }
 
-QWidget *MpvGlCbWidget::self()
+QWidget *MpvGlWidget::self()
 {
     return this;
 }
 
-void MpvGlCbWidget::initMpv()
+void MpvGlWidget::initMpv()
 {
 
 }
 
 
-void MpvGlCbWidget::setLogoUrl(const QString &filename)
+void MpvGlWidget::setLogoUrl(const QString &filename)
 {
     makeCurrent();
     if (!logo) {
@@ -802,24 +802,19 @@ void MpvGlCbWidget::setLogoUrl(const QString &filename)
     doneCurrent();
 }
 
-void MpvGlCbWidget::setLogoBackground(const QColor &color)
+void MpvGlWidget::setLogoBackground(const QColor &color)
 {
     logo->setLogoBackground(color);
 }
 
-void MpvGlCbWidget::setDrawLogo(bool yes)
+void MpvGlWidget::setDrawLogo(bool yes)
 {
     drawLogo = yes;
     update();
 }
 
-void MpvGlCbWidget::initializeGL()
+void MpvGlWidget::initializeGL()
 {
-    auto check = [](int r) {
-        if (r < 0)
-            throw std::runtime_error("[MpvGlCbWidget] render init failed.");
-    };
-
     mpv_opengl_init_params glInit { &get_proc_address, this, nullptr };
     mpv_render_param params[] {
         { MPV_RENDER_PARAM_API_TYPE, (void*)MPV_RENDER_API_TYPE_OPENGL },
@@ -827,12 +822,12 @@ void MpvGlCbWidget::initializeGL()
         { MPV_RENDER_PARAM_INVALID, nullptr }
     };
     render = ctrl->createRenderContext(params);
-    mpv_render_context_set_update_callback(render, MpvGlCbWidget::render_update, (void *)this);
+    mpv_render_context_set_update_callback(render, MpvGlWidget::render_update, (void *)this);
     if (!logo)
         logo = new LogoDrawer(this);
 }
 
-void MpvGlCbWidget::paintGL()
+void MpvGlWidget::paintGL()
 {
     //FIXME: use log()
     if (mpvObject->clientDebuggingMessages())
@@ -851,7 +846,7 @@ void MpvGlCbWidget::paintGL()
     }
 }
 
-void MpvGlCbWidget::resizeGL(int w, int h)
+void MpvGlWidget::resizeGL(int w, int h)
 {
     qreal r = devicePixelRatio();
     glWidth = int(w * r);
@@ -859,24 +854,24 @@ void MpvGlCbWidget::resizeGL(int w, int h)
     logo->resizeGL(width(),height());
 }
 
-void MpvGlCbWidget::mouseMoveEvent(QMouseEvent *event)
+void MpvGlWidget::mouseMoveEvent(QMouseEvent *event)
 {
     emit mpvObject->mouseMoved(event->x(), event->y());
     QOpenGLWidget::mouseMoveEvent(event);
 }
 
-void MpvGlCbWidget::mousePressEvent(QMouseEvent *event)
+void MpvGlWidget::mousePressEvent(QMouseEvent *event)
 {
     emit mpvObject->mousePress(event->x(), event->y());
     QOpenGLWidget::mousePressEvent(event);
 }
 
-void MpvGlCbWidget::render_update(void *ctx)
+void MpvGlWidget::render_update(void *ctx)
 {
-    QMetaObject::invokeMethod(reinterpret_cast<MpvGlCbWidget*>(ctx), "maybeUpdate");
+    QMetaObject::invokeMethod(reinterpret_cast<MpvGlWidget*>(ctx), "maybeUpdate");
 }
 
-void MpvGlCbWidget::maybeUpdate()
+void MpvGlWidget::maybeUpdate()
 {
     if (window()->isMinimized()) {
         makeCurrent();
@@ -889,18 +884,18 @@ void MpvGlCbWidget::maybeUpdate()
     }
 }
 
-void MpvGlCbWidget::self_frameSwapped()
+void MpvGlWidget::self_frameSwapped()
 {
     if (!drawLogo)
         mpv_render_context_report_swap(render);
 }
 
-void MpvGlCbWidget::self_playbackStarted()
+void MpvGlWidget::self_playbackStarted()
 {
     drawLogo = false;
 }
 
-void MpvGlCbWidget::self_playbackFinished()
+void MpvGlWidget::self_playbackFinished()
 {
     drawLogo = true;
     update();

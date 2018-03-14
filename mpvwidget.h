@@ -186,14 +186,14 @@ protected:
 Q_DECLARE_INTERFACE(MpvWidgetInterface, "cmdrkotori.mpc-qt.MpvWidgetInterface/1.0");
 
 
-class MpvGlCbWidget : public QOpenGLWidget, public MpvWidgetInterface
+class MpvGlWidget : public QOpenGLWidget, public MpvWidgetInterface
 {
     Q_OBJECT
     Q_INTERFACES(MpvWidgetInterface)
 
 public:
-    explicit MpvGlCbWidget(MpvObject *object, QWidget *parent = nullptr);
-    ~MpvGlCbWidget();
+    explicit MpvGlWidget(MpvObject *object, QWidget *parent = nullptr);
+    ~MpvGlWidget();
 
     QWidget *self();
     void initMpv();
@@ -230,10 +230,10 @@ private:
 
 
 // FIXME: implement MpvVulkanCbWidget
-typedef MpvGlCbWidget MpvVulkanCbWidget;
+typedef MpvGlWidget MpvVulkanCbWidget;
 
 // FIXME: implement MpvEmbedWidget
-typedef MpvGlCbWidget MpvEmbedWidget;
+typedef MpvGlWidget MpvEmbedWidget;
 
 
 
