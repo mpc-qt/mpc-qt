@@ -1453,22 +1453,22 @@ void MainWindow::on_actionFileRecentClear_triggered()
 
 void MainWindow::on_actionFileSaveImage_triggered()
 {
-    emit takeImage(Helpers::VideoRender);
+    emit takeImage(Helpers::SubsRender);
 }
 
 void MainWindow::on_actionFileSaveImageAuto_triggered()
 {
-    emit takeImageAutomatically(Helpers::VideoRender);
+    emit takeImageAutomatically(Helpers::SubsRender);
 }
 
 void MainWindow::on_actionFileSavePlainImage_triggered()
 {
-    emit takeImage(Helpers::SubsRender);
+    emit takeImage(Helpers::VideoRender);
 }
 
 void MainWindow::on_actionFileSavePlainImageAuto_triggered()
 {
-    emit takeImageAutomatically(Helpers::SubsRender);
+    emit takeImageAutomatically(Helpers::VideoRender);
 }
 
 void MainWindow::on_actionFileSaveWindowImage_triggered()
