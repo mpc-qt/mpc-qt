@@ -14,6 +14,129 @@
 #include <QRegularExpression>
 #include "helpers.h"
 
+QSet<QString> Helpers::fileExtensions {
+    // DVD/Blu-ray audio formats
+    "ac3", "a52",
+    "eac3",
+    "mlp",
+    "dts",
+    "dts-hd", "dtshd",
+    "true-hd", "thd", "truehd", "thd+ac3",
+    "tta",
+    // Uncompressed formats
+    "pcm",
+    "wav",
+    "aiff", "aif", "aifc",
+    "amr",
+    "awb",
+    "au", "snd",
+    "lpcm",
+    "yuv",
+    "y4m",
+    // Free lossless formats
+    "ape",
+    "wv",
+    "shn",
+    // MPEG formats
+    "m2ts", "m2t", "mts", "mtv", "ts", "tsv", "tsa", "tts", "trp",
+    "adts", "adt",
+    "mpa", "m1a", "m2a", "mp1", "mp2",
+    "mp3",
+    "mpeg", "mpg", "mpe", "mpeg2", "m1v", "m2v", "mp2v", "mpv", "mpv2", "mod", "tod",
+    "vob", "vro",
+    "evob", "evo",
+    "mpeg4", "m4v", "mp4", "mp4v", "mpg4",
+    "m4a",
+    "aac",
+    "h264", "avc", "x264", "264",
+    "hevc", "h265", "x265", "265",
+    // Xiph formats
+    "flac",
+    "oga", "ogg",
+    "opus",
+    "spx",
+    "ogv", "ogm",
+    "ogx",
+    // Matroska formats
+    "mkv",
+    "mk3d",
+    "mka",
+    "webm",
+    "weba",
+    // Misc formats
+    "avi", "vfw",
+    "divx",
+    "3iv",
+    "xvid",
+    "nut",
+    "flic", "fli", "flc",
+    "nsv",
+    "gxf",
+    "mxf",
+    // Windows Media formats
+    "wma",
+    "wm",
+    "wmv",
+    "asf",
+    "dvr-ms", "dvr",
+    "wtv",
+    // DV formats
+    "dv", "hdv",
+    // Flash Video formats
+    "flv",
+    "f4v",
+    "f4a",
+    // QuickTime formats
+    "qt", "mov",
+    "hdmov",
+    // Real Media formats
+    "rm",
+    "rmvb",
+    "ra", "ram",
+    // 3GPP formats
+    "3ga",
+    "3ga2",
+    "3gpp", "3gp",
+    "3gp2", "3g2",
+    // Video game formats
+    "ay",
+    "gbs",
+    "gym",
+    "hes",
+    "kss",
+    "nsf",
+    "nsfe",
+    "sap",
+    "spc",
+    "vgm",
+    "vgz",
+    // Playlist formats
+    "m3u", "m3u8",
+    "pls",
+    "cue"
+};
+
+QSet<QString> Helpers::subsExtensions {
+    "aqtitle", "aqt",
+    "ass", "ssa",
+    "dvbsub", "sub",
+    "jacosub", "jss",
+    "microdvd", "sub",
+    "mpl2", "ttxt",
+    "mpsub", "sub",
+    "pjs",
+    "realtext", "rt",
+    "sami", "smi",
+    "srt",
+    "stl",
+    "subviewer1", "sub",
+    "subviewer", "sub",
+    "sup",
+    "vobsub",
+    "vplayer",
+    "webvtt", "vtt"
+};
+
 QString Helpers::toDateFormat(double time)
 {
     int t = int(time*1000 + 0.5);
@@ -205,6 +328,18 @@ QString Helpers::parseFormat(QString fmt, QString fileName,
         }
     }
     return output;
+}
+
+QString Helpers::fileOpenFilter()
+{
+    QString ext = QStringList(Helpers::fileExtensions.toList()).join(" *.");
+    return QString(QObject::tr("All Media (*.%1);;All Files (*.*)")).arg(ext);
+}
+
+QString Helpers::subsOpenFilter()
+{
+    QString ext = QStringList(Helpers::subsExtensions.toList()).join(" *.");
+    return QString(QObject::tr("All Subtitles (*.%1);;All Files (*.*)")).arg(ext);
 }
 
 QRect Helpers::vmapToRect(const QVariantMap &m) {

@@ -1278,6 +1278,10 @@
         <source>&amp;Subtitles</source>
         <translation>&amp;Субтитры</translation>
     </message>
+    <message>
+        <source>Select File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PaletteEditor</name>
@@ -1645,6 +1649,14 @@
     <message>
         <source>Inactive</source>
         <translation>Неактивный</translation>
+    </message>
+    <message>
+        <source>All Media (*.%1);;All Files (*.*)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All Subtitles (*.%1);;All Files (*.*)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

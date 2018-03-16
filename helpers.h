@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QCoreApplication>
 #include <QWidget>
+#include <QSet>
 #include <QList>
 #include <QUrl>
 #include <QUuid>
@@ -19,21 +20,10 @@ class QLocalSocket;
 class QOpenGLTexture;
 
 namespace Helpers {
-    QString toDateFormat(double time);
-    QDate dateFromCFormat(const char date[]);
-    QTime timeFromCFormat(const char time[]);
     enum DisabledTrack { NothingDisabled, DisabledAudio, DisabledVideo };
     enum Subtitles { NoSubtitles, SubtitlesPresent, SubtitlesDisabled, };
     enum FileType { AudioFile, VideoFile };
     enum ScreenshotRender { VideoRender, SubsRender, WindowRender };
-    QString parseFormat(QString fmt, QString fileName, DisabledTrack disabled,
-                        Subtitles subtitles, double timeNav, double timeBegin,
-                        double timeEnd);
-    QRect vmapToRect(const QVariantMap &m);
-    QVariantMap rectToVmap(const QRect &r);
-    bool sizeFromString(QSize &size, const QString &text);
-    bool pointFromString(QPoint &point, const QString &text);
-
     enum TitlePrefix { PrefixFullPath, PrefixFileName, NoPrefix };
     enum MpvWidgetType { NullWidget, EmbedWidget, GlCbWidget, VulkanCbWidget };
     enum ControlHiding { NeverShown, ShowWhenMoving, ShowWhenHovering,
@@ -41,6 +31,23 @@ namespace Helpers {
     enum AfterPlayback { DoNothingAfter, RepeatAfter, PlayNextAfter,
                          ExitAfter, StandByAfter, HibernateAfter,
                          ShutdownAfter, LogOffAfter, LockAfter };
+
+    extern QSet<QString> fileExtensions;
+    extern QSet<QString> subsExtensions;
+
+    QString toDateFormat(double time);
+    QDate dateFromCFormat(const char date[]);
+    QTime timeFromCFormat(const char time[]);
+    QString parseFormat(QString fmt, QString fileName, DisabledTrack disabled,
+                        Subtitles subtitles, double timeNav, double timeBegin,
+                        double timeEnd);
+    QString fileOpenFilter();
+    QString subsOpenFilter();
+    QRect vmapToRect(const QVariantMap &m);
+    QVariantMap rectToVmap(const QRect &r);
+    bool sizeFromString(QSize &size, const QString &text);
+    bool pointFromString(QPoint &point, const QString &text);
+
 }
 
 class IconThemer : public QObject {

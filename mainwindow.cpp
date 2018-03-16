@@ -1387,7 +1387,11 @@ void MainWindow::on_actionFileOpenQuick_triggered()
 {
     QList<QUrl> urls;
     static QUrl lastDir;
-    urls = QFileDialog::getOpenFileUrls(this, tr("Quick Open"), lastDir);
+    static QString filter;
+    if (filter.isEmpty())
+        filter = Helpers::fileOpenFilter();
+
+    urls = QFileDialog::getOpenFileUrls(this, tr("Quick Open"), lastDir, filter);
     if (urls.isEmpty())
         return;
     lastDir = urls[0];
@@ -1428,8 +1432,10 @@ void MainWindow::on_actionFileOpenDirectory_triggered()
     QDir dir(url.toLocalFile());
     QList<QUrl> list;
     QFileInfoList f = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
-    for(auto &file : f)
-        list.append(QUrl::fromLocalFile(file.absoluteFilePath()));
+    for(auto &file : f) {
+        if (Helpers::fileExtensions.contains(file.completeSuffix()))
+            list.append(QUrl::fromLocalFile(file.absoluteFilePath()));
+    }
     emit severalFilesOpened(list);
 }
 
