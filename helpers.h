@@ -43,6 +43,7 @@ namespace Helpers {
                         double timeEnd);
     QString fileOpenFilter();
     QString subsOpenFilter();
+    QList<QUrl> filterUrls(const QList<QUrl> &urls);
     QRect vmapToRect(const QVariantMap &m);
     QVariantMap rectToVmap(const QRect &r);
     bool sizeFromString(QSize &size, const QString &text);

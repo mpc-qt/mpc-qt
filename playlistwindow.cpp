@@ -55,9 +55,10 @@ void PlaylistWindow::clearPlaylist(QUuid what)
 
 QPair<QUuid, QUuid> PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
 {
+    QList<QUrl> filtered = Helpers::filterUrls(what);
     QPair<QUuid, QUuid> info;
     auto qdp = currentPlaylistWidget();
-    for (QUrl &url : what) {
+    for (QUrl &url : filtered) {
         QPair<QUuid,QUuid> itemInfo = qdp->importUrl(url);
         if (info.second.isNull())
             info = itemInfo;
@@ -157,8 +158,14 @@ void PlaylistWindow::replaceItem(QUuid list, QUuid item, const QList<QUrl> &urls
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
     if (!pl)
         return;
-    QList<QUuid> addedItems = pl->replaceItem(item, urls);
 
+    QList<QUrl> filtered = Helpers::filterUrls(urls);
+    if (filtered.isEmpty()) {
+        // FIXME: remove the item that cannot played
+        return;
+    }
+
+    QList<QUuid> addedItems = pl->replaceItem(item, filtered);
     auto listWidget = widgets[list];
     if (listWidget)
         listWidget->addItemsAfter(item, addedItems);

@@ -114,6 +114,37 @@ QSet<QString> Helpers::fileExtensions {
     "m3u", "m3u8",
     "pls",
     "cue"
+    // Image formats
+    "bmp",
+    "dds",
+    "dpx",
+    "exr",
+    "j2k",
+    "jpeg",
+    "jpegls",
+    "pam",
+    "pbm",
+    "pcx",
+    "pgmyuv",
+    "pgm",
+    "pictor",
+    "png",
+    "ppm",
+    "psd",
+    "qdraw",
+    "sgi",
+    "svg",
+    "sunrast",
+    "tiff",
+    "webp",
+    "xpm",
+    // Modfiles
+    "mod",
+    // Archives
+    "rar",
+    "zip",
+    "cbz",
+    "cbr"
 };
 
 QSet<QString> Helpers::subsExtensions {
@@ -340,6 +371,33 @@ QString Helpers::subsOpenFilter()
 {
     QString ext = QStringList(Helpers::subsExtensions.toList()).join(" *.");
     return QString(QObject::tr("All Subtitles (*.%1);;All Files (*.*)")).arg(ext);
+}
+
+QList<QUrl> Helpers::filterUrls(const QList<QUrl> &urls)
+{
+    QList<QUrl> filtered;
+    for (const QUrl &u : urls) {
+        if (!u.isLocalFile()) {
+            filtered << u;
+            continue;
+        }
+        QFileInfo info(u.toLocalFile());
+        if (info.isDir()) {           
+            // FIXME: detect circular symlinks
+            QDir dir(info.filePath());
+            QList<QUrl> children;
+            for (auto &i : dir.entryInfoList(QDir::NoDotAndDotDot | QDir::AllEntries,
+                                             QDir::Name | QDir::DirsLast))
+               children << QUrl::fromLocalFile(i.filePath());
+            filtered.append(filterUrls(children));
+            continue;
+        }
+        if (fileExtensions.contains(info.suffix())) {
+            filtered << u;
+            continue;
+        }
+    }
+    return filtered;
 }
 
 QRect Helpers::vmapToRect(const QVariantMap &m) {

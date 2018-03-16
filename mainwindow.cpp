@@ -1429,13 +1429,15 @@ void MainWindow::on_actionFileOpenDirectory_triggered()
         return;
     lastDir = url;
 
+    // If we pass the directory and let Helpers::filterUrls handle it,
+    // we may freeze if the user selects the root folder.  So only
+    // pass through the folder contents for now.  To expand all
+    // subfolders, Drag-and-drop or pass folders through the cli.
     QDir dir(url.toLocalFile());
     QList<QUrl> list;
     QFileInfoList f = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
-    for(auto &file : f) {
-        if (Helpers::fileExtensions.contains(file.completeSuffix()))
-            list.append(QUrl::fromLocalFile(file.absoluteFilePath()));
-    }
+    for (auto &file : f)
+        list.append(QUrl::fromLocalFile(file.absoluteFilePath()));
     emit severalFilesOpened(list);
 }
 
