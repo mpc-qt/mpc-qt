@@ -109,7 +109,3 @@ void Platform::disableAutomaticAccel(QWidget *what)
     dlclose(d);
 #endif
 }
-
-
-
-
