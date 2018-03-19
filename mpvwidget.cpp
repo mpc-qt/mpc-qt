@@ -82,8 +82,12 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
     connect(hideTimer, &QTimer::timeout,
             this, &MpvObject::hideTimer_timeout);
 
-    // Initialize mpv
-    QMetaObject::invokeMethod(ctrl, "create", Qt::BlockingQueuedConnection);
+    // Initialize mpv playback instance
+    MpvController::OptionList earlyOptions = {
+        { "vo", "libmpv" }
+    };
+    QMetaObject::invokeMethod(ctrl, "create", Qt::BlockingQueuedConnection,
+                              Q_ARG(const MpvController::OptionList &, earlyOptions));
 
     // clean up objects when the worker thread is deleted
     connect(worker, &QThread::finished, ctrl, &MpvController::deleteLater);
@@ -934,28 +938,21 @@ MpvController::~MpvController()
     throttler->deleteLater();
 }
 
-void MpvController::create(bool video, bool audio)
+void MpvController::create(const OptionList &earlyOptions)
 {
     mpv = mpv::qt::Handle::FromRawHandle(mpv_create());
     if (!mpv)
         throw std::runtime_error("could not create mpv context");
 
+    // Certain things like encoding options and input server need to be
+    // set _before_ mpv initialize.
+    for (const MpvOption &option : earlyOptions)
+        setOptionVariant(option.name, option.value);
+
     if (mpv_initialize(mpv) < 0)
         throw std::runtime_error("could not initialize mpv context");
 
-    if (!audio) {
-        setOptionVariant("ao", "null");
-        setOptionVariant("no-audio", true);
-    }
-    if (!video) {
-        // NOTE: this completely skips setting up the gl interface.
-        setOptionVariant("vo", "null");
-        setOptionVariant("no-video", true);
-    } else {
-        setOptionVariant("vo", "libmpv");
-    }
     mpv_set_wakeup_callback(mpv, MpvController::mpvWakeup, this);
-
     protocolList_ = getPropertyVariant("protocol-list").toStringList();
 }
 

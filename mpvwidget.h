@@ -286,6 +286,11 @@ public:
             : name(name), userData(userData), format(format) {}
     };
     typedef QVector<MpvProperty> PropertyList;
+    struct MpvOption {
+        QString name;
+        QVariant value;
+    };
+    typedef QVector<MpvOption> OptionList;
 
     MpvController(QObject *parent = 0);
     ~MpvController();
@@ -300,7 +305,7 @@ signals:
     void unhandledMpvEvent(int eventNumber);
 
 public slots:
-    void create(bool video = true, bool audio = true);
+    void create(const MpvController::OptionList &earlyOptions);
     mpv_render_context *createRenderContext(mpv_render_param *params);
     void destroyRenderContext(mpv_render_context *render);
 
