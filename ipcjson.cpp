@@ -377,7 +377,7 @@ MpvConnection::MpvConnection(QLocalSocket *socket, PlaybackManager *manager,
 
 MpvConnection::~MpvConnection()
 {
-    socket->deleteLater();
+
 }
 
 void MpvConnection::socketWrite(const QVariant &v)
