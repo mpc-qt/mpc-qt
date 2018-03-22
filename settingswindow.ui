@@ -154,7 +154,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>17</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -668,8 +668,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>42</width>
-                   <height>18</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -819,6 +819,9 @@ media file played</string>
                 </property>
                 <property name="suffix">
                  <string notr="true">%</string>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
                 </property>
                </widget>
               </item>

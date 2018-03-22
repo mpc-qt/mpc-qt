@@ -268,12 +268,12 @@ void PlaybackManager::navigateToTime(double time)
 
 void PlaybackManager::speedUp()
 {
-    setPlaybackSpeed(std::min(8.0, mpvSpeed * 2.0));
+    setPlaybackSpeed(std::min(8.0, mpvSpeed * speedStep));
 }
 
 void PlaybackManager::speedDown()
 {
-    setPlaybackSpeed(std::max(0.125, mpvSpeed / 2.0));
+    setPlaybackSpeed(std::max(0.125, mpvSpeed / speedStep));
 }
 
 void PlaybackManager::speedReset()
@@ -292,6 +292,12 @@ void PlaybackManager::setPlaybackSpeed(double speed)
     mpvSpeed = speed;
     mpvObject_->setSpeed(speed);
     mpvObject_->showMessage(tr("Speed: %1%").arg(speed*100));
+}
+
+void PlaybackManager::setSpeedStep(double step)
+{
+    qDebug() << step;
+    speedStep = step;
 }
 
 void PlaybackManager::setStepTimeLarge(int largeMsec)
