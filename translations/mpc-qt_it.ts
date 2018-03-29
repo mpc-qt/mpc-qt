@@ -69,6 +69,10 @@
         <source>Playing Media</source>
         <translation>Riproduzione in corso</translation>
     </message>
+    <message>
+        <source>Start a new process without saving data.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -1175,6 +1179,10 @@
     </message>
     <message>
         <source>&amp;Cycle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> [Freestanding]</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

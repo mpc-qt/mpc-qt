@@ -85,6 +85,7 @@ private:
     QList<TrackInfo> favoriteStreams;
     QScreenSaver screenSaver;
 
+    bool freestanding = false;
     QSize cliSize;
     QPoint cliPos;
     bool validCliSize = false;

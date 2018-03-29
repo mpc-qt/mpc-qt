@@ -141,6 +141,7 @@ signals:
     void organizeFavorites();
 
 public slots:
+    void setFreestanding(bool freestanding);
     void setFullscreenMode(bool fullscreenMode);
     void setNoVideoSize(const QSize &sz);
     void setWindowedMouseMap(const MouseStateMap &map);
@@ -311,6 +312,7 @@ private:
     QMenu *contextMenu = nullptr;
     QTimer hideTimer;
 
+    bool freestanding_ = false;
     DecorationState decorationState_ = AllDecorations;
     bool fullscreenMaximized = false;
     bool fullscreenMode_ = false;

@@ -73,7 +73,8 @@ Flow::~Flow()
         mpvServer = nullptr;
     }
     if (mainWindow) {
-        storage.writeVList("playlists", mainWindow->playlistWindow()->tabsToVList());
+        if (!freestanding)
+            storage.writeVList("playlists", mainWindow->playlistWindow()->tabsToVList());
         delete mainWindow;
         mainWindow = nullptr;
     }
@@ -103,24 +104,29 @@ void Flow::parseArgs()
     parser.addHelpOption();
     parser.addVersionOption();
 
+    QCommandLineOption freestandingOpt("freestanding", tr("Start a new process without saving data."));
     QCommandLineOption sizeOpt("size", tr("Main window size."), "w,h");
     QCommandLineOption posOpt("pos", tr("Main window position."), "x,y");
 
+    parser.addOption(freestandingOpt);
     parser.addOption(sizeOpt);
     parser.addOption(posOpt);
     parser.addPositionalArgument("urls", tr("URLs to open, optionally."), "[urls...]");
 
     parser.process(QCoreApplication::arguments());
 
+    freestanding = parser.isSet(freestandingOpt);
     validCliSize = parser.isSet(sizeOpt) && Helpers::sizeFromString(cliSize, parser.value(sizeOpt));
     validCliPos = parser.isSet(posOpt) && Helpers::pointFromString(cliPos, parser.value(posOpt));
     customFiles = parser.positionalArguments();
 }
 
 void Flow::init() {
-    hasPrevious_ = server->sendPayload(makePayload(), MpcQtServer::defaultSocketName());
-    if (hasPrevious_)
-        return;
+    if (!freestanding) {
+        hasPrevious_ = server->sendPayload(makePayload(), MpcQtServer::defaultSocketName());
+        if (hasPrevious_)
+            return;
+    }
 
     mainWindow = new MainWindow();
     playbackManager = new PlaybackManager(this);
@@ -450,7 +456,8 @@ void Flow::init() {
     connect(this, &Flow::windowsRestored,
             this, &Flow::self_windowsRestored);
 
-    setupMpris();
+    if (!freestanding)
+        setupMpris();
 
     // update player framework
     settingsWindow->takeActions(mainWindow->editableActions());
@@ -469,9 +476,14 @@ void Flow::init() {
     settingsWindow->sendSignals();
     settingsWindow->sendAcceptedSettings();
 
-    server->listen();
-    mpvServer->listen();
+    if (!freestanding) {
+        server->listen();
+        mpvServer->listen();
+    }
     settingsWindow->setServerName(server->fullServerName());
+
+    mainWindow->setFreestanding(freestanding);
+    settingsWindow->setFreestanding(freestanding);
 }
 
 int Flow::run()
@@ -867,11 +879,13 @@ void Flow::favoriteswindow_favoriteTracks(const QList<TrackInfo> &files, const Q
 
 void Flow::endProgram()
 {
-    storage.writeVMap("settings", settings);
-    storage.writeVMap("keys", keyMap);
-    storage.writeVList("recent", recentToVList());
-    storage.writeVMap("favorites", favoritesToVMap());
-    storage.writeVMap("geometry", saveWindows());
+    if (!freestanding) {
+        storage.writeVMap("settings", settings);
+        storage.writeVMap("keys", keyMap);
+        storage.writeVList("recent", recentToVList());
+        storage.writeVMap("favorites", favoritesToVMap());
+        storage.writeVMap("geometry", saveWindows());
+    }
     qApp->quit();
 }
 

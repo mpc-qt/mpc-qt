@@ -29,7 +29,7 @@ private slots:
 
 private:
     QString socketName;
-    QLocalServer *server;
+    QLocalServer *server = nullptr;
 };
 
 
@@ -139,9 +139,9 @@ private slots:
     void command_unobserve_property(const QVariantList &list, const QVariant &requestId);
 
 private:
-    QLocalSocket *socket;
-    PlaybackManager *manager;
-    MpvObject *mpvObject;
+    QLocalSocket *socket = nullptr;
+    PlaybackManager *manager = nullptr;
+    MpvObject *mpvObject = nullptr;
     QMap<QString,QMetaMethod> commandParsers;
 };
 

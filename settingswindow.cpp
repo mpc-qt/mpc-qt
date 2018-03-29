@@ -844,6 +844,18 @@ void SettingsWindow::setServerName(const QString &name)
     ui->ipcNotice->setText(ui->ipcNotice->text().arg(name));
 }
 
+void SettingsWindow::setFreestanding(bool freestanding)
+{
+    bool yes = !freestanding;
+    ui->ipcNotice->setVisible(yes);
+    ui->ipcMpris->setVisible(yes);
+    ui->playerKeepHistory->setVisible(yes);
+    ui->playerRememberLastPlaylist->setVisible(yes);
+    ui->playerRememberWindowGeometry->setVisible(yes);
+    ui->playerRememberPanScanZoom->setVisible(yes);
+    ui->playerHistoryBox->setEnabled(yes);
+}
+
 void SettingsWindow::setVolume(int level)
 {
     WIDGET_LOOKUP(ui->playbackVolume).setValue(level);

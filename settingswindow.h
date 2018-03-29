@@ -176,6 +176,7 @@ public slots:
 
     void setScreensaverDisablingEnabled(bool enabled);
     void setServerName(const QString &name);
+    void setFreestanding(bool freestanding);
 
     void setVolume(int level);
     void setZoomPreset(int which);

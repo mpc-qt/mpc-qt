@@ -1002,6 +1002,12 @@ void MainWindow::updateMouseHideTime()
                                  : mouseHideTimeWindowed);
 }
 
+void MainWindow::setFreestanding(bool freestanding)
+{
+    freestanding_ = freestanding;
+    setMediaTitle(QString());
+}
+
 void MainWindow::setNoVideoSize(const QSize &size)
 {
     noVideoSize_ = size.expandedTo(QSize(500,270));
@@ -1109,6 +1115,8 @@ void MainWindow::setMediaTitle(QString title)
 {
     QString window_title("Media Player Classic Qute Theater");
 
+    if (freestanding_)
+        window_title.append(tr(" [Freestanding]"));
     if (!title.isEmpty())
         window_title.append(" - ").append(title);
     setWindowTitle(window_title);
