@@ -296,9 +296,15 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
         checkBottomArea(event->globalPos());
 }
 
+static bool insideWidget(QPoint p, QWidget *mpvw) {
+    QRect rc(mpvw->mapToGlobal(QPoint()), mpvw->size());
+    return rc.contains(p);
+}
+
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
-    if (mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseDown)))
+    bool ok = insideWidget(event->globalPos(), mpvw);
+    if (ok && mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseDown)))
         event->accept();
     else
         QMainWindow::mousePressEvent(event);
@@ -306,14 +312,16 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 
 void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
 {
-    if (mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::PressTwice)))
+    bool ok = insideWidget(event->globalPos(), mpvw);
+    if (ok && mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::PressTwice)))
         event->accept();
     mousePressEvent(event);
 }
 
 void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
-    if (mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseUp)))
+    bool ok = insideWidget(event->globalPos(), mpvw);
+    if (ok && mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseUp)))
         event->accept();
     else
         QMainWindow::mouseReleaseEvent(event);
@@ -321,7 +329,8 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 
 void MainWindow::wheelEvent(QWheelEvent *event)
 {
-    if (mouseStateEvent(MouseState::fromWheelEvent(event)))
+    bool ok = insideWidget(event->globalPos(), mpvw);
+    if (ok && mouseStateEvent(MouseState::fromWheelEvent(event)))
         event->accept();
     else
         QMainWindow::wheelEvent(event);
