@@ -211,6 +211,7 @@ private slots:
     void on_actionViewHideCapture_toggled(bool checked);
     void on_actionViewHideNavigation_toggled(bool checked);
 
+    void on_actionViewOSDNone_triggered();
     void on_actionViewOSDMessages_triggered();
     void on_actionViewOSDStatistics_triggered();
     void on_actionViewOSDFrameTimings_triggered();

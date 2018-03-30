@@ -1185,6 +1185,10 @@
         <source> [Freestanding]</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;No Messages</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

@@ -62,7 +62,9 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
     connect(this, &MpvObject::ctrlSetPropertyVariant,
             ctrl, &MpvController::setPropertyVariant, Qt::QueuedConnection);
     connect(this, &MpvObject::ctrlSetLogLevel,
-            ctrl, &MpvController::setLogLevel);
+            ctrl, &MpvController::setLogLevel, Qt::QueuedConnection);
+    connect(this, &MpvObject::ctrlShowStats,
+            ctrl, &MpvController::showStatsPage, Qt::QueuedConnection);
 
     // Wire up the event-handling callbacks
     connect(ctrl, &MpvController::mpvPropertyChanged,
@@ -227,32 +229,19 @@ QStringList MpvObject::supportedProtocols()
 
 void MpvObject::showMessage(QString message)
 {
-    if (shownStatsPage <= 0 || shownStatsPage >= 3)
+    if (shownStatsPage == 0)
         emit ctrlCommand(QVariantList({"show_text", message, "1000"}));
 }
 
 void MpvObject::showStatsPage(int page)
 {
-    bool statsVisible = (shownStatsPage > 0 && shownStatsPage < 3);
-    bool wantVisible = (page > 0 && page < 3);
-
-    if (wantVisible ^ statsVisible) {
-        qDebug() << "toggling stats page";
-        ctrlCommand(QStringList({"script-binding",
-                                 "stats/display-stats-toggle"}));
-    }
-    if (wantVisible) {
-        qDebug() << "setting page to " << page;
-        QString pageCommand("stats/display-page-%1");
-        ctrlCommand(QStringList({"script-binding",
-                                pageCommand.arg(QString::number(page))}));
-    }
+    ctrlShowStats(page);
     shownStatsPage = page;
 }
 
 int MpvObject::cycleStatsPage()
 {
-    showStatsPage(shownStatsPage < 2 ? shownStatsPage+1 : 0);
+    showStatsPage(shownStatsPage < 2 ? shownStatsPage+1 : -1);
     return shownStatsPage;
 }
 
@@ -1021,6 +1010,24 @@ unsigned long MpvController::apiVersion()
 void MpvController::setLogLevel(QString logLevel)
 {
     mpv_request_log_messages(mpv, logLevel.toUtf8().data());
+}
+
+void MpvController::showStatsPage(int page)
+{
+    bool statsVisible = (shownStatsPage > 0 && shownStatsPage < 3);
+    bool wantVisible = (page > 0 && page < 3);
+    if (wantVisible ^ statsVisible) {
+        qDebug() << "toggling stats page";
+        command(QStringList({"script-binding",
+                             "stats/display-stats-toggle"}));
+    }
+    if (wantVisible) {
+        qDebug() << "setting page to " << page;
+        QString pageCommand("stats/display-page-%1");
+        command(QStringList({"script-binding",
+                             pageCommand.arg(QString::number(page))}));
+    }
+    shownStatsPage = page;
 }
 
 int MpvController::setOptionVariant(QString name, const QVariant &value)

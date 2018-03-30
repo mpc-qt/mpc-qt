@@ -91,6 +91,7 @@ signals:
     void ctrlSetOptionVariant(QString name, QVariant value);
     void ctrlSetPropertyVariant(QString name, QVariant value);
     void ctrlSetLogLevel(QString level);
+    void ctrlShowStats(int page);
 
     void audioDeviceList(const QList<AudioDevice> audioDevices);
 
@@ -321,6 +322,7 @@ public slots:
     unsigned long apiVersion();
 
     void setLogLevel(QString logLevel);
+    void showStatsPage(int page);
 
     int setOptionVariant(QString name, const QVariant &value);
     QVariant command(const QVariant &params);
@@ -349,6 +351,8 @@ private:
     QSet<QString> throttledProperties;
     typedef QMap<QString,QPair<QVariant,uint64_t>> ThrottledValueMap;
     ThrottledValueMap throttledValues;
+
+    int shownStatsPage = 0;
 };
 
 #endif // MPVWIDGET_H

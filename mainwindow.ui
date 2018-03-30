@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>590</width>
+    <width>634</width>
     <height>362</height>
    </rect>
   </property>
@@ -580,7 +580,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>590</width>
+     <width>634</width>
      <height>23</height>
     </rect>
    </property>
@@ -681,6 +681,7 @@
      <property name="title">
       <string>OS&amp;D</string>
      </property>
+     <addaction name="actionViewOSDNone"/>
      <addaction name="actionViewOSDMessages"/>
      <addaction name="actionViewOSDStatistics"/>
      <addaction name="actionViewOSDFrameTimings"/>
@@ -1896,6 +1897,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+J</string>
+   </property>
+  </action>
+  <action name="actionViewOSDNone">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;No Messages</string>
    </property>
   </action>
  </widget>
