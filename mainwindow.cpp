@@ -144,7 +144,8 @@ QVariantMap MainWindow::state()
         { WRAP(ui->actionViewOntopDefault) },
         { WRAP(ui->actionViewOntopAlways) },
         { WRAP(ui->actionViewOntopPlaying) },
-        { WRAP(ui->actionViewOntopVideo) }
+        { WRAP(ui->actionViewOntopVideo) },
+        { WRAP(ui->actionViewFullscreen) }
     };
 #undef WRAP
 }
@@ -168,6 +169,7 @@ void MainWindow::setState(const QVariantMap &map)
     UNWRAP(ui->actionViewOntopAlways, false);
     UNWRAP(ui->actionViewOntopPlaying, false);
     UNWRAP(ui->actionViewOntopVideo, false);
+    UNWRAP(ui->actionViewFullscreen, false);
     updateOnTop();
 
 #undef UNWRAP
@@ -404,6 +406,7 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
     // For now, use the current screen.
     windowHandle()->setScreen(windowHandle()->screen());
 
+    // save maximized state if changing from windowed to fullscreen
     if (!fullscreenMode_ && fullscreenMode)
         fullscreenMaximized = isMaximized();
 
