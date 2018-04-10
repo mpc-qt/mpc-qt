@@ -63,6 +63,7 @@ QSet<QString> Helpers::fileExtensions {
     "mka",
     "webm",
     "weba",
+    "av1",
     // Misc formats
     "avi", "vfw",
     "divx",
