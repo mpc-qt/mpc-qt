@@ -93,15 +93,19 @@ void PlaybackManager::openSeveralFiles(QList<QUrl> what, bool important)
                          && (important || nowPlayingItem == QUuid()))
                         || !playlistWindow_->isVisible();
     auto info = playlistWindow_->addToCurrentPlaylist(what);
-    if (playAfterAdd) {
-        startPlayWithUuid(what.front(), info.first, info.second, false);
+    if (playAfterAdd && !info.second.isNull()) {
+        QUrl urlToPlay = playlistWindow_->getUrlOf(info.first, info.second);
+        startPlayWithUuid(urlToPlay, info.first, info.second, false);
     }
 }
 
 void PlaybackManager::openFile(QUrl what, QUrl with)
 {
     auto info = playlistWindow_->urlToQuickPlaylist(what);
-    startPlayWithUuid(what, info.first, info.second, false, with);
+    if (!info.second.isNull()) {
+        QUrl urlToPlay = playlistWindow_->getUrlOf(info.first, info.second);
+        startPlayWithUuid(urlToPlay, info.first, info.second, false, with);
+    }
 }
 
 void PlaybackManager::playDiscFiles(QUrl where)
