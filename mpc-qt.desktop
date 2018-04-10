@@ -17,3 +17,8 @@ X-DBUS-ServiceName=
 X-DBUS-StartupType=
 X-KDE-SubstituteUID=false
 X-KDE-Username=
+Actions=newFreestandingWindow
+
+[Desktop Action newFreestandingWindow]
+Name=New Freestanding Window
+Exec=mpc-qt --freestanding %U
