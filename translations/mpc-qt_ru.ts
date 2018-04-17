@@ -3371,5 +3371,25 @@ media file played</source>
         <source>Fine step</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Automatically load external subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Match</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fuzzy</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

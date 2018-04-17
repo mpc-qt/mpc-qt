@@ -68,6 +68,7 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"subtitleAlignment", { "top-center", "top-right", "center-right",\
                             "bottom-right", "bottom-center", "bottom-left",\
                             "center-left", "top-left", "center-center" }},
+    {"subtitlesAutoloadMatch", { "exact", "fuzzy", "all" }},
     {"screenshotFormat", {"jpg", "png"}},
     {"debugMpv", { "no", "fatal", "error", "warn", "info", "v", "debug",\
                    "trace"}}
@@ -323,7 +324,10 @@ void SettingsWindow::setupUnimplementedWidgets()
     ui->subtitlesClearOnSeek->setEnabled(false);
     ui->subtitlesAssOverride->setEnabled(false);
 
-    ui->subsMiscPage->setEnabled(false);
+    ui->subtitlesPreferForced->setEnabled(false);
+    ui->subtitlesPreferExternal->setEnabled(false);
+    ui->subtitlesIgnoreEmbedded->setEnabled(false);
+    ui->subtitlesDatabaseBox->setEnabled(false);
 
     ui->encodeBox->setEnabled(false);
 
@@ -802,6 +806,10 @@ void SettingsWindow::sendSignals()
     emit option("sub-border-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsBorderColorValue).toString()));
     emit option("sub-shadow-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsShadowColorValue).toString()));
 
+    bool subsAutoload = WIDGET_LOOKUP(ui->subtitlesAutoloadExternal).toBool();
+    emit option("sub-auto", subsAutoload ? WIDGET_TO_TEXT(ui->subtitlesAutoloadMatch) : QString("no"));
+    emit option("sub-file-paths", WIDGET_LOOKUP(ui->subtitlesAutoloadPath).toString().split(';'));
+
     emit screenshotDirectory(
                 WIDGET_LOOKUP(ui->screenshotDirectorySet).toBool() ?
                 QFileInfo(WIDGET_PLACEHOLD_LOOKUP(ui->screenshotDirectoryValue)).absoluteFilePath() : QString());
@@ -1079,4 +1087,9 @@ void SettingsWindow::on_miscResetSettings_clicked()
 void SettingsWindow::on_windowVideoValue_textChanged(const QString &arg1)
 {
     logoWidget->setLogoBackground(QString("#%1").arg(ui->windowVideoValue->text()));
+}
+
+void SettingsWindow::on_subtitlesAutoloadReset_clicked()
+{
+    ui->subtitlesAutoloadPath->setText(".;./subtitles;./subs");
 }

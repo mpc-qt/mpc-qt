@@ -239,6 +239,8 @@ private slots:
 
     void on_windowVideoValue_textChanged(const QString &arg1);
 
+    void on_subtitlesAutoloadReset_clicked();
+
 private:
     Ui::SettingsWindow *ui = nullptr;
     QActionEditor *actionEditor = nullptr;

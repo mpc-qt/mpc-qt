@@ -154,7 +154,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>5</number>
+          <number>14</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -668,8 +668,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>98</width>
-                   <height>28</height>
+                   <width>555</width>
+                   <height>178</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -6135,23 +6135,76 @@ media file played</string>
             </widget>
            </item>
            <item>
+            <widget class="QCheckBox" name="subtitlesAutoloadExternal">
+             <property name="text">
+              <string>Automatically load external subtitles</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QGroupBox" name="subtitlesAutoloadBox">
              <property name="title">
               <string>Autoload paths</string>
              </property>
-             <layout class="QHBoxLayout" name="subtitlesAutoloadBoxLayout">
-              <item>
-               <widget class="QLineEdit" name="subtitlesAutoloadPath">
+             <layout class="QFormLayout" name="subtitlesAutoloadBoxLayout">
+              <item row="0" column="0">
+               <widget class="QLabel" name="subtitlesAutoloadPathLabel">
                 <property name="text">
-                 <string notr="true">.;.\subtitles;.\subs</string>
+                 <string>Path</string>
                 </property>
                </widget>
               </item>
-              <item>
-               <widget class="QPushButton" name="subtitlesAutoloadReset">
+              <item row="0" column="1">
+               <layout class="QHBoxLayout" name="subtitlesAutoloadPathLayout">
+                <item>
+                 <widget class="QLineEdit" name="subtitlesAutoloadPath">
+                  <property name="text">
+                   <string notr="true">.;./subtitles;./subs</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="subtitlesAutoloadReset">
+                  <property name="text">
+                   <string>Reset</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="subtitlesAutoloadMatchLabel">
                 <property name="text">
-                 <string>Reset</string>
+                 <string>Match</string>
                 </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="subtitlesAutoloadMatch">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Exact</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Fuzzy</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>All</string>
+                 </property>
+                </item>
                </widget>
               </item>
              </layout>
@@ -7256,12 +7309,12 @@ media file played</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>233</x>
-     <y>548</y>
+     <x>394</x>
+     <y>602</y>
     </hint>
     <hint type="destinationlabel">
-     <x>274</x>
-     <y>548</y>
+     <x>525</x>
+     <y>603</y>
     </hint>
    </hints>
   </connection>
@@ -7294,6 +7347,22 @@ media file played</string>
     <hint type="destinationlabel">
      <x>236</x>
      <y>275</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>subtitlesAutoloadExternal</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>subtitlesAutoloadBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>339</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>340</x>
+     <y>178</y>
     </hint>
    </hints>
   </connection>
