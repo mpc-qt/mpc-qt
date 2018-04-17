@@ -10,12 +10,21 @@
 #include "storage.h"
 #include "platform/unify.h"
 
+QString Storage::configPath;
+
 Storage::Storage(QObject *parent) :
     QObject(parent)
 {
-    configPath = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
-    configPath = Platform::fixedConfigPath(configPath);
-    QDir().mkpath(configPath);
+    QDir().mkpath(fetchConfigPath());
+}
+
+QString Storage::fetchConfigPath()
+{
+    if (configPath.isEmpty()) {
+        configPath = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
+        configPath = Platform::fixedConfigPath(configPath);
+    }
+    return configPath;
 }
 
 void Storage::writeVMap(QString name, const QVariantMap &qvm)

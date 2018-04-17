@@ -20,6 +20,7 @@
 #include "mpvwidget.h"
 #include "helpers.h"
 #include "platform/unify.h"
+#include "storage.h"
 
 #ifndef Q_PROCESSOR_ARM
     #ifndef GLAPIENTRY
@@ -84,9 +85,18 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
     connect(hideTimer, &QTimer::timeout,
             this, &MpvObject::hideTimer_timeout);
 
+    // Fetch installed scripts
+    QString scriptPath = Storage::fetchConfigPath() + "/scripts";
+    auto scriptInfoList = QDir(scriptPath).entryInfoList({"*.lua"}, QDir::Files);
+    QStringList scripts;
+    for (auto &info : scriptInfoList)
+        scripts.append(info.absoluteFilePath());
+
     // Initialize mpv playback instance
     MpvController::OptionList earlyOptions = {
-        { "vo", "libmpv" }
+        { "vo", "libmpv" },
+        { "load-scripts", true },
+        { "scripts", scripts }
     };
     QMetaObject::invokeMethod(ctrl, "create", Qt::BlockingQueuedConnection,
                               Q_ARG(const MpvController::OptionList &, earlyOptions));
