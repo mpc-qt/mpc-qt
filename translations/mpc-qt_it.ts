@@ -3354,20 +3354,8 @@ ogni file multimediale riprodotto</translation>
         <translation>Preferisci tracce sottotitoli forzate e/o predefinite</translation>
     </message>
     <message>
-        <source>Prefer external subtitles over embedded subtitles</source>
-        <translation>Preferisci sottotitoli esterni a quelli integrati</translation>
-    </message>
-    <message>
-        <source>Ignore embedded subtitles</source>
-        <translation>Ignora sottotitoli integrati</translation>
-    </message>
-    <message>
         <source>Autoload paths</source>
         <translation>Carica automaticamente dai percorsi</translation>
-    </message>
-    <message>
-        <source>.;.\subtitles;.\subs</source>
-        <translation type="vanished">.;.\subtitles;.\subs</translation>
     </message>
     <message>
         <source>Online database</source>

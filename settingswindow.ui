@@ -6118,23 +6118,6 @@ media file played</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="subtitlesPreferExternal">
-             <property name="text">
-              <string>Prefer external subtitles over embedded subtitles</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="subtitlesIgnoreEmbedded">
-             <property name="text">
-              <string>Ignore embedded subtitles</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <widget class="QCheckBox" name="subtitlesAutoloadExternal">
              <property name="text">
               <string>Automatically load external subtitles</string>
