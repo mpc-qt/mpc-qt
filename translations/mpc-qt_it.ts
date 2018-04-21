@@ -3673,5 +3673,9 @@ ogni file multimediale riprodotto</translation>
         <source>Fuzzy</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Save with high bit depth</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
