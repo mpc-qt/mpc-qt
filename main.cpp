@@ -33,7 +33,9 @@ int main(int argc, char *argv[])
     // the LC_NUMERIC category to be set to "C", so change it back.
     std::setlocale(LC_NUMERIC, "C");
 
-    // Register the error code type so that signals/slots will work with it
+    // Register the error code type et al so that signals/slots will work with it
+    qRegisterMetaType<MpvController::PropertyList>("MpvController::PropertyList");
+    qRegisterMetaType<MpvController::OptionList>("MpvController::OptionList");
     qRegisterMetaType<MpvErrorCode>("MpvErrorCode");
     qRegisterMetaType<uint64_t>("uint64_t");
 

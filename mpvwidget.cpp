@@ -95,6 +95,8 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
     // Initialize mpv playback instance
     MpvController::OptionList earlyOptions = {
         { "vo", "libmpv" },
+        { "ytdl", "yes" },
+        { "audio-client-name", clientName },
         { "load-scripts", true },
         { "scripts", scripts }
     };
@@ -135,19 +137,18 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
         "decoder-frame-drop-count", "audio-bitrate", "video-bitrate"
     };
     QMetaObject::invokeMethod(ctrl, "observeProperties",
-                              Qt::BlockingQueuedConnection,
+                              Qt::QueuedConnection,
                               Q_ARG(const MpvController::PropertyList &, options),
                               Q_ARG(const QSet<QString> &, throttled));
 
-    // Add hooks
     QMetaObject::invokeMethod(ctrl, "addHook",
-                              Qt::BlockingQueuedConnection,
+                              Qt::QueuedConnection,
                               Q_ARG(QString, "on_unload"),
                               Q_ARG(int, HOOK_UNLOAD_CALLBACK_ID));
 
-    blockingSetMpvOptionVariant("ytdl", "yes");
-    blockingSetMpvOptionVariant("audio-client-name", clientName);
-    ctrl->setLogLevel("info");
+    QMetaObject::invokeMethod(ctrl, "setLogLevel",
+                              Qt::QueuedConnection,
+                              Q_ARG(QString, "info"));
 }
 
 MpvObject::~MpvObject()
