@@ -300,7 +300,6 @@ void PlaybackManager::setPlaybackSpeed(double speed)
 
 void PlaybackManager::setSpeedStep(double step)
 {
-    qDebug() << step;
     speedStep = step;
 }
 
