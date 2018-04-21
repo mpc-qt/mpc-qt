@@ -817,6 +817,7 @@ void SettingsWindow::sendSignals()
                 QFileInfo(WIDGET_PLACEHOLD_LOOKUP(ui->encodeDirectoryValue)).absoluteFilePath() : QString());
     emit screenshotTemplate(WIDGET_PLACEHOLD_LOOKUP(ui->screenshotTemplate));
     emit encodeTemplate(WIDGET_PLACEHOLD_LOOKUP(ui->encodeTemplate));
+    emit option("screenshot-high-bit-depth", WIDGET_LOOKUP(ui->screenshotFormatHighBitDepth));
     emit screenshotFormat(WIDGET_TO_TEXT(ui->screenshotFormat));
     emit option("screenshot-format", WIDGET_TO_TEXT(ui->screenshotFormat));
     emit option("screenshot-jpeg-quality", WIDGET_LOOKUP(ui->jpgQuality).toInt());
