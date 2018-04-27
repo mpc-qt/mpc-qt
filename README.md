@@ -84,11 +84,11 @@ Suggestions welcome.
 
 You need the Qt5 SDK installed and a recent edition of libmpv.  On Ubuntu you
 can usually install the required libraries with the ``qtcreator``,
-``qt5-default``, ``libqt5x11extras5-dev`` and ``libmpv-dev`` packages.
-A recent edition of [libmpv] means either from git head or at least version
-0.29.0.  The mpv options for this are ``--enable-libmpv-shared`` for shared
-library support, and ``--enable-libarchive`` if you want to use mpc-qt as a
-comic book viewer.
+``qt5-default``, ``libqt5x11extras5-dev``, ``qttools5-dev-tools`` and
+``libmpv-dev`` packages.  A recent edition of [libmpv] means either from git
+head or at least version 0.29.0.  The mpv options for this are
+``--enable-libmpv-shared`` for shared library support, and
+``--enable-libarchive`` if you want to use mpc-qt as a comic book viewer.
 
 
 ### I don't know git, how do I do this?
@@ -105,7 +105,7 @@ Then clone this git repository using the following command:
 
 >git clone https://github.com/cmdrkotori/mpc-qt.git
 
-Finally, `cd` into the checked-out repository and fetch the stats submodule
+Finally, `cd` into the checked-out repository.
 
 >cd mpc-qt
 
