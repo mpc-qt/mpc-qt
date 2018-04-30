@@ -393,7 +393,7 @@ QList<QUrl> Helpers::filterUrls(const QList<QUrl> &urls)
             filtered.append(filterUrls(children));
             continue;
         }
-        if (fileExtensions.contains(info.suffix())) {
+        if (fileExtensions.contains(info.suffix().toLower())) {
             filtered << u;
             continue;
         }
