@@ -48,6 +48,7 @@ signals:
 
 public slots:
     void mainwindow_fullscreenModeChanged(bool yes);
+    void mainwindow_volumeChanged(int level);
     void manager_timeChanged(double time, double length);
     void manager_stateChanged(PlaybackManager::PlaybackState state);
     void manager_nowPlayingChanged(QUrl itemUrl, QUuid listUuid, QUuid itemUuid);
@@ -182,7 +183,7 @@ private:
     PlaybackManager::PlaybackState playbackState = PlaybackManager::StoppedState;
     QVariantMap mpvMetadata;
     QVariantMap metadata_;
-    double volume_ = 100;
+    double volume_ = 1;
     double playbackTime_ = -1;
     double playbackDuration_ = -1;
     bool canPlay_ = false;

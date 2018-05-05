@@ -3,6 +3,7 @@
 #include <QDBusMessage>
 #include <QMetaObject>
 #include <QMetaClassInfo>
+#include <cmath>
 #include "ipcmpris.h"
 #include "mpvwidget.h"
 
@@ -87,6 +88,11 @@ void MprisInstance::dbusPropertyChange(QDBusAbstractAdaptor *who, QVariantMap pr
 void MprisInstance::mainwindow_fullscreenModeChanged(bool yes)
 {
     server->instance_setFullscreen(yes);
+}
+
+void MprisInstance::mainwindow_volumeChanged(int level)
+{
+    player->instance_setVolume(level/100.0);
 }
 
 void MprisInstance::manager_timeChanged(double time, double length)
@@ -307,15 +313,17 @@ void MprisPlayerServer::Play()
 
 void MprisPlayerServer::Seek(qlonglong Offset)
 {
+    Offset /= 1000000.0;
     if (canSeek_)
-        emit instance()->relativeSeek(Offset / 1000000.0);
+        emit instance()->relativeSeek(Offset);
 }
 
 void MprisPlayerServer::SetPosition(const QDBusObjectPath &TrackId, qlonglong Position)
 {
     Q_UNUSED(TrackId);
-    if (canSeek_ && !(Position < 0) && Position <= playbackDuration_)
-        emit instance()->absoluteSeek(Position / 1000000.0);
+    Position /= 1000000;
+    if (canSeek_ && Position >=0 && Position <= playbackDuration_)
+        emit instance()->absoluteSeek(Position);
 }
 
 void MprisPlayerServer::OpenUri(QString uri)
@@ -372,6 +380,8 @@ void MprisPlayerServer::instance_setVolume(double volume)
 void MprisPlayerServer::instance_timeChange(double time, double length)
 {
     QVariantMap propertyMap;
+    time = std::trunc(time);
+    length = std::trunc(length);
     if (playbackTime_ != time) {
         playbackTime_ = time;
         propertyMap.insert("Position", qlonglong(time * 1000000));

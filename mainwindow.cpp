@@ -1332,6 +1332,13 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
 void MainWindow::setVolume(int level)
 {
     volumeSlider_->setValue(level);
+    emit volumeChanged(level);
+}
+
+void MainWindow::setVolumeDouble(double level)
+{
+    volumeSlider_->setValue(level*100);
+    emit volumeChanged(level*100);
 }
 
 void MainWindow::resetPlayAfterOnce()

@@ -515,6 +515,8 @@ void Flow::setupMpris()
 {
 #ifdef QT_DBUS_LIB
     mpris = new MprisInstance(this);
+    connect(mainWindow, &MainWindow::volumeChanged,
+            mpris, &MprisInstance::mainwindow_volumeChanged);
     connect(mainWindow, &MainWindow::fullscreenModeChanged,
             mpris, &MprisInstance::mainwindow_fullscreenModeChanged);
     connect(playbackManager, &PlaybackManager::timeChanged,
@@ -535,7 +537,7 @@ void Flow::setupMpris()
     connect(mpris, &MprisInstance::closeInstance,
             mainWindow, &MainWindow::instanceShouldQuit);
     connect(mpris, &MprisInstance::volumeChange,
-            mainWindow, &MainWindow::setVolume);
+            mainWindow, &MainWindow::setVolumeDouble);
     connect(mpris, &MprisInstance::playNextTrack,
             playbackManager, &PlaybackManager::playNext);
     connect(mpris, &MprisInstance::playPreviousTrack,

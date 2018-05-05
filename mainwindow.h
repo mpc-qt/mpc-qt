@@ -173,6 +173,7 @@ public slots:
     void setVideoTracks(QList<QPair<int64_t,QString>> tracks);
     void setSubtitleTracks(QList<QPair<int64_t,QString>> tracks);
     void setVolume(int level);
+    void setVolumeDouble(double level);
     void resetPlayAfterOnce();
     void setPlayAfterAlways(Helpers::AfterPlayback action);
     void setFps(double fps);
