@@ -34,10 +34,6 @@
 
 
 
-static const int HOOK_UNLOAD_CALLBACK_ID = 0xbeefdab;
-
-
-
 MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
 {
     // Setup threads
@@ -56,6 +52,8 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
     // Wire the basic mpv functions to avoid littering the codebase with
     // QMetaObject::invokeMethod.  This way the compiler will catch our
     // typos rather than a runtime error.
+    connect(this, &MpvObject::ctrlContinueHook,
+            ctrl, &MpvController::continueHook, Qt::QueuedConnection);
     connect(this, &MpvObject::ctrlCommand,
             ctrl, &MpvController::command, Qt::QueuedConnection);
     connect(this, &MpvObject::ctrlSetOptionVariant,
@@ -72,8 +70,8 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
             this, &MpvObject::ctrl_mpvPropertyChanged, Qt::QueuedConnection);
     connect(ctrl, &MpvController::logMessage,
             this, &MpvObject::ctrl_logMessage, Qt::QueuedConnection);
-    connect(ctrl, &MpvController::clientMessage,
-            this, &MpvObject::ctrl_clientMessage, Qt::QueuedConnection);
+    connect(ctrl, &MpvController::hookEvent,
+            this, &MpvObject::ctrl_hookEvent, Qt::QueuedConnection);
     connect(ctrl, &MpvController::unhandledMpvEvent,
             this, &MpvObject::ctrl_unhandledMpvEvent, Qt::QueuedConnection);
     connect(ctrl, &MpvController::videoSizeChanged,
@@ -144,7 +142,7 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
     QMetaObject::invokeMethod(ctrl, "addHook",
                               Qt::QueuedConnection,
                               Q_ARG(QString, "on_unload"),
-                              Q_ARG(int, HOOK_UNLOAD_CALLBACK_ID));
+                              Q_ARG(uint64_t, reinterpret_cast<uint64_t>(this)));
 
     QMetaObject::invokeMethod(ctrl, "setLogLevel",
                               Qt::QueuedConnection,
@@ -581,15 +579,17 @@ void MpvObject::ctrl_logMessage(QString message)
     qDebug() << message;
 }
 
-void MpvObject::ctrl_clientMessage(uint64_t id, const QStringList &args)
+void MpvObject::ctrl_hookEvent(QString name, uint64_t selfId, uint64_t mpvId)
 {
-    Q_UNUSED(id);
-    if (args[1] == QString::number(HOOK_UNLOAD_CALLBACK_ID)) {
+    if (reinterpret_cast<MpvObject*>(selfId) != this)
+        return;
+
+    if (name == "on_unload") {
         QVariantList playlist = getMpvPropertyVariant("playlist").toList();
         if (playlist.count() > 1)
             emit playlistChanged(playlist);
-        emit ctrlCommand(QStringList({"hook-ack", args[2]}));
     }
+    emit ctrlContinueHook(mpvId);
 }
 
 void MpvObject::ctrl_unhandledMpvEvent(int eventLevel)
@@ -970,9 +970,16 @@ void MpvController::destroyRenderContext(mpv_render_context *render)
     mpv_render_context_free(render);
 }
 
-void MpvController::addHook(const QString &name, int id)
+void MpvController::addHook(const QString &name, uint64_t selfId)
 {
-    command(QStringList({"hook-add", name, QString::number(id), "0"}));
+    // The caller of this function MUST listen to the hookEvent signal,
+    // and when it hears its selfId, it MUST invoke continueHook.
+    mpv_hook_add(mpv, selfId, name.toUtf8().data(), 0);
+}
+
+void MpvController::continueHook(uint64_t mpvId)
+{
+    mpv_hook_continue(mpv, mpvId);
 }
 
 int MpvController::observeProperties(const MpvController::PropertyList &properties,
@@ -1248,6 +1255,11 @@ void MpvController::handleMpvEvent(mpv_event *event)
             lastVideoSize = QSize();
             emit videoSizeChanged(QSize());
         }
+        break;
+    }
+    case MPV_EVENT_HOOK: {
+        mpv_event_hook *msg = reinterpret_cast<mpv_event_hook*>(event->data);
+        emit hookEvent(msg->name, event->reply_userdata, msg->id);
         break;
     }
     default:

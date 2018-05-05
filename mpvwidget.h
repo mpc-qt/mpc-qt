@@ -87,6 +87,7 @@ public:
     QVariant getMpvPropertyVariant(QString name);
 
 signals:
+    void ctrlContinueHook(int mpvId);
     void ctrlCommand(QVariant params);
     void ctrlSetOptionVariant(QString name, QVariant value);
     void ctrlSetPropertyVariant(QString name, QVariant value);
@@ -136,7 +137,7 @@ private:
 private slots:
     void ctrl_mpvPropertyChanged(QString name, QVariant v);
     void ctrl_logMessage(QString message);
-    void ctrl_clientMessage(uint64_t id, const QStringList &args);
+    void ctrl_hookEvent(QString name, uint64_t selfId, uint64_t mpvId);
     void ctrl_unhandledMpvEvent(int eventLevel);
     void ctrl_videoSizeChanged(QSize size);
     void self_playTimeChanged(double playTime);
@@ -303,6 +304,7 @@ signals:
     void logMessage(QString message);
     void clientMessage(uint64_t id, QStringList args);
     void videoSizeChanged(QSize size);
+    void hookEvent(QString hookName, uint64_t selfId, uint64_t mpvId);
     void unhandledMpvEvent(int eventNumber);
 
 public slots:
@@ -310,7 +312,9 @@ public slots:
     mpv_render_context *createRenderContext(mpv_render_param *params);
     void destroyRenderContext(mpv_render_context *render);
 
-    void addHook(const QString &name, int id);
+    void addHook(const QString &name, uint64_t selfId);
+    void continueHook(uint64_t mpvId);
+
     int observeProperties(const MpvController::PropertyList &properties,
                           const QSet<QString> &throttled = QSet<QString>());
     int unobservePropertiesById(const QSet<uint64_t> &ids);
