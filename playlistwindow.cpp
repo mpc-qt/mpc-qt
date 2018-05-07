@@ -653,7 +653,7 @@ void PlaylistWindow::finishSearch()
     ui->searchHost->setVisible(false);
 }
 
-void PlaylistWindow::savePlayist(const QUuid &playlistUuid)
+void PlaylistWindow::savePlaylist(const QUuid &playlistUuid)
 {
     QString file;
     file = QFileDialog::getSaveFileName(this, tr("Export File"), QString(),
@@ -661,6 +661,63 @@ void PlaylistWindow::savePlayist(const QUuid &playlistUuid)
     auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
     if (!file.isEmpty() && pl)
         emit exportPlaylist(file, pl->toStringList());
+}
+
+void PlaylistWindow::sortPlaylistByLabel(const QUuid &playlistUuid)
+{
+    auto qdp = widgets.value(playlistUuid, nullptr);
+    if (!qdp)
+        return;
+    auto converter = [this](QSharedPointer<Item> i) {
+        return displayParser.parseMetadata(i->metadata(), i->toDisplayString(), Helpers::VideoFile);
+    };
+    auto lessThan = [](const QString &a, const QString &b) {
+        return a < b;
+    };
+    qdp->sort<QString>(converter, lessThan);
+}
+
+void PlaylistWindow::sortPlaylistByUrl(const QUuid &playlistUuid)
+{
+    auto qdp = widgets.value(playlistUuid, nullptr);
+    if (!qdp)
+        return;
+    auto converter = [](QSharedPointer<Item> i) {
+        return i->url().toDisplayString();
+    };
+    auto lessThan = [](const QString &a, const QString &b) {
+        return a < b;
+    };
+    qdp->sort<QString>(converter, lessThan);
+}
+
+void PlaylistWindow::randomizePlaylist(const QUuid &playlistUuid)
+{
+    auto qdp = widgets.value(playlistUuid, nullptr);
+    if (!qdp)
+        return;
+    std::uniform_int_distribution<> itemDistribution(0, qdp->count()-1);
+    auto converter = [&](QSharedPointer<Item> i) {
+        return itemDistribution(randomGenerator);
+    };
+    auto lessThan = [](const int &a, const int &b) {
+        return a < b;
+    };
+    qdp->sort<int>(converter, lessThan);
+}
+
+void PlaylistWindow::restorePlaylist(const QUuid &playlistUuid)
+{
+    auto qdp = widgets.value(playlistUuid, nullptr);
+    if (!qdp)
+        return;
+    auto converter = [&](QSharedPointer<Item> i) {
+        return i->originalPosition();
+    };
+    auto lessThan = [](const int &a, const int &b) {
+        return a < b;
+    };
+    qdp->sort<int>(converter, lessThan);
 }
 
 void PlaylistWindow::self_visibilityChanged()
@@ -712,6 +769,11 @@ void PlaylistWindow::playlist_copySelectionToClipbaord(const QUuid &playlistUuid
     QMimeData *mimeData = new QMimeData();
     mimeData->setUrls(urls);
     QGuiApplication::clipboard()->setMimeData(mimeData);
+}
+
+void PlaylistWindow::playlist_hideOnFullscreenToggled(bool checked)
+{
+
 }
 
 void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid &playlistUuid, const QUuid &itemUuid)
@@ -767,7 +829,7 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     a->setText(tr("Save As..."));
     connect(a, &QAction::triggered,
             this, [this,playlistUuid]() {
-        exportSpecificTab(playlistUuid);
+        savePlaylist(playlistUuid);
     });
     m->addAction(a);
 
@@ -775,20 +837,34 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
 
     a = new QAction(m);
     a->setText(tr("Sort By Label"));
-    //connect(a, &QAction::triggered,
-    //        this, &PlaylistWindow::playlist_removeItemRequested);
+    connect(a, &QAction::triggered,
+            this, [this,playlistUuid]() {
+        sortPlaylistByLabel(playlistUuid);
+    });
     m->addAction(a);
 
     a = new QAction(m);
     a->setText(tr("Sort By Url"));
-    //connect(a, &QAction::triggered,
-    //        this, &PlaylistWindow::playlist_removeItemRequested);
+    connect(a, &QAction::triggered,
+            this, [this,playlistUuid]() {
+        sortPlaylistByUrl(playlistUuid);
+    });
     m->addAction(a);
 
     a = new QAction(m);
     a->setText(tr("Randomize"));
-    //connect(a, &QAction::triggered,
-    //        this, &PlaylistWindow::playlist_removeItemRequested);
+    connect(a, &QAction::triggered,
+            this, [this,playlistUuid]() {
+        randomizePlaylist(playlistUuid);
+    });
+    m->addAction(a);
+
+    a = new QAction(m);
+    a->setText(tr("Restore"));
+    connect(a, &QAction::triggered,
+            this, [this,playlistUuid]() {
+        restorePlaylist(playlistUuid);
+    });
     m->addAction(a);
 
     m->addSeparator();

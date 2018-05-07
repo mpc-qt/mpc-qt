@@ -5,8 +5,10 @@
 
 Item::Item(QUrl url)
 {
+    static int globalCounter = 0;
     setUrl(url);
     setUuid(QUuid::createUuid());
+    setOriginalPosition(globalCounter++);   // Preserve order on first restore
     setQueuePosition(0);
     setExtraPlayTimes(0);
     setHidden(false);
@@ -50,6 +52,16 @@ QVariantMap Item::metadata() const
 void Item::setMetadata(const QVariantMap &qvm)
 {
     metadata_ = qvm;
+}
+
+int Item::originalPosition()
+{
+    return originalPosition_;
+}
+
+void Item::setOriginalPosition(int i)
+{
+    originalPosition_ = i;
 }
 
 int Item::queuePosition() const

@@ -28,6 +28,9 @@ public:
     QVariantMap metadata() const;
     void setMetadata(const QVariantMap &qvm);
 
+    int originalPosition();
+    void setOriginalPosition(int i);
+
     int queuePosition() const;
     void setQueuePosition(int num);
     void decQueuePosition();
@@ -52,6 +55,7 @@ private:
     QUuid playlistUuid_;
     QUrl url_;
     QVariantMap metadata_;
+    int originalPosition_;
     int queuePosition_ = 0;
     int extraPlayTimes_ = 0;
     bool hidden_ = false;

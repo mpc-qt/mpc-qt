@@ -1474,6 +1474,10 @@
         <source>Sort By Url</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PropertiesWindow</name>

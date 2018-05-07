@@ -57,6 +57,9 @@ public:
     void removeItem(QUuid uuid);
     void removeItems(const QList<int> &indicies);
     void removeAll();
+    template<class T>
+    void sort(std::function<T(QSharedPointer<Item>)> converter,
+              std::function<bool(const T &a, const T &b)> lessThan);
 
     QPair<QUuid,QUuid> importUrl(QUrl url);
     void currentToQueue();
@@ -105,6 +108,27 @@ private slots:
     void self_itemDoubleClicked(QListWidgetItem *item);
     void self_customContextMenuRequested(const QPoint &p);
 };
+
+template<class T>
+void QDrawnPlaylist::sort(
+        std::function<T(QSharedPointer<Item>)> converter,
+        std::function<bool(const T &a, const T &b)> lessThan) {
+    QMap<QUuid,T> playlistMap;
+    QList<QSharedPointer<Item>> items;
+    auto pl = playlist();
+    int index = 0;
+    pl->iterateItems([&](QSharedPointer<Item> i) {
+        playlistMap.insertMulti(i->uuid(), converter(i));
+        items.append(i);
+        i->setOriginalPosition(index++);
+    });
+    qSort(items.begin(), items.end(), [&](const QSharedPointer<Item> &a, const QSharedPointer<Item> &b) {
+        return lessThan(playlistMap.value(a->uuid()), playlistMap.value(b->uuid()));
+    });
+    pl->takeItemsRaw(items);
+    pl->addItems(QUuid(), items);
+    repopulateItems();
+}
 
 
 class QDrawnQueue : public QDrawnPlaylist {

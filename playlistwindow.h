@@ -111,13 +111,18 @@ public slots:
     void finishSearch();
 
 private slots:
-    void savePlayist(const QUuid &playlistUuid);
+    void savePlaylist(const QUuid &playlistUuid);
+    void sortPlaylistByLabel(const QUuid &playlistUuid);
+    void sortPlaylistByUrl(const QUuid &playlistUuid);
+    void randomizePlaylist(const QUuid &playlistUuid);
+    void restorePlaylist(const QUuid &playlistUuid);
 
     void self_visibilityChanged();
     void self_dockLocationChanged(Qt::DockWidgetArea area);
     void playlist_removeItemRequested();
     void playlist_removeAllRequested();
     void playlist_copySelectionToClipbaord(const QUuid &playlistUuid);
+    void playlist_hideOnFullscreenToggled(bool checked);
     void playlist_contextMenuRequested(const QPoint &p, const QUuid &playlistUuid, const QUuid &itemUuid);
 
     void on_tabWidget_tabCloseRequested(int index);
