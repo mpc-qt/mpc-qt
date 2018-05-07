@@ -55,11 +55,11 @@ void PlaylistWindow::clearPlaylist(QUuid what)
     updatePlaylistHasItems();
 }
 
-QPair<QUuid, QUuid> PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
+QPair<QUuid, QUuid> PlaylistWindow::addToPlaylist(const QUuid &playlist, const QList<QUrl> &what)
 {
     QList<QUrl> filtered = Helpers::filterUrls(what);
     QPair<QUuid, QUuid> info;
-    auto qdp = currentPlaylistWidget();
+    auto qdp = widgets.contains(playlist) ? widgets.value(playlist) : widgets[QUuid()];
     for (QUrl &url : filtered) {
         QPair<QUuid,QUuid> itemInfo = qdp->importUrl(url);
         if (info.second.isNull())
@@ -67,6 +67,11 @@ QPair<QUuid, QUuid> PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
     }
     updatePlaylistHasItems();
     return info;
+}
+
+QPair<QUuid, QUuid> PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
+{
+    return addToPlaylist(currentPlaylist, what);
 }
 
 QPair<QUuid, QUuid> PlaylistWindow::urlToQuickPlaylist(QUrl what)
@@ -707,8 +712,10 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
 
     a = new QAction(m);
     a->setText(tr("Add"));
-    //connect(a, &QAction::triggered,
-    //        this, &PlaylistWindow::playlist_removeItemRequested);
+    connect(a, &QAction::triggered,
+            this, [this,playlistUuid]() {
+        emit playlistAddItem(playlistUuid);
+    });
     m->addAction(a);
 
     a = new QAction(m);

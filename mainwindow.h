@@ -100,11 +100,13 @@ private:
     void updateOnTop();
     void updateWindowFlags();
     void updateMouseHideTime();
+    QList<QUrl> doQuickOpenFileDialog();
 
 signals:
     void instanceShouldQuit();
     void fileOpened(QUrl what, QUrl subs);
     void severalFilesOpened(QList<QUrl> what, bool important = false);
+    void severalFilesOpenedForPlaylist(QUuid destination, QList<QUrl> what);
     void dvdbdOpened(QUrl what);
     void streamOpened(QUrl what);
     void recentOpened(TrackInfo info);
@@ -292,6 +294,7 @@ private slots:
     void on_play_clicked();
     void volume_sliderMoved(double position);
     void playlistWindow_windowDocked();
+    void playlistWindow_playlistAddItem(const QUuid &playlistUuid);
     void hideTimer_timeout();
 
     void on_actionFileLoadSubtitle_triggered();

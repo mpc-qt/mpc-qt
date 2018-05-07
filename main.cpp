@@ -229,6 +229,8 @@ void Flow::init() {
     // mainwindow -> playlistwindow
     connect(mainWindow, &MainWindow::playCurrentItemRequested,
             mainWindow->playlistWindow(), &PlaylistWindow::playCurrentItem);
+    connect(mainWindow, &MainWindow::severalFilesOpenedForPlaylist,
+            mainWindow->playlistWindow(), &PlaylistWindow::addToPlaylist);
 
     // manager -> mainwindow
     connect(playbackManager, &PlaybackManager::timeChanged,

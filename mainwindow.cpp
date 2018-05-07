@@ -597,6 +597,8 @@ void MainWindow::setupPlaylist()
     mpvHost_->addDockWidget(Qt::RightDockWidgetArea, playlistWindow_);
     connect(playlistWindow_, &PlaylistWindow::windowDocked,
             this, &MainWindow::playlistWindow_windowDocked);
+    connect(playlistWindow_, &PlaylistWindow::playlistAddItem,
+            this, &MainWindow::playlistWindow_playlistAddItem);
     connect(playlistWindow_, &PlaylistWindow::currentPlaylistHasItems,
             ui->play, &QPushButton::setEnabled);
     QList<QWidget *> playlistWidgets = playlistWindow_->findChildren<QWidget *>();
@@ -1015,6 +1017,20 @@ void MainWindow::updateMouseHideTime()
                                  : mouseHideTimeWindowed);
 }
 
+QList<QUrl> MainWindow::doQuickOpenFileDialog()
+{
+    QList<QUrl> urls;
+    static QUrl lastDir;
+    static QString filter;
+    if (filter.isEmpty())
+        filter = Helpers::fileOpenFilter();
+
+    urls = QFileDialog::getOpenFileUrls(this, tr("Quick Open"), lastDir, filter);
+    if (!urls.isEmpty())
+        lastDir = urls[0];
+    return urls;
+}
+
 void MainWindow::setFreestanding(bool freestanding)
 {
     freestanding_ = freestanding;
@@ -1413,16 +1429,9 @@ void MainWindow::setPlaylistQuickQueueMode(bool yes)
 
 void MainWindow::on_actionFileOpenQuick_triggered()
 {
-    QList<QUrl> urls;
-    static QUrl lastDir;
-    static QString filter;
-    if (filter.isEmpty())
-        filter = Helpers::fileOpenFilter();
-
-    urls = QFileDialog::getOpenFileUrls(this, tr("Quick Open"), lastDir, filter);
+    QList<QUrl> urls = doQuickOpenFileDialog();
     if (urls.isEmpty())
         return;
-    lastDir = urls[0];
     emit severalFilesOpened(urls);
 }
 
@@ -2119,6 +2128,14 @@ void MainWindow::playlistWindow_windowDocked()
 {
     if (fullscreenMode_ && fullscreenHidePanels)
         playlistWindow_->hide();
+}
+
+void MainWindow::playlistWindow_playlistAddItem(const QUuid &playlistUuid)
+{
+    QList<QUrl> urls = doQuickOpenFileDialog();
+    if (urls.isEmpty())
+        return;
+    emit severalFilesOpenedForPlaylist(playlistUuid, urls);
 }
 
 void MainWindow::hideTimer_timeout()

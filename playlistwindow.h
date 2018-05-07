@@ -25,6 +25,7 @@ public:
 
     void setCurrentPlaylist(QUuid what);
     void clearPlaylist(QUuid what);
+    QPair<QUuid, QUuid> addToPlaylist(const QUuid &playlist, const QList<QUrl> &what);
     QPair<QUuid, QUuid> addToCurrentPlaylist(QList<QUrl> what);
     QPair<QUuid, QUuid> urlToQuickPlaylist(QUrl what);
     bool isCurrentPlaylistEmpty();
@@ -68,6 +69,7 @@ signals:
     void importPlaylist(QString fname);
     void exportPlaylist(QString fname, QStringList items);
     void quickQueueMode(bool yes);
+    void playlistAddItem(QUuid playlistUUid);
     void playlistShuffleChanged(QUuid playlistUuid, bool shuffle);
 
 public slots:
