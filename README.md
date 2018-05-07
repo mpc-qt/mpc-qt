@@ -153,7 +153,7 @@ package. (or whatever method for your distro.)
 
 >sudo apt-get install git devscripts equivs
 
->rm -f mpv-build-deps_*_*.deb
+>rm -f mpv-build-deps\_\*\_\*.deb
 
 >mk-build-deps -s sudo -i
 
