@@ -111,6 +111,8 @@ public slots:
     void finishSearch();
 
 private slots:
+    void savePlayist(const QUuid &playlistUuid);
+
     void self_visibilityChanged();
     void self_dockLocationChanged(Qt::DockWidgetArea area);
     void playlist_removeItemRequested();

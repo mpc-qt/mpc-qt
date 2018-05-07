@@ -467,13 +467,7 @@ void PlaylistWindow::importTab()
 void PlaylistWindow::exportTab()
 {
     auto uuid = currentPlaylistWidget()->uuid();
-
-    QString file;
-    file = QFileDialog::getSaveFileName(this, tr("Export File"), QString(),
-                                        tr("Playlist files (*.m3u *.m3u8)"));
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(uuid);
-    if (!file.isEmpty() && pl)
-        emit exportPlaylist(file, pl->toStringList());
+    savePlaylist(uuid);
 }
 
 void PlaylistWindow::copy()
@@ -659,6 +653,16 @@ void PlaylistWindow::finishSearch()
     ui->searchHost->setVisible(false);
 }
 
+void PlaylistWindow::savePlayist(const QUuid &playlistUuid)
+{
+    QString file;
+    file = QFileDialog::getSaveFileName(this, tr("Export File"), QString(),
+                                        tr("Playlist files (*.m3u *.m3u8)"));
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
+    if (!file.isEmpty() && pl)
+        emit exportPlaylist(file, pl->toStringList());
+}
+
 void PlaylistWindow::self_visibilityChanged()
 {
     // When the window was (re)created/destroyed for whatever reason by
@@ -761,8 +765,10 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
 
     a = new QAction(m);
     a->setText(tr("Save As..."));
-    //connect(a, &QAction::triggered,
-    //        this, &PlaylistWindow::playlist_removeItemRequested);
+    connect(a, &QAction::triggered,
+            this, [this,playlistUuid]() {
+        exportSpecificTab(playlistUuid);
+    });
     m->addAction(a);
 
     m->addSeparator();
