@@ -90,7 +90,6 @@ head or at least version 0.29.0.  The mpv options for this are
 ``--enable-libmpv-shared`` for shared library support, and
 ``--enable-libarchive`` if you want to use mpc-qt as a comic book viewer.
 
-
 ### I don't know git, how do I do this?
 
 First ensure you have the prerequisites as mentioned above, then open a terminal
@@ -123,6 +122,55 @@ directory will get the latest changes.
 >git pull origin master
 
 Rebuild by following the qmake+make steps as described above.
+
+### I have compiler/linker errors
+
+Some distros have an ancient version of mpv in their repos.  You can install
+libmpv in the following method:
+
+Uninstall any libmpv package you may have.
+
+>sudo apt purge libmpv-dev
+
+Fetch the mpv-build repo.
+
+>cd ~/src
+
+>git clone https://github.com/mpv-player/mpv-build.git
+
+>cd mpv-build
+
+Select the master versions to compile.
+
+>/use-ffmpeg-master
+
+>./use-libass-master
+
+>./use-mpv-master
+
+Follow the instructions for debian and ubuntu about making a build-deps
+package. (or whatever method for your distro.)
+
+>sudo apt-get install git devscripts equivs
+
+>rm -f mpv-build-deps_*_*.deb
+
+>mk-build-deps -s sudo -i
+
+Build libmpv.
+
+>echo --enable-libmpv-shared > mpv_options
+
+>./update
+
+>./build -j4
+
+>sudo ./install
+
+>sudo ldconfig
+
+libmpv should now be installed to `/usr/local/*`.
+
 
 ## Compiling on Windows
 
