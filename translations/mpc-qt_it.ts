@@ -1524,10 +1524,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Hide on Fullscreen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Copy To clipboard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1541,6 +1537,10 @@
     </message>
     <message>
         <source>Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide On Fullscreen</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

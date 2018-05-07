@@ -390,6 +390,11 @@ void PlaylistWindow::setIconTheme(const QString &fallback,
     themer.setIconFolders(fallback, custom);
 }
 
+void PlaylistWindow::setHideFullscreen(bool hidden)
+{
+    hideFullscreen = hidden;
+}
+
 bool PlaylistWindow::activateItem(QUuid playlistUuid, QUuid itemUuid)
 {
     if (!widgets.contains(playlistUuid))
@@ -884,10 +889,14 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     m->addSeparator();
 
     a = new QAction(m);
+    a->setText(tr("Hide On Fullscreen"));
     a->setCheckable(true);
-    a->setText(tr("Hide on Fullscreen"));
-    //connect(a, &QAction::triggered,
-    //        this, &PlaylistWindow::playlist_removeItemRequested);
+    a->setChecked(hideFullscreen);
+    connect(a, &QAction::triggered,
+            this, [this](bool checked) {
+        hideFullscreen = checked;
+        emit hideFullscreenChanged(checked);
+    });
     m->addAction(a);
 
     connect(m, &QMenu::aboutToHide,

@@ -225,6 +225,8 @@ void Flow::init() {
             mainWindow, &MainWindow::setPlaylistVisibleState);
     connect(mainWindow->playlistWindow(), &PlaylistWindow::quickQueueMode,
             mainWindow, &MainWindow::setPlaylistQuickQueueMode);
+    connect(mainWindow->playlistWindow(), &PlaylistWindow::hideFullscreenChanged,
+            mainWindow, &MainWindow::setFullscreenHidePanels);
 
     // mainwindow -> playlistwindow
     connect(mainWindow, &MainWindow::playCurrentItemRequested,
@@ -362,8 +364,14 @@ void Flow::init() {
     // settings -> playlistWindow
     connect(settingsWindow, &SettingsWindow::iconTheme,
             mainWindow->playlistWindow(), &PlaylistWindow::setIconTheme);
+    connect(settingsWindow, &SettingsWindow::hidePanels,
+            mainWindow->playlistWindow(), &PlaylistWindow::setHideFullscreen);
     connect(settingsWindow, &SettingsWindow::playlistFormat,
             mainWindow->playlistWindow(), &PlaylistWindow::setDisplayFormatSpecifier);
+
+    // playlistWindow -> settings
+    connect(mainWindow->playlistWindow(), &PlaylistWindow::hideFullscreenChanged,
+            settingsWindow, &SettingsWindow::setHidePanels);
 
     // settings -> manager
     connect(settingsWindow, &SettingsWindow::speedStep,

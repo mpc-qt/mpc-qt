@@ -180,6 +180,7 @@ public slots:
 
     void setVolume(int level);
     void setZoomPreset(int which);
+    void setHidePanels(bool hidden);
 
 private slots:
     void colorPick_clicked(QLineEdit *colorValue);

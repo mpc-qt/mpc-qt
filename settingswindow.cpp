@@ -886,6 +886,11 @@ void SettingsWindow::setZoomPreset(int which)
     emit settingsData(acceptedSettings.toVMap());
 }
 
+void SettingsWindow::setHidePanels(bool hidden)
+{
+    ui->fullscreenHidePanels->setChecked(hidden);
+}
+
 void SettingsWindow::colorPick_clicked(QLineEdit *colorValue)
 {
     QColor initial = QString("#%1").arg(colorValue->text());

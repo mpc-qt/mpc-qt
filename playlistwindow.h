@@ -71,9 +71,11 @@ signals:
     void quickQueueMode(bool yes);
     void playlistAddItem(QUuid playlistUUid);
     void playlistShuffleChanged(QUuid playlistUuid, bool shuffle);
+    void hideFullscreenChanged(bool checked);
 
 public slots:
     void setIconTheme(const QString &fallback, const QString &custom);
+    void setHideFullscreen(bool hidden);
 
     bool activateItem(QUuid playlistUuid, QUuid itemUuid);
     void changePlaylistSelection(QUrl itemUrl, QUuid playlistUuid, QUuid itemUuid);
@@ -143,6 +145,7 @@ private:
     QUuid currentPlaylist;
     DisplayParser displayParser;
     bool showSearch = false;
+    bool hideFullscreen = false;
 
     QHash<QUuid, QDrawnPlaylist*> widgets;
     QDrawnPlaylist* queueWidget = nullptr;
