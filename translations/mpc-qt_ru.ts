@@ -1430,6 +1430,50 @@
         <source>&amp;Export Playlist</source>
         <translation>&amp;Экспортировать плейлист</translation>
     </message>
+    <message>
+        <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Randomize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shuffle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide on Fullscreen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy To clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sort By Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sort By Url</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PropertiesWindow</name>
@@ -1561,11 +1605,11 @@
     <name>QDrawnPlaylist</name>
     <message>
         <source>Remove</source>
-        <translation>Удалить</translation>
+        <translation type="vanished">Удалить</translation>
     </message>
     <message>
         <source>Remove All</source>
-        <translation>Удалить всё</translation>
+        <translation type="vanished">Удалить всё</translation>
     </message>
 </context>
 <context>

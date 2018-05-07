@@ -1495,6 +1495,50 @@
         <source>&amp;Export Playlist</source>
         <translation>&amp;Esporta scaletta</translation>
     </message>
+    <message>
+        <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Aggiungi</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Rimuovi</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Randomize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shuffle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide on Fullscreen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy To clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sort By Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sort By Url</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PropertiesWindow</name>
@@ -1630,11 +1674,11 @@
     <name>QDrawnPlaylist</name>
     <message>
         <source>Remove</source>
-        <translation>Rimuovi</translation>
+        <translation type="vanished">Rimuovi</translation>
     </message>
     <message>
         <source>Remove All</source>
-        <translation>Rimuovi tutto</translation>
+        <translation type="vanished">Rimuovi tutto</translation>
     </message>
 </context>
 <context>

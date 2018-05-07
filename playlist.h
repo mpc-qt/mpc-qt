@@ -89,6 +89,7 @@ public:
     QSharedPointer<Item> addItemClone(const QSharedPointer<Item> &item);
     void addItemRaw(const QSharedPointer<Item> &item);
 
+    QSharedPointer<Item> itemAt(int index);
     QSharedPointer<Item> itemOf(const QUuid &uuid);
     QSharedPointer<Item> itemAfter(const QUuid &uuid);
     QSharedPointer<Item> itemBefore(const QUuid &uuid);
@@ -106,6 +107,8 @@ public:
 
     QString title();
     void setTitle(const QString &title);
+    bool shuffle();
+    void setShuffle(bool shuffle);
     QUuid uuid();
     void setUuid(const QUuid &uuid);
 
@@ -115,12 +118,12 @@ public:
     QVariantMap toVMap();
     void fromVMap(const QVariantMap &qvm);
 
-
 protected:
     QList<QSharedPointer<Item>> items;
     QHash<QUuid, QSharedPointer<Item>> itemsByUuid;
     //QList<QUuid> queue;
     QString title_;
+    bool shuffle_ = false;
     QUuid uuid_;
 
     QReadWriteLock listLock;

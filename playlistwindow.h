@@ -4,6 +4,7 @@
 #include <QDockWidget>
 #include <QHash>
 #include <QUuid>
+#include <random>
 #include "helpers.h"
 
 namespace Ui {
@@ -28,6 +29,7 @@ public:
     QPair<QUuid, QUuid> urlToQuickPlaylist(QUrl what);
     bool isCurrentPlaylistEmpty();
     bool isPlaylistSingularFile(QUuid list);
+    bool isPlaylistShuffle(QUuid list);
     QPair<QUuid, QUuid> getItemAfter(QUuid list, QUuid item);
     QUuid getItemBefore(QUuid list, QUuid item);
     QUrl getUrlOf(QUuid list, QUuid item);
@@ -66,6 +68,7 @@ signals:
     void importPlaylist(QString fname);
     void exportPlaylist(QString fname, QStringList items);
     void quickQueueMode(bool yes);
+    void playlistShuffleChanged(QUuid playlistUuid, bool shuffle);
 
 public slots:
     void setIconTheme(const QString &fallback, const QString &custom);
@@ -110,6 +113,7 @@ private slots:
     void self_dockLocationChanged(Qt::DockWidgetArea area);
     void playlist_removeItemRequested();
     void playlist_removeAllRequested();
+    void playlist_contextMenuRequested(const QPoint &p, const QUuid &playlistUuid, const QUuid &itemUuid);
 
     void on_tabWidget_tabCloseRequested(int index);
 
@@ -133,6 +137,8 @@ private:
     QHash<QUuid, QDrawnPlaylist*> widgets;
     QDrawnPlaylist* queueWidget = nullptr;
     PlaylistSelection *clipboard = nullptr;
+    std::random_device randomDevice;
+    std::mt19937 randomGenerator;
 };
 
 #endif // PLAYLISTWINDOW_H

@@ -232,6 +232,14 @@ void Playlist::addItemRaw(const QSharedPointer<Item> &item)
     itemsByUuid.insert(item->uuid(), item);
 }
 
+QSharedPointer<Item> Playlist::itemAt(int index)
+{
+    QReadLocker locker(&listLock);
+    if (index < 0 || index >= items.count())
+        return QSharedPointer<Item>();
+    return items.value(index);
+}
+
 QSharedPointer<Item> Playlist::itemOf(const QUuid &uuid)
 {
     QReadLocker locker(&listLock);
@@ -377,6 +385,16 @@ void Playlist::setTitle(const QString &title)
     title_ = title;
 }
 
+bool Playlist::shuffle()
+{
+    return shuffle_;
+}
+
+void Playlist::setShuffle(bool shuffling)
+{
+    shuffle_ = shuffling;
+}
+
 QUuid Playlist::uuid()
 {
     QReadLocker locker(&listLock);
@@ -417,6 +435,7 @@ QVariantMap Playlist::toVMap()
     QWriteLocker locker(&listLock);
     QVariantMap qvm;
     qvm.insert("title", title_);
+    qvm.insert("shuffle", shuffle_);
     qvm.insert("uuid", uuid_);
 
     QVariantList qvl;
@@ -431,6 +450,7 @@ void Playlist::fromVMap(const QVariantMap &qvm)
 {
     QReadLocker locker(&listLock);
     title_ = qvm.contains("title") ? qvm["title"].toString() : QString();
+    shuffle_ = qvm.contains("shuffle") ? qvm["shuffle"].toBool() : false;
     uuid_ = qvm.contains("uuid") ? qvm["uuid"].toUuid() : QUuid::createUuid();
     if (qvm.contains("items")) {
         auto items = qvm["items"].toList();

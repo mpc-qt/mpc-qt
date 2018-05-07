@@ -14,7 +14,9 @@
 PlaylistWindow::PlaylistWindow(QWidget *parent) :
     QDockWidget(parent),
     ui(new Ui::PlaylistWindow),
-    currentPlaylist()
+    currentPlaylist(),
+    randomDevice(),
+    randomGenerator(randomDevice())
 {
     clipboard = new PlaylistSelection;
 
@@ -91,6 +93,14 @@ bool PlaylistWindow::isPlaylistSingularFile(QUuid list)
     return item->url().isLocalFile();
 }
 
+bool PlaylistWindow::isPlaylistShuffle(QUuid list)
+{
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    if (!pl)
+        return false;
+    return pl->shuffle();
+}
+
 QPair<QUuid,QUuid> PlaylistWindow::getItemAfter(QUuid list, QUuid item)
 {
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
@@ -100,7 +110,13 @@ QPair<QUuid,QUuid> PlaylistWindow::getItemAfter(QUuid list, QUuid item)
     QPair<QUuid, QUuid> next = qpl->takeFirst();
     if (!next.second.isNull())
         return next;
-    QSharedPointer<Item> after = pl->itemAfter(item);
+    QSharedPointer<Item> after;
+    if (pl->shuffle() && !pl->isEmpty()) {
+        std::uniform_int_distribution<> itemDistribution(0, pl->count()-1);
+        after = pl->itemAt(itemDistribution(randomGenerator));
+    } else {
+        after = pl->itemAfter(item);
+    }
     if (!after)
         return { QUuid(), QUuid() };
     return { pl->uuid(), after->uuid() };
@@ -217,10 +233,8 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
         qdp->fromVMap(v.toMap());
         connect(qdp, &QDrawnPlaylist::itemDesired,
                 this, &PlaylistWindow::itemDesired);
-        connect(qdp, &QDrawnPlaylist::removeItemRequested,
-                this, &PlaylistWindow::playlist_removeItemRequested);
-        connect(qdp, &QDrawnPlaylist::removeAllRequested,
-                this, &PlaylistWindow::playlist_removeAllRequested);
+        connect(qdp, &QDrawnPlaylist::contextMenuRequested,
+                this, &PlaylistWindow::playlist_contextMenuRequested);
         auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
         ui->tabWidget->addTab(qdp, pl->title());
         widgets.insert(pl->uuid(), qdp);
@@ -346,10 +360,8 @@ void PlaylistWindow::addNewTab(QUuid playlist, QString title)
     qdp->setDisplayParser(&displayParser);
     qdp->setUuid(playlist);
     connect(qdp, &QDrawnPlaylist::itemDesired, this, &PlaylistWindow::itemDesired);
-    connect(qdp, &QDrawnPlaylist::removeItemRequested,
-            this, &PlaylistWindow::playlist_removeItemRequested);
-    connect(qdp, &QDrawnPlaylist::removeAllRequested,
-            this, &PlaylistWindow::playlist_removeAllRequested);
+    connect(qdp, &QDrawnPlaylist::contextMenuRequested,
+            this, &PlaylistWindow::playlist_contextMenuRequested);
     widgets.insert(playlist, qdp);
     ui->tabWidget->addTab(qdp, title);
     ui->tabWidget->setCurrentWidget(qdp);
@@ -674,6 +686,105 @@ void PlaylistWindow::playlist_removeAllRequested()
 
     qdp->removeAll();
     updatePlaylistHasItems();
+}
+
+void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid &playlistUuid, const QUuid &itemUuid)
+{
+    if (!widgets.contains(playlistUuid))
+        return;
+    QDrawnPlaylist *listWidget = widgets[playlistUuid];
+
+    QMenu *m = new QMenu(this);
+    QAction *a;
+
+    a = new QAction(m);
+    a->setText(tr("Open"));
+    connect(a, &QAction::triggered,
+            this, [this,playlistUuid,itemUuid]() {
+        emit itemDesired(playlistUuid, itemUuid);
+    });
+    m->addAction(a);
+
+    a = new QAction(m);
+    a->setText(tr("Add"));
+    //connect(a, &QAction::triggered,
+    //        this, &PlaylistWindow::playlist_removeItemRequested);
+    m->addAction(a);
+
+    a = new QAction(m);
+    a->setText(tr("Remove"));
+    connect(a, &QAction::triggered,
+            this, &PlaylistWindow::playlist_removeItemRequested);
+    m->addAction(a);
+
+    m->addSeparator();
+
+    a = new QAction(m);
+    a->setText(tr("Clear"));
+    connect(a, &QAction::triggered,
+            this, &PlaylistWindow::playlist_removeAllRequested);
+    m->addAction(a);
+
+    m->addSeparator();
+
+    a = new QAction(m);
+    a->setText(tr("Copy To clipboard"));
+    //connect(a, &QAction::triggered,
+    //        this, &PlaylistWindow::playlist_removeItemRequested);
+    m->addAction(a);
+
+    a = new QAction(m);
+    a->setText(tr("Save As..."));
+    //connect(a, &QAction::triggered,
+    //        this, &PlaylistWindow::playlist_removeItemRequested);
+    m->addAction(a);
+
+    m->addSeparator();
+
+    a = new QAction(m);
+    a->setText(tr("Sort By Label"));
+    //connect(a, &QAction::triggered,
+    //        this, &PlaylistWindow::playlist_removeItemRequested);
+    m->addAction(a);
+
+    a = new QAction(m);
+    a->setText(tr("Sort By Url"));
+    //connect(a, &QAction::triggered,
+    //        this, &PlaylistWindow::playlist_removeItemRequested);
+    m->addAction(a);
+
+    a = new QAction(m);
+    a->setText(tr("Randomize"));
+    //connect(a, &QAction::triggered,
+    //        this, &PlaylistWindow::playlist_removeItemRequested);
+    m->addAction(a);
+
+    m->addSeparator();
+
+    a = new QAction(m);
+    a->setText(tr("Shuffle"));
+    a->setCheckable(true);
+    a->setChecked(listWidget->playlist()->shuffle());
+    connect(a, &QAction::triggered,
+            this, [this,playlistUuid](bool checked) {
+        if (widgets.contains(playlistUuid))
+            widgets[playlistUuid]->playlist()->setShuffle(checked);
+        emit playlistShuffleChanged(playlistUuid, checked);
+    });
+    m->addAction(a);
+
+    m->addSeparator();
+
+    a = new QAction(m);
+    a->setCheckable(true);
+    a->setText(tr("Hide on Fullscreen"));
+    //connect(a, &QAction::triggered,
+    //        this, &PlaylistWindow::playlist_removeItemRequested);
+    m->addAction(a);
+
+    connect(m, &QMenu::aboutToHide,
+            m, &QObject::deleteLater);
+    m->exec(listWidget->mapToGlobal(p));
 }
 
 void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
