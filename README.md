@@ -142,7 +142,7 @@ Fetch the mpv-build repo.
 
 Select the master versions to compile.
 
->/use-ffmpeg-master
+>./use-ffmpeg-master
 
 >./use-libass-master
 
