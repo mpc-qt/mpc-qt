@@ -761,7 +761,7 @@ void PlaylistWindow::playlist_removeAllRequested()
     updatePlaylistHasItems();
 }
 
-void PlaylistWindow::playlist_copySelectionToClipbaord(const QUuid &playlistUuid)
+void PlaylistWindow::playlist_copySelectionToClipboard(const QUuid &playlistUuid)
 {
     auto qdp = widgets.value(playlistUuid, nullptr);
     if (!qdp)
@@ -826,7 +826,7 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     a->setText(tr("Copy To clipboard"));
     connect(a, &QAction::triggered,
             this, [this,playlistUuid]() {
-        playlist_copySelectionToClipbaord(playlistUuid);
+        playlist_copySelectionToClipboard(playlistUuid);
     });
     m->addAction(a);
 

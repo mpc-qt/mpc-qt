@@ -123,7 +123,7 @@ private slots:
     void self_dockLocationChanged(Qt::DockWidgetArea area);
     void playlist_removeItemRequested();
     void playlist_removeAllRequested();
-    void playlist_copySelectionToClipbaord(const QUuid &playlistUuid);
+    void playlist_copySelectionToClipboard(const QUuid &playlistUuid);
     void playlist_hideOnFullscreenToggled(bool checked);
     void playlist_contextMenuRequested(const QPoint &p, const QUuid &playlistUuid, const QUuid &itemUuid);
 
