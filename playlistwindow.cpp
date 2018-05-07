@@ -1,5 +1,7 @@
 #include <QAction>
+#include <QClipboard>
 #include <QDragEnterEvent>
+#include <QGuiApplication>
 #include <QMimeData>
 #include <QInputDialog>
 #include <QFileDialog>
@@ -693,6 +695,21 @@ void PlaylistWindow::playlist_removeAllRequested()
     updatePlaylistHasItems();
 }
 
+void PlaylistWindow::playlist_copySelectionToClipbaord(const QUuid &playlistUuid)
+{
+    auto qdp = widgets.value(playlistUuid, nullptr);
+    if (!qdp)
+        return;
+    auto pl = qdp->playlist();
+    QList<QUrl> urls;
+    qdp->traverseSelected([&pl,&urls](QUuid itemUuid) {
+        urls.append(pl->itemOf(itemUuid)->url());
+    });
+    QMimeData *mimeData = new QMimeData();
+    mimeData->setUrls(urls);
+    QGuiApplication::clipboard()->setMimeData(mimeData);
+}
+
 void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid &playlistUuid, const QUuid &itemUuid)
 {
     if (!widgets.contains(playlistUuid))
@@ -736,8 +753,10 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
 
     a = new QAction(m);
     a->setText(tr("Copy To clipboard"));
-    //connect(a, &QAction::triggered,
-    //        this, &PlaylistWindow::playlist_removeItemRequested);
+    connect(a, &QAction::triggered,
+            this, [this,playlistUuid]() {
+        playlist_copySelectionToClipbaord(playlistUuid);
+    });
     m->addAction(a);
 
     a = new QAction(m);
