@@ -837,7 +837,6 @@ void MpvGlWidget::initializeGL()
         qDebug() << "[glwidget] assigning x11 display";
         params[2].type = MPV_RENDER_PARAM_X11_DISPLAY;
         params[2].data = (void*)QX11Info::display();
-        qDebug() << params[2].data;
     } else if (QGuiApplication::platformName().contains("wayland")) {
         qDebug() << "[glwidget] assigning wayland display";
         QPlatformNativeInterface *native = QGuiApplication::platformNativeInterface();
