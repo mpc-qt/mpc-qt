@@ -4,9 +4,11 @@
 #include <QtGlobal>
 #if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
 #include <QtX11Extras/QX11Info>
+#include <qpa/qplatformnativeinterface.h>
 #endif
 #include <QLayout>
 #include <QMainWindow>
+#include <QGuiApplication>
 #include <QThread>
 #include <QTimer>
 #include <QOpenGLContext>
@@ -823,8 +825,30 @@ void MpvGlWidget::initializeGL()
     mpv_render_param params[] {
         { MPV_RENDER_PARAM_API_TYPE, (void*)MPV_RENDER_API_TYPE_OPENGL },
         { MPV_RENDER_PARAM_OPENGL_INIT_PARAMS, (void*)&glInit },
+        { MPV_RENDER_PARAM_INVALID, nullptr },
         { MPV_RENDER_PARAM_INVALID, nullptr }
     };
+    QWidget *nativeParent = nativeParentWidget();
+    if (nativeParent == nullptr) {
+        qDebug() << "[glwidget] no native parent handle";
+    }
+#if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
+    else if (QGuiApplication::platformName().contains("xcb")) {
+        qDebug() << "[glwidget] assigning x11 display";
+        params[2].type = MPV_RENDER_PARAM_X11_DISPLAY;
+        params[2].data = (void*)QX11Info::display();
+        qDebug() << params[2].data;
+    } else if (QGuiApplication::platformName().contains("wayland")) {
+        qDebug() << "[glwidget] assigning wayland display";
+        QPlatformNativeInterface *native = QGuiApplication::platformNativeInterface();
+        params[2].type = MPV_RENDER_PARAM_WL_DISPLAY;
+        params[2].data = native->nativeResourceForWindow("display", nullptr);
+    } else
+#endif
+    {
+        qDebug() << "[glwidget] unknown display mode (eglfs et al)";
+    }
+
     render = ctrl->createRenderContext(params);
     mpv_render_context_set_update_callback(render, MpvGlWidget::render_update, (void *)this);
     if (!logo)
