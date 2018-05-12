@@ -144,7 +144,7 @@ static QStringList internalLogos = {
 void Setting::sendToControl()
 {
     if (!widget) {
-        qDebug() << "[Settings] attempted to send data to null widget!";
+        qDebug() << "[settings] attempted to send data to null widget!";
         return;
     }
     classSetter[widget->metaObject()->className()](widget, value);
@@ -153,7 +153,7 @@ void Setting::sendToControl()
 void Setting::fetchFromControl()
 {
     if (!widget) {
-        qDebug() << "[Settings] attempted to get data from null widget!";
+        qDebug() << "[settings] attempted to get data from null widget!";
         return;
     }
     value = classFetcher[widget->metaObject()->className()](widget);

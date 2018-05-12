@@ -515,14 +515,14 @@ QVariant MpvObject::getMpvPropertyVariant(QString name)
 void MpvObject::setMpvPropertyVariant(QString name, QVariant value)
 {
     if (debugMessages)
-        qDebug() << "property set " << name << value;
+        qDebug().noquote() << "[mpvobject] property set" << name << value;
     emit ctrlSetPropertyVariant(name, value);
 }
 
 void MpvObject::setMpvOptionVariant(QString name, QVariant value)
 {
     if (debugMessages)
-        qDebug() << "option set " << name << value;
+        qDebug().noquote() << "[mpvobject] option set" << name << value;
     emit ctrlSetOptionVariant(name, value);
 }
 
@@ -549,7 +549,7 @@ void MpvObject::hideCursor()
 void MpvObject::ctrl_mpvPropertyChanged(QString name, QVariant v)
 {
     if (debugMessages)
-        qDebug() << "property changed " << name << v;
+        qDebug().noquote() << "[mpvobject] property changed" << name << v;
 
     bool ok = v.type() < QVariant::UserType;
     //FIXME: use constant-time map to function lookup
@@ -578,7 +578,7 @@ void MpvObject::ctrl_mpvPropertyChanged(QString name, QVariant v)
 
 void MpvObject::ctrl_logMessage(QString message)
 {
-    qDebug() << message;
+    qDebug().noquote() << message;
 }
 
 void MpvObject::ctrl_hookEvent(QString name, uint64_t selfId, uint64_t mpvId)
@@ -599,31 +599,31 @@ void MpvObject::ctrl_unhandledMpvEvent(int eventLevel)
     switch(eventLevel) {
     case MPV_EVENT_START_FILE: {
         if (debugMessages)
-            qDebug() << "start file";
+            qDebug() << "[mpvobject] start file";
         emit playbackLoading();
         break;
     }
     case MPV_EVENT_FILE_LOADED: {
         if (debugMessages)
-            qDebug() << "file loaded";
+            qDebug() << "[mpvobject] file loaded";
         emit playbackStarted();
         break;
     }
     case MPV_EVENT_END_FILE: {
         if (debugMessages)
-            qDebug() << "end file";
+            qDebug() << "[mpvobject] end file";
         emit playbackFinished();
         break;
     }
     case MPV_EVENT_IDLE: {
         if (debugMessages)
-            qDebug() << "idling";
+            qDebug() << "[mpvobject] idling";
         emit playbackIdling();
         break;
     }
     case MPV_EVENT_SHUTDOWN: {
         if (debugMessages)
-            qDebug() << "event shutdown";
+            qDebug() << "[mpvobject] event shutdown";
         emit playbackFinished();
         break;
     }
@@ -858,7 +858,7 @@ void MpvGlWidget::paintGL()
 {
     //FIXME: use log()
     if (mpvObject->clientDebuggingMessages())
-        qDebug() << "paintGL";
+        qDebug() << "[glwidget] paintGL";
     bool yes = true;
 
     if (!drawLogo) {
@@ -1058,12 +1058,12 @@ void MpvController::showStatsPage(int page)
     bool statsVisible = (shownStatsPage > 0 && shownStatsPage < 3);
     bool wantVisible = (page > 0 && page < 3);
     if (wantVisible ^ statsVisible) {
-        qDebug() << "toggling stats page";
+        qDebug() << "[mpvctrl] toggling stats page";
         command(QStringList({"script-binding",
                              "stats/display-stats-toggle"}));
     }
     if (wantVisible) {
-        qDebug() << "setting page to " << page;
+        qDebug() << "[mpvctrl] setting page to" << page;
         QString pageCommand("stats/display-page-%1");
         command(QStringList({"script-binding",
                              pageCommand.arg(QString::number(page))}));

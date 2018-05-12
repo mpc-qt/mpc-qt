@@ -532,7 +532,6 @@ void PlaybackManager::playNextFile()
     if (index <= 0 || index >= files.count())
         goto stop;
     nextFile = dir.filePath(files.value(index));
-    qDebug() << index << info.fileName() << files.value(index-1) << nextFile;
     url = QUrl::fromLocalFile(nextFile);
     playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, { url });
     startPlayWithUuid(url, nowPlayingList, nowPlayingItem, false);
@@ -564,7 +563,6 @@ void PlaybackManager::playPrevFile()
     if (index < 0)
         goto stop;
     nextFile = dir.filePath(files.value(index));
-    qDebug() << index << info.fileName() << files.value(index + 1) << nextFile;
     url = QUrl::fromLocalFile(nextFile);
     playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, { url });
     startPlayWithUuid(url, nowPlayingList, nowPlayingItem, false);

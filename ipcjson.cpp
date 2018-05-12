@@ -340,7 +340,7 @@ void MpvServer::server_newConnection(QLocalSocket *socket)
         return;
     }
 
-    qDebug() << "new connection";
+    qDebug() << "[ipc] new mpv connection";
     new MpvConnection(socket, playbackManager, mpvObject, this);
 }
 
