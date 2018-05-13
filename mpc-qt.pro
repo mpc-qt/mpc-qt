@@ -12,13 +12,42 @@ TARGET = mpc-qt
 TEMPLATE = app
 
 CONFIG += c++14
-CONFIG(release,debug|release): {
-    DEFINES += $$system( bash -c \"date +'MPCQT_VERSION_STR=\\\\\\\"%y.%m\\\\\\\"'\")
+
+!isEmpty(MPCQT_VERSION) {
+    # version provided on qmake commandline.
+    # e.g. distro makers, make-release-win script
+    VERSTR = $$MPCQT_VERSION
+    VERSTR_WIN = $${MPCQT_VERSION}.0
+} else:exists(.git) {
+    # bare qmake, likely by myself or brave users
+    VERSTR = $$system(git describe --tags --abbrev=0)
+    VERSTR_BLD = $$system(git rev-list $${VERSTR}..HEAD --count)
+    VERSTR = $$replace(VERSTR,'v','')
+    VERSTR_WIN = $$VERSTR.$$VERSTR_BLD
+    # use expanded version when past the last tag
+    !isEqual($$VERSTR_BLD,0) {
+        VERSTR=$$system(git describe --tags)
+        VERSTR=$$replace(VERSTR,v,'')
+        DEFINES += MPCQT_DEVELOPMENT
+    }
+}
+!isEmpty(VERSTR) {
+    VERSTR_DECLARE = MPCQT_VERSION_STR=\\\"$${VERSTR}\\\"
+    DEFINES += ""$${VERSTR_DECLARE}""
+} else {
+    # not in a git repo and no parsable version given.
+    # this is most probably not a disaster, since the
+    # version string may have been provided on the
+    # command line, and we have a sane fallback.
+    VERSTR_WIN = 0.0.0.0
+}
+
+CONFIG(release,debug|release) {
     win32:QMAKE_TARGET_COMPANY="The Mpc-Qt developers"
     win32:QMAKE_TARGET_COPYRIGHT="Copyright (c) 2015 The Mpc-Qt developers"
     win32:QMAKE_TARGET_PRODUCT="Media Player Classic Qute Theater"
     win32:QMAKE_TARGET_DESCRIPTION="MPC-QT"
-    VERSION = $$system( bash -c \"date +'%y.%m.0'\" )
+    VERSION = $$VERSTR_WIN
 }
 
 unix:!macx:QT += x11extras dbus gui-private

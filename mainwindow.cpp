@@ -2042,7 +2042,9 @@ void MainWindow::on_actionHelpHomepage_triggered()
 
 void MainWindow::on_actionHelpAbout_triggered()
 {
-#ifdef MPCQT_VERSION_STR
+#if defined(MPCQT_DEVELOPMENT)
+#define BUILD_VERSION_STR QString("%1 (%2)").arg(devBuild, MPCQT_VERSION_STR)
+#elif defined(MPCQT_VERSION_STR)
 #define BUILD_VERSION_STR versionFmt.arg(MPCQT_VERSION_STR)
 #else
 #define BUILD_VERSION_STR devBuild
