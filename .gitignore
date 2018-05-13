@@ -10,6 +10,10 @@
 *.dll
 *.dylib
 
+# Windows resources
+*.rc
+*.ico
+
 # Qt-es
 =======
 

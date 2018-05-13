@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network widgets gui-private
+QT       += core gui network widgets
 
 QMAKE_CXXFLAGS += -Wall
 
@@ -13,7 +13,7 @@ TEMPLATE = app
 
 CONFIG += c++14
 
-unix:!macx:QT += x11extras dbus
+unix:!macx:QT += x11extras dbus gui-private
 unix:!macx:LIBS += $$QMAKE_LIBS_DYNLOAD
 
 !win32:CONFIG += link_pkgconfig
@@ -84,6 +84,7 @@ unix:!macx:SOURCES += platform/unix_qscreensaver.cpp \
 unix:!macx:HEADERS += platform/unix_qscreensaver.h \
                       ipcmpris.h
 
+win32:RC_FILE = $$system( bash make-win-icon.sh )
 win32:SOURCES += platform/win_qscreensaver.cpp
 win32:HEADERS += platform/win_qscreensaver.h
 
@@ -156,5 +157,6 @@ OTHER_FILES += \
 
 DISTFILES += \
     DOCS/ipc.md \
-    mpc-qt.desktop
+    mpc-qt.desktop \
+    make-win-icon.sh
 
