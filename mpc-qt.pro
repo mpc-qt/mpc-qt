@@ -12,6 +12,14 @@ TARGET = mpc-qt
 TEMPLATE = app
 
 CONFIG += c++14
+CONFIG(release,debug|release): {
+    DEFINES += $$system( bash -c \"date +'MPCQT_VERSION_STR=\\\\\\\"%y.%m\\\\\\\"'\")
+    win32:QMAKE_TARGET_COMPANY="The Mpc-Qt developers"
+    win32:QMAKE_TARGET_COPYRIGHT="Copyright (c) 2015 The Mpc-Qt developers"
+    win32:QMAKE_TARGET_PRODUCT="Media Player Classic Qute Theater"
+    win32:QMAKE_TARGET_DESCRIPTION="MPC-QT"
+    VERSION = $$system( bash -c \"date +'%y.%m.0'\" )
+}
 
 unix:!macx:QT += x11extras dbus gui-private
 unix:!macx:LIBS += $$QMAKE_LIBS_DYNLOAD
@@ -84,7 +92,7 @@ unix:!macx:SOURCES += platform/unix_qscreensaver.cpp \
 unix:!macx:HEADERS += platform/unix_qscreensaver.h \
                       ipcmpris.h
 
-win32:RC_FILE = $$system( bash make-win-icon.sh )
+win32:RC_ICONS = $$system( bash make-win-icon.sh )
 win32:SOURCES += platform/win_qscreensaver.cpp
 win32:HEADERS += platform/win_qscreensaver.h
 
@@ -150,13 +158,13 @@ RESOURCES += \
 OTHER_FILES += \
     LICENSE \
     README.md \
-    generate-localinstall-desktop.py \
+    make-win-icon.sh \
+    make-release-win.sh \
     DOCS/codebase2.svg \
     DOCS/codebase.svg \
     'DOCS/coding standards.md'
 
 DISTFILES += \
     DOCS/ipc.md \
-    mpc-qt.desktop \
-    make-win-icon.sh
+    mpc-qt.desktop
 

@@ -1,24 +1,14 @@
 #!/bin/bash
 # Make windows release script using 64bit libs
-#
-# Usage:
-# 	./make-release-win.sh SUFFIX
-#
-#	SUFFIX	name of zipfile will be called mpc-qt-SUFFIX.zip
-#
-# Example:
-#	./make-release-win.sh win-x64-YYMM
-#
-# To change the version string displayed in Help->About This Program,
-# add the following line to mpc-qt.pro beforehand.
-#
-#	DEFINES += MPCQT_VERSION_STR=YY.MM
 
-
+VERSION=`date +'%y%m'`
 BUILD=release
-DEST=mpc-qt-$1
+SUFFIX="win-x64-$VERSION"
+DEST="mpc-qt-$SUFFIX"
 
 qmake mpc-qt.pro
+mkdir -p release
+rm release/*
 make release-clean
 make -j4 release
 
@@ -40,9 +30,9 @@ libglib-2.0-0.dll
 libgraphite2.dll
 libharfbuzz-0.dll
 libiconv-2.dll
-libicudt58.dll
-libicuin58.dll
-libicuuc58.dll
+libicudt61.dll
+libicuin61.dll
+libicuuc61.dll
 libintl-8.dll
 libjpeg-8.dll
 libpcre-1.dll
@@ -83,23 +73,23 @@ EOF
 translations=`ls resources/translations`
 
 (while read -r dir; do
-	mkdir -p "$DEST/$dir"
+        mkdir -p "$DEST/$dir"
 done)<<<"$dirs"
 
 (while read -r dll; do
-	cp `which "$dll"` "$DEST/$dll"
+        cp `which "$dll"` "$DEST/$dll"
 done)<<<"$dlls"
 
 (while read -r plugin; do
-	cp "/mingw64/share/qt5/plugins/$plugin" "$DEST/$plugin"
+        cp "/mingw64/share/qt5/plugins/$plugin" "$DEST/$plugin"
 done)<<<"$plugins"
 
 (while read -r translation; do
-	cp "resources/translations/$translation" "$DEST/translations/$translation"
+        cp "resources/translations/$translation" "$DEST/translations/$translation"
 done)<<<"$translations"
 
 (while read -r doc; do
-	cp "DOCS/$doc" "$DEST/doc/$doc"
+        cp "DOCS/$doc" "$DEST/doc/$doc"
 done)<<<"$docs"
 
 (while read -r binary; do
@@ -108,5 +98,5 @@ done)<<<"$binaries"
 
 cp "$BUILD/mpc-qt.exe" "$DEST/mpc-qt.exe"
 cp mpv-dev/lib/mpv-1.dll "$DEST/mpv-1.dll"
-7z a "mpc-qt-$1.zip" "./$DEST/*"
-sha512sum "mpc-qt-$1.zip" >"mpc-qt-$1.zip.sha512"
+7z a "$DEST.zip" "./$DEST/*"
+sha512sum "$DEST.zip" >"$DEST.zip.sha512"
