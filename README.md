@@ -176,7 +176,9 @@ libmpv should now be installed to `/usr/local/*`.
 
 While this program is meant for Unix, it is possible to compile it on Windows
 with the [MSYS2 edition of Qt Creator] due to the largely cross-platform Qt
-toolkit.  MSVC is not supported.
+toolkit.  MSVC is not supported.  In addition, the build process needs the
+imagemagick, librsvg and inkscape packages to create the windows ico file.
+Use `pacman -Ss <package description/name/etc>` to find them.
 
 Mpc-Qt can be compiled with a libmpv linked to MSYS2's ffmpeg libraries, or by
 using the prebuilt library from mpv.srsfckn.biz.  To use the prebuilt library
@@ -185,6 +187,10 @@ after cloning this repository, download libmpv from the
 your architechture from mpv-dev.7z (e.g. `mpv-dev.7z/64`) into `mpv-dev/lib`.
 Then place the include files from mpv-dev.7z (usually at `mpv-dev.zip/include`)
 into `mpv-dev/include/mpv`.  Compile with the 64bit Qt framework as usual.
+
+Bleeding-edge git master builds that use new features not yet in a release can
+usually be made with [shinchiro builds] of libmpv.  Unpack in the same manner
+as above.
 
 [screenshot]:https://gist.githubusercontent.com/cmdrkotori/c26e75fa01341ec54b648f1ff082a71a/raw/885f4af0df7342ec2adc1353749ad3522fab196c/screenshot%252020180427.png
 [mpc-hc]:https://mpc-hc.org/
@@ -196,4 +202,5 @@ into `mpv-dev/include/mpv`.  Compile with the 64bit Qt framework as usual.
 [bomi]:https://github.com/xylosper/bomi
 [baka]:https://github.com/u8sand/Baka-MPlayer
 [mpv windows release page]:https://mpv.srsfckn.biz/
+[shinchiro builds]:https://sourceforge.net/projects/mpv-player-windows/files/libmpv/
 [MSYS2 edition of Qt Creator]:https://wiki.qt.io/MSYS2
