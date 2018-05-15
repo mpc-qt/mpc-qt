@@ -116,17 +116,17 @@ unix {
     INSTALLS += target docs shortcut logo translations
 }
 
-unix:!macx:SOURCES += platform/unix_qscreensaver.cpp \
+unix:!macx:SOURCES += platform/qscreensaver_unix.cpp \
                       ipcmpris.cpp
-unix:!macx:HEADERS += platform/unix_qscreensaver.h \
+unix:!macx:HEADERS += platform/qscreensaver_unix.h \
                       ipcmpris.h
 
 win32:RC_ICONS = $$system( bash make-win-icon.sh )
-win32:SOURCES += platform/win_qscreensaver.cpp
-win32:HEADERS += platform/win_qscreensaver.h
+win32:SOURCES += platform/qscreensaver_win.cpp
+win32:HEADERS += platform/qscreensaver_win.h
 
-macx:SOURCES += platform/mac_qscreensaver.cpp
-macx:HEADERS += platform/mac_qscreensaver.h
+macx:SOURCES += platform/qscreensaver_mac.cpp
+macx:HEADERS += platform/qscreensaver_mac.h
 
 SOURCES += main.cpp\
     mpvwidget.cpp \
@@ -148,7 +148,7 @@ SOURCES += main.cpp\
     propertieswindow.cpp \
     platform/unify.cpp \
     paletteeditor.cpp \
-    favoriteswindow.cpp
+    favoriteswindow.cpp \
 
 HEADERS  += \
     mpvwidget.h \

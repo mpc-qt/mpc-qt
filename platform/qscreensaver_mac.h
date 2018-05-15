@@ -1,5 +1,5 @@
-#ifndef MAC_QSCREENSAVER_H
-#define MAC_QSCREENSAVER_H
+#ifndef QSCREENSAVER_MAC_H
+#define QSCREENSAVER_MAC_H
 #include "qabstractscreensaver.h"
 
 class QScreenSaver : public QAbstractScreenSaver
@@ -21,4 +21,4 @@ public slots:
     void logOff();
 };
 
-#endif // MAC_QSCREENSAVER_H
+#endif // QSCREENSAVER_MAC_H

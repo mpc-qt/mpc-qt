@@ -4,11 +4,11 @@
 #include <qglobal.h>
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
-#include "platform/unix_qscreensaver.h"
+#include "platform/qscreensaver_unix.h"
 #elif defined(Q_OS_WIN)
-#include "platform/win_qscreensaver.h"
+#include "platform/qscreensaver_win.h"
 #elif defined(Q_OS_MAC)
-#include "platform/mac_qscreensaver.h"
+#include "platform/qscreensaver_mac.h"
 #endif
 
 #endif // QSCREENSAVER_H

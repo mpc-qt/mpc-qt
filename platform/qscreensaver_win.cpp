@@ -1,6 +1,6 @@
 #include <windows.h>
 #include <powrprof.h>
-#include "win_qscreensaver.h"
+#include "qscreensaver_win.h"
 
 QScreenSaver::QScreenSaver(QObject *parent) : QAbstractScreenSaver(parent)
 {

@@ -1,5 +1,5 @@
-#ifndef UNIX_QSCREENSAVER_H
-#define UNIX_QSCREENSAVER_H
+#ifndef QSCREENSAVER_UNIX_H
+#define QSCREENSAVER_UNIX_H
 
 #include <QObject>
 #include <QDBusInterface>
@@ -46,4 +46,4 @@ private:
     bool inhibitCalled = false;
 };
 
-#endif // UNIX_QSCREENSAVER_H
+#endif // QSCREENSAVER_UNIX_H

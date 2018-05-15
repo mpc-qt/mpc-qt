@@ -1,5 +1,5 @@
-#ifndef WIN_QSCREENSAVER_H
-#define WIN_QSCREENSAVER_H
+#ifndef QSCREENSAVER_WIN_H
+#define QSCREENSAVER_WIN_H
 #include "qabstractscreensaver.h"
 
 class QScreenSaver : public QAbstractScreenSaver
@@ -24,4 +24,4 @@ private:
     bool canShutdown();
 };
 
-#endif // WIN_QSCREENSAVER_H
+#endif // QSCREENSAVER_WIN_H
