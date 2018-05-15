@@ -2,50 +2,50 @@
 
 //FIXME: use IOPMAssertion???
 
-QScreenSaver::QScreenSaver(QObject *parent) : QAbstractScreenSaver(parent)
+QScreenSaverMac::QScreenSaverMac(QObject *parent) : QScreenSaver(parent)
 {
 
 }
 
-QSet<QScreenSaver::Ability> QScreenSaver::abilities()
+QSet<QScreenSaverMac::Ability> QScreenSaverMac::abilities()
 {
     return QSet<Ability>();
 }
 
-void QScreenSaver::inhibitSaver(const QString &reason)
+void QScreenSaverMac::inhibitSaver(const QString &reason)
 {
     Q_UNUSED(reason);
     emit failed(Inhibit);
 }
 
-void QScreenSaver::uninhibitSaver() {
+void QScreenSaverMac::uninhibitSaver() {
     emit failed(Uninhibit);
 }
 
-void QScreenSaver::launchSaver() {
+void QScreenSaverMac::launchSaver() {
     emit failed(LaunchSaver);
 }
 
-void QScreenSaver::lockScreen() {
+void QScreenSaverMac::lockScreen() {
     emit failed(LockScreen);
 }
 
-void QScreenSaver::hibernateSystem()
+void QScreenSaverMac::hibernateSystem()
 {
     emit failed(Hibernate);
 }
 
-void QScreenSaver::suspendSystem()
+void QScreenSaverMac::suspendSystem()
 {
     emit failed(Suspend);
 }
 
-void QScreenSaver::shutdownSystem()
+void QScreenSaverMac::shutdownSystem()
 {
     emit failed(Shutdown);
 }
 
-void QScreenSaver::logOff()
+void QScreenSaverMac::logOff()
 {
     emit failed(LogOff);
 }

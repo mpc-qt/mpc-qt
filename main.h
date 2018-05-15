@@ -72,6 +72,7 @@ private:
     MpcQtServer *server = nullptr;
     MpvServer *mpvServer = nullptr;
     MprisInstance *mpris = nullptr;
+    QScreenSaver *screenSaver = nullptr;
     MainWindow *mainWindow = nullptr;
     PlaybackManager *playbackManager = nullptr;
     SettingsWindow *settingsWindow = nullptr;
@@ -83,7 +84,6 @@ private:
     QList<TrackInfo> recentFiles;
     QList<TrackInfo> favoriteFiles;
     QList<TrackInfo> favoriteStreams;
-    QScreenSaver screenSaver;
 
     bool freestanding = false;
     QSize cliSize;

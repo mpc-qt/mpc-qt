@@ -70,8 +70,7 @@ int main(int argc, char *argv[])
 }
 
 Flow::Flow(QObject *owner) :
-    QObject(owner), server(nullptr), mpvServer(nullptr), mainWindow(nullptr),
-    playbackManager(nullptr), settingsWindow(nullptr), propertiesWindow(nullptr)
+    QObject(owner)
 {
 }
 
@@ -107,7 +106,7 @@ Flow::~Flow()
         delete favoritesWindow;
         favoritesWindow = nullptr;
     }
-    screenSaver.uninhibitSaver();
+    screenSaver->uninhibitSaver();
 }
 
 void Flow::parseArgs()
@@ -159,7 +158,8 @@ void Flow::init() {
     mpvServer->setMpvObject(mainWindow->mpvObject());
 
     inhibitScreensaver = false;
-    QSet<QScreenSaver::Ability> actualPowers = screenSaver.abilities();
+    screenSaver = Platform::screenSaver();
+    QSet<QScreenSaver::Ability> actualPowers = screenSaver->abilities();
     mainWindow->setScreensaverAbilities(actualPowers);
     QSet<QScreenSaver::Ability> desiredPowers;
     desiredPowers << QScreenSaver::Inhibit << QScreenSaver::Uninhibit;
@@ -451,24 +451,24 @@ void Flow::init() {
 
     // manager -> this.screensaver
     connect(playbackManager, &PlaybackManager::systemShouldHibernate,
-            &screenSaver, &QScreenSaver::hibernateSystem);
+            screenSaver, &QScreenSaver::hibernateSystem);
     connect(playbackManager, &PlaybackManager::systemShouldLock,
-            &screenSaver, &QScreenSaver::lockScreen);
+            screenSaver, &QScreenSaver::lockScreen);
     connect(playbackManager, &PlaybackManager::systemShouldLogOff,
-            &screenSaver, &QScreenSaver::logOff);
+            screenSaver, &QScreenSaver::logOff);
     connect(playbackManager, &PlaybackManager::systemShouldShutdown,
-            &screenSaver, &QScreenSaver::shutdownSystem);
+            screenSaver, &QScreenSaver::shutdownSystem);
     connect(playbackManager, &PlaybackManager::systemShouldStandby,
-            &screenSaver, &QScreenSaver::suspendSystem);
+            screenSaver, &QScreenSaver::suspendSystem);
 
     // favorites -> this.favorite*
     connect(favoritesWindow, &FavoritesWindow::favoriteTracks,
             this, &Flow::favoriteswindow_favoriteTracks);
 
     // this.screensaver -> this
-    connect(&screenSaver, &QScreenSaver::systemShutdown,
+    connect(screenSaver, &QScreenSaver::systemShutdown,
             this, &Flow::endProgram);
-    connect(&screenSaver, &QScreenSaver::loggedOff,
+    connect(screenSaver, &QScreenSaver::loggedOff,
             this, &Flow::endProgram);
 
     // this -> mainwindow
@@ -827,10 +827,10 @@ void Flow::manager_stateChanged(PlaybackManager::PlaybackState state)
         return;
 
     if (!inhibitScreensaver || state == PlaybackManager::StoppedState) {
-        screenSaver.uninhibitSaver();
+        screenSaver->uninhibitSaver();
         return;
     }
-    screenSaver.inhibitSaver(tr("Playing Media"));
+    screenSaver->inhibitSaver(tr("Playing Media"));
 }
 
 void Flow::settingswindow_settingsData(const QVariantMap &settings)

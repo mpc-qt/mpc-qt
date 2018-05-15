@@ -4,11 +4,28 @@
 #include <QDir>
 #include "unify.h"
 
-#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
+// Platform includes
+#if defined(Q_OS_WIN)
+#include "qscreensaver_win.h"
+#elif defined(Q_OS_MAC)
+#include "qscreensaver_mac.h"
+#else
 #include <dlfcn.h>
+#include "qscreensaver_unix.h"
 #endif
 
 
+// Platform defines
+#if defined(Q_OS_WIN)
+    #define QScreenSaverPlatform QScreenSaverWin
+#elif defined(Q_OS_MAC)
+    #define QScreenSaverPlatform QScreenSaverMac
+#else
+    #define QScreenSaverPlatform QScreenSaverUnix
+#endif
+
+
+// Platform flags
 const bool Platform::isMac =
 #if defined(Q_OS_MAC)
     true
@@ -32,6 +49,20 @@ const bool Platform::isUnix =
     false
 #endif
 ;
+
+
+QScreenSaver *Platform::screenSaver()
+{
+    static QScreenSaverPlatform *ss = nullptr;
+    if (ss == nullptr) {
+        Q_ASSERT(qApp);
+        ss = new QScreenSaverPlatform(qApp);
+        QObject::connect(ss, &QScreenSaver::destroyed, [&] {
+            ss = nullptr;
+        });
+    }
+    return ss;
+}
 
 QString Platform::resourcesPath()
 {
@@ -107,5 +138,7 @@ void Platform::disableAutomaticAccel(QWidget *what)
     if (setNoAccel)
         setNoAccel(what);
     dlclose(d);
+#else
+    Q_UNUSED(what);
 #endif
 }

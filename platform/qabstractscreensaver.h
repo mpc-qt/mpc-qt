@@ -5,14 +5,14 @@
 #include <QSet>
 
 // This is probably overkill
-class QAbstractScreenSaver : public QObject
+class QScreenSaver : public QObject
 {
     Q_OBJECT
 public:
     enum Ability { Inhibit, Uninhibit, LaunchSaver, LockScreen,
                  Hibernate, Suspend, Shutdown, LogOff };
 
-    explicit QAbstractScreenSaver(QObject *parent = 0);
+    explicit QScreenSaver(QObject *parent = 0);
 
     virtual QSet<Ability> abilities() = 0;
     virtual bool inhibiting();

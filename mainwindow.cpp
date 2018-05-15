@@ -175,7 +175,7 @@ void MainWindow::setState(const QVariantMap &map)
 #undef UNWRAP
 }
 
-void MainWindow::setScreensaverAbilities(QSet<QAbstractScreenSaver::Ability> ab)
+void MainWindow::setScreensaverAbilities(QSet<QScreenSaver::Ability> ab)
 {
     ui->actionPlayAfterOnceStandby->setVisible(ab.contains(QScreenSaver::Suspend));
     ui->actionPlayAfterOnceHibernate->setVisible(ab.contains(QScreenSaver::Hibernate));

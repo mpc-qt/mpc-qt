@@ -10,11 +10,11 @@
 Q_DECLARE_METATYPE(unsigned)
 Q_DECLARE_METATYPE(uint64_t)
 
-class QScreenSaver : public QAbstractScreenSaver
+class QScreenSaverUnix : public QScreenSaver
 {
     Q_OBJECT
 public:
-    explicit QScreenSaver(QObject *parent = 0);
+    explicit QScreenSaverUnix(QObject *parent = 0);
 
     QSet<Ability> abilities();
 

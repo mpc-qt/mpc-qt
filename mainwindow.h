@@ -197,7 +197,7 @@ private slots:
     void on_actionFileSaveImage_triggered();
     void on_actionFileSaveImageAuto_triggered();
     void on_actionFileSavePlainImage_triggered();
-    void on_actionFileSavePlainImageAuto_triggered(); 
+    void on_actionFileSavePlainImageAuto_triggered();
     void on_actionFileSaveWindowImage_triggered();
     void on_actionFileSaveWindowImageAuto_triggered();
     void on_actionFileClose_triggered();
