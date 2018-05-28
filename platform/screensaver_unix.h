@@ -5,7 +5,7 @@
 #include <QDBusInterface>
 #include <QDBusPendingCallWatcher>
 #include <QDBusMessage>
-#include "qabstractscreensaver.h"
+#include "screensaver.h"
 
 Q_DECLARE_METATYPE(unsigned)
 Q_DECLARE_METATYPE(uint64_t)

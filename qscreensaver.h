@@ -2,6 +2,6 @@
 #define QSCREENSAVER_H
 
 #include <qglobal.h>
-#include "platform/qabstractscreensaver.h"
+#include "platform/screensaver.h"
 
 #endif // QSCREENSAVER_H

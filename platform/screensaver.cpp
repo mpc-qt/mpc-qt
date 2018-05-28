@@ -1,4 +1,4 @@
-#include "qabstractscreensaver.h"
+#include "screensaver.h"
 
 QScreenSaver::QScreenSaver(QObject *parent)
     : QObject(parent)

@@ -1,6 +1,6 @@
 #ifndef QSCREENSAVER_WIN_H
 #define QSCREENSAVER_WIN_H
-#include "qabstractscreensaver.h"
+#include "screensaver.h"
 
 class QScreenSaverWin : public QScreenSaver
 {

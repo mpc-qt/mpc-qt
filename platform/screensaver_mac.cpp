@@ -1,4 +1,4 @@
-#include "qscreensaver_mac.h"
+#include "screensaver_mac.h"
 
 //FIXME: use IOPMAssertion???
 

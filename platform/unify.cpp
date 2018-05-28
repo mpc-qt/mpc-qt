@@ -11,7 +11,7 @@
 #include "qscreensaver_mac.h"
 #else
 #include <dlfcn.h>
-#include "qscreensaver_unix.h"
+#include "screensaver_unix.h"
 #endif
 
 

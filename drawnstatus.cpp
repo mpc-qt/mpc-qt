@@ -1,7 +1,7 @@
 #include <QPainter>
 #include <QTimer>
 #include "helpers.h"
-#include "qdrawnstatus.h"
+#include "drawnstatus.h"
 
 StatusTime::StatusTime(QWidget *parent) : QWidget(parent),
     currentTime(-1)

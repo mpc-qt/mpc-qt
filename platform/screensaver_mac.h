@@ -1,6 +1,6 @@
 #ifndef QSCREENSAVER_MAC_H
 #define QSCREENSAVER_MAC_H
-#include "qabstractscreensaver.h"
+#include "screensaver.h"
 
 class QScreenSaverMac : public QScreenSaver
 {

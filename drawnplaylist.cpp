@@ -4,7 +4,7 @@
 #include <QFontMetrics>
 #include <QMenu>
 #include <QKeyEvent>
-#include "qdrawnplaylist.h"
+#include "drawnplaylist.h"
 #include "playlist.h"
 #include "helpers.h"
 

@@ -5,7 +5,7 @@
 #include <QToolButton>
 #include <QMenu>
 #include <cmath>
-#include "qactioneditor.h"
+#include "actioneditor.h"
 
 ActionEditor::ActionEditor(QWidget *parent) :
     QTableView(parent)

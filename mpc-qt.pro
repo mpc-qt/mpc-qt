@@ -116,62 +116,62 @@ unix {
     INSTALLS += target docs shortcut logo translations
 }
 
-unix:!macx:SOURCES += platform/qscreensaver_unix.cpp \
+unix:!macx:SOURCES += platform/screensaver_unix.cpp \
                       ipcmpris.cpp
-unix:!macx:HEADERS += platform/qscreensaver_unix.h \
+unix:!macx:HEADERS += platform/screensaver_unix.h \
                       ipcmpris.h
 
 win32:RC_ICONS = $$system( bash make-win-icon.sh )
-win32:SOURCES += platform/qscreensaver_win.cpp
-win32:HEADERS += platform/qscreensaver_win.h
+win32:SOURCES += platform/screensaver_win.cpp
+win32:HEADERS += platform/screensaver_win.h
 
-macx:SOURCES += platform/qscreensaver_mac.cpp
-macx:HEADERS += platform/qscreensaver_mac.h
+macx:SOURCES += platform/screensaver_mac.cpp
+macx:HEADERS += platform/screensaver_mac.h
 
 SOURCES += main.cpp\
     mpvwidget.cpp \
     mainwindow.cpp \
-    qdrawnslider.cpp \
     playlist.cpp \
-    qdrawnplaylist.cpp \
     manager.cpp \
     helpers.cpp \
     playlistwindow.cpp \
     storage.cpp \
     settingswindow.cpp \
-    qactioneditor.cpp \
-    qdrawnstatus.cpp \
     ipcjson.cpp \
     openfiledialog.cpp \
-    platform/qabstractscreensaver.cpp \
     qscreensaver.cpp \
     propertieswindow.cpp \
     platform/unify.cpp \
     paletteeditor.cpp \
     favoriteswindow.cpp \
+    actioneditor.cpp \
+    drawnplaylist.cpp \
+    drawnslider.cpp \
+    drawnstatus.cpp \
+    platform/screensaver.cpp
 
 HEADERS  += \
     mpvwidget.h \
     mainwindow.h \
-    qdrawnslider.h \
     playlist.h \
-    qdrawnplaylist.h \
     manager.h \
     main.h \
     helpers.h \
     playlistwindow.h \
     storage.h \
     settingswindow.h \
-    qactioneditor.h \
-    qdrawnstatus.h \
     ipcjson.h \
     openfiledialog.h \
-    platform/qabstractscreensaver.h \
     qscreensaver.h \
     propertieswindow.h \
     platform/unify.h \
     paletteeditor.h \
-    favoriteswindow.h
+    favoriteswindow.h \
+    actioneditor.h \
+    drawnplaylist.h \
+    drawnslider.h \
+    drawnstatus.h \
+    platform/screensaver.h
 
 FORMS    += \
     mainwindow.ui \

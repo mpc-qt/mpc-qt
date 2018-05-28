@@ -8,7 +8,7 @@
 #include <QList>
 #include "settingswindow.h"
 #include "ui_settingswindow.h"
-#include "qactioneditor.h"
+#include "actioneditor.h"
 #include "paletteeditor.h"
 #include "platform/unify.h"
 

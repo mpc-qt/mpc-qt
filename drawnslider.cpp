@@ -3,7 +3,7 @@
 #include <QOpenGLContext>
 #include <QTimer>
 #include <cmath>
-#include "qdrawnslider.h"
+#include "drawnslider.h"
 
 
 

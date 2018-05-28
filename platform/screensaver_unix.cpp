@@ -3,7 +3,7 @@
 #include <QDBusPendingCall>
 #include <QDBusPendingCallWatcher>
 #include <QDBusReply>
-#include "qscreensaver_unix.h"
+#include "screensaver_unix.h"
 
 QScreenSaverUnix::QScreenSaverUnix(QObject *parent)
     : QScreenSaver(parent),
