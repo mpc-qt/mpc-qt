@@ -224,7 +224,7 @@ QVariantList PlaylistWindow::tabsToVList() const
 {
     QVariantList qvl;
     for (int i = 0; i < ui->tabWidget->count(); i++) {
-        auto widget = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->widget(i));
+        auto widget = reinterpret_cast<DrawnPlaylist *>(ui->tabWidget->widget(i));
         qvl.append(widget->toVMap());
     }
     return qvl;
@@ -235,12 +235,12 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
     ui->tabWidget->clear();
     widgets.clear();
     for (const QVariant &v : qvl) {
-        auto qdp = new QDrawnPlaylist();
+        auto qdp = new DrawnPlaylist();
         qdp->setDisplayParser(&displayParser);
         qdp->fromVMap(v.toMap());
-        connect(qdp, &QDrawnPlaylist::itemDesired,
+        connect(qdp, &DrawnPlaylist::itemDesired,
                 this, &PlaylistWindow::itemDesired);
-        connect(qdp, &QDrawnPlaylist::contextMenuRequested,
+        connect(qdp, &DrawnPlaylist::contextMenuRequested,
                 this, &PlaylistWindow::playlist_contextMenuRequested);
         auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
         ui->tabWidget->addTab(qdp, pl->title());
@@ -329,9 +329,9 @@ void PlaylistWindow::connectSignalsToSlots()
             this, &PlaylistWindow::setQueueMode);
 }
 
-QDrawnPlaylist *PlaylistWindow::currentPlaylistWidget()
+DrawnPlaylist *PlaylistWindow::currentPlaylistWidget()
 {
-    return reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->currentWidget());
+    return reinterpret_cast<DrawnPlaylist *>(ui->tabWidget->currentWidget());
 }
 
 void PlaylistWindow::updateCurrentPlaylist()
@@ -363,11 +363,11 @@ void PlaylistWindow::setPlaylistFilters(QString filterText)
 
 void PlaylistWindow::addNewTab(QUuid playlist, QString title)
 {
-    auto qdp = new QDrawnPlaylist();
+    auto qdp = new DrawnPlaylist();
     qdp->setDisplayParser(&displayParser);
     qdp->setUuid(playlist);
-    connect(qdp, &QDrawnPlaylist::itemDesired, this, &PlaylistWindow::itemDesired);
-    connect(qdp, &QDrawnPlaylist::contextMenuRequested,
+    connect(qdp, &DrawnPlaylist::itemDesired, this, &PlaylistWindow::itemDesired);
+    connect(qdp, &DrawnPlaylist::contextMenuRequested,
             this, &PlaylistWindow::playlist_contextMenuRequested);
     widgets.insert(playlist, qdp);
     ui->tabWidget->addTab(qdp, title);
@@ -376,10 +376,10 @@ void PlaylistWindow::addNewTab(QUuid playlist, QString title)
 
 void PlaylistWindow::addQuickQueue()
 {
-    queueWidget = new QDrawnQueue();
+    queueWidget = new DrawnQueue();
     queueWidget->setDisplayParser(&displayParser);
     queueWidget->setUuid(QUuid());
-    connect(queueWidget, &QDrawnQueue::itemDesired,
+    connect(queueWidget, &DrawnQueue::itemDesired,
             this, &PlaylistWindow::itemDesired);
     ui->quickPage->layout()->addWidget(queueWidget);
 }
@@ -785,7 +785,7 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
 {
     if (!widgets.contains(playlistUuid))
         return;
-    QDrawnPlaylist *listWidget = widgets[playlistUuid];
+    DrawnPlaylist *listWidget = widgets[playlistUuid];
 
     QMenu *m = new QMenu(this);
     QAction *a;
@@ -907,7 +907,7 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
 void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
 {
     int current = ui->tabWidget->currentIndex();
-    auto qdp = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->widget(index));
+    auto qdp = reinterpret_cast<DrawnPlaylist *>(ui->tabWidget->widget(index));
     if (!qdp)
         return;
     if (qdp->uuid().isNull()) {
@@ -923,7 +923,7 @@ void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
 
 void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
 {
-    auto widget = reinterpret_cast<QDrawnPlaylist *>(ui->tabWidget->widget(index));
+    auto widget = reinterpret_cast<DrawnPlaylist *>(ui->tabWidget->widget(index));
     QUuid tabUuid = widget->uuid();
     if (tabUuid.isNull())
         return;

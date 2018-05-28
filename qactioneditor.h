@@ -16,11 +16,11 @@ class QComboBox;
 
 
 
-class QActionEditor : public QTableView
+class ActionEditor : public QTableView
 {
     Q_OBJECT
 public:
-    QActionEditor(QWidget *parent = 0);
+    ActionEditor(QWidget *parent = 0);
     int sizeHintForColumn(int column) const;
 
     void setCommands(const QList<Command> &commands);
@@ -69,7 +69,7 @@ public:
     virtual void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
 private:
-    QActionEditor *owner = nullptr;
+    ActionEditor *owner = nullptr;
 };
 
 
@@ -109,7 +109,7 @@ public:
     virtual void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
 private:
-    QActionEditor *owner = nullptr;
+    ActionEditor *owner = nullptr;
     bool fullscreen = false;
 };
 

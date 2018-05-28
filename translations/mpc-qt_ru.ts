@@ -2,6 +2,33 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru_RU">
 <context>
+    <name>ActionEditor</name>
+    <message>
+        <source>Command</source>
+        <translation>Команда</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation>Клавиша</translation>
+    </message>
+    <message>
+        <source>Mouse Window</source>
+        <translation>Мышь (в окне)</translation>
+    </message>
+    <message>
+        <source>Mouse Fullscr</source>
+        <translation>Мышь (полноэкр.)</translation>
+    </message>
+    <message>
+        <source>Open Network Stream...</source>
+        <translation>Открыть сетевой поток...</translation>
+    </message>
+    <message>
+        <source>Alt+Ctrl+Backspace</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>ButtonWidget</name>
     <message>
         <source>B</source>
@@ -1576,33 +1603,6 @@
     <message>
         <source>Text documents (*.txt);;All files (*.*)</source>
         <translation>Текстовые документы (*.txt);;Все файлы (*.*)</translation>
-    </message>
-</context>
-<context>
-    <name>QActionEditor</name>
-    <message>
-        <source>Command</source>
-        <translation>Команда</translation>
-    </message>
-    <message>
-        <source>Key</source>
-        <translation>Клавиша</translation>
-    </message>
-    <message>
-        <source>Mouse Window</source>
-        <translation>Мышь (в окне)</translation>
-    </message>
-    <message>
-        <source>Mouse Fullscr</source>
-        <translation>Мышь (полноэкр.)</translation>
-    </message>
-    <message>
-        <source>Open Network Stream...</source>
-        <translation>Открыть сетевой поток...</translation>
-    </message>
-    <message>
-        <source>Alt+Ctrl+Backspace</source>
-        <translation></translation>
     </message>
 </context>
 <context>

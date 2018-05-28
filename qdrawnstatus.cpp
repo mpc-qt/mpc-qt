@@ -3,20 +3,20 @@
 #include "helpers.h"
 #include "qdrawnstatus.h"
 
-QStatusTime::QStatusTime(QWidget *parent) : QWidget(parent),
+StatusTime::StatusTime(QWidget *parent) : QWidget(parent),
     currentTime(-1)
 {
     setTime(0);
     setMinimumSize(minimumSizeHint());
 }
 
-QSize QStatusTime::minimumSizeHint() const
+QSize StatusTime::minimumSizeHint() const
 {
     QSize sz = QFontMetrics(font()).size(0, drawnText);
     return sz;
 }
 
-void QStatusTime::setTime(double time)
+void StatusTime::setTime(double time)
 {
     if (currentTime == time)
         return;
@@ -25,7 +25,7 @@ void QStatusTime::setTime(double time)
     update();
 }
 
-void QStatusTime::paintEvent(QPaintEvent *event)
+void StatusTime::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
     QPainter p(this);

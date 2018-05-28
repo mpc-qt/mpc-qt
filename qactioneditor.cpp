@@ -7,7 +7,7 @@
 #include <cmath>
 #include "qactioneditor.h"
 
-QActionEditor::QActionEditor(QWidget *parent) :
+ActionEditor::ActionEditor(QWidget *parent) :
     QTableView(parent)
 {
     model.setHorizontalHeaderLabels({tr("Command"), tr("Key"),
@@ -24,7 +24,7 @@ QActionEditor::QActionEditor(QWidget *parent) :
     setEditTriggers(QAbstractItemView::AllEditTriggers);
 }
 
-int QActionEditor::sizeHintForColumn(int column) const
+int ActionEditor::sizeHintForColumn(int column) const
 {
     // TL note: not actually the widest, but unobnoxious
     QStringList maxWidthStrings {
@@ -37,7 +37,7 @@ int QActionEditor::sizeHintForColumn(int column) const
     return fontMetrics().boundingRect("_" + maxWidthString + "_").width();
 }
 
-void QActionEditor::setCommands(const QList<Command> &commands)
+void ActionEditor::setCommands(const QList<Command> &commands)
 {
     model.setRowCount(0);
 
@@ -57,12 +57,12 @@ void QActionEditor::setCommands(const QList<Command> &commands)
     this->commands = commands;
 }
 
-Command QActionEditor::getCommand(int index) const
+Command ActionEditor::getCommand(int index) const
 {
     return commands.value(index);
 }
 
-void QActionEditor::setCommand(int index, const Command &c)
+void ActionEditor::setCommand(int index, const Command &c)
 {
     if (index >= 0 && index < commands.count())
         commands[index] = c;
@@ -86,7 +86,7 @@ void QActionEditor::setCommand(int index, const Command &c)
     }
 }
 
-void QActionEditor::updateActions()
+void ActionEditor::updateActions()
 {
     MouseStateMap fullscreen, windowed;
     for (const Command &c : commands) {
@@ -100,7 +100,7 @@ void QActionEditor::updateActions()
     emit mouseWindowedMap(windowed);
 }
 
-QVariantMap QActionEditor::toVMap() const
+QVariantMap ActionEditor::toVMap() const
 {
     QVariantMap map;
     for (const Command &c : commands) {
@@ -109,7 +109,7 @@ QVariantMap QActionEditor::toVMap() const
     return map;
 }
 
-void QActionEditor::fromVMap(const QVariantMap &map)
+void ActionEditor::fromVMap(const QVariantMap &map)
 {
     QMap<QString, int> nameToIndex;
     for (int i = 0; i < commands.count(); i++)
@@ -124,7 +124,7 @@ void QActionEditor::fromVMap(const QVariantMap &map)
 }
 
 ShortcutDelegate::ShortcutDelegate(QObject *parent)
-    : QStyledItemDelegate(parent), owner((QActionEditor*)parent)
+    : QStyledItemDelegate(parent), owner((ActionEditor*)parent)
 {
 
 }
@@ -162,7 +162,7 @@ void ShortcutDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionV
 
 
 ButtonDelegate::ButtonDelegate(QObject *parent, bool fullscreen)
-    : owner((QActionEditor*)parent), fullscreen(fullscreen)
+    : owner((ActionEditor*)parent), fullscreen(fullscreen)
 {
 }
 

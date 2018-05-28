@@ -367,12 +367,12 @@ bool MainWindow::mouseStateEvent(const MouseState &state)
 }
 void on_actionPlaylistSearch_triggered();
 
-QMediaSlider *MainWindow::positionSlider()
+MediaSlider *MainWindow::positionSlider()
 {
     return positionSlider_;
 }
 
-QVolumeSlider *MainWindow::volumeSlider()
+VolumeSlider *MainWindow::volumeSlider()
 {
     return volumeSlider_;
 }
@@ -544,23 +544,23 @@ void MainWindow::setupActionGroups()
 
 void MainWindow::setupPositionSlider()
 {
-    positionSlider_ = new QMediaSlider();
+    positionSlider_ = new MediaSlider();
     ui->seekbar->layout()->addWidget(positionSlider_);
-    connect(positionSlider_, &QMediaSlider::sliderMoved,
+    connect(positionSlider_, &MediaSlider::sliderMoved,
             this, &MainWindow::position_sliderMoved);
-    connect(positionSlider_, &QMediaSlider::hoverValue,
+    connect(positionSlider_, &MediaSlider::hoverValue,
             this, &MainWindow::position_hoverValue);
 }
 
 void MainWindow::setupVolumeSlider()
 {
-    volumeSlider_ = new QVolumeSlider();
+    volumeSlider_ = new VolumeSlider();
     volumeSlider_->setMinimumWidth(50);
     volumeSlider_->setMinimum(0);
     volumeSlider_->setMaximum(130);
     volumeSlider_->setValue(100);
     ui->controlbar->layout()->addWidget(volumeSlider_);
-    connect(volumeSlider_, &QVolumeSlider::sliderMoved,
+    connect(volumeSlider_, &VolumeSlider::sliderMoved,
             this, &MainWindow::volume_sliderMoved);
 }
 
@@ -609,9 +609,9 @@ void MainWindow::setupPlaylist()
 
 void MainWindow::setupStatus()
 {
-    timePosition = new QStatusTime();
+    timePosition = new StatusTime();
     ui->statusbarLayout->insertWidget(2, timePosition);
-    timeDuration = new QStatusTime();
+    timeDuration = new StatusTime();
     ui->statusbarLayout->insertWidget(4, timeDuration);
 }
 

@@ -10,7 +10,7 @@
 
 #include "helpers.h"
 
-class QActionEditor;
+class ActionEditor;
 class LogoWidget;
 class PaletteEditor;
 class QPushButton;
@@ -244,7 +244,7 @@ private slots:
 
 private:
     Ui::SettingsWindow *ui = nullptr;
-    QActionEditor *actionEditor = nullptr;
+    ActionEditor *actionEditor = nullptr;
     LogoWidget *logoWidget = nullptr;
     PaletteEditor *paletteEditor = nullptr;
     SettingMap acceptedSettings;

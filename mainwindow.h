@@ -58,8 +58,8 @@ protected:
 private:
     bool mouseStateEvent(const MouseState &state);
 
-    QMediaSlider *positionSlider();
-    QVolumeSlider *volumeSlider();
+    MediaSlider *positionSlider();
+    VolumeSlider *volumeSlider();
 
     DecorationState decorationState();
     bool fullscreenMode();
@@ -309,10 +309,10 @@ private:
     MpvObject *mpvObject_ = nullptr;
     QWidget *mpvw = nullptr;
     //MpvGlCbWidget *mpvw = nullptr;
-    QMediaSlider *positionSlider_ = nullptr;
-    QVolumeSlider *volumeSlider_ = nullptr;
-    QStatusTime *timePosition = nullptr;
-    QStatusTime *timeDuration = nullptr;
+    MediaSlider *positionSlider_ = nullptr;
+    VolumeSlider *volumeSlider_ = nullptr;
+    StatusTime *timePosition = nullptr;
+    StatusTime *timeDuration = nullptr;
     PlaylistWindow *playlistWindow_ = nullptr;
     QMenu *contextMenu = nullptr;
     QTimer hideTimer;

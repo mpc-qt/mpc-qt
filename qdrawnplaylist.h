@@ -35,14 +35,14 @@ private:
 };
 
 
-// QDrawnPlaylist abuses a ListWidget's items to store the uuid of playlist
+// DrawnPlaylist abuses a ListWidget's items to store the uuid of playlist
 // items, which is decoded and looked up during drawing.  The alternative is a
 // subclass of QAbstractItemModel with about 1.5x the code.
-class QDrawnPlaylist : public QListWidget {
+class DrawnPlaylist : public QListWidget {
     Q_OBJECT
 public:
-    QDrawnPlaylist(QWidget *parent = 0);
-    ~QDrawnPlaylist();
+    DrawnPlaylist(QWidget *parent = 0);
+    ~DrawnPlaylist();
     virtual QSharedPointer<Playlist> playlist() const;
     QUuid uuid() const;
     void setUuid(const QUuid &uuid);
@@ -110,7 +110,7 @@ private slots:
 };
 
 template<class T>
-void QDrawnPlaylist::sort(
+void DrawnPlaylist::sort(
         std::function<T(QSharedPointer<Item>)> converter,
         std::function<bool(const T &a, const T &b)> lessThan) {
     QMap<QUuid,T> playlistMap;
@@ -131,7 +131,7 @@ void QDrawnPlaylist::sort(
 }
 
 
-class QDrawnQueue : public QDrawnPlaylist {
+class DrawnQueue : public DrawnPlaylist {
     Q_OBJECT
 public:
     virtual QSharedPointer<Playlist> playlist() const;
@@ -145,11 +145,11 @@ public:
     PlaylistSelection(PlaylistSelection &other);
     ~PlaylistSelection();
     void fromItem(QUuid playlistUuid, QUuid itemUuid);
-    void fromQueue(QDrawnPlaylist *list);
-    void fromSelected(QDrawnPlaylist *list);
+    void fromQueue(DrawnPlaylist *list);
+    void fromSelected(DrawnPlaylist *list);
 
-    void appendToPlaylist(QDrawnPlaylist *list);
-    void appendAndQuickQueue(QDrawnPlaylist *list);
+    void appendToPlaylist(DrawnPlaylist *list);
+    void appendAndQuickQueue(DrawnPlaylist *list);
 
 private:
     PlaylistSelectionPrivate *d = nullptr;

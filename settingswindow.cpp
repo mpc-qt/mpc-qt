@@ -189,11 +189,11 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    actionEditor = new QActionEditor(this);
+    actionEditor = new ActionEditor(this);
     ui->keysHost->addWidget(actionEditor);
-    connect(actionEditor, &QActionEditor::mouseWindowedMap,
+    connect(actionEditor, &ActionEditor::mouseWindowedMap,
             this, &SettingsWindow::mouseWindowedMap);
-    connect(actionEditor, &QActionEditor::mouseFullscreenMap,
+    connect(actionEditor, &ActionEditor::mouseFullscreenMap,
             this, &SettingsWindow::mouseFullscreenMap);
 
     logoWidget = new LogoWidget(this);

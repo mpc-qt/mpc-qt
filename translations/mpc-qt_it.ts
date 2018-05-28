@@ -2,6 +2,33 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="it">
 <context>
+    <name>ActionEditor</name>
+    <message>
+        <source>Command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mouse Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mouse Fullscr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Network Stream...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt+Ctrl+Backspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ButtonWidget</name>
     <message>
         <source>B</source>
@@ -1644,33 +1671,6 @@
     </message>
     <message>
         <source>Text documents (*.txt);;All files (*.*)</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>QActionEditor</name>
-    <message>
-        <source>Command</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Key</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mouse Window</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mouse Fullscr</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open Network Stream...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+Ctrl+Backspace</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

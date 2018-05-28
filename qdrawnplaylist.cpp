@@ -13,7 +13,7 @@ PlayPainter::PlayPainter(QObject *parent) : QAbstractItemDelegate(parent) {}
 void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
                         const QModelIndex &index) const
 {
-    auto playWidget = qobject_cast<QDrawnPlaylist*>(parent());
+    auto playWidget = qobject_cast<DrawnPlaylist*>(parent());
     auto p = playWidget->playlist();
     if (p == nullptr)
         return;
@@ -95,7 +95,7 @@ QUuid PlayItem::uuid()
     return uuid_;
 }
 
-QDrawnPlaylist::QDrawnPlaylist(QWidget *parent) : QListWidget(parent),
+DrawnPlaylist::DrawnPlaylist(QWidget *parent) : QListWidget(parent),
     displayParser_(nullptr), worker(nullptr), searcher(nullptr)
 {
     worker = new QThread();
@@ -111,14 +111,14 @@ QDrawnPlaylist::QDrawnPlaylist(QWidget *parent) : QListWidget(parent),
     connect(worker, &QThread::finished, searcher, &QObject::deleteLater);
     connect(model(), SIGNAL(rowsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)),
             this, SLOT(model_rowsMoved(QModelIndex,int,int,QModelIndex,int)));
-    connect(this, &QDrawnPlaylist::searcher_filterPlaylist,
+    connect(this, &DrawnPlaylist::searcher_filterPlaylist,
             searcher, &PlaylistSearcher::filterPlaylist,
             Qt::QueuedConnection);
     connect(searcher, &PlaylistSearcher::playlistFiltered,
-            this, &QDrawnPlaylist::repopulateItems,
+            this, &DrawnPlaylist::repopulateItems,
             Qt::QueuedConnection);
-    connect(this, &QDrawnPlaylist::currentItemChanged,
-            this, &QDrawnPlaylist::self_currentItemChanged);
+    connect(this, &DrawnPlaylist::currentItemChanged,
+            this, &DrawnPlaylist::self_currentItemChanged);
     connect(this, SIGNAL(itemDoubleClicked(QListWidgetItem*)),
             this, SLOT(self_itemDoubleClicked(QListWidgetItem*)));
     connect(this, SIGNAL(customContextMenuRequested(QPoint)),
@@ -126,22 +126,22 @@ QDrawnPlaylist::QDrawnPlaylist(QWidget *parent) : QListWidget(parent),
     setContextMenuPolicy(Qt::CustomContextMenu);
 }
 
-QDrawnPlaylist::~QDrawnPlaylist()
+DrawnPlaylist::~DrawnPlaylist()
 {
     worker->deleteLater();
 }
 
-QSharedPointer<Playlist> QDrawnPlaylist::playlist() const
+QSharedPointer<Playlist> DrawnPlaylist::playlist() const
 {
     return PlaylistCollection::getSingleton()->playlistOf(uuid_);
 }
 
-QUuid QDrawnPlaylist::uuid() const
+QUuid DrawnPlaylist::uuid() const
 {
     return uuid_;
 }
 
-QUuid QDrawnPlaylist::currentItemUuid() const
+QUuid DrawnPlaylist::currentItemUuid() const
 {
     PlayItem *item = reinterpret_cast<PlayItem*>(currentItem());
     if (!item)
@@ -151,7 +151,7 @@ QUuid QDrawnPlaylist::currentItemUuid() const
     return QUuid();
 }
 
-QList<QUuid> QDrawnPlaylist::currentItemUuids() const
+QList<QUuid> DrawnPlaylist::currentItemUuids() const
 {
     QList<QUuid> selected;
     for (auto &i : selectedItems())
@@ -159,13 +159,13 @@ QList<QUuid> QDrawnPlaylist::currentItemUuids() const
     return selected;
 }
 
-void QDrawnPlaylist::traverseSelected(std::function<void (QUuid)> callback)
+void DrawnPlaylist::traverseSelected(std::function<void (QUuid)> callback)
 {
     for (auto &i : selectedItems())
         callback(QUuid(i->text()));
 }
 
-void QDrawnPlaylist::setCurrentItem(QUuid itemUuid)
+void DrawnPlaylist::setCurrentItem(QUuid itemUuid)
 {
     QList<QListWidgetItem *> items = findItems(itemUuid.toString(), Qt::MatchExactly);
     if (items.isEmpty())
@@ -174,7 +174,7 @@ void QDrawnPlaylist::setCurrentItem(QUuid itemUuid)
         QListWidget::setCurrentItem(items.first());
 }
 
-void QDrawnPlaylist::scrollToItem(QUuid itemUuid)
+void DrawnPlaylist::scrollToItem(QUuid itemUuid)
 {
     auto items = findItems(itemUuid.toString(), Qt::MatchExactly);
     if (items.empty())
@@ -183,25 +183,25 @@ void QDrawnPlaylist::scrollToItem(QUuid itemUuid)
     scrollTo(indexFromItem(item));
 }
 
-void QDrawnPlaylist::setUuid(const QUuid &uuid)
+void DrawnPlaylist::setUuid(const QUuid &uuid)
 {
     uuid_ = uuid;
     repopulateItems();
 }
 
-void QDrawnPlaylist::addItem(QUuid uuid)
+void DrawnPlaylist::addItem(QUuid uuid)
 {
     PlayItem *playItem = new PlayItem(uuid, uuid_, this);
     QListWidget::addItem(playItem);
 }
 
-void QDrawnPlaylist::addItems(const QList<QUuid> &items)
+void DrawnPlaylist::addItems(const QList<QUuid> &items)
 {
     for (const QUuid &item : items)
         QListWidget::addItem(item.toString());
 }
 
-void QDrawnPlaylist::addItemsAfter(QUuid item, const QList<QUuid> &items)
+void DrawnPlaylist::addItemsAfter(QUuid item, const QList<QUuid> &items)
 {
     auto matchingRows = findItems(item.toString(), Qt::MatchExactly);
     if (matchingRows.length() < 1)
@@ -213,7 +213,7 @@ void QDrawnPlaylist::addItemsAfter(QUuid item, const QList<QUuid> &items)
     }
 }
 
-void QDrawnPlaylist::removeItem(QUuid uuid)
+void DrawnPlaylist::removeItem(QUuid uuid)
 {
     QSharedPointer<Playlist> playlist = this->playlist();
     if (playlist && playlist->contains(uuid))
@@ -223,7 +223,7 @@ void QDrawnPlaylist::removeItem(QUuid uuid)
         takeItem(row(matchingRows[0]));
 }
 
-void QDrawnPlaylist::removeItems(const QList<int> &indicies)
+void DrawnPlaylist::removeItems(const QList<int> &indicies)
 {
     QListIterator<int> iterator(indicies);
     iterator.toBack();
@@ -231,7 +231,7 @@ void QDrawnPlaylist::removeItems(const QList<int> &indicies)
         delete takeItem(iterator.previous());
 }
 
-void QDrawnPlaylist::removeAll()
+void DrawnPlaylist::removeAll()
 {
     QSharedPointer<Playlist> p = playlist();
     if (!p)
@@ -240,7 +240,7 @@ void QDrawnPlaylist::removeAll()
     clear();
 }
 
-QPair<QUuid,QUuid> QDrawnPlaylist::importUrl(QUrl url)
+QPair<QUuid,QUuid> DrawnPlaylist::importUrl(QUrl url)
 {
     QPair<QUuid,QUuid> info;
     QSharedPointer<Playlist> playlist = this->playlist();
@@ -254,12 +254,12 @@ QPair<QUuid,QUuid> QDrawnPlaylist::importUrl(QUrl url)
     return info;
 }
 
-void QDrawnPlaylist::currentToQueue()
+void DrawnPlaylist::currentToQueue()
 {
     // CHECKME: code for this should be here?
 }
 
-QUuid QDrawnPlaylist::nowPlayingItem()
+QUuid DrawnPlaylist::nowPlayingItem()
 {
     QSharedPointer<Playlist> playlist = this->playlist();
     if (nowPlayingItem_.isNull() || !playlist->contains(nowPlayingItem_))
@@ -267,7 +267,7 @@ QUuid QDrawnPlaylist::nowPlayingItem()
     return nowPlayingItem_;
 }
 
-void QDrawnPlaylist::setNowPlayingItem(QUuid uuid)
+void DrawnPlaylist::setNowPlayingItem(QUuid uuid)
 {
     QSharedPointer<Playlist> playlist = this->playlist();
     bool refreshNeeded = playlist->contains(nowPlayingItem()) || playlist->contains(uuid);
@@ -276,7 +276,7 @@ void QDrawnPlaylist::setNowPlayingItem(QUuid uuid)
         viewport()->repaint();
 }
 
-QVariantMap QDrawnPlaylist::toVMap() const
+QVariantMap DrawnPlaylist::toVMap() const
 {
     QSharedPointer<Playlist> playlist = this->playlist();
     if (!playlist)
@@ -287,7 +287,7 @@ QVariantMap QDrawnPlaylist::toVMap() const
     return qvm;
 }
 
-void QDrawnPlaylist::fromVMap(const QVariantMap &qvm)
+void DrawnPlaylist::fromVMap(const QVariantMap &qvm)
 {
     QVariantMap contents = qvm.value("contents").toMap();
     QSharedPointer<Playlist> p(new Playlist);
@@ -298,17 +298,17 @@ void QDrawnPlaylist::fromVMap(const QVariantMap &qvm)
     setCurrentItem(nowPlayingItem_);
 }
 
-void QDrawnPlaylist::setDisplayParser(DisplayParser *parser)
+void DrawnPlaylist::setDisplayParser(DisplayParser *parser)
 {
     displayParser_ = parser;
 }
 
-DisplayParser *QDrawnPlaylist::displayParser()
+DisplayParser *DrawnPlaylist::displayParser()
 {
     return displayParser_;
 }
 
-void QDrawnPlaylist::setFilter(QString needles)
+void DrawnPlaylist::setFilter(QString needles)
 {
     if (currentFilterText == needles)
         return;
@@ -319,7 +319,7 @@ void QDrawnPlaylist::setFilter(QString needles)
     emit searcher_filterPlaylist(playlist(), needles);
 }
 
-bool QDrawnPlaylist::event(QEvent *e)
+bool DrawnPlaylist::event(QEvent *e)
 {
     if (!hasFocus())
         goto end;
@@ -334,7 +334,7 @@ bool QDrawnPlaylist::event(QEvent *e)
     return QListWidget::event(e);
 }
 
-void QDrawnPlaylist::repopulateItems()
+void DrawnPlaylist::repopulateItems()
 {
     clear();
 
@@ -350,7 +350,7 @@ void QDrawnPlaylist::repopulateItems()
     setCurrentItem(lastSelectedItem);
 }
 
-void QDrawnPlaylist::model_rowsMoved(const QModelIndex &parent,
+void DrawnPlaylist::model_rowsMoved(const QModelIndex &parent,
                                      int start, int end,
                                      const QModelIndex &destination, int row)
 {
@@ -371,7 +371,7 @@ void QDrawnPlaylist::model_rowsMoved(const QModelIndex &parent,
     p->addItems(destinationId, itemsToGrab);
 }
 
-void QDrawnPlaylist::self_currentItemChanged(QListWidgetItem *current,
+void DrawnPlaylist::self_currentItemChanged(QListWidgetItem *current,
                                              QListWidgetItem *previous)
 {
     Q_UNUSED(previous);
@@ -380,13 +380,13 @@ void QDrawnPlaylist::self_currentItemChanged(QListWidgetItem *current,
         lastSelectedItem = uuid;
 }
 
-void QDrawnPlaylist::self_itemDoubleClicked(QListWidgetItem *item)
+void DrawnPlaylist::self_itemDoubleClicked(QListWidgetItem *item)
 {
     PlayItem *playItem = reinterpret_cast<PlayItem*>(item);
     emit itemDesired(playItem->playlistUuid(), playItem->uuid());
 }
 
-void QDrawnPlaylist::self_customContextMenuRequested(const QPoint &p)
+void DrawnPlaylist::self_customContextMenuRequested(const QPoint &p)
 {
     PlayItem *playItem = reinterpret_cast<PlayItem*>(this->itemAt(p));
     QUuid playItemUuid = playItem ? playItem->uuid() : QUuid();
@@ -428,7 +428,7 @@ void PlaylistSelection::fromItem(QUuid playlistUuid, QUuid itemUuid)
         d->items.append(i);
 }
 
-void PlaylistSelection::fromQueue(QDrawnPlaylist *list)
+void PlaylistSelection::fromQueue(DrawnPlaylist *list)
 {
     d->items.clear();
     auto queue = PlaylistCollection::getSingleton()->queuePlaylist();
@@ -447,7 +447,7 @@ void PlaylistSelection::fromQueue(QDrawnPlaylist *list)
     }
 }
 
-void PlaylistSelection::fromSelected(QDrawnPlaylist *list)
+void PlaylistSelection::fromSelected(DrawnPlaylist *list)
 {
     d->items.clear();
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list->uuid());
@@ -459,7 +459,7 @@ void PlaylistSelection::fromSelected(QDrawnPlaylist *list)
     list->traverseSelected(itemAdder);
 }
 
-void PlaylistSelection::appendToPlaylist(QDrawnPlaylist *list)
+void PlaylistSelection::appendToPlaylist(DrawnPlaylist *list)
 {
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list->uuid());
     if (Q_UNLIKELY(!pl))
@@ -470,7 +470,7 @@ void PlaylistSelection::appendToPlaylist(QDrawnPlaylist *list)
     list->viewport()->update();
 }
 
-void PlaylistSelection::appendAndQuickQueue(QDrawnPlaylist *list)
+void PlaylistSelection::appendAndQuickQueue(DrawnPlaylist *list)
 {
     auto queue = PlaylistCollection::getSingleton()->queuePlaylist();
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list->uuid());
@@ -484,12 +484,12 @@ void PlaylistSelection::appendAndQuickQueue(QDrawnPlaylist *list)
     list->viewport()->update();
 }
 
-QSharedPointer<Playlist> QDrawnQueue::playlist() const
+QSharedPointer<Playlist> DrawnQueue::playlist() const
 {
     return PlaylistCollection::getSingleton()->queuePlaylist();
 }
 
-void QDrawnQueue::addItem(QUuid uuid)
+void DrawnQueue::addItem(QUuid uuid)
 {
     auto actualItem = ItemCollection::getSingleton()->itemOf(uuid);
     if (actualItem.isNull())

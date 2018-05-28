@@ -3,11 +3,11 @@
 
 #include <QWidget>
 
-class QStatusTime : public QWidget
+class StatusTime : public QWidget
 {
     Q_OBJECT
 public:
-    explicit QStatusTime(QWidget *parent = 0);
+    explicit StatusTime(QWidget *parent = 0);
     virtual QSize minimumSizeHint() const;
 
     void setTime(double time);

@@ -11,11 +11,11 @@
 #include <QImage>
 #include <QMouseEvent>
 
-class QDrawnSlider : public QWidget {
+class DrawnSlider : public QWidget {
     Q_OBJECT
 
 public:
-    explicit QDrawnSlider(QWidget *parent, QSize handle, QSize margin);
+    explicit DrawnSlider(QWidget *parent, QSize handle, QSize margin);
     void setValue(double v);
     void setMaximum(double v);
     void setMinimum(double v);
@@ -64,10 +64,10 @@ private:
     double vMinimum = 0.0;
 };
 
-class QMediaSlider : public QDrawnSlider {
+class MediaSlider : public DrawnSlider {
     Q_OBJECT
 public:
-    explicit QMediaSlider(QWidget *parent = 0);
+    explicit MediaSlider(QWidget *parent = 0);
 
     void clearTicks();
     void setTick(double value, QString text);
@@ -99,11 +99,11 @@ protected:
     QRectF loopArea = { -1, -1, 0, 0};
 };
 
-class QVolumeSlider : public QDrawnSlider {
+class VolumeSlider : public DrawnSlider {
     Q_OBJECT
 
 public:
-    explicit QVolumeSlider(QWidget *parent = 0);
+    explicit VolumeSlider(QWidget *parent = 0);
 
 protected:
     void makeBackground();

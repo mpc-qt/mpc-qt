@@ -11,7 +11,7 @@ namespace Ui {
 class PlaylistWindow;
 }
 
-class QDrawnPlaylist;
+class DrawnPlaylist;
 class PlaylistSelection;
 class QThread;
 class PlaylistSearcher;
@@ -54,7 +54,7 @@ private:
     void connectButtonsToActions();
     void connectSignalsToSlots();
 
-    QDrawnPlaylist *currentPlaylistWidget();
+    DrawnPlaylist *currentPlaylistWidget();
     void updateCurrentPlaylist();
     void updatePlaylistHasItems();
     void setPlaylistFilters(QString filterText);
@@ -147,8 +147,8 @@ private:
     bool showSearch = false;
     bool hideFullscreen = false;
 
-    QHash<QUuid, QDrawnPlaylist*> widgets;
-    QDrawnPlaylist* queueWidget = nullptr;
+    QHash<QUuid, DrawnPlaylist*> widgets;
+    DrawnPlaylist* queueWidget = nullptr;
     PlaylistSelection *clipboard = nullptr;
     std::random_device randomDevice;
     std::mt19937 randomGenerator;

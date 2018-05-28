@@ -19,7 +19,7 @@ static void dr(QPainter *p, QRectF r) {
 
 
 
-QDrawnSlider::QDrawnSlider(QWidget *parent, QSize handle, QSize margin) :
+DrawnSlider::DrawnSlider(QWidget *parent, QSize handle, QSize margin) :
     QWidget(parent)
 {
     setFocusPolicy(Qt::NoFocus);
@@ -28,14 +28,14 @@ QDrawnSlider::QDrawnSlider(QWidget *parent, QSize handle, QSize margin) :
                       margin.width(), margin.height());
 }
 
-void QDrawnSlider::setValue(double v)
+void DrawnSlider::setValue(double v)
 {
     vValue = qBound(vMinimum, v, vMaximum);
     xPosition = valueToX(vValue);
     update();
 }
 
-void QDrawnSlider::setMaximum(double v)
+void DrawnSlider::setMaximum(double v)
 {
     vMaximum = v;
     if (vValue > v)
@@ -44,7 +44,7 @@ void QDrawnSlider::setMaximum(double v)
         update();
 }
 
-void QDrawnSlider::setMinimum(double v)
+void DrawnSlider::setMinimum(double v)
 {
     vMinimum = v;
     if (vValue < v)
@@ -53,22 +53,22 @@ void QDrawnSlider::setMinimum(double v)
         update();
 }
 
-double QDrawnSlider::value()
+double DrawnSlider::value()
 {
     return vValue;
 }
 
-double QDrawnSlider::maximum()
+double DrawnSlider::maximum()
 {
     return vMaximum;
 }
 
-double QDrawnSlider::minimum()
+double DrawnSlider::minimum()
 {
     return vMinimum;
 }
 
-void QDrawnSlider::setSliderGeometry(int handleWidth, int handleHeight,
+void DrawnSlider::setSliderGeometry(int handleWidth, int handleHeight,
                                      int marginX, int marginY)
 {
     this->handleWidth = handleWidth;
@@ -79,13 +79,13 @@ void QDrawnSlider::setSliderGeometry(int handleWidth, int handleHeight,
     setMaximumHeight(handleHeight);
 }
 
-void QDrawnSlider::handleHover(double x)
+void DrawnSlider::handleHover(double x)
 {
     // do nothing by default
     (void)x;
 }
 
-double QDrawnSlider::valueToX(double value)
+double DrawnSlider::valueToX(double value)
 {
     double stride = sliderArea.right() - sliderArea.left();
     double x = sliderArea.left() + (((value-minimum()) * stride)
@@ -93,7 +93,7 @@ double QDrawnSlider::valueToX(double value)
     return qBound(x, sliderArea.left(), sliderArea.right());
 }
 
-double QDrawnSlider::xToValue(double x)
+double DrawnSlider::xToValue(double x)
 {
     double stride = std::max(1.0, sliderArea.right() - sliderArea.left());
     double val = ((x-sliderArea.left()) * (maximum() - minimum()))
@@ -101,7 +101,7 @@ double QDrawnSlider::xToValue(double x)
     return qBound(val, minimum(), maximum());
 }
 
-void QDrawnSlider::paintEvent(QPaintEvent *event)
+void DrawnSlider::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
     QPalette pal;
@@ -138,7 +138,7 @@ void QDrawnSlider::paintEvent(QPaintEvent *event)
     }
 }
 
-void QDrawnSlider::resizeEvent(QResizeEvent *event)
+void DrawnSlider::resizeEvent(QResizeEvent *event)
 {
     Q_UNUSED(event);
     /*
@@ -214,7 +214,7 @@ height  |         +          ----    hH
     redrawPics = true;
 }
 
-void QDrawnSlider::mousePressEvent(QMouseEvent *ev)
+void DrawnSlider::mousePressEvent(QMouseEvent *ev)
 {
     if (ev->button() == Qt::LeftButton) {
         isDragging = true;
@@ -224,7 +224,7 @@ void QDrawnSlider::mousePressEvent(QMouseEvent *ev)
     }
 }
 
-void QDrawnSlider::mouseReleaseEvent(QMouseEvent *ev)
+void DrawnSlider::mouseReleaseEvent(QMouseEvent *ev)
 {
     if (isDragging && ev->button() == Qt::LeftButton) {
         isDragging = false;
@@ -232,7 +232,7 @@ void QDrawnSlider::mouseReleaseEvent(QMouseEvent *ev)
     }
 }
 
-void QDrawnSlider::mouseMoveEvent(QMouseEvent *ev)
+void DrawnSlider::mouseMoveEvent(QMouseEvent *ev)
 {
     if (isDragging && ev->buttons() & Qt::LeftButton) {
         double mouseValue = xToValue(ev->localPos().x());
@@ -246,12 +246,12 @@ void QDrawnSlider::mouseMoveEvent(QMouseEvent *ev)
     ev->ignore();
 }
 
-QMediaSlider::QMediaSlider(QWidget *parent) :
-    QDrawnSlider(parent, QSize(11, 12), QSize(5, 3))
+MediaSlider::MediaSlider(QWidget *parent) :
+    DrawnSlider(parent, QSize(11, 12), QSize(5, 3))
 {
 }
 
-void QMediaSlider::clearTicks()
+void MediaSlider::clearTicks()
 {
     ticks.clear();
     vLoopA = vLoopB = -1;
@@ -259,42 +259,42 @@ void QMediaSlider::clearTicks()
     redrawPics = true;
 }
 
-void QMediaSlider::setTick(double value, QString text)
+void MediaSlider::setTick(double value, QString text)
 {
     ticks.insert(value, text);
 }
 
-void QMediaSlider::setLoopA(double a)
+void MediaSlider::setLoopA(double a)
 {
     vLoopA = a; updateLoopArea();
 }
 
-void QMediaSlider::setLoopB(double b)
+void MediaSlider::setLoopB(double b)
 {
     vLoopB = b; updateLoopArea();
 }
 
-double QMediaSlider::loopA()
+double MediaSlider::loopA()
 {
     return vLoopA;
 }
 
-double QMediaSlider::loopB() {
+double MediaSlider::loopB() {
     return vLoopB;
 }
 
-bool QMediaSlider::isLoopEmpty()
+bool MediaSlider::isLoopEmpty()
 {
     return vLoopA < 0 || vLoopB < 0;
 }
 
-void QMediaSlider::resizeEvent(QResizeEvent *event)
+void MediaSlider::resizeEvent(QResizeEvent *event)
 {
-    QDrawnSlider::resizeEvent(event);
+    DrawnSlider::resizeEvent(event);
     updateLoopArea();
 }
 
-void QMediaSlider::makeBackground()
+void MediaSlider::makeBackground()
 {
     int pr = devicePixelRatio();
     int pw = width() * pr;
@@ -344,7 +344,7 @@ void QMediaSlider::makeBackground()
     }
 }
 
-void QMediaSlider::makeHandle()
+void MediaSlider::makeHandle()
 {
     int pr = devicePixelRatio();
     int pw = handleWidth * pr;
@@ -367,26 +367,26 @@ void QMediaSlider::makeHandle()
     }
 }
 
-void QMediaSlider::enterEvent(QEvent *event)
+void MediaSlider::enterEvent(QEvent *event)
 {
     Q_UNUSED(event);
     emit hoverBegin();
 }
 
-void QMediaSlider::leaveEvent(QEvent *event)
+void MediaSlider::leaveEvent(QEvent *event)
 {
     Q_UNUSED(event);
     emit hoverEnd();
 }
 
-void QMediaSlider::handleHover(double x)
+void MediaSlider::handleHover(double x)
 {
     double valueOfX = xToValue(x);
 
     emit hoverValue(valueOfX, valueToTickText(valueOfX), x);
 }
 
-void QMediaSlider::updateLoopArea()
+void MediaSlider::updateLoopArea()
 {
     double left = valueToX(vLoopA);
     double right = valueToX(vLoopB);
@@ -394,7 +394,7 @@ void QMediaSlider::updateLoopArea()
     update();
 }
 
-QString QMediaSlider::valueToTickText(double value)
+QString MediaSlider::valueToTickText(double value)
 {
     QString last_text;
 
@@ -410,12 +410,12 @@ QString QMediaSlider::valueToTickText(double value)
 
 
 
-QVolumeSlider::QVolumeSlider(QWidget *parent) :
-    QDrawnSlider(parent, QSize(10, 20), QSize(5, 10))
+VolumeSlider::VolumeSlider(QWidget *parent) :
+    DrawnSlider(parent, QSize(10, 20), QSize(5, 10))
 {
 }
 
-void QVolumeSlider::makeBackground()
+void VolumeSlider::makeBackground()
 {
     int pr = devicePixelRatio();
     int pw = drawnArea.width() * pr;
@@ -437,7 +437,7 @@ void QVolumeSlider::makeBackground()
     p.drawConvexPolygon(groove, 3);
 }
 
-void QVolumeSlider::makeHandle()
+void VolumeSlider::makeHandle()
 {
     int pr = devicePixelRatio();
     int pw = handleWidth * pr;
