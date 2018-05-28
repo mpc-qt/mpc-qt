@@ -1,11 +1,11 @@
 #include "screensaver.h"
 
-QScreenSaver::QScreenSaver(QObject *parent)
+ScreenSaver::ScreenSaver(QObject *parent)
     : QObject(parent)
 {
 }
 
-bool QScreenSaver::inhibiting()
+bool ScreenSaver::inhibiting()
 {
     return isInhibiting;
 }

@@ -4,14 +4,14 @@
 #include <QWidget>
 #include <QString>
 
-class QScreenSaver;
+class ScreenSaver;
 
 namespace Platform {
     extern const bool isMac;
     extern const bool isWindows;
     extern const bool isUnix;
 
-    QScreenSaver *screenSaver();
+    ScreenSaver *screenSaver();
 
     QString resourcesPath();
     QString fixedConfigPath(QString configPath);

@@ -159,10 +159,10 @@ void Flow::init() {
 
     inhibitScreensaver = false;
     screenSaver = Platform::screenSaver();
-    QSet<QScreenSaver::Ability> actualPowers = screenSaver->abilities();
+    QSet<ScreenSaver::Ability> actualPowers = screenSaver->abilities();
     mainWindow->setScreensaverAbilities(actualPowers);
-    QSet<QScreenSaver::Ability> desiredPowers;
-    desiredPowers << QScreenSaver::Inhibit << QScreenSaver::Uninhibit;
+    QSet<ScreenSaver::Ability> desiredPowers;
+    desiredPowers << ScreenSaver::Inhibit << ScreenSaver::Uninhibit;
     manipulateScreensaver = actualPowers.contains(desiredPowers);
     settingsWindow->setScreensaverDisablingEnabled(manipulateScreensaver);
 
@@ -451,24 +451,24 @@ void Flow::init() {
 
     // manager -> this.screensaver
     connect(playbackManager, &PlaybackManager::systemShouldHibernate,
-            screenSaver, &QScreenSaver::hibernateSystem);
+            screenSaver, &ScreenSaver::hibernateSystem);
     connect(playbackManager, &PlaybackManager::systemShouldLock,
-            screenSaver, &QScreenSaver::lockScreen);
+            screenSaver, &ScreenSaver::lockScreen);
     connect(playbackManager, &PlaybackManager::systemShouldLogOff,
-            screenSaver, &QScreenSaver::logOff);
+            screenSaver, &ScreenSaver::logOff);
     connect(playbackManager, &PlaybackManager::systemShouldShutdown,
-            screenSaver, &QScreenSaver::shutdownSystem);
+            screenSaver, &ScreenSaver::shutdownSystem);
     connect(playbackManager, &PlaybackManager::systemShouldStandby,
-            screenSaver, &QScreenSaver::suspendSystem);
+            screenSaver, &ScreenSaver::suspendSystem);
 
     // favorites -> this.favorite*
     connect(favoritesWindow, &FavoritesWindow::favoriteTracks,
             this, &Flow::favoriteswindow_favoriteTracks);
 
     // this.screensaver -> this
-    connect(screenSaver, &QScreenSaver::systemShutdown,
+    connect(screenSaver, &ScreenSaver::systemShutdown,
             this, &Flow::endProgram);
-    connect(screenSaver, &QScreenSaver::loggedOff,
+    connect(screenSaver, &ScreenSaver::loggedOff,
             this, &Flow::endProgram);
 
     // this -> mainwindow

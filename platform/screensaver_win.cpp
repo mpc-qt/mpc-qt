@@ -2,12 +2,12 @@
 #include <powrprof.h>
 #include "screensaver_win.h"
 
-QScreenSaverWin::QScreenSaverWin(QObject *parent) : QScreenSaver(parent)
+ScreenSaverWin::ScreenSaverWin(QObject *parent) : ScreenSaver(parent)
 {
 
 }
 
-QSet<QScreenSaverWin::Ability> QScreenSaverWin::abilities()
+QSet<ScreenSaverWin::Ability> ScreenSaverWin::abilities()
 {
     QSet<Ability> capabilities;
     capabilities << Inhibit << Uninhibit << LockScreen;
@@ -16,7 +16,7 @@ QSet<QScreenSaverWin::Ability> QScreenSaverWin::abilities()
     return capabilities;
 }
 
-void QScreenSaverWin::inhibitSaver(const QString &reason)
+void ScreenSaverWin::inhibitSaver(const QString &reason)
 {
     Q_UNUSED(reason);
     if (isInhibiting)
@@ -28,7 +28,7 @@ void QScreenSaverWin::inhibitSaver(const QString &reason)
     emit inhibitedSaver();
 }
 
-void QScreenSaverWin::uninhibitSaver()
+void ScreenSaverWin::uninhibitSaver()
 {
     if (!isInhibiting)
         return;
@@ -38,12 +38,12 @@ void QScreenSaverWin::uninhibitSaver()
     emit uninhibitedSaver();
 }
 
-void QScreenSaverWin::launchSaver()
+void ScreenSaverWin::launchSaver()
 {
     emit failed(LaunchSaver);
 }
 
-void QScreenSaverWin::lockScreen()
+void ScreenSaverWin::lockScreen()
 {
     if (LockWorkStation())
         emit screenLocked();
@@ -51,7 +51,7 @@ void QScreenSaverWin::lockScreen()
         emit failed(LockScreen);
 }
 
-void QScreenSaverWin::hibernateSystem()
+void ScreenSaverWin::hibernateSystem()
 {
     if (SetSuspendState(TRUE, FALSE, FALSE))
         emit systemHibernated();
@@ -59,7 +59,7 @@ void QScreenSaverWin::hibernateSystem()
         emit failed(Hibernate);
 }
 
-void QScreenSaverWin::suspendSystem()
+void ScreenSaverWin::suspendSystem()
 {
     if(SetSuspendState(FALSE, FALSE, FALSE))
         emit systemSuspended();
@@ -67,7 +67,7 @@ void QScreenSaverWin::suspendSystem()
         emit failed(Suspend);
 }
 
-void QScreenSaverWin::shutdownSystem()
+void ScreenSaverWin::shutdownSystem()
 {
     if (ExitWindowsEx(EWX_SHUTDOWN, 0))
         emit systemShutdown();
@@ -75,7 +75,7 @@ void QScreenSaverWin::shutdownSystem()
         emit failed(Shutdown);
 }
 
-void QScreenSaverWin::logOff()
+void ScreenSaverWin::logOff()
 {
     if (ExitWindowsEx(EWX_LOGOFF, 0))
         emit loggedOff();
@@ -83,7 +83,7 @@ void QScreenSaverWin::logOff()
         emit failed(LogOff);
 }
 
-bool QScreenSaverWin::canShutdown()
+bool ScreenSaverWin::canShutdown()
 {
     HANDLE hToken;
     TOKEN_PRIVILEGES tkp;

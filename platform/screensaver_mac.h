@@ -2,11 +2,11 @@
 #define QSCREENSAVER_MAC_H
 #include "screensaver.h"
 
-class QScreenSaverMac : public QScreenSaver
+class ScreenSaverMac : public ScreenSaver
 {
     Q_OBJECT
 public:
-    QScreenSaverMac(QObject *parent = NULL);
+    ScreenSaverMac(QObject *parent = NULL);
 
     QSet<Ability> abilities();
 

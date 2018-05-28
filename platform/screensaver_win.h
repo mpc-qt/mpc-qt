@@ -2,11 +2,11 @@
 #define QSCREENSAVER_WIN_H
 #include "screensaver.h"
 
-class QScreenSaverWin : public QScreenSaver
+class ScreenSaverWin : public ScreenSaver
 {
     Q_OBJECT
 public:
-    explicit QScreenSaverWin(QObject *parent = NULL);
+    explicit ScreenSaverWin(QObject *parent = NULL);
 
     QSet<Ability> abilities();
 

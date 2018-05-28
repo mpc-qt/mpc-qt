@@ -175,13 +175,13 @@ void MainWindow::setState(const QVariantMap &map)
 #undef UNWRAP
 }
 
-void MainWindow::setScreensaverAbilities(QSet<QScreenSaver::Ability> ab)
+void MainWindow::setScreensaverAbilities(QSet<ScreenSaver::Ability> ab)
 {
-    ui->actionPlayAfterOnceStandby->setVisible(ab.contains(QScreenSaver::Suspend));
-    ui->actionPlayAfterOnceHibernate->setVisible(ab.contains(QScreenSaver::Hibernate));
-    ui->actionPlayAfterOnceShutdown->setVisible(ab.contains(QScreenSaver::Shutdown));
-    ui->actionPlayAfterOnceLogoff->setVisible(ab.contains(QScreenSaver::LogOff));
-    ui->actionPlayAfterOnceLock->setVisible(ab.contains(QScreenSaver::LockScreen));
+    ui->actionPlayAfterOnceStandby->setVisible(ab.contains(ScreenSaver::Suspend));
+    ui->actionPlayAfterOnceHibernate->setVisible(ab.contains(ScreenSaver::Hibernate));
+    ui->actionPlayAfterOnceShutdown->setVisible(ab.contains(ScreenSaver::Shutdown));
+    ui->actionPlayAfterOnceLogoff->setVisible(ab.contains(ScreenSaver::LogOff));
+    ui->actionPlayAfterOnceLock->setVisible(ab.contains(ScreenSaver::LockScreen));
 }
 
 QSize MainWindow::desirableSize(bool first_run)

@@ -10,7 +10,7 @@
 #include "drawnstatus.h"
 #include "manager.h"
 #include "playlistwindow.h"
-#include "qscreensaver.h"
+#include "platform/screensaver.h"
 
 namespace Ui {
 class MainWindow;
@@ -38,7 +38,7 @@ public:
     QVariantMap mouseMapDefaults();
     QVariantMap state();
     void setState(const QVariantMap &map);
-    void setScreensaverAbilities(QSet<QScreenSaver::Ability> ab);
+    void setScreensaverAbilities(QSet<ScreenSaver::Ability> ab);
     QSize desirableSize(bool first_run = false);
     QPoint desirablePosition(QSize &size, bool first_run = false);
     void unfreezeWindow();

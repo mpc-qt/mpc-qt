@@ -139,7 +139,6 @@ SOURCES += main.cpp\
     settingswindow.cpp \
     ipcjson.cpp \
     openfiledialog.cpp \
-    qscreensaver.cpp \
     propertieswindow.cpp \
     platform/unify.cpp \
     paletteeditor.cpp \
@@ -162,7 +161,6 @@ HEADERS  += \
     settingswindow.h \
     ipcjson.h \
     openfiledialog.h \
-    qscreensaver.h \
     propertieswindow.h \
     platform/unify.h \
     paletteeditor.h \

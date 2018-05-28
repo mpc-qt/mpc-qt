@@ -10,7 +10,7 @@
 #include "settingswindow.h"
 #include "propertieswindow.h"
 #include "favoriteswindow.h"
-#include "qscreensaver.h"
+#include "platform/screensaver.h"
 
 class MprisInstance;
 
@@ -72,7 +72,7 @@ private:
     MpcQtServer *server = nullptr;
     MpvServer *mpvServer = nullptr;
     MprisInstance *mpris = nullptr;
-    QScreenSaver *screenSaver = nullptr;
+    ScreenSaver *screenSaver = nullptr;
     MainWindow *mainWindow = nullptr;
     PlaybackManager *playbackManager = nullptr;
     SettingsWindow *settingsWindow = nullptr;

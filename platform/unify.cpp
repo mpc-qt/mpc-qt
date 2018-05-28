@@ -17,11 +17,11 @@
 
 // Platform defines
 #if defined(Q_OS_WIN)
-    #define QScreenSaverPlatform QScreenSaverWin
+    #define ScreenSaverPlatform ScreenSaverWin
 #elif defined(Q_OS_MAC)
-    #define QScreenSaverPlatform QScreenSaverMac
+    #define ScreenSaverPlatform ScreenSaverMac
 #else
-    #define QScreenSaverPlatform QScreenSaverUnix
+    #define ScreenSaverPlatform ScreenSaverUnix
 #endif
 
 
@@ -51,13 +51,13 @@ const bool Platform::isUnix =
 ;
 
 
-QScreenSaver *Platform::screenSaver()
+ScreenSaver *Platform::screenSaver()
 {
-    static QScreenSaverPlatform *ss = nullptr;
+    static ScreenSaverPlatform *ss = nullptr;
     if (ss == nullptr) {
         Q_ASSERT(qApp);
-        ss = new QScreenSaverPlatform(qApp);
-        QObject::connect(ss, &QScreenSaver::destroyed, [&] {
+        ss = new ScreenSaverPlatform(qApp);
+        QObject::connect(ss, &ScreenSaver::destroyed, [&] {
             ss = nullptr;
         });
     }
