@@ -6,22 +6,28 @@
 
 // Platform includes
 #if defined(Q_OS_WIN)
-#include "qscreensaver_win.h"
+#include "devicemanager_win.h"
+#include "screensaver_win.h"
 #elif defined(Q_OS_MAC)
-#include "qscreensaver_mac.h"
+#include "devicemanager_mac.h"
+#include "screensaver_mac.h"
 #else
 #include <dlfcn.h>
+#include "devicemanager_unix.h"
 #include "screensaver_unix.h"
 #endif
 
 
 // Platform defines
 #if defined(Q_OS_WIN)
-    #define ScreenSaverPlatform ScreenSaverWin
+    #define ScreenSaverPlatform     ScreenSaverWin
+    #define DeviceManagerPlatform   DeviceManagerWin
 #elif defined(Q_OS_MAC)
-    #define ScreenSaverPlatform ScreenSaverMac
+    #define ScreenSaverPlatform     ScreenSaverMac
+    #define DeviceManagerPlatform   DeviceManagerMac
 #else
-    #define ScreenSaverPlatform ScreenSaverUnix
+    #define ScreenSaverPlatform     ScreenSaverUnix
+    #define DeviceManagerPlatform   DeviceManagerUnix
 #endif
 
 
@@ -50,6 +56,19 @@ const bool Platform::isUnix =
 #endif
 ;
 
+
+DeviceManager *Platform::deviceManager()
+{
+    static DeviceManagerPlatform *dm = nullptr;
+    if (dm == nullptr) {
+        Q_ASSERT(qApp);
+        dm = new DeviceManagerPlatform(qApp);
+        QObject::connect(dm, &DeviceManager::destroyed, [&] {
+            dm = nullptr;
+        });
+    }
+    return dm;
+}
 
 ScreenSaver *Platform::screenSaver()
 {

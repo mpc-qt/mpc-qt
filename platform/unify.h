@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QString>
 
+class DeviceManager;
 class ScreenSaver;
 
 namespace Platform {
@@ -11,6 +12,7 @@ namespace Platform {
     extern const bool isWindows;
     extern const bool isUnix;
 
+    DeviceManager *deviceManager();
     ScreenSaver *screenSaver();
 
     QString resourcesPath();

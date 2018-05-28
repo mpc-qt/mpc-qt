@@ -117,16 +117,22 @@ unix {
 }
 
 unix:!macx:SOURCES += platform/screensaver_unix.cpp \
+                      platform/devicemanager_unix.cpp \
                       ipcmpris.cpp
 unix:!macx:HEADERS += platform/screensaver_unix.h \
+                      platform/devicemanager_unix.h \
                       ipcmpris.h
 
 win32:RC_ICONS = $$system( bash make-win-icon.sh )
-win32:SOURCES += platform/screensaver_win.cpp
-win32:HEADERS += platform/screensaver_win.h
+win32:SOURCES += platform/screensaver_win.cpp \
+                 platform/devicemanager_win.cpp
+win32:HEADERS += platform/screensaver_win.h \
+                 platform/devicemanager_win.h
 
-macx:SOURCES += platform/screensaver_mac.cpp
-macx:HEADERS += platform/screensaver_mac.h
+macx:SOURCES += platform/screensaver_mac.cpp \
+                platform/devicemanager_mac.cpp
+macx:HEADERS += platform/screensaver_mac.h \
+                platform/devicemanager_mac.h
 
 SOURCES += main.cpp\
     mpvwidget.cpp \
@@ -147,7 +153,8 @@ SOURCES += main.cpp\
     drawnplaylist.cpp \
     drawnslider.cpp \
     drawnstatus.cpp \
-    platform/screensaver.cpp
+    platform/screensaver.cpp \
+    platform/devicemanager.cpp
 
 HEADERS  += \
     mpvwidget.h \
@@ -169,7 +176,8 @@ HEADERS  += \
     drawnplaylist.h \
     drawnslider.h \
     drawnstatus.h \
-    platform/screensaver.h
+    platform/screensaver.h \
+    platform/devicemanager.h
 
 FORMS    += \
     mainwindow.ui \
