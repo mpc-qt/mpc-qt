@@ -31,7 +31,7 @@ void StatusTime::paintEvent(QPaintEvent *event)
     QPainter p(this);
     QColor bgColor = parentWidget()->palette().color(QPalette::Active, QPalette::Window);
     QColor txColor = parentWidget()->palette().color(QPalette::Active, QPalette::WindowText);
-    QRectF rc = QRectF(QPointF(0,0), QSizeF(size()));
+    QRectF rc = QRectF(QPointF(0,0), QSizeF(size())).adjusted(-0.5,-0.5,0.5,0.5);
     p.fillRect(rc, bgColor);
     p.setPen(txColor);
     p.drawText(rc, drawnText, QTextOption(Qt::AlignRight | Qt::AlignVCenter));
