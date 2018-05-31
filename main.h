@@ -11,6 +11,7 @@
 #include "propertieswindow.h"
 #include "favoriteswindow.h"
 #include "platform/screensaver.h"
+#include "platform/devicemanager.h"
 
 class MprisInstance;
 

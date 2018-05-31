@@ -3,7 +3,7 @@
 #include <windows.h>
 #include "devicemanager_win.h"
 
-static QList<QSharedPointer<DeviceInfo>> volumePaths(WCHAR *volumeName, WCHAR *deviceName);
+static QList<DeviceInfo *> volumePaths(WCHAR *volumeName, WCHAR *deviceName);
 
 DeviceManagerWin::DeviceManagerWin(QObject *parent)
     : DeviceManager(parent)
@@ -13,7 +13,12 @@ DeviceManagerWin::DeviceManagerWin(QObject *parent)
 
 bool DeviceManagerWin::deviceAccessPossible()
 {
-    return false;
+    return true;
+}
+
+QString DeviceManagerWin::toDisplayString()
+{
+     return QString("%1 [%2]").arg(mountedPath, volumeLabel);
 }
 
 void DeviceManagerWin::populate()
@@ -44,9 +49,9 @@ void DeviceManagerWin::populate()
     FindVolumeClose(findHandle);
 }
 
-static QList<QSharedPointer<DeviceInfo>> volumePaths(WCHAR *volumeName, WCHAR *deviceName)
+static QList<DeviceInfo*> volumePaths(WCHAR *volumeName, WCHAR *deviceName)
 {
-    QList<QSharedPointer<DeviceInfo>> list;
+    QList<DeviceInfo*> list;
     DWORD charCount = MAX_PATH+1;
     QScopedArrayPointer<WCHAR> names;
     WCHAR *nameIndex = nullptr;
@@ -72,14 +77,25 @@ static QList<QSharedPointer<DeviceInfo>> volumePaths(WCHAR *volumeName, WCHAR *d
                                   &filesystemFlags,
                                   filesystemName,
                                   MAX_PATH+1);
-            DeviceInfo *p = new DeviceInfo;
+            DeviceInfoWin *p = new DeviceInfoWin(this);
             p->deviceType = (DeviceInfo::DeviceType)make;
             p->deviceName =  QString::fromWCharArray(deviceName);
             p->internal = QString::fromWCharArray(volumeName);
             p->volumeLabel = QString::fromWCharArray(volumeNameBuffer);
             p->mountedPath = path;
-            list << QSharedPointer<DeviceInfo>(p);
+            list << p;
         }
     }
     return list;
+}
+
+DeviceInfoWin::DeviceInfoWin(QObject *parent)
+    : QObject(parent)
+{
+
+}
+
+QString DeviceInfoWin::toDisplayString()
+{
+     return QString("%1 [%2]").arg(mountedPath, volumeLabel);
 }

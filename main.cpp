@@ -106,7 +106,11 @@ Flow::~Flow()
         delete favoritesWindow;
         favoritesWindow = nullptr;
     }
-    screenSaver->uninhibitSaver();
+    if (screenSaver) {
+        screenSaver->uninhibitSaver();
+        delete screenSaver;
+        screenSaver = nullptr;
+    }
 }
 
 void Flow::parseArgs()
@@ -165,6 +169,10 @@ void Flow::init() {
     desiredPowers << ScreenSaver::Inhibit << ScreenSaver::Uninhibit;
     manipulateScreensaver = actualPowers.contains(desiredPowers);
     settingsWindow->setScreensaverDisablingEnabled(manipulateScreensaver);
+
+    if (Platform::deviceManager()->deviceAccessPossible()) {
+        qDebug() << "[main] device manager active";
+    }
 
     // mainwindow -> manager
     connect(mainWindow, &MainWindow::severalFilesOpened,

@@ -21,32 +21,39 @@ DeviceManager::DeviceManager(QObject *parent) : QObject(parent)
 
 int DeviceManager::count()
 {
-    return drives.count();
+    return devices.count();
 }
 
-bool DeviceManager::checkDeviceValid(QSharedPointer<DeviceInfo> info)
+bool DeviceManager::isDeviceValid(DeviceInfo *info)
 {
-    return drives.contains(info->uniqueId());
+    return info && devices.contains(info->uniqueId());
 }
 
 void DeviceManager::clearDevices()
 {
-    drives.clear();
+    qDeleteAll(devices);
+    devices.clear();
 }
 
-void DeviceManager::addDevice(QSharedPointer<DeviceInfo> device)
+void DeviceManager::addDevice(DeviceInfo *device)
 {
-    drives.insert(device->uniqueId(), device);
+    devices.insert(device->uniqueId(), device);
+    emit deviceAdded(device);
 }
 
-void DeviceManager::removeDevice(QSharedPointer<DeviceInfo> device)
+void DeviceManager::removeDevice(DeviceInfo *device)
 {
-    drives.remove(device->uniqueId());
+    removeDeviceById(device->uniqueId());
 }
 
-void DeviceManager::iterateDevices(std::function<void(QSharedPointer<DeviceInfo>)> callback)
+void DeviceManager::removeDeviceById(int id)
 {
-    for (auto &i : drives) {
+    devices.remove(id);
+}
+
+void DeviceManager::iterateDevices(std::function<void(DeviceInfo *)> callback)
+{
+    for (auto i : devices) {
         callback(i);
     }
 }

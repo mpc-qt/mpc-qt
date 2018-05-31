@@ -100,6 +100,7 @@ private:
     void updateOnTop();
     void updateWindowFlags();
     void updateMouseHideTime();
+    void updateDiscList();
     QList<QUrl> doQuickOpenFileDialog();
 
 signals:

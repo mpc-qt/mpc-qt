@@ -7,6 +7,7 @@
 #include "openfiledialog.h"
 #include "helpers.h"
 #include "platform/unify.h"
+#include "platform/devicemanager.h"
 #include <QDesktopWidget>
 #include <QStyle>
 #include <QWindow>
@@ -450,6 +451,8 @@ void MainWindow::setupMenu()
                                       tr("Every time"));
 
     ui->infoStats->setVisible(false);
+
+    updateDiscList();
 }
 
 void MainWindow::setupContextMenu()
@@ -819,7 +822,6 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionNavigateGoto->setEnabled(false);
     ui->actionFavoritesAdd->setEnabled(enabled);
 
-    ui->menuFileOpenDisc->setEnabled(false);
     ui->menuFileSubtitleDatabase->setEnabled(false);
     ui->menuPlayLoop->setEnabled(enabled);
     ui->menuPlayAudio->setEnabled(enabled);
@@ -1015,6 +1017,31 @@ void MainWindow::updateMouseHideTime()
     mpvObject_->setMouseHideTime(fullscreenMode_
                                  ? mouseHideTimeFullscreen
                                  : mouseHideTimeWindowed);
+}
+
+
+void MainWindow::updateDiscList()
+{
+    bool addedSomething = false;
+    auto func = [&](DeviceInfo *device) -> void {
+        if (device->deviceType != DeviceInfo::OpticalDrive &&
+            device->deviceType != DeviceInfo::RemovableDrive)
+            return;
+        QAction *a = new QAction(device->toDisplayString());
+        connect(a, &QAction::triggered,
+                this, [this,device]() {
+            if (Platform::deviceManager()->isDeviceValid(device)) {
+                //device->mount();
+                if (!device->mountedPath.isEmpty())
+                    emit dvdbdOpened(QUrl::fromLocalFile(device->mountedPath));
+            }
+        });
+        ui->menuFileOpenDisc->addAction(a);
+        addedSomething = true;
+    };
+    ui->menuFileOpenDisc->clear();
+    Platform::deviceManager()->iterateDevices(func);
+    ui->menuFileOpenDisc->setEnabled(addedSomething);
 }
 
 QList<QUrl> MainWindow::doQuickOpenFileDialog()

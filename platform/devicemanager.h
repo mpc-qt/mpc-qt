@@ -17,6 +17,7 @@ public:
 
     DeviceInfo(QObject *parent = nullptr);
     int uniqueId();
+    virtual QString toDisplayString() = 0;
 
     DeviceType deviceType;
     QString deviceName;
@@ -36,23 +37,24 @@ public:
     explicit DeviceManager(QObject *parent = nullptr);
     virtual bool deviceAccessPossible() = 0;
     int count();
-    void iterateDevices(std::function<void(QSharedPointer<DeviceInfo>)> callback);
-    bool checkDeviceValid(QSharedPointer<DeviceInfo> info);
+    void iterateDevices(std::function<void(DeviceInfo*)> callback);
+    bool isDeviceValid(DeviceInfo *info);
 
 signals:
-    void deviceAdded(QSharedPointer<DeviceInfo> info);
-    void deviceRemoved(QSharedPointer<DeviceInfo> info);
+    void deviceAdded(DeviceInfo *info);
+    void deviceRemoved(DeviceInfo *info);
 
 public slots:
 
 protected:
     virtual void populate() = 0;
     void clearDevices();
-    void addDevice(QSharedPointer<DeviceInfo> device);
-    void removeDevice(QSharedPointer<DeviceInfo> device);
+    void addDevice(DeviceInfo *device);
+    void removeDevice(DeviceInfo *device);
+    void removeDeviceById(int id);
 
 private:
-    QMap<int, QSharedPointer<DeviceInfo>> drives;
+    QMap<int,DeviceInfo*> devices;
 };
 
 #endif // DEVICEMANAGER_H

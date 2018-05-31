@@ -14,4 +14,14 @@ protected:
     void populate();
 };
 
+
+class DeviceInfoWin : public DeviceInfo
+{
+    Q_OBJECT
+public:
+    DeviceInfoWin(QObject *parent = nullptr);
+    QString toDisplayString();
+};
+
+
 #endif // DEVICEMANAGERWIN_H
