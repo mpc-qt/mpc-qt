@@ -97,5 +97,10 @@ DeviceInfoWin::DeviceInfoWin(QObject *parent)
 
 QString DeviceInfoWin::toDisplayString()
 {
-     return QString("%1 [%2]").arg(mountedPath, volumeLabel);
+    return QString("%1 [%2]").arg(mountedPath, volumeLabel);
+}
+
+void DeviceInfoWin::mount()
+{
+    return mountedPath;
 }

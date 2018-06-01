@@ -1031,7 +1031,7 @@ void MainWindow::updateDiscList()
         connect(a, &QAction::triggered,
                 this, [this,device]() {
             if (Platform::deviceManager()->isDeviceValid(device)) {
-                //device->mount();
+                device->mount();
                 if (!device->mountedPath.isEmpty())
                     emit dvdbdOpened(QUrl::fromLocalFile(device->mountedPath));
             }

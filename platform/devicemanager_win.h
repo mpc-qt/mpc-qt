@@ -21,6 +21,7 @@ class DeviceInfoWin : public DeviceInfo
 public:
     DeviceInfoWin(QObject *parent = nullptr);
     QString toDisplayString();
+    void mount();
 };
 
 

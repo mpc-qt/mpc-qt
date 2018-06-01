@@ -63,6 +63,7 @@ class UDisks2Block : public DeviceInfo {
 public:
     explicit UDisks2Block(const QString &node, QObject *parent = NULL);
     QString toDisplayString();
+    void mount();
 
 public:
     //QString name;       // deviceName
@@ -101,7 +102,7 @@ class UDisks2Filesystem : public QObject {
 public:
     UDisks2Filesystem(const QString &node, QObject *parent = NULL);
     QStringList mountPoints() const;
-    QString mount();
+    void mount();
     void unmount();
     void update();
     bool isValid();

@@ -18,6 +18,7 @@ public:
     DeviceInfo(QObject *parent = nullptr);
     int uniqueId();
     virtual QString toDisplayString() = 0;
+    virtual void mount() = 0;
 
     DeviceType deviceType;
     QString deviceName;
@@ -35,6 +36,7 @@ class DeviceManager : public QObject
     Q_OBJECT
 public:
     explicit DeviceManager(QObject *parent = nullptr);
+    ~DeviceManager();
     virtual bool deviceAccessPossible() = 0;
     int count();
     void iterateDevices(std::function<void(DeviceInfo*)> callback);

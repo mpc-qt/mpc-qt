@@ -19,6 +19,11 @@ DeviceManager::DeviceManager(QObject *parent) : QObject(parent)
 
 }
 
+DeviceManager::~DeviceManager()
+{
+    clearDevices();
+}
+
 int DeviceManager::count()
 {
     return devices.count();

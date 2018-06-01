@@ -262,6 +262,18 @@ QString UDisks2Block::toDisplayString()
     return l.join(' ');
 }
 
+void UDisks2Block::mount()
+{
+    if (!fs)
+        return;
+    if (mountedPath.isEmpty()) {
+        fs->mount();
+        if (!fs->mountPoints().isEmpty())
+            mountedPath = fs->mountPoints().first();
+    }
+    qDebug() << "[devman] device mount" << mountedPath;
+}
+
 QString UDisks2Block::toString()
 {
     return QString("name: %1\ndev: %2\nid: %3\ndrive: %4\nsize: %5\n"
@@ -418,10 +430,12 @@ UDisks2Filesystem::UDisks2Filesystem(const QString &node, QObject *parent)
 
 QStringList UDisks2Filesystem::mountPoints() const { return mountPoints_; }
 
-QString UDisks2Filesystem::mount()
+void UDisks2Filesystem::mount()
 {
     QDBusMessage reply = dbus->call(DBUS_CMD_MOUNT, QVariantMap());
-    return reply.arguments().first().toString();
+    if (reply.type() == QDBusMessage::ErrorMessage)
+        qDebug() << "[devman] mount failed with message" << reply.errorMessage();
+    update();
 }
 
 void UDisks2Filesystem::unmount()
