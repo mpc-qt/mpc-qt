@@ -1,9 +1,6 @@
 #include <QDebug>
 #include <QString>
-#include <windows.h>
 #include "devicemanager_win.h"
-
-static QList<DeviceInfo *> volumePaths(WCHAR *volumeName, WCHAR *deviceName);
 
 DeviceManagerWin::DeviceManagerWin(QObject *parent)
     : DeviceManager(parent)
@@ -14,11 +11,6 @@ DeviceManagerWin::DeviceManagerWin(QObject *parent)
 bool DeviceManagerWin::deviceAccessPossible()
 {
     return true;
-}
-
-QString DeviceManagerWin::toDisplayString()
-{
-     return QString("%1 [%2]").arg(mountedPath, volumeLabel);
 }
 
 void DeviceManagerWin::populate()
@@ -49,7 +41,7 @@ void DeviceManagerWin::populate()
     FindVolumeClose(findHandle);
 }
 
-static QList<DeviceInfo*> volumePaths(WCHAR *volumeName, WCHAR *deviceName)
+QList<DeviceInfo*> DeviceManagerWin::volumePaths(WCHAR *volumeName, WCHAR *deviceName)
 {
     QList<DeviceInfo*> list;
     DWORD charCount = MAX_PATH+1;
@@ -90,7 +82,7 @@ static QList<DeviceInfo*> volumePaths(WCHAR *volumeName, WCHAR *deviceName)
 }
 
 DeviceInfoWin::DeviceInfoWin(QObject *parent)
-    : QObject(parent)
+    : DeviceInfo(parent)
 {
 
 }
@@ -102,5 +94,5 @@ QString DeviceInfoWin::toDisplayString()
 
 void DeviceInfoWin::mount()
 {
-    return mountedPath;
+    // Do nothing
 }

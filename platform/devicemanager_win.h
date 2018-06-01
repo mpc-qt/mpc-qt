@@ -1,6 +1,7 @@
 #ifndef DEVICEMANAGERWIN_H
 #define DEVICEMANAGERWIN_H
 
+#include <windows.h>
 #include "devicemanager.h"
 
 class DeviceManagerWin : public DeviceManager
@@ -12,6 +13,9 @@ public:
 
 protected:
     void populate();
+
+private:
+    QList<DeviceInfo*> volumePaths(WCHAR *volumeName, WCHAR *deviceName);
 };
 
 
