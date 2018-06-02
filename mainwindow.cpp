@@ -452,6 +452,10 @@ void MainWindow::setupMenu()
 
     ui->infoStats->setVisible(false);
 
+    connect(Platform::deviceManager(), &DeviceManager::deviceAdded,
+            this, [this]() { updateDiscList(); });
+    connect(Platform::deviceManager(), &DeviceManager::deviceRemoved,
+            this, [this]() { updateDiscList(); });
     updateDiscList();
 }
 

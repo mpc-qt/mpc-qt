@@ -174,6 +174,7 @@ void DeviceManagerUnix::addBlock(const QString &node)
         connect(block, &UDisks2Block::changed,
                 this, &DeviceManagerUnix::blockDeviceChanged);
         blocks_.insert(node, block);
+        deviceIdByBlockNode.insert(node, block->uniqueId());
         addDevice(block);
         emit blockDeviceAdded(node);
     }

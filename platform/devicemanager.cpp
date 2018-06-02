@@ -53,6 +53,9 @@ void DeviceManager::removeDevice(DeviceInfo *device)
 
 void DeviceManager::removeDeviceById(int id)
 {
+    if (!devices.contains(id))
+        return;
+    emit deviceRemoved(devices[id]);
     devices.remove(id);
 }
 
