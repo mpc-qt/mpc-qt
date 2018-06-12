@@ -22,6 +22,7 @@
 #include <QMessageBox>
 #include <QLibraryInfo>
 #include <QToolTip>
+#include <QStyle>
 
 using namespace Helpers;
 
