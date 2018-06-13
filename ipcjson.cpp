@@ -97,6 +97,12 @@ MpcQtServer::MpcQtServer(MainWindow *mainWindow,
             this, &MpcQtServer::self_newConnection);
 }
 
+bool MpcQtServer::sendIdentify()
+{
+    return JsonServer::sendPayload(QString("{ \"command\": \"identify\" }").toUtf8(),
+                                   defaultSocketName());
+}
+
 void MpcQtServer::fakePayload(const QByteArray &payload)
 {
     socket_payloadReceived(payload, nullptr);
@@ -174,7 +180,8 @@ void MpcQtServer::socket_payloadReceived(const QByteArray &payload,
     QVariantMap map = QJsonDocument::fromJson(payload, &parseError).toVariant().toMap();
 
     if (!map.contains("command"))
-        return;
+        socketReturn(socket, false);
+
     QString command = map["command"].toString();
     QVariant value;
     if (ipcCommands.contains(command)) {
@@ -190,6 +197,11 @@ void MpcQtServer::socket_payloadReceived(const QByteArray &payload,
     } else {
         socketReturn(socket, false);
     }
+}
+
+void MpcQtServer::ipc_identify()
+{
+    // do nothing!
 }
 
 void MpcQtServer::ipc_playFiles(const QVariantMap &map)

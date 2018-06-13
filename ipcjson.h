@@ -42,6 +42,7 @@ public:
     explicit MpcQtServer(MainWindow *mainWindow,
                          PlaybackManager *playbackManager,
                          QObject *parent);
+    static bool sendIdentify();
     void fakePayload(const QByteArray &payload);
     static QString defaultSocketName();
     void setMainWindow(MainWindow *mainWindow);
@@ -58,6 +59,7 @@ private slots:
     void self_newConnection(QLocalSocket *socket);
     void socket_payloadReceived(const QByteArray &payload,
                                 QLocalSocket *socket);
+    void ipc_identify();
     void ipc_playFiles(const QVariantMap &map);
     void ipc_play(const QVariantMap &map);
     void ipc_pause();

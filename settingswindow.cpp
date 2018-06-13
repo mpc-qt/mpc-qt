@@ -297,7 +297,6 @@ void SettingsWindow::setupColorPickers()
 
 void SettingsWindow::setupUnimplementedWidgets()
 {
-    ui->playerOpenBox->setEnabled(false);
     ui->playerTrayIcon->setEnabled(false);
     ui->playerOSD->setEnabled(false);
     ui->playerLimitProportions->setEnabled(false);

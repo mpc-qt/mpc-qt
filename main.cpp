@@ -138,10 +138,19 @@ void Flow::parseArgs()
 }
 
 void Flow::init() {
+    readConfig();
+
+    bool multiwinMode = settings.value("playerOpenNew", QVariant(false)).toBool();
     if (!freestanding) {
-        hasPrevious_ = server->sendPayload(makePayload(), MpcQtServer::defaultSocketName());
-        if (hasPrevious_)
-            return;
+        if (!multiwinMode) {
+            hasPrevious_ = JsonServer::sendPayload(makePayload(), MpcQtServer::defaultSocketName());
+            if (hasPrevious_)
+                return;
+        } else {
+            // In multiwin mode, we want to take over the main instance if it has quit,
+            // so we switch to freestanding mode only if we find a previous instance.
+            freestanding = MpcQtServer::sendIdentify();
+        }
     }
 
     mainWindow = new MainWindow();
@@ -492,14 +501,11 @@ void Flow::init() {
 
     // update player framework
     settingsWindow->takeActions(mainWindow->editableActions());
-    recentFromVList(storage.readVList("recent"));
     mainWindow->setRecentDocuments(recentFiles);
-    favoritesFromVMap(storage.readVMap("favorites"));
     mainWindow->setFavoriteTracks(favoriteFiles, favoriteStreams);
     favoritesWindow->setFiles(favoriteFiles);
     favoritesWindow->setStreams(favoriteStreams);
-    settings = storage.readVMap("settings");
-    keyMap = storage.readVMap("keys");
+
     settingsWindow->setAudioDevices(mpvObject->audioDevices());
     settingsWindow->takeSettings(settings);
     settingsWindow->setMouseMapDefaults(mainWindow->mouseMapDefaults());
@@ -527,6 +533,32 @@ int Flow::run()
 bool Flow::hasPrevious()
 {
     return hasPrevious_;
+}
+
+void Flow::readConfig()
+{
+    settings = storage.readVMap("settings");
+    keyMap = storage.readVMap("keys");
+
+    QVariantMap favoriteMap = storage.readVMap("favorites");
+    favoriteFiles = TrackInfo::tracksFromVList(favoriteMap.value("files").toList());
+    favoriteStreams = TrackInfo::tracksFromVList(favoriteMap.value("streams").toList());
+    recentFiles = TrackInfo::tracksFromVList(storage.readVList("recent"));
+}
+
+void Flow::writeConfig(bool onlySettings)
+{
+    if (freestanding)
+        return;
+
+    storage.writeVMap("settings", settings);
+    if (onlySettings)
+        return;
+
+    storage.writeVMap("keys", keyMap);
+    storage.writeVList("recent", recentToVList());
+    storage.writeVMap("favorites", favoritesToVMap());
+    storage.writeVMap("geometry", saveWindows());
 }
 
 void Flow::setupMpris()
@@ -617,23 +649,12 @@ QVariantList Flow::recentToVList() const
     return TrackInfo::tracksToVList(recentFiles);
 }
 
-void Flow::recentFromVList(const QVariantList &list)
-{
-    recentFiles = TrackInfo::tracksFromVList(list);
-}
-
 QVariantMap Flow::favoritesToVMap() const
 {
     return QVariantMap {
         { "files", TrackInfo::tracksToVList(favoriteFiles) },
         { "streams", TrackInfo::tracksToVList(favoriteStreams) }
     };
-}
-
-void Flow::favoritesFromVMap(const QVariantMap &map)
-{
-    favoriteFiles = TrackInfo::tracksFromVList(map.value("files").toList());
-    favoriteStreams = TrackInfo::tracksFromVList(map.value("streams").toList());
 }
 
 QVariantMap Flow::saveWindows()
@@ -844,6 +865,7 @@ void Flow::manager_stateChanged(PlaybackManager::PlaybackState state)
 void Flow::settingswindow_settingsData(const QVariantMap &settings)
 {
     this->settings = settings;
+    writeConfig(true);
 }
 
 void Flow::settingswindow_inhibitScreensaver(bool yes)
@@ -912,13 +934,7 @@ void Flow::favoriteswindow_favoriteTracks(const QList<TrackInfo> &files, const Q
 
 void Flow::endProgram()
 {
-    if (!freestanding) {
-        storage.writeVMap("settings", settings);
-        storage.writeVMap("keys", keyMap);
-        storage.writeVList("recent", recentToVList());
-        storage.writeVMap("favorites", favoritesToVMap());
-        storage.writeVMap("geometry", saveWindows());
-    }
+    writeConfig();
     qApp->quit();
 }
 

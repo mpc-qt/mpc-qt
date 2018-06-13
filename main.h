@@ -32,13 +32,13 @@ signals:
     void windowsRestored();
 
 private:
+    void readConfig();
+    void writeConfig(bool onlySettings = false);
     void setupMpris();
     QByteArray makePayload() const;
     QString pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const;
     QVariantList recentToVList() const;
-    void recentFromVList(const QVariantList &list);
     QVariantMap favoritesToVMap() const;
-    void favoritesFromVMap(const QVariantMap &map);
     QVariantMap saveWindows();
     void restoreWindows(const QVariantMap &geometryMap);
     void showWindows(const QVariantMap &mainWindowMap);
