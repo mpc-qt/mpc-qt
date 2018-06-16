@@ -37,6 +37,7 @@ public:
 
     int extraPlayTimes() const;
     void setExtraPlayTimes(int amount);
+    void deltaExtraPlayTimes(int delta);
     int incExtraPlayTimes();
     int decExtraPlayTimes();
 

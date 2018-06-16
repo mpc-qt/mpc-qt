@@ -70,6 +70,7 @@ private slots:
     void ipc_previous(const QVariantMap &map);
     void ipc_repeat();
     void ipc_togglePlayback();
+    void ipc_deltaExtraPlaytimes(const QVariantMap &map);
     QVariant ipc_getMpvProperty(const QVariantMap &map);
     QVariant ipc_setMpvProperty(const QVariantMap &map);
     QVariant ipc_setMpvOption(const QVariantMap &map);

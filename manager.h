@@ -92,6 +92,7 @@ public slots:
     void playNext();
     void playPrev();
     void repeatThisFile();
+    void deltaExtraPlaytimes(int delta);
     void navigateToChapter(int64_t chapter);
     void navigateToTime(double time);
     void speedUp();

@@ -55,6 +55,12 @@ playing/moving to the previous track instead of the next track.
 The *togglePlayback* toggles the paused state, and if no file is currently
 being played, attempts to start one in the same manner as *start*.
 
+The *deltaExtraPlaytimes* command increments the currently playing item's
+extra playtimes field by the optional parameter `value`.  If the value field
+is not provided, the extra playtimes field is incremented by 1.  `value` can
+be negative.  If nothing is being played or the item has been removed from
+the playlist, nothing happens.
+
 
 #### Internal Mpv Queries
 

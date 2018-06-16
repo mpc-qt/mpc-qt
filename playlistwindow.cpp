@@ -220,6 +220,18 @@ void PlaylistWindow::setExtraPlayTimes(QUuid list, QUuid item, int amount)
     i->setExtraPlayTimes(amount);
 }
 
+void PlaylistWindow::deltaExtraPlayTimes(QUuid list, QUuid item, int delta)
+{
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    if (!pl)
+        return;
+    auto i = pl->itemOf(item);
+    if (!i)
+        return;
+    i->deltaExtraPlayTimes(delta);
+    widgets[list]->viewport()->repaint();
+}
+
 QVariantList PlaylistWindow::tabsToVList() const
 {
     QVariantList qvl;

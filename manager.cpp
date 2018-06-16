@@ -251,6 +251,11 @@ void PlaybackManager::repeatThisFile()
     startPlayWithUuid(nowPlaying_, nowPlayingList, nowPlayingItem, true);
 }
 
+void PlaybackManager::deltaExtraPlaytimes(int delta)
+{
+    playlistWindow_->deltaExtraPlayTimes(nowPlayingList, nowPlayingItem, delta);
+}
+
 void PlaybackManager::navigateToChapter(int64_t chapter)
 {
     if (!mpvObject_->setChapter(chapter)) {

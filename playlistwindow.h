@@ -39,6 +39,7 @@ public:
     void replaceItem(QUuid list, QUuid item, const QList<QUrl> &urls);
     int extraPlayTimes(QUuid list, QUuid item);
     void setExtraPlayTimes(QUuid list, QUuid item, int amount);
+    void deltaExtraPlayTimes(QUuid list, QUuid item, int delta);
 
     QVariantList tabsToVList() const;
     void tabsFromVList(const QVariantList &qvl);

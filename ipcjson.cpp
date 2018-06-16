@@ -284,6 +284,12 @@ void MpcQtServer::ipc_togglePlayback()
     }
 }
 
+void MpcQtServer::ipc_deltaExtraPlaytimes(const QVariantMap &map)
+{
+    int delta = map.value("value", 1).toInt();
+    playbackManager->deltaExtraPlaytimes(delta);
+}
+
 QVariant MpcQtServer::ipc_getMpvProperty(const QVariantMap &map)
 {
     if (!map.contains("name"))

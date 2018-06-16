@@ -90,6 +90,11 @@ void Item::setExtraPlayTimes(int amount)
     extraPlayTimes_ = std::max(amount, 0);
 }
 
+void Item::deltaExtraPlayTimes(int delta)
+{
+    extraPlayTimes_ = std::max(0, extraPlayTimes_ + delta);
+}
+
 int Item::incExtraPlayTimes()
 {
     return ++extraPlayTimes_ > 0 ? extraPlayTimes_ : 0;
