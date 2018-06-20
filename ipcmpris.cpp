@@ -3,7 +3,9 @@
 #include <QDBusMessage>
 #include <QMetaObject>
 #include <QMetaClassInfo>
+#include <QRegularExpression>
 #include <cmath>
+#include <functional>
 #include "ipcmpris.h"
 #include "mpvwidget.h"
 
@@ -429,7 +431,52 @@ bool MprisPlayerServer::maybeChangeMetadata()
     metadata_.insert("mpris:length", qlonglong(playbackDuration_ * 1000000));
     metadata_.insert("xesam:url", nowPlayingUrl_.toString());
 
-    for (auto it = mpvMetadata.constBegin(); it != mpvMetadata.constEnd(); it++)
-        metadata_.insert("xesam:" + it.key(), it.value());
+    auto trackMangle = [](QString &key, QVariant &value) -> bool {
+        key = "track";
+        QRegularExpression re("\\d+");
+        value = re.match(value.toString()).captured().toInt();
+        return true;
+    };
+    auto dateMangle = [](QString &key, QVariant &value) -> bool {
+        key = "date";
+        bool ok;
+        int i = value.toInt(&ok);
+        if (ok) {
+           value = QString::number(i) + "-01-01T00:00:00Z";
+           return true;
+        }
+        QDateTime t(QDateTime::fromString(value.toString().replace('/','-'), "yyyy-MM-dd"));
+        value = t.toString("yyyy-MM-ddThh:mm:ssZ");
+        return t.isValid();
+    };
+    auto noMangle = [](QString &key, QVariant &value) -> bool {
+        Q_UNUSED(key);
+        Q_UNUSED(value);
+        return true;
+    };
+    QHash<QString, std::function<bool(QString &key, QVariant &value)>> manglers {
+        { "track", trackMangle },
+        { "trackNumber", trackMangle },
+        { "tdat", dateMangle },
+        { "tyer", dateMangle },
+        { "year", dateMangle },
+        { "date", dateMangle },
+        { "title", noMangle },
+        { "album", noMangle }
+    };
+    auto sanitiser = [&](QString &key, QVariant &value) -> bool {
+        if (manglers.contains(key))
+            return manglers[key](key,value);
+        else if (value.type() == QVariant::String)
+            value = QStringList({value.toString()});
+        return true;
+    };
+
+    for (auto it = mpvMetadata.constBegin(); it != mpvMetadata.constEnd(); it++) {
+        QString key = it.key();
+        QVariant value = it.value();
+        if (sanitiser(key, value))
+            metadata_.insert("xesam:" + key, value);
+    }
     return true;
 }
