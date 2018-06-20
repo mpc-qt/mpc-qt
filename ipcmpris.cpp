@@ -238,7 +238,7 @@ void MprisPlayerServer::setVolume(double volume)
 
 qlonglong MprisPlayerServer::position()
 {
-    return qlonglong(playbackTime_ * 1000);
+    return qlonglong(playbackTime_ * 1000000);
 }
 
 double MprisPlayerServer::minimumRate()
