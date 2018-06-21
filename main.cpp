@@ -575,6 +575,8 @@ void Flow::setupMpris()
             mpris, &MprisInstance::manager_stateChanged);
     connect(playbackManager, &PlaybackManager::nowPlayingChanged,
             mpris, &MprisInstance::manager_nowPlayingChanged);
+    connect(mainWindow->mpvObject(), &MpvObject::mediaTitleChanged,
+            mpris, &MprisInstance::mpvObject_mediaTitleChanged);
     connect(mainWindow->mpvObject(), &MpvObject::metaDataChanged,
             mpris, &MprisInstance::mpvObject_metaDataChanged);
     connect(mainWindow->playlistWindow(), &PlaylistWindow::currentPlaylistHasItems,

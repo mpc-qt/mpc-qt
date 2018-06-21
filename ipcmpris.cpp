@@ -114,6 +114,11 @@ void MprisInstance::manager_nowPlayingChanged(QUrl itemUrl, QUuid listUuid, QUui
     player->instance_setNowPlayingUrl(itemUrl);
 }
 
+void MprisInstance::mpvObject_mediaTitleChanged(const QString &mediaTitle)
+{
+    player->instance_setMediaTitle(mediaTitle);
+}
+
 void MprisInstance::mpvObject_metaDataChanged(const QVariantMap &metadata)
 {
     player->instance_setMetadata(metadata);
@@ -363,6 +368,13 @@ void MprisPlayerServer::instance_setPlaybackState(PlaybackManager::PlaybackState
     instance()->dbusPropertyChange(this, propertyMap);
 }
 
+void MprisPlayerServer::instance_setMediaTitle(const QString &mediaTitle)
+{
+    mpvMediaTitle = mediaTitle;
+    if (maybeChangeMetadata())
+        instance()->dbusPropertyChange(this, {{"Metadata", metadata_}});
+}
+
 void MprisPlayerServer::instance_setMetadata(const QVariantMap &metadata)
 {
     QVariantMap data;
@@ -417,15 +429,26 @@ bool MprisPlayerServer::maybeChangeCanPlay()
 
 bool MprisPlayerServer::maybeChangeMetadata()
 {
-    bool haveInfo = !(mpvMetadata.isEmpty() || playbackDuration_ < 0 || !nowPlayingUrl_.isValid());
-    bool hadData = !metadata_.isEmpty();
-    bool changed = (haveInfo && !hadData) || (!haveInfo && hadData);
-    if (!changed)
+    // arbitrary bitfield used to detect any changes
+    int infoLevel = (!mpvMetadata.isEmpty()     ? 1<<0 : 0)
+                  + (!mpvMediaTitle.isEmpty()   ? 1<<1 : 0)
+                  + (playbackDuration_ >= 0     ? 1<<2 : 0)
+                  + (nowPlayingUrl_.isValid()   ? 1<<3 : 0);
+
+    if (infoLevel == metadataInfoLevel)
         return false;
+    metadataInfoLevel = infoLevel;
 
     metadata_.clear();
-    if (!haveInfo)
+    if (infoLevel == 0)
         return true;
+
+    if (mpvMediaTitle.isEmpty())
+        mpvMediaTitle = nowPlayingUrl_.fileName();
+    if (!mpvMetadata.contains("title"))
+        metadata_.insert("xesam:title", mpvMediaTitle);
+    else if (!mpvMetadata.contains("mediaTitle"))
+        metadata_.insert("xesam:mediaTitle", mpvMediaTitle);
 
     metadata_.insert("mpris:trackid", "/no/text"); //FIXME
     metadata_.insert("mpris:length", qlonglong(playbackDuration_ * 1000000));
