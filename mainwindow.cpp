@@ -1766,6 +1766,11 @@ void MainWindow::on_actionViewFullscreen_toggled(bool checked)
     }
 }
 
+void MainWindow::on_actionViewFullscreenEscape_triggered()
+{
+    ui->actionViewFullscreen->setChecked(false);
+}
+
 void MainWindow::on_actionViewZoom025_triggered()
 {
     setZoomPreset(0);

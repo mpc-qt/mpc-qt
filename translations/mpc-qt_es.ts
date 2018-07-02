@@ -1135,6 +1135,10 @@
         <source>Built on %1 at %2</source>
         <translation>Compilado el %1 a las %2</translation>
     </message>
+    <message>
+        <source>&amp;Escape Fullscreen</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

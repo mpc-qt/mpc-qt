@@ -702,6 +702,7 @@
     <addaction name="menuViewPresets"/>
     <addaction name="separator"/>
     <addaction name="actionViewFullscreen"/>
+    <addaction name="actionViewFullscreenEscape"/>
     <addaction name="menuViewZoom"/>
     <addaction name="separator"/>
     <addaction name="menuViewOntop"/>
@@ -1905,6 +1906,17 @@
    </property>
    <property name="text">
     <string>&amp;No Messages</string>
+   </property>
+  </action>
+  <action name="actionViewFullscreenEscape">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Escape Fullscreen</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">`</string>
    </property>
   </action>
  </widget>

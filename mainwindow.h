@@ -226,6 +226,7 @@ private slots:
     void on_actionViewPresetsNormal_triggered();
 
     void on_actionViewFullscreen_toggled(bool checked);
+    void on_actionViewFullscreenEscape_triggered();
 
     void on_actionViewZoom025_triggered();
     void on_actionViewZoom050_triggered();

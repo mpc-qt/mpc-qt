@@ -1216,6 +1216,10 @@
         <source>&amp;No Messages</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;Escape Fullscreen</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
