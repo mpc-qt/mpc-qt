@@ -374,6 +374,16 @@ QString Helpers::subsOpenFilter()
     return QString(QObject::tr("All Subtitles (*.%1);;All Files (*.*)")).arg(ext);
 }
 
+bool Helpers::urlSurvivesFilter(const QUrl &url)
+{
+    if (!url.isLocalFile())
+        return true;
+    QFileInfo info(url.toLocalFile());
+    if (info.isDir())
+        return true;
+    return fileExtensions.contains(info.suffix().toLower());
+}
+
 QList<QUrl> Helpers::filterUrls(const QList<QUrl> &urls)
 {
     QList<QUrl> filtered;
@@ -1175,3 +1185,4 @@ QList<AudioDevice> AudioDevice::listFromVList(const QVariantList &list)
         audioDevices.append(AudioDevice(v.toMap()));
     return audioDevices;
 }
+

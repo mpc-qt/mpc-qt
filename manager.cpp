@@ -534,10 +534,13 @@ void PlaybackManager::playNextFile()
     dir = info.dir();
     files = dir.entryList(QDir::Files, QDir::Name);
     index = files.indexOf(info.fileName()) + 1;
-    if (index <= 0 || index >= files.count())
-        goto stop;
-    nextFile = dir.filePath(files.value(index));
-    url = QUrl::fromLocalFile(nextFile);
+    do {
+        if (index <= 0 || index >= files.count())
+            goto stop;
+        nextFile = dir.filePath(files.value(index));
+        url = QUrl::fromLocalFile(nextFile);
+        index++;
+    } while (!Helpers::urlSurvivesFilter(url));
     playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, { url });
     startPlayWithUuid(url, nowPlayingList, nowPlayingItem, false);
     return;
@@ -565,10 +568,13 @@ void PlaybackManager::playPrevFile()
     dir = info.dir();
     files = dir.entryList(QDir::Files, QDir::Name);
     index = files.indexOf(info.fileName()) - 1;
-    if (index < 0)
-        goto stop;
-    nextFile = dir.filePath(files.value(index));
-    url = QUrl::fromLocalFile(nextFile);
+    do {
+        if (index < 0)
+            goto stop;
+        nextFile = dir.filePath(files.value(index));
+        url = QUrl::fromLocalFile(nextFile);
+        index--;
+    } while (!Helpers::urlSurvivesFilter(url));
     playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, { url });
     startPlayWithUuid(url, nowPlayingList, nowPlayingItem, false);
     return;
