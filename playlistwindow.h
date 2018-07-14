@@ -75,7 +75,7 @@ signals:
     void hideFullscreenChanged(bool checked);
 
 public slots:
-    void setIconTheme(const QString &fallback, const QString &custom);
+    void setIconTheme(IconThemer::FolderMode mode, const QString &fallback, const QString &custom);
     void setHideFullscreen(bool hidden);
 
     bool activateItem(QUuid playlistUuid, QUuid itemUuid);

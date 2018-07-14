@@ -1152,9 +1152,9 @@ void MainWindow::setFavoriteTracks(QList<TrackInfo> files, QList<TrackInfo> stre
         addTracks(streams);
 }
 
-void MainWindow::setIconTheme(QString fallback, QString custom)
+void MainWindow::setIconTheme(IconThemer::FolderMode mode, QString fallback, QString custom)
 {
-    themer.setIconFolders(fallback, custom);
+    themer.setIconFolders(mode, fallback, custom);
 }
 
 void MainWindow::setInfoColors(const QColor &foreground, const QColor &background)

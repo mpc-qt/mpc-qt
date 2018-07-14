@@ -2861,10 +2861,6 @@ ogni file multimediale riprodotto</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Black (for white palette) (default)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>White (for black palette)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3727,6 +3723,18 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Save with high bit depth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Built-in fallback</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black (for white palette)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

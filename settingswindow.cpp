@@ -31,8 +31,8 @@
 
 
 QHash<QString, QStringList> SettingMap::indexedValueToText = {
-    {"interfaceIconsFallback", { ":/images/theme/black/", \
-                                 ":/images/theme/white/", "" }},
+    {"interfaceIconsInbuilt", { ":/images/theme/black/", \
+                                ":/images/theme/white/" }},
     {"videoFramebuffer", {"rgb8-rgba8", "rgb10-rgb10_a2", "rgba12-rgba12",\
                           "rgb16-rgba16", "rgb16f-rgba16f",\
                           "rgb32f-rgba32f"}},
@@ -255,6 +255,10 @@ void SettingsWindow::setupPlatformWidgets()
     }
     if (!Platform::tiledDesktopsExist()) {
         ui->playbackAutozoomWarn->setVisible(false);
+    }
+
+    if (Platform::isUnix) {
+        ui->interfaceIconsTheme->setCurrentIndex(2);
     }
 
     if (Platform::isMac) {
@@ -524,7 +528,8 @@ void SettingsWindow::sendSignals()
     emit mprisIpc(WIDGET_LOOKUP(ui->ipcMpris).toBool());
 
     emit logoSource(selectedLogo());
-    emit iconTheme(WIDGET_TO_TEXT(ui->interfaceIconsFallback),
+    emit iconTheme((IconThemer::FolderMode)WIDGET_LOOKUP(ui->interfaceIconsTheme).toInt(),
+                   WIDGET_TO_TEXT(ui->interfaceIconsInbuilt),
                    WIDGET_LOOKUP(ui->interfaceIconsCustomFolder).toString());
     emit applicationPalette(WIDGET_LOOKUP(ui->interfaceWidgetCustom).toBool()
                             ? paletteEditor->variantToPalette(WIDGET_LOOKUP(paletteEditor))

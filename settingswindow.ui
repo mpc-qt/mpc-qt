@@ -154,7 +154,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>0</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -570,14 +570,14 @@ media file played</string>
              </property>
              <layout class="QFormLayout" name="formLayout_5">
               <item row="0" column="0">
-               <widget class="QLabel" name="interfaceIconsFallbackLabel">
+               <widget class="QLabel" name="interfaceIconsThemeLabel">
                 <property name="text">
-                 <string>Fallback</string>
+                 <string>Theme</string>
                 </property>
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QComboBox" name="interfaceIconsFallback">
+               <widget class="QComboBox" name="interfaceIconsTheme">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -586,12 +586,12 @@ media file played</string>
                 </property>
                 <item>
                  <property name="text">
-                  <string>Black (for white palette) (default)</string>
+                  <string>Built-in fallback</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>White (for black palette)</string>
+                  <string>Custom</string>
                  </property>
                 </item>
                 <item>
@@ -601,14 +601,14 @@ media file played</string>
                 </item>
                </widget>
               </item>
-              <item row="1" column="0">
+              <item row="2" column="0">
                <widget class="QLabel" name="interfaceIconsCustomLabel">
                 <property name="text">
                  <string>Custom</string>
                 </property>
                </widget>
               </item>
-              <item row="1" column="1">
+              <item row="2" column="1">
                <layout class="QHBoxLayout" name="interfaceIconsCustomLayout">
                 <item>
                  <widget class="QLineEdit" name="interfaceIconsCustomFolder">
@@ -626,7 +626,7 @@ media file played</string>
                 </item>
                </layout>
               </item>
-              <item row="2" column="1">
+              <item row="3" column="1">
                <widget class="QLabel" name="interfaceIconsNotice">
                 <property name="text">
                  <string>See &lt;a href=&quot;https://github.com/cmdrkotori/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</string>
@@ -634,6 +634,33 @@ media file played</string>
                 <property name="openExternalLinks">
                  <bool>true</bool>
                 </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="interfaceIconsInbuiltLabel">
+                <property name="text">
+                 <string>Fallback</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="interfaceIconsInbuilt">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Black (for white palette)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>White (for black palette)</string>
+                 </property>
+                </item>
                </widget>
               </item>
              </layout>
@@ -668,8 +695,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>42</width>
-                   <height>18</height>
+                   <width>555</width>
+                   <height>178</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>

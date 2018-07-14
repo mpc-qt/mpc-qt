@@ -60,15 +60,17 @@ public:
              button(b), iconNormal(on), iconChecked(off) {}
         QPushButton *button; QString iconNormal; QString iconChecked;
     };
+    enum FolderMode { FallbackFolder, CustomFolder, SystemFolder };
     explicit IconThemer(QObject *parent = 0);
     void addIconData(const IconData &data);
     QIcon fetchIcon(const QString &name);
 
 public slots:
-    void setIconFolders(const QString &fallbackFolder, const QString &customFolder);
+    void setIconFolders(FolderMode folderMode, const QString &fallbackFolder, const QString &customFolder);
 
 private:
     QList<IconData> iconDataList;
+    FolderMode mode;
     QString fallback;
     QString custom;
 };

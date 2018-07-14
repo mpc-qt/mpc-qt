@@ -151,7 +151,7 @@ public slots:
     void setFullscreenMouseMap(const MouseStateMap &map);
     void setRecentDocuments(QList<TrackInfo> tracks);
     void setFavoriteTracks(QList<TrackInfo> files, QList<TrackInfo> streams);
-    void setIconTheme(QString fallback, QString custom);
+    void setIconTheme(IconThemer::FolderMode mode, QString fallback, QString custom);
     void setInfoColors(const QColor &foreground, const QColor &background);
     void setTime(double time, double length);
     void setMediaTitle(QString title);

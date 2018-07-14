@@ -396,10 +396,11 @@ void PlaylistWindow::addQuickQueue()
     ui->quickPage->layout()->addWidget(queueWidget);
 }
 
-void PlaylistWindow::setIconTheme(const QString &fallback,
+void PlaylistWindow::setIconTheme(IconThemer::FolderMode mode,
+                                  const QString &fallback,
                                   const QString &custom)
 {
-    themer.setIconFolders(fallback, custom);
+    themer.setIconFolders(mode, fallback, custom);
 }
 
 void PlaylistWindow::setHideFullscreen(bool hidden)

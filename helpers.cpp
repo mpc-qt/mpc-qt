@@ -465,15 +465,17 @@ QIcon IconThemer::fetchIcon(const QString &name)
     if (customDir.exists() && customDir.exists(name)) {
         return QIcon(custom + name + ".svg");
     }
-    if (!fallback.isEmpty()) {
+    if (mode != SystemFolder) {
         return QIcon(fallback + name + ".svg");
     }
-    return QIcon::fromTheme(name, QIcon(":/images/theme/black/" + name));
+    return QIcon::fromTheme(name, QIcon(fallback + name + ".svg"));
 }
 
-void IconThemer::setIconFolders(const QString &fallbackFolder,
+void IconThemer::setIconFolders(FolderMode folderMode,
+                                const QString &fallbackFolder,
                                 const QString &customFolder)
 {
+    mode = folderMode;
     fallback = fallbackFolder;
     custom = customFolder;
     for (const IconData &data : iconDataList)  {

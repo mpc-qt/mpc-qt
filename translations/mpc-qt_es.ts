@@ -1935,8 +1935,8 @@ archivo multimedia reproducido</translation>
         <translation>Alternativa</translation>
     </message>
     <message>
-        <source>Black (for white palette) (default)</source>
-        <translation>Negro (para paleta blanca) (predefinido)</translation>
+        <source>Black (for white palette)</source>
+        <translation>Negro (para paleta blanca)</translation>
     </message>
     <message>
         <source>White (for black palette)</source>
@@ -3410,6 +3410,14 @@ archivo multimedia reproducido</translation>
     <message>
         <source>Open Logo Image</source>
         <translation>Abrir imagen de logo</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Built-in fallback</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
