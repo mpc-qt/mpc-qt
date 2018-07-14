@@ -420,6 +420,7 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
     else
         showNormal();
 
+    ui->actionViewFullscreenEscape->setEnabled(fullscreenMode);
     updateMouseHideTime();
 
     //REMOVEME: work around OpenGL blackness bug after fullscreen
