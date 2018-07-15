@@ -129,6 +129,9 @@ signals:
     void audioTrackSelected(int64_t id);
     void subtitleTrackSelected(int64_t id);
     void videoTrackSelected(int64_t id);
+    void subtitlesEnabled(bool enabled);
+    void nextSubtitleSelected();
+    void previousSubtitleSelected();
     void volumeChanged(int64_t volume);
     void volumeMuteChanged(bool muted);
     void afterPlaybackOnce(Helpers::AfterPlayback action);
@@ -259,6 +262,10 @@ private slots:
     void on_actionPlaySeekBackwards_triggered();
     void on_actionPlaySeekForwardsFine_triggered();
     void on_actionPlaySeekBackwardsFine_triggered();
+
+    void on_actionPlaySubtitlesEnabled_triggered(bool checked);
+    void on_actionPlaySubtitlesNext_triggered();
+    void on_actionPlaySubtitlesPrevious_triggered();
 
     void on_actionPlayLoopStart_triggered();
     void on_actionPlayLoopEnd_triggered();

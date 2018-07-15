@@ -147,7 +147,8 @@ QVariantMap MainWindow::state()
         { WRAP(ui->actionViewOntopAlways) },
         { WRAP(ui->actionViewOntopPlaying) },
         { WRAP(ui->actionViewOntopVideo) },
-        { WRAP(ui->actionViewFullscreen) }
+        { WRAP(ui->actionViewFullscreen) },
+        { WRAP(ui->actionPlaySubtitlesEnabled) }
     };
 #undef WRAP
 }
@@ -172,6 +173,8 @@ void MainWindow::setState(const QVariantMap &map)
     UNWRAP(ui->actionViewOntopPlaying, false);
     UNWRAP(ui->actionViewOntopVideo, false);
     UNWRAP(ui->actionViewFullscreen, false);
+    UNWRAP(ui->actionPlaySubtitlesEnabled, true);
+    on_actionPlaySubtitlesEnabled_triggered(ui->actionPlaySubtitlesEnabled->isChecked());
     updateOnTop();
 
 #undef UNWRAP
@@ -652,6 +655,7 @@ void MainWindow::setupIconThemer()
         { ui->stepForward, "media-skip-forward" },
         { ui->loopA, "zone-in" },
         { ui->loopB, "zone-out" },
+        { ui->subs, "view-media-subtitles", "view-media-subtitles-hidden" },
         { ui->mute, "player-volume", "player-volume-muted" }
     };
     for (auto &d : data)
@@ -703,6 +707,8 @@ void MainWindow::connectButtonsToActions()
     connect(ui->loopB, &QPushButton::clicked,
             ui->actionPlayLoopEnd, &QAction::triggered);
 
+    connect(ui->subs, &QPushButton::toggled,
+            [this](bool checked) { on_actionPlaySubtitlesEnabled_triggered(!checked); });
     connect(ui->mute, &QPushButton::toggled,
             ui->actionPlayVolumeMute, &QAction::toggled);
 }
@@ -1366,6 +1372,17 @@ void MainWindow::setVideoTracks(QList<QPair<int64_t, QString>> tracks)
 void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
 {
     ui->menuPlaySubtitles->clear();
+    hasSubs = !tracks.isEmpty();
+    ui->actionPlaySubtitlesEnabled->setEnabled(hasSubs);
+    ui->subs->setEnabled(hasSubs);
+    ui->actionPlaySubtitlesNext->setEnabled(hasSubs);
+    ui->actionPlaySubtitlesPrevious->setEnabled(hasSubs);
+    if (!hasSubs)
+        return;
+    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesEnabled);
+    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesNext);
+    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesPrevious);
+    ui->menuPlaySubtitles->addSeparator();
     for (const QPair<int64_t, QString> &track : tracks) {
         QAction *action = new QAction(this);
         action->setText(track.second);
@@ -1375,7 +1392,6 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
         });
         ui->menuPlaySubtitles->addAction(action);
     }
-    hasSubs = !tracks.isEmpty();
 }
 
 void MainWindow::setVolume(int level)
@@ -1941,6 +1957,22 @@ void MainWindow::on_actionPlaySeekBackwardsFine_triggered()
     emit relativeSeek(false, true);
 }
 
+void MainWindow::on_actionPlaySubtitlesEnabled_triggered(bool checked)
+{
+    emit subtitlesEnabled(checked);
+    ui->actionPlaySubtitlesEnabled->setChecked(checked);
+    ui->subs->setChecked(!checked);
+}
+
+void MainWindow::on_actionPlaySubtitlesNext_triggered()
+{
+    emit nextSubtitleSelected();
+}
+
+void MainWindow::on_actionPlaySubtitlesPrevious_triggered()
+{
+    emit previousSubtitleSelected();
+}
 
 void MainWindow::on_actionPlayLoopStart_triggered()
 {
@@ -1999,8 +2031,6 @@ void MainWindow::on_actionPlayVolumeMute_toggled(bool checked)
     emit volumeMuteChanged(checked);
     ui->actionPlayVolumeMute->setChecked(checked);
     ui->mute->setChecked(checked);
-    ui->mute->setIcon(themer.fetchIcon(checked ? "player-volume-muted"
-                                               : "player-volume"));
 }
 
 void MainWindow::on_actionPlayAfterOnceExit_triggered()
@@ -2202,4 +2232,3 @@ void MainWindow::on_actionFavoritesOrganize_triggered()
 {
     emit organizeFavorites();
 }
-

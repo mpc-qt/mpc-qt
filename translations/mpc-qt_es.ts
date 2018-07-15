@@ -1139,6 +1139,18 @@
         <source>&amp;Escape Fullscreen</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Enable &amp;Subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next Subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Previous Subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

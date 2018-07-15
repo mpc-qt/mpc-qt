@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>634</width>
+    <width>679</width>
     <height>362</height>
    </rect>
   </property>
@@ -116,7 +116,7 @@
           </item>
           <item>
            <widget class="QWidget" name="controlbar" native="true">
-            <layout class="QHBoxLayout" name="controlbarLayout" stretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0">
+            <layout class="QHBoxLayout" name="controlbarLayout" stretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0">
              <property name="leftMargin">
               <number>6</number>
              </property>
@@ -392,6 +392,24 @@
               </spacer>
              </item>
              <item>
+              <widget class="QPushButton" name="subs">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normalon>:/images/theme/black/view-media-subtitles.svg</normalon>
+                </iconset>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="flat">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QPushButton" name="mute">
                <property name="enabled">
                 <bool>false</bool>
@@ -580,7 +598,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>634</width>
+     <width>679</width>
      <height>23</height>
     </rect>
    </property>
@@ -721,6 +739,10 @@
      <property name="title">
       <string>Su&amp;btitles</string>
      </property>
+     <addaction name="actionPlaySubtitlesEnabled"/>
+     <addaction name="actionPlaySubtitlesNext"/>
+     <addaction name="actionPlaySubtitlesPrevious"/>
+     <addaction name="separator"/>
     </widget>
     <widget class="QMenu" name="menuPlayVideo">
      <property name="title">
@@ -1917,6 +1939,36 @@
    </property>
    <property name="shortcut">
     <string notr="true">`</string>
+   </property>
+  </action>
+  <action name="actionPlaySubtitlesEnabled">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Enable &amp;Subtitles</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true"/>
+   </property>
+  </action>
+  <action name="actionPlaySubtitlesNext">
+   <property name="text">
+    <string>&amp;Next Subtitle</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">S</string>
+   </property>
+  </action>
+  <action name="actionPlaySubtitlesPrevious">
+   <property name="text">
+    <string>&amp;Previous Subtitle</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Shift+S</string>
    </property>
   </action>
  </widget>

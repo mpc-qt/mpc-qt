@@ -1076,10 +1076,6 @@
         <translation>Скрыть &amp;границы</translation>
     </message>
     <message>
-        <source>Sho&amp;w Caption and Menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>No files favorited</source>
         <translation>Нет избранных файлов</translation>
     </message>
@@ -1144,15 +1140,31 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source> [Freestanding]</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;No Messages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Escape Fullscreen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable &amp;Subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next Subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Previous Subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sho&amp;w Caption and Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> [Freestanding]</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

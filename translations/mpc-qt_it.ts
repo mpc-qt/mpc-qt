@@ -1137,18 +1137,6 @@
         <translation>Apri rapidamente</translation>
     </message>
     <message>
-        <source>Open Subtitle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Development Build</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Version %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>About Media Player Classic Qute Theater</source>
         <translation>Informazioni su Media Player Classic Qute Theater</translation>
     </message>
@@ -1197,19 +1185,7 @@
         <translation>Flusso di rete</translation>
     </message>
     <message>
-        <source>No files favorited</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No streams favorited</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Cycle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> [Freestanding]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1218,6 +1194,42 @@
     </message>
     <message>
         <source>&amp;Escape Fullscreen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable &amp;Subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next Subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Previous Subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No files favorited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No streams favorited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> [Freestanding]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Development Build</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Version %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -218,6 +218,12 @@ void Flow::init() {
             playbackManager, &PlaybackManager::setSubtitleTrack);
     connect(mainWindow, &MainWindow::videoTrackSelected,
             playbackManager, &PlaybackManager::setVideoTrack);
+    connect(mainWindow, &MainWindow::subtitlesEnabled,
+            playbackManager, &PlaybackManager::setSubtitleEnabled);
+    connect(mainWindow, &MainWindow::nextSubtitleSelected,
+            playbackManager, &PlaybackManager::selectNextSubtitle);
+    connect(mainWindow, &MainWindow::previousSubtitleSelected,
+            playbackManager, &PlaybackManager::selectPrevSubtitle);
     connect(mainWindow, &MainWindow::volumeChanged,
             playbackManager, &PlaybackManager::setVolume);
     connect(mainWindow, &MainWindow::volumeMuteChanged,

@@ -50,5 +50,9 @@
         <file>images/theme/white/player-volume.svg</file>
         <file>images/theme/white/media-queue-visible.svg</file>
         <file>images/theme/white/view-media-queue.svg</file>
+        <file>images/theme/black/view-media-subtitles-hidden.svg</file>
+        <file>images/theme/black/view-media-subtitles.svg</file>
+        <file>images/theme/white/view-media-subtitles-hidden.svg</file>
+        <file>images/theme/white/view-media-subtitles.svg</file>
     </qresource>
 </RCC>

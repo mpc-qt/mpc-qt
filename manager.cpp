@@ -335,13 +335,40 @@ void PlaybackManager::setAudioTrack(int64_t id)
 void PlaybackManager::setSubtitleTrack(int64_t id)
 {
     subtitleListSelected = findSecondById(subtitleList, id);
-    mpvObject_->setSubtitleTrack(id);
+    subtitleTrackSelected = id;
+    updateSubtitleTrack();
 }
 
 void PlaybackManager::setVideoTrack(int64_t id)
 {
     videoListSelected = findSecondById(videoList, id);
     mpvObject_->setVideoTrack(id);
+}
+
+void PlaybackManager::setSubtitleEnabled(bool enabled)
+{
+    subtitleEnabled = enabled;
+    updateSubtitleTrack();
+}
+
+void PlaybackManager::selectNextSubtitle()
+{
+    if (subtitleList.isEmpty())
+        return;
+    int nextSubs = subtitleTrackSelected + 1;
+    if (nextSubs >= subtitleList.count())
+        nextSubs = 0;
+    setSubtitleTrack(nextSubs);
+}
+
+void PlaybackManager::selectPrevSubtitle()
+{
+    if (subtitleList.isEmpty())
+        return;
+    int previousSubs = subtitleTrackSelected - 1;
+    if (previousSubs < 0)
+        previousSubs = subtitleList.count() - 1;
+    setSubtitleTrack(previousSubs);
 }
 
 void PlaybackManager::setVolume(int64_t volume)
@@ -449,8 +476,15 @@ void PlaybackManager::selectDesiredTracks()
         audioListSelected.clear();
     if (subsId >= 0)
         setSubtitleTrack(subsId);
-    else if (!subtitleList.isEmpty())
+    else if (!subtitleList.isEmpty()) {
         subtitleListSelected.clear();
+        setSubtitleTrack(1);
+    }
+}
+
+void PlaybackManager::updateSubtitleTrack()
+{
+    mpvObject_->setSubtitleTrack(subtitleEnabled ? subtitleTrackSelected : 0);
 }
 
 void PlaybackManager::checkAfterPlayback(bool playlistMode)

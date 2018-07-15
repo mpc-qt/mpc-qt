@@ -108,6 +108,9 @@ public slots:
     void setAudioTrack(int64_t id);
     void setSubtitleTrack(int64_t id);
     void setVideoTrack(int64_t id);
+    void setSubtitleEnabled(bool enabled);
+    void selectNextSubtitle();
+    void selectPrevSubtitle();
     void setVolume(int64_t volume);
     void setMute(bool muted);
     void setAfterPlaybackOnce(Helpers::AfterPlayback mode);
@@ -125,6 +128,7 @@ private:
     void startPlayWithUuid(QUrl what, QUuid playlistUuid, QUuid itemUuid,
                            bool isRepeating, QUrl with = QUrl());
     void selectDesiredTracks();
+    void updateSubtitleTrack();
     void checkAfterPlayback(bool playlistMode);
     void playNextTrack();
     void playPrevTrack();
@@ -178,6 +182,8 @@ private:
     QString videoListSelected;
     QString audioListSelected;
     QString subtitleListSelected;
+    int subtitleTrackSelected = 1;
+    bool subtitleEnabled = true;
     int numChapters = 0;
 
     int playbackPlayTimes = 1;
