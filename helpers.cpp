@@ -467,6 +467,8 @@ IconThemer::IconThemer(QObject *parent)
 void IconThemer::addIconData(const IconThemer::IconData &data)
 {
     iconDataList.append(data);
+    connect(data.button, &QPushButton::toggled,
+            this, [this,data]() { updateButton(data); });
 }
 
 QIcon IconThemer::fetchIcon(const QString &name)
@@ -488,13 +490,17 @@ void IconThemer::setIconFolders(FolderMode folderMode,
     mode = folderMode;
     fallback = fallbackFolder;
     custom = customFolder;
-    for (const IconData &data : iconDataList)  {
-        QString nameToUse = data.iconNormal;
-        if (data.button->isChecked() && !data.iconChecked.isEmpty())
-            nameToUse = data.iconChecked;
-        QIcon icon(fetchIcon(nameToUse));
-        data.button->setIcon(icon);
-    }
+    for (const IconData &data : iconDataList)
+        updateButton(data);
+}
+
+void IconThemer::updateButton(const IconData &data)
+{
+    QString nameToUse = data.iconNormal;
+    if (data.button->isChecked() && !data.iconChecked.isEmpty())
+        nameToUse = data.iconChecked;
+    QIcon icon(fetchIcon(nameToUse));
+    data.button->setIcon(icon);
 }
 
 

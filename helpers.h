@@ -65,6 +65,7 @@ public:
     explicit IconThemer(QObject *parent = 0);
     void addIconData(const IconData &data);
     QIcon fetchIcon(const QString &name);
+    void updateButton(const IconData &data);
 
 public slots:
     void setIconFolders(FolderMode folderMode, const QString &fallbackFolder, const QString &customFolder);
