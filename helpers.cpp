@@ -467,14 +467,15 @@ IconThemer::IconThemer(QObject *parent)
 void IconThemer::addIconData(const IconThemer::IconData &data)
 {
     iconDataList.append(data);
-    connect(data.button, &QPushButton::toggled,
-            this, [this,data]() { updateButton(data); });
+    if (!data.iconChecked.isEmpty())
+        connect(data.button, &QPushButton::toggled,
+                this, [this,data]() { updateButton(data); });
 }
 
 QIcon IconThemer::fetchIcon(const QString &name)
 {
     QDir customDir(custom);
-    if (customDir.exists() && customDir.exists(name)) {
+    if (mode == CustomFolder && customDir.exists() && customDir.exists(name)) {
         return QIcon(custom + name + ".svg");
     }
     if (mode != SystemFolder) {
