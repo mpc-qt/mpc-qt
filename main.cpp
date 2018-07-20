@@ -443,6 +443,10 @@ void Flow::init() {
             this, &Flow::manager_stateChanged);
     connect(playbackManager, &PlaybackManager::instanceShouldClose,
             this, &Flow::mainwindow_instanceShouldQuit);
+    connect(playbackManager, &PlaybackManager::subtitlesVisibile,
+            this, &Flow::manager_subtitlesVisibile);
+    connect(playbackManager, &PlaybackManager::hasNoSubtitles,
+            this, &Flow::manager_hasNoSubtitles);
 
     // settings -> this
     connect(settingsWindow, &SettingsWindow::settingsData,
@@ -811,10 +815,17 @@ void Flow::mainwindow_takeImage(Helpers::ScreenshotRender render)
     QString tempFile = fmt.arg(tempDir, QUuid::createUuid().toString(), screenshotFormat);
     mainWindow->mpvObject()->screenshot(tempFile, render);
 
-    bool subsVisible = render != Helpers::VideoRender;
-    QString fileName = pictureTemplate(Helpers::DisabledAudio,
-                                       subsVisible ? Helpers::SubtitlesPresent
-                                                   : Helpers::SubtitlesDisabled);
+    Helpers::Subtitles subRender;
+    if (nowPlayingNoSubtitleTracks)
+        subRender = Helpers::NoSubtitles;
+    else if (render == Helpers::VideoRender)
+        subRender = Helpers::SubtitlesDisabled;
+    else if (!nowPlayingDisplayingSubtitles)
+        subRender = Helpers::SubtitlesDisabled;
+    else
+        subRender = Helpers::SubtitlesPresent;
+    QString fileName = pictureTemplate(Helpers::DisabledAudio, subRender);
+
     QString picFile;
     picFile = QFileDialog::getSaveFileName(this->mainWindow, tr("Save Image"),
                                            fileName);
@@ -830,10 +841,16 @@ void Flow::mainwindow_takeImage(Helpers::ScreenshotRender render)
 
 void Flow::mainwindow_takeImageAutomatically(Helpers::ScreenshotRender render)
 {
-    bool subsVisible = render != Helpers::VideoRender;
-    QString fileName = pictureTemplate(Helpers::DisabledAudio,
-                                       subsVisible ? Helpers::SubtitlesPresent
-                                                   : Helpers::SubtitlesDisabled);
+    Helpers::Subtitles subRender;
+    if (nowPlayingNoSubtitleTracks)
+        subRender = Helpers::NoSubtitles;
+    else if (render == Helpers::VideoRender)
+        subRender = Helpers::SubtitlesDisabled;
+    else if (!nowPlayingDisplayingSubtitles)
+        subRender = Helpers::SubtitlesDisabled;
+    else
+        subRender = Helpers::SubtitlesPresent;
+    QString fileName = pictureTemplate(Helpers::DisabledAudio, subRender);
     mainWindow->mpvObject()->screenshot(fileName, render);
 }
 
@@ -868,6 +885,16 @@ void Flow::manager_stateChanged(PlaybackManager::PlaybackState state)
         return;
     }
     screenSaver->inhibitSaver(tr("Playing Media"));
+}
+
+void Flow::manager_subtitlesVisibile(bool visible)
+{
+    nowPlayingDisplayingSubtitles = visible;
+}
+
+void Flow::manager_hasNoSubtitles(bool none)
+{
+    nowPlayingNoSubtitleTracks = none;
 }
 
 void Flow::settingswindow_settingsData(const QVariantMap &settings)

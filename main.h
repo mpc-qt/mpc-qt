@@ -53,6 +53,8 @@ private slots:
     void mainwindow_optionsOpenRequested();
     void manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid);
     void manager_stateChanged(PlaybackManager::PlaybackState state);
+    void manager_subtitlesVisibile(bool visible);
+    void manager_hasNoSubtitles(bool none);
     void settingswindow_settingsData(const QVariantMap &settings);
     void settingswindow_inhibitScreensaver(bool yes);
     void settingswindow_rememberWindowGeometry(bool yes);
@@ -96,6 +98,8 @@ private:
     bool inhibitScreensaver = false;
     bool manipulateScreensaver = false;
     bool rememberWindowGeometry = false;
+    bool nowPlayingDisplayingSubtitles = true;
+    bool nowPlayingNoSubtitleTracks = false;
     QString screenshotDirectory;
     QString encodeDirectory;
     QString screenshotTemplate;
