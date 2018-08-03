@@ -457,11 +457,8 @@ void MainWindow::setupMenu()
 
     ui->infoStats->setVisible(false);
 
-    connect(Platform::deviceManager(), &DeviceManager::deviceAdded,
+    connect(Platform::deviceManager(), &DeviceManager::deviceListChanged,
             this, [this]() { updateDiscList(); });
-    connect(Platform::deviceManager(), &DeviceManager::deviceRemoved,
-            this, [this]() { updateDiscList(); });
-    updateDiscList();
 }
 
 void MainWindow::setupContextMenu()

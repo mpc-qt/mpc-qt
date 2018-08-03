@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QMap>
 #include <QSharedPointer>
+#include <QTimer>
 #include <functional>
 
 class DeviceInfo : public QObject
@@ -45,6 +46,7 @@ public:
 signals:
     void deviceAdded(DeviceInfo *info);
     void deviceRemoved(DeviceInfo *info);
+    void deviceListChanged();
 
 public slots:
 
@@ -57,6 +59,7 @@ protected:
 
 private:
     QMap<int,DeviceInfo*> devices;
+    QTimer changedTimer;
 };
 
 #endif // DEVICEMANAGER_H

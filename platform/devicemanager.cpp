@@ -16,7 +16,10 @@ int DeviceInfo::uniqueId()
 
 DeviceManager::DeviceManager(QObject *parent) : QObject(parent)
 {
-
+    changedTimer.setSingleShot(true);
+    changedTimer.setInterval(0);
+    connect(&changedTimer, &QTimer::timeout,
+            this, &DeviceManager::deviceListChanged);
 }
 
 DeviceManager::~DeviceManager()
@@ -44,6 +47,7 @@ void DeviceManager::addDevice(DeviceInfo *device)
 {
     devices.insert(device->uniqueId(), device);
     emit deviceAdded(device);
+    changedTimer.start();
 }
 
 void DeviceManager::removeDevice(DeviceInfo *device)
@@ -57,6 +61,7 @@ void DeviceManager::removeDeviceById(int id)
         return;
     emit deviceRemoved(devices[id]);
     devices.remove(id);
+    changedTimer.start();
 }
 
 void DeviceManager::iterateDevices(std::function<void(DeviceInfo *)> callback)
