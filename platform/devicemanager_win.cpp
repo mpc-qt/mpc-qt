@@ -6,11 +6,25 @@ DeviceManagerWin::DeviceManagerWin(QObject *parent)
     : DeviceManager(parent)
 {
     populate();
+    listener = new DeviceListener;
+    listener->winId();
+    connect(listener, &DeviceListener::rescanNeeded,
+            this, &DeviceManagerWin::rescan);
+}
+
+DeviceManagerWin::~DeviceManagerWin()
+{
+    delete listener;
 }
 
 bool DeviceManagerWin::deviceAccessPossible()
 {
     return true;
+}
+
+void DeviceManagerWin::rescan()
+{
+    populate();
 }
 
 void DeviceManagerWin::populate()
@@ -95,4 +109,22 @@ QString DeviceInfoWin::toDisplayString()
 void DeviceInfoWin::mount()
 {
     // Do nothing
+}
+
+DeviceListener::DeviceListener(QWidget *parent) : QWidget(parent)
+{
+    rescanTimer.setSingleShot(true);
+    rescanTimer.setInterval(0);
+    connect(&rescanTimer, &QTimer::timeout,
+            this, &DeviceListener::rescanNeeded);
+}
+
+bool DeviceListener::nativeEvent(const QByteArray &eventType, void *message, long *result)
+{
+    MSG *m = reinterpret_cast<MSG*>(message);
+    if (m->message == WM_DEVICECHANGE) {
+        qDebug() << "[devman] got device change notification";
+        rescanTimer.start();
+    }
+    return false;
 }
