@@ -2,11 +2,12 @@
 # Make windows release script using 64bit libs
 
 VERSION=`date +'%y%m'`
+DOTTEDVERSION=`date +'%y.%m'`
 BUILD=release
 SUFFIX="win-x64-$VERSION"
 DEST="mpc-qt-$SUFFIX"
 
-qmake mpc-qt.pro
+qmake "MPCQT_VERSION=$DOTTEDVERSION" mpc-qt.pro
 mkdir -p release
 rm release/*
 make release-clean
