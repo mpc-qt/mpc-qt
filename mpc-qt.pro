@@ -14,33 +14,38 @@ TEMPLATE = app
 CONFIG += c++14
 
 !isEmpty(MPCQT_VERSION) {
-    # version provided on qmake commandline.
-    # e.g. distro makers, make-release-win script
+    message("Version provided on the commandline: $$MPCQT_VERSION")
     VERSTR = $$MPCQT_VERSION
-    VERSTR_WIN = $${MPCQT_VERSION}.0
+    VERSTR_WIN = "$$VERSTR"".0"
 } else:exists(.git) {
-    # bare qmake, likely by myself or brave users
+    # bare qmake, likely invoked by myself in qtcreator or by brave users
+    message("Deducing version from git information...")
     VERSTR = $$system(git describe --tags --abbrev=0)
     VERSTR_BLD = $$system(git rev-list $${VERSTR}..HEAD --count)
+    message("     ...the last tag is $$VERSTR"".")
+    message("     ...there are $$VERSTR_BLD commits since the last tag.")
     VERSTR = $$replace(VERSTR,'v','')
-    VERSTR_WIN = $$VERSTR.$$VERSTR_BLD
-    # use expanded version when past the last tag
-    !isEqual($$VERSTR_BLD,0) {
+    VERSTR_WIN = "$$VERSTR"".""$$VERSTR_BLD"
+    !equals(VERSTR_BLD,"0") {
+        # use expanded version when past the last tag
+        message("     ...this is probably a beta build, using descriptive version information.")
         VERSTR=$$system(git describe --tags)
         VERSTR=$$replace(VERSTR,v,'')
         DEFINES += MPCQT_DEVELOPMENT
     }
 }
-!isEmpty(VERSTR) {
+defined(VERSTR,var) {
     VERSTR_DECLARE = MPCQT_VERSION_STR=\\\"$${VERSTR}\\\"
     DEFINES += ""$${VERSTR_DECLARE}""
 } else {
-    # not in a git repo and no parsable version given.
-    # this is most probably not a disaster, since the
-    # version string may have been provided on the
-    # command line, and we have a sane fallback.
+    message("Not in a git repo and no version information provided.")
+    message("This will appear as an unversioned development build.")
+    message("To pass a version to qmake, run it like this:")
+    message("    qmake \"MPCQT_VERSION=\$VERSION\" mpc-qt.pro")
+    VERSTR = "not set"
     VERSTR_WIN = 0.0.0.0
 }
+message("The version appears to be $$VERSTR"", and the manifest would say this is $$VERSTR_WIN"".")
 
 CONFIG(release,debug|release) {
     win32:QMAKE_TARGET_COMPANY="The Mpc-Qt developers"
