@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>785</width>
+    <width>774</width>
     <height>778</height>
    </rect>
   </property>
@@ -154,7 +154,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>4</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -942,10 +942,10 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="currentText">
-                 <string notr="true">25%</string>
+                 <string notr="true">100%</string>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>3</number>
                 </property>
                 <item>
                  <property name="text">
@@ -1114,7 +1114,7 @@ media file played</string>
                  <number>130</number>
                 </property>
                 <property name="value">
-                 <number>99</number>
+                 <number>100</number>
                 </property>
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
