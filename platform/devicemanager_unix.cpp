@@ -1,5 +1,6 @@
 #include <QLatin1String>
 #include <QtDBus>
+#include "logger.h"
 #include "devicemanager_unix.h"
 
 typedef QList<unsigned char> dbus_ay;
@@ -154,7 +155,7 @@ void DeviceManagerUnix::addDrive(const QString &node)
         connect(drive, &UDisks2Drive::changed,
                 this, &DeviceManagerUnix::driveChanged);
         drives_.insert(node, drive);
-        qDebug() << "[devman] adding drive" << node;
+        Logger::logs("devman", {"adding drive", node});
         emit driveAdded(node);
     }
 }
@@ -272,7 +273,7 @@ void UDisks2Block::mount()
         if (!fs->mountPoints().isEmpty())
             mountedPath = fs->mountPoints().first();
     }
-    qDebug() << "[devman] device mount" << mountedPath;
+    Logger::logs("devman", {"device mount", mountedPath});
 }
 
 QString UDisks2Block::toString()

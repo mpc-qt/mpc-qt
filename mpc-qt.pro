@@ -161,7 +161,9 @@ SOURCES += main.cpp\
     drawnslider.cpp \
     drawnstatus.cpp \
     platform/screensaver.cpp \
-    platform/devicemanager.cpp
+    platform/devicemanager.cpp \
+    logwindow.cpp \
+    logger.cpp
 
 HEADERS  += \
     mpvwidget.h \
@@ -184,7 +186,9 @@ HEADERS  += \
     drawnslider.h \
     drawnstatus.h \
     platform/screensaver.h \
-    platform/devicemanager.h
+    platform/devicemanager.h \
+    logwindow.h \
+    logger.h
 
 FORMS    += \
     mainwindow.ui \
@@ -192,7 +196,8 @@ FORMS    += \
     settingswindow.ui \
     openfiledialog.ui \
     propertieswindow.ui \
-    favoriteswindow.ui
+    favoriteswindow.ui \
+    logwindow.ui
 
 RESOURCES += \
     res.qrc

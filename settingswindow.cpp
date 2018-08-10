@@ -1,4 +1,3 @@
-#include <QDebug>
 #include <QStandardPaths>
 #include <QFileInfo>
 #include <QFileDialog>
@@ -6,11 +5,12 @@
 #include <QProcess>
 #include <QProcessEnvironment>
 #include <QList>
-#include "settingswindow.h"
-#include "ui_settingswindow.h"
+#include "logger.h"
 #include "actioneditor.h"
 #include "paletteeditor.h"
 #include "platform/unify.h"
+#include "settingswindow.h"
+#include "ui_settingswindow.h"
 
 #define SCALER_SCALERS \
     "bilinear", "bicubic_fast", "oversample", "spline16", "spline36",\
@@ -144,7 +144,7 @@ static QStringList internalLogos = {
 void Setting::sendToControl()
 {
     if (!widget) {
-        qDebug() << "[settings] attempted to send data to null widget!";
+        Logger::log("settings", "attempted to send data to null widget!");
         return;
     }
     classSetter[widget->metaObject()->className()](widget, value);
@@ -153,7 +153,7 @@ void Setting::sendToControl()
 void Setting::fetchFromControl()
 {
     if (!widget) {
-        qDebug() << "[settings] attempted to get data from null widget!";
+        Logger::log("settings", "attempted to get data from null widget!");
         return;
     }
     value = classFetcher[widget->metaObject()->className()](widget);
@@ -218,6 +218,9 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->encodeDirectoryValue->setPlaceholderText(
                 QStandardPaths::writableLocation(
                     QStandardPaths::PicturesLocation) + "/mpc_encodes");
+    ui->logFilePathValue->setPlaceholderText(
+                QStandardPaths::writableLocation(
+                    QStandardPaths::DocumentsLocation) + "/mpc-qt-log.txt");
 
     // Expand every item on pageTree
     QList<QTreeWidgetItem*> stack;
@@ -830,13 +833,21 @@ void SettingsWindow::sendSignals()
     emit option("screenshot-png-compression", WIDGET_LOOKUP(ui->pngCompression).toInt());
     emit option("screenshot-png-filter", WIDGET_LOOKUP(ui->pngFilter).toInt());
     emit option("screenshot-tag-colorspace", WIDGET_LOOKUP(ui->pngColorspace).toBool());
+
+    emit logFilePath(WIDGET_PLACEHOLD_LOOKUP(ui->logFilePathValue));
+    emit loggingEnabled(WIDGET_LOOKUP(ui->loggingEnabled).toBool());
     emit clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
+    emit mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
+    emit logDelay(WIDGET_LOOKUP(ui->logUpdateDelayed).toBool() ?
+                  WIDGET_LOOKUP(ui->logUpdateInterval).toInt() : -1);
+    emit logHistory(WIDGET_LOOKUP(ui->logHistoryTrim).toBool() ?
+                    WIDGET_LOOKUP(ui->logHistoryLines).toInt() : 0);
+
     emit option("hr-seek", WIDGET_LOOKUP(ui->tweaksFastSeek).toBool() ? "absolute" : "yes");
     emit option("hr-seek-framedrop", WIDGET_LOOKUP(ui->tweaksSeekFramedrop).toBool());
     emit fallbackToFolder(WIDGET_LOOKUP(ui->tweaksOpenNextFile).toBool());
     emit timeTooltip(WIDGET_LOOKUP(ui->tweaksTimeTooltip).toBool(),
                      WIDGET_LOOKUP(ui->tweaksTimeTooltipLocation).toInt() == 0);
-    emit mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
 }
 
 void SettingsWindow::sendAcceptedSettings()
@@ -919,7 +930,7 @@ void SettingsWindow::on_pageTree_itemSelectionChanged()
     if (!modelIndex.isValid())
         return;
 
-    static int parentIndex[] = { 0, 5, 12, 15, 17, 18 };
+    static int parentIndex[] = { 0, 5, 12, 15, 17, 18, 19 };
     int index = 0;
     if (!modelIndex.parent().isValid())
         index = parentIndex[modelIndex.row()];

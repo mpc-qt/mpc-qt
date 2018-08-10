@@ -4,6 +4,7 @@
 #include <QMetaMethod>
 #include "ipcjson.h"
 #include "helpers.h"
+#include "logwindow.h"
 #include "mainwindow.h"
 #include "manager.h"
 #include "storage.h"
@@ -14,6 +15,7 @@
 #include "platform/devicemanager.h"
 
 class MprisInstance;
+class QThread;
 
 // a simple class to control program exection and own application objects
 class Flow : public QObject {
@@ -81,6 +83,8 @@ private:
     SettingsWindow *settingsWindow = nullptr;
     PropertiesWindow *propertiesWindow = nullptr;
     FavoritesWindow *favoritesWindow = nullptr;
+    LogWindow *logWindow = nullptr;
+    QThread *logThread = nullptr;
     Storage storage;
     QVariantMap settings;
     QVariantMap keyMap;

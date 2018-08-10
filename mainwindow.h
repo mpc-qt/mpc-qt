@@ -116,6 +116,8 @@ signals:
     void takeImageAutomatically(Helpers::ScreenshotRender render);
     void subtitlesLoaded(QUrl subs);
     void showFileProperties();
+    void showLogWindow();
+    void hideLogWindow();
     void optionsOpenRequested();
     void paused();
     void unpaused();
@@ -190,6 +192,7 @@ public slots:
     void setPlaylistQuickQueueMode(bool yes);
     void setAudioBitrate(double bitrate);
     void setVideoBitrate(double bitrate);
+    void logWindowClosed();
 
 private slots:
     void on_actionFileOpenQuick_triggered();
@@ -217,6 +220,7 @@ private slots:
     void on_actionViewHidePlaylist_toggled(bool checked);
     void on_actionViewHideCapture_toggled(bool checked);
     void on_actionViewHideNavigation_toggled(bool checked);
+    void on_actionViewHideLog_toggled(bool checked);
 
     void on_actionViewOSDNone_triggered();
     void on_actionViewOSDMessages_triggered();

@@ -1,4 +1,3 @@
-#include <QDebug>
 #include <sstream>
 #include <stdexcept>
 #include <cmath>
@@ -143,6 +142,7 @@ QVariantMap MainWindow::state()
         { WRAP(ui->actionViewHidePlaylist) },
         { WRAP(ui->actionViewHideCapture) },
         { WRAP(ui->actionViewHideNavigation) },
+        { WRAP(ui->actionViewHideLog) },
         { WRAP(ui->actionViewOntopDefault) },
         { WRAP(ui->actionViewOntopAlways) },
         { WRAP(ui->actionViewOntopPlaying) },
@@ -168,6 +168,7 @@ void MainWindow::setState(const QVariantMap &map)
     UNWRAP(ui->actionViewHidePlaylist, true);
     UNWRAP(ui->actionViewHideCapture, false);
     UNWRAP(ui->actionViewHideNavigation, false);
+    UNWRAP(ui->actionViewHideLog, false);
     UNWRAP(ui->actionViewOntopDefault, true);
     UNWRAP(ui->actionViewOntopAlways, false);
     UNWRAP(ui->actionViewOntopPlaying, false);
@@ -1454,6 +1455,11 @@ void MainWindow::setVideoBitrate(double bitrate)
     updateBitrate();
 }
 
+void MainWindow::logWindowClosed()
+{
+    ui->actionViewHideLog->setChecked(false);
+}
+
 void MainWindow::setPlaylistVisibleState(bool yes) {
     if (fullscreenMode_)
         return;
@@ -1685,6 +1691,15 @@ void MainWindow::on_actionViewHideNavigation_toggled(bool checked)
     (void)checked;
 
     updateSize();
+}
+
+
+void MainWindow::on_actionViewHideLog_toggled(bool checked)
+{
+    if (checked)
+        emit showLogWindow();
+    else
+        emit hideLogWindow();
 }
 
 void MainWindow::on_actionViewPresetsMinimal_triggered()

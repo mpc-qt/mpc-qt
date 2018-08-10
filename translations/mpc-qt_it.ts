@@ -102,6 +102,29 @@
     </message>
 </context>
 <context>
+    <name>LogWindow</name>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Salva</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Log Messages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save File</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
@@ -1230,6 +1253,14 @@
     </message>
     <message>
         <source>Version %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lo&amp;g</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+-</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3747,6 +3778,66 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn on logging (may produce stuttering)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> msec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window update interval</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window history</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No delay (consumes cpu)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delayed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlimited (consumes memory)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim old lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Logging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Log file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create log file (contents will be overwritten)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>~/mpc-qt-log.txt</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

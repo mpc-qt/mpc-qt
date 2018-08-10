@@ -1,5 +1,5 @@
-#include <QDebug>
 #include <QString>
+#include "logger.h"
 #include "devicemanager_win.h"
 
 DeviceManagerWin::DeviceManagerWin(QObject *parent)
@@ -123,7 +123,7 @@ bool DeviceListener::nativeEvent(const QByteArray &eventType, void *message, lon
 {
     MSG *m = reinterpret_cast<MSG*>(message);
     if (m->message == WM_DEVICECHANGE) {
-        qDebug() << "[devman] got device change notification";
+        Logger::log("devman", "got device change notification");
         rescanTimer.start();
     }
     return false;

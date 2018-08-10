@@ -19,6 +19,7 @@
 #include <cmath>
 #include <stdexcept>
 #include <mpv/qthelper.hpp>
+#include "logger.h"
 #include "mpvwidget.h"
 #include "helpers.h"
 #include "platform/unify.h"
@@ -70,8 +71,6 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
     // Wire up the event-handling callbacks
     connect(ctrl, &MpvController::mpvPropertyChanged,
             this, &MpvObject::ctrl_mpvPropertyChanged, Qt::QueuedConnection);
-    connect(ctrl, &MpvController::logMessage,
-            this, &MpvObject::ctrl_logMessage, Qt::QueuedConnection);
     connect(ctrl, &MpvController::hookEvent,
             this, &MpvObject::ctrl_hookEvent, Qt::QueuedConnection);
     connect(ctrl, &MpvController::unhandledMpvEvent,
@@ -84,6 +83,10 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
             this, &MpvObject::self_mouseMoved);
     connect(hideTimer, &QTimer::timeout,
             this, &MpvObject::hideTimer_timeout);
+
+    // Wire up the logging interface
+    connect(ctrl, &MpvController::logMessageByParts,
+            Logger::singleton(), &Logger::makeLogDescriptively);
 
     // Fetch installed scripts
     QString scriptPath = Storage::fetchConfigPath() + "/scripts";
@@ -515,14 +518,14 @@ QVariant MpvObject::getMpvPropertyVariant(QString name)
 void MpvObject::setMpvPropertyVariant(QString name, QVariant value)
 {
     if (debugMessages)
-        qDebug().noquote() << "[mpvobject] property set" << name << value;
+        LogStream("mpvobject") << name << " property set to " << value;
     emit ctrlSetPropertyVariant(name, value);
 }
 
 void MpvObject::setMpvOptionVariant(QString name, QVariant value)
 {
     if (debugMessages)
-        qDebug().noquote() << "[mpvobject] option set" << name << value;
+        LogStream("mpvobject") << name << " option set to " << value;
     emit ctrlSetOptionVariant(name, value);
 }
 
@@ -549,7 +552,7 @@ void MpvObject::hideCursor()
 void MpvObject::ctrl_mpvPropertyChanged(QString name, QVariant v)
 {
     if (debugMessages)
-        qDebug().noquote() << "[mpvobject] property changed" << name << v;
+        LogStream("mpvobject") << name << " property changed to " << v;
 
     bool ok = v.type() < QVariant::UserType;
     //FIXME: use constant-time map to function lookup
@@ -576,11 +579,6 @@ void MpvObject::ctrl_mpvPropertyChanged(QString name, QVariant v)
     HANDLE_PROP("path", emit filePathChanged, toString, QString());
 }
 
-void MpvObject::ctrl_logMessage(QString message)
-{
-    qDebug().noquote() << message;
-}
-
 void MpvObject::ctrl_hookEvent(QString name, uint64_t selfId, uint64_t mpvId)
 {
     if (reinterpret_cast<MpvObject*>(selfId) != this)
@@ -599,31 +597,31 @@ void MpvObject::ctrl_unhandledMpvEvent(int eventLevel)
     switch(eventLevel) {
     case MPV_EVENT_START_FILE: {
         if (debugMessages)
-            qDebug() << "[mpvobject] start file";
+            Logger::log("mpvobject", "start file");
         emit playbackLoading();
         break;
     }
     case MPV_EVENT_FILE_LOADED: {
         if (debugMessages)
-            qDebug() << "[mpvobject] file loaded";
+            Logger::log("mpvobject", "file loaded");
         emit playbackStarted();
         break;
     }
     case MPV_EVENT_END_FILE: {
         if (debugMessages)
-            qDebug() << "[mpvobject] end file";
+            Logger::log("mpvobject", "end file");
         emit playbackFinished();
         break;
     }
     case MPV_EVENT_IDLE: {
         if (debugMessages)
-            qDebug() << "[mpvobject] idling";
+            Logger::log("mpvobject", "idling");
         emit playbackIdling();
         break;
     }
     case MPV_EVENT_SHUTDOWN: {
         if (debugMessages)
-            qDebug() << "[mpvobject] event shutdown";
+            Logger::log("mpvobject", "event shutdown");
         emit playbackFinished();
         break;
     }
@@ -830,22 +828,22 @@ void MpvGlWidget::initializeGL()
     };
     QWidget *nativeParent = nativeParentWidget();
     if (nativeParent == nullptr) {
-        qDebug() << "[glwidget] no native parent handle";
+        Logger::log("glwidget", "no native parent handle");
     }
 #if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
     else if (QGuiApplication::platformName().contains("xcb")) {
-        qDebug() << "[glwidget] assigning x11 display";
+        Logger::log("glwidget", "assigning x11 display");
         params[2].type = MPV_RENDER_PARAM_X11_DISPLAY;
         params[2].data = (void*)QX11Info::display();
     } else if (QGuiApplication::platformName().contains("wayland")) {
-        qDebug() << "[glwidget] assigning wayland display";
+        Logger::log("glwidget", "assigning wayland display");
         QPlatformNativeInterface *native = QGuiApplication::platformNativeInterface();
         params[2].type = MPV_RENDER_PARAM_WL_DISPLAY;
         params[2].data = native->nativeResourceForWindow("display", nullptr);
     } else
 #endif
     {
-        qDebug() << "[glwidget] unknown display mode (eglfs et al)";
+        Logger::log("glwidget", "unknown display mode (eglfs et al)");
     }
 
     render = ctrl->createRenderContext(params);
@@ -856,9 +854,8 @@ void MpvGlWidget::initializeGL()
 
 void MpvGlWidget::paintGL()
 {
-    //FIXME: use log()
     if (mpvObject->clientDebuggingMessages())
-        qDebug() << "[glwidget] paintGL";
+        Logger::log("glwidget", "paintGL");
     bool yes = true;
 
     if (!drawLogo) {
@@ -1058,12 +1055,12 @@ void MpvController::showStatsPage(int page)
     bool statsVisible = (shownStatsPage > 0 && shownStatsPage < 3);
     bool wantVisible = (page > 0 && page < 3);
     if (wantVisible ^ statsVisible) {
-        qDebug() << "[mpvctrl] toggling stats page";
+        Logger::log("mpvctrl", "toggling stats page");
         command(QStringList({"script-binding",
                              "stats/display-stats-toggle"}));
     }
     if (wantVisible) {
-        qDebug() << "[mpvctrl] setting page to" << page;
+        LogStream("mpvctrl") << "setting page to " << page;
         QString pageCommand("stats/display-page-%1");
         command(QStringList({"script-binding",
                              pageCommand.arg(QString::number(page))}));
@@ -1248,8 +1245,7 @@ void MpvController::handleMpvEvent(mpv_event *event)
     case MPV_EVENT_LOG_MESSAGE: {
         mpv_event_log_message *msg =
                 reinterpret_cast<mpv_event_log_message*>(event->data);
-        emit logMessage(QString("[%1] %2: %3").arg(msg->prefix, msg->level,
-                                                   msg->text));
+        emit logMessageByParts(msg->prefix, msg->level, msg->text);
         break;
     }
     case MPV_EVENT_CLIENT_MESSAGE: {

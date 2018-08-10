@@ -1,4 +1,3 @@
-#include <QDebug>
 #include <clocale>
 #include <QApplication>
 #include <QDesktopWidget>
@@ -11,8 +10,10 @@
 #include <QTimer>
 #include <QCommandLineParser>
 #include <QSurfaceFormat>
+#include <QThread>
 #include <QTranslator>
 #include <QLibraryInfo>
+#include "logger.h"
 #include "main.h"
 #include "storage.h"
 #include "mainwindow.h"
@@ -27,6 +28,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication::setOrganizationDomain("cmdrkotori.mpc-qt");
     QApplication a(argc, argv);
+    Logger::singleton();
     a.setWindowIcon(QIcon(":/images/icon/mpc-qt.svg"));
 
     // The wayland plugin as of writing this (c. 2018-04) defaults
@@ -111,6 +113,16 @@ Flow::~Flow()
         delete screenSaver;
         screenSaver = nullptr;
     }
+    if (logWindow) {
+        delete logWindow;
+        logWindow = nullptr;
+    }
+    if (logThread) {
+        logThread->quit();
+        logThread->wait();
+        delete logThread;
+        logThread = nullptr;
+    }
 }
 
 void Flow::parseArgs()
@@ -153,6 +165,13 @@ void Flow::init() {
         }
     }
 
+    logThread = new QThread();
+    logThread->start();
+    Logger *logger = Logger::singleton();
+    logger->moveToThread(logThread);
+    connect(logThread, &QThread::finished,
+            logger, &QObject::deleteLater);
+
     mainWindow = new MainWindow();
     playbackManager = new PlaybackManager(this);
     playbackManager->setMpvObject(mainWindow->mpvObject(), true);
@@ -161,6 +180,7 @@ void Flow::init() {
     settingsWindow->setWindowModality(Qt::WindowModal);
     propertiesWindow = new PropertiesWindow();
     favoritesWindow = new FavoritesWindow();
+    logWindow = new LogWindow();
 
     server = new MpcQtServer(mainWindow, playbackManager, this);
     server->setMainWindow(mainWindow);
@@ -180,8 +200,23 @@ void Flow::init() {
     settingsWindow->setScreensaverDisablingEnabled(manipulateScreensaver);
 
     if (Platform::deviceManager()->deviceAccessPossible()) {
-        qDebug() << "[main] device manager active";
+        Logger::log("main", "device manager active");
     }
+
+    // Connect the modules together, somewhat like a switchboard.
+    // A connection method such as A->B is kept with B->A if possible.
+    //
+    // The ordering of these connections may seem to have no particular
+    // order, but if we first limit ourselves to the principle parts of
+    // the program then the ordering becomes clear:
+    //   MainWindow   1 2 3 4 5 6 17
+    //   Manager      7
+    //   Settings     8 9 10 13 14 15 16
+    //   MpvObject    11 12
+    //   Flow         18 19 20 21 22 23 24
+    // The only outlier as of writing (circa 2018-8) is Manager, which
+    // is effectively the MainWindow controller code anyway.  So the
+    // ordering here is actually similar to what you would expect.
 
     // mainwindow -> manager
     connect(mainWindow, &MainWindow::severalFilesOpened,
@@ -417,6 +452,24 @@ void Flow::init() {
     // manager -> settings
     connect(playbackManager, &PlaybackManager::playerSettingsRequested,
             settingsWindow, &SettingsWindow::sendSignals);
+
+    // settingswindow -> log
+    connect(settingsWindow, &SettingsWindow::loggingEnabled,
+            logger, &Logger::setLoggingEnabled);
+    connect(settingsWindow, &SettingsWindow::logFilePath,
+            logger, &Logger::setLogFile);
+    connect(settingsWindow, &SettingsWindow::logDelay,
+            logger, &Logger::setFlushTime);
+    connect(settingsWindow, &SettingsWindow::logHistory,
+            logWindow, &LogWindow::setLogLimit);
+
+    // mainwindow -> log
+    connect(mainWindow, &MainWindow::showLogWindow,
+            logWindow, &LogWindow::show);
+    connect(mainWindow, &MainWindow::hideLogWindow,
+            logWindow, &LogWindow::close);
+    connect(logWindow, &LogWindow::windowClosed,
+            mainWindow, &MainWindow::logWindowClosed);
 
     // mainwindow -> properties
     connect(mainWindow, &MainWindow::showFileProperties,
@@ -699,6 +752,11 @@ QVariantMap Flow::saveWindows()
             "propertiesWindow", QVariantMap {
                 { "geometry", Helpers::rectToVmap(propertiesWindow->geometry()) }
             }
+        },
+        {
+            "logWindow", QVariantMap {
+                { "geometry", Helpers::rectToVmap(logWindow->geometry()) }
+            }
         }
     };
 }
@@ -710,13 +768,15 @@ void Flow::restoreWindows(const QVariantMap &geometryMap)
     QVariantMap playlistMap = geometryMap["playlistWindow"].toMap();
     QVariantMap settingsMap = geometryMap["settingsWindow"].toMap();
     QVariantMap propertiesMap = geometryMap["propertiesWindow"].toMap();
+    QVariantMap logMap = geometryMap["logWindow"].toMap();
     QRect geometry;
     QDesktopWidget desktop;
     bool restoreGeometry = rememberWindowGeometry
             && mainMap.contains("geometry")
             && playlistMap.contains("geometry")
             && settingsMap.contains("geometry")
-            && propertiesMap.contains("geometry");
+            && propertiesMap.contains("geometry")
+            && logMap.contains("geometry");
 
     if (restoreGeometry && playlistMap["floating"].toBool()) {
         // the playlist window starts off floating, so restore it
@@ -764,6 +824,7 @@ void Flow::restoreWindows(const QVariantMap &geometryMap)
     // restore settings and properties window
     applyVariantToWindow(settingsWindow, settingsMap);
     applyVariantToWindow(propertiesWindow, propertiesMap);
+    applyVariantToWindow(logWindow, logMap);
     showWindows(mainMap);
 }
 

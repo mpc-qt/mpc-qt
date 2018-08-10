@@ -159,8 +159,13 @@ signals:
 
     // bchs should be part of a filter module page, hence the funny name
     void boschDishwasher(int brightness, int contrast, int hue, int saturation);
+
+    void loggingEnabled(bool enabled);
     void clientDebuggingMessages(bool yes);
     void mpvLogLevel(const QString &s);
+    void logFilePath(const QString &path);
+    void logDelay(int msecs);
+    void logHistory(int lines);
 
     void videoFilter(const QString &s);
     void audioFilter(const QString &s);

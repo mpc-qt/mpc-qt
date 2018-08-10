@@ -136,7 +136,6 @@ private:
 
 private slots:
     void ctrl_mpvPropertyChanged(QString name, QVariant v);
-    void ctrl_logMessage(QString message);
     void ctrl_hookEvent(QString name, uint64_t selfId, uint64_t mpvId);
     void ctrl_unhandledMpvEvent(int eventLevel);
     void ctrl_videoSizeChanged(QSize size);
@@ -301,7 +300,8 @@ signals:
     void durationChanged(int value);
     void positionChanged(int value);
     void mpvPropertyChanged(QString name, QVariant v, uint64_t userData);
-    void logMessage(QString message);
+    void logMessageByParts(QString prefix, QString level, QString msg);
+    //void logMessage(QString message);
     void clientMessage(uint64_t id, QStringList args);
     void videoSizeChanged(QSize size);
     void hookEvent(QString hookName, uint64_t selfId, uint64_t mpvId);
