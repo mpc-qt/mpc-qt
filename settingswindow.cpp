@@ -515,6 +515,19 @@ void SettingsWindow::setAudioDevices(const QList<AudioDevice> &devices)
 
 void SettingsWindow::sendSignals()
 {
+    // This function is usually ordered by the order they appear in the ui.
+    // However some times this is not the case: logging for example should
+    // be turned on early.
+
+    emit logFilePath(WIDGET_PLACEHOLD_LOOKUP(ui->logFilePathValue));
+    emit loggingEnabled(WIDGET_LOOKUP(ui->loggingEnabled).toBool());
+    emit clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
+    emit mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
+    emit logDelay(WIDGET_LOOKUP(ui->logUpdateDelayed).toBool() ?
+                  WIDGET_LOOKUP(ui->logUpdateInterval).toInt() : -1);
+    emit logHistory(WIDGET_LOOKUP(ui->logHistoryTrim).toBool() ?
+                    WIDGET_LOOKUP(ui->logHistoryLines).toInt() : 0);
+
     emit trayIcon(WIDGET_LOOKUP(ui->playerTrayIcon).toBool());
     emit showOsd(WIDGET_LOOKUP(ui->playerOSD).toBool());
     emit limitProportions(WIDGET_LOOKUP(ui->playerDisableOpenDisc).toBool());
@@ -833,15 +846,6 @@ void SettingsWindow::sendSignals()
     emit option("screenshot-png-compression", WIDGET_LOOKUP(ui->pngCompression).toInt());
     emit option("screenshot-png-filter", WIDGET_LOOKUP(ui->pngFilter).toInt());
     emit option("screenshot-tag-colorspace", WIDGET_LOOKUP(ui->pngColorspace).toBool());
-
-    emit logFilePath(WIDGET_PLACEHOLD_LOOKUP(ui->logFilePathValue));
-    emit loggingEnabled(WIDGET_LOOKUP(ui->loggingEnabled).toBool());
-    emit clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
-    emit mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
-    emit logDelay(WIDGET_LOOKUP(ui->logUpdateDelayed).toBool() ?
-                  WIDGET_LOOKUP(ui->logUpdateInterval).toInt() : -1);
-    emit logHistory(WIDGET_LOOKUP(ui->logHistoryTrim).toBool() ?
-                    WIDGET_LOOKUP(ui->logHistoryLines).toInt() : 0);
 
     emit option("hr-seek", WIDGET_LOOKUP(ui->tweaksFastSeek).toBool() ? "absolute" : "yes");
     emit option("hr-seek-framedrop", WIDGET_LOOKUP(ui->tweaksSeekFramedrop).toBool());
