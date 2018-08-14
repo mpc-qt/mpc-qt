@@ -531,7 +531,7 @@ void SettingsWindow::sendSignals()
     emit mprisIpc(WIDGET_LOOKUP(ui->ipcMpris).toBool());
 
     emit logoSource(selectedLogo());
-    emit iconTheme((IconThemer::FolderMode)WIDGET_LOOKUP(ui->interfaceIconsTheme).toInt(),
+    emit iconTheme(static_cast<IconThemer::FolderMode>(WIDGET_LOOKUP(ui->interfaceIconsTheme).toInt()),
                    WIDGET_TO_TEXT(ui->interfaceIconsInbuilt),
                    WIDGET_LOOKUP(ui->interfaceIconsCustomFolder).toString());
     emit applicationPalette(WIDGET_LOOKUP(ui->interfaceWidgetCustom).toBool()
@@ -1107,7 +1107,7 @@ void SettingsWindow::on_miscResetSettings_clicked()
 
 void SettingsWindow::on_windowVideoValue_textChanged(const QString &arg1)
 {
-    logoWidget->setLogoBackground(QString("#%1").arg(ui->windowVideoValue->text()));
+    logoWidget->setLogoBackground(QString("#%1").arg(arg1));
 }
 
 void SettingsWindow::on_subtitlesAutoloadReset_clicked()

@@ -20,7 +20,7 @@ class ActionEditor : public QTableView
 {
     Q_OBJECT
 public:
-    ActionEditor(QWidget *parent = 0);
+    ActionEditor(QWidget *parent = nullptr);
     int sizeHintForColumn(int column) const;
 
     void setCommands(const QList<Command> &commands);
@@ -45,7 +45,7 @@ private:
 class ShortcutWidget :public QWidget {
     Q_OBJECT
 public:
-    ShortcutWidget(QWidget *parent = 0);
+    ShortcutWidget(QWidget *parent = nullptr);
     void setKeySequence(const QKeySequence &keySequence);
     QKeySequence keySequence();
 
@@ -62,7 +62,7 @@ private:
 class ShortcutDelegate : public QStyledItemDelegate {
     Q_OBJECT
 public:
-    ShortcutDelegate(QObject *parent = 0);
+    ShortcutDelegate(QObject *parent = nullptr);
     virtual QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
     virtual void setEditorData(QWidget *editor, const QModelIndex &index) const;
     virtual void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
@@ -78,7 +78,7 @@ private:
 class ButtonWidget : public QWidget {
     Q_OBJECT
 public:
-    ButtonWidget(QWidget * parent = 0);
+    ButtonWidget(QWidget * parent = nullptr);
     void setState(const MouseState &state);
     MouseState state() const;
 
@@ -102,7 +102,7 @@ private:
 class ButtonDelegate : public QStyledItemDelegate {
     Q_OBJECT
 public:
-    ButtonDelegate(QObject *parent = 0, bool fullscreen = false);
+    ButtonDelegate(QObject *parent = nullptr, bool fullscreen = false);
     virtual QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
     virtual void setEditorData(QWidget *editor, const QModelIndex &index) const;
     virtual void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;

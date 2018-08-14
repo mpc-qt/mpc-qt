@@ -20,7 +20,7 @@ class PlaylistWindow : public QDockWidget
     Q_OBJECT
 
 public:
-    explicit PlaylistWindow(QWidget *parent = 0);
+    explicit PlaylistWindow(QWidget *parent = nullptr);
     ~PlaylistWindow();
 
     void setCurrentPlaylist(QUuid what);

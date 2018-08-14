@@ -12,7 +12,7 @@ class OpenFileDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit OpenFileDialog(QWidget *parent = 0);
+    explicit OpenFileDialog(QWidget *parent = nullptr);
     ~OpenFileDialog();
 
     QString file();

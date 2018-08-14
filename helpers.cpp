@@ -716,12 +716,12 @@ public:
     }
 
 private:
-    NodeType type = NullNode;
-    QString data;
     DisplayNode *tagNode = nullptr;
     DisplayNode *audioNode = nullptr;
     DisplayNode *videoNode = nullptr;
     DisplayNode *next = nullptr;
+    QString data;
+    NodeType type = NullNode;
 };
 
 

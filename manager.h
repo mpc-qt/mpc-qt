@@ -182,7 +182,7 @@ private:
     QString videoListSelected;
     QString audioListSelected;
     QString subtitleListSelected;
-    int subtitleTrackSelected = 1;
+    int64_t subtitleTrackSelected = 1;
     bool subtitleEnabled = true;
     int numChapters = 0;
 

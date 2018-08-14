@@ -87,7 +87,7 @@ public:
     QVariant getMpvPropertyVariant(QString name);
 
 signals:
-    void ctrlContinueHook(int mpvId);
+    void ctrlContinueHook(uint64_t mpvId);
     void ctrlCommand(QVariant params);
     void ctrlSetOptionVariant(QString name, QVariant value);
     void ctrlSetPropertyVariant(QString name, QVariant value);
@@ -243,8 +243,8 @@ typedef MpvGlWidget MpvEmbedWidget;
 
 class MpvErrorCode {
 public:
-    MpvErrorCode() {};
-    MpvErrorCode(int value) : value(value) {};
+    MpvErrorCode() {}
+    MpvErrorCode(int value) : value(value) {}
     MpvErrorCode(const MpvErrorCode &mec) : value(mec.value) {}
     ~MpvErrorCode() {}
     int errorcode() { return value; }
@@ -265,7 +265,7 @@ class MpvCallback : public QObject {
     Q_OBJECT
 public:
     typedef std::function<void(QVariant)> Callback;
-    explicit MpvCallback(const Callback &callback, QObject *owner = 0);
+    explicit MpvCallback(const Callback &callback, QObject *owner = nullptr);
 public slots:
     void reply(QVariant value);
 private:
@@ -293,7 +293,7 @@ public:
     };
     typedef QVector<MpvOption> OptionList;
 
-    MpvController(QObject *parent = 0);
+    MpvController(QObject *parent = nullptr);
     ~MpvController();
 
 signals:

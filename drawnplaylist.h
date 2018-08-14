@@ -13,7 +13,7 @@ class PlaylistSearcher;
 class PlayPainter : public QAbstractItemDelegate {
     Q_OBJECT
 public:
-    PlayPainter(QObject *parent = 0);
+    PlayPainter(QObject *parent = nullptr);
     void paint(QPainter *painter, const QStyleOptionViewItem &option,
                const QModelIndex &index) const;
     QSize sizeHint(const QStyleOptionViewItem &option,
@@ -23,7 +23,7 @@ public:
 
 class PlayItem : public QListWidgetItem {
 public:
-    PlayItem(const QUuid &uuid = QUuid(), const QUuid &playlistUuid = QUuid(), QListWidget *parent = 0);
+    PlayItem(const QUuid &uuid = QUuid(), const QUuid &playlistUuid = QUuid(), QListWidget *parent = nullptr);
     ~PlayItem();
 
     QUuid playlistUuid();
@@ -41,7 +41,7 @@ private:
 class DrawnPlaylist : public QListWidget {
     Q_OBJECT
 public:
-    DrawnPlaylist(QWidget *parent = 0);
+    DrawnPlaylist(QWidget *parent = nullptr);
     ~DrawnPlaylist();
     virtual QSharedPointer<Playlist> playlist() const;
     QUuid uuid() const;

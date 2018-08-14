@@ -716,6 +716,7 @@ void PlaylistWindow::randomizePlaylist(const QUuid &playlistUuid)
         return;
     std::uniform_int_distribution<> itemDistribution(0, qdp->count()-1);
     auto converter = [&](QSharedPointer<Item> i) {
+        Q_UNUSED(i);
         return itemDistribution(randomGenerator);
     };
     auto lessThan = [](const int &a, const int &b) {
@@ -791,7 +792,8 @@ void PlaylistWindow::playlist_copySelectionToClipboard(const QUuid &playlistUuid
 
 void PlaylistWindow::playlist_hideOnFullscreenToggled(bool checked)
 {
-
+    Q_UNUSED(checked);
+    // TODO: is this stub of any use?
 }
 
 void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid &playlistUuid, const QUuid &itemUuid)

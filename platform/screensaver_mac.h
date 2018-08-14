@@ -6,7 +6,7 @@ class ScreenSaverMac : public ScreenSaver
 {
     Q_OBJECT
 public:
-    ScreenSaverMac(QObject *parent = NULL);
+    ScreenSaverMac(QObject *parent = nullptr);
 
     QSet<Ability> abilities();
 

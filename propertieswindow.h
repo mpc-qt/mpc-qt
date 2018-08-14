@@ -15,7 +15,7 @@ class PropertiesWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit PropertiesWindow(QWidget *parent = 0);
+    explicit PropertiesWindow(QWidget *parent = nullptr);
     ~PropertiesWindow();
 
 public slots:

@@ -7,7 +7,7 @@ class StatusTime : public QWidget
 {
     Q_OBJECT
 public:
-    explicit StatusTime(QWidget *parent = 0);
+    explicit StatusTime(QWidget *parent = nullptr);
     virtual QSize minimumSizeHint() const;
 
     void setTime(double time);

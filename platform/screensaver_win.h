@@ -6,7 +6,7 @@ class ScreenSaverWin : public ScreenSaver
 {
     Q_OBJECT
 public:
-    explicit ScreenSaverWin(QObject *parent = NULL);
+    explicit ScreenSaverWin(QObject *parent = nullptr);
 
     QSet<Ability> abilities();
 

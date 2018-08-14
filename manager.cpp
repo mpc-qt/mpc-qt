@@ -348,7 +348,7 @@ void PlaybackManager::selectNextSubtitle()
 {
     if (subtitleList.isEmpty())
         return;
-    int nextSubs = subtitleTrackSelected + 1;
+    int64_t nextSubs = subtitleTrackSelected + 1;
     if (nextSubs >= subtitleList.count())
         nextSubs = 0;
     setSubtitleTrack(nextSubs);
@@ -358,7 +358,7 @@ void PlaybackManager::selectPrevSubtitle()
 {
     if (subtitleList.isEmpty())
         return;
-    int previousSubs = subtitleTrackSelected - 1;
+    int64_t previousSubs = subtitleTrackSelected - 1;
     if (previousSubs < 0)
         previousSubs = subtitleList.count() - 1;
     setSubtitleTrack(previousSubs);

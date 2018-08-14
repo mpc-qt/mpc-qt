@@ -124,7 +124,7 @@ void ActionEditor::fromVMap(const QVariantMap &map)
 }
 
 ShortcutDelegate::ShortcutDelegate(QObject *parent)
-    : QStyledItemDelegate(parent), owner((ActionEditor*)parent)
+    : QStyledItemDelegate(parent), owner(static_cast<ActionEditor*>(parent))
 {
 
 }
@@ -134,7 +134,7 @@ QWidget *ShortcutDelegate::createEditor(QWidget *parent, const QStyleOptionViewI
     Q_UNUSED(option);
     Q_UNUSED(index);
     ShortcutWidget *editor = new ShortcutWidget(parent);
-    return (QWidget*)editor;
+    return static_cast<QWidget*>(editor);
 }
 
 void ShortcutDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
@@ -162,7 +162,7 @@ void ShortcutDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionV
 
 
 ButtonDelegate::ButtonDelegate(QObject *parent, bool fullscreen)
-    : owner((ActionEditor*)parent), fullscreen(fullscreen)
+    : owner(qobject_cast<ActionEditor*>(parent)), fullscreen(fullscreen)
 {
 }
 
@@ -170,7 +170,7 @@ QWidget *ButtonDelegate::createEditor(QWidget *parent, const QStyleOptionViewIte
 {
     Q_UNUSED(option);
     Q_UNUSED(index);
-    return (QWidget*)new ButtonWidget(parent);
+    return qobject_cast<QWidget*>(new ButtonWidget(parent));
 }
 
 void ButtonDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const

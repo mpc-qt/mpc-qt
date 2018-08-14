@@ -725,8 +725,8 @@ static void *get_proc_address(void *ctx, const char *name) {
     (void)ctx;
     auto glctx = QOpenGLContext::currentContext();
     if (!strcmp(name, "glMPGetNativeDisplay"))
-        return (void*)glMPGetNativeDisplay;
-    void *res = glctx ? (void*)glctx->getProcAddress(QByteArray(name)) : nullptr;
+        return reinterpret_cast<void*>(glMPGetNativeDisplay);
+    void *res = glctx ? reinterpret_cast<void*>(glctx->getProcAddress(QByteArray(name))) : nullptr;
 
 #ifdef Q_OS_WIN32
     // QOpenGLContext::getProcAddress() in Qt 5.6 and below doesn't resolve all
@@ -821,8 +821,8 @@ void MpvGlWidget::initializeGL()
 {
     mpv_opengl_init_params glInit { &get_proc_address, this, nullptr };
     mpv_render_param params[] {
-        { MPV_RENDER_PARAM_API_TYPE, (void*)MPV_RENDER_API_TYPE_OPENGL },
-        { MPV_RENDER_PARAM_OPENGL_INIT_PARAMS, (void*)&glInit },
+        { MPV_RENDER_PARAM_API_TYPE, const_cast<char*>(MPV_RENDER_API_TYPE_OPENGL) },
+        { MPV_RENDER_PARAM_OPENGL_INIT_PARAMS, &glInit },
         { MPV_RENDER_PARAM_INVALID, nullptr },
         { MPV_RENDER_PARAM_INVALID, nullptr }
     };
@@ -834,7 +834,7 @@ void MpvGlWidget::initializeGL()
     else if (QGuiApplication::platformName().contains("xcb")) {
         Logger::log("glwidget", "assigning x11 display");
         params[2].type = MPV_RENDER_PARAM_X11_DISPLAY;
-        params[2].data = (void*)QX11Info::display();
+        params[2].data = QX11Info::display();
     } else if (QGuiApplication::platformName().contains("wayland")) {
         Logger::log("glwidget", "assigning wayland display");
         QPlatformNativeInterface *native = QGuiApplication::platformNativeInterface();
@@ -847,7 +847,7 @@ void MpvGlWidget::initializeGL()
     }
 
     render = ctrl->createRenderContext(params);
-    mpv_render_context_set_update_callback(render, MpvGlWidget::render_update, (void *)this);
+    mpv_render_context_set_update_callback(render, MpvGlWidget::render_update, this);
     if (!logo)
         logo = new LogoDrawer(this);
 }
@@ -859,9 +859,9 @@ void MpvGlWidget::paintGL()
     bool yes = true;
 
     if (!drawLogo) {
-        mpv_opengl_fbo fbo { (int)defaultFramebufferObject(), glWidth, glHeight, 0 };
+        mpv_opengl_fbo fbo { static_cast<int>(defaultFramebufferObject()), glWidth, glHeight, 0 };
         mpv_render_param params[] {
-            {MPV_RENDER_PARAM_OPENGL_FBO, (void*)&fbo },
+            {MPV_RENDER_PARAM_OPENGL_FBO, &fbo },
             {MPV_RENDER_PARAM_FLIP_Y, &yes}
         };
         mpv_render_context_render(render, params);
@@ -1288,6 +1288,6 @@ void MpvController::handleMpvEvent(mpv_event *event)
 
 void MpvController::mpvWakeup(void *ctx)
 {
-    QMetaObject::invokeMethod((MpvController*)ctx, "parseMpvEvents",
+    QMetaObject::invokeMethod(static_cast<MpvController*>(ctx), "parseMpvEvents",
                               Qt::QueuedConnection);
 }

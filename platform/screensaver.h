@@ -12,7 +12,7 @@ public:
     enum Ability { Inhibit, Uninhibit, LaunchSaver, LockScreen,
                  Hibernate, Suspend, Shutdown, LogOff };
 
-    explicit ScreenSaver(QObject *parent = 0);
+    explicit ScreenSaver(QObject *parent = nullptr);
 
     virtual QSet<Ability> abilities() = 0;
     virtual bool inhibiting();

@@ -67,7 +67,7 @@ private:
 class MediaSlider : public DrawnSlider {
     Q_OBJECT
 public:
-    explicit MediaSlider(QWidget *parent = 0);
+    explicit MediaSlider(QWidget *parent = nullptr);
 
     void clearTicks();
     void setTick(double value, QString text);
@@ -103,7 +103,7 @@ class VolumeSlider : public DrawnSlider {
     Q_OBJECT
 
 public:
-    explicit VolumeSlider(QWidget *parent = 0);
+    explicit VolumeSlider(QWidget *parent = nullptr);
 
 protected:
     void makeBackground();

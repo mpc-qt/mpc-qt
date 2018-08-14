@@ -14,7 +14,7 @@ class ScreenSaverUnix : public ScreenSaver
 {
     Q_OBJECT
 public:
-    explicit ScreenSaverUnix(QObject *parent = 0);
+    explicit ScreenSaverUnix(QObject *parent = nullptr);
 
     QSet<Ability> abilities();
 

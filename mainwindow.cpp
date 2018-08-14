@@ -1402,7 +1402,7 @@ void MainWindow::setVolume(int level)
 void MainWindow::setVolumeDouble(double level)
 {
     volumeSlider_->setValue(level*100);
-    emit volumeChanged(level*100);
+    emit volumeChanged(static_cast<int64_t>(level*100));
 }
 
 void MainWindow::resetPlayAfterOnce()

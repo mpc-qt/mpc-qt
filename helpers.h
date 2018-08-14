@@ -62,7 +62,7 @@ public:
         QPushButton *button; QString iconNormal; QString iconChecked;
     };
     enum FolderMode { FallbackFolder, CustomFolder, SystemFolder };
-    explicit IconThemer(QObject *parent = 0);
+    explicit IconThemer(QObject *parent = nullptr);
     void addIconData(const IconData &data);
     QIcon fetchIcon(const QString &name);
     void updateButton(const IconData &data);
@@ -80,7 +80,7 @@ private:
 class LogoDrawer : public QObject {
     Q_OBJECT
 public:
-    explicit LogoDrawer(QObject *parent = 0);
+    explicit LogoDrawer(QObject *parent = nullptr);
     ~LogoDrawer();
     void setLogoUrl(const QString &filename);
     void setLogoBackground(const QColor &color);
@@ -103,7 +103,7 @@ private:
 class LogoWidget : public QOpenGLWidget {
     Q_OBJECT
 public:
-    explicit LogoWidget(QWidget *parent = 0);
+    explicit LogoWidget(QWidget *parent = nullptr);
     ~LogoWidget();
     void setLogo(const QString &filename);
     void setLogoBackground(const QColor &color);
