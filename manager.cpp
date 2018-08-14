@@ -123,12 +123,6 @@ void PlaybackManager::playDiscFiles(QUrl where)
     emit nowPlayingChanged(where, QUuid(), QUuid());
 }
 
-void PlaybackManager::playDisc(QUrl where)
-{
-    Q_UNUSED(where);
-    //FIXME: use udisks2 to determine possible disc locations
-}
-
 void PlaybackManager::playStream(QUrl stream)
 {
     openFile(stream);

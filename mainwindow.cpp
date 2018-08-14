@@ -842,7 +842,8 @@ void MainWindow::setUiEnabledState(bool enabled)
 
 void MainWindow::reparentBottomArea(bool overlay)
 {
-    // FIXME: doesn't handle mpvWidget getting deleted while it's reparented
+    // TODO: changing the presentation method will need to check if the
+    // bottom area is inside the mpv widget!
     bool inLayout = ui->centralwidget->layout()->indexOf(ui->bottomArea) >= 0;
     if (overlay && inLayout) {
         bottomAreaHeight = ui->bottomArea->height();

@@ -450,7 +450,7 @@ bool MprisPlayerServer::maybeChangeMetadata()
     else if (!mpvMetadata.contains("mediaTitle"))
         metadata_.insert("xesam:mediaTitle", mpvMediaTitle);
 
-    metadata_.insert("mpris:trackid", "/no/text"); //FIXME
+    metadata_.insert("mpris:trackid", "/no/text");
     metadata_.insert("mpris:length", qlonglong(playbackDuration_ * 1000000));
     metadata_.insert("xesam:url", nowPlayingUrl_.toString());
 

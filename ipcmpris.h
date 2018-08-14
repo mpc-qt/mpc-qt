@@ -20,7 +20,6 @@ class MprisInstance : public QObject
     Q_PROPERTY(bool registered READ registered)
 
 public:
-    // FIXME: don't require passing MpvWidget in this constructor
     explicit MprisInstance(QObject *parent = nullptr);
     void registerDBus();
     void unregisterDBus();

@@ -72,7 +72,6 @@ public slots:
     void openFile(QUrl what, QUrl with = QUrl());
 
     void playDiscFiles(QUrl where);             // from dvd/bd open
-    void playDisc(QUrl where);                  // from menu
     void playStream(QUrl stream);               // from menu
     void playItem(QUuid playlist, QUuid item);  // called by playlistwindow
     void playDevice(QUrl device);   // I don't have a device to test this
