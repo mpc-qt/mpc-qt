@@ -519,7 +519,9 @@ void SettingsWindow::sendSignals()
     // However some times this is not the case: logging for example should
     // be turned on early.
 
-    emit logFilePath(WIDGET_PLACEHOLD_LOOKUP(ui->logFilePathValue));
+    emit logFilePath(WIDGET_LOOKUP(ui->logFileCreate).toBool()
+                     ? WIDGET_PLACEHOLD_LOOKUP(ui->logFilePathValue)
+                     : QString());
     emit loggingEnabled(WIDGET_LOOKUP(ui->loggingEnabled).toBool());
     emit clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
     emit mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
