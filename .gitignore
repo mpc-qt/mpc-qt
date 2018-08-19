@@ -54,3 +54,6 @@ mpc-qt
 /mpc-qt-*/
 *.zip 
 *.sha512
+
+# transifex
+.transifexrc

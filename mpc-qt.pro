@@ -65,7 +65,8 @@ win32:LIBS += -L$$PWD/mpv-dev/lib/ -llibmpv -lpowrprof
 win32:INCLUDEPATH += $$PWD/mpv-dev/include
 win32:DEPENDPATH += $$PWD/mpv-dev
 
-TRANSLATIONS += translations/mpc-qt_es.ts \
+TRANSLATIONS += translations/mpc-qt_en.ts \
+		translations/mpc-qt_es.ts \
                 translations/mpc-qt_it.ts \
                 translations/mpc-qt_ru.ts
 
