@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ru_RU">
+<TS version="2.1" language="ru">
 <context>
     <name>ActionEditor</name>
     <message>
@@ -25,22 +25,22 @@
     </message>
     <message>
         <source>Alt+Ctrl+Backspace</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ButtonWidget</name>
     <message>
         <source>B</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>K</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>↑↓</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -73,6 +73,10 @@
         <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
+        <source>Start a new process without saving data.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Main window size.</source>
         <translation>Размер главного окна.</translation>
     </message>
@@ -92,13 +96,13 @@
         <source>Playing Media</source>
         <translation>Проигрывающееся аудио/видео</translation>
     </message>
-    <message>
-        <source>Start a new process without saving data.</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>LogWindow</name>
+    <message>
+        <source>Log Messages</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Copy</source>
         <translation type="unfinished"></translation>
@@ -109,10 +113,6 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Log Messages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -175,10 +175,6 @@
         <translation>Глава</translation>
     </message>
     <message>
-        <source>-</source>
-        <translation type="vanished">-</translation>
-    </message>
-    <message>
         <source>Frame rate</source>
         <translation>Частота кадров</translation>
     </message>
@@ -199,16 +195,8 @@
         <translation>Битрейт</translation>
     </message>
     <message>
-        <source>v: 0 kb/s, a: 0kb/s</source>
-        <translation type="vanished">в: 0 kb/s, а: 0kb/s</translation>
-    </message>
-    <message>
         <source>Stopped</source>
         <translation>Остановлено</translation>
-    </message>
-    <message>
-        <source>/</source>
-        <translation type="vanished">/</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -304,7 +292,7 @@
     </message>
     <message>
         <source>Ctrl+Q</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Open File...</source>
@@ -312,7 +300,7 @@
     </message>
     <message>
         <source>Ctrl+O</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open &amp;DVD/BD...</source>
@@ -320,7 +308,7 @@
     </message>
     <message>
         <source>Ctrl+D</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open De&amp;vice...</source>
@@ -328,7 +316,7 @@
     </message>
     <message>
         <source>Ctrl+V</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open Dir&amp;ectory...</source>
@@ -344,7 +332,7 @@
     </message>
     <message>
         <source>Ctrl+W</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Save a Copy...</source>
@@ -356,7 +344,7 @@
     </message>
     <message>
         <source>Alt+I</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save &amp;Thumbnails</source>
@@ -368,7 +356,7 @@
     </message>
     <message>
         <source>Ctrl+L</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save S&amp;ubtitle...</source>
@@ -376,7 +364,7 @@
     </message>
     <message>
         <source>Ctrl+S</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Upload...</source>
@@ -388,7 +376,7 @@
     </message>
     <message>
         <source>D</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Search...</source>
@@ -400,7 +388,7 @@
     </message>
     <message>
         <source>Shift+F10</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -408,7 +396,7 @@
     </message>
     <message>
         <source>Alt+X</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide &amp;Menu</source>
@@ -416,7 +404,7 @@
     </message>
     <message>
         <source>Ctrl+0</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>See&amp;k Bar</source>
@@ -424,7 +412,7 @@
     </message>
     <message>
         <source>Ctrl+1</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Controls</source>
@@ -432,7 +420,7 @@
     </message>
     <message>
         <source>Ctrl+2</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Information</source>
@@ -440,7 +428,7 @@
     </message>
     <message>
         <source>Ctrl+3</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Statistics</source>
@@ -448,7 +436,7 @@
     </message>
     <message>
         <source>Ctrl+4</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>S&amp;tatus</source>
@@ -456,7 +444,7 @@
     </message>
     <message>
         <source>Ctrl+5</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Su&amp;bresync</source>
@@ -464,7 +452,7 @@
     </message>
     <message>
         <source>Ctrl+6</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Play&amp;list</source>
@@ -472,7 +460,7 @@
     </message>
     <message>
         <source>Ctrl+7</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Captu&amp;re</source>
@@ -480,7 +468,7 @@
     </message>
     <message>
         <source>Ctrl+8</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Na&amp;vigation</source>
@@ -488,7 +476,7 @@
     </message>
     <message>
         <source>Ctrl+9</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Minimal</source>
@@ -496,7 +484,7 @@
     </message>
     <message>
         <source>1</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Compact</source>
@@ -504,7 +492,7 @@
     </message>
     <message>
         <source>2</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Normal</source>
@@ -512,7 +500,7 @@
     </message>
     <message>
         <source>3</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>F&amp;ullscreen</source>
@@ -524,15 +512,15 @@
     </message>
     <message>
         <source>Alt+1</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+2</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+3</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto &amp;Fit</source>
@@ -540,7 +528,7 @@
     </message>
     <message>
         <source>Alt+4</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto Fit (&amp;Larger Only)</source>
@@ -548,7 +536,7 @@
     </message>
     <message>
         <source>Alt+5</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Disable snapping</source>
@@ -556,7 +544,7 @@
     </message>
     <message>
         <source>Alt+0</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Default</source>
@@ -568,7 +556,7 @@
     </message>
     <message>
         <source>Ctrl+A</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>While &amp;Playing</source>
@@ -584,7 +572,7 @@
     </message>
     <message>
         <source>O</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Pause</source>
@@ -592,7 +580,7 @@
     </message>
     <message>
         <source>Space</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Stop</source>
@@ -600,7 +588,7 @@
     </message>
     <message>
         <source>.</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>F&amp;rame Step Forward</source>
@@ -608,7 +596,7 @@
     </message>
     <message>
         <source>Ctrl+Right</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fra&amp;me Step Backward</source>
@@ -616,7 +604,7 @@
     </message>
     <message>
         <source>Ctrl+Left</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Decrease Rate</source>
@@ -624,7 +612,7 @@
     </message>
     <message>
         <source>Ctrl+Down</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Increase Rate</source>
@@ -632,7 +620,7 @@
     </message>
     <message>
         <source>Ctrl+Up</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>R&amp;eset Rate</source>
@@ -640,7 +628,7 @@
     </message>
     <message>
         <source>Ctrl+R</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Up</source>
@@ -648,7 +636,7 @@
     </message>
     <message>
         <source>0</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Down</source>
@@ -656,7 +644,7 @@
     </message>
     <message>
         <source>9</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Mute</source>
@@ -664,7 +652,7 @@
     </message>
     <message>
         <source>Ctrl+M</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Exit</source>
@@ -704,7 +692,7 @@
     </message>
     <message>
         <source>PgUp</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Next</source>
@@ -712,7 +700,7 @@
     </message>
     <message>
         <source>PgDown</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Go To...</source>
@@ -720,7 +708,7 @@
     </message>
     <message>
         <source>Ctrl+G</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Title Menu</source>
@@ -728,7 +716,7 @@
     </message>
     <message>
         <source>Alt+T</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Root Menu</source>
@@ -736,7 +724,7 @@
     </message>
     <message>
         <source>Alt+R</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Subtitle Menu</source>
@@ -780,7 +768,7 @@
     </message>
     <message>
         <source>F5</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto Fit (&amp;Smaller Only)</source>
@@ -788,7 +776,7 @@
     </message>
     <message>
         <source>Alt+6</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Play Current</source>
@@ -796,7 +784,7 @@
     </message>
     <message>
         <source>Return</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Seek Forwards</source>
@@ -820,7 +808,7 @@
     </message>
     <message>
         <source>Shift+Right</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Seek Backwards Finely</source>
@@ -828,7 +816,7 @@
     </message>
     <message>
         <source>Shift+Left</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Set Loop Start</source>
@@ -836,7 +824,7 @@
     </message>
     <message>
         <source>Ctrl+Home</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set &amp;Loop End</source>
@@ -844,7 +832,7 @@
     </message>
     <message>
         <source>Ctrl+End</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Use Loop Points</source>
@@ -852,7 +840,7 @@
     </message>
     <message>
         <source>Ctrl+Backspace</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Clear Loop</source>
@@ -860,7 +848,7 @@
     </message>
     <message>
         <source>Backspace</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Search Playlist</source>
@@ -868,7 +856,7 @@
     </message>
     <message>
         <source>Ctrl+F</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Quick Queue Toggle</source>
@@ -876,7 +864,7 @@
     </message>
     <message>
         <source>Q</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Finish Searching</source>
@@ -884,7 +872,7 @@
     </message>
     <message>
         <source>Esc</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;New Tab</source>
@@ -892,7 +880,7 @@
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
@@ -904,7 +892,7 @@
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
@@ -912,7 +900,7 @@
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
@@ -920,7 +908,7 @@
     </message>
     <message>
         <source>Ctrl+Shift+O</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>E&amp;xport Playlist</source>
@@ -928,7 +916,7 @@
     </message>
     <message>
         <source>Ctrl+Shift+S</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Queue &amp;Visible</source>
@@ -936,7 +924,7 @@
     </message>
     <message>
         <source>Ctrl+Shift+Q</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Increment</source>
@@ -944,7 +932,7 @@
     </message>
     <message>
         <source>E</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Decrement</source>
@@ -952,7 +940,7 @@
     </message>
     <message>
         <source>Shift+E</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Clear Play Times</source>
@@ -960,7 +948,7 @@
     </message>
     <message>
         <source>Ctrl+E</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Copy Selection</source>
@@ -968,7 +956,7 @@
     </message>
     <message>
         <source>Ctrl+Shift+C</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Paste</source>
@@ -976,7 +964,7 @@
     </message>
     <message>
         <source>Ctrl+Shift+V</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>C&amp;opy Queue</source>
@@ -984,7 +972,7 @@
     </message>
     <message>
         <source>Ctrl+Alt+C</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Paste and Q&amp;ueue</source>
@@ -992,7 +980,7 @@
     </message>
     <message>
         <source>Ctrl+Alt+V</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>About &amp;Qt...</source>
@@ -1004,7 +992,7 @@
     </message>
     <message>
         <source>Alt+Shift+I</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save Plain Ima&amp;ge (Auto)</source>
@@ -1012,7 +1000,7 @@
     </message>
     <message>
         <source>Shift+F5</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export Encode...</source>
@@ -1020,7 +1008,7 @@
     </message>
     <message>
         <source>F12</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>S&amp;how Quick Queue</source>
@@ -1028,7 +1016,7 @@
     </message>
     <message>
         <source>Ctrl+`</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save &amp;Window Image...</source>
@@ -1040,7 +1028,7 @@
     </message>
     <message>
         <source>Ctrl+Alt+I</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save Window Image (Auto)</source>
@@ -1048,7 +1036,7 @@
     </message>
     <message>
         <source>Ctrl+F5</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Do No&amp;thing</source>
@@ -1075,12 +1063,40 @@
         <translation>&amp;Хронометраж</translation>
     </message>
     <message>
-        <source>Cycle</source>
-        <translation type="vanished">Включить следующий режим</translation>
+        <source>&amp;Cycle</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+J</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;No Messages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Escape Fullscreen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable &amp;Subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next Subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Previous Subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lo&amp;g</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+-</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Once</source>
@@ -1099,6 +1115,14 @@
         <translation>Скрыть &amp;границы</translation>
     </message>
     <message>
+        <source>Sho&amp;w Caption and Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quick Open</source>
+        <translation>Быстро открыть</translation>
+    </message>
+    <message>
         <source>No files favorited</source>
         <translation>Нет избранных файлов</translation>
     </message>
@@ -1107,16 +1131,16 @@
         <translation>Нет избранных потоков</translation>
     </message>
     <message>
+        <source> [Freestanding]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>&amp;Быстро добавить в плейлист</translation>
     </message>
     <message>
         <source>&amp;Quick Open File</source>
         <translation>&amp;Быстро открыть файл</translation>
-    </message>
-    <message>
-        <source>Quick Open</source>
-        <translation>Быстро открыть</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -1158,57 +1182,9 @@
         <source>Built on %1 at %2</source>
         <translation>Скомпилировано %1 в %2</translation>
     </message>
-    <message>
-        <source>&amp;Cycle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;No Messages</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Escape Fullscreen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enable &amp;Subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Next Subtitle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Previous Subtitle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sho&amp;w Caption and Menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> [Freestanding]</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Lo&amp;g</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+-</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>MouseState</name>
-    <message>
-        <source>Left</source>
-        <translation type="unfinished">Влево</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="unfinished">Вправо</translation>
-    </message>
     <message>
         <source>None</source>
         <translation type="unfinished"></translation>
@@ -1216,6 +1192,14 @@
     <message>
         <source>Wheel</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished">Влево</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished">Вправо</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -1357,10 +1341,6 @@
         <translation>Фа&amp;йл</translation>
     </message>
     <message>
-        <source>...</source>
-        <translation type="vanished">...</translation>
-    </message>
-    <message>
         <source>&amp;Subtitles</source>
         <translation>&amp;Субтитры</translation>
     </message>
@@ -1481,6 +1461,54 @@
         <translation>Экспортировать файл</translation>
     </message>
     <message>
+        <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy To clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sort By Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sort By Url</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Randomize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shuffle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide On Fullscreen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Enter playlist name</source>
         <translation>Ввести название плейлиста</translation>
     </message>
@@ -1503,54 +1531,6 @@
     <message>
         <source>&amp;Export Playlist</source>
         <translation>&amp;Экспортировать плейлист</translation>
-    </message>
-    <message>
-        <source>Open</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="unfinished">Удалить</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save As...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Randomize</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shuffle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Copy To clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sort By Label</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sort By Url</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Restore</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hide On Fullscreen</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1613,7 +1593,7 @@
     </message>
     <message>
         <source>MediaInfo</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Save</source>
@@ -1653,18 +1633,15 @@
     </message>
 </context>
 <context>
-    <name>QDrawnPlaylist</name>
-    <message>
-        <source>Remove</source>
-        <translation type="vanished">Удалить</translation>
-    </message>
-    <message>
-        <source>Remove All</source>
-        <translation type="vanished">Удалить всё</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
+    <message>
+        <source>All Media (*.%1);;All Files (*.*)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All Subtitles (*.%1);;All Files (*.*)</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Window text</source>
         <translation>Текст окна</translation>
@@ -1757,14 +1734,6 @@
         <source>Inactive</source>
         <translation>Неактивный</translation>
     </message>
-    <message>
-        <source>All Media (*.%1);;All Files (*.*)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>All Subtitles (*.%1);;All Files (*.*)</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>SettingsWindow</name>
@@ -1846,6 +1815,10 @@
     </message>
     <message>
         <source>Tweaks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Logging</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2003,19 +1976,19 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Fallback</source>
+        <source>Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>White (for black palette)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>System (Linux only)</source>
+        <source>Built-in fallback</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Custom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System (Linux only)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2024,6 +1997,18 @@ media file played</source>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/cmdrkotori/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fallback</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black (for white palette)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>White (for black palette)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2064,6 +2049,14 @@ media file played</source>
     </message>
     <message>
         <source>Auto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fine step</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2552,55 +2545,55 @@ media file played</source>
     </message>
     <message>
         <source>BT.470m</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>BT.601-525</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>BT.601-625</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>BT.709</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>BT.2020</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Apple</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Adobe</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ProPhoto</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>CIE1931</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DCI-P3</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Target TRC</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>BT.1886</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sRGB</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gamma 1.8</source>
@@ -2616,23 +2609,23 @@ media file played</source>
     </message>
     <message>
         <source>PQ</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>HLG</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Panasonic V-Log</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sony S-Log1</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sony S-Log2</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>HDR Tone mapping</source>
@@ -3215,7 +3208,27 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Automatically load external subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Autoload paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Match</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fuzzy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3228,7 +3241,7 @@ media file played</source>
     </message>
     <message>
         <source>https://</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Test</source>
@@ -3260,6 +3273,10 @@ media file played</source>
     </message>
     <message>
         <source>qrc:/text/encodeFormat.html</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save with high bit depth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3367,19 +3384,11 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Color controls</source>
+        <source>Turn on logging (may produce stuttering)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Brightness</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hue</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Saturation</source>
+        <source>Debugging</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3392,7 +3401,7 @@ media file played</source>
     </message>
     <message>
         <source>mpv</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No (complete silence)</source>
@@ -3427,6 +3436,74 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Log file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create log file (contents will be overwritten)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>~/mpc-qt-log.txt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window update interval</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No delay (consumes cpu)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delayed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> msec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window history</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlimited (consumes memory)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim old lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color controls</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saturation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Settings management</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3440,114 +3517,6 @@ media file played</source>
     </message>
     <message>
         <source>Open Logo Image</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Time step</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fine step</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Automatically load external subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Path</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Match</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Exact</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fuzzy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save with high bit depth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Built-in fallback</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Black (for white palette)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Turn on logging (may produce stuttering)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> msec</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Every </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> lines</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Keep </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Window update interval</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Window history</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Debugging</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No delay (consumes cpu)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delayed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unlimited (consumes memory)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Trim old lines</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Logging</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Log file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create log file (contents will be overwritten)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>~/mpc-qt-log.txt</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

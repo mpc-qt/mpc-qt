@@ -50,8 +50,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation type="obsolete">Elimina</translation>
+        <source>&amp;Update</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Files</source>
@@ -59,10 +59,6 @@
     </message>
     <message>
         <source>&amp;Streams</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -75,6 +71,10 @@
     <message>
         <source>Media Player Classic Qute Theater</source>
         <translation>Media Player Classic Qute Theater</translation>
+    </message>
+    <message>
+        <source>Start a new process without saving data.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Main window size.</source>
@@ -96,13 +96,13 @@
         <source>Playing Media</source>
         <translation>Riproduzione in corso</translation>
     </message>
-    <message>
-        <source>Start a new process without saving data.</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>LogWindow</name>
+    <message>
+        <source>Log Messages</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Copy</source>
         <translation type="unfinished"></translation>
@@ -113,10 +113,6 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Log Messages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -179,10 +175,6 @@
         <translation>Capitolo</translation>
     </message>
     <message>
-        <source>-</source>
-        <translation type="vanished">-</translation>
-    </message>
-    <message>
         <source>Frame rate</source>
         <translation>Velocità fotogrammi</translation>
     </message>
@@ -203,16 +195,8 @@
         <translation>Bitrate</translation>
     </message>
     <message>
-        <source>v: 0 kb/s, a: 0kb/s</source>
-        <translation type="vanished">v: 0 kb/s, a: 0kb/s</translation>
-    </message>
-    <message>
         <source>Stopped</source>
         <translation>Fermato</translation>
-    </message>
-    <message>
-        <source>/</source>
-        <translation type="vanished">/</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -367,20 +351,12 @@
         <translation>Salva &amp;miniature</translation>
     </message>
     <message>
-        <source>&amp;Load Subtitle</source>
-        <translation type="vanished">Carica sottotito&amp;lo</translation>
+        <source>&amp;Load Subtitle...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+L</source>
         <translation>Ctrl+L</translation>
-    </message>
-    <message>
-        <source>Save S&amp;ubtitle</source>
-        <translation type="vanished">&amp;Salva sottotitolo</translation>
-    </message>
-    <message>
-        <source>&amp;Load Subtitle...</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save S&amp;ubtitle...</source>
@@ -535,24 +511,12 @@
         <translation>Alt+Invio</translation>
     </message>
     <message>
-        <source>&amp;50%</source>
-        <translation type="vanished">&amp;50%</translation>
-    </message>
-    <message>
         <source>Alt+1</source>
         <translation>Alt+1</translation>
     </message>
     <message>
-        <source>&amp;100%</source>
-        <translation type="vanished">&amp;100%</translation>
-    </message>
-    <message>
         <source>Alt+2</source>
         <translation>Alt+2</translation>
-    </message>
-    <message>
-        <source>&amp;200%</source>
-        <translation type="vanished">&amp;200%</translation>
     </message>
     <message>
         <source>Alt+3</source>
@@ -980,7 +944,6 @@
     </message>
     <message>
         <source>&amp;Clear Play Times</source>
-        <translatorcomment>numero?</translatorcomment>
         <translation>&amp;Pulisci tempi di riproduzione</translation>
     </message>
     <message>
@@ -1024,26 +987,6 @@
         <translation>Informazioni su &amp;Qt...</translation>
     </message>
     <message>
-        <source>25%</source>
-        <translation type="vanished">25%</translation>
-    </message>
-    <message>
-        <source>&amp;75%</source>
-        <translation type="vanished">&amp;75%</translation>
-    </message>
-    <message>
-        <source>15&amp;0%</source>
-        <translation type="vanished">15&amp;0%</translation>
-    </message>
-    <message>
-        <source>&amp;400%</source>
-        <translation type="vanished">&amp;400%</translation>
-    </message>
-    <message>
-        <source>&amp;300%</source>
-        <translation type="vanished">&amp;300%</translation>
-    </message>
-    <message>
         <source>Save Pl&amp;ain Image...</source>
         <translation>S&amp;alva immagine semplice...</translation>
     </message>
@@ -1070,6 +1013,10 @@
     <message>
         <source>S&amp;how Quick Queue</source>
         <translation>&amp;Mostra coda rapida</translation>
+    </message>
+    <message>
+        <source>Ctrl+`</source>
+        <translation>Ctrl+`</translation>
     </message>
     <message>
         <source>Save &amp;Window Image...</source>
@@ -1116,99 +1063,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+J</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show Quick Queue</source>
-        <translation type="vanished">Mostra coda rapida</translation>
-    </message>
-    <message>
-        <source>Ctrl+`</source>
-        <translation>Ctrl+`</translation>
-    </message>
-    <message>
-        <source>Once</source>
-        <translation>Una volta</translation>
-    </message>
-    <message>
-        <source>Every time</source>
-        <translation>Ogni volta</translation>
-    </message>
-    <message>
-        <source>View</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hide &amp;Borders</source>
-        <translation>Nascondi &amp;bordi</translation>
-    </message>
-    <message>
-        <source>Sho&amp;w Caption and Menu</source>
-        <translation>Mos&amp;tra sottotitoli e menu</translation>
-    </message>
-    <message>
-        <source>&amp;Quick Add To Playlist</source>
-        <translation>Aggiungi &amp;rapidamente alla scaletta</translation>
-    </message>
-    <message>
-        <source>&amp;Quick Open File</source>
-        <translation>Apri file &amp;rapidamente</translation>
-    </message>
-    <message>
-        <source>Quick Open</source>
-        <translation>Apri rapidamente</translation>
-    </message>
-    <message>
-        <source>About Media Player Classic Qute Theater</source>
-        <translation>Informazioni su Media Player Classic Qute Theater</translation>
-    </message>
-    <message>
-        <source>A clone of Media Player Classic written in Qt</source>
-        <translation>Un clone di Media Player Classic scritto in Qt</translation>
-    </message>
-    <message>
-        <source>Based on Qt %1 and %2</source>
-        <translation>Basato su Qt %1 e %2</translation>
-    </message>
-    <message>
-        <source>Built on %1 at %2</source>
-        <translation>Compilato il %1 alle %2</translation>
-    </message>
-    <message>
-        <source>Based on Qt </source>
-        <translation type="vanished">Basato su Qt </translation>
-    </message>
-    <message>
-        <source> and </source>
-        <translation type="vanished"> e </translation>
-    </message>
-    <message>
-        <source>Built on </source>
-        <translation type="vanished">Compilato il </translation>
-    </message>
-    <message>
-        <source> at </source>
-        <translation type="vanished"> alle </translation>
-    </message>
-    <message>
-        <source>Open File</source>
-        <translation type="vanished">Apri file</translation>
-    </message>
-    <message>
-        <source>Open Directory</source>
-        <translation>Apri cartella</translation>
-    </message>
-    <message>
-        <source>Enter Network Stream</source>
-        <translation>Inserisci flusso di rete</translation>
-    </message>
-    <message>
-        <source>Network Stream</source>
-        <translation>Flusso di rete</translation>
-    </message>
-    <message>
         <source>&amp;Cycle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+J</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1232,6 +1091,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Lo&amp;g</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+-</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Once</source>
+        <translation>Una volta</translation>
+    </message>
+    <message>
+        <source>Every time</source>
+        <translation>Ogni volta</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide &amp;Borders</source>
+        <translation>Nascondi &amp;bordi</translation>
+    </message>
+    <message>
+        <source>Sho&amp;w Caption and Menu</source>
+        <translation>Mos&amp;tra sottotitoli e menu</translation>
+    </message>
+    <message>
+        <source>Quick Open</source>
+        <translation>Apri rapidamente</translation>
+    </message>
+    <message>
         <source>No files favorited</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1242,6 +1133,26 @@
     <message>
         <source> [Freestanding]</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Quick Add To Playlist</source>
+        <translation>Aggiungi &amp;rapidamente alla scaletta</translation>
+    </message>
+    <message>
+        <source>&amp;Quick Open File</source>
+        <translation>Apri file &amp;rapidamente</translation>
+    </message>
+    <message>
+        <source>Open Directory</source>
+        <translation>Apri cartella</translation>
+    </message>
+    <message>
+        <source>Enter Network Stream</source>
+        <translation>Inserisci flusso di rete</translation>
+    </message>
+    <message>
+        <source>Network Stream</source>
+        <translation>Flusso di rete</translation>
     </message>
     <message>
         <source>Open Subtitle</source>
@@ -1256,31 +1167,31 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Lo&amp;g</source>
-        <translation type="unfinished"></translation>
+        <source>About Media Player Classic Qute Theater</source>
+        <translation>Informazioni su Media Player Classic Qute Theater</translation>
     </message>
     <message>
-        <source>Ctrl+-</source>
-        <translation type="unfinished"></translation>
+        <source>A clone of Media Player Classic written in Qt</source>
+        <translation>Un clone di Media Player Classic scritto in Qt</translation>
+    </message>
+    <message>
+        <source>Based on Qt %1 and %2</source>
+        <translation>Basato su Qt %1 e %2</translation>
+    </message>
+    <message>
+        <source>Built on %1 at %2</source>
+        <translation>Compilato il %1 alle %2</translation>
     </message>
 </context>
 <context>
     <name>MouseState</name>
     <message>
-        <source>Control</source>
-        <translation type="unfinished">Controllo</translation>
-    </message>
-    <message>
-        <source>Down</source>
-        <translation type="unfinished">Giù</translation>
-    </message>
-    <message>
-        <source>Up</source>
-        <translation type="unfinished">Su</translation>
-    </message>
-    <message>
         <source>None</source>
         <translation type="unfinished">Nessuno</translation>
+    </message>
+    <message>
+        <source>Wheel</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Left</source>
@@ -1289,10 +1200,6 @@
     <message>
         <source>Right</source>
         <translation type="unfinished">Destra</translation>
-    </message>
-    <message>
-        <source>Wheel</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Middle</source>
@@ -1399,12 +1306,24 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Control</source>
+        <translation type="unfinished">Controllo</translation>
+    </message>
+    <message>
         <source>Alt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Meta</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished">Giù</translation>
+    </message>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished">Su</translation>
     </message>
     <message>
         <source>Twice</source>
@@ -1420,10 +1339,6 @@
     <message>
         <source>Fi&amp;le</source>
         <translation>Fi&amp;le</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>&amp;Subtitles</source>
@@ -1546,6 +1461,54 @@
         <translation>Esporta file</translation>
     </message>
     <message>
+        <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Aggiungi</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Rimuovi</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy To clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sort By Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sort By Url</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Randomize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shuffle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide On Fullscreen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Enter playlist name</source>
         <translation>Inserisci nome scaletta</translation>
     </message>
@@ -1569,54 +1532,6 @@
         <source>&amp;Export Playlist</source>
         <translation>&amp;Esporta scaletta</translation>
     </message>
-    <message>
-        <source>Open</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="unfinished">Aggiungi</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="unfinished">Rimuovi</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save As...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Randomize</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shuffle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Copy To clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sort By Label</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sort By Url</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Restore</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hide On Fullscreen</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>PropertiesWindow</name>
@@ -1627,10 +1542,6 @@
     <message>
         <source>Details</source>
         <translation>Dettagli</translation>
-    </message>
-    <message>
-        <source>-</source>
-        <translation type="vanished">-</translation>
     </message>
     <message>
         <source>Type:</source>
@@ -1722,18 +1633,15 @@
     </message>
 </context>
 <context>
-    <name>QDrawnPlaylist</name>
-    <message>
-        <source>Remove</source>
-        <translation type="vanished">Rimuovi</translation>
-    </message>
-    <message>
-        <source>Remove All</source>
-        <translation type="vanished">Rimuovi tutto</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
+    <message>
+        <source>All Media (*.%1);;All Files (*.*)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All Subtitles (*.%1);;All Files (*.*)</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Window text</source>
         <translation type="unfinished"></translation>
@@ -1826,14 +1734,6 @@
         <source>Inactive</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>All Media (*.%1);;All Files (*.*)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>All Subtitles (*.%1);;All Files (*.*)</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>SettingsWindow</name>
@@ -1862,6 +1762,10 @@
         <translation>Logo</translation>
     </message>
     <message>
+        <source>Interface</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Playback</source>
         <translation>Riproduzione</translation>
     </message>
@@ -1880,6 +1784,10 @@
     <message>
         <source>Sync</source>
         <translation>Sincronizza</translation>
+    </message>
+    <message>
+        <source>Hw. Decoding</source>
+        <translation>Decodifica hw</translation>
     </message>
     <message>
         <source>Playlist</source>
@@ -1908,6 +1816,10 @@
     <message>
         <source>Tweaks</source>
         <translation>Regolazioni</translation>
+    </message>
+    <message>
+        <source>Logging</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Miscellaneous</source>
@@ -1954,6 +1866,10 @@ ogni file multimediale riprodotto</translation>
         <translation>Disabilita menu &quot;Apri disco&quot;</translation>
     </message>
     <message>
+        <source>Disable screensaver while playing</source>
+        <translation>Disabilita salvaschermo durante la riproduzione</translation>
+    </message>
+    <message>
         <source>Title bar</source>
         <translation>Barra titolo</translation>
     </message>
@@ -1962,8 +1878,8 @@ ogni file multimediale riprodotto</translation>
         <translation>Mostra percorso comp&amp;leto</translation>
     </message>
     <message>
-        <source>&amp;File name only</source>
-        <translation type="vanished">Solo nome &amp;file</translation>
+        <source>File &amp;name only</source>
+        <translation>Solo &amp;nome file</translation>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
@@ -2054,16 +1970,80 @@ ogni file multimediale riprodotto</translation>
         <translation>Triangolo in cerchio</translation>
     </message>
     <message>
+        <source>Multi purpose vehicle</source>
+        <translation>Veicolo multiuso</translation>
+    </message>
+    <message>
+        <source>Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Built-in fallback</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System (Linux only)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Folder (e.g. ~/Pictures/MyIcons/mpc-qt/leet)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See &lt;a href=&quot;https://github.com/cmdrkotori/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fallback</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black (for white palette)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>White (for black palette)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Widget Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use custom theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>HHHHHH</source>
+        <translation>HHHHHH</translation>
+    </message>
+    <message>
+        <source>Info Background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Info Foreground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Control</source>
         <translation>Controllo</translation>
     </message>
     <message>
         <source>Volume step</source>
         <translation>Passo volume</translation>
-    </message>
-    <message>
-        <source>%</source>
-        <translation type="vanished">%</translation>
     </message>
     <message>
         <source>Speed step</source>
@@ -2074,48 +2054,20 @@ ogni file multimediale riprodotto</translation>
         <translation>Auto</translation>
     </message>
     <message>
-        <source>Autofitting in tiling window managers requires that the window be in floating mode.</source>
-        <translation>Per l&apos;autoadattamento nei gestori finestre ad affiancamento è necessario che la finestra sia in modalità fluttuante.</translation>
+        <source>Time step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fine step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Center window when zooming</source>
+        <translation>Centra la finestra durante lo zoom</translation>
     </message>
     <message>
         <source>Auto zoom</source>
         <translation>Zoom automatico</translation>
-    </message>
-    <message>
-        <source>Auto fit factor</source>
-        <translation>Fattore di autoadattamento</translation>
-    </message>
-    <message>
-        <source>25%</source>
-        <translation type="vanished">25%</translation>
-    </message>
-    <message>
-        <source>50%</source>
-        <translation type="vanished">50%</translation>
-    </message>
-    <message>
-        <source>75%</source>
-        <translation type="vanished">75%</translation>
-    </message>
-    <message>
-        <source>100%</source>
-        <translation type="vanished">100%</translation>
-    </message>
-    <message>
-        <source>150%</source>
-        <translation type="vanished">150%</translation>
-    </message>
-    <message>
-        <source>200%</source>
-        <translation type="vanished">200%</translation>
-    </message>
-    <message>
-        <source>300%</source>
-        <translation type="vanished">300%</translation>
-    </message>
-    <message>
-        <source>400%</source>
-        <translation type="vanished">400%</translation>
     </message>
     <message>
         <source>Autofit</source>
@@ -2130,8 +2082,12 @@ ogni file multimediale riprodotto</translation>
         <translation>Autoadatta (solo piccoli)</translation>
     </message>
     <message>
-        <source>Center window when zooming</source>
-        <translation>Centra la finestra durante lo zoom</translation>
+        <source>Auto fit factor</source>
+        <translation>Fattore di autoadattamento</translation>
+    </message>
+    <message>
+        <source>Autofitting in tiling window managers requires that the window be in floating mode.</source>
+        <translation>Per l&apos;autoadattamento nei gestori finestre ad affiancamento è necessario che la finestra sia in modalità fluttuante.</translation>
     </message>
     <message>
         <source>Open settings</source>
@@ -2156,6 +2112,14 @@ ogni file multimediale riprodotto</translation>
     <message>
         <source>Default track preference</source>
         <translation>Preferenza traccia predefinita</translation>
+    </message>
+    <message>
+        <source>Mouse hiding</source>
+        <translation>Nascondi mouse</translation>
+    </message>
+    <message>
+        <source>Windowed</source>
+        <translation>A finestra</translation>
     </message>
     <message>
         <source>Video Renderer</source>
@@ -2234,8 +2198,24 @@ ogni file multimediale riprodotto</translation>
         <translation>Semplice</translation>
     </message>
     <message>
-        <source>High Quality</source>
-        <translation type="vanished">Alta qualità</translation>
+        <source>Low</source>
+        <translation>Basso</translation>
+    </message>
+    <message>
+        <source>High</source>
+        <translation>Alto</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation>Massimo</translation>
+    </message>
+    <message>
+        <source>Placebo</source>
+        <translation>Placebo</translation>
+    </message>
+    <message>
+        <source>Load</source>
+        <translation>Carica</translation>
     </message>
     <message>
         <source>Dither</source>
@@ -2322,8 +2302,8 @@ ogni file multimediale riprodotto</translation>
         <translation>Scalatura</translation>
     </message>
     <message>
-        <source>Scalar</source>
-        <translation type="vanished">Scalatura</translation>
+        <source>Scaler</source>
+        <translation>Scalatura</translation>
     </message>
     <message>
         <source>2</source>
@@ -2434,8 +2414,8 @@ ogni file multimediale riprodotto</translation>
         <translation>Lanczos</translation>
     </message>
     <message>
-        <source>Gingseng</source>
-        <translation type="vanished">Ginseng</translation>
+        <source>Ginseng</source>
+        <translation>Ginseng</translation>
     </message>
     <message>
         <source>Ewa lanczos</source>
@@ -2516,14 +2496,6 @@ ogni file multimediale riprodotto</translation>
     <message>
         <source>Linear</source>
         <translation>Lineare</translation>
-    </message>
-    <message>
-        <source>Prescalar</source>
-        <translation type="vanished">Pre-scalatura</translation>
-    </message>
-    <message>
-        <source>Prescalars have moved to mpv&apos;s user-shaders interface, and can be found at Playback/Shaders.</source>
-        <translation type="vanished">La pre-scalatura è stata spostata nell&apos;interfaccia degli ombreggiatori utente di mpv e può essere trovata sotto Riproduzione/Ombreggiatori.</translation>
     </message>
     <message>
         <source>Deband</source>
@@ -2638,20 +2610,24 @@ ogni file multimediale riprodotto</translation>
         <translation>Gamma 2.8</translation>
     </message>
     <message>
-        <source>ST2084</source>
-        <translation type="vanished">ST2084</translation>
+        <source>PQ</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>ICC Profile</source>
-        <translation>Profilo ICC</translation>
+        <source>HLG</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Browse</source>
-        <translation>Sfoglia</translation>
+        <source>Panasonic V-Log</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Target Brightness</source>
-        <translation type="vanished">Luminosità monitor</translation>
+        <source>Sony S-Log1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sony S-Log2</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>HDR Tone mapping</source>
@@ -2659,8 +2635,11 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Clip</source>
-        <translatorcomment>forse saturazione se non è ambiguo o taglia estremi</translatorcomment>
         <translation>Clipping</translation>
+    </message>
+    <message>
+        <source>Mobius</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Reinhard</source>
@@ -2671,8 +2650,28 @@ ogni file multimediale riprodotto</translation>
         <translation>Hable</translation>
     </message>
     <message>
+        <source>Luma</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Juncture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Contrast</source>
         <translation>Contrasto</translation>
+    </message>
+    <message>
+        <source>HDR Desaturate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ICC Profile</source>
+        <translation>Profilo ICC</translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation>Sfoglia</translation>
     </message>
     <message>
         <source>Audio Renderer</source>
@@ -2720,8 +2719,11 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Normalize downmix</source>
-        <translatorcomment>cercare se possibile una traduzione migliore per downmix</translatorcomment>
         <translation>Normalizza audio canali miscelati</translation>
+    </message>
+    <message>
+        <source>Use S/PDIF when available</source>
+        <translation>Usa S/PDIF se disponibile</translation>
     </message>
     <message>
         <source>Pulse</source>
@@ -2760,40 +2762,32 @@ ogni file multimediale riprodotto</translation>
         <translation>Dispositivo mixer</translation>
     </message>
     <message>
-        <source>/dev/mixer</source>
-        <translation type="vanished">/dev/mixer</translation>
-    </message>
-    <message>
         <source>Mixer channel</source>
         <translation>Canale mixer</translation>
-    </message>
-    <message>
-        <source>pcm</source>
-        <translation type="vanished">pcm</translation>
     </message>
     <message>
         <source>Jack</source>
         <translation>Jack</translation>
     </message>
     <message>
-        <source>Start jackd at startup</source>
-        <translation>Lancia jackd all&apos;avvio</translation>
+        <source>Name</source>
+        <translation>Nome</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Porta</translation>
     </message>
     <message>
         <source>Auto connect</source>
         <translation>Connetti automaticamente</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>Nome</translation>
+        <source>Start jackd at startup</source>
+        <translation>Lancia jackd all&apos;avvio</translation>
     </message>
     <message>
-        <source>mpc-qt</source>
-        <translation type="vanished">mpc-qt</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Porta</translation>
+        <source>Startup</source>
+        <translation>Avvio</translation>
     </message>
     <message>
         <source>CoreAudio</source>
@@ -2832,10 +2826,6 @@ ogni file multimediale riprodotto</translation>
         <translation>Ombreggiatori predefiniti</translation>
     </message>
     <message>
-        <source>Load</source>
-        <translation>Carica</translation>
-    </message>
-    <message>
         <source>Save</source>
         <translation>Salva</translation>
     </message>
@@ -2870,154 +2860,6 @@ ogni file multimediale riprodotto</translation>
     <message>
         <source>Hiding</source>
         <translation>Nascondi</translation>
-    </message>
-    <message>
-        <source>ms</source>
-        <translation type="vanished">ms</translation>
-    </message>
-    <message>
-        <source>Interface</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hw. Decoding</source>
-        <translation>Decodifica hw</translation>
-    </message>
-    <message>
-        <source>Disable screensaver while playing</source>
-        <translation>Disabilita salvaschermo durante la riproduzione</translation>
-    </message>
-    <message>
-        <source>File &amp;name only</source>
-        <translation>Solo &amp;nome file</translation>
-    </message>
-    <message>
-        <source>Multi purpose vehicle</source>
-        <translation>Veicolo multiuso</translation>
-    </message>
-    <message>
-        <source>Icons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fallback</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>White (for black palette)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>System (Linux only)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Folder (e.g. ~/Pictures/MyIcons/mpc-qt/leet)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>See &lt;a href=&quot;https://github.com/cmdrkotori/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Widget Color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use custom theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Window Color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Info Background</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Info Foreground</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mouse hiding</source>
-        <translation>Nascondi mouse</translation>
-    </message>
-    <message>
-        <source>Windowed</source>
-        <translation>A finestra</translation>
-    </message>
-    <message>
-        <source>Low</source>
-        <translation>Basso</translation>
-    </message>
-    <message>
-        <source>High</source>
-        <translation>Alto</translation>
-    </message>
-    <message>
-        <source>Highest</source>
-        <translation>Massimo</translation>
-    </message>
-    <message>
-        <source>Placebo</source>
-        <translation>Placebo</translation>
-    </message>
-    <message>
-        <source>Scaler</source>
-        <translation>Scalatura</translation>
-    </message>
-    <message>
-        <source>Ginseng</source>
-        <translation>Ginseng</translation>
-    </message>
-    <message>
-        <source>PQ</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>HLG</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Panasonic V-Log</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sony S-Log1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sony S-Log2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mobius</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Luma</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Juncture</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>HDR Desaturate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use S/PDIF when available</source>
-        <translation>Usa S/PDIF se disponibile</translation>
-    </message>
-    <message>
-        <source>Startup</source>
-        <translation>Avvio</translation>
     </message>
     <message>
         <source>Hide docked panels</source>
@@ -3082,10 +2924,6 @@ ogni file multimediale riprodotto</translation>
     <message>
         <source>Delay</source>
         <translation>Ritardo</translation>
-    </message>
-    <message>
-        <source>s</source>
-        <translation type="vanished">s</translation>
     </message>
     <message>
         <source>Apply default monitor mode on fullscreen exit</source>
@@ -3172,60 +3010,64 @@ ogni file multimediale riprodotto</translation>
         <translation>Usa decodifica hardware</translation>
     </message>
     <message>
-        <source>Codec to allow hardware-acceleration</source>
-        <translation type="vanished">Codec per cui usare decodifica hardware</translation>
+        <source>Codecs to allow hardware decoding</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Motion JPEG</source>
-        <translation type="vanished">Motion JPEG</translation>
+        <source>Hardware decoding backend</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>MPEG-1 Video</source>
-        <translation type="vanished">MPEG-1 Video</translation>
+        <source>Hover over each backend to display a description.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>MPEG-2 Video</source>
-        <translation type="vanished">MPEG-2 Video</translation>
+        <source>Autodetect - best of VAAPI, DXVA, D3D11VA</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>MPEG-4 Part 2</source>
-        <translation type="vanished">MPEG-4 Part 2</translation>
+        <source>A&amp;utodetect</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>H.263</source>
-        <translation type="vanished">H.263</translation>
+        <source>Linux - requires Mesa 11 and most likely works with Intel GPUs only; may only be correct in BT.601 and BT.709</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>H.264</source>
-        <translation type="vanished">H.264</translation>
+        <source>Linux - some gpus, does not always treat certain colorspaces like BT.2020 correctly</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>SMPTE VC-1</source>
-        <translation type="vanished">SMPTE VC-1</translation>
+        <source>Windows - not safe; it appears to always use BT.601 for forced RGB conversion, but actual behavior depends on the GPU drivers</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Windows Media Video 9</source>
-        <translation type="vanished">Windows Media Video 9</translation>
+        <source>Windows 8+ - usually safe but rounds 10 bit to 8 bit</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>High Efficency Video Coding</source>
-        <translation type="vanished">High Efficency Video Coding</translation>
+        <source>Raspberry PI - hardware overlay renderer</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Google VP9</source>
-        <translation type="vanished">Google VP9</translation>
+        <source>MacOS - safe</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Hardware decoding may produce a smoother, more efficient overall experience and reduce strain on your cpu. However, some of the above codecs (depending upon your installed hardware and software) may not be available or may be broken and/or produce incorrect output. A safe but not always correct rule of thumb with respect to image quality is to always prefer software decoding if your cpu can handle it. Suit yourself.</source>
-        <translation type="vanished">La decodifica hardware può risultare in un&apos;esperienza complessiva più fluda ed efficiente e ridurre il carico sulla cpu. Tuttavia, alcuni dei codec qui sopra (a seconda dell&apos;hardware e del software in uso) potrebbero non essere disponibili o non funzionare e/o produrre dati errati in uscita. Una regola generale sicura, ma non necessariamente esatta, per la qualità dell&apos;immagine è quella di preferire la decodifica software se la cpu in uso è in grado di effettuarla. È una scelta personale.</translation>
+        <source>nVidia only (likely 10x0+ only) - safe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PCI-E decoder card - safe</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Playback progression</source>
         <translation>Avanzamento riproduzione</translation>
     </message>
     <message>
-        <source>P&amp;lay</source>
-        <translation type="vanished">&amp;Riproduci</translation>
+        <source>Pla&amp;y</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>times</source>
@@ -3236,20 +3078,12 @@ ogni file multimediale riprodotto</translation>
         <translation>Riproduci per &amp;sempre</translation>
     </message>
     <message>
-        <source>Rewind when done playing</source>
-        <translation type="vanished">Riavvolgi al termine della riproduzione</translation>
-    </message>
-    <message>
         <source>Always loop images (manual progression)</source>
         <translation>Sempre immagini cicliche (avanzamento manuale)</translation>
     </message>
     <message>
         <source>Display Format</source>
         <translation>Formato visualizzazione</translation>
-    </message>
-    <message>
-        <source>%track{#. }{}{}%artist{# - }{Unknown Artist - }{}%title{#}{$}{$}</source>
-        <translation type="vanished">%track{#. }{}{}%artist{# - }{Artista sconosciuto - }{}%title{#}{$}{$}</translation>
     </message>
     <message>
         <source>qrc:/text/playlistFormat.html</source>
@@ -3317,7 +3151,6 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translatorcomment>I &quot;segni&quot; non mi convincono del tutto</translatorcomment>
         <translation>Sì e solo per i segni a schermo</translation>
     </message>
     <message>
@@ -3365,76 +3198,8 @@ ogni file multimediale riprodotto</translation>
         <translation>Colori</translation>
     </message>
     <message>
-        <source>HHHHHH</source>
-        <translation>HHHHHH</translation>
-    </message>
-    <message>
-        <source>FFFF00</source>
-        <translation type="vanished">FFFF00</translation>
-    </message>
-    <message>
         <source>Border color</source>
         <translation>Colore bordo</translation>
-    </message>
-    <message>
-        <source>000000</source>
-        <translation type="vanished">000000</translation>
-    </message>
-    <message>
-        <source>Codecs to allow hardware decoding</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hardware decoding backend</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hover over each backend to display a description.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Autodetect - best of VAAPI, DXVA, D3D11VA</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>A&amp;utodetect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Linux - requires Mesa 11 and most likely works with Intel GPUs only; may only be correct in BT.601 and BT.709</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Linux - some gpus, does not always treat certain colorspaces like BT.2020 correctly</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Windows - not safe; it appears to always use BT.601 for forced RGB conversion, but actual behavior depends on the GPU drivers</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Windows 8+ - usually safe but rounds 10 bit to 8 bit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Raspberry PI - hardware overlay renderer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>MacOS - safe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>nVidia only (likely 10x0+ only) - safe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PCI-E decoder card - safe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pla&amp;y</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shadow color</source>
@@ -3445,8 +3210,28 @@ ogni file multimediale riprodotto</translation>
         <translation>Preferisci tracce sottotitoli forzate e/o predefinite</translation>
     </message>
     <message>
+        <source>Automatically load external subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Autoload paths</source>
         <translation>Carica automaticamente dai percorsi</translation>
+    </message>
+    <message>
+        <source>Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Match</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fuzzy</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Online database</source>
@@ -3461,10 +3246,6 @@ ogni file multimediale riprodotto</translation>
         <translation>https://</translation>
     </message>
     <message>
-        <source>www.opensubtitles.org/isdb</source>
-        <translation type="vanished">www.opensubtitles.org/isdb</translation>
-    </message>
-    <message>
         <source>Test</source>
         <translation>Prova</translation>
     </message>
@@ -3477,20 +3258,12 @@ ogni file multimediale riprodotto</translation>
         <translation>Istantanee</translation>
     </message>
     <message>
-        <source>~/Pictures/mpc_shots</source>
-        <translation type="vanished">~/Immagini/mpc_shots</translation>
-    </message>
-    <message>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
         <source>Encode</source>
         <translation>Codifica</translation>
-    </message>
-    <message>
-        <source>~/Videos/mpc_encodes</source>
-        <translation type="vanished">~/Video/mpc_encodes</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Unchecked directories will place output files in the source directory. Streams do not have a source directory and will bring up a dialog when a field is left blank; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; will always ask where to place files. Directories will be created if necessary; this may not work across all filesystems.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -3501,40 +3274,20 @@ ogni file multimediale riprodotto</translation>
         <translation>Modello nome file</translation>
     </message>
     <message>
-        <source>%f_snapshot_%wP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}</source>
-        <translation type="vanished">%f_snapshot_%wP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}</translation>
-    </message>
-    <message>
-        <source>%f_encode_%aP-%bP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}%d{_novideo}{_noaudio}</source>
-        <translation type="vanished">%f_encode_%aP-%bP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}%d{_novideo}{_noaudio}</translation>
-    </message>
-    <message>
         <source>qrc:/text/encodeFormat.html</source>
         <translation>qrc:/text/encodeFormat.html</translation>
     </message>
     <message>
-        <source>jpg</source>
-        <translation type="vanished">jpg</translation>
-    </message>
-    <message>
-        <source>png</source>
-        <translation type="vanished">png</translation>
+        <source>Save with high bit depth</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quality</source>
         <translation>Qualità</translation>
     </message>
     <message>
-        <source>090</source>
-        <translation type="vanished">090</translation>
-    </message>
-    <message>
         <source>Smooth</source>
         <translation>Smussa</translation>
-    </message>
-    <message>
-        <source>000</source>
-        <translation type="vanished">000</translation>
     </message>
     <message>
         <source>Source Chroma</source>
@@ -3545,16 +3298,8 @@ ogni file multimediale riprodotto</translation>
         <translation>Compressione</translation>
     </message>
     <message>
-        <source>7</source>
-        <translation type="vanished">7</translation>
-    </message>
-    <message>
         <source>Filter</source>
         <translation>Filtro</translation>
-    </message>
-    <message>
-        <source>5</source>
-        <translation type="vanished">5</translation>
     </message>
     <message>
         <source>Colorspace</source>
@@ -3601,14 +3346,6 @@ ogni file multimediale riprodotto</translation>
         <translation>qmax</translation>
     </message>
     <message>
-        <source>WebM (VP8+OGG)</source>
-        <translation type="vanished">WebM (VP8+OGG)</translation>
-    </message>
-    <message>
-        <source>MP4 (x264+MP3)</source>
-        <translation type="vanished">MP4 (x264+MP3)</translation>
-    </message>
-    <message>
         <source>Don&apos;t encode the audio</source>
         <translation>Non codificare l&apos;audio</translation>
     </message>
@@ -3623,10 +3360,6 @@ ogni file multimediale riprodotto</translation>
     <message>
         <source>Drop frames before the seek target in the decoder</source>
         <translation>Salta fotogrammi nel decoder prima dell&apos;obiettivo della ricerca</translation>
-    </message>
-    <message>
-        <source>Fast seek</source>
-        <translation type="vanished">Ricerca veloce</translation>
     </message>
     <message>
         <source>Show chapter marks in seek bar</source>
@@ -3653,24 +3386,8 @@ ogni file multimediale riprodotto</translation>
         <translation>Font OSD:</translation>
     </message>
     <message>
-        <source>Color controls</source>
-        <translation>Controlli colore</translation>
-    </message>
-    <message>
-        <source>Brightness</source>
-        <translation>Luminosità</translation>
-    </message>
-    <message>
-        <source>0</source>
-        <translation type="vanished">0</translation>
-    </message>
-    <message>
-        <source>Hue</source>
-        <translation>Tinta</translation>
-    </message>
-    <message>
-        <source>Saturation</source>
-        <translation>Saturazione</translation>
+        <source>Turn on logging (may produce stuttering)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Debugging</source>
@@ -3721,6 +3438,74 @@ ogni file multimediale riprodotto</translation>
         <translation>Trace (molto rumoroso)</translation>
     </message>
     <message>
+        <source>Log file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create log file (contents will be overwritten)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>~/mpc-qt-log.txt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window update interval</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No delay (consumes cpu)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delayed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> msec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window history</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlimited (consumes memory)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim old lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color controls</source>
+        <translation>Controlli colore</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>Luminosità</translation>
+    </message>
+    <message>
+        <source>Hue</source>
+        <translation>Tinta</translation>
+    </message>
+    <message>
+        <source>Saturation</source>
+        <translation>Saturazione</translation>
+    </message>
+    <message>
         <source>Settings management</source>
         <translation>Gestione impostazioni</translation>
     </message>
@@ -3735,110 +3520,6 @@ ogni file multimediale riprodotto</translation>
     <message>
         <source>Open Logo Image</source>
         <translation>Apri immagine logo</translation>
-    </message>
-    <message>
-        <source>Time step</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fine step</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Automatically load external subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Path</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Match</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Exact</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fuzzy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save with high bit depth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Built-in fallback</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Black (for white palette)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Turn on logging (may produce stuttering)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> msec</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Every </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> lines</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Keep </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Window update interval</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Window history</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No delay (consumes cpu)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delayed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unlimited (consumes memory)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Trim old lines</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Logging</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Log file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create log file (contents will be overwritten)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>~/mpc-qt-log.txt</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

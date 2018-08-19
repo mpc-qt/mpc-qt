@@ -100,6 +100,10 @@
 <context>
     <name>LogWindow</name>
     <message>
+        <source>Log Messages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
@@ -110,10 +114,6 @@
     <message>
         <source>Clear</source>
         <translation type="unfinished">Vaciar</translation>
-    </message>
-    <message>
-        <source>Log Messages</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save File</source>
@@ -1075,6 +1075,30 @@
         <translation>Si&amp;n mensajes</translation>
     </message>
     <message>
+        <source>&amp;Escape Fullscreen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable &amp;Subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next Subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Previous Subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lo&amp;g</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+-</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Once</source>
         <translation>Una vez</translation>
     </message>
@@ -1108,7 +1132,7 @@
     </message>
     <message>
         <source> [Freestanding]</source>
-        <translation type="unfinished"> [Independiente]</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
@@ -1158,36 +1182,12 @@
         <source>Built on %1 at %2</source>
         <translation>Compilado el %1 a las %2</translation>
     </message>
-    <message>
-        <source>&amp;Escape Fullscreen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enable &amp;Subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Next Subtitle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Previous Subtitle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Lo&amp;g</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+-</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>MouseState</name>
     <message>
         <source>None</source>
-        <translation type="unfinished">Ninguna</translation>
+        <translation type="unfinished">Ninguno</translation>
     </message>
     <message>
         <source>Wheel</source>
@@ -1818,6 +1818,10 @@
         <translation>Trucos</translation>
     </message>
     <message>
+        <source>Logging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Miscellaneous</source>
         <translation>Miscelánea</translation>
     </message>
@@ -1974,6 +1978,30 @@ archivo multimedia reproducido</translation>
         <translation>Iconos</translation>
     </message>
     <message>
+        <source>Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Built-in fallback</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation>Personalizado</translation>
+    </message>
+    <message>
+        <source>System (Linux only)</source>
+        <translation>Sistema (solo en Linux)</translation>
+    </message>
+    <message>
+        <source>Folder (e.g. ~/Pictures/MyIcons/mpc-qt/leet)</source>
+        <translation>Carpeta (p. ej. ~/Imágenes/MisIconos/mpc-qt/leet)</translation>
+    </message>
+    <message>
+        <source>See &lt;a href=&quot;https://github.com/cmdrkotori/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
+        <translation>Vea &lt;a href=&quot;https://github.com/cmdrkotori/mpc-qt/tree/master/images/theme/black&quot;&gt;el repositorio fuente&lt;/a&gt; para los nombres de iconos.</translation>
+    </message>
+    <message>
         <source>Fallback</source>
         <translation>Alternativa</translation>
     </message>
@@ -1984,22 +2012,6 @@ archivo multimedia reproducido</translation>
     <message>
         <source>White (for black palette)</source>
         <translation>Blanco (para paleta negra)</translation>
-    </message>
-    <message>
-        <source>System (Linux only)</source>
-        <translation>Sistema (solo en Linux)</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Personalizado</translation>
-    </message>
-    <message>
-        <source>Folder (e.g. ~/Pictures/MyIcons/mpc-qt/leet)</source>
-        <translation>Carpeta (p. ej. ~/Imágenes/MisIconos/mpc-qt/leet)</translation>
-    </message>
-    <message>
-        <source>See &lt;a href=&quot;https://github.com/cmdrkotori/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>Vea &lt;a href=&quot;https://github.com/cmdrkotori/mpc-qt/tree/master/images/theme/black&quot;&gt;el repositorio fuente&lt;/a&gt; para los nombres de iconos.</translation>
     </message>
     <message>
         <source>Widget Color</source>
@@ -2223,8 +2235,7 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Fruit</source>
-        <translatorcomment>Nombre de método, no traducir</translatorcomment>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ordered</source>
@@ -3375,20 +3386,8 @@ archivo multimedia reproducido</translation>
         <translation>Fuente del OSD:</translation>
     </message>
     <message>
-        <source>Color controls</source>
-        <translation>Controles del color</translation>
-    </message>
-    <message>
-        <source>Brightness</source>
-        <translation>Brillo</translation>
-    </message>
-    <message>
-        <source>Hue</source>
-        <translation>Matiz</translation>
-    </message>
-    <message>
-        <source>Saturation</source>
-        <translation>Saturación</translation>
+        <source>Turn on logging (may produce stuttering)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Debugging</source>
@@ -3439,6 +3438,74 @@ archivo multimedia reproducido</translation>
         <translation>Traza (muy detallado)</translation>
     </message>
     <message>
+        <source>Log file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create log file (contents will be overwritten)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>~/mpc-qt-log.txt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window update interval</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No delay (consumes cpu)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delayed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> msec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window history</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlimited (consumes memory)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim old lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color controls</source>
+        <translation>Controles del color</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>Brillo</translation>
+    </message>
+    <message>
+        <source>Hue</source>
+        <translation>Matiz</translation>
+    </message>
+    <message>
+        <source>Saturation</source>
+        <translation>Saturación</translation>
+    </message>
+    <message>
         <source>Settings management</source>
         <translation>Gestión de la configuración</translation>
     </message>
@@ -3453,74 +3520,6 @@ archivo multimedia reproducido</translation>
     <message>
         <source>Open Logo Image</source>
         <translation>Abrir imagen de logo</translation>
-    </message>
-    <message>
-        <source>Theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Built-in fallback</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Turn on logging (may produce stuttering)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> msec</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Every </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> lines</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Keep </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Window update interval</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Window history</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No delay (consumes cpu)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delayed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unlimited (consumes memory)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Trim old lines</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Logging</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Log file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create log file (contents will be overwritten)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>~/mpc-qt-log.txt</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
