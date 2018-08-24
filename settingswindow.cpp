@@ -690,6 +690,7 @@ void SettingsWindow::sendSignals()
         emit option("icc-profile-auto", false);
         emit option("icc-profile", WIDGET_LOOKUP(ui->ccICCLocation));
     }
+    // FIXME: add icc-intent etc
 
     int index = WIDGET_LOOKUP(ui->audioDevice).toInt();
     emit option("audio-device", audioDevices.value(index).deviceName());
@@ -713,8 +714,6 @@ void SettingsWindow::sendSignals()
     emit option("jack-connect", WIDGET_LOOKUP(ui->jackConnect).toBool());
     emit option("jack-name", WIDGET_LOOKUP(ui->jackName).toString());
     emit option("jack-port", WIDGET_LOOKUP(ui->jackPort).toString());
-
-    // FIXME: add icc-intent etc
 
     emit option("glsl-shaders", WIDGET_LOOKUP(ui->shadersActiveList).toStringList());
 
