@@ -831,7 +831,7 @@ void SettingsWindow::sendSignals()
     emit option("sub-forced-only", WIDGET_LOOKUP(ui->subtitlesPreferForced));
     bool subsAutoload = WIDGET_LOOKUP(ui->subtitlesAutoloadExternal).toBool();
     emit option("sub-auto", subsAutoload ? WIDGET_TO_TEXT(ui->subtitlesAutoloadMatch) : QString("no"));
-    emit option("sub-file-paths", WIDGET_LOOKUP(ui->subtitlesAutoloadPath).toString().split(';'));
+    emit option("sub-file-paths", WIDGET_PLACEHOLD_LOOKUP(ui->subtitlesAutoloadPath).split(';'));
 
     emit screenshotDirectory(
                 WIDGET_LOOKUP(ui->screenshotDirectorySet).toBool() ?
@@ -1121,7 +1121,7 @@ void SettingsWindow::on_windowVideoValue_textChanged(const QString &arg1)
 
 void SettingsWindow::on_subtitlesAutoloadReset_clicked()
 {
-    ui->subtitlesAutoloadPath->setText(".;./subtitles;./subs");
+    ui->subtitlesAutoloadPath->clear();
 }
 
 void SettingsWindow::on_audioAutoloadPathReset_clicked()

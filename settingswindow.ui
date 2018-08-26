@@ -6281,7 +6281,7 @@ media file played</string>
                <layout class="QHBoxLayout" name="subtitlesAutoloadPathLayout">
                 <item>
                  <widget class="QLineEdit" name="subtitlesAutoloadPath">
-                  <property name="text">
+                  <property name="placeholderText">
                    <string notr="true">.;./subtitles;./subs</string>
                   </property>
                  </widget>
