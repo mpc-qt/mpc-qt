@@ -3456,10 +3456,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delayed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source> msec</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3469,10 +3465,6 @@ media file played</source>
     </message>
     <message>
         <source>Window history</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unlimited (consumes memory)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3517,6 +3509,26 @@ media file played</source>
     </message>
     <message>
         <source>Open Logo Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio open settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dela&amp;yed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlimited (consumes &amp;memory)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto-load external audio files</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

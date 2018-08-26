@@ -247,6 +247,8 @@ private slots:
 
     void on_subtitlesAutoloadReset_clicked();
 
+    void on_audioAutoloadPathReset_clicked();
+
 private:
     Ui::SettingsWindow *ui = nullptr;
     ActionEditor *actionEditor = nullptr;

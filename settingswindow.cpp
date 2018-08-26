@@ -56,6 +56,7 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
                      "linear"}},
     {"audioChannels", {"auto-safe", "auto", "stereo"}},
     {"audioRenderer", {"pulse", "alsa", "oss", "null"}},
+    {"audioAutoloadMatch", { "exact", "fuzzy", "all" }},
     {"framedroppingMode", {"no", "vo", "decoder", "decoder+vo"}},
     {"framedroppingDecoderMode", {"none", "default", "nonref", "bidir",\
                                   "nonkey", "all"}},
@@ -692,29 +693,6 @@ void SettingsWindow::sendSignals()
     }
     // FIXME: add icc-intent etc
 
-    int index = WIDGET_LOOKUP(ui->audioDevice).toInt();
-    emit option("audio-device", audioDevices.value(index).deviceName());
-    index = WIDGET_LOOKUP(ui->audioChannels).toInt();
-    emit option("audio-channels", index < 3 ? SettingMap::indexedValueToText[ui->audioChannels->objectName()][index]
-                                         : channelSwitcher());
-    bool flag = WIDGET_LOOKUP(ui->audioStreamSilence).toBool();
-    emit option("stream-silence", flag);
-    emit option("audio-wait-open", flag ? WIDGET_LOOKUP(ui->audioWaitTime).toDouble() : 0.0);
-    emit option("audio-pitch-correction", WIDGET_LOOKUP(ui->audioPitchCorrection).toBool());
-    emit option("audio-exclusive", WIDGET_LOOKUP(ui->audioExclusiveMode).toBool());
-    emit option("audio-normalize-downmix", WIDGET_LOOKUP(ui->audioNormalizeDownmix).toBool());
-    emit option("audio-spdif", WIDGET_LOOKUP(ui->audioSpdif).toBool() ? WIDGET_PLACEHOLD_LOOKUP(ui->audioSpdifCodecs) : "");
-    emit option("pulse-buffer", WIDGET_LOOKUP(ui->pulseBuffer).toInt());
-    emit option("pulse-latency-hacks", WIDGET_LOOKUP(ui->pulseLatency).toBool());
-    emit option("alsa-resample", WIDGET_LOOKUP(ui->alsaResample).toBool());
-    emit option("alsa-ignore-chmap", WIDGET_LOOKUP(ui->alsaIgnoreChannelMap).toBool());
-    emit option("oss-mixer-channel", WIDGET_LOOKUP(ui->ossMixerChannel).toString());
-    emit option("oss-mixer-device", WIDGET_LOOKUP(ui->ossMixerDevice).toString());
-    emit option("jack-autostart", WIDGET_LOOKUP(ui->jackAutostart).toBool());
-    emit option("jack-connect", WIDGET_LOOKUP(ui->jackConnect).toBool());
-    emit option("jack-name", WIDGET_LOOKUP(ui->jackName).toString());
-    emit option("jack-port", WIDGET_LOOKUP(ui->jackPort).toString());
-
     emit option("glsl-shaders", WIDGET_LOOKUP(ui->shadersActiveList).toStringList());
 
     if (WIDGET_LOOKUP(ui->fullscreenHideControls).toBool()) {
@@ -778,8 +756,34 @@ void SettingsWindow::sendSignals()
     }
 
     emit playlistFormat(WIDGET_PLACEHOLD_LOOKUP(ui->playlistFormat));
-    emit option("sub-gray", WIDGET_LOOKUP(ui->subtitlesForceGrayscale).toBool());
 
+    int index = WIDGET_LOOKUP(ui->audioDevice).toInt();
+    emit option("audio-device", audioDevices.value(index).deviceName());
+    index = WIDGET_LOOKUP(ui->audioChannels).toInt();
+    emit option("audio-channels", index < 3 ? SettingMap::indexedValueToText[ui->audioChannels->objectName()][index]
+                                         : channelSwitcher());
+    bool flag = WIDGET_LOOKUP(ui->audioStreamSilence).toBool();
+    emit option("stream-silence", flag);
+    emit option("audio-wait-open", flag ? WIDGET_LOOKUP(ui->audioWaitTime).toDouble() : 0.0);
+    emit option("audio-pitch-correction", WIDGET_LOOKUP(ui->audioPitchCorrection).toBool());
+    emit option("audio-exclusive", WIDGET_LOOKUP(ui->audioExclusiveMode).toBool());
+    emit option("audio-normalize-downmix", WIDGET_LOOKUP(ui->audioNormalizeDownmix).toBool());
+    emit option("audio-spdif", WIDGET_LOOKUP(ui->audioSpdif).toBool() ? WIDGET_PLACEHOLD_LOOKUP(ui->audioSpdifCodecs) : "");
+    emit option("pulse-buffer", WIDGET_LOOKUP(ui->pulseBuffer).toInt());
+    emit option("pulse-latency-hacks", WIDGET_LOOKUP(ui->pulseLatency).toBool());
+    emit option("alsa-resample", WIDGET_LOOKUP(ui->alsaResample).toBool());
+    emit option("alsa-ignore-chmap", WIDGET_LOOKUP(ui->alsaIgnoreChannelMap).toBool());
+    emit option("oss-mixer-channel", WIDGET_LOOKUP(ui->ossMixerChannel).toString());
+    emit option("oss-mixer-device", WIDGET_LOOKUP(ui->ossMixerDevice).toString());
+    emit option("jack-autostart", WIDGET_LOOKUP(ui->jackAutostart).toBool());
+    emit option("jack-connect", WIDGET_LOOKUP(ui->jackConnect).toBool());
+    emit option("jack-name", WIDGET_LOOKUP(ui->jackName).toString());
+    emit option("jack-port", WIDGET_LOOKUP(ui->jackPort).toString());
+    bool audioAutoload = WIDGET_LOOKUP(ui->audioAutoloadExternal).toBool();
+    emit option("audio-file-auto", audioAutoload ? WIDGET_TO_TEXT(ui->audioAutoloadMatch) : "no");
+    emit option("audio-file-paths", WIDGET_PLACEHOLD_LOOKUP(ui->audioAutoloadPath).split(';'));
+
+    emit option("sub-gray", WIDGET_LOOKUP(ui->subtitlesForceGrayscale).toBool());
     emit option("sub-font", WIDGET_LOOKUP(ui->fontComboBox).toString());
     emit option("sub-bold", WIDGET_LOOKUP(ui->fontBold).toBool());
     emit option("sub-italic", WIDGET_LOOKUP(ui->fontItalic).toBool());
@@ -935,7 +939,7 @@ void SettingsWindow::on_pageTree_itemSelectionChanged()
     if (!modelIndex.isValid())
         return;
 
-    static int parentIndex[] = { 0, 5, 12, 15, 17, 18, 19 };
+    static int parentIndex[] = { 0, 5, 12, 13, 16, 18, 19, 20 };
     int index = 0;
     if (!modelIndex.parent().isValid())
         index = parentIndex[modelIndex.row()];
@@ -1118,4 +1122,9 @@ void SettingsWindow::on_windowVideoValue_textChanged(const QString &arg1)
 void SettingsWindow::on_subtitlesAutoloadReset_clicked()
 {
     ui->subtitlesAutoloadPath->setText(".;./subtitles;./subs");
+}
+
+void SettingsWindow::on_audioAutoloadPathReset_clicked()
+{
+    ui->audioAutoloadPath->clear();
 }
