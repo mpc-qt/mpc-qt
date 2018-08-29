@@ -131,7 +131,6 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
         { "file-format", 0, MPV_FORMAT_STRING },
         { "file-size", 0, MPV_FORMAT_STRING },
         { "file-date-created", 0, MPV_FORMAT_NODE },
-        { "format", 0, MPV_FORMAT_STRING },
         { "path", 0, MPV_FORMAT_STRING },
         { "seekable", 0, MPV_FORMAT_FLAG }
     };
