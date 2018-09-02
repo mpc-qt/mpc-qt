@@ -67,8 +67,10 @@ win32:DEPENDPATH += $$PWD/mpv-dev
 
 TRANSLATIONS += translations/mpc-qt_en.ts \
 		translations/mpc-qt_es.ts \
+                translations/mpc-qt_fi.ts \
                 translations/mpc-qt_it.ts \
-                translations/mpc-qt_ru.ts
+                translations/mpc-qt_ru.ts \
+                translations/mpc-qt_zh_CN.ts
 
 
 isEmpty(QMAKE_LUPDATE) {
