@@ -164,7 +164,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>15</number>
+          <number>18</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -705,8 +705,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>555</width>
-                   <height>229</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -7065,7 +7065,7 @@ media file played</string>
              </property>
             </widget>
            </item>
-           <item row="4" column="0">
+           <item row="5" column="0">
             <widget class="QCheckBox" name="tweaksTimeTooltip">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -7078,7 +7078,7 @@ media file played</string>
              </property>
             </widget>
            </item>
-           <item row="4" column="1">
+           <item row="5" column="1">
             <widget class="QComboBox" name="tweaksTimeTooltipLocation">
              <property name="sizePolicy">
               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
@@ -7098,14 +7098,14 @@ media file played</string>
              </item>
             </widget>
            </item>
-           <item row="5" column="0">
+           <item row="6" column="0">
             <widget class="QLabel" name="tweaksOsdFontLabel">
              <property name="text">
               <string>OSD font:</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="1">
+           <item row="6" column="1">
             <layout class="QHBoxLayout" name="tweaksOsdLayout" stretch="1,0">
              <item>
               <widget class="QFontComboBox" name="tweaksOsdFont"/>
@@ -7124,6 +7124,13 @@ media file played</string>
               </widget>
              </item>
             </layout>
+           </item>
+           <item row="4" column="0" colspan="2">
+            <widget class="QCheckBox" name="tweaksVolumeLimit">
+             <property name="text">
+              <string>Limit volume to 100% like mpc-hc</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>

@@ -61,6 +61,7 @@ private:
     void setupPlatformWidgets();
     void setupPaletteEditor();
     void setupColorPickers();
+    void setupSelfSignals();
     void setupUnimplementedWidgets();
     void updateAcceptedSettings();
     SettingMap generateSettingMap(QWidget *root);
@@ -154,6 +155,7 @@ signals:
 
     void chapterMarks(bool yes);
     void fallbackToFolder(bool yes);
+    void volumeMax(int maximum);
     void timeTooltip(bool yes, bool above);
     void osdFont(const QString &family, const QString &size);
 
@@ -188,6 +190,7 @@ public slots:
     void setHidePanels(bool hidden);
 
 private slots:
+    void self_volumeMax(int maximum);
     void colorPick_clicked(QLineEdit *colorValue);
     void colorPick_changed(QLineEdit *colorValue, QPushButton *colorPick);
 

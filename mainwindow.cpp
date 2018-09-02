@@ -1405,6 +1405,11 @@ void MainWindow::setVolumeDouble(double level)
     emit volumeChanged(static_cast<int64_t>(level*100));
 }
 
+void MainWindow::setVolumeMax(int level)
+{
+    volumeSlider_->setMaximum(level);
+}
+
 void MainWindow::resetPlayAfterOnce()
 {
     ui->actionPlayAfterOnceNothing->setChecked(true);

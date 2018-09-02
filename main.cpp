@@ -373,6 +373,8 @@ void Flow::init() {
             mainWindow, &MainWindow::setBottomAreaHideTime);
     connect(settingsWindow, &SettingsWindow::hidePanels,
             mainWindow, &MainWindow::setFullscreenHidePanels);
+    connect(settingsWindow, &SettingsWindow::volumeMax,
+            mainWindow, &MainWindow::setVolumeMax);
     connect(settingsWindow, &SettingsWindow::timeTooltip,
             mainWindow, &MainWindow::setTimeTooltip);
 

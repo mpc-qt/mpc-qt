@@ -3533,5 +3533,9 @@ ogni file multimediale riprodotto</translation>
         <source>Auto-load external audio files</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Limit volume to 100% like mpc-hc</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

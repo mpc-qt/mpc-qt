@@ -239,6 +239,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->pageTree->setMaximumWidth(pageTreeWidth);
 
     setupColorPickers();
+    setupSelfSignals();
     setupUnimplementedWidgets();
 }
 
@@ -301,6 +302,12 @@ void SettingsWindow::setupColorPickers()
         connect(c.value, &QLineEdit::textChanged,
                 this, [this,c]() { colorPick_changed(c.value, c.pick); });
     }
+}
+
+void SettingsWindow::setupSelfSignals()
+{
+    connect(this, &SettingsWindow::volumeMax,
+            this, &SettingsWindow::self_volumeMax);
 }
 
 void SettingsWindow::setupUnimplementedWidgets()
@@ -557,7 +564,10 @@ void SettingsWindow::sendSignals()
     emit infoStatsColors(QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoForegroundValue).toString()),
                          QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoBackgroundValue).toString()));
 
-    emit volume(WIDGET_LOOKUP(ui->playbackVolume).toInt());
+    int vol = WIDGET_LOOKUP(ui->playbackVolume).toInt();
+    int volmax = WIDGET_LOOKUP(ui->tweaksVolumeLimit).toBool() ? 100 : 130;
+    emit volumeMax(volmax);
+    emit volume(vol);
     emit volumeStep(WIDGET_LOOKUP(ui->playbackVolumeStep).toInt());
     {
         int i = WIDGET_LOOKUP(ui->playbackSpeedStep).toInt();
@@ -915,6 +925,11 @@ void SettingsWindow::setHidePanels(bool hidden)
     ui->fullscreenHidePanels->setChecked(hidden);
     WIDGET_LOOKUP(ui->fullscreenHidePanels).setValue(hidden);
     emit settingsData(acceptedSettings.toVMap());
+}
+
+void SettingsWindow::self_volumeMax(int maximum)
+{
+    ui->playbackVolume->setMaximum(maximum);
 }
 
 void SettingsWindow::colorPick_clicked(QLineEdit *colorValue)
