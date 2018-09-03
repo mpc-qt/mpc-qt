@@ -2038,14 +2038,14 @@ void MainWindow::on_actionPlayLoopClear_triggered()
 
 void MainWindow::on_actionPlayVolumeUp_triggered()
 {
-    int newvol = int(std::min(volumeSlider_->value() + volumeStep, 130.0));
+    int newvol = int(std::min(volumeSlider_->value() + volumeStep, volumeSlider_->maximum()));
     emit volumeChanged(newvol);
     volumeSlider_->setValue(newvol);
 }
 
 void MainWindow::on_actionPlayVolumeDown_triggered()
 {
-    int newvol = int(std::max(volumeSlider_->value() - volumeStep, 0.0));
+    int newvol = int(std::max(volumeSlider_->value() - volumeStep, volumeSlider_->minimum()));
     emit volumeChanged(newvol);
     volumeSlider_->setValue(newvol);
 }
