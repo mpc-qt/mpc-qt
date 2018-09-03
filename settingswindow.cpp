@@ -567,7 +567,7 @@ void SettingsWindow::sendSignals()
     int vol = WIDGET_LOOKUP(ui->playbackVolume).toInt();
     int volmax = WIDGET_LOOKUP(ui->tweaksVolumeLimit).toBool() ? 100 : 130;
     emit volumeMax(volmax);
-    emit volume(vol);
+    emit volume(std::min(vol, volmax));
     emit volumeStep(WIDGET_LOOKUP(ui->playbackVolumeStep).toInt());
     {
         int i = WIDGET_LOOKUP(ui->playbackSpeedStep).toInt();
