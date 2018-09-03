@@ -423,6 +423,10 @@ void MpvObject::setDrawLogo(bool yes)
 
 void MpvObject::setVolume(int64_t volume)
 {
+    static int64_t lastVolume = -1;
+    if (lastVolume == volume)
+        return;
+    lastVolume = volume;
     setMpvPropertyVariant("volume", qlonglong(volume));
 }
 

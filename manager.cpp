@@ -366,6 +366,10 @@ void PlaybackManager::selectPrevSubtitle()
 
 void PlaybackManager::setVolume(int64_t volume)
 {
+    static int64_t lastVol = -1;
+    if (lastVol == volume)
+        return;
+    lastVol = volume;
     mpvObject_->setVolume(volume);
     mpvObject_->showMessage(tr("Volume: %1%").arg(volume));
 }
