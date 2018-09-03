@@ -156,6 +156,7 @@ signals:
     void chapterMarks(bool yes);
     void fallbackToFolder(bool yes);
     void volumeMax(int maximum);
+    void timeShorten(bool yes);
     void timeTooltip(bool yes, bool above);
     void osdFont(const QString &family, const QString &size);
 

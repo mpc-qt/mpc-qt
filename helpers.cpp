@@ -184,6 +184,38 @@ QString Helpers::toDateFormat(double time)
             .arg(QString().number(fr),3,'0');
 }
 
+QString Helpers::toDateFormatFixed(double time, Helpers::TimeFormat format)
+{
+    int t = int(time*1000 + 0.5);
+    if (t < 0)
+        t = 0;
+    int hr = t/3600000;
+    int mn = t/60000 % 60;
+    int se = t%60000 / 1000;
+    int fr = t % 1000;
+    switch (format) {
+    case LongFormat:
+        return QString("%1:%2:%3.%4").arg(QString().number(hr))
+                .arg(QString().number(mn),2,'0')
+                .arg(QString().number(se),2,'0')
+                .arg(QString().number(fr),3,'0');
+    case ShortFormat:
+        return QString("%1:%2:%3").arg(QString().number(hr),2,'0')
+                .arg(QString().number(mn),2,'0')
+                .arg(QString().number(se),2,'0');
+    case LongHourFormat:
+        return QString("%1:%2.%3")
+                .arg(QString().number(mn),2,'0')
+                .arg(QString().number(se),2,'0')
+                .arg(QString().number(fr),3,'0');
+    case ShortHourFormat:
+        return QString("%1:%2")
+                .arg(QString().number(mn),2,'0')
+                .arg(QString().number(se),2,'0');
+    }
+    return QString();
+}
+
 QDate Helpers::dateFromCFormat(const char date[])
 {
     QStringList dates = QString(date).simplified().split(QRegExp("\\s+"));
@@ -1192,4 +1224,3 @@ QList<AudioDevice> AudioDevice::listFromVList(const QVariantList &list)
         audioDevices.append(AudioDevice(v.toMap()));
     return audioDevices;
 }
-

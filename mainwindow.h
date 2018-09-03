@@ -183,6 +183,7 @@ public slots:
     void setVolume(int level);
     void setVolumeDouble(double level);
     void setVolumeMax(int level);
+    void setTimeShortMode(bool shortened);
     void resetPlayAfterOnce();
     void setPlayAfterAlways(Helpers::AfterPlayback action);
     void setFps(double fps);

@@ -3535,5 +3535,9 @@ media file played</source>
         <source>Unlimited (consumes &amp;memory)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Shorten the playback time indicator like mpc-hc</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

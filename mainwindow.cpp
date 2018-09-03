@@ -918,8 +918,10 @@ void MainWindow::updateBottomAreaGeometry()
 
 void MainWindow::updateTime()
 {
-    timeDuration->setTime(mpvObject_->playLength());
-    timePosition->setTime(mpvObject_->playTime());
+    double length = mpvObject_->playLength();
+    double time = mpvObject_->playTime();
+    timeDuration->setTime(length, length);
+    timePosition->setTime(time, length);
 }
 
 void MainWindow::updateFramedrops()
@@ -1408,6 +1410,12 @@ void MainWindow::setVolumeDouble(double level)
 void MainWindow::setVolumeMax(int level)
 {
     volumeSlider_->setMaximum(level);
+}
+
+void MainWindow::setTimeShortMode(bool shortened)
+{
+    timePosition->setShortMode(shortened);
+    timeDuration->setShortMode(shortened);
 }
 
 void MainWindow::resetPlayAfterOnce()

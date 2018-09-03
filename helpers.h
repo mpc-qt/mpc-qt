@@ -32,10 +32,14 @@ namespace Helpers {
                          ExitAfter, StandByAfter, HibernateAfter,
                          ShutdownAfter, LogOffAfter, LockAfter };
 
+    enum TimeFormat { LongFormat, ShortFormat,
+                      LongHourFormat, ShortHourFormat };
+
     extern QSet<QString> fileExtensions;
     extern QSet<QString> subsExtensions;
 
     QString toDateFormat(double time);
+    QString toDateFormatFixed(double time, TimeFormat format);
     QDate dateFromCFormat(const char date[]);
     QTime timeFromCFormat(const char time[]);
     QString parseFormat(QString fmt, QString fileName, DisabledTrack disabled,

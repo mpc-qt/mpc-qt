@@ -3,10 +3,9 @@
 #include "helpers.h"
 #include "drawnstatus.h"
 
-StatusTime::StatusTime(QWidget *parent) : QWidget(parent),
-    currentTime(-1)
+StatusTime::StatusTime(QWidget *parent) : QWidget(parent)
 {
-    setTime(0);
+    setTime(0, 0);
     setMinimumSize(minimumSizeHint());
 }
 
@@ -16,12 +15,47 @@ QSize StatusTime::minimumSizeHint() const
     return sz;
 }
 
-void StatusTime::setTime(double time)
+void StatusTime::setTime(double time, double duration)
 {
-    if (currentTime == time)
+    if (currentDuration != duration) {
+        currentDuration = duration;
+        updateTimeFormat();
+    } else if (currentTime == time)
         return;
     currentTime = time;
-    drawnText = Helpers::toDateFormat(time);
+    updateText();
+}
+
+void StatusTime::setShortMode(bool shortened)
+{
+    if (shortMode == shortened)
+        return;
+    shortMode = shortened;
+    lastTextLength = 0;
+    updateTimeFormat();
+    updateText();
+}
+
+void StatusTime::updateTimeFormat()
+{
+    Helpers::TimeFormat format;
+    if (int(currentDuration*1000 + 0.5) >= 3600000)
+        format = shortMode ? Helpers::ShortFormat : Helpers::LongFormat;
+    else
+        format = shortMode ? Helpers::ShortHourFormat : Helpers::LongHourFormat;
+    if (timeFormat == format)
+        return;
+    timeFormat = format;
+}
+
+void StatusTime::updateText()
+{
+    drawnText = Helpers::toDateFormatFixed(currentTime, timeFormat);
+    int drawnTextLength = drawnText.length();
+    if (drawnTextLength != lastTextLength) {
+        setMinimumSize(minimumSizeHint());
+        lastTextLength = drawnTextLength;
+    }
     update();
 }
 

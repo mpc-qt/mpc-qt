@@ -3537,5 +3537,9 @@ ogni file multimediale riprodotto</translation>
         <source>Limit volume to 100% like mpc-hc</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Shorten the playback time indicator like mpc-hc</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

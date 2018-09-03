@@ -375,6 +375,8 @@ void Flow::init() {
             mainWindow, &MainWindow::setFullscreenHidePanels);
     connect(settingsWindow, &SettingsWindow::volumeMax,
             mainWindow, &MainWindow::setVolumeMax);
+    connect(settingsWindow, &SettingsWindow::timeShorten,
+            mainWindow, &MainWindow::setTimeShortMode);
     connect(settingsWindow, &SettingsWindow::timeTooltip,
             mainWindow, &MainWindow::setTimeTooltip);
 
