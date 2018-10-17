@@ -6,12 +6,11 @@ branches:
   - travis
 
 script:
-- qmake
+- qmake mpc-qt.pro
 - make -j2
 - make install
 - macdeployqt mpc-qt.app -libpath=/usr/local/lib/
-- python ../macdeployqtfix/macdeployqtfix.py mpc-qt.app/Contents/MacOS/mpc-qt /usr/local/Cellar/qt/5.11.2/ -v
-
+- python macdeployqtfix/macdeployqtfix.py mpc-qt.app/Contents/MacOS/mpc-qt /usr/local/Cellar/qt/5.11.2/ -v
 
 before_install:
 - brew update
@@ -24,11 +23,11 @@ install:
 - cp mpv/libmpv/* /usr/local/Cellar/mpv/0.29.1/include/mpv/
 - rm -rf mpv
 - git clone https://github.com/arl/macdeployqtfix.git
+- git fetch --unshallow
 
 before_deploy:
 - ls -al
 - zip -r mpc-qt.zip mpc-qt.app
-- cd ..
 
 deploy:
   skip_cleanup: true
