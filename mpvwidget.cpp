@@ -679,6 +679,7 @@ void MpvObject::hideTimer_timeout()
 MpvWidgetInterface::MpvWidgetInterface(MpvObject *object)
     : mpvObject(object)
 {
+    ctrl = object->controller();
 }
 
 MpvWidgetInterface::~MpvWidgetInterface()
@@ -790,7 +791,7 @@ QWidget *MpvGlWidget::self()
 
 void MpvGlWidget::initMpv()
 {
-
+    // this takes place in initializeGL
 }
 
 
@@ -822,6 +823,9 @@ void MpvGlWidget::setDrawLogo(bool yes)
 
 void MpvGlWidget::initializeGL()
 {
+    if (!logo)
+        logo = new LogoDrawer(this);
+
     mpv_opengl_init_params glInit { &get_proc_address, this, nullptr };
     mpv_render_param params[] {
         { MPV_RENDER_PARAM_API_TYPE, const_cast<char*>(MPV_RENDER_API_TYPE_OPENGL) },
@@ -848,29 +852,27 @@ void MpvGlWidget::initializeGL()
     {
         Logger::log("glwidget", "unknown display mode (eglfs et al)");
     }
-
     render = ctrl->createRenderContext(params);
     mpv_render_context_set_update_callback(render, MpvGlWidget::render_update, this);
-    if (!logo)
-        logo = new LogoDrawer(this);
 }
 
 void MpvGlWidget::paintGL()
 {
     if (mpvObject->clientDebuggingMessages())
         Logger::log("glwidget", "paintGL");
-    bool yes = true;
-
-    if (!drawLogo) {
-        mpv_opengl_fbo fbo { static_cast<int>(defaultFramebufferObject()), glWidth, glHeight, 0 };
-        mpv_render_param params[] {
-            {MPV_RENDER_PARAM_OPENGL_FBO, &fbo },
-            {MPV_RENDER_PARAM_FLIP_Y, &yes}
-        };
-        mpv_render_context_render(render, params);
-    } else {
-        logo->paintGL(this);
+    if (drawLogo || !render) {
+        if (logo)
+            logo->paintGL(this);
+        return;
     }
+
+    bool yes = true;
+    mpv_opengl_fbo fbo { static_cast<int>(defaultFramebufferObject()), glWidth, glHeight, 0 };
+    mpv_render_param params[] {
+        {MPV_RENDER_PARAM_OPENGL_FBO, &fbo },
+        {MPV_RENDER_PARAM_FLIP_Y, &yes}
+    };
+    mpv_render_context_render(render, params);
 }
 
 void MpvGlWidget::resizeGL(int w, int h)
