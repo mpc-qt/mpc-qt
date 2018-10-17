@@ -9,7 +9,7 @@
     },
     "files": [
         {
-            "includePattern": "./(.*\\.zip)",
+            "includePattern": "./(.*\\.dmg)",
             "uploadPattern": "$1",
             "matrixParams": {
                 "override": 1

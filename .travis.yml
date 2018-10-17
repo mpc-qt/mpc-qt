@@ -28,7 +28,8 @@ install:
 
 before_deploy:
 - ls -al
-- zip -r mpc-qt.zip mpc-qt.app
+- pip install dmgbuild
+- dmgbuild -s make-release-mac.py "mpc-qt" mpc-qt.dmg
 
 deploy:
   skip_cleanup: true
