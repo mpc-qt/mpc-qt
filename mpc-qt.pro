@@ -139,6 +139,8 @@ win32:SOURCES += platform/screensaver_win.cpp \
 win32:HEADERS += platform/screensaver_win.h \
                  platform/devicemanager_win.h
 
+macx:RC_ICONS = $$system(./make-mac-icon.sh)
+macx:ICON = images/icon/mpc-qt.icns
 macx:SOURCES += platform/screensaver_mac.cpp \
                 platform/devicemanager_mac.cpp
 macx:HEADERS += platform/screensaver_mac.h \
