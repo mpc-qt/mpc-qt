@@ -9,7 +9,7 @@
     },
     "files": [
         {
-            "includePattern": "(*\.zip)",
+            "includePattern": "./(.*\\.zip)",
             "uploadPattern": "$1",
             "matrixParams": {
                 "override": 1
