@@ -3,7 +3,7 @@ osx_image: xcode9.2
 
 branches:
   only:
-  - travis
+  - master
 
 script:
 - qmake mpc-qt.pro
@@ -34,7 +34,7 @@ before_deploy:
 
 deploy:
   skip_cleanup: true
-  on: travis
+  on: master
   provider: bintray
   file: "bintray.json"
   user: alby128
