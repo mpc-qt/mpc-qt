@@ -17,6 +17,7 @@ before_install:
 - brew install mpv
 - brew install qt
 - brew link qt --force
+- brew install librsvg
 
 install:
 - git clone --branch v0.29.1 https://github.com/mpv-player/mpv.git
