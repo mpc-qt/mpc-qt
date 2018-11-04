@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
     // the LC_NUMERIC category to be set to "C", so change it back.
     std::setlocale(LC_NUMERIC, "C");
 
-    // Register the error code type et al so that signals/slots will work with it
+    // Register the error code type et al so that events can serialize them.
     qRegisterMetaType<MpvController::PropertyList>("MpvController::PropertyList");
     qRegisterMetaType<MpvController::OptionList>("MpvController::OptionList");
     qRegisterMetaType<MpvErrorCode>("MpvErrorCode");
@@ -65,10 +65,9 @@ int main(int argc, char *argv[])
     Flow f;
     f.parseArgs();
     f.init();
-    if (!f.hasPrevious())
-        return f.run();
-    else
+    if (f.hasPrevious())
         return 0;
+    return f.run();
 }
 
 Flow::Flow(QObject *owner) :
@@ -205,19 +204,83 @@ void Flow::init() {
 
     // Connect the modules together, somewhat like a switchboard.
     // A connection method such as A->B is kept with B->A if possible.
-    //
-    // The ordering of these connections may seem to have no particular
-    // order, but if we first limit ourselves to the principle parts of
-    // the program then the ordering becomes clear:
-    //   MainWindow   1 2 3 4 5 6 17
-    //   Manager      7
-    //   Settings     8 9 10 13 14 15 16
-    //   MpvObject    11 12
-    //   Flow         18 19 20 21 22 23 24
-    // The only outlier as of writing (circa 2018-8) is Manager, which
-    // is effectively the MainWindow controller code anyway.  So the
-    // ordering here is actually similar to what you would expect.
+    setupMainWindowConnections();
+    setupManagerConnections();
+    setupSettingsConnections();
+    setupMpvObjectConnections();
+    setupFlowConnections();
 
+    // manager -> settings
+    connect(playbackManager, &PlaybackManager::playerSettingsRequested,
+            settingsWindow, &SettingsWindow::sendSignals);
+
+    if (!freestanding)
+        setupMpris();
+
+    // update player framework
+    settingsWindow->takeActions(mainWindow->editableActions());
+    mainWindow->setRecentDocuments(recentFiles);
+    mainWindow->setFavoriteTracks(favoriteFiles, favoriteStreams);
+    favoritesWindow->setFiles(favoriteFiles);
+    favoritesWindow->setStreams(favoriteStreams);
+
+    settingsWindow->setAudioDevices(mainWindow->mpvObject()->audioDevices());
+    settingsWindow->takeSettings(settings);
+    settingsWindow->setMouseMapDefaults(mainWindow->mouseMapDefaults());
+    settingsWindow->takeKeyMap(keyMap);
+    settingsWindow->sendSignals();
+    settingsWindow->sendAcceptedSettings();
+
+    if (!freestanding) {
+        server->listen();
+        mpvServer->listen();
+    }
+    settingsWindow->setServerName(server->fullServerName());
+
+    mainWindow->setFreestanding(freestanding);
+    settingsWindow->setFreestanding(freestanding);
+}
+
+int Flow::run()
+{
+    mainWindow->playlistWindow()->tabsFromVList(storage.readVList("playlists"));
+    restoreWindows(storage.readVMap("geometry"));
+    return qApp->exec();
+}
+
+bool Flow::hasPrevious()
+{
+    return hasPrevious_;
+}
+
+void Flow::readConfig()
+{
+    settings = storage.readVMap("settings");
+    keyMap = storage.readVMap("keys");
+
+    QVariantMap favoriteMap = storage.readVMap("favorites");
+    favoriteFiles = TrackInfo::tracksFromVList(favoriteMap.value("files").toList());
+    favoriteStreams = TrackInfo::tracksFromVList(favoriteMap.value("streams").toList());
+    recentFiles = TrackInfo::tracksFromVList(storage.readVList("recent"));
+}
+
+void Flow::writeConfig(bool onlySettings)
+{
+    if (freestanding)
+        return;
+
+    storage.writeVMap("settings", settings);
+    if (onlySettings)
+        return;
+
+    storage.writeVMap("keys", keyMap);
+    storage.writeVList("recent", recentToVList());
+    storage.writeVMap("favorites", favoritesToVMap());
+    storage.writeVMap("geometry", saveWindows());
+}
+
+void Flow::setupMainWindowConnections()
+{
     // mainwindow -> manager
     connect(mainWindow, &MainWindow::severalFilesOpened,
             playbackManager, &PlaybackManager::openSeveralFiles);
@@ -336,9 +399,28 @@ void Flow::init() {
     connect(favoritesWindow, &FavoritesWindow::favoriteTracks,
             mainWindow, &MainWindow::setFavoriteTracks);
 
+    // mainwindow -> properties
+    connect(mainWindow, &MainWindow::showFileProperties,
+            propertiesWindow, &QWidget::show);
+
+    // mainwindow -> log
+    connect(mainWindow, &MainWindow::showLogWindow,
+            logWindow, &LogWindow::show);
+    connect(mainWindow, &MainWindow::hideLogWindow,
+            logWindow, &LogWindow::close);
+    connect(logWindow, &LogWindow::windowClosed,
+            mainWindow, &MainWindow::logWindowClosed);
+}
+
+void Flow::setupManagerConnections()
+{
     // manager -> favorites
     connect(playbackManager, &PlaybackManager::currentTrackInfo,
             favoritesWindow, &FavoritesWindow::addTrack);
+}
+
+void Flow::setupSettingsConnections()
+{
 
     // mainwindow -> settings
     connect(mainWindow, &MainWindow::volumeChanged,
@@ -380,6 +462,39 @@ void Flow::init() {
     connect(settingsWindow, &SettingsWindow::timeTooltip,
             mainWindow, &MainWindow::setTimeTooltip);
 
+    // settings -> playlistWindow
+    connect(settingsWindow, &SettingsWindow::iconTheme,
+            mainWindow->playlistWindow(), &PlaylistWindow::setIconTheme);
+    connect(settingsWindow, &SettingsWindow::hidePanels,
+            mainWindow->playlistWindow(), &PlaylistWindow::setHideFullscreen);
+    connect(settingsWindow, &SettingsWindow::playlistFormat,
+            mainWindow->playlistWindow(), &PlaylistWindow::setDisplayFormatSpecifier);
+
+    // playlistWindow -> settings
+    connect(mainWindow->playlistWindow(), &PlaylistWindow::hideFullscreenChanged,
+            settingsWindow, &SettingsWindow::setHidePanels);
+
+    // settings -> manager
+    connect(settingsWindow, &SettingsWindow::speedStep,
+            playbackManager, &PlaybackManager::setSpeedStep);
+    connect(settingsWindow, &SettingsWindow::stepTimeLarge,
+            playbackManager, &PlaybackManager::setStepTimeLarge);
+    connect(settingsWindow, &SettingsWindow::stepTimeSmall,
+            playbackManager, &PlaybackManager::setStepTimeSmall);
+    connect(settingsWindow, &SettingsWindow::playbackForever,
+            playbackManager, &PlaybackManager::setPlaybackForever);
+    connect(settingsWindow, &SettingsWindow::playbackPlayTimes,
+            playbackManager, &PlaybackManager::setPlaybackPlayTimes);
+    connect(settingsWindow, &SettingsWindow::fallbackToFolder,
+            playbackManager, &PlaybackManager::setFolderFallback);
+
+    // settings -> application
+    connect(settingsWindow, &SettingsWindow::applicationPalette,
+            qApp, [](const QPalette &pal) { qApp->setPalette(pal); });
+}
+
+void Flow::setupMpvObjectConnections()
+{
     // settings -> mpvwidget
     auto mpvObject = mainWindow->mpvObject();
     connect(settingsWindow, &SettingsWindow::videoColor,
@@ -423,41 +538,8 @@ void Flow::init() {
     connect(mpvObject, &MpvObject::chaptersChanged,
             propertiesWindow, &PropertiesWindow::setChapters);
 
-    // settings -> playlistWindow
-    connect(settingsWindow, &SettingsWindow::iconTheme,
-            mainWindow->playlistWindow(), &PlaylistWindow::setIconTheme);
-    connect(settingsWindow, &SettingsWindow::hidePanels,
-            mainWindow->playlistWindow(), &PlaylistWindow::setHideFullscreen);
-    connect(settingsWindow, &SettingsWindow::playlistFormat,
-            mainWindow->playlistWindow(), &PlaylistWindow::setDisplayFormatSpecifier);
-
-    // playlistWindow -> settings
-    connect(mainWindow->playlistWindow(), &PlaylistWindow::hideFullscreenChanged,
-            settingsWindow, &SettingsWindow::setHidePanels);
-
-    // settings -> manager
-    connect(settingsWindow, &SettingsWindow::speedStep,
-            playbackManager, &PlaybackManager::setSpeedStep);
-    connect(settingsWindow, &SettingsWindow::stepTimeLarge,
-            playbackManager, &PlaybackManager::setStepTimeLarge);
-    connect(settingsWindow, &SettingsWindow::stepTimeSmall,
-            playbackManager, &PlaybackManager::setStepTimeSmall);
-    connect(settingsWindow, &SettingsWindow::playbackForever,
-            playbackManager, &PlaybackManager::setPlaybackForever);
-    connect(settingsWindow, &SettingsWindow::playbackPlayTimes,
-            playbackManager, &PlaybackManager::setPlaybackPlayTimes);
-    connect(settingsWindow, &SettingsWindow::fallbackToFolder,
-            playbackManager, &PlaybackManager::setFolderFallback);
-
-    // settings -> application
-    connect(settingsWindow, &SettingsWindow::applicationPalette,
-            qApp, [](const QPalette &pal) { qApp->setPalette(pal); });
-
-    // manager -> settings
-    connect(playbackManager, &PlaybackManager::playerSettingsRequested,
-            settingsWindow, &SettingsWindow::sendSignals);
-
     // settingswindow -> log
+    auto logger = Logger::singleton();
     connect(settingsWindow, &SettingsWindow::loggingEnabled,
             logger, &Logger::setLoggingEnabled);
     connect(settingsWindow, &SettingsWindow::logFilePath,
@@ -466,19 +548,10 @@ void Flow::init() {
             logger, &Logger::setFlushTime);
     connect(settingsWindow, &SettingsWindow::logHistory,
             logWindow, &LogWindow::setLogLimit);
+}
 
-    // mainwindow -> log
-    connect(mainWindow, &MainWindow::showLogWindow,
-            logWindow, &LogWindow::show);
-    connect(mainWindow, &MainWindow::hideLogWindow,
-            logWindow, &LogWindow::close);
-    connect(logWindow, &LogWindow::windowClosed,
-            mainWindow, &MainWindow::logWindowClosed);
-
-    // mainwindow -> properties
-    connect(mainWindow, &MainWindow::showFileProperties,
-            propertiesWindow, &QWidget::show);
-
+void Flow::setupFlowConnections()
+{
     // mainwindow -> this
     connect(mainWindow, &MainWindow::recentOpened,
             this, &Flow::mainwindow_recentOpened);
@@ -562,70 +635,6 @@ void Flow::init() {
     // this -> this
     connect(this, &Flow::windowsRestored,
             this, &Flow::self_windowsRestored);
-
-    if (!freestanding)
-        setupMpris();
-
-    // update player framework
-    settingsWindow->takeActions(mainWindow->editableActions());
-    mainWindow->setRecentDocuments(recentFiles);
-    mainWindow->setFavoriteTracks(favoriteFiles, favoriteStreams);
-    favoritesWindow->setFiles(favoriteFiles);
-    favoritesWindow->setStreams(favoriteStreams);
-
-    settingsWindow->setAudioDevices(mpvObject->audioDevices());
-    settingsWindow->takeSettings(settings);
-    settingsWindow->setMouseMapDefaults(mainWindow->mouseMapDefaults());
-    settingsWindow->takeKeyMap(keyMap);
-    settingsWindow->sendSignals();
-    settingsWindow->sendAcceptedSettings();
-
-    if (!freestanding) {
-        server->listen();
-        mpvServer->listen();
-    }
-    settingsWindow->setServerName(server->fullServerName());
-
-    mainWindow->setFreestanding(freestanding);
-    settingsWindow->setFreestanding(freestanding);
-}
-
-int Flow::run()
-{
-    mainWindow->playlistWindow()->tabsFromVList(storage.readVList("playlists"));
-    restoreWindows(storage.readVMap("geometry"));
-    return qApp->exec();
-}
-
-bool Flow::hasPrevious()
-{
-    return hasPrevious_;
-}
-
-void Flow::readConfig()
-{
-    settings = storage.readVMap("settings");
-    keyMap = storage.readVMap("keys");
-
-    QVariantMap favoriteMap = storage.readVMap("favorites");
-    favoriteFiles = TrackInfo::tracksFromVList(favoriteMap.value("files").toList());
-    favoriteStreams = TrackInfo::tracksFromVList(favoriteMap.value("streams").toList());
-    recentFiles = TrackInfo::tracksFromVList(storage.readVList("recent"));
-}
-
-void Flow::writeConfig(bool onlySettings)
-{
-    if (freestanding)
-        return;
-
-    storage.writeVMap("settings", settings);
-    if (onlySettings)
-        return;
-
-    storage.writeVMap("keys", keyMap);
-    storage.writeVList("recent", recentToVList());
-    storage.writeVMap("favorites", favoritesToVMap());
-    storage.writeVMap("geometry", saveWindows());
 }
 
 void Flow::setupMpris()

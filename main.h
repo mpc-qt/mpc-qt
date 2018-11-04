@@ -36,6 +36,11 @@ signals:
 private:
     void readConfig();
     void writeConfig(bool onlySettings = false);
+    void setupMainWindowConnections();
+    void setupManagerConnections();
+    void setupSettingsConnections();
+    void setupMpvObjectConnections();
+    void setupFlowConnections();
     void setupMpris();
     QByteArray makePayload() const;
     QString pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const;
