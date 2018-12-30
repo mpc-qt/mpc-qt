@@ -371,7 +371,6 @@ bool MainWindow::mouseStateEvent(const MouseState &state)
     }
     return false;
 }
-void on_actionPlaylistSearch_triggered();
 
 MediaSlider *MainWindow::positionSlider()
 {
