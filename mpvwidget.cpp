@@ -1265,8 +1265,8 @@ void MpvController::handleMpvEvent(mpv_event *event)
     case MPV_EVENT_VIDEO_RECONFIG: {
         // Retrieve the new video size.
         QVariant vw, vh;
-        vw = getPropertyVariant("width");
-        vh = getPropertyVariant("height");
+        vw = getPropertyVariant("dwidth");
+        vh = getPropertyVariant("dheight");
         int w, h;
         if (!vw.canConvert<MpvErrorCode>() && !vh.canConvert<MpvErrorCode>()
                 && (w = vw.toInt()) > 0 && (h = vh.toInt()) > 0) {
