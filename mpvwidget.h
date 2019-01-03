@@ -6,6 +6,7 @@
 #include <QTimer>
 #include <QVariant>
 #include <QSet>
+#include <QMap>
 #include <functional>
 #include <mpv/client.h>
 //#include <mpv/opengl_cb.h>
@@ -25,6 +26,9 @@ class LogoDrawer;
 class MpvObject : public QObject
 {
     Q_OBJECT
+
+    typedef std::function<void(MpvObject*,bool,const QVariant&)> PropertyDispatchFunction;
+    typedef QMap<QString, PropertyDispatchFunction> PropertyDispatchMap;
 public:
     explicit MpvObject(QObject *owner, const QString &clientName = "mpv");
     ~MpvObject();
@@ -148,6 +152,8 @@ private slots:
     void self_mouseMoved();
 
 private:
+    static PropertyDispatchMap propertyDispatch;
+
     Helpers::MpvWidgetType widgetType = Helpers::NullWidget;
     QLayout *hostLayout = nullptr;
     QMainWindow *hostWindow = nullptr;

@@ -35,7 +35,40 @@
 #define GLAPIENTRY
 #endif
 
+#define HANDLE_PROP(p, method, converter, dflt) \
+{ \
+    p, \
+    [](MpvObject *self, bool ok, const QVariant &v) -> void { \
+        if (ok && v.canConvert<decltype(dflt)>()) \
+            emit self->method(v.converter());  \
+        else \
+            emit self->method(dflt); \
+    } \
+}
 
+MpvObject::PropertyDispatchMap MpvObject::propertyDispatch = {
+    HANDLE_PROP("time-pos", self_playTimeChanged, toDouble, -1.0),
+    HANDLE_PROP("duration", self_playLengthChanged, toDouble, -1.0),
+    HANDLE_PROP("seekable", seekableChanged, toBool, false),
+    HANDLE_PROP("pause", pausedChanged, toBool, true),
+    HANDLE_PROP("media-title", mediaTitleChanged, toString, QString()),
+    HANDLE_PROP("chapter-metadata", chapterDataChanged, toMap, QVariantMap()),
+    HANDLE_PROP("chapter-list", chaptersChanged, toList, QVariantList()),
+    HANDLE_PROP("track-list", tracksChanged, toList, QVariantList()),
+    HANDLE_PROP("estimated-vf-fps", fpsChanged, toDouble, 0.0),
+    HANDLE_PROP("avsync", avsyncChanged, toDouble, 0.0),
+    HANDLE_PROP("frame-drop-count", displayFramedropsChanged, toLongLong, 0ll),
+    HANDLE_PROP("decoder-frame-drop-count", decoderFramedropsChanged, toLongLong, 0ll),
+    HANDLE_PROP("audio-bitrate", audioBitrateChanged, toDouble, 0.0),
+    HANDLE_PROP("video-bitrate", videoBitrateChanged, toDouble, 0.0),
+    HANDLE_PROP("metadata", self_metadata, toMap, QVariantMap()),
+    HANDLE_PROP("audio-device-list", self_audioDeviceList, toList, QVariantList()),
+    HANDLE_PROP("filename", fileNameChanged, toString, QString()),
+    HANDLE_PROP("file-format", fileFormatChanged, toString, QString()),
+    HANDLE_PROP("file-date-created", fileCreationTimeChanged, toLongLong, 0ll),
+    HANDLE_PROP("file-size", fileSizeChanged, toLongLong, 0ll),
+    HANDLE_PROP("path", filePathChanged, toString, QString())
+};
 
 MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
 {
@@ -53,8 +86,7 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
     hideTimer->setInterval(1000);
 
     // Wire the basic mpv functions to avoid littering the codebase with
-    // QMetaObject::invokeMethod.  This way the compiler will catch our
-    // typos rather than a runtime error.
+    // QMetaObject::invokeMethod.
     connect(this, &MpvObject::ctrlContinueHook,
             ctrl, &MpvController::continueHook, Qt::QueuedConnection);
     connect(this, &MpvObject::ctrlCommand,
@@ -178,6 +210,7 @@ void MpvObject::setHostWindow(QMainWindow *hostWindow)
 
 void MpvObject::setWidgetType(Helpers::MpvWidgetType widgetType)
 {
+    // FIXME: MainWindow needs to accept transient video widgets
     if (!hostLayout && !hostWindow)
         return;
 
@@ -542,44 +575,16 @@ void MpvObject::hideCursor()
     widget->self()->setCursor(Qt::BlankCursor);
 }
 
-
-#define HANDLE_PROP(p, method, converter, dflt) \
-    if (name == p) { \
-        if (ok && v.canConvert<decltype(dflt)>()) \
-            method(v.converter()); \
-        else \
-            method(dflt); \
-        return; \
-    }
-
 void MpvObject::ctrl_mpvPropertyChanged(QString name, QVariant v)
 {
     if (debugMessages)
         LogStream("mpvobject") << name << " property changed to " << v;
 
     bool ok = v.type() < QVariant::UserType;
-    //FIXME: use constant-time map to function lookup
-    HANDLE_PROP("time-pos", emit self_playTimeChanged, toDouble, -1.0);
-    HANDLE_PROP("duration", emit self_playLengthChanged, toDouble, -1.0);
-    HANDLE_PROP("seekable", emit seekableChanged, toBool, false);
-    HANDLE_PROP("pause", emit pausedChanged, toBool, true);
-    HANDLE_PROP("media-title", emit mediaTitleChanged, toString, QString());
-    HANDLE_PROP("chapter-metadata", emit chapterDataChanged, toMap, QVariantMap());
-    HANDLE_PROP("chapter-list", emit chaptersChanged, toList, QVariantList());
-    HANDLE_PROP("track-list", emit tracksChanged, toList, QVariantList());
-    HANDLE_PROP("estimated-vf-fps", emit fpsChanged, toDouble, 0.0);
-    HANDLE_PROP("avsync", emit avsyncChanged, toDouble, 0.0);
-    HANDLE_PROP("frame-drop-count", emit displayFramedropsChanged, toLongLong, 0ll);
-    HANDLE_PROP("decoder-frame-drop-count", emit decoderFramedropsChanged, toLongLong, 0ll);
-    HANDLE_PROP("audio-bitrate", emit audioBitrateChanged, toDouble, 0.0);
-    HANDLE_PROP("video-bitrate", emit videoBitrateChanged, toDouble, 0.0);
-    HANDLE_PROP("metadata", emit self_metadata, toMap, QVariantMap());
-    HANDLE_PROP("audio-device-list", emit self_audioDeviceList, toList, QVariantList());
-    HANDLE_PROP("filename", emit fileNameChanged, toString, QString());
-    HANDLE_PROP("file-format", emit fileFormatChanged, toString, QString());
-    HANDLE_PROP("file-date-created", emit fileCreationTimeChanged, toLongLong, 0ll);
-    HANDLE_PROP("file-size", emit fileSizeChanged, toLongLong, 0ll);
-    HANDLE_PROP("path", emit filePathChanged, toString, QString());
+    if (propertyDispatch.contains(name))
+        propertyDispatch[name](this, ok, v);
+    else
+        LogStream("mpvobject") << name << " property changed, but was not in dispatch list.";
 }
 
 void MpvObject::ctrl_hookEvent(QString name, uint64_t selfId, uint64_t mpvId)
