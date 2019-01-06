@@ -62,6 +62,11 @@ int main(int argc, char *argv[])
                      Platform::resourcesPath() + "/translations/");
     a.installTranslator(&aTranslator);
 
+#ifndef MPCQT_VERSION_STR
+#define MPCQT_VERSION_STR QObject::translate("MainWindow", "Development Build")
+#endif
+    QCoreApplication::setApplicationVersion(MPCQT_VERSION_STR);
+
     Flow f;
     f.parseArgs();
     f.init();
