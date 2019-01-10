@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
     a.installTranslator(&aTranslator);
 
 #ifndef MPCQT_VERSION_STR
-#define MPCQT_VERSION_STR QObject::translate("MainWindow", "Development Build")
+#define MPCQT_VERSION_STR MainWindow::tr("Development Build")
 #endif
     QCoreApplication::setApplicationVersion(MPCQT_VERSION_STR);
 
