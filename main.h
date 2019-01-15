@@ -27,6 +27,7 @@ public:
     ~Flow();
 
     void parseArgs();
+    void detectMode();
     void init();
     int run();
     bool earlyQuit();

@@ -69,15 +69,17 @@ int main(int argc, char *argv[])
 
     Flow f;
     f.parseArgs();
-    f.init();
+    f.detectMode();
     if (f.earlyQuit())
         return 0;
+    f.init();
     return f.run();
 }
 
 Flow::Flow(QObject *owner) :
     QObject(owner)
 {
+    readConfig();
 }
 
 Flow::~Flow()
@@ -153,23 +155,25 @@ void Flow::parseArgs()
     customFiles = parser.positionalArguments();
 }
 
-void Flow::init() {
-    readConfig();
+void Flow::detectMode() {
+    if (programMode != UnknownMode)
+        return;
 
-    if (programMode != FreestandingMode) {
-        bool multiwinMode = settings.value("playerOpenNew", QVariant(false)).toBool();
-        if (!multiwinMode) {
-            // Attempt to send our urls to a previous instance, and bail out if it works.
-            bool alreadyAServer = JsonServer::sendPayload(makePayload(), MpcQtServer::defaultSocketName());
-            programMode = alreadyAServer ? EarlyQuitMode : PrimaryMode;
-            if (alreadyAServer)
-                return;
-        } else {
-            // In multiwin mode, we want to take over the main instance if it has quit,
-            // so we switch to freestanding mode only if we find a previous instance.
-            programMode = MpcQtServer::sendIdentify() ? FreestandingMode : PrimaryMode;
-        }
+    bool multiwinMode = settings.value("playerOpenNew", QVariant(false)).toBool();
+    if (multiwinMode) {
+        // In multiwin mode, we want to take over the main instance if it has quit,
+        // so we switch to freestanding mode only if we find a previous instance.
+        programMode = MpcQtServer::sendIdentify() ? FreestandingMode : PrimaryMode;
+        return;
     }
+
+    // Attempt to send our urls to a previous instance, and bail out if it works.
+    bool alreadyAServer = JsonServer::sendPayload(makePayload(), MpcQtServer::defaultSocketName());
+    programMode = alreadyAServer ? EarlyQuitMode : PrimaryMode;
+}
+
+void Flow::init() {
+    Q_ASSERT(programMode != UnknownMode);
 
     logThread = new QThread();
     logThread->start();
