@@ -287,7 +287,7 @@ void Flow::writeConfig(bool onlySettings)
     storage.writeVMap("keys", keyMap);
     storage.writeVList("recent", recentToVList());
     storage.writeVMap("favorites", favoritesToVMap());
-    storage.writeVMap("geometry", saveWindows());
+    storage.writeVMap("geometry", windowsToVMap());
 }
 
 void Flow::setupMainWindowConnections()
@@ -746,7 +746,7 @@ QVariantMap Flow::favoritesToVMap() const
     };
 }
 
-QVariantMap Flow::saveWindows()
+QVariantMap Flow::windowsToVMap()
 {
     return QVariantMap {
         {

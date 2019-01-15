@@ -49,7 +49,7 @@ private:
     QString pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const;
     QVariantList recentToVList() const;
     QVariantMap favoritesToVMap() const;
-    QVariantMap saveWindows();
+    QVariantMap windowsToVMap();
     void restoreWindows(const QVariantMap &geometryMap);
     void showWindows(const QVariantMap &mainWindowMap);
 
