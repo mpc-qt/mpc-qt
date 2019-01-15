@@ -20,6 +20,8 @@ class QThread;
 // a simple class to control program exection and own application objects
 class Flow : public QObject {
     Q_OBJECT
+    enum ProgramMode { UnknownMode, EarlyQuitMode, PrimaryMode, FreestandingMode, };
+
 public:
     explicit Flow(QObject *owner = nullptr);
     ~Flow();
@@ -27,7 +29,7 @@ public:
     void parseArgs();
     void init();
     int run();
-    bool hasPrevious();
+    bool earlyQuit();
 
 signals:
     void recentFilesChanged(QList<TrackInfo> urls);
@@ -97,7 +99,7 @@ private:
     QList<TrackInfo> favoriteFiles;
     QList<TrackInfo> favoriteStreams;
 
-    bool freestanding = false;
+    ProgramMode programMode = UnknownMode;
     QSize cliSize;
     QPoint cliPos;
     bool validCliSize = false;
@@ -114,7 +116,6 @@ private:
     QString screenshotTemplate;
     QString encodeTemplate;
     QString screenshotFormat;
-    bool hasPrevious_ = false;
 };
 
 #endif // MAIN_H

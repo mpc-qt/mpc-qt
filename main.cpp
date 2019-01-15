@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
     Flow f;
     f.parseArgs();
     f.init();
-    if (f.hasPrevious())
+    if (f.earlyQuit())
         return 0;
     return f.run();
 }
@@ -91,7 +91,7 @@ Flow::~Flow()
         mpvServer = nullptr;
     }
     if (mainWindow) {
-        if (!freestanding)
+        if (programMode == PrimaryMode)
             storage.writeVList("playlists", mainWindow->playlistWindow()->tabsToVList());
         delete mainWindow;
         mainWindow = nullptr;
@@ -147,7 +147,7 @@ void Flow::parseArgs()
 
     parser.process(QCoreApplication::arguments());
 
-    freestanding = parser.isSet(freestandingOpt);
+    programMode = parser.isSet(freestandingOpt) ? FreestandingMode : UnknownMode;
     validCliSize = parser.isSet(sizeOpt) && Helpers::sizeFromString(cliSize, parser.value(sizeOpt));
     validCliPos = parser.isSet(posOpt) && Helpers::pointFromString(cliPos, parser.value(posOpt));
     customFiles = parser.positionalArguments();
@@ -156,16 +156,18 @@ void Flow::parseArgs()
 void Flow::init() {
     readConfig();
 
-    bool multiwinMode = settings.value("playerOpenNew", QVariant(false)).toBool();
-    if (!freestanding) {
+    if (programMode != FreestandingMode) {
+        bool multiwinMode = settings.value("playerOpenNew", QVariant(false)).toBool();
         if (!multiwinMode) {
-            hasPrevious_ = JsonServer::sendPayload(makePayload(), MpcQtServer::defaultSocketName());
-            if (hasPrevious_)
+            // Attempt to send our urls to a previous instance, and bail out if it works.
+            bool alreadyAServer = JsonServer::sendPayload(makePayload(), MpcQtServer::defaultSocketName());
+            programMode = alreadyAServer ? EarlyQuitMode : PrimaryMode;
+            if (alreadyAServer)
                 return;
         } else {
             // In multiwin mode, we want to take over the main instance if it has quit,
             // so we switch to freestanding mode only if we find a previous instance.
-            freestanding = MpcQtServer::sendIdentify();
+            programMode = MpcQtServer::sendIdentify() ? FreestandingMode : PrimaryMode;
         }
     }
 
@@ -219,7 +221,7 @@ void Flow::init() {
     connect(playbackManager, &PlaybackManager::playerSettingsRequested,
             settingsWindow, &SettingsWindow::sendSignals);
 
-    if (!freestanding)
+    if (programMode == PrimaryMode)
         setupMpris();
 
     // update player framework
@@ -236,14 +238,14 @@ void Flow::init() {
     settingsWindow->sendSignals();
     settingsWindow->sendAcceptedSettings();
 
-    if (!freestanding) {
+    if (programMode == PrimaryMode) {
         server->listen();
         mpvServer->listen();
     }
     settingsWindow->setServerName(server->fullServerName());
 
-    mainWindow->setFreestanding(freestanding);
-    settingsWindow->setFreestanding(freestanding);
+    mainWindow->setFreestanding(programMode == FreestandingMode);
+    settingsWindow->setFreestanding(programMode == FreestandingMode);
 }
 
 int Flow::run()
@@ -253,9 +255,9 @@ int Flow::run()
     return qApp->exec();
 }
 
-bool Flow::hasPrevious()
+bool Flow::earlyQuit()
 {
-    return hasPrevious_;
+    return programMode == EarlyQuitMode;
 }
 
 void Flow::readConfig()
@@ -271,7 +273,7 @@ void Flow::readConfig()
 
 void Flow::writeConfig(bool onlySettings)
 {
-    if (freestanding)
+    if (programMode != PrimaryMode)
         return;
 
     storage.writeVMap("settings", settings);
