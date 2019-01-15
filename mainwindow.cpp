@@ -24,7 +24,7 @@
 #include <QStyle>
 
 using namespace Helpers;
-
+static const char SKIPACTION[] = "Skip";
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -94,6 +94,8 @@ PlaylistWindow *MainWindow::playlistWindow()
 
 static void actionsToList(QList<QAction*> &actionList, const QList<QAction*> &actions) {
     for (QAction *a : actions) {
+        if (a->data().toString() == SKIPACTION)
+            continue;
         if (a->menu())
             actionsToList(actionList, a->menu()->actions());
         else if (!a->isSeparator())
@@ -1048,6 +1050,7 @@ void MainWindow::updateDiscList()
                     emit dvdbdOpened(QUrl::fromLocalFile(device->mountedPath));
             }
         });
+        a->setData(SKIPACTION);
         ui->menuFileOpenDisc->addAction(a);
         addedSomething = true;
     };
