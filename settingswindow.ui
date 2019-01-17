@@ -4109,7 +4109,7 @@ media file played</string>
                      <double>10.000000000000000</double>
                     </property>
                     <property name="value">
-                     <double>2.000000000000000</double>
+                     <double>0.500000000000000</double>
                     </property>
                    </widget>
                   </item>
