@@ -54,6 +54,7 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
                      "s-log1", "s-log2"}},
     {"ccHdrMapper", {"clip", "mobius", "reinhard", "hable", "gamma", \
                      "linear"}},
+    {"ccHdrCompute", {"auto", "yes", "no"}},
     {"audioChannels", {"auto-safe", "auto", "stereo"}},
     {"audioRenderer", {"pulse", "alsa", "oss", "null"}},
     {"audioAutoloadMatch", { "exact", "fuzzy", "all" }},
@@ -685,6 +686,8 @@ void SettingsWindow::sendSignals()
         option("gamma-auto", WIDGET_LOOKUP(ui->ccGammaAutodetect));
     emit option("target-prim", WIDGET_TO_TEXT(ui->ccTargetPrim));
     emit option("target-trc", WIDGET_TO_TEXT(ui->ccTargetTRC));
+    int targetPeak = WIDGET_LOOKUP(ui->ccTargetPeak).toInt();
+    emit option("target-peak", targetPeak >= 10 ? QString::number(targetPeak) : QString("auto"));
     emit option("tone-mapping", WIDGET_TO_TEXT(ui->ccHdrMapper));
     {
         QList<QDoubleSpinBox*> boxen {ui->ccHdrClipParam,
@@ -694,6 +697,7 @@ void SettingsWindow::sendSignals()
         emit option("tone-mapping-param", toneParam ? WIDGET_LOOKUP(toneParam) : QVariant("nan"));
     }
     emit option("tone-mapping-desaturate", WIDGET_LOOKUP(ui->ccHdrDesaturate));
+    emit option("hdr-compute-peak", WIDGET_TO_TEXT(ui->ccHdrCompute));
     if (WIDGET_LOOKUP(ui->ccICCAutodetect).toBool()) {
         emit option("icc-profile", "");
         emit option("icc-profile-auto", true);

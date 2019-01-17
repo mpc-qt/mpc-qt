@@ -3541,5 +3541,17 @@ ogni file multimediale riprodotto</translation>
         <source>Shorten the playback time indicator like mpc-hc</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>HDR Compute Peak</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Target Peak</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Based on TRC</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
