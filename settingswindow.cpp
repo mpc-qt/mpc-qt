@@ -628,46 +628,43 @@ void SettingsWindow::sendSignals()
         emit option("sigmoid-upscaling", false);
     }
 
-    // Is this the right way to fall back to (the scaler's) defaults?
-    // Bear in mind we're not setting what hasn't changed since last time.
-    // Perhaps would should pass a blank QVariant or empty string instead.
     emit option("scale", WIDGET_TO_TEXT(ui->scaleScaler));
-    emit option("scale-param1", WIDGET_LOOKUP2(ui->scaleParam1Set, ui->scaleParam1Value, "nan"));
-    emit option("scale-param2", WIDGET_LOOKUP2(ui->scaleParam2Set, ui->scaleParam2Value, "nan"));
+    emit option("scale-param1", WIDGET_LOOKUP2(ui->scaleParam1Set, ui->scaleParam1Value, 0.0));
+    emit option("scale-param2", WIDGET_LOOKUP2(ui->scaleParam2Set, ui->scaleParam2Value, 0.0));
     emit option("scale-radius", WIDGET_LOOKUP2(ui->scaleRadiusSet, ui->scaleRadiusValue, 0.0));
     emit option("scale-antiring", WIDGET_LOOKUP2(ui->scaleAntiRingSet, ui->scaleAntiRingValue, 0.0));
-    emit option("scale-blur",   WIDGET_LOOKUP2(ui->scaleBlurSet,   ui->scaleBlurValue,  "nan"));
-    emit option("scale-wparam", WIDGET_LOOKUP2(ui->scaleWindowParamSet, ui->scaleWindowParamValue, "nan"));
+    emit option("scale-blur",   WIDGET_LOOKUP2(ui->scaleBlurSet,   ui->scaleBlurValue,  0.0));
+    emit option("scale-wparam", WIDGET_LOOKUP2(ui->scaleWindowParamSet, ui->scaleWindowParamValue, 0.0));
     emit option("scale-window", WIDGET_LOOKUP2_TEXT(ui->scaleWindowSet, ui->scaleWindowValue, ""));
     emit option("scale-clamp", WIDGET_LOOKUP(ui->scaleClamp));
 
     emit option("dscale", WIDGET_TO_TEXT(ui->dscaleScaler));
-    emit option("dscale-param1", WIDGET_LOOKUP2(ui->dscaleParam1Set, ui->dscaleParam1Value, "nan"));
-    emit option("dscale-param2", WIDGET_LOOKUP2(ui->dscaleParam2Set, ui->dscaleParam2Value, "nan"));
+    emit option("dscale-param1", WIDGET_LOOKUP2(ui->dscaleParam1Set, ui->dscaleParam1Value, 0.0));
+    emit option("dscale-param2", WIDGET_LOOKUP2(ui->dscaleParam2Set, ui->dscaleParam2Value, 0.0));
     emit option("dscale-radius", WIDGET_LOOKUP2(ui->dscaleRadiusSet, ui->dscaleRadiusValue, 0.0));
     emit option("dscale-antiring", WIDGET_LOOKUP2(ui->dscaleAntiRingSet, ui->dscaleAntiRingValue, 0.0));
-    emit option("dscale-blur",   WIDGET_LOOKUP2(ui->dscaleBlurSet,   ui->dscaleBlurValue,  "nan"));
-    emit option("dscale-wparam", WIDGET_LOOKUP2(ui->dscaleWindowParamSet, ui->dscaleWindowParamValue, "nan"));
+    emit option("dscale-blur",   WIDGET_LOOKUP2(ui->dscaleBlurSet,   ui->dscaleBlurValue,  0.0));
+    emit option("dscale-wparam", WIDGET_LOOKUP2(ui->dscaleWindowParamSet, ui->dscaleWindowParamValue, 0.0));
     emit option("dscale-window", WIDGET_LOOKUP2_TEXT(ui->dscaleWindowSet, ui->dscaleWindowValue, ""));
     emit option("dscale-clamp", WIDGET_LOOKUP(ui->dscaleClamp));
 
     emit option("cscale", WIDGET_TO_TEXT(ui->cscaleScaler));
-    emit option("cscale-param1", WIDGET_LOOKUP2(ui->cscaleParam1Set, ui->cscaleParam1Value, "nan"));
-    emit option("cscale-param2", WIDGET_LOOKUP2(ui->cscaleParam2Set, ui->cscaleParam2Value, "nan"));
+    emit option("cscale-param1", WIDGET_LOOKUP2(ui->cscaleParam1Set, ui->cscaleParam1Value, 0.0));
+    emit option("cscale-param2", WIDGET_LOOKUP2(ui->cscaleParam2Set, ui->cscaleParam2Value, 0.0));
     emit option("cscale-radius", WIDGET_LOOKUP2(ui->cscaleRadiusSet, ui->cscaleRadiusValue, 0.0));
     emit option("cscale-antiring", WIDGET_LOOKUP2(ui->cscaleAntiRingSet, ui->cscaleAntiRingValue, 0.0));
-    emit option("cscale-blur",   WIDGET_LOOKUP2(ui->cscaleBlurSet,   ui->cscaleBlurValue,  "nan"));
-    emit option("cscale-wparam", WIDGET_LOOKUP2(ui->cscaleWindowParamSet, ui->cscaleWindowParamValue, "nan"));
+    emit option("cscale-blur",   WIDGET_LOOKUP2(ui->cscaleBlurSet,   ui->cscaleBlurValue,  0.0));
+    emit option("cscale-wparam", WIDGET_LOOKUP2(ui->cscaleWindowParamSet, ui->cscaleWindowParamValue, 0.0));
     emit option("cscale-window", WIDGET_LOOKUP2_TEXT(ui->cscaleWindowSet, ui->cscaleWindowValue, ""));
     emit option("cscale-clamp", WIDGET_LOOKUP(ui->cscaleClamp));
 
     emit option("tscale", WIDGET_TO_TEXT(ui->tscaleScaler));
-    emit option("tscale-param1", WIDGET_LOOKUP2(ui->tscaleParam1Set, ui->tscaleParam1Value, "nan"));
-    emit option("tscale-param2", WIDGET_LOOKUP2(ui->tscaleParam2Set, ui->tscaleParam2Value, "nan"));
+    emit option("tscale-param1", WIDGET_LOOKUP2(ui->tscaleParam1Set, ui->tscaleParam1Value, 0.0));
+    emit option("tscale-param2", WIDGET_LOOKUP2(ui->tscaleParam2Set, ui->tscaleParam2Value, 0.0));
     emit option("tscale-radius", WIDGET_LOOKUP2(ui->tscaleRadiusSet, ui->tscaleRadiusValue, 0.0));
     emit option("tscale-antiring", WIDGET_LOOKUP2(ui->tscaleAntiRingSet, ui->tscaleAntiRingValue, 0.0));
-    emit option("tscale-blur",   WIDGET_LOOKUP2(ui->tscaleBlurSet,   ui->tscaleBlurValue,  "nan"));
-    emit option("tscale-wparam", WIDGET_LOOKUP2(ui->tscaleWindowParamSet, ui->tscaleWindowParamValue, "nan"));
+    emit option("tscale-blur",   WIDGET_LOOKUP2(ui->tscaleBlurSet,   ui->tscaleBlurValue,  0.0));
+    emit option("tscale-wparam", WIDGET_LOOKUP2(ui->tscaleWindowParamSet, ui->tscaleWindowParamValue, 0.0));
     emit option("tscale-window", WIDGET_LOOKUP2_TEXT(ui->tscaleWindowSet, ui->tscaleWindowValue, ""));
     emit option("tscale-clamp", WIDGET_LOOKUP(ui->tscaleClamp));
 
