@@ -121,6 +121,7 @@ QSet<QString> Helpers::fileExtensions {
     "dpx",
     "exr",
     "j2k",
+    "jpg",
     "jpeg",
     "jpegls",
     "pam",
