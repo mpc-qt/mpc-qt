@@ -2147,15 +2147,22 @@ void MainWindow::on_actionHelpAbout_triggered()
 #endif
     QString devBuild = tr("Development Build");
     QString versionFmt = tr("Version %1");
+    QString dateLineFmt = tr("Built on %1 at %2");
+    QString dateLine;
+
+#if defined(MPCQT_DEVELOPMENT)
     QDate buildDate = Helpers::dateFromCFormat(__DATE__);
     QTime buildTime = Helpers::timeFromCFormat(__TIME__);
+    dateLine = "<br>" + dateLineFmt.arg(buildDate.toString(Qt::DefaultLocaleShortDate),
+                                        buildTime.toString(Qt::DefaultLocaleShortDate));
+#endif
+
     QMessageBox::about(this, tr("About Media Player Classic Qute Theater"),
       "<h2>" + tr("Media Player Classic Qute Theater") + "</h2>" +
       "<p>" +  tr("A clone of Media Player Classic written in Qt") +
       "<br>" + tr("Based on Qt %1 and %2").arg(QT_VERSION_STR, mpvObject_->mpvVersion()) +
       "<p>" +  BUILD_VERSION_STR +
-      "<br>" + tr("Built on %1 at %2").arg(buildDate.toString(Qt::DefaultLocaleShortDate),
-                                           buildTime.toString(Qt::DefaultLocaleShortDate)) +
+      dateLine +
       "<h3>LICENSE</h3>"
       "<p>   Copyright (C) 2015"
       "<p>"
