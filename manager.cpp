@@ -548,7 +548,7 @@ void PlaybackManager::playPrevTrack()
     startPlayWithUuid(url, nowPlayingList, uuid, false);
 }
 
-void PlaybackManager::playNextFile()
+void PlaybackManager::playNextFile(int delta)
 {
     QUrl url;
     QFileInfo info;
@@ -565,13 +565,15 @@ void PlaybackManager::playNextFile()
         goto stop;
     dir = info.dir();
     files = dir.entryList(QDir::Files, QDir::Name);
-    index = files.indexOf(info.fileName()) + 1;
+    index = files.indexOf(info.fileName());
+    if (index == -1)
+        goto stop;
     do {
-        if (index <= 0 || index >= files.count())
+        index += delta;
+        if (index < 0 || index >= files.count())
             goto stop;
         nextFile = dir.filePath(files.value(index));
         url = QUrl::fromLocalFile(nextFile);
-        index++;
     } while (!Helpers::urlSurvivesFilter(url));
     playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, { url });
     startPlayWithUuid(url, nowPlayingList, nowPlayingItem, false);
@@ -584,36 +586,7 @@ stop:
 
 void PlaybackManager::playPrevFile()
 {
-    QUrl url;
-    QFileInfo info;
-    QDir dir;
-    QStringList files;
-    int index;
-    QString nextFile;
-
-    url = playlistWindow_->getUrlOfFirst(nowPlayingList);
-    if (url.isEmpty())
-        goto stop;
-    info = QFileInfo(url.toLocalFile());
-    if (!info.exists())
-        goto stop;
-    dir = info.dir();
-    files = dir.entryList(QDir::Files, QDir::Name);
-    index = files.indexOf(info.fileName()) - 1;
-    do {
-        if (index < 0)
-            goto stop;
-        nextFile = dir.filePath(files.value(index));
-        url = QUrl::fromLocalFile(nextFile);
-        index--;
-    } while (!Helpers::urlSurvivesFilter(url));
-    playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, { url });
-    startPlayWithUuid(url, nowPlayingList, nowPlayingItem, false);
-    return;
-
-stop:
-    playHalt();
-    return;
+    playNextFile(-1);
 }
 
 void PlaybackManager::playHalt()

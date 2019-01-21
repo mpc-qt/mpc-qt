@@ -132,7 +132,7 @@ private:
     void checkAfterPlayback(bool playlistMode);
     void playNextTrack();
     void playPrevTrack();
-    void playNextFile();
+    void playNextFile(int delta = 1);
     void playPrevFile();
     void playHalt();
 
