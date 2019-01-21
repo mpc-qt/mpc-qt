@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ThumbnailerWindow</class>
+ <widget class="QWidget" name="ThumbnailerWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>240</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout" rowstretch="0,1,0">
+   <item row="0" column="0" colspan="2">
+    <layout class="QFormLayout" name="mediaLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="mediaSourceLabel">
+       <property name="text">
+        <string>Source</string>
+       </property>
+       <property name="buddy">
+        <cstring>mediaSource</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="mediaSource">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="saveImageLabel">
+       <property name="text">
+        <string>Thumbnail</string>
+       </property>
+       <property name="buddy">
+        <cstring>saveImage</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLineEdit" name="saveImage"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="saveImageBrowse">
+         <property name="text">
+          <string>&amp;Browse...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <widget class="QGroupBox" name="imageBox">
+     <property name="title">
+      <string>Image</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="imageQualityLabel">
+        <property name="text">
+         <string>Quality</string>
+        </property>
+        <property name="buddy">
+         <cstring>imageQuality</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QSpinBox" name="imageQuality">
+        <property name="suffix">
+         <string>%</string>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="value">
+         <number>90</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="imageWidthLabel">
+        <property name="text">
+         <string>Width</string>
+        </property>
+        <property name="buddy">
+         <cstring>imageWidth</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QSpinBox" name="imageWidth">
+        <property name="minimum">
+         <number>240</number>
+        </property>
+        <property name="maximum">
+         <number>8192</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QGroupBox" name="layoutBox">
+     <property name="title">
+      <string>Layout</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="layoutRowLabel">
+        <property name="text">
+         <string>Rows</string>
+        </property>
+        <property name="buddy">
+         <cstring>layoutRow</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QSpinBox" name="layoutRow">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>12</number>
+        </property>
+        <property name="value">
+         <number>4</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="layoutColumnsLabel">
+        <property name="text">
+         <string>Columns</string>
+        </property>
+        <property name="buddy">
+         <cstring>layoutColumns</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QSpinBox" name="layoutColumns">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>12</number>
+        </property>
+        <property name="value">
+         <number>4</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <layout class="QHBoxLayout" name="actionLayout">
+     <item>
+      <widget class="QProgressBar" name="actionProgress">
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="actionGo">
+       <property name="text">
+        <string>&amp;Go!</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>saveImage</tabstop>
+  <tabstop>saveImageBrowse</tabstop>
+  <tabstop>imageQuality</tabstop>
+  <tabstop>imageWidth</tabstop>
+  <tabstop>layoutRow</tabstop>
+  <tabstop>layoutColumns</tabstop>
+  <tabstop>actionGo</tabstop>
+  <tabstop>mediaSource</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
