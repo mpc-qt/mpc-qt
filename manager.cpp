@@ -12,54 +12,54 @@ PlaybackManager::PlaybackManager(QObject *parent) :
 {
 }
 
-void PlaybackManager::setMpvObject(MpvObject *mpvWidget, bool makeConnections)
+void PlaybackManager::setMpvObject(MpvObject *mpvObject, bool makeConnections)
 {
-    mpvObject_ = mpvWidget;
+    mpvObject_ = mpvObject;
 
     if (makeConnections) {
-        connect(mpvWidget, &MpvObject::playTimeChanged,
+        connect(mpvObject, &MpvObject::playTimeChanged,
                 this, &PlaybackManager::mpvw_playTimeChanged);
-        connect(mpvWidget, &MpvObject::playLengthChanged,
+        connect(mpvObject, &MpvObject::playLengthChanged,
                 this, &PlaybackManager::mpvw_playLengthChanged);
-        connect(mpvWidget, &MpvObject::seekableChanged,
+        connect(mpvObject, &MpvObject::seekableChanged,
                 this, &PlaybackManager::mpvw_seekableChanged);
-        connect(mpvWidget, &MpvObject::playbackLoading,
+        connect(mpvObject, &MpvObject::playbackLoading,
                 this, &PlaybackManager::mpvw_playbackLoading);
-        connect(mpvWidget, &MpvObject::playbackStarted,
+        connect(mpvObject, &MpvObject::playbackStarted,
                 this, &PlaybackManager::mpvw_playbackStarted);
-        connect(mpvWidget, &MpvObject::pausedChanged,
+        connect(mpvObject, &MpvObject::pausedChanged,
                 this, &PlaybackManager::mpvw_pausedChanged);
-        connect(mpvWidget, &MpvObject::playbackIdling,
+        connect(mpvObject, &MpvObject::playbackIdling,
                 this, &PlaybackManager::mpvw_playbackIdling);
-        connect(mpvWidget, &MpvObject::mediaTitleChanged,
+        connect(mpvObject, &MpvObject::mediaTitleChanged,
                 this, &PlaybackManager::mpvw_mediaTitleChanged);
-        connect(mpvWidget, &MpvObject::chapterDataChanged,
+        connect(mpvObject, &MpvObject::chapterDataChanged,
                 this, &PlaybackManager::mpvw_chapterDataChanged);
-        connect(mpvWidget, &MpvObject::chaptersChanged,
+        connect(mpvObject, &MpvObject::chaptersChanged,
                 this, &PlaybackManager::mpvw_chaptersChanged);
-        connect(mpvWidget, &MpvObject::tracksChanged,
+        connect(mpvObject, &MpvObject::tracksChanged,
                 this, &PlaybackManager::mpvw_tracksChanged);
-        connect(mpvWidget, &MpvObject::videoSizeChanged,
+        connect(mpvObject, &MpvObject::videoSizeChanged,
                 this, &PlaybackManager::mpvw_videoSizeChanged);
-        connect(mpvWidget, &MpvObject::fpsChanged,
+        connect(mpvObject, &MpvObject::fpsChanged,
                 this, &PlaybackManager::mpvw_fpsChanged);
-        connect(mpvWidget, &MpvObject::avsyncChanged,
+        connect(mpvObject, &MpvObject::avsyncChanged,
                 this, &PlaybackManager::mpvw_avsyncChanged);
-        connect(mpvWidget, &MpvObject::displayFramedropsChanged,
+        connect(mpvObject, &MpvObject::displayFramedropsChanged,
                 this, &PlaybackManager::mpvw_displayFramedropsChanged);
-        connect(mpvWidget, &MpvObject::decoderFramedropsChanged,
+        connect(mpvObject, &MpvObject::decoderFramedropsChanged,
                 this, &PlaybackManager::mpvw_decoderFramedropsChanged);
-        connect(mpvWidget, &MpvObject::metaDataChanged,
+        connect(mpvObject, &MpvObject::metaDataChanged,
                 this, &PlaybackManager::mpvw_metadataChanged);
-        connect(mpvWidget, &MpvObject::playlistChanged,
+        connect(mpvObject, &MpvObject::playlistChanged,
                 this, &PlaybackManager::mpvw_playlistChanged);
-        connect(mpvWidget, &MpvObject::audioBitrateChanged,
+        connect(mpvObject, &MpvObject::audioBitrateChanged,
                 this, &PlaybackManager::mpvw_audioBitrateChanged);
-        connect(mpvWidget, &MpvObject::videoBitrateChanged,
+        connect(mpvObject, &MpvObject::videoBitrateChanged,
                 this, &PlaybackManager::mpvw_videoBitrateChanged);
 
         connect(this, &PlaybackManager::hasNoVideo,
-                mpvWidget, &MpvObject::setDrawLogo);
+                mpvObject, &MpvObject::setDrawLogo);
     }
 }
 

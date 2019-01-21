@@ -25,7 +25,7 @@ public:
     enum PlaybackType { None, File, Disc, Stream, Device };
 
     explicit PlaybackManager(QObject *parent = nullptr);
-    void setMpvObject(MpvObject *mpvWidget, bool makeConnections = false);
+    void setMpvObject(MpvObject *mpvObject, bool makeConnections = false);
     void setPlaylistWindow(PlaylistWindow *playlistWindow);
     QUrl nowPlaying();
     PlaybackState playbackState();
