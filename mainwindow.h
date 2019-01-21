@@ -75,6 +75,7 @@ private:
     void setupVolumeSlider();
     void setupMpvHost();
     void setupMpvObject();
+    void setupMpvWidget(Helpers::MpvWidgetType widgetType);
     void setupPlaylist();
     void setupStatus();
     void setupSizing();

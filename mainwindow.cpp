@@ -217,7 +217,8 @@ QSize MainWindow::desirableSize(bool first_run)
     }
 
     // calculate the amount taken by widgets outside the video frame
-    QSize fudgeFactor = size() - mpvw->size();
+    QSize mpvSize = mpvw ? mpvw->size() : noVideoSize_;
+    QSize fudgeFactor = size() - mpvSize;
 
     // calculate desired client size, depending upon the zoom mode
     QSize wanted;
@@ -288,7 +289,8 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 
 bool MainWindow::eventFilter(QObject *object, QEvent *event)
 {
-    if ((object == mpvw || object == playlistWindow_) && event->type() == QEvent::MouseMove) {
+    bool insideMpv = mpvw ? object == mpvw : false;
+    if ((insideMpv || object == playlistWindow_) && event->type() == QEvent::MouseMove) {
         this->mouseMoveEvent(static_cast<QMouseEvent*>(event));
     }
     return QMainWindow::eventFilter(object, event);
@@ -307,13 +309,15 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
 }
 
 static bool insideWidget(QPoint p, QWidget *mpvw) {
+    if (mpvw == nullptr)
+        return false;
     QRect rc(mpvw->mapToGlobal(QPoint()), mpvw->size());
     return rc.contains(p);
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
-    bool ok = insideWidget(event->globalPos(), mpvw);
+    bool ok = mpvw ? insideWidget(event->globalPos(), mpvw) : false;
     if (ok && mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseDown)))
         event->accept();
     else
@@ -322,7 +326,7 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 
 void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
 {
-    bool ok = insideWidget(event->globalPos(), mpvw);
+    bool ok = mpvw ? insideWidget(event->globalPos(), mpvw) : false;
     if (ok && mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::PressTwice)))
         event->accept();
     mousePressEvent(event);
@@ -330,7 +334,7 @@ void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
 
 void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
-    bool ok = insideWidget(event->globalPos(), mpvw);
+    bool ok = mpvw ? insideWidget(event->globalPos(), mpvw) : false;
     if (ok && mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseUp)))
         event->accept();
     else
@@ -339,7 +343,7 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 
 void MainWindow::wheelEvent(QWheelEvent *event)
 {
-    bool ok = insideWidget(event->globalPos(), mpvw);
+    bool ok = mpvw ? insideWidget(event->globalPos(), mpvw) : false;
     if (ok && mouseStateEvent(MouseState::fromWheelEvent(event)))
         event->accept();
     else
@@ -577,7 +581,7 @@ void MainWindow::setupVolumeSlider()
 
 void MainWindow::setupMpvHost()
 {
-    // Crate a special QMainWindow widget so that the playlist window will
+    // Create a special QMainWindow widget so that the playlist window will
     // dock around it rather than ourselves
     mpvHost_ = new QMainWindow(this);
     mpvHost_->setSizePolicy(QSizePolicy(QSizePolicy::Ignored,
@@ -589,17 +593,31 @@ void MainWindow::setupMpvObject()
 {
     mpvObject_ = new MpvObject(this, "Media Player Classic Qute Theater");
     mpvObject_->setHostWindow(mpvHost_);
-    mpvObject_->setWidgetType(Helpers::GlCbWidget);
+    setupMpvWidget(Helpers::GlCbWidget);
+    connect(mpvObject_, &MpvObject::logoSizeChanged,
+            this, &MainWindow::setNoVideoSize);
+}
+
+void MainWindow::setupMpvWidget(Helpers::MpvWidgetType widgetType)
+{
+    bool embeddedBottomArea = ui->bottomArea->parentWidget() == mpvw;
+    if (embeddedBottomArea) {
+        reparentBottomArea(false);
+    }
+
+    mpvw = nullptr;
+    mpvObject_->setWidgetType(widgetType);
     mpvw = mpvObject_->mpvWidget();
     if (!mpvw)
         throw(std::runtime_error("Video widget not created"));
-    connect(mpvObject_, &MpvObject::logoSizeChanged,
-            this, &MainWindow::setNoVideoSize);
     // CHECKME: signal could be in mpvObject and reflected internally
     connect(mpvw, &QWidget::customContextMenuRequested,
             this, &MainWindow::mpvw_customContextMenuRequested);
     // CHECKME: mouse tracking could be set by mpvObject's setWidgetType func
-    mpvObject_->mpvWidget()->setMouseTracking(true);
+    mpvw->setMouseTracking(true);
+
+    if (embeddedBottomArea)
+        reparentBottomArea(true);
 }
 
 void MainWindow::setupPlaylist()
@@ -850,7 +868,7 @@ void MainWindow::reparentBottomArea(bool overlay)
         bottomAreaHeight = ui->bottomArea->height();
         ui->centralwidget->layout()->removeWidget(ui->bottomArea);
         ui->bottomArea->setParent(nullptr);
-        ui->bottomArea->setParent(mpvObject_->mpvWidget());
+        ui->bottomArea->setParent(mpvw ? mpvw : mpvHost_);
     }
     if (!overlay && !inLayout) {
         ui->bottomArea->setParent(nullptr);
@@ -872,6 +890,8 @@ void MainWindow::checkBottomArea(QPoint mousePosition)
             ui->bottomArea->hide();
         break;
     case Helpers::ShowWhenHovering:
+        if (mpvw == nullptr)
+            break;
         relMousePosition = mpvw->mapFromGlobal(mousePosition);
         if (ui->bottomArea->geometry().contains(relMousePosition)) {
             if (ui->bottomArea->isHidden())
@@ -881,6 +901,8 @@ void MainWindow::checkBottomArea(QPoint mousePosition)
         }
         break;
     case Helpers::ShowWhenMoving:
+        if (mpvw == nullptr)
+            break;
         relMousePosition = mapFromGlobal(mousePosition);
         if (mpvw->geometry().contains(relMousePosition)) {
             if (ui->bottomArea->isHidden())
@@ -2185,6 +2207,8 @@ void MainWindow::on_actionHelpAbout_triggered()
 
 void MainWindow::mpvw_customContextMenuRequested(const QPoint &pos)
 {
+    if (mpvw == nullptr)
+        return;
     contextMenu->popup(mpvw->mapToGlobal(pos));
 }
 
@@ -2245,6 +2269,8 @@ void MainWindow::playlistWindow_playlistAddItem(const QUuid &playlistUuid)
 
 void MainWindow::hideTimer_timeout()
 {
+    if (mpvw == nullptr)
+        return;
     if (fullscreenMode_ &&
             !ui->bottomArea->geometry().contains(mpvw->mapFromGlobal(QCursor::pos())))
         ui->bottomArea->hide();
