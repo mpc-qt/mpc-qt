@@ -132,6 +132,7 @@ private:
     void checkAfterPlayback(bool playlistMode);
     void playNextTrack();
     void playPrevTrack();
+    bool playNextFileUrl(QUrl url, int delta = 1);
     void playNextFile(int delta = 1);
     void playPrevFile();
     void playHalt();

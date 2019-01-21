@@ -518,7 +518,9 @@ void PlaybackManager::checkAfterPlayback(bool playlistMode)
             repeatThisFile();
         break;
     case Helpers::PlayNextAfter:
-        // FIXME: play next in folder
+        if (!playNextFileUrl(nowPlaying_))
+            playNextTrack();
+        break;
     case Helpers::DoNothingAfter:
         if (playlistMode)
             playNext();
@@ -548,40 +550,42 @@ void PlaybackManager::playPrevTrack()
     startPlayWithUuid(url, nowPlayingList, uuid, false);
 }
 
-void PlaybackManager::playNextFile(int delta)
+bool PlaybackManager::playNextFileUrl(QUrl url, int delta)
 {
-    QUrl url;
     QFileInfo info;
     QDir dir;
     QStringList files;
     int index;
     QString nextFile;
 
-    url = playlistWindow_->getUrlOfFirst(nowPlayingList);
+
     if (url.isEmpty())
-        goto stop;
+        return false;
     info = QFileInfo(url.toLocalFile());
     if (!info.exists())
-        goto stop;
+        return false;
     dir = info.dir();
     files = dir.entryList(QDir::Files, QDir::Name);
     index = files.indexOf(info.fileName());
     if (index == -1)
-        goto stop;
+        return false;
     do {
         index += delta;
         if (index < 0 || index >= files.count())
-            goto stop;
+            return false;
         nextFile = dir.filePath(files.value(index));
         url = QUrl::fromLocalFile(nextFile);
     } while (!Helpers::urlSurvivesFilter(url));
     playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, { url });
     startPlayWithUuid(url, nowPlayingList, nowPlayingItem, false);
-    return;
+    return true;
+}
 
-stop:
-    playHalt();
-    return;
+void PlaybackManager::playNextFile(int delta)
+{
+    QUrl url = playlistWindow_->getUrlOfFirst(nowPlayingList);
+    if (!playNextFileUrl(url, delta))
+        playHalt();
 }
 
 void PlaybackManager::playPrevFile()
