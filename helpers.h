@@ -25,7 +25,8 @@ namespace Helpers {
     enum FileType { AudioFile, VideoFile };
     enum ScreenshotRender { VideoRender, SubsRender, WindowRender };
     enum TitlePrefix { PrefixFullPath, PrefixFileName, NoPrefix };
-    enum MpvWidgetType { NullWidget, EmbedWidget, GlCbWidget, VulkanCbWidget };
+    enum MpvWidgetType { NullWidget, EmbedWidget, GlCbWidget, VulkanCbWidget,
+                         CustomWidget };
     enum ControlHiding { NeverShown, ShowWhenMoving, ShowWhenHovering,
                          AlwaysShow };
     enum AfterPlayback { DoNothingAfter, RepeatAfter, PlayNextAfter,

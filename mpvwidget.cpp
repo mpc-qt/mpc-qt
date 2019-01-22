@@ -208,7 +208,7 @@ void MpvObject::setHostWindow(QMainWindow *hostWindow)
         this->hostWindow = hostWindow;
 }
 
-void MpvObject::setWidgetType(Helpers::MpvWidgetType widgetType)
+void MpvObject::setWidgetType(Helpers::MpvWidgetType widgetType, MpvWidgetInterface *customWidget)
 {
     // FIXME: MainWindow needs to accept transient video widgets
     if (!hostLayout && !hostWindow)
@@ -235,6 +235,9 @@ void MpvObject::setWidgetType(Helpers::MpvWidgetType widgetType)
         break;
     case Helpers::VulkanCbWidget:
         widget = new MpvVulkanCbWidget(this);
+        break;
+    case Helpers::CustomWidget:
+        widget = customWidget;
         break;
     }
     if (!widget)

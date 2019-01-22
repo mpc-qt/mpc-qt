@@ -35,7 +35,7 @@ public:
 
     void setHostLayout(QLayout *hostLayout);
     void setHostWindow(QMainWindow *hostWindow);
-    void setWidgetType(Helpers::MpvWidgetType widgetType);
+    void setWidgetType(Helpers::MpvWidgetType widgetType, MpvWidgetInterface *customWidget = nullptr);
 
     QString mpvVersion();
     MpvController *controller();
