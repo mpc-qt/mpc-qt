@@ -705,8 +705,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>583</width>
-                   <height>229</height>
+                   <width>56</width>
+                   <height>18</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -1287,7 +1287,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>4</number>
+                 <number>2</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -1696,7 +1696,14 @@ media file played</string>
                         <item>
                          <widget class="QCheckBox" name="scalingInLinearLight">
                           <property name="text">
-                           <string>Scale in linear light</string>
+                           <string>Downscale in linear light</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QCheckBox" name="scalingUpInLinearLight">
+                          <property name="text">
+                           <string>Upscale in linear light</string>
                           </property>
                          </widget>
                         </item>

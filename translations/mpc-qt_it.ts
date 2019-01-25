@@ -2275,7 +2275,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Scale in linear light</source>
-        <translation>Scalatura in luce lineare</translation>
+        <translation type="vanished">Scalatura in luce lineare</translation>
     </message>
     <message>
         <source>Temporal interpolation</source>
@@ -3551,6 +3551,14 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Based on TRC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downscale in linear light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upscale in linear light</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -2274,10 +2274,6 @@ archivo multimedia reproducido</translation>
         <translation>Corregir la reducción de tamaño</translation>
     </message>
     <message>
-        <source>Scale in linear light</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Temporal interpolation</source>
         <translation>Interpolación lineal</translation>
     </message>
@@ -3551,6 +3547,14 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Based on TRC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downscale in linear light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upscale in linear light</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

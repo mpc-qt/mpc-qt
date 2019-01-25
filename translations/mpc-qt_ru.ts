@@ -2272,10 +2272,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Scale in linear light</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Temporal interpolation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3549,6 +3545,14 @@ media file played</source>
     </message>
     <message>
         <source>Based on TRC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downscale in linear light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upscale in linear light</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

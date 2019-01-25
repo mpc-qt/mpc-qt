@@ -617,7 +617,8 @@ void SettingsWindow::sendSignals()
     emit option("temporal-dither", WIDGET_LOOKUP(ui->ditherTemporal));
     emit option("temporal-dither-period", WIDGET_LOOKUP2(ui->ditherTemporal, ui->ditherTemporalPeriod, 1));
     emit option("correct-downscaling", WIDGET_LOOKUP(ui->scalingCorrectDownscaling));
-    emit option("linear-scaling", WIDGET_LOOKUP(ui->scalingInLinearLight));
+    emit option("linear-downscaling", WIDGET_LOOKUP(ui->scalingInLinearLight));
+    emit option("linear-upscaling", WIDGET_LOOKUP(ui->scalingUpInLinearLight));
     emit option("interpolation", WIDGET_LOOKUP(ui->scalingTemporalInterpolation));
     emit option("blend-subtitles", WIDGET_LOOKUP(ui->scalingBlendSubtitles));
     if (WIDGET_LOOKUP(ui->scalingSigmoidizedUpscaling).toBool()) {
