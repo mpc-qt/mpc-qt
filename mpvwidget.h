@@ -48,6 +48,7 @@ public:
     void showStatsPage(int page);
     int cycleStatsPage();
 
+    void urlOpen(QUrl url);
     void fileOpen(QString filename);
     void discFilesOpen(QString path);
     void stopPlayback();
@@ -207,6 +208,7 @@ public:
     void setLogoUrl(const QString &filename);
     void setLogoBackground(const QColor &color);
     void setDrawLogo(bool yes);
+    static void *get_proc_address(void *ctx, const char *name);
 
 signals:
     void mouseMoved(int x, int y);
@@ -315,6 +317,7 @@ signals:
 
 public slots:
     void create(const MpvController::OptionList &earlyOptions);
+    void stop();
     mpv_render_context *createRenderContext(mpv_render_param *params);
     void destroyRenderContext(mpv_render_context *render);
 

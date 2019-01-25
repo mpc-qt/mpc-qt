@@ -11,6 +11,7 @@
 #include "settingswindow.h"
 #include "propertieswindow.h"
 #include "favoriteswindow.h"
+#include "thumbnailerwindow.h"
 #include "platform/screensaver.h"
 #include "platform/devicemanager.h"
 
@@ -60,6 +61,7 @@ private slots:
     void mainwindow_recentClear();
     void mainwindow_takeImage(Helpers::ScreenshotRender render);
     void mainwindow_takeImageAutomatically(Helpers::ScreenshotRender render);
+    void mainwindow_takeThumbnails();
     void mainwindow_optionsOpenRequested();
     void manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid);
     void manager_stateChanged(PlaybackManager::PlaybackState state);
@@ -92,6 +94,7 @@ private:
     PropertiesWindow *propertiesWindow = nullptr;
     FavoritesWindow *favoritesWindow = nullptr;
     LogWindow *logWindow = nullptr;
+    ThumbnailerWindow *thumbnailerWindow = nullptr;
     QThread *logThread = nullptr;
     Storage storage;
     QVariantMap settings;

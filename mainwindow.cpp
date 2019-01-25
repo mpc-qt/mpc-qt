@@ -688,6 +688,8 @@ void MainWindow::setupHideTimer()
 
 void MainWindow::connectActionsToSignals()
 {
+    connect(ui->actionFileSaveThumbnails, &QAction::triggered,
+            this, &MainWindow::takeThumbnails);
     connect(ui->actionFileProperties, &QAction::triggered,
             this, &MainWindow::showFileProperties);
 }
@@ -831,7 +833,7 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionFileSavePlainImageAuto->setEnabled(enabled);
     ui->actionFileSaveWindowImage->setEnabled(enabled);
     ui->actionFileSaveWindowImageAuto->setEnabled(enabled);
-    ui->actionFileSaveThumbnails->setEnabled(enabled && false);
+    ui->actionFileSaveThumbnails->setEnabled(enabled);
     ui->actionFileExportEncode->setEnabled(enabled && false);
     ui->actionFileLoadSubtitle->setEnabled(enabled);
     ui->actionFileSaveSubtitle->setEnabled(enabled && false);

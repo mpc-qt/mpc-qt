@@ -115,6 +115,7 @@ signals:
     void recentClear();
     void takeImage(Helpers::ScreenshotRender render);
     void takeImageAutomatically(Helpers::ScreenshotRender render);
+    void takeThumbnails();
     void subtitlesLoaded(QUrl subs);
     void showFileProperties();
     void showLogWindow();

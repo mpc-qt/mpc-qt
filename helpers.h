@@ -39,6 +39,7 @@ namespace Helpers {
     extern QSet<QString> fileExtensions;
     extern QSet<QString> subsExtensions;
 
+    QString fileSizeToString(int64_t bytes);
     QString toDateFormat(double time);
     QString toDateFormatFixed(double time, TimeFormat format);
     QDate dateFromCFormat(const char date[]);
@@ -46,6 +47,10 @@ namespace Helpers {
     QString parseFormat(QString fmt, QString fileName, DisabledTrack disabled,
                         Subtitles subtitles, double timeNav, double timeBegin,
                         double timeEnd);
+    QString parseFormatEx(QString fmt, QUrl sourceUrl, QString filePath,
+                          QString fileExt, DisabledTrack disabled,
+                          Subtitles subtitles, double timeNav,
+                          double timeBegin, double timeEnd);
     QString fileOpenFilter();
     QString subsOpenFilter();
     bool urlSurvivesFilter(const QUrl &url);
@@ -54,7 +59,6 @@ namespace Helpers {
     QVariantMap rectToVmap(const QRect &r);
     bool sizeFromString(QSize &size, const QString &text);
     bool pointFromString(QPoint &point, const QString &text);
-
 }
 
 class IconThemer : public QObject {

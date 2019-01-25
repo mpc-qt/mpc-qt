@@ -1,6 +1,7 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
+#include <QElapsedTimer>
 #include <QFile>
 #include <QObject>
 #include <QStringList>
@@ -40,17 +41,19 @@ public slots:
     void setFlushTime(int msec);
     void flushMessages();
     void makeLog(QString line);
-    void makeLogPrefixed(QString prefix, QString level);
+    void makeLogPrefixed(QString prefix, QString message);
     void makeLogDescriptively(QString prefix, QString level, QString message);
 
 private:
     bool loggingEnabled = true; // by default, log everything until we get told not to
     bool immediateMode = false; // by default, debug messages are stored
+    QElapsedTimer elapsed;
     QTimer *flushTimer = nullptr;
     QFile *logFile = nullptr;
     QTextStream *logFileStream = nullptr;
     QString logFileName;
     QStringList pendingMessages;
+
 };
 
 

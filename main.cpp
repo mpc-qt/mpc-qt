@@ -119,6 +119,10 @@ Flow::~Flow()
         delete screenSaver;
         screenSaver = nullptr;
     }
+    if (thumbnailerWindow) {
+        delete thumbnailerWindow;
+        thumbnailerWindow = nullptr;
+    }
     if (logWindow) {
         delete logWindow;
         logWindow = nullptr;
@@ -191,6 +195,7 @@ void Flow::init() {
     propertiesWindow = new PropertiesWindow();
     favoritesWindow = new FavoritesWindow();
     logWindow = new LogWindow();
+    thumbnailerWindow = new ThumbnailerWindow();
 
     server = new MpcQtServer(mainWindow, playbackManager, this);
     server->setMainWindow(mainWindow);
@@ -499,6 +504,12 @@ void Flow::setupSettingsConnections()
     connect(settingsWindow, &SettingsWindow::fallbackToFolder,
             playbackManager, &PlaybackManager::setFolderFallback);
 
+    // settings -> thumbnailer
+    connect(settingsWindow, &SettingsWindow::screenshotDirectory,
+            thumbnailerWindow, &ThumbnailerWindow::setScreenshotDirectory);
+    connect(settingsWindow, &SettingsWindow::screenshotFormat,
+            thumbnailerWindow, &ThumbnailerWindow::setScreenshotFormat);
+
     // settings -> application
     connect(settingsWindow, &SettingsWindow::applicationPalette,
             qApp, [](const QPalette &pal) { qApp->setPalette(pal); });
@@ -572,6 +583,8 @@ void Flow::setupFlowConnections()
             this, &Flow::mainwindow_takeImage);
     connect(mainWindow, &MainWindow::takeImageAutomatically,
             this, &Flow::mainwindow_takeImageAutomatically);
+    connect(mainWindow, &MainWindow::takeThumbnails,
+            this, &Flow::mainwindow_takeThumbnails);
     connect(mainWindow, &MainWindow::optionsOpenRequested,
             this, &Flow::mainwindow_optionsOpenRequested);
     connect(mainWindow, &MainWindow::instanceShouldQuit,
@@ -937,6 +950,11 @@ void Flow::mainwindow_takeImageAutomatically(Helpers::ScreenshotRender render)
         subRender = Helpers::SubtitlesPresent;
     QString fileName = pictureTemplate(Helpers::DisabledAudio, subRender);
     mainWindow->mpvObject()->screenshot(fileName, render);
+}
+
+void Flow::mainwindow_takeThumbnails()
+{
+    thumbnailerWindow->open(playbackManager->nowPlaying());
 }
 
 void Flow::mainwindow_optionsOpenRequested()

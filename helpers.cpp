@@ -12,7 +12,9 @@
 #include <QAction>
 #include <cmath>
 #include <QRegularExpression>
+#include <QStandardPaths>
 #include "helpers.h"
+#include "platform/unify.h"
 
 QSet<QString> Helpers::fileExtensions {
     // DVD/Blu-ray audio formats
@@ -169,6 +171,31 @@ QSet<QString> Helpers::subsExtensions {
     "vplayer",
     "webvtt", "vtt"
 };
+
+QString Helpers::fileSizeToString(int64_t bytes)
+{
+    QString text;
+    if (bytes < 1024) {
+        text = QString("%1 bytes").arg(QString::number(bytes));
+    } else {
+        QString concise;
+        QString unit;
+        double divisor;
+        if (bytes < 1024*1024) {
+            divisor = 1024;
+            unit = "KiB";
+        } else if (bytes < 1024*1024*1024) {
+            divisor = 1024*1024;
+            unit = "MiB";
+        } else {
+            divisor = 1024*1024*1024;
+            unit = "GiB";
+        }
+        text = QString("%1 %2 (%3 bytes)").arg(QString::number(bytes/divisor,'g',3),
+                                               unit, QString::number(bytes));
+    }
+    return text;
+}
 
 QString Helpers::toDateFormat(double time)
 {
@@ -394,6 +421,27 @@ QString Helpers::parseFormat(QString fmt, QString fileName,
     }
     return output;
 }
+
+QString Helpers::parseFormatEx(QString fmt, QUrl sourceUrl, QString filePath,
+                               QString fileExt, Helpers::DisabledTrack disabled,
+                               Helpers::Subtitles subtitles, double timeNav,
+                               double timeBegin, double timeEnd)
+{
+    QString basename = QFileInfo(sourceUrl.toDisplayString().split('/').last())
+                       .completeBaseName();
+    QString fileName = parseFormat(fmt, basename, disabled, subtitles, timeNav, timeBegin, timeEnd);
+
+    if (filePath.isEmpty()) {
+        if (sourceUrl.isLocalFile())
+            filePath = QFileInfo(sourceUrl.toLocalFile()).path();
+        else
+            filePath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+    }
+    QDir().mkpath(filePath);
+    fileName = Platform::sanitizedFilename(fileName);
+    return filePath + "/" + fileName + "." + fileExt;
+}
+
 
 QString Helpers::fileOpenFilter()
 {

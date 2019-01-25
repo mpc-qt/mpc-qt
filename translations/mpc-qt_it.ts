@@ -3557,15 +3557,7 @@ ogni file multimediale riprodotto</translation>
 <context>
     <name>ThumbnailerWindow</name>
     <message>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Source</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Thumbnail</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3578,7 +3570,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="unfinished">Qualità</translation>
+        <translation type="obsolete">Qualità</translation>
     </message>
     <message>
         <source>%</source>
@@ -3597,11 +3589,23 @@ ogni file multimediale riprodotto</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Columns</source>
+        <source>&amp;Go!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Go!</source>
+        <source>Thu&amp;mbnail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Quality</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Columns</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Thumbnails</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

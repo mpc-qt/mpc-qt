@@ -193,6 +193,16 @@ MpvObject::~MpvObject()
         delete hideTimer;
         hideTimer = nullptr;
     }
+    if (ctrl) {
+        // no explicit delete. deleteLater will be called at thread finish.
+        // Instead tell mpv to stop sending wake notifications so the
+        // can be reliably idle when we end it.
+        QMetaObject::invokeMethod(ctrl, "stop",
+                                  Qt::BlockingQueuedConnection);
+        ctrl = nullptr;
+    }
+    worker->quit();
+    worker->wait();
     worker->deleteLater();
 }
 
@@ -210,10 +220,6 @@ void MpvObject::setHostWindow(QMainWindow *hostWindow)
 
 void MpvObject::setWidgetType(Helpers::MpvWidgetType widgetType, MpvWidgetInterface *customWidget)
 {
-    // FIXME: MainWindow needs to accept transient video widgets
-    if (!hostLayout && !hostWindow)
-        return;
-
     if (this->widgetType == widgetType)
         return;
     this->widgetType = widgetType;
@@ -238,6 +244,8 @@ void MpvObject::setWidgetType(Helpers::MpvWidgetType widgetType, MpvWidgetInterf
         break;
     case Helpers::CustomWidget:
         widget = customWidget;
+        if (widget == nullptr)
+            widgetType = Helpers::NullWidget;
         break;
     }
     if (!widget)
@@ -292,6 +300,12 @@ int MpvObject::cycleStatsPage()
 {
     showStatsPage(shownStatsPage < 2 ? shownStatsPage+1 : -1);
     return shownStatsPage;
+}
+
+void MpvObject::urlOpen(QUrl url)
+{
+    fileOpen(url.isLocalFile() ? url.toLocalFile()
+                               : url.fromPercentEncoding(url.toEncoded()));
 }
 
 void MpvObject::fileOpen(QString filename)
@@ -718,7 +732,8 @@ void MpvWidgetInterface::setDrawLogo(bool yes)
 
 //----------------------------------------------------------------------------
 
-static void* GLAPIENTRY glMPGetNativeDisplay(const char* name) {
+static void* GLAPIENTRY glMPGetNativeDisplay(const char* name)
+{
 #if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
     if (!strcmp(name, "x11")) {
         return QX11Info::display();
@@ -733,7 +748,8 @@ static void* GLAPIENTRY glMPGetNativeDisplay(const char* name) {
     return nullptr;
 }
 
-static void *get_proc_address(void *ctx, const char *name) {
+ void *MpvGlWidget::get_proc_address(void *ctx, const char *name)
+ {
     (void)ctx;
     auto glctx = QOpenGLContext::currentContext();
     if (!strcmp(name, "glMPGetNativeDisplay"))
@@ -967,7 +983,7 @@ MpvController::MpvController(QObject *parent) : QObject(parent),
 
 MpvController::~MpvController()
 {
-    mpv_set_wakeup_callback(mpv, nullptr, nullptr);
+    stop();
     throttler->deleteLater();
 }
 
@@ -987,6 +1003,11 @@ void MpvController::create(const OptionList &earlyOptions)
 
     mpv_set_wakeup_callback(mpv, MpvController::mpvWakeup, this);
     protocolList_ = getPropertyVariant("protocol-list").toStringList();
+}
+
+void MpvController::stop()
+{
+    mpv_set_wakeup_callback(mpv, nullptr, nullptr);
 }
 
 mpv_render_context *MpvController::createRenderContext(mpv_render_param *params)

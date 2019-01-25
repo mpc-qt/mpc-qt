@@ -50,27 +50,7 @@ void PropertiesWindow::setFileFormat(const QString &format)
 
 void PropertiesWindow::setFileSize(const int64_t &bytes)
 {
-    QString text;
-    if (bytes < 1024) {
-        text = QString("%1 bytes").arg(QString::number(bytes));
-    } else {
-        QString concise;
-        QString unit;
-        double divisor;
-        if (bytes < 1024*1024) {
-            divisor = 1024;
-            unit = "KiB";
-        } else if (bytes < 1024*1024*1024) {
-            divisor = 1024*1024;
-            unit = "MiB";
-        } else {
-            divisor = 1024*1024*1024;
-            unit = "GiB";
-        }
-        text = QString("%1 %2 (%3 bytes)").arg(QString::number(bytes/divisor,'g',3),
-                                               unit, QString::number(bytes));
-    }
-    ui->detailsSize->setText(text);
+    ui->detailsSize->setText(Helpers::fileSizeToString(bytes));
 }
 
 void PropertiesWindow::setMediaLength(double time)

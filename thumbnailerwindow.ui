@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Save Thumbnails</string>
   </property>
   <layout class="QGridLayout" name="gridLayout" rowstretch="0,1,0">
    <item row="0" column="0" colspan="2">
@@ -28,6 +28,9 @@
      </item>
      <item row="0" column="1">
       <widget class="QLineEdit" name="mediaSource">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="readOnly">
         <bool>true</bool>
        </property>
@@ -36,7 +39,7 @@
      <item row="1" column="0">
       <widget class="QLabel" name="saveImageLabel">
        <property name="text">
-        <string>Thumbnail</string>
+        <string>Thu&amp;mbnail</string>
        </property>
        <property name="buddy">
         <cstring>saveImage</cstring>
@@ -68,7 +71,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="imageQualityLabel">
         <property name="text">
-         <string>Quality</string>
+         <string>&amp;Quality</string>
         </property>
         <property name="buddy">
          <cstring>imageQuality</cstring>
@@ -87,7 +90,7 @@
          <number>100</number>
         </property>
         <property name="value">
-         <number>90</number>
+         <number>97</number>
         </property>
        </widget>
       </item>
@@ -104,7 +107,7 @@
       <item row="1" column="1">
        <widget class="QSpinBox" name="imageWidth">
         <property name="minimum">
-         <number>240</number>
+         <number>800</number>
         </property>
         <property name="maximum">
          <number>8192</number>
@@ -146,7 +149,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="layoutColumnsLabel">
         <property name="text">
-         <string>Columns</string>
+         <string>&amp;Columns</string>
         </property>
         <property name="buddy">
          <cstring>layoutColumns</cstring>

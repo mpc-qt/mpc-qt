@@ -40,6 +40,7 @@ Logger::Logger(QObject *owner) : QObject(owner)
     flushTimer = new QTimer(this);
     connect(flushTimer, &QTimer::timeout,
             this, &Logger::flushMessages);
+    elapsed.start();
 }
 
 Logger::~Logger()
@@ -201,7 +202,7 @@ void Logger::makeLog(QString line)
 {
     if (!loggingEnabled)
         return;
-    line = line.trimmed();
+    line = QString("[%1] %2").arg(QString::number(elapsed.nsecsElapsed()/1000000000.0, 'f', 9), line.trimmed());
     // If you're encountering early or fantastic errors, uncomment this line:
     //fprintf(stderr, "%s\n",  line.toLocal8Bit().constData());
     if (immediateMode) {
