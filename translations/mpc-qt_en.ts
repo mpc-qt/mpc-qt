@@ -291,10 +291,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Open File...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1180,6 +1176,14 @@
     </message>
     <message>
         <source>Built on %1 at %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

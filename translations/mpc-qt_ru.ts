@@ -291,10 +291,6 @@
         <translation>&amp;Быстро открыть файл...</translation>
     </message>
     <message>
-        <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Open File...</source>
         <translation>&amp;Открыть файл...</translation>
     </message>
@@ -1181,6 +1177,14 @@
     <message>
         <source>Built on %1 at %2</source>
         <translation>Скомпилировано %1 в %2</translation>
+    </message>
+    <message>
+        <source>Alt+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Q</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -291,10 +291,6 @@
         <translation>&amp;Apri file rapidamente...</translation>
     </message>
     <message>
-        <source>Ctrl+Q</source>
-        <translation>Ctrl+Q</translation>
-    </message>
-    <message>
         <source>&amp;Open File...</source>
         <translation>&amp;Apri file...</translation>
     </message>
@@ -1181,6 +1177,14 @@
     <message>
         <source>Built on %1 at %2</source>
         <translation>Compilato il %1 alle %2</translation>
+    </message>
+    <message>
+        <source>Alt+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Q</source>
+        <translation>Ctrl+Q</translation>
     </message>
 </context>
 <context>
@@ -2272,10 +2276,6 @@ ogni file multimediale riprodotto</translation>
     <message>
         <source>Correct downscaling</source>
         <translation>Riduzione corretta</translation>
-    </message>
-    <message>
-        <source>Scale in linear light</source>
-        <translation type="vanished">Scalatura in luce lineare</translation>
     </message>
     <message>
         <source>Temporal interpolation</source>
@@ -3575,10 +3575,6 @@ ogni file multimediale riprodotto</translation>
     <message>
         <source>Image</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Quality</source>
-        <translation type="obsolete">Qualità</translation>
     </message>
     <message>
         <source>%</source>

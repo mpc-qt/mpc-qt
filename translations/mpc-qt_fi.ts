@@ -291,10 +291,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Open File...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1180,6 +1176,14 @@
     </message>
     <message>
         <source>Built on %1 at %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3510,15 +3514,7 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Auto-load external audio files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Paths</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Limit volume to 100% like mpc-hc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3527,6 +3523,14 @@ media file played</source>
     </message>
     <message>
         <source>Unlimited (consumes &amp;memory)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto-load external audio files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit volume to 100% like mpc-hc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

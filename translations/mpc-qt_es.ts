@@ -291,10 +291,6 @@
         <translation>Apertura rápida de archivo...</translation>
     </message>
     <message>
-        <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Open File...</source>
         <translation>Abrir un archivo...</translation>
     </message>
@@ -1181,6 +1177,14 @@
     <message>
         <source>Built on %1 at %2</source>
         <translation>Compilado el %1 a las %2</translation>
+    </message>
+    <message>
+        <source>Alt+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Q</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3571,10 +3575,6 @@ archivo multimedia reproducido</translation>
     <message>
         <source>Image</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Quality</source>
-        <translation type="obsolete">Calidad</translation>
     </message>
     <message>
         <source>%</source>

@@ -463,6 +463,9 @@ void MainWindow::setupMenu()
 
     ui->infoStats->setVisible(false);
 
+    QString quickOpenKeys = Platform::isMac ? tr("Alt+Q") : tr("Ctrl+Q");
+    ui->actionFileOpenQuick->setShortcut(quickOpenKeys);
+
     connect(Platform::deviceManager(), &DeviceManager::deviceListChanged,
             this, [this]() { updateDiscList(); });
 }

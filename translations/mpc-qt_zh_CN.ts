@@ -291,10 +291,6 @@
         <translation>快速打开文件(&amp;Q)...</translation>
     </message>
     <message>
-        <source>Ctrl+Q</source>
-        <translation>Ctrl+Q</translation>
-    </message>
-    <message>
         <source>&amp;Open File...</source>
         <translation>打开文件(&amp;O)...</translation>
     </message>
@@ -1181,6 +1177,14 @@
     <message>
         <source>Built on %1 at %2</source>
         <translation>于 %1 %2 构建</translation>
+    </message>
+    <message>
+        <source>Alt+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Q</source>
+        <translation>Ctrl+Q</translation>
     </message>
 </context>
 <context>
@@ -3512,15 +3516,7 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Auto-load external audio files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Paths</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Limit volume to 100% like mpc-hc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3529,6 +3525,14 @@ media file played</source>
     </message>
     <message>
         <source>Unlimited (consumes &amp;memory)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto-load external audio files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit volume to 100% like mpc-hc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
