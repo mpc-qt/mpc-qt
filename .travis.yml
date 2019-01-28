@@ -24,7 +24,7 @@ before_install:
 
 install:
 - git clone --branch v0.29.1 https://github.com/mpv-player/mpv.git
-- cp mpv/libmpv/* /usr/local/Cellar/mpv/0.29.1/include/mpv/
+- cp mpv/libmpv/* /usr/local/Cellar/mpv/0.29.1_1/include/mpv/
 - rm -rf mpv
 - git clone https://github.com/arl/macdeployqtfix.git
 - git fetch --unshallow
