@@ -14,6 +14,9 @@ script:
 
 before_install:
 - brew update
+- cd $(brew --repo homebrew/core)
+- git checkout 5eb54ced793999e3dd3bce7c64c34e7ffe65ddfd
+- cd $TRAVIS_BUILD_DIR
 - brew install mpv
 - brew install qt
 - brew link qt --force
