@@ -10,7 +10,7 @@ script:
 - make -j2
 - make install
 - macdeployqt mpc-qt.app -libpath=/usr/local/lib/
-- python macdeployqtfix/macdeployqtfix.py mpc-qt.app/Contents/MacOS/mpc-qt /usr/local/Cellar/qt/5.11.2/ -v
+- python macdeployqtfix/macdeployqtfix.py mpc-qt.app/Contents/MacOS/mpc-qt /usr/local/Cellar/qt/5.11.2_1/ -v
 
 before_install:
 - brew update
