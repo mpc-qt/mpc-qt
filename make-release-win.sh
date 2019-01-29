@@ -31,9 +31,9 @@ libglib-2.0-0.dll
 libgraphite2.dll
 libharfbuzz-0.dll
 libiconv-2.dll
-libicudt61.dll
-libicuin61.dll
-libicuuc61.dll
+libicudt62.dll
+libicuin62.dll
+libicuuc62.dll
 libintl-8.dll
 libjpeg-8.dll
 libpcre-1.dll
