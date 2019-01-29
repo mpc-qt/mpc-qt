@@ -104,6 +104,8 @@ private:
     QList<TrackInfo> favoriteStreams;
 
     ProgramMode programMode = UnknownMode;
+    bool cliNoConfig = false;
+    bool cliNoFiles = false;
     QSize cliSize;
     QPoint cliPos;
     bool validCliSize = false;

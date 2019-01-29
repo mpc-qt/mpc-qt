@@ -96,6 +96,14 @@
         <source>Playing Media</source>
         <translation>播放媒体</translation>
     </message>
+    <message>
+        <source>Do not load any config files.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do not load file history, playlists, or favorites.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LogWindow</name>

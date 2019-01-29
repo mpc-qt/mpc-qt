@@ -143,10 +143,14 @@ void Flow::parseArgs()
     parser.addVersionOption();
 
     QCommandLineOption freestandingOpt("freestanding", tr("Start a new process without saving data."));
+    QCommandLineOption noConfigOpt("no-config", tr("Do not load any config files."));
+    QCommandLineOption noFilesOpt("no-files", tr("Do not load file history, playlists, or favorites."));
     QCommandLineOption sizeOpt("size", tr("Main window size."), "w,h");
     QCommandLineOption posOpt("pos", tr("Main window position."), "x,y");
 
     parser.addOption(freestandingOpt);
+    parser.addOption(noConfigOpt);
+    parser.addOption(noFilesOpt);
     parser.addOption(sizeOpt);
     parser.addOption(posOpt);
     parser.addPositionalArgument("urls", tr("URLs to open, optionally."), "[urls...]");
@@ -154,6 +158,8 @@ void Flow::parseArgs()
     parser.process(QCoreApplication::arguments());
 
     programMode = parser.isSet(freestandingOpt) ? FreestandingMode : UnknownMode;
+    cliNoConfig = parser.isSet(noConfigOpt);
+    cliNoFiles = parser.isSet(noFilesOpt);
     validCliSize = parser.isSet(sizeOpt) && Helpers::sizeFromString(cliSize, parser.value(sizeOpt));
     validCliPos = parser.isSet(posOpt) && Helpers::pointFromString(cliPos, parser.value(posOpt));
     customFiles = parser.positionalArguments();
@@ -259,8 +265,10 @@ void Flow::init() {
 
 int Flow::run()
 {
-    mainWindow->playlistWindow()->tabsFromVList(storage.readVList("playlists"));
-    restoreWindows(storage.readVMap("geometry"));
+    auto playlist = cliNoFiles ? QVariantList() : storage.readVList("playlists");
+    auto geometry = cliNoConfig ? QVariantMap() : storage.readVMap("geometry");
+    mainWindow->playlistWindow()->tabsFromVList(playlist);
+    restoreWindows(geometry);
     return qApp->exec();
 }
 
@@ -271,13 +279,17 @@ bool Flow::earlyQuit()
 
 void Flow::readConfig()
 {
-    settings = storage.readVMap("settings");
-    keyMap = storage.readVMap("keys");
+    if (!cliNoConfig) {
+        settings = storage.readVMap("settings");
+        keyMap = storage.readVMap("keys");
+    }
 
-    QVariantMap favoriteMap = storage.readVMap("favorites");
-    favoriteFiles = TrackInfo::tracksFromVList(favoriteMap.value("files").toList());
-    favoriteStreams = TrackInfo::tracksFromVList(favoriteMap.value("streams").toList());
-    recentFiles = TrackInfo::tracksFromVList(storage.readVList("recent"));
+    if (!cliNoFiles) {
+        QVariantMap favoriteMap = storage.readVMap("favorites");
+        favoriteFiles = TrackInfo::tracksFromVList(favoriteMap.value("files").toList());
+        favoriteStreams = TrackInfo::tracksFromVList(favoriteMap.value("streams").toList());
+        recentFiles = TrackInfo::tracksFromVList(storage.readVList("recent"));
+    }
 }
 
 void Flow::writeConfig(bool onlySettings)
