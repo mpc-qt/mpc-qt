@@ -145,6 +145,7 @@ macx:SOURCES += platform/screensaver_mac.cpp \
                 platform/devicemanager_mac.cpp
 macx:HEADERS += platform/screensaver_mac.h \
                 platform/devicemanager_mac.h
+macx:QT += svg
 
 SOURCES += main.cpp\
     mpvwidget.cpp \
