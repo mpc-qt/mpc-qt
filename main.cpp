@@ -818,14 +818,22 @@ void Flow::restoreWindows(const QVariantMap &geometryMap)
     QVariantMap settingsMap = geometryMap["settingsWindow"].toMap();
     QVariantMap propertiesMap = geometryMap["propertiesWindow"].toMap();
     QVariantMap logMap = geometryMap["logWindow"].toMap();
-    QRect geometry;
-    QDesktopWidget desktop;
-    bool restoreGeometry = rememberWindowGeometry
-            && mainMap.contains("geometry")
+    bool allHaveGeometry = mainMap.contains("geometry")
             && playlistMap.contains("geometry")
             && settingsMap.contains("geometry")
             && propertiesMap.contains("geometry")
             && logMap.contains("geometry");
+    bool restoreGeometry = rememberWindowGeometry && allHaveGeometry;
+    if (!restoreGeometry) {
+        // No saved geometry, may as well assume everything is borked,
+        // or the user actually asked us not to restore our windows.
+        // Instead let's rely on the auto zooming to place the window
+        // and whatever sensible defaults the window manager gives us.
+        showWindows({});
+        return;
+    }
+    QRect geometry;
+    QDesktopWidget desktop;
 
     if (restoreGeometry && playlistMap["floating"].toBool()) {
         // the playlist window starts off floating, so restore it
