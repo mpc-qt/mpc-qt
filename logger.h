@@ -67,6 +67,7 @@ class LogStream {
 public:
     LogStream(QString prefix = QString(), QString level = QString());
     ~LogStream();
+    LogStream &always();
     LogStream &operator<<(const char *a);
     LogStream &operator<<(const QString &a);
     LogStream &operator<<(const QVariant &a);
@@ -76,6 +77,7 @@ private:
     QString prefix;
     QString level;
     QTextStream stream;
+    bool directFlush = false;
 };
 
 #endif // LOGGER_H

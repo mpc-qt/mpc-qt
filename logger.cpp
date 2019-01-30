@@ -238,12 +238,25 @@ LogStream::~LogStream()
 {
     if (buffer.isEmpty())
         return;
+    if (directFlush) {
+        fprintf(stderr, "[%s] %s: %s\n",
+                prefix.toUtf8().data(),
+                level.toUtf8().data(),
+                buffer.toUtf8().data());
+        return;
+    }
     if (prefix.isEmpty() && level.isEmpty())
         Logger::log(buffer);
     else if (level.isEmpty())
         Logger::log(prefix, buffer);
     else
         Logger::log(prefix, level, buffer);
+}
+
+LogStream &LogStream::always()
+{
+    directFlush = true;
+    return *this;
 }
 
 LogStream &LogStream::operator<<(const char *a)
