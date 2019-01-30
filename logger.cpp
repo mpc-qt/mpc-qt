@@ -26,8 +26,9 @@ void loggerCallback(QtMsgType type, const QMessageLogContext &context, const QSt
         Logger::log("qt", "crit", msg);
         break;
     case QtFatalMsg:
-        Logger::log("qt", "fatal", msg);
         Logger::fatalMessage();
+        fprintf(stderr, "[FATALITY] [qt] fatal: %s\n", msg.toUtf8().data());
+        std::abort();
     }
 }
 
@@ -126,7 +127,6 @@ void Logger::fatalMessage()
         for (auto i : loggerInstance->pendingMessages)
             std::fprintf(stderr, "%s\n", i.toLocal8Bit().data());
     }
-    std::abort();
 }
 
 void Logger::setLogFile(QString fileName)

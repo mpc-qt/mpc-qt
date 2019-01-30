@@ -29,7 +29,7 @@ public:
     static void logs(const QStringList &strings);
     static void logs(QString prefix, const QStringList &strings);
     static void logs(QString prefix, QString level, const QStringList &strings);
-    static void Q_NORETURN fatalMessage();
+    static void fatalMessage();
 
 signals:
     void logMessage(QString message);
