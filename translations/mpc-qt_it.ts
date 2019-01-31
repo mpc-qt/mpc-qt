@@ -2383,7 +2383,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Prevent ringing</source>
-        <translation>Previeni ringing</translation>
+        <translation type="vanished">Previeni ringing</translation>
     </message>
     <message>
         <source>Clamp</source>

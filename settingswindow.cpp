@@ -13,6 +13,104 @@
 #include "settingswindow.h"
 #include "ui_settingswindow.h"
 
+// No designated initializers until c++2a, so use factory method instead
+struct FilterWindow {
+    //QString name;
+    double radius = 0.0;
+    bool resizable = false;
+    double params[2] = { 0.0, 0.0 };
+    double blur = 0.0;
+    double taper = 0.0;
+
+    //FilterWindow() {}
+    //FilterWindow(const QString &name) : name(name) {}
+    //inline FilterWindow &name_(const QString &v) { name = v; return *this; }
+    inline FilterWindow &radius_(double v) { radius = v; return *this; }
+    inline FilterWindow &params_(double v0, double v1 = 0) { params[0] = v0; params[1] = v1; return *this; }
+    inline FilterWindow &param_(double v) { return params_(v,0.0); }
+    inline FilterWindow &blur_(double v) { blur = v; return *this; }
+    inline FilterWindow &taper_(double v) { taper = v; return *this; }
+    inline FilterWindow &resizable_() { resizable = true; return *this; }
+};
+
+static QMap<QString,FilterWindow> filterWindows {
+    { "box",        FilterWindow().radius_(1) },
+    { "triangle",   FilterWindow().radius_(1) },
+    { "bartlett",   FilterWindow().radius_(1) },
+    { "hanning",    FilterWindow().radius_(1) },
+    { "tukey",      FilterWindow().radius_(1).taper_(0.5) },
+    { "hamming",    FilterWindow().radius_(1) },
+    { "quadric",    FilterWindow().radius_(1.5) },
+    { "welch",      FilterWindow().radius_(1) },
+    { "kaiser",     FilterWindow().radius_(1).param_(6.33) },
+    { "blackman",   FilterWindow().radius_(1).param_(0.16) },
+    { "gaussian",   FilterWindow().radius_(2).param_(1.00) },
+    { "sinc",       FilterWindow().radius_(1) },
+    { "jinc",       FilterWindow().radius_(1.2196698912665045) },
+    { "sphinx",     FilterWindow().radius_(1.4302966531242027) },
+};
+
+struct FilterKernel : public FilterWindow {
+    QString windowName;
+    FilterWindow window;
+    double antiring = 0.0;
+    double clamp = 1.0;
+    double cutoff = 0.0;
+
+    //FilterKernel() {}
+    //FilterKernel(const QString &name) : FilterWindow(name) {}
+    //inline FilterKernel &name_(const QString &v) { name = v; return *this; }
+    inline FilterKernel &radius_(double v) { radius = v; return *this; }
+    inline FilterKernel &param1_(double v) { params[0] = v; return *this; }
+    inline FilterKernel &param2_(double v) { params[1] = v; return *this; }
+    inline FilterKernel &params_(double v0, double v1 = 0) { params[0] = v0; params[1] = v1; return *this; }
+    inline FilterKernel &param_(double v) { return params_(v,0.0); }
+    inline FilterKernel &antiring_(double v) { antiring = v; return *this; }
+    inline FilterKernel &blur_(double v) { blur = v; return *this; }
+    inline FilterKernel &taper_(double v) { taper = v; return *this; }
+    inline FilterKernel &resizable_() { resizable = true; return *this; }
+
+    inline FilterKernel &window_(const QString &wname) { windowName = wname; window = filterWindows.value(wname); return *this; }
+    inline FilterKernel &clamp_(double v) { clamp = v; return *this; }
+    inline FilterKernel &cutoff_(double v) { cutoff = v; return *this; }
+};
+
+static QMap<QString,FilterKernel> filterKernels {
+    { "bilinear",           FilterKernel() },
+    { "bicubic_fast",       FilterKernel() },
+    { "oversample",         FilterKernel() },
+    { "linear",             FilterKernel() },
+    { "spline16",           FilterKernel().radius_(2) },
+    { "spline36",           FilterKernel().radius_(3) },
+    { "spline64",           FilterKernel().radius_(4) },
+    { "sinc",               FilterKernel().radius_(2).resizable_() },
+    { "lanczos",            FilterKernel().radius_(3).resizable_().window_("jinc") },
+    { "ginseng",            FilterKernel().radius_(3).resizable_().window_("hanning") },
+    { "jinc",               FilterKernel().radius_(3).resizable_()},
+    { "ewa_lanczos",        FilterKernel().radius_(3).resizable_().window_("jinc")  },
+    { "ewa_hanning",        FilterKernel().radius_(3).resizable_().window_("hanning")  },
+    { "ewa_ginseng",        FilterKernel().radius_(3).resizable_().window_("sinc")  },
+    { "ewa_lanczossharp",   FilterKernel().radius_(3.2383154841662362).resizable_().window_("jinc").blur_(0.9812505644269356) },
+    { "ewa_lanczossoft",    FilterKernel().radius_(3.2383154841662362).resizable_().window_("jinc").blur_(1.015) },
+    { "haasnsoft",          FilterKernel().radius_(3.2383154841662362).resizable_().window_("hanning").blur_(1.11) },
+    { "bicubic",            FilterKernel().radius_(2).resizable_() },
+    { "bcspline",           FilterKernel().radius_(2).resizable_().params_(0.5, 0.5) },
+    { "catmull_rom",        FilterKernel().radius_(2).resizable_().params_(0.0, 0.5) },
+    { "mitchell",           FilterKernel().radius_(2).resizable_().params_(1.0/3.0, 1.0/3.0) },
+    { "robidoux",           FilterKernel().radius_(2).resizable_().params_(12 / (19 + 9 * M_SQRT2),
+                                                                           113 / (58 + 216 * M_SQRT2)) },
+    { "robidouxsharp",      FilterKernel().radius_(2).resizable_().params_(6 / (13 + 7 * M_SQRT2),
+                                                                           7 / (2 + 12 * M_SQRT2)) },
+    { "ewa_robidoux",       FilterKernel().radius_(2).resizable_().params_(12 / (19 + 9 * M_SQRT2),
+                                                                           113 / (58 + 216 * M_SQRT2)) },
+    { "ewa_robidouxsharp",  FilterKernel().radius_(2).resizable_().params_(6 / (13 + 7 * M_SQRT2),
+                                                                           7 / (2 + 12 * M_SQRT2)) },
+    { "box",                FilterKernel().radius_(1).resizable_() },
+    { "nearest",            FilterKernel().radius_(0.5) },
+    { "triangle",           FilterKernel().radius_(1).resizable_() },
+    { "gaussian",           FilterKernel().radius_(2).resizable_().params_(1.0, 0.0) },
+};
+
 #define SCALER_SCALERS \
     "bilinear", "bicubic_fast", "oversample", "spline16", "spline36",\
     "spline64", "sinc", "lanczos", "ginseng", "jinc", "ewa_lanczos",\
@@ -22,7 +120,7 @@
     "box", "nearest", "triangle", "gaussian"
 
 #define SCALER_WINDOWS \
-    "box", "triable", "bartlett", "hanning", "hamming", "quadric", "welch",\
+    "box", "triangle", "bartlett", "hanning", "hamming", "quadric", "welch",\
     "kaiser", "blackman", "gaussian", "sinc", "jinc", "sphinx"
 
 #define TIME_SCALERS \
@@ -507,6 +605,9 @@ void SettingsWindow::setAudioDevices(const QList<AudioDevice> &devices)
 #define WIDGET_LOOKUP(widget) \
     acceptedSettings[widget->objectName()].value
 
+#define WIDGET_LOOKUP_PREFIX(prefix, widget) \
+    acceptedSettings[prefix + widget->objectName()].value
+
 #define OFFSET_LOOKUP(source, widget) \
     source[widget->objectName()].value.toInt()
 
@@ -525,6 +626,18 @@ void SettingsWindow::setAudioDevices(const QList<AudioDevice> &devices)
 
 void SettingsWindow::sendSignals()
 {
+    auto widgetToPrefixHelper = [this](QString wprefix, QString wsuffix)
+    {   // I was converting WIDGET_TO_TEXT to include a prefix as well
+        // after that, generalize the n"scalar" options
+        auto offsetLookup = [](const SettingMap &source, QString objectName) {
+            return source[objectName].value.toInt();
+        };
+        QString objectName = wprefix + wsuffix;
+        return SettingMap::indexedValueToText[objectName].value(offsetLookup(acceptedSettings,objectName),
+            SettingMap::indexedValueToText[objectName].value(offsetLookup(defaultSettings,objectName)));
+    };
+#define WIDGET_TO_TEXT_PREFIX(wp,w) widgetToPrefixHelper(wp,w->objectName())
+
     // This function is usually ordered by the order they appear in the ui.
     // However some times this is not the case: logging for example should
     // be turned on early.
@@ -630,45 +743,46 @@ void SettingsWindow::sendSignals()
         emit option("sigmoid-upscaling", false);
     }
 
-    emit option("scale", WIDGET_TO_TEXT(ui->scaleScaler));
-    emit option("scale-param1", WIDGET_LOOKUP2(ui->scaleParam1Set, ui->scaleParam1Value, NAN));
-    emit option("scale-param2", WIDGET_LOOKUP2(ui->scaleParam2Set, ui->scaleParam2Value, NAN));
-    emit option("scale-radius", WIDGET_LOOKUP2(ui->scaleRadiusSet, ui->scaleRadiusValue, NAN));
-    emit option("scale-antiring", WIDGET_LOOKUP2(ui->scaleAntiRingSet, ui->scaleAntiRingValue, NAN));
-    emit option("scale-blur",   WIDGET_LOOKUP2(ui->scaleBlurSet,   ui->scaleBlurValue,  NAN));
-    emit option("scale-wparam", WIDGET_LOOKUP2(ui->scaleWindowParamSet, ui->scaleWindowParamValue, NAN));
-    emit option("scale-window", WIDGET_LOOKUP2_TEXT(ui->scaleWindowSet, ui->scaleWindowValue, ""));
-    emit option("scale-clamp", WIDGET_LOOKUP(ui->scaleClamp));
+    QString scaler;
+    FilterKernel filter;
+    auto fetchFilter = [&](QString prefix, bool temporal = false) {
+        scaler = WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleScaler);
+        filter = filterKernels.value(scaler);
+        filter.cutoff_(temporal ? 0.0 : 0.01);
+        filter.clamp_(temporal ? 1.0 : 0.0);
+        if (ui->scaleParam1Set->isChecked())    filter.param1_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam1Value).toDouble());
+        if (ui->scaleParam2Set->isChecked())    filter.param2_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam2Value).toDouble());
+        if (ui->scaleRadiusSet->isChecked())    filter.radius_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleRadiusValue).toDouble());
+        if (ui->scaleAntiRingSet->isChecked())  filter.antiring_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleAntiRingValue).toDouble());
+        if (ui->scaleBlurSet->isChecked())      filter.blur_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleBlurValue).toDouble());
+        if (ui->scaleWindowSet->isChecked())    filter.window_(WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleWindowValue));
+        if (ui->scaleWindowParamSet->isChecked())   filter.window.param_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleWindowValue).toDouble());
+        if (ui->scaleClampSet->isChecked())     filter.clamp_(WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleClampValue).toDouble());
+    };
+    auto applyFilter = [&](QString prefix) {
+        emit option(prefix + "scale", scaler);
+        emit option(prefix + "scale-param1", filter.params[0]);
+        emit option(prefix + "scale-param2", filter.params[1]);
+        emit option(prefix + "scale-radius", filter.radius);
+        emit option(prefix + "scale-antiring", filter.antiring);
+        emit option(prefix + "scale-blur", filter.blur);
+        emit option(prefix + "scale-window", filter.windowName);
+        emit option(prefix + "scale-wparam", filter.window.params[0]);
+        emit option(prefix + "scale-clamp", filter.clamp);
+    };
 
-    emit option("dscale", WIDGET_TO_TEXT(ui->dscaleScaler));
-    emit option("dscale-param1", WIDGET_LOOKUP2(ui->dscaleParam1Set, ui->dscaleParam1Value, NAN));
-    emit option("dscale-param2", WIDGET_LOOKUP2(ui->dscaleParam2Set, ui->dscaleParam2Value, NAN));
-    emit option("dscale-radius", WIDGET_LOOKUP2(ui->dscaleRadiusSet, ui->dscaleRadiusValue, NAN));
-    emit option("dscale-antiring", WIDGET_LOOKUP2(ui->dscaleAntiRingSet, ui->dscaleAntiRingValue, NAN));
-    emit option("dscale-blur",   WIDGET_LOOKUP2(ui->dscaleBlurSet,   ui->dscaleBlurValue, NAN));
-    emit option("dscale-wparam", WIDGET_LOOKUP2(ui->dscaleWindowParamSet, ui->dscaleWindowParamValue, NAN));
-    emit option("dscale-window", WIDGET_LOOKUP2_TEXT(ui->dscaleWindowSet, ui->dscaleWindowValue, ""));
-    emit option("dscale-clamp", WIDGET_LOOKUP(ui->dscaleClamp));
+    fetchFilter("");
+    applyFilter("");
 
-    emit option("cscale", WIDGET_TO_TEXT(ui->cscaleScaler));
-    emit option("cscale-param1", WIDGET_LOOKUP2(ui->cscaleParam1Set, ui->cscaleParam1Value, NAN));
-    emit option("cscale-param2", WIDGET_LOOKUP2(ui->cscaleParam2Set, ui->cscaleParam2Value, NAN));
-    emit option("cscale-radius", WIDGET_LOOKUP2(ui->cscaleRadiusSet, ui->cscaleRadiusValue, NAN));
-    emit option("cscale-antiring", WIDGET_LOOKUP2(ui->cscaleAntiRingSet, ui->cscaleAntiRingValue, NAN));
-    emit option("cscale-blur",   WIDGET_LOOKUP2(ui->cscaleBlurSet,   ui->cscaleBlurValue,  NAN));
-    emit option("cscale-wparam", WIDGET_LOOKUP2(ui->cscaleWindowParamSet, ui->cscaleWindowParamValue, NAN));
-    emit option("cscale-window", WIDGET_LOOKUP2_TEXT(ui->cscaleWindowSet, ui->cscaleWindowValue, ""));
-    emit option("cscale-clamp", WIDGET_LOOKUP(ui->cscaleClamp));
+    if (OFFSET_LOOKUP(acceptedSettings, ui->dscaleScaler) != 0)
+        fetchFilter("d");
+    applyFilter("d");
 
-    emit option("tscale", WIDGET_TO_TEXT(ui->tscaleScaler));
-    emit option("tscale-param1", WIDGET_LOOKUP2(ui->tscaleParam1Set, ui->tscaleParam1Value, NAN));
-    emit option("tscale-param2", WIDGET_LOOKUP2(ui->tscaleParam2Set, ui->tscaleParam2Value, NAN));
-    emit option("tscale-radius", WIDGET_LOOKUP2(ui->tscaleRadiusSet, ui->tscaleRadiusValue, NAN));
-    emit option("tscale-antiring", WIDGET_LOOKUP2(ui->tscaleAntiRingSet, ui->tscaleAntiRingValue, NAN));
-    emit option("tscale-blur",   WIDGET_LOOKUP2(ui->tscaleBlurSet,   ui->tscaleBlurValue,  NAN));
-    emit option("tscale-wparam", WIDGET_LOOKUP2(ui->tscaleWindowParamSet, ui->tscaleWindowParamValue, NAN));
-    emit option("tscale-window", WIDGET_LOOKUP2_TEXT(ui->tscaleWindowSet, ui->tscaleWindowValue, ""));
-    emit option("tscale-clamp", WIDGET_LOOKUP(ui->tscaleClamp));
+    fetchFilter("c");
+    applyFilter("c");
+
+    fetchFilter("t", true);
+    applyFilter("t");
 
     if (WIDGET_LOOKUP(ui->debandEnabled).toBool()) {
         emit option("deband", true);

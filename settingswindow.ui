@@ -705,7 +705,7 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>56</width>
+                   <width>42</width>
                    <height>18</height>
                   </rect>
                  </property>
@@ -1287,7 +1287,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -1874,10 +1874,16 @@ media file played</string>
                            <number>6</number>
                           </property>
                           <property name="minimum">
-                           <double>-100.000000000000000</double>
+                           <double>0.500000000000000</double>
                           </property>
                           <property name="maximum">
-                           <double>100.000000000000000</double>
+                           <double>16.000000000000000</double>
+                          </property>
+                          <property name="singleStep">
+                           <double>0.500000000000000</double>
+                          </property>
+                          <property name="value">
+                           <double>2.000000000000000</double>
                           </property>
                          </widget>
                         </item>
@@ -1936,10 +1942,13 @@ media file played</string>
                            <number>6</number>
                           </property>
                           <property name="minimum">
-                           <double>-100.000000000000000</double>
+                           <double>0.000000000000000</double>
                           </property>
                           <property name="maximum">
-                           <double>100.000000000000000</double>
+                           <double>1.000000000000000</double>
+                          </property>
+                          <property name="singleStep">
+                           <double>0.100000000000000</double>
                           </property>
                          </widget>
                         </item>
@@ -2088,11 +2097,20 @@ media file played</string>
                        </layout>
                       </item>
                       <item row="3" column="3">
-                       <layout class="QHBoxLayout" name="scaleClampLayout" stretch="0">
+                       <layout class="QHBoxLayout" name="scaleClampLayout" stretch="0,1">
                         <item>
-                         <widget class="QCheckBox" name="scaleClamp">
-                          <property name="text">
-                           <string>Prevent ringing</string>
+                         <widget class="QCheckBox" name="scaleClampSet"/>
+                        </item>
+                        <item>
+                         <widget class="QDoubleSpinBox" name="scaleClampValue">
+                          <property name="decimals">
+                           <number>6</number>
+                          </property>
+                          <property name="maximum">
+                           <double>1.000000000000000</double>
+                          </property>
+                          <property name="singleStep">
+                           <double>0.100000000000000</double>
                           </property>
                          </widget>
                         </item>
@@ -2472,10 +2490,16 @@ media file played</string>
                            <number>6</number>
                           </property>
                           <property name="minimum">
-                           <double>-100.000000000000000</double>
+                           <double>0.500000000000000</double>
                           </property>
                           <property name="maximum">
-                           <double>100.000000000000000</double>
+                           <double>16.000000000000000</double>
+                          </property>
+                          <property name="singleStep">
+                           <double>0.500000000000000</double>
+                          </property>
+                          <property name="value">
+                           <double>2.000000000000000</double>
                           </property>
                          </widget>
                         </item>
@@ -2534,10 +2558,13 @@ media file played</string>
                            <number>6</number>
                           </property>
                           <property name="minimum">
-                           <double>-100.000000000000000</double>
+                           <double>0.000000000000000</double>
                           </property>
                           <property name="maximum">
-                           <double>100.000000000000000</double>
+                           <double>1.000000000000000</double>
+                          </property>
+                          <property name="singleStep">
+                           <double>0.100000000000000</double>
                           </property>
                          </widget>
                         </item>
@@ -2582,11 +2609,20 @@ media file played</string>
                        </widget>
                       </item>
                       <item row="3" column="3">
-                       <layout class="QHBoxLayout" name="dscaleClampLayout" stretch="0">
+                       <layout class="QHBoxLayout" name="dscaleClampLayout" stretch="0,1">
                         <item>
-                         <widget class="QCheckBox" name="dscaleClamp">
-                          <property name="text">
-                           <string>Prevent ringing</string>
+                         <widget class="QCheckBox" name="dscaleClampSet"/>
+                        </item>
+                        <item>
+                         <widget class="QDoubleSpinBox" name="dscaleClampValue">
+                          <property name="decimals">
+                           <number>6</number>
+                          </property>
+                          <property name="maximum">
+                           <double>1.000000000000000</double>
+                          </property>
+                          <property name="singleStep">
+                           <double>0.100000000000000</double>
                           </property>
                          </widget>
                         </item>
@@ -2914,10 +2950,16 @@ media file played</string>
                            <number>6</number>
                           </property>
                           <property name="minimum">
-                           <double>-100.000000000000000</double>
+                           <double>0.500000000000000</double>
                           </property>
                           <property name="maximum">
-                           <double>100.000000000000000</double>
+                           <double>16.000000000000000</double>
+                          </property>
+                          <property name="singleStep">
+                           <double>0.500000000000000</double>
+                          </property>
+                          <property name="value">
+                           <double>2.000000000000000</double>
                           </property>
                          </widget>
                         </item>
@@ -3024,11 +3066,20 @@ media file played</string>
                        </widget>
                       </item>
                       <item row="3" column="3">
-                       <layout class="QHBoxLayout" name="cscaleClampLayout" stretch="0">
+                       <layout class="QHBoxLayout" name="cscaleClampLayout" stretch="0,1">
                         <item>
-                         <widget class="QCheckBox" name="cscaleClamp">
-                          <property name="text">
-                           <string>Prevent ringing</string>
+                         <widget class="QCheckBox" name="cscaleClampSet"/>
+                        </item>
+                        <item>
+                         <widget class="QDoubleSpinBox" name="cscaleClampValue">
+                          <property name="decimals">
+                           <number>6</number>
+                          </property>
+                          <property name="maximum">
+                           <double>1.000000000000000</double>
+                          </property>
+                          <property name="singleStep">
+                           <double>0.100000000000000</double>
                           </property>
                          </widget>
                         </item>
@@ -3306,10 +3357,16 @@ media file played</string>
                            <number>6</number>
                           </property>
                           <property name="minimum">
-                           <double>-100.000000000000000</double>
+                           <double>0.500000000000000</double>
                           </property>
                           <property name="maximum">
-                           <double>100.000000000000000</double>
+                           <double>16.000000000000000</double>
+                          </property>
+                          <property name="singleStep">
+                           <double>0.500000000000000</double>
+                          </property>
+                          <property name="value">
+                           <double>2.000000000000000</double>
                           </property>
                          </widget>
                         </item>
@@ -3416,11 +3473,14 @@ media file played</string>
                        </widget>
                       </item>
                       <item row="3" column="3">
-                       <layout class="QHBoxLayout" name="tscaleClampLayout" stretch="0">
+                       <layout class="QHBoxLayout" name="tscaleClampLayout" stretch="0,1">
                         <item>
-                         <widget class="QCheckBox" name="tscaleClamp">
-                          <property name="text">
-                           <string>Prevent ringing</string>
+                         <widget class="QCheckBox" name="tscaleClampSet"/>
+                        </item>
+                        <item>
+                         <widget class="QDoubleSpinBox" name="tscaleClampValue">
+                          <property name="decimals">
+                           <number>6</number>
                           </property>
                          </widget>
                         </item>

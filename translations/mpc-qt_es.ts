@@ -2383,7 +2383,7 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Prevent ringing</source>
-        <translation>Prevenir el anillado</translation>
+        <translation type="vanished">Prevenir el anillado</translation>
     </message>
     <message>
         <source>Clamp</source>

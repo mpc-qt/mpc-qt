@@ -2378,10 +2378,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Prevent ringing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Clamp</source>
         <translation type="unfinished"></translation>
     </message>
