@@ -627,8 +627,7 @@ void SettingsWindow::setAudioDevices(const QList<AudioDevice> &devices)
 void SettingsWindow::sendSignals()
 {
     auto widgetToPrefixHelper = [this](QString wprefix, QString wsuffix)
-    {   // I was converting WIDGET_TO_TEXT to include a prefix as well
-        // after that, generalize the n"scalar" options
+    {
         auto offsetLookup = [](const SettingMap &source, QString objectName) {
             return source[objectName].value.toInt();
         };
