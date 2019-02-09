@@ -10,13 +10,14 @@ script:
 - make -j2
 - make install
 - macdeployqt mpc-qt.app -libpath=/usr/local/lib/
-- python macdeployqtfix/macdeployqtfix.py mpc-qt.app/Contents/MacOS/mpc-qt /usr/local/Cellar/qt/5.11.2_1/ -v
+- python macdeployqtfix/macdeployqtfix.py mpc-qt.app/Contents/MacOS/mpc-qt $(pkg-config --variable=prefix Qt5Gui) -v
 
 before_install:
 - brew update
 - cd $(brew --repo homebrew/core)
 - git checkout 5eb54ced793999e3dd3bce7c64c34e7ffe65ddfd
 - cd $TRAVIS_BUILD_DIR
+- brew install pkgconfig
 - brew install mpv
 - brew install qt
 - brew link qt --force
@@ -24,7 +25,7 @@ before_install:
 
 install:
 - git clone --branch v0.29.1 https://github.com/mpv-player/mpv.git
-- cp mpv/libmpv/* /usr/local/Cellar/mpv/0.29.1_1/include/mpv/
+- cp mpv/libmpv/* $(pkg-config --variable=includedir mpv)/mpv/
 - rm -rf mpv
 - git clone https://github.com/arl/macdeployqtfix.git
 - git fetch --unshallow
