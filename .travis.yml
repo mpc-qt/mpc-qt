@@ -26,6 +26,7 @@ install:
 - rm -rf mpv
 - git clone https://github.com/arl/macdeployqtfix.git
 - git fetch --unshallow
+- ln -s /usr/local/opt/python/Frameworks/Python.framework /usr/local/opt/python/lib/
 
 before_deploy:
 - ls -al
