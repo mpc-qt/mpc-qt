@@ -30,7 +30,6 @@ install:
 
 before_deploy:
 - ls -al
-- brew upgrade python
 - pip install dmgbuild
 - dmgbuild -s make-release-mac.py "mpc-qt" mpc-qt.dmg
 
