@@ -30,8 +30,7 @@ install:
 
 before_deploy:
 - ls -al
-- curl https://bootstrap.pypa.io/get-pip.py | python
-- pip install dmgbuild
+- pip3 install dmgbuild
 - dmgbuild -s make-release-mac.py "mpc-qt" mpc-qt.dmg
 
 deploy:
