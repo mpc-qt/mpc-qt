@@ -1326,11 +1326,11 @@ void MainWindow::setFullscreenHidePanels(bool hidden)
 
 void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
 {
-    ui->status->setText(state==PlaybackManager::StoppedState ? "Stopped" :
-                        state==PlaybackManager::PausedState ? "Paused" :
-                        state==PlaybackManager::PlayingState ? "Playing" :
-                        state==PlaybackManager::BufferingState ? "Buffering" :
-                                                                 "Unknown");
+    ui->status->setText(state==PlaybackManager::StoppedState ? tr("Stopped") :
+                        state==PlaybackManager::PausedState ? tr("Paused") :
+                        state==PlaybackManager::PlayingState ? tr("Playing") :
+                        state==PlaybackManager::BufferingState ? tr("Buffering") :
+                                                                 tr("Unknown"));
     isPlaying = state != PlaybackManager::StoppedState;
     isPaused = state == PlaybackManager::PausedState;
     setUiEnabledState(state != PlaybackManager::StoppedState);
@@ -2227,7 +2227,7 @@ void MainWindow::position_hoverValue(double value, QString text, double x)
     if (!timeTooltipShown)
         return;
     if (text.isEmpty())
-        text = "<unknown>";
+        text = tr("<unknown>");
 
     QString t = QString("%1 - %2").arg(Helpers::toDateFormat(value), text);
     QPoint where = positionSlider_->mapToGlobal(QPoint(int(x), timeTooltipAbove ? -40 : 0));
