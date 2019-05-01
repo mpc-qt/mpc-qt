@@ -116,7 +116,7 @@ PaletteEditor::PaletteEditor(QWidget *parent) : QWidget(parent)
 
     // Final row - generate buttons
     col = 0;
-    layout->addWidget(new QLabel("Generate"), row, col++);
+    layout->addWidget(new QLabel(tr("Generate")), row, col++);
 
     QPushButton *button;
     button = new QPushButton(tr("Button"), this);
