@@ -749,14 +749,14 @@ void SettingsWindow::sendSignals()
         filter = filterKernels.value(scaler);
         filter.cutoff_(temporal ? 0.0 : 0.01);
         filter.clamp_(temporal ? 1.0 : 0.0);
-        if (ui->scaleParam1Set->isChecked())    filter.param1_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam1Value).toDouble());
-        if (ui->scaleParam2Set->isChecked())    filter.param2_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam2Value).toDouble());
-        if (ui->scaleRadiusSet->isChecked())    filter.radius_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleRadiusValue).toDouble());
-        if (ui->scaleAntiRingSet->isChecked())  filter.antiring_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleAntiRingValue).toDouble());
-        if (ui->scaleBlurSet->isChecked())      filter.blur_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleBlurValue).toDouble());
-        if (ui->scaleWindowSet->isChecked())    filter.window_(WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleWindowValue));
-        if (ui->scaleWindowParamSet->isChecked())   filter.window.param_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleWindowValue).toDouble());
-        if (ui->scaleClampSet->isChecked())     filter.clamp_(WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleClampValue).toDouble());
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam1Set).toBool())    filter.param1_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam1Value).toDouble());
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam2Set).toBool())    filter.param2_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam2Value).toDouble());
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleRadiusSet).toBool())    filter.radius_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleRadiusValue).toDouble());
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleAntiRingSet).toBool())  filter.antiring_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleAntiRingValue).toDouble());
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleBlurSet).toBool())      filter.blur_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleBlurValue).toDouble());
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleWindowSet).toBool())    filter.window_(WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleWindowValue));
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleWindowParamSet).toBool())   filter.window.param_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleWindowValue).toDouble());
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleClampSet).toBool())     filter.clamp_(WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleClampValue).toDouble());
     };
     auto applyFilter = [&](QString prefix) {
         emit option(prefix + "scale", scaler);
