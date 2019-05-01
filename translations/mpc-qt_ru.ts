@@ -3593,6 +3593,10 @@ each &amp;media file</source>
         <source>Scale in linear light</source>
         <translation type="vanished">Масштабировать в линейном свете</translation>
     </message>
+    <message>
+        <source>Use additive speed step</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

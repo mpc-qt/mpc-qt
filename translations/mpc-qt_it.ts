@@ -1194,6 +1194,26 @@
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
+    <message>
+        <source>Paused</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Playing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buffering</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;unknown&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -1373,6 +1393,10 @@
     </message>
     <message>
         <source>Reset to System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3567,6 +3591,10 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Upscale in linear light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use additive speed step</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
