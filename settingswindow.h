@@ -99,6 +99,7 @@ signals:
     void balance(double pan);
     void volumeStep(int amount);
     void speedStep(double amount);
+    void speedStepAdditive(bool isAdditive);
     void stepTimeLarge(int msec);
     void stepTimeSmall(int msec);
     void zoomPreset(int which, double fitFactor);

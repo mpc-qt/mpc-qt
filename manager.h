@@ -103,6 +103,7 @@ public slots:
     // output functions
     void setPlaybackSpeed(double speed);
     void setSpeedStep(double step);
+    void setSpeedStepAdditive(bool isAdditive);
     void setStepTimeLarge(int largeMsec);
     void setStepTimeSmall(int smallMsec);
     void setAudioTrack(int64_t id);
@@ -172,6 +173,7 @@ private:
     double mpvLength = 0.0;
     double mpvSpeed = 1.0;
     double speedStep = 2.0;
+    bool speedStepAdditive = true;
     double stepTimeLarge = 5.0;
     double stepTimeSmall = 1.0;
     PlaybackState playbackState_ = StoppedState;

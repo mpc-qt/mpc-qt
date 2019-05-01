@@ -270,12 +270,16 @@ void PlaybackManager::navigateToTime(double time)
 
 void PlaybackManager::speedUp()
 {
-    setPlaybackSpeed(std::min(8.0, mpvSpeed * speedStep));
+    double speed = speedStepAdditive ? mpvSpeed + speedStep - 1.0
+                                     : mpvSpeed * speedStep;
+    setPlaybackSpeed(std::min(8.0, speed));
 }
 
 void PlaybackManager::speedDown()
 {
-    setPlaybackSpeed(std::max(0.125, mpvSpeed / speedStep));
+    double speed = speedStepAdditive ? mpvSpeed - speedStep + 1.0
+                                     : mpvSpeed / speedStep;
+    setPlaybackSpeed(std::max(0.125, speed));
 }
 
 void PlaybackManager::speedReset()
@@ -299,6 +303,11 @@ void PlaybackManager::setPlaybackSpeed(double speed)
 void PlaybackManager::setSpeedStep(double step)
 {
     speedStep = step;
+}
+
+void PlaybackManager::setSpeedStepAdditive(bool isAdditive)
+{
+    speedStepAdditive = isAdditive;
 }
 
 void PlaybackManager::setStepTimeLarge(int largeMsec)

@@ -505,6 +505,8 @@ void Flow::setupSettingsConnections()
     // settings -> manager
     connect(settingsWindow, &SettingsWindow::speedStep,
             playbackManager, &PlaybackManager::setSpeedStep);
+    connect(settingsWindow, &SettingsWindow::speedStepAdditive,
+            playbackManager, &PlaybackManager::setSpeedStepAdditive);
     connect(settingsWindow, &SettingsWindow::stepTimeLarge,
             playbackManager, &PlaybackManager::setStepTimeLarge);
     connect(settingsWindow, &SettingsWindow::stepTimeSmall,

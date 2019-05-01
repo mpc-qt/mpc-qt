@@ -686,6 +686,7 @@ void SettingsWindow::sendSignals()
     {
         int i = WIDGET_LOOKUP(ui->playbackSpeedStep).toInt();
         emit speedStep(i > 0 ? 1.0 + i/100.0 : 2.0);
+        emit speedStepAdditive(WIDGET_LOOKUP(ui->playbackSpeedStepAdditive).toBool());
     }
     emit stepTimeLarge(WIDGET_LOOKUP(ui->playbackTimeStep).toInt());
     emit stepTimeSmall(WIDGET_LOOKUP(ui->playbackFineStep).toInt());
