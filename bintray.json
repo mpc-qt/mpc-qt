@@ -1,0 +1,20 @@
+{
+    "package": {
+        "name": "mpc-qt",
+        "repo": "mpc-qt",
+        "subject": "alby128"
+    },
+    "version": {
+        "name": "v18.08"
+    },
+    "files": [
+        {
+            "includePattern": "./(.*\\.dmg)",
+            "uploadPattern": "$1",
+            "matrixParams": {
+                "override": 1
+            }
+        }
+    ],
+    "publish": true
+}
