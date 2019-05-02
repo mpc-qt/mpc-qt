@@ -780,7 +780,9 @@ QVariantMap Flow::windowsToVMap()
             "mainWindow", QVariantMap {
                 { "geometry", Helpers::rectToVmap(QRect(mainWindow->geometry().topLeft(),
                                                         mainWindow->size())) },
-                { "state", mainWindow->state() }
+                { "state", mainWindow->state() },
+                { "maximized", mainWindow->isMaximized() },
+                { "minimized", mainWindow->isMinimized() }
             }
         },
         {
@@ -889,8 +891,15 @@ void Flow::restoreWindows(const QVariantMap &geometryMap)
 
 void Flow::showWindows(const QVariantMap &mainWindowMap)
 {
-    mainWindow->show();
-    mainWindow->raise();
+    if (mainWindowMap.value("minimized", false).toBool()) {
+        mainWindow->showMinimized();
+    } else {
+        if (mainWindowMap.value("maximized", false).toBool())
+            mainWindow->showMaximized();
+        else
+            mainWindow->show();
+        mainWindow->raise();
+    }
     if (mainWindowMap.contains("state"))
         mainWindow->setState(mainWindowMap["state"].toMap());
     mainWindow->unfreezeWindow();
