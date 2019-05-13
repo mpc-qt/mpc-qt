@@ -58,6 +58,7 @@ public:
     QVariantMap keyMap();
 
 private:
+    void setupPageTree();
     void setupPlatformWidgets();
     void setupPaletteEditor();
     void setupColorPickers();

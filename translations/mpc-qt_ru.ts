@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>Alt+Ctrl+Backspace</source>
-        <translation>Alt+Ctrl+Backspace</translation>
+        <translation type="vanished">Alt+Ctrl+Backspace</translation>
     </message>
     <message>
         <source>Mouse Fullscr</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Open Network Stream...</source>
-        <translation>Открыть сетевой поток...</translation>
+        <translation type="vanished">Открыть сетевой поток...</translation>
     </message>
 </context>
 <context>
@@ -2177,7 +2177,7 @@ media file played</source>
     </message>
     <message>
         <source>MMMMMMMMMMMMM</source>
-        <translation>MMMMMMMMMMMMM</translation>
+        <translation type="vanished">MMMMMMMMMMMMM</translation>
     </message>
     <message>
         <source>Show when hovering control, hide after:</source>

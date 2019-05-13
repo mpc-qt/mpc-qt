@@ -21,11 +21,11 @@
     </message>
     <message>
         <source>Open Network Stream...</source>
-        <translation>Abrir un flujo de red...</translation>
+        <translation type="vanished">Abrir un flujo de red...</translation>
     </message>
     <message>
         <source>Alt+Ctrl+Backspace</source>
-        <translation>Alt+Ctrl+Retroceso</translation>
+        <translation type="vanished">Alt+Ctrl+Retroceso</translation>
     </message>
 </context>
 <context>
@@ -3536,10 +3536,6 @@ archivo multimedia reproducido</translation>
     <message>
         <source>Export keys</source>
         <translation>Exportar llaves</translation>
-    </message>
-    <message>
-        <source>MMMMMMMMMMMMM</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open Logo Image</source>

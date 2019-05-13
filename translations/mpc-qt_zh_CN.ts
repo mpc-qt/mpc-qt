@@ -21,11 +21,11 @@
     </message>
     <message>
         <source>Open Network Stream...</source>
-        <translation>打开网络串流……</translation>
+        <translation type="vanished">打开网络串流……</translation>
     </message>
     <message>
         <source>Alt+Ctrl+Backspace</source>
-        <translation>Alt+Ctrl+Backspace</translation>
+        <translation type="vanished">Alt+Ctrl+Backspace</translation>
     </message>
 </context>
 <context>
@@ -3529,10 +3529,6 @@ media file played</source>
     </message>
     <message>
         <source>Export keys</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>MMMMMMMMMMMMM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -19,14 +19,6 @@
         <source>Mouse Fullscr</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Open Network Stream...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+Ctrl+Backspace</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>ButtonWidget</name>
@@ -3539,7 +3531,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>MMMMMMMMMMMMM</source>
-        <translation>MMMMMMMMMMMMM</translation>
+        <translation type="vanished">MMMMMMMMMMMMM</translation>
     </message>
     <message>
         <source>Open Logo Image</source>

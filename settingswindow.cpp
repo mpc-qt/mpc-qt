@@ -297,6 +297,9 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     connect(actionEditor, &ActionEditor::mouseFullscreenMap,
             this, &SettingsWindow::mouseFullscreenMap);
 
+    actionEditor->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    actionEditor->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+
     logoWidget = new LogoWidget(this);
     ui->logoImageHost->layout()->addWidget(logoWidget);
 
@@ -323,6 +326,19 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
                 QStandardPaths::writableLocation(
                     QStandardPaths::DocumentsLocation) + "/mpc-qt-log.txt");
 
+    setupPageTree();
+    setupColorPickers();
+    setupSelfSignals();
+    setupUnimplementedWidgets();
+}
+
+SettingsWindow::~SettingsWindow()
+{
+    delete ui;
+}
+
+void SettingsWindow::setupPageTree()
+{
     // Expand every item on pageTree
     QList<QTreeWidgetItem*> stack;
     stack.append(ui->pageTree->invisibleRootItem());
@@ -333,19 +349,16 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
             stack.push_front(item->child(i));
     }
 
-    int pageTreeWidth = ui->pageTree->fontMetrics().width(tr("MMMMMMMMMMMMM"));
-    if (Platform::isWindows)
-        pageTreeWidth *= 1.3;
-    ui->pageTree->setMaximumWidth(pageTreeWidth);
+    // Set pageTree pane to be fixed size in resizes
+    ui->splitter->setStretchFactor(0,0);
+    ui->splitter->setStretchFactor(1,1);
 
-    setupColorPickers();
-    setupSelfSignals();
-    setupUnimplementedWidgets();
-}
-
-SettingsWindow::~SettingsWindow()
-{
-    delete ui;
+    // Calculate sane default for pageTree width
+    ui->pageTree->header()->setStretchLastSection(false);
+    ui->pageTree->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    int pageTreeWidth = ui->pageTree->columnWidth(0);
+    ui->pageTree->setMinimumWidth(pageTreeWidth * 11 / 10);
+    ui->pageTree->header()->setStretchLastSection(true);
 }
 
 void SettingsWindow::setupPlatformWidgets()

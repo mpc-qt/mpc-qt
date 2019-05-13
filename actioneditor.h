@@ -21,7 +21,6 @@ class ActionEditor : public QTableView
     Q_OBJECT
 public:
     ActionEditor(QWidget *parent = nullptr);
-    int sizeHintForColumn(int column) const;
 
     void setCommands(const QList<Command> &commands);
     Command getCommand(int index) const;

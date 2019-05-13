@@ -19,14 +19,6 @@
         <source>Mouse Fullscr</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Open Network Stream...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+Ctrl+Backspace</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>ButtonWidget</name>
@@ -3527,10 +3519,6 @@ media file played</source>
     </message>
     <message>
         <source>Export keys</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>MMMMMMMMMMMMM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

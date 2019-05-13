@@ -24,19 +24,6 @@ ActionEditor::ActionEditor(QWidget *parent) :
     setEditTriggers(QAbstractItemView::AllEditTriggers);
 }
 
-int ActionEditor::sizeHintForColumn(int column) const
-{
-    // TL note: not actually the widest, but unobnoxious
-    QStringList maxWidthStrings {
-        tr("Open Network Stream..."),
-        tr("Alt+Ctrl+Backspace"),
-        tr("Mouse Window"),
-        tr("Mouse Fullscr")
-    };
-    QString maxWidthString = maxWidthStrings.value(column, "...");
-    return fontMetrics().boundingRect("_" + maxWidthString + "_").width();
-}
-
 void ActionEditor::setCommands(const QList<Command> &commands)
 {
     model.setRowCount(0);
