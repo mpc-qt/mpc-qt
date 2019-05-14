@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>779</width>
-    <height>735</height>
+    <width>896</width>
+    <height>610</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -158,7 +158,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>3</number>
+          <number>17</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -699,8 +699,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>583</width>
-                   <height>229</height>
+                   <width>42</width>
+                   <height>18</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -813,9 +813,6 @@ media file played</string>
               <string>Control</string>
              </property>
              <layout class="QFormLayout" name="playbackControlBoxLayout">
-              <property name="fieldGrowthPolicy">
-               <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-              </property>
               <item row="0" column="0">
                <widget class="QLabel" name="playbackVolumeStepLabel">
                 <property name="text">
@@ -825,6 +822,12 @@ media file played</string>
               </item>
               <item row="0" column="1">
                <widget class="QSpinBox" name="playbackVolumeStep">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="suffix">
                  <string notr="true">%</string>
                 </property>
@@ -844,34 +847,53 @@ media file played</string>
                </widget>
               </item>
               <item row="1" column="1">
-               <widget class="QSpinBox" name="playbackSpeedStep">
-                <property name="specialValueText">
-                 <string>Auto</string>
-                </property>
-                <property name="suffix">
-                 <string notr="true">%</string>
-                </property>
-                <property name="maximum">
-                 <number>100</number>
-                </property>
-               </widget>
+               <layout class="QHBoxLayout" name="playbackSpeedStepLayout" stretch="1,0">
+                <item>
+                 <widget class="QSpinBox" name="playbackSpeedStep">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="specialValueText">
+                   <string>Auto</string>
+                  </property>
+                  <property name="suffix">
+                   <string notr="true">%</string>
+                  </property>
+                  <property name="maximum">
+                   <number>100</number>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="playbackSpeedStepAdditive">
+                  <property name="text">
+                   <string>Use additive speed step</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
-              <item row="3" column="0">
+              <item row="2" column="0">
                <widget class="QLabel" name="playbackTimeStepLabel">
                 <property name="text">
                  <string>Time step</string>
                 </property>
                </widget>
               </item>
-              <item row="4" column="0">
-               <widget class="QLabel" name="playbackFineStepLabel">
-                <property name="text">
-                 <string>Fine step</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="1">
+              <item row="2" column="1">
                <widget class="QSpinBox" name="playbackTimeStep">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="suffix">
                  <string notr="true">ms</string>
                 </property>
@@ -886,8 +908,21 @@ media file played</string>
                 </property>
                </widget>
               </item>
-              <item row="4" column="1">
+              <item row="3" column="0">
+               <widget class="QLabel" name="playbackFineStepLabel">
+                <property name="text">
+                 <string>Fine step</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
                <widget class="QSpinBox" name="playbackFineStep">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="suffix">
                  <string notr="true">ms</string>
                 </property>
@@ -899,16 +934,6 @@ media file played</string>
                 </property>
                 <property name="value">
                  <number>1000</number>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
-               <widget class="QCheckBox" name="playbackSpeedStepAdditive">
-                <property name="text">
-                 <string>Use additive speed step</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -4514,101 +4539,8 @@ media file played</string>
           </layout>
          </widget>
          <widget class="QWidget" name="fullscreenPage">
-          <layout class="QVBoxLayout" name="fullscreenPageLayout">
-           <item>
-            <widget class="QGroupBox" name="fullscreenMonitorBox">
-             <property name="title">
-              <string>Fullscreen monitor</string>
-             </property>
-             <layout class="QVBoxLayout" name="fullscreenMonitorBoxLayout">
-              <item>
-               <widget class="QComboBox" name="fullscreenMonitor">
-                <item>
-                 <property name="text">
-                  <string>Current</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="fullscreenLaunch">
-                <property name="text">
-                 <string>Launch files in fullscreen</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="fullscreenWindowedAtEnd">
-                <property name="text">
-                 <string>Exit fullscreen at the end of playback</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QGroupBox" name="fullscreenHidingBox">
-             <property name="title">
-              <string>Hiding</string>
-             </property>
-             <layout class="QGridLayout" name="fullscreenHidingBoxLayout">
-              <item row="1" column="1">
-               <widget class="QSpinBox" name="fullscreenShowWhenDuration">
-                <property name="suffix">
-                 <string notr="true">ms</string>
-                </property>
-                <property name="maximum">
-                 <number>5000</number>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" colspan="2">
-               <widget class="QCheckBox" name="fullscreenHidePanels">
-                <property name="text">
-                 <string>Hide docked panels</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0" colspan="2">
-               <widget class="QCheckBox" name="fullscreenHideControls">
-                <property name="text">
-                 <string>Hide controls in fullscreen</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QComboBox" name="fullscreenShowWhen">
-                <property name="currentIndex">
-                 <number>2</number>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>Never show</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Show when moving the cursor, hide after:</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Show when hovering control, hide after:</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
+          <layout class="QGridLayout" name="fullscreenPageLayout" rowstretch="0,0" columnstretch="1,0">
+           <item row="1" column="0" colspan="2">
             <widget class="QGroupBox" name="xrandrBox">
              <property name="title">
               <string>X Resize and Rotate</string>
@@ -4714,18 +4646,98 @@ media file played</string>
              </layout>
             </widget>
            </item>
-           <item>
-            <spacer name="fullscreenSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
+           <item row="0" column="0">
+            <widget class="QGroupBox" name="fullscreenMonitorBox">
+             <property name="title">
+              <string>Fullscreen monitor</string>
              </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
+             <layout class="QVBoxLayout" name="fullscreenMonitorBoxLayout">
+              <item>
+               <widget class="QComboBox" name="fullscreenMonitor">
+                <item>
+                 <property name="text">
+                  <string>Current</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="fullscreenLaunch">
+                <property name="text">
+                 <string>Launch files in fullscreen</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="fullscreenWindowedAtEnd">
+                <property name="text">
+                 <string>Exit fullscreen at the end of playback</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QGroupBox" name="fullscreenHidingBox">
+             <property name="title">
+              <string>Hiding</string>
              </property>
-            </spacer>
+             <layout class="QGridLayout" name="fullscreenHidingBoxLayout">
+              <item row="1" column="1">
+               <widget class="QSpinBox" name="fullscreenShowWhenDuration">
+                <property name="suffix">
+                 <string notr="true">ms</string>
+                </property>
+                <property name="maximum">
+                 <number>5000</number>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QCheckBox" name="fullscreenHidePanels">
+                <property name="text">
+                 <string>Hide docked panels</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="2">
+               <widget class="QCheckBox" name="fullscreenHideControls">
+                <property name="text">
+                 <string>Hide controls in fullscreen</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QComboBox" name="fullscreenShowWhen">
+                <property name="currentIndex">
+                 <number>2</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Never show</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Show when moving the cursor, hide after:</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Show when hovering control, hide after:</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -6644,494 +6656,497 @@ media file played</string>
           </layout>
          </widget>
          <widget class="QWidget" name="encodingPage">
-          <layout class="QVBoxLayout" name="encodingPageLayout">
+          <layout class="QVBoxLayout" name="verticalLayout_9">
            <item>
-            <widget class="QGroupBox" name="screenshotFormatBox">
-             <property name="title">
-              <string>Screenshot</string>
+            <widget class="QTabWidget" name="encodingTabs">
+             <property name="currentIndex">
+              <number>0</number>
              </property>
-             <layout class="QVBoxLayout" name="screenshotFormatBoxLayout">
-              <item>
-               <widget class="QCheckBox" name="screenshotFormatHighBitDepth">
-                <property name="text">
-                 <string>Save with high bit depth</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QComboBox" name="screenshotFormat">
-                <item>
+             <widget class="QWidget" name="screenshotFormatTab">
+              <attribute name="title">
+               <string>Screenshot</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="screenshotFormatTabLayout">
+               <item>
+                <widget class="QCheckBox" name="screenshotFormatHighBitDepth">
                  <property name="text">
-                  <string notr="true">jpg</string>
+                  <string>Save with high bit depth</string>
                  </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">png</string>
+                 <property name="checked">
+                  <bool>true</bool>
                  </property>
-                </item>
-               </widget>
-              </item>
-              <item>
-               <widget class="QStackedWidget" name="screenshotFormatStack">
-                <property name="currentIndex">
-                 <number>0</number>
-                </property>
-                <widget class="QWidget" name="jpgPage">
-                 <layout class="QFormLayout" name="jpgPageLayout">
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="jpgQualityLabel">
-                    <property name="text">
-                     <string>Quality</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <layout class="QHBoxLayout" name="jpgQualityLayout">
-                    <item>
-                     <widget class="QSlider" name="jpgQuality">
-                      <property name="maximum">
-                       <number>100</number>
-                      </property>
-                      <property name="value">
-                       <number>90</number>
-                      </property>
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="tickPosition">
-                       <enum>QSlider::TicksBothSides</enum>
-                      </property>
-                      <property name="tickInterval">
-                       <number>5</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="jpgQualityValue">
-                      <property name="text">
-                       <string notr="true">090</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="jpgSmoothLabel">
-                    <property name="text">
-                     <string>Smooth</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <layout class="QHBoxLayout" name="jpgSmoothLayout">
-                    <item>
-                     <widget class="QSlider" name="jpgSmooth">
-                      <property name="maximum">
-                       <number>100</number>
-                      </property>
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="tickPosition">
-                       <enum>QSlider::TicksBothSides</enum>
-                      </property>
-                      <property name="tickInterval">
-                       <number>5</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="jpgSmoothValue">
-                      <property name="text">
-                       <string notr="true">000</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QLabel" name="jpgSourceChromaLabel">
-                    <property name="text">
-                     <string>Source Chroma</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="1">
-                   <widget class="QCheckBox" name="jpgSourceChroma">
-                    <property name="text">
-                     <string>Yes</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
                 </widget>
-                <widget class="QWidget" name="pngPage">
-                 <layout class="QFormLayout" name="pngPageLayout">
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="pngCompressionLabel">
-                    <property name="text">
-                     <string>Compression</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <layout class="QHBoxLayout" name="pngCompressionLayout">
-                    <item>
-                     <widget class="QSlider" name="pngCompression">
-                      <property name="maximum">
-                       <number>9</number>
-                      </property>
-                      <property name="value">
-                       <number>7</number>
-                      </property>
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="tickPosition">
-                       <enum>QSlider::TicksBothSides</enum>
-                      </property>
-                      <property name="tickInterval">
-                       <number>1</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="pngCompressionValue">
-                      <property name="text">
-                       <string notr="true">7</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="pngFilterLabel">
-                    <property name="text">
-                     <string>Filter</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <layout class="QHBoxLayout" name="pngFilterLayout">
-                    <item>
-                     <widget class="QSlider" name="pngFilter">
-                      <property name="maximum">
-                       <number>5</number>
-                      </property>
-                      <property name="value">
-                       <number>5</number>
-                      </property>
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="tickPosition">
-                       <enum>QSlider::TicksBothSides</enum>
-                      </property>
-                      <property name="tickInterval">
-                       <number>1</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="pngFilterValue">
-                      <property name="text">
-                       <string notr="true">5</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QLabel" name="pngColorspaceLabel">
-                    <property name="text">
-                     <string>Colorspace</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="1">
-                   <widget class="QCheckBox" name="pngColorspace">
-                    <property name="text">
-                     <string>Include tag</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
+               </item>
+               <item>
+                <widget class="QComboBox" name="screenshotFormat">
+                 <item>
+                  <property name="text">
+                   <string notr="true">jpg</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string notr="true">png</string>
+                  </property>
+                 </item>
                 </widget>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QGroupBox" name="encodeBox">
-             <property name="title">
-              <string>Encode</string>
-             </property>
-             <layout class="QGridLayout" name="encodeBoxLayout" columnstretch="1,1">
-              <item row="1" column="0">
-               <widget class="QGroupBox" name="encodeVideoBox">
-                <property name="title">
-                 <string>Video</string>
-                </property>
-                <layout class="QFormLayout" name="encodeVideoBoxLayout">
-                 <item row="0" column="0" colspan="2">
-                  <widget class="QCheckBox" name="encodeVideoForget">
-                   <property name="text">
-                    <string>Don't encode the video</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="0" colspan="2">
-                  <widget class="QCheckBox" name="encodeVideoHardsub">
-                   <property name="text">
-                    <string>Hardsub</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="0">
-                  <widget class="QRadioButton" name="encodeVideoMethodFilesize">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="text">
-                    <string>Filesi&amp;ze</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="1">
-                  <widget class="QDoubleSpinBox" name="encodeVideoFilesize">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="suffix">
-                    <string>MB</string>
-                   </property>
-                   <property name="value">
-                    <double>2.900000000000000</double>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="0">
-                  <widget class="QRadioButton" name="encodeVideoMethodBitrate">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="text">
-                    <string>Bitrate</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="1">
-                  <widget class="QSpinBox" name="encodeVideoBitrate">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="suffix">
-                    <string>kBits</string>
-                   </property>
-                   <property name="maximum">
-                    <number>8192</number>
-                   </property>
-                   <property name="value">
-                    <number>500</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="4" column="1">
-                  <layout class="QFormLayout" name="encodeVideoFineLayout">
-                   <property name="labelAlignment">
-                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                   </property>
-                   <item row="0" column="0">
-                    <widget class="QCheckBox" name="encodeVideoCrf">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="text">
-                      <string>crf</string>
-                     </property>
-                    </widget>
-                   </item>
+               </item>
+               <item>
+                <widget class="QStackedWidget" name="screenshotFormatStack">
+                 <property name="currentIndex">
+                  <number>0</number>
+                 </property>
+                 <widget class="QWidget" name="jpgPage">
+                  <layout class="QFormLayout" name="jpgPageLayout">
                    <item row="0" column="1">
-                    <widget class="QSpinBox" name="encodeVideoCrfValue">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimum">
-                      <number>-1</number>
-                     </property>
-                     <property name="maximum">
-                      <number>63</number>
-                     </property>
-                     <property name="value">
-                      <number>-1</number>
-                     </property>
-                    </widget>
+                    <layout class="QHBoxLayout" name="jpgQualityLayout">
+                     <item>
+                      <widget class="QSlider" name="jpgQuality">
+                       <property name="maximum">
+                        <number>100</number>
+                       </property>
+                       <property name="value">
+                        <number>90</number>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="tickPosition">
+                        <enum>QSlider::TicksBothSides</enum>
+                       </property>
+                       <property name="tickInterval">
+                        <number>5</number>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="jpgQualityValue">
+                       <property name="text">
+                        <string notr="true">090</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
                    </item>
-                   <item row="1" column="0">
-                    <widget class="QCheckBox" name="encodeVideoQMin">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="jpgSourceChromaLabel">
                      <property name="text">
-                      <string>qmin</string>
+                      <string>Source Chroma</string>
                      </property>
                     </widget>
                    </item>
                    <item row="1" column="1">
-                    <widget class="QSpinBox" name="encodeVideoQMinValue">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimum">
-                      <number>-1</number>
-                     </property>
-                     <property name="maximum">
-                      <number>69</number>
-                     </property>
-                     <property name="value">
-                      <number>2</number>
+                    <layout class="QHBoxLayout" name="jpgSmoothLayout">
+                     <item>
+                      <widget class="QSlider" name="jpgSmooth">
+                       <property name="maximum">
+                        <number>100</number>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="tickPosition">
+                        <enum>QSlider::TicksBothSides</enum>
+                       </property>
+                       <property name="tickInterval">
+                        <number>5</number>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="jpgSmoothValue">
+                       <property name="text">
+                        <string notr="true">000</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="jpgQualityLabel">
+                     <property name="text">
+                      <string>Quality</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="0">
-                    <widget class="QCheckBox" name="encodeVideoQMax">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="jpgSmoothLabel">
                      <property name="text">
-                      <string>qmax</string>
+                      <string>Smooth</string>
                      </property>
                     </widget>
                    </item>
                    <item row="2" column="1">
-                    <widget class="QSpinBox" name="encodeVideoQMaxValue">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimum">
-                      <number>-1</number>
-                     </property>
-                     <property name="maximum">
-                      <number>1024</number>
-                     </property>
-                     <property name="value">
-                      <number>31</number>
+                    <widget class="QCheckBox" name="jpgSourceChroma">
+                     <property name="text">
+                      <string>Yes</string>
                      </property>
                     </widget>
                    </item>
                   </layout>
+                 </widget>
+                 <widget class="QWidget" name="pngPage">
+                  <layout class="QFormLayout" name="pngPageLayout">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="pngCompressionLabel">
+                     <property name="text">
+                      <string>Compression</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <layout class="QHBoxLayout" name="pngCompressionLayout">
+                     <item>
+                      <widget class="QSlider" name="pngCompression">
+                       <property name="maximum">
+                        <number>9</number>
+                       </property>
+                       <property name="value">
+                        <number>7</number>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="tickPosition">
+                        <enum>QSlider::TicksBothSides</enum>
+                       </property>
+                       <property name="tickInterval">
+                        <number>1</number>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="pngCompressionValue">
+                       <property name="text">
+                        <string notr="true">7</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="pngFilterLabel">
+                     <property name="text">
+                      <string>Filter</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <layout class="QHBoxLayout" name="pngFilterLayout">
+                     <item>
+                      <widget class="QSlider" name="pngFilter">
+                       <property name="maximum">
+                        <number>5</number>
+                       </property>
+                       <property name="value">
+                        <number>5</number>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="tickPosition">
+                        <enum>QSlider::TicksBothSides</enum>
+                       </property>
+                       <property name="tickInterval">
+                        <number>1</number>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="pngFilterValue">
+                       <property name="text">
+                        <string notr="true">5</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="pngColorspaceLabel">
+                     <property name="text">
+                      <string>Colorspace</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QCheckBox" name="pngColorspace">
+                     <property name="text">
+                      <string>Include tag</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="encodeTab">
+              <attribute name="title">
+               <string>Encode</string>
+              </attribute>
+              <layout class="QGridLayout" name="encodeTabLayout">
+               <item row="0" column="0" colspan="2">
+                <widget class="QComboBox" name="encodeFormat">
+                 <item>
+                  <property name="text">
+                   <string notr="true">WebM (VP8+OGG)</string>
+                  </property>
                  </item>
-                </layout>
-               </widget>
-              </item>
-              <item row="0" column="0" colspan="2">
-               <widget class="QComboBox" name="encodeFormat">
-                <item>
-                 <property name="text">
-                  <string notr="true">WebM (VP8+OGG)</string>
+                 <item>
+                  <property name="text">
+                   <string notr="true">MP4 (x264+MP3)</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QGroupBox" name="encodeVideoBox">
+                 <property name="title">
+                  <string>Video</string>
                  </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">MP4 (x264+MP3)</string>
+                 <layout class="QFormLayout" name="encodeVideoBoxLayout">
+                  <item row="0" column="0" colspan="2">
+                   <widget class="QCheckBox" name="encodeVideoForget">
+                    <property name="text">
+                     <string>Don't encode the video</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0" colspan="2">
+                   <widget class="QCheckBox" name="encodeVideoHardsub">
+                    <property name="text">
+                     <string>Hardsub</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QRadioButton" name="encodeVideoMethodFilesize">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>Filesi&amp;ze</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QDoubleSpinBox" name="encodeVideoFilesize">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="suffix">
+                     <string>MB</string>
+                    </property>
+                    <property name="value">
+                     <double>2.900000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QRadioButton" name="encodeVideoMethodBitrate">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>Bitrate</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QSpinBox" name="encodeVideoBitrate">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="suffix">
+                     <string>kBits</string>
+                    </property>
+                    <property name="maximum">
+                     <number>8192</number>
+                    </property>
+                    <property name="value">
+                     <number>500</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="1">
+                   <layout class="QFormLayout" name="encodeVideoFineLayout">
+                    <property name="labelAlignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                    <item row="0" column="0">
+                     <widget class="QCheckBox" name="encodeVideoCrf">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="text">
+                       <string>crf</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QSpinBox" name="encodeVideoCrfValue">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="minimum">
+                       <number>-1</number>
+                      </property>
+                      <property name="maximum">
+                       <number>63</number>
+                      </property>
+                      <property name="value">
+                       <number>-1</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QCheckBox" name="encodeVideoQMin">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="text">
+                       <string>qmin</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="1">
+                     <widget class="QSpinBox" name="encodeVideoQMinValue">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="minimum">
+                       <number>-1</number>
+                      </property>
+                      <property name="maximum">
+                       <number>69</number>
+                      </property>
+                      <property name="value">
+                       <number>2</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="0">
+                     <widget class="QCheckBox" name="encodeVideoQMax">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="text">
+                       <string>qmax</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="1">
+                     <widget class="QSpinBox" name="encodeVideoQMaxValue">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="minimum">
+                       <number>-1</number>
+                      </property>
+                      <property name="maximum">
+                       <number>1024</number>
+                      </property>
+                      <property name="value">
+                       <number>31</number>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QGroupBox" name="encodeAudioBox">
+                 <property name="title">
+                  <string>Audio</string>
                  </property>
-                </item>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QGroupBox" name="encodeAudioBox">
-                <property name="title">
-                 <string>Audio</string>
-                </property>
-                <layout class="QVBoxLayout" name="encodeAudioBoxLayout">
-                 <item>
-                  <widget class="QCheckBox" name="encodeAudioForget">
-                   <property name="text">
-                    <string>Don't encode the audio</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QSpinBox" name="encodeAudioBitrate">
-                   <property name="suffix">
-                    <string>kBits</string>
-                   </property>
-                   <property name="maximum">
-                    <number>360</number>
-                   </property>
-                   <property name="singleStep">
-                    <number>16</number>
-                   </property>
-                   <property name="value">
-                    <number>96</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <spacer name="encodeAudioSpacer">
-                   <property name="orientation">
-                    <enum>Qt::Vertical</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>20</width>
-                     <height>40</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item row="2" column="0" colspan="2">
-               <widget class="QLabel" name="encodeIgnoreNotice">
-                <property name="text">
-                 <string>&quot;Don't encode&quot; checkboxes are ignored for audio-only or video-only files.</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+                 <layout class="QVBoxLayout" name="encodeAudioBoxLayout">
+                  <item>
+                   <widget class="QCheckBox" name="encodeAudioForget">
+                    <property name="text">
+                     <string>Don't encode the audio</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="encodeAudioBitrate">
+                    <property name="suffix">
+                     <string>kBits</string>
+                    </property>
+                    <property name="maximum">
+                     <number>360</number>
+                    </property>
+                    <property name="singleStep">
+                     <number>16</number>
+                    </property>
+                    <property name="value">
+                     <number>96</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="encodeAudioSpacer">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="2" column="0" colspan="2">
+                <widget class="QLabel" name="encodeIgnoreNotice">
+                 <property name="text">
+                  <string>&quot;Don't encode&quot; checkboxes are ignored for audio-only or video-only files.</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
             </widget>
            </item>
            <item>

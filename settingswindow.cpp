@@ -359,6 +359,8 @@ void SettingsWindow::setupPageTree()
     int pageTreeWidth = ui->pageTree->columnWidth(0);
     ui->pageTree->setMinimumWidth(pageTreeWidth * 11 / 10);
     ui->pageTree->header()->setStretchLastSection(true);
+
+    ui->splitter->setSizes({pageTreeWidth + 10, width() - pageTreeWidth});
 }
 
 void SettingsWindow::setupPlatformWidgets()
@@ -453,7 +455,7 @@ void SettingsWindow::setupUnimplementedWidgets()
 
     ui->subtitlesDatabaseBox->setEnabled(false);
 
-    ui->encodeBox->setEnabled(false);
+    ui->encodeTab->setEnabled(false);
 
     ui->tweaksShowChapterMarks->setEnabled(false);
     ui->tweaksTimeTooltipLocation->setEnabled(false);
