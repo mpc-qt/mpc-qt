@@ -16,8 +16,8 @@ class MprisInstance : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(int dbusId READ dbusId)
-    Q_PROPERTY(QString dbusName READ dbusName)
-    Q_PROPERTY(bool registered READ registered)
+    Q_PROPERTY(QString dbusName READ dbusName CONSTANT)
+    Q_PROPERTY(bool registered READ registered NOTIFY dbusRegistered)
 
 public:
     explicit MprisInstance(QObject *parent = nullptr);
@@ -31,6 +31,7 @@ public:
     void setProtocolList(const QStringList &protocolList);
 
 signals:
+    void dbusRegistered(bool yes);
     void fullscreenMode(bool yes);
     void raiseWindow();
     void closeInstance();

@@ -33,7 +33,7 @@ class PaletteEditor : public QWidget
 {
     Q_OBJECT
     Q_PROPERTY(QPalette palette READ palette WRITE setPalette NOTIFY paletteChanged RESET resetPalette)
-    Q_PROPERTY(QVariant value READ variant WRITE setVariant)
+    Q_PROPERTY(QVariant value READ variant WRITE setVariant NOTIFY valueChanged)
 
 public:
     typedef QPair<QPalette::ColorGroup,QPalette::ColorRole> ColorPair;
@@ -51,6 +51,7 @@ public:
 
 signals:
     void paletteChanged(QPalette pal);
+    void valueChanged();
 
 public slots:
     void setPalette(const QPalette &pal);
@@ -58,7 +59,7 @@ public slots:
     void resetPalette();
 
 private slots:
-    void colorField_valueSelected(ColorPair entry, QColor color);
+    void colorField_valueSelected(PaletteEditor::ColorPair entry, QColor color);
     void generateButton_clicked();
     void generateButtonWindow_clicked();
 

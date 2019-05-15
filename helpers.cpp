@@ -178,7 +178,6 @@ QString Helpers::fileSizeToString(int64_t bytes)
     if (bytes < 1024) {
         text = QString("%1 bytes").arg(QString::number(bytes));
     } else {
-        QString concise;
         QString unit;
         double divisor;
         if (bytes < 1024*1024) {
@@ -445,13 +444,13 @@ QString Helpers::parseFormatEx(QString fmt, QUrl sourceUrl, QString filePath,
 
 QString Helpers::fileOpenFilter()
 {
-    QString ext = QStringList(Helpers::fileExtensions.toList()).join(" *.");
+    const QString ext = QStringList(Helpers::fileExtensions.toList()).join(" *.");
     return QString(QObject::tr("All Media (*.%1);;All Files (*.*)")).arg(ext);
 }
 
 QString Helpers::subsOpenFilter()
 {
-    QString ext = QStringList(Helpers::subsExtensions.toList()).join(" *.");
+    const QString ext = QStringList(Helpers::subsExtensions.toList()).join(" *.");
     return QString(QObject::tr("All Subtitles (*.%1);;All Files (*.*)")).arg(ext);
 }
 
@@ -572,7 +571,7 @@ void IconThemer::setIconFolders(FolderMode folderMode,
     mode = folderMode;
     fallback = fallbackFolder;
     custom = customFolder;
-    for (const IconData &data : iconDataList)
+    for (const IconData &data : qAsConst(iconDataList))
         updateButton(data);
 }
 

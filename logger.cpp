@@ -11,7 +11,7 @@ static Logger *loggerInstance = nullptr;
 
 void loggerCallback(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
-    Q_UNUSED(context);
+    Q_UNUSED(context)
     switch (type) {
     case QtDebugMsg:
         Logger::log("qt", "debug", msg);
@@ -124,7 +124,7 @@ void Logger::fatalMessage()
     // Oops!  Something went very wrong!
     // Try to flush anything pending to stderr and abort
     if (loggerInstance) {
-        for (auto i : loggerInstance->pendingMessages)
+        for (const auto &i : qAsConst(loggerInstance->pendingMessages))
             std::fprintf(stderr, "%s\n", i.toLocal8Bit().data());
     }
 }

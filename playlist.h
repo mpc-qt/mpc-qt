@@ -25,7 +25,7 @@ public:
     void setPlaylistUuid(const QUuid &uuid);
     QUrl url() const;
     void setUrl(const QUrl &url);
-    QVariantMap metadata() const;
+    const QVariantMap &metadata() const;
     void setMetadata(const QVariantMap &qvm);
 
     int originalPosition();

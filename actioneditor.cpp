@@ -86,7 +86,7 @@ void ActionEditor::setCommand(int index, const Command &c)
 void ActionEditor::updateActions()
 {
     MouseStateMap fullscreen, windowed;
-    for (const Command &c : commands) {
+    for (const Command &c : qAsConst(commands)) {
         c.action->setShortcut(c.keys);
         if (!!c.mouseFullscreen)
             fullscreen[c.mouseFullscreen] = c.action;
@@ -128,8 +128,8 @@ ShortcutDelegate::ShortcutDelegate(QObject *parent)
 
 QWidget *ShortcutDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    Q_UNUSED(option);
-    Q_UNUSED(index);
+    Q_UNUSED(option)
+    Q_UNUSED(index)
     ShortcutWidget *editor = new ShortcutWidget(parent);
     return static_cast<QWidget*>(editor);
 }
@@ -152,7 +152,7 @@ void ShortcutDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, 
 
 void ShortcutDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    Q_UNUSED(index);
+    Q_UNUSED(index)
     editor->setGeometry(option.rect);
 }
 
@@ -165,8 +165,8 @@ ButtonDelegate::ButtonDelegate(QObject *parent, bool fullscreen)
 
 QWidget *ButtonDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    Q_UNUSED(option);
-    Q_UNUSED(index);
+    Q_UNUSED(option)
+    Q_UNUSED(index)
     return qobject_cast<QWidget*>(new ButtonWidget(parent));
 }
 
@@ -193,7 +193,7 @@ void ButtonDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, co
 
 void ButtonDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    Q_UNUSED(index);
+    Q_UNUSED(index)
     QRect rc = option.rect;
     QSize sz = editor->minimumSizeHint();
     if (rc.width() < sz.width())  rc.setWidth(sz.width());
@@ -213,7 +213,7 @@ ButtonWidget::ButtonWidget(QWidget *parent) : QWidget(parent)
     group->setExclusive(true);
     for (int i = 0; i < MouseState::buttonToTextCount(); i++) {
         QAction *a = new QAction( MouseState::buttonToText(i), this);
-        connect(a, &QAction::triggered, [i, this]() {
+        connect(a, &QAction::triggered, this, [i, this]() {
             buttonMenu_selected(i);
         });
         a->setCheckable(true);
@@ -230,7 +230,7 @@ ButtonWidget::ButtonWidget(QWidget *parent) : QWidget(parent)
     menu = new QMenu;
     for (int i = 0; i < MouseState::modToTextCount(); i++) {
         QAction *a = new QAction(MouseState::modToText(i), this);
-        connect(a, &QAction::toggled, [i, this](bool yes) {
+        connect(a, &QAction::toggled, this, [i, this](bool yes) {
             keyModMenu_selected(i, yes);
         });
         a->setCheckable(true);
@@ -249,7 +249,7 @@ ButtonWidget::ButtonWidget(QWidget *parent) : QWidget(parent)
     group->setExclusive(true);
     for (int i = 0; i < MouseState::pressToTextCount(); i++) {
         QAction *a = new QAction(MouseState::pressToText(i), this);
-        connect(a, &QAction::triggered, [i, this]() {
+        connect(a, &QAction::triggered, this, [i, this]() {
             pressMenu_selected(i);
         });
         a->setCheckable(true);

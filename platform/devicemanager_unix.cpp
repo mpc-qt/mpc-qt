@@ -280,8 +280,8 @@ QString UDisks2Block::toString()
 {
     return QString("name: %1\ndev: %2\nid: %3\ndrive: %4\nsize: %5\n"
                    "readonly: %6\nusage: %7\ntype: %8\nlabel: %9")
-            .arg(deviceName).arg(dev).arg(id).arg(internal).arg(size).arg(readonly)
-            .arg(usage).arg(type).arg(volumeLabel);
+            .arg(deviceName, dev, id, internal, QString::number(size),
+                 QString::number(int(readonly)), usage, type, volumeLabel);
 }
 
 void UDisks2Block::update()
@@ -318,7 +318,7 @@ void UDisks2Block::updateFilesystem()
     if (fs) {
         fs->update();
         if (!fs->mountPoints().isEmpty())
-            mountedPath = fs->mountPoints().first();
+            mountedPath = fs->mountPoints().at(0);
         else
             mountedPath.clear();
     }
@@ -334,7 +334,7 @@ void UDisks2Block::addFilesystem()
     if (!fs)
         fs = new UDisks2Filesystem(deviceName);
     if (!fs->mountPoints().isEmpty())
-        mountedPath = fs->mountPoints().first();
+        mountedPath = fs->mountPoints().at(0);
     else
         mountedPath.clear();
     emit filesystemAdded(deviceName);
@@ -355,8 +355,8 @@ UDisks2Filesystem *UDisks2Block::fileSystem()
 
 void UDisks2Block::self_propertiesChanged(const QString &interface, const QVariantMap &changedProp, const QStringList &invalidatedProp)
 {
-    Q_UNUSED(changedProp);
-    Q_UNUSED(invalidatedProp);
+    Q_UNUSED(changedProp)
+    Q_UNUSED(invalidatedProp)
     if (interface == DBUS_IFACE_BLOCK) {
         update();
         emit changed(deviceName);
@@ -384,10 +384,8 @@ UDisks2Drive::UDisks2Drive(const QString &node, QObject *parent) :
 
 QString UDisks2Drive::toString()
 {
-    return QString("name: %1\nsize: %2\nvendor: %3\nmodel: %4\nserial: %5\n"
-                   "id: %6\nmedia: %7\noptical: %8\nremovable: %9\navailable: %10")
-            .arg(name).arg(size).arg(vendor).arg(model).arg(serial).arg(id)
-            .arg(media).arg(optical).arg(removable).arg(available);
+    return QString("name: %1\nsize: %2\nvendor: %3\nmodel: %4\nserial: %5\n").arg(name, QString::number(size), vendor, model, serial)
+            + QString("id: %6\nmedia: %7\noptical: %8\nremovable: %9\navailable: %10").arg(id, media, QString::number(int(optical)), QString::number(int(removable)), QString::number(int(available)));
 }
 
 void UDisks2Drive::update()
@@ -405,9 +403,9 @@ void UDisks2Drive::update()
 
 void UDisks2Drive::self_propertiesChanged(const QString &interface, const QVariantMap &changedProp, const QStringList &invalidatedProp)
 {
-    Q_UNUSED(interface);
-    Q_UNUSED(changedProp);
-    Q_UNUSED(invalidatedProp);
+    Q_UNUSED(interface)
+    Q_UNUSED(changedProp)
+    Q_UNUSED(invalidatedProp)
     update();
     emit this->changed(name);
 }
@@ -427,10 +425,10 @@ UDisks2Filesystem::UDisks2Filesystem(const QString &node, QObject *parent)
                               DBUS_BLOCKS_ROOT + "/" + node,
                               DBUS_IFACE_PROPERTIES,
                               system, parent);
-    emit update();
+    update();
 }
 
-QStringList UDisks2Filesystem::mountPoints() const { return mountPoints_; }
+const QStringList &UDisks2Filesystem::mountPoints() const { return mountPoints_; }
 
 void UDisks2Filesystem::mount()
 {
@@ -453,7 +451,7 @@ void UDisks2Filesystem::update()
         // No such interface, the device had no filesystem
         return;
     }
-    QVariant v = reply.arguments().first();
+    QVariant v = reply.arguments().at(0);
     QDBusArgument arg = v.value<QDBusVariant>().variant().value<QDBusArgument>();
     arg.beginArray();
     while (!arg.atEnd()) {

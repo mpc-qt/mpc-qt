@@ -81,7 +81,7 @@ void ThumbnailerWindow::thumbnailer_finished()
 
 void ThumbnailerWindow::open(QUrl sourceUrl)
 {
-    QString displayText = sourceUrl.fileName();
+    //QString displayText = sourceUrl.fileName();
     QString saveFile = Helpers::parseFormatEx(thumbFormat, sourceUrl, screenshotDirectory, screenshotFormat,
                                               Helpers::NothingDisabled, Helpers::SubtitlesDisabled,
                                               0.0, 0.0, 0.0);
@@ -132,19 +132,19 @@ void MpvThumbnailer::execute(const MpvThumbnailer::Params &p)
     pendingPts.clear();
     processedPts.clear();
 
-    mpv->ctrlSetOptionVariant("profile", "gpu-hq");
-    mpv->ctrlSetOptionVariant("blend-subtitles", "video");
-    mpv->ctrlSetOptionVariant("sub-visibility", "no");
-    mpv->ctrlSetOptionVariant("osd-align-x", "right");
-    mpv->ctrlSetOptionVariant("osd-align-y", "bottom");
-    mpv->ctrlSetOptionVariant("osd-duration", "3000");
-    mpv->ctrlSetOptionVariant("osd-color", "#80FFFFFF");
-    mpv->ctrlSetOptionVariant("osd-border-color", "#80000000");
-    mpv->ctrlSetOptionVariant("osd-bold", "yes");
-    mpv->ctrlSetOptionVariant("ao", "null");
-    mpv->ctrlSetOptionVariant("ao-null-untimed", "yes");
-    mpv->ctrlSetOptionVariant("untimed", "yes");
-    mpv->ctrlSetOptionVariant("fps", 200);
+    emit mpv->ctrlSetOptionVariant("profile", "gpu-hq");
+    emit mpv->ctrlSetOptionVariant("blend-subtitles", "video");
+    emit mpv->ctrlSetOptionVariant("sub-visibility", "no");
+    emit mpv->ctrlSetOptionVariant("osd-align-x", "right");
+    emit mpv->ctrlSetOptionVariant("osd-align-y", "bottom");
+    emit mpv->ctrlSetOptionVariant("osd-duration", "3000");
+    emit mpv->ctrlSetOptionVariant("osd-color", "#80FFFFFF");
+    emit mpv->ctrlSetOptionVariant("osd-border-color", "#80000000");
+    emit mpv->ctrlSetOptionVariant("osd-bold", "yes");
+    emit mpv->ctrlSetOptionVariant("ao", "null");
+    emit mpv->ctrlSetOptionVariant("ao-null-untimed", "yes");
+    emit mpv->ctrlSetOptionVariant("untimed", "yes");
+    emit mpv->ctrlSetOptionVariant("fps", 200);
     mpv->urlOpen(p.sourceUrl);
     mpv->setPaused(true);
     emit progress(0);
@@ -262,15 +262,15 @@ void MpvThumbnailer::renderImage()
     QSize imageSize(p.imageWidth, captionArea.bottom() + rhsPadding +
                     ((thumbSize.height()+ thumbMargin) * p.rows));
     render = QImage(imageSize, QImage::Format_RGB32);
-    render.fill(QColor("#efeeec"));
+    render.fill(QColor(0xef, 0xee, 0xec));
     QPainter p(&render);
 
     // Draw texts
-    p.setPen(QColor("#fcfbfa"));
+    p.setPen(QColor(0xfc, 0xfb, 0xfa));
     p.setFont(selfFont);
     p.drawText(selfRect, Qt::AlignRight | Qt::AlignVCenter, self);
 
-    p.setPen(QColor("#100f0d"));
+    p.setPen(QColor(0x10, 0x0f, 0x0d));
     p.setFont(blurbFont);
     p.drawText(blurbRect.translated(pageMargin, pageMargin), 0, blurb);
 
@@ -278,8 +278,8 @@ void MpvThumbnailer::renderImage()
     for (auto &t : processedPts) {
         QRectF rc({int(t.x) + 0.5, int(t.y) + 0.5}, t.thumb.size());
         rc.translate(pageMargin, captionArea.bottom());
-        p.fillRect(rc.translated(thumbShadow, thumbShadow), "#bcbbba");
-        p.fillRect(rc.adjusted(-1,-1,1,1), "#8c8b8a");
+        p.fillRect(rc.translated(thumbShadow, thumbShadow), {0xbc, 0xbb, 0xba});
+        p.fillRect(rc.adjusted(-1,-1,1,1), {0x8c, 0x8b, 0x8a});
         p.drawImage(rc.topLeft().toPoint(), t.thumb);
     }
 }
@@ -314,8 +314,8 @@ void MpvThumbnailer::mpv_videoSizeChanged(QSize video)
 
     // Set a consistent size for the osd message
     double factor = safeDiv(mpvVideoSize.height(), h);
-    mpv->ctrlSetOptionVariant("osd-font-size", int(osdFontSize * factor));
-    mpv->ctrlSetOptionVariant("osd-border-size", int(osdFontShadow * factor));
+    emit mpv->ctrlSetOptionVariant("osd-font-size", int(osdFontSize * factor));
+    emit mpv->ctrlSetOptionVariant("osd-border-size", int(osdFontShadow * factor));
 
     if (thumbState == StaleState) {
         // video size was not valid at first navigation,
@@ -420,17 +420,17 @@ MpvThumbnailDrawer::~MpvThumbnailDrawer()
 
 void MpvThumbnailDrawer::setLogoUrl(const QString &filename)
 {
-    Q_UNUSED(filename);
+    Q_UNUSED(filename)
 }
 
 void MpvThumbnailDrawer::setLogoBackground(const QColor &color)
 {
-    Q_UNUSED(color);
+    Q_UNUSED(color)
 }
 
 void MpvThumbnailDrawer::setDrawLogo(bool yes)
 {
-    Q_UNUSED(yes);
+    Q_UNUSED(yes)
 }
 
 void MpvThumbnailDrawer::initializeGL()

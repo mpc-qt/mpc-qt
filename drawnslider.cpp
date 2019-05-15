@@ -103,7 +103,7 @@ double DrawnSlider::xToValue(double x)
 
 void DrawnSlider::paintEvent(QPaintEvent *event)
 {
-    Q_UNUSED(event);
+    Q_UNUSED(event)
     QPalette pal;
     pal = reinterpret_cast<QWidget*>(parentWidget())->palette();
     grooveBorder = pal.color(QPalette::Normal, QPalette::Shadow);
@@ -133,14 +133,14 @@ void DrawnSlider::paintEvent(QPaintEvent *event)
         double x = isDragging ? xPosition : valueToX(value());
         x -= handleWidth/2.0;
         x *= pr;
-        int index = ((int)(modf(x, &px) * 16.0))&15;
+        int index = int(modf(x, &px) * 16.0)&15;
         p.drawImage(QPointF(px - 0.5, (height() - handleHeight)/2), handlePics[index]);
     }
 }
 
 void DrawnSlider::resizeEvent(QResizeEvent *event)
 {
-    Q_UNUSED(event);
+    Q_UNUSED(event)
     /*
         MEDIA SLIDER CASE
 
@@ -369,13 +369,13 @@ void MediaSlider::makeHandle()
 
 void MediaSlider::enterEvent(QEvent *event)
 {
-    Q_UNUSED(event);
+    Q_UNUSED(event)
     emit hoverBegin();
 }
 
 void MediaSlider::leaveEvent(QEvent *event)
 {
-    Q_UNUSED(event);
+    Q_UNUSED(event)
     emit hoverEnd();
 }
 
@@ -418,8 +418,8 @@ VolumeSlider::VolumeSlider(QWidget *parent) :
 void VolumeSlider::makeBackground()
 {
     int pr = devicePixelRatio();
-    int pw = drawnArea.width() * pr;
-    int ph = drawnArea.height() * pr;
+    int pw = int(drawnArea.width() * pr);
+    int ph = int(drawnArea.height() * pr);
     backgroundPic = QImage(pw, ph, QImage::Format_RGB32);
     backgroundPic.fill(bgColor);
     QPainter p(&backgroundPic);

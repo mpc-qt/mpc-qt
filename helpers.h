@@ -66,8 +66,6 @@ class IconThemer : public QObject {
 public:
     class IconData {
     public:
-        IconData(QPushButton *b, QString on, QString off = QString()) :
-             button(b), iconNormal(on), iconChecked(off) {}
         QPushButton *button; QString iconNormal; QString iconChecked;
     };
     enum FolderMode { FallbackFolder, CustomFolder, SystemFolder };
@@ -77,7 +75,7 @@ public:
     void updateButton(const IconData &data);
 
 public slots:
-    void setIconFolders(FolderMode folderMode, const QString &fallbackFolder, const QString &customFolder);
+    void setIconFolders(IconThemer::FolderMode folderMode, const QString &fallbackFolder, const QString &customFolder);
 
 private:
     QList<IconData> iconDataList;
@@ -213,7 +211,7 @@ public:
 };
 
 inline uint qHash(const MouseState &m, uint seed) {
-    Q_UNUSED(seed);
+    Q_UNUSED(seed)
     return m.mouseHash();
 }
 

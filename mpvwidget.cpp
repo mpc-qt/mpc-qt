@@ -136,7 +136,7 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
         { "scripts", scripts }
     };
     QMetaObject::invokeMethod(ctrl, "create", Qt::BlockingQueuedConnection,
-                              Q_ARG(const MpvController::OptionList &, earlyOptions));
+                              Q_ARG(MpvController::OptionList, earlyOptions));
 
     // clean up objects when the worker thread is deleted
     connect(worker, &QThread::finished, ctrl, &MpvController::deleteLater);
@@ -172,8 +172,8 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
     };
     QMetaObject::invokeMethod(ctrl, "observeProperties",
                               Qt::QueuedConnection,
-                              Q_ARG(const MpvController::PropertyList &, options),
-                              Q_ARG(const QSet<QString> &, throttled));
+                              Q_ARG(MpvController::PropertyList, options),
+                              Q_ARG(QSet<QString>, throttled));
 
     QMetaObject::invokeMethod(ctrl, "addHook",
                               Qt::QueuedConnection,
@@ -292,7 +292,7 @@ void MpvObject::showMessage(QString message)
 
 void MpvObject::showStatsPage(int page)
 {
-    ctrlShowStats(page);
+    emit ctrlShowStats(page);
     shownStatsPage = page;
 }
 
@@ -716,17 +716,17 @@ void MpvWidgetInterface::setController(MpvController *controller)
 
 void MpvWidgetInterface::setLogoUrl(const QString &filename)
 {
-    Q_UNUSED(filename);
+    Q_UNUSED(filename)
 }
 
 void MpvWidgetInterface::setLogoBackground(const QColor &color)
 {
-    Q_UNUSED(color);
+    Q_UNUSED(color)
 }
 
 void MpvWidgetInterface::setDrawLogo(bool yes)
 {
-    Q_UNUSED(yes);
+    Q_UNUSED(yes)
 }
 
 

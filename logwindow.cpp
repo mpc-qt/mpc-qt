@@ -33,7 +33,6 @@ void LogWindow::appendMessage(QString message)
 
 void LogWindow::appendMessageBlock(QStringList messages)
 {
-    QString text = messages.join('\n');
     ui->messages->appendPlainText(messages.join('\n'));
 }
 

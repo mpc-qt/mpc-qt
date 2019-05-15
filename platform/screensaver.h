@@ -36,7 +36,7 @@ signals:
     void systemSuspended();
     void systemShutdown();
     void loggedOff();
-    void failed(Ability what);
+    void failed(ScreenSaver::Ability what);
 
 protected:
     bool isInhibiting = false;

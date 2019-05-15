@@ -14,7 +14,7 @@ QSet<ScreenSaverMac::Ability> ScreenSaverMac::abilities()
 
 void ScreenSaverMac::inhibitSaver(const QString &reason)
 {
-    Q_UNUSED(reason);
+    Q_UNUSED(reason)
     emit failed(Inhibit);
 }
 

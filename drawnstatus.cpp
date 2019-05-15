@@ -61,7 +61,7 @@ void StatusTime::updateText()
 
 void StatusTime::paintEvent(QPaintEvent *event)
 {
-    Q_UNUSED(event);
+    Q_UNUSED(event)
     QPainter p(this);
     QColor bgColor = parentWidget()->palette().color(QPalette::Active, QPalette::Window);
     QColor txColor = parentWidget()->palette().color(QPalette::Active, QPalette::WindowText);

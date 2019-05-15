@@ -164,7 +164,7 @@ void MpcQtServer::self_newConnection(QLocalSocket *socket)
         return;
     }
 
-    connect(socket, &QLocalSocket::readyRead, [=]() {
+    connect(socket, &QLocalSocket::readyRead, this, [=]() {
         QList<QByteArray> dataList = socket->readAll().split('\n');
         for (const QByteArray &data : dataList) {
             if(data.size())
@@ -495,7 +495,7 @@ void MpvConnection::ctrl_logMessage(QString message)
 {
     // no connection -- if you're parsing log messages for anything useful,
     // you're insane.  Doesn't mean I may not get to it later though.
-    Q_UNUSED(message);
+    Q_UNUSED(message)
 }
 
 void MpvConnection::ctrl_clientMessage(uint64_t id, const QStringList &args)
@@ -510,7 +510,7 @@ void MpvConnection::ctrl_clientMessage(uint64_t id, const QStringList &args)
 
 void MpvConnection::ctrl_videoSizeChanged(const QSize &size)
 {
-    Q_UNUSED(size);
+    Q_UNUSED(size)
     QVariantMap map {
         { "event", mpv_event_name(MPV_EVENT_VIDEO_RECONFIG) },
     };

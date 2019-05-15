@@ -136,7 +136,7 @@ void PlaybackManager::playItem(QUuid playlist, QUuid item)
 
 void PlaybackManager::playDevice(QUrl device)
 {
-    Q_UNUSED(device);
+    Q_UNUSED(device)
     //FIXME: detect dvb dongles, and use a channel map (or make one?)
 }
 

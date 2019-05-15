@@ -282,7 +282,7 @@ void MainWindow::unfreezeWindow()
 
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
-    Q_UNUSED(event);
+    Q_UNUSED(event)
     updateBottomAreaGeometry();
     checkBottomArea(QCursor::pos());
 }
@@ -433,7 +433,7 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
     updateMouseHideTime();
 
     //REMOVEME: work around OpenGL blackness bug after fullscreen
-    QTimer::singleShot(50, [this]() {
+    QTimer::singleShot(50, this, [this]() {
         positionSlider_->update();
         volumeSlider_->update();
         timePosition->update();
@@ -663,18 +663,18 @@ void MainWindow::setupBottomArea()
 
 void MainWindow::setupIconThemer()
 {
-    QList<IconThemer::IconData> data {
-        { ui->play, "media-playback-start" },
-        { ui->pause, "media-playback-pause" },
-        { ui->stop, "media-playback-stop" },
-        { ui->skipBackward, "go-previous" },
-        { ui->skipForward, "go-next" },
-        { ui->speedDecrease, "media-seek-backward" },
-        { ui->speedIncrease, "media-seek-forward" },
-        { ui->stepBackward, "media-skip-backward" },
-        { ui->stepForward, "media-skip-forward" },
-        { ui->loopA, "zone-in" },
-        { ui->loopB, "zone-out" },
+    QVector<IconThemer::IconData> data {
+        { ui->play, "media-playback-start", {} },
+        { ui->pause, "media-playback-pause", {} },
+        { ui->stop, "media-playback-stop", {} },
+        { ui->skipBackward, "go-previous", {} },
+        { ui->skipForward, "go-next", {} },
+        { ui->speedDecrease, "media-seek-backward", {} },
+        { ui->speedIncrease, "media-seek-forward", {} },
+        { ui->stepBackward, "media-skip-backward", {} },
+        { ui->stepForward, "media-skip-forward", {} },
+        { ui->loopA, "zone-in", {} },
+        { ui->loopB, "zone-out", {} },
         { ui->subs, "view-media-subtitles", "view-media-subtitles-hidden" },
         { ui->mute, "player-volume", "player-volume-muted" }
     };
@@ -729,7 +729,7 @@ void MainWindow::connectButtonsToActions()
     connect(ui->loopB, &QPushButton::clicked,
             ui->actionPlayLoopEnd, &QAction::triggered);
 
-    connect(ui->subs, &QPushButton::toggled,
+    connect(ui->subs, &QPushButton::toggled, this,
             [this](bool checked) { on_actionPlaySubtitlesEnabled_triggered(!checked); });
     connect(ui->mute, &QPushButton::toggled,
             ui->actionPlayVolumeMute, &QAction::toggled);
@@ -1135,7 +1135,7 @@ void MainWindow::setRecentDocuments(QList<TrackInfo> tracks)
         QString displayString = track.url.fileName();
         QAction *a = new QAction(QString("%1 - %2").arg(i).arg(displayString),
                                  this);
-        connect(a, &QAction::triggered, [=]() {
+        connect(a, &QAction::triggered, this, [=]() {
             emit recentOpened(track);
         });
         ui->menuFileRecent->addAction(a);
@@ -1167,13 +1167,13 @@ void MainWindow::setFavoriteTracks(QList<TrackInfo> files, QList<TrackInfo> stre
             a->setText(t.text);
             connect(a, &QAction::triggered,
                     a, [t, this]() {
-                this->recentOpened(t);
+                emit this->recentOpened(t);
             });
             addAction(a);
         }
     };
 
-    for (auto a : menuFavoritesTail)
+    for (auto a : qAsConst(menuFavoritesTail))
         delete a;
     menuFavoritesTail.clear();
 
@@ -1360,7 +1360,7 @@ void MainWindow::setChapters(QList<QPair<double, QString>> chapters)
         positionSlider_->setTick(chapter.first, chapter.second);
         QAction *action = new QAction(this);
         action->setText(chapter.second);
-        connect (action, &QAction::triggered, [this,index]() {
+        connect (action, &QAction::triggered, this, [this,index]() {
            emit chapterSelected(index);
         });
         ui->menuNavigateChapters->addAction(action);
@@ -1375,7 +1375,7 @@ void MainWindow::setAudioTracks(QList<QPair<int64_t, QString>> tracks)
         QAction *action = new QAction(this);
         action->setText(track.second);
         int64_t index = track.first;
-        connect(action, &QAction::triggered, [this,index] {
+        connect(action, &QAction::triggered, this, [this,index] {
             emit audioTrackSelected(index);
         });
         ui->menuPlayAudio->addAction(action);
@@ -1390,7 +1390,7 @@ void MainWindow::setVideoTracks(QList<QPair<int64_t, QString>> tracks)
         QAction *action = new QAction(this);
         action->setText(track.second);
         int64_t index = track.first;
-        connect(action, &QAction::triggered, [this,index]() {
+        connect(action, &QAction::triggered, this, [this,index]() {
            emit videoTrackSelected(index);
         });
         ui->menuPlayVideo->addAction(action);
@@ -1417,7 +1417,7 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
         QAction *action = new QAction(this);
         action->setText(track.second);
         int64_t index = track.first;
-        connect(action, &QAction::triggered, [this,index]() {
+        connect(action, &QAction::triggered, this, [this,index]() {
             emit subtitleTrackSelected(index);
         });
         ui->menuPlaySubtitles->addAction(action);
@@ -1580,7 +1580,7 @@ void MainWindow::on_actionFileOpenNetworkStream_triggered()
     qid->setWindowModality(Qt::WindowModal);
     qid->setWindowTitle(tr("Enter Network Stream"));
     qid->setLabelText(tr("Network Stream"));
-    connect(qid, &QInputDialog::accepted, [=] () {
+    connect(qid, &QInputDialog::accepted, this, [=] () {
         emit streamOpened(QUrl::fromUserInput(qid->textValue()));
     });
     qid->show();
@@ -1675,14 +1675,14 @@ void MainWindow::on_actionViewHideControls_toggled(bool checked)
 
 void MainWindow::on_actionViewHideInformation_toggled(bool checked)
 {
-    Q_UNUSED(checked);
+    Q_UNUSED(checked)
     updateInfostats();
     updateSize();
 }
 
 void MainWindow::on_actionViewHideStatistics_toggled(bool checked)
 {
-    Q_UNUSED(checked);
+    Q_UNUSED(checked)
     updateInfostats();
     updateSize();
 }

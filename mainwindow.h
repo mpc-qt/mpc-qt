@@ -28,7 +28,7 @@ private:
                      OnTopForVideos };
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
     MpvObject *mpvObject();
@@ -167,7 +167,7 @@ public slots:
     void setVolumeStep(int stepSize);
     void setSizeFactor(double factor);
     void setFitFactor(double fitFactor);
-    void setZoomMode(ZoomMode mode);
+    void setZoomMode(MainWindow::ZoomMode mode);
     void setZoomPreset(int which, double fitFactor = -1.0);
     void setZoomCenter(bool yes);
     void setMouseHideTimeFullscreen(int msec);

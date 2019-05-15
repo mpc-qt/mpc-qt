@@ -100,8 +100,8 @@ private:
 class UDisks2Filesystem : public QObject {
     Q_OBJECT
 public:
-    UDisks2Filesystem(const QString &node, QObject *parent = NULL);
-    QStringList mountPoints() const;
+    UDisks2Filesystem(const QString &node, QObject *parent = nullptr);
+    const QStringList &mountPoints() const;
     void mount();
     void unmount();
     void update();

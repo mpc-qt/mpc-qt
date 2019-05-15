@@ -36,8 +36,8 @@ signals:
     void titleChanged(QString title);
     void chapterTitleChanged(QString title);
     void videoSizeChanged(QSize size);
-    void stateChanged(PlaybackState state);
-    void typeChanged(PlaybackType type);
+    void stateChanged(PlaybackManager::PlaybackState state);
+    void typeChanged(PlaybackManager::PlaybackType type);
     // Transmit a map of chapter index to time,description pairs
     void chaptersAvailable(QList<QPair<double,QString>> chapters);
     // These signals transmit a list of (id, description) pairs

@@ -127,8 +127,8 @@ FavoritesDelegate::~FavoritesDelegate()
 
 QWidget *FavoritesDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    Q_UNUSED(option);
-    Q_UNUSED(index);
+    Q_UNUSED(option)
+    Q_UNUSED(index)
     return new QLineEdit(parent);
 }
 
@@ -140,7 +140,7 @@ void FavoritesDelegate::setEditorData(QWidget *editor, const QModelIndex &index)
 
 void FavoritesDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 {
-    Q_UNUSED(model);
+    Q_UNUSED(model)
     FavoritesItem *item = static_cast<FavoritesItem*>(owner->item(index.row()));
     QString text = static_cast<QLineEdit*>(editor)->text();
     if (text.isEmpty())
@@ -150,7 +150,7 @@ void FavoritesDelegate::setModelData(QWidget *editor, QAbstractItemModel *model,
 
 QSize FavoritesDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    Q_UNUSED(index);
+    Q_UNUSED(index)
     return QApplication::style()->sizeFromContents(QStyle::CT_ItemViewItem,
                                                    &option,
                                                    option.rect.size());
@@ -174,6 +174,6 @@ void FavoritesDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
 void FavoritesDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    Q_UNUSED(index);
+    Q_UNUSED(index)
     editor->setGeometry(option.rect);
 }

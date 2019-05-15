@@ -65,7 +65,7 @@ void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
 QSize PlayPainter::sizeHint(const QStyleOptionViewItem &option,
                             const QModelIndex &index) const
 {
-    Q_UNUSED(index);
+    Q_UNUSED(index)
     return QApplication::style()->sizeFromContents(QStyle::CT_ItemViewItem,
                                                    &option,
                                                    option.rect.size());
@@ -354,8 +354,8 @@ void DrawnPlaylist::model_rowsMoved(const QModelIndex &parent,
                                      int start, int end,
                                      const QModelIndex &destination, int row)
 {
-    Q_UNUSED(parent);
-    Q_UNUSED(destination);
+    Q_UNUSED(parent)
+    Q_UNUSED(destination)
     QSharedPointer<Playlist> p = playlist();
     if (p.isNull())
         return;
@@ -374,7 +374,7 @@ void DrawnPlaylist::model_rowsMoved(const QModelIndex &parent,
 void DrawnPlaylist::self_currentItemChanged(QListWidgetItem *current,
                                              QListWidgetItem *previous)
 {
-    Q_UNUSED(previous);
+    Q_UNUSED(previous)
     QUuid uuid;
     if (current && !(uuid=reinterpret_cast<PlayItem*>(current)->uuid()).isNull())
         lastSelectedItem = uuid;

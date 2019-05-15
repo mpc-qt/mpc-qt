@@ -497,7 +497,7 @@ SettingMap SettingsWindow::generateSettingMap(QWidget *root)
             if (child->inherits("QWidget") || child->inherits("QLayout"))
             toParse.append(child);
         }
-    };
+    }
     return settingMap;
 }
 
@@ -608,7 +608,7 @@ void SettingsWindow::setAudioDevices(const QList<AudioDevice> &devices)
 {
     audioDevices = devices;
     ui->audioDevice->clear();
-    for (const AudioDevice &device : audioDevices)
+    for (const AudioDevice &device : qAsConst(audioDevices))
         ui->audioDevice->addItem(device.displayString());
 }
 
@@ -811,7 +811,7 @@ void SettingsWindow::sendSignals()
 
     emit option("gamma", WIDGET_LOOKUP(ui->ccGamma));
     if (Platform::isMac)
-        option("gamma-auto", WIDGET_LOOKUP(ui->ccGammaAutodetect));
+        emit option("gamma-auto", WIDGET_LOOKUP(ui->ccGammaAutodetect));
     emit option("target-prim", WIDGET_TO_TEXT(ui->ccTargetPrim));
     emit option("target-trc", WIDGET_TO_TEXT(ui->ccTargetTRC));
     int targetPeak = WIDGET_LOOKUP(ui->ccTargetPeak).toInt();
@@ -1148,7 +1148,7 @@ void SettingsWindow::on_logoExternal_clicked()
 
 void SettingsWindow::on_logoInternal_currentIndexChanged(int index)
 {
-    Q_UNUSED(index);
+    Q_UNUSED(index)
     updateLogoWidget();
 }
 

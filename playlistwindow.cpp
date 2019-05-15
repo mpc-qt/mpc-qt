@@ -265,7 +265,7 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
 
 bool PlaylistWindow::eventFilter(QObject *obj, QEvent *event)
 {
-    Q_UNUSED(obj);
+    Q_UNUSED(obj)
     if (obj == ui->searchField && event->type() == QEvent::KeyPress) {
         auto keyEvent = reinterpret_cast<QKeyEvent*>(event);
         if (!keyEvent->modifiers() &&
@@ -303,16 +303,16 @@ void PlaylistWindow::wheelEvent(QWheelEvent *event)
 
 void PlaylistWindow::setupIconThemer()
 {
-    QList<IconThemer::IconData> data {
-        { ui->newTab, "tab-new" },
-        { ui->closeTab, "tab-close" },
-        { ui->duplicateTab, "tab-duplicate" },
-        { ui->importList, "document-import" },
-        { ui->exportList, "document-export" },
-        { ui->visibleToQueue, "media-queue-visible" },
-        { ui->showQueue, "view-media-queue" }
+    QVector<IconThemer::IconData> data {
+        { ui->newTab, "tab-new", {} },
+        { ui->closeTab, "tab-close", {} },
+        { ui->duplicateTab, "tab-duplicate", {} },
+        { ui->importList, "document-import", {} },
+        { ui->exportList, "document-export", {} },
+        { ui->visibleToQueue, "media-queue-visible", {} },
+        { ui->showQueue, "view-media-queue", {} }
     };
-    for (auto &d : data)
+    for (const auto &d : data)
         themer.addIconData(d);
 }
 
@@ -716,7 +716,7 @@ void PlaylistWindow::randomizePlaylist(const QUuid &playlistUuid)
         return;
     std::uniform_int_distribution<> itemDistribution(0, qdp->count()-1);
     auto converter = [&](QSharedPointer<Item> i) {
-        Q_UNUSED(i);
+        Q_UNUSED(i)
         return itemDistribution(randomGenerator);
     };
     auto lessThan = [](const int &a, const int &b) {
@@ -792,7 +792,7 @@ void PlaylistWindow::playlist_copySelectionToClipboard(const QUuid &playlistUuid
 
 void PlaylistWindow::playlist_hideOnFullscreenToggled(bool checked)
 {
-    Q_UNUSED(checked);
+    Q_UNUSED(checked)
     // TODO: is this stub of any use?
 }
 
@@ -947,7 +947,7 @@ void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
     qid->setWindowModality(Qt::ApplicationModal);
     qid->setWindowTitle(tr("Enter playlist name"));
     qid->setTextValue(ui->tabWidget->tabText(index).replace(QRegExp("&{1,}"), ""));
-    connect(qid, &QInputDialog::accepted, [=]() {
+    connect(qid, &QInputDialog::accepted, this, [=]() {
         int tabIndex = ui->tabWidget->indexOf(widget);
         if (tabIndex < 0)
             return;
@@ -978,7 +978,7 @@ void PlaylistWindow::on_searchField_textEdited(const QString &arg1)
 
 void PlaylistWindow::on_tabWidget_currentChanged(int index)
 {
-    Q_UNUSED(index);
+    Q_UNUSED(index)
     updateCurrentPlaylist();
 }
 

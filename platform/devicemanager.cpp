@@ -65,7 +65,7 @@ void DeviceManager::removeDeviceById(int id)
 
 void DeviceManager::iterateDevices(std::function<void(DeviceInfo *)> callback)
 {
-    for (auto i : devices) {
+    for (auto i : qAsConst(devices)) {
         callback(i);
     }
 }

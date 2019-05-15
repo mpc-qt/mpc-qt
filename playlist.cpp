@@ -44,7 +44,7 @@ void Item::setUrl(const QUrl &url)
     url_ = url;
 }
 
-QVariantMap Item::metadata() const
+const QVariantMap &Item::metadata() const
 {
     return metadata_;
 }

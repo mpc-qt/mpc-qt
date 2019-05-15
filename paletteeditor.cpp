@@ -61,7 +61,7 @@ void PaletteBox::setValue(const QColor &c)
 
 void PaletteBox::paintEvent(QPaintEvent *event)
 {
-    Q_UNUSED(event);
+    Q_UNUSED(event)
     QPainter p(this);
     p.fillRect(QRect(0,0,width(),height()), QBrush(color));
 }
@@ -135,6 +135,9 @@ PaletteEditor::PaletteEditor(QWidget *parent) : QWidget(parent)
     layout->addWidget(button, row, col++);
 
     setLayout(layout);
+
+    connect(this, &PaletteEditor::paletteChanged,
+            this, &PaletteEditor::valueChanged);
 }
 
 QPalette PaletteEditor::palette()

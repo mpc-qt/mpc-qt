@@ -27,6 +27,9 @@ MprisInstance::MprisInstance(QObject *parent) : QObject(parent),
 
 void MprisInstance::registerDBus()
 {
+    if (registered_)
+        return;
+
     registered_ = dbus.registerService(dbusName_);
     if (!registered_) {
         // We make sure we're the only instance around... unless someone is
@@ -35,15 +38,18 @@ void MprisInstance::registerDBus()
         return;
     }
     dbus.registerObject("/org/mpris/MediaPlayer2", this);
+    emit dbusRegistered(registered_);
 }
 
 void MprisInstance::unregisterDBus()
 {
-    if (registered_) {
-        dbus.unregisterObject("/org/mpris/MediaPlayer2", QDBusConnection::UnregisterTree);
-        dbus.unregisterService(dbusName_);
-    }
+    if (!registered_)
+        return;
+
+    dbus.unregisterObject("/org/mpris/MediaPlayer2", QDBusConnection::UnregisterTree);
+    dbus.unregisterService(dbusName_);
     registered_ = false;
+    emit dbusRegistered(registered_);
 }
 
 void MprisInstance::setProtocolList(const QStringList &protocolList)
@@ -109,8 +115,8 @@ void MprisInstance::manager_stateChanged(PlaybackManager::PlaybackState state)
 
 void MprisInstance::manager_nowPlayingChanged(QUrl itemUrl, QUuid listUuid, QUuid itemUuid)
 {
-    Q_UNUSED(listUuid);
-    Q_UNUSED(itemUuid);
+    Q_UNUSED(listUuid)
+    Q_UNUSED(itemUuid)
     player->instance_setNowPlayingUrl(itemUrl);
 }
 
@@ -225,7 +231,7 @@ double MprisPlayerServer::playbackRate()
 
 void MprisPlayerServer::setPlaybackRate(double rate)
 {
-    Q_UNUSED(rate);
+    Q_UNUSED(rate)
 }
 
 QVariantMap MprisPlayerServer::metadata()
@@ -320,14 +326,14 @@ void MprisPlayerServer::Play()
 
 void MprisPlayerServer::Seek(qlonglong Offset)
 {
-    Offset /= 1000000.0;
+    Offset /= 1000000;
     if (canSeek_)
         emit instance()->relativeSeek(Offset);
 }
 
 void MprisPlayerServer::SetPosition(const QDBusObjectPath &TrackId, qlonglong Position)
 {
-    Q_UNUSED(TrackId);
+    Q_UNUSED(TrackId)
     Position /= 1000000;
     if (canSeek_ && Position >=0 && Position <= playbackDuration_)
         emit instance()->absoluteSeek(Position);
@@ -377,7 +383,6 @@ void MprisPlayerServer::instance_setMediaTitle(const QString &mediaTitle)
 
 void MprisPlayerServer::instance_setMetadata(const QVariantMap &metadata)
 {
-    QVariantMap data;
     mpvMetadata = metadata;
     if (maybeChangeMetadata())
         instance()->dbusPropertyChange(this, {{"Metadata", metadata_}});
@@ -473,8 +478,8 @@ bool MprisPlayerServer::maybeChangeMetadata()
         return t.isValid();
     };
     auto noMangle = [](QString &key, QVariant &value) -> bool {
-        Q_UNUSED(key);
-        Q_UNUSED(value);
+        Q_UNUSED(key)
+        Q_UNUSED(value)
         return true;
     };
     QHash<QString, std::function<bool(QString &key, QVariant &value)>> manglers {
