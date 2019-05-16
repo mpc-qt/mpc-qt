@@ -19,14 +19,6 @@
         <source>Mouse Fullscr</source>
         <translation>鼠标(全屏)</translation>
     </message>
-    <message>
-        <source>Open Network Stream...</source>
-        <translation type="vanished">打开网络串流……</translation>
-    </message>
-    <message>
-        <source>Alt+Ctrl+Backspace</source>
-        <translation type="vanished">Alt+Ctrl+Backspace</translation>
-    </message>
 </context>
 <context>
     <name>ButtonWidget</name>

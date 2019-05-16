@@ -19,14 +19,6 @@
         <source>Mouse Fullscr</source>
         <translation>Ratón en pantalla completa</translation>
     </message>
-    <message>
-        <source>Open Network Stream...</source>
-        <translation type="vanished">Abrir un flujo de red...</translation>
-    </message>
-    <message>
-        <source>Alt+Ctrl+Backspace</source>
-        <translation type="vanished">Alt+Ctrl+Retroceso</translation>
-    </message>
 </context>
 <context>
     <name>ButtonWidget</name>
@@ -2404,10 +2396,6 @@ archivo multimedia reproducido</translation>
     <message>
         <source>Sphinx</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Prevent ringing</source>
-        <translation type="vanished">Prevenir el anillado</translation>
     </message>
     <message>
         <source>Clamp</source>

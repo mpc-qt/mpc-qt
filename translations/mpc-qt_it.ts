@@ -2398,10 +2398,6 @@ ogni file multimediale riprodotto</translation>
         <translation>Sfinge</translation>
     </message>
     <message>
-        <source>Prevent ringing</source>
-        <translation type="vanished">Previeni ringing</translation>
-    </message>
-    <message>
         <source>Clamp</source>
         <translation>Blocca</translation>
     </message>
@@ -3528,10 +3524,6 @@ ogni file multimediale riprodotto</translation>
     <message>
         <source>Export keys</source>
         <translation>Esporta chiavi</translation>
-    </message>
-    <message>
-        <source>MMMMMMMMMMMMM</source>
-        <translation type="vanished">MMMMMMMMMMMMM</translation>
     </message>
     <message>
         <source>Open Logo Image</source>
