@@ -116,6 +116,9 @@ public slots:
     void setMute(bool muted);
     void setAfterPlaybackOnce(Helpers::AfterPlayback mode);
     void setAfterPlaybackAlways(Helpers::AfterPlayback mode);
+    void setSubtitlesPreferDefaultForced(bool forced);
+    void setSubtitlesPreferExternal(bool external);
+    void setSubtitlesIgnoreEmbedded(bool ignore);
 
     // playback options
     void setPlaybackPlayTimes(int times);
@@ -182,11 +185,16 @@ private:
     QList<QPair<int64_t,QString>> videoList;
     QList<QPair<int64_t,QString>> audioList;
     QList<QPair<int64_t,QString>> subtitleList;
+    QMap<int64_t,QVariantMap> subtitleListData;
+
     QString videoListSelected;
     QString audioListSelected;
     QString subtitleListSelected;
     int64_t subtitleTrackSelected = 1;
     bool subtitleEnabled = true;
+    bool subtitlesIgnoreEmbedded = false;
+    bool subtitlesPreferDefaultForced = false;
+    bool subtitlesPreferExternal = false;
     int numChapters = 0;
 
     int playbackPlayTimes = 1;

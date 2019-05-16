@@ -132,7 +132,7 @@ signals:
     void playlistFormat(const QString &fmt);
 
     // does mpv even *need* this?
-    void subsPreferDefault(bool yes);
+    void subsPreferDefaultForced(bool yes);
     void subsPreferExternal(bool yes);
     void subsIgnoreEmbeded(bool yes);
     void susbsAutoloadPath(const QString &s);

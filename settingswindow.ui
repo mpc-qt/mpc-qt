@@ -158,7 +158,7 @@
        <item>
         <widget class="QStackedWidget" name="pageStack">
          <property name="currentIndex">
-          <number>17</number>
+          <number>15</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -6380,9 +6380,26 @@ media file played</string>
          <widget class="QWidget" name="subsMiscPage">
           <layout class="QVBoxLayout" name="subsMiscPageLayout">
            <item>
-            <widget class="QCheckBox" name="subtitlesPreferForced">
+            <widget class="QCheckBox" name="subtitlesPreferDefaultForced">
              <property name="text">
               <string>Prefer forced and/or default subtitle tracks</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="subtitlesPreferExternal">
+             <property name="text">
+              <string>Prefer external subtitles over embedded subtitles</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="subtitlesIgnoreEmbedded">
+             <property name="text">
+              <string>Ignore embedded subtitles</string>
              </property>
             </widget>
            </item>

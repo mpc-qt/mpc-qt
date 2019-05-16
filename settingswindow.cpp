@@ -970,7 +970,9 @@ void SettingsWindow::sendSignals()
     emit option("sub-border-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsBorderColorValue).toString()));
     emit option("sub-shadow-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsShadowColorValue).toString()));
 
-    emit option("sub-forced-only", WIDGET_LOOKUP(ui->subtitlesPreferForced));
+    emit subsPreferDefaultForced(WIDGET_LOOKUP(ui->subtitlesPreferDefaultForced).toBool());
+    emit subsPreferExternal(WIDGET_LOOKUP(ui->subtitlesPreferExternal).toBool());
+    emit subsIgnoreEmbeded(WIDGET_LOOKUP(ui->subtitlesIgnoreEmbedded).toBool());
     bool subsAutoload = WIDGET_LOOKUP(ui->subtitlesAutoloadExternal).toBool();
     emit option("sub-auto", subsAutoload ? WIDGET_TO_TEXT(ui->subtitlesAutoloadMatch) : QString("no"));
     emit option("sub-file-paths", WIDGET_PLACEHOLD_LOOKUP(ui->subtitlesAutoloadPath).split(';'));

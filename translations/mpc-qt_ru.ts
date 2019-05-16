@@ -3597,6 +3597,14 @@ each &amp;media file</source>
         <source>Use additive speed step</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Prefer external subtitles over embedded subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ignore embedded subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

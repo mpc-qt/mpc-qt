@@ -323,8 +323,8 @@ void PlaybackManager::setStepTimeSmall(int smallMsec)
 static QString findSecondById(QList<QPair<int64_t,QString>> list, int64_t id) {
     // this *should* return the string at id-1
     for (int i = 0; i < list.count(); ++i)
-        if (list[i].first == id)
-            return list[i].second;
+        if (list.value(i).first == id)
+            return list.value(i).second;
     return QString();
 }
 
@@ -399,6 +399,21 @@ void PlaybackManager::setAfterPlaybackAlways(AfterPlayback mode)
     afterPlaybackAlways = mode;
 }
 
+void PlaybackManager::setSubtitlesPreferDefaultForced(bool forced)
+{
+    subtitlesPreferDefaultForced = forced;
+}
+
+void PlaybackManager::setSubtitlesPreferExternal(bool external)
+{
+    subtitlesPreferExternal = external;
+}
+
+void PlaybackManager::setSubtitlesIgnoreEmbedded(bool ignore)
+{
+    subtitlesIgnoreEmbedded = ignore;
+}
+
 void PlaybackManager::setPlaybackPlayTimes(int times)
 {
     this->playbackPlayTimes = times > 1 ? times : 1;
@@ -457,7 +472,7 @@ void PlaybackManager::selectDesiredTracks()
         return QStringList(s.split(' ').mid(1)).join("");
     };
     auto findIdBySecond = [&](QList<QPair<int64_t,QString>> list,
-                                   QString needle) -> int64_t {
+                              QString needle) -> int64_t {
         if (list.isEmpty() || (needle = mangle(needle)).isEmpty())
             return -1;
         for (int i = 0; i < list.count(); i++) {
@@ -467,9 +482,28 @@ void PlaybackManager::selectDesiredTracks()
         }
         return -1;
     };
+    auto findSubIdByPreference = [&](void) -> int64_t {
+        if (subtitlesPreferExternal) {
+            for (auto it = subtitleListData.constBegin();
+                 it != subtitleListData.constEnd(); it++) {
+                if (it.value().value("external").toBool())
+                    return it.key();
+            }
+        }
+        if (subtitlesPreferDefaultForced) {
+            for (auto it = subtitleListData.constBegin();
+                 it != subtitleListData.constEnd(); it++)
+                if (it.value().value("forced").toBool()
+                    || it.value().value("default").toBool())
+                    return it.key();
+        }
+        return -1;
+    };
     int64_t videoId = findIdBySecond(videoList, videoListSelected);
     int64_t audioId = findIdBySecond(audioList, audioListSelected);
-    int64_t subsId = findIdBySecond(subtitleList, subtitleListSelected);
+    int64_t subsId = findSubIdByPreference();
+    if (subsId < 0) subsId = findIdBySecond(subtitleList, subtitleListSelected);
+
     // Set detected tracks; if no preferred track from a list could be found,
     // clear user selection
     if (videoId >= 0)
@@ -707,6 +741,7 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
     videoList.clear();
     audioList.clear();
     subtitleList.clear();
+    subtitleListData.clear();
     QPair<int64_t,QString> item;
 
     auto str = [](QVariantMap map, QString key) {
@@ -733,11 +768,15 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
         } else if (str(t,"type") == "audio") {
             audioList.append(item);
         } else if (str(t,"type") == "sub") {
-            subtitleList.append(item);
+            if (!subtitlesIgnoreEmbedded || t.value("external").toBool()) {
+                subtitleList.append(item);
+                subtitleListData.insert(item.first, t);
+            }
         }
     }
-    if (!subtitleList.isEmpty())
+    if (!subtitleList.isEmpty()) {
         subtitleList.append({0, tr("0: None")});
+    }
 
     emit videoTracksAvailable(videoList);
     emit audioTracksAvailable(audioList);
