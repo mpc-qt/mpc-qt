@@ -150,7 +150,8 @@ QVariantMap MainWindow::state()
         { WRAP(ui->actionViewOntopPlaying) },
         { WRAP(ui->actionViewOntopVideo) },
         { WRAP(ui->actionViewFullscreen) },
-        { WRAP(ui->actionPlaySubtitlesEnabled) }
+        { WRAP(ui->actionPlaySubtitlesEnabled) },
+        { "shownStatsPage", mpvObject_->selectedStatsPage() }
     };
 #undef WRAP
 }
@@ -178,6 +179,7 @@ void MainWindow::setState(const QVariantMap &map)
     UNWRAP(ui->actionViewFullscreen, false);
     UNWRAP(ui->actionPlaySubtitlesEnabled, true);
     on_actionPlaySubtitlesEnabled_triggered(ui->actionPlaySubtitlesEnabled->isChecked());
+    setOSDPage(map.value("shownStatsPage",0).toInt());
     updateOnTop();
 
 #undef UNWRAP
@@ -800,6 +802,15 @@ void MainWindow::setUiDecorationState(DecorationState state)
     }
 
     updateWindowFlags();
+}
+
+void MainWindow::setOSDPage(int page)
+{
+    ui->actionViewOSDNone->setChecked(page == -1);
+    ui->actionViewOSDMessages->setChecked(page == 0);
+    ui->actionViewOSDStatistics->setChecked(page == 1);
+    ui->actionViewOSDFrameTimings->setChecked(page == 2);
+    mpvObject_->showStatsPage(page);
 }
 
 void MainWindow::setUiEnabledState(bool enabled)

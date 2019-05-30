@@ -88,6 +88,7 @@ private:
     void connectPlaylistWindowToActions();
     void globalizeAllActions();
     void setUiDecorationState(DecorationState state);
+    void setOSDPage(int page);
     void setUiEnabledState(bool enabled);
     void reparentBottomArea(bool overlay);
     void checkBottomArea(QPoint mousePosition);

@@ -47,6 +47,7 @@ public:
     void showMessage(QString message);
     void showStatsPage(int page);
     int cycleStatsPage();
+    int selectedStatsPage();
 
     void urlOpen(QUrl url);
     void fileOpen(QString filename);

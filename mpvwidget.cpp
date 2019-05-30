@@ -302,6 +302,11 @@ int MpvObject::cycleStatsPage()
     return shownStatsPage;
 }
 
+int MpvObject::selectedStatsPage()
+{
+    return shownStatsPage;
+}
+
 void MpvObject::urlOpen(QUrl url)
 {
     fileOpen(url.isLocalFile() ? url.toLocalFile()
