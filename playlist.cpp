@@ -766,8 +766,11 @@ QSharedPointer<Playlist> PlaylistCollection::clonePlaylist(const QUuid &uuid)
         return QSharedPointer<Playlist>();
     auto origin = playlistsByUuid[uuid];
     auto remote = newPlaylist(origin->title());
-    auto cloner = [remote](QSharedPointer<Item> i) {
-        remote->addItemClone(i);
+    auto cloner = [remote,origin](QSharedPointer<Item> i) {
+        auto clone = remote->addItemClone(i);
+        if (origin->nowPlaying() == i->uuid()) {
+            remote->setNowPlaying(clone->uuid());
+        }
     };
     origin->iterateItems(cloner);
     return remote;

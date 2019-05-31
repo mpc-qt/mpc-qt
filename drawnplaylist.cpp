@@ -186,7 +186,9 @@ void DrawnPlaylist::scrollToItem(QUuid itemUuid)
 void DrawnPlaylist::setUuid(const QUuid &uuid)
 {
     uuid_ = uuid;
+    nowPlayingItem_ = playlist()->nowPlaying();
     repopulateItems();
+    setCurrentItem(nowPlayingItem_);
 }
 
 void DrawnPlaylist::addItem(QUuid uuid)
@@ -293,8 +295,6 @@ void DrawnPlaylist::fromVMap(const QVariantMap &qvm)
     p->fromVMap(qvm);
     PlaylistCollection::getSingleton()->addPlaylist(p);
     setUuid(p->uuid());
-    nowPlayingItem_ = p->nowPlaying();
-    setCurrentItem(nowPlayingItem_);
 }
 
 void DrawnPlaylist::setDisplayParser(DisplayParser *parser)
