@@ -262,8 +262,10 @@ void DrawnPlaylist::currentToQueue()
 QUuid DrawnPlaylist::nowPlayingItem()
 {
     QSharedPointer<Playlist> playlist = this->playlist();
-    if (nowPlayingItem_.isNull() || !playlist->contains(nowPlayingItem_))
+    if (nowPlayingItem_.isNull() || !playlist->contains(nowPlayingItem_)) {
         nowPlayingItem_ = currentItemUuid();
+        playlist->setNowPlaying(nowPlayingItem_);
+    }
     return nowPlayingItem_;
 }
 
@@ -272,6 +274,7 @@ void DrawnPlaylist::setNowPlayingItem(QUuid uuid)
     QSharedPointer<Playlist> playlist = this->playlist();
     bool refreshNeeded = playlist->contains(nowPlayingItem()) || playlist->contains(uuid);
     nowPlayingItem_ = uuid;
+    playlist->setNowPlaying(nowPlayingItem_);
     if (refreshNeeded)
         viewport()->repaint();
 }
@@ -281,20 +284,16 @@ QVariantMap DrawnPlaylist::toVMap() const
     QSharedPointer<Playlist> playlist = this->playlist();
     if (!playlist)
         return QVariantMap();
-    QVariantMap qvm;
-    qvm.insert("nowplaying", nowPlayingItem_);
-    qvm.insert("contents", playlist->toVMap());
-    return qvm;
+    return playlist->toVMap();
 }
 
 void DrawnPlaylist::fromVMap(const QVariantMap &qvm)
 {
-    QVariantMap contents = qvm.value("contents").toMap();
     QSharedPointer<Playlist> p(new Playlist);
-    p->fromVMap(contents);
+    p->fromVMap(qvm);
     PlaylistCollection::getSingleton()->addPlaylist(p);
     setUuid(p->uuid());
-    nowPlayingItem_ = qvm.value("nowplaying").toUuid();
+    nowPlayingItem_ = p->nowPlaying();
     setCurrentItem(nowPlayingItem_);
 }
 

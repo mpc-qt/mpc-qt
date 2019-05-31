@@ -3,6 +3,20 @@
 #include <cmath>
 #include "playlist.h"
 
+
+
+static char keyContents[] = "contents";
+static char keyCreated[] = "created";
+static char keyItems[] = "items";
+static char keyMetadata[] = "metadata";
+static char keyNowPlaying[] = "nowplaying";
+static char keyShuffle[] = "shuffle";
+static char keyTitle[] = "title";
+static char keyUrl[] = "url";
+static char keyUuid[] = "uuid";
+
+
+
 Item::Item(QUrl url)
 {
     static int globalCounter = 0;
@@ -136,17 +150,17 @@ void Item::fromString(QString input)
 QVariantMap Item::toVMap() const
 {
     QVariantMap v;
-    v.insert("url", url());
-    v.insert("uuid", uuid());
-    v.insert("metadata", metadata());
+    v.insert(keyUrl, url());
+    v.insert(keyUuid, uuid());
+    v.insert(keyMetadata, metadata());
     return v;
 }
 
 void Item::fromVMap(const QVariantMap &qvm)
 {
-    url_ = qvm.contains("url") ? qvm.value("url").toUrl() : QUrl();
-    uuid_ = qvm.contains("uuid") ? qvm.value("uuid").toUuid() : QUuid::createUuid();
-    metadata_ = qvm.contains("metadata") ? qvm.value("metadata").toMap() : QVariantMap();
+    url_ = qvm.contains(keyUrl) ? qvm.value(keyUrl).toUrl() : QUrl();
+    uuid_ = qvm.contains(keyUuid) ? qvm.value(keyUuid).toUuid() : QUuid::createUuid();
+    metadata_ = qvm.contains(keyMetadata) ? qvm.value(keyMetadata).toMap() : QVariantMap();
 }
 
 QSharedPointer<ItemCollection> ItemCollection::collection;
@@ -435,6 +449,16 @@ void Playlist::setUuid(const QUuid &uuid)
     uuid_ = uuid;
 }
 
+QUuid Playlist::nowPlaying()
+{
+    return nowPlaying_;
+}
+
+void Playlist::setNowPlaying(const QUuid &uuid)
+{
+    nowPlaying_ = uuid;
+}
+
 QStringList Playlist::toStringList()
 {
     QReadLocker locker(&listLock);
@@ -462,28 +486,37 @@ QVariantMap Playlist::toVMap()
 {
     QWriteLocker locker(&listLock);
     QVariantMap qvm;
-    qvm.insert("created", created_);
-    qvm.insert("title", title_);
-    qvm.insert("shuffle", shuffle_);
-    qvm.insert("uuid", uuid_);
+    qvm.insert(keyCreated, created_);
+    qvm.insert(keyTitle, title_);
+    qvm.insert(keyShuffle, shuffle_);
+    qvm.insert(keyUuid, uuid_);
+    qvm.insert(keyNowPlaying, nowPlaying_);
 
     QVariantList qvl;
     for (auto &i : items) {
         qvl.append(i->toVMap());
     }
-    qvm.insert("items", qvl);
+    qvm.insert(keyItems, qvl);
     return qvm;
 }
 
 void Playlist::fromVMap(const QVariantMap &qvm)
 {
     QReadLocker locker(&listLock);
-    created_ = qvm.contains("created") ? qvm["created"].toDateTime() : created_;
-    title_ = qvm.contains("title") ? qvm["title"].toString() : QString();
-    shuffle_ = qvm.contains("shuffle") ? qvm["shuffle"].toBool() : false;
-    uuid_ = qvm.contains("uuid") ? qvm["uuid"].toUuid() : QUuid::createUuid();
-    if (qvm.contains("items")) {
-        auto items = qvm["items"].toList();
+    if (qvm.contains(keyContents)) {
+        // old format, call me back with the subnode
+        nowPlaying_ = qvm.value(keyNowPlaying, nowPlaying_).toUuid();
+        fromVMap(qvm[keyContents].toMap());
+        return;
+    }
+
+    created_ = qvm.contains(keyCreated) ? qvm[keyCreated].toDateTime() : created_;
+    title_ = qvm.contains(keyTitle) ? qvm[keyTitle].toString() : QString();
+    shuffle_ = qvm.contains(keyShuffle) ? qvm[keyShuffle].toBool() : false;
+    uuid_ = qvm.contains(keyUuid) ? qvm[keyUuid].toUuid() : QUuid::createUuid();
+    nowPlaying_ = qvm.contains(keyNowPlaying) ? qvm[keyNowPlaying].toUuid() : nowPlaying_;
+    if (qvm.contains(keyItems)) {
+        auto items = qvm[keyItems].toList();
         for (const QVariant &v : items) {
             QSharedPointer<Item> i(new Item());
             i->setPlaylistUuid(uuid_);
@@ -690,7 +723,7 @@ QSharedPointer<QueuePlaylist> PlaylistCollection::queue;
 
 PlaylistCollection::PlaylistCollection()
 {
-    doNewPlaylist(tr("Quick playlist"), QUuid());
+
 }
 
 PlaylistCollection::~PlaylistCollection()
@@ -701,8 +734,10 @@ PlaylistCollection::~PlaylistCollection()
 
 QSharedPointer<PlaylistCollection> PlaylistCollection::getSingleton()
 {
-    if (collection.isNull())
+    if (collection.isNull()) {
         collection.reset(new PlaylistCollection());
+        collection->doNewPlaylist(tr("Quick playlist"), QUuid());
+    }
     return collection;
 }
 
@@ -775,6 +810,24 @@ void PlaylistCollection::addPlaylist(const QSharedPointer<Playlist> &playlist)
     }
     playlists.append(playlist);
     playlistsByUuid.insert(playlist->uuid(), playlist);
+}
+
+void PlaylistCollection::fromVList(const QVariantList &data)
+{
+    for (const auto &d : data) {
+        QSharedPointer<Playlist> p(new Playlist);
+        p->fromVMap(d.toMap());
+        addPlaylist(p);
+    }
+}
+
+QVariantList PlaylistCollection::toVList()
+{
+    QVariantList l;
+    for (const auto &p : playlists) {
+        l.append(p->toVMap());
+    }
+    return l;
 }
 
 QSharedPointer<Playlist> PlaylistCollection::doNewPlaylist(const QString &title,

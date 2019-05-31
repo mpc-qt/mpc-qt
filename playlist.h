@@ -119,6 +119,8 @@ public:
     void setShuffle(bool shuffle);
     QUuid uuid();
     void setUuid(const QUuid &uuid);
+    QUuid nowPlaying();
+    void setNowPlaying(const QUuid &uuid);
 
     QStringList toStringList();
     void fromStringList(QStringList sl);
@@ -134,6 +136,7 @@ protected:
     QString title_;
     bool shuffle_ = false;
     QUuid uuid_;
+    QUuid nowPlaying_;
 
     QReadWriteLock listLock;
 
@@ -186,6 +189,8 @@ public:
     QSharedPointer<Playlist> playlistOf(const QUuid &uuid) const;
 
     void addPlaylist(const QSharedPointer<Playlist> &playlist);
+    void fromVList(const QVariantList &data);
+    QVariantList toVList();
 
 private:
     QList<QSharedPointer<Playlist>> playlists;
