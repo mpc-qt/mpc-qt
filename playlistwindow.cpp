@@ -928,7 +928,9 @@ void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
 
     auto collection = PlaylistCollection::getSingleton();
     auto backup = PlaylistCollection::getBackup();
-    backup->addPlaylist(collection->clonePlaylist(qdp->uuid()));
+    auto copy = collection->clonePlaylist(qdp->uuid());
+    copy->setCreated(qdp->playlist()->created());
+    backup->addPlaylist(copy);
 
     if (qdp->uuid().isNull()) {
         qdp->removeAll();
