@@ -2,6 +2,7 @@
 #define PLAYLIST_H
 // A set of classes suitable for creating and storing playlists.
 
+#include <QDateTime>
 #include <QString>
 #include <QUuid>
 #include <QUrl>
@@ -110,6 +111,8 @@ public:
     QList<QUuid> replaceItem(const QUuid &where, const QList<QUrl> &urls);
     virtual void clear();
 
+    QDateTime created();
+    void setCreated(const QDateTime &dt);
     QString title();
     void setTitle(const QString &title);
     bool shuffle();
@@ -127,6 +130,7 @@ protected:
     QList<QSharedPointer<Item>> items;
     QHash<QUuid, QSharedPointer<Item>> itemsByUuid;
     //QList<QUuid> queue;
+    QDateTime created_;
     QString title_;
     bool shuffle_ = false;
     QUuid uuid_;

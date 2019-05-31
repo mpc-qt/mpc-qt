@@ -1,4 +1,4 @@
-#include <QFileInfo>
+﻿#include <QFileInfo>
 #include <QMutableListIterator>
 #include <cmath>
 #include "playlist.h"
@@ -204,6 +204,7 @@ Playlist::Playlist(const QString &title)
 {
     setUuid(QUuid::createUuid());
     setTitle(title);
+    setCreated(QDateTime::currentDateTimeUtc());
 }
 
 Playlist::~Playlist()
@@ -390,6 +391,16 @@ void Playlist::clear()
     itemsByUuid.clear();
 }
 
+QDateTime Playlist::created()
+{
+    return created_;
+}
+
+void Playlist::setCreated(const QDateTime &dt)
+{
+    created_ = dt;
+}
+
 QString Playlist::title()
 {
     QReadLocker locker(&listLock);
@@ -451,6 +462,7 @@ QVariantMap Playlist::toVMap()
 {
     QWriteLocker locker(&listLock);
     QVariantMap qvm;
+    qvm.insert("created", created_);
     qvm.insert("title", title_);
     qvm.insert("shuffle", shuffle_);
     qvm.insert("uuid", uuid_);
@@ -466,6 +478,7 @@ QVariantMap Playlist::toVMap()
 void Playlist::fromVMap(const QVariantMap &qvm)
 {
     QReadLocker locker(&listLock);
+    created_ = qvm.contains("created") ? qvm["created"].toDateTime() : created_;
     title_ = qvm.contains("title") ? qvm["title"].toString() : QString();
     shuffle_ = qvm.contains("shuffle") ? qvm["shuffle"].toBool() : false;
     uuid_ = qvm.contains("uuid") ? qvm["uuid"].toUuid() : QUuid::createUuid();
