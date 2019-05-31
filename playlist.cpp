@@ -345,7 +345,7 @@ void Playlist::addItems(const QUuid &where,
 void Playlist::removeItem(const QUuid &uuid)
 {
     QWriteLocker locker(&listLock);
-    PlaylistCollection::getSingleton()->queuePlaylist()->removeItem(uuid);
+    PlaylistCollection::queuePlaylist()->removeItem(uuid);
     items.removeAll(itemsByUuid.take(uuid));
     ItemCollection::getSingleton()->removeItem(uuid);
 }
@@ -385,7 +385,7 @@ QList<QUuid> Playlist::replaceItem(const QUuid &where, const QList<QUrl> &urls)
 void Playlist::clear()
 {
     QWriteLocker locker(&listLock);
-    PlaylistCollection::getSingleton()->queuePlaylist()->removeItems(itemsByUuid.keys());
+    PlaylistCollection::queuePlaylist()->removeItems(itemsByUuid.keys());
     items.clear();
     itemsByUuid.clear();
 }
@@ -672,9 +672,10 @@ QList<int> QueuePlaylist::removeItems_(const QList<QUuid> &itemsToRemove)
 
 
 QSharedPointer<PlaylistCollection> PlaylistCollection::collection;
+QSharedPointer<PlaylistCollection> PlaylistCollection::backup;
+QSharedPointer<QueuePlaylist> PlaylistCollection::queue;
 
 PlaylistCollection::PlaylistCollection()
-    : queuePlaylist_(new QueuePlaylist("Queue"))
 {
     doNewPlaylist(tr("Quick playlist"), QUuid());
 }
@@ -690,6 +691,20 @@ QSharedPointer<PlaylistCollection> PlaylistCollection::getSingleton()
     if (collection.isNull())
         collection.reset(new PlaylistCollection());
     return collection;
+}
+
+QSharedPointer<PlaylistCollection> PlaylistCollection::getBackup()
+{
+    if (backup.isNull())
+        backup.reset(new PlaylistCollection());
+    return backup;
+}
+
+QSharedPointer<QueuePlaylist> PlaylistCollection::queuePlaylist()
+{
+    if (queue.isNull())
+        queue.reset(new QueuePlaylist("Queue"));
+    return queue;
 }
 
 QSharedPointer<Playlist> PlaylistCollection::newPlaylist(const QString &title)
@@ -734,11 +749,6 @@ QSharedPointer<Playlist> PlaylistCollection::playlistAt(int col) const
 QSharedPointer<Playlist> PlaylistCollection::playlistOf(const QUuid &uuid) const
 {
     return playlistsByUuid.value(uuid);
-}
-
-QSharedPointer<QueuePlaylist> PlaylistCollection::queuePlaylist() const
-{
-    return queuePlaylist_;
 }
 
 void PlaylistCollection::addPlaylist(const QSharedPointer<Playlist> &playlist)

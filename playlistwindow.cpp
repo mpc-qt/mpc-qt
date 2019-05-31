@@ -113,7 +113,7 @@ QPair<QUuid,QUuid> PlaylistWindow::getItemAfter(QUuid list, QUuid item)
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
     if (!pl)
         return { QUuid(), QUuid() };
-    auto qpl = PlaylistCollection::getSingleton()->queuePlaylist();
+    auto qpl = PlaylistCollection::queuePlaylist();
     QPair<QUuid, QUuid> next = qpl->takeFirst();
     if (!next.second.isNull())
         return next;
@@ -424,7 +424,7 @@ void PlaylistWindow::changePlaylistSelection( QUrl itemUrl, QUuid playlistUuid, 
     if (!activateItem(playlistUuid, itemUuid))
         return;
     auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
-    auto qpl = PlaylistCollection::getSingleton()->queuePlaylist();
+    auto qpl = PlaylistCollection::queuePlaylist();
     if (!itemUuid.isNull() && qpl->first().second == itemUuid) {
         queueWidget->removeItem(itemUuid);
     }
@@ -613,7 +613,7 @@ void PlaylistWindow::quickQueue()
     auto itemUuids = qdp->currentItemUuids();
     if (itemUuids.isEmpty())
         return;
-    auto qpl = PlaylistCollection::getSingleton()->queuePlaylist();
+    auto qpl = PlaylistCollection::queuePlaylist();
     QList<QUuid> added;
     QList<int>removed;
     qpl->toggle(qdp->uuid(), itemUuids, added, removed);
@@ -630,7 +630,7 @@ void PlaylistWindow::visibleToQueue()
 
     QList<QUuid> added;
     QList<int> removed;
-    PlaylistCollection::getSingleton()->queuePlaylist()->\
+    PlaylistCollection::queuePlaylist()->\
             toggleFromPlaylist(currentPlaylistWidget()->uuid(), added, removed);
     queueWidget->removeItems(removed);
     queueWidget->addItems(added);
@@ -925,10 +925,15 @@ void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
     auto qdp = reinterpret_cast<DrawnPlaylist *>(ui->tabWidget->widget(index));
     if (!qdp)
         return;
+
+    auto collection = PlaylistCollection::getSingleton();
+    auto backup = PlaylistCollection::getBackup();
+    backup->addPlaylist(collection->clonePlaylist(qdp->uuid()));
+
     if (qdp->uuid().isNull()) {
         qdp->removeAll();
     } else {
-        PlaylistCollection::getSingleton()->removePlaylist(qdp->uuid());
+        collection->removePlaylist(qdp->uuid());
         widgets.remove(qdp->uuid());
         ui->tabWidget->removeTab(index);
     }

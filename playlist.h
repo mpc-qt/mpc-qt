@@ -165,10 +165,14 @@ class PlaylistCollection : public QObject {
 private:
     PlaylistCollection();
     static QSharedPointer<PlaylistCollection> collection;
+    static QSharedPointer<PlaylistCollection> backup;
+    static QSharedPointer<QueuePlaylist> queue;
 
 public:
     ~PlaylistCollection();
     static QSharedPointer<PlaylistCollection> getSingleton();
+    static QSharedPointer<PlaylistCollection> getBackup();
+    static QSharedPointer<QueuePlaylist> queuePlaylist();
 
     QSharedPointer<Playlist> newPlaylist(const QString &title = QString());
     QSharedPointer<Playlist> clonePlaylist(const QUuid &uuid);
@@ -176,14 +180,12 @@ public:
     void removePlaylist(const QSharedPointer<Playlist> &p);
     QSharedPointer<Playlist> playlistAt(int col) const;
     QSharedPointer<Playlist> playlistOf(const QUuid &uuid) const;
-    QSharedPointer<QueuePlaylist> queuePlaylist() const;
 
     void addPlaylist(const QSharedPointer<Playlist> &playlist);
 
 private:
     QList<QSharedPointer<Playlist>> playlists;
     QHash<QUuid, QSharedPointer<Playlist>> playlistsByUuid;
-    QSharedPointer<QueuePlaylist> queuePlaylist_;
 
     QSharedPointer<Playlist> doNewPlaylist(const QString &title,
                                            const QUuid &uuid);

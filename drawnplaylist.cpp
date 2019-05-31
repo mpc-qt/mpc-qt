@@ -431,7 +431,7 @@ void PlaylistSelection::fromItem(QUuid playlistUuid, QUuid itemUuid)
 void PlaylistSelection::fromQueue(DrawnPlaylist *list)
 {
     d->items.clear();
-    auto queue = PlaylistCollection::getSingleton()->queuePlaylist();
+    auto queue = PlaylistCollection::queuePlaylist();
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list->uuid());
     if (Q_UNLIKELY(!pl))
         return;
@@ -472,7 +472,7 @@ void PlaylistSelection::appendToPlaylist(DrawnPlaylist *list)
 
 void PlaylistSelection::appendAndQuickQueue(DrawnPlaylist *list)
 {
-    auto queue = PlaylistCollection::getSingleton()->queuePlaylist();
+    auto queue = PlaylistCollection::queuePlaylist();
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list->uuid());
     if (Q_UNLIKELY(!pl))
         return;
@@ -486,7 +486,7 @@ void PlaylistSelection::appendAndQuickQueue(DrawnPlaylist *list)
 
 QSharedPointer<Playlist> DrawnQueue::playlist() const
 {
-    return PlaylistCollection::getSingleton()->queuePlaylist();
+    return PlaylistCollection::queuePlaylist();
 }
 
 void DrawnQueue::addItem(QUuid uuid)
