@@ -23,6 +23,7 @@
 #include "propertieswindow.h"
 #include "ipcmpris.h"
 #include "platform/unify.h"
+#include "playlist.h"
 
 int main(int argc, char *argv[])
 {
@@ -93,8 +94,10 @@ Flow::~Flow()
         mpvServer = nullptr;
     }
     if (mainWindow) {
-        if (programMode == PrimaryMode)
+        if (programMode == PrimaryMode) {
             storage.writeVList("playlists", mainWindow->playlistWindow()->tabsToVList());
+            storage.writeVList("playlists_backup", PlaylistCollection::getBackup()->toVList());
+        }
         delete mainWindow;
         mainWindow = nullptr;
     }
@@ -266,8 +269,10 @@ void Flow::init() {
 int Flow::run()
 {
     auto playlist = cliNoFiles ? QVariantList() : storage.readVList("playlists");
+    auto backup = cliNoFiles ? QVariantList() : storage.readVList("playlists_backup");
     auto geometry = cliNoConfig ? QVariantMap() : storage.readVMap("geometry");
     mainWindow->playlistWindow()->tabsFromVList(playlist);
+    PlaylistCollection::getBackup()->fromVList(backup);
     restoreWindows(geometry);
     return qApp->exec();
 }
