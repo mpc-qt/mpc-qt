@@ -200,7 +200,7 @@ void DrawnPlaylist::addItem(QUuid uuid)
 void DrawnPlaylist::addItems(const QList<QUuid> &items)
 {
     for (const QUuid &item : items)
-        QListWidget::addItem(item.toString());
+        addItem(item);
 }
 
 void DrawnPlaylist::addItemsAfter(QUuid item, const QList<QUuid> &items)
