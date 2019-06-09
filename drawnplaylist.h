@@ -43,6 +43,7 @@ class DrawnPlaylist : public QListWidget {
 public:
     DrawnPlaylist(QWidget *parent = nullptr);
     ~DrawnPlaylist();
+    void setCollection(QSharedPointer<PlaylistCollection> collection);
     virtual QSharedPointer<Playlist> playlist() const;
     QUuid uuid() const;
     void setUuid(const QUuid &uuid);
@@ -79,6 +80,7 @@ protected:
     bool event(QEvent *e);
 
 private:
+    QSharedPointer<PlaylistCollection> collection_;
     QUuid uuid_;
     QHash <QUuid, PlayItem*> itemsByUuid;
     QUuid lastSelectedItem;

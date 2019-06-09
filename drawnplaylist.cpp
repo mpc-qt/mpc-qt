@@ -103,6 +103,7 @@ DrawnPlaylist::DrawnPlaylist(QWidget *parent) : QListWidget(parent),
     searcher = new PlaylistSearcher();
     searcher->moveToThread(worker);
 
+    collection_ = PlaylistCollection::getSingleton();
     setSelectionMode(QAbstractItemView::ContiguousSelection);
     setDragDropMode(QAbstractItemView::InternalMove);
 
@@ -131,9 +132,14 @@ DrawnPlaylist::~DrawnPlaylist()
     worker->deleteLater();
 }
 
+void DrawnPlaylist::setCollection(QSharedPointer<PlaylistCollection> collection)
+{
+    collection_ = collection;
+}
+
 QSharedPointer<Playlist> DrawnPlaylist::playlist() const
 {
-    return PlaylistCollection::getSingleton()->playlistOf(uuid_);
+    return collection_->playlistOf(uuid_);
 }
 
 QUuid DrawnPlaylist::uuid() const
