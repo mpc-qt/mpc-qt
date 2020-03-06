@@ -18,7 +18,6 @@
 #include <QDebug>
 #include <cmath>
 #include <stdexcept>
-#include <mpv/qthelper.hpp>
 #include "logger.h"
 #include "mpvwidget.h"
 #include "helpers.h"

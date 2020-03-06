@@ -10,9 +10,9 @@
 #include <functional>
 #include <mpv/client.h>
 //#include <mpv/opengl_cb.h>
-#include <mpv/qthelper.hpp>
 #include <mpv/render.h>
 #include <mpv/render_gl.h>
+#include "qthelper.hpp"
 #include "helpers.h"
 
 class QLayout;
