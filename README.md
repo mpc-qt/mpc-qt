@@ -192,7 +192,7 @@ Bleeding-edge git master builds that use new features not yet in a release can
 usually be made with [shinchiro builds] of libmpv.  Unpack in the same manner
 as above.
 
-[screenshot]:https://gist.githubusercontent.com/cmdrkotori/c26e75fa01341ec54b648f1ff082a71a/raw/885f4af0df7342ec2adc1353749ad3522fab196c/screenshot%252020180427.png
+[screenshot]:https://gist.githubusercontent.com/cmdrkotori/f419febc57df9610b922eb06de7c0c1d/raw/189394a9454c34f9384a3deb83a1c29277057766/Screenshot_20180427_202825.png
 [mpc-hc]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
 [mwe]:https://github.com/cmdrkotori/mpc-qt/commit/9400f595
