@@ -13,9 +13,8 @@ DirectShow.
 
 ## Releases
 
-There is no RC.  Despite this situation, you may test it out and determine if
-what works is satisfying for you.  If not, please open an issue that may
-motivate the developer in a helpful direction.
+There may be builds for Windows users on the release page.  These use time-
+based versioning (e.g. 17.07 corresponds to a 2017 July).
 
 The best version is git master, and everyone are encouraged to increase their
 computer-fu by compiling from source. (see sections below.)  Compiling from
@@ -24,22 +23,13 @@ use latest and pre-release software regardless of where it comes from.  Unix
 users, there could even be packages in your distro that help with this. (e.g.
 [aur], [ports].)
 
-There are builds for Windows users on the release page.  Every now and then
-the developer makes a Windows build based on a recent commit and posts it on
-the releases page.  These use time-based versioning (e.g. 17.07 corresponds to
-2017 July), are provided for the convenience of Windows users who usually do
-not have a development environment, and should not be considered to represent
-any serious release-worthy snapshot in any way.  This may change when the
-program is more feature-complete.
+The program is not yet feature-complete and some controls may have greyed-out
+placeholder areas, such as in the options dialog.
 
 
-## Features
+## Features and improvements over mpc-hc
 
-Nearly everything that mpc-hc does.  For the most part, unwritten
-portions relate to setting options and streaming from devices.
-
-
-### Improvements over mpc-hc
+**Clone:** Nearly everything that mpc-hc does for the casual user.
 
 **Multiple playlists:**  When you're watching shows on your backlog, load
 every show into separate playlists and still keep track of the last played
