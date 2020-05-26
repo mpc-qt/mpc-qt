@@ -55,15 +55,20 @@ show the artist as well as the title, down to even the encoder used?  Nothing
 is stopping you.
 
 
-### Upcoming features
+### Possible upcoming features
+
+These features are wishlist items and are subject to the developer's time.
 
 **Native filter-chain support:**  Comprehensive integration of mpv/ffmpeg's
-filter interface/library, right inside your media player.
+filter interface/library, right inside your media player.  This feature may
+entail a lot of code.
 
 **Encoding support like VirtualDub:**  Churn out memes faster.  No need to
-open a video editor when your media player can do your job for you.
+open a video editor when your media player can do your job for you.  Requires
+writing an encoder-orientated backend.
 
 **Race Inspired Cosmetic Enhancements:**  In-app custom styling support.
+Requires a few dropdowns/tabs and a multi-line text editor in the settings.
 
 Suggestions welcome.
 
