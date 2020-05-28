@@ -128,10 +128,10 @@ unix {
 
 unix:!macx:SOURCES += platform/screensaver_unix.cpp \
                       platform/devicemanager_unix.cpp \
-                      ipcmpris.cpp
+                      ipc/mpris.cpp
 unix:!macx:HEADERS += platform/screensaver_unix.h \
                       platform/devicemanager_unix.h \
-                      ipcmpris.h
+                      ipc/mpris.h
 
 win32:RC_ICONS = $$system( bash make-win-icon.sh )
 win32:SOURCES += platform/screensaver_win.cpp \
@@ -156,7 +156,7 @@ SOURCES += main.cpp\
     playlistwindow.cpp \
     storage.cpp \
     settingswindow.cpp \
-    ipcjson.cpp \
+    ipc/json.cpp \
     openfiledialog.cpp \
     propertieswindow.cpp \
     platform/unify.cpp \
@@ -182,7 +182,7 @@ HEADERS  += \
     playlistwindow.h \
     storage.h \
     settingswindow.h \
-    ipcjson.h \
+    ipc/json.h \
     openfiledialog.h \
     propertieswindow.h \
     platform/unify.h \

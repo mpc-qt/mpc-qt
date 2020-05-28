@@ -21,7 +21,7 @@
 #include "settingswindow.h"
 #include "mpvwidget.h"
 #include "propertieswindow.h"
-#include "ipcmpris.h"
+#include "ipc/mpris.h"
 #include "platform/unify.h"
 #include "playlist.h"
 

@@ -6,7 +6,7 @@
 #include <QRegularExpression>
 #include <cmath>
 #include <functional>
-#include "ipcmpris.h"
+#include "ipc/mpris.h"
 #include "mpvwidget.h"
 
 class PlayerFlow;
