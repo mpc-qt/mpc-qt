@@ -20,7 +20,7 @@
 #include <stdexcept>
 #include "logger.h"
 #include "mpvwidget.h"
-#include "helpers.h"
+#include "widgets/logowidget.h"
 #include "platform/unify.h"
 #include "storage.h"
 

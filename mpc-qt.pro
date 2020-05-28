@@ -160,6 +160,7 @@ SOURCES += main.cpp\
     openfiledialog.cpp \
     propertieswindow.cpp \
     platform/unify.cpp \
+    widgets/logowidget.cpp \
     widgets/paletteeditor.cpp \
     favoriteswindow.cpp \
     widgets/actioneditor.cpp \
@@ -186,6 +187,7 @@ HEADERS  += \
     openfiledialog.h \
     propertieswindow.h \
     platform/unify.h \
+    widgets/logowidget.h \
     widgets/paletteeditor.h \
     favoriteswindow.h \
     widgets/actioneditor.h \
