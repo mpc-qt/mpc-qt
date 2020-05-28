@@ -9,7 +9,7 @@
 #include <QThread>
 #include "playlistwindow.h"
 #include "ui_playlistwindow.h"
-#include "drawnplaylist.h"
+#include "widgets/drawnplaylist.h"
 #include "playlist.h"
 #include "platform/unify.h"
 

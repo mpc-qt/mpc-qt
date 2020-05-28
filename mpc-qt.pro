@@ -160,12 +160,12 @@ SOURCES += main.cpp\
     openfiledialog.cpp \
     propertieswindow.cpp \
     platform/unify.cpp \
-    paletteeditor.cpp \
+    widgets/paletteeditor.cpp \
     favoriteswindow.cpp \
-    actioneditor.cpp \
-    drawnplaylist.cpp \
-    drawnslider.cpp \
-    drawnstatus.cpp \
+    widgets/actioneditor.cpp \
+    widgets/drawnplaylist.cpp \
+    widgets/drawnslider.cpp \
+    widgets/drawnstatus.cpp \
     platform/screensaver.cpp \
     platform/devicemanager.cpp \
     logwindow.cpp \
@@ -186,12 +186,12 @@ HEADERS  += \
     openfiledialog.h \
     propertieswindow.h \
     platform/unify.h \
-    paletteeditor.h \
+    widgets/paletteeditor.h \
     favoriteswindow.h \
-    actioneditor.h \
-    drawnplaylist.h \
-    drawnslider.h \
-    drawnstatus.h \
+    widgets/actioneditor.h \
+    widgets/drawnplaylist.h \
+    widgets/drawnslider.h \
+    widgets/drawnstatus.h \
     platform/screensaver.h \
     platform/devicemanager.h \
     logwindow.h \

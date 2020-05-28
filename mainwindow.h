@@ -6,8 +6,8 @@
 #include <QMenuBar>
 #include <QTimer>
 #include "helpers.h"
-#include "drawnslider.h"
-#include "drawnstatus.h"
+#include "widgets/drawnslider.h"
+#include "widgets/drawnstatus.h"
 #include "manager.h"
 #include "playlistwindow.h"
 #include "platform/screensaver.h"
