@@ -943,7 +943,7 @@ void MpvGlWidget::maybeUpdate()
 
 void MpvGlWidget::self_frameSwapped()
 {
-    if (!drawLogo)
+    if (render && !drawLogo)
         mpv_render_context_report_swap(render);
 }
 
