@@ -345,7 +345,8 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 
 void MainWindow::wheelEvent(QWheelEvent *event)
 {
-    bool ok = mpvw ? insideWidget(event->globalPos(), mpvw) : false;
+    QPointF gp = event->globalPosition();
+    bool ok = mpvw ? insideWidget({int(gp.rx()),int(gp.ry())}, mpvw) : false;
     if (ok && mouseStateEvent(MouseState::fromWheelEvent(event)))
         event->accept();
     else

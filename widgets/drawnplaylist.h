@@ -120,11 +120,11 @@ void DrawnPlaylist::sort(
     auto pl = playlist();
     int index = 0;
     pl->iterateItems([&](QSharedPointer<Item> i) {
-        playlistMap.insertMulti(i->uuid(), converter(i));
+        playlistMap.insert(i->uuid(), converter(i));
         items.append(i);
         i->setOriginalPosition(index++);
     });
-    qSort(items.begin(), items.end(), [&](const QSharedPointer<Item> &a, const QSharedPointer<Item> &b) {
+    std::sort(items.begin(), items.end(), [&](const QSharedPointer<Item> &a, const QSharedPointer<Item> &b) {
         return lessThan(playlistMap.value(a->uuid()), playlistMap.value(b->uuid()));
     });
     pl->takeItemsRaw(items);

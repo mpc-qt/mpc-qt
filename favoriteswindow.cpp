@@ -168,7 +168,7 @@ void FavoritesDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
                    + Helpers::toDateFormat(listItem->track().length);
     QRect rc = option.rect.adjusted(3, 0, -3, 0);
     painter->drawText(rc, Qt::AlignRight|Qt::AlignCenter, time);
-    rc.adjust(0, 0, -(3 + option.fontMetrics.width(time)), 0);
+    rc.adjust(0, 0, -(3 + option.fontMetrics.horizontalAdvance(time)), 0);
     painter->drawText(rc, Qt::AlignLeft|Qt::AlignVCenter, text);
 }
 

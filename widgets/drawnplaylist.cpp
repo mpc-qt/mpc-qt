@@ -39,7 +39,7 @@ void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
             extraText.append(QString::number(i->queuePosition()));
         if (i->extraPlayTimes())
             extraText.append(QString("+%1").arg(i->extraPlayTimes()));
-        int extraTextWidth = painter->fontMetrics().width(extraText);
+        int extraTextWidth = painter->fontMetrics().horizontalAdvance(extraText);
         QRect rc2(rc);
         rc2.setLeft(rc.right() - extraTextWidth);
         painter->drawText(rc2, Qt::AlignRight|Qt::AlignVCenter, extraText);

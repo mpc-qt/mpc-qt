@@ -444,13 +444,13 @@ QString Helpers::parseFormatEx(QString fmt, QUrl sourceUrl, QString filePath,
 
 QString Helpers::fileOpenFilter()
 {
-    const QString ext = QStringList(Helpers::fileExtensions.toList()).join(" *.");
+    const QString ext = QStringList(Helpers::fileExtensions.values()).join(" *.");
     return QString(QObject::tr("All Media (*.%1);;All Files (*.*)")).arg(ext);
 }
 
 QString Helpers::subsOpenFilter()
 {
-    const QString ext = QStringList(Helpers::subsExtensions.toList()).join(" *.");
+    const QString ext = QStringList(Helpers::subsExtensions.values()).join(" *.");
     return QString(QObject::tr("All Subtitles (*.%1);;All Files (*.*)")).arg(ext);
 }
 
