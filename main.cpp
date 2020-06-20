@@ -916,8 +916,7 @@ void Flow::restoreWindows(const QVariantMap &geometryMap)
     auto applyVariantToWindow = [&](QWidget *window, const QVariantMap &map) {
         geometry = Helpers::vmapToRect(map[keyGeometry].toMap());
         if (geometry.isEmpty()) {
-            int mouseScreenNumber = desktop.screenNumber(QCursor::pos());
-            QRect available = desktop.availableGeometry(mouseScreenNumber);
+            QRect available = Helpers::availableGeometryFromPoint(QCursor::pos());
             geometry = QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter,
                                            window->size(), available);
         }

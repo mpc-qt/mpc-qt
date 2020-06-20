@@ -1,4 +1,5 @@
 #include <QDateTime>
+#include <QScreen>
 #include <QPushButton>
 #include <QFileDialog>
 #include <QApplication>
@@ -534,6 +535,12 @@ bool Helpers::sizeFromString(QSize &size, const QString &text)
 bool Helpers::pointFromString(QPoint &point, const QString &text)
 {
     return pairFromString<QPoint>(point, text);
+}
+
+QRect Helpers::availableGeometryFromPoint(const QPoint &point)
+{
+    QScreen *screen = QGuiApplication::screenAt(point);
+    return screen->availableGeometry();
 }
 
 

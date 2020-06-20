@@ -59,6 +59,7 @@ namespace Helpers {
     QVariantMap rectToVmap(const QRect &r);
     bool sizeFromString(QSize &size, const QString &text);
     bool pointFromString(QPoint &point, const QString &text);
+    QRect availableGeometryFromPoint(const QPoint &point);
 }
 
 class IconThemer : public QObject {

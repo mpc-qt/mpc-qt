@@ -204,8 +204,7 @@ QSize MainWindow::desirableSize(bool first_run)
 
     // calculate available area for the window
     QDesktopWidget *desktop = qApp->desktop();
-    QRect available = first_run ? desktop->availableGeometry(
-                                      desktop->screenNumber(QCursor::pos()))
+    QRect available = first_run ? Helpers::availableGeometryFromPoint(QCursor::pos())
                                 : desktop->availableGeometry(this);
     QSize frameDiff = this->frameGeometry().size() - this->geometry().size();
     available.adjust(0, 0, -frameDiff.width(), -frameDiff.height());
@@ -262,8 +261,7 @@ QPoint MainWindow::desirablePosition(QSize &size, bool first_run)
 {
     QDesktopWidget *desktop = qApp->desktop();
 
-    QRect available = first_run ? desktop->availableGeometry(
-                                      desktop->screenNumber(QCursor::pos()))
+    QRect available = first_run ? Helpers::availableGeometryFromPoint(QCursor::pos())
                                 : desktop->availableGeometry(this);
     QSize frameDiff = this->frameGeometry().size() - this->geometry().size();
     available.adjust(0, 0, -frameDiff.width(), -frameDiff.height());
