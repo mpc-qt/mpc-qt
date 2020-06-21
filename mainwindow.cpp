@@ -2170,7 +2170,7 @@ void MainWindow::on_actionNavigateChaptersNext_triggered()
 
 void MainWindow::on_actionHelpHomepage_triggered()
 {
-    QDesktopServices::openUrl(QUrl("https://github.com/cmdrkotori/mpc-qt"));
+    QDesktopServices::openUrl(QUrl("https://github.com/cmdrkotori/mpc-qt-origin"));
 }
 
 void MainWindow::on_actionHelpAbout_triggered()
