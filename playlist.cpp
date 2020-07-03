@@ -697,7 +697,10 @@ void QueuePlaylist::removeItem_(const QUuid &uuid)
 QList<int> QueuePlaylist::removeItems_(const QList<QUuid> &itemsToRemove)
 {
     QList<int> removedIndices;
-    QSet<QUuid> removalSet({itemsToRemove.begin(), itemsToRemove.end()});
+    // Deprecated way
+    QSet<QUuid> removalSet(itemsToRemove.toSet());
+    // Non-deprecated way since Qt 5.14
+    //QSet<QUuid> removalSet({itemsToRemove.begin(), itemsToRemove.end()});
     QMutableListIterator<QSharedPointer<Item>> i(items);
     int index = 0;
     while (i.hasNext()) {
@@ -913,7 +916,10 @@ void PlaylistSearcher::clearPlaylistFilter(QSharedPointer<Playlist> &list)
 
 QStringList PlaylistSearcher::textToNeedles(QString text)
 {
-    return text.toLower().split(QString(" "), Qt::SkipEmptyParts);
+    // Deprecated way
+    return text.toLower().split(QString(" "), QString::SkipEmptyParts);
+    // Non deprecated way since Qt 5.14
+    //return text.toLower().split(QString(" "), Qt::SkipEmptyParts);
 }
 
 void PlaylistSearcher::findNeedles(const QString &text,
