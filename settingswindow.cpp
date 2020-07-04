@@ -506,11 +506,32 @@ void SettingsWindow::generateVideoPresets()
 {
     SettingMap videoWidgets;
 
-    videoWidgets.insert(generateSettingMap(ui->generalTab));
-    videoWidgets.insert(generateSettingMap(ui->ditherTab));
-    videoWidgets.insert(generateSettingMap(ui->scalingTab));
-    videoWidgets.insert(generateSettingMap(ui->debandTab));
-    videoWidgets.insert(generateSettingMap(ui->syncMode));
+    // Deprecated way
+    videoWidgets.unite(generateSettingMap(ui->generalTab));
+    videoWidgets.unite(generateSettingMap(ui->ditherTab));
+    videoWidgets.unite(generateSettingMap(ui->scalingTab));
+    videoWidgets.unite(generateSettingMap(ui->debandTab));
+    videoWidgets.unite(generateSettingMap(ui->syncMode));
+
+    videoWidgets.unite(generateSettingMap(ui->generalTab));
+    videoWidgets.unite(generateSettingMap(ui->ditherTab));
+    videoWidgets.unite(generateSettingMap(ui->scalingTab));
+    videoWidgets.unite(generateSettingMap(ui->debandTab));
+    videoWidgets.unite(generateSettingMap(ui->syncMode));
+
+    // Non-deprecated way since Qt 5.15
+    //videoWidgets.insert(generateSettingMap(ui->generalTab));
+    //videoWidgets.insert(generateSettingMap(ui->ditherTab));
+    //videoWidgets.insert(generateSettingMap(ui->scalingTab));
+    //videoWidgets.insert(generateSettingMap(ui->debandTab));
+    //videoWidgets.insert(generateSettingMap(ui->syncMode));
+    //
+    //videoWidgets.insert(generateSettingMap(ui->generalTab));
+    //videoWidgets.insert(generateSettingMap(ui->ditherTab));
+    //videoWidgets.insert(generateSettingMap(ui->scalingTab));
+    //videoWidgets.insert(generateSettingMap(ui->debandTab));
+    //videoWidgets.insert(generateSettingMap(ui->syncMode));
+
     videoWidgets.remove(ui->videoPreset->objectName());
 
     auto setWidget = [&videoWidgets](QWidget *x, auto y) {
