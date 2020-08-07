@@ -98,11 +98,11 @@ and `cd` into your general source-code directory. If one does not exist,
 
 Then clone this git repository using the following command:
 
->git clone https://github.com/cmdrkotori/mpc-qt.git
+>git clone https://github.com/cmdrkotori/mpc-qt-origin.git
 
 Finally, `cd` into the checked-out repository.
 
->cd mpc-qt
+>cd mpc-qt-origin
 
 Then build with qmake+make.
 
