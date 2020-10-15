@@ -487,7 +487,7 @@ void Flow::setupMainWindowConnections()
     connect(mainWindow, &MainWindow::hideLibraryWindow,
             libraryWindow, &LibraryWindow::hide);
     connect(libraryWindow, &LibraryWindow::windowClosed,
-            mainWindow, &MainWindow::logWindowClosed);
+            mainWindow, &MainWindow::libraryWindowClosed);
     connect(libraryWindow, &LibraryWindow::playlistRestored,
             mainWindow->playlistWindow(), &PlaylistWindow::addPlaylistByUuid);
     connect(mainWindow->playlistWindow(), &PlaylistWindow::playlistMovedToBackup,
