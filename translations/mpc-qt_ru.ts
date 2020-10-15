@@ -98,6 +98,25 @@
     </message>
 </context>
 <context>
+    <name>LibraryWindow</name>
+    <message>
+        <source>Restore</source>
+        <translation type="unfinished">Восстановить</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <source>Library</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LogWindow</name>
     <message>
         <source>Log Messages</source>
@@ -1204,6 +1223,14 @@
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Libr&amp;ary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+=</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3639,6 +3666,17 @@ media file played</source>
     <message>
         <source>Save Thumbnails</source>
         <translation>Сохранить миниатюры</translation>
+    </message>
+</context>
+<context>
+    <name>libraryWindow</name>
+    <message>
+        <source>Restore</source>
+        <translation type="obsolete">Восстановить</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="obsolete">Удалить</translation>
     </message>
 </context>
 </TS>

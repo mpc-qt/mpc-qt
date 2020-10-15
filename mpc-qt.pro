@@ -148,6 +148,7 @@ macx:HEADERS += platform/screensaver_mac.h \
 macx:QT += svg
 
 SOURCES += main.cpp\
+    librarywindow.cpp \
     mpvwidget.cpp \
     mainwindow.cpp \
     playlist.cpp \
@@ -160,6 +161,7 @@ SOURCES += main.cpp\
     openfiledialog.cpp \
     propertieswindow.cpp \
     platform/unify.cpp \
+    widgets/drawncollection.cpp \
     widgets/logowidget.cpp \
     widgets/paletteeditor.cpp \
     favoriteswindow.cpp \
@@ -174,6 +176,7 @@ SOURCES += main.cpp\
     thumbnailerwindow.cpp
 
 HEADERS  += \
+    librarywindow.h \
     mpvwidget.h \
     mainwindow.h \
     playlist.h \
@@ -187,6 +190,7 @@ HEADERS  += \
     openfiledialog.h \
     propertieswindow.h \
     platform/unify.h \
+    widgets/drawncollection.h \
     widgets/logowidget.h \
     widgets/paletteeditor.h \
     favoriteswindow.h \
@@ -201,6 +205,7 @@ HEADERS  += \
     thumbnailerwindow.h
 
 FORMS    += \
+    librarywindow.ui \
     mainwindow.ui \
     playlistwindow.ui \
     settingswindow.ui \

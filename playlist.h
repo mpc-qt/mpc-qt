@@ -181,8 +181,10 @@ public:
     static QSharedPointer<PlaylistCollection> getBackup();
     static QSharedPointer<QueuePlaylist> queuePlaylist();
 
+    void iteratePlaylists(const std::function<void(QSharedPointer<Playlist>)> &callback);
     QSharedPointer<Playlist> newPlaylist(const QString &title = QString());
     QSharedPointer<Playlist> clonePlaylist(const QUuid &uuid);
+    QSharedPointer<Playlist> takePlaylist(const QUuid &uuid);
     void removePlaylist(const QUuid &uuid);
     void removePlaylist(const QSharedPointer<Playlist> &p);
     QSharedPointer<Playlist> playlistAt(int col) const;

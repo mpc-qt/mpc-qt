@@ -41,7 +41,7 @@ private:
 class DrawnPlaylist : public QListWidget {
     Q_OBJECT
 public:
-    DrawnPlaylist(QWidget *parent = nullptr);
+    DrawnPlaylist(QSharedPointer<PlaylistCollection> collection, QWidget *parent = nullptr);
     ~DrawnPlaylist();
     void setCollection(QSharedPointer<PlaylistCollection> collection);
     virtual QSharedPointer<Playlist> playlist() const;
@@ -136,6 +136,7 @@ void DrawnPlaylist::sort(
 class DrawnQueue : public DrawnPlaylist {
     Q_OBJECT
 public:
+    DrawnQueue();
     virtual QSharedPointer<Playlist> playlist() const;
     void addItem(QUuid uuid);
 };

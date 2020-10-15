@@ -95,7 +95,8 @@ QUuid PlayItem::uuid()
     return uuid_;
 }
 
-DrawnPlaylist::DrawnPlaylist(QWidget *parent) : QListWidget(parent),
+DrawnPlaylist::DrawnPlaylist(QSharedPointer<PlaylistCollection> collection,
+                             QWidget *parent) : QListWidget(parent),
     displayParser_(nullptr), worker(nullptr), searcher(nullptr)
 {
     worker = new QThread();
@@ -103,7 +104,7 @@ DrawnPlaylist::DrawnPlaylist(QWidget *parent) : QListWidget(parent),
     searcher = new PlaylistSearcher();
     searcher->moveToThread(worker);
 
-    collection_ = PlaylistCollection::getSingleton();
+    collection_ = collection;
     setSelectionMode(QAbstractItemView::ContiguousSelection);
     setDragDropMode(QAbstractItemView::InternalMove);
 
@@ -192,7 +193,10 @@ void DrawnPlaylist::scrollToItem(QUuid itemUuid)
 void DrawnPlaylist::setUuid(const QUuid &uuid)
 {
     uuid_ = uuid;
-    nowPlayingItem_ = playlist()->nowPlaying();
+    auto playlist = this->playlist();
+    if (playlist) {
+        nowPlayingItem_ = playlist->nowPlaying();
+    }
     repopulateItems();
     setCurrentItem(nowPlayingItem_);
 }
@@ -487,6 +491,11 @@ void PlaylistSelection::appendAndQuickQueue(DrawnPlaylist *list)
         queue->toggle(pl->uuid(), uuid);
     }
     list->viewport()->update();
+}
+
+DrawnQueue::DrawnQueue() : DrawnPlaylist(PlaylistCollection::getSingleton())
+{
+
 }
 
 QSharedPointer<Playlist> DrawnQueue::playlist() const

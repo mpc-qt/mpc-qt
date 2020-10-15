@@ -247,7 +247,7 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
     ui->tabWidget->clear();
     widgets.clear();
     for (const QVariant &v : qvl) {
-        auto qdp = new DrawnPlaylist();
+        auto qdp = new DrawnPlaylist(PlaylistCollection::getSingleton());
         qdp->setDisplayParser(&displayParser);
         qdp->fromVMap(v.toMap());
         connect(qdp, &DrawnPlaylist::itemDesired,
@@ -375,7 +375,7 @@ void PlaylistWindow::setPlaylistFilters(QString filterText)
 
 void PlaylistWindow::addNewTab(QUuid playlist, QString title)
 {
-    auto qdp = new DrawnPlaylist();
+    auto qdp = new DrawnPlaylist(PlaylistCollection::getSingleton());
     qdp->setDisplayParser(&displayParser);
     qdp->setUuid(playlist);
     connect(qdp, &DrawnPlaylist::itemDesired, this, &PlaylistWindow::itemDesired);
@@ -435,6 +435,15 @@ void PlaylistWindow::addSimplePlaylist(QStringList data)
 
     auto pl = PlaylistCollection::getSingleton()->newPlaylist(tr("New Playlist"));
     pl->fromStringList(data);
+    addNewTab(pl->uuid(), pl->title());
+}
+
+void PlaylistWindow::addPlaylistByUuid(QUuid uuid)
+{
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(uuid);
+    if (!pl) {
+        throw std::runtime_error("received a nullptr for a playlist");
+    }
     addNewTab(pl->uuid(), pl->title());
 }
 
@@ -931,6 +940,7 @@ void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
     auto copy = collection->clonePlaylist(qdp->uuid());
     copy->setCreated(qdp->playlist()->created());
     backup->addPlaylist(copy);
+    emit playlistMovedToBackup(copy->uuid());
 
     if (qdp->uuid().isNull()) {
         qdp->removeAll();

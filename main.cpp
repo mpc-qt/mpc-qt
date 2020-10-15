@@ -32,6 +32,7 @@ static const char keyDirectory[] = "directory";
 static const char keyFiles[] = "files";
 static const char keyFloating[] = "floating";
 static const char keyGeometry[] = "geometry";
+static const char keyLibraryWindow[] = "libraryWindow";
 static const char keyLogWindow[] = "logWindow";
 static const char keyMainWindow[] = "mainWindow";
 static const char keyMaximized[] = "maximized";
@@ -165,6 +166,10 @@ Flow::~Flow()
         delete logThread;
         logThread = nullptr;
     }
+    if (libraryWindow) {
+        delete libraryWindow;
+        libraryWindow = nullptr;
+    }
 }
 
 void Flow::parseArgs()
@@ -233,6 +238,7 @@ void Flow::init() {
     propertiesWindow = new PropertiesWindow();
     favoritesWindow = new FavoritesWindow();
     logWindow = new LogWindow();
+    libraryWindow = new LibraryWindow();
     thumbnailerWindow = new ThumbnailerWindow();
 
     server = new MpcQtServer(mainWindow, playbackManager, this);
@@ -304,6 +310,7 @@ int Flow::run()
     mainWindow->playlistWindow()->tabsFromVList(playlist);
     PlaylistCollection::getBackup()->fromVList(backup);
     restoreWindows(geometry);
+    libraryWindow->refreshLibrary();
     return qApp->exec();
 }
 
@@ -473,6 +480,18 @@ void Flow::setupMainWindowConnections()
             logWindow, &LogWindow::close);
     connect(logWindow, &LogWindow::windowClosed,
             mainWindow, &MainWindow::logWindowClosed);
+
+    // mainwindow -> library
+    connect(mainWindow, &MainWindow::showLibraryWindow,
+            libraryWindow, &LibraryWindow::show);
+    connect(mainWindow, &MainWindow::hideLibraryWindow,
+            libraryWindow, &LibraryWindow::hide);
+    connect(libraryWindow, &LibraryWindow::windowClosed,
+            mainWindow, &MainWindow::logWindowClosed);
+    connect(libraryWindow, &LibraryWindow::playlistRestored,
+            mainWindow->playlistWindow(), &PlaylistWindow::addPlaylistByUuid);
+    connect(mainWindow->playlistWindow(), &PlaylistWindow::playlistMovedToBackup,
+            libraryWindow, &LibraryWindow::refreshLibrary);
 }
 
 void Flow::setupManagerConnections()
@@ -851,6 +870,11 @@ QVariantMap Flow::windowsToVMap()
             keyLogWindow, QVariantMap {
                 { keyGeometry, Helpers::rectToVmap(logWindow->geometry()) }
             }
+        },
+        {
+            keyLibraryWindow, QVariantMap {
+                { keyGeometry, Helpers::rectToVmap(libraryWindow->geometry()) }
+            }
         }
     };
 }
@@ -863,11 +887,13 @@ void Flow::restoreWindows(const QVariantMap &geometryMap)
     QVariantMap settingsMap = geometryMap[keySettingsWindow].toMap();
     QVariantMap propertiesMap = geometryMap[keyPropertiesWindow].toMap();
     QVariantMap logMap = geometryMap[keyLogWindow].toMap();
+    QVariantMap libraryMap = geometryMap[keyLibraryWindow].toMap();
     bool allHaveGeometry = mainMap.contains(keyGeometry)
             && playlistMap.contains(keyGeometry)
             && settingsMap.contains(keyGeometry)
             && propertiesMap.contains(keyGeometry)
-            && logMap.contains(keyGeometry);
+            && logMap.contains(keyGeometry)
+            && libraryMap.contains(keyGeometry);
     bool restoreGeometry = rememberWindowGeometry && allHaveGeometry;
     if (!restoreGeometry) {
         // No saved geometry, may as well assume everything is borked,
@@ -922,10 +948,11 @@ void Flow::restoreWindows(const QVariantMap &geometryMap)
         }
         window->setGeometry(geometry);
     };
-    // restore settings and properties window
+    // restore settings and properties window et al
     applyVariantToWindow(settingsWindow, settingsMap);
     applyVariantToWindow(propertiesWindow, propertiesMap);
     applyVariantToWindow(logWindow, logMap);
+    applyVariantToWindow(libraryWindow, libraryMap);
     showWindows(mainMap);
 }
 

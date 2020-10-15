@@ -98,6 +98,25 @@
     </message>
 </context>
 <context>
+    <name>LibraryWindow</name>
+    <message>
+        <source>Library</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LogWindow</name>
     <message>
         <source>Log Messages</source>
@@ -1091,10 +1110,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Once</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1204,6 +1219,18 @@
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Libr&amp;ary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+=</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+-</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -758,6 +758,13 @@ QSharedPointer<QueuePlaylist> PlaylistCollection::queuePlaylist()
     return queue;
 }
 
+void PlaylistCollection::iteratePlaylists(const std::function<void (QSharedPointer<Playlist>)> &callback)
+{
+    for (const auto &p : playlists) {
+        callback(p);
+    }
+}
+
 QSharedPointer<Playlist> PlaylistCollection::newPlaylist(const QString &title)
 {
     return doNewPlaylist(title, QUuid::createUuid());
@@ -777,6 +784,13 @@ QSharedPointer<Playlist> PlaylistCollection::clonePlaylist(const QUuid &uuid)
     };
     origin->iterateItems(cloner);
     return remote;
+}
+
+QSharedPointer<Playlist> PlaylistCollection::takePlaylist(const QUuid &uuid)
+{
+    QSharedPointer<Playlist> playlist = playlistOf(uuid);
+    removePlaylist(uuid);
+    return playlist;
 }
 
 void PlaylistCollection::removePlaylist(const QUuid &uuid)

@@ -73,6 +73,7 @@ signals:
     void playlistAddItem(QUuid playlistUUid);
     void playlistShuffleChanged(QUuid playlistUuid, bool shuffle);
     void hideFullscreenChanged(bool checked);
+    void playlistMovedToBackup(QUuid backupUuid);
 
 public slots:
     void setIconTheme(IconThemer::FolderMode mode, const QString &fallback, const QString &custom);
@@ -81,6 +82,7 @@ public slots:
     bool activateItem(QUuid playlistUuid, QUuid itemUuid);
     void changePlaylistSelection(QUrl itemUrl, QUuid playlistUuid, QUuid itemUuid);
     void addSimplePlaylist(QStringList data);
+    void addPlaylistByUuid(QUuid uuid);
     void setDisplayFormatSpecifier(QString fmt);
 
     void newTab();

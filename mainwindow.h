@@ -121,6 +121,8 @@ signals:
     void showFileProperties();
     void showLogWindow();
     void hideLogWindow();
+    void showLibraryWindow();
+    void hideLibraryWindow();
     void optionsOpenRequested();
     void paused();
     void unpaused();
@@ -198,6 +200,7 @@ public slots:
     void setAudioBitrate(double bitrate);
     void setVideoBitrate(double bitrate);
     void logWindowClosed();
+    void libraryWindowClosed();
 
 private slots:
     void on_actionFileOpenQuick_triggered();
@@ -226,6 +229,7 @@ private slots:
     void on_actionViewHideCapture_toggled(bool checked);
     void on_actionViewHideNavigation_toggled(bool checked);
     void on_actionViewHideLog_toggled(bool checked);
+    void on_actionViewHideLibrary_toggled(bool checked);
 
     void on_actionViewOSDNone_triggered();
     void on_actionViewOSDMessages_triggered();
@@ -320,6 +324,7 @@ private slots:
     void on_actionFavoritesAdd_triggered();
 
     void on_actionFavoritesOrganize_triggered();
+
 
 private:
     Ui::MainWindow *ui = nullptr;

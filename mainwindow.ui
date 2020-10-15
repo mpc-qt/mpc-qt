@@ -717,6 +717,7 @@
     <addaction name="actionViewHideCapture"/>
     <addaction name="actionViewHideNavigation"/>
     <addaction name="actionViewHideLog"/>
+    <addaction name="actionViewHideLibrary"/>
     <addaction name="menuOSD"/>
     <addaction name="menuViewPresets"/>
     <addaction name="separator"/>
@@ -1978,6 +1979,17 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+-</string>
+   </property>
+  </action>
+  <action name="actionViewHideLibrary">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Libr&amp;ary</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+=</string>
    </property>
   </action>
  </widget>

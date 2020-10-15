@@ -4,6 +4,7 @@
 #include <QMetaMethod>
 #include "ipc/json.h"
 #include "helpers.h"
+#include "librarywindow.h"
 #include "logwindow.h"
 #include "mainwindow.h"
 #include "manager.h"
@@ -94,6 +95,7 @@ private:
     PropertiesWindow *propertiesWindow = nullptr;
     FavoritesWindow *favoritesWindow = nullptr;
     LogWindow *logWindow = nullptr;
+    LibraryWindow *libraryWindow = nullptr;
     ThumbnailerWindow *thumbnailerWindow = nullptr;
     QThread *logThread = nullptr;
     Storage storage;
