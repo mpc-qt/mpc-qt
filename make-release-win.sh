@@ -24,16 +24,19 @@ read -r -d '' dirs <<'EOF'
 EOF
 
 read -r -d '' dlls <<'EOF'
+libbrotlidec.dll
+libbrotlicommon.dll
 libbz2-1.dll
+libdouble-conversion.dll
 libfreetype-6.dll
 libgcc_s_seh-1.dll
 libglib-2.0-0.dll
 libgraphite2.dll
 libharfbuzz-0.dll
 libiconv-2.dll
-libicudt62.dll
-libicuin62.dll
-libicuuc62.dll
+libicudt67.dll
+libicuin67.dll
+libicuuc67.dll
 libintl-8.dll
 libjpeg-8.dll
 libpcre-1.dll
@@ -41,6 +44,7 @@ libpcre2-16-0.dll
 libpng16-16.dll
 libstdc++-6.dll
 libwinpthread-1.dll
+libzstd.dll
 Qt5Core.dll
 Qt5Gui.dll
 Qt5Network.dll
