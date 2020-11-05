@@ -434,7 +434,7 @@ void UDisks2Filesystem::mount()
 {
     QDBusMessage reply = dbus->call(DBUS_CMD_MOUNT, QVariantMap());
     if (reply.type() == QDBusMessage::ErrorMessage)
-        qDebug() << "[devman] mount failed with message" << reply.errorMessage();
+        Logger::logs("devman", {"mount failed with message", reply.errorMessage()});
     update();
 }
 

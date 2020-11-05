@@ -6,6 +6,7 @@
 
 #include <mpv/client.h>
 
+#include "logger.h"
 #include "mainwindow.h"
 #include "manager.h"
 #include "mpvwidget.h"
@@ -358,7 +359,7 @@ void MpvServer::server_newConnection(QLocalSocket *socket)
         return;
     }
 
-    qDebug() << "[ipc] new mpv connection";
+    Logger::log("ipc", "new mpv connection");
     new MpvConnection(socket, playbackManager, mpvObject, this);
 }
 
