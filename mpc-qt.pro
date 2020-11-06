@@ -157,6 +157,7 @@ SOURCES += main.cpp\
     playlistwindow.cpp \
     storage.cpp \
     settingswindow.cpp \
+    ipc/http.cpp \
     ipc/json.cpp \
     openfiledialog.cpp \
     propertieswindow.cpp \
@@ -186,6 +187,7 @@ HEADERS  += \
     playlistwindow.h \
     storage.h \
     settingswindow.h \
+    ipc/http.h \
     ipc/json.h \
     openfiledialog.h \
     propertieswindow.h \
