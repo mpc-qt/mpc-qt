@@ -129,6 +129,14 @@ QVariantMap MainWindow::mouseMapDefaults()
     return commandMap;
 }
 
+QMap<int, QAction *> MainWindow::wmCommandMap()
+{
+    QMap<int, QAction *> wmCommands = {
+
+    };
+    return wmCommands;
+}
+
 QVariantMap MainWindow::state()
 {
 #define WRAP(a) \

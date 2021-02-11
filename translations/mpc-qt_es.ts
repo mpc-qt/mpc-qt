@@ -3616,6 +3616,54 @@ archivo multimedia reproducido</translation>
         <source>Ignore embedded subtitles</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Web Interface</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow access from localhost only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>webroot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>index.html</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TCP/IP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;a href=&quot;#&quot;&gt;Launch in web browser...&lt;/a&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Local files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Web root</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable web server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Serve pages from disk</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

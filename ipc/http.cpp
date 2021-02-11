@@ -1,3 +1,4 @@
+#include <QAction>
 #include <QByteArray>
 #include <QCoreApplication>
 #include <QFile>
@@ -15,6 +16,8 @@ static QMap<HttpResponse::HttpStatus,QString> statusToText = {
     { HttpResponse::Http200Ok, "200 OK" },
     { HttpResponse::Http204NoContent, "204 No Content" },
     { HttpResponse::Http301MovedPermanently, "301 Moved Permanently" },
+    { HttpResponse::Http302Found, "302 Found" },
+    { HttpResponse::Http303SeeOther, "303 See Other" },
     { HttpResponse::Http400BadRequest, "400 Bad Request" },
     { HttpResponse::Http401Unauthorized, "401 Unauthorized" },
     { HttpResponse::Http403Forbidden, "403 Forbidden" },
@@ -73,11 +76,17 @@ void HttpResponse::fillHeaders()
 {
     static const char dateFmt[] = "ddd, dd MMM yyyy HH:mm:ss t";
     headers["Date"] = dateResponse.toString(dateFmt);
-    headers["Server"] = QCoreApplication::applicationName();
+    if (!headers.contains("Server"))
+        headers["Server"] = QCoreApplication::applicationName();
     headers["Last-Modified"] = dateModified.toString(dateFmt);
     //headers["Accept-Ranges"] = "bytes";
     headers["Content-Length"] = QString::number(content.size());
     headers["Content-Type"] = contentType;
+}
+
+void HttpResponse::redirect(QString where) {
+    statusCode = HttpResponse::Http302Found;
+    headers["Location"] = where;
 }
 
 void HttpResponse::serveFile(QString filename)
@@ -335,3 +344,115 @@ void HttpServer::socket_readyRead(QTcpSocket *sock)
     sendSocket(sock, res);
 }
 
+
+MpcHcServer::MpcHcServer(QObject *owner)
+    : QObject(owner)
+{
+    http.route("/", [](HttpRequest &req, HttpResponse &res) {
+        (void)req;
+        res.headers["Server"] = "MPC-HC WebServer";
+        res.fallthrough = true;
+    });
+
+    http.route("/favicon.ico", [](HttpRequest &req, HttpResponse &res) {
+        (void)req;
+        res.serveFile(":/images/icon/mpc-qt.svg");
+    });
+
+    http.route("/browser.html", [](HttpRequest &req, HttpResponse &res) {
+
+    });
+
+    http.route("/command.html", [this](HttpRequest &req, HttpResponse &res) {
+        res.redirect("/");
+        QString commandString = req.getVars.value("wm_command", req.postVars.value("wm_command"));
+        if (commandString.isEmpty())
+            return;
+        int command = commandString.toInt();
+        if (command > 0 && wmCommands.contains(command)) {
+            QAction *action = wmCommands.value(command);
+            if (action->isCheckable())
+                action->toggle();
+            else
+                action->trigger();
+        }
+    });
+
+    http.route("/info.html", [](HttpRequest &req, HttpResponse &res) {
+
+    });
+
+    http.route("/variables.html", [](HttpRequest &req, HttpResponse &res) {
+
+    });
+
+    http.route("/", [this](HttpRequest &req, HttpResponse &res) {
+        QString fileRoot = serveFiles ? webRoot : ":/http";
+        QString fallback = serveFiles ? defaultPage : "index.html";
+        QString servedFile = fileRoot + req.url;
+        res.serveFile(servedFile);
+        if (res.statusCode == HttpResponse::Http404NotFound) {
+            servedFile = webRoot + "/" + fallback;
+            res.serveFile(servedFile);
+        };
+        if (servedFile == ":/http/index.html") {
+            QString contents = QString::fromUtf8(res.content);
+            QString actionText;
+            for (auto it = wmCommands.constBegin();
+                 it != wmCommands.constEnd();
+                 it++) {
+                QString optionValue = QString::number(it.key());
+                QString optionText = it.value()->text();
+                if (it.value()->isCheckable())
+                    optionText.prepend("Toggle ");
+                actionText.append(QString("<option value=\"%1\">%2</option>\n").arg(optionValue, optionText));
+            }
+            res.content = contents.arg(actionText).toUtf8();
+        }
+    });
+}
+
+void MpcHcServer::setWmCommands(QMap<int, QAction *> commandMap)
+{
+    wmCommands = commandMap;
+}
+
+void MpcHcServer::setDefaultPage(QString file)
+{
+    defaultPage = file;
+}
+
+void MpcHcServer::setEnabled(bool yes)
+{
+    enabled = yes;
+    relisten();
+}
+
+void MpcHcServer::setLocalHostOnly(bool yes)
+{
+    localHostOnly = yes;
+    relisten();
+}
+
+void MpcHcServer::setTcpPort(uint16_t port)
+{
+    tcpPort = port;
+    relisten();
+}
+
+void MpcHcServer::setServeFiles(bool yes)
+{
+    serveFiles = yes;
+}
+
+void MpcHcServer::setWebRoot(QString path)
+{
+    webRoot = path;
+}
+
+void MpcHcServer::relisten()
+{
+    http.close();
+    if (enabled)
+        http.listen(localHostOnly ? QHostAddress::LocalHost : QHostAddress::Any, tcpPort);
+}

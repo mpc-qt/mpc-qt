@@ -6,6 +6,8 @@
 #include <QMap>
 #include <QTcpServer>
 
+class QAction;
+
 class HttpRequest {
 public:
     QString method;
@@ -23,6 +25,8 @@ public:
         Http200Ok = 200,
         Http204NoContent = 204,
         Http301MovedPermanently = 301,
+        Http302Found = 302,
+        Http303SeeOther = 303,
         Http400BadRequest = 400,
         Http401Unauthorized = 401,
         Http403Forbidden = 403,
@@ -43,6 +47,7 @@ public:
     bool fallthrough;
 
     void fillHeaders();
+    void redirect(QString where);
     void serveFile(QString filename);
 };
 
@@ -51,7 +56,7 @@ class HttpServer : public QTcpServer
 {
     Q_OBJECT
 public:
-    HttpServer(QObject *owner);
+    HttpServer(QObject *owner = nullptr);
     void clearRoutes();
     void route(QString path, std::function<void(HttpRequest&, HttpResponse&)> callback);
     static QString extensionToContentType(QString extension);
@@ -68,5 +73,36 @@ private slots:
 private:
     QList<QPair<QString, std::function<void(HttpRequest&, HttpResponse&)>>> routeMap;
 };
+
+
+class MpcHcServer : public QObject
+{
+    Q_OBJECT
+public:
+    explicit MpcHcServer(QObject *owner = nullptr);
+    void setWmCommands(QMap<int, QAction*> commandMap);
+
+public slots:
+    void setDefaultPage(QString file);
+    void setEnabled(bool yes);
+    void setLocalHostOnly(bool yes);
+    void setTcpPort(uint16_t port);
+    void setServeFiles(bool yes);
+    void setWebRoot(QString path);
+
+private:
+    void relisten();
+
+    HttpServer http;
+    QMap<int, QAction*> wmCommands;
+
+    QString defaultPage = "index.html";
+    bool enabled = false;
+    bool localHostOnly = true;
+    uint16_t tcpPort = 13579;
+    bool serveFiles = false;
+    QString webRoot;
+};
+
 
 #endif // IPCHTTP_H

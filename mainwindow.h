@@ -36,6 +36,7 @@ public:
     PlaylistWindow *playlistWindow();
     QList<QAction *> editableActions();
     QVariantMap mouseMapDefaults();
+    QMap<int, QAction *> wmCommandMap();
     QVariantMap state();
     void setState(const QVariantMap &map);
     void setScreensaverAbilities(QSet<ScreenSaver::Ability> ab);

@@ -82,6 +82,7 @@ int main(int argc, char *argv[])
     qRegisterMetaType<MpvController::OptionList>("MpvController::OptionList");
     qRegisterMetaType<MpvErrorCode>("MpvErrorCode");
     qRegisterMetaType<uint64_t>("uint64_t");
+    qRegisterMetaType<uint16_t>("uint16_t");
 
     QTranslator qtTranslator;
     qtTranslator.load("qt_" + QLocale::system().name(),
@@ -122,6 +123,10 @@ Flow::~Flow()
     if (mpvServer) {
         delete mpvServer;
         mpvServer = nullptr;
+    }
+    if (mpcHcServer) {
+        delete mpcHcServer;
+        mpcHcServer = nullptr;
     }
     if (mainWindow) {
         if (programMode == PrimaryMode) {
@@ -248,6 +253,9 @@ void Flow::init() {
     mpvServer = new MpvServer(this);
     mpvServer->setPlaybackManger(playbackManager);
     mpvServer->setMpvObject(mainWindow->mpvObject());
+
+    mpcHcServer = new MpcHcServer(this);
+    mpcHcServer->setWmCommands(mainWindow->wmCommandMap());
 
     inhibitScreensaver = false;
     screenSaver = Platform::screenSaver();
@@ -577,6 +585,20 @@ void Flow::setupSettingsConnections()
             playbackManager, &PlaybackManager::setSubtitlesPreferExternal);
     connect(settingsWindow, &SettingsWindow::subsIgnoreEmbeded,
             playbackManager, &PlaybackManager::setSubtitlesIgnoreEmbedded);
+
+    // settings -> mpcHcServer
+    connect(settingsWindow, &SettingsWindow::webserverListening,
+            mpcHcServer, &MpcHcServer::setEnabled);
+    connect(settingsWindow, &SettingsWindow::webserverPort,
+            mpcHcServer, &MpcHcServer::setTcpPort);
+    connect(settingsWindow, &SettingsWindow::webserverLocalhost,
+            mpcHcServer, &MpcHcServer::setLocalHostOnly);
+    connect(settingsWindow, &SettingsWindow::webserverServePages,
+            mpcHcServer, &MpcHcServer::setServeFiles);
+    connect(settingsWindow, &SettingsWindow::webserverRoot,
+            mpcHcServer, &MpcHcServer::setWebRoot);
+    connect(settingsWindow, &SettingsWindow::webserverDefaultPage,
+            mpcHcServer, &MpcHcServer::setDefaultPage);
 
     // settings -> thumbnailer
     connect(settingsWindow, &SettingsWindow::screenshotDirectory,

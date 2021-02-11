@@ -54,5 +54,6 @@
         <file>images/theme/black/view-media-subtitles.svg</file>
         <file>images/theme/white/view-media-subtitles-hidden.svg</file>
         <file>images/theme/white/view-media-subtitles.svg</file>
+        <file>http/index.html</file>
     </qresource>
 </RCC>

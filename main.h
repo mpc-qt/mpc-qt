@@ -2,6 +2,7 @@
 #define MAIN_H
 #include <QHash>
 #include <QMetaMethod>
+#include "ipc/http.h"
 #include "ipc/json.h"
 #include "helpers.h"
 #include "librarywindow.h"
@@ -87,6 +88,7 @@ private slots:
 private:
     MpcQtServer *server = nullptr;
     MpvServer *mpvServer = nullptr;
+    MpcHcServer *mpcHcServer = nullptr;
     MprisInstance *mpris = nullptr;
     ScreenSaver *screenSaver = nullptr;
     MainWindow *mainWindow = nullptr;

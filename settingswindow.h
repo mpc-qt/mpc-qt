@@ -96,6 +96,13 @@ signals:
     void videoColor(QColor background);
     void infoStatsColors(QColor foreground, QColor background);
 
+    void webserverListening(bool listening);
+    void webserverPort(uint16_t port);
+    void webserverLocalhost(bool localhost);
+    void webserverServePages(bool yes);
+    void webserverRoot(QString root);
+    void webserverDefaultPage(QString page);
+
     void volume(int level);
     void balance(double pan);
     void volumeStep(int amount);

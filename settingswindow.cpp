@@ -703,6 +703,13 @@ void SettingsWindow::sendSignals()
     emit infoStatsColors(QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoForegroundValue).toString()),
                          QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoBackgroundValue).toString()));
 
+    emit webserverListening(WIDGET_LOOKUP(ui->webEnableServer).toBool());
+    emit webserverPort(WIDGET_LOOKUP(ui->webPort).toInt());
+    emit webserverLocalhost(WIDGET_LOOKUP(ui->webLocalhost).toBool());
+    emit webserverServePages(WIDGET_LOOKUP(ui->webServePages).toBool());
+    emit webserverRoot(WIDGET_PLACEHOLD_LOOKUP(ui->webRoot));
+    emit webserverDefaultPage(WIDGET_PLACEHOLD_LOOKUP(ui->webDefaultPage));
+
     int vol = WIDGET_LOOKUP(ui->playbackVolume).toInt();
     int volmax = WIDGET_LOOKUP(ui->tweaksVolumeLimit).toBool() ? 100 : 130;
     emit volumeMax(volmax);
@@ -1099,7 +1106,7 @@ void SettingsWindow::on_pageTree_itemSelectionChanged()
     if (!modelIndex.isValid())
         return;
 
-    static int parentIndex[] = { 0, 5, 12, 13, 16, 18, 19, 20 };
+    static int parentIndex[] = { 0, 6, 13, 14, 17, 19, 20, 21 };
     int index = 0;
     if (!modelIndex.parent().isValid())
         index = parentIndex[modelIndex.row()];
