@@ -255,7 +255,6 @@ void Flow::init() {
     mpvServer->setMpvObject(mainWindow->mpvObject());
 
     mpcHcServer = new MpcHcServer(this);
-    mpcHcServer->setWmCommands(mainWindow->wmCommandMap());
 
     inhibitScreensaver = false;
     screenSaver = Platform::screenSaver();

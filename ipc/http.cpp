@@ -345,76 +345,12 @@ void HttpServer::socket_readyRead(QTcpSocket *sock)
 }
 
 
+
 MpcHcServer::MpcHcServer(QObject *owner)
     : QObject(owner)
 {
-    http.route("/", [](HttpRequest &req, HttpResponse &res) {
-        (void)req;
-        res.headers["Server"] = "MPC-HC WebServer";
-        res.fallthrough = true;
-    });
-
-    http.route("/favicon.ico", [](HttpRequest &req, HttpResponse &res) {
-        (void)req;
-        res.serveFile(":/images/icon/mpc-qt.svg");
-    });
-
-    http.route("/browser.html", [](HttpRequest &req, HttpResponse &res) {
-
-    });
-
-    http.route("/command.html", [this](HttpRequest &req, HttpResponse &res) {
-        res.redirect("/");
-        QString commandString = req.getVars.value("wm_command", req.postVars.value("wm_command"));
-        if (commandString.isEmpty())
-            return;
-        int command = commandString.toInt();
-        if (command > 0 && wmCommands.contains(command)) {
-            QAction *action = wmCommands.value(command);
-            if (action->isCheckable())
-                action->toggle();
-            else
-                action->trigger();
-        }
-    });
-
-    http.route("/info.html", [](HttpRequest &req, HttpResponse &res) {
-
-    });
-
-    http.route("/variables.html", [](HttpRequest &req, HttpResponse &res) {
-
-    });
-
-    http.route("/", [this](HttpRequest &req, HttpResponse &res) {
-        QString fileRoot = serveFiles ? webRoot : ":/http";
-        QString fallback = serveFiles ? defaultPage : "index.html";
-        QString servedFile = fileRoot + req.url;
-        res.serveFile(servedFile);
-        if (res.statusCode == HttpResponse::Http404NotFound) {
-            servedFile = webRoot + "/" + fallback;
-            res.serveFile(servedFile);
-        };
-        if (servedFile == ":/http/index.html") {
-            QString contents = QString::fromUtf8(res.content);
-            QString actionText;
-            for (auto it = wmCommands.constBegin();
-                 it != wmCommands.constEnd();
-                 it++) {
-                QString optionValue = QString::number(it.key());
-                QString optionText = it.value()->text();
-                if (it.value()->isCheckable())
-                    optionText.prepend("Toggle ");
-                actionText.append(QString("<option value=\"%1\">%2</option>\n").arg(optionValue, optionText));
-            }
-            res.content = contents.arg(actionText).toUtf8();
-        }
-    });
-}
-
-void MpcHcServer::setWmCommands(QMap<int, QAction *> commandMap)
-{
-    wmCommands = commandMap;
+    setupWmCommands();
+    setupHttp();
 }
 
 void MpcHcServer::setDefaultPage(QString file)
@@ -455,4 +391,119 @@ void MpcHcServer::relisten()
     http.close();
     if (enabled)
         http.listen(localHostOnly ? QHostAddress::LocalHost : QHostAddress::Any, tcpPort);
+}
+
+void MpcHcServer::setupWmCommands()
+{
+    // I'm probably missing some things that we can do
+    wmCommands = QList<WmCommand>({
+        { 800, "Open File/URL", [&](){} },
+        { 806, "Save Image", [&](){} },
+        { 807, "Save Image", [&](){} },
+        { 808, "Save Thumbnails", [&](){} },
+        { 804, "Close", [&](){} },
+        { 814, "Properties", [&](){} },
+        { 816, "Exit", [&](){} },
+        { 887, "Play", [&](){} },
+        { 888, "Pause", [&](){} },
+        { 890, "Stop", [&](){} },
+        { 891, "Frame-step", [&](){} },
+        { 892, "Frame-step back", [&](){} },
+        { 895, "Increase Rate", [&](){} },
+        { 894, "Decreate Rate", [&](){} },
+        { 920, "Next File", [&](){} },
+        { 919, "Previous File", [&](){} },
+        { 975, "Quick add favorite", [&](){} },
+        { 937, "Organize Favorites...", [&](){} },
+        { 817, "Toggle Caption&amp;Menu", [&](){} },
+        { 818, "Toggle Seek Bar", [&](){} },
+        { 819, "Toggle Controls", [&](){} },
+        { 820, "Toggle Information", [&](){} },
+        { 821, "Toggle Statistics", [&](){} },
+        { 822, "Toggle Status", [&](){} },
+        { 824, "Toggle Playlist Bar", [&](){} },
+        { 827, "View Minimal", [&](){} },
+        { 828, "View Compact", [&](){} },
+        { 829, "View Normal", [&](){} },
+        { 830, "Fullscreen", [&](){} },
+        { 813, "Zoom 25%", [&](){} },
+        { 832, "Zoom 50%", [&](){} },
+        { 833, "Zoom 100%", [&](){} },
+        { 834, "Zoom 200%", [&](){} },
+        { 968, "Zoom Auto Fit", [&](){} },
+        { 4900, "Zoom Auto Fit (Larger Only)", [&](){} },
+        { 907, "Volume Up", [&](){} },
+        { 908, "Volume Down", [&](){} },
+        { 908, "Volume Mute", [&](){} },
+        { 954, "Next Subtitle Track", [&](){} },
+        { 955, "Next Subtitle Tracks", [&](){} },
+        { 956, "On/Off Subtitles", [&](){} },
+        { 948, "After Playback: Do nothing", [&](){} },
+        { 947, "After Playback: Play next file in the folder", [&](){} },
+        { 912, "After Playback: Exit", [&](){} },
+        { 912, "After Playback: Stand By", [&](){} },
+        { 913, "After Playback: Hibernate", [&](){} },
+        { 915, "Shutdown", [&](){} },
+        { 916, "Log Off", [&](){} },
+        { 917, "Lock", [&](){} }
+    });
+    for (auto &c : wmCommands) {
+        wmCommandsById.insert(c.id, c);
+    }
+}
+
+void MpcHcServer::setupHttp()
+{
+    http.route("/", [](HttpRequest &req, HttpResponse &res) {
+        (void)req;
+        res.headers["Server"] = "MPC-HC WebServer";
+        res.fallthrough = true;
+    });
+
+    http.route("/favicon.ico", [](HttpRequest &req, HttpResponse &res) {
+        (void)req;
+        res.serveFile(":/images/icon/mpc-qt.svg");
+    });
+
+    http.route("/browser.html", [](HttpRequest &req, HttpResponse &res) {
+
+    });
+
+    http.route("/command.html", [this](HttpRequest &req, HttpResponse &res) {
+        res.redirect("/index.html");
+        QString commandString = req.getVars.value("wm_command", req.postVars.value("wm_command"));
+        if (commandString.isEmpty())
+            return;
+        int command = commandString.toInt();
+        if (command > 0 && wmCommandsById.contains(command))
+            wmCommandsById.value(command).func();
+    });
+
+    http.route("/info.html", [](HttpRequest &req, HttpResponse &res) {
+
+    });
+
+    http.route("/variables.html", [](HttpRequest &req, HttpResponse &res) {
+
+    });
+
+    http.route("/", [this](HttpRequest &req, HttpResponse &res) {
+        QString fileRoot = serveFiles ? webRoot : ":/http";
+        QString fallback = serveFiles ? defaultPage : "index.html";
+        QString servedFile = fileRoot + req.url;
+        res.serveFile(servedFile);
+        if (res.statusCode == HttpResponse::Http404NotFound) {
+            servedFile = webRoot + "/" + fallback;
+            res.serveFile(servedFile);
+        };
+        if (servedFile == ":/http/index.html") {
+            QString contents = QString::fromUtf8(res.content);
+            QString actionText;
+            for (auto &c : wmCommands) {
+                QString optionValue = QString::number(c.id);
+                actionText.append(QString("<option value=\"%1\">%2</option>\n").arg(optionValue, c.text));
+            }
+            res.content = contents.arg(actionText).toUtf8();
+        }
+    });
 }

@@ -78,9 +78,16 @@ private:
 class MpcHcServer : public QObject
 {
     Q_OBJECT
+
+    class WmCommand {
+    public:
+        int id;
+        const char *text;
+        std::function<void()> func;
+    };
+
 public:
     explicit MpcHcServer(QObject *owner = nullptr);
-    void setWmCommands(QMap<int, QAction*> commandMap);
 
 public slots:
     void setDefaultPage(QString file);
@@ -92,9 +99,12 @@ public slots:
 
 private:
     void relisten();
+    void setupWmCommands();
+    void setupHttp();
 
     HttpServer http;
-    QMap<int, QAction*> wmCommands;
+    QList<WmCommand> wmCommands;
+    QMap<int, WmCommand> wmCommandsById;
 
     QString defaultPage = "index.html";
     bool enabled = false;
