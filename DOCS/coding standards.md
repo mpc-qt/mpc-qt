@@ -20,21 +20,27 @@ Another good read for api design is the Little Manual of API Design.
 
 **In general this means:**
 
-Indenting in QtCreator should left on the default Qt preset.  Spaces not
-tabs.  Try to code within 78 columns but don't be afraid to overflow for
-readability.
+Indenting in QtCreator should left on the default Qt preset.  This is K&R
+with a few exceptions.  Spaces not tabs.  Try to code within 78 columns but
+don't be afraid to overflow for readability.
 
-Data members exposed with getter/setters should internally end with _. Data
-members that are not exposed should not be mangled.
+Data members exposed with getter/setters should internally end with _ when
+they share the same name as a getter.  Data members that are not exposed via
+getters and setters should not be mangled.
 
 Don't close the parenthesis for a function call on a seperate line if you are
-splitting its parameters over more than one line.  Make your calls pythonic.
+splitting its parameters over more than one line.
 
 Opening braces inside a function are on the same line.  There is no need to
 use a brace inside an if statement if there's only one statment there; adding
 it would introduce unnecessary visual noise.
 
+Opening braces of a function are on a new line, since they introduce code.
+Opening braces of lambdas are on the same line.
+
 Use two spaces after a period in comments.
+
+Simple enums can be placed on the same line.
 
 ## Writing a module
 
