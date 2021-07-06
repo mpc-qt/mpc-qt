@@ -98,7 +98,7 @@ and `cd` into your general source-code directory. If one does not exist,
 
 Then clone this git repository using the following command:
 
->git clone https://github.com/cmdrkotori/mpc-qt-origin.git
+>git clone https://github.com/mpc-qt/mpc-qt.git
 
 Finally, `cd` into the checked-out repository.
 
@@ -109,6 +109,8 @@ Then build with qmake+make.
 >qmake
 
 >make -j *threads*
+
+Where *threads* is the amount of threads your CPU has.  Then:
 
 >sudo make install
 
