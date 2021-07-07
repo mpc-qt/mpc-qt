@@ -1047,6 +1047,8 @@ void SettingsWindow::setFreestanding(bool freestanding)
     ui->playerRememberWindowGeometry->setVisible(yes);
     ui->playerRememberPanScanZoom->setVisible(yes);
     ui->playerHistoryBox->setEnabled(yes);
+    ui->webTcpIpBox->setEnabled(yes);
+    ui->webLocalFilesBox->setEnabled(yes);
 }
 
 void SettingsWindow::setVolume(int level)
