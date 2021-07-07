@@ -281,8 +281,10 @@ void Flow::init() {
     connect(playbackManager, &PlaybackManager::playerSettingsRequested,
             settingsWindow, &SettingsWindow::sendSignals);
 
-    if (programMode == PrimaryMode)
+    if (programMode == PrimaryMode) {
         setupMpris();
+        setupMpcHc();
+    }
 
     // update player framework
     settingsWindow->takeActions(mainWindow->editableActions());
@@ -585,20 +587,6 @@ void Flow::setupSettingsConnections()
     connect(settingsWindow, &SettingsWindow::subsIgnoreEmbeded,
             playbackManager, &PlaybackManager::setSubtitlesIgnoreEmbedded);
 
-    // settings -> mpcHcServer
-    connect(settingsWindow, &SettingsWindow::webserverListening,
-            mpcHcServer, &MpcHcServer::setEnabled);
-    connect(settingsWindow, &SettingsWindow::webserverPort,
-            mpcHcServer, &MpcHcServer::setTcpPort);
-    connect(settingsWindow, &SettingsWindow::webserverLocalhost,
-            mpcHcServer, &MpcHcServer::setLocalHostOnly);
-    connect(settingsWindow, &SettingsWindow::webserverServePages,
-            mpcHcServer, &MpcHcServer::setServeFiles);
-    connect(settingsWindow, &SettingsWindow::webserverRoot,
-            mpcHcServer, &MpcHcServer::setWebRoot);
-    connect(settingsWindow, &SettingsWindow::webserverDefaultPage,
-            mpcHcServer, &MpcHcServer::setDefaultPage);
-
     // settings -> thumbnailer
     connect(settingsWindow, &SettingsWindow::screenshotDirectory,
             thumbnailerWindow, &ThumbnailerWindow::setScreenshotDirectory);
@@ -806,6 +794,127 @@ void Flow::setupMpris()
 
     mpris->setProtocolList(mainWindow->mpvObject()->supportedProtocols());
 #endif
+}
+
+void Flow::setupMpcHc()
+{
+    // settings -> mpcHcServer
+    connect(settingsWindow, &SettingsWindow::webserverListening,
+            mpcHcServer, &MpcHcServer::setEnabled);
+    connect(settingsWindow, &SettingsWindow::webserverPort,
+            mpcHcServer, &MpcHcServer::setTcpPort);
+    connect(settingsWindow, &SettingsWindow::webserverLocalhost,
+            mpcHcServer, &MpcHcServer::setLocalHostOnly);
+    connect(settingsWindow, &SettingsWindow::webserverServePages,
+            mpcHcServer, &MpcHcServer::setServeFiles);
+    connect(settingsWindow, &SettingsWindow::webserverRoot,
+            mpcHcServer, &MpcHcServer::setWebRoot);
+    connect(settingsWindow, &SettingsWindow::webserverDefaultPage,
+            mpcHcServer, &MpcHcServer::setDefaultPage);
+
+    // mpcHcServer -> mainWindow
+    connect(mpcHcServer, &MpcHcServer::quickOpenFile,
+            mainWindow, &MainWindow::httpQuickOpenFile);
+    connect(mpcHcServer, &MpcHcServer::openFileUrl,
+            mainWindow, &MainWindow::httpOpenFileUrl);
+    connect(mpcHcServer, &MpcHcServer::saveImage,
+            mainWindow, &MainWindow::httpSaveImage);
+    connect(mpcHcServer, &MpcHcServer::saveImageAuto,
+            mainWindow, &MainWindow::httpSaveImageAuto);
+    connect(mpcHcServer, &MpcHcServer::saveThumbnails,
+            mainWindow, &MainWindow::httpSaveThumbnails);
+    connect(mpcHcServer, &MpcHcServer::close,
+            mainWindow, &MainWindow::httpClose);
+    connect(mpcHcServer, &MpcHcServer::properties,
+            mainWindow, &MainWindow::httpProperties);
+    connect(mpcHcServer, &MpcHcServer::exit,
+            mainWindow, &MainWindow::httpExit);
+    connect(mpcHcServer, &MpcHcServer::play,
+            mainWindow, &MainWindow::httpPlay);
+    connect(mpcHcServer, &MpcHcServer::pause,
+            mainWindow, &MainWindow::httpPause);
+    connect(mpcHcServer, &MpcHcServer::stop,
+            mainWindow, &MainWindow::httpStop);
+    connect(mpcHcServer, &MpcHcServer::frameStep,
+            mainWindow, &MainWindow::httpFrameStep);
+    connect(mpcHcServer, &MpcHcServer::frameStepBack,
+            mainWindow, &MainWindow::httpFrameStepBack);
+    connect(mpcHcServer, &MpcHcServer::increaseRate,
+            mainWindow, &MainWindow::httpIncreaseRate);
+    connect(mpcHcServer, &MpcHcServer::decreaseRate,
+            mainWindow, &MainWindow::httpDecreaseRate);
+    connect(mpcHcServer, &MpcHcServer::quickAddFavorite,
+            mainWindow, &MainWindow::httpQuickAddFavorite);
+    connect(mpcHcServer, &MpcHcServer::organizeFavorites,
+            mainWindow, &MainWindow::httpOrganizeFavories);
+    connect(mpcHcServer, &MpcHcServer::toggleCaptionMenu,
+            mainWindow, &MainWindow::httpToggleCaptionMenu);
+    connect(mpcHcServer, &MpcHcServer::toggleSeekBar,
+            mainWindow, &MainWindow::httpToggleSeekBar);
+    connect(mpcHcServer, &MpcHcServer::toggleControls,
+            mainWindow, &MainWindow::httpToogleControls);
+    connect(mpcHcServer, &MpcHcServer::toggleInformation,
+            mainWindow, &MainWindow::httpToggleInformation);
+    connect(mpcHcServer, &MpcHcServer::toggleStatistics,
+            mainWindow, &MainWindow::httpToggleStatistics);
+    connect(mpcHcServer, &MpcHcServer::toggleStatus,
+            mainWindow, &MainWindow::httpToggleStatus);
+    connect(mpcHcServer, &MpcHcServer::togglePlaylistBar,
+            mainWindow, &MainWindow::httpTogglePlaylistBar);
+    connect(mpcHcServer, &MpcHcServer::viewMinimal,
+            mainWindow, &MainWindow::httpViewMinimal);
+    connect(mpcHcServer, &MpcHcServer::viewCompact,
+            mainWindow, &MainWindow::httpViewCompact);
+    connect(mpcHcServer, &MpcHcServer::viewNormal,
+            mainWindow, &MainWindow::httpViewNormal);
+    connect(mpcHcServer, &MpcHcServer::fullscreen,
+            mainWindow, &MainWindow::httpFullscreen);
+    connect(mpcHcServer, &MpcHcServer::zoom25,
+            mainWindow, &MainWindow::httpZoom25);
+    connect(mpcHcServer, &MpcHcServer::zoom50,
+            mainWindow, &MainWindow::httpZoom50);
+    connect(mpcHcServer, &MpcHcServer::zoom100,
+            mainWindow, &MainWindow::httpZoom100);
+    connect(mpcHcServer, &MpcHcServer::zoom200,
+            mainWindow, &MainWindow::httpZoom200);
+    connect(mpcHcServer, &MpcHcServer::zoomAutoFit,
+            mainWindow, &MainWindow::httpZoomAutoFit);
+    connect(mpcHcServer, &MpcHcServer::zoomAutoFitLarger,
+            mainWindow, &MainWindow::httpZoomAutoFitLarger);
+    connect(mpcHcServer, &MpcHcServer::volumeUp,
+            mainWindow, &MainWindow::httpVolumeUp);
+    connect(mpcHcServer, &MpcHcServer::volumeDown,
+            mainWindow, &MainWindow::httpVolumeDown);
+    connect(mpcHcServer, &MpcHcServer::volumeMute,
+            mainWindow, &MainWindow::httpVolumeMute);
+    connect(mpcHcServer, &MpcHcServer::nextSubtitleTrack,
+            mainWindow, &MainWindow::httpNextSubtitle);
+    connect(mpcHcServer, &MpcHcServer::previousSubtitleTrack,
+            mainWindow, &MainWindow::httpPrevSubtitle);
+    connect(mpcHcServer, &MpcHcServer::onOffSubtitles,
+            mainWindow, &MainWindow::httpOnOffSubtitles);
+    connect(mpcHcServer, &MpcHcServer::afterPlaybackDoNothing,
+            mainWindow, &MainWindow::httpAfterPlaybackNothing);
+    connect(mpcHcServer, &MpcHcServer::afterPlaybackPlayNext,
+            mainWindow, &MainWindow::httpAfterPlaybackPlayNext);
+    connect(mpcHcServer, &MpcHcServer::afterPlaybackExit,
+            mainWindow, &MainWindow::httpAfterPlaybackExit);
+    connect(mpcHcServer, &MpcHcServer::afterPlaybackStandBy,
+            mainWindow, &MainWindow::httpAfterPlaybackStandBy);
+    connect(mpcHcServer, &MpcHcServer::afterPlaybackHibernate,
+            mainWindow, &MainWindow::httpAfterPlaybackHibernate);
+    connect(mpcHcServer, &MpcHcServer::afterPlaybackShutdown,
+            mainWindow, &MainWindow::httpAfterPlaybackShutdown);
+    connect(mpcHcServer, &MpcHcServer::afterPlaybackLogOff,
+            mainWindow, &MainWindow::httpAfterPlaybackLogOff);
+    connect(mpcHcServer, &MpcHcServer::afterPlaybackLock,
+            mainWindow, &MainWindow::httpAfterPlaybackLock);
+
+    // mpcHcServer -> playbackManager
+    connect(mpcHcServer, &MpcHcServer::nextFile,
+            playbackManager, &PlaybackManager::playNext);
+    connect(mpcHcServer, &MpcHcServer::previousFile,
+            playbackManager, &PlaybackManager::playPrev);
 }
 
 QByteArray Flow::makePayload() const
