@@ -399,7 +399,7 @@ void MpcHcServer::setupWmCommands()
     wmCommands = QList<WmCommand>({
         { 800, "Open File/URL", [&](){} },
         { 806, "Save Image", [&](){} },
-        { 807, "Save Image", [&](){} },
+        { 807, "Save Image (auto)", [&](){} },
         { 808, "Save Thumbnails", [&](){} },
         { 804, "Close", [&](){} },
         { 814, "Properties", [&](){} },
@@ -436,16 +436,16 @@ void MpcHcServer::setupWmCommands()
         { 908, "Volume Down", [&](){} },
         { 908, "Volume Mute", [&](){} },
         { 954, "Next Subtitle Track", [&](){} },
-        { 955, "Next Subtitle Tracks", [&](){} },
+        { 955, "Prev Subtitle Track", [&](){} },
         { 956, "On/Off Subtitles", [&](){} },
         { 948, "After Playback: Do nothing", [&](){} },
         { 947, "After Playback: Play next file in the folder", [&](){} },
         { 912, "After Playback: Exit", [&](){} },
         { 912, "After Playback: Stand By", [&](){} },
         { 913, "After Playback: Hibernate", [&](){} },
-        { 915, "Shutdown", [&](){} },
-        { 916, "Log Off", [&](){} },
-        { 917, "Lock", [&](){} }
+        { 915, "After Playback: Shutdown", [&](){} },
+        { 916, "After Playback: Log Off", [&](){} },
+        { 917, "After Playback: Lock", [&](){} }
     });
     for (auto &c : wmCommands) {
         wmCommandsById.insert(c.id, c);
