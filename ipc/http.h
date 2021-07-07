@@ -89,6 +89,58 @@ class MpcHcServer : public QObject
 public:
     explicit MpcHcServer(QObject *owner = nullptr);
 
+signals:
+    void quickOpenFile();
+    void openFileUrl();
+    void saveImage();
+    void saveImageAuto();
+    void saveThumbnails();
+    void close();
+    void properties();
+    void exit();
+    void play();
+    void pause();
+    void stop();
+    void frameStep();
+    void frameStepBack();
+    void increaseRate();
+    void decreaseRate();
+    void nextFile();
+    void previousFile();
+    void quickAddFavorite();
+    void organizeFavorites();
+    void toggleCaptionMenu();
+    void toggleSeekBar();
+    void toggleControls();
+    void toggleInformation();
+    void toggleStatistics();
+    void toggleStatus();
+    void togglePlaylistBar();
+    void viewMinimal();
+    void viewCompact();
+    void viewNormal();
+    void fullscreen();
+    void zoom25();
+    void zoom50();
+    void zoom100();
+    void zoom200();
+    void zoomAutoFit();
+    void zoomAutoFitLarger();
+    void volumeUp();
+    void volumeDown();
+    void volumeMute();
+    void nextSubtitleTrack();
+    void previousSubtitleTrack();
+    void onOffSubtitles();
+    void afterPlaybackDoNothing();
+    void afterPlaybackPlayNext();
+    void afterPlaybackExit();
+    void afterPlaybackStandBy();
+    void afterPlaybackHibernate();
+    void afterPlaybackShutdown();
+    void afterPlaybackLogOff();
+    void afterPlaybackLock();
+
 public slots:
     void setDefaultPage(QString file);
     void setEnabled(bool yes);
