@@ -1123,6 +1123,330 @@ QList<QUrl> MainWindow::doQuickOpenFileDialog()
     return urls;
 }
 
+void MainWindow::httpQuickOpenFile()
+{
+    if (ui->actionFileOpenQuick->isEnabled())
+        ui->actionFileOpenQuick->trigger();
+}
+
+void MainWindow::httpOpenFileUrl()
+{
+    if (ui->actionFileOpen->isEnabled())
+        ui->actionFileOpen->trigger();
+}
+
+void MainWindow::httpSaveImage()
+{
+    if (ui->actionFileSaveImage->isEnabled())
+        ui->actionFileSaveImage->trigger();
+}
+
+void MainWindow::httpSaveImageAuto()
+{
+    if (ui->actionFileSaveImageAuto->isEnabled())
+        ui->actionFileSaveImageAuto->trigger();
+}
+
+void MainWindow::httpSaveThumbnails()
+{
+    if (ui->actionFileSaveThumbnails->isEnabled())
+        ui->actionFileSaveThumbnails->trigger();
+}
+
+void MainWindow::httpClose()
+{
+    if (ui->actionFileClose->isEnabled())
+        ui->actionFileClose->trigger();
+}
+
+void MainWindow::httpProperties()
+{
+    if (ui->actionFileProperties->isEnabled())
+        ui->actionFileProperties->trigger();
+}
+
+void MainWindow::httpExit()
+{
+    if (ui->actionFileExit->isEnabled())
+        ui->actionFileExit->trigger();
+}
+
+void MainWindow::httpPlay()
+{
+    if (ui->play->isEnabled())
+        ui->play->click();
+}
+
+void MainWindow::httpPause()
+{
+    if (ui->pause->isEnabled())
+        ui->pause->click();
+}
+
+void MainWindow::httpStop()
+{
+    if (ui->stop->isEnabled())
+        ui->stop->click();
+}
+
+void MainWindow::httpFrameStep()
+{
+    if (ui->stepForward->isEnabled())
+        ui->stepForward->click();
+}
+
+void MainWindow::httpFrameStepBack()
+{
+    if (ui->skipBackward->isEnabled())
+        ui->stepBackward->click();
+}
+
+void MainWindow::httpIncreaseRate()
+{
+    if (ui->actionPlayRateIncrease->isEnabled())
+        ui->actionPlayRateIncrease->trigger();
+}
+
+void MainWindow::httpDecreaseRate()
+{
+    if (ui->actionPlayRateDecrease->isEnabled())
+        ui->actionPlayRateDecrease->trigger();
+}
+
+void MainWindow::httpQuickAddFavorite()
+{
+    if (ui->actionFavoritesAdd->isEnabled())
+        ui->actionFavoritesAdd->trigger();
+}
+
+void MainWindow::httpOrganizeFavories()
+{
+    if (ui->actionFavoritesOrganize->isEnabled())
+        ui->actionFavoritesOrganize->trigger();
+}
+
+void MainWindow::httpToggleCaptionMenu()
+{
+    if (ui->actionViewHideMenu->isEnabled())
+        ui->actionViewHideMenu->trigger();
+}
+
+void MainWindow::httpToggleSeekBar()
+{
+    if (ui->actionViewHideSeekbar->isEnabled())
+        ui->actionViewHideSeekbar->toggle();
+}
+
+void MainWindow::httpToogleControls()
+{
+    if (ui->actionViewHideControls->isEnabled())
+        ui->actionViewHideControls->toggle();
+}
+
+void MainWindow::httpToggleInformation()
+{
+    if (ui->actionViewHideInformation->isEnabled())
+        ui->actionViewHideInformation->toggle();
+}
+
+void MainWindow::httpToggleStatistics()
+{
+    if (ui->actionViewHideStatistics->isEnabled())
+        ui->actionViewHideStatistics->toggle();
+}
+
+void MainWindow::httpToggleStatus()
+{
+    if (ui->actionViewHideStatus->isEnabled())
+        ui->actionViewHideStatus->toggle();
+}
+
+void MainWindow::httpTogglePlaylistBar()
+{
+    if (ui->actionViewHidePlaylist->isEnabled())
+        ui->actionViewHidePlaylist->toggle();
+}
+
+void MainWindow::httpViewMinimal()
+{
+    if (ui->actionViewPresetsMinimal->isEnabled())
+        ui->actionViewPresetsMinimal->trigger();
+}
+
+void MainWindow::httpViewCompact()
+{
+    if (ui->actionViewPresetsCompact->isEnabled())
+        ui->actionViewPresetsCompact->trigger();
+}
+
+void MainWindow::httpViewNormal()
+{
+    if (ui->actionViewPresetsNormal->isEnabled())
+        ui->actionViewPresetsNormal->trigger();
+}
+
+void MainWindow::httpFullscreen()
+{
+    if (ui->actionViewFullscreen->isEnabled())
+        ui->actionViewFullscreen->trigger();
+}
+
+void MainWindow::httpZoom25()
+{
+    if (ui->actionViewZoom025->isEnabled()) {
+        ui->actionViewZoom025->setChecked(true);
+        ui->actionViewZoom025->trigger();
+    }
+}
+
+void MainWindow::httpZoom50()
+{
+    if (ui->actionViewZoom050->isEnabled()) {
+        ui->actionViewZoom050->setChecked(true);
+        ui->actionViewZoom050->trigger();
+    }
+}
+
+void MainWindow::httpZoom100()
+{
+    if (ui->actionViewZoom100->isEnabled()) {
+        ui->actionViewZoom100->setChecked(true);
+        ui->actionViewZoom100->trigger();
+    }
+}
+
+void MainWindow::httpZoom200()
+{
+    if (ui->actionViewZoom200->isEnabled()) {
+        ui->actionViewZoom200->setChecked(true);
+        ui->actionViewZoom200->trigger();
+    }
+}
+
+void MainWindow::httpZoomAutoFit()
+{
+    if (ui->actionViewZoomAutofit->isEnabled()) {
+        ui->actionViewZoomAutofit->setChecked(true);
+        ui->actionViewZoomAutofit->trigger();
+    }
+}
+
+void MainWindow::httpZoomAutoFitLarger()
+{
+    if (ui->actionViewZoomAutofitLarger->isEnabled()) {
+        ui->actionViewZoomAutofitLarger->setChecked(true);
+        ui->actionViewZoomAutofitLarger->trigger();
+    }
+}
+
+void MainWindow::httpVolumeUp()
+{
+    if (ui->actionPlayVolumeUp->isEnabled())
+        ui->actionPlayVolumeUp->trigger();
+}
+
+void MainWindow::httpVolumeDown()
+{
+    if (ui->actionPlayVolumeDown->isEnabled())
+        ui->actionPlayVolumeDown->trigger();
+}
+
+void MainWindow::httpVolumeMute()
+{
+    if (ui->actionPlayVolumeMute->isEnabled())
+        ui->actionPlayVolumeMute->toggle();
+}
+
+void MainWindow::httpNextSubtitle()
+{
+    if (ui->actionPlaySubtitlesNext->isEnabled())
+        ui->actionPlaySubtitlesNext->trigger();
+}
+
+void MainWindow::httpPrevSubtitle()
+{
+    if (ui->actionPlaySubtitlesPrevious->isEnabled())
+        ui->actionPlaySubtitlesPrevious->trigger();
+}
+
+void MainWindow::httpOnOffSubtitles()
+{
+    if (ui->subs->isEnabled())
+        ui->subs->click();
+}
+
+void MainWindow::httpAfterPlaybackNothing()
+{
+    if (ui->actionPlayAfterOnceNothing->isEnabled()) {
+        ui->actionPlayAfterOnceNothing->setChecked(true);
+        ui->actionPlayAfterOnceNothing->trigger();
+    }
+    if (ui->actionPlayAfterAlwaysNothing->isEnabled()) {
+        ui->actionPlayAfterAlwaysNothing->setChecked(true);
+        ui->actionPlayAfterAlwaysNothing->trigger();
+    }
+}
+
+void MainWindow::httpAfterPlaybackPlayNext()
+{
+    if (ui->actionPlayAfterOnceNothing->isEnabled()) {
+        ui->actionPlayAfterOnceNothing->setChecked(true);
+        ui->actionPlayAfterOnceNothing->trigger();
+    }
+    if (ui->actionPlayAfterAlwaysNext->isEnabled()) {
+        ui->actionPlayAfterAlwaysNext->setChecked(true);
+        ui->actionPlayAfterAlwaysNext->trigger();
+    }
+}
+
+void MainWindow::httpAfterPlaybackExit()
+{
+    if (ui->actionPlayAfterOnceExit->isEnabled()) {
+        ui->actionPlayAfterOnceExit->setChecked(true);
+        ui->actionPlayAfterOnceExit->trigger();
+    }
+}
+
+void MainWindow::httpAfterPlaybackStandBy()
+{
+    if (ui->actionPlayAfterOnceStandby->isEnabled()) {
+        ui->actionPlayAfterOnceStandby->setChecked(true);
+        ui->actionPlayAfterOnceStandby->trigger();
+    }
+}
+
+void MainWindow::httpAfterPlaybackHibernate()
+{
+    if (ui->actionPlayAfterOnceHibernate->isEnabled()) {
+        ui->actionPlayAfterOnceHibernate->setChecked(true);
+        ui->actionPlayAfterOnceHibernate->trigger();
+    }
+}
+
+void MainWindow::httpAfterPlaybackShutdown()
+{
+    if (ui->actionPlayAfterOnceShutdown->isEnabled()) {
+        ui->actionPlayAfterOnceShutdown->setChecked(true);
+        ui->actionPlayAfterOnceShutdown->trigger();
+    }
+}
+
+void MainWindow::httpAfterPlaybackLogOff()
+{
+    if (ui->actionPlayAfterOnceLogoff->isEnabled()) {
+        ui->actionPlayAfterOnceLogoff->setChecked(true);
+        ui->actionPlayAfterOnceLogoff->trigger();
+    }
+}
+
+void MainWindow::httpAfterPlaybackLock()
+{
+    if (ui->actionPlayAfterOnceLock->isEnabled()) {
+        ui->actionPlayAfterOnceLock->setChecked(true);
+        ui->actionPlayAfterOnceLock->trigger();
+    }
+}
+
 void MainWindow::setFreestanding(bool freestanding)
 {
     freestanding_ = freestanding;
