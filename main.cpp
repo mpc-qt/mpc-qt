@@ -57,6 +57,11 @@ static const char fileSettings[] = "settings";
 
 int main(int argc, char *argv[])
 {
+    // Wayland doesn't support window repositioning and it doesn't look like
+    // it'll support it any time soon.  Force use of XCB under Unix.
+    if (Platform::isUnix)
+        qputenv("QT_QPA_PLATFORM", "xcb");
+
     QCoreApplication::setOrganizationDomain("cmdrkotori.mpc-qt");
     QApplication a(argc, argv);
     Logger::singleton();
