@@ -197,6 +197,30 @@ QString Helpers::fileSizeToString(int64_t bytes)
     return text;
 }
 
+QString Helpers::fileSizeToStringShort(int64_t bytes)
+{
+    QString text;
+    if (bytes < 1024) {
+        text = QString("%1 B").arg(QString::number(bytes));
+    } else {
+        QString unit;
+        double divisor;
+        if (bytes < 1024*1024) {
+            divisor = 1024;
+            unit = "KiB";
+        } else if (bytes < 1024*1024*1024) {
+            divisor = 1024*1024;
+            unit = "MiB";
+        } else {
+            divisor = 1024*1024*1024;
+            unit = "GiB";
+        }
+        text = QString("%1 %2").arg(QString::number(bytes/divisor,'g',3), unit);
+    }
+    return text;
+
+}
+
 QString Helpers::toDateFormat(double time)
 {
     int t = int(time*1000 + 0.5);

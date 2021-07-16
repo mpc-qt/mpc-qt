@@ -920,6 +920,17 @@ void Flow::setupMpcHc()
             playbackManager, &PlaybackManager::playNext);
     connect(mpcHcServer, &MpcHcServer::previousFile,
             playbackManager, &PlaybackManager::playPrev);
+
+    // mpvObject -> mpcHcServer
+    MpvObject *mpvObject = mainWindow->mpvObject();
+    connect(mpvObject, &MpvObject::fileSizeChanged,
+            mpcHcServer, &MpcHcServer::setFileSize);
+
+    // playbackManager -> mpcHcServer
+    connect(playbackManager, &PlaybackManager::timeChanged,
+            mpcHcServer, &MpcHcServer::setFileTime);
+    connect(playbackManager, &PlaybackManager::titleChanged,
+            mpcHcServer, &MpcHcServer::setMediaTitle);
 }
 
 QByteArray Flow::makePayload() const

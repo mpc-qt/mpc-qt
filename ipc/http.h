@@ -142,12 +142,18 @@ signals:
     void afterPlaybackLock();
 
 public slots:
+    // server options
     void setDefaultPage(QString file);
     void setEnabled(bool yes);
     void setLocalHostOnly(bool yes);
     void setTcpPort(uint16_t port);
     void setServeFiles(bool yes);
     void setWebRoot(QString path);
+
+    // variables
+    void setFileSize(int64_t size);
+    void setFileTime(double time, double duration);
+    void setMediaTitle(QString title);
 
 private:
     void relisten();
@@ -158,12 +164,19 @@ private:
     QList<WmCommand> wmCommands;
     QMap<int, WmCommand> wmCommandsById;
 
+    // server options
     QString defaultPage = "index.html";
     bool enabled = false;
     bool localHostOnly = true;
     uint16_t tcpPort = 13579;
     bool serveFiles = false;
     QString webRoot;
+
+    // variables
+    double fileDuration = 0.0;
+    int64_t fileSize = 0;
+    double fileTime = 0.0;
+    QString mediaTitle;
 };
 
 

@@ -4,6 +4,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QTcpSocket>
+#include "helpers.h"
 #include "ipc/http.h"
 
 static const char httpVersion[] = "HTTP/1.1";
@@ -386,6 +387,22 @@ void MpcHcServer::setWebRoot(QString path)
     webRoot = path;
 }
 
+void MpcHcServer::setFileSize(int64_t size)
+{
+    fileSize = size;
+}
+
+void MpcHcServer::setFileTime(double time, double duration)
+{
+    fileTime = time;
+    fileDuration = duration;
+}
+
+void MpcHcServer::setMediaTitle(QString title)
+{
+    mediaTitle = title;
+}
+
 void MpcHcServer::relisten()
 {
     http.close();
@@ -480,8 +497,16 @@ void MpcHcServer::setupHttp()
             wmCommandsById.value(command).func();
     });
 
-    http.route("/info.html", [](HttpRequest &req, HttpResponse &res) {
+    http.route("/info.html", [this](HttpRequest &req, HttpResponse &res) {
+        QString str("&laquo; %1 &bull; %2 &bull; %3/%4 &bull; %5 &raquo;");
+        QString version("MPC-QT v" MPCQT_VERSION_STR);
+        QString time(Helpers::toDateFormatFixed(fileTime, Helpers::ShortFormat));
+        QString duration(Helpers::toDateFormatFixed(fileDuration, Helpers::ShortFormat));
+        QString size(Helpers::fileSizeToStringShort(fileSize));
 
+        res.serveFile(":/http/info.html");
+        QString content = QString::fromUtf8(res.content);
+        res.content = content.arg(str.arg(version, mediaTitle, time, duration, size)).toUtf8();
     });
 
     http.route("/variables.html", [](HttpRequest &req, HttpResponse &res) {

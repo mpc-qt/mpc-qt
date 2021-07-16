@@ -40,6 +40,7 @@ namespace Helpers {
     extern QSet<QString> subsExtensions;
 
     QString fileSizeToString(int64_t bytes);
+    QString fileSizeToStringShort(int64_t bytes);
     QString toDateFormat(double time);
     QString toDateFormatFixed(double time, TimeFormat format);
     QDate dateFromCFormat(const char date[]);
