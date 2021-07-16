@@ -491,6 +491,8 @@ void MpcHcServer::setupHttp()
     http.route("/", [this](HttpRequest &req, HttpResponse &res) {
         QString fileRoot = serveFiles ? webRoot : ":/http";
         QString fallback = serveFiles ? defaultPage : "index.html";
+        if (req.url == "/")
+            req.url = "/" + fallback;
         QString servedFile = fileRoot + req.url;
         res.serveFile(servedFile);
         if (res.statusCode == HttpResponse::Http404NotFound) {
