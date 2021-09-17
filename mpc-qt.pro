@@ -39,7 +39,7 @@ CONFIG += c++14
     message("This will appear as an unversioned development build.")
     message("To pass a version to qmake, run it like this:")
     message("    qmake \"MPCQT_VERSION=\$VERSION\" mpc-qt.pro")
-    VERSTR = "Unspecified version"
+    VERSTR = "Unspecified_version"
     VERSTR_WIN = 0.0.0.0
 }
 VERSTR_DECLARE = MPCQT_VERSION_STR=\\\"$${VERSTR}\\\"
