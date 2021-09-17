@@ -298,6 +298,7 @@ void PlaybackManager::setPlaybackSpeed(double speed)
     mpvSpeed = speed;
     mpvObject_->setSpeed(speed);
     mpvObject_->showMessage(tr("Speed: %1%").arg(speed*100));
+    emit playbackSpeedChanged(speed);
 }
 
 void PlaybackManager::setSpeedStep(double step)

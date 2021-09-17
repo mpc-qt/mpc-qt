@@ -36,6 +36,7 @@ signals:
     void titleChanged(QString title);
     void chapterTitleChanged(QString title);
     void videoSizeChanged(QSize size);
+    void playbackSpeedChanged(double speed);
     void stateChanged(PlaybackManager::PlaybackState state);
     void typeChanged(PlaybackManager::PlaybackType type);
     // Transmit a map of chapter index to time,description pairs
