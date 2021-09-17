@@ -5,6 +5,8 @@
 #include <QDateTime>
 #include <QMap>
 #include <QTcpServer>
+#include <QUrl>
+#include "../manager.h"
 
 class QAction;
 
@@ -153,7 +155,12 @@ public slots:
     // variables
     void setFileSize(int64_t size);
     void setFileTime(double time, double duration);
+    void setNowPlaying(QUrl nowPlaying);
     void setMediaTitle(QString title);
+    void setPlaybackRate(double rate);
+    void setPlaybackState(PlaybackManager::PlaybackState state);
+    void setVolume(int64_t volume);
+    void setVolumeMuted(bool muted);
 
 private:
     void relisten();
@@ -177,6 +184,11 @@ private:
     int64_t fileSize = 0;
     double fileTime = 0.0;
     QString mediaTitle;
+    QUrl nowPlaying;
+    double playbackRate;
+    PlaybackManager::PlaybackState playbackState;
+    int64_t volume;
+    bool volumeMuted;
 };
 
 

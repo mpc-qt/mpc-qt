@@ -3,6 +3,8 @@
 #include <QCoreApplication>
 #include <QFile>
 #include <QFileInfo>
+#include <QList>
+#include <QPair>
 #include <QTcpSocket>
 #include "helpers.h"
 #include "ipc/http.h"
@@ -398,9 +400,34 @@ void MpcHcServer::setFileTime(double time, double duration)
     fileDuration = duration;
 }
 
+void MpcHcServer::setNowPlaying(QUrl nowPlaying)
+{
+    this->nowPlaying = nowPlaying;
+}
+
 void MpcHcServer::setMediaTitle(QString title)
 {
     mediaTitle = title;
+}
+
+void MpcHcServer::setPlaybackRate(double rate)
+{
+    playbackRate = rate;
+}
+
+void MpcHcServer::setPlaybackState(PlaybackManager::PlaybackState state)
+{
+    playbackState = state;
+}
+
+void MpcHcServer::setVolume(int64_t volume)
+{
+    this->volume = volume;
+}
+
+void MpcHcServer::setVolumeMuted(bool muted)
+{
+    volumeMuted = muted;
 }
 
 void MpcHcServer::relisten()
@@ -498,6 +525,7 @@ void MpcHcServer::setupHttp()
     });
 
     http.route("/info.html", [this](HttpRequest &req, HttpResponse &res) {
+        (void)req;
         QString str("&laquo; %1 &bull; %2 &bull; %3/%4 &bull; %5 &raquo;");
         QString version("MPC-QT v" MPCQT_VERSION_STR);
         QString time(Helpers::toDateFormatFixed(fileTime, Helpers::ShortFormat));
@@ -509,8 +537,67 @@ void MpcHcServer::setupHttp()
         res.content = content.arg(str.arg(version, mediaTitle, time, duration, size)).toUtf8();
     });
 
-    http.route("/variables.html", [](HttpRequest &req, HttpResponse &res) {
+    http.route("/variables.html", [this](HttpRequest &req, HttpResponse &res) {
+        QString filePath = nowPlaying.toLocalFile();
+        QString filePathArg = HttpServer::urlEncode(filePath);
+        QFileInfo fileInfo(filePath);
+        QString file = fileInfo.fileName();
+        QString fileDir = fileInfo.absoluteDir().path();
+        QString fileDirArg = HttpServer::urlEncode(fileDir);
+        QString state;
+        QString stateString;
+        switch(playbackState) {
+        case PlaybackManager::StoppedState:
+            state = QString::number(-1);
+            stateString = "N/A";
+            break;
+        case PlaybackManager::PausedState:
+            state = QString::number(1);
+            stateString = "Paused";
+            break;
+        default:
+            state = QString::number(2);
+            stateString = "Playing";
+            break;
+        }
+        QString position = QString::number(int64_t(fileTime*1000));
+        QString positionString = Helpers::toDateFormatFixed(fileTime, Helpers::ShortFormat);
+        QString duration = QString::number(int64_t(fileDuration*1000));
+        QString durationString = Helpers::toDateFormatFixed(fileDuration, Helpers::ShortFormat);
+        QString volumeLevel = QString::number(volume);
+        QString muted = QString::number(volumeMuted ? 1 : 0);
+        QString playbackRate = QString::number(this->playbackRate);
+        QString size = Helpers::fileSizeToStringShort(fileSize);
+        QString reloadTime = "0";
+        QString version = MPCQT_VERSION_STR;
 
+        QList<QPair<QString,QString>> variables = {
+            { "file", file },
+            { "filepatharg", filePathArg },
+            { "filepath", filePath },
+            { "filedirarg", fileDirArg },
+            { "filedir", fileDir },
+            { "state", state },
+            { "statestring" , stateString },
+            { "position", position },
+            { "positionstring", positionString },
+            { "duration", duration },
+            { "durationstring", durationString },
+            { "volumelevel", volumeLevel },
+            { "muted", muted },
+            { "playbackRate", playbackRate },
+            { "size", size },
+            { "reloadtime", reloadTime },
+            { "version", version }
+        };
+        QString data;
+        QString fmt = "       <p id=\"%1\">%2</p>\n";
+        for (const auto &var : variables) {
+            data.append(fmt.arg(var.first, var.second));
+        }
+        res.serveFile(":/http/variables.html");
+        QString contents = QString::fromUtf8(res.content);
+        res.content = contents.arg(data).toUtf8();
     });
 
     http.route("/", [this](HttpRequest &req, HttpResponse &res) {

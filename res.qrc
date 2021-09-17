@@ -56,5 +56,6 @@
         <file>images/theme/white/view-media-subtitles.svg</file>
         <file>http/index.html</file>
         <file>http/info.html</file>
+        <file>http/variables.html</file>
     </qresource>
 </RCC>
