@@ -34,17 +34,17 @@ CONFIG += c++14
         DEFINES += MPCQT_DEVELOPMENT
     }
 }
-defined(VERSTR,var) {
-    VERSTR_DECLARE = MPCQT_VERSION_STR=\\\"$${VERSTR}\\\"
-    DEFINES += ""$${VERSTR_DECLARE}""
-} else {
+!defined(VERSTR,var) {
     message("Not in a git repo and no version information provided.")
     message("This will appear as an unversioned development build.")
     message("To pass a version to qmake, run it like this:")
     message("    qmake \"MPCQT_VERSION=\$VERSION\" mpc-qt.pro")
-    VERSTR = "not set"
+    VERSTR = "Unspecified version"
     VERSTR_WIN = 0.0.0.0
 }
+VERSTR_DECLARE = MPCQT_VERSION_STR=\\\"$${VERSTR}\\\"
+DEFINES += ""$${VERSTR_DECLARE}""
+
 message("The version appears to be $$VERSTR"", and the manifest would say this is $$VERSTR_WIN"".")
 
 CONFIG(release,debug|release) {
