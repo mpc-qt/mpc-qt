@@ -2,12 +2,15 @@
 <ui version="4.0">
  <class>SettingsWindow</class>
  <widget class="QWidget" name="SettingsWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>896</width>
-    <height>610</height>
+    <height>705</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -152,7 +155,7 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
-      <layout class="QVBoxLayout" name="stackHostLayout" stretch="0,0">
+      <layout class="QVBoxLayout" name="stackHostLayout" stretch="0,0,0">
        <item>
         <widget class="QLabel" name="pageLabel">
          <property name="text">
@@ -161,9 +164,22 @@
         </widget>
        </item>
        <item>
+        <widget class="QCheckBox" name="subsAssoverride">
+         <property name="text">
+          <string extracomment="Might cause issues">ASS override</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QStackedWidget" name="pageStack">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="currentIndex">
-          <number>5</number>
+          <number>15</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -704,8 +720,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>636</width>
-                   <height>104</height>
+                   <width>96</width>
+                   <height>26</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -1472,7 +1488,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>2</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -5957,9 +5973,15 @@ media file played</string>
           </layout>
          </widget>
          <widget class="QWidget" name="subtitlesPage">
-          <layout class="QVBoxLayout" name="subtitlesPageLayout" stretch="0,0,1">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <layout class="QVBoxLayout" name="subtitlesPageLayout" stretch="0,0">
            <item>
             <widget class="QGroupBox" name="subtitlePlacementBox">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
              <property name="title">
               <string>Placement</string>
              </property>
@@ -6087,6 +6109,12 @@ media file played</string>
              <layout class="QFormLayout" name="subtitlesOptionsBoxLayout">
               <item row="0" column="0" colspan="2">
                <widget class="QCheckBox" name="subtitlesForceGrayscale">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="text">
                  <string>Force grayscale</string>
                 </property>
@@ -6149,25 +6177,12 @@ media file played</string>
              </layout>
             </widget>
            </item>
-           <item>
-            <spacer name="subtitlesSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
           </layout>
          </widget>
          <widget class="QWidget" name="subsDefaultPage">
           <layout class="QHBoxLayout" name="subsDefaultPageLayout">
            <item>
-            <layout class="QVBoxLayout" name="subsDefaultLayoutLeft" stretch="0,0,1">
+            <layout class="QVBoxLayout" name="subsDefaultLayoutLeft" stretch="0,0">
              <item>
               <widget class="QGroupBox" name="fontBox">
                <property name="title">
@@ -6198,6 +6213,13 @@ media file played</string>
                   </property>
                  </widget>
                 </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="fontSizeLabel">
+                  <property name="text">
+                   <string>Size</string>
+                  </property>
+                 </widget>
+                </item>
                 <item row="3" column="1">
                  <widget class="QSpinBox" name="fontSize">
                   <property name="sizePolicy">
@@ -6211,13 +6233,6 @@ media file played</string>
                   </property>
                   <property name="value">
                    <number>55</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0">
-                 <widget class="QLabel" name="fontSizeLabel">
-                  <property name="text">
-                   <string>Size</string>
                   </property>
                  </widget>
                 </item>
@@ -6266,19 +6281,6 @@ media file played</string>
                 </item>
                </layout>
               </widget>
-             </item>
-             <item>
-              <spacer name="subsDefaultSpacerLeft">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
              </item>
             </layout>
            </item>
@@ -6517,17 +6519,57 @@ media file played</string>
               </widget>
              </item>
              <item>
-              <spacer name="subsDefaultSpacerRight">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
+              <widget class="QGroupBox" name="subsBackcolorBox">
+               <property name="title">
+                <string>Back color</string>
                </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
+               <layout class="QGridLayout" name="gridLayout_2">
+                <item row="0" column="0" colspan="2">
+                 <widget class="QCheckBox" name="Backcolor">
+                  <property name="text">
+                   <string>Enable back color</string>
+                  </property>
+                  <property name="checked">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="subsColorLabel_6">
+                  <property name="text">
+                   <string>Color</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <layout class="QHBoxLayout" name="subsBackcolorLayout">
+                  <item>
+                   <widget class="QLineEdit" name="subsBackcolorValue">
+                    <property name="inputMask">
+                     <string>HHHHHH</string>
+                    </property>
+                    <property name="text">
+                     <string notr="true">000000</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="subsBackcolorpick">
+                    <property name="styleSheet">
+                     <string notr="true">background: #000000;</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
              </item>
             </layout>
            </item>
@@ -6640,18 +6682,18 @@ media file played</string>
              <property name="title">
               <string>Online database</string>
              </property>
-             <layout class="QGridLayout" name="subtitlesDatabaseBoxLayout" columnstretch="0,1,0">
-              <item row="0" column="0" colspan="3">
-               <widget class="QLabel" name="subtitlesDatabaseLocationLabel">
-                <property name="text">
-                 <string>Base url of the online subtitle database:</string>
-                </property>
-               </widget>
-              </item>
+             <layout class="QGridLayout" name="subtitlesDatabaseBoxLayout" columnstretch="0,0,0">
               <item row="1" column="0">
                <widget class="QLabel" name="subtitlesDatabaseTextLabel">
                 <property name="text">
                  <string>https://</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QPushButton" name="subtitlesDatabaseTest">
+                <property name="text">
+                 <string>Test</string>
                 </property>
                </widget>
               </item>
@@ -6664,10 +6706,10 @@ media file played</string>
                 </item>
                </widget>
               </item>
-              <item row="1" column="2">
-               <widget class="QPushButton" name="subtitlesDatabaseTest">
+              <item row="0" column="0" colspan="3">
+               <widget class="QLabel" name="subtitlesDatabaseLocationLabel">
                 <property name="text">
-                 <string>Test</string>
+                 <string>Base url of the online subtitle database:</string>
                 </property>
                </widget>
               </item>
@@ -7924,12 +7966,12 @@ media file played</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>221</x>
-     <y>159</y>
+     <x>258</x>
+     <y>54</y>
     </hint>
     <hint type="destinationlabel">
-     <x>371</x>
-     <y>202</y>
+     <x>258</x>
+     <y>60</y>
     </hint>
    </hints>
   </connection>
@@ -7940,12 +7982,12 @@ media file played</string>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>221</x>
-     <y>229</y>
+     <x>264</x>
+     <y>72</y>
     </hint>
     <hint type="destinationlabel">
-     <x>236</x>
-     <y>275</y>
+     <x>264</x>
+     <y>84</y>
     </hint>
    </hints>
   </connection>
@@ -7972,8 +8014,8 @@ media file played</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>537</x>
-     <y>242</y>
+     <x>710</x>
+     <y>278</y>
     </hint>
     <hint type="destinationlabel">
      <x>537</x>
