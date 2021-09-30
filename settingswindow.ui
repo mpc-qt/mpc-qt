@@ -2,12 +2,15 @@
 <ui version="4.0">
  <class>SettingsWindow</class>
  <widget class="QWidget" name="SettingsWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>896</width>
-    <height>610</height>
+    <height>705</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -162,8 +165,14 @@
        </item>
        <item>
         <widget class="QStackedWidget" name="pageStack">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="currentIndex">
-          <number>5</number>
+          <number>15</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -704,8 +713,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>636</width>
-                   <height>104</height>
+                   <width>47</width>
+                   <height>16</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -1472,7 +1481,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>2</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -5957,9 +5966,15 @@ media file played</string>
           </layout>
          </widget>
          <widget class="QWidget" name="subtitlesPage">
-          <layout class="QVBoxLayout" name="subtitlesPageLayout" stretch="0,0,1">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <layout class="QVBoxLayout" name="subtitlesPageLayout" stretch="0,0">
            <item>
             <widget class="QGroupBox" name="subtitlePlacementBox">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
              <property name="title">
               <string>Placement</string>
              </property>
@@ -6087,6 +6102,12 @@ media file played</string>
              <layout class="QFormLayout" name="subtitlesOptionsBoxLayout">
               <item row="0" column="0" colspan="2">
                <widget class="QCheckBox" name="subtitlesForceGrayscale">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="text">
                  <string>Force grayscale</string>
                 </property>
@@ -6149,387 +6170,420 @@ media file played</string>
              </layout>
             </widget>
            </item>
-           <item>
-            <spacer name="subtitlesSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
           </layout>
          </widget>
          <widget class="QWidget" name="subsDefaultPage">
-          <layout class="QHBoxLayout" name="subsDefaultPageLayout">
+          <layout class="QVBoxLayout" name="verticalLayout_14">
            <item>
-            <layout class="QVBoxLayout" name="subsDefaultLayoutLeft" stretch="0,0,1">
-             <item>
-              <widget class="QGroupBox" name="fontBox">
-               <property name="title">
-                <string>Font</string>
-               </property>
-               <layout class="QFormLayout" name="fontBoxLayout">
-                <item row="0" column="0" colspan="2">
-                 <widget class="QFontComboBox" name="fontComboBox"/>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="fontStyleLabel">
-                  <property name="text">
-                   <string>Style</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QCheckBox" name="fontBold">
-                  <property name="text">
-                   <string>Bold</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QCheckBox" name="fontItalic">
-                  <property name="text">
-                   <string>Italic</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="1">
-                 <widget class="QSpinBox" name="fontSize">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="maximum">
-                   <number>9000</number>
-                  </property>
-                  <property name="value">
-                   <number>55</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0">
-                 <widget class="QLabel" name="fontSizeLabel">
-                  <property name="text">
-                   <string>Size</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QGroupBox" name="borderBox">
-               <property name="title">
-                <string>Border style</string>
-               </property>
-               <layout class="QFormLayout" name="borderBoxLayout">
-                <property name="fieldGrowthPolicy">
-                 <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-                </property>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="borderSizeLabel">
-                  <property name="text">
-                   <string>Border size</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QSpinBox" name="borderSize">
-                  <property name="maximum">
-                   <number>10</number>
-                  </property>
-                  <property name="value">
-                   <number>3</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="borderShadowOffsetLabel">
-                  <property name="text">
-                   <string>Shadow offset</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QSpinBox" name="borderShadowOffset">
-                  <property name="maximum">
-                   <number>10</number>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <spacer name="subsDefaultSpacerLeft">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
+            <widget class="QCheckBox" name="subsAssoverride">
+             <property name="text">
+              <string extracomment="Might cause issues">ASS override</string>
+             </property>
+            </widget>
            </item>
            <item>
-            <layout class="QVBoxLayout" name="subsDefaultLayoutRight">
-             <item>
-              <widget class="QGroupBox" name="subsAlignmentBox">
-               <property name="title">
-                <string>Screen Alignment &amp;&amp; Margins</string>
-               </property>
-               <layout class="QVBoxLayout" name="subsAlignmentBoxLayout">
+            <widget class="QGroupBox" name="subsDefaultLayoutsBox">
+             <property name="title">
+              <string/>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <item>
+               <layout class="QVBoxLayout" name="subsDefaultLayoutLeft" stretch="0,0">
                 <item>
-                 <layout class="QHBoxLayout" name="subsAlignmentMarginLayout">
-                  <item>
-                   <layout class="QGridLayout" name="subsAlignmentLayout">
-                    <item row="0" column="0">
-                     <widget class="QRadioButton" name="subsAlignmentTopLeft">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="1">
-                     <widget class="QRadioButton" name="subsAlignmentTop">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="2">
-                     <widget class="QRadioButton" name="subsAlignmentTopRight">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="0">
-                     <widget class="QRadioButton" name="subsAlignmentLeft">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="1">
-                     <widget class="QRadioButton" name="subsAlignmentCenter">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="2">
-                     <widget class="QRadioButton" name="subsAlignmentRight">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="2" column="2">
-                     <widget class="QRadioButton" name="subsAlignmentBottomRight">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="2" column="0">
-                     <widget class="QRadioButton" name="subsAlignmentBottomLeft">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="2" column="1">
-                     <widget class="QRadioButton" name="subsAlignmentBottom">
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="checked">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <spacer name="subsAlignmentSpacer">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>0</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <layout class="QFormLayout" name="subsMarginLayout">
-                    <item row="0" column="0">
-                     <widget class="QLabel" name="subsMarginXLabel">
-                      <property name="text">
-                       <string>X</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="1">
-                     <widget class="QSpinBox" name="subsMarginX"/>
-                    </item>
-                    <item row="1" column="0">
-                     <widget class="QLabel" name="subsMarginYLabel">
-                      <property name="text">
-                       <string>Y</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="1">
-                     <widget class="QSpinBox" name="subsMarginY"/>
-                    </item>
-                   </layout>
-                  </item>
-                 </layout>
+                 <widget class="QGroupBox" name="fontBox">
+                  <property name="title">
+                   <string>Font</string>
+                  </property>
+                  <layout class="QFormLayout" name="fontBoxLayout">
+                   <item row="0" column="0" colspan="2">
+                    <widget class="QFontComboBox" name="fontComboBox"/>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="fontStyleLabel">
+                     <property name="text">
+                      <string>Style</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QCheckBox" name="fontBold">
+                     <property name="text">
+                      <string>Bold</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QCheckBox" name="fontItalic">
+                     <property name="text">
+                      <string>Italic</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="fontSizeLabel">
+                     <property name="text">
+                      <string>Size</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QSpinBox" name="fontSize">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="maximum">
+                      <number>9000</number>
+                     </property>
+                     <property name="value">
+                      <number>55</number>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
                 </item>
                 <item>
-                 <widget class="QCheckBox" name="subsRelativeToVideoFrame">
-                  <property name="text">
-                   <string>Position subs relative to the video frame</string>
+                 <widget class="QGroupBox" name="borderBox">
+                  <property name="title">
+                   <string>Border style</string>
                   </property>
-                  <property name="checked">
-                   <bool>true</bool>
-                  </property>
+                  <layout class="QFormLayout" name="borderBoxLayout">
+                   <property name="fieldGrowthPolicy">
+                    <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="borderSizeLabel">
+                     <property name="text">
+                      <string>Border size</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QSpinBox" name="borderSize">
+                     <property name="maximum">
+                      <number>10</number>
+                     </property>
+                     <property name="value">
+                      <number>3</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="borderShadowOffsetLabel">
+                     <property name="text">
+                      <string>Shadow offset</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QSpinBox" name="borderShadowOffset">
+                     <property name="maximum">
+                      <number>10</number>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
                 </item>
                </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QGroupBox" name="subsColorsBox">
-               <property name="title">
-                <string>Colors</string>
-               </property>
-               <layout class="QFormLayout" name="subsColorsBoxLayout">
-                <item row="0" column="0">
-                 <widget class="QLabel" name="subsColorLabel">
-                  <property name="text">
-                   <string>Color</string>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="subsDefaultLayoutRight">
+                <item>
+                 <widget class="QGroupBox" name="subsAlignmentBox">
+                  <property name="title">
+                   <string>Screen Alignment &amp;&amp; Margins</string>
                   </property>
+                  <layout class="QVBoxLayout" name="subsAlignmentBoxLayout">
+                   <item>
+                    <layout class="QHBoxLayout" name="subsAlignmentMarginLayout">
+                     <item>
+                      <layout class="QGridLayout" name="subsAlignmentLayout">
+                       <item row="0" column="0">
+                        <widget class="QRadioButton" name="subsAlignmentTopLeft">
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="1">
+                        <widget class="QRadioButton" name="subsAlignmentTop">
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="2">
+                        <widget class="QRadioButton" name="subsAlignmentTopRight">
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="0">
+                        <widget class="QRadioButton" name="subsAlignmentLeft">
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="1">
+                        <widget class="QRadioButton" name="subsAlignmentCenter">
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="2">
+                        <widget class="QRadioButton" name="subsAlignmentRight">
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="2" column="2">
+                        <widget class="QRadioButton" name="subsAlignmentBottomRight">
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="2" column="0">
+                        <widget class="QRadioButton" name="subsAlignmentBottomLeft">
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="2" column="1">
+                        <widget class="QRadioButton" name="subsAlignmentBottom">
+                         <property name="text">
+                          <string/>
+                         </property>
+                         <property name="checked">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <spacer name="subsAlignmentSpacer">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>0</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <layout class="QFormLayout" name="subsMarginLayout">
+                       <item row="0" column="0">
+                        <widget class="QLabel" name="subsMarginXLabel">
+                         <property name="text">
+                          <string>X</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="1">
+                        <widget class="QSpinBox" name="subsMarginX"/>
+                       </item>
+                       <item row="1" column="0">
+                        <widget class="QLabel" name="subsMarginYLabel">
+                         <property name="text">
+                          <string>Y</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="1">
+                        <widget class="QSpinBox" name="subsMarginY"/>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="subsRelativeToVideoFrame">
+                     <property name="text">
+                      <string>Position subs relative to the video frame</string>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
                 </item>
-                <item row="0" column="1">
-                 <layout class="QHBoxLayout" name="subsColorLayout">
-                  <item>
-                   <widget class="QLineEdit" name="subsColorValue">
-                    <property name="inputMask">
-                     <string>HHHHHH</string>
-                    </property>
-                    <property name="text">
-                     <string notr="true">FFFF00</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="subsColorPick">
-                    <property name="styleSheet">
-                     <string notr="true">background: #FFFF00;</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="subsBorderColorLabel">
-                  <property name="text">
-                   <string>Border color</string>
+                <item>
+                 <widget class="QGroupBox" name="subsColorsBox">
+                  <property name="title">
+                   <string>Colors</string>
                   </property>
+                  <layout class="QFormLayout" name="subsColorsBoxLayout">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="subsColorLabel">
+                     <property name="text">
+                      <string>Color</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <layout class="QHBoxLayout" name="subsColorLayout">
+                     <item>
+                      <widget class="QLineEdit" name="subsColorValue">
+                       <property name="inputMask">
+                        <string>HHHHHH</string>
+                       </property>
+                       <property name="text">
+                        <string notr="true">FFFF00</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="subsColorPick">
+                       <property name="styleSheet">
+                        <string notr="true">background: #FFFF00;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="subsBorderColorLabel">
+                     <property name="text">
+                      <string>Border color</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <layout class="QHBoxLayout" name="subsBorderColorLayout">
+                     <item>
+                      <widget class="QLineEdit" name="subsBorderColorValue">
+                       <property name="inputMask">
+                        <string>HHHHHH</string>
+                       </property>
+                       <property name="text">
+                        <string notr="true">000000</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="subsBorderColorPick">
+                       <property name="styleSheet">
+                        <string notr="true">background: #000000;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="subsShadowColorLabel">
+                     <property name="text">
+                      <string>Shadow color</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <layout class="QHBoxLayout" name="subsShadowColorLayout">
+                     <item>
+                      <widget class="QLineEdit" name="subsShadowColorValue">
+                       <property name="inputMask">
+                        <string>HHHHHH</string>
+                       </property>
+                       <property name="text">
+                        <string notr="true">000000</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="subsShadowColorPick">
+                       <property name="styleSheet">
+                        <string notr="true">background: #000000;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
-                 <layout class="QHBoxLayout" name="subsBorderColorLayout">
-                  <item>
-                   <widget class="QLineEdit" name="subsBorderColorValue">
-                    <property name="inputMask">
-                     <string>HHHHHH</string>
-                    </property>
-                    <property name="text">
-                     <string notr="true">000000</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="subsBorderColorPick">
-                    <property name="styleSheet">
-                     <string notr="true">background: #000000;</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item row="2" column="0">
-                 <widget class="QLabel" name="subsShadowColorLabel">
-                  <property name="text">
-                   <string>Shadow color</string>
+                <item>
+                 <widget class="QGroupBox" name="subsBackcolorBox">
+                  <property name="title">
+                   <string>Back color</string>
                   </property>
+                  <layout class="QGridLayout" name="gridLayout_2">
+                   <item row="0" column="0" colspan="2">
+                    <widget class="QCheckBox" name="Backcolor">
+                     <property name="text">
+                      <string>Enable back color</string>
+                     </property>
+                     <property name="checked">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <layout class="QHBoxLayout" name="subsBackcolorLayout">
+                     <item>
+                      <widget class="QLineEdit" name="subsBackcolorValue">
+                       <property name="inputMask">
+                        <string>HHHHHH</string>
+                       </property>
+                       <property name="text">
+                        <string notr="true">000000</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="subsBackcolorpick">
+                       <property name="styleSheet">
+                        <string notr="true">background: #000000;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="subsBackcolorLabel">
+                     <property name="text">
+                      <string>Back color</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
-                </item>
-                <item row="2" column="1">
-                 <layout class="QHBoxLayout" name="subsShadowColorLayout">
-                  <item>
-                   <widget class="QLineEdit" name="subsShadowColorValue">
-                    <property name="inputMask">
-                     <string>HHHHHH</string>
-                    </property>
-                    <property name="text">
-                     <string notr="true">000000</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="subsShadowColorPick">
-                    <property name="styleSheet">
-                     <string notr="true">background: #000000;</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
                 </item>
                </layout>
-              </widget>
-             </item>
-             <item>
-              <spacer name="subsDefaultSpacerRight">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
+              </item>
+             </layout>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -6640,18 +6694,18 @@ media file played</string>
              <property name="title">
               <string>Online database</string>
              </property>
-             <layout class="QGridLayout" name="subtitlesDatabaseBoxLayout" columnstretch="0,1,0">
-              <item row="0" column="0" colspan="3">
-               <widget class="QLabel" name="subtitlesDatabaseLocationLabel">
-                <property name="text">
-                 <string>Base url of the online subtitle database:</string>
-                </property>
-               </widget>
-              </item>
+             <layout class="QGridLayout" name="subtitlesDatabaseBoxLayout" columnstretch="0,0,0">
               <item row="1" column="0">
                <widget class="QLabel" name="subtitlesDatabaseTextLabel">
                 <property name="text">
                  <string>https://</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QPushButton" name="subtitlesDatabaseTest">
+                <property name="text">
+                 <string>Test</string>
                 </property>
                </widget>
               </item>
@@ -6664,10 +6718,10 @@ media file played</string>
                 </item>
                </widget>
               </item>
-              <item row="1" column="2">
-               <widget class="QPushButton" name="subtitlesDatabaseTest">
+              <item row="0" column="0" colspan="3">
+               <widget class="QLabel" name="subtitlesDatabaseLocationLabel">
                 <property name="text">
-                 <string>Test</string>
+                 <string>Base url of the online subtitle database:</string>
                 </property>
                </widget>
               </item>
@@ -7924,12 +7978,12 @@ media file played</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>221</x>
-     <y>159</y>
+     <x>258</x>
+     <y>54</y>
     </hint>
     <hint type="destinationlabel">
-     <x>371</x>
-     <y>202</y>
+     <x>258</x>
+     <y>60</y>
     </hint>
    </hints>
   </connection>
@@ -7940,12 +7994,12 @@ media file played</string>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>221</x>
-     <y>229</y>
+     <x>264</x>
+     <y>72</y>
     </hint>
     <hint type="destinationlabel">
-     <x>236</x>
-     <y>275</y>
+     <x>264</x>
+     <y>84</y>
     </hint>
    </hints>
   </connection>
@@ -7972,8 +8026,8 @@ media file played</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>537</x>
-     <y>242</y>
+     <x>710</x>
+     <y>278</y>
     </hint>
     <hint type="destinationlabel">
      <x>537</x>

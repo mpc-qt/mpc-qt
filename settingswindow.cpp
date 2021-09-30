@@ -410,7 +410,8 @@ void SettingsWindow::setupColorPickers()
     QVector<ValuePick> colors {
         { ui->subsColorValue, ui->subsColorPick },
         { ui->subsBorderColorValue, ui->subsBorderColorPick },
-        { ui->subsShadowColorValue, ui->subsShadowColorPick }
+        { ui->subsShadowColorValue, ui->subsShadowColorPick },
+        { ui->subsBackcolorValue, ui->subsBackcolorpick }
     };
     for (const ValuePick c : colors) {
         connect(c.pick, &QPushButton::clicked,
@@ -980,12 +981,15 @@ void SettingsWindow::sendSignals()
             }
         }
     }
+    emit option("sub-ass", !WIDGET_LOOKUP(ui->subsAssoverride).toBool());
     emit option("sub-margin-x", WIDGET_LOOKUP(ui->subsMarginX).toInt());
     emit option("sub-margin-y", WIDGET_LOOKUP(ui->subsMarginY).toInt());
     emit option("sub-use-margins", !WIDGET_LOOKUP(ui->subsRelativeToVideoFrame).toBool());
     emit option("sub-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsColorValue).toString()));
     emit option("sub-border-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsBorderColorValue).toString()));
     emit option("sub-shadow-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsShadowColorValue).toString()));
+     if (ui->Backcolor->isChecked())
+         emit option("sub-back-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsBackcolorValue).toString()));
 
     emit subsPreferDefaultForced(WIDGET_LOOKUP(ui->subtitlesPreferDefaultForced).toBool());
     emit subsPreferExternal(WIDGET_LOOKUP(ui->subtitlesPreferExternal).toBool());
