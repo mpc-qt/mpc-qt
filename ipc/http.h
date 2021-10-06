@@ -92,6 +92,10 @@ public:
     explicit MpcHcServer(QObject *owner = nullptr);
 
 signals:
+    // browser
+    void fileSelected(QString fileName);
+
+    // command
     void quickOpenFile();
     void openFileUrl();
     void saveImage();

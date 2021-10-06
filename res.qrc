@@ -57,5 +57,6 @@
         <file>http/index.html</file>
         <file>http/info.html</file>
         <file>http/variables.html</file>
+        <file>http/browser.html</file>
     </qresource>
 </RCC>

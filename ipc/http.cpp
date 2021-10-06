@@ -8,6 +8,7 @@
 #include <QTcpSocket>
 #include "helpers.h"
 #include "ipc/http.h"
+#include "platform/unify.h"
 
 static const char httpVersion[] = "HTTP/1.1";
 static const char errorDocument[] = "<html><head><title>%1</title></head>"
@@ -510,8 +511,85 @@ void MpcHcServer::setupHttp()
         res.serveFile(":/images/icon/mpc-qt.svg");
     });
 
-    http.route("/browser.html", [](HttpRequest &req, HttpResponse &res) {
+    http.route("/browser.html", [this](HttpRequest &req, HttpResponse &res) {
+        QString path;
+        if (!req.getVars.contains("path")) {
+            path = QFileInfo(nowPlaying.toLocalFile()).absoluteDir().path();
+        } else if (req.getVars.value("path").isEmpty()) {
+            path = "";
+        } else {
+            path = req.getVars.value("path");
+            path.replace('\\', '/');
+            QFileInfo info(path);
+            if (info.isFile()) {
+                emit fileSelected(path);
+                path = info.absoluteDir().path();
+            }
+        }
+        if (Platform::isWindows && path=="/")
+            path = "C:/";
 
+        struct DirEntry {
+            QString name;
+            QString type;
+            QString size;
+            QString date;
+        };
+        QList<DirEntry> entries;
+        if (Platform::isWindows && path=="") {
+            // FIXME: show drives
+        } else {
+            QDir dir(path);
+            DirEntry entry;
+            for (const auto &info : dir.entryInfoList()) {
+                QString path = HttpServer::urlEncode(info.absoluteFilePath());
+                if (path == "%2F..")
+                    path = "%2F";
+                entry.name = QString("<a href=\"browser.html?path=%1\">%2</a>").arg(path, info.fileName());
+                if (info.isDir()) entry.name = QString("<b>%1</b>").arg(entry.name);
+                entry.type = info.isDir() ? "Dir" : info.isFile() ? "File" : "Unknown";
+                entry.size = info.isFile() ? QString("%1K").arg(info.size()/1024) : "&nbsp;";
+                entry.date = info.lastModified().toString("yyyy.MM.dd hh:mm");
+                entries.append(entry);
+            }
+        }
+        QString text;
+        text += QString(
+"        <div>\n"
+"            <table class=\"browser-table\">\n"
+"                <tr>\n"
+"                    <td class=\"text-center\">\n"
+"                        <strong>Location: %1</strong>\n"
+"                    </td>\n"
+"                </tr>\n"
+"            </table>\n"
+"        </div>\n").arg(path);
+        text +=
+"        <span>&nbsp;</span>\n"
+"        <div>\n"
+"            <table class=\"browser-table\">\n"
+"                <tr>\n"
+"                    <th>Name</th>\n"
+"                    <th>Type</th>\n"
+"                    <th>Size</th>\n"
+"                    <th>Date Modified</th>\n"
+"                </tr>\n"
+"                ";
+        QString rowFmt = "<tr>\n"
+"<td class=\"dirname\">%1</td>\n"
+"<td class=\"dirtype\">%2</td>\n"
+"<td class=\"dirsize\">%3</td>\n"
+"<td class=\"dirdate\">%4</td>\n"
+"</tr>\n";
+        for (const auto &entry : entries)
+            text += rowFmt.arg(entry.name, entry.type, entry.size, entry.date);
+        text +=
+"\n"
+"            </table>\n"
+"        </div>\n";
+        res.serveFile(":http/browser.html");
+        QString content = QString::fromUtf8(res.content);
+        res.content = content.arg(text).toUtf8();
     });
 
     http.route("/command.html", [this](HttpRequest &req, HttpResponse &res) {
@@ -538,6 +616,7 @@ void MpcHcServer::setupHttp()
     });
 
     http.route("/variables.html", [this](HttpRequest &req, HttpResponse &res) {
+        (void)req;
         QString filePath = nowPlaying.toLocalFile();
         QString filePathArg = HttpServer::urlEncode(filePath);
         QFileInfo fileInfo(filePath);
