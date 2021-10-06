@@ -803,6 +803,10 @@ void Flow::setupMpris()
 
 void Flow::setupMpcHc()
 {
+    // mpcHcServer -> flow
+    connect(mpcHcServer, &MpcHcServer::fileSelected,
+            this, &Flow::mpcHcServer_fileSelected);
+
     // settings -> mpcHcServer
     connect(settingsWindow, &SettingsWindow::webserverListening,
             mpcHcServer, &MpcHcServer::setEnabled);
@@ -1257,6 +1261,13 @@ void Flow::manager_subtitlesVisibile(bool visible)
 void Flow::manager_hasNoSubtitles(bool none)
 {
     nowPlayingNoSubtitleTracks = none;
+}
+
+void Flow::mpcHcServer_fileSelected(QString fileName)
+{
+    QList<QUrl> urls;
+    urls << QUrl::fromLocalFile(fileName);
+    playbackManager->openSeveralFiles(urls, true);
 }
 
 void Flow::settingswindow_settingsData(const QVariantMap &settings)

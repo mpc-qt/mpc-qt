@@ -70,6 +70,7 @@ private slots:
     void manager_stateChanged(PlaybackManager::PlaybackState state);
     void manager_subtitlesVisibile(bool visible);
     void manager_hasNoSubtitles(bool none);
+    void mpcHcServer_fileSelected(QString fileName);
     void settingswindow_settingsData(const QVariantMap &settings);
     void settingswindow_inhibitScreensaver(bool yes);
     void settingswindow_rememberWindowGeometry(bool yes);
