@@ -262,6 +262,8 @@ private slots:
 
     void on_audioAutoloadPathReset_clicked();
 
+    void on_webPortLink_linkActivated(const QString &link);
+
 private:
     Ui::SettingsWindow *ui = nullptr;
     ActionEditor *actionEditor = nullptr;

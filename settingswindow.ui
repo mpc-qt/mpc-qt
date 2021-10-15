@@ -172,7 +172,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>15</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -713,8 +713,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>98</width>
-                   <height>28</height>
+                   <width>42</width>
+                   <height>18</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>

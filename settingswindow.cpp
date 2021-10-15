@@ -1,4 +1,5 @@
 #include <cmath>
+#include <QDesktopServices>
 #include <QStandardPaths>
 #include <QFileInfo>
 #include <QFileDialog>
@@ -1303,3 +1304,12 @@ void SettingsWindow::on_audioAutoloadPathReset_clicked()
 {
     ui->audioAutoloadPath->clear();
 }
+
+void SettingsWindow::on_webPortLink_linkActivated(const QString &link)
+{
+    Q_UNUSED(link);
+    QUrl url("http://127.0.0.1");
+    url.setPort(ui->webPort->value());
+    QDesktopServices::openUrl(url);
+}
+
