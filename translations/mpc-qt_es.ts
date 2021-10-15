@@ -3190,6 +3190,7 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>ASS override</source>
+        <extracomment>Might cause issues</extracomment>
         <translation>Modificar ASS</translation>
     </message>
     <message>
@@ -3662,6 +3663,14 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Serve pages from disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable back color</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

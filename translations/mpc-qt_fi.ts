@@ -3186,6 +3186,7 @@ media file played</source>
     </message>
     <message>
         <source>ASS override</source>
+        <extracomment>Might cause issues</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3658,6 +3659,14 @@ media file played</source>
     </message>
     <message>
         <source>Serve pages from disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable back color</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

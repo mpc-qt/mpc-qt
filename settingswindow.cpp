@@ -988,8 +988,10 @@ void SettingsWindow::sendSignals()
     emit option("sub-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsColorValue).toString()));
     emit option("sub-border-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsBorderColorValue).toString()));
     emit option("sub-shadow-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsShadowColorValue).toString()));
-     if (ui->Backcolor->isChecked())
-         emit option("sub-back-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsBackcolorValue).toString()));
+    if (WIDGET_LOOKUP(ui->subsBackcolorEnabled).toBool())
+        emit option("sub-back-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsBackcolorValue).toString()));
+    else
+        emit option("sub-back-color", "#00000000");
 
     emit subsPreferDefaultForced(WIDGET_LOOKUP(ui->subtitlesPreferDefaultForced).toBool());
     emit subsPreferExternal(WIDGET_LOOKUP(ui->subtitlesPreferExternal).toBool());

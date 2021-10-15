@@ -713,8 +713,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>47</width>
-                   <height>16</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -6534,7 +6534,7 @@ media file played</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_2">
                    <item row="0" column="0" colspan="2">
-                    <widget class="QCheckBox" name="Backcolor">
+                    <widget class="QCheckBox" name="subsBackcolorEnabled">
                      <property name="text">
                       <string>Enable back color</string>
                      </property>
