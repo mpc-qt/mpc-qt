@@ -270,7 +270,7 @@ MpvController *MpvObject::controller()
 
 QWidget *MpvObject::mpvWidget()
 {
-    return widget->self();
+    return widget ? widget->self() : nullptr;
 }
 
 QList<AudioDevice> MpvObject::audioDevices()
@@ -378,12 +378,14 @@ void MpvObject::setMouseHideTime(int msec)
 
 void MpvObject::setLogoUrl(const QString &filename)
 {
-    widget->setLogoUrl(filename);
+    if (widget)
+        widget->setLogoUrl(filename);
 }
 
 void MpvObject::setLogoBackground(const QColor &color)
 {
-    widget->setLogoBackground(color);
+    if (widget)
+        widget->setLogoBackground(color);
 }
 
 void MpvObject::setSubFile(QString filename)
@@ -588,12 +590,14 @@ void MpvObject::setMpvOptionVariant(QString name, QVariant value)
 
 void MpvObject::showCursor()
 {
-    widget->self()->setCursor(Qt::ArrowCursor);
+    if (widget)
+        widget->self()->setCursor(Qt::ArrowCursor);
 }
 
 void MpvObject::hideCursor()
 {
-    widget->self()->setCursor(Qt::BlankCursor);
+    if (widget)
+        widget->self()->setCursor(Qt::BlankCursor);
 }
 
 void MpvObject::ctrl_mpvPropertyChanged(QString name, QVariant v)

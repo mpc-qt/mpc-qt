@@ -46,7 +46,8 @@ MainWindow::MainWindow(QWidget *parent) :
     setupHideTimer();
     setupIconThemer();
 
-    mpvw->installEventFilter(this);
+    if (mpvw)
+        mpvw->installEventFilter(this);
     playlistWindow_->installEventFilter(this);
 
     connectActionsToSignals();
@@ -625,13 +626,16 @@ void MainWindow::setupMpvWidget(Helpers::MpvWidgetType widgetType)
     mpvw = nullptr;
     mpvObject_->setWidgetType(widgetType);
     mpvw = mpvObject_->mpvWidget();
-    if (!mpvw)
-        throw(std::runtime_error("Video widget not created"));
-    // CHECKME: signal could be in mpvObject and reflected internally
-    connect(mpvw, &QWidget::customContextMenuRequested,
-            this, &MainWindow::mpvw_customContextMenuRequested);
-    // CHECKME: mouse tracking could be set by mpvObject's setWidgetType func
-    mpvw->setMouseTracking(true);
+    if (!mpvw) {
+        //throw(std::runtime_error("Video widget not created"));
+        // instead of exiting early, show nothing instead.
+    } else {
+        // CHECKME: signal could be in mpvObject and reflected internally
+        connect(mpvw, &QWidget::customContextMenuRequested,
+                this, &MainWindow::mpvw_customContextMenuRequested);
+        // CHECKME: mouse tracking could be set by mpvObject's setWidgetType func
+        mpvw->setMouseTracking(true);
+    }
 
     if (embeddedBottomArea)
         reparentBottomArea(true);
