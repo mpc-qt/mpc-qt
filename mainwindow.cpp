@@ -354,12 +354,7 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 
 void MainWindow::wheelEvent(QWheelEvent *event)
 {
-    // Deprecated way
-    bool ok = mpvw ? insideWidget(event->globalPos(), mpvw) : false;
-    // Non-deprecated way since Qt 5.15
-    //QPointF gp = event->globalPosition();
-    //bool ok = mpvw ? insideWidget({int(gp.rx()),int(gp.ry())}, mpvw) : false;
-    if (ok && mouseStateEvent(MouseState::fromWheelEvent(event)))
+    if (mouseStateEvent(MouseState::fromWheelEvent(event)))
         event->accept();
     else
         QMainWindow::wheelEvent(event);
