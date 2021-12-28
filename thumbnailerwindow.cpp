@@ -435,7 +435,11 @@ void MpvThumbnailDrawer::setDrawLogo(bool yes)
 
 void MpvThumbnailDrawer::initializeGL()
 {
+#if MPV_CLIENT_API_VERSION < MPV_MAKE_VERSION(2,0)
     mpv_opengl_init_params glInit { &MpvGlWidget::get_proc_address, this, nullptr };
+#else
+    mpv_opengl_init_params glInit { &MpvGlWidget::get_proc_address, this };
+#endif
     mpv_render_param params[] {
         { MPV_RENDER_PARAM_API_TYPE, const_cast<char*>(MPV_RENDER_API_TYPE_OPENGL) },
         { MPV_RENDER_PARAM_OPENGL_INIT_PARAMS, &glInit },
