@@ -34,11 +34,12 @@ libglib-2.0-0.dll
 libgraphite2.dll
 libharfbuzz-0.dll
 libiconv-2.dll
-libicudt67.dll
-libicuin67.dll
-libicuuc67.dll
+libicudt69.dll
+libicuin69.dll
+libicuuc69.dll
 libintl-8.dll
 libjpeg-8.dll
+libmd4c.dll
 libpcre-1.dll
 libpcre2-16-0.dll
 libpng16-16.dll
@@ -71,8 +72,7 @@ ipc.md
 EOF
 
 read -r -d '' binaries <<'EOF'
-youtube-dl.exe
-msvcr100.dll
+yt-dlp.exe
 EOF
 
 translations=`ls resources/translations`
@@ -102,6 +102,6 @@ done)<<<"$docs"
 done)<<<"$binaries"
 
 cp "$BUILD/mpc-qt.exe" "$DEST/mpc-qt.exe"
-cp mpv-dev/lib/mpv-1.dll "$DEST/mpv-1.dll"
+cp mpv-dev/lib/mpv-2.dll "$DEST/mpv-2.dll"
 7z a "$DEST.zip" "./$DEST/*"
 sha512sum "$DEST.zip" >"$DEST.zip.sha512"
