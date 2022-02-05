@@ -102,7 +102,7 @@ Then clone this git repository using the following command:
 
 Finally, `cd` into the checked-out repository.
 
->cd mpc-qt-origin
+>cd mpc-qt
 
 Then build with qmake+make.
 
