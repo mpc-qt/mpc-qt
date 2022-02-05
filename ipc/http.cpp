@@ -8,6 +8,7 @@
 #include <QTcpSocket>
 #include "helpers.h"
 #include "ipc/http.h"
+#include "platform/devicemanager.h"
 #include "platform/unify.h"
 
 static const char httpVersion[] = "HTTP/1.1";
@@ -15,6 +16,7 @@ static const char errorDocument[] = "<html><head><title>%1</title></head>"
                                     "<body><h1>%1</h1></body></html>";
 static const char mimeFormUrlEncoded[] = "application/x-www-form-urlencoded";
 static const char mimeHtml[] = "text/html";
+static const char dateZero[] = "1970.01.01 00:00";
 
 static QMap<HttpResponse::HttpStatus,QString> statusToText = {
     { HttpResponse::Http200Ok, "200 OK" },
@@ -537,10 +539,41 @@ void MpcHcServer::setupHttp()
         };
         QList<DirEntry> entries;
         if (Platform::isWindows && path=="") {
-            // FIXME: show drives
+            auto func = [&](DeviceInfo *device) -> void {
+                if (device->deviceType != DeviceInfo::FixedDrive
+                        && device->deviceType != DeviceInfo::OpticalDrive
+                        && device->deviceType != DeviceInfo::RamDrive
+                        && device->deviceType != DeviceInfo::RemoteDrive
+                        && device->deviceType != DeviceInfo::RemovableDrive)
+                    return;
+                device->mount();
+                DirEntry entry;
+                entry.name = QString("<b><a href=\"browser.html?path=%1\">%1</a></b>").arg(device->mountedPath);
+                entry.type = "Drive";
+                entry.size = "&nbsp;";
+                entry.date = dateZero;
+                entries.append(entry);
+            };
+            Platform::deviceManager()->iterateDevices(func);
+            std::sort(entries.begin(), entries.end(), [](DirEntry &a, DirEntry &b) -> bool {
+                return a.name < b.name;
+            });
         } else {
             QDir dir(path);
             DirEntry entry;
+            if (Platform::isWindows && dir.isRoot()) {
+                entry.name = QString("<b><a href=\"browser.html?path=%1\">.</a></b>").arg(path);
+                entry.type = "Dir";
+                entry.size = "&nbsp;";
+                entry.date = dateZero;
+                entries.append(entry);
+
+                entry.name = "<b><a href=\"browser.html?path=\">..</a></b>";
+                entry.type = "Dir";
+                entry.size = "&nbsp;";
+                entry.date = dateZero;
+                entries.append(entry);
+            }
             for (const auto &info : dir.entryInfoList()) {
                 QString path = HttpServer::urlEncode(info.absoluteFilePath());
                 if (path == "%2F..")
