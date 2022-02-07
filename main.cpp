@@ -10,6 +10,7 @@
 #include <QTimer>
 #include <QCommandLineParser>
 #include <QSurfaceFormat>
+#include <QStyleFactory>
 #include <QThread>
 #include <QTranslator>
 #include <QLibraryInfo>
@@ -701,6 +702,10 @@ void Flow::setupFlowConnections()
             this, &Flow::settingswindow_rememberWindowGeometry);
     connect(settingsWindow, &SettingsWindow::mprisIpc,
             this, &Flow::settingswindow_mprisIpc);
+    connect(settingsWindow, &SettingsWindow::stylesheetIsFusion,
+            this, &Flow::settingswindow_stylesheetIsFusion);
+    connect(settingsWindow, &SettingsWindow::stylesheetText,
+            this, &Flow::settingswindow_stylesheetText);
     connect(settingsWindow, &SettingsWindow::screenshotDirectory,
             this, &Flow::settingswindow_screenshotDirectory);
     connect(settingsWindow, &SettingsWindow::encodeDirectory,
@@ -1307,6 +1312,20 @@ void Flow::settingswindow_mprisIpc(bool enabled)
 #else
     Q_UNUSED(enabled)
 #endif
+}
+
+void Flow::settingswindow_stylesheetIsFusion(bool yes)
+{
+    if (yes)
+        qApp->setStyle(QStyleFactory::create("Fusion"));
+    // Qt6 may let us determine what the previous style was
+    //else
+    //    qApp->setStyle(originalApplicationStyle);
+}
+
+void Flow::settingswindow_stylesheetText(QString text)
+{
+    qApp->setStyleSheet(text);
 }
 
 void Flow::settingswindow_screenshotDirectory(const QString &where)

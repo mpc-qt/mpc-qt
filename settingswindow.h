@@ -96,6 +96,9 @@ signals:
     void videoColor(QColor background);
     void infoStatsColors(QColor foreground, QColor background);
 
+    void stylesheetIsFusion(bool yes);
+    void stylesheetText(QString text);
+
     void webserverListening(bool listening);
     void webserverPort(uint16_t port);
     void webserverLocalhost(bool localhost);

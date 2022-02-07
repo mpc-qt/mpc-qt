@@ -54,6 +54,7 @@ isn't it?
 show the artist as well as the title, down to even the encoder used?  Nothing
 is stopping you.
 
+**Race Inspired Cosmetic Enhancements:**  In-app custom styling support.
 
 ### Possible upcoming features
 
@@ -66,9 +67,6 @@ entail a lot of code.
 **Encoding support like VirtualDub:**  Churn out memes faster.  No need to
 open a video editor when your media player can do your job for you.  Requires
 writing an encoder-orientated backend.
-
-**Race Inspired Cosmetic Enhancements:**  In-app custom styling support.
-Requires a few dropdowns/tabs and a multi-line text editor in the settings.
 
 Suggestions welcome.
 

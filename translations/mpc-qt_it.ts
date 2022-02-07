@@ -3673,6 +3673,18 @@ ogni file multimediale riprodotto</translation>
         <source>Enable back color</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Stylesheet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application Stylesheet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use Qt&apos;s inbuilt fusion style (may require restart)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

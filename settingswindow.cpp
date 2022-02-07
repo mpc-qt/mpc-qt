@@ -705,6 +705,9 @@ void SettingsWindow::sendSignals()
     emit infoStatsColors(QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoForegroundValue).toString()),
                          QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoBackgroundValue).toString()));
 
+    emit stylesheetIsFusion(WIDGET_LOOKUP(ui->stylesheetFusion).toBool());
+    emit stylesheetText(WIDGET_LOOKUP(ui->stylesheetText).toString());
+
     emit webserverListening(WIDGET_LOOKUP(ui->webEnableServer).toBool());
     emit webserverPort(WIDGET_LOOKUP(ui->webPort).toInt());
     emit webserverLocalhost(WIDGET_LOOKUP(ui->webLocalhost).toBool());
@@ -1115,7 +1118,7 @@ void SettingsWindow::on_pageTree_itemSelectionChanged()
     if (!modelIndex.isValid())
         return;
 
-    static int parentIndex[] = { 0, 6, 13, 14, 17, 19, 20, 21 };
+    static int parentIndex[] = { 0, 7, 14, 15, 18, 20, 21, 22 };
     int index = 0;
     if (!modelIndex.parent().isValid())
         index = parentIndex[modelIndex.row()];

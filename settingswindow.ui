@@ -63,6 +63,11 @@
        </item>
        <item>
         <property name="text">
+         <string>Stylesheet</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
          <string>Web Interface</string>
         </property>
        </item>
@@ -713,8 +718,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>42</width>
-                   <height>18</height>
+                   <width>643</width>
+                   <height>251</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -815,6 +820,24 @@ media file played</string>
                </layout>
               </item>
              </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="stylesheetPage">
+          <layout class="QVBoxLayout" name="verticalLayout_15">
+           <item>
+            <widget class="QCheckBox" name="stylesheetFusion">
+             <property name="text">
+              <string>Use Qt's inbuilt fusion style (may require restart)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPlainTextEdit" name="stylesheetText">
+             <property name="placeholderText">
+              <string>Application Stylesheet</string>
+             </property>
             </widget>
            </item>
           </layout>

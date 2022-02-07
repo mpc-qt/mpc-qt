@@ -76,6 +76,8 @@ private slots:
     void settingswindow_rememberWindowGeometry(bool yes);
     void settingswindow_keymapData(const QVariantMap &keyMap);
     void settingswindow_mprisIpc(bool enabled);
+    void settingswindow_stylesheetIsFusion(bool yes);
+    void settingswindow_stylesheetText(QString text);
     void settingswindow_screenshotDirectory(const QString &where);
     void settingswindow_encodeDirectory(const QString &where);
     void settingswindow_screenshotTemplate(const QString &fmt);
