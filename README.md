@@ -54,7 +54,8 @@ isn't it?
 show the artist as well as the title, down to even the encoder used?  Nothing
 is stopping you.
 
-**Race Inspired Cosmetic Enhancements:**  In-app custom styling support.
+**Race Inspired Cosmetic Enhancements:**  In-app custom styling support.  Make
+the app go faster!
 
 ### Possible upcoming features
 
