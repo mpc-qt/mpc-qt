@@ -681,7 +681,7 @@ void SettingsWindow::sendSignals()
 
     emit trayIcon(WIDGET_LOOKUP(ui->playerTrayIcon).toBool());
     emit showOsd(WIDGET_LOOKUP(ui->playerOSD).toBool());
-    emit limitProportions(WIDGET_LOOKUP(ui->playerDisableOpenDisc).toBool());
+    emit limitProportions(WIDGET_LOOKUP(ui->playerLimitProportions).toBool());
     emit disableOpenDiscMenu(WIDGET_LOOKUP(ui->playerDisableOpenDisc).toBool());
     emit inhibitScreensaver(WIDGET_LOOKUP(ui->playerDisableScreensaver).toBool());
     emit titleBarFormat(WIDGET_LOOKUP(ui->playerTitleDisplayFullPath).toBool() ? Helpers::PrefixFullPath
