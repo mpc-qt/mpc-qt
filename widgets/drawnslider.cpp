@@ -108,11 +108,21 @@ void DrawnSlider::paintEvent(QPaintEvent *event)
     pal = reinterpret_cast<QWidget*>(parentWidget())->palette();
     grooveBorder = pal.color(QPalette::Normal, QPalette::Shadow);
     grooveFill   = pal.color(QPalette::Normal, QPalette::Base);
-    handleBorder = pal.color(QPalette::Normal, QPalette::Dark);
+    handleBorder = pal.color(QPalette::Normal, QPalette::Button);
     handleFill   = pal.color(QPalette::Normal, QPalette::Button);
     bgColor      = pal.color(QPalette::Normal, QPalette::Window);
     loopColor    = pal.color(QPalette::Normal, QPalette::Highlight);
-    markColor    = pal.color(QPalette::Normal, QPalette::Shadow);
+    markColor    = pal.color(QPalette::Normal, QPalette::Button);
+
+    // is this a light theme?
+    if (pal.color(QPalette::Normal, QPalette::Button).value() >
+            pal.color(QPalette::Normal, QPalette::Text).value()) {
+        handleBorder = handleBorder.darker();
+        markColor = markColor.darker();
+    } else {
+        handleBorder = handleBorder.lighter();
+        markColor = markColor.lighter();
+    }
 
     if (redrawPics) {
         makeBackground();
@@ -326,12 +336,8 @@ void MediaSlider::makeBackground()
 
     }
 
-    // Draw outside groove
-    p.setPen(grooveBorder);
-    p.setBrush(Qt::NoBrush);
-    dr(&p, grooveArea);
-
     // Draw chapter marks
+    p.setPen(markColor);
     for (auto i = ticks.constBegin(); i != ticks.constEnd(); i++) {
         double pos = valueToX(i.key());
         // Don't draw over the edge of the groove twice when disabled, so the
@@ -342,6 +348,13 @@ void MediaSlider::makeBackground()
                        QPointF(pos + 0.5, grooveArea.bottom() - 0.5));
         }
     }
+
+    // Draw outside groove
+    p.setPen(grooveBorder);
+    p.setBrush(Qt::NoBrush);
+    dr(&p, grooveArea);
+
+
 }
 
 void MediaSlider::makeHandle()
