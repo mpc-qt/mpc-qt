@@ -184,7 +184,7 @@ release page], and extract it somewhere.  Place the files in the root folder
 of mpv-dev-x86_64-*.7z into `mpv-dev/lib`. Then place the files in its include
 folder into `mpv-dev/include/mpv`.  Compile with the 64bit Qt framework.
 
-[screenshot]:https://gist.githubusercontent.com/cmdrkotori/f419febc57df9610b922eb06de7c0c1d/raw/189394a9454c34f9384a3deb83a1c29277057766/Screenshot_20180427_202825.png
+[screenshot]:https://raw.githubusercontent.com/mpc-qt/mpc-qt-screenshots/master/Screenshot_20220215_134718.png
 [mpc-hc]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
 [mwe]:https://github.com/cmdrkotori/mpc-qt/commit/9400f595
