@@ -1540,6 +1540,12 @@ void MainWindow::setIconTheme(IconThemer::FolderMode mode, QString fallback, QSt
     themer.setIconFolders(mode, fallback, custom);
 }
 
+void MainWindow::setHighContrastWidgets(bool yes)
+{
+    positionSlider_->setHighContrast(yes);
+    volumeSlider_->setHighContrast(yes);
+}
+
 void MainWindow::setInfoColors(const QColor &foreground, const QColor &background)
 {
     QColor fg = foreground.isValid() ? foreground : QColor(255,255,255);
