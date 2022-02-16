@@ -68,6 +68,13 @@ double DrawnSlider::minimum()
     return vMinimum;
 }
 
+void DrawnSlider::setHighContrast(bool enabled)
+{
+    highContrast = enabled;
+    redrawPics = true;
+    update();
+}
+
 void DrawnSlider::setSliderGeometry(int handleWidth, int handleHeight,
                                      int marginX, int marginY)
 {
@@ -106,22 +113,32 @@ void DrawnSlider::paintEvent(QPaintEvent *event)
     Q_UNUSED(event)
     QPalette pal;
     pal = reinterpret_cast<QWidget*>(parentWidget())->palette();
-    grooveBorder = pal.color(QPalette::Normal, QPalette::Shadow);
-    grooveFill   = pal.color(QPalette::Normal, QPalette::Base);
-    handleBorder = pal.color(QPalette::Normal, QPalette::Button);
-    handleFill   = pal.color(QPalette::Normal, QPalette::Button);
-    bgColor      = pal.color(QPalette::Normal, QPalette::Window);
-    loopColor    = pal.color(QPalette::Normal, QPalette::Highlight);
-    markColor    = pal.color(QPalette::Normal, QPalette::Button);
-
-    // is this a light theme?
-    if (pal.color(QPalette::Normal, QPalette::Button).value() >
-            pal.color(QPalette::Normal, QPalette::Text).value()) {
-        handleBorder = handleBorder.darker();
-        markColor = markColor.darker();
+    if (highContrast) {
+        grooveBorder = pal.color(QPalette::Normal, QPalette::Text);
+        grooveFill   = pal.color(QPalette::Normal, QPalette::Window);
+        handleBorder = pal.color(QPalette::Normal, QPalette::Text);
+        handleFill   = pal.color(QPalette::Normal, QPalette::Window);
+        bgColor      = pal.color(QPalette::Normal, QPalette::Window);
+        loopColor    = pal.color(QPalette::Normal, QPalette::Highlight);
+        markColor    = pal.color(QPalette::Normal, QPalette::Text);
     } else {
-        handleBorder = handleBorder.lighter();
-        markColor = markColor.lighter();
+        grooveBorder = pal.color(QPalette::Normal, QPalette::Shadow);
+        grooveFill   = pal.color(QPalette::Normal, QPalette::Base);
+        handleBorder = pal.color(QPalette::Normal, QPalette::Button);
+        handleFill   = pal.color(QPalette::Normal, QPalette::Button);
+        bgColor      = pal.color(QPalette::Normal, QPalette::Window);
+        loopColor    = pal.color(QPalette::Normal, QPalette::Highlight);
+        markColor    = pal.color(QPalette::Normal, QPalette::Button);
+
+        // is this a light theme?
+        if (pal.color(QPalette::Normal, QPalette::Button).value() >
+                pal.color(QPalette::Normal, QPalette::Text).value()) {
+            handleBorder = handleBorder.darker();
+            markColor = markColor.darker();
+        } else {
+            handleBorder = handleBorder.lighter();
+            markColor = markColor.lighter();
+        }
     }
 
     if (redrawPics) {

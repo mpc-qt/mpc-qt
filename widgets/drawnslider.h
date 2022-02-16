@@ -26,6 +26,9 @@ public:
 signals:
     void sliderMoved(double v);
 
+public slots:
+    void setHighContrast(bool enabled);
+
 protected:
     void setSliderGeometry(int handleWidth, int handleHeight,
                            int marginX, int marginY);
@@ -39,6 +42,7 @@ protected:
     void paintEvent(QPaintEvent *event);
     void resizeEvent(QResizeEvent *event);
 
+    bool highContrast = false;
     bool redrawPics = true;
     QImage backgroundPic;
     QImage handlePics[16];
