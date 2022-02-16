@@ -1,4 +1,5 @@
 // A simple(?) set of sliders related to controlling multimedia players.
+#include <QApplication>
 #include <QPainter>
 #include <QOpenGLContext>
 #include <QTimer>
@@ -26,6 +27,8 @@ DrawnSlider::DrawnSlider(QWidget *parent, QSize handle, QSize margin) :
     setMouseTracking(true);
     setSliderGeometry(handle.width(), handle.height(),
                       margin.width(), margin.height());
+    connect(qApp, &QApplication::paletteChanged,
+            this, &DrawnSlider::applicationPaletteChanged);
 }
 
 void DrawnSlider::setValue(double v)
@@ -71,6 +74,12 @@ double DrawnSlider::minimum()
 void DrawnSlider::setHighContrast(bool enabled)
 {
     highContrast = enabled;
+    redrawPics = true;
+    update();
+}
+
+void DrawnSlider::applicationPaletteChanged()
+{
     redrawPics = true;
     update();
 }

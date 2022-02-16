@@ -29,6 +29,9 @@ signals:
 public slots:
     void setHighContrast(bool enabled);
 
+private slots:
+    void applicationPaletteChanged();
+
 protected:
     void setSliderGeometry(int handleWidth, int handleHeight,
                            int marginX, int marginY);
