@@ -532,6 +532,8 @@ void Flow::setupSettingsConnections()
             mainWindow, &MainWindow::setFullscreenMouseMap);
     connect(settingsWindow, &SettingsWindow::iconTheme,
             mainWindow, &MainWindow::setIconTheme);
+    connect(settingsWindow, &SettingsWindow::highContrastWidgets,
+            mainWindow, &MainWindow::setHighContrastWidgets);
     connect(settingsWindow, &SettingsWindow::infoStatsColors,
             mainWindow, &MainWindow::setInfoColors);
     connect(settingsWindow, &SettingsWindow::volume,
