@@ -177,7 +177,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>5</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -696,12 +696,19 @@ media file played</string>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_5">
               <item>
+               <widget class="QCheckBox" name="interfaceWidgetHighContast">
+                <property name="text">
+                 <string>High-contrast timeline and volume sliders</string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QCheckBox" name="interfaceWidgetCustom">
                 <property name="text">
                  <string>Use custom theme</string>
                 </property>
                 <property name="checked">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </property>
                </widget>
               </item>
@@ -718,8 +725,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>643</width>
-                   <height>251</height>
+                   <width>598</width>
+                   <height>185</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>

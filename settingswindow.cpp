@@ -698,6 +698,7 @@ void SettingsWindow::sendSignals()
     emit iconTheme(static_cast<IconThemer::FolderMode>(WIDGET_LOOKUP(ui->interfaceIconsTheme).toInt()),
                    WIDGET_TO_TEXT(ui->interfaceIconsInbuilt),
                    WIDGET_LOOKUP(ui->interfaceIconsCustomFolder).toString());
+    emit highContrastWidgets(WIDGET_LOOKUP(ui->interfaceWidgetHighContast).toBool());
     emit applicationPalette(WIDGET_LOOKUP(ui->interfaceWidgetCustom).toBool()
                             ? paletteEditor->variantToPalette(WIDGET_LOOKUP(paletteEditor))
                             : paletteEditor->systemPalette());

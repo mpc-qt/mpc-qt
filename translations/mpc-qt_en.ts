@@ -3681,6 +3681,10 @@ media file played</source>
         <source>Use Qt&apos;s inbuilt fusion style (may require restart)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>High-contrast timeline and volume sliders</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
