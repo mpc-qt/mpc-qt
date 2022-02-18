@@ -53,7 +53,11 @@ public:
     Filter(const char *name, const char *description, QList<FilterOption> options) : name(name), description(description), options(options) {}
 };
 
+// These magic values come from ffmpeg's libavfilter directory - the exact
+// file is indicated in comments - and as such is likely subject to the
+// ffmpeg license.
 QList<Filter> audioFilters = {
+    // af_sidechaincompress.c
     Filter("acompressor", "Audio compressor", {
         FilterOption().name_("level_in")    .help_("input gain")    .dbl_(1)        .min_(0.015625)     .max_(64)       .digits_(1).decibels_(),
         FilterOption().name_("mode")        .help_("mode")          .opt_(0)        .options_({"downward","upward"}),
@@ -68,6 +72,7 @@ QList<Filter> audioFilters = {
         FilterOption().name_("level_sc")    .help_("sidechain gain").dbl_(1)        .min_(0.015625)     .max_(64)       .digits_(1).decibels_(),
         FilterOption().name_("mix")         .help_("mix")           .dbl_(1)        .min_(0)            .max_(1)
     }),
+    // af_loudnorm.c
     Filter("loudnorm", "EBU R128 loudness normalization", {
         FilterOption().name_("I")           .help_("integrated loudness target")    .dbl_(24)   .min_(-70)  .max_(-5),
         FilterOption().name_("LRA")         .help_("loudness range target")         .dbl_(7)    .min_(1)    .max_(20),
