@@ -59,6 +59,37 @@
     </message>
 </context>
 <context>
+    <name>FilterWindow</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation type="unfinished">音频</translation>
+    </message>
+    <message>
+        <source>New Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Raise Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="unfinished">视频</translation>
+    </message>
+</context>
+<context>
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
