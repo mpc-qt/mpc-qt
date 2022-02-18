@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FilterWindow</class>
+ <widget class="QWidget" name="FilterWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>628</width>
+    <height>414</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="audioTab">
+      <attribute name="title">
+       <string>Audio</string>
+      </attribute>
+      <layout class="QHBoxLayout" name="audioTabLayout" stretch="0,1">
+       <item>
+        <layout class="QVBoxLayout" name="audioFilterLayout">
+         <item>
+          <widget class="QListWidget" name="audioFilterList"/>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="audioFilterButtonLayout">
+           <item>
+            <widget class="QPushButton" name="audioFilterNew">
+             <property name="toolTip">
+              <string>New Filter</string>
+             </property>
+             <property name="icon">
+              <iconset theme="layer-new"/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="audioFilterDelete">
+             <property name="toolTip">
+              <string>Delete Filter</string>
+             </property>
+             <property name="icon">
+              <iconset theme="layer-delete"/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="audioFilterRaise">
+             <property name="toolTip">
+              <string>Raise Filter</string>
+             </property>
+             <property name="icon">
+              <iconset theme="layer-raise"/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="audioFilterLower">
+             <property name="toolTip">
+              <string>Lower Filter</string>
+             </property>
+             <property name="icon">
+              <iconset theme="layer-lower"/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QFormLayout" name="audioLayout"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="videoTab">
+      <attribute name="title">
+       <string>Video</string>
+      </attribute>
+      <layout class="QHBoxLayout" name="videoTabLayout" stretch="0,1">
+       <item>
+        <layout class="QVBoxLayout" name="videoFilterLayout">
+         <item>
+          <widget class="QListWidget" name="audioFilterList_2"/>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="videoFilterButtonLayout">
+           <item>
+            <widget class="QPushButton" name="videoFilterNew">
+             <property name="toolTip">
+              <string>New Filter</string>
+             </property>
+             <property name="icon">
+              <iconset theme="layer-new">
+               <normaloff>.</normaloff>.</iconset>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="videoFilterDelete">
+             <property name="toolTip">
+              <string>Delete Filter</string>
+             </property>
+             <property name="icon">
+              <iconset theme="layer-delete">
+               <normaloff>.</normaloff>.</iconset>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="videoFilterRaise">
+             <property name="toolTip">
+              <string>Raise Filter</string>
+             </property>
+             <property name="icon">
+              <iconset theme="layer-raise">
+               <normaloff>.</normaloff>.</iconset>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="videoFilterLower">
+             <property name="toolTip">
+              <string>Lower Filter</string>
+             </property>
+             <property name="icon">
+              <iconset theme="layer-lower">
+               <normaloff>.</normaloff>.</iconset>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QFormLayout" name="videoLayout"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
