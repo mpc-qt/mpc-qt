@@ -177,7 +177,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>8</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -1511,7 +1511,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -4444,6 +4444,9 @@ media file played</string>
                   </item>
                   <item row="6" column="1">
                    <widget class="QComboBox" name="ccHdrCompute">
+                    <property name="currentIndex">
+                     <number>2</number>
+                    </property>
                     <item>
                      <property name="text">
                       <string>Auto</string>
