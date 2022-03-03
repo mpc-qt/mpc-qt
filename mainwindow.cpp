@@ -7,6 +7,7 @@
 #include "helpers.h"
 #include "platform/unify.h"
 #include "platform/devicemanager.h"
+#include <QClipboard>
 #include <QDesktopWidget>
 #include <QStyle>
 #include <QWindow>
@@ -609,6 +610,8 @@ void MainWindow::setupMpvObject()
     setupMpvWidget(Helpers::GlCbWidget);
     connect(mpvObject_, &MpvObject::logoSizeChanged,
             this, &MainWindow::setNoVideoSize);
+    connect(mpvObject_, &MpvObject::subTextChanged,
+            this, &MainWindow::setSubtitleText);
 }
 
 void MainWindow::setupMpvWidget(Helpers::MpvWidgetType widgetType)
@@ -1764,6 +1767,7 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesEnabled);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesNext);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesPrevious);
+    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesCopy);
     ui->menuPlaySubtitles->addSeparator();
     for (const QPair<int64_t, QString> &track : tracks) {
         QAction *action = new QAction(this);
@@ -1774,6 +1778,11 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
         });
         ui->menuPlaySubtitles->addAction(action);
     }
+}
+
+void MainWindow::setSubtitleText(QString subText)
+{
+    subtitleText = subText;
 }
 
 void MainWindow::setVolume(int level)
@@ -2394,6 +2403,12 @@ void MainWindow::on_actionPlaySubtitlesPrevious_triggered()
     emit previousSubtitleSelected();
 }
 
+void MainWindow::on_actionPlaySubtitlesCopy_triggered()
+{
+    QClipboard *clippy = qApp->clipboard();
+    clippy->setText(subtitleText);
+}
+
 void MainWindow::on_actionPlayLoopStart_triggered()
 {
     positionSlider_->setLoopA(mpvObject_->playTime());
@@ -2663,3 +2678,4 @@ void MainWindow::on_actionFavoritesOrganize_triggered()
 {
     emit organizeFavorites();
 }
+

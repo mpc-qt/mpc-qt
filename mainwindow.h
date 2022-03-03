@@ -236,6 +236,7 @@ public slots:
     void setAudioTracks(QList<QPair<int64_t,QString>> tracks);
     void setVideoTracks(QList<QPair<int64_t,QString>> tracks);
     void setSubtitleTracks(QList<QPair<int64_t,QString>> tracks);
+    void setSubtitleText(QString subText);
     void setVolume(int level);
     void setVolumeDouble(double level);
     void setVolumeMax(int level);
@@ -330,6 +331,7 @@ private slots:
     void on_actionPlaySubtitlesEnabled_triggered(bool checked);
     void on_actionPlaySubtitlesNext_triggered();
     void on_actionPlaySubtitlesPrevious_triggered();
+    void on_actionPlaySubtitlesCopy_triggered();
 
     void on_actionPlayLoopStart_triggered();
     void on_actionPlayLoopEnd_triggered();
@@ -376,7 +378,6 @@ private slots:
 
     void on_actionFavoritesOrganize_triggered();
 
-
 private:
     Ui::MainWindow *ui = nullptr;
     QMainWindow *mpvHost_ = nullptr;
@@ -409,6 +410,7 @@ private:
     bool hasVideo = false;
     bool hasAudio = false;
     bool hasSubs = false;
+    QString subtitleText;
     int volumeStep = 10;
     bool frozenWindow = true;
     double sizeFactor_ = 1;

@@ -599,7 +599,7 @@
      <x>0</x>
      <y>0</y>
      <width>679</width>
-     <height>23</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -744,6 +744,7 @@
      <addaction name="actionPlaySubtitlesEnabled"/>
      <addaction name="actionPlaySubtitlesNext"/>
      <addaction name="actionPlaySubtitlesPrevious"/>
+     <addaction name="actionPlaySubtitlesCopy"/>
      <addaction name="separator"/>
     </widget>
     <widget class="QMenu" name="menuPlayVideo">
@@ -1990,6 +1991,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+=</string>
+   </property>
+  </action>
+  <action name="actionPlaySubtitlesCopy">
+   <property name="text">
+    <string>&amp;Copy Subtitle</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
  </widget>
