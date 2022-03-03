@@ -127,6 +127,7 @@ signals:
     void fileSizeChanged(int64_t size);
     void fileCreationTimeChanged(int64_t secsSinceEpoch);
     void filePathChanged(QString path);
+    void subTextChanged(QString subText);
     void playlistChanged(QVariantList playlist);
 
     void logoSizeChanged(QSize size);
