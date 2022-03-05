@@ -2540,7 +2540,7 @@ void MainWindow::on_actionNavigateChaptersNext_triggered()
 
 void MainWindow::on_actionHelpHomepage_triggered()
 {
-    QDesktopServices::openUrl(QUrl("https://github.com/mpc-qt/mpc-qt"));
+    QDesktopServices::openUrl(QUrl("https://mpc-qt.github.io/"));
 }
 
 void MainWindow::on_actionHelpAbout_triggered()
