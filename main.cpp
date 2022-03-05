@@ -90,6 +90,7 @@ int main(int argc, char *argv[])
     qRegisterMetaType<uint64_t>("uint64_t");
     qRegisterMetaType<uint16_t>("uint16_t");
 
+    // Register the translations
     QTranslator qtTranslator;
     qtTranslator.load("qt_" + QLocale::system().name(),
        QLibraryInfo::location(QLibraryInfo::TranslationsPath));
@@ -105,6 +106,7 @@ int main(int argc, char *argv[])
 #endif
     QCoreApplication::setApplicationVersion(MPCQT_VERSION_STR);
 
+    // Spin up the application
     Flow f;
     f.parseArgs();
     f.detectMode();
@@ -135,6 +137,9 @@ Flow::~Flow()
         mpcHcServer = nullptr;
     }
     if (mainWindow) {
+        // only write out the playlist if we're operating in the default mode
+        // as the sole application.  Freestanding applications don't write any
+        // settings, but they do inherit them.
         if (programMode == PrimaryMode) {
             storage.writeVList(filePlaylists, mainWindow->playlistWindow()->tabsToVList());
             storage.writeVList(filePlaylistsBackup, PlaylistCollection::getBackup()->toVList());
@@ -233,6 +238,7 @@ void Flow::detectMode() {
 void Flow::init() {
     Q_ASSERT(programMode != UnknownMode);
 
+    // Start logging early
     logThread = new QThread();
     logThread->start();
     Logger *logger = Logger::singleton();
@@ -240,6 +246,7 @@ void Flow::init() {
     connect(logThread, &QThread::finished,
             logger, &QObject::deleteLater);
 
+    // Create our windows
     mainWindow = new MainWindow();
     playbackManager = new PlaybackManager(this);
     playbackManager->setMpvObject(mainWindow->mpvObject(), true);
@@ -252,6 +259,7 @@ void Flow::init() {
     libraryWindow = new LibraryWindow();
     thumbnailerWindow = new ThumbnailerWindow();
 
+    // Start our servers
     server = new MpcQtServer(mainWindow, playbackManager, this);
     server->setMainWindow(mainWindow);
     server->setPlaybackManger(playbackManager);
@@ -262,6 +270,7 @@ void Flow::init() {
 
     mpcHcServer = new MpcHcServer(this);
 
+    // Initialize the screensaver
     inhibitScreensaver = false;
     screenSaver = Platform::screenSaver();
     QSet<ScreenSaver::Ability> actualPowers = screenSaver->abilities();
@@ -271,6 +280,7 @@ void Flow::init() {
     manipulateScreensaver = actualPowers.contains(desiredPowers);
     settingsWindow->setScreensaverDisablingEnabled(manipulateScreensaver);
 
+    // Initialize the device manager if present
     if (Platform::deviceManager()->deviceAccessPossible()) {
         Logger::log("main", "device manager active");
     }
@@ -287,6 +297,7 @@ void Flow::init() {
     connect(playbackManager, &PlaybackManager::playerSettingsRequested,
             settingsWindow, &SettingsWindow::sendSignals);
 
+    // Setup more ipc and wire them up if we're in the primary mode
     if (programMode == PrimaryMode) {
         setupMpris();
         setupMpcHc();
@@ -306,12 +317,15 @@ void Flow::init() {
     settingsWindow->sendSignals();
     settingsWindow->sendAcceptedSettings();
 
+    // Turn our servers on in primary mode
     if (programMode == PrimaryMode) {
         server->listen();
         mpvServer->listen();
     }
+    // and notify settings window of our server
     settingsWindow->setServerName(server->fullServerName());
 
+    // Turn certain things off in freestanding mode
     mainWindow->setFreestanding(programMode == FreestandingMode);
     settingsWindow->setFreestanding(programMode == FreestandingMode);
 }
@@ -319,13 +333,20 @@ void Flow::init() {
 
 int Flow::run()
 {
+    // Load our data
     auto playlist = cliNoFiles ? QVariantList() : storage.readVList(filePlaylists);
     auto backup = cliNoFiles ? QVariantList() : storage.readVList(filePlaylistsBackup);
     auto geometry = cliNoConfig ? QVariantMap() : storage.readVMap(fileGeometry);
+
+    // Send data to the ui
     mainWindow->playlistWindow()->tabsFromVList(playlist);
     PlaylistCollection::getBackup()->fromVList(backup);
-    restoreWindows(geometry);
     libraryWindow->refreshLibrary();
+
+    // Restore our window positions
+    restoreWindows(geometry);
+
+    // Wait here until quit
     return qApp->exec();
 }
 
@@ -349,6 +370,8 @@ void Flow::readConfig()
     }
 }
 
+// onlySettings - true if all you want to write is the settings, such as if
+// you're calling from options dialog.
 void Flow::writeConfig(bool onlySettings)
 {
     if (programMode != PrimaryMode)
@@ -362,6 +385,8 @@ void Flow::writeConfig(bool onlySettings)
     storage.writeVList(fileRecent, recentToVList());
     storage.writeVMap(fileFavorites, favoritesToVMap());
     storage.writeVMap(fileGeometry, windowsToVMap());
+
+    // Note!  Playlists are written in the destructor.
 }
 
 void Flow::setupMainWindowConnections()
@@ -758,6 +783,7 @@ void Flow::setupFlowConnections()
 
 void Flow::setupMpris()
 {
+    // Don't wire up if there's no dbus, such as on Windows and Mac.
 #ifdef QT_DBUS_LIB
     mpris = new MprisInstance(this);
     connect(mainWindow, &MainWindow::volumeChanged,
@@ -961,6 +987,8 @@ void Flow::setupMpcHc()
 
 QByteArray Flow::makePayload() const
 {
+    // Create a JSON document containing a file open request suitable for
+    // sending to our mpc-qt socket.
     QVariantMap map({
         {keyCommand, QVariant("playFiles")},
         {keyDirectory, QVariant(QDir::currentPath())},
@@ -1141,7 +1169,11 @@ void Flow::showWindows(const QVariantMap &mainWindowMap)
     }
     if (mainWindowMap.contains(keyState))
         mainWindow->setState(mainWindowMap[keyState].toMap());
+    // Tell the main window it can process size requests et al now
     mainWindow->unfreezeWindow();
+    // In 50 msec time when the ui is in a reliable state, call
+    // self_windowsRestored for further processing (2022-03: such as opening
+    // files for playback)
     QTimer::singleShot(50, this, &Flow::windowsRestored);
 }
 
@@ -1152,20 +1184,21 @@ void Flow::self_windowsRestored()
 
 void Flow::mainwindow_instanceShouldQuit()
 {
-    // this should eventually be different from endProgram():
-    //windows.remove(window);
-    //if (windows.isEmpty())
     endProgram();
 }
 
 void Flow::mainwindow_recentOpened(const TrackInfo &track)
 {
-    // attempt to play the old one if possible, otherwise pretend it's new
+    // attempt to play the playlist item if possible, otherwise act like it
+    // is a new file
     QUrl old = mainWindow->playlistWindow()->getUrlOf(track.list, track.item);
     if (!old.isEmpty())
         playbackManager->playItem(track.list, track.item);
     else
         playbackManager->openFile(track.url);
+
+    // Navigate to a particular position if set, such as if this is from the
+    // favorites menu
     if (track.position > 0 && track.url.isLocalFile())
         playbackManager->navigateToTime(track.position);
 }
@@ -1178,11 +1211,13 @@ void Flow::mainwindow_recentClear()
 
 void Flow::mainwindow_takeImage(Helpers::ScreenshotRender render)
 {
+    // Take a screenshot and save it to a temporary file
     QString fmt("%1/mpc-qt_%2.%3");
     QString tempDir = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
     QString tempFile = fmt.arg(tempDir, QUuid::createUuid().toString(), screenshotFormat);
     mainWindow->mpvObject()->screenshot(tempFile, render);
 
+    // Do some quick logic based on track presence
     Helpers::Subtitles subRender;
     if (nowPlayingNoSubtitleTracks)
         subRender = Helpers::NoSubtitles;
@@ -1192,11 +1227,14 @@ void Flow::mainwindow_takeImage(Helpers::ScreenshotRender render)
         subRender = Helpers::SubtitlesDisabled;
     else
         subRender = Helpers::SubtitlesPresent;
+
     QString fileName = pictureTemplate(Helpers::DisabledAudio, subRender);
 
     QString picFile;
     picFile = QFileDialog::getSaveFileName(this->mainWindow, tr("Save Image"),
                                            fileName);
+
+    // Copy the temp file to the desired location, then delete it
     QFile tf(tempFile);
     if (!picFile.isEmpty()) {
         QFile pf(picFile);
@@ -1209,6 +1247,8 @@ void Flow::mainwindow_takeImage(Helpers::ScreenshotRender render)
 
 void Flow::mainwindow_takeImageAutomatically(Helpers::ScreenshotRender render)
 {
+    // Like mainwindow_takeImage, but we do the screenshot knowing where to
+    // put it
     Helpers::Subtitles subRender;
     if (nowPlayingNoSubtitleTracks)
         subRender = Helpers::NoSubtitles;
@@ -1229,6 +1269,7 @@ void Flow::mainwindow_takeThumbnails()
 
 void Flow::mainwindow_optionsOpenRequested()
 {
+    // Load the settings window with data and show it
     settingsWindow->takeSettings(settings);
     settingsWindow->takeKeyMap(keyMap);
     settingsWindow->show();
@@ -1237,41 +1278,56 @@ void Flow::mainwindow_optionsOpenRequested()
 
 void Flow::manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid)
 {
+    // Insert playing track as the most recent item
     TrackInfo track(url, listUuid, itemUuid, QString(), 0, 0);
     if (recentFiles.contains(track)) {
+        // Remove all prior mention of it
         recentFiles.removeAll(track);
     }
     recentFiles.insert(0, track);
+
+    // Trim the recent file list
     if (recentFiles.size() > 10)
         recentFiles.removeLast();
 
+    // Notify (2022-03: the main window) that the recents have changed
     emit recentFilesChanged(recentFiles);
 }
 
 void Flow::manager_stateChanged(PlaybackManager::PlaybackState state)
 {
+    // Do nothing if we don't have to
     if (!manipulateScreensaver)
         return;
 
+    // If inhibiting the screensaver is switch on, inhibit it in the stopped
+    // state
     if (!inhibitScreensaver || state == PlaybackManager::StoppedState) {
         screenSaver->uninhibitSaver();
         return;
     }
+
+    // Inhibit the screensaver because we're not stopped
     screenSaver->inhibitSaver(tr("Playing Media"));
 }
 
 void Flow::manager_subtitlesVisibile(bool visible)
 {
+    // Remember that subtitles are displayed (used for saving screenshots)
+    // or not
     nowPlayingDisplayingSubtitles = visible;
 }
 
 void Flow::manager_hasNoSubtitles(bool none)
 {
+    // Remember that there's no subtitle tracks (used for saving screenshots)
+    // or not
     nowPlayingNoSubtitleTracks = none;
 }
 
 void Flow::mpcHcServer_fileSelected(QString fileName)
 {
+    // Send the file open request to our playback manager
     QList<QUrl> urls;
     urls << QUrl::fromLocalFile(fileName);
     playbackManager->openSeveralFiles(urls, true);
@@ -1279,35 +1335,44 @@ void Flow::mpcHcServer_fileSelected(QString fileName)
 
 void Flow::settingswindow_settingsData(const QVariantMap &settings)
 {
+    // The selected options have changed, so write them to disk
     this->settings = settings;
     writeConfig(true);
 }
 
 void Flow::settingswindow_inhibitScreensaver(bool yes)
 {
+    // Remember inhibit screensaver and renotify ourselves of the current
+    // playback state (2022-03: which optionally re/uninhibits the
+    // screensaver)
     this->inhibitScreensaver = yes;
     manager_stateChanged(playbackManager->playbackState());
 }
 
 void Flow::settingswindow_rememberWindowGeometry(bool yes)
 {
+    // Remember our preference to process the window geometry when we exit
     this->rememberWindowGeometry = yes;
 }
 
 void Flow::settingswindow_keymapData(const QVariantMap &keyMap)
 {
+    // Remember the keymap (shortcuts) data
     this->keyMap = keyMap;
 }
 
 void Flow::settingswindow_mprisIpc(bool enabled)
 {
 #ifdef QT_DBUS_LIB
+    // Do nothing if we don't have to
     if (!mpris)
         return;
 
+    // Going off: turn it off only if it were on
     if (!enabled && mpris->registered()) {
         mpris->unregisterDBus();
     }
+    // Going on: turn it on only if it were off
     if (enabled && !mpris->registered()) {
         mpris->registerDBus();
     }
@@ -1357,12 +1422,14 @@ void Flow::settingswindow_screenshotFormat(const QString &fmt)
 
 void Flow::favoriteswindow_favoriteTracks(const QList<TrackInfo> &files, const QList<TrackInfo> &streams)
 {
+    // Remember our favorite files and streams for later
     favoriteFiles = files;
     favoriteStreams = streams;
 }
 
 void Flow::endProgram()
 {
+    // We're about to quit, so write out our config
     writeConfig();
     qApp->quit();
 }
