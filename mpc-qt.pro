@@ -117,7 +117,7 @@ unix {
     translations.files = resources/translations
     translations.path = $$PREFIX/share/mpc-qt/
 
-    shortcut.files = mpc-qt.desktop
+    shortcut.files = io.github.mpc_qt.Mpc-Qt.desktop
     shortcut.path = $$PREFIX/share/applications/
 
     logo.files = images/icon/mpc-qt.svg
@@ -234,5 +234,5 @@ OTHER_FILES += \
 
 DISTFILES += \
     DOCS/ipc.md \
-    mpc-qt.desktop
+    io.github.mpc_qt.Mpc-Qt.desktop
 
