@@ -120,10 +120,13 @@ unix {
     shortcut.files = io.github.mpc_qt.Mpc-Qt.desktop
     shortcut.path = $$PREFIX/share/applications/
 
+    appdata.files = io.github.mpc_qt.Mpc-Qt.appdata.xml
+    appdata.path = $$PREFIX/share/metainfo/
+
     logo.files = images/icon/mpc-qt.svg
     logo.path = $$PREFIX/share/icons/hicolor/scalable/apps/
 
-    INSTALLS += target docs shortcut logo translations
+    INSTALLS += target docs shortcut logo appdata translations
 }
 
 unix:!macx:SOURCES += platform/screensaver_unix.cpp \
@@ -230,7 +233,8 @@ OTHER_FILES += \
     make-release-win.sh \
     DOCS/codebase2.svg \
     DOCS/codebase.svg \
-    'DOCS/coding standards.md'
+    'DOCS/coding standards.md' \
+    io.github.mpc_qt.Mpc-Qt.appdata.xml
 
 DISTFILES += \
     DOCS/ipc.md \
