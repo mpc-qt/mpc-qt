@@ -372,6 +372,20 @@ void MainWindow::dragEnterEvent(QDragEnterEvent *event)
 
 void MainWindow::dropEvent(QDropEvent *event)
 {
+    if (!event->mimeData()->hasUrls())
+        return;
+
+    // intercept single subtitle files
+    if (event->mimeData()->urls().count() == 1) {
+        QUrl url = event->mimeData()->urls()[0];
+        QFileInfo info(url.toLocalFile());
+        if (isPlaying && Helpers::subsExtensions.contains(info.suffix())) {
+            // load subtitle, but only when playing media
+            emit subtitlesLoaded(url);
+            return;
+        }
+        // fallthrough to opening as files
+    }
     emit severalFilesOpened(event->mimeData()->urls(), true);
 }
 
