@@ -93,6 +93,7 @@ private:
     void setUiEnabledState(bool enabled);
     void reparentBottomArea(bool overlay);
     void checkBottomArea(QPoint mousePosition);
+    void leaveBottomArea();
     void updateBottomAreaGeometry();
     void updateTime();
     void updateFramedrops();

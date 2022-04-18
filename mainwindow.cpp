@@ -50,6 +50,7 @@ MainWindow::MainWindow(QWidget *parent) :
     if (mpvw)
         mpvw->installEventFilter(this);
     playlistWindow_->installEventFilter(this);
+    ui->bottomArea->installEventFilter(this);
 
     connectActionsToSignals();
     connectActionsToSlots();
@@ -305,6 +306,8 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)
     if ((insideMpv || object == playlistWindow_) && event->type() == QEvent::MouseMove) {
         this->mouseMoveEvent(static_cast<QMouseEvent*>(event));
     }
+    if (object == ui->bottomArea && event->type() == QEvent::Leave)
+        this->leaveBottomArea();
     return QMainWindow::eventFilter(object, event);
 }
 
@@ -953,6 +956,20 @@ void MainWindow::checkBottomArea(QPoint mousePosition)
             ui->bottomArea->hide();
         else
             hideTimer.start();
+    }
+}
+
+void MainWindow::leaveBottomArea()
+{
+    if (!fullscreenMode_)
+        return;
+
+    if (bottomAreaBehavior == Helpers::ShowWhenHovering) {
+        if (!bottomAreaHideTime) {
+            ui->bottomArea->hide();
+        } else {
+            hideTimer.start();
+        }
     }
 }
 
