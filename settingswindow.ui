@@ -270,6 +270,40 @@ media file played</string>
                </widget>
               </item>
               <item>
+               <widget class="QLabel" name="afterPlaybackDefaultLabel">
+                <property name="text">
+                 <string>Default After Playback action:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="afterPlaybackDefault">
+                <property name="currentIndex">
+                 <number>0</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Do nothing</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Repeat</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Play next in the folder</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Exit</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
                <spacer name="playerOtherSpacer">
                 <property name="orientation">
                  <enum>Qt::Vertical</enum>
@@ -725,8 +759,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>598</width>
-                   <height>185</height>
+                   <width>665</width>
+                   <height>146</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>

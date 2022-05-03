@@ -137,6 +137,7 @@ signals:
     void xrandrResetOnExit(bool yes);
 
     void playbackPlayTimes(int count);
+    void afterPlaybackDefault(Helpers::AfterPlayback option);
     void playbackForever(bool yes);
     void playbackRewinds(bool yes);
     void playbackLoopImages(bool yes);
