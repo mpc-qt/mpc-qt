@@ -3724,6 +3724,26 @@ ogni file multimediale riprodotto</translation>
         <source>High-contrast timeline and volume sliders</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Default After Playback action:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do nothing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play next in the folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
