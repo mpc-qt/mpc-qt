@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>896</width>
-    <height>705</height>
+    <height>593</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -177,7 +177,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>8</number>
+          <number>7</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -267,40 +267,6 @@ media file played</string>
                 <property name="checked">
                  <bool>true</bool>
                 </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="afterPlaybackDefaultLabel">
-                <property name="text">
-                 <string>Default After Playback action:</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QComboBox" name="afterPlaybackDefault">
-                <property name="currentIndex">
-                 <number>0</number>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>Do nothing</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Repeat</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Play next in the folder</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Exit</string>
-                 </property>
-                </item>
                </widget>
               </item>
               <item>
@@ -759,8 +725,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>665</width>
-                   <height>146</height>
+                   <width>601</width>
+                   <height>185</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -1314,29 +1280,6 @@ media file played</string>
              </layout>
             </widget>
            </item>
-           <item row="3" column="0" colspan="2">
-            <widget class="QGroupBox" name="playbackAutoloadBox">
-             <property name="title">
-              <string>Open settings</string>
-             </property>
-             <layout class="QVBoxLayout" name="playbackAutoloadBoxLayout">
-              <item>
-               <widget class="QCheckBox" name="playbackAutoloadAudio">
-                <property name="text">
-                 <string>Auto-load audio files</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="PlaybackAutoloadSubtitles">
-                <property name="text">
-                 <string>Auto-load subtitles</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
            <item row="0" column="0" colspan="2">
             <widget class="QGroupBox" name="playbackAudioBox">
              <property name="title">
@@ -1520,6 +1463,72 @@ media file played</string>
                 <property name="value">
                  <number>1000</number>
                 </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QGroupBox" name="playbackAutoloadBox">
+             <property name="title">
+              <string>Open settings</string>
+             </property>
+             <layout class="QVBoxLayout" name="playbackAutoloadBoxLayout">
+              <item>
+               <widget class="QCheckBox" name="playbackAutoloadAudio">
+                <property name="text">
+                 <string>Auto-load audio files</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="PlaybackAutoloadSubtitles">
+                <property name="text">
+                 <string>Auto-load subtitles</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QGroupBox" name="afterPlaybackBox">
+             <property name="title">
+              <string>After Playback</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_16">
+              <item>
+               <widget class="QLabel" name="afterPlaybackDefaultLabel">
+                <property name="text">
+                 <string>Default After Playback action:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="afterPlaybackDefault">
+                <property name="currentIndex">
+                 <number>0</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Do nothing</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Repeat</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Play next in the folder</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Exit</string>
+                 </property>
+                </item>
                </widget>
               </item>
              </layout>

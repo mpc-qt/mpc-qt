@@ -3744,6 +3744,10 @@ ogni file multimediale riprodotto</translation>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>After Playback</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
