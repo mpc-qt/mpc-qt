@@ -117,7 +117,7 @@ QSet<QString> Helpers::fileExtensions {
     // Playlist formats
     "m3u", "m3u8",
     "pls",
-    "cue"
+    "cue",
     // Image formats
     "bmp",
     "dds",
@@ -149,7 +149,9 @@ QSet<QString> Helpers::fileExtensions {
     "rar",
     "zip",
     "cbz",
-    "cbr"
+    "cbr",
+    // Other formats
+    "at9"
 };
 
 QSet<QString> Helpers::subsExtensions {
