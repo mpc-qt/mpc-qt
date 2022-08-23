@@ -508,19 +508,12 @@ void SettingsWindow::generateVideoPresets()
 {
     SettingMap videoWidgets;
 
-    // Deprecated way
-    videoWidgets.unite(generateSettingMap(ui->generalTab));
-    videoWidgets.unite(generateSettingMap(ui->ditherTab));
-    videoWidgets.unite(generateSettingMap(ui->scalingTab));
-    videoWidgets.unite(generateSettingMap(ui->debandTab));
-    videoWidgets.unite(generateSettingMap(ui->syncMode));
-
     // Non-deprecated way since Qt 5.15
-    //videoWidgets.insert(generateSettingMap(ui->generalTab));
-    //videoWidgets.insert(generateSettingMap(ui->ditherTab));
-    //videoWidgets.insert(generateSettingMap(ui->scalingTab));
-    //videoWidgets.insert(generateSettingMap(ui->debandTab));
-    //videoWidgets.insert(generateSettingMap(ui->syncMode));
+    videoWidgets.insert(generateSettingMap(ui->generalTab));
+    videoWidgets.insert(generateSettingMap(ui->ditherTab));
+    videoWidgets.insert(generateSettingMap(ui->scalingTab));
+    videoWidgets.insert(generateSettingMap(ui->debandTab));
+    videoWidgets.insert(generateSettingMap(ui->syncMode));
 
     videoWidgets.remove(ui->videoPreset->objectName());
 
@@ -1317,5 +1310,11 @@ void SettingsWindow::on_webPortLink_linkActivated(const QString &link)
     QUrl url("http://127.0.0.1");
     url.setPort(ui->webPort->value());
     QDesktopServices::openUrl(url);
+}
+
+
+void SettingsWindow::on_playerLanguageComboBox_currentIndexChanged(int index)
+{
+    //TODO: Language changing
 }
 
