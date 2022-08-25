@@ -177,21 +177,20 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>7</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
-           <item row="0" column="0">
-            <widget class="QGroupBox" name="playerOpenBox">
+           <item row="2" column="1">
+            <widget class="QGroupBox" name="playerHistoryBox">
              <property name="title">
-              <string>Open options</string>
+              <string>History</string>
              </property>
-             <layout class="QVBoxLayout" name="playerOpenBoxLayout">
+             <layout class="QVBoxLayout" name="playerHistoryBoxLayout">
               <item>
-               <widget class="QRadioButton" name="playerOpenSame">
+               <widget class="QCheckBox" name="playerKeepHistory">
                 <property name="text">
-                 <string>Use the same player for
-each &amp;media file</string>
+                 <string>Keep history of recently opened files</string>
                 </property>
                 <property name="checked">
                  <bool>true</bool>
@@ -199,53 +198,16 @@ each &amp;media file</string>
                </widget>
               </item>
               <item>
-               <widget class="QRadioButton" name="playerOpenNew">
+               <widget class="QCheckBox" name="playerRememberLastPlaylist">
                 <property name="text">
-                 <string>Open a new &amp;player for each
-media file played</string>
+                 <string>Remember last selected playlist</string>
                 </property>
                </widget>
               </item>
               <item>
-               <spacer name="playerOpenSpacer">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QGroupBox" name="playerOtherBox">
-             <property name="title">
-              <string>Other</string>
-             </property>
-             <layout class="QVBoxLayout" name="playerOtherBoxLayout">
-              <item>
-               <widget class="QCheckBox" name="playerTrayIcon">
+               <widget class="QCheckBox" name="playerRememberWindowGeometry">
                 <property name="text">
-                 <string>Tray icon</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="playerOSD">
-                <property name="text">
-                 <string>Show OSD</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="playerLimitProportions">
-                <property name="text">
-                 <string>Limit window proportions on resize</string>
+                 <string>Remember last window geometry</string>
                 </property>
                 <property name="checked">
                  <bool>true</bool>
@@ -253,24 +215,14 @@ media file played</string>
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="playerDisableOpenDisc">
+               <widget class="QCheckBox" name="playerRememberPanScanZoom">
                 <property name="text">
-                 <string>Disable &quot;Open Disc&quot; menu</string>
+                 <string>Remember last Pan-n-Scan Zoom</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="playerDisableScreensaver">
-                <property name="text">
-                 <string>Disable screensaver while playing</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="playerOtherSpacer">
+               <spacer name="playerHistorySpacer">
                 <property name="orientation">
                  <enum>Qt::Vertical</enum>
                 </property>
@@ -286,6 +238,18 @@ media file played</string>
             </widget>
            </item>
            <item row="1" column="0">
+            <widget class="QGroupBox" name="playerLanguageBox">
+             <property name="title">
+              <string>Language</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_17">
+              <item>
+               <widget class="QComboBox" name="playerLanguageComboBox"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="2" column="0">
             <widget class="QGroupBox" name="playerTitleBox">
              <property name="title">
               <string>Title bar</string>
@@ -341,16 +305,17 @@ media file played</string>
              </layout>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QGroupBox" name="playerHistoryBox">
+           <item row="0" column="0">
+            <widget class="QGroupBox" name="playerOpenBox">
              <property name="title">
-              <string>History</string>
+              <string>Open options</string>
              </property>
-             <layout class="QVBoxLayout" name="playerHistoryBoxLayout">
+             <layout class="QVBoxLayout" name="playerOpenBoxLayout">
               <item>
-               <widget class="QCheckBox" name="playerKeepHistory">
+               <widget class="QRadioButton" name="playerOpenSame">
                 <property name="text">
-                 <string>Keep history of recently opened files</string>
+                 <string>Use the same player for
+each &amp;media file</string>
                 </property>
                 <property name="checked">
                  <bool>true</bool>
@@ -358,16 +323,53 @@ media file played</string>
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="playerRememberLastPlaylist">
+               <widget class="QRadioButton" name="playerOpenNew">
                 <property name="text">
-                 <string>Remember last selected playlist</string>
+                 <string>Open a new &amp;player for each
+media file played</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="playerRememberWindowGeometry">
+               <spacer name="playerOpenSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="1" rowspan="2">
+            <widget class="QGroupBox" name="playerOtherBox">
+             <property name="title">
+              <string>Other</string>
+             </property>
+             <layout class="QVBoxLayout" name="playerOtherBoxLayout">
+              <item>
+               <widget class="QCheckBox" name="playerTrayIcon">
                 <property name="text">
-                 <string>Remember last window geometry</string>
+                 <string>Tray icon</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="playerOSD">
+                <property name="text">
+                 <string>Show OSD</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="playerLimitProportions">
+                <property name="text">
+                 <string>Limit window proportions on resize</string>
                 </property>
                 <property name="checked">
                  <bool>true</bool>
@@ -375,14 +377,24 @@ media file played</string>
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="playerRememberPanScanZoom">
+               <widget class="QCheckBox" name="playerDisableOpenDisc">
                 <property name="text">
-                 <string>Remember last Pan-n-Scan Zoom</string>
+                 <string>Disable &quot;Open Disc&quot; menu</string>
                 </property>
                </widget>
               </item>
               <item>
-               <spacer name="playerHistorySpacer">
+               <widget class="QCheckBox" name="playerDisableScreensaver">
+                <property name="text">
+                 <string>Disable screensaver while playing</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="playerOtherSpacer">
                 <property name="orientation">
                  <enum>Qt::Vertical</enum>
                 </property>
@@ -725,8 +737,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>601</width>
-                   <height>185</height>
+                   <width>42</width>
+                   <height>18</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -4557,7 +4569,7 @@ media file played</string>
            <item>
             <widget class="QLabel" name="shadersWikiLabel">
              <property name="text">
-              <string>Shaders contain special effects which can be added to the video rendering process.  A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;the mpv wiki&lt;/a&gt;.</string>
+              <string>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</string>
              </property>
              <property name="wordWrap">
               <bool>true</bool>
@@ -4755,7 +4767,7 @@ media file played</string>
                 <item>
                  <widget class="QPushButton" name="shadersActiveRemove">
                   <property name="text">
-                   <string/>
+                   <string>Remove</string>
                   </property>
                  </widget>
                 </item>

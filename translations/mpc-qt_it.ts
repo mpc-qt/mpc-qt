@@ -2885,7 +2885,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process.  A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;the mpv wiki&lt;/a&gt;.</source>
-        <translation>Gli ombreggiatori contengono effetti speciali che possono essere aggiunti al processo di rendering video.  Una lista di ombreggiatori creati dalla comunità può essere trovata sul &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;wiki mpv&lt;/a&gt;.</translation>
+        <translation type="vanished">Gli ombreggiatori contengono effetti speciali che possono essere aggiunti al processo di rendering video.  Una lista di ombreggiatori creati dalla comunità può essere trovata sul &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;wiki mpv&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>Filesystem</source>
@@ -3746,6 +3746,14 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>After Playback</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
