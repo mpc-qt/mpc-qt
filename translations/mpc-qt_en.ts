@@ -2016,7 +2016,7 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;https://github.com/cmdrkotori/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</source>
+        <source>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2084,7 +2084,7 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>See &lt;a href=&quot;https://github.com/cmdrkotori/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
+        <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
