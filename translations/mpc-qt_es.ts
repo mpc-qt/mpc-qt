@@ -2020,8 +2020,8 @@ archivo multimedia reproducido</translation>
         <translation>Todo</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;https://github.com/cmdrkotori/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</source>
-        <translation>&lt;a href=&quot;https://github.com/cmdrkotori/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; disponible en %1</translation>
+        <source>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</source>
+        <translation>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; disponible en %1</translation>
     </message>
     <message>
         <source>MPRIS</source>
@@ -2088,8 +2088,8 @@ archivo multimedia reproducido</translation>
         <translation>Carpeta (p. ej. ~/Imágenes/MisIconos/mpc-qt/leet)</translation>
     </message>
     <message>
-        <source>See &lt;a href=&quot;https://github.com/cmdrkotori/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>Vea &lt;a href=&quot;https://github.com/cmdrkotori/mpc-qt/tree/master/images/theme/black&quot;&gt;el repositorio fuente&lt;/a&gt; para los nombres de iconos.</translation>
+        <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
+        <translation>Vea &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;el repositorio fuente&lt;/a&gt; para los nombres de iconos.</translation>
     </message>
     <message>
         <source>Fallback</source>
