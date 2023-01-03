@@ -20,7 +20,6 @@ namespace Platform {
     QString sanitizedFilename(QString fileName);
     bool tiledDesktopsExist();
     bool tilingDesktopActive();
-    void disableAutomaticAccel(QWidget *what);
 }
 
 #endif // PLATFORM_ALL_H

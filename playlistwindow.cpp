@@ -32,7 +32,6 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
 
     setupIconThemer();
     connectSignalsToSlots();
-    Platform::disableAutomaticAccel(this);
 }
 
 PlaylistWindow::~PlaylistWindow()
