@@ -109,7 +109,8 @@ QString Platform::fixedConfigPath(QString configPath)
 QString Platform::sanitizedFilename(QString fileName)
 {
     if (isWindows)
-        fileName.replace(':', '.');
+        for (auto f : {':', '<', '>', '"', '/', '\\', '|', '?', '*'})
+            fileName.replace(f, '.');
     return fileName;
 }
 
