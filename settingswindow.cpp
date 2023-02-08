@@ -929,6 +929,7 @@ void SettingsWindow::sendSignals()
     emit option("audio-exclusive", WIDGET_LOOKUP(ui->audioExclusiveMode).toBool());
     emit option("audio-normalize-downmix", WIDGET_LOOKUP(ui->audioNormalizeDownmix).toBool());
     emit option("audio-spdif", WIDGET_LOOKUP(ui->audioSpdif).toBool() ? WIDGET_PLACEHOLD_LOOKUP(ui->audioSpdifCodecs) : "");
+    emit option("pipewire-buffer", WIDGET_LOOKUP(ui->pipewireBuffer).toInt());
     emit option("pulse-buffer", WIDGET_LOOKUP(ui->pulseBuffer).toInt());
     emit option("pulse-latency-hacks", WIDGET_LOOKUP(ui->pulseLatency).toBool());
     emit option("alsa-resample", WIDGET_LOOKUP(ui->alsaResample).toBool());

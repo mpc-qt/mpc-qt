@@ -177,7 +177,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>17</number>
+          <number>14</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -5668,7 +5668,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="audioTabs">
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="allTab">
                  <attribute name="title">
@@ -5748,6 +5748,33 @@ media file played</string>
                      </size>
                     </property>
                    </spacer>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="pipewirePage">
+                 <attribute name="title">
+                  <string>Pipewire</string>
+                 </attribute>
+                 <layout class="QFormLayout" name="formLayout_8">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="pipewireBufferLabel">
+                    <property name="text">
+                     <string>Buffer</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QSpinBox" name="pipewireBuffer">
+                    <property name="minimum">
+                     <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>2000</number>
+                    </property>
+                    <property name="value">
+                     <number>20</number>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </widget>
@@ -5921,40 +5948,6 @@ media file played</string>
                    <widget class="QLabel" name="jackStartupLabel">
                     <property name="text">
                      <string>Startup</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-                <widget class="QWidget" name="corePage">
-                 <attribute name="title">
-                  <string>CoreAudio</string>
-                 </attribute>
-                 <layout class="QFormLayout" name="corePageLayout">
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="corePageLabel">
-                    <property name="text">
-                     <string>No specific options (yet)</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-                <widget class="QWidget" name="wasapiPage">
-                 <attribute name="title">
-                  <string>Wasapi</string>
-                 </attribute>
-                 <layout class="QFormLayout" name="wasapiPageLayout">
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="wasapiPageLabel">
-                    <property name="text">
-                     <string>No specific options (yet)</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                     </property>
                    </widget>
                   </item>
