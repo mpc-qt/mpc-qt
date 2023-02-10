@@ -34,13 +34,10 @@ libglib-2.0-0.dll
 libgraphite2.dll
 libharfbuzz-0.dll
 libiconv-2.dll
-libicudt69.dll
-libicuin69.dll
-libicuuc69.dll
 libintl-8.dll
 libjpeg-8.dll
 libmd4c.dll
-libpcre-1.dll
+libpcre2-8-0.dll
 libpcre2-16-0.dll
 libpng16-16.dll
 libstdc++-6.dll
@@ -85,6 +82,11 @@ done)<<<"$dirs"
         cp `which "$dll"` "$DEST/$dll"
 done)<<<"$dlls"
 
+# The libicu dlls change name very often, copy with a glob
+cp /mingw64/bin/libicudt*.dll "$DEST"
+cp /mingw64/bin/libicuin*.dll "$DEST"
+cp /mingw64/bin/libicuuc*.dll "$DEST"
+
 (while read -r plugin; do
         cp "/mingw64/share/qt5/plugins/$plugin" "$DEST/$plugin"
 done)<<<"$plugins"
@@ -101,7 +103,7 @@ done)<<<"$docs"
         cp "binaries/$binary" "$DEST/$binary"
 done)<<<"$binaries"
 
-cp "$BUILD/mpc-qt.exe" "$DEST/mpc-qt.exe"
-cp mpv-dev/lib/mpv-2.dll "$DEST/mpv-2.dll"
+cp "$BUILD/mpc-qt.exe" "$DEST"
+cp mpv-dev/lib/libmpv-2.dll "$DEST"
 7z a "$DEST.zip" "./$DEST/*"
 sha512sum "$DEST.zip" >"$DEST.zip.sha512"
