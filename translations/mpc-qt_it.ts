@@ -2873,15 +2873,15 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>CoreAudio</source>
-        <translation>CoreAudio</translation>
+        <translation type="vanished">CoreAudio</translation>
     </message>
     <message>
         <source>No specific options (yet)</source>
-        <translation>Nessuna opzione specifica (per il momento)</translation>
+        <translation type="vanished">Nessuna opzione specifica (per il momento)</translation>
     </message>
     <message>
         <source>Wasapi</source>
-        <translation>Wasapi</translation>
+        <translation type="vanished">Wasapi</translation>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process.  A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;the mpv wiki&lt;/a&gt;.</source>
@@ -3754,6 +3754,10 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pipewire</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

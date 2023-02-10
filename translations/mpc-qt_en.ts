@@ -2868,18 +2868,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>CoreAudio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No specific options (yet)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wasapi</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Filesystem</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3746,6 +3734,10 @@ media file played</source>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pipewire</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
