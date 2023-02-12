@@ -5,7 +5,6 @@
 #-------------------------------------------------
 
 QT       += core gui network widgets openglwidgets
-QT       += core5compat
 
 QMAKE_CXXFLAGS += -Wall
 
