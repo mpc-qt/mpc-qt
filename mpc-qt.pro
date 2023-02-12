@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network widgets
+QT       += core gui network widgets openglwidgets
+QT       += core5compat
 
 QMAKE_CXXFLAGS += -Wall
 
@@ -55,7 +56,7 @@ CONFIG(release,debug|release) {
     VERSION = $$VERSTR_WIN
 }
 
-unix:!macx:QT += x11extras dbus gui-private
+unix:!macx:QT += dbus gui-private
 unix:!macx:LIBS += $$QMAKE_LIBS_DYNLOAD
 
 !win32:CONFIG += link_pkgconfig

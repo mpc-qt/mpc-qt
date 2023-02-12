@@ -1,3 +1,4 @@
+#include <QActionGroup>
 #include <QHBoxLayout>
 #include <QKeySequence>
 #include <QKeySequenceEdit>
@@ -260,7 +261,7 @@ ButtonWidget::ButtonWidget(QWidget *parent) : QWidget(parent)
     press->setMenu(menu);
     layout->addWidget(press);
 
-    layout->setMargin(0);
+    layout->setContentsMargins(0,0,0,0);
     layout->setSpacing(0);
     setLayout(layout);
 }
@@ -311,7 +312,7 @@ ShortcutWidget::ShortcutWidget(QWidget *parent) : QWidget(parent)
     keyClear->setText("<");
     layout->addWidget(keyClear, 0);
 
-    layout->setMargin(0);
+    layout->setContentsMargins(0,0,0,0);
     layout->setSpacing(0);
     setLayout(layout);
 

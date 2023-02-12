@@ -269,7 +269,7 @@ QString Helpers::toDateFormatFixed(double time, Helpers::TimeFormat format)
     }
     return QString();
 }
-
+/* Not used
 QDate Helpers::dateFromCFormat(const char date[])
 {
     QStringList dates = QString(date).simplified().split(QRegExp("\\s+"));
@@ -285,7 +285,7 @@ QTime Helpers::timeFromCFormat(const char time[])
     QTime t(times[0].toInt(), times[1].toInt(), times[2].toInt());
     return t;
 }
-
+*/
 
 static QString grabBrackets(QString source, int &position, int &length) {
     QString match;
@@ -746,7 +746,7 @@ void DisplayParser::takeFormatString(QString fmt)
 
     // grab the text between % and {
     auto grabProp = [&position](QString source) {
-        int run = source.midRef(position).indexOf(QChar('{'));
+        int run = source.indexOf(QChar('{'), position) - position;
         if (run >= 0) {
             QString ret = source.mid(position, run);
             position += run;

@@ -963,7 +963,7 @@ void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
     qid->setAttribute(Qt::WA_DeleteOnClose);
     qid->setWindowModality(Qt::ApplicationModal);
     qid->setWindowTitle(tr("Enter playlist name"));
-    qid->setTextValue(ui->tabWidget->tabText(index).replace(QRegExp("&{1,}"), ""));
+    qid->setTextValue(ui->tabWidget->tabText(index).replace("&", ""));
     connect(qid, &QInputDialog::accepted, this, [=]() {
         int tabIndex = ui->tabWidget->indexOf(widget);
         if (tabIndex < 0)

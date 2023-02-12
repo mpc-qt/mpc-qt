@@ -9,7 +9,6 @@
 #include <QMap>
 #include <functional>
 #include <mpv/client.h>
-//#include <mpv/opengl_cb.h>
 #include <mpv/render.h>
 #include <mpv/render_gl.h>
 #include "qthelper.hpp"

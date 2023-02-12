@@ -473,8 +473,8 @@ static QString lastPart(const QString &path) {
 }
 
 static QString dbus_ay_toString(const dbus_ay &data) {
-    QString output;
-    foreach(unsigned char c, data)
-        if (c)  output.append(c);
-    return output;
+    QByteArray b;
+    for (unsigned char c : data)
+        b.append(c);
+    return QString::fromLocal8Bit(b).remove(QChar::Null);
 }

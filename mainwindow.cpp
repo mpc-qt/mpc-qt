@@ -7,8 +7,8 @@
 #include "helpers.h"
 #include "platform/unify.h"
 #include "platform/devicemanager.h"
+#include <QActionGroup>
 #include <QClipboard>
-#include <QDesktopWidget>
 #include <QStyle>
 #include <QWindow>
 #include <QMenuBar>
@@ -22,6 +22,7 @@
 #include <QMessageBox>
 #include <QLibraryInfo>
 #include <QToolTip>
+#include <QScreen>
 #include <QStyle>
 
 using namespace Helpers;
@@ -216,9 +217,8 @@ QSize MainWindow::desirableSize(bool first_run)
     qreal ratio = devicePixelRatio();
 
     // calculate available area for the window
-    QDesktopWidget *desktop = qApp->desktop();
     QRect available = first_run ? Helpers::availableGeometryFromPoint(QCursor::pos())
-                                : desktop->availableGeometry(this);
+                                : screen()->availableGeometry();
     QSize frameDiff = this->frameGeometry().size() - this->geometry().size();
     available.adjust(0, 0, -frameDiff.width(), -frameDiff.height());
 
@@ -272,10 +272,8 @@ QSize MainWindow::desirableSize(bool first_run)
 
 QPoint MainWindow::desirablePosition(QSize &size, bool first_run)
 {
-    QDesktopWidget *desktop = qApp->desktop();
-
     QRect available = first_run ? Helpers::availableGeometryFromPoint(QCursor::pos())
-                                : desktop->availableGeometry(this);
+                                : screen()->availableGeometry();
     QSize frameDiff = this->frameGeometry().size() - this->geometry().size();
     available.adjust(0, 0, -frameDiff.width(), -frameDiff.height());
     if (size.height() > available.height())
@@ -320,7 +318,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
     if (fullscreenMode_)
-        checkBottomArea(event->globalPos());
+        checkBottomArea(event->globalPosition());
 }
 
 static bool insideWidget(QPoint p, QWidget *mpvw) {
@@ -332,7 +330,8 @@ static bool insideWidget(QPoint p, QWidget *mpvw) {
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
-    bool ok = mpvw ? insideWidget(event->globalPos(), mpvw) : false;
+    QPoint pos = event->globalPosition().toPoint();
+    bool ok = mpvw ? insideWidget(pos, mpvw) : false;
     if (ok && mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseDown)))
         event->accept();
     else
@@ -341,7 +340,8 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 
 void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
 {
-    bool ok = mpvw ? insideWidget(event->globalPos(), mpvw) : false;
+    QPoint pos = event->globalPosition().toPoint();
+    bool ok = mpvw ? insideWidget(pos, mpvw) : false;
     if (ok && mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::PressTwice)))
         event->accept();
     mousePressEvent(event);
@@ -349,7 +349,8 @@ void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
 
 void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
-    bool ok = mpvw ? insideWidget(event->globalPos(), mpvw) : false;
+    QPoint pos = event->globalPosition().toPoint();
+    bool ok = mpvw ? insideWidget(pos, mpvw) : false;
     if (ok && mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseUp)))
         event->accept();
     else
@@ -924,12 +925,12 @@ void MainWindow::reparentBottomArea(bool overlay)
     }
 }
 
-void MainWindow::checkBottomArea(QPoint mousePosition)
+void MainWindow::checkBottomArea(QPointF mousePosition)
 {
     if (!fullscreenMode_)
         return;
 
-    QPoint relMousePosition;
+    QPointF relMousePosition;
     bool startTimer = false;
     switch (bottomAreaBehavior) {
     case Helpers::NeverShown:
@@ -940,7 +941,7 @@ void MainWindow::checkBottomArea(QPoint mousePosition)
         if (mpvw == nullptr)
             break;
         relMousePosition = mpvw->mapFromGlobal(mousePosition);
-        if (ui->bottomArea->geometry().contains(relMousePosition)) {
+        if (ui->bottomArea->geometry().contains(relMousePosition.toPoint())) {
             if (ui->bottomArea->isHidden())
                 ui->bottomArea->show();
         } else if (ui->bottomArea->isVisible() && !hideTimer.isActive()) {
@@ -951,7 +952,7 @@ void MainWindow::checkBottomArea(QPoint mousePosition)
         if (mpvw == nullptr)
             break;
         relMousePosition = mapFromGlobal(mousePosition);
-        if (mpvw->geometry().contains(relMousePosition)) {
+        if (mpvw->geometry().contains(relMousePosition.toPoint())) {
             if (ui->bottomArea->isHidden())
                 ui->bottomArea->show();
             startTimer = true;

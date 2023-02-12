@@ -254,8 +254,8 @@ void DrawnSlider::mousePressEvent(QMouseEvent *ev)
 {
     if (ev->button() == Qt::LeftButton) {
         isDragging = true;
-        xPosition = ev->localPos().x();
-        setValue(xToValue(ev->localPos().x()));
+        xPosition = ev->position().x();
+        setValue(xToValue(ev->position().x()));
         emit sliderMoved(value());
     }
 }
@@ -271,13 +271,13 @@ void DrawnSlider::mouseReleaseEvent(QMouseEvent *ev)
 void DrawnSlider::mouseMoveEvent(QMouseEvent *ev)
 {
     if (isDragging && ev->buttons() & Qt::LeftButton) {
-        double mouseValue = xToValue(ev->localPos().x());
+        double mouseValue = xToValue(ev->position().x());
         if (value() != mouseValue) {
             setValue(mouseValue);
             emit sliderMoved(value());
         }
     }
-    handleHover(ev->localPos().x());
+    handleHover(ev->position().x());
     // Forward mouse move events also to the parent widget
     ev->ignore();
 }

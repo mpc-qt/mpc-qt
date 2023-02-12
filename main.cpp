@@ -1,6 +1,5 @@
 #include <clocale>
 #include <QApplication>
-#include <QDesktopWidget>
 #include <QLocalSocket>
 #include <QFileDialog>
 #include <QDir>
@@ -91,6 +90,7 @@ int main(int argc, char *argv[])
     qRegisterMetaType<uint16_t>("uint16_t");
 
     // Register the translations
+    /* FIXME: Qt6 migration
     QTranslator qtTranslator;
     qtTranslator.load("qt_" + QLocale::system().name(),
        QLibraryInfo::location(QLibraryInfo::TranslationsPath));
@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
     aTranslator.load("mpc-qt_" + QLocale::system().name(),
                      Platform::resourcesPath() + "/translations/");
     a.installTranslator(&aTranslator);
-
+    */
 #ifndef MPCQT_VERSION_STR
 #define MPCQT_VERSION_STR MainWindow::tr("Development Build")
 #endif
@@ -1107,8 +1107,8 @@ void Flow::restoreWindows(const QVariantMap &geometryMap)
         showWindows({});
         return;
     }
+
     QRect geometry;
-    QDesktopWidget desktop;
 
     if (restoreGeometry && playlistMap[keyFloating].toBool()) {
         // the playlist window starts off floating, so restore it
