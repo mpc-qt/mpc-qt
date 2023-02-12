@@ -5,7 +5,6 @@
 #include <QOpenGLContext>
 #include <QPainter>
 #include <QTimer>
-#include "platform/unify.h"
 #include "helpers.h"
 #include "logger.h"
 #include "thumbnailerwindow.h"
