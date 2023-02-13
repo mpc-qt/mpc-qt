@@ -75,6 +75,8 @@ TRANSLATIONS += translations/mpc-qt_en.ts \
                 translations/mpc-qt_ru.ts \
                 translations/mpc-qt_zh_CN.ts
 
+LCONVERT_LANGS=es fi it ru zh_CN
+include(lconvert.pri)
 
 isEmpty(QMAKE_LUPDATE) {
     win32:QMAKE_LUPDATE = $$[QT_INSTALL_BINS]\\lupdate.exe
@@ -227,9 +229,11 @@ OTHER_FILES += \
     DOCS/codebase2.svg \
     DOCS/codebase.svg \
     'DOCS/coding standards.md' \
-    io.github.mpc_qt.Mpc-Qt.appdata.xml
+    io.github.mpc_qt.Mpc-Qt.appdata.xml \
+    lconvert.pri
 
 DISTFILES += \
     DOCS/ipc.md \
-    io.github.mpc_qt.Mpc-Qt.desktop
+    io.github.mpc_qt.Mpc-Qt.desktop \
+
 
