@@ -9,6 +9,7 @@
 #include "platform/devicemanager.h"
 #include <QActionGroup>
 #include <QClipboard>
+#include <QLocale>
 #include <QStyle>
 #include <QWindow>
 #include <QMenuBar>
@@ -2592,8 +2593,10 @@ void MainWindow::on_actionHelpAbout_triggered()
 #if defined(MPCQT_DEVELOPMENT)
     QDate buildDate = Helpers::dateFromCFormat(__DATE__);
     QTime buildTime = Helpers::timeFromCFormat(__TIME__);
-    dateLine = "<br>" + dateLineFmt.arg(buildDate.toString(Qt::DefaultLocaleShortDate),
-                                        buildTime.toString(Qt::DefaultLocaleShortDate));
+    QString dateFormat = QLocale().dateFormat(QLocale::ShortFormat);
+    QString timeFormat = QLocale().timeFormat(QLocale::ShortFormat);
+    dateLine = "<br>" + dateLineFmt.arg(QLocale().toString(buildDate, dateFormat),
+                                        QLocale().toString(buildTime, timeFormat));
 #endif
 
     QMessageBox::about(this, tr("About Media Player Classic Qute Theater"),

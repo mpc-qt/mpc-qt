@@ -269,10 +269,10 @@ QString Helpers::toDateFormatFixed(double time, Helpers::TimeFormat format)
     }
     return QString();
 }
-/* Not used
+
 QDate Helpers::dateFromCFormat(const char date[])
 {
-    QStringList dates = QString(date).simplified().split(QRegExp("\\s+"));
+    QStringList dates = QString(date).simplified().split(QRegularExpression("\\s+"));
     QStringList months = { "Jan", "Feb", "Mar", "Apr", "May", "Jun",
                            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
     QDate d(dates[2].toInt(), months.indexOf(dates[0])+1, dates[1].toInt());
@@ -285,7 +285,7 @@ QTime Helpers::timeFromCFormat(const char time[])
     QTime t(times[0].toInt(), times[1].toInt(), times[2].toInt());
     return t;
 }
-*/
+
 
 static QString grabBrackets(QString source, int &position, int &length) {
     QString match;
