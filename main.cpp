@@ -90,17 +90,16 @@ int main(int argc, char *argv[])
     qRegisterMetaType<uint16_t>("uint16_t");
 
     // Register the translations
-    /* FIXME: Qt6 migration
+    QLocale locale;
     QTranslator qtTranslator;
-    qtTranslator.load("qt_" + QLocale::system().name(),
-       QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-    a.installTranslator(&qtTranslator);
+    if (qtTranslator.load("qt_" + locale.name(),
+         QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+        a.installTranslator(&qtTranslator);
 
     QTranslator aTranslator;
-    aTranslator.load("mpc-qt_" + QLocale::system().name(),
-                     Platform::resourcesPath() + "/translations/");
-    a.installTranslator(&aTranslator);
-    */
+    if (aTranslator.load(locale, "mpc-qt", "_", ":/i18n"))
+        a.installTranslator(&aTranslator);
+
 #ifndef MPCQT_VERSION_STR
 #define MPCQT_VERSION_STR MainWindow::tr("Development Build")
 #endif
