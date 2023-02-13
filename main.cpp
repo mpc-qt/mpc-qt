@@ -92,8 +92,7 @@ int main(int argc, char *argv[])
     // Register the translations
     QLocale locale;
     QTranslator qtTranslator;
-    if (qtTranslator.load("qt_" + locale.name(),
-         QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+    if (qtTranslator.load(locale, "qt", "_", ":/i18n"))
         a.installTranslator(&qtTranslator);
 
     QTranslator aTranslator;
