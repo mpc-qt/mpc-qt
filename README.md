@@ -105,7 +105,7 @@ Finally, `cd` into the checked-out repository.
 
 Then build with qmake+make.
 
->qmake
+>qmake6
 
 >make -j *threads*
 
