@@ -182,6 +182,7 @@ QMap<QString, const char *> Setting::classToProperty = {
     { "QCheckBox", "checked" },
     { "QRadioButton", "checked" },
     { "QLineEdit", "text" },
+    { "QPlainTextEdit", "plainText" },
     { "QSpinBox", "value" },
     { "QDoubleSpinBox", "value" },
     { "QComboBox", "currentIndex" },

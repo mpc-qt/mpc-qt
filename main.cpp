@@ -1394,6 +1394,10 @@ void Flow::settingswindow_stylesheetIsFusion(bool yes)
 
 void Flow::settingswindow_stylesheetText(QString text)
 {
+    QString oldSheet = qApp->styleSheet();
+    if (oldSheet == text)
+        return;
+
     qApp->setStyleSheet(text);
 }
 
