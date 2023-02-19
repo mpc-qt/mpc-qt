@@ -2194,6 +2194,10 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Use Qt&apos;s inbuilt fusion style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Balance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3696,10 +3700,6 @@ media file played</source>
     </message>
     <message>
         <source>Application Stylesheet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use Qt&apos;s inbuilt fusion style (may require restart)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

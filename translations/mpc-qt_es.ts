@@ -2196,6 +2196,10 @@ archivo multimedia reproducido</translation>
         <translation>Volumen</translation>
     </message>
     <message>
+        <source>Use Qt&apos;s inbuilt fusion style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Balance</source>
         <translation>Balance</translation>
     </message>
@@ -3706,10 +3710,6 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Application Stylesheet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use Qt&apos;s inbuilt fusion style (may require restart)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

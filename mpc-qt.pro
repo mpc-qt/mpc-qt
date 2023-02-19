@@ -66,6 +66,7 @@ win32:INCLUDEPATH += $$PWD/mpv-dev/include
 win32:DEPENDPATH += $$PWD/mpv-dev
 
 CONFIG += lrelease embed_translations
+#NOTE: lupdate is run with "-locations none -no-ui-lines".  Edit your config.
 LRELEASE_DIR=.
 QM_FILES_RESOURCE_PREFIX=/i18n/
 TRANSLATIONS += translations/mpc-qt_en.ts \
