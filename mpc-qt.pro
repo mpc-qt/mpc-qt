@@ -55,7 +55,7 @@ CONFIG(release,debug|release) {
     VERSION = $$VERSTR_WIN
 }
 
-unix:!macx:QT += dbus gui-private
+unix:!macx:QT += dbus
 unix:!macx:LIBS += $$QMAKE_LIBS_DYNLOAD
 
 !win32:CONFIG += link_pkgconfig
