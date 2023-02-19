@@ -1385,11 +1385,16 @@ void Flow::settingswindow_mprisIpc(bool enabled)
 
 void Flow::settingswindow_stylesheetIsFusion(bool yes)
 {
-    if (yes)
+    static QString originalApplicationStyle;
+    if (originalApplicationStyle.isNull()) {
+        originalApplicationStyle = qApp->style()->name();
+    }
+
+    bool wasFusion = qApp->style()->name() == "Fusion";
+    if (!yes && wasFusion)
+        qApp->setStyle(originalApplicationStyle);
+    if (yes && !wasFusion)
         qApp->setStyle(QStyleFactory::create("Fusion"));
-    // Qt6 may let us determine what the previous style was
-    //else
-    //    qApp->setStyle(originalApplicationStyle);
 }
 
 void Flow::settingswindow_stylesheetText(QString text)

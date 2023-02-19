@@ -737,8 +737,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>98</width>
-                   <height>28</height>
+                   <width>42</width>
+                   <height>18</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -848,7 +848,7 @@ media file played</string>
            <item>
             <widget class="QCheckBox" name="stylesheetFusion">
              <property name="text">
-              <string>Use Qt's inbuilt fusion style (may require restart)</string>
+              <string>Use Qt's inbuilt fusion style</string>
              </property>
             </widget>
            </item>
