@@ -79,26 +79,6 @@ TRANSLATIONS += translations/mpc-qt_en.ts \
 LCONVERT_LANGS=es fi it ru zh_CN
 include(lconvert.pri)
 
-isEmpty(QMAKE_LUPDATE) {
-    win32:QMAKE_LUPDATE = $$[QT_INSTALL_BINS]\\lupdate.exe
-    else:QMAKE_LUPDATE = $$[QT_INSTALL_BINS]/lupdate
-    unix {
-        !exists($$QMAKE_LUPDATE) { QMAKE_LUPDATE = lupdate-qt5 }
-    } else {
-        !exists($$QMAKE_LUPDATE) { QMAKE_LUPDATE = lupdate }
-    }
-}
-
-isEmpty(QMAKE_LRELEASE) {
-    win32:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]\\lrelease.exe
-    else:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]/lrelease
-    unix {
-        !exists($$QMAKE_LRELEASE) { QMAKE_LRELEASE = lrelease-qt5 }
-    } else {
-        !exists($$QMAKE_LRELEASE) { QMAKE_LRELEASE = lrelease }
-    }
-}
-
 unix {
     isEmpty(PREFIX) {
         PREFIX=/usr/local
