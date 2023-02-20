@@ -110,9 +110,6 @@ unix {
     docs.files = DOCS/ipc.md
     docs.path = $$PREFIX/share/doc/mpc-qt/
 
-    translations.files = resources/translations
-    translations.path = $$PREFIX/share/mpc-qt/
-
     shortcut.files = io.github.mpc_qt.Mpc-Qt.desktop
     shortcut.path = $$PREFIX/share/applications/
 
@@ -122,7 +119,7 @@ unix {
     logo.files = images/icon/mpc-qt.svg
     logo.path = $$PREFIX/share/icons/hicolor/scalable/apps/
 
-    INSTALLS += target docs shortcut logo appdata translations
+    INSTALLS += target docs shortcut logo appdata
 }
 
 unix:!macx:SOURCES += platform/screensaver_unix.cpp \
