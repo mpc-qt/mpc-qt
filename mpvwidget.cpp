@@ -760,32 +760,7 @@ static void* GLAPIENTRY glMPGetNativeDisplay(const char* name)
     auto glctx = QOpenGLContext::currentContext();
     if (!strcmp(name, "glMPGetNativeDisplay"))
         return reinterpret_cast<void*>(glMPGetNativeDisplay);
-    void *res = glctx ? reinterpret_cast<void*>(glctx->getProcAddress(QByteArray(name))) : nullptr;
-
-#ifdef Q_OS_WIN32
-    // QOpenGLContext::getProcAddress() in Qt 5.6 and below doesn't resolve all
-    // core OpenGL functions, so fall back to Windows' GetProcAddress().
-    if (!res) {
-        HMODULE module = (HMODULE)QOpenGLContext::openGLModuleHandle();
-        if (!module) {
-            // QOpenGLContext::openGLModuleHandle() returns NULL when Qt isn't
-            // using dynamic OpenGL. In this case, openGLModuleType() can be
-            // used to determine which module to query.
-            switch (QOpenGLContext::openGLModuleType()) {
-            case QOpenGLContext::LibGL:
-                module = GetModuleHandleW(L"opengl32.dll");
-                break;
-            case QOpenGLContext::LibGLES:
-                module = GetModuleHandleW(L"libGLESv2.dll");
-                break;
-            }
-        }
-        if (module)
-            res = (void*)GetProcAddress(module, name);
-    }
-#endif
-
-    return res;
+    return glctx ? reinterpret_cast<void*>(glctx->getProcAddress(QByteArray(name))) : nullptr;
 }
 
 MpvGlWidget::MpvGlWidget(MpvObject *object, QWidget *parent) :
