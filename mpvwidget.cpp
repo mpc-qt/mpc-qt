@@ -760,7 +760,10 @@ static void* GLAPIENTRY glMPGetNativeDisplay(const char* name)
     auto glctx = QOpenGLContext::currentContext();
     if (!strcmp(name, "glMPGetNativeDisplay"))
         return reinterpret_cast<void*>(glMPGetNativeDisplay);
-    return glctx ? reinterpret_cast<void*>(glctx->getProcAddress(QByteArray(name))) : nullptr;
+    void * res = glctx ? reinterpret_cast<void*>(glctx->getProcAddress(QByteArray(name))) : nullptr;
+    if (!res)
+        LogStream("mpvwidget") << "Looked up OpenGL function " << name << ", but it was not available.";
+    return res;
 }
 
 MpvGlWidget::MpvGlWidget(MpvObject *object, QWidget *parent) :
