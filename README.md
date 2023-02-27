@@ -171,10 +171,32 @@ libmpv should now be installed to `/usr/local/*`.
 ## Compiling on Windows
 
 While this program is meant for Unix, it is possible to compile it on Windows
-with the [MSYS2 edition of Qt Creator] due to the largely cross-platform Qt
-toolkit.  MSVC is not supported.  In addition, the build process needs the
-imagemagick, librsvg and inkscape packages to create the windows ico file.
-Use `pacman -Ss <package description/name/etc>` to find them.
+with MSYS2.  MSVC is not supported due to the nature of the build process, but
+may work in theory if you throw enough stubbornness at it.
+
+From a fresh installation of MSYS2, run the following from an MSYS2 MINGW64
+prompt.  First, update the packages
+
+>pacman -Syu
+
+Restart MSYS2 MINGW64 when prompted to do so and re-run pacman.
+
+>pacman -Syu
+
+At this stage packages required for building can be installed.  (Copy and paste
+this as one line.)
+
+>pacman -S base-devel git mingw-w64-x86_64-toolchain mingw-w64-x86_64-clang
+>mingw-w64-x86_64-cmake mingw-w64-x86_64-qt6 mingw-w64-x86_64-qt-creator
+>mingw-w64-x86_64-qt6-doc mingw-w64-x86_64-imagemagick mingw-w64-x86_64-librsvg
+>mingw-w64-x86_64-inkscape
+
+At time of writing, there is slight bug in qmake where it looks for the wrong
+version of lupdate/lrelease.  Create the required symlinks.
+
+>ln -s lrelease-qt6.exe /mingw64/bin/lrelease.exe
+
+>ln -s lupdate-qt6.exe /mingw64/bin/lupdate.exe
 
 Mpc-Qt can be compiled with a libmpv linked to MSYS2's ffmpeg libraries, or by
 using the prebuilt library released on sourceforge.  To use the prebuilt
@@ -182,6 +204,13 @@ library after cloning this repository, download libmpv from [shinchiro's
 release page], and extract it somewhere.  Place the files in the root folder
 of mpv-dev-x86_64-*.7z into `mpv-dev/lib`. Then place the files in its include
 folder into `mpv-dev/include/mpv`.  Compile with the 64bit Qt framework.
+
+>qmake6 mpc-qt.pro
+
+>make -j*threads*
+
+Where *threads* is the number of threads provided by your CPU.
+Congratulations!
 
 [screenshot]:https://raw.githubusercontent.com/mpc-qt/mpc-qt-screenshots/master/Screenshot_20220226_155532.png
 [mpc-hc]:https://mpc-hc.org/
