@@ -2,10 +2,6 @@
 // git repo.  Reworked by me.
 
 #include <QtGlobal>
-#if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
-#include <QtX11Extras/QX11Info>
-#include <qpa/qplatformnativeinterface.h>
-#endif
 #include <QLayout>
 #include <QMainWindow>
 #include <QGuiApplication>
@@ -21,7 +17,6 @@
 #include "logger.h"
 #include "mpvwidget.h"
 #include "widgets/logowidget.h"
-#include "platform/unify.h"
 #include "storage.h"
 
 #ifndef Q_PROCESSOR_ARM
@@ -607,7 +602,8 @@ void MpvObject::ctrl_mpvPropertyChanged(QString name, QVariant v)
     if (debugMessages)
         LogStream("mpvobject") << name << " property changed to " << v;
 
-    bool ok = v.type() < QVariant::UserType;
+    bool ok = v.metaType().id() < QMetaType::User
+              && v.metaType().id() != QMetaType::UnknownType;
     if (propertyDispatch.contains(name))
         propertyDispatch[name](this, ok, v);
     else
@@ -739,14 +735,14 @@ void MpvWidgetInterface::setDrawLogo(bool yes)
     Q_UNUSED(yes)
 }
 
-
 //----------------------------------------------------------------------------
 
 static void* GLAPIENTRY glMPGetNativeDisplay(const char* name)
 {
 #if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
     if (!strcmp(name, "x11")) {
-        return QX11Info::display();
+        auto x11App = qApp->nativeInterface<QNativeInterface::QX11Application>();
+        return x11App ? x11App->display() : nullptr;
     }
 #elif defined(Q_OS_WIN)
     if (!strcmp(name, "IDirect3DDevice9")) {
@@ -764,31 +760,9 @@ static void* GLAPIENTRY glMPGetNativeDisplay(const char* name)
     auto glctx = QOpenGLContext::currentContext();
     if (!strcmp(name, "glMPGetNativeDisplay"))
         return reinterpret_cast<void*>(glMPGetNativeDisplay);
-    void *res = glctx ? reinterpret_cast<void*>(glctx->getProcAddress(QByteArray(name))) : nullptr;
-
-#ifdef Q_OS_WIN32
-    // QOpenGLContext::getProcAddress() in Qt 5.6 and below doesn't resolve all
-    // core OpenGL functions, so fall back to Windows' GetProcAddress().
-    if (!res) {
-        HMODULE module = (HMODULE)QOpenGLContext::openGLModuleHandle();
-        if (!module) {
-            // QOpenGLContext::openGLModuleHandle() returns NULL when Qt isn't
-            // using dynamic OpenGL. In this case, openGLModuleType() can be
-            // used to determine which module to query.
-            switch (QOpenGLContext::openGLModuleType()) {
-            case QOpenGLContext::LibGL:
-                module = GetModuleHandleW(L"opengl32.dll");
-                break;
-            case QOpenGLContext::LibGLES:
-                module = GetModuleHandleW(L"libGLESv2.dll");
-                break;
-            }
-        }
-        if (module)
-            res = (void*)GetProcAddress(module, name);
-    }
-#endif
-
+    void * res = glctx ? reinterpret_cast<void*>(glctx->getProcAddress(QByteArray(name))) : nullptr;
+    if (!res)
+        LogStream("mpvwidget") << "Looked up OpenGL function " << name << ", but it was not available.";
     return res;
 }
 
@@ -876,20 +850,22 @@ void MpvGlWidget::initializeGL()
         Logger::log("glwidget", "no native parent handle");
     }
 #if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
-    else if (QGuiApplication::platformName().contains("xcb")) {
+    else if (auto x11App = qApp->nativeInterface<QNativeInterface::QX11Application>()) {
         Logger::log("glwidget", "assigning x11 display");
         params[2].type = MPV_RENDER_PARAM_X11_DISPLAY;
-        params[2].data = QX11Info::display();
-    } else if (QGuiApplication::platformName().contains("wayland")) {
+        params[2].data = x11App->display();
+    } /* FIXME: Enable with Qt 6.5+
+    else if (auto wlApp = qApp->nativeInterface<QNativeInterface::QWaylandApplication>()) {
         Logger::log("glwidget", "assigning wayland display");
         QPlatformNativeInterface *native = QGuiApplication::platformNativeInterface();
         params[2].type = MPV_RENDER_PARAM_WL_DISPLAY;
-        params[2].data = native->nativeResourceForWindow("display", nullptr);
-    } else
+        params[2].data = wlApp->display();
+    } */else
 #endif
     {
         Logger::log("glwidget", "unknown display mode (eglfs et al)");
     }
+
     render = ctrl->createRenderContext(params);
     mpv_render_context_set_update_callback(render, MpvGlWidget::render_update, this);
 }
@@ -923,13 +899,15 @@ void MpvGlWidget::resizeGL(int w, int h)
 
 void MpvGlWidget::mouseMoveEvent(QMouseEvent *event)
 {
-    emit mpvObject->mouseMoved(event->x(), event->y());
+    QPointF pos = event->position();
+    emit mpvObject->mouseMoved(pos.x(), pos.y());
     QOpenGLWidget::mouseMoveEvent(event);
 }
 
 void MpvGlWidget::mousePressEvent(QMouseEvent *event)
 {
-    emit mpvObject->mousePress(event->x(), event->y());
+    QPointF pos = event->position();
+    emit mpvObject->mousePress(pos.x(), pos.y());
     QOpenGLWidget::mousePressEvent(event);
 }
 
@@ -983,7 +961,7 @@ void MpvCallback::reply(QVariant value)
     deleteLater();
 }
 
-
+//----------------------------------------------------------------------------
 
 MpvController::MpvController(QObject *parent) : QObject(parent),
     lastVideoSize(0,0)
@@ -1123,7 +1101,7 @@ int MpvController::setOptionVariant(QString name, const QVariant &value)
 
 QVariant MpvController::command(const QVariant &params)
 {
-    if (params.canConvert<QString>()) {
+    if (params.canConvert<QString>() && params.metaType().id() != QMetaType::QStringList) {
         int value = mpv_command_string(mpv, params.toString().toUtf8().data());
         if (value < 0)
             return QVariant::fromValue(MpvErrorCode(value));

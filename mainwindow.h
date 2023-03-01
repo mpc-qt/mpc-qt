@@ -92,7 +92,7 @@ private:
     void setOSDPage(int page);
     void setUiEnabledState(bool enabled);
     void reparentBottomArea(bool overlay);
-    void checkBottomArea(QPoint mousePosition);
+    void checkBottomArea(QPointF mousePosition);
     void leaveBottomArea();
     void updateBottomAreaGeometry();
     void updateTime();

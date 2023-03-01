@@ -2196,6 +2196,10 @@ ogni file multimediale riprodotto</translation>
         <translation>Volume</translation>
     </message>
     <message>
+        <source>Use Qt&apos;s inbuilt fusion style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Balance</source>
         <translation>Bilanciamento</translation>
     </message>
@@ -3714,10 +3718,6 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Application Stylesheet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use Qt&apos;s inbuilt fusion style (may require restart)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

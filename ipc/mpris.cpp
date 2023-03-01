@@ -7,7 +7,6 @@
 #include <cmath>
 #include <functional>
 #include "ipc/mpris.h"
-#include "mpvwidget.h"
 
 class PlayerFlow;
 
@@ -495,7 +494,7 @@ bool MprisPlayerServer::maybeChangeMetadata()
     auto sanitiser = [&](QString &key, QVariant &value) -> bool {
         if (manglers.contains(key))
             return manglers[key](key,value);
-        else if (value.type() == QVariant::String)
+        else if (value.metaType().id() == QMetaType::QString)
             value = QStringList({value.toString()});
         return true;
     };

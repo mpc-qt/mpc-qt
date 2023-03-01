@@ -11,7 +11,7 @@ qmake "MPCQT_VERSION=$DOTTEDVERSION" mpc-qt.pro
 mkdir -p release
 rm release/*
 make release-clean
-make -j4 release
+make -j`nproc` release
 
 read -r -d '' dirs <<'EOF'
 .
@@ -20,12 +20,12 @@ read -r -d '' dirs <<'EOF'
 /imageformats
 /platforms
 /styles
-/translations
 EOF
 
 read -r -d '' dlls <<'EOF'
-libbrotlidec.dll
+libb2-1.dll
 libbrotlicommon.dll
+libbrotlidec.dll
 libbz2-1.dll
 libdouble-conversion.dll
 libfreetype-6.dll
@@ -42,14 +42,15 @@ libpcre2-16-0.dll
 libpng16-16.dll
 libstdc++-6.dll
 libwinpthread-1.dll
-libzstd.dll
-Qt5Core.dll
-Qt5Gui.dll
-Qt5Network.dll
-Qt5Svg.dll
-Qt5Widgets.dll
-Qt5Xml.dll
 zlib1.dll
+Qt6Core.dll
+Qt6Gui.dll
+Qt6Network.dll
+Qt6OpenGL.dll
+Qt6OpenGLWidgets.dll
+Qt6Svg.dll
+Qt6Widgets.dll
+Qt6Xml.dll
 EOF
 
 read -r -d '' plugins <<'EOF'
@@ -59,7 +60,6 @@ imageformats/qsvg.dll
 platforms/qdirect2d.dll
 platforms/qminimal.dll
 platforms/qoffscreen.dll
-platforms/qwebgl.dll
 platforms/qwindows.dll
 styles/qwindowsvistastyle.dll
 EOF
@@ -71,8 +71,6 @@ EOF
 read -r -d '' binaries <<'EOF'
 yt-dlp.exe
 EOF
-
-translations=`ls resources/translations`
 
 (while read -r dir; do
         mkdir -p "$DEST/$dir"
@@ -88,12 +86,8 @@ cp /mingw64/bin/libicuin*.dll "$DEST"
 cp /mingw64/bin/libicuuc*.dll "$DEST"
 
 (while read -r plugin; do
-        cp "/mingw64/share/qt5/plugins/$plugin" "$DEST/$plugin"
+        cp "/mingw64/share/qt6/plugins/$plugin" "$DEST/$plugin"
 done)<<<"$plugins"
-
-(while read -r translation; do
-        cp "resources/translations/$translation" "$DEST/translations/$translation"
-done)<<<"$translations"
 
 (while read -r doc; do
         cp "DOCS/$doc" "$DEST/doc/$doc"

@@ -1,6 +1,5 @@
 #include <clocale>
 #include <QApplication>
-#include <QDesktopWidget>
 #include <QLocalSocket>
 #include <QFileDialog>
 #include <QDir>
@@ -91,15 +90,14 @@ int main(int argc, char *argv[])
     qRegisterMetaType<uint16_t>("uint16_t");
 
     // Register the translations
+    QLocale locale;
     QTranslator qtTranslator;
-    qtTranslator.load("qt_" + QLocale::system().name(),
-       QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-    a.installTranslator(&qtTranslator);
+    if (qtTranslator.load(locale, "qt", "_", ":/i18n"))
+        a.installTranslator(&qtTranslator);
 
     QTranslator aTranslator;
-    aTranslator.load("mpc-qt_" + QLocale::system().name(),
-                     Platform::resourcesPath() + "/translations/");
-    a.installTranslator(&aTranslator);
+    if (aTranslator.load(locale, "mpc-qt", "_", ":/i18n"))
+        a.installTranslator(&aTranslator);
 
 #ifndef MPCQT_VERSION_STR
 #define MPCQT_VERSION_STR MainWindow::tr("Development Build")
@@ -1107,8 +1105,8 @@ void Flow::restoreWindows(const QVariantMap &geometryMap)
         showWindows({});
         return;
     }
+
     QRect geometry;
-    QDesktopWidget desktop;
 
     if (restoreGeometry && playlistMap[keyFloating].toBool()) {
         // the playlist window starts off floating, so restore it
@@ -1387,15 +1385,24 @@ void Flow::settingswindow_mprisIpc(bool enabled)
 
 void Flow::settingswindow_stylesheetIsFusion(bool yes)
 {
-    if (yes)
+    static QString originalApplicationStyle;
+    if (originalApplicationStyle.isNull()) {
+        originalApplicationStyle = qApp->style()->name();
+    }
+
+    bool wasFusion = qApp->style()->name() == "Fusion";
+    if (!yes && wasFusion)
+        qApp->setStyle(originalApplicationStyle);
+    if (yes && !wasFusion)
         qApp->setStyle(QStyleFactory::create("Fusion"));
-    // Qt6 may let us determine what the previous style was
-    //else
-    //    qApp->setStyle(originalApplicationStyle);
 }
 
 void Flow::settingswindow_stylesheetText(QString text)
 {
+    QString oldSheet = qApp->styleSheet();
+    if (oldSheet == text)
+        return;
+
     qApp->setStyleSheet(text);
 }
 

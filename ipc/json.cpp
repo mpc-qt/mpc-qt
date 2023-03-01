@@ -576,7 +576,7 @@ void MpvConnection::command_get_property_string(const QStringList &list,
     }
     QString s = mpvObject->controller()->getPropertyString(list.at(1));
     if (s.isEmpty())
-        commandReturn(MPV_ERROR_INVALID_PARAMETER, requestId, QVariant(static_cast<char*>(nullptr)));
+        commandReturn(MPV_ERROR_INVALID_PARAMETER, requestId, QVariant(static_cast<const char*>(nullptr)));
     else
         commandReturn(MPV_ERROR_SUCCESS, requestId, s);
 }

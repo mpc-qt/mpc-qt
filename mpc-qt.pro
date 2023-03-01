@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network widgets
+QT       += core gui network widgets openglwidgets
 
 QMAKE_CXXFLAGS += -Wall
 
@@ -55,7 +55,7 @@ CONFIG(release,debug|release) {
     VERSION = $$VERSTR_WIN
 }
 
-unix:!macx:QT += x11extras dbus gui-private
+unix:!macx:QT += dbus
 unix:!macx:LIBS += $$QMAKE_LIBS_DYNLOAD
 
 !win32:CONFIG += link_pkgconfig
@@ -65,6 +65,10 @@ win32:LIBS += -L$$PWD/mpv-dev/lib/ -llibmpv -lpowrprof
 win32:INCLUDEPATH += $$PWD/mpv-dev/include
 win32:DEPENDPATH += $$PWD/mpv-dev
 
+CONFIG += lrelease embed_translations
+#NOTE: lupdate is run with "-locations none -no-ui-lines".  Edit your config.
+LRELEASE_DIR=.
+QM_FILES_RESOURCE_PREFIX=/i18n/
 TRANSLATIONS += translations/mpc-qt_en.ts \
 		translations/mpc-qt_es.ts \
                 translations/mpc-qt_fi.ts \
@@ -72,36 +76,8 @@ TRANSLATIONS += translations/mpc-qt_en.ts \
                 translations/mpc-qt_ru.ts \
                 translations/mpc-qt_zh_CN.ts
 
-
-isEmpty(QMAKE_LUPDATE) {
-    win32:QMAKE_LUPDATE = $$[QT_INSTALL_BINS]\\lupdate.exe
-    else:QMAKE_LUPDATE = $$[QT_INSTALL_BINS]/lupdate
-    unix {
-        !exists($$QMAKE_LUPDATE) { QMAKE_LUPDATE = lupdate-qt5 }
-    } else {
-        !exists($$QMAKE_LUPDATE) { QMAKE_LUPDATE = lupdate }
-    }
-}
-
-isEmpty(QMAKE_LRELEASE) {
-    win32:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]\\lrelease.exe
-    else:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]/lrelease
-    unix {
-        !exists($$QMAKE_LRELEASE) { QMAKE_LRELEASE = lrelease-qt5 }
-    } else {
-        !exists($$QMAKE_LRELEASE) { QMAKE_LRELEASE = lrelease }
-    }
-}
-
-lupdate.input = TRANSLATIONS
-lupdate.output = translations/%{QMAKE_FILE_IN}.ts
-lupdate.commands = $${QMAKE_LUPDATE} -locations none -no-ui-lines $$_PRO_FILE_
-lupdate.CONFIG += no_link target_predeps
-lrelease.input = TRANSLATIONS
-lrelease.output = resources/translations/${QMAKE_FILE_BASE}.qm
-lrelease.commands = $$QMAKE_LRELEASE ${QMAKE_FILE_IN} -qm resources/translations/${QMAKE_FILE_BASE}.qm
-lrelease.CONFIG += no_link target_predeps
-QMAKE_EXTRA_COMPILERS += lupdate lrelease
+LCONVERT_LANGS=es fi it ru zh_CN
+include(lconvert.pri)
 
 unix {
     isEmpty(PREFIX) {
@@ -114,9 +90,6 @@ unix {
     docs.files = DOCS/ipc.md
     docs.path = $$PREFIX/share/doc/mpc-qt/
 
-    translations.files = resources/translations
-    translations.path = $$PREFIX/share/mpc-qt/
-
     shortcut.files = io.github.mpc_qt.Mpc-Qt.desktop
     shortcut.path = $$PREFIX/share/applications/
 
@@ -126,7 +99,7 @@ unix {
     logo.files = images/icon/mpc-qt.svg
     logo.path = $$PREFIX/share/icons/hicolor/scalable/apps/
 
-    INSTALLS += target docs shortcut logo appdata translations
+    INSTALLS += target docs shortcut logo appdata
 }
 
 unix:!macx:SOURCES += platform/screensaver_unix.cpp \
@@ -234,9 +207,11 @@ OTHER_FILES += \
     DOCS/codebase2.svg \
     DOCS/codebase.svg \
     'DOCS/coding standards.md' \
-    io.github.mpc_qt.Mpc-Qt.appdata.xml
+    io.github.mpc_qt.Mpc-Qt.appdata.xml \
+    lconvert.pri
 
 DISTFILES += \
     DOCS/ipc.md \
-    io.github.mpc_qt.Mpc-Qt.desktop
+    io.github.mpc_qt.Mpc-Qt.desktop \
+
 

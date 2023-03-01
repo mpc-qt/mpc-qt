@@ -152,7 +152,6 @@ void Logger::setLogFile(QString fileName)
 
     logs("logger", {"log file", logFileName, "opened for writing"});
     logFileStream = new QTextStream(logFile);
-    logFileStream->setCodec("UTF-8");
     logFileStream->setGenerateByteOrderMark(true);
 }
 
@@ -273,7 +272,9 @@ LogStream &LogStream::operator<<(const QString &a)
 
 LogStream &LogStream::operator<<(const QVariant &a)
 {
-    if (a.canConvert(QMetaType::QVariantMap)) {
+    if (a.canConvert<QString>() && a.metaType().id() != QMetaType::QStringList) {
+        stream << a.toString();
+    } else if (a.canConvert(QMetaType(QMetaType::QVariantMap))) {
         stream << "{";
         auto list = a.toMap();
         int count = list.count();
@@ -284,7 +285,7 @@ LogStream &LogStream::operator<<(const QVariant &a)
                 stream << ", ";
         }
         *this << "}";
-    } else if (a.canConvert(QMetaType::QVariantList)) {
+    } else if (a.canConvert(QMetaType(QMetaType::QVariantList))) {
         stream << "[";
         auto list = a.toList();
         int count = list.count();
@@ -294,8 +295,6 @@ LogStream &LogStream::operator<<(const QVariant &a)
                 stream << ", ";
         }
         stream << "]";
-    } else if (a.canConvert(QMetaType::QString)) {
-        stream << a.toString();
     } else {
         stream << "(unserializable)";
     }

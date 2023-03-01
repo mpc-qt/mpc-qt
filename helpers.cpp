@@ -272,7 +272,7 @@ QString Helpers::toDateFormatFixed(double time, Helpers::TimeFormat format)
 
 QDate Helpers::dateFromCFormat(const char date[])
 {
-    QStringList dates = QString(date).simplified().split(QRegExp("\\s+"));
+    QStringList dates = QString(date).simplified().split(QRegularExpression("\\s+"));
     QStringList months = { "Jan", "Feb", "Mar", "Apr", "May", "Jun",
                            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
     QDate d(dates[2].toInt(), months.indexOf(dates[0])+1, dates[1].toInt());
@@ -746,7 +746,7 @@ void DisplayParser::takeFormatString(QString fmt)
 
     // grab the text between % and {
     auto grabProp = [&position](QString source) {
-        int run = source.midRef(position).indexOf(QChar('{'));
+        int run = source.indexOf(QChar('{'), position) - position;
         if (run >= 0) {
             QString ret = source.mid(position, run);
             position += run;

@@ -1,7 +1,7 @@
 #include <cmath>
 #include "manager.h"
-#include "mainwindow.h"
 #include "mpvwidget.h"
+#include "playlistwindow.h"
 #include "helpers.h"
 
 using namespace Helpers;

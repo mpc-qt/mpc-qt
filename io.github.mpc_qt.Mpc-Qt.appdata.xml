@@ -21,15 +21,6 @@
    <li>Flatpak: Filesystem access for writing screenshots</li>
   </ul>
  </description>
- <releases>
-  <release date="2022-02-05" version="22.02">
-   <description>
-    <p>
-     Please See Changelog at github.com/mpc-qt/mpc-qt/releases
-    </p>
-   </description>
-  </release>
- </releases>
  <screenshots>
   <screenshot type="default">
    <image>https://mpc-qt.github.io/images/Screenshot_20220226_155532.png</image>
