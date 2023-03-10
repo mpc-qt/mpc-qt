@@ -151,7 +151,8 @@ QSet<QString> Helpers::fileExtensions {
     "cbz",
     "cbr",
     // Other formats
-    "at9"
+    "at9",
+    "mpc"
 };
 
 QSet<QString> Helpers::subsExtensions {
