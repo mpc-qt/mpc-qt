@@ -106,7 +106,7 @@ double DrawnSlider::valueToX(double value)
     double stride = sliderArea.right() - sliderArea.left();
     double x = sliderArea.left() + (((value-minimum()) * stride)
                                  / std::max(1.0, maximum() - minimum()));
-    return qBound(x, sliderArea.left(), sliderArea.right());
+    return qBound(sliderArea.left(), x, sliderArea.right());
 }
 
 double DrawnSlider::xToValue(double x)
@@ -114,7 +114,7 @@ double DrawnSlider::xToValue(double x)
     double stride = std::max(1.0, sliderArea.right() - sliderArea.left());
     double val = ((x-sliderArea.left()) * (maximum() - minimum()))
             / stride;
-    return qBound(val, minimum(), maximum());
+    return qBound(minimum(), val, maximum());
 }
 
 void DrawnSlider::paintEvent(QPaintEvent *event)
