@@ -125,7 +125,9 @@ void PlaybackManager::playDiscFiles(QUrl where)
 
 void PlaybackManager::playStream(QUrl stream)
 {
-    openFile(stream);
+    auto info = playlistWindow_->addToCurrentPlaylist({ stream });
+    QUrl urlToPlay = playlistWindow_->getUrlOf(info.first, info.second);
+    startPlayWithUuid(urlToPlay, info.first, info.second, false);
 }
 
 void PlaybackManager::playItem(QUuid playlist, QUuid item)
