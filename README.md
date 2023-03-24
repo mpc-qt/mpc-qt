@@ -61,11 +61,7 @@ the app go faster!
 
 These features are wishlist items and are subject to the developer's time.
 
-**Native filter-chain support:**  Comprehensive integration of mpv/ffmpeg's
-filter interface/library, right inside your media player.  This feature may
-entail a lot of code.
-
-**Encoding support like VirtualDub:**  Churn out memes faster.  No need to
+**Encoding support like VirtualDub:**  Churn out clips faster.  No need to
 open a video editor when your media player can do your job for you.  Requires
 writing an encoder-orientated backend.
 
