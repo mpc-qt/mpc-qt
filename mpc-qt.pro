@@ -124,7 +124,6 @@ macx:HEADERS += platform/screensaver_mac.h \
 macx:QT += svg
 
 SOURCES += main.cpp\
-    filterwindow.cpp \
     librarywindow.cpp \
     mpvwidget.cpp \
     mainwindow.cpp \
@@ -154,7 +153,6 @@ SOURCES += main.cpp\
     thumbnailerwindow.cpp
 
 HEADERS  += \
-    filterwindow.h \
     librarywindow.h \
     mpvwidget.h \
     mainwindow.h \
@@ -185,7 +183,6 @@ HEADERS  += \
     thumbnailerwindow.h
 
 FORMS    += \
-    filterwindow.ui \
     librarywindow.ui \
     mainwindow.ui \
     playlistwindow.ui \
