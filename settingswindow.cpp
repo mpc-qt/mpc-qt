@@ -16,7 +16,7 @@
 #include "ui_settingswindow.h"
 
 // No designated initializers until c++2a, so use factory method instead
-struct FilterWnd {
+struct FilterWindow {
     //QString name;
     double radius = 0.0;
     bool resizable = false;
@@ -27,34 +27,34 @@ struct FilterWnd {
     //FilterWindow() {}
     //FilterWindow(const QString &name) : name(name) {}
     //inline FilterWindow &name_(const QString &v) { name = v; return *this; }
-    inline FilterWnd &radius_(double v) { radius = v; return *this; }
-    inline FilterWnd &params_(double v0, double v1 = 0) { params[0] = v0; params[1] = v1; return *this; }
-    inline FilterWnd &param_(double v) { return params_(v,0.0); }
-    inline FilterWnd &blur_(double v) { blur = v; return *this; }
-    inline FilterWnd &taper_(double v) { taper = v; return *this; }
-    inline FilterWnd &resizable_() { resizable = true; return *this; }
+    inline FilterWindow &radius_(double v) { radius = v; return *this; }
+    inline FilterWindow &params_(double v0, double v1 = 0) { params[0] = v0; params[1] = v1; return *this; }
+    inline FilterWindow &param_(double v) { return params_(v,0.0); }
+    inline FilterWindow &blur_(double v) { blur = v; return *this; }
+    inline FilterWindow &taper_(double v) { taper = v; return *this; }
+    inline FilterWindow &resizable_() { resizable = true; return *this; }
 };
 
-static QMap<QString,FilterWnd> filterWindows {
-    { "box",        FilterWnd().radius_(1) },
-    { "triangle",   FilterWnd().radius_(1) },
-    { "bartlett",   FilterWnd().radius_(1) },
-    { "hanning",    FilterWnd().radius_(1) },
-    { "tukey",      FilterWnd().radius_(1).taper_(0.5) },
-    { "hamming",    FilterWnd().radius_(1) },
-    { "quadric",    FilterWnd().radius_(1.5) },
-    { "welch",      FilterWnd().radius_(1) },
-    { "kaiser",     FilterWnd().radius_(1).param_(6.33) },
-    { "blackman",   FilterWnd().radius_(1).param_(0.16) },
-    { "gaussian",   FilterWnd().radius_(2).param_(1.00) },
-    { "sinc",       FilterWnd().radius_(1) },
-    { "jinc",       FilterWnd().radius_(1.2196698912665045) },
-    { "sphinx",     FilterWnd().radius_(1.4302966531242027) },
+static QMap<QString,FilterWindow> filterWindows {
+    { "box",        FilterWindow().radius_(1) },
+    { "triangle",   FilterWindow().radius_(1) },
+    { "bartlett",   FilterWindow().radius_(1) },
+    { "hanning",    FilterWindow().radius_(1) },
+    { "tukey",      FilterWindow().radius_(1).taper_(0.5) },
+    { "hamming",    FilterWindow().radius_(1) },
+    { "quadric",    FilterWindow().radius_(1.5) },
+    { "welch",      FilterWindow().radius_(1) },
+    { "kaiser",     FilterWindow().radius_(1).param_(6.33) },
+    { "blackman",   FilterWindow().radius_(1).param_(0.16) },
+    { "gaussian",   FilterWindow().radius_(2).param_(1.00) },
+    { "sinc",       FilterWindow().radius_(1) },
+    { "jinc",       FilterWindow().radius_(1.2196698912665045) },
+    { "sphinx",     FilterWindow().radius_(1.4302966531242027) },
 };
 
-struct FilterKernel : public FilterWnd {
+struct FilterKernel : public FilterWindow {
     QString windowName;
-    FilterWnd window;
+    FilterWindow window;
     double antiring = 0.0;
     double clamp = 1.0;
     double cutoff = 0.0;
