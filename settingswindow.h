@@ -20,7 +20,7 @@ public:
     Setting() {}
     Setting(const Setting &s) : name(s.name), widget(s.widget), value(s.value) {}
     Setting(QString name, QWidget *widget, QVariant value) : name(name), widget(widget), value(value) {}
-
+    Setting& operator =(const Setting &s);
     void sendToControl();
     void fetchFromControl();
 

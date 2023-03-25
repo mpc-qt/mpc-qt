@@ -245,6 +245,14 @@ static QStringList internalLogos = {
 
 
 
+Setting &Setting::operator =(const Setting &s)
+{
+    name = s.name;
+    widget = s.widget;
+    value = s.value;
+    return *this;
+}
+
 void Setting::sendToControl()
 {
     if (!widget) {
