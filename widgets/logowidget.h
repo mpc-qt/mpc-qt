@@ -11,7 +11,7 @@ public:
     ~LogoDrawer();
     void setLogoUrl(const QString &filename);
     void setLogoBackground(const QColor &color);
-    void resizeGL(int w, int h);
+    void resizeGL(int w, int h, qreal pixelRatio);
     void paintGL(QOpenGLWidget *widget);
 
 signals:

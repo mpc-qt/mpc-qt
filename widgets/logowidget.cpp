@@ -25,37 +25,42 @@ void LogoDrawer::setLogoBackground(const QColor &color)
     logoBackground = color.isValid() ? color : QColor(0,0,0);
 }
 
-void LogoDrawer::resizeGL(int w, int h)
+void LogoDrawer::resizeGL(int w, int h, qreal pixelRatio)
 {
-    QTransform t;
-    t.scale(2.0/w, 2.0/h);
-    t.translate(((w + logo.width())&1)/2.0,
-                ((h + logo.height())&1)/2.0);
-    logoLocation = t.mapRect(QRectF(-logo.width()/2.0, -logo.height()/2.0,
-                                     logo.width(), logo.height()));
+    qreal lw = logo.width() / pixelRatio;
+    qreal lh = logo.height() / pixelRatio;
+    if (lh > h) { // too tall
+        qreal scale = h/std::max(1.0,lh);
+        lh = h;
+        lw *= scale;
+    }
+    if (lw > w) { // too wide
+        qreal scale = w/std::max(1.0,lw);
+        lw = w;
+        lh *= scale;
+    }
+    qreal lx = (w-lw) / 2;
+    qreal ly = (h-lh) / 2;
 
-    if (logoLocation.height() > 2) {
-        t.reset();
-        t.scale(2/logoLocation.height(), 2/logoLocation.height());
-        logoLocation = t.mapRect(logoLocation);
-    }
-    if (logoLocation.width() > 2) {
-        t.reset();
-        t.scale(2/logoLocation.width(), 2/logoLocation.width());
-        logoLocation = t.mapRect(logoLocation);
-    }
+    // remove subpixel offset
+    qreal px = lx * pixelRatio;
+    qreal py = ly * pixelRatio;
+    lx -= (px-floor(px)) / pixelRatio;
+    ly -= (py-floor(py)) / pixelRatio;
+
+    logoLocation = QRectF(lx, ly, lw, lh);
 }
 
 void LogoDrawer::paintGL(QOpenGLWidget *widget)
 {
     QPainter painter(widget);
-    qreal ratio = widget->devicePixelRatioF();
-    QRect window(-1, -1, 2*ratio, 2*ratio);
-    painter.setWindow(window);
+    QRect bgRect = {0, 0, widget->width(), widget->height()};
+    painter.fillRect(bgRect, QBrush(logoBackground));
+
+    if (logo.isNull())
+        return;
     painter.setRenderHint(QPainter::SmoothPixmapTransform);
-    painter.fillRect(window, QBrush(logoBackground));
-    if (!logo.isNull())
-        painter.drawImage(logoLocation, logo);
+    painter.drawImage(logoLocation, logo);
 }
 
 void LogoDrawer::regenerateTexture()
@@ -85,7 +90,7 @@ void LogoWidget::setLogo(const QString &filename) {
     if (logoDrawer) {
         makeCurrent();
         logoDrawer->setLogoUrl(filename);
-        logoDrawer->resizeGL(width(), height());
+        logoDrawer->resizeGL(width(), height(), devicePixelRatioF());
         doneCurrent();
         update();
     }
@@ -114,5 +119,5 @@ void LogoWidget::paintGL()
 
 void LogoWidget::resizeGL(int w, int h)
 {
-    logoDrawer->resizeGL(w,h);
+    logoDrawer->resizeGL(w, h, devicePixelRatioF());
 }

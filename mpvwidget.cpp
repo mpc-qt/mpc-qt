@@ -812,7 +812,7 @@ void MpvGlWidget::setLogoUrl(const QString &filename)
                 mpvObject, &MpvObject::logoSizeChanged);
     }
     logo->setLogoUrl(filename);
-    logo->resizeGL(width(), height());
+    logo->resizeGL(width(), height(), devicePixelRatioF());
     if (drawLogo)
         update();
     doneCurrent();
@@ -894,7 +894,7 @@ void MpvGlWidget::resizeGL(int w, int h)
     qreal r = devicePixelRatioF();
     glWidth = int(w * r);
     glHeight = int(h * r);
-    logo->resizeGL(width(),height());
+    logo->resizeGL(width(),height(), devicePixelRatioF());
 }
 
 void MpvGlWidget::mouseMoveEvent(QMouseEvent *event)
