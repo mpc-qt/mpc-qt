@@ -891,7 +891,7 @@ void MpvGlWidget::paintGL()
 
 void MpvGlWidget::resizeGL(int w, int h)
 {
-    qreal r = devicePixelRatio();
+    qreal r = devicePixelRatioF();
     glWidth = int(w * r);
     glHeight = int(h * r);
     logo->resizeGL(width(),height());

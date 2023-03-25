@@ -49,7 +49,7 @@ void LogoDrawer::resizeGL(int w, int h)
 void LogoDrawer::paintGL(QOpenGLWidget *widget)
 {
     QPainter painter(widget);
-    int ratio = widget->devicePixelRatio();
+    qreal ratio = widget->devicePixelRatioF();
     QRect window(-1, -1, 2*ratio, 2*ratio);
     painter.setWindow(window);
     painter.setRenderHint(QPainter::SmoothPixmapTransform);

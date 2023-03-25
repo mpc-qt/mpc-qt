@@ -157,7 +157,7 @@ void DrawnSlider::paintEvent(QPaintEvent *event)
     }
 
     QPainter p(this);
-    int pr = devicePixelRatio();
+    qreal pr = devicePixelRatioF();
     p.scale(1.0/pr, 1.0/pr);
     p.setRenderHint(QPainter::Antialiasing);
     p.setRenderHint(QPainter::SmoothPixmapTransform);
@@ -332,7 +332,7 @@ void MediaSlider::resizeEvent(QResizeEvent *event)
 
 void MediaSlider::makeBackground()
 {
-    int pr = devicePixelRatio();
+    qreal pr = devicePixelRatioF();
     int pw = width() * pr;
     int ph = width() * pr;
     backgroundPic = QImage(pw, ph, QImage::Format_RGB32);
@@ -385,7 +385,7 @@ void MediaSlider::makeBackground()
 
 void MediaSlider::makeHandle()
 {
-    int pr = devicePixelRatio();
+    qreal pr = devicePixelRatioF();
     int pw = handleWidth * pr;
     int ph = handleHeight * pr;
 
@@ -456,7 +456,7 @@ VolumeSlider::VolumeSlider(QWidget *parent) :
 
 void VolumeSlider::makeBackground()
 {
-    int pr = devicePixelRatio();
+    qreal pr = devicePixelRatioF();
     int pw = int(drawnArea.width() * pr);
     int ph = int(drawnArea.height() * pr);
     backgroundPic = QImage(pw, ph, QImage::Format_RGB32);
@@ -478,7 +478,7 @@ void VolumeSlider::makeBackground()
 
 void VolumeSlider::makeHandle()
 {
-    int pr = devicePixelRatio();
+    qreal pr = devicePixelRatioF();
     int pw = handleWidth * pr;
     int ph = handleHeight * pr;
     for (int i = 0; i < 16; i++) {

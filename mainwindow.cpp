@@ -215,7 +215,7 @@ QSize MainWindow::desirableSize(bool first_run)
         return size();
 
     // Grab device pixel ratio (2=HiDPI screen)
-    qreal ratio = devicePixelRatio();
+    qreal ratio = devicePixelRatioF();
 
     // calculate available area for the window
     QRect available = first_run ? Helpers::availableGeometryFromPoint(QCursor::pos())
