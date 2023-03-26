@@ -1006,10 +1006,16 @@ QString Flow::pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles 
     QString basename = QFileInfo(nowPlaying.toDisplayString().split('/').last())
                        .completeBaseName();
 
-    QString fileName = Helpers::parseFormat(screenshotTemplate, basename,
-                                            tracks,
-                                            subs,
-                                            playTime, 0, 0);
+    // FIXME: Use parseFormatEx?
+    QString fileName = Helpers::parseFormat(screenshotTemplate, basename, tracks, subs, playTime, 0, 0);
+
+    // Filesystems typically support 255 characters for filename length
+    int maxLength = 255 - (screenshotFormat.length() + 1);
+    if (fileName.length() >= maxLength) {
+        basename.truncate(basename.length() - (fileName.length() - maxLength));
+        fileName = Helpers::parseFormat(screenshotTemplate, basename, tracks, subs, playTime, 0, 0);
+    }
+
     QString filePath = screenshotDirectory;
     if (filePath.isEmpty()) {
         if (nowPlaying.isLocalFile())

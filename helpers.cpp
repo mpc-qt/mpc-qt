@@ -458,6 +458,13 @@ QString Helpers::parseFormatEx(QString fmt, QUrl sourceUrl, QString filePath,
                        .completeBaseName();
     QString fileName = parseFormat(fmt, basename, disabled, subtitles, timeNav, timeBegin, timeEnd);
 
+    // Filesystems typically support 255 characters for filename length
+    int maxLength = 255 - (fileExt.length() + 1);
+    if (fileName.length() >= maxLength) {
+        basename.truncate(basename.length() - (fileName.length() - maxLength));
+        fileName = Helpers::parseFormat(fmt, basename, disabled, subtitles, timeNav, timeBegin, timeEnd);
+    }
+
     if (filePath.isEmpty()) {
         if (sourceUrl.isLocalFile())
             filePath = QFileInfo(sourceUrl.toLocalFile()).path();
