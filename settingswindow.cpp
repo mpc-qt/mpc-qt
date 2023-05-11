@@ -8,9 +8,6 @@
 #include <QProcessEnvironment>
 #include <QList>
 #include "logger.h"
-#include "widgets/actioneditor.h"
-#include "widgets/logowidget.h"
-#include "widgets/paletteeditor.h"
 #include "platform/unify.h"
 #include "settingswindow.h"
 #include "ui_settingswindow.h"

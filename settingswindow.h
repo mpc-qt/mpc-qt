@@ -4,16 +4,15 @@
 #include <QWidget>
 #include <QTreeWidgetItem>
 #include <QAbstractButton>
+#include <QPushButton>
 #include <QVariantMap>
 
 #include <functional>
 
 #include "helpers.h"
-
-class ActionEditor;
-class LogoWidget;
-class PaletteEditor;
-class QPushButton;
+#include "widgets/actioneditor.h"
+#include "widgets/logowidget.h"
+#include "widgets/paletteeditor.h"
 
 class Setting {
 public:
