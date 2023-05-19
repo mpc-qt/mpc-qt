@@ -177,7 +177,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>5</number>
+          <number>7</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -737,8 +737,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>42</width>
-                   <height>18</height>
+                   <width>601</width>
+                   <height>89</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -1474,29 +1474,6 @@ media file played</string>
                 </property>
                 <property name="value">
                  <number>1000</number>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="3" column="1">
-            <widget class="QGroupBox" name="playbackAutoloadBox">
-             <property name="title">
-              <string>Open settings</string>
-             </property>
-             <layout class="QVBoxLayout" name="playbackAutoloadBoxLayout">
-              <item>
-               <widget class="QCheckBox" name="playbackAutoloadAudio">
-                <property name="text">
-                 <string>Auto-load audio files</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="PlaybackAutoloadSubtitles">
-                <property name="text">
-                 <string>Auto-load subtitles</string>
                 </property>
                </widget>
               </item>

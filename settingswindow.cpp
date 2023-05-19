@@ -449,7 +449,6 @@ void SettingsWindow::setupUnimplementedWidgets()
 
     ui->playbackBalance->setEnabled(false);
     ui->playbackTracksBox->setEnabled(false);
-    ui->playbackAutoloadBox->setEnabled(false);
 
     ui->shadersWikiTab->setEnabled(false);
     ui->shadersPresetsBox->setEnabled(false);
