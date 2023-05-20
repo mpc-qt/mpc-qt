@@ -59,37 +59,6 @@
     </message>
 </context>
 <context>
-    <name>FilterWindow</name>
-    <message>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Audio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>New Filter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete Filter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Raise Filter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Lower Filter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
@@ -2176,18 +2145,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto-load audio files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto-load subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Volume</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3437,10 +3394,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Use time tooltip:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Above seekbar</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3738,6 +3691,10 @@ media file played</source>
     </message>
     <message>
         <source>Pipewire</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use time tooltip:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

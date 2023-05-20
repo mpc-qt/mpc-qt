@@ -61,32 +61,12 @@
 <context>
     <name>FilterWindow</name>
     <message>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Audio</source>
-        <translation type="unfinished">Audio</translation>
-    </message>
-    <message>
-        <source>New Filter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete Filter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Raise Filter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Lower Filter</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Audio</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">Video</translation>
+        <translation type="obsolete">Video</translation>
     </message>
 </context>
 <context>
@@ -2181,15 +2161,15 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Open settings</source>
-        <translation>Apri impostazioni</translation>
+        <translation type="vanished">Apri impostazioni</translation>
     </message>
     <message>
         <source>Auto-load audio files</source>
-        <translation>Carica automaticamente file audio</translation>
+        <translation type="vanished">Carica automaticamente file audio</translation>
     </message>
     <message>
         <source>Auto-load subtitles</source>
-        <translation>Carica automaticamente sottotitoli</translation>
+        <translation type="vanished">Carica automaticamente sottotitoli</translation>
     </message>
     <message>
         <source>Volume</source>

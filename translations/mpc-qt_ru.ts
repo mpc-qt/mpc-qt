@@ -61,32 +61,12 @@
 <context>
     <name>FilterWindow</name>
     <message>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Audio</source>
-        <translation type="unfinished">Аудио</translation>
-    </message>
-    <message>
-        <source>New Filter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete Filter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Raise Filter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Lower Filter</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Аудио</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">Видео</translation>
+        <translation type="obsolete">Видео</translation>
     </message>
 </context>
 <context>
@@ -2181,15 +2161,15 @@ media file played</source>
     </message>
     <message>
         <source>Open settings</source>
-        <translation>Открыть настройки</translation>
+        <translation type="vanished">Открыть настройки</translation>
     </message>
     <message>
         <source>Auto-load audio files</source>
-        <translation>Автозагрузка аудиофайлов</translation>
+        <translation type="vanished">Автозагрузка аудиофайлов</translation>
     </message>
     <message>
         <source>Auto-load subtitles</source>
-        <translation>Автозагрузка субтитров</translation>
+        <translation type="vanished">Автозагрузка субтитров</translation>
     </message>
     <message>
         <source>Volume</source>
