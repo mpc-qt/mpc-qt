@@ -23,8 +23,9 @@ use latest and pre-release software regardless of where it comes from.  Unix
 users, there could even be packages in your distro that help with this. (e.g.
 [aur], [ports].)
 
-The program is not yet feature-complete and some controls may have greyed-out
-placeholder areas, such as in the options dialog.
+Note that unimplemented features in the options dialog are hidden and (where
+this is not possible) disabled.  This is to preserve the familar options layout
+from mpc-hc in the meantime.
 
 
 ## Features and improvements over mpc-hc

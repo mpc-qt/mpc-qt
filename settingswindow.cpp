@@ -436,43 +436,47 @@ void SettingsWindow::setupSelfSignals()
 
 void SettingsWindow::setupUnimplementedWidgets()
 {
-    ui->playerTrayIcon->setEnabled(false);
-    ui->playerOSD->setEnabled(false);
-    ui->playerLimitProportions->setEnabled(false);
-    ui->playerDisableOpenDisc->setEnabled(false);
-    ui->playerTitleBox->setEnabled(false);
-    ui->playerKeepHistory->setEnabled(false);
-    ui->playerRememberLastPlaylist->setEnabled(false);
-    ui->playerRememberPanScanZoom->setEnabled(false);
+    ui->playerTrayIcon->setVisible(false);
+    ui->playerOSD->setVisible(false);
+    ui->playerLimitProportions->setVisible(false);
+    ui->playerDisableOpenDisc->setVisible(false);
+    ui->playerTitleBox->setVisible(false);
+    ui->playerKeepHistory->setVisible(false);
+    ui->playerRememberLastPlaylist->setVisible(false);
+    ui->playerRememberPanScanZoom->setVisible(false);
 
     ui->formatPage->setEnabled(false);
 
-    ui->playbackBalance->setEnabled(false);
-    ui->playbackTracksBox->setEnabled(false);
+    ui->playbackBalance->setVisible(false);
+    ui->playbackTracksBox->setVisible(false);
 
-    ui->shadersWikiTab->setEnabled(false);
-    ui->shadersPresetsBox->setEnabled(false);
+    ui->shadersWikiTab->setVisible(false);
+    ui->shadersPresetsBox->setVisible(false);
 
-    ui->fullscreenMonitorBox->setEnabled(false);
-    ui->xrandrBox->setEnabled(false);
+    ui->fullscreenMonitorBox->setVisible(false);
+    ui->xrandrBox->setVisible(false);
 
-    ui->subtitlePlacementBox->setEnabled(false);
-    ui->subtitlesFixTiming->setEnabled(false);
-    ui->subtitlesClearOnSeek->setEnabled(false);
-    ui->subtitlesAssOverride->setEnabled(false);
+    ui->subtitlePlacementBox->setVisible(false);
+    ui->subtitlesFixTiming->setVisible(false);
+    ui->subtitlesClearOnSeek->setVisible(false);
+    ui->subtitlesAssOverride->setVisible(false);
+    ui->subtitlesAssOverrideLabel->setVisible(false);
 
-    ui->subtitlesDatabaseBox->setEnabled(false);
+    ui->subtitlesDatabaseBox->setVisible(false);
 
     ui->encodeTab->setEnabled(false);
 
-    ui->tweaksShowChapterMarks->setEnabled(false);
-    ui->tweaksTimeTooltipLocation->setEnabled(false);
-    ui->tweaksOsdFont->setEnabled(false);
-    ui->tweaksOsdSize->setEnabled(false);
+    ui->tweaksShowChapterMarks->setVisible(false);
+    // Remove the trailing : (looks odd with the rest of the tooltip options hidden)
+    ui->tweaksTimeTooltip->setText(ui->tweaksTimeTooltip->text().replace(":",""));
+    ui->tweaksTimeTooltipLocation->setVisible(false);
+    ui->tweaksOsdFont->setVisible(false);
+    ui->tweaksOsdFontLabel->setVisible(false);
+    ui->tweaksOsdSize->setVisible(false);
 
-    ui->miscColorBox->setEnabled(false);
-    ui->miscExportKeys->setEnabled(false);
-    ui->miscExportSettings->setEnabled(false);
+    ui->miscColorBox->setVisible(false);
+    ui->miscExportKeys->setVisible(false);
+    ui->miscExportSettings->setVisible(false);
 
 }
 

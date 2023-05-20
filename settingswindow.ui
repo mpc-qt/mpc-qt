@@ -177,7 +177,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>7</number>
+          <number>10</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -737,8 +737,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>601</width>
-                   <height>89</height>
+                   <width>42</width>
+                   <height>18</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -4769,7 +4769,68 @@ media file played</string>
           </layout>
          </widget>
          <widget class="QWidget" name="fullscreenPage">
-          <layout class="QGridLayout" name="fullscreenPageLayout" rowstretch="0,0" columnstretch="1,0">
+          <layout class="QGridLayout" name="fullscreenPageLayout" columnstretch="1,0">
+           <item row="0" column="1">
+            <widget class="QGroupBox" name="fullscreenHidingBox">
+             <property name="title">
+              <string>Hiding</string>
+             </property>
+             <layout class="QGridLayout" name="fullscreenHidingBoxLayout">
+              <item row="1" column="1">
+               <widget class="QSpinBox" name="fullscreenShowWhenDuration">
+                <property name="suffix">
+                 <string notr="true">ms</string>
+                </property>
+                <property name="maximum">
+                 <number>5000</number>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QCheckBox" name="fullscreenHidePanels">
+                <property name="text">
+                 <string>Hide docked panels</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="2">
+               <widget class="QCheckBox" name="fullscreenHideControls">
+                <property name="text">
+                 <string>Hide controls in fullscreen</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QComboBox" name="fullscreenShowWhen">
+                <property name="currentIndex">
+                 <number>2</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Never show</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Show when moving the cursor, hide after:</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Show when hovering control, hide after:</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
            <item row="1" column="0" colspan="2">
             <widget class="QGroupBox" name="xrandrBox">
              <property name="title">
@@ -4908,66 +4969,18 @@ media file played</string>
              </layout>
             </widget>
            </item>
-           <item row="0" column="1">
-            <widget class="QGroupBox" name="fullscreenHidingBox">
-             <property name="title">
-              <string>Hiding</string>
+           <item row="2" column="0">
+            <spacer name="verticalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
              </property>
-             <layout class="QGridLayout" name="fullscreenHidingBoxLayout">
-              <item row="1" column="1">
-               <widget class="QSpinBox" name="fullscreenShowWhenDuration">
-                <property name="suffix">
-                 <string notr="true">ms</string>
-                </property>
-                <property name="maximum">
-                 <number>5000</number>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" colspan="2">
-               <widget class="QCheckBox" name="fullscreenHidePanels">
-                <property name="text">
-                 <string>Hide docked panels</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0" colspan="2">
-               <widget class="QCheckBox" name="fullscreenHideControls">
-                <property name="text">
-                 <string>Hide controls in fullscreen</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QComboBox" name="fullscreenShowWhen">
-                <property name="currentIndex">
-                 <number>2</number>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>Never show</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Show when moving the cursor, hide after:</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Show when hovering control, hide after:</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-             </layout>
-            </widget>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
            </item>
           </layout>
          </widget>
