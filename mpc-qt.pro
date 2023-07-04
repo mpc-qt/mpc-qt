@@ -127,6 +127,7 @@ SOURCES += main.cpp\
     librarywindow.cpp \
     mpvwidget.cpp \
     mainwindow.cpp \
+    platform/windowmanager.cpp \
     playlist.cpp \
     manager.cpp \
     helpers.cpp \
@@ -156,6 +157,7 @@ HEADERS  += \
     librarywindow.h \
     mpvwidget.h \
     mainwindow.h \
+    platform/windowmanager.h \
     playlist.h \
     manager.h \
     main.h \
