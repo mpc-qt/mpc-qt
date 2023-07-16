@@ -1190,6 +1190,7 @@ QVariantMap Flow::windowsToVMap_v2()
     if (!rememberWindowGeometry)
         return QVariantMap();
 
+    windowManager.clearJson();
     windowManager.saveDocks(mainWindow->mpvHost());
     windowManager.saveWindow(settingsWindow);
     windowManager.saveWindow(propertiesWindow);

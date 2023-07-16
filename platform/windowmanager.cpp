@@ -15,6 +15,11 @@ WindowManager::WindowManager(QObject *parent)
 
 }
 
+void WindowManager::clearJson()
+{
+    json_.clear();
+}
+
 void WindowManager::setJson(const QVariantMap &json)
 {
     json_ = json;

@@ -21,6 +21,7 @@ class WindowManager : public QObject
 public:
     explicit WindowManager(QObject *parent = nullptr);
 
+    void clearJson();
     void setJson(const QVariantMap &json);
     QVariantMap json();
 
