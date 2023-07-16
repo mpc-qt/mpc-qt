@@ -3,27 +3,11 @@
 #include "helpers.h"
 #include "windowmanager.h"
 
-static const char keyCommand[] = "command";
-static const char keyDirectory[] = "directory";
-static const char keyFiles[] = "files";
-static const char keyFloating[] = "floating";
 static const char keyGeometry[] = "geometry";
-static const char keyLibraryWindow[] = "libraryWindow";
-static const char keyLogWindow[] = "logWindow";
-static const char keyMainWindow[] = "mainWindow";
 static const char keyMaximized[] = "maximized";
 static const char keyMinimized[] = "minimized";
-static const char keyMpvHost[] = "mpvHost";
-static const char keyPlaylistWindow[] = "playlistWindow";
-static const char keyPropertiesWindow[] = "propertiesWindow";
 static const char keyQtState[] = "qtState";
-static const char keySettingsWindow[] = "settingsWindow";
 static const char keyState[] = "state";
-static const char keyStreams[] = "streams";
-
-static void applyGeometryVariant(QWidget *widget, const QVariant &v) {
-
-}
 
 WindowManager::WindowManager(QObject *parent)
     : QObject{parent}
