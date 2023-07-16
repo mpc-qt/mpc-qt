@@ -105,12 +105,7 @@ void WindowManager::restoreDocks(QMainWindow *dockHost, QList<QDockWidget *> doc
 
 void WindowManager::restoreWindow(QWidget *window)
 {
-    if (!json_.contains(window->objectName()))
-        return;
     QVariantMap data = json_[window->objectName()].toMap();
-    if (!data.contains(keyGeometry))
-        return;
-
     QRect geometry = Helpers::vmapToRect(data[keyGeometry].toMap());
     if (geometry.isEmpty()) {
         QRect available = Helpers::availableGeometryFromPoint(QCursor::pos());
