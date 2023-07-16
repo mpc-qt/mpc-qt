@@ -1,10 +1,18 @@
 #ifndef WINDOWMANAGER_H
 #define WINDOWMANAGER_H
 
+#include <QList>
 #include <QObject>
 #include <QVariantMap>
 #include <QWindow>
 #include "mainwindow.h"
+
+struct CliInfo {
+    QPoint cliPos;
+    QSize cliSize;
+    bool validCliPos;
+    bool validCliSize;
+};
 
 // TODO: investigate session management api save/restore
 class WindowManager : public QObject
@@ -17,13 +25,11 @@ public:
     QVariantMap json();
 
     void saveAppWindow(MainWindow *window);
-    void saveDockHost(QMainWindow *dockWindow);
-    void saveDockWindow(QDockWidget *window);
+    void saveDocks(QMainWindow *dockHost);
     void saveWindow(QWidget *window);
 
-    void restoreAppWindow(MainWindow *window);
-    void restoreDockHost(QMainWindow *dockHost);
-    void restoreDockWindow(QDockWidget *window);
+    void restoreAppWindow(MainWindow *window, const CliInfo &cliInfo);
+    void restoreDocks(QMainWindow *dockHost, QList<QDockWidget*> dockWidgets);
     void restoreWindow(QWidget *window);
 
     QSize calculateParentSize(QWidget *parent, QWidget *child, const QSize &childSize);

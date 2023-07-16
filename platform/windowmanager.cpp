@@ -1,3 +1,4 @@
+#include <QStyle>
 #include <QWidget>
 #include "helpers.h"
 #include "windowmanager.h"
@@ -19,6 +20,10 @@ static const char keyQtState[] = "qtState";
 static const char keySettingsWindow[] = "settingsWindow";
 static const char keyState[] = "state";
 static const char keyStreams[] = "streams";
+
+static void applyGeometryVariant(QWidget *widget, const QVariant &v) {
+
+}
 
 WindowManager::WindowManager(QObject *parent)
     : QObject{parent}
@@ -48,21 +53,12 @@ void WindowManager::saveAppWindow(MainWindow *window)
     json_.insert(window->objectName(), data);
 }
 
-void WindowManager::saveDockHost(QMainWindow *dockWindow)
+void WindowManager::saveDocks(QMainWindow *dockHost)
 {
     QVariantMap data = {
-        { keyQtState, QString(dockWindow->saveState().toBase64()) }
+        { keyQtState, QString(dockHost->saveState().toBase64()) }
     };
-    json_.insert(dockWindow->objectName(), data);
-}
-
-void WindowManager::saveDockWindow(QDockWidget *window)
-{
-    QVariantMap data = {
-        { keyGeometry, Helpers::rectToVmap(window->window()->geometry()) },
-        { keyFloating, window->isFloating() }
-    };
-    json_.insert(window->objectName(), data);
+    json_.insert(dockHost->objectName(), data);
 }
 
 void WindowManager::saveWindow(QWidget *window)
@@ -73,32 +69,70 @@ void WindowManager::saveWindow(QWidget *window)
     json_.insert(window->objectName(), data);
 }
 
-void WindowManager::restoreAppWindow(MainWindow *window)
+void WindowManager::restoreAppWindow(MainWindow *window, const CliInfo &cliInfo)
 {
-    if (!json_.contains(window->objectName()))
-        return;
+    // Unlike restoreWindow, we do not bail out -- this function MUST succeed
+    // in some way for the window to show
+    QVariantMap data = json_[window->objectName()].toMap();
+
+    // restore main window geometry and override it if requested
+    QRect geometry = Helpers::vmapToRect(data[keyGeometry].toMap());
+    QPoint desiredPlace = geometry.topLeft();
+    QSize desiredSize = geometry.size();
+    bool checkMainWindow = data.isEmpty() || geometry.isEmpty();
+
+    if (checkMainWindow)
+        desiredSize = window->desirableSize(true);
+    if (cliInfo.validCliSize)
+        desiredSize = cliInfo.cliSize;
+
+    if (checkMainWindow)
+        desiredPlace = window->desirablePosition(desiredSize, true);
+    if (cliInfo.validCliPos)
+        desiredPlace = cliInfo.cliPos;
+
+    window->setGeometry(QRect(desiredPlace, desiredSize));
+
+    if (data.value(keyMinimized, false).toBool()) {
+        window->showMinimized();
+    } else {
+        if (data.value(keyMaximized, false).toBool())
+            window->showMaximized();
+        else
+            window->show();
+        window->raise();
+    }
+    if (data.contains(keyState))
+        window->setState(data[keyState].toMap());
 }
 
-
-void WindowManager::restoreDockHost(QMainWindow *dockHost)
+void WindowManager::restoreDocks(QMainWindow *dockHost, QList<QDockWidget *> dockWidgets)
 {
     if (!json_.contains(dockHost->objectName()))
         return;
-
-}
-
-void WindowManager::restoreDockWindow(QDockWidget *window)
-{
-    if (!json_.contains(window->objectName()))
+    QVariantMap data = json_[dockHost->objectName()].toMap();
+    if (!data.contains(keyQtState))
         return;
-
+    QByteArray encoded = data[keyQtState].toString().toLocal8Bit();
+    dockHost->restoreState(QByteArray::fromBase64(encoded));
+    for (auto widget : dockWidgets)
+        dockHost->restoreDockWidget(widget);
 }
 
 void WindowManager::restoreWindow(QWidget *window)
 {
     if (!json_.contains(window->objectName()))
         return;
+    QVariantMap data = json_[window->objectName()].toMap();
+    if (!data.contains(keyGeometry))
+        return;
 
+    QRect geometry = Helpers::vmapToRect(data[keyGeometry].toMap());
+    if (geometry.isEmpty()) {
+        QRect available = Helpers::availableGeometryFromPoint(QCursor::pos());
+        geometry = QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter, window->size(), available);
+    }
+    window->setGeometry(geometry);
 }
 
 QSize WindowManager::calculateParentSize(QWidget *parent, QWidget *child, const QSize &childSize)
