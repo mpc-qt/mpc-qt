@@ -617,6 +617,7 @@ void MainWindow::setupMpvHost()
     // Create a special QMainWindow widget so that the playlist window will
     // dock around it rather than ourselves
     mpvHost_ = new QMainWindow(this);
+    mpvHost_->setObjectName("mpvHost");
     mpvHost_->setSizePolicy(QSizePolicy(QSizePolicy::Ignored,
                                         QSizePolicy::Ignored));
     ui->mpvWidget->layout()->addWidget(mpvHost_);
