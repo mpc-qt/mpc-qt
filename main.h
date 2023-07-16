@@ -16,6 +16,7 @@
 #include "thumbnailerwindow.h"
 #include "platform/screensaver.h"
 #include "platform/devicemanager.h"
+#include "platform/windowmanager.h"
 
 class MprisInstance;
 class QThread;
@@ -55,6 +56,8 @@ private:
     QVariantMap favoritesToVMap() const;
     QVariantMap windowsToVMap();
     void restoreWindows(const QVariantMap &geometryMap);
+    QVariantMap windowsToVMap_v2();
+    void restoreWindows_v2(const QVariantMap &geometryMap);
     void showWindows(const QVariantMap &mainWindowMap);
 
 private slots:
@@ -104,6 +107,7 @@ private:
     LibraryWindow *libraryWindow = nullptr;
     ThumbnailerWindow *thumbnailerWindow = nullptr;
     QThread *logThread = nullptr;
+    WindowManager windowManager;
     Storage storage;
     QVariantMap settings;
     QVariantMap keyMap;

@@ -46,7 +46,7 @@ static const char keyState[] = "state";
 static const char keyStreams[] = "streams";
 
 static const char fileFavorites[] = "favorites";
-static const char fileGeometry[] = "geometry";
+static const char fileGeometryV2[] = "geometry_v2";
 static const char fileKeys[] = "keys";
 static const char filePlaylists[] = "playlists";
 static const char filePlaylistsBackup[] = "playlists_backup";
@@ -334,7 +334,7 @@ int Flow::run()
     // Load our data
     auto playlist = cliNoFiles ? QVariantList() : storage.readVList(filePlaylists);
     auto backup = cliNoFiles ? QVariantList() : storage.readVList(filePlaylistsBackup);
-    auto geometry = cliNoConfig ? QVariantMap() : storage.readVMap(fileGeometry);
+    auto geometry = cliNoConfig ? QVariantMap() : storage.readVMap(fileGeometryV2);
 
     // Send data to the ui
     mainWindow->playlistWindow()->tabsFromVList(playlist);
@@ -342,7 +342,7 @@ int Flow::run()
     libraryWindow->refreshLibrary();
 
     // Restore our window positions
-    restoreWindows(geometry);
+    restoreWindows_v2(geometry);
 
     // Wait here until quit
     return qApp->exec();
@@ -382,7 +382,7 @@ void Flow::writeConfig(bool onlySettings)
     storage.writeVMap(fileKeys, keyMap);
     storage.writeVList(fileRecent, recentToVList());
     storage.writeVMap(fileFavorites, favoritesToVMap());
-    storage.writeVMap(fileGeometry, windowsToVMap());
+    storage.writeVMap(fileGeometryV2, windowsToVMap_v2());
 
     // Note!  Playlists are written in the destructor.
 }
@@ -1177,6 +1177,40 @@ void Flow::showWindows(const QVariantMap &mainWindowMap)
     }
     if (mainWindowMap.contains(keyState))
         mainWindow->setState(mainWindowMap[keyState].toMap());
+    // Tell the main window it can process size requests et al now
+    mainWindow->unfreezeWindow();
+    // In 50 msec time when the ui is in a reliable state, call
+    // self_windowsRestored for further processing (2022-03: such as opening
+    // files for playback)
+    QTimer::singleShot(50, this, &Flow::windowsRestored);
+}
+
+QVariantMap Flow::windowsToVMap_v2()
+{
+    if (!rememberWindowGeometry)
+        return QVariantMap();
+
+    windowManager.saveDocks(mainWindow->mpvHost());
+    windowManager.saveWindow(settingsWindow);
+    windowManager.saveWindow(propertiesWindow);
+    windowManager.saveWindow(logWindow);
+    windowManager.saveWindow(libraryWindow);
+    windowManager.saveAppWindow(mainWindow);
+    return windowManager.json();
+}
+
+void Flow::restoreWindows_v2(const QVariantMap &geometryMap)
+{
+    CliInfo cliInfo { cliPos, cliSize, validCliPos, validCliSize };
+
+    windowManager.setJson(geometryMap);
+    windowManager.restoreDocks(mainWindow->mpvHost(), { mainWindow->playlistWindow() });
+    windowManager.restoreWindow(settingsWindow);
+    windowManager.restoreWindow(propertiesWindow);
+    windowManager.restoreWindow(logWindow);
+    windowManager.restoreWindow(libraryWindow);
+    windowManager.restoreAppWindow(mainWindow, cliInfo);
+
     // Tell the main window it can process size requests et al now
     mainWindow->unfreezeWindow();
     // In 50 msec time when the ui is in a reliable state, call
