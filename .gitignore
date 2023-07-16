@@ -58,7 +58,7 @@ mpc-qt
 # transifex
 .transifexrc
 
-# auto-generated translations
-qt_*.qm
+# translations
+*.qm
 qmake_qm_res.qrc
 qmake_qmake_qm_files.qrc
