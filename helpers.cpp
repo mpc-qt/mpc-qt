@@ -577,6 +577,14 @@ QRect Helpers::availableGeometryFromPoint(const QPoint &point)
     return screen->availableGeometry();
 }
 
+QScreen *Helpers::findScreenByName(QString s)
+{
+    for (auto screen : qApp->screens())
+        if (screen->name() == s)
+            return screen;
+    return nullptr;
+}
+
 
 
 IconThemer::IconThemer(QObject *parent)
