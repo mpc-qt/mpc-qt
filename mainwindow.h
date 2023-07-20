@@ -11,6 +11,7 @@
 #include "manager.h"
 #include "playlistwindow.h"
 #include "platform/screensaver.h"
+#include "platform/windowmanager.h"
 
 namespace Ui {
 class MainWindow;
@@ -225,6 +226,7 @@ public slots:
     void setZoomMode(MainWindow::ZoomMode mode);
     void setZoomPreset(int which, double fitFactor = -1.0);
     void setZoomCenter(bool yes);
+    void setFullscreenName(QString screenName);
     void setMouseHideTimeFullscreen(int msec);
     void setMouseHideTimeWindowed(int msec);
     void setBottomAreaBehavior(Helpers::ControlHiding method);
@@ -395,6 +397,8 @@ private:
 
     bool freestanding_ = false;
     DecorationState decorationState_ = AllDecorations;
+    QString fullscreenName;
+    FullscreenMemory fullscreenMemory;
     bool fullscreenMaximized = false;
     bool fullscreenMode_ = false;
     bool fullscreenHidePanels = true;

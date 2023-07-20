@@ -442,22 +442,12 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
 {
     if (fullscreenMode_ == fullscreenMode)
         return;
-
-    // This is where the monitor settings should be honored.
-    // For now, use the current screen.
-    windowHandle()->setScreen(windowHandle()->screen());
-
-    // save maximized state if changing from windowed to fullscreen
-    if (!fullscreenMode_ && fullscreenMode)
-        fullscreenMaximized = isMaximized();
-
     fullscreenMode_ = fullscreenMode;
+
     if (fullscreenMode)
-        showFullScreen();
-    else if (fullscreenMaximized)
-        showMaximized();
+        fullscreenMemory = WindowManager::makeFullscreen(this, fullscreenName);
     else
-        showNormal();
+        WindowManager::restoreFullscreen(this, fullscreenMemory);
 
     ui->actionViewFullscreenEscape->setEnabled(fullscreenMode);
     updateMouseHideTime();
@@ -1666,6 +1656,11 @@ void MainWindow::setZoomPreset(int which, double fitFactor)
 void MainWindow::setZoomCenter(bool yes)
 {
     zoomCenter = yes;
+}
+
+void MainWindow::setFullscreenName(QString screenName)
+{
+    fullscreenName = screenName;
 }
 
 void MainWindow::setMouseHideTimeFullscreen(int msec)
