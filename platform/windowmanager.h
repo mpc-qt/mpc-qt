@@ -5,13 +5,22 @@
 #include <QObject>
 #include <QVariantMap>
 #include <QWindow>
-#include "mainwindow.h"
+
+class MainWindow;
+class QMainWindow;
+class QDockWidget;
 
 struct CliInfo {
     QPoint cliPos;
     QSize cliSize;
     bool validCliPos;
     bool validCliSize;
+};
+
+struct FullscreenMemory {
+    QString originalScreen;
+    QRect normalGeometry;
+    bool maximized;
 };
 
 // TODO: investigate session management api save/restore
@@ -33,10 +42,10 @@ public:
     void restoreDocks(QMainWindow *dockHost, QList<QDockWidget*> dockWidgets);
     void restoreWindow(QWidget *window);
 
-    QSize calculateParentSize(QWidget *parent, QWidget *child, const QSize &childSize);
-    void centerWindowAndClip(QWidget *who, const QSize &newSize);
-    QVariantMap makeFullscreen(QWidget *who, QString preferredScreen);
-    void restoreFullscreen(QWidget *who, const QVariantMap &data);
+    static QSize calculateParentSize(QWidget *parent, QWidget *child, const QSize &childSize);
+    static void centerWindowAndClip(QWidget *who, const QSize &newSize);
+    static FullscreenMemory makeFullscreen(QWidget *who, QString preferredScreen);
+    static void restoreFullscreen(QWidget *who, const FullscreenMemory &fm);
 
 signals:
 

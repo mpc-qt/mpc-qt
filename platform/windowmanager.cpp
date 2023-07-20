@@ -1,6 +1,9 @@
+#include <QDockWidget>
+#include <QMainWindow>
 #include <QStyle>
 #include <QWidget>
 #include "helpers.h"
+#include "mainwindow.h"
 #include "windowmanager.h"
 
 static const char keyGeometry[] = "geometry";
@@ -130,13 +133,36 @@ void WindowManager::centerWindowAndClip(QWidget *who, const QSize &newSize)
     //FIXME
 }
 
-QVariantMap WindowManager::makeFullscreen(QWidget *who, QString preferredScreen)
+FullscreenMemory WindowManager::makeFullscreen(QWidget *who, QString preferredScreen)
 {
-    //FIXME
-    return QVariantMap();
+    FullscreenMemory fm;
+    fm.maximized = who->isMaximized();
+    fm.originalScreen = who->screen()->name();
+
+    // Doesn't work unless we start off as a normal window
+    if (fm.maximized)
+        who->showNormal();
+
+    fm.normalGeometry = who->geometry();
+
+    QScreen *target = Helpers::findScreenByName(preferredScreen);
+    if (target) {
+        who->setScreen(target);
+        who->setGeometry(target->geometry());
+    }
+    who->showFullScreen();
+    return fm;
 }
 
-void WindowManager::restoreFullscreen(QWidget *who, const QVariantMap &data)
+void WindowManager::restoreFullscreen(QWidget *who, const FullscreenMemory &fm)
 {
+    who->showNormal();
+    who->setGeometry(fm.normalGeometry);
 
+    QScreen *target = Helpers::findScreenByName(fm.originalScreen);
+    if (target) {
+        who->setScreen(target);
+    }
+    if (fm.maximized)
+        who->showMaximized();
 }
