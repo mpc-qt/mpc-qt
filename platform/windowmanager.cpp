@@ -122,17 +122,6 @@ void WindowManager::restoreWindow(QWidget *window)
     window->setGeometry(geometry);
 }
 
-QSize WindowManager::calculateParentSize(QWidget *parent, QWidget *child, const QSize &childSize)
-{
-    //FIXME
-    return QSize();
-}
-
-void WindowManager::centerWindowAndClip(QWidget *who, const QSize &newSize)
-{
-    //FIXME
-}
-
 FullscreenMemory WindowManager::makeFullscreen(QWidget *who, QString preferredScreen)
 {
     FullscreenMemory fm;

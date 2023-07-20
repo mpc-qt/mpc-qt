@@ -42,8 +42,6 @@ public:
     void restoreDocks(QMainWindow *dockHost, QList<QDockWidget*> dockWidgets);
     void restoreWindow(QWidget *window);
 
-    static QSize calculateParentSize(QWidget *parent, QWidget *child, const QSize &childSize);
-    static void centerWindowAndClip(QWidget *who, const QSize &newSize);
     static FullscreenMemory makeFullscreen(QWidget *who, QString preferredScreen);
     static void restoreFullscreen(QWidget *who, const FullscreenMemory &fm);
 
