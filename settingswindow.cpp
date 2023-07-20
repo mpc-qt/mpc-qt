@@ -11,6 +11,7 @@
 #include "platform/unify.h"
 #include "settingswindow.h"
 #include "ui_settingswindow.h"
+#include "widgets/screencombo.h"
 
 // No designated initializers until c++2a, so use factory method instead
 struct FilterWindow {
@@ -186,7 +187,8 @@ QMap<QString, const char *> Setting::classToProperty = {
     { "QFontComboBox", "currentText" },
     { "QScrollBar", "value" },
     { "QSlider", "value" },
-    { "PaletteEditor", "value" }
+    { "PaletteEditor", "value" },
+    { "ScreenCombo", "currentScreenName" }
 };
 
 QMap<QString, std::function<QVariant(QObject *)>> Setting::classFetcher([]() {
@@ -313,6 +315,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
 
     setupPlatformWidgets();
     setupPaletteEditor();
+    setupFullscreenCombo();
 
     defaultSettings = generateSettingMap(this);
     acceptedSettings = defaultSettings;
@@ -428,6 +431,13 @@ void SettingsWindow::setupColorPickers()
     }
 }
 
+void SettingsWindow::setupFullscreenCombo()
+{
+    screenCombo = new ScreenCombo(this);
+    screenCombo->setObjectName("fullscreenMonitor");
+    ui->fullscreenMonitorLayout->addWidget(screenCombo);
+}
+
 void SettingsWindow::setupSelfSignals()
 {
     connect(this, &SettingsWindow::volumeMax,
@@ -453,7 +463,6 @@ void SettingsWindow::setupUnimplementedWidgets()
     ui->shadersWikiTab->setVisible(false);
     ui->shadersPresetsBox->setVisible(false);
 
-    ui->fullscreenMonitorBox->setVisible(false);
     ui->xrandrBox->setVisible(false);
 
     ui->subtitlePlacementBox->setVisible(false);
@@ -864,6 +873,7 @@ void SettingsWindow::sendSignals()
 
     emit option("glsl-shaders", WIDGET_LOOKUP(ui->shadersActiveList).toStringList());
 
+    emit fullscreenScreen(WIDGET_LOOKUP(screenCombo).toString());
     if (WIDGET_LOOKUP(ui->fullscreenHideControls).toBool()) {
         Helpers::ControlHiding method = static_cast<Helpers::ControlHiding>(WIDGET_LOOKUP(ui->fullscreenShowWhen).toInt());
         int timeOut = WIDGET_LOOKUP(ui->fullscreenShowWhenDuration).toInt();
