@@ -1663,6 +1663,16 @@ void MainWindow::setFullscreenName(QString screenName)
     fullscreenName = screenName;
 }
 
+void MainWindow::setFullscreenOnPlay(bool onPlay)
+{
+    fullscreenOnPlay = onPlay;
+}
+
+void MainWindow::setFullscreenExitOnEnd(bool exitOnEnd)
+{
+    fullscreenExitOnEnd = exitOnEnd;
+}
+
 void MainWindow::setMouseHideTimeFullscreen(int msec)
 {
     mouseHideTimeFullscreen = msec;
@@ -1710,6 +1720,18 @@ void MainWindow::setFullscreenHidePanels(bool hidden)
 
 void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
 {
+    // Update the fullscreen state
+    if (state == PlaybackManager::StoppedState) {
+        if (fullscreenExitOnEnd && fullscreenMode_ == true) {
+            ui->actionViewFullscreen->setChecked(false);
+        }
+    } else if (state == PlaybackManager::PlayingState) {
+        if (fullscreenOnPlay && fullscreenMode_ == false) {
+            ui->actionViewFullscreen->setChecked(true);
+        }
+    }
+
+    // Update the UI
     ui->status->setText(state==PlaybackManager::StoppedState ? tr("Stopped") :
                         state==PlaybackManager::PausedState ? tr("Paused") :
                         state==PlaybackManager::PlayingState ? tr("Playing") :
