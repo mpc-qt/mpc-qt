@@ -63,8 +63,6 @@ void WindowManager::saveWindow(QWidget *window)
 
 void WindowManager::restoreAppWindow(MainWindow *window, const CliInfo &cliInfo)
 {
-    // Unlike restoreWindow, we do not bail out -- this function MUST succeed
-    // in some way for the window to show
     QVariantMap data = json_[window->objectName()].toMap();
 
     // restore main window geometry and override it if requested
