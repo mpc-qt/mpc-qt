@@ -54,11 +54,8 @@ private:
     QString pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const;
     QVariantList recentToVList() const;
     QVariantMap favoritesToVMap() const;
-    QVariantMap windowsToVMap();
-    void restoreWindows(const QVariantMap &geometryMap);
     QVariantMap windowsToVMap_v2();
     void restoreWindows_v2(const QVariantMap &geometryMap);
-    void showWindows(const QVariantMap &mainWindowMap);
 
 private slots:
     void self_windowsRestored();
