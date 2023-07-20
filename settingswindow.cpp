@@ -874,6 +874,8 @@ void SettingsWindow::sendSignals()
     emit option("glsl-shaders", WIDGET_LOOKUP(ui->shadersActiveList).toStringList());
 
     emit fullscreenScreen(WIDGET_LOOKUP(screenCombo).toString());
+    emit fullscreenAtLaunch(WIDGET_LOOKUP(ui->fullscreenLaunch).toBool());
+    emit fullscreenExitAtEnd(WIDGET_LOOKUP(ui->fullscreenWindowedAtEnd).toBool());
     if (WIDGET_LOOKUP(ui->fullscreenHideControls).toBool()) {
         Helpers::ControlHiding method = static_cast<Helpers::ControlHiding>(WIDGET_LOOKUP(ui->fullscreenShowWhen).toInt());
         int timeOut = WIDGET_LOOKUP(ui->fullscreenShowWhenDuration).toInt();

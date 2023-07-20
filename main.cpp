@@ -573,6 +573,10 @@ void Flow::setupSettingsConnections()
             mainWindow, &MainWindow::setMouseHideTimeWindowed);
     connect(settingsWindow, &SettingsWindow::fullscreenScreen,
             mainWindow, &MainWindow::setFullscreenName);
+    connect(settingsWindow, &SettingsWindow::fullscreenAtLaunch,
+            mainWindow, &MainWindow::setFullscreenOnPlay);
+    connect(settingsWindow, &SettingsWindow::fullscreenExitAtEnd,
+            mainWindow, &MainWindow::setFullscreenExitOnEnd);
     connect(settingsWindow, &SettingsWindow::hideMethod,
             mainWindow, &MainWindow::setBottomAreaBehavior);
     connect(settingsWindow, &SettingsWindow::hideTime,
