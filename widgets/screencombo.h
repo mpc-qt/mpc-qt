@@ -13,6 +13,7 @@ public:
 
 private slots:
     void qApp_screensChanged();
+    void qScreen_geometryChanged();
 
 private:
     void populateItems();

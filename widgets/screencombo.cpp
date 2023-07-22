@@ -1,5 +1,6 @@
 #include <QApplication>
 #include <QScreen>
+#include "platform/unify.h"
 #include "helpers.h"
 #include "screencombo.h"
 
@@ -36,11 +37,25 @@ void ScreenCombo::qApp_screensChanged()
     setCurrentScreenName(oldName);
 }
 
+void ScreenCombo::qScreen_geometryChanged()
+{
+    // FIXME: update the geometry on Windows without losing the selection!
+    QString oldName = currentScreenName();
+    populateItems();
+    setCurrentScreenName(oldName);
+}
+
 void ScreenCombo::populateItems()
 {
     this->clear();
     this->addItem(tr("Current"));
     for (auto screen : qApp->screens()) {
         this->addItem(Helpers::screenToVisualName(screen));
+        if (!Platform::isUnix) {
+            QObject::disconnect(screen, &QScreen::geometryChanged,
+                                this, &ScreenCombo::qScreen_geometryChanged);
+            QObject::connect(screen, &QScreen::geometryChanged,
+                             this, &ScreenCombo::qScreen_geometryChanged);
+        }
     }
 }
