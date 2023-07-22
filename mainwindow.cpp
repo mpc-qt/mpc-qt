@@ -442,22 +442,12 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
 {
     if (fullscreenMode_ == fullscreenMode)
         return;
-
-    // This is where the monitor settings should be honored.
-    // For now, use the current screen.
-    windowHandle()->setScreen(windowHandle()->screen());
-
-    // save maximized state if changing from windowed to fullscreen
-    if (!fullscreenMode_ && fullscreenMode)
-        fullscreenMaximized = isMaximized();
-
     fullscreenMode_ = fullscreenMode;
+
     if (fullscreenMode)
-        showFullScreen();
-    else if (fullscreenMaximized)
-        showMaximized();
+        fullscreenMemory = WindowManager::makeFullscreen(this, fullscreenName);
     else
-        showNormal();
+        WindowManager::restoreFullscreen(this, fullscreenMemory);
 
     ui->actionViewFullscreenEscape->setEnabled(fullscreenMode);
     updateMouseHideTime();
@@ -617,6 +607,7 @@ void MainWindow::setupMpvHost()
     // Create a special QMainWindow widget so that the playlist window will
     // dock around it rather than ourselves
     mpvHost_ = new QMainWindow(this);
+    mpvHost_->setObjectName("mpvHost");
     mpvHost_->setSizePolicy(QSizePolicy(QSizePolicy::Ignored,
                                         QSizePolicy::Ignored));
     ui->mpvWidget->layout()->addWidget(mpvHost_);
@@ -1667,6 +1658,21 @@ void MainWindow::setZoomCenter(bool yes)
     zoomCenter = yes;
 }
 
+void MainWindow::setFullscreenName(QString screenName)
+{
+    fullscreenName = screenName;
+}
+
+void MainWindow::setFullscreenOnPlay(bool onPlay)
+{
+    fullscreenOnPlay = onPlay;
+}
+
+void MainWindow::setFullscreenExitOnEnd(bool exitOnEnd)
+{
+    fullscreenExitOnEnd = exitOnEnd;
+}
+
 void MainWindow::setMouseHideTimeFullscreen(int msec)
 {
     mouseHideTimeFullscreen = msec;
@@ -1714,6 +1720,18 @@ void MainWindow::setFullscreenHidePanels(bool hidden)
 
 void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
 {
+    // Update the fullscreen state
+    if (state == PlaybackManager::StoppedState) {
+        if (fullscreenExitOnEnd && fullscreenMode_ == true) {
+            ui->actionViewFullscreen->setChecked(false);
+        }
+    } else if (state == PlaybackManager::PlayingState) {
+        if (fullscreenOnPlay && fullscreenMode_ == false) {
+            ui->actionViewFullscreen->setChecked(true);
+        }
+    }
+
+    // Update the UI
     ui->status->setText(state==PlaybackManager::StoppedState ? tr("Stopped") :
                         state==PlaybackManager::PausedState ? tr("Paused") :
                         state==PlaybackManager::PlayingState ? tr("Playing") :

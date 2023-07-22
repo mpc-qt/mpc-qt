@@ -46,7 +46,7 @@ static const char keyState[] = "state";
 static const char keyStreams[] = "streams";
 
 static const char fileFavorites[] = "favorites";
-static const char fileGeometry[] = "geometry";
+static const char fileGeometryV2[] = "geometry_v2";
 static const char fileKeys[] = "keys";
 static const char filePlaylists[] = "playlists";
 static const char filePlaylistsBackup[] = "playlists_backup";
@@ -334,7 +334,7 @@ int Flow::run()
     // Load our data
     auto playlist = cliNoFiles ? QVariantList() : storage.readVList(filePlaylists);
     auto backup = cliNoFiles ? QVariantList() : storage.readVList(filePlaylistsBackup);
-    auto geometry = cliNoConfig ? QVariantMap() : storage.readVMap(fileGeometry);
+    auto geometry = cliNoConfig ? QVariantMap() : storage.readVMap(fileGeometryV2);
 
     // Send data to the ui
     mainWindow->playlistWindow()->tabsFromVList(playlist);
@@ -342,7 +342,7 @@ int Flow::run()
     libraryWindow->refreshLibrary();
 
     // Restore our window positions
-    restoreWindows(geometry);
+    restoreWindows_v2(geometry);
 
     // Wait here until quit
     return qApp->exec();
@@ -382,7 +382,7 @@ void Flow::writeConfig(bool onlySettings)
     storage.writeVMap(fileKeys, keyMap);
     storage.writeVList(fileRecent, recentToVList());
     storage.writeVMap(fileFavorites, favoritesToVMap());
-    storage.writeVMap(fileGeometry, windowsToVMap());
+    storage.writeVMap(fileGeometryV2, windowsToVMap_v2());
 
     // Note!  Playlists are written in the destructor.
 }
@@ -571,6 +571,12 @@ void Flow::setupSettingsConnections()
             mainWindow, &MainWindow::setMouseHideTimeFullscreen);
     connect(settingsWindow, &SettingsWindow::mouseHideTimeWindowed,
             mainWindow, &MainWindow::setMouseHideTimeWindowed);
+    connect(settingsWindow, &SettingsWindow::fullscreenScreen,
+            mainWindow, &MainWindow::setFullscreenName);
+    connect(settingsWindow, &SettingsWindow::fullscreenAtLaunch,
+            mainWindow, &MainWindow::setFullscreenOnPlay);
+    connect(settingsWindow, &SettingsWindow::fullscreenExitAtEnd,
+            mainWindow, &MainWindow::setFullscreenExitOnEnd);
     connect(settingsWindow, &SettingsWindow::hideMethod,
             mainWindow, &MainWindow::setBottomAreaBehavior);
     connect(settingsWindow, &SettingsWindow::hideTime,
@@ -1041,142 +1047,33 @@ QVariantMap Flow::favoritesToVMap() const
     };
 }
 
-QVariantMap Flow::windowsToVMap()
+QVariantMap Flow::windowsToVMap_v2()
 {
-    return QVariantMap {
-        {
-            keyMainWindow, QVariantMap {
-                { keyGeometry, Helpers::rectToVmap(QRect(mainWindow->geometry().topLeft(),
-                                                        mainWindow->size())) },
-                { keyState, mainWindow->state() },
-                { keyMaximized, mainWindow->isMaximized() },
-                { keyMinimized, mainWindow->isMinimized() }
-            }
-        },
-        {
-            keyMpvHost, QVariantMap {
-                { keyQtState, QString(mainWindow->mpvHost()->saveState().toBase64()) }
-            }
-        },
-        {
-            keyPlaylistWindow, QVariantMap {
-                { keyGeometry, Helpers::rectToVmap(mainWindow->playlistWindow()->window()->geometry()) },
-                { keyFloating, mainWindow->playlistWindow()->isFloating() }
-            }
-        },
-        {
-            keySettingsWindow, QVariantMap {
-                { keyGeometry, Helpers::rectToVmap(settingsWindow->geometry()) }
-            }
-        },
-        {
-            keyPropertiesWindow, QVariantMap {
-                { keyGeometry, Helpers::rectToVmap(propertiesWindow->geometry()) }
-            }
-        },
-        {
-            keyLogWindow, QVariantMap {
-                { keyGeometry, Helpers::rectToVmap(logWindow->geometry()) }
-            }
-        },
-        {
-            keyLibraryWindow, QVariantMap {
-                { keyGeometry, Helpers::rectToVmap(libraryWindow->geometry()) }
-            }
-        }
-    };
+    if (!rememberWindowGeometry)
+        return QVariantMap();
+
+    windowManager.clearJson();
+    windowManager.saveDocks(mainWindow->mpvHost());
+    windowManager.saveWindow(settingsWindow);
+    windowManager.saveWindow(propertiesWindow);
+    windowManager.saveWindow(logWindow);
+    windowManager.saveWindow(libraryWindow);
+    windowManager.saveAppWindow(mainWindow);
+    return windowManager.json();
 }
 
-void Flow::restoreWindows(const QVariantMap &geometryMap)
+void Flow::restoreWindows_v2(const QVariantMap &geometryMap)
 {
-    QVariantMap mainMap = geometryMap[keyMainWindow].toMap();
-    QVariantMap mpvHostMap = geometryMap[keyMpvHost].toMap();
-    QVariantMap playlistMap = geometryMap[keyPlaylistWindow].toMap();
-    QVariantMap settingsMap = geometryMap[keySettingsWindow].toMap();
-    QVariantMap propertiesMap = geometryMap[keyPropertiesWindow].toMap();
-    QVariantMap logMap = geometryMap[keyLogWindow].toMap();
-    QVariantMap libraryMap = geometryMap[keyLibraryWindow].toMap();
-    bool allHaveGeometry = mainMap.contains(keyGeometry)
-            && playlistMap.contains(keyGeometry)
-            && settingsMap.contains(keyGeometry)
-            && propertiesMap.contains(keyGeometry)
-            && logMap.contains(keyGeometry)
-            && libraryMap.contains(keyGeometry);
-    bool restoreGeometry = rememberWindowGeometry && allHaveGeometry;
-    if (!restoreGeometry) {
-        // No saved geometry, may as well assume everything is borked,
-        // or the user actually asked us not to restore our windows.
-        // Instead let's rely on the auto zooming to place the window
-        // and whatever sensible defaults the window manager gives us.
-        showWindows({});
-        return;
-    }
+    CliInfo cliInfo { cliPos, cliSize, validCliPos, validCliSize };
 
-    QRect geometry;
+    windowManager.setJson(geometryMap);
+    windowManager.restoreDocks(mainWindow->mpvHost(), { mainWindow->playlistWindow() });
+    windowManager.restoreWindow(settingsWindow);
+    windowManager.restoreWindow(propertiesWindow);
+    windowManager.restoreWindow(logWindow);
+    windowManager.restoreWindow(libraryWindow);
+    windowManager.restoreAppWindow(mainWindow, cliInfo);
 
-    if (restoreGeometry && playlistMap[keyFloating].toBool()) {
-        // the playlist window starts off floating, so restore it
-        mainWindow->playlistWindow()->setFloating(true);
-        geometry = Helpers::vmapToRect(playlistMap[keyGeometry].toMap());
-        mainWindow->playlistWindow()->window()->setGeometry(geometry);
-    } else if (restoreGeometry && mpvHostMap.contains(keyQtState)) {
-        // the playlist window is docked, so we place it back where it was
-        QByteArray encoded = mpvHostMap[keyQtState].toString().toLocal8Bit();
-        QByteArray state = QByteArray::fromBase64(encoded);
-        mainWindow->mpvHost()->restoreState(state);
-        mainWindow->mpvHost()->restoreDockWidget(mainWindow->playlistWindow());
-    }
-
-    // restore main window geometry and override it if requested
-    geometry = Helpers::vmapToRect(mainMap[keyGeometry].toMap());
-    QPoint desiredPlace = geometry.topLeft();
-    QSize desiredSize = geometry.size();
-    bool checkMainWindow = !geometryMap.contains(keyMainWindow)
-            || geometry.isEmpty() || !restoreGeometry;
-
-    if (checkMainWindow)
-        desiredSize = mainWindow->desirableSize(true);
-    if (validCliSize)
-        desiredSize = cliSize;
-
-    if (checkMainWindow)
-        desiredPlace = mainWindow->desirablePosition(desiredSize, true);
-    if (validCliPos)
-        desiredPlace = cliPos;
-
-    mainWindow->setGeometry(QRect(desiredPlace, desiredSize));
-
-    // helper: fetch geometry from map and center if not exists
-    auto applyVariantToWindow = [&](QWidget *window, const QVariantMap &map) {
-        geometry = Helpers::vmapToRect(map[keyGeometry].toMap());
-        if (geometry.isEmpty()) {
-            QRect available = Helpers::availableGeometryFromPoint(QCursor::pos());
-            geometry = QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter,
-                                           window->size(), available);
-        }
-        window->setGeometry(geometry);
-    };
-    // restore settings and properties window et al
-    applyVariantToWindow(settingsWindow, settingsMap);
-    applyVariantToWindow(propertiesWindow, propertiesMap);
-    applyVariantToWindow(logWindow, logMap);
-    applyVariantToWindow(libraryWindow, libraryMap);
-    showWindows(mainMap);
-}
-
-void Flow::showWindows(const QVariantMap &mainWindowMap)
-{
-    if (mainWindowMap.value(keyMinimized, false).toBool()) {
-        mainWindow->showMinimized();
-    } else {
-        if (mainWindowMap.value(keyMaximized, false).toBool())
-            mainWindow->showMaximized();
-        else
-            mainWindow->show();
-        mainWindow->raise();
-    }
-    if (mainWindowMap.contains(keyState))
-        mainWindow->setState(mainWindowMap[keyState].toMap());
     // Tell the main window it can process size requests et al now
     mainWindow->unfreezeWindow();
     // In 50 msec time when the ui is in a reliable state, call

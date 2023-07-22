@@ -127,6 +127,7 @@ SOURCES += main.cpp\
     librarywindow.cpp \
     mpvwidget.cpp \
     mainwindow.cpp \
+    platform/windowmanager.cpp \
     playlist.cpp \
     manager.cpp \
     helpers.cpp \
@@ -150,12 +151,14 @@ SOURCES += main.cpp\
     platform/devicemanager.cpp \
     logwindow.cpp \
     logger.cpp \
-    thumbnailerwindow.cpp
+    thumbnailerwindow.cpp \
+    widgets/screencombo.cpp
 
 HEADERS  += \
     librarywindow.h \
     mpvwidget.h \
     mainwindow.h \
+    platform/windowmanager.h \
     playlist.h \
     manager.h \
     main.h \
@@ -180,7 +183,8 @@ HEADERS  += \
     platform/devicemanager.h \
     logwindow.h \
     logger.h \
-    thumbnailerwindow.h
+    thumbnailerwindow.h \
+    widgets/screencombo.h
 
 FORMS    += \
     librarywindow.ui \

@@ -13,6 +13,7 @@
 #include "widgets/actioneditor.h"
 #include "widgets/logowidget.h"
 #include "widgets/paletteeditor.h"
+#include "widgets/screencombo.h"
 
 class Setting {
 public:
@@ -61,6 +62,7 @@ private:
     void setupPlatformWidgets();
     void setupPaletteEditor();
     void setupColorPickers();
+    void setupFullscreenCombo();
     void setupSelfSignals();
     void setupUnimplementedWidgets();
     void updateAcceptedSettings();
@@ -123,7 +125,7 @@ signals:
     void autoLoadSubs(bool yes);
 
     void option(const QString &s, const QVariant &v);
-    void fullscreenGeometry(const QRect &f);
+    void fullscreenScreen(QString screen);
     void fullscreenAtLaunch(bool yes);
     void fullscreenExitAtEnd(bool yes);
 
@@ -275,6 +277,7 @@ private:
     ActionEditor *actionEditor = nullptr;
     LogoWidget *logoWidget = nullptr;
     PaletteEditor *paletteEditor = nullptr;
+    ScreenCombo *screenCombo = nullptr;
     SettingMap acceptedSettings;
     SettingMap defaultSettings;
     QList<SettingMap> videoPresets;

@@ -61,6 +61,8 @@ namespace Helpers {
     bool sizeFromString(QSize &size, const QString &text);
     bool pointFromString(QPoint &point, const QString &text);
     QRect availableGeometryFromPoint(const QPoint &point);
+    QScreen *findScreenByName(QString s);
+    QString screenToVisualName(QScreen *s);
 }
 
 class IconThemer : public QObject {

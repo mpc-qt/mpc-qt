@@ -577,6 +577,30 @@ QRect Helpers::availableGeometryFromPoint(const QPoint &point)
     return screen->availableGeometry();
 }
 
+QScreen *Helpers::findScreenByName(QString s)
+{
+    for (auto screen : qApp->screens())
+        if (screenToVisualName(screen) == s)
+            return screen;
+    return nullptr;
+}
+
+QString Helpers::screenToVisualName(QScreen *s)
+{
+    // If someone has a way to convert QScreen to unique device ids on Windows,
+    // please enlighten me.  It would be nice to select a monitor and not lose
+    // it when its geometry changes.
+    if (!Platform::isUnix) {
+        QRect r = s->geometry();
+        QString w = QString::number(r.width());
+        QString h = QString::number(r.height());
+        QString x = QString("%1%2").arg(r.left() >= 0 ? "+" : "-", QString::number(std::abs(r.left())));
+        QString y = QString("%1%2").arg(r.top() >= 0 ? "+" : "-", QString::number(std::abs(r.top())));
+        return QString("%1 %2x%3%4%5").arg(s->name(), w, h, x, y);
+    }
+    return s->name();
+}
+
 
 
 IconThemer::IconThemer(QObject *parent)
