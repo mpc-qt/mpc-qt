@@ -1,5 +1,6 @@
 #include <QApplication>
 #include <QScreen>
+#include "helpers.h"
 #include "screencombo.h"
 
 ScreenCombo::ScreenCombo(QWidget *parent) : QComboBox(parent)
@@ -40,6 +41,6 @@ void ScreenCombo::populateItems()
     this->clear();
     this->addItem(tr("Current"));
     for (auto screen : qApp->screens()) {
-        this->addItem(screen->name());
+        this->addItem(Helpers::screenToVisualName(screen));
     }
 }
