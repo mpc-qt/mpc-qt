@@ -524,7 +524,6 @@ void SettingsWindow::generateVideoPresets()
 {
     SettingMap videoWidgets;
 
-    // Non-deprecated way since Qt 5.15
     videoWidgets.insert(generateSettingMap(ui->generalTab));
     videoWidgets.insert(generateSettingMap(ui->ditherTab));
     videoWidgets.insert(generateSettingMap(ui->scalingTab));
