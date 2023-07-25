@@ -463,8 +463,6 @@ void SettingsWindow::setupUnimplementedWidgets()
     ui->shadersWikiTab->setVisible(false);
     ui->shadersPresetsBox->setVisible(false);
 
-    ui->xrandrBox->setVisible(false);
-
     ui->subtitlePlacementBox->setVisible(false);
     ui->subtitlesFixTiming->setVisible(false);
     ui->subtitlesClearOnSeek->setVisible(false);

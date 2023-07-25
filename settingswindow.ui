@@ -746,8 +746,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>636</width>
-                   <height>73</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -4840,112 +4840,6 @@ media file played</string>
              </layout>
             </widget>
            </item>
-           <item row="1" column="0" colspan="2">
-            <widget class="QGroupBox" name="xrandrBox">
-             <property name="title">
-              <string>X Resize and Rotate</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_13">
-              <item>
-               <widget class="QCheckBox" name="xrandrChangeMode">
-                <property name="text">
-                 <string>Use autochange fullscreen monitor mode</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="xrandrModeListLayout">
-                <item>
-                 <widget class="QTableWidget" name="xrandrModeList">
-                  <column>
-                   <property name="text">
-                    <string>On/Off</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>From fps</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>To fps</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Display mode</string>
-                   </property>
-                  </column>
-                 </widget>
-                </item>
-                <item>
-                 <layout class="QVBoxLayout" name="xrandrModeListActionsLayout">
-                  <item>
-                   <widget class="QPushButton" name="xrandrAddMode">
-                    <property name="text">
-                     <string>Add</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="xrandrDelMode">
-                    <property name="text">
-                     <string>Del</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="xrandrMoveModeUp">
-                    <property name="text">
-                     <string>Up</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="xrandrMoveModeDown">
-                    <property name="text">
-                     <string>Down</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QGroupBox" name="xrandrChangeDelayBox">
-                    <property name="title">
-                     <string>Delay</string>
-                    </property>
-                    <layout class="QVBoxLayout" name="xrandrChangeDelayBoxLayout">
-                     <item>
-                      <widget class="QSpinBox" name="xrandrChangeDelay">
-                       <property name="suffix">
-                        <string notr="true">s</string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="xrandrOldModeAfterFullscreen">
-                <property name="text">
-                 <string>Apply default monitor mode on fullscreen exit</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="xrandrOldResolutionAtExit">
-                <property name="text">
-                 <string>Restore resolution on program exit</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
            <item row="0" column="0">
             <widget class="QGroupBox" name="fullscreenMonitorBox">
              <property name="title">
@@ -4972,7 +4866,7 @@ media file played</string>
              </layout>
             </widget>
            </item>
-           <item row="2" column="0">
+           <item row="1" column="0">
             <spacer name="verticalSpacer_6">
              <property name="orientation">
               <enum>Qt::Vertical</enum>

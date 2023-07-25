@@ -125,17 +125,13 @@ signals:
     void autoLoadSubs(bool yes);
 
     void option(const QString &s, const QVariant &v);
+
     void fullscreenScreen(QString screen);
     void fullscreenAtLaunch(bool yes);
     void fullscreenExitAtEnd(bool yes);
-
     void hideMethod(Helpers::ControlHiding method);
     void hideTime(int milliseconds);
     void hidePanels(bool yes);
-    //void xrandrMap(const XrandrMap &map);
-    void xrandrDelay(int seconds);
-    void xrandrResetDefault(bool yes);
-    void xrandrResetOnExit(bool yes);
 
     void playbackPlayTimes(int count);
     void afterPlaybackDefault(Helpers::AfterPlayback option);
