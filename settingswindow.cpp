@@ -635,8 +635,8 @@ void SettingsWindow::setAudioDevices(const QList<AudioDevice> &devices)
 
 
 // The reason why we're using #define's like this instead of quoted-string
-// inspection is because this way guarantees that the compile will fail if
-// the names here and the names in the ui file do not match up.
+// inspection is because this way guarantees that the app will not break from
+// the names here and the names in the ui file not matching up.
 
 #define WIDGET_LOOKUP(widget) \
     acceptedSettings[widget->objectName()].value
