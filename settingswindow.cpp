@@ -542,6 +542,11 @@ void SettingsWindow::generateVideoPresets()
     videoPresets.append(videoWidgets);
 
     // low
+    setWidget(ui->syncMode, 1); //video-sync=display-resample
+    setWidget(ui->scalingTemporalInterpolation, true); //interpolation
+    videoPresets.append(videoWidgets);
+
+    // medium
     setWidget(ui->videoFramebuffer, 3);  // fbo=rgb16
     setWidget(ui->scaleScaler, 18); //scale=catmull_rom
     setWidget(ui->dscaleScaler, 20); //dscale=mitchell
@@ -566,10 +571,8 @@ void SettingsWindow::generateVideoPresets()
     // placebo
     setWidget(ui->videoFramebuffer, 5); //fbo=rgba32f
     setWidget(ui->ditherTemporal, true); //temporal-dither=yes
-    setWidget(ui->scalingTemporalInterpolation, true); //interpolation
     setWidget(ui->scalingBlendSubtitles, true); //blend-subtitles
     setWidget(ui->tscaleScaler, 11); // tscale=mitchell
-    setWidget(ui->syncMode, 1); //video-sync=display-resample
     videoPresets.append(videoWidgets);
 }
 
