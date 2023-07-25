@@ -1793,6 +1793,13 @@
     </message>
 </context>
 <context>
+    <name>ScreenCombo</name>
+    <message>
+        <source>Current</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SettingsWindow</name>
     <message>
         <source>Options</source>
@@ -2869,10 +2876,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Current</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Launch files in fullscreen</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2902,58 +2905,6 @@ media file played</source>
     </message>
     <message>
         <source>Show when hovering control, hide after:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>X Resize and Rotate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use autochange fullscreen monitor mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>On/Off</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>From fps</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>To fps</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Display mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Del</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Up</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Down</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delay</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Apply default monitor mode on fullscreen exit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Restore resolution on program exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3682,10 +3633,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3695,6 +3642,18 @@ media file played</source>
     </message>
     <message>
         <source>Use time tooltip:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Language Override</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Locale (Autodetect)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Medium</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

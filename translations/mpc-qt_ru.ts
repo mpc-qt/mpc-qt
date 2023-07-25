@@ -1806,6 +1806,13 @@
     </message>
 </context>
 <context>
+    <name>ScreenCombo</name>
+    <message>
+        <source>Current</source>
+        <translation type="unfinished">Текущий</translation>
+    </message>
+</context>
+<context>
     <name>SettingsWindow</name>
     <message>
         <source>Options</source>
@@ -2905,7 +2912,7 @@ media file played</source>
     </message>
     <message>
         <source>Current</source>
-        <translation>Текущий</translation>
+        <translation type="vanished">Текущий</translation>
     </message>
     <message>
         <source>Launch files in fullscreen</source>
@@ -2941,55 +2948,51 @@ media file played</source>
     </message>
     <message>
         <source>X Resize and Rotate</source>
-        <translation>Кадрирование и поворот изображений</translation>
+        <translation type="vanished">Кадрирование и поворот изображений</translation>
     </message>
     <message>
         <source>Use autochange fullscreen monitor mode</source>
-        <translation>Использовать режим автозамены полноэкранного монитора</translation>
+        <translation type="vanished">Использовать режим автозамены полноэкранного монитора</translation>
     </message>
     <message>
         <source>On/Off</source>
-        <translation>Включить или отключить</translation>
+        <translation type="vanished">Включить или отключить</translation>
     </message>
     <message>
         <source>From fps</source>
-        <translation>Из fps</translation>
+        <translation type="vanished">Из fps</translation>
     </message>
     <message>
         <source>To fps</source>
-        <translation>В fps</translation>
+        <translation type="vanished">В fps</translation>
     </message>
     <message>
         <source>Display mode</source>
-        <translation>Режим показа</translation>
+        <translation type="vanished">Режим показа</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Добавить</translation>
-    </message>
-    <message>
-        <source>Del</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">Добавить</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation>Вверх</translation>
+        <translation type="vanished">Вверх</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation>Вниз</translation>
+        <translation type="vanished">Вниз</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation>Задержка</translation>
+        <translation type="vanished">Задержка</translation>
     </message>
     <message>
         <source>Apply default monitor mode on fullscreen exit</source>
-        <translation>Применить режим монитора по умолчанию при полноэкранном выходе</translation>
+        <translation type="vanished">Применить режим монитора по умолчанию при полноэкранном выходе</translation>
     </message>
     <message>
         <source>Restore resolution on program exit</source>
-        <translation>Восстановить разрешение при выходе из программы</translation>
+        <translation type="vanished">Восстановить разрешение при выходе из программы</translation>
     </message>
     <message>
         <source>Framedropping</source>
@@ -3721,15 +3724,23 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pipewire</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Language Override</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Locale (Autodetect)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Medium</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
