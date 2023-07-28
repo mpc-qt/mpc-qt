@@ -15,7 +15,6 @@
 #include "favoriteswindow.h"
 #include "thumbnailerwindow.h"
 #include "platform/screensaver.h"
-#include "platform/devicemanager.h"
 #include "platform/windowmanager.h"
 
 class MprisInstance;

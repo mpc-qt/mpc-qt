@@ -22,6 +22,7 @@
 #include "mpvwidget.h"
 #include "propertieswindow.h"
 #include "ipc/mpris.h"
+#include "platform/devicemanager.h"
 #include "platform/unify.h"
 #include "playlist.h"
 
