@@ -278,10 +278,6 @@ void Flow::init() {
     setupMpvObjectConnections();
     setupFlowConnections();
 
-    // manager -> settings
-    connect(playbackManager, &PlaybackManager::playerSettingsRequested,
-            settingsWindow, &SettingsWindow::sendSignals);
-
     // Setup more ipc and wire them up if we're in the primary mode
     if (programMode == PrimaryMode) {
         setupMpris();
@@ -524,6 +520,10 @@ void Flow::setupManagerConnections()
     // manager -> favorites
     connect(playbackManager, &PlaybackManager::currentTrackInfo,
             favoritesWindow, &FavoritesWindow::addTrack);
+
+    // manager -> settings
+    connect(playbackManager, &PlaybackManager::playerSettingsRequested,
+            settingsWindow, &SettingsWindow::sendSignals);
 }
 
 void Flow::setupSettingsConnections()
