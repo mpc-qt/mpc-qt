@@ -1,13 +1,23 @@
 #!/bin/bash
 # Make windows release script using 64bit libs
 
-VERSION=`date +'%y%m'`
-DOTTEDVERSION=`date +'%y.%m'`
+if [ -v GITHUB_REPOSITORY ]; then
+    VERSION=`git describe --tags`
+else
+    VERSION=`date +'%y%m'`
+    DOTTEDVERSION=`date +'%y.%m'`
+fi
+
 BUILD=release
 SUFFIX="win-x64-$VERSION"
 DEST="mpc-qt-$SUFFIX"
 
-qmake "MPCQT_VERSION=$DOTTEDVERSION" mpc-qt.pro
+if [ -v GITHUB_REPOSITORY ]; then
+    # Let qmake determine the version from git
+    qmake6 mpc-qt.pro
+else
+    qmake6 "MPCQT_VERSION=$DOTTEDVERSION" mpc-qt.pro
+fi
 mkdir -p release
 rm release/*
 make release-clean
