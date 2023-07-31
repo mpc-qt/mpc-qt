@@ -446,7 +446,6 @@ void SettingsWindow::setupSelfSignals()
 
 void SettingsWindow::setupUnimplementedWidgets()
 {
-    ui->playerTrayIcon->setVisible(false);
     ui->playerOSD->setVisible(false);
     ui->playerLimitProportions->setVisible(false);
     ui->playerDisableOpenDisc->setVisible(false);
