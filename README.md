@@ -75,7 +75,7 @@ Suggestions welcome.
 
 You need the Qt6 SDK installed and a recent edition of libmpv.  On Ubuntu you
 can usually install the required libraries and tools with the
-`build-essential`, `qmake6`, `qt6-base-dev`, `qt6-l10n-tools`, `qt6-svg-dev`,
+`build-essential`, `qmake6`, `qt6-base-dev`, `qt6-l10n-tools`, `libqt6svg6-dev`,
 and `libmpv-dev` packages.  A recent edition of [libmpv] means either from git
 head or at least version 0.29.0.  The mpv options for this are
 `--enable-libmpv-shared` for shared library support, and
