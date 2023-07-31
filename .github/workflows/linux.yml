@@ -1,0 +1,21 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: install packages
+      run: sudo apt-get -y install build-essential qmake6 qt6-base-dev qt6-l10n-tools libqt6svg6-dev libgl-dev libmpv-dev
+    - uses: actions/checkout@v3
+    - name: qmake
+      run: qmake6 MPCQT_VERSION=GithubAction mpc-qt.pro
+    - name: make
+      run: make

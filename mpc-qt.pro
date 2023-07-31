@@ -15,7 +15,7 @@ CONFIG += c++14
 
 !isEmpty(MPCQT_VERSION) {
     message("Version provided on the commandline: $$MPCQT_VERSION")
-    VERSTR = $$MPCQT_VERSION
+    VERSTR = "$$MPCQT_VERSION"
     VERSTR_WIN = "$$VERSTR"".0"
 } else:exists(.git) {
     # bare qmake, likely invoked by myself in qtcreator or by brave users
