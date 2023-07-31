@@ -537,6 +537,8 @@ void Flow::setupSettingsConnections()
             settingsWindow, &SettingsWindow::setZoomPreset);
 
     // settings -> mainwindow
+    connect(settingsWindow, &SettingsWindow::trayIcon,
+            mainWindow, &MainWindow::setTrayIcon);
     connect(settingsWindow, &SettingsWindow::mouseWindowedMap,
             mainWindow, &MainWindow::setWindowedMouseMap);
     connect(settingsWindow, &SettingsWindow::mouseFullscreenMap,
