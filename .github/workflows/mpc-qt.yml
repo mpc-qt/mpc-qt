@@ -1,0 +1,56 @@
+name: Build mpc-qt
+
+on:
+  workflow_dispatch:
+    inputs:
+      libmpv_url:
+        description: 'input libmpv(mpv-dev-x86_64-*.7z) download url'
+        required: true
+      yt-dlp_url:
+        description: 'input yt-dlp.exe download url'
+        required: true
+
+jobs:
+  build:
+    runs-on: windows-2022
+    defaults:
+      run:
+        shell: msys2 {0}
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: mpc-qt/mpc-qt
+          fetch-depth: 1
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: mingw64
+          update: true
+          install: >-
+            base-devel
+            wget
+            p7zip
+            mingw-w64-x86_64-toolchain
+            mingw-w64-x86_64-qt6
+            mingw-w64-x86_64-qt-creator
+            mingw-w64-x86_64-imagemagick
+            mingw-w64-x86_64-librsvg
+            mingw-w64-x86_64-inkscape
+      - name: Download libmpv
+        run: |
+          wget -nv -O libmpv.7z ${{ github.event.inputs.libmpv_url }}
+          7z x -y libmpv.7z -olibmpv
+          cp -f libmpv/* mpv-dev/lib || true
+          cp -f libmpv/include/* mpv-dev/include/mpv || true
+          wget -nv -O binaries/yt-dlp.exe ${{ github.event.inputs.yt-dlp_url }}
+      - name: Build
+        run: |
+          chmod +x *.sh
+          set +e
+          bash make-win-icon.sh
+          bash make-release-win.sh
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: "mpc-qt-win"
+          path: mpc-qt-*.zip

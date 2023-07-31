@@ -210,6 +210,7 @@ OTHER_FILES += \
     'DOCS/coding standards.md' \
     io.github.mpc_qt.Mpc-Qt.appdata.xml \
     lconvert.pri
+    .github/workflows/mpc-qt.yml
 
 DISTFILES += \
     DOCS/ipc.md \
