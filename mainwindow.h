@@ -5,6 +5,7 @@
 #include <mpvwidget.h>
 #include <QMenuBar>
 #include <QTimer>
+#include <QSystemTrayIcon>
 #include "helpers.h"
 #include "widgets/drawnslider.h"
 #include "widgets/drawnstatus.h"
@@ -72,6 +73,7 @@ private:
 
     void setupMenu();
     void setupContextMenu();
+    void setupTrayIcon();
     void setupActionGroups();
     void setupPositionSlider();
     void setupVolumeSlider();
@@ -209,6 +211,7 @@ public slots:
     void setFreestanding(bool freestanding);
     void setFullscreenMode(bool fullscreenMode);
     void setNoVideoSize(const QSize &sz);
+    void setTrayIcon(bool enabled);
     void setWindowedMouseMap(const MouseStateMap &map);
     void setFullscreenMouseMap(const MouseStateMap &map);
     void setRecentDocuments(QList<TrackInfo> tracks);
@@ -395,7 +398,9 @@ private:
     StatusTime *timeDuration = nullptr;
     PlaylistWindow *playlistWindow_ = nullptr;
     QMenu *contextMenu = nullptr;
+    QMenu *trayMenu = nullptr;
     QTimer hideTimer;
+    QSystemTrayIcon *trayIcon = nullptr;
 
     bool freestanding_ = false;
     DecorationState decorationState_ = AllDecorations;

@@ -28,6 +28,7 @@
 
 using namespace Helpers;
 static const char SKIPACTION[] = "Skip";
+static const char textWindowTitle[] = "Media Player Classic Qute Theater";
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -37,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     setupMenu();
     setupContextMenu();
+    setupTrayIcon();
     setupActionGroups();
     setupPositionSlider();
     setupVolumeSlider();
@@ -533,6 +535,39 @@ void MainWindow::setupContextMenu()
     contextMenu->addAction(ui->actionFileExit);
 }
 
+void MainWindow::setupTrayIcon()
+{
+    trayMenu = new QMenu(this);
+    trayMenu->addMenu(ui->menuFile);
+    trayMenu->addMenu(ui->menuEdit);
+    trayMenu->addMenu(ui->menuView);
+    trayMenu->addMenu(ui->menuPlay);
+    trayMenu->addMenu(ui->menuNavigate);
+    trayMenu->addMenu(ui->menuFavorites);
+    trayMenu->addMenu(ui->menuHelp);
+    trayMenu->addSeparator();
+    // TODO: add filter menu
+    // TODO: add shader menu
+    // add seperator
+    trayMenu->addMenu(ui->menuPlayAudio);
+    trayMenu->addMenu(ui->menuPlaySubtitles);
+    trayMenu->addMenu(ui->menuPlayVideo);
+    trayMenu->addSeparator();
+    trayMenu->addMenu(ui->menuPlayVolume);
+    trayMenu->addMenu(ui->menuPlayAfter);
+    trayMenu->addSeparator();
+    // TODO: add renderer settings
+    trayMenu->addAction(ui->actionFileProperties);
+    trayMenu->addAction(ui->actionViewOptions);
+    trayMenu->addSeparator();
+    trayMenu->addAction(ui->actionFileExit);
+
+    trayIcon = new QSystemTrayIcon(this);
+    trayIcon->setContextMenu(trayMenu);
+    trayIcon->setToolTip(textWindowTitle);
+    trayIcon->setIcon(QIcon(":/images/icon/mpc-qt.svg"));
+}
+
 void MainWindow::setupActionGroups()
 {
     QActionGroup *ag;
@@ -615,7 +650,7 @@ void MainWindow::setupMpvHost()
 
 void MainWindow::setupMpvObject()
 {
-    mpvObject_ = new MpvObject(this, "Media Player Classic Qute Theater");
+    mpvObject_ = new MpvObject(this, textWindowTitle);
     mpvObject_->setHostWindow(mpvHost_);
     setupMpvWidget(Helpers::GlCbWidget);
     connect(mpvObject_, &MpvObject::logoSizeChanged,
@@ -1485,6 +1520,14 @@ void MainWindow::setNoVideoSize(const QSize &size)
     updateSize();
 }
 
+void MainWindow::setTrayIcon(bool enabled)
+{
+    if (!trayIcon->isVisible() && enabled)
+        trayIcon->show();
+    else if (trayIcon->isVisible() && !enabled)
+        trayIcon->hide();
+}
+
 void MainWindow::setWindowedMouseMap(const MouseStateMap &map)
 {
     mouseMapWindowed = map;
@@ -1590,7 +1633,7 @@ void MainWindow::setTime(double time, double length)
 
 void MainWindow::setMediaTitle(QString title)
 {
-    QString window_title("Media Player Classic Qute Theater");
+    QString window_title(textWindowTitle);
 
     if (freestanding_)
         window_title.append(tr(" [Freestanding]"));
