@@ -211,6 +211,7 @@ OTHER_FILES += \
     README.md \
     .github/workflows/linux.yml \
     make-win-icon.sh \
+    make-release-msys2.sh \
     make-release-win.sh \
     DOCS/codebase2.svg \
     DOCS/codebase.svg \
@@ -220,7 +221,6 @@ OTHER_FILES += \
 
 DISTFILES += \
     DOCS/ipc.md \
-    io.github.mpc_qt.Mpc-Qt.desktop \
-    make-release-msys2.sh
+    io.github.mpc_qt.Mpc-Qt.desktop
 
 
