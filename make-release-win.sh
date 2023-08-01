@@ -7,7 +7,7 @@ BUILD=release
 SUFFIX="win-x64-$VERSION"
 DEST="mpc-qt-$SUFFIX"
 
-qmake "MPCQT_VERSION=$DOTTEDVERSION" mpc-qt.pro
+qmake6 "MPCQT_VERSION=$DOTTEDVERSION" "ENABLE_LOCAL_MPV=1" mpc-qt.pro
 mkdir -p release
 rm release/*
 make release-clean
