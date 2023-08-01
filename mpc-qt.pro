@@ -61,9 +61,15 @@ unix:!macx:LIBS += $$QMAKE_LIBS_DYNLOAD
 !win32:CONFIG += link_pkgconfig
 !win32:PKGCONFIG += mpv
 
-win32:LIBS += -L$$PWD/mpv-dev/lib/ -llibmpv -lpowrprof
+win32:LIBS += -lpowrprof
+!isEmpty(ENABLE_LOCAL_MPV) {
+win32:LIBS += -L$$PWD/mpv-dev/lib/ -llibmpv
 win32:INCLUDEPATH += $$PWD/mpv-dev/include
 win32:DEPENDPATH += $$PWD/mpv-dev
+} else {
+win32:CONFIG += link_pkgconfig
+win32:PKGCONFIG += mpv
+}
 
 CONFIG += lrelease embed_translations
 #NOTE: lupdate is run with "-locations none -no-ui-lines".  Edit your config.
@@ -203,6 +209,7 @@ RESOURCES += \
 OTHER_FILES += \
     LICENSE \
     README.md \
+    .github/workflows/linux.yml \
     make-win-icon.sh \
     make-release-win.sh \
     DOCS/codebase2.svg \
@@ -214,5 +221,6 @@ OTHER_FILES += \
 DISTFILES += \
     DOCS/ipc.md \
     io.github.mpc_qt.Mpc-Qt.desktop \
+    make-release-msys2.sh
 
 
