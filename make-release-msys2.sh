@@ -19,7 +19,11 @@ qmake6 "MPCQT_VERSION=$VERSION" mpc-qt.pro
 mkdir -p $BUILD
 rm $BUILD/*
 make $BUILD-clean
-make -j`nproc` $BUILD
+if [ -v GITHUB_SHA ]; then
+    make $BUILD
+else
+    make -j`nproc` $BUILD
+fi
 
 echo Making directories
 mkdir -p "$DEST"
