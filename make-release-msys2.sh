@@ -25,6 +25,10 @@ else
     make -j`nproc` $BUILD
 fi
 
+if [ ! -f "$BUILD/mpc-qt.exe" ]; then
+    exit 1
+fi
+
 echo Making directories
 mkdir -p "$DEST"
 mkdir -p "$DEST/doc"
