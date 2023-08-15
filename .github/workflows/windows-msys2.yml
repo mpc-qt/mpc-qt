@@ -1,0 +1,46 @@
+name: Msys2 CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: windows-2022
+    defaults:
+      run:
+        shell: msys2 {0}
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: msys2/setup-msys2@v2
+      with:
+        msystem: mingw64
+        update: true
+        install: >-
+          base-devel
+          wget
+          p7zip
+          mingw-w64-x86_64-toolchain
+          mingw-w64-x86_64-qt6
+          mingw-w64-x86_64-qt-creator
+          mingw-w64-x86_64-imagemagick
+          mingw-w64-x86_64-librsvg
+          mingw-w64-x86_64-boost
+          mingw-w64-x86_64-inkscape
+          mingw-w64-x86_64-mpv
+    - name: Build
+      run: |
+        chmod +x *.sh
+        set +e
+        ln -s lrelease-qt6.exe /mingw64/bin/lrelease.exe
+        ln -s lupdate-qt6.exe /mingw64/bin/lupdate.exe
+        bash make-win-icon.sh
+        bash make-release-msys2.sh          
+    - name: Upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: "mpc-qt-win"
+        path: mpc-qt-*.zip
