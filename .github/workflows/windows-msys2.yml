@@ -35,6 +35,8 @@ jobs:
       run: |
         chmod +x *.sh
         set +e
+        ln -s lrelease-qt6.exe /mingw64/bin/lrelease.exe
+        ln -s lupdate-qt6.exe /mingw64/bin/lupdate.exe
         bash make-win-icon.sh
         bash make-release-msys2.sh          
     - name: Upload
