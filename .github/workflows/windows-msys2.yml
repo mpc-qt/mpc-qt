@@ -28,6 +28,7 @@ jobs:
           mingw-w64-x86_64-qt-creator
           mingw-w64-x86_64-imagemagick
           mingw-w64-x86_64-librsvg
+          mingw-w64-x86_64-boost
           mingw-w64-x86_64-inkscape
           mingw-w64-x86_64-mpv
     - name: Build
