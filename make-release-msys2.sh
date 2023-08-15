@@ -26,6 +26,7 @@ else
 fi
 
 if [ ! -f "$BUILD/mpc-qt.exe" ]; then
+    echo Failed to find executable
     exit 1
 fi
 
