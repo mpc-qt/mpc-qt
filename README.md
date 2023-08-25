@@ -103,9 +103,7 @@ Then build with qmake+make.
 
 >qmake6
 
->make -j *threads*
-
-Where *threads* is the amount of threads your CPU has.  Then:
+>make -j\`nproc\`
 
 >sudo make install
 
@@ -156,7 +154,7 @@ Build libmpv.
 
 >./update
 
->./build -j4
+>./build -j\`nproc\`
 
 >sudo ./install
 
@@ -205,9 +203,8 @@ folder into `mpv-dev/include/mpv`.  If you do this, compile with the
 
 >qmake6 ENABLE_LOCAL_MPV=1 mpc-qt.pro
 
->make -j*threads*
+>make -j\`nproc\`
 
-Where *threads* is the number of threads provided by your CPU.
 Congratulations, you have now built mpc-qt!
 
 [screenshot]:https://raw.githubusercontent.com/mpc-qt/mpc-qt-screenshots/master/Screenshot_20220226_155532.png
