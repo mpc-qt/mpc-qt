@@ -200,14 +200,15 @@ using the prebuilt library released on sourceforge.  To use the prebuilt
 library after cloning this repository, download libmpv from [shinchiro's
 release page], and extract it somewhere.  Place the files in the root folder
 of mpv-dev-x86_64-*.7z into `mpv-dev/lib`. Then place the files in its include
-folder into `mpv-dev/include/mpv`.  Compile with the 64bit Qt framework.
+folder into `mpv-dev/include/mpv`.  If you do this, compile with the
+`ENABLE_LOCAL_MPV=1` option.
 
->qmake6 mpc-qt.pro
+>qmake6 ENABLE_LOCAL_MPV=1 mpc-qt.pro
 
 >make -j*threads*
 
 Where *threads* is the number of threads provided by your CPU.
-Congratulations!
+Congratulations, you have now built mpc-qt!
 
 [screenshot]:https://raw.githubusercontent.com/mpc-qt/mpc-qt-screenshots/master/Screenshot_20220226_155532.png
 [mpc-hc]:https://mpc-hc.org/
