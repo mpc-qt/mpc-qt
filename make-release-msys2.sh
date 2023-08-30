@@ -161,6 +161,7 @@ cp $BINDIR/xvidcore.dll                 "$DEST"
 cp $BINDIR/libgmp-*.dll                 "$DEST"
 cp $BINDIR/libhogweed-*.dll             "$DEST"
 cp $BINDIR/libnettle-*.dll              "$DEST"
+cp $BINDIR/libmujs.dll                  "$DEST"
 echo Copying extra libraries
 cp $BINDIR/libidn2-*.dll                "$DEST"
 cp $BINDIR/libp11-kit-*.dll             "$DEST"
