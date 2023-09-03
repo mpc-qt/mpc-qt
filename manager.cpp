@@ -504,8 +504,8 @@ void PlaybackManager::selectDesiredTracks()
     };
     int64_t videoId = findIdBySecond(videoList, videoListSelected);
     int64_t audioId = findIdBySecond(audioList, audioListSelected);
-    int64_t subsId = findSubIdByPreference();
-    if (subsId < 0) subsId = findIdBySecond(subtitleList, subtitleListSelected);
+    int64_t subsId = findIdBySecond(subtitleList, subtitleListSelected);
+    if (subsId < 0) subsId = findSubIdByPreference();
 
     // Set detected tracks; if no preferred track from a list could be found,
     // clear user selection
