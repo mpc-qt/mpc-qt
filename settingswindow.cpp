@@ -1014,7 +1014,7 @@ void SettingsWindow::sendSignals()
     else
         emit option("sub-back-color", "#00000000");
 
-    emit subsPreferDefaultForced(WIDGET_LOOKUP(ui->subtitlesPreferDefaultForced_v2).toBool());
+    emit subsPreferDefaultForced(WIDGET_LOOKUP(ui->subtitlesPreferDefaultForced_v3).toBool());
     emit subsPreferExternal(WIDGET_LOOKUP(ui->subtitlesPreferExternal).toBool());
     emit subsIgnoreEmbeded(WIDGET_LOOKUP(ui->subtitlesIgnoreEmbedded).toBool());
     bool subsAutoload = WIDGET_LOOKUP(ui->subtitlesAutoloadExternal).toBool();
