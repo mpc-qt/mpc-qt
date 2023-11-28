@@ -99,13 +99,10 @@ unix {
     shortcut.files = mpc-qt.desktop
     shortcut.path = $$PREFIX/share/applications/
 
-    appdata.files = io.github.mpc_qt.Mpc-Qt.appdata.xml
-    appdata.path = $$PREFIX/share/metainfo/
-
     logo.files = images/icon/mpc-qt.svg
     logo.path = $$PREFIX/share/icons/hicolor/scalable/apps/
 
-    INSTALLS += target docs shortcut logo appdata
+    INSTALLS += target docs shortcut logo
 }
 
 unix:!macx:SOURCES += platform/screensaver_unix.cpp \
@@ -216,7 +213,6 @@ OTHER_FILES += \
     DOCS/codebase2.svg \
     DOCS/codebase.svg \
     'DOCS/coding standards.md' \
-    io.github.mpc_qt.Mpc-Qt.appdata.xml \
     lconvert.pri
 
 DISTFILES += \
