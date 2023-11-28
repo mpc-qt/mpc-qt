@@ -96,7 +96,7 @@ unix {
     docs.files = DOCS/ipc.md
     docs.path = $$PREFIX/share/doc/mpc-qt/
 
-    shortcut.files = io.github.mpc_qt.Mpc-Qt.desktop
+    shortcut.files = mpc-qt.desktop
     shortcut.path = $$PREFIX/share/applications/
 
     appdata.files = io.github.mpc_qt.Mpc-Qt.appdata.xml
@@ -221,6 +221,6 @@ OTHER_FILES += \
 
 DISTFILES += \
     DOCS/ipc.md \
-    io.github.mpc_qt.Mpc-Qt.desktop
+    mpc-qt.desktop
 
 
