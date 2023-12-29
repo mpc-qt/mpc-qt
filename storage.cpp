@@ -24,12 +24,11 @@ QString Storage::fetchConfigPath()
     if (Platform::isWindows) {
         QDir d(QCoreApplication::applicationDirPath());
         if (d.entryList().contains("portable.txt")) {
-            configPath = d.absolutePath() + "\\config";
-            return configPath;
+            configPath = d.absolutePath() + "/config";
         }
     }
     if (configPath.isEmpty()) {
-        configPath = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
+        configPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/mpc-qt";
         configPath = Platform::fixedConfigPath(configPath);
     }
     return configPath;
