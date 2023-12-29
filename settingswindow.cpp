@@ -348,6 +348,14 @@ SettingsWindow::~SettingsWindow()
     delete ui;
 }
 
+void SettingsWindow::disableWindowManagment()
+{
+    // Wayland breaks applications
+    ui->playerLimitProportions->setDisabled(true);
+    ui->playerRememberWindowGeometry->setDisabled(true);
+    ui->playbackAutoCenterWindow->setDisabled(true);
+}
+
 void SettingsWindow::setupPageTree()
 {
     // Expand every item on pageTree

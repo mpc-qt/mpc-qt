@@ -56,6 +56,7 @@ public:
     ~SettingsWindow();
     QVariantMap settings();
     QVariantMap keyMap();
+    void disableWindowManagment();
 
 private:
     void setupPageTree();

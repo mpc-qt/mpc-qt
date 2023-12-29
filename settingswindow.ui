@@ -177,7 +177,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>20</number>
+          <number>7</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">

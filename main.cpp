@@ -98,6 +98,10 @@ int main(int argc, char *argv[])
     return f.run();
 }
 
+//---------------------------------------------------------------------------
+
+bool Flow::settingsDisableWindowManagement = false;
+
 Flow::Flow(QObject *owner) :
     QObject(owner)
 {
@@ -235,6 +239,8 @@ void Flow::init() {
     playbackManager->setPlaylistWindow(mainWindow->playlistWindow());
     settingsWindow = new SettingsWindow();
     settingsWindow->setWindowModality(Qt::WindowModal);
+    if (settingsDisableWindowManagement)
+        settingsWindow->disableWindowManagment();
     propertiesWindow = new PropertiesWindow();
     favoritesWindow = new FavoritesWindow();
     logWindow = new LogWindow();
@@ -344,6 +350,8 @@ void Flow::earlyPlatformOverride()
     QVariantMap settings = s.readVMap(fileSettings);
     if (!settings.value("tweaksPreferWayland", QVariant(false)).toBool()) {
         qputenv("QT_QPA_PLATFORM", "xcb");
+    } else {
+        settingsDisableWindowManagement = true;
     }
 }
 

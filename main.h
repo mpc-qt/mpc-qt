@@ -121,6 +121,7 @@ private:
     bool validCliPos = false;
     QStringList customFiles;
 
+    static bool settingsDisableWindowManagement;
     bool inhibitScreensaver = false;
     bool manipulateScreensaver = false;
     bool rememberWindowGeometry = false;
