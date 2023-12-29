@@ -17,13 +17,6 @@ There are builds for Windows users on the release page; these use time-based
 versioning (e.g. 17.07 corresponds to a 2017 July).  The are also build
 artifacts from Github actions.
 
-The best version is git master, and everyone are encouraged to increase their
-computer-fu by compiling from source. (see sections below.)  Compiling from
-source gives you several advantages over the usual user, such the ability to
-use latest and pre-release software regardless of where it comes from.  Unix
-users, there could even be packages in your distro that help with this. (e.g.
-[aur], [ports].)
-
 Note that unimplemented features in the options dialog are hidden and (where
 this is not possible) disabled.  This is to preserve the familar options layout
 from mpc-hc in the meantime.
@@ -71,6 +64,13 @@ Suggestions welcome.
 
 
 ## Compiling
+
+The best version is git master, and everyone are encouraged to increase their
+computer-fu by compiling from source. (see sections below.)  Compiling from
+source gives you several advantages over the usual user, such the ability to
+use latest and pre-release software regardless of where it comes from.  Unix
+users, there could even be packages in your distro that help with this. (e.g.
+[aur], [ports].)
 
 ### Prerequisites
 
