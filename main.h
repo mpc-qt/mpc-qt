@@ -34,6 +34,7 @@ public:
     void init();
     int run();
     bool earlyQuit();
+    static void earlyPlatformOverride();
 
 signals:
     void recentFilesChanged(QList<TrackInfo> urls);

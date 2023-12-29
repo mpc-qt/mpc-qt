@@ -45,10 +45,7 @@ static const char fileSettings[] = "settings";
 
 int main(int argc, char *argv[])
 {
-    // Wayland doesn't support window repositioning and it doesn't look like
-    // it'll support it any time soon.  Force use of XCB under Unix.
-    if (Platform::isUnix)
-        qputenv("QT_QPA_PLATFORM", "xcb");
+    Flow::earlyPlatformOverride();
 
     QApplication a(argc, argv);
     Logger::singleton();
@@ -334,6 +331,20 @@ int Flow::run()
 bool Flow::earlyQuit()
 {
     return programMode == EarlyQuitMode;
+}
+
+void Flow::earlyPlatformOverride()
+{
+    if (!Platform::isUnix)
+        return;
+    // Wayland doesn't support run-time centering and it doesn't look like
+    // it'll support it any time soon.  I'll remove this code when it does.
+
+    Storage s;
+    QVariantMap settings = s.readVMap(fileSettings);
+    if (!settings.value("tweaksPreferWayland", QVariant(false)).toBool()) {
+        qputenv("QT_QPA_PLATFORM", "xcb");
+    }
 }
 
 void Flow::readConfig()

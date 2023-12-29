@@ -473,6 +473,7 @@ void SettingsWindow::setupUnimplementedWidgets()
     ui->encodeTab->setEnabled(false);
 
     ui->tweaksShowChapterMarks->setVisible(false);
+    ui->tweaksPreferWayland->setVisible(Platform::isUnix);
     // Remove the trailing : (looks odd with the rest of the tooltip options hidden)
     ui->tweaksTimeTooltip->setText(ui->tweaksTimeTooltip->text().replace(":",""));
     ui->tweaksTimeTooltipLocation->setVisible(false);

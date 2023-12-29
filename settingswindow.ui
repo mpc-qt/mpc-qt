@@ -20,14 +20,14 @@
    <item>
     <widget class="QSplitter" name="splitter">
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <widget class="QTreeWidget" name="pageTree">
       <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
+       <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
       </property>
       <property name="horizontalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
+       <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
       </property>
       <property name="headerHidden">
        <bool>true</bool>
@@ -177,7 +177,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>17</number>
+          <number>20</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -224,7 +224,7 @@
               <item>
                <spacer name="playerHistorySpacer">
                 <property name="orientation">
-                 <enum>Qt::Vertical</enum>
+                 <enum>Qt::Orientation::Vertical</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -301,7 +301,7 @@
               <item>
                <spacer name="playerTitleSpacer">
                 <property name="orientation">
-                 <enum>Qt::Vertical</enum>
+                 <enum>Qt::Orientation::Vertical</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -342,7 +342,7 @@ media file played</string>
               <item>
                <spacer name="playerOpenSpacer">
                 <property name="orientation">
-                 <enum>Qt::Vertical</enum>
+                 <enum>Qt::Orientation::Vertical</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -405,7 +405,7 @@ media file played</string>
               <item>
                <spacer name="playerOtherSpacer">
                 <property name="orientation">
-                 <enum>Qt::Vertical</enum>
+                 <enum>Qt::Orientation::Vertical</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -495,7 +495,7 @@ media file played</string>
                <item>
                 <spacer name="ipcSpacer">
                  <property name="orientation">
-                  <enum>Qt::Vertical</enum>
+                  <enum>Qt::Orientation::Vertical</enum>
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
@@ -519,7 +519,7 @@ media file played</string>
                <item>
                 <spacer name="keysResetSpacer">
                  <property name="orientation">
-                  <enum>Qt::Vertical</enum>
+                  <enum>Qt::Orientation::Vertical</enum>
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
@@ -736,7 +736,7 @@ media file played</string>
               <item>
                <widget class="QScrollArea" name="interfaceWidgetCustomScrollArea">
                 <property name="horizontalScrollBarPolicy">
-                 <enum>Qt::ScrollBarAlwaysOff</enum>
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
                 </property>
                 <property name="widgetResizable">
                  <bool>true</bool>
@@ -746,8 +746,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>42</width>
-                   <height>18</height>
+                   <width>640</width>
+                   <height>74</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -1009,7 +1009,7 @@ media file played</string>
            <item>
             <spacer name="verticalSpacer_5">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -1313,7 +1313,7 @@ media file played</string>
                  <string>Volume</string>
                 </property>
                 <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
                 </property>
                </widget>
               </item>
@@ -1323,7 +1323,7 @@ media file played</string>
                  <string>Balance</string>
                 </property>
                 <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
                 </property>
                </widget>
               </item>
@@ -1336,7 +1336,7 @@ media file played</string>
                  <number>100</number>
                 </property>
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                </widget>
               </item>
@@ -1349,10 +1349,10 @@ media file played</string>
                  <number>100</number>
                 </property>
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                 <property name="tickPosition">
-                 <enum>QSlider::TicksBothSides</enum>
+                 <enum>QSlider::TickPosition::TicksBothSides</enum>
                 </property>
                 <property name="tickInterval">
                  <number>10</number>
@@ -1365,7 +1365,7 @@ media file played</string>
            <item row="4" column="0">
             <spacer name="playbackSpacer">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -1560,7 +1560,7 @@ media file played</string>
                  </attribute>
                  <layout class="QFormLayout" name="generalTabLayout">
                   <property name="fieldGrowthPolicy">
-                   <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+                   <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
                   </property>
                   <item row="0" column="0">
                    <widget class="QLabel" name="videoFramebufferLabel">
@@ -1624,7 +1624,7 @@ media file played</string>
                     <item>
                      <spacer name="videoFramebufferSpacer">
                       <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
+                       <enum>Qt::Orientation::Horizontal</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -1735,7 +1735,7 @@ media file played</string>
                     <item>
                      <spacer name="videoPresetSpacer">
                       <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
+                       <enum>Qt::Orientation::Horizontal</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -1866,7 +1866,7 @@ media file played</string>
                         <string>Often, LCDs perform dithering on their own, which conflicts with OpenGL's output and can lead to ugly output.  In which case you should lower the dither depth.</string>
                        </property>
                        <property name="alignment">
-                        <set>Qt::AlignJustify|Qt::AlignTop</set>
+                        <set>Qt::AlignmentFlag::AlignJustify|Qt::AlignmentFlag::AlignTop</set>
                        </property>
                        <property name="wordWrap">
                         <bool>true</bool>
@@ -1927,7 +1927,7 @@ media file played</string>
                         <string>This can lead to flicker on LCD displays, since these  have a high reaction time.</string>
                        </property>
                        <property name="alignment">
-                        <set>Qt::AlignJustify|Qt::AlignTop</set>
+                        <set>Qt::AlignmentFlag::AlignJustify|Qt::AlignmentFlag::AlignTop</set>
                        </property>
                        <property name="wordWrap">
                         <bool>true</bool>
@@ -1994,7 +1994,7 @@ media file played</string>
                         <item>
                          <spacer name="scalingSpacer">
                           <property name="orientation">
-                           <enum>Qt::Vertical</enum>
+                           <enum>Qt::Orientation::Vertical</enum>
                           </property>
                           <property name="sizeHint" stdset="0">
                            <size>
@@ -3879,7 +3879,7 @@ media file played</string>
                  </attribute>
                  <layout class="QFormLayout" name="debandTabLayout">
                   <property name="fieldGrowthPolicy">
-                   <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+                   <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
                   </property>
                   <item row="0" column="0">
                    <widget class="QLabel" name="debandStateLabel">
@@ -3983,7 +3983,7 @@ media file played</string>
                  </attribute>
                  <layout class="QFormLayout" name="formLayout_3">
                   <property name="fieldGrowthPolicy">
-                   <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+                   <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
                   </property>
                   <item row="0" column="0">
                    <widget class="QLabel" name="ccGammaLabel">
@@ -4543,7 +4543,7 @@ media file played</string>
            <item>
             <spacer name="verticalSpacer_4">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -4588,13 +4588,13 @@ media file played</string>
                     <bool>true</bool>
                    </property>
                    <property name="dragDropMode">
-                    <enum>QAbstractItemView::DragDrop</enum>
+                    <enum>QAbstractItemView::DragDropMode::DragDrop</enum>
                    </property>
                    <property name="defaultDropAction">
-                    <enum>Qt::CopyAction</enum>
+                    <enum>Qt::DropAction::CopyAction</enum>
                    </property>
                    <property name="selectionMode">
-                    <enum>QAbstractItemView::ExtendedSelection</enum>
+                    <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
                    </property>
                   </widget>
                  </item>
@@ -4667,7 +4667,7 @@ media file played</string>
                  <item>
                   <spacer name="shadersSpacer">
                    <property name="orientation">
-                    <enum>Qt::Vertical</enum>
+                    <enum>Qt::Orientation::Vertical</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -4689,10 +4689,10 @@ media file played</string>
                <item>
                 <widget class="QListWidget" name="shadersWikiList">
                  <property name="dragDropMode">
-                  <enum>QAbstractItemView::InternalMove</enum>
+                  <enum>QAbstractItemView::DragDropMode::InternalMove</enum>
                  </property>
                  <property name="defaultDropAction">
-                  <enum>Qt::IgnoreAction</enum>
+                  <enum>Qt::DropAction::IgnoreAction</enum>
                  </property>
                 </widget>
                </item>
@@ -4715,7 +4715,7 @@ media file played</string>
                  <item>
                   <spacer name="shadersWikiSpacer">
                    <property name="orientation">
-                    <enum>Qt::Vertical</enum>
+                    <enum>Qt::Orientation::Vertical</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -4743,13 +4743,13 @@ media file played</string>
                  <bool>true</bool>
                 </property>
                 <property name="dragDropMode">
-                 <enum>QAbstractItemView::DragDrop</enum>
+                 <enum>QAbstractItemView::DragDropMode::DragDrop</enum>
                 </property>
                 <property name="defaultDropAction">
-                 <enum>Qt::CopyAction</enum>
+                 <enum>Qt::DropAction::CopyAction</enum>
                 </property>
                 <property name="selectionMode">
-                 <enum>QAbstractItemView::ExtendedSelection</enum>
+                 <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
                 </property>
                </widget>
               </item>
@@ -4765,7 +4765,7 @@ media file played</string>
                 <item>
                  <spacer name="shadersActiveSpacer">
                   <property name="orientation">
-                   <enum>Qt::Vertical</enum>
+                   <enum>Qt::Orientation::Vertical</enum>
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
@@ -4874,7 +4874,7 @@ media file played</string>
            <item row="1" column="0">
             <spacer name="verticalSpacer_6">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -4895,7 +4895,7 @@ media file played</string>
              </property>
              <layout class="QFormLayout" name="framedroppingBoxLayout">
               <property name="fieldGrowthPolicy">
-               <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+               <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
               </property>
               <item row="0" column="0">
                <widget class="QLabel" name="framedroppingModeLabel">
@@ -4985,7 +4985,7 @@ media file played</string>
              </property>
              <layout class="QFormLayout" name="syncAudioVideoBoxLayout">
               <property name="fieldGrowthPolicy">
-               <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+               <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
               </property>
               <item row="0" column="0">
                <widget class="QLabel" name="syncModeLabel">
@@ -5047,7 +5047,7 @@ media file played</string>
               <item row="1" column="1">
                <widget class="QDoubleSpinBox" name="syncAudioDropSize">
                 <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="decimals">
                  <number>6</number>
@@ -5063,7 +5063,7 @@ media file played</string>
               <item row="2" column="1">
                <widget class="QDoubleSpinBox" name="syncMaxAudioChange">
                 <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="decimals">
                  <number>6</number>
@@ -5079,7 +5079,7 @@ media file played</string>
               <item row="3" column="1">
                <widget class="QDoubleSpinBox" name="syncMaxVideoChange">
                 <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="decimals">
                  <number>6</number>
@@ -5098,7 +5098,7 @@ media file played</string>
            <item>
             <spacer name="syncPageSpacer">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -5371,7 +5371,7 @@ media file played</string>
                <item>
                 <spacer name="verticalSpacer">
                  <property name="orientation">
-                  <enum>Qt::Vertical</enum>
+                  <enum>Qt::Orientation::Vertical</enum>
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
@@ -5388,7 +5388,7 @@ media file played</string>
            <item>
             <spacer name="hwdecSpacer">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -5503,7 +5503,7 @@ media file played</string>
               <item>
                <layout class="QFormLayout" name="audioDeviceLayout">
                 <property name="fieldGrowthPolicy">
-                 <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+                 <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
                 </property>
                 <item row="0" column="0">
                  <widget class="QLabel" name="audioDeviceLabel">
@@ -5631,7 +5631,7 @@ media file played</string>
                   <item row="0" column="2">
                    <spacer name="audioStreamSilenceSpacer">
                     <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
+                     <enum>Qt::Orientation::Horizontal</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
@@ -5676,7 +5676,7 @@ media file played</string>
                  </attribute>
                  <layout class="QFormLayout" name="pulsePageLayout">
                   <property name="fieldGrowthPolicy">
-                   <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+                   <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
                   </property>
                   <item row="0" column="0">
                    <widget class="QLabel" name="pulseBufferLabel">
@@ -5736,7 +5736,7 @@ media file played</string>
                   <item>
                    <spacer name="alsaPageSpacer">
                     <property name="orientation">
-                     <enum>Qt::Vertical</enum>
+                     <enum>Qt::Orientation::Vertical</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
@@ -5754,7 +5754,7 @@ media file played</string>
                  </attribute>
                  <layout class="QFormLayout" name="ossPageLayout">
                   <property name="fieldGrowthPolicy">
-                   <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+                   <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
                   </property>
                   <item row="0" column="0">
                    <widget class="QLabel" name="ossMixerDeviceLabel">
@@ -5926,7 +5926,7 @@ media file played</string>
            <item>
             <spacer name="verticalSpacer_3">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -6228,7 +6228,7 @@ media file played</string>
                   </property>
                   <layout class="QFormLayout" name="borderBoxLayout">
                    <property name="fieldGrowthPolicy">
-                    <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+                    <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
                    </property>
                    <item row="0" column="0">
                     <widget class="QLabel" name="borderSizeLabel">
@@ -6349,7 +6349,7 @@ media file played</string>
                      <item>
                       <spacer name="subsAlignmentSpacer">
                        <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
+                        <enum>Qt::Orientation::Horizontal</enum>
                        </property>
                        <property name="sizeHint" stdset="0">
                         <size>
@@ -6546,7 +6546,7 @@ media file played</string>
                       <string>Back color</string>
                      </property>
                      <property name="alignment">
-                      <set>Qt::AlignCenter</set>
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
@@ -6704,7 +6704,7 @@ media file played</string>
            <item>
             <spacer name="subsMiscPageSpacer">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -6909,10 +6909,10 @@ media file played</string>
                         <number>90</number>
                        </property>
                        <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
+                        <enum>Qt::Orientation::Horizontal</enum>
                        </property>
                        <property name="tickPosition">
-                        <enum>QSlider::TicksBothSides</enum>
+                        <enum>QSlider::TickPosition::TicksBothSides</enum>
                        </property>
                        <property name="tickInterval">
                         <number>5</number>
@@ -6943,10 +6943,10 @@ media file played</string>
                         <number>100</number>
                        </property>
                        <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
+                        <enum>Qt::Orientation::Horizontal</enum>
                        </property>
                        <property name="tickPosition">
-                        <enum>QSlider::TicksBothSides</enum>
+                        <enum>QSlider::TickPosition::TicksBothSides</enum>
                        </property>
                        <property name="tickInterval">
                         <number>5</number>
@@ -7005,10 +7005,10 @@ media file played</string>
                         <number>7</number>
                        </property>
                        <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
+                        <enum>Qt::Orientation::Horizontal</enum>
                        </property>
                        <property name="tickPosition">
-                        <enum>QSlider::TicksBothSides</enum>
+                        <enum>QSlider::TickPosition::TicksBothSides</enum>
                        </property>
                        <property name="tickInterval">
                         <number>1</number>
@@ -7042,10 +7042,10 @@ media file played</string>
                         <number>5</number>
                        </property>
                        <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
+                        <enum>Qt::Orientation::Horizontal</enum>
                        </property>
                        <property name="tickPosition">
-                        <enum>QSlider::TicksBothSides</enum>
+                        <enum>QSlider::TickPosition::TicksBothSides</enum>
                        </property>
                        <property name="tickInterval">
                         <number>1</number>
@@ -7190,7 +7190,7 @@ media file played</string>
                   <item row="4" column="1">
                    <layout class="QFormLayout" name="encodeVideoFineLayout">
                     <property name="labelAlignment">
-                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                     <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
                     </property>
                     <item row="0" column="0">
                      <widget class="QCheckBox" name="encodeVideoCrf">
@@ -7325,7 +7325,7 @@ media file played</string>
                   <item>
                    <spacer name="encodeAudioSpacer">
                     <property name="orientation">
-                     <enum>Qt::Vertical</enum>
+                     <enum>Qt::Orientation::Vertical</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
@@ -7352,7 +7352,7 @@ media file played</string>
            <item>
             <spacer name="encodingSpacer">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -7400,7 +7400,7 @@ media file played</string>
              </property>
             </widget>
            </item>
-           <item row="6" column="0">
+           <item row="7" column="0">
             <widget class="QCheckBox" name="tweaksTimeTooltip">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -7413,7 +7413,7 @@ media file played</string>
              </property>
             </widget>
            </item>
-           <item row="6" column="1">
+           <item row="7" column="1">
             <widget class="QComboBox" name="tweaksTimeTooltipLocation">
              <property name="sizePolicy">
               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
@@ -7433,14 +7433,14 @@ media file played</string>
              </item>
             </widget>
            </item>
-           <item row="7" column="0">
+           <item row="8" column="0">
             <widget class="QLabel" name="tweaksOsdFontLabel">
              <property name="text">
               <string>OSD font:</string>
              </property>
             </widget>
            </item>
-           <item row="7" column="1">
+           <item row="8" column="1">
             <layout class="QHBoxLayout" name="tweaksOsdLayout" stretch="1,0">
              <item>
               <widget class="QFontComboBox" name="tweaksOsdFont"/>
@@ -7471,6 +7471,13 @@ media file played</string>
             <widget class="QCheckBox" name="tweaksTimeShort">
              <property name="text">
               <string>Shorten the playback time indicator like mpc-hc</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0" colspan="2">
+            <widget class="QCheckBox" name="tweaksPreferWayland">
+             <property name="text">
+              <string>Prefer Wayland over XWayland (restart required)</string>
              </property>
             </widget>
            </item>
@@ -7720,7 +7727,7 @@ media file played</string>
            <item row="4" column="0">
             <spacer name="verticalSpacer_2">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -7765,7 +7772,7 @@ media file played</string>
                    <number>100</number>
                   </property>
                   <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                   <enum>Qt::Orientation::Horizontal</enum>
                   </property>
                  </widget>
                 </item>
@@ -7792,7 +7799,7 @@ media file played</string>
                    <number>100</number>
                   </property>
                   <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                   <enum>Qt::Orientation::Horizontal</enum>
                   </property>
                  </widget>
                 </item>
@@ -7822,7 +7829,7 @@ media file played</string>
                    <number>0</number>
                   </property>
                   <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                   <enum>Qt::Orientation::Horizontal</enum>
                   </property>
                  </widget>
                 </item>
@@ -7849,7 +7856,7 @@ media file played</string>
                    <number>100</number>
                   </property>
                   <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                   <enum>Qt::Orientation::Horizontal</enum>
                   </property>
                  </widget>
                 </item>
@@ -7860,7 +7867,7 @@ media file played</string>
                 <item>
                  <spacer name="miscResetColorSpacer">
                   <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                   <enum>Qt::Orientation::Horizontal</enum>
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
@@ -7915,7 +7922,7 @@ media file played</string>
            <item>
             <spacer name="miscSpacer">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -7936,7 +7943,7 @@ media file played</string>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="standardButtons">
-      <set>QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      <set>QDialogButtonBox::StandardButton::Apply|QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
      </property>
     </widget>
    </item>
