@@ -167,6 +167,7 @@ QVariantMap MainWindow::state()
         { WRAP(ui->actionViewOntopVideo) },
         { WRAP(ui->actionViewFullscreen) },
         { WRAP(ui->actionPlaySubtitlesEnabled) },
+        { WRAP(ui->actionPlayVolumeMute) },
         { "shownStatsPage", mpvObject_->selectedStatsPage() }
     };
 #undef WRAP
@@ -195,7 +196,10 @@ void MainWindow::setState(const QVariantMap &map)
     UNWRAP(ui->actionViewOntopVideo, false);
     UNWRAP(ui->actionViewFullscreen, false);
     UNWRAP(ui->actionPlaySubtitlesEnabled, true);
+    UNWRAP(ui->actionPlayVolumeMute, false);
+
     on_actionPlaySubtitlesEnabled_triggered(ui->actionPlaySubtitlesEnabled->isChecked());
+    on_actionPlayVolumeMute_toggled(ui->actionPlayVolumeMute->isChecked());
     setOSDPage(map.value("shownStatsPage",0).toInt());
     updateOnTop();
 
@@ -2555,8 +2559,6 @@ void MainWindow::on_actionPlayVolumeDown_triggered()
 
 void MainWindow::on_actionPlayVolumeMute_toggled(bool checked)
 {
-    if (!isPlaying)
-        return;
     emit volumeMuteChanged(checked);
     ui->actionPlayVolumeMute->setChecked(checked);
     ui->mute->setChecked(checked);
