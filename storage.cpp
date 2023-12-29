@@ -1,3 +1,4 @@
+#include <QCoreApplication>
 #include <QStandardPaths>
 #include <QSettings>
 #include <QJsonDocument>
@@ -20,6 +21,13 @@ Storage::Storage(QObject *parent) :
 
 QString Storage::fetchConfigPath()
 {
+    if (Platform::isWindows) {
+        QDir d(QCoreApplication::applicationDirPath());
+        if (d.entryList().contains("portable.txt")) {
+            configPath = d.absolutePath() + "\\config";
+            return configPath;
+        }
+    }
     if (configPath.isEmpty()) {
         configPath = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
         configPath = Platform::fixedConfigPath(configPath);
