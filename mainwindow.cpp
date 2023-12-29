@@ -238,7 +238,7 @@ QSize MainWindow::desirableSize(bool first_run)
     }
 
     // calculate the amount taken by widgets outside the video frame
-    QSize mpvSize = mpvw ? mpvw->size() : noVideoSize_;
+    QSize mpvSize = mpvw && !first_run ? mpvw->size() : noVideoSize_;
     QSize fudgeFactor = size() - mpvSize;
 
     // calculate desired client size, depending upon the zoom mode
