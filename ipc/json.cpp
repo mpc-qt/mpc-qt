@@ -13,6 +13,8 @@
 #include "ipc/json.h"
 
 
+const char serverNameJson[] = "cmdrkotori.mpc-qt";
+const char serverNameMpv[] = "cmdrkotori.mpc-qt.mpv";
 
 Q_GLOBAL_STATIC_WITH_ARGS(QSet<QString>, bannedProperties, ({
     "stream-open-filename", "file-local-options", "ab-loop-a",
@@ -111,7 +113,7 @@ void MpcQtServer::fakePayload(const QByteArray &payload)
 
 QString MpcQtServer::defaultSocketName()
 {
-    return QCoreApplication::organizationDomain();
+    return serverNameJson;
 }
 
 void MpcQtServer::setMainWindow(MainWindow *mainWindow)
@@ -336,7 +338,7 @@ QVariant MpcQtServer::ipc_doMpvCommand(const QVariantMap &map)
 
 
 MpvServer::MpvServer(QObject *parent)
-    : JsonServer(QCoreApplication::organizationDomain() + ".mpv", parent)
+    : JsonServer(serverNameMpv, parent)
 {
     connect(this, &MpvServer::newConnection,
             this, &MpvServer::server_newConnection);

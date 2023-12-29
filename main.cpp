@@ -50,7 +50,6 @@ int main(int argc, char *argv[])
     if (Platform::isUnix)
         qputenv("QT_QPA_PLATFORM", "xcb");
 
-    QCoreApplication::setOrganizationDomain("cmdrkotori.mpc-qt");
     QApplication a(argc, argv);
     Logger::singleton();
     a.setWindowIcon(QIcon(":/images/icon/mpc-qt.svg"));
