@@ -13,8 +13,9 @@ DirectShow.
 
 ## Releases
 
-There may be builds for Windows users on the release page.  These use time-
-based versioning (e.g. 17.07 corresponds to a 2017 July).
+There are builds for Windows users on the release page; these use time-based
+versioning (e.g. 17.07 corresponds to a 2017 July).  The are also build
+artifacts from Github actions.
 
 The best version is git master, and everyone are encouraged to increase their
 computer-fu by compiling from source. (see sections below.)  Compiling from
