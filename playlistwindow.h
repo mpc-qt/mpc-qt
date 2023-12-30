@@ -84,6 +84,7 @@ public slots:
     void addSimplePlaylist(QStringList data);
     void addPlaylistByUuid(QUuid uuid);
     void setDisplayFormatSpecifier(QString fmt);
+    void dockLocationMaybeChanged();
 
     void newTab();
     void closeTab();

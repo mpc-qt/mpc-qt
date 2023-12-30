@@ -452,6 +452,14 @@ void PlaylistWindow::setDisplayFormatSpecifier(QString fmt)
     ui->tabWidget->currentWidget()->update();
 }
 
+void PlaylistWindow::dockLocationMaybeChanged()
+{
+    QLayout *layout = ui->contents->layout();
+    QMargins margins = layout->contentsMargins();
+    margins.setBottom(isFloating() ? margins.top() : 0);
+    layout->setContentsMargins(margins);
+}
+
 void PlaylistWindow::newTab()
 {
     bool ok;
@@ -761,6 +769,7 @@ void PlaylistWindow::self_dockLocationChanged(Qt::DockWidgetArea area)
 {
     if (area != Qt::NoDockWidgetArea)
         emit windowDocked();
+    dockLocationMaybeChanged();
 }
 
 void PlaylistWindow::playlist_removeItemRequested()

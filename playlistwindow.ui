@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>222</width>
+    <width>284</width>
     <height>491</height>
    </rect>
   </property>
@@ -18,6 +18,9 @@
   </property>
   <widget class="QWidget" name="contents">
    <layout class="QVBoxLayout" name="contentsLayout">
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item>
      <widget class="QStackedWidget" name="playStack">
       <widget class="QWidget" name="collectionPage">
@@ -37,7 +40,7 @@
         <item>
          <widget class="QTabWidget" name="tabWidget">
           <property name="contextMenuPolicy">
-           <enum>Qt::CustomContextMenu</enum>
+           <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
           </property>
           <property name="tabsClosable">
            <bool>true</bool>

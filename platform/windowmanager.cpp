@@ -1,5 +1,6 @@
 #include <QDockWidget>
 #include <QMainWindow>
+#include <QMetaMethod>
 #include <QStyle>
 #include <QWidget>
 #include "helpers.h"
@@ -105,8 +106,14 @@ void WindowManager::restoreDocks(QMainWindow *dockHost, QList<QDockWidget *> doc
         return;
     QByteArray encoded = data[keyQtState].toString().toLocal8Bit();
     dockHost->restoreState(QByteArray::fromBase64(encoded));
-    for (auto widget : dockWidgets)
+    for (auto widget : dockWidgets) {
         dockHost->restoreDockWidget(widget);
+        const QMetaObject *dockMetaObject = widget->metaObject();
+        int index = dockMetaObject->indexOfSlot("dockLocationMaybeChanged(void)");
+        if (index == -1)
+            continue;
+        dockMetaObject->method(index).invoke(widget);
+    }
 }
 
 void WindowManager::restoreWindow(QWidget *window)
