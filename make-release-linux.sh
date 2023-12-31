@@ -4,6 +4,19 @@
 set -x
 set -e
 
+VERSION=""
+if [ -v GITHUB_SHA ]; then
+    VERSION=$GITHUB_SHA
+elif [ -v FORCE_VERSION ]; then
+    VERSION=$FORCE_VERSION
+else
+    # v23.02-74-g60b18fa -> 23.02.74
+    VERSION=`git describe --tags  | sed 's/[^0-9]*\([0-9]*\)[^0-9]*\([0-9]*\)[^0-9]*\([0-9]*\).*/\1.\2.\3/'`
+fi
+BUILD=release
+SUFFIX="linux-x64-$VERSION"
+DEST="mpc-qt-$SUFFIX"
+
 # building in temporary directory to keep system clean
 # use RAM disk if possible (as in: not building on CI system like Travis, and RAM disk is available)
 if [ "$CI" == "" ] && [ -d /dev/shm ]; then
@@ -31,7 +44,7 @@ pushd "$BUILD_DIR"
 
 # configure build files with qmake
 # we need to explicitly set the install prefix, as CMake's default is /usr/local for some reason...
-qmake6 PREFIX=/usr "$REPO_ROOT"
+qmake6 PREFIX=/usr "MPCQT_VERSION=$VERSION" "$REPO_ROOT"
 
 # build project and install files into AppDir
 make -j$(nproc)
@@ -49,4 +62,4 @@ chmod +x linuxdeploy*.AppImage
 EXTRA_QT_PLUGINS="svg;" QMAKE=/usr/bin/qmake6 ./linuxdeploy-x86_64.AppImage --appdir AppDir -e mpc-qt -i "$REPO_ROOT"/images/icon/mpc-qt.svg -d "$REPO_ROOT"/mpc-qt.desktop --plugin qt --output appimage
 
 # move built AppImage back into original CWD
-mv Media_Player_Classic_Qute_Theater-x86_64.AppImage "$OLD_CWD"
+mv Media_Player_Classic_Qute_Theater-x86_64.AppImage "$OLD_CWD/$DEST.AppImage"
