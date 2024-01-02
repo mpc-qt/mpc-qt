@@ -3357,6 +3357,10 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Prefer Wayland over XWayland (restart required)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Turn on logging (may produce stuttering)</source>
         <translation type="unfinished"></translation>
     </message>

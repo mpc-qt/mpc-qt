@@ -59,17 +59,6 @@
     </message>
 </context>
 <context>
-    <name>FilterWindow</name>
-    <message>
-        <source>Audio</source>
-        <translation type="obsolete">音频</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation type="obsolete">视频</translation>
-    </message>
-</context>
-<context>
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
@@ -111,16 +100,16 @@
 <context>
     <name>LibraryWindow</name>
     <message>
+        <source>Library</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Restore</source>
         <translation type="unfinished">重置顺序</translation>
     </message>
     <message>
         <source>Remove</source>
         <translation type="unfinished">移除</translation>
-    </message>
-    <message>
-        <source>Library</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Close</source>
@@ -1121,10 +1110,6 @@
         <translation>日志(&amp;G)</translation>
     </message>
     <message>
-        <source>Ctrl+-</source>
-        <translation>Ctrl+-</translation>
-    </message>
-    <message>
         <source>Once</source>
         <translation>此次播放</translation>
     </message>
@@ -1243,6 +1228,10 @@
     <message>
         <source>Ctrl+=</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+-</source>
+        <translation>Ctrl+-</translation>
     </message>
     <message>
         <source>&amp;Copy Subtitle</source>
@@ -2921,18 +2910,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add</source>
-        <translation type="obsolete">添加</translation>
-    </message>
-    <message>
-        <source>Up</source>
-        <translation type="obsolete">松开</translation>
-    </message>
-    <message>
-        <source>Down</source>
-        <translation type="obsolete">按下</translation>
-    </message>
-    <message>
         <source>Framedropping</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3382,6 +3359,10 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Prefer Wayland over XWayland (restart required)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Turn on logging (may produce stuttering)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3731,17 +3712,6 @@ media file played</source>
     <message>
         <source>Save Thumbnails</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>libraryWindow</name>
-    <message>
-        <source>Restore</source>
-        <translation type="obsolete">重置顺序</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="obsolete">移除</translation>
     </message>
 </context>
 </TS>

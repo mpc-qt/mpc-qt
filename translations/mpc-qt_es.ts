@@ -59,17 +59,6 @@
     </message>
 </context>
 <context>
-    <name>FilterWindow</name>
-    <message>
-        <source>Audio</source>
-        <translation type="obsolete">Audio</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation type="obsolete">Vídeo</translation>
-    </message>
-</context>
-<context>
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
@@ -111,16 +100,16 @@
 <context>
     <name>LibraryWindow</name>
     <message>
+        <source>Library</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Restore</source>
         <translation type="unfinished">Restaurar</translation>
     </message>
     <message>
         <source>Remove</source>
         <translation type="unfinished">Eliminar</translation>
-    </message>
-    <message>
-        <source>Library</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Close</source>
@@ -1809,7 +1798,7 @@
     <name>ScreenCombo</name>
     <message>
         <source>Current</source>
-        <translation type="unfinished">Actual</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2165,18 +2154,6 @@ archivo multimedia reproducido</translation>
     <message>
         <source>Autofitting in tiling window managers requires that the window be in floating mode.</source>
         <translation>El autoajuste con gestores de ventana de mosaico require que la ventana esté en modo flotante.</translation>
-    </message>
-    <message>
-        <source>Open settings</source>
-        <translation type="vanished">Ajustes de apertura</translation>
-    </message>
-    <message>
-        <source>Auto-load audio files</source>
-        <translation type="vanished">Cargar automáticamente archivos de audio</translation>
-    </message>
-    <message>
-        <source>Auto-load subtitles</source>
-        <translation type="vanished">Cargar automáticamente subtítulos</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -2863,14 +2840,6 @@ archivo multimedia reproducido</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>No specific options (yet)</source>
-        <translation type="vanished">Sin opciones (de momento)</translation>
-    </message>
-    <message>
-        <source>Shaders contain special effects which can be added to the video rendering process.  A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;the mpv wiki&lt;/a&gt;.</source>
-        <translation type="vanished">Los sombreadores contienen efectos especiales que se pueden añadir al proceso de representación. Puede encontrar una lista de sombreadores hechos por la comunidad en &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;la wiki de mpv&lt;/a&gt;.</translation>
-    </message>
-    <message>
         <source>Filesystem</source>
         <translation>Sistema de archivos</translation>
     </message>
@@ -2911,10 +2880,6 @@ archivo multimedia reproducido</translation>
         <translation>Montor en pantalla completa</translation>
     </message>
     <message>
-        <source>Current</source>
-        <translation type="vanished">Actual</translation>
-    </message>
-    <message>
         <source>Launch files in fullscreen</source>
         <translation>Lanzar los archivos en pantalla completa</translation>
     </message>
@@ -2945,58 +2910,6 @@ archivo multimedia reproducido</translation>
     <message>
         <source>Show when hovering control, hide after:</source>
         <translation>Mostar al mover sobre el control, ocultar tras:</translation>
-    </message>
-    <message>
-        <source>X Resize and Rotate</source>
-        <translation type="vanished">Cambio de tamaño y rotación de X</translation>
-    </message>
-    <message>
-        <source>Use autochange fullscreen monitor mode</source>
-        <translation type="vanished">Usar el cambio automático del modo del monitor en pantalla completa</translation>
-    </message>
-    <message>
-        <source>On/Off</source>
-        <translation type="vanished">Activo/Inactivo</translation>
-    </message>
-    <message>
-        <source>From fps</source>
-        <translation type="vanished">De FPS</translation>
-    </message>
-    <message>
-        <source>To fps</source>
-        <translation type="vanished">A FPS</translation>
-    </message>
-    <message>
-        <source>Display mode</source>
-        <translation type="vanished">Modo de presentación</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="vanished">Añadir</translation>
-    </message>
-    <message>
-        <source>Del</source>
-        <translation type="vanished">Borrar</translation>
-    </message>
-    <message>
-        <source>Up</source>
-        <translation type="vanished">Subir</translation>
-    </message>
-    <message>
-        <source>Down</source>
-        <translation type="vanished">Bajar</translation>
-    </message>
-    <message>
-        <source>Delay</source>
-        <translation type="vanished">Retraso</translation>
-    </message>
-    <message>
-        <source>Apply default monitor mode on fullscreen exit</source>
-        <translation type="vanished">Aplicar el modo por defecto del monitor en pantalla completa</translation>
-    </message>
-    <message>
-        <source>Restore resolution on program exit</source>
-        <translation type="vanished">Restaurar la resolución al salir del programa</translation>
     </message>
     <message>
         <source>Framedropping</source>
@@ -3436,10 +3349,6 @@ archivo multimedia reproducido</translation>
         <translation>Abrir el archivo siguiente/anterior en la carpeta cuando solo haya un elemento en la lista de reproducción</translation>
     </message>
     <message>
-        <source>Use time tooltip:</source>
-        <translation>Usar descripciones de tiempo:</translation>
-    </message>
-    <message>
         <source>Above seekbar</source>
         <translation>Sobre la barra de búsqueda</translation>
     </message>
@@ -3450,6 +3359,10 @@ archivo multimedia reproducido</translation>
     <message>
         <source>OSD font:</source>
         <translation>Fuente del OSD:</translation>
+    </message>
+    <message>
+        <source>Prefer Wayland over XWayland (restart required)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Turn on logging (may produce stuttering)</source>
@@ -3736,6 +3649,10 @@ archivo multimedia reproducido</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Use time tooltip:</source>
+        <translation>Usar descripciones de tiempo:</translation>
+    </message>
+    <message>
         <source>Language Override</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3797,17 +3714,6 @@ archivo multimedia reproducido</translation>
     <message>
         <source>Save Thumbnails</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>libraryWindow</name>
-    <message>
-        <source>Restore</source>
-        <translation type="obsolete">Restaurar</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="obsolete">Eliminar</translation>
     </message>
 </context>
 </TS>

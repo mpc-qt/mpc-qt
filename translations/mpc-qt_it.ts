@@ -59,17 +59,6 @@
     </message>
 </context>
 <context>
-    <name>FilterWindow</name>
-    <message>
-        <source>Audio</source>
-        <translation type="obsolete">Audio</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation type="obsolete">Video</translation>
-    </message>
-</context>
-<context>
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
@@ -111,16 +100,16 @@
 <context>
     <name>LibraryWindow</name>
     <message>
-        <source>Remove</source>
-        <translation type="unfinished">Rimuovi</translation>
-    </message>
-    <message>
         <source>Library</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restore</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Rimuovi</translation>
     </message>
     <message>
         <source>Close</source>
@@ -1385,11 +1374,11 @@
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished">Giù</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished">Su</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Twice</source>
@@ -1536,7 +1525,7 @@
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Aggiungi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove</source>
@@ -1809,7 +1798,7 @@
     <name>ScreenCombo</name>
     <message>
         <source>Current</source>
-        <translation type="unfinished">Attuale</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2165,18 +2154,6 @@ ogni file multimediale riprodotto</translation>
     <message>
         <source>Autofitting in tiling window managers requires that the window be in floating mode.</source>
         <translation>Per l&apos;autoadattamento nei gestori finestre ad affiancamento è necessario che la finestra sia in modalità fluttuante.</translation>
-    </message>
-    <message>
-        <source>Open settings</source>
-        <translation type="vanished">Apri impostazioni</translation>
-    </message>
-    <message>
-        <source>Auto-load audio files</source>
-        <translation type="vanished">Carica automaticamente file audio</translation>
-    </message>
-    <message>
-        <source>Auto-load subtitles</source>
-        <translation type="vanished">Carica automaticamente sottotitoli</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -2863,22 +2840,6 @@ ogni file multimediale riprodotto</translation>
         <translation>Avvio</translation>
     </message>
     <message>
-        <source>CoreAudio</source>
-        <translation type="vanished">CoreAudio</translation>
-    </message>
-    <message>
-        <source>No specific options (yet)</source>
-        <translation type="vanished">Nessuna opzione specifica (per il momento)</translation>
-    </message>
-    <message>
-        <source>Wasapi</source>
-        <translation type="vanished">Wasapi</translation>
-    </message>
-    <message>
-        <source>Shaders contain special effects which can be added to the video rendering process.  A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;the mpv wiki&lt;/a&gt;.</source>
-        <translation type="vanished">Gli ombreggiatori contengono effetti speciali che possono essere aggiunti al processo di rendering video.  Una lista di ombreggiatori creati dalla comunità può essere trovata sul &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;wiki mpv&lt;/a&gt;.</translation>
-    </message>
-    <message>
         <source>Filesystem</source>
         <translation>Filesystem</translation>
     </message>
@@ -2919,10 +2880,6 @@ ogni file multimediale riprodotto</translation>
         <translation>Monitor a schermo intero</translation>
     </message>
     <message>
-        <source>Current</source>
-        <translation type="vanished">Attuale</translation>
-    </message>
-    <message>
         <source>Launch files in fullscreen</source>
         <translation>Lancia file a schermo intero</translation>
     </message>
@@ -2953,58 +2910,6 @@ ogni file multimediale riprodotto</translation>
     <message>
         <source>Show when hovering control, hide after:</source>
         <translation>Mostra quando si passa sopra i controlli, poi nascondi:</translation>
-    </message>
-    <message>
-        <source>X Resize and Rotate</source>
-        <translation type="vanished">Ridimensionamento e rotazione di X</translation>
-    </message>
-    <message>
-        <source>Use autochange fullscreen monitor mode</source>
-        <translation type="vanished">Cambia automaticamente modalità monitor a tutto schermo</translation>
-    </message>
-    <message>
-        <source>On/Off</source>
-        <translation type="vanished">On/Off</translation>
-    </message>
-    <message>
-        <source>From fps</source>
-        <translation type="vanished">Da fps</translation>
-    </message>
-    <message>
-        <source>To fps</source>
-        <translation type="vanished">A fps</translation>
-    </message>
-    <message>
-        <source>Display mode</source>
-        <translation type="vanished">Modalità di visualizzazione</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="vanished">Aggiungi</translation>
-    </message>
-    <message>
-        <source>Del</source>
-        <translation type="vanished">Rimuovi</translation>
-    </message>
-    <message>
-        <source>Up</source>
-        <translation type="vanished">Su</translation>
-    </message>
-    <message>
-        <source>Down</source>
-        <translation type="vanished">Giù</translation>
-    </message>
-    <message>
-        <source>Delay</source>
-        <translation type="vanished">Ritardo</translation>
-    </message>
-    <message>
-        <source>Apply default monitor mode on fullscreen exit</source>
-        <translation type="vanished">Applica modalità monitor predefinita all&apos;uscita da schermo pieno</translation>
-    </message>
-    <message>
-        <source>Restore resolution on program exit</source>
-        <translation type="vanished">Ripristina risoluzione all&apos;uscita dal programma</translation>
     </message>
     <message>
         <source>Framedropping</source>
@@ -3444,10 +3349,6 @@ ogni file multimediale riprodotto</translation>
         <translation>Apri file successivo/precedente nella cartella quando c&apos;è un solo elemento nella scaletta</translation>
     </message>
     <message>
-        <source>Use time tooltip:</source>
-        <translation>Mostra tempo in un suggerimento:</translation>
-    </message>
-    <message>
         <source>Above seekbar</source>
         <translation>Sopra la barra di ricerca</translation>
     </message>
@@ -3458,6 +3359,10 @@ ogni file multimediale riprodotto</translation>
     <message>
         <source>OSD font:</source>
         <translation>Font OSD:</translation>
+    </message>
+    <message>
+        <source>Prefer Wayland over XWayland (restart required)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Turn on logging (may produce stuttering)</source>
@@ -3744,6 +3649,10 @@ ogni file multimediale riprodotto</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Use time tooltip:</source>
+        <translation>Mostra tempo in un suggerimento:</translation>
+    </message>
+    <message>
         <source>Language Override</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3805,13 +3714,6 @@ ogni file multimediale riprodotto</translation>
     <message>
         <source>Save Thumbnails</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>libraryWindow</name>
-    <message>
-        <source>Remove</source>
-        <translation type="obsolete">Rimuovi</translation>
     </message>
 </context>
 </TS>

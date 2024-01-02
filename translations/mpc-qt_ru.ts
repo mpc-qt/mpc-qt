@@ -59,17 +59,6 @@
     </message>
 </context>
 <context>
-    <name>FilterWindow</name>
-    <message>
-        <source>Audio</source>
-        <translation type="obsolete">Аудио</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation type="obsolete">Видео</translation>
-    </message>
-</context>
-<context>
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
@@ -111,16 +100,16 @@
 <context>
     <name>LibraryWindow</name>
     <message>
+        <source>Library</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Restore</source>
         <translation type="unfinished">Восстановить</translation>
     </message>
     <message>
         <source>Remove</source>
         <translation type="unfinished">Удалить</translation>
-    </message>
-    <message>
-        <source>Library</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Close</source>
@@ -1121,10 +1110,6 @@
         <translation>Журнал</translation>
     </message>
     <message>
-        <source>Ctrl+-</source>
-        <translation>Ctrl+-</translation>
-    </message>
-    <message>
         <source>Once</source>
         <translation>Один раз</translation>
     </message>
@@ -1243,6 +1228,10 @@
     <message>
         <source>Ctrl+=</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+-</source>
+        <translation>Ctrl+-</translation>
     </message>
     <message>
         <source>&amp;Copy Subtitle</source>
@@ -1809,7 +1798,7 @@
     <name>ScreenCombo</name>
     <message>
         <source>Current</source>
-        <translation type="unfinished">Текущий</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2165,18 +2154,6 @@ media file played</source>
     <message>
         <source>Autofitting in tiling window managers requires that the window be in floating mode.</source>
         <translation>Для автоматической подгонки в оконных менеджерах, необходимо, чтобы окно находилось в плавающем режиме.</translation>
-    </message>
-    <message>
-        <source>Open settings</source>
-        <translation type="vanished">Открыть настройки</translation>
-    </message>
-    <message>
-        <source>Auto-load audio files</source>
-        <translation type="vanished">Автозагрузка аудиофайлов</translation>
-    </message>
-    <message>
-        <source>Auto-load subtitles</source>
-        <translation type="vanished">Автозагрузка субтитров</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -2863,14 +2840,6 @@ media file played</source>
         <translation>Запуск</translation>
     </message>
     <message>
-        <source>No specific options (yet)</source>
-        <translation type="vanished">Нет особых параметров</translation>
-    </message>
-    <message>
-        <source>Shaders contain special effects which can be added to the video rendering process.  A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;the mpv wiki&lt;/a&gt;.</source>
-        <translation type="vanished">Шейдеры содержат специальные эффекты, которые можно добавить в процесс рендеринга видео. Список созданных сообществом шейдеров можно найти на &lt;a href = &quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt; вики mpv&lt;/a&gt;.</translation>
-    </message>
-    <message>
         <source>Filesystem</source>
         <translation>Файловая система</translation>
     </message>
@@ -2911,10 +2880,6 @@ media file played</source>
         <translation>В полном экране</translation>
     </message>
     <message>
-        <source>Current</source>
-        <translation type="vanished">Текущий</translation>
-    </message>
-    <message>
         <source>Launch files in fullscreen</source>
         <translation>Запускать файлы в полноэкранном режиме</translation>
     </message>
@@ -2945,54 +2910,6 @@ media file played</source>
     <message>
         <source>Show when hovering control, hide after:</source>
         <translation>Показывать при наведении курсора, скрывать после:</translation>
-    </message>
-    <message>
-        <source>X Resize and Rotate</source>
-        <translation type="vanished">Кадрирование и поворот изображений</translation>
-    </message>
-    <message>
-        <source>Use autochange fullscreen monitor mode</source>
-        <translation type="vanished">Использовать режим автозамены полноэкранного монитора</translation>
-    </message>
-    <message>
-        <source>On/Off</source>
-        <translation type="vanished">Включить или отключить</translation>
-    </message>
-    <message>
-        <source>From fps</source>
-        <translation type="vanished">Из fps</translation>
-    </message>
-    <message>
-        <source>To fps</source>
-        <translation type="vanished">В fps</translation>
-    </message>
-    <message>
-        <source>Display mode</source>
-        <translation type="vanished">Режим показа</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="vanished">Добавить</translation>
-    </message>
-    <message>
-        <source>Up</source>
-        <translation type="vanished">Вверх</translation>
-    </message>
-    <message>
-        <source>Down</source>
-        <translation type="vanished">Вниз</translation>
-    </message>
-    <message>
-        <source>Delay</source>
-        <translation type="vanished">Задержка</translation>
-    </message>
-    <message>
-        <source>Apply default monitor mode on fullscreen exit</source>
-        <translation type="vanished">Применить режим монитора по умолчанию при полноэкранном выходе</translation>
-    </message>
-    <message>
-        <source>Restore resolution on program exit</source>
-        <translation type="vanished">Восстановить разрешение при выходе из программы</translation>
     </message>
     <message>
         <source>Framedropping</source>
@@ -3432,10 +3349,6 @@ media file played</source>
         <translation>Открыть следующий или предыдущий файл в папке, если в списке воспроизведения только один элемент</translation>
     </message>
     <message>
-        <source>Use time tooltip:</source>
-        <translation>Использовать подсказку времени:</translation>
-    </message>
-    <message>
         <source>Above seekbar</source>
         <translation>Выше панели поиска</translation>
     </message>
@@ -3446,6 +3359,10 @@ media file played</source>
     <message>
         <source>OSD font:</source>
         <translation>Шрифт экранного уведомления:</translation>
+    </message>
+    <message>
+        <source>Prefer Wayland over XWayland (restart required)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Turn on logging (may produce stuttering)</source>
@@ -3732,6 +3649,10 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Use time tooltip:</source>
+        <translation>Использовать подсказку времени:</translation>
+    </message>
+    <message>
         <source>Language Override</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3793,17 +3714,6 @@ media file played</source>
     <message>
         <source>Save Thumbnails</source>
         <translation>Сохранить миниатюры</translation>
-    </message>
-</context>
-<context>
-    <name>libraryWindow</name>
-    <message>
-        <source>Restore</source>
-        <translation type="obsolete">Восстановить</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="obsolete">Удалить</translation>
     </message>
 </context>
 </TS>
