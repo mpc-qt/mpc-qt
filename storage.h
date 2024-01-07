@@ -9,6 +9,7 @@ class Storage : public QObject
 public:
     explicit Storage(QObject *parent = nullptr);
     static QString fetchConfigPath();
+    static QString fetchThumbnailPath();
 
     void writeVMap(QString name, const QVariantMap &qvm);
     QVariantMap readVMap(QString name);
@@ -29,6 +30,7 @@ public slots:
 
 private:
     static QString configPath;
+    static QString thumbPath;
 };
 
 #endif // STORAGE_H

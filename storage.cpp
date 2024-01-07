@@ -11,27 +11,54 @@
 #include "storage.h"
 #include "platform/unify.h"
 
+
+static QString portablePath() {
+    QDir d(QCoreApplication::applicationDirPath());
+    if (d.entryList().contains("portable.txt"))
+        return d.absolutePath();
+    return QString();
+}
+
 QString Storage::configPath;
+QString Storage::thumbPath;
 
 Storage::Storage(QObject *parent) :
     QObject(parent)
 {
     QDir().mkpath(fetchConfigPath());
+    QDir().mkpath(fetchThumbnailPath());
 }
 
 QString Storage::fetchConfigPath()
 {
+    if (!configPath.isEmpty())
+        return configPath;
     if (Platform::isWindows) {
-        QDir d(QCoreApplication::applicationDirPath());
-        if (d.entryList().contains("portable.txt")) {
-            configPath = d.absolutePath() + "/config";
+        QString p = portablePath();
+        if (!p.isEmpty()) {
+            configPath = p + "/config";
+            return configPath;
         }
     }
-    if (configPath.isEmpty()) {
-        configPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/mpc-qt";
-        configPath = Platform::fixedConfigPath(configPath);
-    }
+    configPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/mpc-qt";
+    configPath = Platform::fixedConfigPath(configPath);
     return configPath;
+}
+
+QString Storage::fetchThumbnailPath()
+{
+    if (!thumbPath.isEmpty())
+        return thumbPath;
+    if (Platform::isWindows) {
+        QString p = portablePath();
+        if (!p.isEmpty()) {
+            thumbPath = p + "/thumbnails";
+            return thumbPath;
+        }
+    }
+    thumbPath = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + "/mpc-qt/thumbnails";
+    thumbPath = Platform::fixedConfigPath(thumbPath);
+    return thumbPath;
 }
 
 void Storage::writeVMap(QString name, const QVariantMap &qvm)
