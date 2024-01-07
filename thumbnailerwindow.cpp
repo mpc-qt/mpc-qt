@@ -26,6 +26,10 @@ constexpr int thumbShadow = 4;
 constexpr int timerWaitMsec = 500;
 constexpr int osdFontSize = 12;
 constexpr int osdFontShadow = 2;
+constexpr int singleThumbHeight = 40;
+constexpr int singleThumbMaxWidth = 100;
+
+double safeDiv(double u, double v) { return std::max(1.0,u) / std::max(1.0,v); };
 
 ThumbnailerWindow::ThumbnailerWindow(QWidget *parent) :
     QWidget(parent),
@@ -35,7 +39,7 @@ ThumbnailerWindow::ThumbnailerWindow(QWidget *parent) :
     connect(ui->actionGo, &QPushButton::clicked,
             this, &ThumbnailerWindow::begin);
 
-    thumbnailer = new MpvThumbnailer(this);
+    thumbnailer = new MpvMultiThumbnailer(this);
     connect(thumbnailer, &MpvThumbnailer::progress,
             this, &ThumbnailerWindow::thumbnailer_setProgress);
     connect(thumbnailer, &MpvThumbnailer::finished,
@@ -103,7 +107,6 @@ void ThumbnailerWindow::begin()
     p.cols = ui->layoutColumns->value();
     p.rows = ui->layoutRow->value();
     thumbnailer->execute(p);
-
 }
 
 MpvThumbnailer::MpvThumbnailer(QObject *parent)
@@ -221,66 +224,10 @@ bool MpvThumbnailer::seekNextFrame()
         return false;
     LogStream(logModule) << "seeking to " << pendingPts.front().pts;
     mpv->setTime(pendingPts.front().pts);
-    mpv->showMessage(Helpers::toDateFormatFixed(pendingPts.front().pts, osdTimeFormat));
+    if (showOsdTime)
+        mpv->showMessage(Helpers::toDateFormatFixed(pendingPts.front().pts, osdTimeFormat));
     thumbState = SeekingState;
     return true;
-}
-
-void MpvThumbnailer::renderImage()
-{
-    Logger::log(logModule, "rendering thumbnail image");
-
-    QFont blurbFont("Helvetica", 12);
-    QFontMetrics blurbMetrics(blurbFont);
-    QString blurb = "File Name: %1\n" "File Size: %2\n" "Resolution: %3x%4\n" "Duration: %5";
-    blurb = blurb.arg(p.sourceUrl.fileName(),
-                      Helpers::fileSizeToString(mpvFileSize),
-                      QString::number(mpvVideoSize.width()),
-                      QString::number(mpvVideoSize.height()),
-                      Helpers::toDateFormat(mpvDuration));
-
-    // Calculate blurb size and therefore caption area
-    QRect oversizeRect = QRect(0, 0, p.imageWidth, p.imageWidth);
-    QRect blurbRect = blurbMetrics.boundingRect(oversizeRect, 0, blurb);
-    QRect captionArea = QRect(pageMargin, 0,
-                              p.imageWidth - pageMarginSum,
-                              blurbRect.height() + pageMargin + captionPadding);
-
-    // Calculate size of self label to fit the caption area
-    QFont selfFont("Helvetica", 1000, QFont::Black);
-    QFontMetrics selfMetrics1000(selfFont);
-    selfFont.setPixelSize((captionArea.height() - (pageMargin + captionPadding))
-                          * selfMetrics1000.height() / selfMetrics1000.ascent());
-    QFontMetrics selfMetrics(selfFont);
-    QString self = "MPC-QT";
-    QRect selfRect = captionArea.adjusted(0, -selfMetrics.descent(),
-                                          -pageMargin, selfMetrics.descent()*2);
-
-    // Create new image with size.
-    // h = captionbottom + margin-thumbmargin + (thumb+thumbmargin)*rows
-    QSize imageSize(p.imageWidth, captionArea.bottom() + rhsPadding +
-                    ((thumbSize.height()+ thumbMargin) * p.rows));
-    render = QImage(imageSize, QImage::Format_RGB32);
-    render.fill(QColor(0xef, 0xee, 0xec));
-    QPainter p(&render);
-
-    // Draw texts
-    p.setPen(QColor(0xfc, 0xfb, 0xfa));
-    p.setFont(selfFont);
-    p.drawText(selfRect, Qt::AlignRight | Qt::AlignVCenter, self);
-
-    p.setPen(QColor(0x10, 0x0f, 0x0d));
-    p.setFont(blurbFont);
-    p.drawText(blurbRect.translated(pageMargin, pageMargin), 0, blurb);
-
-    // Draw thumbnails
-    for (auto &t : processedPts) {
-        QRectF rc({int(t.x) + 0.5, int(t.y) + 0.5}, t.thumb.size());
-        rc.translate(pageMargin, captionArea.bottom());
-        p.fillRect(rc.translated(thumbShadow, thumbShadow), {0xbc, 0xbb, 0xba});
-        p.fillRect(rc.adjusted(-1,-1,1,1), {0x8c, 0x8b, 0x8a});
-        p.drawImage(rc.topLeft().toPoint(), t.thumb);
-    }
 }
 
 void MpvThumbnailer::saveImage()
@@ -303,16 +250,11 @@ void MpvThumbnailer::mpv_videoSizeChanged(QSize video)
         return;
 
     // Resize thumbnail
-    auto safeDiv = [](double u, double v) { return std::max(1.0,u) / std::max(1.0,v); };
-    double aRatio = safeDiv(video.width(), video.height());
-    int availPx = (p.imageWidth - emptySpace)/p.cols - thumbMargin;
-    int h = int(availPx / aRatio + 0.5);
-    int w = int(h * aRatio + 0.5);
-    thumbSize = QSize(w, h);
+    calculateThumbsize(video);
     thumbnailer->resize(thumbSize);
 
     // Set a consistent size for the osd message
-    double factor = safeDiv(mpvVideoSize.height(), h);
+    double factor = safeDiv(mpvVideoSize.height(), thumbSize.height());
     emit mpv->ctrlSetOptionVariant("osd-font-size", int(osdFontSize * factor));
     emit mpv->ctrlSetOptionVariant("osd-border-size", int(osdFontShadow * factor));
 
@@ -397,6 +339,107 @@ void MpvThumbnailer::timer_navigateTick()
     renderImage();
     saveImage();
     mpv->stopPlayback();
+}
+
+
+
+MpvMultiThumbnailer::MpvMultiThumbnailer(QObject *parent)
+    : MpvThumbnailer(parent)
+{
+    showOsdTime = true;
+}
+
+void MpvMultiThumbnailer::calculateThumbsize(QSize videoSize)
+{
+    double aRatio = safeDiv(videoSize.width(), videoSize.height());
+    int availPx = (p.imageWidth - emptySpace)/p.cols - thumbMargin;
+    int h = int(availPx / aRatio + 0.5);
+    int w = int(h * aRatio + 0.5);
+    thumbSize = QSize(w, h);
+}
+
+void MpvMultiThumbnailer::renderImage()
+{
+    Logger::log(logModule, "rendering thumbnail image");
+
+    QFont blurbFont("Helvetica", 12);
+    QFontMetrics blurbMetrics(blurbFont);
+    QString blurb = "File Name: %1\n" "File Size: %2\n" "Resolution: %3x%4\n" "Duration: %5";
+    blurb = blurb.arg(p.sourceUrl.fileName(),
+                      Helpers::fileSizeToString(mpvFileSize),
+                      QString::number(mpvVideoSize.width()),
+                      QString::number(mpvVideoSize.height()),
+                      Helpers::toDateFormat(mpvDuration));
+
+    // Calculate blurb size and therefore caption area
+    QRect oversizeRect = QRect(0, 0, p.imageWidth, p.imageWidth);
+    QRect blurbRect = blurbMetrics.boundingRect(oversizeRect, 0, blurb);
+    QRect captionArea = QRect(pageMargin, 0,
+                              p.imageWidth - pageMarginSum,
+                              blurbRect.height() + pageMargin + captionPadding);
+
+    // Calculate size of self label to fit the caption area
+    QFont selfFont("Helvetica", 1000, QFont::Black);
+    QFontMetrics selfMetrics1000(selfFont);
+    selfFont.setPixelSize((captionArea.height() - (pageMargin + captionPadding))
+                          * selfMetrics1000.height() / selfMetrics1000.ascent());
+    QFontMetrics selfMetrics(selfFont);
+    QString self = "MPC-QT";
+    QRect selfRect = captionArea.adjusted(0, -selfMetrics.descent(),
+                                          -pageMargin, selfMetrics.descent()*2);
+
+    // Create new image with size.
+    // h = captionbottom + margin-thumbmargin + (thumb+thumbmargin)*rows
+    QSize imageSize(p.imageWidth, captionArea.bottom() + rhsPadding +
+                                      ((thumbSize.height()+ thumbMargin) * p.rows));
+    render = QImage(imageSize, QImage::Format_RGB32);
+    render.fill(QColor(0xef, 0xee, 0xec));
+    QPainter p(&render);
+
+    // Draw texts
+    p.setPen(QColor(0xfc, 0xfb, 0xfa));
+    p.setFont(selfFont);
+    p.drawText(selfRect, Qt::AlignRight | Qt::AlignVCenter, self);
+
+    p.setPen(QColor(0x10, 0x0f, 0x0d));
+    p.setFont(blurbFont);
+    p.drawText(blurbRect.translated(pageMargin, pageMargin), 0, blurb);
+
+    // Draw thumbnails
+    for (auto &t : processedPts) {
+        QRectF rc({int(t.x) + 0.5, int(t.y) + 0.5}, t.thumb.size());
+        rc.translate(pageMargin, captionArea.bottom());
+        p.fillRect(rc.translated(thumbShadow, thumbShadow), {0xbc, 0xbb, 0xba});
+        p.fillRect(rc.adjusted(-1,-1,1,1), {0x8c, 0x8b, 0x8a});
+        p.drawImage(rc.topLeft().toPoint(), t.thumb);
+    }
+}
+
+
+
+MpvSingleThumbnailer::MpvSingleThumbnailer(QObject *parent)
+    : MpvThumbnailer(parent)
+{
+    showOsdTime = false;
+}
+
+void MpvSingleThumbnailer::calculateThumbsize(QSize videoSize)
+{
+    double aRatio = safeDiv(videoSize.width(), videoSize.height());
+    int h = singleThumbHeight;
+    int w = std::max(singleThumbMaxWidth, int(h * aRatio + 0.5));
+    thumbSize = QSize(w, h);
+}
+
+void MpvSingleThumbnailer::renderImage()
+{
+    render = QImage(thumbSize, QImage::Format_RGB32);
+    render.fill(QColor(0xef, 0xee, 0xec));
+    QPainter p(&render);
+
+    // Draw thumbnail
+    auto &t = processedPts.first();
+    p.drawImage(QPoint({0,0}), t.thumb);
 }
 
 
@@ -494,4 +537,3 @@ QWidget *MpvThumbnailDrawer::self()
 {
     return this;
 }
-

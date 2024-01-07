@@ -83,7 +83,6 @@ private:
     void initThumbPts();
     void processThumb();
     bool seekNextFrame();
-    void renderImage();
     void saveImage();
 
 private slots:
@@ -96,21 +95,48 @@ private slots:
     void timer_navigateTick();
 
 private:
-    Params p;
     MpvObject *mpv = nullptr;
     MpvThumbnailDrawer *thumbnailer = nullptr;
 
     ThumbnailingState thumbState = AvailableState;
+    Helpers::TimeFormat osdTimeFormat = Helpers::ShortFormat;
+    QQueue<ThumbPts> pendingPts;
+
+protected:
+    virtual void calculateThumbsize(QSize videoSize) = 0;
+    virtual void renderImage() = 0;
+
+    Params p;
+    bool showOsdTime = false;
     double mpvTime = -1;
     double mpvDuration = -1;
-    Helpers::TimeFormat osdTimeFormat = Helpers::ShortFormat;
     int64_t mpvFileSize = 0;
     QSize mpvVideoSize = {-1,-1};
-    QQueue<ThumbPts> pendingPts;
     QQueue<ThumbPts> processedPts;
     QImage render;
     QSize thumbSize;
 };
+
+
+
+class MpvMultiThumbnailer : public MpvThumbnailer {
+    Q_OBJECT
+public:
+    MpvMultiThumbnailer(QObject *parent = nullptr);
+    void calculateThumbsize(QSize videoSize);
+    void renderImage();
+};
+
+
+
+class MpvSingleThumbnailer : public MpvThumbnailer {
+    Q_OBJECT
+public:
+    MpvSingleThumbnailer(QObject *parent = nullptr);
+    void calculateThumbsize(QSize videoSize);
+    void renderImage();
+};
+
 
 
 class MpvThumbnailDrawer : public QOpenGLWidget, public MpvWidgetInterface {
