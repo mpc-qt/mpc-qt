@@ -66,9 +66,12 @@ QSize PlayPainter::sizeHint(const QStyleOptionViewItem &option,
                             const QModelIndex &index) const
 {
     Q_UNUSED(index)
-    return QApplication::style()->sizeFromContents(QStyle::CT_ItemViewItem,
-                                                   &option,
-                                                   option.rect.size());
+    QSize sz = QApplication::style()->sizeFromContents(QStyle::CT_ItemViewItem, &option, option.rect.size());
+
+    auto playWidget = qobject_cast<DrawnPlaylist*>(parent());
+    if (playWidget->thumbsShown())
+        sz.setHeight(std::max(46, sz.height()));
+    return sz;
 }
 
 PlayItem::PlayItem(const QUuid &uuid, const QUuid &playlistUuid,
@@ -164,6 +167,11 @@ QList<QUuid> DrawnPlaylist::currentItemUuids() const
     for (auto &i : selectedItems())
         selected.append(QUuid(i->text()));
     return selected;
+}
+
+bool DrawnPlaylist::thumbsShown()
+{
+    return thumbsShown_;
 }
 
 void DrawnPlaylist::traverseSelected(std::function<void (QUuid)> callback)
@@ -341,6 +349,12 @@ bool DrawnPlaylist::event(QEvent *e)
     }
     end:
     return QListWidget::event(e);
+}
+
+void DrawnPlaylist::setThumbnailsShown(bool visible)
+{
+    thumbsShown_ = visible;
+    update();
 }
 
 void DrawnPlaylist::repopulateItems()

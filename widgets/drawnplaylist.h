@@ -49,9 +49,12 @@ public:
     void setUuid(const QUuid &uuid);
     QUuid currentItemUuid() const;
     QList<QUuid> currentItemUuids() const;
+    bool thumbsShown();
+
     void traverseSelected(std::function<void(QUuid)> callback);
     void setCurrentItem(QUuid itemUuid);
     void scrollToItem(QUuid itemUuid);
+
     virtual void addItem(QUuid uuid);
     void addItems(const QList<QUuid> &items);
     void addItemsAfter(QUuid item, const QList<QUuid> &items);
@@ -90,6 +93,7 @@ private:
     PlaylistSearcher *searcher;
     QString currentFilterText;
     QStringList currentFilterList;
+    bool thumbsShown_ = false;
 
 signals:
     // for lack of a better term that doesn't conflict with what we already
@@ -99,6 +103,9 @@ signals:
     void menuOpenItem(QUuid playlistUuid, QUuid itemUuid);
 
     void contextMenuRequested(QPoint p, QUuid playlistUuid, QUuid itemUuid);
+
+public slots:
+    void setThumbnailsShown(bool visible);
 
 private slots:
     void repopulateItems();
