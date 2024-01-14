@@ -699,7 +699,6 @@ void PlaybackManager::mpvw_playbackIdling()
         nowPlaying_.clear();
         playbackState_ = StoppedState;
         emit stateChanged(playbackState_);
-        checkAfterPlayback(false);
         return;
     }
 

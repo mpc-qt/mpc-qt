@@ -79,7 +79,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     mpvObject_->setWidgetType(Helpers::NullWidget);
-
+    delete playlistWindow_;
     delete ui;
     ui = nullptr;
 }

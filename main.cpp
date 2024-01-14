@@ -1353,7 +1353,7 @@ void Flow::endProgram()
 {
     // We're about to quit, so write out our config
     writeConfig();
-    qApp->quit();
+    QMetaObject::invokeMethod(qApp, "exit", Qt::QueuedConnection);
 }
 
 void Flow::importPlaylist(QString fname)
