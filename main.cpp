@@ -158,6 +158,10 @@ Flow::~Flow()
         delete thumbnailerWindow;
         thumbnailerWindow = nullptr;
     }
+    if (libraryWindow) {
+        delete libraryWindow;
+        libraryWindow = nullptr;
+    }
     if (logWindow) {
         delete logWindow;
         logWindow = nullptr;
@@ -167,10 +171,6 @@ Flow::~Flow()
         logThread->wait();
         delete logThread;
         logThread = nullptr;
-    }
-    if (libraryWindow) {
-        delete libraryWindow;
-        libraryWindow = nullptr;
     }
 }
 
