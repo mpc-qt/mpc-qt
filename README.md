@@ -62,6 +62,10 @@ writing an encoder-orientated backend.
 
 Suggestions welcome.
 
+## Contibuting
+
+If you are a coder, try to follow the conventions in the code and make a PR.
+If you are a translator, we will be using [Weblate] to translate.
 
 ## Compiling
 
@@ -214,6 +218,7 @@ Congratulations, you have now built mpc-qt!
 [mwe]:https://github.com/mpc-qt/mpc-qt/commit/9400f595
 [aur]:https://aur.archlinux.org/packages/mpc-qt-git/
 [ports]:https://www.freshports.org/multimedia/mpc-qt
+[weblate]:https://weblate.org/en/
 [mpv-build]:https://github.com/mpv-player/mpv-build
 [bomi]:https://github.com/xylosper/bomi
 [baka]:https://github.com/u8sand/Baka-MPlayer
