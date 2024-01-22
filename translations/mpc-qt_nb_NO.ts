@@ -5,57 +5,57 @@
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Kommando</translation>
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Tast</translation>
     </message>
     <message>
         <source>Mouse Window</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mus vindu</translation>
     </message>
     <message>
         <source>Mouse Fullscr</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mus fullskjerm</translation>
     </message>
 </context>
 <context>
     <name>ButtonWidget</name>
     <message>
         <source>B</source>
-        <translation type="unfinished"></translation>
+        <translation>B</translation>
     </message>
     <message>
         <source>K</source>
-        <translation type="unfinished"></translation>
+        <translation>K</translation>
     </message>
     <message>
         <source>↑↓</source>
-        <translation type="unfinished"></translation>
+        <translation>↑↓</translation>
     </message>
 </context>
 <context>
     <name>FavoritesWindow</name>
     <message>
         <source>Organize Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Organiser favoritter</translation>
     </message>
     <message>
         <source>&amp;Update</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Oppdater</translation>
     </message>
     <message>
         <source>&amp;Files</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Filer</translation>
     </message>
     <message>
         <source>&amp;Streams</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Strømmer</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fjern</translation>
     </message>
 </context>
 <context>
@@ -70,50 +70,50 @@
     </message>
     <message>
         <source>Main window size.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hovedvindusstørrelse</translation>
     </message>
     <message>
         <source>Main window position.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hovedvindusposisjon.</translation>
     </message>
     <message>
         <source>URLs to open, optionally.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nettadresser å åpne, alternativt.</translation>
     </message>
     <message>
         <source>Save Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagre bilde</translation>
     </message>
     <message>
         <source>Playing Media</source>
-        <translation type="unfinished"></translation>
+        <translation>Avspilling av media</translation>
     </message>
     <message>
         <source>Do not load any config files.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikke last inn noen oppsettsfiler.</translation>
     </message>
     <message>
         <source>Do not load file history, playlists, or favorites.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikke last inn filhistorikk, spillelister, eller favoritter.</translation>
     </message>
 </context>
 <context>
     <name>LibraryWindow</name>
     <message>
         <source>Library</source>
-        <translation type="unfinished"></translation>
+        <translation>Bibliotek</translation>
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Gjenopprett</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Fjern</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Lukk</translation>
     </message>
 </context>
 <context>
@@ -124,19 +124,19 @@
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagre</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Tøm</translation>
     </message>
     <message>
         <source>Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagre fil</translation>
     </message>
 </context>
 <context>
@@ -147,39 +147,39 @@
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished"></translation>
+        <translation>Spill</translation>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Pause</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Stopp</translation>
     </message>
     <message>
         <source>Skip Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>Hopp bakover</translation>
     </message>
     <message>
         <source>Speed Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>Reduser hastighet</translation>
     </message>
     <message>
         <source>Speed Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>Øk hastighet</translation>
     </message>
     <message>
         <source>Skip Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Hopp forover</translation>
     </message>
     <message>
         <source>Step Backward</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ett skritt bakover</translation>
     </message>
     <message>
         <source>Step Forward</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ett skritt forover</translation>
     </message>
     <message>
         <source>Set Loop Start</source>
@@ -307,23 +307,23 @@
     </message>
     <message>
         <source>&amp;Quick Open File...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hurtigåpne fil …</translation>
     </message>
     <message>
         <source>&amp;Open File...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Åpne fil …</translation>
     </message>
     <message>
         <source>Ctrl+O</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+O</translation>
     </message>
     <message>
         <source>Open &amp;DVD/BD...</source>
-        <translation type="unfinished"></translation>
+        <translation>Åpne &amp;DVD/BD …</translation>
     </message>
     <message>
         <source>Ctrl+D</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <source>Open De&amp;vice...</source>
@@ -331,7 +331,7 @@
     </message>
     <message>
         <source>Ctrl+V</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+V</translation>
     </message>
     <message>
         <source>Open Dir&amp;ectory...</source>
@@ -351,27 +351,27 @@
     </message>
     <message>
         <source>&amp;Save a Copy...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lagre kopi …</translation>
     </message>
     <message>
         <source>Save &amp;Image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagre &amp;bilde …</translation>
     </message>
     <message>
         <source>Alt+I</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+I</translation>
     </message>
     <message>
         <source>Save &amp;Thumbnails</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagre &amp;miniatyrbilder</translation>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Last inn undertekst …</translation>
     </message>
     <message>
         <source>Ctrl+L</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+L</translation>
     </message>
     <message>
         <source>Save S&amp;ubtitle...</source>
@@ -419,47 +419,47 @@
     </message>
     <message>
         <source>Ctrl+0</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+0</translation>
     </message>
     <message>
         <source>See&amp;k Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Blafringsfelt</translation>
     </message>
     <message>
         <source>Ctrl+1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+1</translation>
     </message>
     <message>
         <source>&amp;Controls</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Kontroller</translation>
     </message>
     <message>
         <source>Ctrl+2</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+2</translation>
     </message>
     <message>
         <source>&amp;Information</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;info</translation>
     </message>
     <message>
         <source>Ctrl+3</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+3</translation>
     </message>
     <message>
         <source>&amp;Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Statistikk</translation>
     </message>
     <message>
         <source>Ctrl+4</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+4</translation>
     </message>
     <message>
         <source>S&amp;tatus</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Status</translation>
     </message>
     <message>
         <source>Ctrl+5</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+5</translation>
     </message>
     <message>
         <source>Su&amp;bresync</source>
@@ -471,11 +471,11 @@
     </message>
     <message>
         <source>Play&amp;list</source>
-        <translation type="unfinished"></translation>
+        <translation>Spille&amp;liste</translation>
     </message>
     <message>
         <source>Ctrl+7</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+7</translation>
     </message>
     <message>
         <source>Captu&amp;re</source>
@@ -491,7 +491,7 @@
     </message>
     <message>
         <source>Ctrl+9</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+9</translation>
     </message>
     <message>
         <source>&amp;Minimal</source>
@@ -499,7 +499,7 @@
     </message>
     <message>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
         <source>&amp;Compact</source>
@@ -531,11 +531,11 @@
     </message>
     <message>
         <source>Alt+2</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+2</translation>
     </message>
     <message>
         <source>Alt+3</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+3</translation>
     </message>
     <message>
         <source>Auto &amp;Fit</source>
@@ -543,7 +543,7 @@
     </message>
     <message>
         <source>Alt+4</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+4</translation>
     </message>
     <message>
         <source>Auto Fit (&amp;Larger Only)</source>
@@ -659,7 +659,7 @@
     </message>
     <message>
         <source>9</source>
-        <translation type="unfinished"></translation>
+        <translation>9</translation>
     </message>
     <message>
         <source>&amp;Mute</source>
@@ -703,23 +703,23 @@
     </message>
     <message>
         <source>&amp;Previous</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Forrige</translation>
     </message>
     <message>
         <source>PgUp</source>
-        <translation type="unfinished"></translation>
+        <translation>PgUp</translation>
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Neste</translation>
     </message>
     <message>
         <source>PgDown</source>
-        <translation type="unfinished"></translation>
+        <translation>PgDn</translation>
     </message>
     <message>
         <source>&amp;Go To...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Gå til …</translation>
     </message>
     <message>
         <source>Ctrl+G</source>
@@ -731,11 +731,11 @@
     </message>
     <message>
         <source>Alt+T</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+T</translation>
     </message>
     <message>
         <source>&amp;Root Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Rotmeny</translation>
     </message>
     <message>
         <source>Alt+R</source>
@@ -743,11 +743,11 @@
     </message>
     <message>
         <source>&amp;Subtitle Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Undertekstmeny</translation>
     </message>
     <message>
         <source>&amp;Audio Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lydmeny</translation>
     </message>
     <message>
         <source>Angle &amp;Menu</source>
@@ -759,7 +759,7 @@
     </message>
     <message>
         <source>&amp;Add to Favorites...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Legg til i favoritter …</translation>
     </message>
     <message>
         <source>&amp;Organize Favorites...</source>
@@ -767,7 +767,7 @@
     </message>
     <message>
         <source>&amp;Home Page</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hjemmeside</translation>
     </message>
     <message>
         <source>&amp;About This Program...</source>
@@ -783,7 +783,7 @@
     </message>
     <message>
         <source>F5</source>
-        <translation type="unfinished"></translation>
+        <translation>F5</translation>
     </message>
     <message>
         <source>Auto Fit (&amp;Smaller Only)</source>
@@ -791,11 +791,11 @@
     </message>
     <message>
         <source>Alt+6</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+6</translation>
     </message>
     <message>
         <source>&amp;Play Current</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Spill nåværende</translation>
     </message>
     <message>
         <source>Return</source>
@@ -807,7 +807,7 @@
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Høyre</translation>
     </message>
     <message>
         <source>Seek Backwards</source>
@@ -815,7 +815,7 @@
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Venstre</translation>
     </message>
     <message>
         <source>Seek Forwards Finely</source>
@@ -871,7 +871,7 @@
     </message>
     <message>
         <source>Ctrl+F</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+F</translation>
     </message>
     <message>
         <source>&amp;Quick Queue Toggle</source>
@@ -879,7 +879,7 @@
     </message>
     <message>
         <source>Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Q</translation>
     </message>
     <message>
         <source>&amp;Finish Searching</source>
@@ -975,7 +975,7 @@
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Lim inn</translation>
     </message>
     <message>
         <source>Ctrl+Shift+V</source>
@@ -987,7 +987,7 @@
     </message>
     <message>
         <source>Ctrl+Alt+C</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Alt+C</translation>
     </message>
     <message>
         <source>Paste and Q&amp;ueue</source>
@@ -999,7 +999,7 @@
     </message>
     <message>
         <source>About &amp;Qt...</source>
-        <translation type="unfinished"></translation>
+        <translation>Om &amp;Qt …</translation>
     </message>
     <message>
         <source>Save Pl&amp;ain Image...</source>
@@ -1007,7 +1007,7 @@
     </message>
     <message>
         <source>Alt+Shift+I</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+Shift+I</translation>
     </message>
     <message>
         <source>Save Plain Ima&amp;ge (Auto)</source>
@@ -1023,7 +1023,7 @@
     </message>
     <message>
         <source>F12</source>
-        <translation type="unfinished"></translation>
+        <translation>F12</translation>
     </message>
     <message>
         <source>S&amp;how Quick Queue</source>
@@ -1087,59 +1087,59 @@
     </message>
     <message>
         <source>&amp;No Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ingen meldinger</translation>
     </message>
     <message>
         <source>&amp;Escape Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Avslutt fullskjermsvisning</translation>
     </message>
     <message>
         <source>Enable &amp;Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Skru på &amp;undertekster</translation>
     </message>
     <message>
         <source>&amp;Next Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Neste undertekst</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Forrige undertekst</translation>
     </message>
     <message>
         <source>Lo&amp;g</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Loggføring</translation>
     </message>
     <message>
         <source>Once</source>
-        <translation type="unfinished"></translation>
+        <translation>Én gang</translation>
     </message>
     <message>
         <source>Every time</source>
-        <translation type="unfinished"></translation>
+        <translation>Hver gang</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis</translation>
     </message>
     <message>
         <source>Hide &amp;Borders</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Skjul &amp;kantlinjer</translation>
     </message>
     <message>
         <source>Sho&amp;w Caption and Menu</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Vis undertekst og meny</translation>
     </message>
     <message>
         <source>Quick Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Hurtigåpning</translation>
     </message>
     <message>
         <source>No files favorited</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen filer favorittmerket</translation>
     </message>
     <message>
         <source>No streams favorited</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen strømmer favorittmerket</translation>
     </message>
     <message>
         <source> [Freestanding]</source>
@@ -1151,11 +1151,11 @@
     </message>
     <message>
         <source>&amp;Quick Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hurtigåpning av fil</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Åpne mappe</translation>
     </message>
     <message>
         <source>Enter Network Stream</source>
@@ -1163,19 +1163,19 @@
     </message>
     <message>
         <source>Network Stream</source>
-        <translation type="unfinished"></translation>
+        <translation>Nettverksstrøm</translation>
     </message>
     <message>
         <source>Open Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>Åpne undertekst</translation>
     </message>
     <message>
         <source>Development Build</source>
-        <translation type="unfinished"></translation>
+        <translation>Utviklingsbygg</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Versjon %1</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
@@ -1517,39 +1517,39 @@
     </message>
     <message>
         <source>Export File</source>
-        <translation type="unfinished"></translation>
+        <translation>Eksporter fil</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Åpne</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Legg til</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Fjern</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Tøm</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier til utklippstavle</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagre som …</translation>
     </message>
     <message>
         <source>Sort By Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Sorter etter etikett</translation>
     </message>
     <message>
         <source>Sort By Url</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sorter etter nettadresse</translation>
     </message>
     <message>
         <source>Randomize</source>
@@ -1589,46 +1589,46 @@
     </message>
     <message>
         <source>&amp;Export Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Eksporter spilleliste</translation>
     </message>
 </context>
 <context>
     <name>PropertiesWindow</name>
     <message>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Egenskaper</translation>
     </message>
     <message>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Detaljer</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Type:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Størrelse:</translation>
     </message>
     <message>
         <source>Media length:</source>
-        <translation type="unfinished"></translation>
+        <translation>Medialengde:</translation>
     </message>
     <message>
         <source>Video size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Videostørrelse:</translation>
     </message>
     <message>
         <source>Created:</source>
-        <translation type="unfinished"></translation>
+        <translation>Opprettet:</translation>
     </message>
     <message>
         <source>Clip</source>
-        <translation type="unfinished"></translation>
+        <translation>Klipp</translation>
     </message>
     <message>
         <source>Clip:</source>
-        <translation type="unfinished"></translation>
+        <translation>Klipp:</translation>
     </message>
     <message>
         <source>Author:</source>
@@ -1636,11 +1636,11 @@
     </message>
     <message>
         <source>Copyright:</source>
-        <translation type="unfinished"></translation>
+        <translation>Opphavsrett:</translation>
     </message>
     <message>
         <source>Rating:</source>
-        <translation type="unfinished"></translation>
+        <translation>Vurdering:</translation>
     </message>
     <message>
         <source>Location:</source>
@@ -1648,36 +1648,37 @@
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Beskrivelse:</translation>
     </message>
     <message>
         <source>MediaInfo</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mediainfo</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lagre</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Lyd</translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Undertekster</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Generelt</translation>
     </message>
     <message>
         <source>Menu
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Meny
+</translation>
     </message>
     <message>
         <source>File has no data for this section.
@@ -1697,15 +1698,15 @@
     </message>
     <message>
         <source>All Subtitles (*.%1);;All Files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle undertekster (*.%1);;Alle filer (*.*)</translation>
     </message>
     <message>
         <source>Window text</source>
-        <translation type="unfinished"></translation>
+        <translation>Vindustekst</translation>
     </message>
     <message>
         <source>Button</source>
-        <translation type="unfinished"></translation>
+        <translation>Knapp</translation>
     </message>
     <message>
         <source>Light</source>
@@ -1757,7 +1758,7 @@
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Lenke</translation>
     </message>
     <message>
         <source>Link (visited)</source>
@@ -1769,7 +1770,7 @@
     </message>
     <message>
         <source>No role</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen rolle</translation>
     </message>
     <message>
         <source>Tooltip base</source>
@@ -1785,7 +1786,7 @@
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Avskrudd</translation>
     </message>
     <message>
         <source>Inactive</source>
@@ -1796,26 +1797,26 @@
     <name>ScreenCombo</name>
     <message>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>Nåværende</translation>
     </message>
 </context>
 <context>
     <name>SettingsWindow</name>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternativer</translation>
     </message>
     <message>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
         <source>Player</source>
-        <translation type="unfinished"></translation>
+        <translation>Avspiller</translation>
     </message>
     <message>
         <source>Formats</source>
-        <translation type="unfinished"></translation>
+        <translation>Formater</translation>
     </message>
     <message>
         <source>Keys</source>
@@ -1823,15 +1824,15 @@
     </message>
     <message>
         <source>Logo</source>
-        <translation type="unfinished"></translation>
+        <translation>Logo</translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Grensesnitt</translation>
     </message>
     <message>
         <source>Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>Avspilling</translation>
     </message>
     <message>
         <source>Output</source>
@@ -2001,7 +2002,7 @@ media file played</source>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilbakestill</translation>
     </message>
     <message>
         <source>E&amp;xternal</source>
@@ -2013,7 +2014,7 @@ media file played</source>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Utforsk …</translation>
     </message>
     <message>
         <source>Blank</source>
@@ -2037,11 +2038,11 @@ media file played</source>
     </message>
     <message>
         <source>Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikoner</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Drakt</translation>
     </message>
     <message>
         <source>Built-in fallback</source>
@@ -2049,11 +2050,11 @@ media file played</source>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Egenskaper</translation>
     </message>
     <message>
         <source>System (Linux only)</source>
-        <translation type="unfinished"></translation>
+        <translation>System (kun Linux)</translation>
     </message>
     <message>
         <source>Folder (e.g. ~/Pictures/MyIcons/mpc-qt/leet)</source>
@@ -2085,7 +2086,7 @@ media file played</source>
     </message>
     <message>
         <source>Window Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Vindusfarge</translation>
     </message>
     <message>
         <source>HHHHHH</source>
@@ -2093,19 +2094,19 @@ media file played</source>
     </message>
     <message>
         <source>Info Background</source>
-        <translation type="unfinished"></translation>
+        <translation>Info-bakgrunn</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation type="unfinished"></translation>
+        <translation>Info-forgrunn</translation>
     </message>
     <message>
         <source>Control</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontroll</translation>
     </message>
     <message>
         <source>Volume step</source>
-        <translation type="unfinished"></translation>
+        <translation>Lydstyrkesteg</translation>
     </message>
     <message>
         <source>Speed step</source>
@@ -2113,7 +2114,7 @@ media file played</source>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisk</translation>
     </message>
     <message>
         <source>Time step</source>
@@ -2161,7 +2162,7 @@ media file played</source>
     </message>
     <message>
         <source>Balance</source>
-        <translation type="unfinished"></translation>
+        <translation>Balanse</translation>
     </message>
     <message>
         <source>Default track preference</source>
@@ -2185,7 +2186,7 @@ media file played</source>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Generelt</translation>
     </message>
     <message>
         <source>Framebuffer</source>
@@ -2217,11 +2218,11 @@ media file played</source>
     </message>
     <message>
         <source>Alpha channel</source>
-        <translation type="unfinished"></translation>
+        <translation>Alfa-kanal</translation>
     </message>
     <message>
         <source>Alpha</source>
-        <translation type="unfinished"></translation>
+        <translation>Alfa</translation>
     </message>
     <message>
         <source>Blend on black</source>
@@ -2233,7 +2234,7 @@ media file played</source>
     </message>
     <message>
         <source>Ignore</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignorer</translation>
     </message>
     <message>
         <source>Sharpen</source>
