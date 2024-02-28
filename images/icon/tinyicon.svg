@@ -2,33 +2,33 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="16"
    height="16"
    viewBox="0 0 16 16"
    id="svg10943"
    version="1.1"
-   inkscape:version="0.92.1 r15371"
-   sodipodi:docname="logo16.svg"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
+   sodipodi:docname="tinyicon.svg"
    inkscape:export-filename="/home/tux/Documents/logos/mpc-qt/icon.png"
    inkscape:export-xdpi="89.999977"
-   inkscape:export-ydpi="89.999977">
+   inkscape:export-ydpi="89.999977"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
      id="defs10945">
     <filter
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
        id="filter10516"
-       x="-0.075599998"
-       width="1.1512001"
-       y="-0.075599998"
-       height="1.1512001">
+       x="-0.10893333"
+       width="1.2178667"
+       y="-0.10893333"
+       height="1.2178667">
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="1.89"
@@ -42,9 +42,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="-9.4659975"
-     inkscape:cy="1.3868024"
+     inkscape:zoom="31.678384"
+     inkscape:cx="21.19742"
+     inkscape:cy="8.5547293"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -54,15 +54,23 @@
      fit-margin-bottom="0"
      units="px"
      inkscape:window-width="1920"
-     inkscape:window-height="1015"
+     inkscape:window-height="1008"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="1">
+     inkscape:window-maximized="1"
+     inkscape:showpageshadow="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050">
     <inkscape:grid
        type="xygrid"
        id="grid11523"
        originx="-37"
-       originy="-36.999999" />
+       originy="-36.999999"
+       spacingy="1"
+       spacingx="1"
+       units="px"
+       visible="true"
+       empspacing="4" />
   </sodipodi:namedview>
   <metadata
      id="metadata10948">
@@ -72,7 +80,6 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -145,17 +152,18 @@
          id="path4170"
          style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#999999;stroke-width:4;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <path
-         d="M 165.6066,937.96878 A 15,15 0 0 1 155,942.36218 15,15 0 0 1 144.3934,937.96878"
+         d="m 164.89949,937.26168 a 14,14 0 0 1 -9.89949,4.1005 14,14 0 0 1 -9.8995,-4.1005"
          sodipodi:open="true"
          sodipodi:end="2.3561945"
          sodipodi:start="0.78539816"
-         sodipodi:ry="15"
-         sodipodi:rx="15"
+         sodipodi:ry="14"
+         sodipodi:rx="14"
          sodipodi:cy="927.36218"
          sodipodi:cx="155"
          sodipodi:type="arc"
          id="path4172"
-         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#999999;stroke-width:4;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#999999;stroke-width:4;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:arc-type="arc" />
       <rect
          y="913.36218"
          x="141"
