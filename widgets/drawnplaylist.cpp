@@ -52,6 +52,7 @@ void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
         // TODO: detect what type of file is being played
         text = dp->parseMetadata(i->metadata(), text, Helpers::VideoFile);
     }
+    text.replace('\n',' ');
 
     QFont f = playWidget->font();
     f.setBold(i->uuid() == playWidget->nowPlayingItem());
