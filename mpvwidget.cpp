@@ -12,6 +12,7 @@
 #include <QMetaObject>
 #include <QDir>
 #include <QDebug>
+#include <QWindow>
 #include <cmath>
 #include <stdexcept>
 #include "logger.h"
@@ -901,7 +902,11 @@ void MpvGlWidget::mouseMoveEvent(QMouseEvent *event)
 {
     QPointF pos = event->position();
     emit mpvObject->mouseMoved(pos.x(), pos.y());
-    QOpenGLWidget::mouseMoveEvent(event);
+    event->accept();
+    if (event->buttons().testAnyFlag(Qt::LeftButton)) {
+        QWindow *parentWindow = this->window()->windowHandle();
+        parentWindow->startSystemMove();
+    }
 }
 
 void MpvGlWidget::mousePressEvent(QMouseEvent *event)
