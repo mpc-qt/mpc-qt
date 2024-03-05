@@ -1061,7 +1061,7 @@ QVariantMap Flow::windowsToVMap_v2()
         return QVariantMap();
 
     windowManager.clearJson();
-    windowManager.saveDocks(mainWindow->mpvHost());
+    windowManager.saveDocks(mainWindow->dockHost());
     windowManager.saveWindow(settingsWindow);
     windowManager.saveWindow(propertiesWindow);
     windowManager.saveWindow(logWindow);
@@ -1075,7 +1075,7 @@ void Flow::restoreWindows_v2(const QVariantMap &geometryMap)
     CliInfo cliInfo { cliPos, cliSize, validCliPos, validCliSize };
 
     windowManager.setJson(geometryMap);
-    windowManager.restoreDocks(mainWindow->mpvHost(), { mainWindow->playlistWindow() });
+    windowManager.restoreDocks(mainWindow->dockHost(), { mainWindow->playlistWindow() });
     windowManager.restoreWindow(settingsWindow);
     windowManager.restoreWindow(propertiesWindow);
     windowManager.restoreWindow(logWindow);

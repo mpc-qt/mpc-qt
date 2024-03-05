@@ -34,7 +34,7 @@ public:
     ~MainWindow();
 
     MpvObject *mpvObject();
-    QMainWindow *mpvHost();
+    QMainWindow *dockHost();
     PlaylistWindow *playlistWindow();
     QList<QAction *> editableActions();
     QVariantMap mouseMapDefaults();

@@ -89,7 +89,7 @@ MpvObject *MainWindow::mpvObject()
     return mpvObject_;
 }
 
-QMainWindow *MainWindow::mpvHost()
+QMainWindow *MainWindow::dockHost()
 {
     return mpvHost_;
 }
@@ -691,7 +691,7 @@ void MainWindow::setupMpvWidget(Helpers::MpvWidgetType widgetType)
 void MainWindow::setupPlaylist()
 {
     playlistWindow_ = new PlaylistWindow(this);
-    mpvHost_->addDockWidget(Qt::RightDockWidgetArea, playlistWindow_);
+    dockHost()->addDockWidget(Qt::RightDockWidgetArea, playlistWindow_);
     connect(playlistWindow_, &PlaylistWindow::windowDocked,
             this, &MainWindow::playlistWindow_windowDocked);
     connect(playlistWindow_, &PlaylistWindow::playlistAddItem,
