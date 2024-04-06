@@ -101,19 +101,19 @@
     <name>LibraryWindow</name>
     <message>
         <source>Library</source>
-        <translation type="unfinished"></translation>
+        <translation>Библиотека</translation>
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished">Восстановить</translation>
+        <translation>Восстановить</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Удалить</translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыть</translation>
     </message>
 </context>
 <context>
@@ -1203,27 +1203,27 @@
     </message>
     <message>
         <source>Paused</source>
-        <translation type="unfinished"></translation>
+        <translation>Пауза</translation>
     </message>
     <message>
         <source>Playing</source>
-        <translation type="unfinished"></translation>
+        <translation>Играет</translation>
     </message>
     <message>
         <source>Buffering</source>
-        <translation type="unfinished"></translation>
+        <translation>Буферизация</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>Неизвестно</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;неизвестно&gt;</translation>
     </message>
     <message>
         <source>Libr&amp;ary</source>
-        <translation type="unfinished"></translation>
+        <translation>Биб&amp;лиотека</translation>
     </message>
     <message>
         <source>Ctrl+=</source>
@@ -1235,7 +1235,7 @@
     </message>
     <message>
         <source>&amp;Copy Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Скопировать субтитры</translation>
     </message>
 </context>
 <context>
@@ -1420,7 +1420,7 @@
     </message>
     <message>
         <source>Generate</source>
-        <translation type="unfinished"></translation>
+        <translation>Сгенерировать</translation>
     </message>
 </context>
 <context>
@@ -1798,7 +1798,7 @@
     <name>ScreenCombo</name>
     <message>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>Текущий</translation>
     </message>
 </context>
 <context>
@@ -2049,7 +2049,7 @@ media file played</source>
     </message>
     <message>
         <source>Built-in fallback</source>
-        <translation type="unfinished"></translation>
+        <translation>Встроенная</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -2161,7 +2161,7 @@ media file played</source>
     </message>
     <message>
         <source>Use Qt&apos;s inbuilt fusion style</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать встроенный стиль Qt&apos;s</translation>
     </message>
     <message>
         <source>Balance</source>
@@ -2253,23 +2253,23 @@ media file played</source>
     </message>
     <message>
         <source>Plain</source>
-        <translation type="unfinished"></translation>
+        <translation>Простой</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished"></translation>
+        <translation>Низкий</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"></translation>
+        <translation>Высокий</translation>
     </message>
     <message>
         <source>Highest</source>
-        <translation type="unfinished"></translation>
+        <translation>Самый высокий</translation>
     </message>
     <message>
         <source>Placebo</source>
-        <translation type="unfinished"></translation>
+        <translation>Плацебо</translation>
     </message>
     <message>
         <source>Load</source>
@@ -2713,11 +2713,11 @@ media file played</source>
     </message>
     <message>
         <source>HDR Desaturate</source>
-        <translation type="unfinished"></translation>
+        <translation>HDR насыщенность</translation>
     </message>
     <message>
         <source>ICC Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>ICC профиль</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -2725,7 +2725,7 @@ media file played</source>
     </message>
     <message>
         <source>Audio Renderer</source>
-        <translation type="unfinished"></translation>
+        <translation>Аудио рендерер</translation>
     </message>
     <message>
         <source>Device</source>
@@ -3021,7 +3021,7 @@ media file played</source>
     </message>
     <message>
         <source>Windows 8+ - usually safe but rounds 10 bit to 8 bit</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows 8+ - обычно безопасен, но понижает с 10 бит до 8 бит </translation>
     </message>
     <message>
         <source>Raspberry PI - hardware overlay renderer</source>
@@ -3130,7 +3130,7 @@ media file played</source>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation type="unfinished"></translation>
+        <translation ></translation>
     </message>
     <message>
         <source>Force</source>
@@ -3354,7 +3354,7 @@ media file played</source>
     </message>
     <message>
         <source>Below seekbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Ниже панели поиска</translation>
     </message>
     <message>
         <source>OSD font:</source>
@@ -3362,7 +3362,7 @@ media file played</source>
     </message>
     <message>
         <source>Prefer Wayland over XWayland (restart required)</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать Wayland вместо XWayland (требуется перезапуск).</translation>
     </message>
     <message>
         <source>Turn on logging (may produce stuttering)</source>
@@ -3518,15 +3518,15 @@ media file played</source>
     </message>
     <message>
         <source>HDR Compute Peak</source>
-        <translation type="unfinished"></translation>
+        <translation>HDR определение пиков</translation>
     </message>
     <message>
         <source>Target Peak</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимальный пик</translation>
     </message>
     <message>
         <source>Based on TRC</source>
-        <translation type="unfinished"></translation>
+        <translation>Основываться на TRC</translation>
     </message>
     <message>
         <source>Downscale in linear light</source>
@@ -3538,31 +3538,31 @@ media file played</source>
     </message>
     <message>
         <source>Use additive speed step</source>
-        <translation type="unfinished"></translation>
+        <translation>Используйте аддитивный шаг скорости</translation>
     </message>
     <message>
         <source>Prefer external subtitles over embedded subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Предпочитайте внешние субтитры встроенным</translation>
     </message>
     <message>
         <source>Ignore embedded subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Игнорировать встроенные субтитры</translation>
     </message>
     <message>
         <source>Web Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Веб-интерфейс</translation>
     </message>
     <message>
         <source>Allow access from localhost only</source>
-        <translation type="unfinished"></translation>
+        <translation>Разрешить доступ только с localhost</translation>
     </message>
     <message>
         <source>webroot</source>
-        <translation type="unfinished"></translation>
+        <translation>Корень сайта</translation>
     </message>
     <message>
         <source>Default page</source>
-        <translation type="unfinished"></translation>
+        <translation>Страница по умолчанию</translation>
     </message>
     <message>
         <source>index.html</source>
@@ -3574,75 +3574,75 @@ media file played</source>
     </message>
     <message>
         <source>&lt;a href=&quot;#&quot;&gt;Launch in web browser...&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;a href=&quot;#&quot;&gt;Запустить в браузере...&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Local files</source>
-        <translation type="unfinished"></translation>
+        <translation>Локальные файлы</translation>
     </message>
     <message>
         <source>Web root</source>
-        <translation type="unfinished"></translation>
+        <translation>Веб путь</translation>
     </message>
     <message>
         <source>Security</source>
-        <translation type="unfinished"></translation>
+        <translation>Безопасность</translation>
     </message>
     <message>
         <source>Enable web server</source>
-        <translation type="unfinished"></translation>
+        <translation>Включить веб-сервер</translation>
     </message>
     <message>
         <source>Serve pages from disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузка страниц с диска</translation>
     </message>
     <message>
-        <source>Back color</source>
-        <translation type="unfinished"></translation>
+        <source>Цвет фона</source>
+        <translation></translation>
     </message>
     <message>
         <source>Enable back color</source>
-        <translation type="unfinished"></translation>
+        <translation>Включить фон</translation>
     </message>
     <message>
         <source>Stylesheet</source>
-        <translation type="unfinished"></translation>
+        <translation>Стили</translation>
     </message>
     <message>
         <source>Application Stylesheet</source>
-        <translation type="unfinished"></translation>
+        <translation>Таблица стилей приложения</translation>
     </message>
     <message>
         <source>High-contrast timeline and volume sliders</source>
-        <translation type="unfinished"></translation>
+        <translation>Высококонтрастная шкала времени и ползунки громкости</translation>
     </message>
     <message>
         <source>Default After Playback action:</source>
-        <translation type="unfinished"></translation>
+        <translation>Действие по умолчанию после воспроизведения</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Ничего не делать</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation>Повтор</translation>
     </message>
     <message>
         <source>Play next in the folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Проигрывать следующую диреторию</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Выход</translation>
     </message>
     <message>
         <source>After Playback</source>
-        <translation type="unfinished"></translation>
+        <translation >После воспроизведения</translation>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Шейдеры содержат специальные эффекты, которые могут быть добавлены в процесс рендеринга видео. Список шейдеров, созданных сообществом, можно найти на сайте &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>Pipewire</source>
@@ -3654,15 +3654,15 @@ media file played</source>
     </message>
     <message>
         <source>Language Override</source>
-        <translation type="unfinished"></translation>
+        <translation>Принудительный язык</translation>
     </message>
     <message>
         <source>Locale (Autodetect)</source>
-        <translation type="unfinished"></translation>
+        <translation>Локальный (Автоопределение)</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"></translation>
+        <translation>Средний</translation>
     </message>
 </context>
 <context>
