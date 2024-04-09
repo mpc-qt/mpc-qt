@@ -3130,7 +3130,7 @@ media file played</source>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation ></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Force</source>
@@ -3597,10 +3597,6 @@ media file played</source>
         <translation>Загрузка страниц с диска</translation>
     </message>
     <message>
-        <source>Цвет фона</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Enable back color</source>
         <translation>Включить фон</translation>
     </message>
@@ -3638,7 +3634,7 @@ media file played</source>
     </message>
     <message>
         <source>After Playback</source>
-        <translation >После воспроизведения</translation>
+        <translation>После воспроизведения</translation>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
@@ -3663,6 +3659,10 @@ media file played</source>
     <message>
         <source>Medium</source>
         <translation>Средний</translation>
+    </message>
+    <message>
+        <source>Back color</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
