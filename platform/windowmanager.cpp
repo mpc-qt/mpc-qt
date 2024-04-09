@@ -9,7 +9,6 @@
 
 static const char keyGeometry[] = "geometry";
 static const char keyMaximized[] = "maximized";
-static const char keyMinimized[] = "minimized";
 static const char keyQtState[] = "qtState";
 static const char keyState[] = "state";
 
@@ -40,8 +39,7 @@ void WindowManager::saveAppWindow(MainWindow *window)
         { keyGeometry, Helpers::rectToVmap(QRect(window->geometry().topLeft(),
                                             window->size())) },
         { keyState, window->state() },
-        { keyMaximized, window->isMaximized() },
-        { keyMinimized, window->isMinimized() }
+        { keyMaximized, window->isMaximized() }
     };
     json_.insert(window->objectName(), data);
 }
@@ -84,15 +82,11 @@ void WindowManager::restoreAppWindow(MainWindow *window, const CliInfo &cliInfo)
 
     window->setGeometry(QRect(desiredPlace, desiredSize));
 
-    if (data.value(keyMinimized, false).toBool()) {
-        window->showMinimized();
-    } else {
-        if (data.value(keyMaximized, false).toBool())
-            window->showMaximized();
-        else
-            window->show();
-        window->raise();
-    }
+    if (data.value(keyMaximized, false).toBool())
+        window->showMaximized();
+    else
+        window->show();
+    window->raise();
     if (data.contains(keyState))
         window->setState(data[keyState].toMap());
 }
