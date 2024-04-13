@@ -4022,14 +4022,14 @@ media file played</string>
                     </item>
                    </layout>
                   </item>
-                  <item row="2" column="0">
+                  <item row="3" column="0">
                    <widget class="QLabel" name="ccTargetPrimLabel">
                     <property name="text">
                      <string>Target Prim</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="1">
+                  <item row="3" column="1">
                    <widget class="QComboBox" name="ccTargetPrim">
                     <item>
                      <property name="text">
@@ -4118,15 +4118,15 @@ media file played</string>
                     </item>
                    </widget>
                   </item>
-                  <item row="3" column="0">
+                  <item row="4" column="0">
                    <widget class="QLabel" name="ccTargetTRCLabel">
                     <property name="text">
                      <string>Target TRC</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="3" column="1">
-                   <widget class="QComboBox" name="ccTargetTRC">
+                  <item row="4" column="1">
+                   <widget class="QComboBox" name="ccTargetTrc_v2">
                     <item>
                      <property name="text">
                       <string>Auto</string>
@@ -4154,7 +4154,22 @@ media file played</string>
                     </item>
                     <item>
                      <property name="text">
+                      <string>Gamma 2.0</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
                       <string>Gamma 2.2</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Gamma 2.4</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Gamma 2.6</string>
                      </property>
                     </item>
                     <item>
@@ -4192,16 +4207,21 @@ media file played</string>
                       <string>Sony S-Log2</string>
                      </property>
                     </item>
+                    <item>
+                     <property name="text">
+                      <string>ST 428</string>
+                     </property>
+                    </item>
                    </widget>
                   </item>
-                  <item row="4" column="0">
+                  <item row="5" column="0">
                    <widget class="QLabel" name="label">
                     <property name="text">
                      <string>Target Peak</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="1">
+                  <item row="5" column="1">
                    <widget class="QSpinBox" name="ccTargetPeak">
                     <property name="specialValueText">
                      <string>Based on TRC</string>
@@ -4217,14 +4237,14 @@ media file played</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="5" column="0">
+                  <item row="6" column="0">
                    <widget class="QLabel" name="ccHdrLabel">
                     <property name="text">
                      <string>HDR Tone mapping</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="5" column="1">
+                  <item row="6" column="1">
                    <layout class="QHBoxLayout" name="horizontalLayout_2">
                     <item>
                      <widget class="QComboBox" name="ccHdrMapper">
@@ -4480,14 +4500,14 @@ media file played</string>
                     </item>
                    </layout>
                   </item>
-                  <item row="6" column="0">
+                  <item row="7" column="0">
                    <widget class="QLabel" name="ccHdrComputeLabel">
                     <property name="text">
                      <string>HDR Compute Peak</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="6" column="1">
+                  <item row="7" column="1">
                    <widget class="QComboBox" name="ccHdrCompute">
                     <property name="currentIndex">
                      <number>2</number>
@@ -4509,14 +4529,14 @@ media file played</string>
                     </item>
                    </widget>
                   </item>
-                  <item row="7" column="0">
+                  <item row="8" column="0">
                    <widget class="QLabel" name="ccTargetICCLabel">
                     <property name="text">
                      <string>ICC Profile</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="7" column="1">
+                  <item row="8" column="1">
                    <layout class="QHBoxLayout" name="ccICCLayout" stretch="0,1,0">
                     <item>
                      <widget class="QCheckBox" name="ccICCAutodetect">
@@ -4540,14 +4560,14 @@ media file played</string>
                     </item>
                    </layout>
                   </item>
-                  <item row="1" column="0">
+                  <item row="2" column="0">
                    <widget class="QLabel" name="ccTargetGamutLabel">
                     <property name="text">
                      <string>Target Gamut</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="1">
+                  <item row="2" column="1">
                    <widget class="QComboBox" name="ccTargetGamut">
                     <item>
                      <property name="text">
@@ -4632,6 +4652,67 @@ media file played</string>
                     <item>
                      <property name="text">
                       <string>ACES AP1</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="ccGamutMappingLabel">
+                    <property name="text">
+                     <string>Gamut mapping</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QComboBox" name="ccGamutMapping">
+                    <item>
+                     <property name="text">
+                      <string>Auto</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Clip</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Perceptual</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Relative</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Saturation</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Absolute</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Desaturate</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Darken</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Warn</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Linear</string>
                      </property>
                     </item>
                    </widget>

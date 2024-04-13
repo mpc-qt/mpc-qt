@@ -145,6 +145,8 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"cscaleWindowValue", {SCALER_WINDOWS}},
     {"tscaleScaler", {TIME_SCALERS}},
     {"tscaleWindowValue", {SCALER_WINDOWS}},
+    {"ccGamutMapping", {"auto", "clip", "perceptual", "relative", "saturation",\
+                        "absolute", "desaturate", "darken", "warn", "linear"}},
     {"ccTargetGamut", {"auto", "bt.601-525", "bt.601-625", "bt.709",\
                        "bt.2020", "bt.470m", "apple", "adobe", "prophoto",\
                        "cie1931", "dci-p3", "v-gamut", "s-gamut", "ebu3213",\
@@ -153,9 +155,10 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
                       "bt.2020", "bt.470m", "apple", "adobe", "prophoto",\
                       "cie1931", "dci-p3", "v-gamut", "s-gamut", "ebu3213",\
                       "film-c", "aces-ap0", "aces-ap1"}},
-    {"ccTargetTRC", {"auto", "by.1886", "srgb", "linear", "gamma1.8",\
-                     "gamma2.2", "gamma2.8", "prophoto", "pq", "hlg", "v-log",
-                     "s-log1", "s-log2"}},
+    {"ccTargetTrc_v2", {"auto", "bt.1886", "srgb", "linear", "gamma1.8",\
+                        "gamma2.0", "gamma2.2", "gamma2.4", "gamma2.6",\
+                        "gamma2.8", "prophoto", "pq", "hlg", "v-log",\
+                        "s-log1", "s-log2", "st428"}},
     {"ccHdrMapper", {"clip", "mobius", "reinhard", "hable", "gamma", \
                      "linear"}},
     {"ccHdrCompute", {"auto", "yes", "no"}},
@@ -861,9 +864,10 @@ void SettingsWindow::sendSignals()
     emit option("gamma", WIDGET_LOOKUP(ui->ccGamma));
     if (Platform::isMac)
         emit option("gamma-auto", WIDGET_LOOKUP(ui->ccGammaAutodetect));
+    emit option("gamut-mapping-mode", WIDGET_TO_TEXT(ui->ccGamutMapping));
     emit option("target-gamut", WIDGET_TO_TEXT(ui->ccTargetGamut));
     emit option("target-prim", WIDGET_TO_TEXT(ui->ccTargetPrim));
-    emit option("target-trc", WIDGET_TO_TEXT(ui->ccTargetTRC));
+    emit option("target-trc", WIDGET_TO_TEXT(ui->ccTargetTrc_v2));
     int targetPeak = WIDGET_LOOKUP(ui->ccTargetPeak).toInt();
     emit option("target-peak", targetPeak >= 10 ? QString::number(targetPeak) : QString("auto"));
     emit option("tone-mapping", WIDGET_TO_TEXT(ui->ccHdrMapper));
