@@ -2710,10 +2710,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>HDR Desaturate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>ICC Profile</source>
         <translation type="unfinished"></translation>
     </message>

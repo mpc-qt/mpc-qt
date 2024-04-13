@@ -2713,7 +2713,7 @@ media file played</translation>
     </message>
     <message>
         <source>HDR Desaturate</source>
-        <translation>HDR Desaturate</translation>
+        <translation type="vanished">HDR Desaturate</translation>
     </message>
     <message>
         <source>ICC Profile</source>

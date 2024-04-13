@@ -2713,7 +2713,7 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>HDR Desaturate</source>
-        <translation>Desaturación HDR</translation>
+        <translation type="vanished">Desaturación HDR</translation>
     </message>
     <message>
         <source>ICC Profile</source>

@@ -2712,10 +2712,6 @@ ogni file multimediale riprodotto</translation>
         <translation>Contrasto</translation>
     </message>
     <message>
-        <source>HDR Desaturate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>ICC Profile</source>
         <translation>Profilo ICC</translation>
     </message>
