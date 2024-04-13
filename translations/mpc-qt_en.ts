@@ -2597,7 +2597,7 @@ media file played</translation>
     </message>
     <message>
         <source>BT.470m</source>
-        <translation>BT.470m</translation>
+        <translation type="vanished">BT.470m</translation>
     </message>
     <message>
         <source>BT.601-525</source>
@@ -3663,6 +3663,82 @@ media file played</translation>
     <message>
         <source>Medium</source>
         <translation>Medium</translation>
+    </message>
+    <message>
+        <source>BT.470M</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>V-Gamut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>S-Gamut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>EBU3213</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Film-C</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ACES AP0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ACES AP1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gamma 2.0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gamma 2.4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gamma 2.6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ST 428</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Target Gamut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gamut mapping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Perceptual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Relative</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Absolute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desaturate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warn</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
