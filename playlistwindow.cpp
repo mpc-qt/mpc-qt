@@ -931,9 +931,8 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     });
     m->addAction(a);
 
-    connect(m, &QMenu::aboutToHide,
-            m, &QObject::deleteLater);
     m->exec(listWidget->mapToGlobal(p));
+    delete m;
 }
 
 void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
@@ -995,6 +994,7 @@ void PlaylistWindow::on_tabWidget_customContextMenuRequested(const QPoint &pos)
     m->addAction(tr("&Import Playlist"), this, SLOT(importTab()));
     m->addAction(tr("&Export Playlist"), this, SLOT(exportTab()));
     m->exec(ui->tabWidget->mapToGlobal(pos));
+    delete m;
 }
 
 void PlaylistWindow::on_searchField_textEdited(const QString &arg1)
