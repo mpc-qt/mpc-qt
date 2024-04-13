@@ -4022,23 +4022,18 @@ media file played</string>
                     </item>
                    </layout>
                   </item>
-                  <item row="1" column="0">
+                  <item row="2" column="0">
                    <widget class="QLabel" name="ccTargetPrimLabel">
                     <property name="text">
                      <string>Target Prim</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="1">
+                  <item row="2" column="1">
                    <widget class="QComboBox" name="ccTargetPrim">
                     <item>
                      <property name="text">
                       <string>Auto</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>BT.470m</string>
                      </property>
                     </item>
                     <item>
@@ -4059,6 +4054,11 @@ media file played</string>
                     <item>
                      <property name="text">
                       <string>BT.2020</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>BT.470M</string>
                      </property>
                     </item>
                     <item>
@@ -4086,16 +4086,46 @@ media file played</string>
                       <string>DCI-P3</string>
                      </property>
                     </item>
+                    <item>
+                     <property name="text">
+                      <string>V-Gamut</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>S-Gamut</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>EBU3213</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Film-C</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>ACES AP0</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>ACES AP1</string>
+                     </property>
+                    </item>
                    </widget>
                   </item>
-                  <item row="2" column="0">
+                  <item row="3" column="0">
                    <widget class="QLabel" name="ccTargetTRCLabel">
                     <property name="text">
                      <string>Target TRC</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="1">
+                  <item row="3" column="1">
                    <widget class="QComboBox" name="ccTargetTRC">
                     <item>
                      <property name="text">
@@ -4164,14 +4194,14 @@ media file played</string>
                     </item>
                    </widget>
                   </item>
-                  <item row="3" column="0">
+                  <item row="4" column="0">
                    <widget class="QLabel" name="label">
                     <property name="text">
                      <string>Target Peak</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="3" column="1">
+                  <item row="4" column="1">
                    <widget class="QSpinBox" name="ccTargetPeak">
                     <property name="specialValueText">
                      <string>Based on TRC</string>
@@ -4187,14 +4217,14 @@ media file played</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="0">
+                  <item row="5" column="0">
                    <widget class="QLabel" name="ccHdrLabel">
                     <property name="text">
                      <string>HDR Tone mapping</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="1">
+                  <item row="5" column="1">
                    <layout class="QHBoxLayout" name="horizontalLayout_2">
                     <item>
                      <widget class="QComboBox" name="ccHdrMapper">
@@ -4450,14 +4480,14 @@ media file played</string>
                     </item>
                    </layout>
                   </item>
-                  <item row="5" column="0">
+                  <item row="6" column="0">
                    <widget class="QLabel" name="ccHdrComputeLabel">
                     <property name="text">
                      <string>HDR Compute Peak</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="5" column="1">
+                  <item row="6" column="1">
                    <widget class="QComboBox" name="ccHdrCompute">
                     <property name="currentIndex">
                      <number>2</number>
@@ -4479,14 +4509,14 @@ media file played</string>
                     </item>
                    </widget>
                   </item>
-                  <item row="6" column="0">
+                  <item row="7" column="0">
                    <widget class="QLabel" name="ccTargetICCLabel">
                     <property name="text">
                      <string>ICC Profile</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="6" column="1">
+                  <item row="7" column="1">
                    <layout class="QHBoxLayout" name="ccICCLayout" stretch="0,1,0">
                     <item>
                      <widget class="QCheckBox" name="ccICCAutodetect">
@@ -4509,6 +4539,102 @@ media file played</string>
                      </widget>
                     </item>
                    </layout>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="ccTargetGamutLabel">
+                    <property name="text">
+                     <string>Target Gamut</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QComboBox" name="ccTargetGamut">
+                    <item>
+                     <property name="text">
+                      <string>Auto</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>BT.601-525</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>BT.601-625</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>BT.709</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>BT.2020</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>BT.470M</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Apple</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Adobe</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>ProPhoto</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>CIE1931</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>DCI-P3</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>V-Gamut</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>S-Gamut</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>EBU3213</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Film-C</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>ACES AP0</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>ACES AP1</string>
+                     </property>
+                    </item>
+                   </widget>
                   </item>
                  </layout>
                 </widget>

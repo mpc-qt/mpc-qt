@@ -145,9 +145,14 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"cscaleWindowValue", {SCALER_WINDOWS}},
     {"tscaleScaler", {TIME_SCALERS}},
     {"tscaleWindowValue", {SCALER_WINDOWS}},
+    {"ccTargetGamut", {"auto", "bt.601-525", "bt.601-625", "bt.709",\
+                       "bt.2020", "bt.470m", "apple", "adobe", "prophoto",\
+                       "cie1931", "dci-p3", "v-gamut", "s-gamut", "ebu3213",\
+                       "film-c", "aces-ap0", "aces-ap1"}},
     {"ccTargetPrim", {"auto", "bt.601-525", "bt.601-625", "bt.709",\
                       "bt.2020", "bt.470m", "apple", "adobe", "prophoto",\
-                      "cie1931", "dvi-p3"}},
+                      "cie1931", "dci-p3", "v-gamut", "s-gamut", "ebu3213",\
+                      "film-c", "aces-ap0", "aces-ap1"}},
     {"ccTargetTRC", {"auto", "by.1886", "srgb", "linear", "gamma1.8",\
                      "gamma2.2", "gamma2.8", "prophoto", "pq", "hlg", "v-log",
                      "s-log1", "s-log2"}},
@@ -856,6 +861,7 @@ void SettingsWindow::sendSignals()
     emit option("gamma", WIDGET_LOOKUP(ui->ccGamma));
     if (Platform::isMac)
         emit option("gamma-auto", WIDGET_LOOKUP(ui->ccGammaAutodetect));
+    emit option("target-gamut", WIDGET_TO_TEXT(ui->ccTargetGamut));
     emit option("target-prim", WIDGET_TO_TEXT(ui->ccTargetPrim));
     emit option("target-trc", WIDGET_TO_TEXT(ui->ccTargetTRC));
     int targetPeak = WIDGET_LOOKUP(ui->ccTargetPeak).toInt();
