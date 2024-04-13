@@ -1350,10 +1350,3 @@ void SettingsWindow::on_webPortLink_linkActivated(const QString &link)
     url.setPort(ui->webPort->value());
     QDesktopServices::openUrl(url);
 }
-
-
-void SettingsWindow::on_playerLanguageComboBox_currentIndexChanged(int index)
-{
-    //TODO: Language changing
-}
-

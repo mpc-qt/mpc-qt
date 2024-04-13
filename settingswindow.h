@@ -267,8 +267,6 @@ private slots:
 
     void on_webPortLink_linkActivated(const QString &link);
 
-    void on_playerLanguageComboBox_currentIndexChanged(int index);
-
 private:
     Ui::SettingsWindow *ui = nullptr;
     ActionEditor *actionEditor = nullptr;
