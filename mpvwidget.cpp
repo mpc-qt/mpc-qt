@@ -855,15 +855,17 @@ void MpvGlWidget::initializeGL()
         Logger::log("glwidget", "assigning x11 display");
         params[2].type = MPV_RENDER_PARAM_X11_DISPLAY;
         params[2].data = x11App->display();
-    } /* FIXME: Enable with Qt 6.5+
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
     else if (auto wlApp = qApp->nativeInterface<QNativeInterface::QWaylandApplication>()) {
         Logger::log("glwidget", "assigning wayland display");
         QPlatformNativeInterface *native = QGuiApplication::platformNativeInterface();
         params[2].type = MPV_RENDER_PARAM_WL_DISPLAY;
         params[2].data = wlApp->display();
-    } */else
-#endif
-    {
+    }
+#endif // is qt >= 6.5
+#endif // is Linux
+    else {
         Logger::log("glwidget", "unknown display mode (eglfs et al)");
     }
 
