@@ -28,6 +28,8 @@
 
 //---------------------------------------------------------------------------
 
+static const char flatpakDesktopFile[] = "io.github.mpc_qt.Mpc-Qt";
+
 static const char keyCommand[] = "command";
 static const char keyDirectory[] = "directory";
 static const char keyFiles[] = "files";
@@ -343,9 +345,12 @@ void Flow::earlyPlatformOverride()
 {
     if (!Platform::isUnix)
         return;
+
+    if (!qEnvironmentVariableIsEmpty("FLATPAK_ID"))
+        QGuiApplication::setDesktopFileName(flatpakDesktopFile);
+
     // Wayland doesn't support run-time centering and it doesn't look like
     // it'll support it any time soon.  I'll remove this code when it does.
-
     Storage s;
     QVariantMap settings = s.readVMap(fileSettings);
     if (!settings.value("tweaksPreferWayland", QVariant(false)).toBool()) {
