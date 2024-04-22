@@ -3,11 +3,26 @@
 #include <QMessageBox>
 #include <cstdio>
 #include <cstdlib>
+#include <unistd.h>
 #include "logger.h"
+
+class StdFileCopy {
+public:
+    StdFileCopy(FILE *fp) {
+        ptr = fdopen(dup(fileno(fp)), "wt");
+        fclose(fp);
+    }
+    ~StdFileCopy() {
+        fclose(ptr);
+        ptr = nullptr;
+    }
+    FILE *ptr = nullptr;
+};
 
 
 static bool loggerInstanceSetBefore = false;
 static Logger *loggerInstance = nullptr;
+static StdFileCopy realStdErr(stderr);
 
 void loggerCallback(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
@@ -27,7 +42,7 @@ void loggerCallback(QtMsgType type, const QMessageLogContext &context, const QSt
         break;
     case QtFatalMsg:
         Logger::fatalMessage();
-        fprintf(stderr, "[FATALITY] [qt] fatal: %s\n", msg.toUtf8().data());
+        fprintf(realStdErr.ptr, "[FATALITY] [qt] fatal: %s\n", msg.toUtf8().data());
         std::abort();
     }
 }
@@ -125,7 +140,7 @@ void Logger::fatalMessage()
     // Try to flush anything pending to stderr and abort
     if (loggerInstance) {
         for (const auto &i : qAsConst(loggerInstance->pendingMessages))
-            std::fprintf(stderr, "%s\n", i.toLocal8Bit().data());
+            std::fprintf(realStdErr.ptr, "%s\n", i.toLocal8Bit().data());
     }
 }
 
@@ -203,7 +218,7 @@ void Logger::makeLog(QString line)
         return;
     line = QString("[%1] %2").arg(QString::number(elapsed.nsecsElapsed()/1000000000.0, 'f', 9), line.trimmed());
     // If you're encountering early or fantastic errors, uncomment this line:
-    //fprintf(stderr, "%s\n",  line.toLocal8Bit().constData());
+    //fprintf(realStdErr.ptr, "%s\n",  line.toLocal8Bit().constData());
     if (immediateMode) {
         emit logMessage(line);
         if (logFileStream) {
@@ -238,7 +253,7 @@ LogStream::~LogStream()
     if (buffer.isEmpty())
         return;
     if (directFlush) {
-        fprintf(stderr, "[%s] %s: %s\n",
+        fprintf(realStdErr.ptr, "[%s] %s: %s\n",
                 prefix.toUtf8().data(),
                 level.toUtf8().data(),
                 buffer.toUtf8().data());
