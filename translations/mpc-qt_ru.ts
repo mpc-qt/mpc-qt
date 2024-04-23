@@ -3162,7 +3162,7 @@ media file played</source>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation></translation>
+        <translation>Yes and only zoom signs</translation>
     </message>
     <message>
         <source>Force</source>
