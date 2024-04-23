@@ -53,17 +53,6 @@ int main(int argc, char *argv[])
     Logger::singleton();
     a.setWindowIcon(QIcon(":/images/icon/mpc-qt.svg"));
 
-    // The wayland plugin as of writing this (c. 2018-04) defaults
-    // to a 16bit color surface, so ask for the standard 32bit one.
-    if (a.platformName().contains("wayland")) {
-        QSurfaceFormat sf(QSurfaceFormat::defaultFormat());
-        sf.setBlueBufferSize(8);
-        sf.setGreenBufferSize(8);
-        sf.setRedBufferSize(8);
-        sf.setAlphaBufferSize(8);
-        QSurfaceFormat::setDefaultFormat(sf);
-    }
-
     // Qt sets the locale in the QApplication constructor, but libmpv requires
     // the LC_NUMERIC category to be set to "C", so change it back.
     std::setlocale(LC_NUMERIC, "C");
