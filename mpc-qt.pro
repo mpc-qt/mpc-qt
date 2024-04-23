@@ -207,6 +207,7 @@ OTHER_FILES += \
     LICENSE \
     README.md \
     .github/workflows/linux.yml \
+    .github/workflows/windows-msys2.yml \
     make-win-icon.sh \
     make-release-msys2.sh \
     make-release-win.sh \

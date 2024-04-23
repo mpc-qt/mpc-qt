@@ -40,7 +40,7 @@ jobs:
         bash make-win-icon.sh
         bash make-release-msys2.sh          
     - name: Upload
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: "mpc-qt-win"
         path: mpc-qt-*.zip
