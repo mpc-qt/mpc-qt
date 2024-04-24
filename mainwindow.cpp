@@ -1102,10 +1102,10 @@ void MainWindow::updateOnTop()
         showOnTop = true;
         break;
     case OnTopWhenPlaying:
-        showOnTop = isPlaying;
+        showOnTop = isPlaying && !isPaused;
         break;
     case OnTopForVideos:
-        showOnTop = isPlaying && hasVideo;
+        showOnTop = isPlaying && !isPaused && hasVideo;
         break;
     default:
         showOnTop = false;
