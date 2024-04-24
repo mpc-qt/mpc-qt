@@ -430,6 +430,7 @@ void MediaSlider::updateLoopArea()
     double left = valueToX(vLoopA);
     double right = valueToX(vLoopB);
     loopArea = {left, grooveArea.top() + 1, right - left, grooveArea.height() - 2};
+    makeBackground();
     update();
 }
 
