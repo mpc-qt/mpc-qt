@@ -66,6 +66,7 @@ Suggestions welcome.
 
 If you are a coder, try to follow the conventions in the code and make a PR.
 If you are a translator, we will be using [Weblate] to translate.
+Alternatively, you can submit the translations as a PR.
 
 ## Compiling
 
