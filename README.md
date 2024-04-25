@@ -42,9 +42,6 @@ as other media players.  Find the tracks you want, when you want them.
 **Screenshot templates:**  Take screenshots with a custom, sleek and stylized
 filename.  Only include the information that you want.
 
-**Looped playback:** Selectively show part of video/music tracks.  Amazing,
-isn't it?
-
 **Custom metadata:**  Display custom metadata in the playlist window.  Want to
 show the artist as well as the title, down to even the encoder used?  Nothing
 is stopping you.
