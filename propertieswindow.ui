@@ -74,7 +74,7 @@
        <item row="1" column="0" colspan="2">
         <widget class="Line" name="detailsLine">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
         </widget>
        </item>
@@ -151,7 +151,7 @@
        <item row="7" column="0" colspan="2">
         <widget class="Line" name="detailsLine_2">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
         </widget>
        </item>
@@ -164,7 +164,7 @@
           </sizepolicy>
          </property>
          <property name="lineWrapMode">
-          <enum>QPlainTextEdit::NoWrap</enum>
+          <enum>QPlainTextEdit::LineWrapMode::NoWrap</enum>
          </property>
          <property name="readOnly">
           <bool>true</bool>
@@ -223,7 +223,7 @@
        <item row="1" column="0" colspan="2">
         <widget class="Line" name="clipLine">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
         </widget>
        </item>
@@ -239,7 +239,7 @@
           <string>Clip:</string>
          </property>
          <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
          </property>
         </widget>
        </item>
@@ -304,7 +304,7 @@
        <item row="6" column="0" colspan="2">
         <widget class="Line" name="clipLine_2">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
         </widget>
        </item>
@@ -320,7 +320,7 @@
           <string>Location:</string>
          </property>
          <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
          </property>
         </widget>
        </item>
@@ -336,7 +336,7 @@
           <string notr="true">-</string>
          </property>
          <property name="textFormat">
-          <enum>Qt::PlainText</enum>
+          <enum>Qt::TextFormat::PlainText</enum>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -346,7 +346,7 @@
        <item row="8" column="0" colspan="2">
         <widget class="Line" name="clipLine_3">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
         </widget>
        </item>
@@ -356,7 +356,7 @@
           <string>Description:</string>
          </property>
          <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
          </property>
         </widget>
        </item>
@@ -369,7 +369,7 @@
           </sizepolicy>
          </property>
          <property name="lineWrapMode">
-          <enum>QPlainTextEdit::NoWrap</enum>
+          <enum>QPlainTextEdit::LineWrapMode::NoWrap</enum>
          </property>
          <property name="readOnly">
           <bool>true</bool>
@@ -391,7 +391,7 @@
           </font>
          </property>
          <property name="lineWrapMode">
-          <enum>QPlainTextEdit::NoWrap</enum>
+          <enum>QPlainTextEdit::LineWrapMode::NoWrap</enum>
          </property>
          <property name="readOnly">
           <bool>true</bool>
@@ -414,10 +414,10 @@
      <item>
       <widget class="QDialogButtonBox" name="buttonBox">
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
        <property name="standardButtons">
-        <set>QDialogButtonBox::Close</set>
+        <set>QDialogButtonBox::StandardButton::Close</set>
        </property>
       </widget>
      </item>
