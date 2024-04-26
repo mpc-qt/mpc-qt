@@ -859,7 +859,6 @@ void MpvGlWidget::initializeGL()
 #if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
     else if (auto wlApp = qApp->nativeInterface<QNativeInterface::QWaylandApplication>()) {
         Logger::log("glwidget", "assigning wayland display");
-        QPlatformNativeInterface *native = QGuiApplication::platformNativeInterface();
         params[2].type = MPV_RENDER_PARAM_WL_DISPLAY;
         params[2].data = wlApp->display();
     }
