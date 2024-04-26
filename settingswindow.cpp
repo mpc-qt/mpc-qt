@@ -462,6 +462,9 @@ void SettingsWindow::setupSelfSignals()
 
 void SettingsWindow::setupUnimplementedWidgets()
 {
+    // Please update the values in setFreestanding
+    // when updating this list.
+
     ui->playerOSD->setVisible(false);
     ui->playerLimitProportions->setVisible(false);
     ui->playerDisableOpenDisc->setVisible(false);
@@ -1088,9 +1091,9 @@ void SettingsWindow::setFreestanding(bool freestanding)
     ui->ipcNotice->setVisible(yes);
     ui->ipcMpris->setVisible(yes);
     ui->playerKeepHistory->setVisible(yes);
-    ui->playerRememberLastPlaylist->setVisible(yes);
+    ui->playerRememberLastPlaylist->setVisible(false /*yes*/);
     ui->playerRememberWindowGeometry->setVisible(yes);
-    ui->playerRememberPanScanZoom->setVisible(yes);
+    ui->playerRememberPanScanZoom->setVisible(false /*yes*/);
     ui->playerHistoryBox->setEnabled(yes);
     ui->webTcpIpBox->setEnabled(yes);
     ui->webLocalFilesBox->setEnabled(yes);
