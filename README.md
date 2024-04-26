@@ -167,13 +167,9 @@ Congratulations, you have now built mpc-qt!
 [screenshot]:https://raw.githubusercontent.com/mpc-qt/mpc-qt-screenshots/master/Screenshot_20220226_155532.png
 [mpc-hc]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
-[mwe]:https://github.com/mpc-qt/mpc-qt/commit/9400f595
+[weblate]:https://weblate.org/en/
 [aur]:https://aur.archlinux.org/packages/mpc-qt-git/
 [ports]:https://www.freshports.org/multimedia/mpc-qt
-[weblate]:https://weblate.org/en/
-[mpv-build]:https://github.com/mpv-player/mpv-build
-[bomi]:https://github.com/xylosper/bomi
-[baka]:https://github.com/u8sand/Baka-MPlayer
 [mpv-build repo]:https://github.com/mpv-player/mpv-build
 [shinchiro's release page]:https://sourceforge.net/projects/mpv-player-windows/files/libmpv/
 [MSYS2 edition of Qt Creator]:https://wiki.qt.io/MSYS2
