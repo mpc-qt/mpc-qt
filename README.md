@@ -80,9 +80,7 @@ You need the Qt6 SDK installed and a recent edition of libmpv.  On Ubuntu you
 can usually install the required libraries and tools with the
 `build-essential`, `qmake6`, `qt6-base-dev`, `qt6-l10n-tools`, `libqt6svg6-dev`,
 and `libmpv-dev` packages.  A recent edition of [libmpv] means either from git
-head or at least version 0.37.0.  The mpv options for this are
-`--enable-libmpv-shared` for shared library support, and
-`--enable-libarchive` if you want to use mpc-qt as a comic book viewer.
+head or at least version 0.37.0.
 
 ### I don't know git, how do I do this?
 
@@ -120,51 +118,7 @@ Rebuild by following the qmake+make steps as described above.
 ### I have compiler/linker errors
 
 Some distros have an ancient version of mpv in their repos.  You can install
-libmpv in the following method:
-
-Uninstall any libmpv package you may have.
-
->sudo apt purge libmpv-dev
-
-Fetch the mpv-build repo.
-
->cd ~/src
-
->git clone https://github.com/mpv-player/mpv-build.git
-
->cd mpv-build
-
-Select the master versions to compile.
-
->./use-ffmpeg-master
-
->./use-libass-master
-
->./use-mpv-master
-
-Follow the instructions for debian and ubuntu about making a build-deps
-package. (or whatever method for your distro.)
-
->sudo apt-get install git devscripts equivs
-
->rm -f mpv-build-deps\_\*\_\*.deb
-
->mk-build-deps -s sudo -i
-
-Build libmpv.
-
->echo --enable-libmpv-shared > mpv_options
-
->./update
-
->./build -j\`nproc\`
-
->sudo ./install
-
->sudo ldconfig
-
-libmpv should now be installed to `/usr/local/*`.
-
+libmpv by following the instructions at the [mpv-build repo].
 
 ## Compiling on Windows
 
@@ -220,5 +174,6 @@ Congratulations, you have now built mpc-qt!
 [mpv-build]:https://github.com/mpv-player/mpv-build
 [bomi]:https://github.com/xylosper/bomi
 [baka]:https://github.com/u8sand/Baka-MPlayer
+[mpv-build repo]:https://github.com/mpv-player/mpv-build
 [shinchiro's release page]:https://sourceforge.net/projects/mpv-player-windows/files/libmpv/
 [MSYS2 edition of Qt Creator]:https://wiki.qt.io/MSYS2
