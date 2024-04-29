@@ -177,7 +177,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>14</number>
+          <number>6</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -746,8 +746,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>640</width>
-                   <height>74</height>
+                   <width>42</width>
+                   <height>18</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -930,9 +930,12 @@ media file played</string>
                   </widget>
                  </item>
                  <item row="1" column="1">
-                  <widget class="QCheckBox" name="webLocalhost">
+                  <widget class="QCheckBox" name="webLocalhost_v2">
                    <property name="text">
                     <string>Allow access from localhost only</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
                    </property>
                   </widget>
                  </item>

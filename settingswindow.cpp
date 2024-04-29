@@ -741,7 +741,7 @@ void SettingsWindow::sendSignals()
 
     emit webserverListening(WIDGET_LOOKUP(ui->webEnableServer).toBool());
     emit webserverPort(WIDGET_LOOKUP(ui->webPort).toInt());
-    emit webserverLocalhost(WIDGET_LOOKUP(ui->webLocalhost).toBool());
+    emit webserverLocalhost(WIDGET_LOOKUP(ui->webLocalhost_v2).toBool());
     emit webserverServePages(WIDGET_LOOKUP(ui->webServePages).toBool());
     emit webserverRoot(WIDGET_PLACEHOLD_LOOKUP(ui->webRoot));
     emit webserverDefaultPage(WIDGET_PLACEHOLD_LOOKUP(ui->webDefaultPage));
