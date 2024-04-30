@@ -914,7 +914,7 @@ void MpvGlWidget::mousePressEvent(QMouseEvent *event)
 {
     QPointF pos = event->position();
     emit mpvObject->mousePress(pos.x(), pos.y());
-    QOpenGLWidget::mousePressEvent(event);
+    event->accept();
 }
 
 void MpvGlWidget::render_update(void *ctx)
