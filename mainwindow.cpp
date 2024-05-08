@@ -313,6 +313,38 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)
     }
     if (object == ui->bottomArea && event->type() == QEvent::Leave)
         this->leaveBottomArea();
+
+    if (Platform::isWindows && event->type() == QEvent::KeyPress) {
+        QKeyEvent *ke = static_cast<QKeyEvent*>(event);
+        switch (ke->key()) {
+        case Qt::Key_MediaPlay:
+            ke->accept();
+            if (ui->play->isEnabled())
+                on_play_clicked();
+            return true;
+        case Qt::Key_MediaPause:
+        case Qt::Key_MediaTogglePlayPause:
+            ke->accept();
+            if (ui->actionPlayPause->isEnabled())
+                ui->actionPlayPause->activate(QAction::Trigger);
+            return true;
+        case Qt::Key_MediaStop:
+            ke->accept();
+            if (ui->actionPlayStop->isEnabled())
+                ui->actionPlayStop->activate(QAction::Trigger);
+            return true;
+        case Qt::Key_MediaPrevious:
+            ke->accept();
+            if (ui->actionNavigateChaptersPrevious->isEnabled())
+                ui->actionNavigateChaptersPrevious->activate(QAction::Trigger);
+            return true;
+        case Qt::Key_MediaNext:
+            ke->accept();
+            if (ui->actionNavigateChaptersNext->isEnabled())
+                ui->actionNavigateChaptersNext->activate(QAction::Trigger);
+            return true;
+        }
+    }
     return QMainWindow::eventFilter(object, event);
 }
 
