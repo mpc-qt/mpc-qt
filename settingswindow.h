@@ -267,6 +267,8 @@ private slots:
 
     void on_webPortLink_linkActivated(const QString &link);
 
+    void on_webRootBrowse_clicked();
+
 private:
     Ui::SettingsWindow *ui = nullptr;
     ActionEditor *actionEditor = nullptr;

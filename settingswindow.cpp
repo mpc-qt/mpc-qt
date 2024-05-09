@@ -1353,3 +1353,12 @@ void SettingsWindow::on_webPortLink_linkActivated(const QString &link)
     url.setPort(ui->webPort->value());
     QDesktopServices::openUrl(url);
 }
+
+void SettingsWindow::on_webRootBrowse_clicked()
+{
+    QString path = QFileDialog::getExistingDirectory(this);
+    if (path.isEmpty())
+        return;
+    ui->webRoot->setText(path);
+}
+
