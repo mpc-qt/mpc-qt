@@ -128,7 +128,7 @@ QVariantMap MainWindow::mouseMapDefaults()
         commandMap.insert(a->objectName(), c.toVMap());
     };
     actionToMap(ui->actionViewFullscreen, {MouseState::Left,0,MouseState::PressTwice});
-    actionToMap(ui->actionPlayPause, {MouseState::Left,0,MouseState::MouseDown});
+    actionToMap(ui->actionPlayPause, {MouseState::Left,0,MouseState::MouseUp});
     actionToMap(ui->actionNavigateChaptersNext, {MouseState::Forward,0,MouseState::MouseDown});
     actionToMap(ui->actionNavigateChaptersPrevious, {MouseState::Back,0,MouseState::MouseDown});
     actionToMap(ui->actionPlayVolumeDown, {MouseState::Wheel,0,MouseState::MouseDown});

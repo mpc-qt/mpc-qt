@@ -37,7 +37,7 @@ static const char keyStreams[] = "streams";
 
 static const char fileFavorites[] = "favorites";
 static const char fileGeometryV2[] = "geometry_v2";
-static const char fileKeys[] = "keys";
+static const char fileKeys[] = "keys_v2";
 static const char filePlaylists[] = "playlists";
 static const char filePlaylistsBackup[] = "playlists_backup";
 static const char fileRecent[] = "recent";
