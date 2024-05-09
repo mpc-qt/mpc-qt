@@ -221,6 +221,7 @@ protected:
     void resizeGL(int w, int h);
     void mouseMoveEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
 
 private:
     static void render_update(void *ctx);
@@ -236,6 +237,7 @@ private:
     LogoDrawer *logo = nullptr;
     bool drawLogo = true;
     int glWidth = 0, glHeight = 0;
+    bool windowDragging = false;
 };
 
 
