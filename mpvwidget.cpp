@@ -913,6 +913,7 @@ void MpvGlWidget::mouseMoveEvent(QMouseEvent *event)
 
 void MpvGlWidget::mousePressEvent(QMouseEvent *event)
 {
+    windowDragging = false;
     QPointF pos = event->position();
     emit mpvObject->mousePress(pos.x(), pos.y());
     QOpenGLWidget::mousePressEvent(event);
