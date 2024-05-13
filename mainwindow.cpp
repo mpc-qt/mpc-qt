@@ -512,6 +512,11 @@ void MainWindow::setDiscState(bool playingADisc)
 
 void MainWindow::setupMenu()
 {
+    // Hide certain items that aren't going to be implemented
+    ui->actionViewHideSubresync->setVisible(false);
+    ui->actionViewHideCapture->setVisible(false);
+    ui->actionViewHideNavigation->setVisible(false);
+
     // Work around separators with text in the designer not showing as
     // sections
     ui->menuPlayAfter->insertSection(ui->actionPlayAfterOnceExit,
