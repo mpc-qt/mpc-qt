@@ -594,8 +594,12 @@ void MpvObject::showCursor()
 
 void MpvObject::hideCursor()
 {
-    if (widget)
-        widget->self()->setCursor(Qt::BlankCursor);
+    if (widget) {
+        QWidget *w = widget->self();
+        if (qApp->platformName().contains("wayland") && !w->window()->isActiveWindow())
+            return;
+        w->setCursor(Qt::BlankCursor);
+    }
 }
 
 void MpvObject::ctrl_mpvPropertyChanged(QString name, QVariant v)
