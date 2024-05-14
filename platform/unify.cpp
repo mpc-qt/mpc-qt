@@ -129,7 +129,8 @@ bool Platform::tilingDesktopActive()
     QStringList tilers({ "awesome", "bspwm", "dwm", "i3", "larswm", "ion",
         "qtile", "ratpoison", "stumpwm", "wmii", "xmonad"});
     QStringList stackers({"plasma", "kde", "kwin", "gnome", "mutter", "xfce",
-                          "mint", "mate", "cinnamon", "lxde", "lxqt"});
+                          "mint", "mate", "cinnamon", "lxde", "lxqt",
+                          "openbox"});
 
     QString desktop = qEnvironmentVariable("XDG_SESSION_DESKTOP").toLower();
     if (tilers.contains(desktop))
