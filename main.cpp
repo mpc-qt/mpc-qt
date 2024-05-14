@@ -96,7 +96,16 @@ bool Flow::settingsDisableWindowManagement = false;
 Flow::Flow(QObject *owner) :
     QObject(owner)
 {
+    // Start logging early
+    logThread = new QThread();
+    logThread->start();
+    Logger *logger = Logger::singleton();
+    logger->moveToThread(logThread);
+    connect(logThread, &QThread::finished,
+            logger, &QObject::deleteLater);
+
     readConfig();
+    Logger::log("main", "finished reading config");
 }
 
 Flow::~Flow()
@@ -167,6 +176,7 @@ Flow::~Flow()
 
 void Flow::parseArgs()
 {
+    Logger::log("main", "parsing arguments");
     QCommandLineParser parser;
     parser.setApplicationDescription(tr("Media Player Classic Qute Theater"));
     parser.addHelpOption();
@@ -196,6 +206,8 @@ void Flow::parseArgs()
 }
 
 void Flow::detectMode() {
+    Logger::log("main", "determining program mode");
+
     if (programMode != UnknownMode)
         return;
 
@@ -215,28 +227,32 @@ void Flow::detectMode() {
 void Flow::init() {
     Q_ASSERT(programMode != UnknownMode);
 
-    // Start logging early
-    logThread = new QThread();
-    logThread->start();
-    Logger *logger = Logger::singleton();
-    logger->moveToThread(logThread);
-    connect(logThread, &QThread::finished,
-            logger, &QObject::deleteLater);
+    Logger::log("main", "starting init");
 
     // Create our windows
+    Logger::log("main", "creating main window");
     mainWindow = new MainWindow();
+    Logger::log("main", "creating playback manager");
     playbackManager = new PlaybackManager(this);
     playbackManager->setMpvObject(mainWindow->mpvObject(), true);
     playbackManager->setPlaylistWindow(mainWindow->playlistWindow());
+    Logger::log("main", "creating settings window");
     settingsWindow = new SettingsWindow();
     settingsWindow->setWindowModality(Qt::WindowModal);
     if (settingsDisableWindowManagement)
         settingsWindow->disableWindowManagment();
+    Logger::log("main", "creating properties window");
     propertiesWindow = new PropertiesWindow();
+    Logger::log("main", "creating favorites window");
     favoritesWindow = new FavoritesWindow();
+    Logger::log("main", "creating log window");
     logWindow = new LogWindow();
+    Logger::log("main", "creating library window");
     libraryWindow = new LibraryWindow();
+    Logger::log("main", "creating thumbnailer window");
     thumbnailerWindow = new ThumbnailerWindow();
+
+    Logger::log("main", "finished creating windows");
 
     // Start our servers
     server = new MpcQtServer(mainWindow, playbackManager, this);
@@ -248,6 +264,8 @@ void Flow::init() {
     mpvServer->setMpvObject(mainWindow->mpvObject());
 
     mpcHcServer = new MpcHcServer(this);
+
+    Logger::log("main", "finished creating servers");
 
     // Initialize the screensaver
     inhibitScreensaver = false;
@@ -276,6 +294,7 @@ void Flow::init() {
     if (programMode == PrimaryMode) {
         setupMpris();
         setupMpcHc();
+        Logger::log("main", "completed setting up primary servers");
     }
 
     // update player framework
@@ -303,6 +322,8 @@ void Flow::init() {
     // Turn certain things off in freestanding mode
     mainWindow->setFreestanding(programMode == FreestandingMode);
     settingsWindow->setFreestanding(programMode == FreestandingMode);
+
+    Logger::log("main", "finished initilaization");
 }
 
 
@@ -322,6 +343,7 @@ int Flow::run()
     restoreWindows_v2(geometry);
 
     // Wait here until quit
+    Logger::log("main", "telling the program to run");
     return qApp->exec();
 }
 
