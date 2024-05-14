@@ -306,7 +306,9 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SettingsWindow)
 {
+    Logger::log("settings", "creating ui");
     ui->setupUi(this);
+    Logger::log("settings", "finished creating ui");
 
     actionEditor = new ActionEditor(this);
     ui->keysHost->addWidget(actionEditor);
@@ -318,16 +320,22 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     actionEditor->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     actionEditor->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 
+    Logger::log("settings", "creating logo widget");
     logoWidget = new LogoWidget(this);
     ui->logoImageHost->layout()->addWidget(logoWidget);
 
+    Logger::log("settings", "setting up platform widgets");
     setupPlatformWidgets();
+    Logger::log("settings", "setting up palette editor");
     setupPaletteEditor();
+    Logger::log("settings", "setting up fullscreen combo");
     setupFullscreenCombo();
 
+    Logger::log("settings", "generating settings map");
     defaultSettings = generateSettingMap(this);
     acceptedSettings = defaultSettings;
     generateVideoPresets();
+    Logger::log("settings", "finished generating settings");
 
     ui->pageStack->setCurrentIndex(0);
     ui->videoTabs->setCurrentIndex(0);
