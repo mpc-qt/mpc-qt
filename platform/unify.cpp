@@ -2,6 +2,7 @@
 #include <QProcess>
 #include <QApplication>
 #include <QDir>
+#include "logger.h"
 #include "unify.h"
 
 // Platform includes
@@ -124,16 +125,29 @@ bool Platform::tilingDesktopActive()
     if (!isUnix)
         return false;
 
-    QProcessEnvironment env;
+    // These lists are not exhaustive
     QStringList tilers({ "awesome", "bspwm", "dwm", "i3", "larswm", "ion",
         "qtile", "ratpoison", "stumpwm", "wmii", "xmonad"});
-    QString desktop = env.value("XDG_SESSION_DESKTOP", "=");
+    QStringList stackers({"plasma", "kde", "kwin", "gnome", "mutter", "xfce",
+                          "mint", "mate", "cinnamon", "lxde", "lxqt"});
+
+    QString desktop = qEnvironmentVariable("XDG_SESSION_DESKTOP").toLower();
     if (tilers.contains(desktop))
         return true;
-    desktop = env.value("XDG_DATA_DIRS", "=");
+    if (stackers.contains(desktop))
+        return false;
+
+    desktop = qEnvironmentVariable("XDG_DATA_DIRS").toLower();
     for (QString &wm : tilers)
         if (desktop.contains(wm))
             return true;
+    for (QString &wm : stackers)
+        if (desktop.contains(wm))
+            return false;
+
+    // Last resort, this will take some time (0.3s on my machine)
+    Logger::log("platform", "did not quickly determine desktop type, "
+                            "using pgrep and making a guess");
     for (QString &wm: tilers) {
         QProcess process;
         process.start("pgrep", QStringList({"-x", wm}));
