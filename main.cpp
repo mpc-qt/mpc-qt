@@ -323,7 +323,7 @@ void Flow::init() {
     mainWindow->setFreestanding(programMode == FreestandingMode);
     settingsWindow->setFreestanding(programMode == FreestandingMode);
 
-    Logger::log("main", "finished initilaization");
+    Logger::log("main", "finished initialization");
 }
 
 
