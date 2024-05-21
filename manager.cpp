@@ -7,6 +7,43 @@
 using namespace Helpers;
 
 
+
+TrackData TrackData::fromMap(const QVariantMap &map)
+{
+    TrackData td;
+    td.trackId = map["id"].toLongLong();
+    if (map.contains("type"))
+        td.type = map["type"].toString();
+    if (map.contains("codec"))
+        td.codec = map["codec"].toString();
+    if (map.contains("lang"))
+        td.lang = map["lang"].toString();
+    if (map.contains("title"))
+        td.title = map["title"].toString();
+    if (map.contains("forced"))
+        td.isForced = map["forced"].toBool();
+    if (map.contains("external"))
+        td.isExternal = map["external"].toBool();
+    if (map.contains("default"))
+        td.isDefault = map["default"].toBool();
+    return td;
+}
+
+QString TrackData::formatted()
+{
+    QString output;
+    output.append(QString("%1: ").arg(trackId));
+    if (!codec.isEmpty())
+        output.append(QString("[%1] ").arg(codec));
+    if (!lang.isEmpty())
+        output.append(QString("%1 ").arg(lang));
+    if (!title.isEmpty())
+        output.append(QString("- %1 ").arg(title));
+    return output;
+}
+
+
+
 PlaybackManager::PlaybackManager(QObject *parent) :
     QObject(parent)
 {
@@ -489,15 +526,15 @@ void PlaybackManager::selectDesiredTracks()
         if (subtitlesPreferExternal) {
             for (auto it = subtitleListData.constBegin();
                  it != subtitleListData.constEnd(); it++) {
-                if (it.value().value("external").toBool())
+                if (it.value().isExternal)
                     return it.key();
             }
         }
         if (subtitlesPreferDefaultForced) {
             for (auto it = subtitleListData.constBegin();
                  it != subtitleListData.constEnd(); it++)
-                if (it.value().value("forced").toBool()
-                    || it.value().value("default").toBool())
+                if (it.value().isForced
+                    || it.value().isDefault)
                     return it.key();
         }
         return -1;
@@ -746,33 +783,19 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
     subtitleListData.clear();
     QPair<int64_t,QString> item;
 
-    auto str = [](QVariantMap map, QString key) {
-        return map[key].toString();
-    };
-    auto formatter = [&str](QVariantMap track) {
-        QString output;
-        output.append(QString("%1: ").arg(str(track,"id")));
-        if (track.contains("codec"))
-            output.append(QString("[%1] ").arg(str(track,"codec")));
-        if (track.contains("lang"))
-            output.append(QString("%1 ").arg(str(track,"lang")));
-        if (track.contains("title"))
-            output.append(QString("- %1 ").arg(str(track,"title")));
-        return output;
-    };
-
     for (QVariant &track : tracks) {
         QVariantMap t = track.toMap();
-        item.first = t["id"].toLongLong();
-        item.second = formatter(t);
-        if (str(t,"type") == "video") {
+        TrackData td = TrackData::fromMap(t);
+        item.first = td.trackId;
+        item.second = td.formatted();
+        if (td.type == "video") {
             videoList.append(item);
-        } else if (str(t,"type") == "audio") {
+        } else if (td.type == "audio") {
             audioList.append(item);
-        } else if (str(t,"type") == "sub") {
-            if (!subtitlesIgnoreEmbedded || t.value("external").toBool()) {
+        } else if (td.type == "sub") {
+            if (!subtitlesIgnoreEmbedded || td.isExternal) {
                 subtitleList.append(item);
-                subtitleListData.insert(item.first, t);
+                subtitleListData.insert(item.first, td);
             }
         }
     }

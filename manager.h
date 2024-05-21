@@ -16,6 +16,20 @@
 class MpvObject;
 class PlaylistWindow;
 
+class TrackData {
+public:
+    static TrackData fromMap(const QVariantMap &map);
+    int64_t trackId = 0;
+    QString type;
+    QString codec;
+    QString lang;
+    QString title;
+    bool isExternal = false;
+    bool isForced = false;
+    bool isDefault = false;
+    QString formatted();
+};
+
 class PlaybackManager : public QObject
 {
     Q_OBJECT
@@ -186,7 +200,7 @@ private:
     QList<QPair<int64_t,QString>> videoList;
     QList<QPair<int64_t,QString>> audioList;
     QList<QPair<int64_t,QString>> subtitleList;
-    QMap<int64_t,QVariantMap> subtitleListData;
+    QMap<int64_t,TrackData> subtitleListData;
 
     QString videoListSelected;
     QString audioListSelected;
