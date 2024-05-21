@@ -635,6 +635,10 @@ void Flow::setupSettingsConnections()
             playbackManager, &PlaybackManager::setStepTimeLarge);
     connect(settingsWindow, &SettingsWindow::stepTimeSmall,
             playbackManager, &PlaybackManager::setStepTimeSmall);
+    connect(settingsWindow, &SettingsWindow::trackSubtitlePreference,
+            playbackManager, &PlaybackManager::setSubtitleTrackPreference);
+    connect(settingsWindow, &SettingsWindow::trackAudioPreference,
+            playbackManager, &PlaybackManager::setAudioTrackPreference);
     connect(settingsWindow, &SettingsWindow::playbackForever,
             playbackManager, &PlaybackManager::setPlaybackForever);
     connect(settingsWindow, &SettingsWindow::playbackPlayTimes,
