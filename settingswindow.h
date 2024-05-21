@@ -120,7 +120,7 @@ signals:
     void zoomCenter(bool yes);
     void mouseHideTimeFullscreen(int msec);
     void mouseHideTimeWindowed(int msec);
-    void trackVideoPreference(const QString &pref);
+    void trackSubtitlePreference(const QString &pref);
     void trackAudioPreference(const QString &pref);
     void autoLoadAudio(bool yes);
     void autoLoadSubs(bool yes);

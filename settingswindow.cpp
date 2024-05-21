@@ -484,7 +484,7 @@ void SettingsWindow::setupUnimplementedWidgets()
     ui->formatPage->setEnabled(false);
 
     ui->playbackBalance->setVisible(false);
-    ui->playbackTracksBox->setVisible(false);
+    //ui->playbackTracksBox->setVisible(false);
 
     ui->shadersWikiTab->setVisible(false);
     ui->shadersPresetsBox->setVisible(false);
@@ -792,6 +792,9 @@ void SettingsWindow::sendSignals()
     emit mouseHideTimeWindowed(WIDGET_LOOKUP(ui->playbackMouseHideWindowed).toBool()
                                ? WIDGET_LOOKUP(ui->playbackMouseHideWindowedDuration).toInt()
                                : 0);
+
+    emit trackSubtitlePreference(WIDGET_PLACEHOLD_LOOKUP(ui->playbackSubtitleTracks));
+    emit trackAudioPreference(WIDGET_PLACEHOLD_LOOKUP(ui->playbackAudioTracks));
 
     emit option("video-sync", WIDGET_TO_TEXT(ui->syncMode));
     emit option("gpu-dumb-mode", WIDGET_LOOKUP(ui->videoDumbMode));
