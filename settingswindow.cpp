@@ -483,8 +483,8 @@ void SettingsWindow::setupUnimplementedWidgets()
 
     ui->formatPage->setEnabled(false);
 
+    ui->playbackBalanceLabel->setVisible(false);
     ui->playbackBalance->setVisible(false);
-    //ui->playbackTracksBox->setVisible(false);
 
     ui->shadersWikiTab->setVisible(false);
     ui->shadersPresetsBox->setVisible(false);
