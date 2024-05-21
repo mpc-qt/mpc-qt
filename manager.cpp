@@ -1,4 +1,4 @@
-#include <cmath>
+#include <QRegularExpression>
 #include "manager.h"
 #include "mpvwidget.h"
 #include "playlistwindow.h"
@@ -6,6 +6,7 @@
 
 using namespace Helpers;
 
+Q_GLOBAL_STATIC(QRegularExpression, wordSplitter, "\\W+");
 
 
 TrackData TrackData::fromMap(const QVariantMap &map)
@@ -360,6 +361,16 @@ void PlaybackManager::setStepTimeSmall(int smallMsec)
     stepTimeSmall = smallMsec / 1000.0;
 }
 
+void PlaybackManager::setSubtitleTrackPreference(QString langs)
+{
+    subtitleLangPref = langs.split(*wordSplitter, Qt::SkipEmptyParts);
+}
+
+void PlaybackManager::setAudioTrackPreference(QString langs)
+{
+    audioLangPref = langs.split(*wordSplitter, Qt::SkipEmptyParts);
+}
+
 static QString findSecondById(QList<QPair<int64_t,QString>> list, int64_t id) {
     // this *should* return the string at id-1
     for (int i = 0; i < list.count(); ++i)
@@ -539,10 +550,22 @@ void PlaybackManager::selectDesiredTracks()
         }
         return -1;
     };
+    auto findTrackByLangPreference = [&](const QStringList &langPref,
+                                         const QMap<int64_t,TrackData> tracks) -> int64_t {
+        for (const QString &lang : langPref) {
+            for (auto it = tracks.constBegin();
+                 it != tracks.constEnd(); it++)
+                if (it.value().lang == lang)
+                    return it.key();
+        }
+        return -1;
+    };
     int64_t videoId = findIdBySecond(videoList, videoListSelected);
     int64_t audioId = findIdBySecond(audioList, audioListSelected);
+    if (audioId < 0) audioId = findTrackByLangPreference(audioLangPref, audioListData);
     int64_t subsId = findIdBySecond(subtitleList, subtitleListSelected);
     if (subsId < 0) subsId = findSubIdByPreference();
+    if (subsId < 0) subsId = findTrackByLangPreference(subtitleLangPref, subtitleListData);
 
     // Set detected tracks; if no preferred track from a list could be found,
     // clear user selection
@@ -779,6 +802,7 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
 {
     videoList.clear();
     audioList.clear();
+    audioListData.clear();
     subtitleList.clear();
     subtitleListData.clear();
     QPair<int64_t,QString> item;
@@ -792,10 +816,11 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
             videoList.append(item);
         } else if (td.type == "audio") {
             audioList.append(item);
+            audioListData.insert(td.trackId, td);
         } else if (td.type == "sub") {
             if (!subtitlesIgnoreEmbedded || td.isExternal) {
                 subtitleList.append(item);
-                subtitleListData.insert(item.first, td);
+                subtitleListData.insert(td.trackId, td);
             }
         }
     }

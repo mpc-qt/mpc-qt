@@ -121,6 +121,8 @@ public slots:
     void setSpeedStepAdditive(bool isAdditive);
     void setStepTimeLarge(int largeMsec);
     void setStepTimeSmall(int smallMsec);
+    void setSubtitleTrackPreference(QString langs);
+    void setAudioTrackPreference(QString langs);
     void setAudioTrack(int64_t id);
     void setSubtitleTrack(int64_t id);
     void setVideoTrack(int64_t id);
@@ -200,8 +202,11 @@ private:
     QList<QPair<int64_t,QString>> videoList;
     QList<QPair<int64_t,QString>> audioList;
     QList<QPair<int64_t,QString>> subtitleList;
+    QMap<int64_t,TrackData> audioListData;
     QMap<int64_t,TrackData> subtitleListData;
 
+    QStringList audioLangPref;
+    QStringList subtitleLangPref;
     QString videoListSelected;
     QString audioListSelected;
     QString subtitleListSelected;
