@@ -124,7 +124,9 @@ public slots:
     void setSubtitleTrackPreference(QString langs);
     void setAudioTrackPreference(QString langs);
     void setAudioTrack(int64_t id);
+    void setAudioTrackEx(int64_t id, bool softly);
     void setSubtitleTrack(int64_t id);
+    void setSubtitleTrackEx(int64_t id, bool softly);
     void setVideoTrack(int64_t id);
     void setSubtitleEnabled(bool enabled);
     void selectNextSubtitle();

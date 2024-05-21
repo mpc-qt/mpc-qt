@@ -381,13 +381,29 @@ static QString findSecondById(QList<QPair<int64_t,QString>> list, int64_t id) {
 
 void PlaybackManager::setAudioTrack(int64_t id)
 {
-    audioListSelected = findSecondById(audioList, id);
+    setAudioTrackEx(id, false);
+}
+
+void PlaybackManager::setAudioTrackEx(int64_t id, bool softly)
+{
+    if (softly)
+        audioListSelected.clear();
+    else
+        audioListSelected = findSecondById(audioList, id);
     mpvObject_->setAudioTrack(id);
 }
 
 void PlaybackManager::setSubtitleTrack(int64_t id)
 {
-    subtitleListSelected = findSecondById(subtitleList, id);
+    setSubtitleTrackEx(id, false);
+}
+
+void PlaybackManager::setSubtitleTrackEx(int64_t id, bool softly)
+{
+    if (softly)
+        subtitleListSelected.clear();
+    else
+        subtitleListSelected = findSecondById(subtitleList, id);
     subtitleTrackSelected = id;
     updateSubtitleTrack();
 }
@@ -551,7 +567,7 @@ void PlaybackManager::selectDesiredTracks()
         return -1;
     };
     auto findTrackByLangPreference = [&](const QStringList &langPref,
-                                         const QMap<int64_t,TrackData> tracks) -> int64_t {
+                                         const QMap<int64_t,TrackData> &tracks) -> int64_t {
         for (const QString &lang : langPref) {
             for (auto it = tracks.constBegin();
                  it != tracks.constEnd(); it++)
@@ -560,12 +576,23 @@ void PlaybackManager::selectDesiredTracks()
         }
         return -1;
     };
+    bool audioSoftly = false;
+    bool subsSoftly = false;
+
     int64_t videoId = findIdBySecond(videoList, videoListSelected);
     int64_t audioId = findIdBySecond(audioList, audioListSelected);
-    if (audioId < 0) audioId = findTrackByLangPreference(audioLangPref, audioListData);
+    if (audioId < 0) {
+        audioId = findTrackByLangPreference(audioLangPref, audioListData);
+        if (audioId)
+            audioSoftly = true;
+    }
     int64_t subsId = findIdBySecond(subtitleList, subtitleListSelected);
     if (subsId < 0) subsId = findSubIdByPreference();
-    if (subsId < 0) subsId = findTrackByLangPreference(subtitleLangPref, subtitleListData);
+    if (subsId < 0) {
+        subsId = findTrackByLangPreference(subtitleLangPref, subtitleListData);
+        if (subsId)
+            subsSoftly = true;
+    }
 
     // Set detected tracks; if no preferred track from a list could be found,
     // clear user selection
@@ -574,11 +601,11 @@ void PlaybackManager::selectDesiredTracks()
     else if (!videoList.isEmpty())
         videoListSelected.clear();
     if (audioId >= 0)
-        setAudioTrack(audioId);
+        setAudioTrackEx(audioId, audioSoftly);
     else if (!audioList.isEmpty())
         audioListSelected.clear();
     if (subsId >= 0)
-        setSubtitleTrack(subsId);
+        setSubtitleTrackEx(subsId, subsSoftly);
     else if (!subtitleList.isEmpty()) {
         subtitleListSelected.clear();
         setSubtitleTrack(1);
