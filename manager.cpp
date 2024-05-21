@@ -6,7 +6,7 @@
 
 using namespace Helpers;
 
-Q_GLOBAL_STATIC(QRegularExpression, wordSplitter, "\\W+");
+Q_GLOBAL_STATIC_WITH_ARGS(QRegularExpression, wordSplitter, ("\\W+"));
 
 
 TrackData TrackData::fromMap(const QVariantMap &map)
