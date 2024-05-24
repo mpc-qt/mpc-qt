@@ -238,6 +238,7 @@ private:
     bool drawLogo = true;
     int glWidth = 0, glHeight = 0;
     bool windowDragging = false;
+    QPointF mousePressPosition;
 };
 
 

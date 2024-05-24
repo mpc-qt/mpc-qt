@@ -908,7 +908,8 @@ void MpvGlWidget::mouseMoveEvent(QMouseEvent *event)
     QPointF pos = event->position();
     emit mpvObject->mouseMoved(pos.x(), pos.y());
     event->accept();
-    if (!windowDragging && event->buttons().testAnyFlag(Qt::LeftButton)) {
+    if (!windowDragging && event->buttons().testAnyFlag(Qt::LeftButton)
+        && event->position() != mousePressPosition) {
         QWindow *parentWindow = this->window()->windowHandle();
         parentWindow->startSystemMove();
         windowDragging = true;
@@ -917,6 +918,7 @@ void MpvGlWidget::mouseMoveEvent(QMouseEvent *event)
 
 void MpvGlWidget::mousePressEvent(QMouseEvent *event)
 {
+    mousePressPosition = event->position();
     windowDragging = false;
     QPointF pos = event->position();
     emit mpvObject->mousePress(pos.x(), pos.y());
