@@ -55,11 +55,11 @@ CONFIG(release,debug|release) {
     VERSION = $$VERSTR_WIN
 }
 
-unix:!macx:QT += dbus
-unix:!macx:LIBS += $$QMAKE_LIBS_DYNLOAD
+unix:QT += dbus
+unix:LIBS += $$QMAKE_LIBS_DYNLOAD
 
-!win32:CONFIG += link_pkgconfig
-!win32:PKGCONFIG += mpv
+unix:CONFIG += link_pkgconfig
+unix:PKGCONFIG += mpv
 
 win32:LIBS += -lpowrprof
 !isEmpty(ENABLE_LOCAL_MPV) {
@@ -105,26 +105,18 @@ unix {
     INSTALLS += target docs shortcut logo
 }
 
-unix:!macx:SOURCES += platform/screensaver_unix.cpp \
-                      platform/devicemanager_unix.cpp \
-                      ipc/mpris.cpp
-unix:!macx:HEADERS += platform/screensaver_unix.h \
-                      platform/devicemanager_unix.h \
-                      ipc/mpris.h
+unix:SOURCES += platform/screensaver_unix.cpp \
+                platform/devicemanager_unix.cpp \
+                ipc/mpris.cpp
+unix:HEADERS += platform/screensaver_unix.h \
+                platform/devicemanager_unix.h \
+                ipc/mpris.h
 
 win32:RC_ICONS = $$system( bash make-win-icon.sh )
 win32:SOURCES += platform/screensaver_win.cpp \
                  platform/devicemanager_win.cpp
 win32:HEADERS += platform/screensaver_win.h \
                  platform/devicemanager_win.h
-
-macx:RC_ICONS = $$system(./make-mac-icon.sh)
-macx:ICON = images/icon/mpc-qt.icns
-macx:SOURCES += platform/screensaver_mac.cpp \
-                platform/devicemanager_mac.cpp
-macx:HEADERS += platform/screensaver_mac.h \
-                platform/devicemanager_mac.h
-macx:QT += svg
 
 SOURCES += main.cpp\
     librarywindow.cpp \

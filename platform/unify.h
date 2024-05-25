@@ -8,7 +8,6 @@ class DeviceManager;
 class ScreenSaver;
 
 namespace Platform {
-    extern const bool isMac;
     extern const bool isWindows;
     extern const bool isUnix;
 

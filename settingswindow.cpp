@@ -416,19 +416,12 @@ void SettingsWindow::setupPlatformWidgets()
         ui->interfaceIconsTheme->setCurrentIndex(2);
     }
 
-    if (Platform::isMac) {
-        ui->ccGammaAutodetect->setEnabled(false);
-    } else {
-        ui->ccGammaAutodetect->setChecked(true);
-    }
-
     ui->ipcMpris->setVisible(Platform::isUnix);
     ui->hwdecBackendVaapi->setEnabled(Platform::isUnix);
     ui->hwdecBackendVdpau->setEnabled(Platform::isUnix);
     ui->hwdecBackendDxva2->setEnabled(Platform::isWindows);
     ui->hwdecBackendD3d11va->setEnabled(Platform::isWindows);
     ui->hwdecBackendRaspberryPi->setEnabled(Platform::isUnix);
-    ui->hwdecBackendVideoToolbox->setEnabled(Platform::isMac);
 }
 
 void SettingsWindow::setupPaletteEditor()
@@ -876,8 +869,6 @@ void SettingsWindow::sendSignals()
     }
 
     emit option("gamma", WIDGET_LOOKUP(ui->ccGamma));
-    if (Platform::isMac)
-        emit option("gamma-auto", WIDGET_LOOKUP(ui->ccGammaAutodetect));
     emit option("gamut-mapping-mode", WIDGET_TO_TEXT(ui->ccGamutMapping));
     emit option("target-gamut", WIDGET_TO_TEXT(ui->ccTargetGamut));
     emit option("target-prim", WIDGET_TO_TEXT(ui->ccTargetPrim));
@@ -939,8 +930,6 @@ void SettingsWindow::sendSignals()
             backend = "d3d11va-copy";
         if (WIDGET_LOOKUP(ui->hwdecBackendRaspberryPi).toBool())
             backend = "rpi-copy";
-        if (WIDGET_LOOKUP(ui->hwdecBackendVideoToolbox).toBool())
-            backend = "videotoolbox-copy";
         if (WIDGET_LOOKUP(ui->hwdecBackendCuda).toBool())
             backend = "cuda-copy";
         if (WIDGET_LOOKUP(ui->hwdecBackendCrystalHd).toBool())

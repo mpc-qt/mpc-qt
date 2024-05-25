@@ -9,9 +9,6 @@
 #if defined(Q_OS_WIN)
 #include "devicemanager_win.h"
 #include "screensaver_win.h"
-#elif defined(Q_OS_MAC)
-#include "devicemanager_mac.h"
-#include "screensaver_mac.h"
 #else
 #include <dlfcn.h>
 #include "devicemanager_unix.h"
@@ -23,9 +20,6 @@
 #if defined(Q_OS_WIN)
     #define ScreenSaverPlatform     ScreenSaverWin
     #define DeviceManagerPlatform   DeviceManagerWin
-#elif defined(Q_OS_MAC)
-    #define ScreenSaverPlatform     ScreenSaverMac
-    #define DeviceManagerPlatform   DeviceManagerMac
 #else
     #define ScreenSaverPlatform     ScreenSaverUnix
     #define DeviceManagerPlatform   DeviceManagerUnix
@@ -33,14 +27,6 @@
 
 
 // Platform flags
-const bool Platform::isMac =
-#if defined(Q_OS_MAC)
-    true
-#else
-    false
-#endif
-;
-
 const bool Platform::isWindows =
 #if defined(Q_OS_WIN)
     true
@@ -86,8 +72,6 @@ ScreenSaver *Platform::screenSaver()
 
 QString Platform::resourcesPath()
 {
-    if (Platform::isMac)
-        return QApplication::applicationDirPath() + "/../Resources";
     if (Platform::isWindows)
         return QApplication::applicationDirPath();
     if (Platform::isUnix) {

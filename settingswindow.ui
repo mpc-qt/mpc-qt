@@ -177,7 +177,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>7</number>
+          <number>12</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -746,8 +746,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>640</width>
-                   <height>70</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -4004,17 +4004,7 @@ media file played</string>
                    </widget>
                   </item>
                   <item row="0" column="1">
-                   <layout class="QHBoxLayout" name="ccGammaLayout" stretch="0,1">
-                    <item>
-                     <widget class="QCheckBox" name="ccGammaAutodetect">
-                      <property name="toolTip">
-                       <string>Only implemented on Mac</string>
-                      </property>
-                      <property name="text">
-                       <string>Autodetect</string>
-                      </property>
-                     </widget>
-                    </item>
+                   <layout class="QHBoxLayout" name="ccGammaLayout" stretch="1">
                     <item>
                      <widget class="QDoubleSpinBox" name="ccGamma">
                       <property name="decimals">
@@ -5330,7 +5320,7 @@ media file played</string>
               <bool>false</bool>
              </property>
              <property name="currentIndex">
-              <number>0</number>
+              <number>1</number>
              </property>
              <widget class="QWidget" name="hwdecCodecTab">
               <attribute name="title">
@@ -5530,16 +5520,6 @@ media file played</string>
                  </property>
                  <property name="text">
                   <string notr="true">&amp;Raspberry Pi</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QRadioButton" name="hwdecBackendVideoToolbox">
-                 <property name="toolTip">
-                  <string>MacOS - safe</string>
-                 </property>
-                 <property name="text">
-                  <string notr="true">Video &amp;Toolbox</string>
                  </property>
                 </widget>
                </item>
