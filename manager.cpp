@@ -247,7 +247,7 @@ void PlaybackManager::navigateToNextChapter()
 {
     int64_t nextChapter = mpvObject_->chapter() + 1;
     if (nextChapter >= numChapters)
-        playNext();
+        mpvw_playbackIdling();
     else
         navigateToChapter(nextChapter);
 }
