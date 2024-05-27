@@ -652,9 +652,9 @@ void Flow::setupSettingsConnections()
     connect(settingsWindow, &SettingsWindow::subsIgnoreEmbeded,
             playbackManager, &PlaybackManager::setSubtitlesIgnoreEmbedded);
     connect(settingsWindow, &SettingsWindow::afterPlaybackDefault,
-            playbackManager, &PlaybackManager::setAfterPlaybackAlways);
+            playbackManager, &PlaybackManager::setAfterPlaybackAlwaysDefault);
     connect(settingsWindow, &SettingsWindow::afterPlaybackDefault,
-            mainWindow, &MainWindow::setPlayAfterAlways);
+            mainWindow, &MainWindow::setPlayAfterAlwaysDefault);
 
     // settings -> thumbnailer
     connect(settingsWindow, &SettingsWindow::screenshotDirectory,

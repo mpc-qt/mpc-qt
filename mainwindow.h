@@ -251,6 +251,7 @@ public slots:
     void setTimeShortMode(bool shortened);
     void resetPlayAfterOnce();
     void setPlayAfterAlways(Helpers::AfterPlayback action);
+    void setPlayAfterAlwaysDefault(Helpers::AfterPlayback action);
     void setFps(double fps);
     void setAvsync(double sync);
     void setDisplayFramedrops(int64_t count);

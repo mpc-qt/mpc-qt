@@ -1960,6 +1960,15 @@ void MainWindow::setPlayAfterAlways(AfterPlayback action)
         map[action]->setChecked(true);
 }
 
+void MainWindow::setPlayAfterAlwaysDefault(Helpers::AfterPlayback action)
+{
+    static bool setOnce = false;
+    if (!setOnce) {
+        setOnce = true;
+        setPlayAfterAlways(action);
+    }
+}
+
 void MainWindow::setFps(double fps)
 {
     ui->framerate->setText(std::isnan(fps) ? "-" : QString::number(fps, 'f', 2));

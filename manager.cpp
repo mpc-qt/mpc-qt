@@ -466,6 +466,15 @@ void PlaybackManager::setAfterPlaybackAlways(AfterPlayback mode)
     afterPlaybackAlways = mode;
 }
 
+void PlaybackManager::setAfterPlaybackAlwaysDefault(Helpers::AfterPlayback mode)
+{
+    static bool setOnce = false;
+    if (!setOnce) {
+        setOnce = true;
+        setAfterPlaybackAlways(mode);
+    }
+}
+
 void PlaybackManager::setSubtitlesPreferDefaultForced(bool forced)
 {
     subtitlesPreferDefaultForced = forced;

@@ -135,6 +135,7 @@ public slots:
     void setMute(bool muted);
     void setAfterPlaybackOnce(Helpers::AfterPlayback mode);
     void setAfterPlaybackAlways(Helpers::AfterPlayback mode);
+    void setAfterPlaybackAlwaysDefault(Helpers::AfterPlayback mode);
     void setSubtitlesPreferDefaultForced(bool forced);
     void setSubtitlesPreferExternal(bool external);
     void setSubtitlesIgnoreEmbedded(bool ignore);
