@@ -1064,6 +1064,8 @@ void SettingsWindow::sendSignals()
     emit option("hr-seek", WIDGET_LOOKUP(ui->tweaksFastSeek).toBool() ? "absolute" : "yes");
     emit option("hr-seek-framedrop", WIDGET_LOOKUP(ui->tweaksSeekFramedrop).toBool());
     emit fallbackToFolder(WIDGET_LOOKUP(ui->tweaksOpenNextFile).toBool());
+    emit mpvMouseEvents(WIDGET_LOOKUP(ui->tweaksMpvMouseEvents).toBool());
+    emit mpvKeyEvents(WIDGET_LOOKUP(ui->tweaksMpvKeyEvents).toBool());
     emit timeShorten(WIDGET_LOOKUP(ui->tweaksTimeShort).toBool());
     emit timeTooltip(WIDGET_LOOKUP(ui->tweaksTimeTooltip).toBool(),
                      WIDGET_LOOKUP(ui->tweaksTimeTooltipLocation).toInt() == 0);
