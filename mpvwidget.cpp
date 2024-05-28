@@ -134,7 +134,8 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
         { "vo", "libmpv" },
         { "ytdl", "yes" },
         { "audio-client-name", clientName },
-        { "load-scripts", true }
+        { "load-scripts", true },
+        { "scripts", scripts }
     };
     QMetaObject::invokeMethod(ctrl, "create", Qt::BlockingQueuedConnection,
                               Q_ARG(MpvController::OptionList, earlyOptions));
