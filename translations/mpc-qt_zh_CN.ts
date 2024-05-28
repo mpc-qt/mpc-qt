@@ -1194,10 +1194,6 @@
         <translation>于 %1 %2 构建</translation>
     </message>
     <message>
-        <source>Alt+Q</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
@@ -2582,10 +2578,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Only implemented on Mac</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Autodetect</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3015,10 +3007,6 @@ media file played</source>
     </message>
     <message>
         <source>Raspberry PI - hardware overlay renderer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>MacOS - safe</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3728,6 +3716,14 @@ media file played</source>
     </message>
     <message>
         <source>Warn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send mouse events to mpv</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send key events to mpv</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

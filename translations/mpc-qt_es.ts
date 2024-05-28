@@ -1194,10 +1194,6 @@
         <translation>Compilado el %1 a las %2</translation>
     </message>
     <message>
-        <source>Alt+Q</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2585,7 +2581,7 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Only implemented on Mac</source>
-        <translation>Implementado solo en Mac</translation>
+        <translation type="vanished">Implementado solo en Mac</translation>
     </message>
     <message>
         <source>Autodetect</source>
@@ -3025,7 +3021,7 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>MacOS - safe</source>
-        <translation>MacOS - seguro</translation>
+        <translation type="vanished">MacOS - seguro</translation>
     </message>
     <message>
         <source>nVidia only (likely 10x0+ only) - safe</source>
@@ -3734,6 +3730,14 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Warn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send mouse events to mpv</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send key events to mpv</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

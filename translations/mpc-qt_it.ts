@@ -1194,10 +1194,6 @@
         <translation>Compilato il %1 alle %2</translation>
     </message>
     <message>
-        <source>Alt+Q</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
@@ -2585,7 +2581,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Only implemented on Mac</source>
-        <translation>Implementato solo su Mac</translation>
+        <translation type="vanished">Implementato solo su Mac</translation>
     </message>
     <message>
         <source>Autodetect</source>
@@ -3021,10 +3017,6 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Raspberry PI - hardware overlay renderer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>MacOS - safe</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3734,6 +3726,14 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Warn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send mouse events to mpv</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send key events to mpv</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
