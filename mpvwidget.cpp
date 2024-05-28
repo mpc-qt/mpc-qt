@@ -109,6 +109,12 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
     // Wire up the mouse and timer-related callbacks
     connect(this, &MpvObject::mouseMoved,
             this, &MpvObject::self_mouseMoved);
+    connect(this, &MpvObject::mousePress,
+            this, &MpvObject::self_mousePress);
+    connect(this, &MpvObject::keyPress,
+            this, &MpvObject::self_keyPress);
+    connect(this, &MpvObject::keyRelease,
+            this, &MpvObject::self_keyRelease);
     connect(hideTimer, &QTimer::timeout,
             this, &MpvObject::hideTimer_timeout);
 
@@ -128,8 +134,7 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
         { "vo", "libmpv" },
         { "ytdl", "yes" },
         { "audio-client-name", clientName },
-        { "load-scripts", true },
-        { "scripts", scripts }
+        { "load-scripts", true }
     };
     QMetaObject::invokeMethod(ctrl, "create", Qt::BlockingQueuedConnection,
                               Q_ARG(MpvController::OptionList, earlyOptions));
@@ -499,6 +504,16 @@ void MpvObject::setMpvLogLevel(QString logLevel)
     emit ctrlSetLogLevel(logLevel);
 }
 
+void MpvObject::setSendKeyEvents(bool enabled)
+{
+    sendKeyEvents = enabled;
+}
+
+void MpvObject::setSendMouseEvents(bool enabled)
+{
+    sendMouseEvents = enabled;
+}
+
 double MpvObject::playLength()
 {
     return playLength_;
@@ -695,11 +710,44 @@ void MpvObject::self_audioDeviceList(const QVariantList &list)
     emit audioDeviceList(AudioDevice::listFromVList(list));
 }
 
-void MpvObject::self_mouseMoved()
+void MpvObject::self_mouseMoved(int x, int y)
 {
     if (hideTimer->interval() > 0)
         hideTimer->start();
     showCursor();
+
+    if (sendMouseEvents)
+        emit ctrlCommand(QStringList({"mouse", QString::number(x),
+                                      QString::number(y)}));
+}
+
+
+void MpvObject::self_mousePress(int x, int y, int btn)
+{
+    if (sendMouseEvents)
+        emit ctrlCommand(QStringList({"mouse", QString::number(x),
+                                      QString::number(y),
+                                      QString::number(btn), "single"}));
+}
+
+void MpvObject::self_keyPress(int key)
+{
+    if (sendKeyEvents) {
+        if (key >= 0x20 && key <= 0x7f) {
+            QChar str[2] = { QChar::fromLatin1(char(key)), QChar::Null };
+            emit ctrlCommand(QStringList({"keydown", QString::fromRawData(str, 1)}));
+        }
+    }
+}
+
+void MpvObject::self_keyRelease(int key)
+{
+    if (sendKeyEvents) {
+        if (key >= 0x20 && key <= 0x7f) {
+            QChar str[2] = { QChar::fromLatin1(char(key)), QChar::Null };
+            emit ctrlCommand(QStringList({"keyup", QString::fromRawData(str, 1)}));
+        }
+    }
 }
 
 void MpvObject::hideTimer_timeout()
@@ -906,7 +954,8 @@ void MpvGlWidget::resizeGL(int w, int h)
 void MpvGlWidget::mouseMoveEvent(QMouseEvent *event)
 {
     QPointF pos = event->position();
-    emit mpvObject->mouseMoved(pos.x(), pos.y());
+    emit mpvObject->mouseMoved(pos.x()*devicePixelRatioF(),
+                               pos.y()*devicePixelRatioF());
     event->accept();
     if (!windowDragging && event->buttons().testAnyFlag(Qt::LeftButton)
         && event->position() != mousePressPosition) {
@@ -921,7 +970,10 @@ void MpvGlWidget::mousePressEvent(QMouseEvent *event)
     mousePressPosition = event->position();
     windowDragging = false;
     QPointF pos = event->position();
-    emit mpvObject->mousePress(pos.x(), pos.y());
+    int btn = int(log2(double(event->button()) + 0.5));
+    emit mpvObject->mousePress(pos.x()*devicePixelRatioF(),
+                               pos.y()*devicePixelRatioF(),
+                               btn);
     QOpenGLWidget::mousePressEvent(event);
 }
 
@@ -933,6 +985,16 @@ void MpvGlWidget::mouseReleaseEvent(QMouseEvent *event)
         return;
     }
     QOpenGLWidget::mouseReleaseEvent(event);
+}
+
+void MpvGlWidget::keyPressEvent(QKeyEvent *event)
+{
+    emit mpvObject->keyPress(event->key());
+}
+
+void MpvGlWidget::keyReleaseEvent(QKeyEvent *event)
+{
+    emit mpvObject->keyRelease(event->key());
 }
 
 void MpvGlWidget::render_update(void *ctx)

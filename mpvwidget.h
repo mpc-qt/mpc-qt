@@ -79,6 +79,8 @@ public:
     bool eofReached();
     void setClientDebuggingMessages(bool yes);
     void setMpvLogLevel(QString logLevel);
+    void setSendKeyEvents(bool enabled);
+    void setSendMouseEvents(bool enabled);
 
     double playLength();
     double playTime();
@@ -132,7 +134,9 @@ signals:
     void logoSizeChanged(QSize size);
 
     void mouseMoved(int x, int y);
-    void mousePress(int x, int y);
+    void mousePress(int x, int y, int btn);
+    void keyPress(int key);
+    void keyRelease(int key);
 
 private:
     void setMpvPropertyVariant(QString name, QVariant value);
@@ -151,7 +155,10 @@ private slots:
     void self_audioDeviceList(const QVariantList &list);
     void hideTimer_timeout();
 
-    void self_mouseMoved();
+    void self_mouseMoved(int x, int y);
+    void self_mousePress(int x, int y, int btn);
+    void self_keyPress(int key);
+    void self_keyRelease(int key);
 
 private:
     static PropertyDispatchMap propertyDispatch;
@@ -173,6 +180,9 @@ private:
     int shownStatsPage = 0;
     bool loopImages = true;
     bool debugMessages = false;
+
+    bool sendMouseEvents = false;
+    bool sendKeyEvents = false;
 };
 
 class MpvWidgetInterface
@@ -222,6 +232,8 @@ protected:
     void mouseMoveEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
+    void keyPressEvent(QKeyEvent *event);
+    void keyReleaseEvent(QKeyEvent *event);
 
 private:
     static void render_update(void *ctx);

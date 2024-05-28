@@ -683,6 +683,10 @@ void Flow::setupMpvObjectConnections()
             mpvObject, &MpvObject::setClientDebuggingMessages);
     connect(settingsWindow, &SettingsWindow::mpvLogLevel,
             mpvObject, &MpvObject::setMpvLogLevel);
+    connect(settingsWindow, &SettingsWindow::mpvMouseEvents,
+            mpvObject, &MpvObject::setSendMouseEvents);
+    connect(settingsWindow, &SettingsWindow::mpvKeyEvents,
+            mpvObject, &MpvObject::setSendKeyEvents);
 
     // mpvwidget -> settings
     connect(mpvObject, &MpvObject::audioDeviceList,
