@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>Mouse Window</source>
-        <translation type="unfinished">Mus vindu</translation>
+        <translation>Musevindu</translation>
     </message>
     <message>
         <source>Mouse Fullscr</source>
