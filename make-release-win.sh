@@ -42,6 +42,7 @@ libpcre2-16-0.dll
 libpng16-16.dll
 libstdc++-6.dll
 libwinpthread-1.dll
+libzstd.dll
 zlib1.dll
 Qt6Core.dll
 Qt6Gui.dll
