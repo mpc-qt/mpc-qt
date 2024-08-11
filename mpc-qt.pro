@@ -13,6 +13,11 @@ TEMPLATE = app
 
 CONFIG += c++14
 
+DESTDIR=bin
+OBJECTS_DIR=.obj
+MOC_DIR=.moc
+UI_DIR=.ui
+
 !isEmpty(MPCQT_VERSION) {
     message("Version provided on the commandline: $$MPCQT_VERSION")
     VERSTR = "$$MPCQT_VERSION"
