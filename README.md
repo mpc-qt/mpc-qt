@@ -14,11 +14,11 @@ DirectShow.
 ## Releases
 
 There are builds for Windows users on the release page; these use time-based
-versioning (e.g. 17.07 corresponds to a 2017 July).  The are also build
+versioning (e.g. 17.07 corresponds to a 2017 July).  There are also build
 artifacts from Github actions.
 
 Note that unimplemented features in the options dialog are hidden and (where
-this is not possible) disabled.  This is to preserve the familar options layout
+this is not possible) disabled.  This is to preserve the familiar options layout
 from mpc-hc in the meantime.
 
 
@@ -59,7 +59,7 @@ writing an encoder-orientated backend.
 
 Suggestions welcome.
 
-## Contibuting
+## Contributing
 
 If you are a coder, try to follow the conventions in the code and make a PR.
 If you are a translator, we will be using [Weblate] to translate.
@@ -67,12 +67,12 @@ Alternatively, you can submit the translations as a PR.
 
 ## Compiling
 
-The best version is git master, and everyone are encouraged to increase their
-computer-fu by compiling from source. (see sections below.)  Compiling from
-source gives you several advantages over the usual user, such the ability to
+The best version is git master, and everyone is encouraged to increase their
+computer-fu by compiling from source (see sections below).  Compiling from
+source gives you several advantages over the usual user, such as the ability to
 use latest and pre-release software regardless of where it comes from.  Unix
-users, there could even be packages in your distro that help with this. (e.g.
-[aur], [ports].)
+users, there could even be packages in your distro that help with this (e.g.
+[aur], [ports]).
 
 ### Prerequisites
 
@@ -135,15 +135,15 @@ Restart MSYS2 MINGW64 when prompted to do so and re-run pacman.
 
 >pacman -Syu
 
-At this stage packages required for building can be installed.  (Copy and paste
-this as one line.)
+At this stage packages required for building can be installed (Copy and paste
+this as one line).
 
 >pacman -S base-devel git mingw-w64-x86_64-toolchain mingw-w64-x86_64-clang
 >mingw-w64-x86_64-cmake mingw-w64-x86_64-qt6 mingw-w64-x86_64-qt-creator
 >mingw-w64-x86_64-qt6-doc mingw-w64-x86_64-imagemagick mingw-w64-x86_64-librsvg
 >mingw-w64-x86_64-inkscape
 
-At time of writing, there is slight bug in qmake where it looks for the wrong
+At the time of writing, there is a slight bug in qmake where it looks for the wrong
 version of lupdate/lrelease.  Create the required symlinks.
 
 >ln -s lrelease-qt6.exe /mingw64/bin/lrelease.exe
