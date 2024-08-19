@@ -749,6 +749,10 @@ void Flow::setupFlowConnections()
     // manager -> this
     connect(playbackManager, &PlaybackManager::nowPlayingChanged,
             this, &Flow::manager_nowPlayingChanged);
+    connect(playbackManager, &PlaybackManager::startingPlayingFile,
+            this, &Flow::manager_startingPlayingFile);
+    connect(playbackManager, &PlaybackManager::stoppedPlaying,
+            this, &Flow::manager_stoppedPlaying);
     connect(playbackManager, &PlaybackManager::stateChanged,
             this, &Flow::manager_stateChanged);
     connect(playbackManager, &PlaybackManager::instanceShouldClose,
@@ -1213,24 +1217,6 @@ void Flow::mainwindow_optionsOpenRequested()
     settingsWindow->raise();
 }
 
-void Flow::manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid)
-{
-    // Insert playing track as the most recent item
-    TrackInfo track(url, listUuid, itemUuid, QString(), 0, 0);
-    if (recentFiles.contains(track)) {
-        // Remove all prior mention of it
-        recentFiles.removeAll(track);
-    }
-    recentFiles.insert(0, track);
-
-    // Trim the recent file list
-    if (recentFiles.size() > 10)
-        recentFiles.removeLast();
-
-    // Notify (2022-03: the main window) that the recents have changed
-    emit recentFilesChanged(recentFiles);
-}
-
 void Flow::manager_stateChanged(PlaybackManager::PlaybackState state)
 {
     // Do nothing if we don't have to
@@ -1260,6 +1246,26 @@ void Flow::manager_hasNoSubtitles(bool none)
     // Remember that there's no subtitle tracks (used for saving screenshots)
     // or not
     nowPlayingNoSubtitleTracks = none;
+}
+
+void Flow::manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid) {
+    updateRecentPosition();
+}
+
+void Flow::manager_startingPlayingFile(QUrl url)
+{
+    // Check if there's a position saved in recents for this file
+    foreach (TrackInfo track, recentFiles) {
+        if (track.url == url) {
+            playbackManager->navigateToTime(track.position);
+            break;
+        }
+    }
+}
+void Flow::manager_stoppedPlaying()
+{
+    // Reset the position on stop
+    updateRecentPosition(true);
 }
 
 void Flow::mpcHcServer_fileSelected(QString fileName)
@@ -1373,8 +1379,42 @@ void Flow::favoriteswindow_favoriteTracks(const QList<TrackInfo> &files, const Q
     favoriteStreams = streams;
 }
 
+// Update the position of the current file
+void Flow::updateRecentPosition(bool resetPosition)
+{
+    QUrl url;
+    QUuid listUuid;
+    QUuid itemUuid;
+    QString title;
+    double length;
+    double position;
+    playbackManager->getCurrentTrackInfo(url, listUuid, itemUuid, title, length, position);
+    updateRecents(url, listUuid, itemUuid, title, length, resetPosition ? 0 : position);
+}
+
+// Update the Recents list
+void Flow::updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title, double length, double position)
+{
+    // Insert playing track as the most recent item
+    TrackInfo track(url, listUuid, itemUuid, title, length, position);
+    if (recentFiles.contains(track)) {
+        // Remove all prior mention of it
+        recentFiles.removeAll(track);
+    }
+    recentFiles.insert(0, track);
+
+    // Trim the recent file list
+    if (recentFiles.size() > 10)
+        recentFiles.removeLast();
+
+    // Notify (2022-03: the main window) that the recents have changed
+    emit recentFilesChanged(recentFiles);
+}
+
 void Flow::endProgram()
 {
+    Logger::log("main", "endProgram");
+    updateRecentPosition();
     // We're about to quit, so write out our config
     writeConfig();
     QMetaObject::invokeMethod(qApp, "exit", Qt::QueuedConnection);

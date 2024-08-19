@@ -3,6 +3,7 @@
 #include "mpvwidget.h"
 #include "playlistwindow.h"
 #include "helpers.h"
+#include "logger.h"
 
 using namespace Helpers;
 
@@ -513,15 +514,30 @@ void PlaybackManager::sendCurrentTrackInfo()
                            nowPlayingTitle, mpvLength, mpvTime});
 }
 
+void PlaybackManager::getCurrentTrackInfo(QUrl& url, QUuid& listUuid, QUuid& itemUuid, QString title, double& length, double& position)
+{
+    url = playlistWindow_->getUrlOf(nowPlayingList, nowPlayingItem);
+    listUuid = nowPlayingList;
+    itemUuid = nowPlayingItem;
+    title = nowPlayingTitle;
+    length = mpvLength;
+    position = mpvTime;
+}
+
 void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
                                         QUuid itemUuid, bool isRepeating,
                                         QUrl with)
 {
+    LogStream("manager") << "startPlayWithUuid";
     if (playbackState_ == WaitingState || what.isEmpty())
         return;
     emit stateChanged(playbackState_ = WaitingState);
 
     mpvStartTime = -1.0;
+
+    if (!isRepeating)
+        emit startingPlayingFile(what);
+
     nowPlaying_ = what;
     mpvObject_->fileOpen(what.isLocalFile() ? what.toLocalFile()
                                             : what.fromPercentEncoding(what.toEncoded()));
@@ -738,6 +754,7 @@ void PlaybackManager::playPrevFile()
 void PlaybackManager::playHalt()
 {
     mpvObject_->stopPlayback();
+    emit stoppedPlaying();
     nowPlaying_.clear();
     nowPlayingItem = QUuid();
     playbackState_ = StoppedState;

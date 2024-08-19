@@ -50,6 +50,8 @@ private:
     void setupFlowConnections();
     void setupMpris();
     void setupMpcHc();
+    void updateRecentPosition(bool resetPosition = false);
+    void updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title, double length, double position);
     QByteArray makePayload() const;
     QString pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const;
     QVariantList recentToVList() const;
@@ -70,6 +72,8 @@ private slots:
     void manager_stateChanged(PlaybackManager::PlaybackState state);
     void manager_subtitlesVisibile(bool visible);
     void manager_hasNoSubtitles(bool none);
+    void manager_startingPlayingFile(QUrl url);
+    void manager_stoppedPlaying();
     void mpcHcServer_fileSelected(QString fileName);
     void settingswindow_settingsData(const QVariantMap &settings);
     void settingswindow_inhibitScreensaver(bool yes);
