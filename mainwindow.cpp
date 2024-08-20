@@ -1593,7 +1593,7 @@ void MainWindow::setRecentDocuments(QList<TrackInfo> tracks)
         QAction *a = new QAction(QString("%1 - %2").arg(i).arg(displayString),
                                  this);
         connect(a, &QAction::triggered, this, [=]() {
-            emit recentOpened(track);
+            emit recentOpened(track, true);
         });
         ui->menuFileRecent->addAction(a);
     }

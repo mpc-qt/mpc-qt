@@ -471,6 +471,7 @@ void SettingsWindow::setupUnimplementedWidgets()
     ui->playerDisableOpenDisc->setVisible(false);
     ui->playerTitleBox->setVisible(false);
     ui->playerKeepHistory->setVisible(false);
+    ui->playerRememberFilePosition->setVisible(false);
     ui->playerRememberLastPlaylist->setVisible(false);
     ui->playerRememberPanScanZoom->setVisible(false);
 
@@ -719,6 +720,7 @@ void SettingsWindow::sendSignals()
                         : WIDGET_LOOKUP(ui->playerTitleFileNameOnly).toBool() ? Helpers::PrefixFileName : Helpers::NoPrefix);
     emit titleUseMediaTitle(WIDGET_LOOKUP(ui->playerTitleReplaceName).toBool());
     emit rememberHistory(WIDGET_LOOKUP(ui->playerKeepHistory).toBool());
+    emit rememberFilePosition(WIDGET_LOOKUP(ui->playerRememberFilePosition).toBool());
     emit rememberSelectedPlaylist(WIDGET_LOOKUP(ui->playerRememberLastPlaylist).toBool());
     emit rememberWindowGeometry(WIDGET_LOOKUP(ui->playerRememberWindowGeometry).toBool());
     emit rememberPanNScan(WIDGET_LOOKUP(ui->playerRememberPanScanZoom).toBool());
@@ -1093,6 +1095,7 @@ void SettingsWindow::setFreestanding(bool freestanding)
     ui->ipcNotice->setVisible(yes);
     ui->ipcMpris->setVisible(yes);
     ui->playerKeepHistory->setVisible(yes);
+    ui->playerRememberFilePosition->setVisible(yes);
     ui->playerRememberLastPlaylist->setVisible(false /*yes*/);
     ui->playerRememberWindowGeometry->setVisible(yes);
     ui->playerRememberPanScanZoom->setVisible(false /*yes*/);
@@ -1183,6 +1186,15 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
     if (buttonRole == QDialogButtonBox::AcceptRole ||
             buttonRole == QDialogButtonBox::RejectRole)
         close();
+}
+
+void SettingsWindow::on_playerKeepHistory_checkStateChanged(Qt::CheckState state)
+{
+    // playerRememberFilePosition depends on playerKeepHistory
+    bool playerKeepHistoryEnabled = state == Qt::Checked;
+    if (!playerKeepHistoryEnabled)
+        ui->playerRememberFilePosition->setChecked(false);
+    ui->playerRememberFilePosition->setEnabled(playerKeepHistoryEnabled);
 }
 
 void SettingsWindow::on_ccHdrMapper_currentIndexChanged(int index)

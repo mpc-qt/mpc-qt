@@ -769,6 +769,8 @@ void Flow::setupFlowConnections()
             this, &Flow::settingswindow_keymapData);
     connect(settingsWindow, &SettingsWindow::inhibitScreensaver,
             this, &Flow::settingswindow_inhibitScreensaver);
+    connect(settingsWindow, &SettingsWindow::rememberFilePosition,
+            this, &Flow::settingswindow_rememberFilePosition);
     connect(settingsWindow, &SettingsWindow::rememberWindowGeometry,
             this, &Flow::settingswindow_rememberWindowGeometry);
     connect(settingsWindow, &SettingsWindow::mprisIpc,
@@ -1128,7 +1130,7 @@ void Flow::mainwindow_instanceShouldQuit()
     endProgram();
 }
 
-void Flow::mainwindow_recentOpened(const TrackInfo &track)
+void Flow::mainwindow_recentOpened(const TrackInfo &track, bool isFromRecents)
 {
     // attempt to play the playlist item if possible, otherwise act like it
     // is a new file
@@ -1138,9 +1140,9 @@ void Flow::mainwindow_recentOpened(const TrackInfo &track)
     else
         playbackManager->openFile(track.url);
 
-    // Navigate to a particular position if set, such as if this is from the
-    // favorites menu
-    if (track.position > 0 && track.url.isLocalFile())
+    // Navigate to a particular position if set and if this is from the favorites menu
+    // or if this is from the recents menu and not disabled
+    if (track.position > 0 && track.url.isLocalFile() && (!isFromRecents || rememberFilePosition))
         playbackManager->navigateToTime(track.position);
 }
 
@@ -1254,11 +1256,13 @@ void Flow::manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid) {
 
 void Flow::manager_startingPlayingFile(QUrl url)
 {
-    // Check if there's a position saved in recents for this file
-    foreach (TrackInfo track, recentFiles) {
-        if (track.url == url) {
-            playbackManager->navigateToTime(track.position);
-            break;
+    if (rememberFilePosition) {
+        // Check if there's a position saved in recents for this file
+        foreach (TrackInfo track, recentFiles) {
+            if (track.url == url) {
+                playbackManager->navigateToTime(track.position);
+                break;
+            }
         }
     }
 }
@@ -1290,6 +1294,12 @@ void Flow::settingswindow_inhibitScreensaver(bool yes)
     // screensaver)
     this->inhibitScreensaver = yes;
     manager_stateChanged(playbackManager->playbackState());
+}
+
+void Flow::settingswindow_rememberFilePosition(bool yes)
+{
+    // Remember our preference to restore the position when opening a file
+    this->rememberFilePosition = yes;
 }
 
 void Flow::settingswindow_rememberWindowGeometry(bool yes)
