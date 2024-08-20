@@ -73,6 +73,8 @@ signals:
     void systemShouldStandby();
     void systemShouldHibernate();
     void currentTrackInfo(TrackInfo track);
+    void startingPlayingFile(QUrl url);
+    void stoppedPlaying();
 
     void fpsChanged(double fps);
     void avsyncChanged(double sync);
@@ -147,6 +149,7 @@ public slots:
 
     // misc functions
     void sendCurrentTrackInfo();
+    void getCurrentTrackInfo(QUrl &url, QUuid &listUuid, QUuid &itemUuid, QString title, double &length, double &position);
 
 private:
     void startPlayWithUuid(QUrl what, QUuid playlistUuid, QUuid itemUuid,
