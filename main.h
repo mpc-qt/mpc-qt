@@ -62,7 +62,7 @@ private:
 private slots:
     void self_windowsRestored();
     void mainwindow_instanceShouldQuit();
-    void mainwindow_recentOpened(const TrackInfo &track);
+    void mainwindow_recentOpened(const TrackInfo &track, bool isFromRecents = false);
     void mainwindow_recentClear();
     void mainwindow_takeImage(Helpers::ScreenshotRender render);
     void mainwindow_takeImageAutomatically(Helpers::ScreenshotRender render);
@@ -77,6 +77,7 @@ private slots:
     void mpcHcServer_fileSelected(QString fileName);
     void settingswindow_settingsData(const QVariantMap &settings);
     void settingswindow_inhibitScreensaver(bool yes);
+    void settingswindow_rememberFilePosition(bool yes);
     void settingswindow_rememberWindowGeometry(bool yes);
     void settingswindow_keymapData(const QVariantMap &keyMap);
     void settingswindow_mprisIpc(bool enabled);
@@ -128,6 +129,7 @@ private:
     static bool settingsDisableWindowManagement;
     bool inhibitScreensaver = false;
     bool manipulateScreensaver = false;
+    bool rememberFilePosition = false;
     bool rememberWindowGeometry = false;
     bool nowPlayingDisplayingSubtitles = true;
     bool nowPlayingNoSubtitleTracks = false;

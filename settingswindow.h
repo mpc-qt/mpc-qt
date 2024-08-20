@@ -87,6 +87,7 @@ signals:
     void titleBarFormat(Helpers::TitlePrefix format);
     void titleUseMediaTitle(bool yes);
     void rememberHistory(bool yes);
+    void rememberFilePosition(bool yes);
     void rememberSelectedPlaylist(bool yes);
     void rememberWindowGeometry(bool yes);
     void rememberPanNScan(bool yes);
@@ -212,6 +213,8 @@ private slots:
     void on_pageTree_itemSelectionChanged();
 
     void on_buttonBox_clicked(QAbstractButton *button);
+
+    void on_playerKeepHistory_checkStateChanged(Qt::CheckState state);
 
     void on_ccHdrMapper_currentIndexChanged(int index);
 
