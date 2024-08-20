@@ -291,6 +291,7 @@ private slots:
     void on_actionViewHideNavigation_toggled(bool checked);
     void on_actionViewHideLog_toggled(bool checked);
     void on_actionViewHideLibrary_toggled(bool checked);
+    void on_actionViewHideControlsInFullscreen_toggled(bool checked);
 
     void on_actionViewOSDNone_triggered();
     void on_actionViewOSDMessages_triggered();

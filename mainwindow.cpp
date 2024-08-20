@@ -161,6 +161,7 @@ QVariantMap MainWindow::state()
         { WRAP(ui->actionViewHideNavigation) },
         { WRAP(ui->actionViewHideLog) },
         { WRAP(ui->actionViewHideLibrary) },
+        { WRAP(ui->actionViewHideControlsInFullscreen) },
         { WRAP(ui->actionViewOntopDefault) },
         { WRAP(ui->actionViewOntopAlways) },
         { WRAP(ui->actionViewOntopPlaying) },
@@ -190,6 +191,7 @@ void MainWindow::setState(const QVariantMap &map)
     UNWRAP(ui->actionViewHideNavigation, false);
     UNWRAP(ui->actionViewHideLog, false);
     UNWRAP(ui->actionViewHideLibrary, false);
+    UNWRAP(ui->actionViewHideControlsInFullscreen, false);
     UNWRAP(ui->actionViewOntopDefault, true);
     UNWRAP(ui->actionViewOntopAlways, false);
     UNWRAP(ui->actionViewOntopPlaying, false);
@@ -2261,6 +2263,16 @@ void MainWindow::on_actionViewHideLibrary_toggled(bool checked)
         emit showLibraryWindow();
     else
         emit hideLibraryWindow();
+}
+
+void MainWindow::on_actionViewHideControlsInFullscreen_toggled(__attribute__((unused)) bool checked)
+{
+    if (fullscreenMode_) {
+        if (ui->bottomArea->isVisible())
+            ui->bottomArea->hide();
+        else
+            ui->bottomArea->show();
+    }
 }
 
 void MainWindow::on_actionViewPresetsMinimal_triggered()
