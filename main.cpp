@@ -1226,8 +1226,8 @@ void Flow::manager_stateChanged(PlaybackManager::PlaybackState state)
         return;
 
     // If inhibiting the screensaver is switched off, or we just entered the
-    // stopped state, unihibit the screensaver
-    if (!inhibitScreensaver || state == PlaybackManager::StoppedState) {
+    // stopped or paused state, unihibit the screensaver
+    if (!inhibitScreensaver || state == PlaybackManager::StoppedState || state == PlaybackManager::PausedState) {
         screenSaver->uninhibitSaver();
         return;
     }
