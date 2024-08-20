@@ -3744,6 +3744,10 @@ media file played</source>
         <source>Send key events to mpv</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Remember file position</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
