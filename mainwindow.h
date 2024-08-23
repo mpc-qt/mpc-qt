@@ -157,6 +157,7 @@ signals:
     void playCurrentItemRequested();
     void favoriteCurrentTrack();
     void organizeFavorites();
+    void fullscreenHideControls(bool checked);
 
 public slots:
     void httpQuickOpenFile();
@@ -215,6 +216,7 @@ public slots:
     void setWindowedMouseMap(const MouseStateMap &map);
     void setFullscreenMouseMap(const MouseStateMap &map);
     void setRecentDocuments(QList<TrackInfo> tracks);
+    void setControlsInFullscreen(bool hide, int showWhen, int showWhenDuration, bool setControlsInFullscreen);
     void setFavoriteTracks(QList<TrackInfo> files, QList<TrackInfo> streams);
     void setIconTheme(IconThemer::FolderMode mode, QString fallback, QString custom);
     void setHighContrastWidgets(bool yes);
