@@ -38,7 +38,8 @@ public:
 
 signals:
     void recentFilesChanged(QList<TrackInfo> urls);
-    void fullscreenControls(bool hide, int showWhen, int showWhenDuration, bool setControlsInFullscreen = true);
+    void fullscreenControls(bool hide, int showWhen, int showWhenDuration,
+                            bool setControlsInFullscreen = true);
     void windowsRestored();
 
 private:
@@ -51,7 +52,7 @@ private:
     void setupFlowConnections();
     void setupMpris();
     void setupMpcHc();
-    void updateRecentPosition(bool resetPosition = false);
+    void updateRecentPosition(bool resetPosition);
     void updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title, double length, double position);
     QByteArray makePayload() const;
     QString pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const;
