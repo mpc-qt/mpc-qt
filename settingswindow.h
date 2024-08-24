@@ -167,7 +167,7 @@ signals:
     void encodeAudioBitrate(int kilobits);
 
     void chapterMarks(bool yes);
-    void fallbackToFolder(bool yes);
+    void autoplayFolder(bool yes);
     void volumeMax(int maximum);
     void timeShorten(bool yes);
     void mpvMouseEvents(bool yes);

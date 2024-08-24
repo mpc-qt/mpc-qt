@@ -641,8 +641,8 @@ void Flow::setupSettingsConnections()
             playbackManager, &PlaybackManager::setPlaybackForever);
     connect(settingsWindow, &SettingsWindow::playbackPlayTimes,
             playbackManager, &PlaybackManager::setPlaybackPlayTimes);
-    connect(settingsWindow, &SettingsWindow::fallbackToFolder,
-            playbackManager, &PlaybackManager::setFolderFallback);
+    connect(settingsWindow, &SettingsWindow::autoplayFolder,
+            playbackManager, &PlaybackManager::setFolderAutoplay);
     connect(settingsWindow, &SettingsWindow::subsPreferDefaultForced,
             playbackManager, &PlaybackManager::setSubtitlesPreferDefaultForced);
     connect(settingsWindow, &SettingsWindow::subsPreferExternal,

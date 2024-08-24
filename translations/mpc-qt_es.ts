@@ -3345,8 +3345,8 @@ archivo multimedia reproducido</translation>
         <translation>Mostrar las marcas de capítulos en la barra de búsqueda</translation>
     </message>
     <message>
-        <source>Open next/previous file in folder when there is only one item in the playlist</source>
-        <translation>Abrir el archivo siguiente/anterior en la carpeta cuando solo haya un elemento en la lista de reproducción</translation>
+        <source>Play next file in folder when there is only one item in the playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Above seekbar</source>

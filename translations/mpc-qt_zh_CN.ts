@@ -3331,7 +3331,7 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open next/previous file in folder when there is only one item in the playlist</source>
+        <source>Play next file in folder when there is only one item in the playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

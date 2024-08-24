@@ -248,7 +248,7 @@ void PlaybackManager::navigateToNextChapter()
 {
     int64_t nextChapter = mpvObject_->chapter() + 1;
     if (nextChapter >= numChapters)
-        mpvw_playbackIdling();
+        playNext();
     else
         navigateToChapter(nextChapter);
 }
@@ -264,7 +264,7 @@ void PlaybackManager::navigateToPrevChapter()
 
 void PlaybackManager::playNext()
 {
-    if (folderFallback && playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
+    if (playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
         playNextFile();
     } else {
         playNextTrack();
@@ -273,7 +273,7 @@ void PlaybackManager::playNext()
 
 void PlaybackManager::playPrev()
 {
-    if (folderFallback && playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
+    if (playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
         playPrevFile();
     } else {
         playPrevTrack();
@@ -502,9 +502,9 @@ void PlaybackManager::setPlaybackForever(bool yes)
     this->playbackForever = yes;
 }
 
-void PlaybackManager::setFolderFallback(bool yes)
+void PlaybackManager::setFolderAutoplay(bool yes)
 {
-    folderFallback = yes;
+    folderAutoplay = yes;
 }
 
 void PlaybackManager::sendCurrentTrackInfo()
@@ -681,7 +681,7 @@ void PlaybackManager::checkAfterPlayback(bool playlistMode)
             playNextTrack();
         break;
     case Helpers::DoNothingAfter:
-        if (playlistMode)
+        if (playlistMode && folderAutoplay)
             playNext();
     }
 }

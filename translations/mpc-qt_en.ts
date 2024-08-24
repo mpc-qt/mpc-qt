@@ -3353,8 +3353,8 @@ media file played</translation>
         <translation>Show chapter marks in seek bar</translation>
     </message>
     <message>
-        <source>Open next/previous file in folder when there is only one item in the playlist</source>
-        <translation>Open next/previous file in folder when there is only one item in the playlist</translation>
+        <source>Play next file in folder when there is only one item in the playlist</source>
+        <translation>Play next file in folder when there is only one item in the playlist</translation>
     </message>
     <message>
         <source>Above seekbar</source>

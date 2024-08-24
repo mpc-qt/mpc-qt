@@ -3349,8 +3349,8 @@ media file played</source>
         <translation>Показывать метки глав в строке поиска</translation>
     </message>
     <message>
-        <source>Open next/previous file in folder when there is only one item in the playlist</source>
-        <translation>Открыть следующий или предыдущий файл в папке, если в списке воспроизведения только один элемент</translation>
+        <source>Play next file in folder when there is only one item in the playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Above seekbar</source>

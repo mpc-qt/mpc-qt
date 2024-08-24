@@ -3341,8 +3341,8 @@ ogni file multimediale riprodotto</translation>
         <translation>Mostra marcatori dei capitoli nella barra di ricerca</translation>
     </message>
     <message>
-        <source>Open next/previous file in folder when there is only one item in the playlist</source>
-        <translation>Apri file successivo/precedente nella cartella quando c&apos;è un solo elemento nella scaletta</translation>
+        <source>Play next file in folder when there is only one item in the playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Above seekbar</source>

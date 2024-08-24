@@ -665,6 +665,7 @@ void MpvObject::ctrl_unhandledMpvEvent(int eventLevel)
         emit playbackFinished();
         break;
     }
+    // Received when the player has no more files to play and is in an idle state
     case MPV_EVENT_IDLE: {
         if (debugMessages)
             Logger::log("mpvobject", "idling");
