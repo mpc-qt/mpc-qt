@@ -601,10 +601,8 @@ void Flow::setupSettingsConnections()
             mainWindow, &MainWindow::setFullscreenOnPlay);
     connect(settingsWindow, &SettingsWindow::fullscreenExitAtEnd,
             mainWindow, &MainWindow::setFullscreenExitOnEnd);
-    connect(settingsWindow, &SettingsWindow::hideMethod,
-            mainWindow, &MainWindow::setBottomAreaBehavior);
-    connect(settingsWindow, &SettingsWindow::hideTime,
-            mainWindow, &MainWindow::setBottomAreaHideTime);
+    connect(settingsWindow, &SettingsWindow::fullscreenHideControls,
+            mainWindow, &MainWindow::setControlsInFullscreen);
     connect(settingsWindow, &SettingsWindow::hidePanels,
             mainWindow, &MainWindow::setFullscreenHidePanels);
     connect(settingsWindow, &SettingsWindow::volumeMax,
@@ -745,6 +743,8 @@ void Flow::setupFlowConnections()
             this, &Flow::mainwindow_optionsOpenRequested);
     connect(mainWindow, &MainWindow::instanceShouldQuit,
             this, &Flow::mainwindow_instanceShouldQuit);
+    connect(mainWindow, &MainWindow::fullscreenHideControls,
+            this, &Flow::mainwindow_fullscreenHideControls);
 
     // manager -> this
     connect(playbackManager, &PlaybackManager::nowPlayingChanged,
@@ -821,6 +821,8 @@ void Flow::setupFlowConnections()
     // this -> mainwindow
     connect(this, &Flow::recentFilesChanged,
             mainWindow, &MainWindow::setRecentDocuments);
+    connect(this, &Flow::fullscreenControls,
+            mainWindow, &MainWindow::setControlsInFullscreen);
 
     // this -> this
     connect(this, &Flow::windowsRestored,
@@ -1130,6 +1132,13 @@ void Flow::mainwindow_instanceShouldQuit()
     endProgram();
 }
 
+void Flow::mainwindow_fullscreenHideControls(bool hide)
+{
+    this->settings["fullscreenHideControls"] = hide;
+    emit fullscreenControls(hide, this->settings.value("fullscreenShowWhen").toInt(), \
+        this->settings.value("fullscreenShowWhenDuration").toInt(), false);
+}
+
 void Flow::mainwindow_recentOpened(const TrackInfo &track, bool isFromRecents)
 {
     // attempt to play the playlist item if possible, otherwise act like it
@@ -1285,6 +1294,7 @@ void Flow::settingswindow_settingsData(const QVariantMap &settings)
     // The selected options have changed, so write them to disk
     this->settings = settings;
     writeConfig(true);
+    LogStream("main") << "settingswindow_settingsData";
 }
 
 void Flow::settingswindow_inhibitScreensaver(bool yes)

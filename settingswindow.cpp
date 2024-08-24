@@ -900,21 +900,9 @@ void SettingsWindow::sendSignals()
     emit fullscreenScreen(WIDGET_LOOKUP(screenCombo).toString());
     emit fullscreenAtLaunch(WIDGET_LOOKUP(ui->fullscreenLaunch).toBool());
     emit fullscreenExitAtEnd(WIDGET_LOOKUP(ui->fullscreenWindowedAtEnd).toBool());
-    if (WIDGET_LOOKUP(ui->fullscreenHideControls).toBool()) {
-        Helpers::ControlHiding method = static_cast<Helpers::ControlHiding>(WIDGET_LOOKUP(ui->fullscreenShowWhen).toInt());
-        int timeOut = WIDGET_LOOKUP(ui->fullscreenShowWhenDuration).toInt();
-        if (method == Helpers::ShowWhenMoving && !timeOut) {
-            emit hideMethod(Helpers::ShowWhenHovering);
-            emit hideTime(0);
-        } else {
-            emit hideMethod(method);
-            emit hideTime(timeOut);
-        }
-        emit hidePanels(WIDGET_LOOKUP(ui->fullscreenHidePanels).toBool());
-    } else {
-        emit hideMethod(Helpers::AlwaysShow);
-        emit hidePanels(false);
-    }
+    emit fullscreenHideControls(WIDGET_LOOKUP(ui->fullscreenHideControls).toBool(), \
+        WIDGET_LOOKUP(ui->fullscreenShowWhen).toInt(), WIDGET_LOOKUP(ui->fullscreenShowWhenDuration).toInt());
+    emit hidePanels(WIDGET_LOOKUP(ui->fullscreenHidePanels).toBool());
     emit option("framedrop", WIDGET_TO_TEXT(ui->framedroppingMode));
     emit option("vf-lavc-framedrop", WIDGET_TO_TEXT(ui->framedroppingDecoderMode));
     emit option("video-sync-adrop-size", WIDGET_LOOKUP(ui->syncAudioDropSize).toDouble());
@@ -1315,7 +1303,6 @@ void SettingsWindow::on_fullscreenHideControls_toggled(bool checked)
 {
     ui->fullscreenShowWhen->setEnabled(checked);
     ui->fullscreenShowWhenDuration->setEnabled(checked);
-    ui->fullscreenHidePanels->setEnabled(checked);
 }
 
 void SettingsWindow::on_playbackAutoZoom_toggled(bool checked)

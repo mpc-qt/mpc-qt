@@ -718,6 +718,7 @@
     <addaction name="actionViewHideNavigation"/>
     <addaction name="actionViewHideLog"/>
     <addaction name="actionViewHideLibrary"/>
+    <addaction name="actionViewHideControlsInFullscreen"/>
     <addaction name="menuOSD"/>
     <addaction name="menuViewPresets"/>
     <addaction name="separator"/>
@@ -1991,6 +1992,17 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+=</string>
+   </property>
+  </action>
+  <action name="actionViewHideControlsInFullscreen">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Controls in Fullscreen</string>
+   </property>
+   <property name="shortcut">
+    <string>i</string>
    </property>
   </action>
   <action name="actionPlaySubtitlesCopy">

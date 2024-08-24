@@ -38,6 +38,7 @@ public:
 
 signals:
     void recentFilesChanged(QList<TrackInfo> urls);
+    void fullscreenControls(bool hide, int showWhen, int showWhenDuration, bool setControlsInFullscreen = true);
     void windowsRestored();
 
 private:
@@ -62,6 +63,7 @@ private:
 private slots:
     void self_windowsRestored();
     void mainwindow_instanceShouldQuit();
+    void mainwindow_fullscreenHideControls(bool hide);
     void mainwindow_recentOpened(const TrackInfo &track, bool isFromRecents = false);
     void mainwindow_recentClear();
     void mainwindow_takeImage(Helpers::ScreenshotRender render);

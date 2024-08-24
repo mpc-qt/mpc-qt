@@ -161,6 +161,7 @@ QVariantMap MainWindow::state()
         { WRAP(ui->actionViewHideNavigation) },
         { WRAP(ui->actionViewHideLog) },
         { WRAP(ui->actionViewHideLibrary) },
+        { WRAP(ui->actionViewHideControlsInFullscreen) },
         { WRAP(ui->actionViewOntopDefault) },
         { WRAP(ui->actionViewOntopAlways) },
         { WRAP(ui->actionViewOntopPlaying) },
@@ -190,6 +191,7 @@ void MainWindow::setState(const QVariantMap &map)
     UNWRAP(ui->actionViewHideNavigation, false);
     UNWRAP(ui->actionViewHideLog, false);
     UNWRAP(ui->actionViewHideLibrary, false);
+    UNWRAP(ui->actionViewHideControlsInFullscreen, false);
     UNWRAP(ui->actionViewOntopDefault, true);
     UNWRAP(ui->actionViewOntopAlways, false);
     UNWRAP(ui->actionViewOntopPlaying, false);
@@ -565,6 +567,7 @@ void MainWindow::setupContextMenu()
     contextView->addAction(ui->actionViewHideStatus);
     contextView->addAction(ui->actionViewHideSubresync);
     contextView->addAction(ui->actionViewHidePlaylist);
+    contextView->addAction(ui->actionViewHideControlsInFullscreen);
     contextView->addAction(ui->actionViewHideCapture);
     contextView->addAction(ui->actionViewHideNavigation);
     contextView->addMenu(ui->menuViewPresets);
@@ -1601,6 +1604,25 @@ void MainWindow::setRecentDocuments(QList<TrackInfo> tracks)
     ui->menuFileRecent->addAction(ui->actionFileRecentClear);
 }
 
+void MainWindow::setControlsInFullscreen(bool hide, int showWhen, int showWhenDuration, \
+    bool setControlsInFullscreen = true)
+{
+    if (hide) {
+        Helpers::ControlHiding method = static_cast<Helpers::ControlHiding>(showWhen);
+        if (method == Helpers::ShowWhenMoving && !showWhenDuration) {
+            setBottomAreaBehavior(Helpers::ShowWhenHovering);
+            emit setBottomAreaHideTime(0);
+        } else {
+            setBottomAreaBehavior(method);
+            emit setBottomAreaHideTime(showWhenDuration);
+        }
+    } else
+        setBottomAreaBehavior(Helpers::AlwaysShow);
+
+    if (setControlsInFullscreen)
+        ui->actionViewHideControlsInFullscreen->setChecked(!hide);
+}
+
 void MainWindow::setFavoriteTracks(QList<TrackInfo> files, QList<TrackInfo> streams)
 {
     auto addAction = [&](QAction *a) {
@@ -2261,6 +2283,11 @@ void MainWindow::on_actionViewHideLibrary_toggled(bool checked)
         emit showLibraryWindow();
     else
         emit hideLibraryWindow();
+}
+
+void MainWindow::on_actionViewHideControlsInFullscreen_toggled(bool checked)
+{
+    emit fullscreenHideControls(!checked);
 }
 
 void MainWindow::on_actionViewPresetsMinimal_triggered()

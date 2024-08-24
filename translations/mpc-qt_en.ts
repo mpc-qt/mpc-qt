@@ -1237,6 +1237,14 @@
         <source>&amp;Copy Subtitle</source>
         <translation>&amp;Copy Subtitle</translation>
     </message>
+    <message>
+        <source>Controls in Fullscreen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>i</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
