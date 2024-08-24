@@ -1604,8 +1604,8 @@ void MainWindow::setRecentDocuments(QList<TrackInfo> tracks)
     ui->menuFileRecent->addAction(ui->actionFileRecentClear);
 }
 
-void MainWindow::setControlsInFullscreen(bool hide, int showWhen, int showWhenDuration, \
-    bool setControlsInFullscreen = true)
+void MainWindow::setControlsInFullscreen(bool hide, int showWhen, int showWhenDuration,
+                                         bool setControlsInFullscreen = true)
 {
     if (hide) {
         Helpers::ControlHiding method = static_cast<Helpers::ControlHiding>(showWhen);

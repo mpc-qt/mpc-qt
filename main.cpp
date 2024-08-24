@@ -1236,7 +1236,8 @@ void Flow::manager_stateChanged(PlaybackManager::PlaybackState state)
 
     // If inhibiting the screensaver is switched off, or we just entered the
     // stopped or paused state, unihibit the screensaver
-    if (!inhibitScreensaver || state == PlaybackManager::StoppedState || state == PlaybackManager::PausedState) {
+    if (!inhibitScreensaver || state == PlaybackManager::StoppedState
+                            || state == PlaybackManager::PausedState) {
         screenSaver->uninhibitSaver();
         return;
     }
@@ -1259,8 +1260,10 @@ void Flow::manager_hasNoSubtitles(bool none)
     nowPlayingNoSubtitleTracks = none;
 }
 
-void Flow::manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid) {
-    updateRecentPosition();
+void Flow::manager_nowPlayingChanged(__attribute__((unused)) QUrl url,
+                                     __attribute__((unused)) QUuid listUuid,
+                                     __attribute__((unused)) QUuid itemUuid) {
+    updateRecentPosition(false);
 }
 
 void Flow::manager_startingPlayingFile(QUrl url)
@@ -1413,7 +1416,8 @@ void Flow::updateRecentPosition(bool resetPosition)
 }
 
 // Update the Recents list
-void Flow::updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title, double length, double position)
+void Flow::updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title, double length,
+                         double position)
 {
     // Insert playing track as the most recent item
     TrackInfo track(url, listUuid, itemUuid, title, length, position);
@@ -1434,7 +1438,7 @@ void Flow::updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title
 void Flow::endProgram()
 {
     Logger::log("main", "endProgram");
-    updateRecentPosition();
+    updateRecentPosition(false);
     // We're about to quit, so write out our config
     writeConfig();
     QMetaObject::invokeMethod(qApp, "exit", Qt::QueuedConnection);

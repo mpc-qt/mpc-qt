@@ -131,7 +131,8 @@ signals:
     void fullscreenScreen(QString screen);
     void fullscreenAtLaunch(bool yes);
     void fullscreenExitAtEnd(bool yes);
-    void fullscreenHideControls(bool yes, int showWhen, int showWhenDuration, bool setControlsInFullscreen = true);
+    void fullscreenHideControls(bool yes, int showWhen, int showWhenDuration,
+                                bool setControlsInFullscreen = true);
     void hidePanels(bool yes);
 
     void playbackPlayTimes(int count);

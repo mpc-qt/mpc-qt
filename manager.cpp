@@ -514,7 +514,8 @@ void PlaybackManager::sendCurrentTrackInfo()
                            nowPlayingTitle, mpvLength, mpvTime});
 }
 
-void PlaybackManager::getCurrentTrackInfo(QUrl& url, QUuid& listUuid, QUuid& itemUuid, QString title, double& length, double& position)
+void PlaybackManager::getCurrentTrackInfo(QUrl& url, QUuid& listUuid, QUuid& itemUuid, QString title,
+                                          double& length, double& position)
 {
     url = playlistWindow_->getUrlOf(nowPlayingList, nowPlayingItem);
     listUuid = nowPlayingList;
