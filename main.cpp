@@ -1436,6 +1436,7 @@ void Flow::endProgram()
     Logger::log("main", "endProgram");
     updateRecentPosition();
     // We're about to quit, so write out our config
+    settings = settingsWindow->settings();
     writeConfig();
     QMetaObject::invokeMethod(qApp, "exit", Qt::QueuedConnection);
 }
