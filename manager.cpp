@@ -250,7 +250,7 @@ void PlaybackManager::navigateToNextChapter()
 {
     int64_t nextChapter = mpvObject_->chapter() + 1;
     if (nextChapter >= numChapters)
-        playNext();
+        playNext(false);
     else
         navigateToChapter(nextChapter);
 }
@@ -261,21 +261,21 @@ void PlaybackManager::navigateToPrevChapter()
     if (chapter > 0)
         navigateToChapter(std::max(int64_t(0), chapter - 1));
     else
-        playPrev();
+        playPrev(false);
 }
 
-void PlaybackManager::playNext()
+void PlaybackManager::playNext(bool forceFolderFallback)
 {
-    if (playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
+    if ((folderFallback || forceFolderFallback) && playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
         playNextFile();
     } else {
         playNextTrack();
     }
 }
 
-void PlaybackManager::playPrev()
+void PlaybackManager::playPrev(bool forceFolderFallback)
 {
-    if (playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
+    if ((folderFallback || forceFolderFallback) && playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
         playPrevFile();
     } else {
         playPrevTrack();
@@ -504,9 +504,9 @@ void PlaybackManager::setPlaybackForever(bool yes)
     this->playbackForever = yes;
 }
 
-void PlaybackManager::setFolderAutoplay(bool yes)
+void PlaybackManager::setFolderFallback(bool yes)
 {
-    folderAutoplay = yes;
+    folderFallback = yes;
 }
 
 void PlaybackManager::sendCurrentTrackInfo()
@@ -678,12 +678,10 @@ void PlaybackManager::checkAfterPlayback()
         repeatThisFile();
         break;
     case Helpers::PlayNextAfter:
-        if (!playNextFileUrl(nowPlaying_))
-            playNextTrack();
+        playNext(true);
         break;
     case Helpers::DoNothingAfter:
-        if (folderAutoplay)
-            playNext();
+        playNextTrack();
     }
 }
 

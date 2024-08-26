@@ -3365,10 +3365,6 @@ media file played</source>
         <translation>Показывать метки глав в строке поиска</translation>
     </message>
     <message>
-        <source>Play next file in folder when there is only one item in the playlist</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Above seekbar</source>
         <translation>Выше панели поиска</translation>
     </message>
@@ -3770,6 +3766,10 @@ media file played</source>
     </message>
     <message>
         <source>Remember file position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use next/previous file in folder when there is only one item in the playlist</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -251,7 +251,7 @@ void MpcQtServer::ipc_stop()
 void MpcQtServer::ipc_next(const QVariantMap &map)
 {
     if (playbackManager->playbackState() != PlaybackManager::StoppedState)
-        playbackManager->playNext();
+        playbackManager->playNext(false);
     else if (map.value("autostart", false).toBool())
         ipc_start();
     else
@@ -261,7 +261,7 @@ void MpcQtServer::ipc_next(const QVariantMap &map)
 void MpcQtServer::ipc_previous(const QVariantMap &map)
 {
     if (playbackManager->playbackState() != PlaybackManager::StoppedState)
-        playbackManager->playPrev();
+        playbackManager->playPrev(false);
     else if (map.value("autostart", false).toBool())
         ipc_start();
     else

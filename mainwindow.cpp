@@ -2711,12 +2711,12 @@ void MainWindow::on_actionNavigateChaptersNext_triggered()
 
 void MainWindow::on_actionNavigateFilesPrevious_triggered()
 {
-    emit filePrevious();
+    emit filePrevious(true);
 }
 
 void MainWindow::on_actionNavigateFilesNext_triggered()
 {
-    emit fileNext();
+    emit fileNext(true);
 }
 
 void MainWindow::on_actionHelpHomepage_triggered()

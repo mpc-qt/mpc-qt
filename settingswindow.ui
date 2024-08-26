@@ -7581,7 +7581,10 @@ media file played</string>
            <item row="3" column="0" colspan="2">
             <widget class="QCheckBox" name="tweaksOpenNextFile">
              <property name="text">
-              <string>Play next file in folder when there is only one item in the playlist</string>
+              <string>Use next/previous file in folder when there is only one item in the playlist</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
              </property>
             </widget>
            </item>

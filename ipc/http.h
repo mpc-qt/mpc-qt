@@ -111,8 +111,8 @@ signals:
     void frameStepBack();
     void increaseRate();
     void decreaseRate();
-    void nextFile();
-    void previousFile();
+    void nextFile(bool forceFolderFallback);
+    void previousFile(bool forceFolderFallback);
     void quickAddFavorite();
     void organizeFavorites();
     void toggleCaptionMenu();

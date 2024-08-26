@@ -3361,10 +3361,6 @@ archivo multimedia reproducido</translation>
         <translation>Mostrar las marcas de capítulos en la barra de búsqueda</translation>
     </message>
     <message>
-        <source>Play next file in folder when there is only one item in the playlist</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Above seekbar</source>
         <translation>Sobre la barra de búsqueda</translation>
     </message>
@@ -3766,6 +3762,10 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Remember file position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use next/previous file in folder when there is only one item in the playlist</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

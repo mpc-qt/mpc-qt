@@ -150,8 +150,8 @@ signals:
     void afterPlaybackAlways(Helpers::AfterPlayback action);
     void chapterPrevious();
     void chapterNext();
-    void filePrevious();
-    void fileNext();
+    void filePrevious(bool forceFolderFallback);
+    void fileNext(bool forceFolderFallback);
     void chapterSelected(int64_t id);
     void timeSelected(double time);
     void fullscreenModeChanged(bool fullscreen);
