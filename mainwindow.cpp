@@ -967,6 +967,8 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionPlayVolumeMute->setEnabled(enabled);
     ui->actionNavigateChaptersPrevious->setEnabled(enabled);
     ui->actionNavigateChaptersNext->setEnabled(enabled);
+    ui->actionNavigateFilesPrevious->setEnabled(enabled);
+    ui->actionNavigateFilesNext->setEnabled(enabled);
     ui->actionNavigateGoto->setEnabled(false);
     ui->actionFavoritesAdd->setEnabled(enabled);
 
@@ -2705,6 +2707,16 @@ void MainWindow::on_actionNavigateChaptersPrevious_triggered()
 void MainWindow::on_actionNavigateChaptersNext_triggered()
 {
     emit chapterNext();
+}
+
+void MainWindow::on_actionNavigateFilesPrevious_triggered()
+{
+    emit filePrevious();
+}
+
+void MainWindow::on_actionNavigateFilesNext_triggered()
+{
+    emit fileNext();
 }
 
 void MainWindow::on_actionHelpHomepage_triggered()

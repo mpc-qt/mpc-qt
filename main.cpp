@@ -460,6 +460,10 @@ void Flow::setupMainWindowConnections()
             playbackManager, &PlaybackManager::navigateToPrevChapter);
     connect(mainWindow, &MainWindow::chapterNext,
             playbackManager, &PlaybackManager::navigateToNextChapter);
+    connect(mainWindow, &MainWindow::filePrevious,
+            playbackManager, &PlaybackManager::playPrev);
+    connect(mainWindow, &MainWindow::fileNext,
+            playbackManager, &PlaybackManager::playNext);
     connect(mainWindow, &MainWindow::chapterSelected,
             playbackManager, &PlaybackManager::navigateToChapter);
     connect(mainWindow, &MainWindow::timeSelected,

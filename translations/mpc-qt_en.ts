@@ -1245,6 +1245,22 @@
         <source>i</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;Previous File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+PgUp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+PgDown</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
