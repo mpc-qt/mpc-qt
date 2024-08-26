@@ -92,7 +92,7 @@ private slots:
     void mpv_playLengthChanged(double length);
     void mpv_playTimeChanged(double time);
     void mpv_playbackFinished();
-    void mpv_playbackIdling();
+    void mpv_eofReachedChanged();
     void timer_navigateTick();
 
 private:

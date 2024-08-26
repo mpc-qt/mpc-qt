@@ -76,7 +76,6 @@ public:
     void setVideoTrack(int64_t id);
     void setDrawLogo(bool yes);
     void setVolume(int64_t volume);
-    bool eofReached();
     void setClientDebuggingMessages(bool yes);
     void setMpvLogLevel(QString logLevel);
     void setSendKeyEvents(bool enabled);
@@ -109,6 +108,7 @@ signals:
     void playbackLoading();
     void playbackStarted();
     void pausedChanged(bool yes);
+    void eofReachedChanged(bool eof);
     void playbackFinished();
     void playbackIdling();
     void mediaTitleChanged(QString title);

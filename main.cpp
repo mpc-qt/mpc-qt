@@ -747,8 +747,8 @@ void Flow::setupFlowConnections()
             this, &Flow::mainwindow_fullscreenHideControls);
 
     // manager -> this
-    connect(playbackManager, &PlaybackManager::nowPlayingChanged,
-            this, &Flow::manager_nowPlayingChanged);
+    connect(playbackManager, &PlaybackManager::playLengthChanged,
+            this, &Flow::manager_playLengthChanged);
     connect(playbackManager, &PlaybackManager::startingPlayingFile,
             this, &Flow::manager_startingPlayingFile);
     connect(playbackManager, &PlaybackManager::stoppedPlaying,
@@ -1260,9 +1260,8 @@ void Flow::manager_hasNoSubtitles(bool none)
     nowPlayingNoSubtitleTracks = none;
 }
 
-void Flow::manager_nowPlayingChanged(__attribute__((unused)) QUrl url,
-                                     __attribute__((unused)) QUuid listUuid,
-                                     __attribute__((unused)) QUuid itemUuid) {
+void Flow::manager_playLengthChanged() {
+    LogStream("main") << "manager_playLengthChanged";
     updateRecentPosition(false);
 }
 
@@ -1405,6 +1404,7 @@ void Flow::favoriteswindow_favoriteTracks(const QList<TrackInfo> &files, const Q
 // Update the position of the current file
 void Flow::updateRecentPosition(bool resetPosition)
 {
+    LogStream("main") << "updateRecentPosition";
     QUrl url;
     QUuid listUuid;
     QUuid itemUuid;

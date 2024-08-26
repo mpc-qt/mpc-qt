@@ -158,8 +158,8 @@ void MpvThumbnailer::initPlayer()
             this, &MpvThumbnailer::mpv_fileSizeChanged);
     connect(mpv, &MpvObject::playbackFinished,
             this, &MpvThumbnailer::mpv_playbackFinished);
-    connect(mpv, &MpvObject::playbackIdling,
-            this, &MpvThumbnailer::mpv_playbackIdling);
+    connect(mpv, &MpvObject::eofReachedChanged,
+            this, &MpvThumbnailer::mpv_eofReachedChanged);
     connect(mpv, &MpvObject::playLengthChanged,
             this, &MpvThumbnailer::mpv_playLengthChanged);
     connect(mpv, &MpvObject::playTimeChanged,
@@ -379,7 +379,7 @@ void MpvThumbnailer::mpv_playbackFinished()
     thumbState = FinishedState;
 }
 
-void MpvThumbnailer::mpv_playbackIdling()
+void MpvThumbnailer::mpv_eofReachedChanged()
 {
     if (thumbState != FinishedState)
         return;
