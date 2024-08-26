@@ -157,7 +157,7 @@ private:
                            bool isRepeating, QUrl with = QUrl());
     void selectDesiredTracks();
     void updateSubtitleTrack();
-    void checkAfterPlayback(bool playlistMode);
+    void checkAfterPlayback();
     void playNextTrack();
     void playPrevTrack();
     bool playNextFileUrl(QUrl url, int delta = 1);

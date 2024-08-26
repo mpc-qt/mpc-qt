@@ -646,7 +646,7 @@ void PlaybackManager::updateSubtitleTrack()
     mpvObject_->setSubtitleTrack(subtitleEnabled ? subtitleTrackSelected : 0);
 }
 
-void PlaybackManager::checkAfterPlayback(bool playlistMode)
+void PlaybackManager::checkAfterPlayback()
 {
     Helpers::AfterPlayback action = afterPlaybackOnce;
     if (afterPlaybackOnce == Helpers::DoNothingAfter)
@@ -675,15 +675,14 @@ void PlaybackManager::checkAfterPlayback(bool playlistMode)
         emit systemShouldLock();
         break;
     case Helpers::RepeatAfter:
-        if (playlistMode)
-            repeatThisFile();
+        repeatThisFile();
         break;
     case Helpers::PlayNextAfter:
         if (!playNextFileUrl(nowPlaying_))
             playNextTrack();
         break;
     case Helpers::DoNothingAfter:
-        if (playlistMode && folderAutoplay)
+        if (folderAutoplay)
             playNext();
     }
 }
@@ -818,7 +817,7 @@ void PlaybackManager::mpvw_eofReachedChanged(bool eof) {
     if (isRepeating)
         repeatThisFile();
     else
-        checkAfterPlayback(true);
+        checkAfterPlayback();
 }
 
 void PlaybackManager::mpvw_mediaTitleChanged(QString title)
