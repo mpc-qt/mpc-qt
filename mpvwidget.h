@@ -76,12 +76,12 @@ public:
     void setVideoTrack(int64_t id);
     void setDrawLogo(bool yes);
     void setVolume(int64_t volume);
-    bool eofReached();
     void setClientDebuggingMessages(bool yes);
     void setMpvLogLevel(QString logLevel);
     void setSendKeyEvents(bool enabled);
     void setSendMouseEvents(bool enabled);
 
+    bool eofReached();
     double playLength();
     double playTime();
     QSize videoSize();

@@ -492,11 +492,6 @@ void MpvObject::setVolume(int64_t volume)
     setMpvPropertyVariant("volume", qlonglong(volume));
 }
 
-bool MpvObject::eofReached()
-{
-    return getMpvPropertyVariant("eof-reached").toBool();
-}
-
 void MpvObject::setClientDebuggingMessages(bool yes)
 {
     debugMessages = yes;
@@ -515,6 +510,11 @@ void MpvObject::setSendKeyEvents(bool enabled)
 void MpvObject::setSendMouseEvents(bool enabled)
 {
     sendMouseEvents = enabled;
+}
+
+bool MpvObject::eofReached()
+{
+    return getMpvPropertyVariant("eof-reached").toBool();
 }
 
 double MpvObject::playLength()
