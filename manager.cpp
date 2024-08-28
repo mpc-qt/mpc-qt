@@ -226,8 +226,11 @@ void PlaybackManager::pausePlayer()
 
 void PlaybackManager::unpausePlayer()
 {
-    if (playbackState_ == PausedState)
+    if (playbackState_ == PausedState) {
+        if (mpvObject_->eofReached())
+            navigateToTime(0);
         mpvObject_->setPaused(false);
+    }
 }
 
 void PlaybackManager::stopPlayer()
