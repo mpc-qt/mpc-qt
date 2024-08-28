@@ -640,7 +640,7 @@ void PlaybackManager::selectDesiredTracks()
 
 void PlaybackManager::updateSubtitleTrack()
 {
-    emit subtitlesVisibile(subtitleEnabled && subtitleTrackSelected != 0);
+    emit subtitlesVisible(subtitleEnabled && subtitleTrackSelected != 0);
     mpvObject_->setSubtitleTrack(subtitleEnabled ? subtitleTrackSelected : 0);
 }
 
