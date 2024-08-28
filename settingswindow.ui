@@ -1540,7 +1540,7 @@ media file played</string>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Play next in the folder</string>
+                  <string>Play next file</string>
                  </property>
                 </item>
                 <item>

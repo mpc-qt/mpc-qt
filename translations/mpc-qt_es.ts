@@ -699,7 +699,7 @@
     </message>
     <message>
         <source>Play next in the &amp;folder</source>
-        <translation>Reproducir lo siguiente en la carpeta</translation>
+        <translation type="vanished">Reproducir lo siguiente en la carpeta</translation>
     </message>
     <message>
         <source>&amp;Previous</source>
@@ -1255,6 +1255,10 @@
     </message>
     <message>
         <source>Ctrl+PgDown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play next &amp;file</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3641,10 +3645,6 @@ archivo multimedia reproducido</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Play next in the folder</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3766,6 +3766,10 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Use next/previous file in folder when there is only one item in the playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play next file</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

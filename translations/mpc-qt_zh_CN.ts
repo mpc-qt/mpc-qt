@@ -699,7 +699,7 @@
     </message>
     <message>
         <source>Play next in the &amp;folder</source>
-        <translation>播放此文件夹中的下一个文件(&amp;F)</translation>
+        <translation type="vanished">播放此文件夹中的下一个文件(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;Previous</source>
@@ -1255,6 +1255,10 @@
     </message>
     <message>
         <source>Ctrl+PgDown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play next &amp;file</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3627,10 +3631,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Play next in the folder</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3752,6 +3752,10 @@ media file played</source>
     </message>
     <message>
         <source>Use next/previous file in folder when there is only one item in the playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play next file</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -1433,7 +1433,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Play next in the &amp;folder</string>
+    <string>Play next &amp;file</string>
    </property>
   </action>
   <action name="actionNavigateChaptersPrevious">

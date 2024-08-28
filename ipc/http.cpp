@@ -487,7 +487,7 @@ void MpcHcServer::setupWmCommands()
         { 955, "Prev Subtitle Track",       [&](){ emit previousSubtitleTrack(); } },
         { 956, "On/Off Subtitles",          [&](){ emit onOffSubtitles(); } },
         { 948, "After Playback: Do nothing", [&](){ emit afterPlaybackDoNothing(); } },
-        { 947, "After Playback: Play next file in the folder", [&](){ emit afterPlaybackPlayNext(); } },
+        { 947, "After Playback: Play next file", [&](){ emit afterPlaybackPlayNext(); } },
         { 912, "After Playback: Exit",      [&](){ emit afterPlaybackExit(); } },
         { 913, "After Playback: Stand By",  [&](){ emit afterPlaybackStandBy(); } },
         { 914, "After Playback: Hibernate", [&](){ emit afterPlaybackHibernate(); } },
