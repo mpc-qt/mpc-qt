@@ -1654,7 +1654,7 @@ void MainWindow::setFavoriteTracks(QList<TrackInfo> files, QList<TrackInfo> stre
         }
     };
 
-    for (auto a : qAsConst(menuFavoritesTail))
+    for (auto a : std::as_const(menuFavoritesTail))
         delete a;
     menuFavoritesTail.clear();
 
