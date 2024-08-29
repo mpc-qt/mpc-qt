@@ -1631,7 +1631,7 @@ void MainWindow::setFavoriteTracks(QList<TrackInfo> files, QList<TrackInfo> stre
         menuFavoritesTail.append(a);
         ui->menuFavorites->addAction(a);
     };
-    auto addSeperator = [&]() {
+    auto addSeparator = [&]() {
         auto a = new QAction(this);
         a->setSeparator(true);
         addAction(a);
@@ -1658,12 +1658,12 @@ void MainWindow::setFavoriteTracks(QList<TrackInfo> files, QList<TrackInfo> stre
         delete a;
     menuFavoritesTail.clear();
 
-    addSeperator();
+    addSeparator();
     if (files.empty())
         addNotice(tr("No files favorited"));
     else
         addTracks(files);
-    addSeperator();
+    addSeparator();
     if (streams.empty())
         addNotice(tr("No streams favorited"));
     else

@@ -63,7 +63,7 @@ signals:
     void hasNoVideo(bool empty);
     void hasNoAudio(bool empty);
     void hasNoSubtitles(bool empty);
-    void subtitlesVisibile(bool visible);
+    void subtitlesVisible(bool visible);
     void nowPlayingChanged(QUrl itemUrl, QUuid listUuid, QUuid itemUuid);
     void finishedPlaying(QUuid item);
     void afterPlaybackReset();

@@ -761,8 +761,8 @@ void Flow::setupFlowConnections()
             this, &Flow::manager_stateChanged);
     connect(playbackManager, &PlaybackManager::instanceShouldClose,
             this, &Flow::mainwindow_instanceShouldQuit);
-    connect(playbackManager, &PlaybackManager::subtitlesVisibile,
-            this, &Flow::manager_subtitlesVisibile);
+    connect(playbackManager, &PlaybackManager::subtitlesVisible,
+            this, &Flow::manager_subtitlesVisible);
     connect(playbackManager, &PlaybackManager::hasNoSubtitles,
             this, &Flow::manager_hasNoSubtitles);
 
@@ -1250,7 +1250,7 @@ void Flow::manager_stateChanged(PlaybackManager::PlaybackState state)
     screenSaver->inhibitSaver(tr("Playing Media"));
 }
 
-void Flow::manager_subtitlesVisibile(bool visible)
+void Flow::manager_subtitlesVisible(bool visible)
 {
     // Remember that subtitles are displayed (used for saving screenshots)
     // or not
