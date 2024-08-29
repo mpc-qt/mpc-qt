@@ -396,6 +396,9 @@
                <property name="enabled">
                 <bool>false</bool>
                </property>
+               <property name="toolTip">
+                <string>Subtitles</string>
+               </property>
                <property name="icon">
                 <iconset>
                  <normalon>:/images/theme/black/view-media-subtitles.svg</normalon>
@@ -414,10 +417,14 @@
                <property name="enabled">
                 <bool>false</bool>
                </property>
+               <property name="toolTip">
+                <string>Mute</string>
+               </property>
                <property name="icon">
                 <iconset resource="res.qrc">
                  <normaloff>:/images/theme/black/player-volume.svg</normaloff>
-                 <normalon>:/images/theme/black/player-volume-muted.svg</normalon>:/images/theme/black/player-volume.svg</iconset>
+                 <normalon>:/images/theme/black/player-volume-muted.svg</normalon>
+                </iconset>
                </property>
                <property name="checkable">
                 <bool>true</bool>
