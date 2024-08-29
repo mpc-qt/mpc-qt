@@ -46,4 +46,6 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: "mpc-qt-win"
-        path: mpc-qt-*.zip
+        path: |
+          mpc-qt-*.zip
+          mpc-qt-*.zip.sha512
