@@ -70,6 +70,8 @@ void PlaybackManager::setMpvObject(MpvObject *mpvObject, bool makeConnections)
                 this, &PlaybackManager::mpvw_pausedChanged);
         connect(mpvObject, &MpvObject::playbackIdling,
                 this, &PlaybackManager::mpvw_playbackIdling);
+        connect(mpvObject, &MpvObject::eofReachedChanged,
+                this, &PlaybackManager::mpvw_eofReachedChanged);
         connect(mpvObject, &MpvObject::mediaTitleChanged,
                 this, &PlaybackManager::mpvw_mediaTitleChanged);
         connect(mpvObject, &MpvObject::chapterDataChanged,
@@ -224,8 +226,11 @@ void PlaybackManager::pausePlayer()
 
 void PlaybackManager::unpausePlayer()
 {
-    if (playbackState_ == PausedState)
+    if (playbackState_ == PausedState) {
+        if (mpvObject_->eofReached())
+            navigateToTime(0);
         mpvObject_->setPaused(false);
+    }
 }
 
 void PlaybackManager::stopPlayer()
@@ -248,7 +253,7 @@ void PlaybackManager::navigateToNextChapter()
 {
     int64_t nextChapter = mpvObject_->chapter() + 1;
     if (nextChapter >= numChapters)
-        mpvw_playbackIdling();
+        playNext(false);
     else
         navigateToChapter(nextChapter);
 }
@@ -259,21 +264,21 @@ void PlaybackManager::navigateToPrevChapter()
     if (chapter > 0)
         navigateToChapter(std::max(int64_t(0), chapter - 1));
     else
-        playPrev();
+        playPrev(false);
 }
 
-void PlaybackManager::playNext()
+void PlaybackManager::playNext(bool forceFolderFallback)
 {
-    if (folderFallback && playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
+    if ((folderFallback || forceFolderFallback) && playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
         playNextFile();
     } else {
         playNextTrack();
     }
 }
 
-void PlaybackManager::playPrev()
+void PlaybackManager::playPrev(bool forceFolderFallback)
 {
-    if (folderFallback && playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
+    if ((folderFallback || forceFolderFallback) && playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
         playPrevFile();
     } else {
         playPrevTrack();
@@ -644,7 +649,7 @@ void PlaybackManager::updateSubtitleTrack()
     mpvObject_->setSubtitleTrack(subtitleEnabled ? subtitleTrackSelected : 0);
 }
 
-void PlaybackManager::checkAfterPlayback(bool playlistMode)
+void PlaybackManager::checkAfterPlayback()
 {
     Helpers::AfterPlayback action = afterPlaybackOnce;
     if (afterPlaybackOnce == Helpers::DoNothingAfter)
@@ -673,16 +678,13 @@ void PlaybackManager::checkAfterPlayback(bool playlistMode)
         emit systemShouldLock();
         break;
     case Helpers::RepeatAfter:
-        if (playlistMode)
-            repeatThisFile();
+        repeatThisFile();
         break;
     case Helpers::PlayNextAfter:
-        if (!playNextFileUrl(nowPlaying_))
-            playNextTrack();
+        playNext(true);
         break;
     case Helpers::DoNothingAfter:
-        if (playlistMode)
-            playNext();
+        playNextTrack();
     }
 }
 
@@ -691,26 +693,21 @@ void PlaybackManager::playNextTrack()
     QPair<QUuid, QUuid> next;
     next = playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
     QUrl url = playlistWindow_->getUrlOf(next.first, next.second);
-    if (url.isEmpty()) {
-        playHalt();
-        return;
-    }
-    startPlayWithUuid(url, next.first, next.second, false);
+    if (!url.isEmpty())
+        startPlayWithUuid(url, next.first, next.second, false);
 }
 
 void PlaybackManager::playPrevTrack()
 {
     QUuid uuid = playlistWindow_->getItemBefore(nowPlayingList, nowPlayingItem);
     QUrl url = playlistWindow_->getUrlOf(nowPlayingList, uuid);
-    if (url.isEmpty()) {
-        playHalt();
-        return;
-    }
-    startPlayWithUuid(url, nowPlayingList, uuid, false);
+    if (!url.isEmpty())
+        startPlayWithUuid(url, nowPlayingList, uuid, false);
 }
 
 bool PlaybackManager::playNextFileUrl(QUrl url, int delta)
 {
+    LogStream("manager") << "playNextFileUrl";
     QFileInfo info;
     QDir dir;
     QStringList files;
@@ -743,23 +740,12 @@ bool PlaybackManager::playNextFileUrl(QUrl url, int delta)
 void PlaybackManager::playNextFile(int delta)
 {
     QUrl url = playlistWindow_->getUrlOfFirst(nowPlayingList);
-    if (!playNextFileUrl(url, delta))
-        playHalt();
+    playNextFileUrl(url, delta);
 }
 
 void PlaybackManager::playPrevFile()
 {
     playNextFile(-1);
-}
-
-void PlaybackManager::playHalt()
-{
-    mpvObject_->stopPlayback();
-    emit stoppedPlaying();
-    nowPlaying_.clear();
-    nowPlayingItem = QUuid();
-    playbackState_ = StoppedState;
-    emit stateChanged(playbackState_);
 }
 
 void PlaybackManager::mpvw_playTimeChanged(double time)
@@ -775,6 +761,7 @@ void PlaybackManager::mpvw_playTimeChanged(double time)
 void PlaybackManager::mpvw_playLengthChanged(double length)
 {
     mpvLength = length;
+    emit playLengthChanged();
 }
 
 void PlaybackManager::mpvw_seekableChanged(bool yes)
@@ -815,6 +802,14 @@ void PlaybackManager::mpvw_playbackIdling()
         emit stateChanged(playbackState_);
         return;
     }
+}
+
+void PlaybackManager::mpvw_eofReachedChanged(bool eof) {
+    LogStream("manager") << "mpvw_eofReachedChanged";
+    if (!eof)
+        return;
+
+    emit stoppedPlaying();
 
     int extraTimes = playlistWindow_->extraPlayTimes(nowPlayingList, nowPlayingItem);
     playlistWindow_->setExtraPlayTimes(nowPlayingList, nowPlayingItem, extraTimes - 1);
@@ -823,7 +818,7 @@ void PlaybackManager::mpvw_playbackIdling()
     if (isRepeating)
         repeatThisFile();
     else
-        checkAfterPlayback(true);
+        checkAfterPlayback();
 }
 
 void PlaybackManager::mpvw_mediaTitleChanged(QString title)

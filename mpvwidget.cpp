@@ -46,6 +46,7 @@ MpvObject::PropertyDispatchMap MpvObject::propertyDispatch = {
     HANDLE_PROP("duration", self_playLengthChanged, toDouble, -1.0),
     HANDLE_PROP("seekable", seekableChanged, toBool, false),
     HANDLE_PROP("pause", pausedChanged, toBool, true),
+    HANDLE_PROP("eof-reached", eofReachedChanged, toBool, false),
     HANDLE_PROP("media-title", mediaTitleChanged, toString, QString()),
     HANDLE_PROP("chapter-metadata", chapterDataChanged, toMap, QVariantMap()),
     HANDLE_PROP("chapter-list", chaptersChanged, toList, QVariantList()),
@@ -147,6 +148,7 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
     MpvController::PropertyList options = {
         { "time-pos", 0, MPV_FORMAT_DOUBLE },
         { "pause", 0, MPV_FORMAT_FLAG },
+        { "eof-reached", 0, MPV_FORMAT_FLAG },
         { "media-title", 0, MPV_FORMAT_STRING },
         { "chapter-metadata", 0, MPV_FORMAT_NODE },
         { "track-list", 0, MPV_FORMAT_NODE },
@@ -490,11 +492,6 @@ void MpvObject::setVolume(int64_t volume)
     setMpvPropertyVariant("volume", qlonglong(volume));
 }
 
-bool MpvObject::eofReached()
-{
-    return getMpvPropertyVariant("eof-reached").toBool();
-}
-
 void MpvObject::setClientDebuggingMessages(bool yes)
 {
     debugMessages = yes;
@@ -513,6 +510,11 @@ void MpvObject::setSendKeyEvents(bool enabled)
 void MpvObject::setSendMouseEvents(bool enabled)
 {
     sendMouseEvents = enabled;
+}
+
+bool MpvObject::eofReached()
+{
+    return getMpvPropertyVariant("eof-reached").toBool();
 }
 
 double MpvObject::playLength()
@@ -665,6 +667,7 @@ void MpvObject::ctrl_unhandledMpvEvent(int eventLevel)
         emit playbackFinished();
         break;
     }
+    // Received when the player has no more files to play and is in an idle state
     case MPV_EVENT_IDLE: {
         if (debugMessages)
             Logger::log("mpvobject", "idling");

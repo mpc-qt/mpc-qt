@@ -71,7 +71,7 @@ private slots:
     void mainwindow_takeImageAutomatically(Helpers::ScreenshotRender render);
     void mainwindow_takeThumbnails();
     void mainwindow_optionsOpenRequested();
-    void manager_nowPlayingChanged(QUrl url, QUuid listUuid, QUuid itemUuid);
+    void manager_playLengthChanged();
     void manager_stateChanged(PlaybackManager::PlaybackState state);
     void manager_subtitlesVisibile(bool visible);
     void manager_hasNoSubtitles(bool none);

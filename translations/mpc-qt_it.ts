@@ -699,7 +699,7 @@
     </message>
     <message>
         <source>Play next in the &amp;folder</source>
-        <translation>Riproduci successivo nella car&amp;tella</translation>
+        <translation type="vanished">Riproduci successivo nella car&amp;tella</translation>
     </message>
     <message>
         <source>&amp;Previous</source>
@@ -1239,6 +1239,26 @@
     </message>
     <message>
         <source>i</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Previous File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+PgUp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+PgDown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play next &amp;file</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3341,10 +3361,6 @@ ogni file multimediale riprodotto</translation>
         <translation>Mostra marcatori dei capitoli nella barra di ricerca</translation>
     </message>
     <message>
-        <source>Open next/previous file in folder when there is only one item in the playlist</source>
-        <translation>Apri file successivo/precedente nella cartella quando c&apos;è un solo elemento nella scaletta</translation>
-    </message>
-    <message>
         <source>Above seekbar</source>
         <translation>Sopra la barra di ricerca</translation>
     </message>
@@ -3625,10 +3641,6 @@ ogni file multimediale riprodotto</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Play next in the folder</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3746,6 +3758,14 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Remember file position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use next/previous file in folder when there is only one item in the playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play next file</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

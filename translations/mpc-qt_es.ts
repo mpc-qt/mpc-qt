@@ -699,7 +699,7 @@
     </message>
     <message>
         <source>Play next in the &amp;folder</source>
-        <translation>Reproducir lo siguiente en la carpeta</translation>
+        <translation type="vanished">Reproducir lo siguiente en la carpeta</translation>
     </message>
     <message>
         <source>&amp;Previous</source>
@@ -1239,6 +1239,26 @@
     </message>
     <message>
         <source>i</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Previous File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+PgUp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+PgDown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play next &amp;file</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3345,10 +3365,6 @@ archivo multimedia reproducido</translation>
         <translation>Mostrar las marcas de capítulos en la barra de búsqueda</translation>
     </message>
     <message>
-        <source>Open next/previous file in folder when there is only one item in the playlist</source>
-        <translation>Abrir el archivo siguiente/anterior en la carpeta cuando solo haya un elemento en la lista de reproducción</translation>
-    </message>
-    <message>
         <source>Above seekbar</source>
         <translation>Sobre la barra de búsqueda</translation>
     </message>
@@ -3629,10 +3645,6 @@ archivo multimedia reproducido</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Play next in the folder</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3750,6 +3762,14 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Remember file position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use next/previous file in folder when there is only one item in the playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play next file</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

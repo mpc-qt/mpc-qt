@@ -817,6 +817,8 @@
     </widget>
     <addaction name="actionNavigateChaptersPrevious"/>
     <addaction name="actionNavigateChaptersNext"/>
+    <addaction name="actionNavigateFilesPrevious"/>
+    <addaction name="actionNavigateFilesNext"/>
     <addaction name="actionNavigateGoto"/>
     <addaction name="menuNavigateChapters"/>
     <addaction name="separator"/>
@@ -1431,7 +1433,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Play next in the &amp;folder</string>
+    <string>Play next &amp;file</string>
    </property>
   </action>
   <action name="actionNavigateChaptersPrevious">
@@ -1448,6 +1450,22 @@
    </property>
    <property name="shortcut">
     <string>PgDown</string>
+   </property>
+  </action>
+  <action name="actionNavigateFilesPrevious">
+   <property name="text">
+    <string>&amp;Previous File</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+PgUp</string>
+   </property>
+  </action>
+  <action name="actionNavigateFilesNext">
+   <property name="text">
+    <string>&amp;Next File</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+PgDown</string>
    </property>
   </action>
   <action name="actionNavigateGoto">

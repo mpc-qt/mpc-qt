@@ -699,7 +699,7 @@
     </message>
     <message>
         <source>Play next in the &amp;folder</source>
-        <translation>Воспроизвести следующий файл в &amp;папке</translation>
+        <translation type="vanished">Воспроизвести следующий файл в &amp;папке</translation>
     </message>
     <message>
         <source>&amp;Previous</source>
@@ -1243,6 +1243,26 @@
     </message>
     <message>
         <source>i</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Previous File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+PgUp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+PgDown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play next &amp;file</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3349,10 +3369,6 @@ media file played</source>
         <translation>Показывать метки глав в строке поиска</translation>
     </message>
     <message>
-        <source>Open next/previous file in folder when there is only one item in the playlist</source>
-        <translation>Открыть следующий или предыдущий файл в папке, если в списке воспроизведения только один элемент</translation>
-    </message>
-    <message>
         <source>Above seekbar</source>
         <translation>Выше панели поиска</translation>
     </message>
@@ -3630,7 +3646,7 @@ media file played</source>
     </message>
     <message>
         <source>Play next in the folder</source>
-        <translation>Проигрывать следующую диреторию</translation>
+        <translation type="vanished">Проигрывать следующую диреторию</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -3754,6 +3770,14 @@ media file played</source>
     </message>
     <message>
         <source>Remember file position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use next/previous file in folder when there is only one item in the playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play next file</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

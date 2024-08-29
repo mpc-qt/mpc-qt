@@ -796,6 +796,7 @@ void SettingsWindow::sendSignals()
     emit trackSubtitlePreference(WIDGET_PLACEHOLD_LOOKUP(ui->playbackSubtitleTracks));
     emit trackAudioPreference(WIDGET_PLACEHOLD_LOOKUP(ui->playbackAudioTracks));
 
+    emit option("keep-open", true);
     emit option("video-sync", WIDGET_TO_TEXT(ui->syncMode));
     emit option("gpu-dumb-mode", WIDGET_LOOKUP(ui->videoDumbMode));
     emit option("fbo-format", WIDGET_TO_TEXT(ui->videoFramebuffer).split('-').value(WIDGET_LOOKUP(ui->videoUseAlpha).toBool()));

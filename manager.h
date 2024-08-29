@@ -47,6 +47,7 @@ public:
 signals:
     void playerSettingsRequested();
     void timeChanged(double time, double length);
+    void playLengthChanged();
     void titleChanged(QString title);
     void chapterTitleChanged(QString title);
     void videoSizeChanged(QSize size);
@@ -106,8 +107,8 @@ public slots:
     void stepForward();
     void navigateToNextChapter();
     void navigateToPrevChapter();
-    void playNext();
-    void playPrev();
+    void playNext(bool forceFolderFallback);
+    void playPrev(bool forceFolderFallback);
     void repeatThisFile();
     void deltaExtraPlaytimes(int delta);
     void navigateToChapter(int64_t chapter);
@@ -156,7 +157,7 @@ private:
                            bool isRepeating, QUrl with = QUrl());
     void selectDesiredTracks();
     void updateSubtitleTrack();
-    void checkAfterPlayback(bool playlistMode);
+    void checkAfterPlayback();
     void playNextTrack();
     void playPrevTrack();
     bool playNextFileUrl(QUrl url, int delta = 1);
@@ -172,6 +173,7 @@ private slots:
     void mpvw_playbackStarted();
     void mpvw_pausedChanged(bool yes);
     void mpvw_playbackIdling();
+    void mpvw_eofReachedChanged(bool eof);
     void mpvw_mediaTitleChanged(QString title);
     void mpvw_chapterDataChanged(QVariantMap metadata);
     void mpvw_chaptersChanged(QVariantList chapters);

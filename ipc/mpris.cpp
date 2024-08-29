@@ -292,12 +292,12 @@ bool MprisPlayerServer::canSeek()
 
 void MprisPlayerServer::Next()
 {
-    emit instance()->playNextTrack();
+    emit instance()->playNextTrack(false);
 }
 
 void MprisPlayerServer::Previous()
 {
-    emit instance()->playPreviousTrack();
+    emit instance()->playPreviousTrack(false);
 }
 
 void MprisPlayerServer::Pause()
