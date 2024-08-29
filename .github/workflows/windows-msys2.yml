@@ -14,12 +14,12 @@ jobs:
         shell: msys2 {0}
 
     steps:
-    - uses: actions/checkout@v4
     - uses: msys2/setup-msys2@v2
       with:
         msystem: mingw64
         update: true
         install: >-
+          git
           base-devel
           wget
           p7zip
@@ -31,6 +31,9 @@ jobs:
           mingw-w64-x86_64-boost
           mingw-w64-x86_64-inkscape
           mingw-w64-x86_64-mpv
+    - name: Avoid line ending issues on Windows
+      run: git config --global core.autocrlf input
+    - uses: actions/checkout@v4
     - name: Build
       run: |
         chmod +x *.sh
