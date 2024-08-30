@@ -3,7 +3,7 @@
 
 VERSION=""
 if [ -v GITHUB_SHA ]; then
-    VERSION=$GITHUB_SHA
+    VERSION=`date +'%Y.%m.%d'`
 elif [ -v FORCE_VERSION ]; then
     VERSION=$FORCE_VERSION
 else
