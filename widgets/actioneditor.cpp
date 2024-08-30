@@ -87,7 +87,7 @@ void ActionEditor::setCommand(int index, const Command &c)
 void ActionEditor::updateActions()
 {
     MouseStateMap fullscreen, windowed;
-    for (const Command &c : qAsConst(commands)) {
+    for (const Command &c : std::as_const(commands)) {
         c.action->setShortcut(c.keys);
         if (!!c.mouseFullscreen)
             fullscreen[c.mouseFullscreen] = c.action;

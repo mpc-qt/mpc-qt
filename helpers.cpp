@@ -636,7 +636,7 @@ void IconThemer::setIconFolders(FolderMode folderMode,
     mode = folderMode;
     fallback = fallbackFolder;
     custom = customFolder;
-    for (const IconData &data : qAsConst(iconDataList))
+    for (const IconData &data : std::as_const(iconDataList))
         updateButton(data);
 }
 

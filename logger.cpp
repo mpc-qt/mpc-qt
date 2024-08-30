@@ -139,7 +139,7 @@ void Logger::fatalMessage()
     // Oops!  Something went very wrong!
     // Try to flush anything pending to stderr and abort
     if (loggerInstance) {
-        for (const auto &i : qAsConst(loggerInstance->pendingMessages))
+        for (const auto &i : std::as_const(loggerInstance->pendingMessages))
             std::fprintf(realStdErr.ptr, "%s\n", i.toLocal8Bit().data());
     }
 }

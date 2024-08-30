@@ -657,7 +657,7 @@ void SettingsWindow::setAudioDevices(const QList<AudioDevice> &devices)
 {
     audioDevices = devices;
     ui->audioDevice->clear();
-    for (const AudioDevice &device : qAsConst(audioDevices))
+    for (const AudioDevice &device : std::as_const(audioDevices))
         ui->audioDevice->addItem(device.displayString());
 }
 

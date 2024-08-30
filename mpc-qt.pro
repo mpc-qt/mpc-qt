@@ -11,7 +11,7 @@ QMAKE_CXXFLAGS += -Wall
 TARGET = mpc-qt
 TEMPLATE = app
 
-CONFIG += c++14
+CONFIG += c++17
 
 unix {
     DESTDIR=bin
