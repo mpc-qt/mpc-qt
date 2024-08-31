@@ -248,6 +248,9 @@ public slots:
     void setAudioTracks(QList<QPair<int64_t,QString>> tracks);
     void setVideoTracks(QList<QPair<int64_t,QString>> tracks);
     void setSubtitleTracks(QList<QPair<int64_t,QString>> tracks);
+    void audioTrackSet(int64_t id);
+    void videoTrackSet(int64_t id);
+    void subtitleTrackSet(int64_t id);
     void setSubtitleText(QString subText);
     void setVolume(int level);
     void setVolumeDouble(double level);
@@ -410,6 +413,9 @@ private:
     QMenu *trayMenu = nullptr;
     QTimer hideTimer;
     QSystemTrayIcon *trayIcon = nullptr;
+    QActionGroup* audioTracksGroup = nullptr;
+    QActionGroup* videoTracksGroup = nullptr;
+    QActionGroup* subtitleTracksGroup = nullptr;
 
     bool freestanding_ = false;
     DecorationState decorationState_ = AllDecorations;

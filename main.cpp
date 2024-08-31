@@ -718,6 +718,14 @@ void Flow::setupMpvObjectConnections()
     connect(mpvObject, &MpvObject::chaptersChanged,
             propertiesWindow, &PropertiesWindow::setChapters);
 
+    // mpvwidget -> mainwindow
+    connect(mpvObject, &MpvObject::audioTrackSet,
+            mainWindow, &MainWindow::audioTrackSet);
+    connect(mpvObject, &MpvObject::subtitleTrackSet,
+            mainWindow, &MainWindow::subtitleTrackSet);
+    connect(mpvObject, &MpvObject::videoTrackSet,
+            mainWindow, &MainWindow::videoTrackSet);
+
     // settingswindow -> log
     auto logger = Logger::singleton();
     connect(settingsWindow, &SettingsWindow::loggingEnabled,

@@ -132,6 +132,10 @@ signals:
     void subTextChanged(QString subText);
     void playlistChanged(QVariantList playlist);
 
+    void audioTrackSet(int64_t id);
+    void subtitleTrackSet(int64_t id);
+    void videoTrackSet(int64_t id);
+
     void logoSizeChanged(QSize size);
 
     void mouseMoved(int x, int y);

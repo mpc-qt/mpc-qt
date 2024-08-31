@@ -1885,37 +1885,50 @@ void MainWindow::setChapters(QList<QPair<double, QString>> chapters)
 void MainWindow::setAudioTracks(QList<QPair<int64_t, QString>> tracks)
 {
     ui->menuPlayAudio->clear();
+    audioTracksGroup = new QActionGroup(this);
+    hasAudio = !tracks.isEmpty();
+    if (!hasAudio)
+        return;
     for (const QPair<int64_t, QString> &track : tracks) {
         QAction *action = new QAction(this);
         action->setText(track.second);
+        action->setCheckable(true);
+        action->setActionGroup(audioTracksGroup);
         int64_t index = track.first;
         connect(action, &QAction::triggered, this, [this,index] {
             emit audioTrackSelected(index);
         });
         ui->menuPlayAudio->addAction(action);
     }
-    hasAudio = !tracks.isEmpty();
+    audioTracksGroup->actions()[0]->setChecked(true);
 }
 
 void MainWindow::setVideoTracks(QList<QPair<int64_t, QString>> tracks)
 {
     ui->menuPlayVideo->clear();
+    videoTracksGroup = new QActionGroup(this);
+    hasVideo = !tracks.isEmpty();
+    if (!hasVideo)
+        return;
     for (const QPair<int64_t, QString> &track : tracks) {
         QAction *action = new QAction(this);
         action->setText(track.second);
+        action->setCheckable(true);
+        action->setActionGroup(videoTracksGroup);
         int64_t index = track.first;
         connect(action, &QAction::triggered, this, [this,index]() {
-           emit videoTrackSelected(index);
+            emit videoTrackSelected(index);
         });
         ui->menuPlayVideo->addAction(action);
     }
-    hasVideo = !tracks.isEmpty();
+    videoTracksGroup->actions()[0]->setChecked(true);
     updateOnTop();
 }
 
 void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
 {
     ui->menuPlaySubtitles->clear();
+    subtitleTracksGroup = new QActionGroup(this);
     hasSubs = !tracks.isEmpty();
     ui->actionPlaySubtitlesEnabled->setEnabled(hasSubs);
     ui->subs->setEnabled(hasSubs);
@@ -1931,11 +1944,35 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
     for (const QPair<int64_t, QString> &track : tracks) {
         QAction *action = new QAction(this);
         action->setText(track.second);
+        action->setCheckable(true);
+        action->setActionGroup(subtitleTracksGroup);
         int64_t index = track.first;
         connect(action, &QAction::triggered, this, [this,index]() {
             emit subtitleTrackSelected(index);
         });
         ui->menuPlaySubtitles->addAction(action);
+    }
+    subtitleTracksGroup->actions()[0]->setChecked(true);
+}
+
+void MainWindow::audioTrackSet(int64_t id)
+{
+    if (audioTracksGroup != nullptr)
+        audioTracksGroup->actions()[static_cast <int> (id) -1]->setChecked(true);
+}
+
+void MainWindow::videoTrackSet(int64_t id)
+{
+    if (videoTracksGroup != nullptr)
+        videoTracksGroup->actions()[static_cast <int> (id) -1]->setChecked(true);
+}
+
+void MainWindow::subtitleTrackSet(int64_t id)
+{
+    if (subtitleTracksGroup != nullptr) {
+        if (id == 0)
+            id = subtitleTracksGroup->actions().length();
+        subtitleTracksGroup->actions()[static_cast <int> (id) -1]->setChecked(true);
     }
 }
 
