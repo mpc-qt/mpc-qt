@@ -15,7 +15,7 @@ class DrawnSlider : public QWidget {
     Q_OBJECT
 
 public:
-    explicit DrawnSlider(QWidget *parent, QSize handle, QSize margin);
+    explicit DrawnSlider(QWidget *parent, QSize handle, QSize margin, int paddingHeight);
     void setValue(double v);
     void setMaximum(double v);
     void setMinimum(double v);
@@ -34,7 +34,7 @@ private slots:
 
 protected:
     void setSliderGeometry(int handleWidth, int handleHeight,
-                           int marginX, int marginY);
+                           int marginX, int marginY, int paddingHeight);
     virtual void makeBackground() = 0;
     virtual void makeHandle() = 0;
     virtual void handleHover(double x);
@@ -56,7 +56,7 @@ protected:
     QColor grooveBorder, grooveFill;
     QColor handleBorder, handleFill;
     QColor bgColor, loopColor, markColor;
-    int handleWidth, handleHeight, marginX, marginY;
+    int handleWidth, handleHeight, marginX, marginY, paddingHeight;
 
 private:
     void mousePressEvent(QMouseEvent *ev);

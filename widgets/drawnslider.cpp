@@ -21,14 +21,15 @@ static void dr(QPainter *p, QRectF r) {
 
 
 
-DrawnSlider::DrawnSlider(QWidget *parent, QSize handle, QSize margin) :
+DrawnSlider::DrawnSlider(QWidget *parent, QSize handle, QSize margin, int paddingHeight) :
     QWidget(parent)
 {
     setFocusPolicy(Qt::NoFocus);
     setMouseTracking(true);
     setCursor(Qt::PointingHandCursor);
     setSliderGeometry(handle.width(), handle.height(),
-                      margin.width(), margin.height());
+                      margin.width(), margin.height(),
+                      paddingHeight);
     connect(qApp, &QApplication::paletteChanged,
             this, &DrawnSlider::applicationPaletteChanged);
 }
@@ -87,14 +88,16 @@ void DrawnSlider::applicationPaletteChanged()
 }
 
 void DrawnSlider::setSliderGeometry(int handleWidth, int handleHeight,
-                                     int marginX, int marginY)
+                                    int marginX, int marginY,
+                                    int paddingHeight)
 {
     this->handleWidth = handleWidth;
     this->handleHeight = handleHeight;
     this->marginX = marginX;
     this->marginY = marginY;
-    setMinimumHeight(handleHeight);
-    setMaximumHeight(handleHeight);
+
+    setMinimumHeight(handleHeight+(paddingHeight*2));
+    setMaximumHeight(handleHeight+(paddingHeight*2));
 }
 
 void DrawnSlider::handleHover(double x)
@@ -182,7 +185,11 @@ void DrawnSlider::resizeEvent(QResizeEvent *event)
     /*
         MEDIA SLIDER CASE
 
-                  <---- SLIDER AREA
+                                          ^
+
+                                        paddingHeight
+
+                  <---- SLIDER AREA       v
   ^     +------------------------
         |
         |< marginX>
@@ -204,6 +211,11 @@ height  |         |   GROOVE              hH
         |
         |
   v     +------------------------
+                                          ^
+
+                                        paddingHeight
+
+                                          v
 
 
         VOLUME SLIDER CASE
@@ -244,7 +256,7 @@ height  |         +          ----    hH
     these relate to where the middle of the handle is.
     */
 
-    grooveArea = QRectF(0, 0, width(), height());
+    grooveArea = QRectF(0, paddingHeight, width(), height() - (paddingHeight*2));
     drawnArea = grooveArea;
     grooveArea.adjust(marginX, marginY, -marginX, -marginY);
     sliderArea = grooveArea;
@@ -285,7 +297,7 @@ void DrawnSlider::mouseMoveEvent(QMouseEvent *ev)
 }
 
 MediaSlider::MediaSlider(QWidget *parent) :
-    DrawnSlider(parent, QSize(11, 12), QSize(5, 3))
+    DrawnSlider(parent, QSize(11, 12), QSize(5, 3), 9)
 {
 }
 
@@ -453,7 +465,7 @@ QString MediaSlider::valueToTickText(double value)
 
 
 VolumeSlider::VolumeSlider(QWidget *parent) :
-    DrawnSlider(parent, QSize(10, 20), QSize(5, 10))
+    DrawnSlider(parent, QSize(10, 20), QSize(5, 10), 0)
 {
 }
 
