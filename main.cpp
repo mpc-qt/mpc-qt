@@ -1432,7 +1432,7 @@ void Flow::updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title
     recentFiles.insert(0, track);
 
     // Trim the recent file list
-    if (recentFiles.size() > 10)
+    while (recentFiles.size() > 20)
         recentFiles.removeLast();
 
     // Notify (2022-03: the main window) that the recents have changed
