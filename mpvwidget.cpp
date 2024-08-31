@@ -466,16 +466,19 @@ void MpvObject::setLoopPoints(double first, double end)
 void MpvObject::setAudioTrack(int64_t id)
 {
     setMpvPropertyVariant("aid", qlonglong(id));
+    emit audioTrackSet(id);
 }
 
 void MpvObject::setSubtitleTrack(int64_t id)
 {
     setMpvPropertyVariant("sid", qlonglong(id));
+    emit subtitleTrackSet(id);
 }
 
 void MpvObject::setVideoTrack(int64_t id)
 {
     setMpvPropertyVariant("vid", qlonglong(id));
+    emit videoTrackSet(id);
 }
 
 void MpvObject::setDrawLogo(bool yes)
