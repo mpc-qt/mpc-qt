@@ -1370,6 +1370,9 @@ media file played</string>
                 <property name="tickInterval">
                  <number>10</number>
                 </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
                </widget>
               </item>
              </layout>
@@ -7102,6 +7105,9 @@ media file played</string>
                        <property name="tickInterval">
                         <number>5</number>
                        </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                       </widget>
                      </item>
                      <item>
@@ -7135,6 +7141,9 @@ media file played</string>
                        </property>
                        <property name="tickInterval">
                         <number>5</number>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                       </widget>
                      </item>
@@ -7198,6 +7207,9 @@ media file played</string>
                        <property name="tickInterval">
                         <number>1</number>
                        </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                       </widget>
                      </item>
                      <item>
@@ -7234,6 +7246,9 @@ media file played</string>
                        </property>
                        <property name="tickInterval">
                         <number>1</number>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                       </widget>
                      </item>

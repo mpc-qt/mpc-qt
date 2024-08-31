@@ -3,6 +3,7 @@
 #include <QPainter>
 #include <QOpenGLContext>
 #include <QTimer>
+#include <QCursor>
 #include <cmath>
 #include "drawnslider.h"
 
@@ -25,6 +26,7 @@ DrawnSlider::DrawnSlider(QWidget *parent, QSize handle, QSize margin) :
 {
     setFocusPolicy(Qt::NoFocus);
     setMouseTracking(true);
+    setCursor(Qt::PointingHandCursor);
     setSliderGeometry(handle.width(), handle.height(),
                       margin.width(), margin.height());
     connect(qApp, &QApplication::paletteChanged,
