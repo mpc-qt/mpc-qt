@@ -481,6 +481,11 @@ void PlaybackManager::setAfterPlaybackAlwaysDefault(Helpers::AfterPlayback mode)
     }
 }
 
+void PlaybackManager::setTimeShortMode(bool shortMode)
+{
+    timeShortMode = shortMode;
+}
+
 void PlaybackManager::setSubtitlesPreferDefaultForced(bool forced)
 {
     subtitlesPreferDefaultForced = forced;
@@ -838,7 +843,8 @@ void PlaybackManager::mpvw_chaptersChanged(QVariantList chapters)
     for (QVariant &v : chapters) {
         QMap<QString, QVariant> node = v.toMap();
         QString text = QString("[%1] - %2").arg(
-                toDateFormat(node["time"].toDouble()),
+                toDateFormatFixed(node["time"].toDouble(),
+                                  timeShortMode ? Helpers::ShortFormat : Helpers::LongFormat),
                 node["title"].toString());
         QPair<double,QString> item(node["time"].toDouble(), text);
         list.append(item);

@@ -2002,6 +2002,8 @@ void MainWindow::setTimeShortMode(bool shortened)
 {
     timePosition->setShortMode(shortened);
     timeDuration->setShortMode(shortened);
+    timeShortMode = shortened;
+    emit timeShortModeSet(timeShortMode);
 }
 
 void MainWindow::resetPlayAfterOnce()
@@ -2827,7 +2829,9 @@ void MainWindow::position_hoverValue(double position, QString chapterInfo, doubl
     if (!timeTooltipShown)
         return;
 
-    QString t = QString("%1%2%3").arg(Helpers::toDateFormat(position),
+    QString t = QString("%1%2%3").arg(Helpers::toDateFormatFixed(
+                                            position,
+                                            timeShortMode ? Helpers::ShortFormat : Helpers::LongFormat),
                                       chapterInfo.isEmpty() ? "" : " - ",
                                       chapterInfo);
     QPoint where = positionSlider_->mapToGlobal(QPoint(int(x), timeTooltipAbove ? -40 : 0));

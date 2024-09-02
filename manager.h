@@ -139,6 +139,7 @@ public slots:
     void setAfterPlaybackOnce(Helpers::AfterPlayback mode);
     void setAfterPlaybackAlways(Helpers::AfterPlayback mode);
     void setAfterPlaybackAlwaysDefault(Helpers::AfterPlayback mode);
+    void setTimeShortMode(bool shortMode);
     void setSubtitlesPreferDefaultForced(bool forced);
     void setSubtitlesPreferExternal(bool external);
     void setSubtitlesIgnoreEmbedded(bool ignore);
@@ -229,6 +230,8 @@ private:
     bool playbackStartPaused = false;
     bool playbackForever = false;
     bool folderFallback = false;
+
+    bool timeShortMode = false;
 
     Helpers::AfterPlayback afterPlaybackOnce = Helpers::DoNothingAfter;
     Helpers::AfterPlayback afterPlaybackAlways = Helpers::DoNothingAfter;
