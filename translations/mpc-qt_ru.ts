@@ -1585,7 +1585,7 @@
     </message>
     <message>
         <source>Sort By Url</source>
-        <translation>Сортировать по адресу</translation>
+        <translation type="unfinished">Сортировать по адресу</translation>
     </message>
     <message>
         <source>Randomize</source>
