@@ -1257,6 +1257,14 @@
         <source>Play next &amp;file</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
