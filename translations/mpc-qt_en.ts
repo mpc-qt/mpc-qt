@@ -1219,7 +1219,7 @@
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
-        <translation>&lt;unknown&gt;</translation>
+        <translation type="vanished">&lt;unknown&gt;</translation>
     </message>
     <message>
         <source>Libr&amp;ary</source>

@@ -2826,10 +2826,10 @@ void MainWindow::position_hoverValue(double position, QString chapterInfo, doubl
 {
     if (!timeTooltipShown)
         return;
-    if (chapterInfo.isEmpty())
-        chapterInfo = tr("<unknown>");
 
-    QString t = QString("%1 - %2").arg(Helpers::toDateFormat(position), chapterInfo);
+    QString t = QString("%1%2%3").arg(Helpers::toDateFormat(position),
+                                      chapterInfo.isEmpty() ? "" : " - ",
+                                      chapterInfo);
     QPoint where = positionSlider_->mapToGlobal(QPoint(int(x), timeTooltipAbove ? -40 : 0));
     QToolTip::showText(where, t, positionSlider_);
 

@@ -1210,10 +1210,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;unknown&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Libr&amp;ary</source>
         <translation type="unfinished"></translation>
     </message>
