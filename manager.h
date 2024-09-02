@@ -158,6 +158,7 @@ private:
                            bool isRepeating, QUrl with = QUrl());
     void selectDesiredTracks();
     void updateSubtitleTrack();
+    void updateChapters();
     void checkAfterPlayback();
     void playNextTrack();
     void playPrevTrack();
@@ -213,6 +214,7 @@ private:
     QList<QPair<int64_t,QString>> subtitleList;
     QMap<int64_t,TrackData> audioListData;
     QMap<int64_t,TrackData> subtitleListData;
+    QVariantList chapters = QVariantList();
 
     QStringList audioLangPref;
     QStringList subtitleLangPref;

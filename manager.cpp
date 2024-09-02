@@ -484,6 +484,7 @@ void PlaybackManager::setAfterPlaybackAlwaysDefault(Helpers::AfterPlayback mode)
 void PlaybackManager::setTimeShortMode(bool shortMode)
 {
     timeShortMode = shortMode;
+    updateChapters();
 }
 
 void PlaybackManager::setSubtitlesPreferDefaultForced(bool forced)
@@ -693,6 +694,25 @@ void PlaybackManager::checkAfterPlayback()
     }
 }
 
+void PlaybackManager::updateChapters()
+{
+    if (chapters.isEmpty())
+        return;
+
+    QList<QPair<double,QString>> list;
+    for (QVariant &v : chapters) {
+        QMap<QString, QVariant> node = v.toMap();
+        QString text = QString("[%1] - %2").arg(
+                toDateFormatFixed(node["time"].toDouble(),
+                                  timeShortMode ? Helpers::ShortFormat : Helpers::LongFormat),
+                node["title"].toString());
+        QPair<double,QString> item(node["time"].toDouble(), text);
+        list.append(item);
+    }
+    numChapters = list.count();
+    emit chaptersAvailable(list);
+}
+
 void PlaybackManager::playNextTrack()
 {
     QPair<QUuid, QUuid> next;
@@ -839,18 +859,8 @@ void PlaybackManager::mpvw_chapterDataChanged(QVariantMap metadata)
 
 void PlaybackManager::mpvw_chaptersChanged(QVariantList chapters)
 {
-    QList<QPair<double,QString>> list;
-    for (QVariant &v : chapters) {
-        QMap<QString, QVariant> node = v.toMap();
-        QString text = QString("[%1] - %2").arg(
-                toDateFormatFixed(node["time"].toDouble(),
-                                  timeShortMode ? Helpers::ShortFormat : Helpers::LongFormat),
-                node["title"].toString());
-        QPair<double,QString> item(node["time"].toDouble(), text);
-        list.append(item);
-    }
-    numChapters = list.count();
-    emit chaptersAvailable(list);
+    this->chapters = chapters;
+    updateChapters();
 }
 
 void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
