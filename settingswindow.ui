@@ -7675,6 +7675,9 @@ media file played</string>
              <property name="text">
               <string>Shorten the playback time indicator like mpc-hc</string>
              </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
            <item row="6" column="0" colspan="2">
