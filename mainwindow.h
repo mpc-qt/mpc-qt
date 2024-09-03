@@ -160,6 +160,7 @@ signals:
     void favoriteCurrentTrack();
     void organizeFavorites();
     void fullscreenHideControls(bool checked);
+    void timeShortModeSet(bool timeShortMode);
 
 public slots:
     void httpQuickOpenFile();
@@ -431,6 +432,7 @@ private:
     int bottomAreaHideTime = 0;
     bool timeTooltipShown = true;
     bool timeTooltipAbove = true;
+    bool timeShortMode = false;
 
     QString previousOpenDir;
     QSize noVideoSize_ = QSize(500,270);

@@ -87,7 +87,7 @@ public:
 signals:
     void hoverBegin();
     void hoverEnd();
-    void hoverValue(double value, QString text, double x);
+    void hoverValue(double position, QString chapterInfo, double x);
 
 protected:
     void resizeEvent(QResizeEvent *event);

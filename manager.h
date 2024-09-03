@@ -139,6 +139,7 @@ public slots:
     void setAfterPlaybackOnce(Helpers::AfterPlayback mode);
     void setAfterPlaybackAlways(Helpers::AfterPlayback mode);
     void setAfterPlaybackAlwaysDefault(Helpers::AfterPlayback mode);
+    void setTimeShortMode(bool shortMode);
     void setSubtitlesPreferDefaultForced(bool forced);
     void setSubtitlesPreferExternal(bool external);
     void setSubtitlesIgnoreEmbedded(bool ignore);
@@ -157,6 +158,7 @@ private:
                            bool isRepeating, QUrl with = QUrl());
     void selectDesiredTracks();
     void updateSubtitleTrack();
+    void updateChapters();
     void checkAfterPlayback();
     void playNextTrack();
     void playPrevTrack();
@@ -212,6 +214,7 @@ private:
     QList<QPair<int64_t,QString>> subtitleList;
     QMap<int64_t,TrackData> audioListData;
     QMap<int64_t,TrackData> subtitleListData;
+    QVariantList chapters = QVariantList();
 
     QStringList audioLangPref;
     QStringList subtitleLangPref;
@@ -229,6 +232,8 @@ private:
     bool playbackStartPaused = false;
     bool playbackForever = false;
     bool folderFallback = false;
+
+    bool timeShortMode = false;
 
     Helpers::AfterPlayback afterPlaybackOnce = Helpers::DoNothingAfter;
     Helpers::AfterPlayback afterPlaybackAlways = Helpers::DoNothingAfter;
