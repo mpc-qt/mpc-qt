@@ -74,6 +74,7 @@ signals:
     void systemShouldStandby();
     void systemShouldHibernate();
     void currentTrackInfo(TrackInfo track);
+    void openingNewFile();
     void startingPlayingFile(QUrl url);
     void stoppedPlaying();
 

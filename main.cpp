@@ -763,6 +763,8 @@ void Flow::setupFlowConnections()
     // manager -> this
     connect(playbackManager, &PlaybackManager::playLengthChanged,
             this, &Flow::manager_playLengthChanged);
+    connect(playbackManager, &PlaybackManager::openingNewFile,
+            this, &Flow::manager_openingNewFile);
     connect(playbackManager, &PlaybackManager::startingPlayingFile,
             this, &Flow::manager_startingPlayingFile);
     connect(playbackManager, &PlaybackManager::stoppedPlaying,
@@ -1276,6 +1278,11 @@ void Flow::manager_hasNoSubtitles(bool none)
 
 void Flow::manager_playLengthChanged() {
     LogStream("main") << "manager_playLengthChanged";
+    updateRecentPosition(false);
+}
+
+void Flow::manager_openingNewFile()
+{
     updateRecentPosition(false);
 }
 

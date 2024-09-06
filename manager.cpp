@@ -125,6 +125,9 @@ PlaybackManager::PlaybackState PlaybackManager::playbackState()
 
 void PlaybackManager::openSeveralFiles(QList<QUrl> what, bool important)
 {
+    if (!nowPlayingItem.isNull())
+        emit openingNewFile();
+
     if (important) {
         playlistWindow_->setCurrentPlaylist(QUuid());
         playlistWindow_->clearPlaylist(QUuid());
@@ -141,6 +144,9 @@ void PlaybackManager::openSeveralFiles(QList<QUrl> what, bool important)
 
 void PlaybackManager::openFile(QUrl what, QUrl with)
 {
+    if (!nowPlayingItem.isNull())
+        emit openingNewFile();
+
     auto info = playlistWindow_->urlToQuickPlaylist(what);
     if (!info.second.isNull()) {
         QUrl urlToPlay = playlistWindow_->getUrlOf(info.first, info.second);
