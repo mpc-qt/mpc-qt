@@ -75,6 +75,7 @@ private slots:
     void manager_stateChanged(PlaybackManager::PlaybackState state);
     void manager_subtitlesVisible(bool visible);
     void manager_hasNoSubtitles(bool none);
+    void manager_openingNewFile();
     void manager_startingPlayingFile(QUrl url);
     void manager_stoppedPlaying();
     void mpcHcServer_fileSelected(QString fileName);
