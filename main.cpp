@@ -1433,7 +1433,8 @@ void Flow::updateRecentPosition(bool resetPosition)
     double length;
     double position;
     playbackManager->getCurrentTrackInfo(url, listUuid, itemUuid, title, length, position);
-    updateRecents(url, listUuid, itemUuid, title, length, resetPosition ? 0 : position);
+    if (!itemUuid.isNull())
+        updateRecents(url, listUuid, itemUuid, title, length, resetPosition ? 0 : position);
 }
 
 // Update the Recents list
