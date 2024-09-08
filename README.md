@@ -65,6 +65,8 @@ If you are a coder, try to follow the conventions in the code and make a PR.
 If you are a translator, we will be using [Weblate] to translate.
 Alternatively, you can submit the translations as a PR.
 
+[![Translation status]][Weblate]
+
 ## Compiling
 
 The best version is git master, and everyone is encouraged to increase their
@@ -167,7 +169,8 @@ Congratulations, you have now built mpc-qt!
 [screenshot]:https://raw.githubusercontent.com/mpc-qt/mpc-qt-screenshots/master/Screenshot_20220226_155532.png
 [mpc-hc]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
-[weblate]:https://weblate.org/en/
+[weblate]:https://hosted.weblate.org/engage/mpc-qt/
+[Translation status]:https://hosted.weblate.org/widgets/mpc-qt/-/svg-badge.svg
 [aur]:https://aur.archlinux.org/packages/mpc-qt-git/
 [ports]:https://www.freshports.org/multimedia/mpc-qt
 [mpv-build repo]:https://github.com/mpv-player/mpv-build
