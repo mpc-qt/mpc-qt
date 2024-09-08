@@ -1440,17 +1440,23 @@ void Flow::updateRecentPosition(bool resetPosition)
     QString title;
     double length;
     double position;
-    playbackManager->getCurrentTrackInfo(url, listUuid, itemUuid, title, length, position);
+    int64_t videoTrack;
+    int64_t audioTrack;
+    int64_t subtitleTrack;
+    playbackManager->getCurrentTrackInfo(url, listUuid, itemUuid, title, length, position,
+                                         videoTrack, audioTrack, subtitleTrack);
     if (!itemUuid.isNull())
-        updateRecents(url, listUuid, itemUuid, title, length, resetPosition ? 0 : position);
+        updateRecents(url, listUuid, itemUuid, title, length, resetPosition ? 0 : position,
+                      videoTrack, audioTrack, subtitleTrack);
 }
 
 // Update the Recents list
 void Flow::updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title, double length,
-                         double position)
+                         double position, int64_t videoTrack, int64_t audioTrack, int64_t subtitleTrack)
 {
     // Insert playing track as the most recent item
-    TrackInfo track(url, listUuid, itemUuid, title, length, position);
+    TrackInfo track(url, listUuid, itemUuid, title, length, position,
+                    videoTrack, audioTrack, subtitleTrack);
     if (recentFiles.contains(track)) {
         // Remove all prior mention of it
         recentFiles.removeAll(track);

@@ -153,7 +153,9 @@ public slots:
 
     // misc functions
     void sendCurrentTrackInfo();
-    void getCurrentTrackInfo(QUrl &url, QUuid &listUuid, QUuid &itemUuid, QString title, double &length, double &position);
+    void getCurrentTrackInfo(QUrl &url, QUuid &listUuid, QUuid &itemUuid, QString title,
+                             double &length, double &position, int64_t &videoTrack,
+                             int64_t &audioTrack, int64_t &subtitleTrack);
 
 private:
     void startPlayWithUuid(QUrl what, QUuid playlistUuid, QUuid itemUuid,
@@ -222,7 +224,9 @@ private:
     QStringList audioLangPref;
     QStringList subtitleLangPref;
     QString videoListSelected;
+    int64_t videoTrackSelected = 1;
     QString audioListSelected;
+    int64_t audioTrackSelected = 1;
     QString subtitleListSelected;
     int64_t subtitleTrackSelected = 1;
     bool subtitleEnabled = true;

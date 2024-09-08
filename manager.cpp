@@ -410,6 +410,7 @@ void PlaybackManager::setAudioTrackEx(int64_t id, bool softly)
     else
         audioListSelected = findSecondById(audioList, id);
     mpvObject_->setAudioTrack(id);
+    audioTrackSelected = id;
 }
 
 void PlaybackManager::setSubtitleTrack(int64_t id)
@@ -431,6 +432,7 @@ void PlaybackManager::setVideoTrack(int64_t id)
 {
     videoListSelected = findSecondById(videoList, id);
     mpvObject_->setVideoTrack(id);
+    videoTrackSelected = id;
 }
 
 void PlaybackManager::setSubtitleEnabled(bool enabled)
@@ -535,11 +537,13 @@ void PlaybackManager::sendCurrentTrackInfo()
 {
     QUrl url(playlistWindow_->getUrlOf(nowPlayingList, nowPlayingItem));
     emit currentTrackInfo({url, nowPlayingList, nowPlayingItem,
-                           nowPlayingTitle, mpvLength, mpvTime});
+                           nowPlayingTitle, mpvLength, mpvTime,
+                           videoTrackSelected, audioTrackSelected, subtitleTrackSelected});
 }
 
 void PlaybackManager::getCurrentTrackInfo(QUrl& url, QUuid& listUuid, QUuid& itemUuid, QString title,
-                                          double& length, double& position)
+                                          double& length, double& position, int64_t& videoTrack,
+                                          int64_t& audioTrack, int64_t& subtitleTrack)
 {
     url = playlistWindow_->getUrlOf(nowPlayingList, nowPlayingItem);
     listUuid = nowPlayingList;
@@ -547,6 +551,9 @@ void PlaybackManager::getCurrentTrackInfo(QUrl& url, QUuid& listUuid, QUuid& ite
     title = nowPlayingTitle;
     length = mpvLength;
     position = mpvTime;
+    videoTrack = videoTrackSelected;
+    audioTrack = audioTrackSelected;
+    subtitleTrack = subtitleTrackSelected;
 }
 
 void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
