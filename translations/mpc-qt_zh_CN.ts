@@ -851,7 +851,7 @@
     </message>
     <message>
         <source>&amp;Use Loop Points</source>
-        <translation>使用循环点(&amp;U)</translation>
+        <translation type="vanished">使用循环点(&amp;U)</translation>
     </message>
     <message>
         <source>Ctrl+Backspace</source>

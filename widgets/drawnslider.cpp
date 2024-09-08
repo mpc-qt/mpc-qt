@@ -333,11 +333,6 @@ double MediaSlider::loopB() {
     return vLoopB;
 }
 
-bool MediaSlider::isLoopEmpty()
-{
-    return vLoopA < 0 || vLoopB < 0;
-}
-
 void MediaSlider::resizeEvent(QResizeEvent *event)
 {
     DrawnSlider::resizeEvent(event);

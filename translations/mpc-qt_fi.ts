@@ -846,10 +846,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Use Loop Points</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ctrl+Backspace</source>
         <translation type="unfinished"></translation>
     </message>

@@ -851,7 +851,7 @@
     </message>
     <message>
         <source>&amp;Use Loop Points</source>
-        <translation>&amp;Usar los puntos del bucle</translation>
+        <translation type="vanished">&amp;Usar los puntos del bucle</translation>
     </message>
     <message>
         <source>Ctrl+Backspace</source>
