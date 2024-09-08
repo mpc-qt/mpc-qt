@@ -307,8 +307,13 @@ void PlaybackManager::navigateToChapter(int64_t chapter)
         // Out-of-bounds chapter navigation request. i.e. unseekable chapter
         // from either past-the-end or invalid.  So stop playback and continue
         // on the next via the playback finished slot.
-        mpvObject_->setPaused(false);
-        mpvObject_->stopPlayback();
+        LogStream("manager") << "navigateToChapter: setChapter failed";
+        if (folderFallback)
+            playNext(false);
+        else {
+            mpvObject_->setPaused(false);
+            mpvObject_->stopPlayback();
+        }
     }
 }
 
