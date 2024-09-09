@@ -176,6 +176,7 @@ private slots:
     void mpvw_playbackStarted();
     void mpvw_pausedChanged(bool yes);
     void mpvw_playbackIdling();
+    void mpvw_playbackFinished();
     void mpvw_eofReachedChanged(bool eof);
     void mpvw_mediaTitleChanged(QString title);
     void mpvw_chapterDataChanged(QVariantMap metadata);

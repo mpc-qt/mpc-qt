@@ -70,6 +70,8 @@ void PlaybackManager::setMpvObject(MpvObject *mpvObject, bool makeConnections)
                 this, &PlaybackManager::mpvw_pausedChanged);
         connect(mpvObject, &MpvObject::playbackIdling,
                 this, &PlaybackManager::mpvw_playbackIdling);
+        connect(mpvObject, &MpvObject::playbackFinished,
+                this, &PlaybackManager::mpvw_playbackFinished);
         connect(mpvObject, &MpvObject::eofReachedChanged,
                 this, &PlaybackManager::mpvw_eofReachedChanged);
         connect(mpvObject, &MpvObject::mediaTitleChanged,
@@ -837,6 +839,14 @@ void PlaybackManager::mpvw_playbackIdling()
         playbackState_ = StoppedState;
         emit stateChanged(playbackState_);
         return;
+    }
+}
+
+void PlaybackManager::mpvw_playbackFinished() {
+    if (playbackState_ == BufferingState || playbackState_ == WaitingState) {
+        playbackState_ = StoppedState;
+        emit stateChanged(playbackState_);
+        mpvw_eofReachedChanged(true);
     }
 }
 
