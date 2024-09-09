@@ -851,7 +851,7 @@
     </message>
     <message>
         <source>&amp;Use Loop Points</source>
-        <translation>&amp;Usa punti di ciclo</translation>
+        <translation type="vanished">&amp;Usa punti di ciclo</translation>
     </message>
     <message>
         <source>Ctrl+Backspace</source>

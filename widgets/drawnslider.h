@@ -82,7 +82,6 @@ public:
     void setLoopB(double b);
     double loopA();
     double loopB();
-    bool isLoopEmpty();
 
 signals:
     void hoverBegin();

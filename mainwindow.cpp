@@ -2639,14 +2639,17 @@ void MainWindow::on_actionPlayLoopEnd_triggered()
 
 void MainWindow::on_actionPlayLoopUse_triggered(bool checked)
 {
-    if (checked && !positionSlider_->isLoopEmpty()) {
+    if (checked) {
+        if (positionSlider_->loopA() < 0)
+            positionSlider_->setLoopA(0);
+        if (positionSlider_->loopB() < 0 )
+            positionSlider_->setLoopB(mpvObject_->playLength());
+
         mpvObject_->setLoopPoints(positionSlider_->loopA(),
                                   positionSlider_->loopB());
-    } else if (checked) {
-        ui->actionPlayLoopUse->setChecked(false);
-    } else {
-        mpvObject_->setLoopPoints(-1, -1);
     }
+    else
+        mpvObject_->setLoopPoints(-1, -1);
 }
 
 void MainWindow::on_actionPlayLoopClear_triggered()
