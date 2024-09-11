@@ -922,6 +922,11 @@ void TrackInfo::fromVMap(const QVariantMap &map)
     videoTrack = map.value("videoTrack").toLongLong();
     audioTrack = map.value("audioTrack").toLongLong();
     subtitleTrack = map.value("subtitleTrack").toLongLong();
+    // FIXME: this is only needed for as long as users recents and favorites files
+    // don't have a subtitleTrack value for every file, which is fixed as soon as they
+    // use a version that includes this
+    if (subtitleTrack == 0 && map.value("subtitleTrack") != 0)
+        subtitleTrack = -1;
 }
 
 bool TrackInfo::operator ==(const TrackInfo &track) const
