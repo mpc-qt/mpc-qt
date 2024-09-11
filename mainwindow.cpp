@@ -1910,7 +1910,7 @@ void MainWindow::setAudioTracks(QList<QPair<int64_t, QString>> tracks)
         action->setActionGroup(audioTracksGroup);
         int64_t index = track.first;
         connect(action, &QAction::triggered, this, [this,index] {
-            emit audioTrackSelected(index);
+            emit audioTrackSelected(index, true);
         });
         ui->menuPlayAudio->addAction(action);
     }
@@ -1933,7 +1933,7 @@ void MainWindow::setVideoTracks(QList<QPair<int64_t, QString>> tracks)
         action->setActionGroup(videoTracksGroup);
         int64_t index = track.first;
         connect(action, &QAction::triggered, this, [this,index]() {
-            emit videoTrackSelected(index);
+            emit videoTrackSelected(index, true);
         });
         ui->menuPlayVideo->addAction(action);
     }
@@ -1966,7 +1966,7 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
         action->setActionGroup(subtitleTracksGroup);
         int64_t index = track.first;
         connect(action, &QAction::triggered, this, [this,index]() {
-            emit subtitleTrackSelected(index);
+            emit subtitleTrackSelected(index, true);
         });
         ui->menuPlaySubtitles->addAction(action);
     }
@@ -1988,7 +1988,7 @@ void MainWindow::videoTrackSet(int64_t id)
 void MainWindow::subtitleTrackSet(int64_t id)
 {
     if (subtitleTracksGroup != nullptr) {
-        if (id == 0)
+        if (id <= 0)
             id = subtitleTracksGroup->actions().length();
         subtitleTracksGroup->actions()[static_cast <int> (id) -1]->setChecked(true);
     }

@@ -1170,8 +1170,12 @@ void Flow::mainwindow_recentOpened(const TrackInfo &track, bool isFromRecents)
 
     // Navigate to a particular position if set and if this is from the favorites menu
     // or if this is from the recents menu and not disabled
-    if (track.position > 0 && track.url.isLocalFile() && (!isFromRecents || rememberFilePosition))
+    if (track.position > 0 && track.url.isLocalFile() && (!isFromRecents || rememberFilePosition)) {
         playbackManager->navigateToTime(track.position);
+        playbackManager->setVideoTrack(track.videoTrack, true);
+        playbackManager->setAudioTrack(track.audioTrack, true);
+        playbackManager->setSubtitleTrack(track.subtitleTrack, true);
+    }
 }
 
 void Flow::mainwindow_recentClear()
@@ -1301,6 +1305,9 @@ void Flow::manager_startingPlayingFile(QUrl url)
         foreach (TrackInfo track, recentFiles) {
             if (track.url == url) {
                 playbackManager->navigateToTime(track.position);
+                playbackManager->setVideoTrack(track.videoTrack, true);
+                playbackManager->setAudioTrack(track.audioTrack, true);
+                playbackManager->setSubtitleTrack(track.subtitleTrack, true);
                 break;
             }
         }

@@ -128,11 +128,9 @@ public slots:
     void setStepTimeSmall(int smallMsec);
     void setSubtitleTrackPreference(QString langs);
     void setAudioTrackPreference(QString langs);
-    void setAudioTrack(int64_t id);
-    void setAudioTrackEx(int64_t id, bool softly);
-    void setSubtitleTrack(int64_t id);
-    void setSubtitleTrackEx(int64_t id, bool softly);
-    void setVideoTrack(int64_t id);
+    void setAudioTrack(int64_t id, bool userSelected);
+    void setSubtitleTrack(int64_t id, bool userSelected);
+    void setVideoTrack(int64_t id, bool userSelected);
     void setSubtitleEnabled(bool enabled);
     void selectNextSubtitle();
     void selectPrevSubtitle();
@@ -223,12 +221,9 @@ private:
 
     QStringList audioLangPref;
     QStringList subtitleLangPref;
-    QString videoListSelected;
-    int64_t videoTrackSelected = 1;
-    QString audioListSelected;
-    int64_t audioTrackSelected = 1;
-    QString subtitleListSelected;
-    int64_t subtitleTrackSelected = 1;
+    int64_t videoTrackSelected = -1;
+    int64_t audioTrackSelected = -1;
+    int64_t subtitleTrackSelected = -1;
     bool subtitleEnabled = true;
     bool subtitlesIgnoreEmbedded = false;
     bool subtitlesPreferDefaultForced = false;
