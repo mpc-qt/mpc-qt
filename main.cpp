@@ -1157,6 +1157,7 @@ void Flow::mainwindow_fullscreenHideControls(bool hide)
 
 void Flow::mainwindow_recentOpened(const TrackInfo &track, bool isFromRecents)
 {
+    updateRecentPosition(false);
     // attempt to play the playlist item if possible, otherwise act like it
     // is a new file
     QUrl old = mainWindow->playlistWindow()->getUrlOf(track.list, track.item);
