@@ -404,6 +404,7 @@ void PlaybackManager::setSubtitleTrack(int64_t id, bool userSelected)
     if (id >= 0) {
         if (userSelected)
             subtitleTrackSelected = id;
+        subtitleTrackActive = id;
         updateSubtitleTrack();
     }
 }
@@ -614,6 +615,8 @@ void PlaybackManager::selectDesiredTracks()
     if (subsId < 0) subsId = findSubIdByPreference();
     if (subsId < 0)
         subsId = findTrackByLangPreference(subtitleLangPref, subtitleListData);
+    if (subsId < 0)
+        subsId = 1;
     // Set detected tracks
     setVideoTrack(videoId, false);
     setAudioTrack(audioId, false);
@@ -622,8 +625,8 @@ void PlaybackManager::selectDesiredTracks()
 
 void PlaybackManager::updateSubtitleTrack()
 {
-    emit subtitlesVisible(subtitleEnabled && subtitleTrackSelected != 0);
-    mpvObject_->setSubtitleTrack(subtitleEnabled ? subtitleTrackSelected : 0);
+    emit subtitlesVisible(subtitleEnabled && subtitleTrackActive != 0);
+    mpvObject_->setSubtitleTrack(subtitleEnabled ? subtitleTrackActive : 0);
 }
 
 void PlaybackManager::checkAfterPlayback()

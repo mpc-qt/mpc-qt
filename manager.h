@@ -224,6 +224,7 @@ private:
     int64_t videoTrackSelected = -1;
     int64_t audioTrackSelected = -1;
     int64_t subtitleTrackSelected = -1;
+    int64_t subtitleTrackActive = 0;
     bool subtitleEnabled = true;
     bool subtitlesIgnoreEmbedded = false;
     bool subtitlesPreferDefaultForced = false;
