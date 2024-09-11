@@ -245,6 +245,7 @@ public slots:
     void setFullscreenHidePanels(bool hidden);
     void setPlaybackState(PlaybackManager::PlaybackState state);
     void setPlaybackType(PlaybackManager::PlaybackType type);
+    void disableChaptersMenus();
     void setChapters(QList<QPair<double,QString>> chapters);
     void setAudioTracks(QList<QPair<int64_t,QString>> tracks);
     void setVideoTracks(QList<QPair<int64_t,QString>> tracks);

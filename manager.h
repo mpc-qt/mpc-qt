@@ -53,6 +53,7 @@ signals:
     void videoSizeChanged(QSize size);
     void playbackSpeedChanged(double speed);
     void stateChanged(PlaybackManager::PlaybackState state);
+    void fileOpenedOrClosed();
     void typeChanged(PlaybackManager::PlaybackType type);
     // Transmit a map of chapter index to time,description pairs
     void chaptersAvailable(QList<QPair<double,QString>> chapters);

@@ -5,6 +5,7 @@
 #include "ui_mainwindow.h"
 #include "openfiledialog.h"
 #include "helpers.h"
+#include "logger.h"
 #include "platform/unify.h"
 #include "platform/devicemanager.h"
 #include <QActionGroup>
@@ -975,11 +976,11 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->menuFileSubtitleDatabase->setEnabled(false);
     ui->menuPlayLoop->setEnabled(enabled);
     if (!enabled) {
-        ui->menuPlayAudio->setEnabled(enabled);
-        ui->menuPlaySubtitles->setEnabled(enabled);
-        ui->menuPlayVideo->setEnabled(enabled);
+        ui->menuPlayAudio->setEnabled(false);
+        ui->menuPlaySubtitles->setEnabled(false);
+        ui->menuPlayVideo->setEnabled(false);
+        ui->menuNavigateChapters->setEnabled(false);
     }
-    ui->menuNavigateChapters->setEnabled(enabled && false);
 }
 
 void MainWindow::reparentBottomArea(bool overlay)
@@ -1867,10 +1868,19 @@ void MainWindow::setPlaybackType(PlaybackManager::PlaybackType type)
     setUiEnabledState(type != PlaybackManager::None);
 }
 
+void MainWindow::disableChaptersMenus()
+{
+    ui->menuNavigateChapters->setEnabled(false);
+}
+
 void MainWindow::setChapters(QList<QPair<double, QString>> chapters)
 {
     positionSlider_->clearTicks();
     ui->menuNavigateChapters->clear();
+    ui->menuNavigateChapters->setEnabled(false);
+    if (chapters.isEmpty())
+        return;
+    ui->menuNavigateChapters->setEnabled(true);
     int64_t index = 0;
     for (const QPair<double,QString> &chapter : chapters) {
         positionSlider_->setTick(chapter.first, chapter.second);
