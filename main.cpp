@@ -1170,8 +1170,12 @@ void Flow::mainwindow_recentOpened(const TrackInfo &track, bool isFromRecents)
 
     // Navigate to a particular position if set and if this is from the favorites menu
     // or if this is from the recents menu and not disabled
-    if (track.position > 0 && track.url.isLocalFile() && (!isFromRecents || rememberFilePosition))
+    if (track.position > 0 && track.url.isLocalFile() && (!isFromRecents || rememberFilePosition)) {
         playbackManager->navigateToTime(track.position);
+        playbackManager->setVideoTrack(track.videoTrack, true);
+        playbackManager->setAudioTrack(track.audioTrack, true);
+        playbackManager->setSubtitleTrack(track.subtitleTrack, true);
+    }
 }
 
 void Flow::mainwindow_recentClear()
@@ -1301,6 +1305,9 @@ void Flow::manager_startingPlayingFile(QUrl url)
         foreach (TrackInfo track, recentFiles) {
             if (track.url == url) {
                 playbackManager->navigateToTime(track.position);
+                playbackManager->setVideoTrack(track.videoTrack, true);
+                playbackManager->setAudioTrack(track.audioTrack, true);
+                playbackManager->setSubtitleTrack(track.subtitleTrack, true);
                 break;
             }
         }
@@ -1440,17 +1447,23 @@ void Flow::updateRecentPosition(bool resetPosition)
     QString title;
     double length;
     double position;
-    playbackManager->getCurrentTrackInfo(url, listUuid, itemUuid, title, length, position);
+    int64_t videoTrack;
+    int64_t audioTrack;
+    int64_t subtitleTrack;
+    playbackManager->getCurrentTrackInfo(url, listUuid, itemUuid, title, length, position,
+                                         videoTrack, audioTrack, subtitleTrack);
     if (!itemUuid.isNull())
-        updateRecents(url, listUuid, itemUuid, title, length, resetPosition ? 0 : position);
+        updateRecents(url, listUuid, itemUuid, title, length, resetPosition ? 0 : position,
+                      videoTrack, audioTrack, subtitleTrack);
 }
 
 // Update the Recents list
 void Flow::updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title, double length,
-                         double position)
+                         double position, int64_t videoTrack, int64_t audioTrack, int64_t subtitleTrack)
 {
     // Insert playing track as the most recent item
-    TrackInfo track(url, listUuid, itemUuid, title, length, position);
+    TrackInfo track(url, listUuid, itemUuid, title, length, position,
+                    videoTrack, audioTrack, subtitleTrack);
     if (recentFiles.contains(track)) {
         // Remove all prior mention of it
         recentFiles.removeAll(track);

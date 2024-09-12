@@ -886,7 +886,8 @@ QString DisplayParser::parseMetadata(QVariantMap metaData,
 
 
 
-TrackInfo::TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item, QString text, double length, double position)
+TrackInfo::TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item, QString text, double length,
+                     double position, int64_t videoTrack, int64_t audioTrack, int64_t subtitleTrack)
 {
     this->url = url;
     this->list = list;
@@ -894,13 +895,18 @@ TrackInfo::TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item, QStr
     this->text = text.isEmpty() ? url.toString() : text;
     this->length = length;
     this->position = position;
+    this->videoTrack = videoTrack;
+    this->audioTrack = audioTrack;
+    this->subtitleTrack = subtitleTrack;
 }
 
 QVariantMap TrackInfo::toVMap() const
 {
     return QVariantMap({{"url", url}, {"list", list}, {"item", item},
                         {"text", text}, {"length", length},
-                        {"position", position}});
+                        {"position", position}, {"videoTrack", (long long) videoTrack},
+                        {"audioTrack", (long long) audioTrack},
+                        {"subtitleTrack", (long long) subtitleTrack}});
 }
 
 void TrackInfo::fromVMap(const QVariantMap &map)
@@ -913,6 +919,14 @@ void TrackInfo::fromVMap(const QVariantMap &map)
         text = url.toString();
     length = map.value("length").toDouble();
     position = map.value("position").toDouble();
+    videoTrack = map.value("videoTrack").toLongLong();
+    audioTrack = map.value("audioTrack").toLongLong();
+    subtitleTrack = map.value("subtitleTrack").toLongLong();
+    // FIXME: this is only needed for as long as users recents and favorites files
+    // don't have a subtitleTrack value for every file, which is fixed as soon as they
+    // use a version that includes this
+    if (subtitleTrack == 0 && map.value("subtitleTrack") != 0)
+        subtitleTrack = -1;
 }
 
 bool TrackInfo::operator ==(const TrackInfo &track) const

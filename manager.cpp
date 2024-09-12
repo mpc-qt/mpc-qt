@@ -390,47 +390,32 @@ void PlaybackManager::setAudioTrackPreference(QString langs)
     audioLangPref = langs.split(*wordSplitter, Qt::SkipEmptyParts);
 }
 
-static QString findSecondById(QList<QPair<int64_t,QString>> list, int64_t id) {
-    // this *should* return the string at id-1
-    for (int i = 0; i < list.count(); ++i)
-        if (list.value(i).first == id)
-            return list.value(i).second;
-    return QString();
+void PlaybackManager::setAudioTrack(int64_t id, bool userSelected)
+{
+    if (id > 0) {
+        if (userSelected)
+            audioTrackSelected = id;
+        mpvObject_->setAudioTrack(id);
+    }
 }
 
-void PlaybackManager::setAudioTrack(int64_t id)
+void PlaybackManager::setSubtitleTrack(int64_t id, bool userSelected)
 {
-    setAudioTrackEx(id, false);
+    if (id >= 0) {
+        if (userSelected)
+            subtitleTrackSelected = id;
+        subtitleTrackActive = id;
+        updateSubtitleTrack();
+    }
 }
 
-void PlaybackManager::setAudioTrackEx(int64_t id, bool softly)
+void PlaybackManager::setVideoTrack(int64_t id, bool userSelected)
 {
-    if (softly)
-        audioListSelected.clear();
-    else
-        audioListSelected = findSecondById(audioList, id);
-    mpvObject_->setAudioTrack(id);
-}
-
-void PlaybackManager::setSubtitleTrack(int64_t id)
-{
-    setSubtitleTrackEx(id, false);
-}
-
-void PlaybackManager::setSubtitleTrackEx(int64_t id, bool softly)
-{
-    if (softly)
-        subtitleListSelected.clear();
-    else
-        subtitleListSelected = findSecondById(subtitleList, id);
-    subtitleTrackSelected = id;
-    updateSubtitleTrack();
-}
-
-void PlaybackManager::setVideoTrack(int64_t id)
-{
-    videoListSelected = findSecondById(videoList, id);
-    mpvObject_->setVideoTrack(id);
+    if (id > 0) {
+        if (userSelected)
+            videoTrackSelected = id;
+        mpvObject_->setVideoTrack(id);
+    }
 }
 
 void PlaybackManager::setSubtitleEnabled(bool enabled)
@@ -446,7 +431,7 @@ void PlaybackManager::selectNextSubtitle()
     int64_t nextSubs = subtitleTrackSelected + 1;
     if (nextSubs >= subtitleList.count())
         nextSubs = 0;
-    setSubtitleTrack(nextSubs);
+    setSubtitleTrack(nextSubs, true);
 }
 
 void PlaybackManager::selectPrevSubtitle()
@@ -456,7 +441,7 @@ void PlaybackManager::selectPrevSubtitle()
     int64_t previousSubs = subtitleTrackSelected - 1;
     if (previousSubs < 0)
         previousSubs = subtitleList.count() - 1;
-    setSubtitleTrack(previousSubs);
+    setSubtitleTrack(previousSubs, true);
 }
 
 void PlaybackManager::setVolume(int64_t volume)
@@ -535,11 +520,13 @@ void PlaybackManager::sendCurrentTrackInfo()
 {
     QUrl url(playlistWindow_->getUrlOf(nowPlayingList, nowPlayingItem));
     emit currentTrackInfo({url, nowPlayingList, nowPlayingItem,
-                           nowPlayingTitle, mpvLength, mpvTime});
+                           nowPlayingTitle, mpvLength, mpvTime,
+                           videoTrackSelected, audioTrackSelected, subtitleTrackSelected});
 }
 
 void PlaybackManager::getCurrentTrackInfo(QUrl& url, QUuid& listUuid, QUuid& itemUuid, QString title,
-                                          double& length, double& position)
+                                          double& length, double& position, int64_t& videoTrack,
+                                          int64_t& audioTrack, int64_t& subtitleTrack)
 {
     url = playlistWindow_->getUrlOf(nowPlayingList, nowPlayingItem);
     listUuid = nowPlayingList;
@@ -547,6 +534,9 @@ void PlaybackManager::getCurrentTrackInfo(QUrl& url, QUuid& listUuid, QUuid& ite
     title = nowPlayingTitle;
     length = mpvLength;
     position = mpvTime;
+    videoTrack = videoTrackSelected;
+    audioTrack = audioTrackSelected;
+    subtitleTrack = subtitleTrackSelected;
 }
 
 void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
@@ -584,21 +574,7 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
 
 void PlaybackManager::selectDesiredTracks()
 {
-    // search current tracks by mangled string of no id and no spaces
-    auto mangle = [](QString s) {
-        return QStringList(s.split(' ').mid(1)).join("");
-    };
-    auto findIdBySecond = [&](QList<QPair<int64_t,QString>> list,
-                              QString needle) -> int64_t {
-        if (list.isEmpty() || (needle = mangle(needle)).isEmpty())
-            return -1;
-        for (int i = 0; i < list.count(); i++) {
-            if (mangle(list[i].second) == needle) {
-                return list[i].first;
-            }
-        }
-        return -1;
-    };
+    LogStream("manager") << "selectDesiredTracks";
     auto findSubIdByPreference = [&](void) -> int64_t {
         if (subtitlesPreferExternal) {
             for (auto it = subtitleListData.constBegin();
@@ -630,46 +606,27 @@ void PlaybackManager::selectDesiredTracks()
         }
         return lastGoodTrack;
     };
-    bool audioSoftly = false;
-    bool subsSoftly = false;
+    int64_t videoId = videoTrackSelected;
+    int64_t audioId = audioTrackSelected;
+    int64_t subsId = subtitleTrackSelected;
 
-    int64_t videoId = findIdBySecond(videoList, videoListSelected);
-    int64_t audioId = findIdBySecond(audioList, audioListSelected);
-    if (audioId < 0) {
+    if (audioId < 0)
         audioId = findTrackByLangPreference(audioLangPref, audioListData);
-        if (audioId)
-            audioSoftly = true;
-    }
-    int64_t subsId = findIdBySecond(subtitleList, subtitleListSelected);
     if (subsId < 0) subsId = findSubIdByPreference();
-    if (subsId < 0) {
+    if (subsId < 0)
         subsId = findTrackByLangPreference(subtitleLangPref, subtitleListData);
-        if (subsId)
-            subsSoftly = true;
-    }
-
-    // Set detected tracks; if no preferred track from a list could be found,
-    // clear user selection
-    if (videoId >= 0)
-        setVideoTrack(videoId);
-    else if (!videoList.isEmpty())
-        videoListSelected.clear();
-    if (audioId >= 0)
-        setAudioTrackEx(audioId, audioSoftly);
-    else if (!audioList.isEmpty())
-        audioListSelected.clear();
-    if (subsId >= 0)
-        setSubtitleTrackEx(subsId, subsSoftly);
-    else if (!subtitleList.isEmpty()) {
-        subtitleListSelected.clear();
-        setSubtitleTrack(1);
-    }
+    if (subsId < 0)
+        subsId = 1;
+    // Set detected tracks
+    setVideoTrack(videoId, false);
+    setAudioTrack(audioId, false);
+    setSubtitleTrack(subsId, false);
 }
 
 void PlaybackManager::updateSubtitleTrack()
 {
-    emit subtitlesVisible(subtitleEnabled && subtitleTrackSelected != 0);
-    mpvObject_->setSubtitleTrack(subtitleEnabled ? subtitleTrackSelected : 0);
+    emit subtitlesVisible(subtitleEnabled && subtitleTrackActive != 0);
+    mpvObject_->setSubtitleTrack(subtitleEnabled ? subtitleTrackActive : 0);
 }
 
 void PlaybackManager::checkAfterPlayback()
@@ -892,6 +849,7 @@ void PlaybackManager::mpvw_chaptersChanged(QVariantList chapters)
 
 void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
 {
+    LogStream("manager") << "mpvw_tracksChanged";
     videoList.clear();
     audioList.clear();
     audioListData.clear();

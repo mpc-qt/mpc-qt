@@ -1898,11 +1898,12 @@ void MainWindow::setAudioTracks(QList<QPair<int64_t, QString>> tracks)
 {
     ui->menuPlayAudio->clear();
     ui->menuPlayAudio->setEnabled(false);
-    audioTracksGroup = new QActionGroup(this);
+    audioTracksGroup = nullptr;
     hasAudio = !tracks.isEmpty();
     if (!hasAudio)
         return;
     ui->menuPlayAudio->setEnabled(true);
+    audioTracksGroup = new QActionGroup(this);
     for (const QPair<int64_t, QString> &track : tracks) {
         QAction *action = new QAction(this);
         action->setText(track.second);
@@ -1910,7 +1911,7 @@ void MainWindow::setAudioTracks(QList<QPair<int64_t, QString>> tracks)
         action->setActionGroup(audioTracksGroup);
         int64_t index = track.first;
         connect(action, &QAction::triggered, this, [this,index] {
-            emit audioTrackSelected(index);
+            emit audioTrackSelected(index, true);
         });
         ui->menuPlayAudio->addAction(action);
     }
@@ -1921,11 +1922,12 @@ void MainWindow::setVideoTracks(QList<QPair<int64_t, QString>> tracks)
 {
     ui->menuPlayVideo->clear();
     ui->menuPlayVideo->setEnabled(false);
-    videoTracksGroup = new QActionGroup(this);
+    videoTracksGroup = nullptr;
     hasVideo = !tracks.isEmpty();
     if (!hasVideo)
         return;
     ui->menuPlayVideo->setEnabled(true);
+    videoTracksGroup = new QActionGroup(this);
     for (const QPair<int64_t, QString> &track : tracks) {
         QAction *action = new QAction(this);
         action->setText(track.second);
@@ -1933,7 +1935,7 @@ void MainWindow::setVideoTracks(QList<QPair<int64_t, QString>> tracks)
         action->setActionGroup(videoTracksGroup);
         int64_t index = track.first;
         connect(action, &QAction::triggered, this, [this,index]() {
-            emit videoTrackSelected(index);
+            emit videoTrackSelected(index, true);
         });
         ui->menuPlayVideo->addAction(action);
     }
@@ -1945,7 +1947,7 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
 {
     ui->menuPlaySubtitles->clear();
     ui->menuPlaySubtitles->setEnabled(false);
-    subtitleTracksGroup = new QActionGroup(this);
+    subtitleTracksGroup = nullptr;
     hasSubs = !tracks.isEmpty();
     ui->actionPlaySubtitlesEnabled->setEnabled(hasSubs);
     ui->subs->setEnabled(hasSubs);
@@ -1954,6 +1956,7 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
     if (!hasSubs)
         return;
     ui->menuPlaySubtitles->setEnabled(true);
+    subtitleTracksGroup = new QActionGroup(this);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesEnabled);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesNext);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesPrevious);
@@ -1966,7 +1969,7 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
         action->setActionGroup(subtitleTracksGroup);
         int64_t index = track.first;
         connect(action, &QAction::triggered, this, [this,index]() {
-            emit subtitleTrackSelected(index);
+            emit subtitleTrackSelected(index, true);
         });
         ui->menuPlaySubtitles->addAction(action);
     }
@@ -1988,7 +1991,7 @@ void MainWindow::videoTrackSet(int64_t id)
 void MainWindow::subtitleTrackSet(int64_t id)
 {
     if (subtitleTracksGroup != nullptr) {
-        if (id == 0)
+        if (id <= 0)
             id = subtitleTracksGroup->actions().length();
         subtitleTracksGroup->actions()[static_cast <int> (id) -1]->setChecked(true);
     }

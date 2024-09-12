@@ -53,7 +53,8 @@ private:
     void setupMpris();
     void setupMpcHc();
     void updateRecentPosition(bool resetPosition);
-    void updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title, double length, double position);
+    void updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title, double length,
+                       double position, int64_t videoTrack, int64_t audioTrack, int64_t subtitleTrack);
     QByteArray makePayload() const;
     QString pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles subs) const;
     QVariantList recentToVList() const;
