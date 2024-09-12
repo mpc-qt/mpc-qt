@@ -43,6 +43,7 @@ public:
     void setPlaylistWindow(PlaylistWindow *playlistWindow);
     QUrl nowPlaying();
     PlaybackState playbackState();
+    bool eofReached();
 
 signals:
     void playerSettingsRequested();
