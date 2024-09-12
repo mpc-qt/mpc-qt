@@ -602,29 +602,33 @@ void PlaybackManager::selectDesiredTracks()
     auto findSubIdByPreference = [&](void) -> int64_t {
         if (subtitlesPreferExternal) {
             for (auto it = subtitleListData.constBegin();
-                 it != subtitleListData.constEnd(); it++) {
+                it != subtitleListData.constEnd(); it++) {
                 if (it.value().isExternal)
                     return it.key();
             }
         }
         if (subtitlesPreferDefaultForced) {
             for (auto it = subtitleListData.constBegin();
-                 it != subtitleListData.constEnd(); it++)
-                if (it.value().isForced
-                    || it.value().isDefault)
+                it != subtitleListData.constEnd(); it++)
+                if (it.value().isForced || it.value().isDefault)
                     return it.key();
         }
         return -1;
     };
     auto findTrackByLangPreference = [&](const QStringList &langPref,
                                          const QMap<int64_t,TrackData> &tracks) -> int64_t {
+        int64_t lastGoodTrack = -1;
         for (const QString &lang : langPref) {
             for (auto it = tracks.constBegin();
-                 it != tracks.constEnd(); it++)
-                if (it.value().lang == lang)
-                    return it.key();
+                it != tracks.constEnd(); it++)
+                if (it.value().lang == lang) {
+                    if (it.value().isForced || it.value().isDefault)
+                        lastGoodTrack = it.key();
+                    else
+                        return it.key();
+                }
         }
-        return -1;
+        return lastGoodTrack;
     };
     bool audioSoftly = false;
     bool subsSoftly = false;
