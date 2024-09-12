@@ -829,6 +829,8 @@ void Flow::setupFlowConnections()
     // favorites -> this.favorite*
     connect(favoritesWindow, &FavoritesWindow::favoriteTracks,
             this, &Flow::favoriteswindow_favoriteTracks);
+    connect(favoritesWindow, &FavoritesWindow::favoriteTracksCancel,
+            this, &Flow::favoriteswindow_favoriteTracksCancel);
 
     // this.screensaver -> this
     connect(screenSaver, &ScreenSaver::systemShutdown,
@@ -1435,6 +1437,13 @@ void Flow::favoriteswindow_favoriteTracks(const QList<TrackInfo> &files, const Q
     // Remember our favorite files and streams for later
     favoriteFiles = files;
     favoriteStreams = streams;
+}
+
+void Flow::favoriteswindow_favoriteTracksCancel()
+{
+    // Reset the favoritesWindow files and stream to previous ones
+    favoritesWindow->setFiles(favoriteFiles);
+    favoritesWindow->setStreams(favoriteStreams);
 }
 
 // Update the position of the current file

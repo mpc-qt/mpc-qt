@@ -95,6 +95,7 @@ private slots:
     void settingswindow_encodeTemplate(const QString &fmt);
     void settingswindow_screenshotFormat(const QString &fmt);
     void favoriteswindow_favoriteTracks(const QList<TrackInfo> &files, const QList<TrackInfo> &streams);
+    void favoriteswindow_favoriteTracksCancel();
 
     void endProgram();
     void importPlaylist(QString fname);

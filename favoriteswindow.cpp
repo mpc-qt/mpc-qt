@@ -14,8 +14,6 @@ FavoritesWindow::FavoritesWindow(QWidget *parent) :
     streamList = new FavoritesList(this);
     ui->filesTab->layout()->addWidget(fileList);
     ui->streamsTab->layout()->addWidget(streamList);
-    connect(ui->update, &QPushButton::clicked,
-            this, &FavoritesWindow::updateFavoriteTracks);
 }
 
 FavoritesWindow::~FavoritesWindow()
@@ -52,6 +50,17 @@ void FavoritesWindow::on_remove_clicked()
     FavoritesList *active = ui->tabWidget->currentIndex() == 0 ? fileList : streamList;
     for (auto &i : active->selectedItems())
         delete i;
+}
+
+void FavoritesWindow::on_buttonBox_clicked(QAbstractButton *button)
+{
+    QDialogButtonBox::ButtonRole buttonRole;
+    buttonRole = ui->buttonBox->buttonRole(button);
+    if (buttonRole == QDialogButtonBox::AcceptRole)
+        updateFavoriteTracks();
+    if (buttonRole == QDialogButtonBox::RejectRole)
+        emit favoriteTracksCancel();
+    close();
 }
 
 //---------------------------------------------------------------------------

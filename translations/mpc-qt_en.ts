@@ -43,7 +43,7 @@
     </message>
     <message>
         <source>&amp;Update</source>
-        <translation>&amp;Update</translation>
+        <translation type="vanished">&amp;Update</translation>
     </message>
     <message>
         <source>&amp;Files</source>
@@ -759,7 +759,7 @@
     </message>
     <message>
         <source>&amp;Add to Favorites...</source>
-        <translation>&amp;Add to Favorites...</translation>
+        <translation type="vanished">&amp;Add to Favorites...</translation>
     </message>
     <message>
         <source>&amp;Organize Favorites...</source>
@@ -1271,6 +1271,10 @@
     </message>
     <message>
         <source>Mute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add to Favorites</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

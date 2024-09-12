@@ -1,6 +1,7 @@
 #ifndef FAVORITESWINDOW_H
 #define FAVORITESWINDOW_H
 
+#include <QAbstractButton>
 #include <QListWidget>
 #include <QStyledItemDelegate>
 #include <QWidget>
@@ -24,12 +25,15 @@ public:
 
 signals:
     void favoriteTracks(QList<TrackInfo> files, QList<TrackInfo> streams);
+    void favoriteTracksCancel();
 
 public slots:
     void setFiles(const QList<TrackInfo> &tracks);
     void setStreams(const QList<TrackInfo> &tracks);
     void addTrack(const TrackInfo &track);
     void updateFavoriteTracks();
+
+    void on_buttonBox_clicked(QAbstractButton *button);
 
 private slots:
     void on_remove_clicked();

@@ -43,7 +43,7 @@
     </message>
     <message>
         <source>&amp;Update</source>
-        <translation>更新(&amp;U)</translation>
+        <translation type="vanished">更新(&amp;U)</translation>
     </message>
     <message>
         <source>&amp;Files</source>
@@ -759,7 +759,7 @@
     </message>
     <message>
         <source>&amp;Add to Favorites...</source>
-        <translation>添加到收藏(&amp;A)...</translation>
+        <translation type="vanished">添加到收藏(&amp;A)...</translation>
     </message>
     <message>
         <source>&amp;Organize Favorites...</source>
@@ -1263,6 +1263,10 @@
     </message>
     <message>
         <source>Mute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add to Favorites</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

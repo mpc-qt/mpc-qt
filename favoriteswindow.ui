@@ -14,13 +14,6 @@
    <string>Organize Favorites</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="2">
-    <widget class="QPushButton" name="update">
-     <property name="text">
-      <string>&amp;Update</string>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="0" colspan="3">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
@@ -59,6 +52,13 @@
       </size>
      </property>
     </spacer>
+   </item>
+   <item row="1" column="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
