@@ -856,8 +856,10 @@ void PlaybackManager::mpvw_playbackFinished() {
 
 void PlaybackManager::mpvw_eofReachedChanged(bool eof) {
     LogStream("manager") << "mpvw_eofReachedChanged";
-    if (!eof)
+    if (!eof) {
+        emit fileOpenedOrClosed();
         return;
+    }
 
     emit stoppedPlaying();
 

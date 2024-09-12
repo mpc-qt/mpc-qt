@@ -73,6 +73,7 @@ private slots:
     void mainwindow_optionsOpenRequested();
     void manager_playLengthChanged();
     void manager_stateChanged(PlaybackManager::PlaybackState state);
+    void manager_fileOpenedOrClosed();
     void manager_subtitlesVisible(bool visible);
     void manager_hasNoSubtitles(bool none);
     void manager_openingNewFile();
