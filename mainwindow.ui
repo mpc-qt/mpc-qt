@@ -1545,7 +1545,7 @@
   </action>
   <action name="actionFavoritesAdd">
    <property name="text">
-    <string>&amp;Add to Favorites...</string>
+    <string>&amp;Add to Favorites</string>
    </property>
   </action>
   <action name="actionFavoritesOrganize">
