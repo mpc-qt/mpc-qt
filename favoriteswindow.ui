@@ -54,9 +54,9 @@
     </spacer>
    </item>
    <item row="1" column="2">
-    <widget class="QPushButton" name="update">
-     <property name="text">
-      <string>&amp;Update</string>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
      </property>
     </widget>
    </item>
