@@ -61,6 +61,7 @@ public:
     void setLogoBackground(const QColor &color);
     void setSubFile(QString filename);
     void addSubFile(QString filename);
+    void setSubtitlesDelay(int subDelayStep);
 
     int64_t chapter();
     bool setChapter(int64_t chapter);

@@ -257,6 +257,7 @@ public slots:
     void setVolume(int level);
     void setVolumeDouble(double level);
     void setVolumeMax(int level);
+    void setSubtitlesDelayStep(int subtitlesDelayStep);
     void setTimeShortMode(bool shortened);
     void resetPlayAfterOnce();
     void setPlayAfterAlways(Helpers::AfterPlayback action);
@@ -351,6 +352,8 @@ private slots:
     void on_actionPlaySubtitlesNext_triggered();
     void on_actionPlaySubtitlesPrevious_triggered();
     void on_actionPlaySubtitlesCopy_triggered();
+    void on_actionDecreaseSubtitlesDelay_triggered();
+    void on_actionIncreaseSubtitlesDelay_triggered();
 
     void on_actionPlayLoopStart_triggered();
     void on_actionPlayLoopEnd_triggered();
@@ -443,6 +446,7 @@ private:
     bool hasAudio = false;
     bool hasSubs = false;
     QString subtitleText;
+    int subtitlesDelayStep = 500;
     int volumeStep = 10;
     bool frozenWindow = true;
     double sizeFactor_ = 1;

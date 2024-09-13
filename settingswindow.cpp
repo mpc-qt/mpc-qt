@@ -988,6 +988,7 @@ void SettingsWindow::sendSignals()
     emit option("sub-font-size", WIDGET_LOOKUP(ui->fontSize).toInt());
     emit option("sub-border-size", WIDGET_LOOKUP(ui->borderSize).toInt());
     emit option("sub-shadow-offset", WIDGET_LOOKUP(ui->borderShadowOffset).toInt());
+    emit subtitlesDelayStep(WIDGET_LOOKUP(ui->subtitlesDelayStep).toInt());
     {
         struct AlignData { QRadioButton *btn; int x; int y; };
         QVector<AlignData> alignments {

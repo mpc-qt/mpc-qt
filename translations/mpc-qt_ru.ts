@@ -1277,6 +1277,14 @@
         <source>&amp;Add to Favorites</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;Decrease Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Increase Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -1423,6 +1431,13 @@
     <message>
         <source>Twice</source>
         <translation>Дважды</translation>
+    </message>
+</context>
+<context>
+    <name>MpvObject</name>
+    <message>
+        <source>Subtitles delay: %1 ms</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3790,6 +3805,10 @@ media file played</source>
     </message>
     <message>
         <source>Play next file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delay step</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
