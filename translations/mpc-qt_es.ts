@@ -1269,6 +1269,14 @@
         <source>&amp;Add to Favorites</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;Decrease Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Increase Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

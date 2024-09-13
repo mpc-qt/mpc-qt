@@ -1961,6 +1961,8 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesNext);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesPrevious);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesCopy);
+    ui->menuPlaySubtitles->addAction(ui->actionDecreaseSubtitlesDelay);
+    ui->menuPlaySubtitles->addAction(ui->actionIncreaseSubtitlesDelay);
     ui->menuPlaySubtitles->addSeparator();
     for (const QPair<int64_t, QString> &track : tracks) {
         QAction *action = new QAction(this);
@@ -2640,6 +2642,16 @@ void MainWindow::on_actionPlaySubtitlesCopy_triggered()
 {
     QClipboard *clippy = qApp->clipboard();
     clippy->setText(subtitleText);
+}
+
+void MainWindow::on_actionDecreaseSubtitlesDelay_triggered()
+{
+    mpvObject_->setSubtitlesDelay(-subtitlesDelayStep);
+}
+
+void MainWindow::on_actionIncreaseSubtitlesDelay_triggered()
+{
+    mpvObject_->setSubtitlesDelay(subtitlesDelayStep);
 }
 
 void MainWindow::on_actionPlayLoopStart_triggered()

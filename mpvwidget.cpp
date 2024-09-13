@@ -404,6 +404,12 @@ void MpvObject::addSubFile(QString filename)
     emit ctrlCommand(QStringList({"sub-add", filename}));
 }
 
+void MpvObject::setSubtitlesDelay(int subDelayStep)
+{
+    double newSubDelay = getMpvPropertyVariant("sub-delay").toDouble() + (double) subDelayStep / 1000;
+    setMpvPropertyVariant("sub-delay", QString::number(newSubDelay, 'f', 1));
+}
+
 int64_t MpvObject::chapter()
 {
     return getMpvPropertyVariant("chapter").toLongLong();
