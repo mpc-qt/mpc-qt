@@ -408,6 +408,7 @@ void MpvObject::setSubtitlesDelay(int subDelayStep)
 {
     double newSubDelay = getMpvPropertyVariant("sub-delay").toDouble() + (double) subDelayStep / 1000;
     setMpvPropertyVariant("sub-delay", QString::number(newSubDelay, 'f', 3));
+    showMessage(tr("Subtitles delay: %1 ms").arg(newSubDelay * 1000));
 }
 
 int64_t MpvObject::chapter()

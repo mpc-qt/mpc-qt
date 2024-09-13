@@ -1410,6 +1410,13 @@
     </message>
 </context>
 <context>
+    <name>MpvObject</name>
+    <message>
+        <source>Subtitles delay: %1 ms</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>OpenFileDialog</name>
     <message>
         <source>Open File</source>
