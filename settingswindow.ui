@@ -6274,6 +6274,35 @@ media file played</string>
                 </property>
                </widget>
               </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="subtitlesDelayStepLabel">
+                <property name="text">
+                 <string>Delay step</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QSpinBox" name="subtitlesDelayStep">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="suffix">
+                 <string notr="true"> ms</string>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>9999999</number>
+                </property>
+                <property name="value">
+                 <number>500</number>
+                </property>
+               </widget>
+              </item>
               <item row="1" column="0" colspan="2">
                <widget class="QCheckBox" name="subtitlesFixTiming">
                 <property name="text">

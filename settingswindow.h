@@ -142,6 +142,8 @@ signals:
     void playbackLoopImages(bool yes);
     void playlistFormat(const QString &fmt);
 
+    void subtitlesDelayStep(int subtitlesDelayStep);
+
     // does mpv even *need* this?
     void subsPreferDefaultForced(bool yes);
     void subsPreferExternal(bool yes);

@@ -257,6 +257,7 @@ public slots:
     void setVolume(int level);
     void setVolumeDouble(double level);
     void setVolumeMax(int level);
+    void setSubtitlesDelayStep(int subtitlesDelayStep);
     void setTimeShortMode(bool shortened);
     void resetPlayAfterOnce();
     void setPlayAfterAlways(Helpers::AfterPlayback action);

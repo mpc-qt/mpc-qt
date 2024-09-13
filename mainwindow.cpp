@@ -2021,6 +2021,11 @@ void MainWindow::setVolumeMax(int level)
     volumeSlider_->setMaximum(level);
 }
 
+void MainWindow::setSubtitlesDelayStep(int subtitlesDelayStep)
+{
+    this->subtitlesDelayStep = subtitlesDelayStep;
+}
+
 void MainWindow::setTimeShortMode(bool shortened)
 {
     timePosition->setShortMode(shortened);

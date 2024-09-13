@@ -613,6 +613,8 @@ void Flow::setupSettingsConnections()
             mainWindow, &MainWindow::setFullscreenHidePanels);
     connect(settingsWindow, &SettingsWindow::volumeMax,
             mainWindow, &MainWindow::setVolumeMax);
+    connect(settingsWindow, &SettingsWindow::subtitlesDelayStep,
+            mainWindow, &MainWindow::setSubtitlesDelayStep);
     connect(settingsWindow, &SettingsWindow::timeShorten,
             mainWindow, &MainWindow::setTimeShortMode);
     connect(settingsWindow, &SettingsWindow::timeTooltip,

@@ -3780,6 +3780,10 @@ ogni file multimediale riprodotto</translation>
         <source>Play next file</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Delay step</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
