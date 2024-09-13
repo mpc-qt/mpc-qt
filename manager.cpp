@@ -120,6 +120,11 @@ QUrl PlaybackManager::nowPlaying()
     return nowPlaying_;
 }
 
+bool PlaybackManager::eofReached()
+{
+    return mpvObject_->eofReached();
+}
+
 PlaybackManager::PlaybackState PlaybackManager::playbackState()
 {
     return playbackState_;
