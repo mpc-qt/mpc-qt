@@ -217,13 +217,17 @@ QString PropertiesWindow::sectionText(const QString &header, const QVariantMap &
 
 void PropertiesWindow::on_save_clicked()
 {
+    static QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = QFileDialog::DontUseNativeDialog;
+#endif
     QString docsFolder = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
     QFileInfo info(filename + ".MediaInfo.txt");
     QString filename = QString("%1/%2").arg(docsFolder, info.fileName());
     QString metadataText = ui->mediaInfoText->document()->toPlainText();
     filename = QFileDialog::getSaveFileName(this, QString(), filename,
                                             tr("Text documents (*.txt);;"
-                                               "All files (*.*)"));
+                                               "All files (*.*)"), nullptr, options);
     if (filename.isEmpty())
         return;
     QFile file(filename);
