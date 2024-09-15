@@ -16,7 +16,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Mouse Fullscr</source>
+        <source>Mouse Fullscreen</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

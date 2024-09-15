@@ -83,8 +83,9 @@ CONFIG += lrelease embed_translations
 LRELEASE_DIR=.
 QM_FILES_RESOURCE_PREFIX=/i18n/
 TRANSLATIONS += translations/mpc-qt_en.ts \
-		translations/mpc-qt_es.ts \
+		        translations/mpc-qt_es.ts \
                 translations/mpc-qt_fi.ts \
+                translations/mpc-qt_id.ts \
                 translations/mpc-qt_it.ts \
                 translations/mpc-qt_ru.ts \
                 translations/mpc-qt_zh_CN.ts

@@ -17,7 +17,11 @@
     </message>
     <message>
         <source>Mouse Fullscr</source>
-        <translation>鼠标(全屏)</translation>
+        <translation type="vanished">鼠标(全屏)</translation>
+    </message>
+    <message>
+        <source>Mouse Fullscreen</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
