@@ -1190,6 +1190,10 @@ void Flow::mainwindow_recentClear()
 
 void Flow::mainwindow_takeImage(Helpers::ScreenshotRender render)
 {
+    static QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = QFileDialog::DontUseNativeDialog;
+#endif
     // Take a screenshot and save it to a temporary file
     QString fmt("%1/mpc-qt_%2.%3");
     QString tempDir = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
@@ -1211,7 +1215,7 @@ void Flow::mainwindow_takeImage(Helpers::ScreenshotRender render)
 
     QString picFile;
     picFile = QFileDialog::getSaveFileName(this->mainWindow, tr("Save Image"),
-                                           fileName);
+                                           fileName, "", nullptr, options);
 
     // Copy the temp file to the desired location, then delete it
     QFile tf(tempFile);

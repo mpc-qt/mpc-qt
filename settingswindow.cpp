@@ -1202,8 +1202,12 @@ void SettingsWindow::on_videoDumbMode_toggled(bool checked)
 
 void SettingsWindow::on_logoExternalBrowse_clicked()
 {
+    static QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = QFileDialog::DontUseNativeDialog;
+#endif
     QString file = WIDGET_LOOKUP(ui->logoExternalLocation).toString();
-    file = QFileDialog::getOpenFileName(this, tr("Open Logo Image"), file);
+    file = QFileDialog::getOpenFileName(this, tr("Open Logo Image"), file, "", nullptr, options);
     if (file.isEmpty())
         return;
 
@@ -1267,7 +1271,11 @@ void SettingsWindow::on_keysReset_clicked()
 
 void SettingsWindow::on_shadersAddFile_clicked()
 {
-    QStringList files = QFileDialog::getOpenFileNames(this);
+    static QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = QFileDialog::DontUseNativeDialog;
+#endif
+    QStringList files = QFileDialog::getOpenFileNames(this, "", "", "", nullptr, options);
     if (files.isEmpty())
         return;
 
@@ -1362,7 +1370,11 @@ void SettingsWindow::on_webPortLink_linkActivated(const QString &link)
 
 void SettingsWindow::on_webRootBrowse_clicked()
 {
-    QString path = QFileDialog::getExistingDirectory(this);
+    static QFileDialog::Options options = QFileDialog::ShowDirsOnly;
+#ifdef Q_OS_MAC
+    options |= QFileDialog::DontUseNativeDialog;
+#endif
+    QString path = QFileDialog::getExistingDirectory(this, "", "", options);
     if (path.isEmpty())
         return;
     ui->webRoot->setText(path);

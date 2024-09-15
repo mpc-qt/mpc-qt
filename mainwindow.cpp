@@ -1221,13 +1221,17 @@ void MainWindow::updateDiscList()
 
 QList<QUrl> MainWindow::doQuickOpenFileDialog()
 {
+    static QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = QFileDialog::DontUseNativeDialog;
+#endif
     QList<QUrl> urls;
     static QUrl lastDir;
     static QString filter;
     if (filter.isEmpty())
         filter = Helpers::fileOpenFilter();
 
-    urls = QFileDialog::getOpenFileUrls(this, tr("Quick Open"), lastDir, filter);
+    urls = QFileDialog::getOpenFileUrls(this, tr("Quick Open"), lastDir, filter, nullptr, options);
     if (!urls.isEmpty())
         lastDir = urls[0];
     return urls;
@@ -2142,10 +2146,14 @@ void MainWindow::on_actionFileOpen_triggered()
 
 void MainWindow::on_actionFileOpenDvdbd_triggered()
 {
+    static QFileDialog::Options options = QFileDialog::ShowDirsOnly;
+#ifdef Q_OS_MAC
+    options |= QFileDialog::DontUseNativeDialog;
+#endif
     QUrl dir;
     static QUrl lastDir;
     dir = QFileDialog::getExistingDirectoryUrl(this, tr("Open Directory"),
-                                               lastDir);
+                                               lastDir, options);
     if (dir.isEmpty())
         return;
     lastDir = dir;
@@ -2154,10 +2162,14 @@ void MainWindow::on_actionFileOpenDvdbd_triggered()
 
 void MainWindow::on_actionFileOpenDirectory_triggered()
 {
+    static QFileDialog::Options options = QFileDialog::ShowDirsOnly;
+#ifdef Q_OS_MAC
+    options |= QFileDialog::DontUseNativeDialog;
+#endif
     QUrl url;
     static QUrl lastDir;
     url = QFileDialog::getExistingDirectoryUrl(this, tr("Open Directory"),
-                                               lastDir);
+                                               lastDir, options);
     if (url.isEmpty())
         return;
     lastDir = url;
@@ -2226,7 +2238,11 @@ void MainWindow::on_actionFileLoadSubtitle_triggered()
 {
     QUrl url;
     static QUrl lastUrl;
-    url = QFileDialog::getOpenFileUrl(this, tr("Open Subtitle"), lastUrl);
+    static QFileDialog::Options options;
+#ifdef Q_OS_MAC
+    options = QFileDialog::DontUseNativeDialog;
+#endif
+    url = QFileDialog::getOpenFileUrl(this, tr("Open Subtitle"), lastUrl, "", nullptr, options);
     if (url.isEmpty())
         return;
     lastUrl = url;
