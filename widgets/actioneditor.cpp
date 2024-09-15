@@ -14,7 +14,7 @@ ActionEditor::ActionEditor(QWidget *parent) :
 {
     model.setHorizontalHeaderLabels({tr("Command"), tr("Key"),
                                      tr("Mouse Window"),
-                                     tr("Mouse Fullscr")});
+                                     tr("Mouse Fullscreen")});
     setModel(&model);
     setItemDelegateForColumn(1, new ShortcutDelegate(this));
     setItemDelegateForColumn(2, new ButtonDelegate(this, false));
