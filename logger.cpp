@@ -216,7 +216,7 @@ void Logger::makeLog(QString line)
 {
     if (!loggingEnabled)
         return;
-    line = QString("[%1] %2").arg(QString::number(elapsed.nsecsElapsed()/1000000000.0, 'f', 9), line.trimmed());
+    line = QString("[%1] %2").arg(QString::number(elapsed.nsecsElapsed()/1000000000.0, 'f', 3), line.trimmed());
     // If you're encountering early or fantastic errors, uncomment this line:
     //fprintf(realStdErr.ptr, "%s\n",  line.toLocal8Bit().constData());
     if (immediateMode) {
