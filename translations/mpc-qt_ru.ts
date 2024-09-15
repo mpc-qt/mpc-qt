@@ -17,7 +17,11 @@
     </message>
     <message>
         <source>Mouse Fullscr</source>
-        <translation>Мышь (полноэкр.)</translation>
+        <translation type="vanished">Мышь (полноэкр.)</translation>
+    </message>
+    <message>
+        <source>Mouse Fullscreen</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

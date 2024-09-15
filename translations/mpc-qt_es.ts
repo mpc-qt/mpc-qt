@@ -17,7 +17,11 @@
     </message>
     <message>
         <source>Mouse Fullscr</source>
-        <translation>Ratón en pantalla completa</translation>
+        <translation type="vanished">Ratón en pantalla completa</translation>
+    </message>
+    <message>
+        <source>Mouse Fullscreen</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

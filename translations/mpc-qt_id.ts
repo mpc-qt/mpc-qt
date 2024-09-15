@@ -17,7 +17,11 @@
     </message>
     <message>
         <source>Mouse Fullscr</source>
-        <translation>Kursor Layar Penuh</translation>
+        <translation type="vanished">Kursor Layar Penuh</translation>
+    </message>
+    <message>
+        <source>Mouse Fullscreen</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -43,7 +47,7 @@
     </message>
     <message>
         <source>&amp;Update</source>
-        <translation>Perbar&amp;ui</translation>
+        <translation type="vanished">Perbar&amp;ui</translation>
     </message>
     <message>
         <source>&amp;Files</source>
@@ -758,10 +762,6 @@
         <translation>M&amp;enu Bagian</translation>
     </message>
     <message>
-        <source>&amp;Add to Favorites...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Organize Favorites...</source>
         <translation>Atur Fav&amp;orit..</translation>
     </message>
@@ -848,10 +848,6 @@
     <message>
         <source>Ctrl+End</source>
         <translation>Ctrl+End</translation>
-    </message>
-    <message>
-        <source>&amp;Use Loop Points</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Backspace</source>
@@ -1273,6 +1269,18 @@
         <source>Mute</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;Add to Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Decrease Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Increase Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -1286,11 +1294,11 @@
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kiri</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kanan</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -1422,6 +1430,13 @@
     </message>
 </context>
 <context>
+    <name>MpvObject</name>
+    <message>
+        <source>Subtitles delay: %1 ms</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>OpenFileDialog</name>
     <message>
         <source>Open File</source>
@@ -1509,7 +1524,7 @@
     </message>
     <message>
         <source>Close Tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tutup Tab</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>
@@ -1569,7 +1584,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bersihkan</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -1593,7 +1608,7 @@
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kembalikan</translation>
     </message>
     <message>
         <source>Shuffle</source>
@@ -1621,7 +1636,7 @@
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Impor Daftar Putar</translation>
     </message>
     <message>
         <source>&amp;Export Playlist</source>
@@ -1704,7 +1719,7 @@
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Takarir</translation>
     </message>
     <message>
         <source>General</source>
@@ -1843,7 +1858,7 @@
     </message>
     <message>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">1</translation>
     </message>
     <message>
         <source>Player</source>
@@ -1895,7 +1910,7 @@
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Takarir</translation>
     </message>
     <message>
         <source>Default Style</source>
@@ -2393,7 +2408,7 @@ media file played</source>
     </message>
     <message>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">2</translation>
     </message>
     <message>
         <source>Anti-ring</source>
@@ -3113,11 +3128,11 @@ media file played</source>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kiri</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kanan</translation>
     </message>
     <message>
         <source>Y</source>
@@ -3338,7 +3353,7 @@ media file played</source>
     </message>
     <message>
         <source>Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">kecepatan bit</translation>
     </message>
     <message>
         <source>kBits</source>
@@ -3790,6 +3805,10 @@ media file played</source>
     </message>
     <message>
         <source>Play next file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delay step</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
