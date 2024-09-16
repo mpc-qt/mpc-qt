@@ -423,6 +423,7 @@ void SettingsWindow::setupPlatformWidgets()
 
     ui->ipcMpris->setVisible(Platform::isUnix);
     ui->hwdecBackendVaapi->setEnabled(Platform::isUnix);
+    ui->hwdecBackendNvdec->setEnabled(Platform::isWindows || Platform::isUnix);
     ui->hwdecBackendVdpau->setEnabled(Platform::isUnix);
     ui->hwdecBackendDxva2->setEnabled(Platform::isWindows);
     ui->hwdecBackendD3d11va->setEnabled(Platform::isWindows);
@@ -918,6 +919,8 @@ void SettingsWindow::sendSignals()
         QString backend = "auto";
         if (WIDGET_LOOKUP(ui->hwdecBackendVaapi).toBool())
             backend = "vaapi,vaapi-copy";
+        if (WIDGET_LOOKUP(ui->hwdecBackendNvdec).toBool())
+            backend = "nvdec,nvdec-copy";
         if (WIDGET_LOOKUP(ui->hwdecBackendVdpau).toBool())
             backend = "vdpau,vdpau-copy";
         if (WIDGET_LOOKUP(ui->hwdecBackendDxva2).toBool())

@@ -5497,6 +5497,16 @@ media file played</string>
                 </widget>
                </item>
                <item>
+                <widget class="QRadioButton" name="hwdecBackendNvdec">
+                 <property name="toolTip">
+                  <string>nVidia only (faster than CUDA)</string>
+                 </property>
+                 <property name="text">
+                  <string notr="true">&amp;NVDEC</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
                 <widget class="QRadioButton" name="hwdecBackendVdpau">
                  <property name="toolTip">
                   <string>Linux - some gpus, does not always treat certain colorspaces like BT.2020 correctly</string>
