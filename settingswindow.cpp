@@ -427,7 +427,6 @@ void SettingsWindow::setupPlatformWidgets()
     ui->hwdecBackendVdpau->setEnabled(Platform::isUnix);
     ui->hwdecBackendDxva2->setEnabled(Platform::isWindows);
     ui->hwdecBackendD3d11va->setEnabled(Platform::isWindows);
-    ui->hwdecBackendRaspberryPi->setEnabled(Platform::isUnix);
 }
 
 void SettingsWindow::setupPaletteEditor()
@@ -927,8 +926,6 @@ void SettingsWindow::sendSignals()
             backend = "dxva2,dxva2-copy";
         if (WIDGET_LOOKUP(ui->hwdecBackendD3d11va).toBool())
             backend = "d3d11va,d3d11va-copy";
-        if (WIDGET_LOOKUP(ui->hwdecBackendRaspberryPi).toBool())
-            backend = "rpi,rpi-copy";
         if (WIDGET_LOOKUP(ui->hwdecBackendCuda).toBool())
             backend = "cuda,cuda-copy";
         if (WIDGET_LOOKUP(ui->hwdecBackendCrystalHd).toBool())

@@ -5537,16 +5537,6 @@ media file played</string>
                 </widget>
                </item>
                <item>
-                <widget class="QRadioButton" name="hwdecBackendRaspberryPi">
-                 <property name="toolTip">
-                  <string>Raspberry PI - hardware overlay renderer</string>
-                 </property>
-                 <property name="text">
-                  <string notr="true">&amp;Raspberry Pi</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QRadioButton" name="hwdecBackendCuda">
                  <property name="toolTip">
                   <string>nVidia only (likely 10x0+ only) - safe</string>
