@@ -633,7 +633,7 @@ void MpvObject::hideCursor()
 void MpvObject::ctrl_mpvPropertyChanged(QString name, QVariant v)
 {
     // Don't show more than 3 decimals or none if those are zero
-    if (v.canConvert(QMetaType(QMetaType::Double))) {
+    if (v.typeId() == QVariant::Double) {
         v = QString("%1").arg(QString::number(v.toDouble(), 'f', 3));
         if (v.toString().section('.', 1) == "000")
             v = v.toString().section('.', 0, 0);
