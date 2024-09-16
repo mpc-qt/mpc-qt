@@ -1,9 +1,0 @@
-[main]
-host = https://app.transifex.com
-
-[o:mpc-qt:p:mpc-qt-translations:r:translations]
-file_filter = translations/mpc-qt_<lang>.ts
-minimum_perc = 0
-source_file = translations/mpc-qt_en.ts
-source_lang = en_US
-type = QT
