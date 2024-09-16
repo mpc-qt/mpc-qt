@@ -632,14 +632,15 @@ void MpvObject::hideCursor()
 
 void MpvObject::ctrl_mpvPropertyChanged(QString name, QVariant v)
 {
+    QVariant vForLog = v;
     // Don't show more than 3 decimals or none if those are zero
-    if (v.typeId() == QVariant::Double) {
-        v = QString("%1").arg(QString::number(v.toDouble(), 'f', 3));
-        if (v.toString().section('.', 1) == "000")
-            v = v.toString().section('.', 0, 0);
+    if (vForLog.typeId() == QVariant::Double) {
+        vForLog = QString("%1").arg(QString::number(vForLog.toDouble(), 'f', 3));
+        if (vForLog.toString().section('.', 1) == "000")
+            vForLog = vForLog.toString().section('.', 0, 0);
     }
     if (debugMessages)
-        LogStream("mpvobject") << name << " property changed to " << v;
+        LogStream("mpvobject") << name << " property changed to " << vForLog;
 
     bool ok = v.metaType().id() < QMetaType::User
               && v.metaType().id() != QMetaType::UnknownType;
