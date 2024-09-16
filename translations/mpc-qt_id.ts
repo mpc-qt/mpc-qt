@@ -3047,15 +3047,7 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Autodetect - best of VAAPI, DXVA, D3D11VA</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>A&amp;utodetect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Linux - requires Mesa 11 and most likely works with Intel GPUs only; may only be correct in BT.601 and BT.709</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3068,10 +3060,6 @@ media file played</source>
     </message>
     <message>
         <source>Windows 8+ - usually safe but rounds 10 bit to 8 bit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Raspberry PI - hardware overlay renderer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3809,6 +3797,18 @@ media file played</source>
     </message>
     <message>
         <source>Delay step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Autodetect - best of VAAPI, DXVA, D3D11VA, etc.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linux - works with Intel and AMD GPUs through Mesa, and with nVidia through a translation layer; may only be correct in BT.601 and BT.709</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>nVidia only (faster than CUDA)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
