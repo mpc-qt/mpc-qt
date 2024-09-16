@@ -5476,7 +5476,7 @@ media file played</string>
                <item>
                 <widget class="QRadioButton" name="hwdecBackendAuto">
                  <property name="toolTip">
-                  <string>Autodetect - best of VAAPI, DXVA, D3D11VA</string>
+                  <string>Autodetect - best of VAAPI, DXVA, D3D11VA, etc.</string>
                  </property>
                  <property name="text">
                   <string>A&amp;utodetect</string>
@@ -5489,7 +5489,7 @@ media file played</string>
                <item>
                 <widget class="QRadioButton" name="hwdecBackendVaapi">
                  <property name="toolTip">
-                  <string>Linux - requires Mesa 11 and most likely works with Intel GPUs only; may only be correct in BT.601 and BT.709</string>
+                  <string>Linux - works with Intel and AMD GPUs through Mesa, and with nVidia through a translation layer; may only be correct in BT.601 and BT.709</string>
                  </property>
                  <property name="text">
                   <string notr="true">&amp;VAAPI</string>
