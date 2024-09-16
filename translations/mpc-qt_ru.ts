@@ -3413,7 +3413,7 @@ media file played</source>
     </message>
     <message>
         <source>Prefer Wayland over XWayland (restart required)</source>
-        <translation>Выбрать Wayland вместо XWayland (требуется перезапуск).</translation>
+        <translation type="unfinished">Выбрать Wayland вместо XWayland (требуется перезапуск).</translation>
     </message>
     <message>
         <source>Turn on logging (may produce stuttering)</source>
