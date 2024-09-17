@@ -3060,7 +3060,7 @@ media file played</translation>
     </message>
     <message>
         <source>Autodetect - best of VAAPI, DXVA, D3D11VA</source>
-        <translation>Autodetect - best of VAAPI, DXVA, D3D11VA</translation>
+        <translation type="vanished">Autodetect - best of VAAPI, DXVA, D3D11VA</translation>
     </message>
     <message>
         <source>A&amp;utodetect</source>
@@ -3068,7 +3068,7 @@ media file played</translation>
     </message>
     <message>
         <source>Linux - requires Mesa 11 and most likely works with Intel GPUs only; may only be correct in BT.601 and BT.709</source>
-        <translation>Linux - requires Mesa 11 and most likely works with Intel GPUs only; may only be correct in BT.601 and BT.709</translation>
+        <translation type="vanished">Linux - requires Mesa 11 and most likely works with Intel GPUs only; may only be correct in BT.601 and BT.709</translation>
     </message>
     <message>
         <source>Linux - some gpus, does not always treat certain colorspaces like BT.2020 correctly</source>
@@ -3084,7 +3084,7 @@ media file played</translation>
     </message>
     <message>
         <source>Raspberry PI - hardware overlay renderer</source>
-        <translation>Raspberry PI - hardware overlay renderer</translation>
+        <translation type="vanished">Raspberry PI - hardware overlay renderer</translation>
     </message>
     <message>
         <source>MacOS - safe</source>
@@ -3822,6 +3822,18 @@ media file played</translation>
     <message>
         <source>Delay step</source>
         <translation>Delay step</translation>
+    </message>
+    <message>
+        <source>Autodetect - best of VAAPI, DXVA, D3D11VA, etc.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linux - works with Intel and AMD GPUs through Mesa, and with nVidia through a translation layer; may only be correct in BT.601 and BT.709</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>nVidia only (faster than CUDA)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

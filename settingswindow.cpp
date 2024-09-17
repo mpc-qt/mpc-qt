@@ -423,10 +423,10 @@ void SettingsWindow::setupPlatformWidgets()
 
     ui->ipcMpris->setVisible(Platform::isUnix);
     ui->hwdecBackendVaapi->setEnabled(Platform::isUnix);
+    ui->hwdecBackendNvdec->setEnabled(Platform::isWindows || Platform::isUnix);
     ui->hwdecBackendVdpau->setEnabled(Platform::isUnix);
     ui->hwdecBackendDxva2->setEnabled(Platform::isWindows);
     ui->hwdecBackendD3d11va->setEnabled(Platform::isWindows);
-    ui->hwdecBackendRaspberryPi->setEnabled(Platform::isUnix);
 }
 
 void SettingsWindow::setupPaletteEditor()
@@ -915,19 +915,19 @@ void SettingsWindow::sendSignals()
     emit option("video-sync-max-audio-change", WIDGET_LOOKUP(ui->syncMaxAudioChange).toDouble());
     emit option("video-sync-max-video-change", WIDGET_LOOKUP(ui->syncMaxVideoChange).toDouble());
     if (WIDGET_LOOKUP(ui->hwdecEnable).toBool()) {
-        QString backend = "auto-copy";
+        QString backend = "auto";
         if (WIDGET_LOOKUP(ui->hwdecBackendVaapi).toBool())
-            backend = "vaapi-copy";
+            backend = "vaapi,vaapi-copy";
+        if (WIDGET_LOOKUP(ui->hwdecBackendNvdec).toBool())
+            backend = "nvdec,nvdec-copy";
         if (WIDGET_LOOKUP(ui->hwdecBackendVdpau).toBool())
-            backend = "vdpau-copy";
+            backend = "vdpau,vdpau-copy";
         if (WIDGET_LOOKUP(ui->hwdecBackendDxva2).toBool())
-            backend = "dxva2-copy";
+            backend = "dxva2,dxva2-copy";
         if (WIDGET_LOOKUP(ui->hwdecBackendD3d11va).toBool())
-            backend = "d3d11va-copy";
-        if (WIDGET_LOOKUP(ui->hwdecBackendRaspberryPi).toBool())
-            backend = "rpi-copy";
+            backend = "d3d11va,d3d11va-copy";
         if (WIDGET_LOOKUP(ui->hwdecBackendCuda).toBool())
-            backend = "cuda-copy";
+            backend = "cuda,cuda-copy";
         if (WIDGET_LOOKUP(ui->hwdecBackendCrystalHd).toBool())
             backend = "crystalhd";
         emit option("hwdec", backend);
