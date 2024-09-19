@@ -765,8 +765,12 @@
     </widget>
     <widget class="QMenu" name="menuPlayVideo">
      <property name="title">
-      <string>&amp;Video Stream</string>
+      <string>&amp;Video</string>
      </property>
+     <addaction name="actionDecreaseVideoAspect"/>
+     <addaction name="actionIncreaseVideoAspect"/>
+     <addaction name="actionResetVideoAspect"/>
+     <addaction name="separator"/>
     </widget>
     <widget class="QMenu" name="menuPlayVolume">
      <property name="title">
@@ -2019,6 +2023,30 @@
    </property>
    <property name="shortcut">
     <string notr="true">F2</string>
+   </property>
+  </action>
+  <action name="actionDecreaseVideoAspect">
+   <property name="text">
+    <string>&amp;Decrease Aspect</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">4</string>
+   </property>
+  </action>
+  <action name="actionIncreaseVideoAspect">
+   <property name="text">
+    <string>&amp;Increase Aspect</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">6</string>
+   </property>
+  </action>
+  <action name="actionResetVideoAspect">
+   <property name="text">
+    <string>&amp;Reset Aspect</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">5</string>
    </property>
   </action>
   <action name="actionViewHideLog">

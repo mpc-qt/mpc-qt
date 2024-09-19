@@ -62,6 +62,8 @@ public:
     void setSubFile(QString filename);
     void addSubFile(QString filename);
     void setSubtitlesDelay(int subDelayStep);
+    void setVideoAspect(double aspectDiff);
+    void setVideoAspectPreset(double aspect);
 
     int64_t chapter();
     bool setChapter(int64_t chapter);

@@ -329,6 +329,10 @@ private slots:
     void on_actionViewZoomAutofitSmaller_triggered();
     void on_actionViewZoomDisable_triggered();
 
+    void on_actionDecreaseVideoAspect_triggered();
+    void on_actionIncreaseVideoAspect_triggered();
+    void on_actionResetVideoAspect_triggered();
+
     void on_actionViewOntopDefault_toggled(bool checked);
     void on_actionViewOntopAlways_toggled(bool checked);
     void on_actionViewOntopPlaying_toggled(bool checked);
