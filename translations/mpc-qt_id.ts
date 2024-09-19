@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>Mouse Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Layar Penuh Mouse</translation>
     </message>
 </context>
 <context>
@@ -559,7 +559,7 @@
     </message>
     <message>
         <source>&amp;Disable snapping</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nonaktifkan snapping</translation>
     </message>
     <message>
         <source>Alt+0</source>
@@ -627,7 +627,7 @@
     </message>
     <message>
         <source>&amp;Decrease Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tingkat Penurunan</translation>
     </message>
     <message>
         <source>Ctrl+Down</source>
@@ -635,7 +635,7 @@
     </message>
     <message>
         <source>&amp;Increase Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tingkat Kenaikan</translation>
     </message>
     <message>
         <source>Ctrl+Up</source>
@@ -643,7 +643,7 @@
     </message>
     <message>
         <source>R&amp;eset Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Tingkat R&amp;eset</translation>
     </message>
     <message>
         <source>Ctrl+R</source>
@@ -755,7 +755,7 @@
     </message>
     <message>
         <source>Angle &amp;Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Sudut &amp;Menu</translation>
     </message>
     <message>
         <source>Chapt&amp;er Menu</source>
@@ -871,7 +871,7 @@
     </message>
     <message>
         <source>&amp;Quick Queue Toggle</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pengalihan Antrian Cepat</translation>
     </message>
     <message>
         <source>Q</source>
@@ -931,7 +931,7 @@
     </message>
     <message>
         <source>Queue &amp;Visible</source>
-        <translation type="unfinished"></translation>
+        <translation>Antrian &amp;Terlihat</translation>
     </message>
     <message>
         <source>Ctrl+Shift+Q</source>
@@ -963,11 +963,11 @@
     </message>
     <message>
         <source>&amp;Copy Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pilihan Salinan</translation>
     </message>
     <message>
         <source>Ctrl+Shift+C</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+C</translation>
     </message>
     <message>
         <source>Paste</source>
