@@ -2028,7 +2028,7 @@
   </action>
   <action name="actionDecreaseVideoAspect">
    <property name="text">
-    <string>&amp;Decrease Aspect</string>
+    <string>&amp;Decrease Aspect ratio</string>
    </property>
    <property name="shortcut">
     <string notr="true">4</string>
@@ -2036,7 +2036,7 @@
   </action>
   <action name="actionIncreaseVideoAspect">
    <property name="text">
-    <string>&amp;Increase Aspect</string>
+    <string>&amp;Increase Aspect ratio</string>
    </property>
    <property name="shortcut">
     <string notr="true">6</string>
@@ -2044,7 +2044,7 @@
   </action>
   <action name="actionResetVideoAspect">
    <property name="text">
-    <string>&amp;Reset Aspect</string>
+    <string>&amp;Reset Aspect ratio</string>
    </property>
    <property name="shortcut">
     <string notr="true">5</string>
@@ -2055,7 +2055,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Disable &amp;aspect</string>
+    <string>Disable &amp;Aspect ratio</string>
    </property>
    <property name="shortcut">
     <string>9</string>
