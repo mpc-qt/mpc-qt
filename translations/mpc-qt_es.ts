@@ -1297,6 +1297,10 @@
         <source>&amp;Reset Aspect</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Disable &amp;aspect</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

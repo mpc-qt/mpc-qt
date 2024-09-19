@@ -1935,6 +1935,7 @@ void MainWindow::setVideoTracks(QList<QPair<int64_t, QString>> tracks)
     ui->menuPlayVideo->addAction(ui->actionDecreaseVideoAspect);
     ui->menuPlayVideo->addAction(ui->actionIncreaseVideoAspect);
     ui->menuPlayVideo->addAction(ui->actionResetVideoAspect);
+    ui->menuPlayVideo->addAction(ui->actionDisableVideoAspect);
     ui->menuPlayVideo->addSeparator();
     for (const QPair<int64_t, QString> &track : tracks) {
         QAction *action = new QAction(this);
@@ -2562,6 +2563,12 @@ void MainWindow::on_actionIncreaseVideoAspect_triggered()
 void MainWindow::on_actionResetVideoAspect_triggered()
 {
     mpvObject_->setVideoAspectPreset(-1);
+}
+
+void MainWindow::on_actionDisableVideoAspect_toggled(bool checked)
+{
+    mpvObject_->disableVideoAspect(checked);
+    ui->actionDisableVideoAspect->setChecked(checked);
 }
 
 void MainWindow::on_actionViewOntopDefault_toggled(bool checked)

@@ -64,6 +64,7 @@ public:
     void setSubtitlesDelay(int subDelayStep);
     void setVideoAspect(double aspectDiff);
     void setVideoAspectPreset(double aspect);
+    void disableVideoAspect(bool yes);
 
     int64_t chapter();
     bool setChapter(int64_t chapter);

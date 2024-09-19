@@ -332,6 +332,7 @@ private slots:
     void on_actionDecreaseVideoAspect_triggered();
     void on_actionIncreaseVideoAspect_triggered();
     void on_actionResetVideoAspect_triggered();
+    void on_actionDisableVideoAspect_toggled(bool checked);
 
     void on_actionViewOntopDefault_toggled(bool checked);
     void on_actionViewOntopAlways_toggled(bool checked);

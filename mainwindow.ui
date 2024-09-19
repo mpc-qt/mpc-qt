@@ -770,6 +770,7 @@
      <addaction name="actionDecreaseVideoAspect"/>
      <addaction name="actionIncreaseVideoAspect"/>
      <addaction name="actionResetVideoAspect"/>
+     <addaction name="actionDisableVideoAspect"/>
      <addaction name="separator"/>
     </widget>
     <widget class="QMenu" name="menuPlayVolume">
@@ -2047,6 +2048,17 @@
    </property>
    <property name="shortcut">
     <string notr="true">5</string>
+   </property>
+  </action>
+  <action name="actionDisableVideoAspect">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Disable &amp;aspect</string>
+   </property>
+   <property name="shortcut">
+    <string>9</string>
    </property>
   </action>
   <action name="actionViewHideLog">

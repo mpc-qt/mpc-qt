@@ -422,6 +422,11 @@ void MpvObject::setVideoAspectPreset(double aspect)
     setMpvPropertyVariant("video-aspect-override", aspect);
 }
 
+void MpvObject::disableVideoAspect(bool yes)
+{
+    setMpvPropertyVariant("keepaspect", !yes ? "yes" : "no");
+}
+
 int64_t MpvObject::chapter()
 {
     return getMpvPropertyVariant("chapter").toLongLong();
