@@ -141,6 +141,7 @@ private:
     bool nowPlayingDisplayingSubtitles = true;
     bool nowPlayingNoSubtitleTracks = false;
     QString screenshotDirectory;
+    QString lastScreenshotDir;
     QString encodeDirectory;
     QString screenshotTemplate;
     QString encodeTemplate;

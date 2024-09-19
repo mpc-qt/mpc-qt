@@ -1084,8 +1084,9 @@ QString Flow::pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles 
         basename.truncate(basename.length() - (fileName.length() - maxLength));
         fileName = Helpers::parseFormat(screenshotTemplate, basename, tracks, subs, playTime, 0, 0);
     }
-
-    QString filePath = screenshotDirectory;
+    QString filePath = lastScreenshotDir;
+    if (filePath.isEmpty())
+        filePath = screenshotDirectory;
     if (filePath.isEmpty()) {
         if (nowPlaying.isLocalFile())
             filePath = QFileInfo(nowPlaying.toLocalFile()).path();
@@ -1212,11 +1213,18 @@ void Flow::mainwindow_takeImage(Helpers::ScreenshotRender render)
     else
         subRender = Helpers::SubtitlesPresent;
 
-    QString fileName = pictureTemplate(Helpers::DisabledAudio, subRender);
+    QString picFile = pictureTemplate(Helpers::DisabledAudio, subRender);
+    if (!lastScreenshotDir.isEmpty())
+        picFile = lastScreenshotDir + "/" +
+            QFileInfo(QUrl::fromLocalFile(picFile).toLocalFile()).fileName();
 
-    QString picFile;
     picFile = QFileDialog::getSaveFileName(this->mainWindow, tr("Save Image"),
-                                           fileName, "", nullptr, options);
+                                           picFile, "", nullptr, options);
+
+    // Only remember the screenshot dir if the user picked a different one from the default
+    if (!lastScreenshotDir.isEmpty() ||
+            QFileInfo(QUrl::fromLocalFile(picFile).toLocalFile()).path() != lastScreenshotDir)
+        lastScreenshotDir = picFile;
 
     // Copy the temp file to the desired location, then delete it
     QFile tf(tempFile);
