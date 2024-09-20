@@ -451,7 +451,7 @@ private:
     bool hasAudio = false;
     bool hasSubs = false;
     QString subtitleText;
-    int subtitlesDelayStep = 500;
+    int subtitlesDelayStep = 100;
     int volumeStep = 10;
     bool frozenWindow = true;
     double sizeFactor_ = 1;
