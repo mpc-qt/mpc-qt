@@ -718,6 +718,8 @@
      <addaction name="actionViewOSDFrameTimings"/>
      <addaction name="separator"/>
      <addaction name="actionViewOSDCycle"/>
+     <addaction name="separator"/>
+     <addaction name="actionViewOSDTimer"/>
     </widget>
     <addaction name="actionViewHideMenu"/>
     <addaction name="actionViewHideSeekbar"/>
@@ -1967,6 +1969,14 @@
    </property>
    <property name="text">
     <string>&amp;No Messages</string>
+   </property>
+  </action>
+  <action name="actionViewOSDTimer">
+   <property name="text">
+    <string>&amp;Show OSD Timer</string>
+   </property>
+   <property name="shortcut">
+    <string>I</string>
    </property>
   </action>
   <action name="actionViewFullscreenEscape">

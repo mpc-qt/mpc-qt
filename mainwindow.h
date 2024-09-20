@@ -308,6 +308,7 @@ private slots:
     void on_actionViewOSDStatistics_triggered();
     void on_actionViewOSDFrameTimings_triggered();
     void on_actionViewOSDCycle_triggered();
+    void on_actionViewOSDTimer_triggered();
 
     void on_actionViewPresetsMinimal_triggered();
     void on_actionViewPresetsCompact_triggered();

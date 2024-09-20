@@ -914,6 +914,7 @@ void MainWindow::setOSDPage(int page)
     ui->actionViewOSDMessages->setChecked(page == 0);
     ui->actionViewOSDStatistics->setChecked(page == 1);
     ui->actionViewOSDFrameTimings->setChecked(page == 2);
+    ui->actionViewOSDTimer->setEnabled(page == 0);
     mpvObject_->showStatsPage(page);
 }
 
@@ -2426,21 +2427,25 @@ void MainWindow::on_actionViewPresetsNormal_triggered()
 void MainWindow::on_actionViewOSDNone_triggered()
 {
     mpvObject_->showStatsPage(-1);
+    ui->actionViewOSDTimer->setEnabled(false);
 }
 
 void MainWindow::on_actionViewOSDMessages_triggered()
 {
     mpvObject_->showStatsPage(0);
+    ui->actionViewOSDTimer->setEnabled(true);
 }
 
 void MainWindow::on_actionViewOSDStatistics_triggered()
 {
     mpvObject_->showStatsPage(1);
+    ui->actionViewOSDTimer->setEnabled(false);
 }
 
 void MainWindow::on_actionViewOSDFrameTimings_triggered()
 {
     mpvObject_->showStatsPage(2);
+    ui->actionViewOSDTimer->setEnabled(false);
 }
 
 void MainWindow::on_actionViewOSDCycle_triggered()
@@ -2453,6 +2458,16 @@ void MainWindow::on_actionViewOSDCycle_triggered()
     nextOsdAction = osdActionGroup->actions().value(newpage+1, nullptr);
     if (nextOsdAction)
         nextOsdAction->setChecked(true);
+    ui->actionViewOSDTimer->setEnabled(newpage == 0);
+
+}
+
+void MainWindow::on_actionViewOSDTimer_triggered()
+{
+    double time = mpvObject_->playTime();
+    double length = mpvObject_->playLength();
+    mpvObject_->showMessage(tr("%1 / %2").arg(Helpers::toDateFormatFixed(time, Helpers::ShortFormat),
+                                              Helpers::toDateFormatFixed(length, Helpers::ShortFormat))); 
 }
 
 void MainWindow::on_actionViewFullscreen_toggled(bool checked)
