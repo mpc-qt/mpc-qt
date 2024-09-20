@@ -271,7 +271,7 @@
     </message>
     <message>
         <source>&amp;Video Stream</source>
-        <translation>&amp;Video Stream</translation>
+        <translation type="vanished">&amp;Video Stream</translation>
     </message>
     <message>
         <source>V&amp;olume</source>
@@ -1288,6 +1288,26 @@
     <message>
         <source>&amp;Increase Delay</source>
         <translation>&amp;Increase Delay</translation>
+    </message>
+    <message>
+        <source>&amp;Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Decrease Aspect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Increase Aspect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Reset Aspect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable &amp;aspect</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

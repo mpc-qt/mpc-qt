@@ -411,6 +411,22 @@ void MpvObject::setSubtitlesDelay(int subDelayStep)
     showMessage(tr("Subtitles delay: %1 ms").arg(newSubDelay * 1000));
 }
 
+void MpvObject::setVideoAspect(double aspectDiff)
+{
+    double currAspect = getMpvPropertyVariant("video-params/aspect").toDouble();
+    setMpvPropertyVariant("video-aspect-override", currAspect + aspectDiff);
+}
+
+void MpvObject::setVideoAspectPreset(double aspect)
+{
+    setMpvPropertyVariant("video-aspect-override", aspect);
+}
+
+void MpvObject::disableVideoAspect(bool yes)
+{
+    setMpvPropertyVariant("keepaspect", !yes ? "yes" : "no");
+}
+
 int64_t MpvObject::chapter()
 {
     return getMpvPropertyVariant("chapter").toLongLong();

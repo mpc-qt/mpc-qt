@@ -1932,6 +1932,11 @@ void MainWindow::setVideoTracks(QList<QPair<int64_t, QString>> tracks)
         return;
     ui->menuPlayVideo->setEnabled(true);
     videoTracksGroup = new QActionGroup(this);
+    ui->menuPlayVideo->addAction(ui->actionDecreaseVideoAspect);
+    ui->menuPlayVideo->addAction(ui->actionIncreaseVideoAspect);
+    ui->menuPlayVideo->addAction(ui->actionResetVideoAspect);
+    ui->menuPlayVideo->addAction(ui->actionDisableVideoAspect);
+    ui->menuPlayVideo->addSeparator();
     for (const QPair<int64_t, QString> &track : tracks) {
         QAction *action = new QAction(this);
         action->setText(track.second);
@@ -2543,6 +2548,27 @@ void MainWindow::on_actionViewZoomDisable_triggered()
 {
     setZoomPreset(-1);
     emit zoomPresetChanged(-1);
+}
+
+void MainWindow::on_actionDecreaseVideoAspect_triggered()
+{
+    mpvObject_->setVideoAspect(-0.05);
+}
+
+void MainWindow::on_actionIncreaseVideoAspect_triggered()
+{
+    mpvObject_->setVideoAspect(0.05);
+}
+
+void MainWindow::on_actionResetVideoAspect_triggered()
+{
+    mpvObject_->setVideoAspectPreset(-1);
+}
+
+void MainWindow::on_actionDisableVideoAspect_toggled(bool checked)
+{
+    mpvObject_->disableVideoAspect(checked);
+    ui->actionDisableVideoAspect->setChecked(checked);
 }
 
 void MainWindow::on_actionViewOntopDefault_toggled(bool checked)

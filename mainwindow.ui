@@ -765,8 +765,13 @@
     </widget>
     <widget class="QMenu" name="menuPlayVideo">
      <property name="title">
-      <string>&amp;Video Stream</string>
+      <string>&amp;Video</string>
      </property>
+     <addaction name="actionDecreaseVideoAspect"/>
+     <addaction name="actionIncreaseVideoAspect"/>
+     <addaction name="actionResetVideoAspect"/>
+     <addaction name="actionDisableVideoAspect"/>
+     <addaction name="separator"/>
     </widget>
     <widget class="QMenu" name="menuPlayVolume">
      <property name="title">
@@ -2019,6 +2024,41 @@
    </property>
    <property name="shortcut">
     <string notr="true">F2</string>
+   </property>
+  </action>
+  <action name="actionDecreaseVideoAspect">
+   <property name="text">
+    <string>&amp;Decrease Aspect ratio</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">4</string>
+   </property>
+  </action>
+  <action name="actionIncreaseVideoAspect">
+   <property name="text">
+    <string>&amp;Increase Aspect ratio</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">6</string>
+   </property>
+  </action>
+  <action name="actionResetVideoAspect">
+   <property name="text">
+    <string>&amp;Reset Aspect ratio</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">5</string>
+   </property>
+  </action>
+  <action name="actionDisableVideoAspect">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Disable &amp;Aspect ratio</string>
+   </property>
+   <property name="shortcut">
+    <string>9</string>
    </property>
   </action>
   <action name="actionViewHideLog">
