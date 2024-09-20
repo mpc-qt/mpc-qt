@@ -19,3 +19,8 @@ jobs:
       run: qmake6 MPCQT_VERSION=GithubAction mpc-qt.pro
     - name: make
       run: make
+    - name: Upload
+      uses: actions/upload-artifact@v4
+      with:
+        name: "mpc-qt"
+        path: bin/mpc-qt
