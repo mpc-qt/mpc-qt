@@ -1291,23 +1291,23 @@
     </message>
     <message>
         <source>&amp;Video</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Video</translation>
     </message>
     <message>
         <source>&amp;Decrease Aspect</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Decrease Aspect</translation>
     </message>
     <message>
         <source>&amp;Increase Aspect</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Increase Aspect</translation>
     </message>
     <message>
         <source>&amp;Reset Aspect</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Reset Aspect</translation>
     </message>
     <message>
         <source>Disable &amp;aspect</source>
-        <translation type="unfinished"></translation>
+        <translation>Disable &amp;aspect</translation>
     </message>
 </context>
 <context>
