@@ -243,7 +243,7 @@
     </message>
     <message>
         <source>On &amp;Top</source>
-        <translation>Yllä</translation>
+        <translation>Yläpuolella</translation>
     </message>
     <message>
         <source>OS&amp;D</source>
@@ -403,7 +403,7 @@
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation>&amp;Poistu</translation>
+        <translation>P&amp;oistu</translation>
     </message>
     <message>
         <source>Alt+X</source>
@@ -579,7 +579,7 @@
     </message>
     <message>
         <source>&amp;Options...</source>
-        <translation>&amp;Vaihtoehdot...</translation>
+        <translation>&amp;Asetukset...</translation>
     </message>
     <message>
         <source>O</source>
@@ -619,7 +619,7 @@
     </message>
     <message>
         <source>&amp;Decrease Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pienennä Nopeutta</translation>
     </message>
     <message>
         <source>Ctrl+Down</source>
@@ -627,7 +627,7 @@
     </message>
     <message>
         <source>&amp;Increase Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nosta Nopeutta</translation>
     </message>
     <message>
         <source>Ctrl+Up</source>
@@ -635,7 +635,7 @@
     </message>
     <message>
         <source>R&amp;eset Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nollaa Nopeus</translation>
     </message>
     <message>
         <source>Ctrl+R</source>
@@ -643,7 +643,7 @@
     </message>
     <message>
         <source>&amp;Up</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ylös</translation>
     </message>
     <message>
         <source>0</source>
@@ -651,7 +651,7 @@
     </message>
     <message>
         <source>&amp;Down</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Alas</translation>
     </message>
     <message>
         <source>9</source>
@@ -659,7 +659,7 @@
     </message>
     <message>
         <source>&amp;Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Mykistä</translation>
     </message>
     <message>
         <source>Ctrl+M</source>
@@ -667,35 +667,35 @@
     </message>
     <message>
         <source>&amp;Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Poistu</translation>
     </message>
     <message>
         <source>&amp;Stand by</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Valmiustila</translation>
     </message>
     <message>
         <source>&amp;Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lepotila</translation>
     </message>
     <message>
         <source>Shut&amp;down</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sammuta</translation>
     </message>
     <message>
         <source>Log &amp;Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Kirjaudu &amp;Ulos</translation>
     </message>
     <message>
         <source>&amp;Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Estä</translation>
     </message>
     <message>
         <source>Do &amp;Nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Älä &amp;Tee Mitään</translation>
     </message>
     <message>
         <source>&amp;Previous</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Edellinen</translation>
     </message>
     <message>
         <source>PgUp</source>
@@ -703,7 +703,7 @@
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Seuraava</translation>
     </message>
     <message>
         <source>PgDown</source>
@@ -711,7 +711,7 @@
     </message>
     <message>
         <source>&amp;Go To...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Siirry...</translation>
     </message>
     <message>
         <source>Ctrl+G</source>
@@ -719,7 +719,7 @@
     </message>
     <message>
         <source>&amp;Title Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Otsikkovalikko</translation>
     </message>
     <message>
         <source>Alt+T</source>
@@ -727,7 +727,7 @@
     </message>
     <message>
         <source>&amp;Root Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Päävalikko</translation>
     </message>
     <message>
         <source>Alt+R</source>
@@ -735,39 +735,39 @@
     </message>
     <message>
         <source>&amp;Subtitle Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tekstitysvalikko</translation>
     </message>
     <message>
         <source>&amp;Audio Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Äänivalikko</translation>
     </message>
     <message>
         <source>Angle &amp;Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulma &amp;Valikko</translation>
     </message>
     <message>
         <source>Chapt&amp;er Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Jaksovalikko</translation>
     </message>
     <message>
         <source>&amp;Organize Favorites...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Järjestä suosikit...</translation>
     </message>
     <message>
         <source>&amp;Home Page</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kotisivu</translation>
     </message>
     <message>
         <source>&amp;About This Program...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tietoja Tästä Ohjelmasta...</translation>
     </message>
     <message>
         <source>Open &amp;Network Stream...</source>
-        <translation type="unfinished"></translation>
+        <translation>Avaa &amp;Verkoston Stream...</translation>
     </message>
     <message>
         <source>Save I&amp;mage (Auto)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tallenna kuva (automaattisesti)</translation>
     </message>
     <message>
         <source>F5</source>
@@ -775,7 +775,7 @@
     </message>
     <message>
         <source>Auto Fit (&amp;Smaller Only)</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaattinen Sovitus (Vain &amp;Pienemmät)</translation>
     </message>
     <message>
         <source>Alt+6</source>
@@ -783,47 +783,47 @@
     </message>
     <message>
         <source>&amp;Play Current</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Toista Nykyinen</translation>
     </message>
     <message>
         <source>Return</source>
-        <translation type="unfinished"></translation>
+        <translation>Takaisin</translation>
     </message>
     <message>
         <source>Seek Forwards</source>
-        <translation type="unfinished"></translation>
+        <translation>Etsi Eteenpäin</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Oikea</translation>
     </message>
     <message>
         <source>Seek Backwards</source>
-        <translation type="unfinished"></translation>
+        <translation>Etsi Taaksepäin</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Vasen</translation>
     </message>
     <message>
         <source>Seek Forwards Finely</source>
-        <translation type="unfinished"></translation>
+        <translation>Etsi Hienosti Eteenpäin</translation>
     </message>
     <message>
         <source>Shift+Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Shift+Oikea</translation>
     </message>
     <message>
         <source>Seek Backwards Finely</source>
-        <translation type="unfinished"></translation>
+        <translation>Etsi Hienosti Taaksepäin</translation>
     </message>
     <message>
         <source>Shift+Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Shift+Vasen</translation>
     </message>
     <message>
         <source>&amp;Set Loop Start</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Aseta Syklin Aloitus</translation>
     </message>
     <message>
         <source>Ctrl+Home</source>
@@ -831,7 +831,7 @@
     </message>
     <message>
         <source>Set &amp;Loop End</source>
-        <translation type="unfinished"></translation>
+        <translation>Aseta &amp;Syklin Loppu</translation>
     </message>
     <message>
         <source>Ctrl+End</source>
@@ -839,19 +839,19 @@
     </message>
     <message>
         <source>Ctrl+Backspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Askelpalautin</translation>
     </message>
     <message>
         <source>&amp;Clear Loop</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nollaa Sykli</translation>
     </message>
     <message>
         <source>Backspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Askelpalautin</translation>
     </message>
     <message>
         <source>&amp;Search Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Etsi Soittolistasta</translation>
     </message>
     <message>
         <source>Ctrl+F</source>
@@ -859,7 +859,7 @@
     </message>
     <message>
         <source>&amp;Quick Queue Toggle</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nopea Jonojen Vaihto</translation>
     </message>
     <message>
         <source>Q</source>
@@ -867,7 +867,7 @@
     </message>
     <message>
         <source>&amp;Finish Searching</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lopeta haku</translation>
     </message>
     <message>
         <source>Esc</source>
@@ -875,7 +875,7 @@
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Uusi Välilehti</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
@@ -883,11 +883,11 @@
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sulje Välilehti</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Sulje välilehti</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -895,7 +895,7 @@
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kopioi Välilehti</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
@@ -903,7 +903,7 @@
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tuo Soittolista</translation>
     </message>
     <message>
         <source>Ctrl+Shift+O</source>
@@ -911,7 +911,7 @@
     </message>
     <message>
         <source>E&amp;xport Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>V&amp;ie Soittolista</translation>
     </message>
     <message>
         <source>Ctrl+Shift+S</source>
@@ -919,7 +919,7 @@
     </message>
     <message>
         <source>Queue &amp;Visible</source>
-        <translation type="unfinished"></translation>
+        <translation>Näkyvä &amp;Jono</translation>
     </message>
     <message>
         <source>Ctrl+Shift+Q</source>
@@ -927,7 +927,7 @@
     </message>
     <message>
         <source>&amp;Increment</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lisätä</translation>
     </message>
     <message>
         <source>E</source>
@@ -935,7 +935,7 @@
     </message>
     <message>
         <source>&amp;Decrement</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Vähentää</translation>
     </message>
     <message>
         <source>Shift+E</source>
@@ -943,7 +943,7 @@
     </message>
     <message>
         <source>&amp;Clear Play Times</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tyhjennä Soittoajat</translation>
     </message>
     <message>
         <source>Ctrl+E</source>
@@ -951,7 +951,7 @@
     </message>
     <message>
         <source>&amp;Copy Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kopioi Valinta</translation>
     </message>
     <message>
         <source>Ctrl+Shift+C</source>
@@ -959,7 +959,7 @@
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Liitä</translation>
     </message>
     <message>
         <source>Ctrl+Shift+V</source>
@@ -967,7 +967,7 @@
     </message>
     <message>
         <source>C&amp;opy Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>K&amp;opioi Jono</translation>
     </message>
     <message>
         <source>Ctrl+Alt+C</source>
@@ -975,7 +975,7 @@
     </message>
     <message>
         <source>Paste and Q&amp;ueue</source>
-        <translation type="unfinished"></translation>
+        <translation>Liitä ja A&amp;seta Jonoon</translation>
     </message>
     <message>
         <source>Ctrl+Alt+V</source>
@@ -983,11 +983,11 @@
     </message>
     <message>
         <source>About &amp;Qt...</source>
-        <translation type="unfinished"></translation>
+        <translation>Tietoja &amp;Qt...</translation>
     </message>
     <message>
         <source>Save Pl&amp;ain Image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Tallenna Yk&amp;sinkertainen Kuva...</translation>
     </message>
     <message>
         <source>Alt+Shift+I</source>
@@ -995,7 +995,7 @@
     </message>
     <message>
         <source>Save Plain Ima&amp;ge (Auto)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tallenna Yksinkertainen Ku&amp;va (Automaattisesti)</translation>
     </message>
     <message>
         <source>Shift+F5</source>
@@ -1003,7 +1003,7 @@
     </message>
     <message>
         <source>Export Encode...</source>
-        <translation type="unfinished"></translation>
+        <translation>Vie Koodaus...</translation>
     </message>
     <message>
         <source>F12</source>
@@ -1011,7 +1011,7 @@
     </message>
     <message>
         <source>S&amp;how Quick Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä Pikajono</translation>
     </message>
     <message>
         <source>Ctrl+`</source>
@@ -1019,11 +1019,11 @@
     </message>
     <message>
         <source>Save &amp;Window Image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Tallenna &amp;Ikkunan Kuva…</translation>
     </message>
     <message>
         <source>Save Window Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Tallenna Ikkunan Kuva</translation>
     </message>
     <message>
         <source>Ctrl+Alt+I</source>
@@ -1031,7 +1031,7 @@
     </message>
     <message>
         <source>Save Window Image (Auto)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tallenna Ikkunan Kuva (automaattisesti)</translation>
     </message>
     <message>
         <source>Ctrl+F5</source>
@@ -1039,31 +1039,31 @@
     </message>
     <message>
         <source>Do No&amp;thing</source>
-        <translation type="unfinished"></translation>
+        <translation>Älä Tee Mi&amp;tään</translation>
     </message>
     <message>
         <source>Repe&amp;at</source>
-        <translation type="unfinished"></translation>
+        <translation>Toi&amp;staa</translation>
     </message>
     <message>
         <source>&amp;Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Toistaa</translation>
     </message>
     <message>
         <source>&amp;Application Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sovelluksen Viestit</translation>
     </message>
     <message>
         <source>&amp;General Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Yleiset Tilastot</translation>
     </message>
     <message>
         <source>&amp;Frame Timings</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kehysten Ajoitukset</translation>
     </message>
     <message>
         <source>&amp;Cycle</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kierto</translation>
     </message>
     <message>
         <source>Ctrl+J</source>
@@ -1071,75 +1071,75 @@
     </message>
     <message>
         <source>&amp;No Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ei Viestejä</translation>
     </message>
     <message>
         <source>&amp;Escape Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Poistu Koko Näytöltä</translation>
     </message>
     <message>
         <source>Enable &amp;Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Ota &amp;Tekstitykset Käyttöön</translation>
     </message>
     <message>
         <source>&amp;Next Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Seuraava Tekstitys</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Edellinen Tekstitys</translation>
     </message>
     <message>
         <source>Lo&amp;g</source>
-        <translation type="unfinished"></translation>
+        <translation>Lo&amp;ki</translation>
     </message>
     <message>
         <source>Once</source>
-        <translation type="unfinished"></translation>
+        <translation>Kerran</translation>
     </message>
     <message>
         <source>Every time</source>
-        <translation type="unfinished"></translation>
+        <translation>Joka kerta</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä</translation>
     </message>
     <message>
         <source>Hide &amp;Borders</source>
-        <translation type="unfinished"></translation>
+        <translation>Piilota &amp;Reunukset</translation>
     </message>
     <message>
         <source>Sho&amp;w Caption and Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä Kuvateksti ja Valikko</translation>
     </message>
     <message>
         <source>Quick Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Pika Avaus</translation>
     </message>
     <message>
         <source>No files favorited</source>
-        <translation type="unfinished"></translation>
+        <translation>Ei Suosikkitiedostoja</translation>
     </message>
     <message>
         <source>No streams favorited</source>
-        <translation type="unfinished"></translation>
+        <translation>Ei Suositeltuja Striimejä</translation>
     </message>
     <message>
         <source> [Freestanding]</source>
-        <translation type="unfinished"></translation>
+        <translation> [Vapaa paikka]</translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lisää Nopeasti Soittolistaan</translation>
     </message>
     <message>
         <source>&amp;Quick Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tiedoston Nopea Avaaminen</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Avaa Hakemisto</translation>
     </message>
     <message>
         <source>Enter Network Stream</source>
@@ -1151,27 +1151,27 @@
     </message>
     <message>
         <source>Open Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>Avaa Tekstitys</translation>
     </message>
     <message>
         <source>Development Build</source>
-        <translation type="unfinished"></translation>
+        <translation>Kehittäjäversio</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Versio %1</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Tietoja Media Player Classic Qute Theaterista</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation type="unfinished"></translation>
+        <translation>Media Player Classicin klooni, joka on kirjoitettu Qt:llä</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Perustuu Qt %1 ja %2</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
@@ -1183,23 +1183,23 @@
     </message>
     <message>
         <source>Paused</source>
-        <translation type="unfinished"></translation>
+        <translation>Keskeytetty</translation>
     </message>
     <message>
         <source>Playing</source>
-        <translation type="unfinished"></translation>
+        <translation>Toistetaan</translation>
     </message>
     <message>
         <source>Buffering</source>
-        <translation type="unfinished"></translation>
+        <translation>Puskuroi</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuntematon</translation>
     </message>
     <message>
         <source>Libr&amp;ary</source>
-        <translation type="unfinished"></translation>
+        <translation>Kirj&amp;asto</translation>
     </message>
     <message>
         <source>Ctrl+=</source>
@@ -1211,11 +1211,11 @@
     </message>
     <message>
         <source>&amp;Copy Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kopioi Tekstitys</translation>
     </message>
     <message>
         <source>Controls in Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Säätimet Koko Näytön Tilassa</translation>
     </message>
     <message>
         <source>i</source>
@@ -1223,7 +1223,7 @@
     </message>
     <message>
         <source>&amp;Previous File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Edellinen Tiedosto</translation>
     </message>
     <message>
         <source>Ctrl+PgUp</source>
@@ -1231,7 +1231,7 @@
     </message>
     <message>
         <source>&amp;Next File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Seuraava Tiedosto</translation>
     </message>
     <message>
         <source>Ctrl+PgDown</source>
@@ -1239,27 +1239,27 @@
     </message>
     <message>
         <source>Play next &amp;file</source>
-        <translation type="unfinished"></translation>
+        <translation>Toista Seuraava Tiedosto</translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekstitys</translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Mykistä</translation>
     </message>
     <message>
         <source>&amp;Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lisää Suosikkeihin</translation>
     </message>
     <message>
         <source>&amp;Decrease Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Vähennä Viivettä</translation>
     </message>
     <message>
         <source>&amp;Increase Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lisää Viivettä</translation>
     </message>
     <message>
         <source>&amp;Video</source>
@@ -1267,54 +1267,54 @@
     </message>
     <message>
         <source>&amp;Decrease Aspect</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pienennä Kuvasuhdetta</translation>
     </message>
     <message>
         <source>&amp;Increase Aspect</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kasvata Kuvasuhdetta</translation>
     </message>
     <message>
         <source>&amp;Reset Aspect</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Palauta Kuvasuhde</translation>
     </message>
     <message>
         <source>Disable &amp;aspect</source>
-        <translation type="unfinished"></translation>
+        <translation>Poista &amp;Kuvasuhde Käytöstä</translation>
     </message>
 </context>
 <context>
     <name>MouseState</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Ei Mitään</translation>
     </message>
     <message>
         <source>Wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>Pyörä</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Vasen</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Oikea</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished"></translation>
+        <translation>Keski</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Takaisin</translation>
     </message>
     <message>
         <source>Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Eteenpäin</translation>
     </message>
     <message>
         <source>Task</source>
-        <translation type="unfinished"></translation>
+        <translation>Tehtävä</translation>
     </message>
     <message>
         <source>XButton4</source>
@@ -1418,288 +1418,288 @@
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Alas</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Ylös</translation>
     </message>
     <message>
         <source>Twice</source>
-        <translation type="unfinished"></translation>
+        <translation>Kahdesti</translation>
     </message>
 </context>
 <context>
     <name>MpvObject</name>
     <message>
         <source>Subtitles delay: %1 ms</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekstityksen viive: %1 ms</translation>
     </message>
 </context>
 <context>
     <name>OpenFileDialog</name>
     <message>
         <source>Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>Avaa Tiedosto</translation>
     </message>
     <message>
         <source>Fi&amp;le</source>
-        <translation type="unfinished"></translation>
+        <translation>Tied&amp;osto</translation>
     </message>
     <message>
         <source>&amp;Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tekstitykset</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"></translation>
+        <translation>Valitse Tiedosto</translation>
     </message>
 </context>
 <context>
     <name>PaletteEditor</name>
     <message>
         <source>Button</source>
-        <translation type="unfinished"></translation>
+        <translation>Painike</translation>
     </message>
     <message>
         <source>Button &amp;&amp; Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Painike &amp;&amp; Ikkuna</translation>
     </message>
     <message>
         <source>Reset to System</source>
-        <translation type="unfinished"></translation>
+        <translation>Palauta Järjestelmään</translation>
     </message>
     <message>
         <source>Generate</source>
-        <translation type="unfinished"></translation>
+        <translation>Luo</translation>
     </message>
 </context>
 <context>
     <name>PlaybackManager</name>
     <message>
         <source>Speed: %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>Nopeus: %1%</translation>
     </message>
     <message>
         <source>Volume: %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>Äänenvoimakkuus: %1%</translation>
     </message>
     <message>
         <source>Mute: on</source>
-        <translation type="unfinished"></translation>
+        <translation>Mykistys: päällä</translation>
     </message>
     <message>
         <source>Mute: off</source>
-        <translation type="unfinished"></translation>
+        <translation>Mykistys: pois päältä</translation>
     </message>
     <message>
         <source>0: None</source>
-        <translation type="unfinished"></translation>
+        <translation>0: Ei yhtään</translation>
     </message>
 </context>
 <context>
     <name>PlaylistCollection</name>
     <message>
         <source>Quick playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Pikasoittolista</translation>
     </message>
 </context>
 <context>
     <name>PlaylistWindow</name>
     <message>
         <source>P&amp;laylist</source>
-        <translation type="unfinished"></translation>
+        <translation>S&amp;oittolista</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Etsi</translation>
     </message>
     <message>
         <source>Visible Items to Quick Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Pikajonossa Näkyvät Tuotteet</translation>
     </message>
     <message>
         <source>New Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Uusi välilehti</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Sulje Välilehti</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopioi Välilehti</translation>
     </message>
     <message>
         <source>Import Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuo Soittolista</translation>
     </message>
     <message>
         <source>Export Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Vie Soittolista</translation>
     </message>
     <message>
         <source>Show Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä Jono</translation>
     </message>
     <message>
         <source>Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Soittolista</translation>
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Pikasoittolista</translation>
     </message>
     <message>
         <source>New Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Uusi Soittolista</translation>
     </message>
     <message>
         <source>Enter Playlist Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Kirjoita Soittolistan Nimi</translation>
     </message>
     <message>
         <source>Import File</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuo Tiedosto</translation>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
-        <translation type="unfinished"></translation>
+        <translation>Soittolistatiedostot (*.m3u *.m3u8)</translation>
     </message>
     <message>
         <source>Export File</source>
-        <translation type="unfinished"></translation>
+        <translation>Vie Tiedosto</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Avaa</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisää</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Poista</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Tyhjennä</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopioi Leikepöydälle</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Tallenna Nimellä...</translation>
     </message>
     <message>
         <source>Sort By Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Lajittele Etiketin Mukaan</translation>
     </message>
     <message>
         <source>Sort By Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Lajittele URL-osoitteen mukaan</translation>
     </message>
     <message>
         <source>Randomize</source>
-        <translation type="unfinished"></translation>
+        <translation>Satunnaista</translation>
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Palauta</translation>
     </message>
     <message>
         <source>Shuffle</source>
-        <translation type="unfinished"></translation>
+        <translation>Sekoita</translation>
     </message>
     <message>
         <source>Hide On Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Piilota Koko Näytön Tilassa</translation>
     </message>
     <message>
         <source>Enter playlist name</source>
-        <translation type="unfinished"></translation>
+        <translation>Kirjoita Soittolistan Nimi</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Uusi Soittolista</translation>
     </message>
     <message>
         <source>&amp;Remove Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Poista Soittolista</translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kopioi Soittolista</translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tuo Soittolista</translation>
     </message>
     <message>
         <source>&amp;Export Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Vie Soittolista</translation>
     </message>
 </context>
 <context>
     <name>PropertiesWindow</name>
     <message>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Ominaisuudet</translation>
     </message>
     <message>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiedot</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tyyppi:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Koko:</translation>
     </message>
     <message>
         <source>Media length:</source>
-        <translation type="unfinished"></translation>
+        <translation>Median pituus:</translation>
     </message>
     <message>
         <source>Video size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Videon koko:</translation>
     </message>
     <message>
         <source>Created:</source>
-        <translation type="unfinished"></translation>
+        <translation>Luotu:</translation>
     </message>
     <message>
         <source>Clip</source>
-        <translation type="unfinished"></translation>
+        <translation>Leike</translation>
     </message>
     <message>
         <source>Clip:</source>
-        <translation type="unfinished"></translation>
+        <translation>Leike:</translation>
     </message>
     <message>
         <source>Author:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekijä:</translation>
     </message>
     <message>
         <source>Copyright:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekijänoikeus:</translation>
     </message>
     <message>
         <source>Rating:</source>
-        <translation type="unfinished"></translation>
+        <translation>Arvosana:</translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sijainti:</translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvaus:</translation>
     </message>
     <message>
         <source>MediaInfo</source>
@@ -1707,7 +1707,7 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tallenna</translation>
     </message>
     <message>
         <source>Video</source>
@@ -1719,100 +1719,102 @@
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekstitykset</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Yleinen</translation>
     </message>
     <message>
         <source>Menu
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Valikko
+</translation>
     </message>
     <message>
         <source>File has no data for this section.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Tiedostossa ei ole tietoja tästä osiosta.
+</translation>
     </message>
     <message>
         <source>Text documents (*.txt);;All files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekstiasiakirjat (*.txt);;Kaikki tiedostot (*.*)</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>All Media (*.%1);;All Files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaikki Mediat (*.%1);;Kaikki Tiedostot (*.*)</translation>
     </message>
     <message>
         <source>All Subtitles (*.%1);;All Files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaikki Tekstitykset (*.%1);;Kaikki Tiedostot (*.*)</translation>
     </message>
     <message>
         <source>Window text</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikkunateksti</translation>
     </message>
     <message>
         <source>Button</source>
-        <translation type="unfinished"></translation>
+        <translation>Painike</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Kevyt</translation>
     </message>
     <message>
         <source>Midlight</source>
-        <translation type="unfinished"></translation>
+        <translation>Puolikirkas</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>Pimeä</translation>
     </message>
     <message>
         <source>Mid</source>
-        <translation type="unfinished"></translation>
+        <translation>Puoli</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Teksti</translation>
     </message>
     <message>
         <source>Bright text</source>
-        <translation type="unfinished"></translation>
+        <translation>Kirkas teksti</translation>
     </message>
     <message>
         <source>Button text</source>
-        <translation type="unfinished"></translation>
+        <translation>Painikkeen teksti</translation>
     </message>
     <message>
         <source>Base</source>
-        <translation type="unfinished"></translation>
+        <translation>Pohja</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikkuna</translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>Varjo</translation>
     </message>
     <message>
         <source>Highlight</source>
-        <translation type="unfinished"></translation>
+        <translation>Korostaa</translation>
     </message>
     <message>
         <source>Highlighted text</source>
-        <translation type="unfinished"></translation>
+        <translation>Korostettu teksti</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Linkki</translation>
     </message>
     <message>
         <source>Link (visited)</source>
-        <translation type="unfinished"></translation>
+        <translation>Linkki (vierailtu)</translation>
     </message>
     <message>
         <source>Base (alternate)</source>
@@ -3836,7 +3838,7 @@ media file played</source>
     </message>
     <message>
         <source>Save Thumbnails</source>
-        <translation type="unfinished"></translation>
+        <translation>Tallenna Pikkukuvat</translation>
     </message>
 </context>
 </TS>
