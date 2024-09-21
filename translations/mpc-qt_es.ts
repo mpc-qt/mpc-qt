@@ -1238,10 +1238,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>i</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Previous File</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1286,19 +1282,35 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Decrease Aspect</source>
+        <source>&amp;Show OSD Timer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Increase Aspect</source>
+        <source>I</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Reset Aspect</source>
+        <source>&amp;Decrease Aspect ratio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Disable &amp;aspect</source>
+        <source>&amp;Increase Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Reset Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable &amp;Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>C</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3833,6 +3845,10 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>nVidia only (faster than CUDA)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show OSD timer on seek</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -1247,7 +1247,7 @@
     </message>
     <message>
         <source>i</source>
-        <translation>i</translation>
+        <translation type="vanished">i</translation>
     </message>
     <message>
         <source>&amp;Previous File</source>
@@ -1295,19 +1295,51 @@
     </message>
     <message>
         <source>&amp;Decrease Aspect</source>
-        <translation>&amp;Decrease Aspect</translation>
+        <translation type="vanished">&amp;Decrease Aspect</translation>
     </message>
     <message>
         <source>&amp;Increase Aspect</source>
-        <translation>&amp;Increase Aspect</translation>
+        <translation type="vanished">&amp;Increase Aspect</translation>
     </message>
     <message>
         <source>&amp;Reset Aspect</source>
-        <translation>&amp;Reset Aspect</translation>
+        <translation type="vanished">&amp;Reset Aspect</translation>
     </message>
     <message>
         <source>Disable &amp;aspect</source>
-        <translation>Disable &amp;aspect</translation>
+        <translation type="vanished">Disable &amp;aspect</translation>
+    </message>
+    <message>
+        <source>&amp;Show OSD Timer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Decrease Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Increase Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Reset Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable &amp;Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>C</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3854,6 +3886,10 @@ media file played</translation>
     <message>
         <source>nVidia only (faster than CUDA)</source>
         <translation>nVidia only (faster than CUDA)</translation>
+    </message>
+    <message>
+        <source>Show OSD timer on seek</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
