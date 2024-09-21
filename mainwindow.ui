@@ -718,6 +718,8 @@
      <addaction name="actionViewOSDFrameTimings"/>
      <addaction name="separator"/>
      <addaction name="actionViewOSDCycle"/>
+     <addaction name="separator"/>
+     <addaction name="actionViewOSDTimer"/>
     </widget>
     <addaction name="actionViewHideMenu"/>
     <addaction name="actionViewHideSeekbar"/>
@@ -1972,6 +1974,14 @@
     <string>&amp;No Messages</string>
    </property>
   </action>
+  <action name="actionViewOSDTimer">
+   <property name="text">
+    <string>&amp;Show OSD Timer</string>
+   </property>
+   <property name="shortcut">
+    <string>I</string>
+   </property>
+  </action>
   <action name="actionViewFullscreenEscape">
    <property name="enabled">
     <bool>false</bool>
@@ -2094,7 +2104,7 @@
     <string>Controls in Fullscreen</string>
    </property>
    <property name="shortcut">
-    <string>i</string>
+    <string>C</string>
    </property>
   </action>
   <action name="actionPlaySubtitlesCopy">
