@@ -1066,6 +1066,7 @@ void SettingsWindow::sendSignals()
     emit timeShorten(WIDGET_LOOKUP(ui->tweaksTimeShort).toBool());
     emit timeTooltip(WIDGET_LOOKUP(ui->tweaksTimeTooltip).toBool(),
                      WIDGET_LOOKUP(ui->tweaksTimeTooltipLocation).toInt() == 0);
+    emit osdTimerOnSeek(WIDGET_LOOKUP(ui->tweaksOsdTimerOnSeek).toBool());
 }
 
 void SettingsWindow::sendAcceptedSettings()

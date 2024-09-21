@@ -7706,14 +7706,21 @@ media file played</string>
              </item>
             </widget>
            </item>
-           <item row="10" column="0">
+           <item row="10" column="0" colspan="2">
+            <widget class="QCheckBox" name="tweaksOsdTimerOnSeek">
+             <property name="text">
+              <string>Show OSD timer on seek</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="0">
             <widget class="QLabel" name="tweaksOsdFontLabel">
              <property name="text">
               <string>OSD font:</string>
              </property>
             </widget>
            </item>
-           <item row="10" column="1">
+           <item row="11" column="1">
             <layout class="QHBoxLayout" name="tweaksOsdLayout" stretch="1,0">
              <item>
               <widget class="QFontComboBox" name="tweaksOsdFont"/>

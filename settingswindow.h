@@ -175,6 +175,7 @@ signals:
     void mpvMouseEvents(bool yes);
     void mpvKeyEvents(bool yes);
     void timeTooltip(bool yes, bool above);
+    void osdTimerOnSeek(bool yes);
     void osdFont(const QString &family, const QString &size);
 
     // bchs should be part of a filter module page, hence the funny name
