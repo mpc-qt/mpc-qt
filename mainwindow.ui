@@ -2101,7 +2101,7 @@
     <string>Controls in Fullscreen</string>
    </property>
    <property name="shortcut">
-    <string>i</string>
+    <string>C</string>
    </property>
   </action>
   <action name="actionPlaySubtitlesCopy">
