@@ -292,7 +292,7 @@ QStringList MpvObject::supportedProtocols()
 void MpvObject::showMessage(QString message)
 {
     if (shownStatsPage == 0)
-        emit ctrlCommand(QVariantList({"show_text", message, "1000"}));
+        emit ctrlCommand(QVariantList({"show_text", message, "2000"}));
 }
 
 void MpvObject::showStatsPage(int page)
