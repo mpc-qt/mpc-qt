@@ -1524,6 +1524,10 @@
         <source>0: None</source>
         <translation>0: Ei yhtään</translation>
     </message>
+    <message>
+        <source>Aspect ratio: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PlaylistCollection</name>
