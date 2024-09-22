@@ -21,22 +21,22 @@
     </message>
     <message>
         <source>Mouse Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Ratón en pantalla completa</translation>
     </message>
 </context>
 <context>
     <name>ButtonWidget</name>
     <message>
         <source>B</source>
-        <translation type="unfinished"></translation>
+        <translation>B</translation>
     </message>
     <message>
         <source>K</source>
-        <translation type="unfinished"></translation>
+        <translation>K</translation>
     </message>
     <message>
         <source>↑↓</source>
-        <translation type="unfinished"></translation>
+        <translation>↑↓</translation>
     </message>
 </context>
 <context>
@@ -66,7 +66,7 @@
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Reproductor multimedia clásico Qute Theater</translation>
     </message>
     <message>
         <source>Start a new process without saving data.</source>
@@ -94,53 +94,53 @@
     </message>
     <message>
         <source>Do not load any config files.</source>
-        <translation type="unfinished"></translation>
+        <translation>No cargue archivos de configuración.</translation>
     </message>
     <message>
         <source>Do not load file history, playlists, or favorites.</source>
-        <translation type="unfinished"></translation>
+        <translation>No cargar el historial de archivos, listas de reproducción ni favoritos.</translation>
     </message>
 </context>
 <context>
     <name>LibraryWindow</name>
     <message>
         <source>Library</source>
-        <translation type="unfinished"></translation>
+        <translation>Librería</translation>
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished">Restaurar</translation>
+        <translation>Restaurar</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Eliminar</translation>
+        <translation>Quitar</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerrar</translation>
     </message>
 </context>
 <context>
     <name>LogWindow</name>
     <message>
         <source>Log Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Registro de mensajes</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Guardar</translation>
+        <translation>Guardar</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Vaciar</translation>
+        <translation>Limpiar</translation>
     </message>
     <message>
         <source>Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardar archivo</translation>
     </message>
 </context>
 <context>
