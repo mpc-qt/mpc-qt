@@ -108,6 +108,7 @@ private:
     void updateWindowFlags();
     void updateMouseHideTime();
     void updateDiscList();
+    void showOsdTimer(bool onSeek);
     QList<QUrl> doQuickOpenFileDialog();
 
 signals:
@@ -242,6 +243,7 @@ public slots:
     void setBottomAreaBehavior(Helpers::ControlHiding method);
     void setBottomAreaHideTime(int milliseconds);
     void setTimeTooltip(bool show, bool above);
+    void setOsdTimerOnSeek(bool enabled);
     void setFullscreenHidePanels(bool hidden);
     void setPlaybackState(PlaybackManager::PlaybackState state);
     void setPlaybackType(PlaybackManager::PlaybackType type);
@@ -442,6 +444,7 @@ private:
     int bottomAreaHideTime = 0;
     bool timeTooltipShown = true;
     bool timeTooltipAbove = true;
+    bool osdTimerOnSeek = false;
     bool timeShortMode = false;
 
     QString previousOpenDir;

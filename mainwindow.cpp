@@ -1217,6 +1217,18 @@ void MainWindow::updateDiscList()
     ui->menuFileOpenDisc->setEnabled(addedSomething);
 }
 
+void MainWindow::showOsdTimer(bool onSeek)
+{
+    if (!onSeek || osdTimerOnSeek) {
+        double time = mpvObject_->playTime();
+        double length = mpvObject_->playLength();
+        mpvObject_->showMessage(tr("%1 / %2").arg(Helpers::toDateFormatFixed(time,
+                                                         Helpers::ShortFormat),
+                                                  Helpers::toDateFormatFixed(length,
+                                                         Helpers::ShortFormat)));
+    }
+}
+
 QList<QUrl> MainWindow::doQuickOpenFileDialog()
 {
     static QFileDialog::Options options = QFileDialog::Options();
@@ -1815,6 +1827,11 @@ void MainWindow::setTimeTooltip(bool shown, bool above)
 {
     timeTooltipShown = shown;
     timeTooltipAbove = above;
+}
+
+void MainWindow::setOsdTimerOnSeek(bool enabled)
+{
+    osdTimerOnSeek = enabled;
 }
 
 void MainWindow::setFullscreenHidePanels(bool hidden)
@@ -2461,10 +2478,7 @@ void MainWindow::on_actionViewOSDCycle_triggered()
 
 void MainWindow::on_actionViewOSDTimer_triggered()
 {
-    double time = mpvObject_->playTime();
-    double length = mpvObject_->playLength();
-    mpvObject_->showMessage(tr("%1 / %2").arg(Helpers::toDateFormatFixed(time, Helpers::ShortFormat),
-                                              Helpers::toDateFormatFixed(length, Helpers::ShortFormat))); 
+    showOsdTimer(false);
 }
 
 void MainWindow::on_actionViewFullscreen_toggled(bool checked)
@@ -2663,21 +2677,25 @@ void MainWindow::on_actionPlayRateReset_triggered()
 void MainWindow::on_actionPlaySeekForwards_triggered()
 {
     emit relativeSeek(true, false);
+    showOsdTimer(true);
 }
 
 void MainWindow::on_actionPlaySeekBackwards_triggered()
 {
     emit relativeSeek(false, false);
+    showOsdTimer(true);
 }
 
 void MainWindow::on_actionPlaySeekForwardsFine_triggered()
 {
     emit relativeSeek(true, true);
+    showOsdTimer(true);
 }
 
 void MainWindow::on_actionPlaySeekBackwardsFine_triggered()
 {
     emit relativeSeek(false, true);
+    showOsdTimer(true);
 }
 
 void MainWindow::on_actionPlaySubtitlesEnabled_triggered(bool checked)

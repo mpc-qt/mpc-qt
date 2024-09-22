@@ -7635,66 +7635,6 @@ media file played</string>
              </property>
             </widget>
            </item>
-           <item row="9" column="0">
-            <widget class="QCheckBox" name="tweaksTimeTooltip">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="text">
-              <string>Use time tooltip:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="9" column="1">
-            <widget class="QComboBox" name="tweaksTimeTooltipLocation">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <item>
-              <property name="text">
-               <string>Above seekbar</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Below seekbar</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item row="10" column="0">
-            <widget class="QLabel" name="tweaksOsdFontLabel">
-             <property name="text">
-              <string>OSD font:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="10" column="1">
-            <layout class="QHBoxLayout" name="tweaksOsdLayout" stretch="1,0">
-             <item>
-              <widget class="QFontComboBox" name="tweaksOsdFont"/>
-             </item>
-             <item>
-              <widget class="QSpinBox" name="tweaksOsdSize">
-               <property name="minimum">
-                <number>1</number>
-               </property>
-               <property name="maximum">
-                <number>9000</number>
-               </property>
-               <property name="value">
-                <number>55</number>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
            <item row="4" column="0" colspan="2">
             <widget class="QCheckBox" name="tweaksVolumeLimit">
              <property name="text">
@@ -7732,6 +7672,73 @@ media file played</string>
               <string>Send key events to mpv</string>
              </property>
             </widget>
+           </item>
+           <item row="9" column="0">
+            <widget class="QCheckBox" name="tweaksTimeTooltip">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Use time tooltip:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <widget class="QComboBox" name="tweaksTimeTooltipLocation">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <item>
+              <property name="text">
+               <string>Above seekbar</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Below seekbar</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="10" column="0" colspan="2">
+            <widget class="QCheckBox" name="tweaksOsdTimerOnSeek">
+             <property name="text">
+              <string>Show OSD timer on seek</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="0">
+            <widget class="QLabel" name="tweaksOsdFontLabel">
+             <property name="text">
+              <string>OSD font:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="1">
+            <layout class="QHBoxLayout" name="tweaksOsdLayout" stretch="1,0">
+             <item>
+              <widget class="QFontComboBox" name="tweaksOsdFont"/>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="tweaksOsdSize">
+               <property name="minimum">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <number>9000</number>
+               </property>
+               <property name="value">
+                <number>55</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>

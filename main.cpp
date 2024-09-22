@@ -620,6 +620,8 @@ void Flow::setupSettingsConnections()
             mainWindow, &MainWindow::setTimeShortMode);
     connect(settingsWindow, &SettingsWindow::timeTooltip,
             mainWindow, &MainWindow::setTimeTooltip);
+    connect(settingsWindow, &SettingsWindow::osdTimerOnSeek,
+            mainWindow, &MainWindow::setOsdTimerOnSeek);
 
     // settings -> playlistWindow
     connect(settingsWindow, &SettingsWindow::iconTheme,

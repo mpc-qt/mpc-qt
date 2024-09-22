@@ -101,11 +101,11 @@
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Palauta</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Poista</translation>
     </message>
     <message>
         <source>Close</source>
@@ -128,7 +128,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tyhjennä</translation>
     </message>
     <message>
         <source>Save File</source>
@@ -1218,10 +1218,6 @@
         <translation>Säätimet Koko Näytön Tilassa</translation>
     </message>
     <message>
-        <source>i</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Previous File</source>
         <translation>&amp;Edellinen Tiedosto</translation>
     </message>
@@ -1267,19 +1263,51 @@
     </message>
     <message>
         <source>&amp;Decrease Aspect</source>
-        <translation>&amp;Pienennä Kuvasuhdetta</translation>
+        <translation type="vanished">&amp;Pienennä Kuvasuhdetta</translation>
     </message>
     <message>
         <source>&amp;Increase Aspect</source>
-        <translation>&amp;Kasvata Kuvasuhdetta</translation>
+        <translation type="vanished">&amp;Kasvata Kuvasuhdetta</translation>
     </message>
     <message>
         <source>&amp;Reset Aspect</source>
-        <translation>&amp;Palauta Kuvasuhde</translation>
+        <translation type="vanished">&amp;Palauta Kuvasuhde</translation>
     </message>
     <message>
         <source>Disable &amp;aspect</source>
-        <translation>Poista &amp;Kuvasuhde Käytöstä</translation>
+        <translation type="vanished">Poista &amp;Kuvasuhde Käytöstä</translation>
+    </message>
+    <message>
+        <source>&amp;Show OSD Timer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Decrease Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Increase Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Reset Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable &amp;Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>C</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1908,7 +1936,7 @@
     </message>
     <message>
         <source>Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Soittolista</translation>
     </message>
     <message>
         <source>Subtitles</source>
@@ -2238,7 +2266,7 @@ media file played</source>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yleinen</translation>
     </message>
     <message>
         <source>Framebuffer</source>
@@ -2422,7 +2450,7 @@ media file played</source>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ikkuna</translation>
     </message>
     <message>
         <source>Box</source>
@@ -2726,7 +2754,7 @@ media file played</source>
     </message>
     <message>
         <source>Clip</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Leike</translation>
     </message>
     <message>
         <source>Mobius</source>
@@ -2886,7 +2914,7 @@ media file played</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Poista</translation>
     </message>
     <message>
         <source>Add to shaders</source>
@@ -2966,7 +2994,7 @@ media file played</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ei Mitään</translation>
     </message>
     <message>
         <source>Default</source>
@@ -3102,11 +3130,11 @@ media file played</source>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vasen</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Oikea</translation>
     </message>
     <message>
         <source>Y</source>
@@ -3787,6 +3815,10 @@ media file played</source>
     </message>
     <message>
         <source>nVidia only (faster than CUDA)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show OSD timer on seek</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
