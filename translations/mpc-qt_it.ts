@@ -1520,6 +1520,10 @@
         <source>0: None</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Aspect ratio: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PlaylistCollection</name>

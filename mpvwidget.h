@@ -128,6 +128,7 @@ signals:
     void decoderFramedropsChanged(int64_t cout);
     void audioBitrateChanged(double bitrate);
     void videoBitrateChanged(double bitrate);
+    void aspectNameChanged(QString newAspectName);
     void fileNameChanged(QString filename);
     void fileFormatChanged(QString format);
     void fileSizeChanged(int64_t size);

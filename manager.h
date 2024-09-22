@@ -193,6 +193,7 @@ private slots:
     void mpvw_playlistChanged(const QVariantList &playlist);
     void mpvw_audioBitrateChanged(double bitrate);
     void mpvw_videoBitrateChanged(double bitrate);
+    void mpvw_aspectNameChanged(QString newAspectName);
 
 private:
     MpvObject *mpvObject_ = nullptr;

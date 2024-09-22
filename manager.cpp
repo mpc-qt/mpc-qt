@@ -100,6 +100,8 @@ void PlaybackManager::setMpvObject(MpvObject *mpvObject, bool makeConnections)
                 this, &PlaybackManager::mpvw_audioBitrateChanged);
         connect(mpvObject, &MpvObject::videoBitrateChanged,
                 this, &PlaybackManager::mpvw_videoBitrateChanged);
+        connect(mpvObject, &MpvObject::aspectNameChanged,
+                this, &PlaybackManager::mpvw_aspectNameChanged);
 
         connect(this, &PlaybackManager::hasNoVideo,
                 mpvObject, &MpvObject::setDrawLogo);
@@ -927,6 +929,13 @@ void PlaybackManager::mpvw_audioBitrateChanged(double bitrate)
 void PlaybackManager::mpvw_videoBitrateChanged(double bitrate)
 {
     emit videoBitrateChanged(bitrate);
+}
+
+void PlaybackManager::mpvw_aspectNameChanged(QString newAspectName)
+{
+    if (!newAspectName.isEmpty()) {
+        mpvObject_->showMessage(tr("Aspect ratio: %1").arg(newAspectName));
+    }
 }
 
 void PlaybackManager::mpvw_metadataChanged(QVariantMap metadata)
