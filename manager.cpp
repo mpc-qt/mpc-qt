@@ -827,7 +827,7 @@ void PlaybackManager::mpvw_eofReachedChanged(QString eof) {
     if (eof == strFalse)
         return;
     else if (eof.isEmpty()) {
-        emit fileOpenedOrClosed();
+        emit fileClosed();
         showAspectOsdTriggeredBy = AspectNameChanged::OnOpen;
         return;
     }

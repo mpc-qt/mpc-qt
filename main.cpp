@@ -776,8 +776,8 @@ void Flow::setupFlowConnections()
             this, &Flow::manager_stoppedPlaying);
     connect(playbackManager, &PlaybackManager::stateChanged,
             this, &Flow::manager_stateChanged);
-    connect(playbackManager, &PlaybackManager::fileOpenedOrClosed,
-            this, &Flow::manager_fileOpenedOrClosed);
+    connect(playbackManager, &PlaybackManager::fileClosed,
+            this, &Flow::manager_fileClosed);
     connect(playbackManager, &PlaybackManager::instanceShouldClose,
             this, &Flow::mainwindow_instanceShouldQuit);
     connect(playbackManager, &PlaybackManager::subtitlesVisible,
@@ -1288,7 +1288,7 @@ void Flow::manager_stateChanged(PlaybackManager::PlaybackState state)
     screenSaver->inhibitSaver(tr("Playing Media"));
 }
 
-void Flow::manager_fileOpenedOrClosed()
+void Flow::manager_fileClosed()
 {
     mainWindow->disableChaptersMenus();
 }
