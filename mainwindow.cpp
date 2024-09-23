@@ -202,7 +202,7 @@ void MainWindow::setState(const QVariantMap &map)
     UNWRAP(ui->actionPlayVolumeMute, false);
 
     on_actionPlaySubtitlesEnabled_triggered(ui->actionPlaySubtitlesEnabled->isChecked());
-    on_actionPlayVolumeMute_toggled(ui->actionPlayVolumeMute->isChecked());
+    on_actionPlayVolumeMute_toggled(ui->actionPlayVolumeMute->isChecked(), true);
     setOSDPage(map.value("shownStatsPage",0).toInt());
     updateOnTop();
 
@@ -2784,9 +2784,9 @@ void MainWindow::on_actionPlayVolumeDown_triggered()
     volumeSlider_->setValue(newvol);
 }
 
-void MainWindow::on_actionPlayVolumeMute_toggled(bool checked)
+void MainWindow::on_actionPlayVolumeMute_toggled(bool checked, bool onInit)
 {
-    emit volumeMuteChanged(checked);
+    emit volumeMuteChanged(checked, onInit);
     ui->actionPlayVolumeMute->setChecked(checked);
     ui->mute->setChecked(checked);
 }

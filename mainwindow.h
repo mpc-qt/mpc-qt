@@ -146,7 +146,7 @@ signals:
     void nextSubtitleSelected();
     void previousSubtitleSelected();
     void volumeChanged(int64_t volume);
-    void volumeMuteChanged(bool muted);
+    void volumeMuteChanged(bool muted, bool onInit);
     void afterPlaybackOnce(Helpers::AfterPlayback action);
     void afterPlaybackAlways(Helpers::AfterPlayback action);
     void chapterPrevious();
@@ -370,7 +370,7 @@ private slots:
 
     void on_actionPlayVolumeUp_triggered();
     void on_actionPlayVolumeDown_triggered();
-    void on_actionPlayVolumeMute_toggled(bool checked);
+    void on_actionPlayVolumeMute_toggled(bool checked, bool onInit = false);
 
     void on_actionPlayAfterOnceExit_triggered();
     void on_actionPlayAfterOnceStandby_triggered();
