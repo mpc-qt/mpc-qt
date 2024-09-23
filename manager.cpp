@@ -6,6 +6,8 @@
 #include "logger.h"
 
 using namespace Helpers;
+static const char strTrue[] =  "true";
+static const char strFalse[] =  "false";
 
 Q_GLOBAL_STATIC_WITH_ARGS(QRegularExpression, wordSplitter, ("\\W+"));
 
@@ -816,13 +818,15 @@ void PlaybackManager::mpvw_playbackFinished() {
     if (playbackState_ == BufferingState || playbackState_ == WaitingState) {
         playbackState_ = StoppedState;
         emit stateChanged(playbackState_);
-        mpvw_eofReachedChanged(true);
+        mpvw_eofReachedChanged(strTrue);
     }
 }
 
-void PlaybackManager::mpvw_eofReachedChanged(bool eof) {
-    LogStream("manager") << "mpvw_eofReachedChanged";
-    if (!eof) {
+void PlaybackManager::mpvw_eofReachedChanged(QString eof) {
+    LogStream("manager") << "mpvw_eofReachedChanged eof: " << eof;
+    if (eof == strFalse)
+        return;
+    else if (eof.isEmpty()) {
         emit fileOpenedOrClosed();
         return;
     }

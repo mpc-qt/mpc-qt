@@ -46,7 +46,7 @@ MpvObject::PropertyDispatchMap MpvObject::propertyDispatch = {
     HANDLE_PROP("duration", self_playLengthChanged, toDouble, -1.0),
     HANDLE_PROP("seekable", seekableChanged, toBool, false),
     HANDLE_PROP("pause", pausedChanged, toBool, true),
-    HANDLE_PROP("eof-reached", eofReachedChanged, toBool, false),
+    HANDLE_PROP("eof-reached", eofReachedChanged, toString, QString()),
     HANDLE_PROP("media-title", mediaTitleChanged, toString, QString()),
     HANDLE_PROP("chapter-metadata", chapterDataChanged, toMap, QVariantMap()),
     HANDLE_PROP("chapter-list", chaptersChanged, toList, QVariantList()),

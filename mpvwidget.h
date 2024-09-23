@@ -113,7 +113,7 @@ signals:
     void playbackLoading();
     void playbackStarted();
     void pausedChanged(bool yes);
-    void eofReachedChanged(bool eof);
+    void eofReachedChanged(QString eof);
     void playbackFinished();
     void playbackIdling();
     void mediaTitleChanged(QString title);
