@@ -451,14 +451,15 @@ void PlaybackManager::selectPrevSubtitle()
     setSubtitleTrack(previousSubs, true);
 }
 
-void PlaybackManager::setVolume(int64_t volume)
+void PlaybackManager::setVolume(int64_t volume, bool onInit)
 {
     static int64_t lastVol = -1;
     if (lastVol == volume)
         return;
     lastVol = volume;
     mpvObject_->setVolume(volume);
-    mpvObject_->showMessage(tr("Volume: %1%").arg(volume));
+    if (!onInit)
+        mpvObject_->showMessage(tr("Volume: %1%").arg(volume));
 }
 
 void PlaybackManager::setMute(bool muted, bool onInit)

@@ -2028,10 +2028,10 @@ void MainWindow::setSubtitleText(QString subText)
     subtitleText = subText;
 }
 
-void MainWindow::setVolume(int level)
+void MainWindow::setVolume(int level, bool onInit)
 {
     volumeSlider_->setValue(level);
-    emit volumeChanged(level);
+    emit volumeChanged(level, onInit);
 }
 
 void MainWindow::setVolumeDouble(double level)
