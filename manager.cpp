@@ -828,6 +828,7 @@ void PlaybackManager::mpvw_eofReachedChanged(QString eof) {
         return;
     else if (eof.isEmpty()) {
         emit fileOpenedOrClosed();
+        showAspectOsdTriggeredBy = AspectNameChanged::OnOpen;
         return;
     }
 
@@ -939,9 +940,17 @@ void PlaybackManager::mpvw_videoBitrateChanged(double bitrate)
 
 void PlaybackManager::mpvw_aspectNameChanged(QString newAspectName)
 {
-    if (!newAspectName.isEmpty()) {
-        mpvObject_->showMessage(tr("Aspect ratio: %1").arg(newAspectName));
+    // If it's the first file opened with mpc-qt, OnFirstPlay gets skipped
+    if (showAspectOsdTriggeredBy == AspectNameChanged::OnOpen) {
+        if (newAspectName.isEmpty())
+            showAspectOsdTriggeredBy = AspectNameChanged::OnFirstPlay;
+        else
+            showAspectOsdTriggeredBy = AspectNameChanged::Manually;
     }
+    else if (showAspectOsdTriggeredBy == AspectNameChanged::OnFirstPlay)
+        showAspectOsdTriggeredBy = AspectNameChanged::Manually;
+    else if (!newAspectName.isEmpty())
+        mpvObject_->showMessage(tr("Aspect ratio: %1").arg(newAspectName));
 }
 
 void PlaybackManager::mpvw_metadataChanged(QVariantMap metadata)

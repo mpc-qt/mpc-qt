@@ -157,6 +157,7 @@ public slots:
                              int64_t &audioTrack, int64_t &subtitleTrack);
 
 private:
+    enum AspectNameChanged { OnOpen, OnFirstPlay, Manually };
     void startPlayWithUuid(QUrl what, QUuid playlistUuid, QUuid itemUuid,
                            bool isRepeating, QUrl with = QUrl());
     void selectDesiredTracks();
@@ -239,6 +240,8 @@ private:
     bool folderFallback = false;
 
     bool timeShortMode = false;
+
+    PlaybackManager::AspectNameChanged showAspectOsdTriggeredBy = AspectNameChanged::OnOpen;
 
     Helpers::AfterPlayback afterPlaybackOnce = Helpers::DoNothingAfter;
     Helpers::AfterPlayback afterPlaybackAlways = Helpers::DoNothingAfter;
