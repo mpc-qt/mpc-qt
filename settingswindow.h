@@ -110,7 +110,7 @@ signals:
     void webserverRoot(QString root);
     void webserverDefaultPage(QString page);
 
-    void volume(int level);
+    void volume(int level, bool onInit);
     void balance(double pan);
     void volumeStep(int amount);
     void speedStep(double amount);

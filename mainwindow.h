@@ -145,8 +145,8 @@ signals:
     void subtitlesEnabled(bool enabled);
     void nextSubtitleSelected();
     void previousSubtitleSelected();
-    void volumeChanged(int64_t volume);
-    void volumeMuteChanged(bool muted);
+    void volumeChanged(int64_t volume, bool onInit = false);
+    void volumeMuteChanged(bool muted, bool onInit);
     void afterPlaybackOnce(Helpers::AfterPlayback action);
     void afterPlaybackAlways(Helpers::AfterPlayback action);
     void chapterPrevious();
@@ -256,7 +256,7 @@ public slots:
     void videoTrackSet(int64_t id);
     void subtitleTrackSet(int64_t id);
     void setSubtitleText(QString subText);
-    void setVolume(int level);
+    void setVolume(int level, bool onInit = false);
     void setVolumeDouble(double level);
     void setVolumeMax(int level);
     void setSubtitlesDelayStep(int subtitlesDelayStep);
@@ -370,7 +370,7 @@ private slots:
 
     void on_actionPlayVolumeUp_triggered();
     void on_actionPlayVolumeDown_triggered();
-    void on_actionPlayVolumeMute_toggled(bool checked);
+    void on_actionPlayVolumeMute_toggled(bool checked, bool onInit = false);
 
     void on_actionPlayAfterOnceExit_triggered();
     void on_actionPlayAfterOnceStandby_triggered();

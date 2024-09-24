@@ -135,8 +135,8 @@ public slots:
     void setSubtitleEnabled(bool enabled);
     void selectNextSubtitle();
     void selectPrevSubtitle();
-    void setVolume(int64_t volume);
-    void setMute(bool muted);
+    void setVolume(int64_t volume, bool onInit = false);
+    void setMute(bool muted, bool onInit);
     void setAfterPlaybackOnce(Helpers::AfterPlayback mode);
     void setAfterPlaybackAlways(Helpers::AfterPlayback mode);
     void setAfterPlaybackAlwaysDefault(Helpers::AfterPlayback mode);
