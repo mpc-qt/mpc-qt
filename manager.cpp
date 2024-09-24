@@ -679,18 +679,18 @@ void PlaybackManager::checkAfterPlayback()
 
 void PlaybackManager::updateChapters()
 {
-    if (chapters.isEmpty())
-        return;
-
     QList<QPair<double,QString>> list;
-    for (QVariant &v : chapters) {
-        QMap<QString, QVariant> node = v.toMap();
-        QString text = QString("[%1] - %2").arg(
-                toDateFormatFixed(node["time"].toDouble(),
-                                  timeShortMode ? Helpers::ShortFormat : Helpers::LongFormat),
-                node["title"].toString());
-        QPair<double,QString> item(node["time"].toDouble(), text);
-        list.append(item);
+
+    if (!chapters.isEmpty()) {
+        for (QVariant &v : chapters) {
+            QMap<QString, QVariant> node = v.toMap();
+            QString text = QString("[%1] - %2").arg(
+                    toDateFormatFixed(node["time"].toDouble(),
+                                    timeShortMode ? Helpers::ShortFormat : Helpers::LongFormat),
+                    node["title"].toString());
+            QPair<double,QString> item(node["time"].toDouble(), text);
+            list.append(item);
+        }
     }
     numChapters = list.count();
     emit chaptersAvailable(list);
