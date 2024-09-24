@@ -54,7 +54,7 @@ signals:
     void videoSizeChanged(QSize size);
     void playbackSpeedChanged(double speed);
     void stateChanged(PlaybackManager::PlaybackState state);
-    void fileOpenedOrClosed();
+    void fileClosed();
     void typeChanged(PlaybackManager::PlaybackType type);
     // Transmit a map of chapter index to time,description pairs
     void chaptersAvailable(QList<QPair<double,QString>> chapters);
@@ -157,6 +157,7 @@ public slots:
                              int64_t &audioTrack, int64_t &subtitleTrack);
 
 private:
+    enum AspectNameChanged { OnOpen, OnFirstPlay, Manually };
     void startPlayWithUuid(QUrl what, QUuid playlistUuid, QUuid itemUuid,
                            bool isRepeating, QUrl with = QUrl());
     void selectDesiredTracks();
@@ -179,7 +180,7 @@ private slots:
     void mpvw_pausedChanged(bool yes);
     void mpvw_playbackIdling();
     void mpvw_playbackFinished();
-    void mpvw_eofReachedChanged(bool eof);
+    void mpvw_eofReachedChanged(QString eof);
     void mpvw_mediaTitleChanged(QString title);
     void mpvw_chapterDataChanged(QVariantMap metadata);
     void mpvw_chaptersChanged(QVariantList chapters);
@@ -239,6 +240,8 @@ private:
     bool folderFallback = false;
 
     bool timeShortMode = false;
+
+    PlaybackManager::AspectNameChanged showAspectOsdTriggeredBy = AspectNameChanged::OnOpen;
 
     Helpers::AfterPlayback afterPlaybackOnce = Helpers::DoNothingAfter;
     Helpers::AfterPlayback afterPlaybackAlways = Helpers::DoNothingAfter;

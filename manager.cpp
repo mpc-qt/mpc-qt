@@ -6,6 +6,8 @@
 #include "logger.h"
 
 using namespace Helpers;
+static const char strTrue[] =  "true";
+static const char strFalse[] =  "false";
 
 Q_GLOBAL_STATIC_WITH_ARGS(QRegularExpression, wordSplitter, ("\\W+"));
 
@@ -816,14 +818,17 @@ void PlaybackManager::mpvw_playbackFinished() {
     if (playbackState_ == BufferingState || playbackState_ == WaitingState) {
         playbackState_ = StoppedState;
         emit stateChanged(playbackState_);
-        mpvw_eofReachedChanged(true);
+        mpvw_eofReachedChanged(strTrue);
     }
 }
 
-void PlaybackManager::mpvw_eofReachedChanged(bool eof) {
-    LogStream("manager") << "mpvw_eofReachedChanged";
-    if (!eof) {
-        emit fileOpenedOrClosed();
+void PlaybackManager::mpvw_eofReachedChanged(QString eof) {
+    LogStream("manager") << "mpvw_eofReachedChanged eof: " << eof;
+    if (eof == strFalse)
+        return;
+    else if (eof.isEmpty()) {
+        emit fileClosed();
+        showAspectOsdTriggeredBy = AspectNameChanged::OnOpen;
         return;
     }
 
@@ -935,9 +940,17 @@ void PlaybackManager::mpvw_videoBitrateChanged(double bitrate)
 
 void PlaybackManager::mpvw_aspectNameChanged(QString newAspectName)
 {
-    if (!newAspectName.isEmpty()) {
-        mpvObject_->showMessage(tr("Aspect ratio: %1").arg(newAspectName));
+    // If it's the first file opened with mpc-qt, OnFirstPlay gets skipped
+    if (showAspectOsdTriggeredBy == AspectNameChanged::OnOpen) {
+        if (newAspectName.isEmpty())
+            showAspectOsdTriggeredBy = AspectNameChanged::OnFirstPlay;
+        else
+            showAspectOsdTriggeredBy = AspectNameChanged::Manually;
     }
+    else if (showAspectOsdTriggeredBy == AspectNameChanged::OnFirstPlay)
+        showAspectOsdTriggeredBy = AspectNameChanged::Manually;
+    else if (!newAspectName.isEmpty())
+        mpvObject_->showMessage(tr("Aspect ratio: %1").arg(newAspectName));
 }
 
 void PlaybackManager::mpvw_metadataChanged(QVariantMap metadata)
