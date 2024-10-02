@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>Mouse Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Мышь (полноэкр.)</translation>
     </message>
 </context>
 <context>
@@ -419,7 +419,7 @@
     </message>
     <message>
         <source>Hide &amp;Menu</source>
-        <translation>Скрыть меню</translation>
+        <translation>Скрыть &amp;меню</translation>
     </message>
     <message>
         <source>Ctrl+0</source>
@@ -459,7 +459,7 @@
     </message>
     <message>
         <source>S&amp;tatus</source>
-        <translation>Состояние</translation>
+        <translation>Со&amp;стояние</translation>
     </message>
     <message>
         <source>Ctrl+5</source>
@@ -467,7 +467,7 @@
     </message>
     <message>
         <source>Su&amp;bresync</source>
-        <translation>Пересинхронизировать субтитры</translation>
+        <translation>Пересинхронизировать суб&amp;титры</translation>
     </message>
     <message>
         <source>Ctrl+6</source>
@@ -587,7 +587,7 @@
     </message>
     <message>
         <source>&amp;Options...</source>
-        <translation>Параметры</translation>
+        <translation>&amp;Параметры...</translation>
     </message>
     <message>
         <source>O</source>
@@ -931,7 +931,7 @@
     </message>
     <message>
         <source>E&amp;xport Playlist</source>
-        <translation>Экспортировать список воспроизведения</translation>
+        <translation>Э&amp;кспортировать список воспроизведения</translation>
     </message>
     <message>
         <source>Ctrl+Shift+S</source>
@@ -1095,23 +1095,23 @@
     </message>
     <message>
         <source>&amp;Escape Fullscreen</source>
-        <translation>Выход из полноэкранного режима</translation>
+        <translation>&amp;Выход из полноэкранного режима</translation>
     </message>
     <message>
         <source>Enable &amp;Subtitles</source>
-        <translation>Включить субтитры</translation>
+        <translation>Включить &amp;субтитры</translation>
     </message>
     <message>
         <source>&amp;Next Subtitle</source>
-        <translation>Следующие субтитры</translation>
+        <translation>&amp;Следующие субтитры</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitle</source>
-        <translation>Предыдущие субтитры</translation>
+        <translation>&amp;Предыдущие субтитры</translation>
     </message>
     <message>
         <source>Lo&amp;g</source>
-        <translation>Журнал</translation>
+        <translation>Жур&amp;нал</translation>
     </message>
     <message>
         <source>Once</source>
@@ -1127,11 +1127,11 @@
     </message>
     <message>
         <source>Hide &amp;Borders</source>
-        <translation>Скрыть границы</translation>
+        <translation>Скрыть &amp;границы</translation>
     </message>
     <message>
         <source>Sho&amp;w Caption and Menu</source>
-        <translation>Показать заголовок и меню</translation>
+        <translation>П&amp;оказать заголовок и меню</translation>
     </message>
     <message>
         <source>Quick Open</source>
@@ -1231,7 +1231,7 @@
     </message>
     <message>
         <source>Ctrl+=</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+=</translation>
     </message>
     <message>
         <source>Ctrl+-</source>
@@ -1243,83 +1243,83 @@
     </message>
     <message>
         <source>Controls in Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Управление в полноэкранном режиме</translation>
     </message>
     <message>
         <source>&amp;Previous File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Предыдущий файл</translation>
     </message>
     <message>
         <source>Ctrl+PgUp</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+PgUp</translation>
     </message>
     <message>
         <source>&amp;Next File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Следующий файл</translation>
     </message>
     <message>
         <source>Ctrl+PgDown</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+PgDown</translation>
     </message>
     <message>
         <source>Play next &amp;file</source>
-        <translation type="unfinished"></translation>
+        <translation>Воспроизвести следующий &amp;файл</translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished">Субтитры</translation>
+        <translation>Субтитры</translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Без звука</translation>
     </message>
     <message>
         <source>&amp;Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Добавить в избранное</translation>
     </message>
     <message>
         <source>&amp;Decrease Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Уменьшить задержку</translation>
     </message>
     <message>
         <source>&amp;Increase Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Увеличить задержку</translation>
     </message>
     <message>
         <source>&amp;Video</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Видео</translation>
     </message>
     <message>
         <source>&amp;Show OSD Timer</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Показывать таймер экранного уведомления</translation>
     </message>
     <message>
         <source>I</source>
-        <translation type="unfinished"></translation>
+        <translation>I</translation>
     </message>
     <message>
         <source>&amp;Decrease Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Уменьшить соотношение сторон</translation>
     </message>
     <message>
         <source>&amp;Increase Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Увеличить соотношение сторон</translation>
     </message>
     <message>
         <source>&amp;Reset Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Сбросить соотношение сторон</translation>
     </message>
     <message>
         <source>Disable &amp;Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Отключить &amp;соотношение сторон</translation>
     </message>
     <message>
         <source>C</source>
-        <translation type="unfinished"></translation>
+        <translation>C</translation>
     </message>
     <message>
         <source>%1 / %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2</translation>
     </message>
 </context>
 <context>
@@ -1358,87 +1358,87 @@
     </message>
     <message>
         <source>XButton4</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton4</translation>
     </message>
     <message>
         <source>XButton5</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton5</translation>
     </message>
     <message>
         <source>XButton6</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton6</translation>
     </message>
     <message>
         <source>XButton7</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton7</translation>
     </message>
     <message>
         <source>XButton8</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton8</translation>
     </message>
     <message>
         <source>XButton9</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton9</translation>
     </message>
     <message>
         <source>XButton10</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton10</translation>
     </message>
     <message>
         <source>XButton11</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton11</translation>
     </message>
     <message>
         <source>XButton12</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton12</translation>
     </message>
     <message>
         <source>XButton13</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton13</translation>
     </message>
     <message>
         <source>XButton14</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton14</translation>
     </message>
     <message>
         <source>XButton15</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton15</translation>
     </message>
     <message>
         <source>XButton16</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton16</translation>
     </message>
     <message>
         <source>XButton17</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton17</translation>
     </message>
     <message>
         <source>XButton18</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton18</translation>
     </message>
     <message>
         <source>XButton19</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton19</translation>
     </message>
     <message>
         <source>XButton20</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton20</translation>
     </message>
     <message>
         <source>XButton21</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton21</translation>
     </message>
     <message>
         <source>XButton22</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton22</translation>
     </message>
     <message>
         <source>XButton23</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton23</translation>
     </message>
     <message>
         <source>XButton24</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton24</translation>
     </message>
     <message>
         <source>Shift</source>
@@ -1473,7 +1473,7 @@
     <name>MpvObject</name>
     <message>
         <source>Subtitles delay: %1 ms</source>
-        <translation type="unfinished"></translation>
+        <translation>Задержка субтитров: %1 мс</translation>
     </message>
 </context>
 <context>
@@ -1538,7 +1538,7 @@
     </message>
     <message>
         <source>Aspect ratio: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Соотношение сторон: %1</translation>
     </message>
 </context>
 <context>
@@ -1644,7 +1644,7 @@
     </message>
     <message>
         <source>Sort By Url</source>
-        <translation type="unfinished">Сортировать по адресу</translation>
+        <translation>Сортировать по адресу</translation>
     </message>
     <message>
         <source>Randomize</source>
@@ -1998,12 +1998,12 @@
         <source>Use the same player for
 each &amp;media file</source>
         <translation>Использовать тот же проигрыватель для
-каждого мультимедиа файла</translation>
+каждого &amp;мультимедиа файла</translation>
     </message>
     <message>
         <source>Open a new &amp;player for each
 media file played</source>
-        <translation>Открывать новый проигрыватель для
+        <translation>Открывать новый &amp;проигрыватель для
 каждого мультимедиа файла</translation>
     </message>
     <message>
@@ -2036,15 +2036,15 @@ media file played</source>
     </message>
     <message>
         <source>Disp&amp;lay full path</source>
-        <translation>Выводить полный путь</translation>
+        <translation>Выв&amp;одить полный путь</translation>
     </message>
     <message>
         <source>File &amp;name only</source>
-        <translation>Только имя файла</translation>
+        <translation>Только &amp;имя файла</translation>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
-        <translation>Ничего не делать</translation>
+        <translation>Ничего не д&amp;елать</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
@@ -2104,11 +2104,11 @@ media file played</source>
     </message>
     <message>
         <source>E&amp;xternal</source>
-        <translation>Внешний</translation>
+        <translation>В&amp;нешний</translation>
     </message>
     <message>
         <source>Interna&amp;l</source>
-        <translation>Встроенный</translation>
+        <translation>Встроенны&amp;й</translation>
     </message>
     <message>
         <source>Browse...</source>
@@ -2388,7 +2388,7 @@ media file played</source>
     </message>
     <message>
         <source>Fruit</source>
-        <translation type="unfinished"></translation>
+        <translation>Fruit</translation>
     </message>
     <message>
         <source>Ordered</source>
@@ -2460,7 +2460,7 @@ media file played</source>
     </message>
     <message>
         <source>Anti-ring</source>
-        <translation type="unfinished"></translation>
+        <translation>Anti-ring</translation>
     </message>
     <message>
         <source>Blur</source>
@@ -2472,7 +2472,7 @@ media file played</source>
     </message>
     <message>
         <source>Box</source>
-        <translation type="unfinished"></translation>
+        <translation>Box</translation>
     </message>
     <message>
         <source>Triangle</source>
@@ -2480,7 +2480,7 @@ media file played</source>
     </message>
     <message>
         <source>Bartlett</source>
-        <translation type="unfinished"></translation>
+        <translation>Bartlett</translation>
     </message>
     <message>
         <source>Hanning</source>
@@ -2492,15 +2492,15 @@ media file played</source>
     </message>
     <message>
         <source>Quadric</source>
-        <translation type="unfinished"></translation>
+        <translation>Квадратичный</translation>
     </message>
     <message>
         <source>Welch</source>
-        <translation type="unfinished"></translation>
+        <translation>Welch</translation>
     </message>
     <message>
         <source>Kaiser</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaiser</translation>
     </message>
     <message>
         <source>Blackman</source>
@@ -2512,19 +2512,19 @@ media file played</source>
     </message>
     <message>
         <source>Sinc</source>
-        <translation type="unfinished"></translation>
+        <translation>Sinc</translation>
     </message>
     <message>
         <source>Jinc</source>
-        <translation type="unfinished"></translation>
+        <translation>Jinc</translation>
     </message>
     <message>
         <source>Sphinx</source>
-        <translation type="unfinished"></translation>
+        <translation>Sphinx</translation>
     </message>
     <message>
         <source>Clamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Зажим</translation>
     </message>
     <message>
         <source>Radius</source>
@@ -2536,91 +2536,91 @@ media file played</source>
     </message>
     <message>
         <source>Bicubic_fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Бикубический_быстрый</translation>
     </message>
     <message>
         <source>Oversample</source>
-        <translation type="unfinished"></translation>
+        <translation>Передискретизация</translation>
     </message>
     <message>
         <source>Spline16</source>
-        <translation type="unfinished"></translation>
+        <translation>Сплайн16</translation>
     </message>
     <message>
         <source>Spline36</source>
-        <translation type="unfinished"></translation>
+        <translation>Сплайн36</translation>
     </message>
     <message>
         <source>Spline64</source>
-        <translation type="unfinished"></translation>
+        <translation>Сплайн64</translation>
     </message>
     <message>
         <source>Lanczos</source>
-        <translation type="unfinished"></translation>
+        <translation>Ланцош</translation>
     </message>
     <message>
         <source>Ginseng</source>
-        <translation type="unfinished"></translation>
+        <translation>Ginseng</translation>
     </message>
     <message>
         <source>Ewa lanczos</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa Ланцош</translation>
     </message>
     <message>
         <source>Ewa hanning</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa Хэннинг</translation>
     </message>
     <message>
         <source>Ewa ginseng</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa ginseng</translation>
     </message>
     <message>
         <source>Ewa lanczos sharp</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa lanczos sharp</translation>
     </message>
     <message>
         <source>Ewa lanczos soft</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa lanczos soft</translation>
     </message>
     <message>
         <source>Haasnsoft</source>
-        <translation type="unfinished"></translation>
+        <translation>Haasnsoft</translation>
     </message>
     <message>
         <source>Bicubic</source>
-        <translation type="unfinished"></translation>
+        <translation>Бикубически</translation>
     </message>
     <message>
         <source>Bc spline</source>
-        <translation type="unfinished"></translation>
+        <translation>Бикубический сплайн</translation>
     </message>
     <message>
         <source>Catmull rom</source>
-        <translation type="unfinished"></translation>
+        <translation>Catmull rom</translation>
     </message>
     <message>
         <source>Mitchell</source>
-        <translation type="unfinished"></translation>
+        <translation>Mitchell</translation>
     </message>
     <message>
         <source>Robidoux</source>
-        <translation type="unfinished"></translation>
+        <translation>Robidoux</translation>
     </message>
     <message>
         <source>Robidoux sharp</source>
-        <translation type="unfinished"></translation>
+        <translation>Robidoux (резкий)</translation>
     </message>
     <message>
         <source>Ewa robidoux</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa robidoux</translation>
     </message>
     <message>
         <source>Ewa robidoux sharp</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa robidoux (резкий)</translation>
     </message>
     <message>
         <source>Nearest</source>
-        <translation type="unfinished"></translation>
+        <translation>Ближайший</translation>
     </message>
     <message>
         <source>Downscale</source>
@@ -2688,55 +2688,55 @@ media file played</source>
     </message>
     <message>
         <source>Target Prim</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимальный примитив</translation>
     </message>
     <message>
         <source>BT.601-525</source>
-        <translation type="unfinished"></translation>
+        <translation>BT.601-525</translation>
     </message>
     <message>
         <source>BT.601-625</source>
-        <translation type="unfinished"></translation>
+        <translation>BT.601-625</translation>
     </message>
     <message>
         <source>BT.709</source>
-        <translation type="unfinished"></translation>
+        <translation>BT.709</translation>
     </message>
     <message>
         <source>BT.2020</source>
-        <translation type="unfinished"></translation>
+        <translation>BT.2020</translation>
     </message>
     <message>
         <source>Apple</source>
-        <translation type="unfinished"></translation>
+        <translation>Apple</translation>
     </message>
     <message>
         <source>Adobe</source>
-        <translation type="unfinished"></translation>
+        <translation>Adobe</translation>
     </message>
     <message>
         <source>ProPhoto</source>
-        <translation type="unfinished"></translation>
+        <translation>ProPhoto</translation>
     </message>
     <message>
         <source>CIE1931</source>
-        <translation type="unfinished"></translation>
+        <translation>CIE1931</translation>
     </message>
     <message>
         <source>DCI-P3</source>
-        <translation type="unfinished"></translation>
+        <translation>DCI-P3</translation>
     </message>
     <message>
         <source>Target TRC</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимальный TRC</translation>
     </message>
     <message>
         <source>BT.1886</source>
-        <translation type="unfinished"></translation>
+        <translation>BT.1886</translation>
     </message>
     <message>
         <source>sRGB</source>
-        <translation type="unfinished"></translation>
+        <translation>sRGB</translation>
     </message>
     <message>
         <source>Gamma 1.8</source>
@@ -2752,11 +2752,11 @@ media file played</source>
     </message>
     <message>
         <source>PQ</source>
-        <translation type="unfinished"></translation>
+        <translation>PQ</translation>
     </message>
     <message>
         <source>HLG</source>
-        <translation type="unfinished"></translation>
+        <translation>HLG</translation>
     </message>
     <message>
         <source>Panasonic V-Log</source>
@@ -2772,7 +2772,7 @@ media file played</source>
     </message>
     <message>
         <source>HDR Tone mapping</source>
-        <translation type="unfinished"></translation>
+        <translation>Тональная компрессия HDR</translation>
     </message>
     <message>
         <source>Clip</source>
@@ -2780,15 +2780,15 @@ media file played</source>
     </message>
     <message>
         <source>Mobius</source>
-        <translation type="unfinished"></translation>
+        <translation>Mobius</translation>
     </message>
     <message>
         <source>Reinhard</source>
-        <translation type="unfinished"></translation>
+        <translation>Reinhard</translation>
     </message>
     <message>
         <source>Hable</source>
-        <translation type="unfinished"></translation>
+        <translation>Hable</translation>
     </message>
     <message>
         <source>Luma</source>
@@ -2796,7 +2796,7 @@ media file played</source>
     </message>
     <message>
         <source>Juncture</source>
-        <translation type="unfinished"></translation>
+        <translation>Соединение</translation>
     </message>
     <message>
         <source>Contrast</source>
@@ -2880,7 +2880,7 @@ media file played</source>
     </message>
     <message>
         <source>Latency hacks</source>
-        <translation type="unfinished"></translation>
+        <translation>Решение проблемы задержки</translation>
     </message>
     <message>
         <source>Alsa</source>
@@ -3028,11 +3028,11 @@ media file played</source>
     </message>
     <message>
         <source>Non reference</source>
-        <translation type="unfinished"></translation>
+        <translation>Без ссылки</translation>
     </message>
     <message>
         <source>Bi-directional</source>
-        <translation type="unfinished"></translation>
+        <translation>Двунаправленный</translation>
     </message>
     <message>
         <source>Non key</source>
@@ -3112,7 +3112,7 @@ media file played</source>
     </message>
     <message>
         <source>Windows 8+ - usually safe but rounds 10 bit to 8 bit</source>
-        <translation>Windows 8+ - обычно безопасен, но понижает с 10 бит до 8 бит </translation>
+        <translation>Windows 8+ — обычно безопасен, но понижает с 10 бит до 8 бит</translation>
     </message>
     <message>
         <source>Raspberry PI - hardware overlay renderer</source>
@@ -3136,7 +3136,7 @@ media file played</source>
     </message>
     <message>
         <source>Pla&amp;y</source>
-        <translation>Воспроизвести</translation>
+        <translation>Воспрои&amp;звести</translation>
     </message>
     <message>
         <source>times</source>
@@ -3144,7 +3144,7 @@ media file played</source>
     </message>
     <message>
         <source>Repeat fore&amp;ver</source>
-        <translation>Повторять бесконечно</translation>
+        <translation>Повторять бескон&amp;ечно</translation>
     </message>
     <message>
         <source>Always loop images (manual progression)</source>
@@ -3389,7 +3389,7 @@ media file played</source>
     </message>
     <message>
         <source>Filesi&amp;ze</source>
-        <translation>Размер файла</translation>
+        <translation>Размер ф&amp;айла</translation>
     </message>
     <message>
         <source>MB</source>
@@ -3405,15 +3405,15 @@ media file played</source>
     </message>
     <message>
         <source>crf</source>
-        <translation type="unfinished"></translation>
+        <translation>crf</translation>
     </message>
     <message>
         <source>qmin</source>
-        <translation type="unfinished"></translation>
+        <translation>qmin</translation>
     </message>
     <message>
         <source>qmax</source>
-        <translation type="unfinished"></translation>
+        <translation>qmax</translation>
     </message>
     <message>
         <source>Don&apos;t encode the audio</source>
@@ -3421,7 +3421,7 @@ media file played</source>
     </message>
     <message>
         <source>&quot;Don&apos;t encode&quot; checkboxes are ignored for audio-only or video-only files.</source>
-        <translation>Флажки «Не кодировать» игнорируются только для аудио или видео файлов</translation>
+        <translation>Флажки «Не кодировать» игнорируются только для аудио или видео файлов.</translation>
     </message>
     <message>
         <source>Fast seek (when skipping)</source>
@@ -3449,7 +3449,7 @@ media file played</source>
     </message>
     <message>
         <source>Prefer Wayland over XWayland (restart required)</source>
-        <translation type="unfinished">Выбрать Wayland вместо XWayland (требуется перезапуск).</translation>
+        <translation>Выбрать Wayland вместо XWayland (требуется перезапуск)</translation>
     </message>
     <message>
         <source>Turn on logging (may produce stuttering)</source>
@@ -3513,7 +3513,7 @@ media file played</source>
     </message>
     <message>
         <source>~/mpc-qt-log.txt</source>
-        <translation type="unfinished"></translation>
+        <translation>~/mpc-qt-log.txt</translation>
     </message>
     <message>
         <source>Window update interval</source>
@@ -3585,11 +3585,11 @@ media file played</source>
     </message>
     <message>
         <source>Dela&amp;yed</source>
-        <translation>Отложено</translation>
+        <translation>Отло&amp;жено</translation>
     </message>
     <message>
         <source>Unlimited (consumes &amp;memory)</source>
-        <translation>Без ограничений (потребляет память)</translation>
+        <translation>Без ограничений (потребляет &amp;память)</translation>
     </message>
     <message>
         <source>Auto-load external audio files</source>
@@ -3653,11 +3653,11 @@ media file played</source>
     </message>
     <message>
         <source>index.html</source>
-        <translation type="unfinished"></translation>
+        <translation>index.html</translation>
     </message>
     <message>
         <source>TCP/IP</source>
-        <translation type="unfinished"></translation>
+        <translation>TCP/IP</translation>
     </message>
     <message>
         <source>&lt;a href=&quot;#&quot;&gt;Launch in web browser...&lt;/a&gt;</source>
@@ -3701,7 +3701,7 @@ media file played</source>
     </message>
     <message>
         <source>Default After Playback action:</source>
-        <translation>Действие по умолчанию после воспроизведения</translation>
+        <translation>Действие по умолчанию после воспроизведения:</translation>
     </message>
     <message>
         <source>Do nothing</source>
@@ -3729,7 +3729,7 @@ media file played</source>
     </message>
     <message>
         <source>Pipewire</source>
-        <translation type="unfinished"></translation>
+        <translation>Буфер кадров</translation>
     </message>
     <message>
         <source>Use time tooltip:</source>
@@ -3749,123 +3749,123 @@ media file played</source>
     </message>
     <message>
         <source>Back color</source>
-        <translation type="unfinished"></translation>
+        <translation>Цвет фона</translation>
     </message>
     <message>
         <source>BT.470M</source>
-        <translation type="unfinished"></translation>
+        <translation>BT.470M</translation>
     </message>
     <message>
         <source>V-Gamut</source>
-        <translation type="unfinished"></translation>
+        <translation>V-маска</translation>
     </message>
     <message>
         <source>S-Gamut</source>
-        <translation type="unfinished"></translation>
+        <translation>S-маска</translation>
     </message>
     <message>
         <source>EBU3213</source>
-        <translation type="unfinished"></translation>
+        <translation>EBU3213</translation>
     </message>
     <message>
         <source>Film-C</source>
-        <translation type="unfinished"></translation>
+        <translation>Film-C</translation>
     </message>
     <message>
         <source>ACES AP0</source>
-        <translation type="unfinished"></translation>
+        <translation>ACES AP0</translation>
     </message>
     <message>
         <source>ACES AP1</source>
-        <translation type="unfinished"></translation>
+        <translation>ACES AP1</translation>
     </message>
     <message>
         <source>Gamma 2.0</source>
-        <translation type="unfinished"></translation>
+        <translation>Гамма 2.0</translation>
     </message>
     <message>
         <source>Gamma 2.4</source>
-        <translation type="unfinished"></translation>
+        <translation>Гамма 2.4</translation>
     </message>
     <message>
         <source>Gamma 2.6</source>
-        <translation type="unfinished"></translation>
+        <translation>Гамма 2.6</translation>
     </message>
     <message>
         <source>ST 428</source>
-        <translation type="unfinished"></translation>
+        <translation>ST 428</translation>
     </message>
     <message>
         <source>Target Gamut</source>
-        <translation type="unfinished"></translation>
+        <translation>Целевой цветовой охват</translation>
     </message>
     <message>
         <source>Gamut mapping</source>
-        <translation type="unfinished"></translation>
+        <translation>Компрессия цветового охвата</translation>
     </message>
     <message>
         <source>Perceptual</source>
-        <translation type="unfinished"></translation>
+        <translation>Воспринимаемый</translation>
     </message>
     <message>
         <source>Relative</source>
-        <translation type="unfinished"></translation>
+        <translation>Относительный</translation>
     </message>
     <message>
         <source>Absolute</source>
-        <translation type="unfinished"></translation>
+        <translation>Абсолютный</translation>
     </message>
     <message>
         <source>Desaturate</source>
-        <translation type="unfinished"></translation>
+        <translation>Обесцвечивание</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Затемнить</translation>
     </message>
     <message>
         <source>Warn</source>
-        <translation type="unfinished"></translation>
+        <translation>Предупредить</translation>
     </message>
     <message>
         <source>Send mouse events to mpv</source>
-        <translation type="unfinished"></translation>
+        <translation>Отправлять события мыши в mpv</translation>
     </message>
     <message>
         <source>Send key events to mpv</source>
-        <translation type="unfinished"></translation>
+        <translation>Отправлять события клавиатуры в mpv</translation>
     </message>
     <message>
         <source>Remember file position</source>
-        <translation type="unfinished"></translation>
+        <translation>Запомнить положение файла</translation>
     </message>
     <message>
         <source>Use next/previous file in folder when there is only one item in the playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать следующий/предыдущий файл в папке, если в списке воспроизведения только один элемент</translation>
     </message>
     <message>
         <source>Play next file</source>
-        <translation type="unfinished"></translation>
+        <translation>Воспроизвести следующий файл</translation>
     </message>
     <message>
         <source>Delay step</source>
-        <translation type="unfinished"></translation>
+        <translation>Шаг задержки</translation>
     </message>
     <message>
         <source>Autodetect - best of VAAPI, DXVA, D3D11VA, etc.</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоопределение — лучший из VAAPI, DXVA, D3D11VA и так далее</translation>
     </message>
     <message>
         <source>Linux - works with Intel and AMD GPUs through Mesa, and with nVidia through a translation layer; may only be correct in BT.601 and BT.709</source>
-        <translation type="unfinished"></translation>
+        <translation>Linux — работает с графическими процессорами Intel и AMD через Mesa, а с nVidia через слой трансляции; может быть корректным только в BT.601 и BT.709</translation>
     </message>
     <message>
         <source>nVidia only (faster than CUDA)</source>
-        <translation type="unfinished"></translation>
+        <translation>Только nVidia (быстрее, чем CUDA)</translation>
     </message>
     <message>
         <source>Show OSD timer on seek</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать таймер экранного уведомления при поиске</translation>
     </message>
 </context>
 <context>
@@ -3904,7 +3904,7 @@ media file played</source>
     </message>
     <message>
         <source>Thu&amp;mbnail</source>
-        <translation>Миниатюры</translation>
+        <translation>Мини&amp;атюры</translation>
     </message>
     <message>
         <source>&amp;Quality</source>
