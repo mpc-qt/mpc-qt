@@ -138,7 +138,7 @@ signals:
     void speedDown();
     void speedUp();
     void speedReset();
-    void relativeSeek(bool forwards, bool isSmall);
+    void relativeSeek(bool forwards, bool isLarge);
     void audioTrackSelected(int64_t id, bool userSelected);
     void subtitleTrackSelected(int64_t id, bool userSelected);
     void videoTrackSelected(int64_t id, bool userSelected);
@@ -351,10 +351,10 @@ private slots:
     void on_actionPlayRateDecrease_triggered();
     void on_actionPlayRateIncrease_triggered();
     void on_actionPlayRateReset_triggered();
-    void on_actionPlaySeekForwards_triggered();
-    void on_actionPlaySeekBackwards_triggered();
-    void on_actionPlaySeekForwardsFine_triggered();
-    void on_actionPlaySeekBackwardsFine_triggered();
+    void on_actionPlaySeekForwardsNormal_triggered();
+    void on_actionPlaySeekBackwardsNormal_triggered();
+    void on_actionPlaySeekForwardsLarge_triggered();
+    void on_actionPlaySeekBackwardsLarge_triggered();
 
     void on_actionPlaySubtitlesEnabled_triggered(bool checked);
     void on_actionPlaySubtitlesNext_triggered();

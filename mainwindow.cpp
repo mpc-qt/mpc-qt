@@ -883,10 +883,10 @@ void MainWindow::globalizeAllActions()
     for (QAction *a : ui->menubar->actions()) {
         addAction(a);
     }
-    addAction(ui->actionPlaySeekForwards);
-    addAction(ui->actionPlaySeekForwardsFine);
-    addAction(ui->actionPlaySeekBackwards);
-    addAction(ui->actionPlaySeekBackwardsFine);
+    addAction(ui->actionPlaySeekForwardsNormal);
+    addAction(ui->actionPlaySeekForwardsLarge);
+    addAction(ui->actionPlaySeekBackwardsNormal);
+    addAction(ui->actionPlaySeekBackwardsLarge);
 }
 
 void MainWindow::setUiDecorationState(DecorationState state)
@@ -2674,25 +2674,25 @@ void MainWindow::on_actionPlayRateReset_triggered()
     emit speedReset();
 }
 
-void MainWindow::on_actionPlaySeekForwards_triggered()
+void MainWindow::on_actionPlaySeekForwardsNormal_triggered()
 {
     emit relativeSeek(true, false);
     showOsdTimer(true);
 }
 
-void MainWindow::on_actionPlaySeekBackwards_triggered()
+void MainWindow::on_actionPlaySeekBackwardsNormal_triggered()
 {
     emit relativeSeek(false, false);
     showOsdTimer(true);
 }
 
-void MainWindow::on_actionPlaySeekForwardsFine_triggered()
+void MainWindow::on_actionPlaySeekForwardsLarge_triggered()
 {
     emit relativeSeek(true, true);
     showOsdTimer(true);
 }
 
-void MainWindow::on_actionPlaySeekBackwardsFine_triggered()
+void MainWindow::on_actionPlaySeekBackwardsLarge_triggered()
 {
     emit relativeSeek(false, true);
     showOsdTimer(true);

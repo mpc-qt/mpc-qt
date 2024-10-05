@@ -1109,14 +1109,14 @@ media file played</string>
                </layout>
               </item>
               <item row="2" column="0">
-               <widget class="QLabel" name="playbackTimeStepLabel">
+               <widget class="QLabel" name="playbackNormalStepLabel">
                 <property name="text">
-                 <string>Time step</string>
+                 <string>Normal step</string>
                 </property>
                </widget>
               </item>
               <item row="2" column="1">
-               <widget class="QSpinBox" name="playbackTimeStep">
+               <widget class="QSpinBox" name="playbackNormalStep">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -1124,7 +1124,7 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="suffix">
-                 <string notr="true">ms</string>
+                 <string notr="true"> ms</string>
                 </property>
                 <property name="minimum">
                  <number>1</number>
@@ -1138,14 +1138,14 @@ media file played</string>
                </widget>
               </item>
               <item row="3" column="0">
-               <widget class="QLabel" name="playbackFineStepLabel">
+               <widget class="QLabel" name="playbackLargeStepLabel">
                 <property name="text">
-                 <string>Fine step</string>
+                 <string>Large step</string>
                 </property>
                </widget>
               </item>
               <item row="3" column="1">
-               <widget class="QSpinBox" name="playbackFineStep">
+               <widget class="QSpinBox" name="playbackLargeStep">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -1153,7 +1153,7 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="suffix">
-                 <string notr="true">ms</string>
+                 <string notr="true"> ms</string>
                 </property>
                 <property name="minimum">
                  <number>1</number>
@@ -1162,7 +1162,7 @@ media file played</string>
                  <number>60000</number>
                 </property>
                 <property name="value">
-                 <number>1000</number>
+                 <number>20000</number>
                 </property>
                </widget>
               </item>

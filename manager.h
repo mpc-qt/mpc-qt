@@ -119,14 +119,14 @@ public slots:
     void speedUp();
     void speedDown();
     void speedReset();
-    void relativeSeek(bool forwards, bool isSmall);
+    void relativeSeek(bool forwards, bool isLarge);
 
     // output functions
     void setPlaybackSpeed(double speed);
     void setSpeedStep(double step);
     void setSpeedStepAdditive(bool isAdditive);
+    void setStepTimeNormal(int normalMsec);
     void setStepTimeLarge(int largeMsec);
-    void setStepTimeSmall(int smallMsec);
     void setSubtitleTrackPreference(QString langs);
     void setAudioTrackPreference(QString langs);
     void setAudioTrack(int64_t id, bool userSelected);
@@ -210,8 +210,8 @@ private:
     double mpvSpeed = 1.0;
     double speedStep = 2.0;
     bool speedStepAdditive = true;
-    double stepTimeLarge = 5.0;
-    double stepTimeSmall = 1.0;
+    double stepTimeNormal = 5.0;
+    double stepTimeLarge = 20.0;
     PlaybackState playbackState_ = StoppedState;
     PlaybackState playbackStartState = PlayingState;
 

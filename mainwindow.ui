@@ -1607,33 +1607,33 @@
     <string>Return</string>
    </property>
   </action>
-  <action name="actionPlaySeekForwards">
+  <action name="actionPlaySeekForwardsNormal">
    <property name="text">
-    <string>Seek Forwards</string>
+    <string>Seek Forwards (normal step)</string>
    </property>
    <property name="shortcut">
     <string>Right</string>
    </property>
   </action>
-  <action name="actionPlaySeekBackwards">
+  <action name="actionPlaySeekBackwardsNormal">
    <property name="text">
-    <string>Seek Backwards</string>
+    <string>Seek Backwards (normal step)</string>
    </property>
    <property name="shortcut">
     <string>Left</string>
    </property>
   </action>
-  <action name="actionPlaySeekForwardsFine">
+  <action name="actionPlaySeekForwardsLarge">
    <property name="text">
-    <string>Seek Forwards Finely</string>
+    <string>Seek Forwards (large step)</string>
    </property>
    <property name="shortcut">
     <string>Shift+Right</string>
    </property>
   </action>
-  <action name="actionPlaySeekBackwardsFine">
+  <action name="actionPlaySeekBackwardsLarge">
    <property name="text">
-    <string>Seek Backwards Finely</string>
+    <string>Seek Backwards (large step)</string>
    </property>
    <property name="shortcut">
     <string>Shift+Left</string>
