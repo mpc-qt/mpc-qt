@@ -807,7 +807,7 @@
     </message>
     <message>
         <source>Seek Forwards</source>
-        <translation>Искать вперёд</translation>
+        <translation type="vanished">Искать вперёд</translation>
     </message>
     <message>
         <source>Right</source>
@@ -815,7 +815,7 @@
     </message>
     <message>
         <source>Seek Backwards</source>
-        <translation>Искать назад</translation>
+        <translation type="vanished">Искать назад</translation>
     </message>
     <message>
         <source>Left</source>
@@ -823,7 +823,7 @@
     </message>
     <message>
         <source>Seek Forwards Finely</source>
-        <translation>Тонкий поиск вперёд</translation>
+        <translation type="vanished">Тонкий поиск вперёд</translation>
     </message>
     <message>
         <source>Shift+Right</source>
@@ -831,7 +831,7 @@
     </message>
     <message>
         <source>Seek Backwards Finely</source>
-        <translation>Тонкий поиск назад</translation>
+        <translation type="vanished">Тонкий поиск назад</translation>
     </message>
     <message>
         <source>Shift+Left</source>
@@ -1320,6 +1320,22 @@
     <message>
         <source>%1 / %2</source>
         <translation>%1 / %2</translation>
+    </message>
+    <message>
+        <source>Seek Forwards (normal step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Backwards (normal step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Forwards (large step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Backwards (large step)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2216,11 +2232,11 @@ media file played</source>
     </message>
     <message>
         <source>Time step</source>
-        <translation>Шаг изменения времени</translation>
+        <translation type="vanished">Шаг изменения времени</translation>
     </message>
     <message>
         <source>Fine step</source>
-        <translation>Нормальный шаг</translation>
+        <translation type="vanished">Нормальный шаг</translation>
     </message>
     <message>
         <source>Center window when zooming</source>
@@ -3866,6 +3882,14 @@ media file played</source>
     <message>
         <source>Show OSD timer on seek</source>
         <translation>Показывать таймер экранного уведомления при поиске</translation>
+    </message>
+    <message>
+        <source>Normal step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Large step</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

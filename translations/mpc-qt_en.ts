@@ -807,7 +807,7 @@
     </message>
     <message>
         <source>Seek Forwards</source>
-        <translation>Seek Forwards</translation>
+        <translation type="vanished">Seek Forwards</translation>
     </message>
     <message>
         <source>Right</source>
@@ -815,7 +815,7 @@
     </message>
     <message>
         <source>Seek Backwards</source>
-        <translation>Seek Backwards</translation>
+        <translation type="vanished">Seek Backwards</translation>
     </message>
     <message>
         <source>Left</source>
@@ -823,7 +823,7 @@
     </message>
     <message>
         <source>Seek Forwards Finely</source>
-        <translation>Seek Forwards Finely</translation>
+        <translation type="vanished">Seek Forwards Finely</translation>
     </message>
     <message>
         <source>Shift+Right</source>
@@ -831,7 +831,7 @@
     </message>
     <message>
         <source>Seek Backwards Finely</source>
-        <translation>Seek Backwards Finely</translation>
+        <translation type="vanished">Seek Backwards Finely</translation>
     </message>
     <message>
         <source>Shift+Left</source>
@@ -1340,6 +1340,22 @@
     <message>
         <source>%1 / %2</source>
         <translation>%1 / %2</translation>
+    </message>
+    <message>
+        <source>Seek Forwards (normal step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Backwards (normal step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Forwards (large step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Backwards (large step)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2236,11 +2252,11 @@ media file played</translation>
     </message>
     <message>
         <source>Time step</source>
-        <translation>Time step</translation>
+        <translation type="vanished">Time step</translation>
     </message>
     <message>
         <source>Fine step</source>
-        <translation>Fine step</translation>
+        <translation type="vanished">Fine step</translation>
     </message>
     <message>
         <source>Center window when zooming</source>
@@ -3894,6 +3910,14 @@ media file played</translation>
     <message>
         <source>Show OSD timer on seek</source>
         <translation>Show OSD timer on seek</translation>
+    </message>
+    <message>
+        <source>Normal step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Large step</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

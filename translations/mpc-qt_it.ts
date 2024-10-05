@@ -799,7 +799,7 @@
     </message>
     <message>
         <source>Seek Forwards</source>
-        <translation>Cerca in avanti</translation>
+        <translation type="vanished">Cerca in avanti</translation>
     </message>
     <message>
         <source>Right</source>
@@ -807,7 +807,7 @@
     </message>
     <message>
         <source>Seek Backwards</source>
-        <translation>Cerca all&apos;indietro</translation>
+        <translation type="vanished">Cerca all&apos;indietro</translation>
     </message>
     <message>
         <source>Left</source>
@@ -815,7 +815,7 @@
     </message>
     <message>
         <source>Seek Forwards Finely</source>
-        <translation>Cerca in avanti con precisione</translation>
+        <translation type="vanished">Cerca in avanti con precisione</translation>
     </message>
     <message>
         <source>Shift+Right</source>
@@ -823,7 +823,7 @@
     </message>
     <message>
         <source>Seek Backwards Finely</source>
-        <translation>Cerca all&apos;indietro con precisione</translation>
+        <translation type="vanished">Cerca all&apos;indietro con precisione</translation>
     </message>
     <message>
         <source>Shift+Left</source>
@@ -1303,6 +1303,22 @@
     </message>
     <message>
         <source>%1 / %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Forwards (normal step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Backwards (normal step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Forwards (large step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Backwards (large step)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2197,14 +2213,6 @@ ogni file multimediale riprodotto</translation>
     <message>
         <source>Auto</source>
         <translation>Auto</translation>
-    </message>
-    <message>
-        <source>Time step</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fine step</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Center window when zooming</source>
@@ -3829,6 +3837,14 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Show OSD timer on seek</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Normal step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Large step</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

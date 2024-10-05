@@ -807,7 +807,7 @@
     </message>
     <message>
         <source>Seek Forwards</source>
-        <translation>向后跳转</translation>
+        <translation type="vanished">向后跳转</translation>
     </message>
     <message>
         <source>Right</source>
@@ -815,7 +815,7 @@
     </message>
     <message>
         <source>Seek Backwards</source>
-        <translation>向前跳转</translation>
+        <translation type="vanished">向前跳转</translation>
     </message>
     <message>
         <source>Left</source>
@@ -823,7 +823,7 @@
     </message>
     <message>
         <source>Seek Forwards Finely</source>
-        <translation>向前跳转(小)</translation>
+        <translation type="vanished">向前跳转(小)</translation>
     </message>
     <message>
         <source>Shift+Right</source>
@@ -831,7 +831,7 @@
     </message>
     <message>
         <source>Seek Backwards Finely</source>
-        <translation>向前跳转(小)</translation>
+        <translation type="vanished">向前跳转(小)</translation>
     </message>
     <message>
         <source>Shift+Left</source>
@@ -1311,6 +1311,22 @@
     </message>
     <message>
         <source>%1 / %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Forwards (normal step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Backwards (normal step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Forwards (large step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Backwards (large step)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2202,14 +2218,6 @@ media file played</source>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Time step</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fine step</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3827,6 +3835,14 @@ media file played</source>
     </message>
     <message>
         <source>Show OSD timer on seek</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Normal step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Large step</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
