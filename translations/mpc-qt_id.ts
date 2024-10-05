@@ -699,7 +699,7 @@
     </message>
     <message>
         <source>Do &amp;Nothing</source>
-        <translation>Tidak melakukan apapun</translation>
+        <translation>Tidak melakuka&amp;n apapun</translation>
     </message>
     <message>
         <source>Play next in the &amp;folder</source>
@@ -975,19 +975,19 @@
     </message>
     <message>
         <source>Ctrl+Shift+V</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+V</translation>
     </message>
     <message>
         <source>C&amp;opy Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Salin Antrian (&amp;o)</translation>
     </message>
     <message>
         <source>Ctrl+Alt+C</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Alt+C</translation>
     </message>
     <message>
         <source>Paste and Q&amp;ueue</source>
-        <translation type="unfinished"></translation>
+        <translation>Tempel dan Antrikan (&amp;u)</translation>
     </message>
     <message>
         <source>Ctrl+Alt+V</source>
@@ -999,7 +999,7 @@
     </message>
     <message>
         <source>Save Pl&amp;ain Image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Simpan G&amp;ambar Polos..</translation>
     </message>
     <message>
         <source>Alt+Shift+I</source>
@@ -1007,7 +1007,7 @@
     </message>
     <message>
         <source>Save Plain Ima&amp;ge (Auto)</source>
-        <translation type="unfinished"></translation>
+        <translation>Simpan &amp;Gambar Polos (Oto)</translation>
     </message>
     <message>
         <source>Shift+F5</source>
@@ -1015,15 +1015,15 @@
     </message>
     <message>
         <source>Export Encode...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekspor Pengkode..</translation>
     </message>
     <message>
         <source>F12</source>
-        <translation type="unfinished"></translation>
+        <translation>F12</translation>
     </message>
     <message>
         <source>S&amp;how Quick Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan Antrian Cepat (&amp;h)</translation>
     </message>
     <message>
         <source>Ctrl+`</source>
@@ -1031,11 +1031,11 @@
     </message>
     <message>
         <source>Save &amp;Window Image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Simpan Gambar Jendela (&amp;w)..</translation>
     </message>
     <message>
         <source>Save Window Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Simpan Gambar Jendela</translation>
     </message>
     <message>
         <source>Ctrl+Alt+I</source>
@@ -1043,7 +1043,7 @@
     </message>
     <message>
         <source>Save Window Image (Auto)</source>
-        <translation type="unfinished"></translation>
+        <translation>Simpan Gambar Jendela (Oto)</translation>
     </message>
     <message>
         <source>Ctrl+F5</source>
@@ -1051,7 +1051,7 @@
     </message>
     <message>
         <source>Do No&amp;thing</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tidak melakukan apapun</translation>
     </message>
     <message>
         <source>Repe&amp;at</source>
@@ -1063,7 +1063,7 @@
     </message>
     <message>
         <source>&amp;Application Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Pesan &amp;Aplikasi</translation>
     </message>
     <message>
         <source>&amp;General Statistics</source>
@@ -1071,11 +1071,11 @@
     </message>
     <message>
         <source>&amp;Frame Timings</source>
-        <translation type="unfinished"></translation>
+        <translation>Pewaktu Bingkai (&amp;f)</translation>
     </message>
     <message>
         <source>&amp;Cycle</source>
-        <translation type="unfinished"></translation>
+        <translation>Siklus (&amp;c)</translation>
     </message>
     <message>
         <source>Ctrl+J</source>
@@ -1087,7 +1087,7 @@
     </message>
     <message>
         <source>&amp;Escape Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>K&amp;eluar Layar Penuh</translation>
     </message>
     <message>
         <source>Enable &amp;Subtitles</source>
@@ -1095,23 +1095,23 @@
     </message>
     <message>
         <source>&amp;Next Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>Takarir Selanjut&amp;nya</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>Takarir Sebelumnya (&amp;p)</translation>
     </message>
     <message>
         <source>Lo&amp;g</source>
-        <translation type="unfinished"></translation>
+        <translation>Lo&amp;g</translation>
     </message>
     <message>
         <source>Once</source>
-        <translation type="unfinished"></translation>
+        <translation>Sekali</translation>
     </message>
     <message>
         <source>Every time</source>
-        <translation type="unfinished"></translation>
+        <translation>Setiap kali</translation>
     </message>
     <message>
         <source>View</source>
@@ -1119,55 +1119,55 @@
     </message>
     <message>
         <source>Hide &amp;Borders</source>
-        <translation type="unfinished"></translation>
+        <translation>Sembunyikan &amp;Batas</translation>
     </message>
     <message>
         <source>Sho&amp;w Caption and Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan teks dan menu (&amp;W)</translation>
     </message>
     <message>
         <source>Quick Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Buka Cepat</translation>
     </message>
     <message>
         <source>No files favorited</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidak ada berkas unggulan</translation>
     </message>
     <message>
         <source>No streams favorited</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidak ada Siaran Unggulan</translation>
     </message>
     <message>
         <source> [Freestanding]</source>
-        <translation type="unfinished"></translation>
+        <translation> ·[Berdiri sendiri]</translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambah Cepat ke Daftar Putar</translation>
     </message>
     <message>
         <source>&amp;Quick Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>Buka Berkas Cepat (&amp;Q)</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Buka Direktori</translation>
     </message>
     <message>
         <source>Enter Network Stream</source>
-        <translation type="unfinished"></translation>
+        <translation>Masukki Siaran Jaringan</translation>
     </message>
     <message>
         <source>Network Stream</source>
-        <translation type="unfinished"></translation>
+        <translation>SIaran Jaringan</translation>
     </message>
     <message>
         <source>Open Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>Buka Takarir</translation>
     </message>
     <message>
         <source>Development Build</source>
-        <translation type="unfinished"></translation>
+        <translation>Versi untuk Pengembang</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -1203,7 +1203,7 @@
     </message>
     <message>
         <source>Playing</source>
-        <translation type="unfinished"></translation>
+        <translation>Memutar</translation>
     </message>
     <message>
         <source>Buffering</source>
@@ -3701,7 +3701,7 @@ media file played</source>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidak melakukan apapun</translation>
     </message>
     <message>
         <source>Repeat</source>
