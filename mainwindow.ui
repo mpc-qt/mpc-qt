@@ -758,8 +758,8 @@
       <string>Su&amp;btitles</string>
      </property>
      <addaction name="actionPlaySubtitlesEnabled"/>
-     <addaction name="actionPlaySubtitlesNext"/>
      <addaction name="actionPlaySubtitlesPrevious"/>
+     <addaction name="actionPlaySubtitlesNext"/>
      <addaction name="actionPlaySubtitlesCopy"/>
      <addaction name="actionDecreaseSubtitlesDelay"/>
      <addaction name="actionIncreaseSubtitlesDelay"/>
@@ -2007,20 +2007,20 @@
     <string notr="true"/>
    </property>
   </action>
-  <action name="actionPlaySubtitlesNext">
-   <property name="text">
-    <string>&amp;Next Subtitle</string>
-   </property>
-   <property name="shortcut">
-    <string notr="true">S</string>
-   </property>
-  </action>
   <action name="actionPlaySubtitlesPrevious">
    <property name="text">
     <string>&amp;Previous Subtitle</string>
    </property>
    <property name="shortcut">
     <string notr="true">Shift+S</string>
+   </property>
+  </action>
+  <action name="actionPlaySubtitlesNext">
+   <property name="text">
+    <string>&amp;Next Subtitle</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">S</string>
    </property>
   </action>
   <action name="actionDecreaseSubtitlesDelay">

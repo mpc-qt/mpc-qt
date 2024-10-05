@@ -1994,8 +1994,8 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
     ui->menuPlaySubtitles->setEnabled(true);
     subtitleTracksGroup = new QActionGroup(this);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesEnabled);
-    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesNext);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesPrevious);
+    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesNext);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesCopy);
     ui->menuPlaySubtitles->addAction(ui->actionDecreaseSubtitlesDelay);
     ui->menuPlaySubtitles->addAction(ui->actionIncreaseSubtitlesDelay);
