@@ -115,6 +115,18 @@ QList<QAction *> MainWindow::editableActions()
 {
     QList<QAction*> actionList;
     actionsToList(actionList, actions());
+
+    // Reorder actions so that seek keys aren't at the bottom
+    qsizetype indexOfActionPlayFrameForward = actionList.indexOf(ui->actionPlayFrameForward);
+    actionList.move(actionList.indexOf(ui->actionPlaySeekForwardsLarge),
+        indexOfActionPlayFrameForward + 1);
+    actionList.move(actionList.indexOf(ui->actionPlaySeekBackwardsLarge),
+        indexOfActionPlayFrameForward + 1);
+    actionList.move(actionList.indexOf(ui->actionPlaySeekForwardsNormal),
+        indexOfActionPlayFrameForward + 1);
+    actionList.move(actionList.indexOf(ui->actionPlaySeekBackwardsNormal),
+        indexOfActionPlayFrameForward + 1);
+
     return actionList;
 }
 
@@ -883,10 +895,10 @@ void MainWindow::globalizeAllActions()
     for (QAction *a : ui->menubar->actions()) {
         addAction(a);
     }
-    addAction(ui->actionPlaySeekForwardsNormal);
-    addAction(ui->actionPlaySeekForwardsLarge);
     addAction(ui->actionPlaySeekBackwardsNormal);
+    addAction(ui->actionPlaySeekForwardsNormal);
     addAction(ui->actionPlaySeekBackwardsLarge);
+    addAction(ui->actionPlaySeekForwardsLarge);
 }
 
 void MainWindow::setUiDecorationState(DecorationState state)
