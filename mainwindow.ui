@@ -758,8 +758,8 @@
       <string>Su&amp;btitles</string>
      </property>
      <addaction name="actionPlaySubtitlesEnabled"/>
-     <addaction name="actionPlaySubtitlesNext"/>
      <addaction name="actionPlaySubtitlesPrevious"/>
+     <addaction name="actionPlaySubtitlesNext"/>
      <addaction name="actionPlaySubtitlesCopy"/>
      <addaction name="actionDecreaseSubtitlesDelay"/>
      <addaction name="actionIncreaseSubtitlesDelay"/>
@@ -812,8 +812,8 @@
     </widget>
     <addaction name="actionPlayPause"/>
     <addaction name="actionPlayStop"/>
-    <addaction name="actionPlayFrameForward"/>
     <addaction name="actionPlayFrameBackward"/>
+    <addaction name="actionPlayFrameForward"/>
     <addaction name="separator"/>
     <addaction name="actionPlayRateDecrease"/>
     <addaction name="actionPlayRateIncrease"/>
@@ -1316,20 +1316,20 @@
     <string>.</string>
    </property>
   </action>
-  <action name="actionPlayFrameForward">
-   <property name="text">
-    <string>F&amp;rame Step Forward</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+Right</string>
-   </property>
-  </action>
   <action name="actionPlayFrameBackward">
    <property name="text">
     <string>Fra&amp;me Step Backward</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Left</string>
+   </property>
+  </action>
+  <action name="actionPlayFrameForward">
+   <property name="text">
+    <string>F&amp;rame Step Forward</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Right</string>
    </property>
   </action>
   <action name="actionPlayRateDecrease">
@@ -1607,33 +1607,33 @@
     <string>Return</string>
    </property>
   </action>
-  <action name="actionPlaySeekForwards">
+  <action name="actionPlaySeekForwardsNormal">
    <property name="text">
-    <string>Seek Forwards</string>
+    <string>Seek Forwards (normal step)</string>
    </property>
    <property name="shortcut">
     <string>Right</string>
    </property>
   </action>
-  <action name="actionPlaySeekBackwards">
+  <action name="actionPlaySeekBackwardsNormal">
    <property name="text">
-    <string>Seek Backwards</string>
+    <string>Seek Backwards (normal step)</string>
    </property>
    <property name="shortcut">
     <string>Left</string>
    </property>
   </action>
-  <action name="actionPlaySeekForwardsFine">
+  <action name="actionPlaySeekForwardsLarge">
    <property name="text">
-    <string>Seek Forwards Finely</string>
+    <string>Seek Forwards (large step)</string>
    </property>
    <property name="shortcut">
     <string>Shift+Right</string>
    </property>
   </action>
-  <action name="actionPlaySeekBackwardsFine">
+  <action name="actionPlaySeekBackwardsLarge">
    <property name="text">
-    <string>Seek Backwards Finely</string>
+    <string>Seek Backwards (large step)</string>
    </property>
    <property name="shortcut">
     <string>Shift+Left</string>
@@ -2007,20 +2007,20 @@
     <string notr="true"/>
    </property>
   </action>
-  <action name="actionPlaySubtitlesNext">
-   <property name="text">
-    <string>&amp;Next Subtitle</string>
-   </property>
-   <property name="shortcut">
-    <string notr="true">S</string>
-   </property>
-  </action>
   <action name="actionPlaySubtitlesPrevious">
    <property name="text">
     <string>&amp;Previous Subtitle</string>
    </property>
    <property name="shortcut">
     <string notr="true">Shift+S</string>
+   </property>
+  </action>
+  <action name="actionPlaySubtitlesNext">
+   <property name="text">
+    <string>&amp;Next Subtitle</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">S</string>
    </property>
   </action>
   <action name="actionDecreaseSubtitlesDelay">

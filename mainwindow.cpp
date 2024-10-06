@@ -115,6 +115,18 @@ QList<QAction *> MainWindow::editableActions()
 {
     QList<QAction*> actionList;
     actionsToList(actionList, actions());
+
+    // Reorder actions so that seek keys aren't at the bottom
+    qsizetype indexOfActionPlayFrameForward = actionList.indexOf(ui->actionPlayFrameForward);
+    actionList.move(actionList.indexOf(ui->actionPlaySeekForwardsLarge),
+        indexOfActionPlayFrameForward + 1);
+    actionList.move(actionList.indexOf(ui->actionPlaySeekBackwardsLarge),
+        indexOfActionPlayFrameForward + 1);
+    actionList.move(actionList.indexOf(ui->actionPlaySeekForwardsNormal),
+        indexOfActionPlayFrameForward + 1);
+    actionList.move(actionList.indexOf(ui->actionPlaySeekBackwardsNormal),
+        indexOfActionPlayFrameForward + 1);
+
     return actionList;
 }
 
@@ -883,10 +895,10 @@ void MainWindow::globalizeAllActions()
     for (QAction *a : ui->menubar->actions()) {
         addAction(a);
     }
-    addAction(ui->actionPlaySeekForwards);
-    addAction(ui->actionPlaySeekForwardsFine);
-    addAction(ui->actionPlaySeekBackwards);
-    addAction(ui->actionPlaySeekBackwardsFine);
+    addAction(ui->actionPlaySeekBackwardsNormal);
+    addAction(ui->actionPlaySeekForwardsNormal);
+    addAction(ui->actionPlaySeekBackwardsLarge);
+    addAction(ui->actionPlaySeekForwardsLarge);
 }
 
 void MainWindow::setUiDecorationState(DecorationState state)
@@ -1982,8 +1994,8 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
     ui->menuPlaySubtitles->setEnabled(true);
     subtitleTracksGroup = new QActionGroup(this);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesEnabled);
-    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesNext);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesPrevious);
+    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesNext);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesCopy);
     ui->menuPlaySubtitles->addAction(ui->actionDecreaseSubtitlesDelay);
     ui->menuPlaySubtitles->addAction(ui->actionIncreaseSubtitlesDelay);
@@ -2674,25 +2686,25 @@ void MainWindow::on_actionPlayRateReset_triggered()
     emit speedReset();
 }
 
-void MainWindow::on_actionPlaySeekForwards_triggered()
+void MainWindow::on_actionPlaySeekForwardsNormal_triggered()
 {
     emit relativeSeek(true, false);
     showOsdTimer(true);
 }
 
-void MainWindow::on_actionPlaySeekBackwards_triggered()
+void MainWindow::on_actionPlaySeekBackwardsNormal_triggered()
 {
     emit relativeSeek(false, false);
     showOsdTimer(true);
 }
 
-void MainWindow::on_actionPlaySeekForwardsFine_triggered()
+void MainWindow::on_actionPlaySeekForwardsLarge_triggered()
 {
     emit relativeSeek(true, true);
     showOsdTimer(true);
 }
 
-void MainWindow::on_actionPlaySeekBackwardsFine_triggered()
+void MainWindow::on_actionPlaySeekBackwardsLarge_triggered()
 {
     emit relativeSeek(false, true);
     showOsdTimer(true);

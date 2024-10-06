@@ -640,10 +640,10 @@ void Flow::setupSettingsConnections()
             playbackManager, &PlaybackManager::setSpeedStep);
     connect(settingsWindow, &SettingsWindow::speedStepAdditive,
             playbackManager, &PlaybackManager::setSpeedStepAdditive);
+    connect(settingsWindow, &SettingsWindow::stepTimeNormal,
+            playbackManager, &PlaybackManager::setStepTimeNormal);
     connect(settingsWindow, &SettingsWindow::stepTimeLarge,
             playbackManager, &PlaybackManager::setStepTimeLarge);
-    connect(settingsWindow, &SettingsWindow::stepTimeSmall,
-            playbackManager, &PlaybackManager::setStepTimeSmall);
     connect(settingsWindow, &SettingsWindow::trackSubtitlePreference,
             playbackManager, &PlaybackManager::setSubtitleTrackPreference);
     connect(settingsWindow, &SettingsWindow::trackAudioPreference,

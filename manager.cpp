@@ -355,10 +355,10 @@ void PlaybackManager::speedReset()
     setPlaybackSpeed(1.0);
 }
 
-void PlaybackManager::relativeSeek(bool forwards, bool isSmall)
+void PlaybackManager::relativeSeek(bool forwards, bool isLarge)
 {
     mpvObject_->seek((forwards ? 1.0 : -1.0) *
-                     (isSmall ? stepTimeSmall : stepTimeLarge), isSmall);
+                     (isLarge ? stepTimeLarge : stepTimeNormal), !isLarge);
 }
 
 void PlaybackManager::setPlaybackSpeed(double speed)
@@ -379,14 +379,14 @@ void PlaybackManager::setSpeedStepAdditive(bool isAdditive)
     speedStepAdditive = isAdditive;
 }
 
+void PlaybackManager::setStepTimeNormal(int normalMsec)
+{
+    stepTimeNormal = normalMsec / 1000.0;
+}
+
 void PlaybackManager::setStepTimeLarge(int largeMsec)
 {
     stepTimeLarge = largeMsec / 1000.0;
-}
-
-void PlaybackManager::setStepTimeSmall(int smallMsec)
-{
-    stepTimeSmall = smallMsec / 1000.0;
 }
 
 void PlaybackManager::setSubtitleTrackPreference(QString langs)

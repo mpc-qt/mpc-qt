@@ -115,8 +115,8 @@ signals:
     void volumeStep(int amount);
     void speedStep(double amount);
     void speedStepAdditive(bool isAdditive);
+    void stepTimeNormal(int msec);
     void stepTimeLarge(int msec);
-    void stepTimeSmall(int msec);
     void zoomPreset(int which, double fitFactor);
     void zoomCenter(bool yes);
     void mouseHideTimeFullscreen(int msec);

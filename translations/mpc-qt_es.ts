@@ -147,7 +147,7 @@
     <name>MainWindow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Reproductor multimedia clásico Qute Theater</translation>
     </message>
     <message>
         <source>Play</source>
@@ -807,7 +807,7 @@
     </message>
     <message>
         <source>Seek Forwards</source>
-        <translation>Buscar hacia delante</translation>
+        <translation type="vanished">Buscar hacia delante</translation>
     </message>
     <message>
         <source>Right</source>
@@ -815,7 +815,7 @@
     </message>
     <message>
         <source>Seek Backwards</source>
-        <translation>Buscar hacia atrás</translation>
+        <translation type="vanished">Buscar hacia atrás</translation>
     </message>
     <message>
         <source>Left</source>
@@ -823,7 +823,7 @@
     </message>
     <message>
         <source>Seek Forwards Finely</source>
-        <translation>Búsqueda hacia delante precisa</translation>
+        <translation type="vanished">Búsqueda hacia delante precisa</translation>
     </message>
     <message>
         <source>Shift+Right</source>
@@ -831,7 +831,7 @@
     </message>
     <message>
         <source>Seek Backwards Finely</source>
-        <translation>Búsqueda hacia atrás precisa</translation>
+        <translation type="vanished">Búsqueda hacia atrás precisa</translation>
     </message>
     <message>
         <source>Shift+Left</source>
@@ -1311,6 +1311,22 @@
     </message>
     <message>
         <source>%1 / %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Forwards (normal step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Backwards (normal step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Forwards (large step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek Backwards (large step)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2208,11 +2224,11 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Time step</source>
-        <translation>Paso de tiempo</translation>
+        <translation type="vanished">Paso de tiempo</translation>
     </message>
     <message>
         <source>Fine step</source>
-        <translation>Paso preciso</translation>
+        <translation type="vanished">Paso preciso</translation>
     </message>
     <message>
         <source>Center window when zooming</source>
@@ -3853,6 +3869,14 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Show OSD timer on seek</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Normal step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Large step</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
