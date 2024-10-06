@@ -2615,6 +2615,8 @@ void MainWindow::on_actionViewOntopDefault_toggled(bool checked)
         return;
     onTopMode = OnTopDefault;
     updateOnTop();
+    ui->actionViewOntopAlways->setShortcut(ui->actionViewOntopDefault->shortcut());
+    ui->actionViewOntopDefault->setShortcut(QKeySequence());
 }
 
 void MainWindow::on_actionViewOntopAlways_toggled(bool checked)
@@ -2623,6 +2625,8 @@ void MainWindow::on_actionViewOntopAlways_toggled(bool checked)
         return;
     onTopMode = AlwaysOnTop;
     updateOnTop();
+    ui->actionViewOntopDefault->setShortcut(ui->actionViewOntopAlways->shortcut());
+    ui->actionViewOntopAlways->setShortcut(QKeySequence());
 }
 
 void MainWindow::on_actionViewOntopPlaying_toggled(bool checked)
