@@ -210,6 +210,7 @@ public slots:
 
 private slots:
     void self_volumeMax(int maximum);
+    void restoreColorControls();
     void colorPick_clicked(QLineEdit *colorValue);
     void colorPick_changed(QLineEdit *colorValue, QPushButton *colorPick);
 
@@ -264,6 +265,18 @@ private slots:
     void on_playbackMouseHideFullscreen_toggled(bool checked);
 
     void on_playbackMouseHideWindowed_toggled(bool checked);
+
+    void on_miscBrightness_valueChanged(int value);
+
+    void on_miscContrast_valueChanged(int value);
+
+    void on_miscGamma_valueChanged(int value);
+
+    void on_miscSaturation_valueChanged(int value);
+
+    void on_miscResetColor_clicked();
+
+    void on_miscHue_valueChanged(int value);
 
     void on_miscResetSettings_clicked();
 

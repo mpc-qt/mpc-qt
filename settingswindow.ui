@@ -4009,33 +4009,6 @@ media file played</string>
                   <property name="fieldGrowthPolicy">
                    <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
                   </property>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="ccGammaLabel">
-                    <property name="text">
-                     <string>Gamma</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <layout class="QHBoxLayout" name="ccGammaLayout" stretch="1">
-                    <item>
-                     <widget class="QDoubleSpinBox" name="ccGamma">
-                      <property name="decimals">
-                       <number>6</number>
-                      </property>
-                      <property name="minimum">
-                       <double>0.100000000000000</double>
-                      </property>
-                      <property name="maximum">
-                       <double>2.000000000000000</double>
-                      </property>
-                      <property name="value">
-                       <double>1.000000000000000</double>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
                   <item row="3" column="0">
                    <widget class="QLabel" name="ccTargetPrimLabel">
                     <property name="text">
@@ -8017,8 +7990,14 @@ media file played</string>
                 </item>
                 <item row="0" column="1">
                  <widget class="QLabel" name="miscBrightnessValue">
+                  <property name="minimumSize">
+                   <size>
+                    <width>30</width>
+                    <height>0</height>
+                   </size>
+                  </property>
                   <property name="text">
-                   <string notr="true">0</string>
+                   <string notr="true">   0</string>
                   </property>
                  </widget>
                 </item>
@@ -8044,8 +8023,14 @@ media file played</string>
                 </item>
                 <item row="1" column="1">
                  <widget class="QLabel" name="miscContrastValue">
+                  <property name="minimumSize">
+                   <size>
+                    <width>30</width>
+                    <height>0</height>
+                   </size>
+                  </property>
                   <property name="text">
-                   <string notr="true">0</string>
+                   <string notr="true">   0</string>
                   </property>
                  </widget>
                 </item>
@@ -8063,26 +8048,65 @@ media file played</string>
                  </widget>
                 </item>
                 <item row="2" column="0">
+                 <widget class="QLabel" name="miscGammaLabel">
+                  <property name="text">
+                   <string>Gamma</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QLabel" name="miscGammaValue">
+                  <property name="minimumSize">
+                   <size>
+                    <width>30</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string notr="true">   0</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QScrollBar" name="miscGamma">
+                  <property name="minimum">
+                   <number>-100</number>
+                  </property>
+                  <property name="maximum">
+                   <number>100</number>
+                  </property>
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
                  <widget class="QLabel" name="miscHueLabel">
                   <property name="text">
                    <string>Hue</string>
                   </property>
                  </widget>
                 </item>
-                <item row="2" column="1">
+                <item row="3" column="1">
                  <widget class="QLabel" name="miscHueValue">
+                  <property name="minimumSize">
+                   <size>
+                    <width>30</width>
+                    <height>0</height>
+                   </size>
+                  </property>
                   <property name="text">
-                   <string notr="true">0</string>
+                   <string notr="true">   0</string>
                   </property>
                  </widget>
                 </item>
-                <item row="2" column="2">
+                <item row="3" column="2">
                  <widget class="QScrollBar" name="miscHue">
                   <property name="minimum">
-                   <number>-180</number>
+                   <number>-100</number>
                   </property>
                   <property name="maximum">
-                   <number>180</number>
+                   <number>100</number>
                   </property>
                   <property name="value">
                    <number>0</number>
@@ -8092,21 +8116,27 @@ media file played</string>
                   </property>
                  </widget>
                 </item>
-                <item row="3" column="0">
+                <item row="4" column="0">
                  <widget class="QLabel" name="miscSaturationLabel">
                   <property name="text">
                    <string>Saturation</string>
                   </property>
                  </widget>
                 </item>
-                <item row="3" column="1">
+                <item row="4" column="1">
                  <widget class="QLabel" name="miscSaturationValue">
+                  <property name="minimumSize">
+                   <size>
+                    <width>30</width>
+                    <height>0</height>
+                   </size>
+                  </property>
                   <property name="text">
-                   <string notr="true">0</string>
+                   <string notr="true">   0</string>
                   </property>
                  </widget>
                 </item>
-                <item row="3" column="2">
+                <item row="4" column="2">
                  <widget class="QScrollBar" name="miscSaturation">
                   <property name="minimum">
                    <number>-100</number>
