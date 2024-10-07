@@ -329,6 +329,9 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)
     if (object == ui->bottomArea && event->type() == QEvent::Leave)
         this->leaveBottomArea();
 
+    if (event->type() == QEvent::ApplicationPaletteChange)
+        positionSlider_->applicationPaletteChanged();
+
     if (Platform::isWindows && event->type() == QEvent::KeyPress) {
         QKeyEvent *ke = static_cast<QKeyEvent*>(event);
         switch (ke->key()) {
