@@ -30,8 +30,6 @@ DrawnSlider::DrawnSlider(QWidget *parent, QSize handle, QSize margin, int paddin
     setSliderGeometry(handle.width(), handle.height(),
                       margin.width(), margin.height(),
                       paddingHeight);
-    connect(qApp, &QApplication::paletteChanged,
-            this, &DrawnSlider::applicationPaletteChanged);
 }
 
 void DrawnSlider::setValue(double v)
