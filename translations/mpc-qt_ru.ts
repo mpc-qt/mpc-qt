@@ -1554,7 +1554,7 @@
     </message>
     <message>
         <source>Aspect ratio: %1</source>
-        <translation>Соотношение сторон: %1</translation>
+        <translation type="unfinished">Соотношение сторон: %1</translation>
     </message>
 </context>
 <context>
