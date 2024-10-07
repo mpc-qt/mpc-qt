@@ -8106,10 +8106,10 @@ media file played</string>
                 <item row="3" column="2">
                  <widget class="QScrollBar" name="miscHue">
                   <property name="minimum">
-                   <number>-180</number>
+                   <number>-100</number>
                   </property>
                   <property name="maximum">
-                   <number>180</number>
+                   <number>100</number>
                   </property>
                   <property name="value">
                    <number>0</number>
