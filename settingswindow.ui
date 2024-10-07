@@ -8063,20 +8063,47 @@ media file played</string>
                  </widget>
                 </item>
                 <item row="2" column="0">
-                 <widget class="QLabel" name="miscHueLabel">
+                 <widget class="QLabel" name="miscGammaLabel">
                   <property name="text">
-                   <string>Hue</string>
+                   <string>Gamma</string>
                   </property>
                  </widget>
                 </item>
                 <item row="2" column="1">
-                 <widget class="QLabel" name="miscHueValue">
+                 <widget class="QLabel" name="miscGammaValue">
                   <property name="text">
                    <string notr="true">0</string>
                   </property>
                  </widget>
                 </item>
                 <item row="2" column="2">
+                 <widget class="QScrollBar" name="miscGamma">
+                  <property name="minimum">
+                   <number>-100</number>
+                  </property>
+                  <property name="maximum">
+                   <number>100</number>
+                  </property>
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="miscHueLabel">
+                  <property name="text">
+                   <string>Hue</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QLabel" name="miscHueValue">
+                  <property name="text">
+                   <string notr="true">0</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="2">
                  <widget class="QScrollBar" name="miscHue">
                   <property name="minimum">
                    <number>-180</number>
@@ -8092,21 +8119,21 @@ media file played</string>
                   </property>
                  </widget>
                 </item>
-                <item row="3" column="0">
+                <item row="4" column="0">
                  <widget class="QLabel" name="miscSaturationLabel">
                   <property name="text">
                    <string>Saturation</string>
                   </property>
                  </widget>
                 </item>
-                <item row="3" column="1">
+                <item row="4" column="1">
                  <widget class="QLabel" name="miscSaturationValue">
                   <property name="text">
                    <string notr="true">0</string>
                   </property>
                  </widget>
                 </item>
-                <item row="3" column="2">
+                <item row="4" column="2">
                  <widget class="QScrollBar" name="miscSaturation">
                   <property name="minimum">
                    <number>-100</number>
