@@ -265,6 +265,18 @@ private slots:
 
     void on_playbackMouseHideWindowed_toggled(bool checked);
 
+    void on_miscBrightness_valueChanged(int value);
+
+    void on_miscContrast_valueChanged(int value);
+
+    void on_miscGamma_valueChanged(int value);
+
+    void on_miscSaturation_valueChanged(int value);
+
+    void on_miscResetColor_clicked();
+
+    void on_miscHue_valueChanged(int value);
+
     void on_miscResetSettings_clicked();
 
     void on_windowVideoValue_textChanged(const QString &arg1);

@@ -8017,8 +8017,14 @@ media file played</string>
                 </item>
                 <item row="0" column="1">
                  <widget class="QLabel" name="miscBrightnessValue">
+                  <property name="minimumSize">
+                   <size>
+                    <width>30</width>
+                    <height>0</height>
+                   </size>
+                  </property>
                   <property name="text">
-                   <string notr="true">0</string>
+                   <string notr="true">   0</string>
                   </property>
                  </widget>
                 </item>
@@ -8044,8 +8050,14 @@ media file played</string>
                 </item>
                 <item row="1" column="1">
                  <widget class="QLabel" name="miscContrastValue">
+                  <property name="minimumSize">
+                   <size>
+                    <width>30</width>
+                    <height>0</height>
+                   </size>
+                  </property>
                   <property name="text">
-                   <string notr="true">0</string>
+                   <string notr="true">   0</string>
                   </property>
                  </widget>
                 </item>
@@ -8071,8 +8083,14 @@ media file played</string>
                 </item>
                 <item row="2" column="1">
                  <widget class="QLabel" name="miscGammaValue">
+                  <property name="minimumSize">
+                   <size>
+                    <width>30</width>
+                    <height>0</height>
+                   </size>
+                  </property>
                   <property name="text">
-                   <string notr="true">0</string>
+                   <string notr="true">   0</string>
                   </property>
                  </widget>
                 </item>
@@ -8098,8 +8116,14 @@ media file played</string>
                 </item>
                 <item row="3" column="1">
                  <widget class="QLabel" name="miscHueValue">
+                  <property name="minimumSize">
+                   <size>
+                    <width>30</width>
+                    <height>0</height>
+                   </size>
+                  </property>
                   <property name="text">
-                   <string notr="true">0</string>
+                   <string notr="true">   0</string>
                   </property>
                  </widget>
                 </item>
@@ -8128,8 +8152,14 @@ media file played</string>
                 </item>
                 <item row="4" column="1">
                  <widget class="QLabel" name="miscSaturationValue">
+                  <property name="minimumSize">
+                   <size>
+                    <width>30</width>
+                    <height>0</height>
+                   </size>
+                  </property>
                   <property name="text">
-                   <string notr="true">0</string>
+                   <string notr="true">   0</string>
                   </property>
                  </widget>
                 </item>
