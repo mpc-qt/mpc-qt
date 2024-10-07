@@ -1343,19 +1343,19 @@
     </message>
     <message>
         <source>Seek Forwards (normal step)</source>
-        <translation type="unfinished"></translation>
+        <translation>Seek Forwards (normal step)</translation>
     </message>
     <message>
         <source>Seek Backwards (normal step)</source>
-        <translation type="unfinished"></translation>
+        <translation>Seek Backwards (normal step)</translation>
     </message>
     <message>
         <source>Seek Forwards (large step)</source>
-        <translation type="unfinished"></translation>
+        <translation>Seek Forwards (large step)</translation>
     </message>
     <message>
         <source>Seek Backwards (large step)</source>
-        <translation type="unfinished"></translation>
+        <translation>Seek Backwards (large step)</translation>
     </message>
 </context>
 <context>
@@ -1574,7 +1574,7 @@
     </message>
     <message>
         <source>Aspect ratio: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aspect ratio: %1</translation>
     </message>
 </context>
 <context>
@@ -3913,11 +3913,11 @@ media file played</translation>
     </message>
     <message>
         <source>Normal step</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal step</translation>
     </message>
     <message>
         <source>Large step</source>
-        <translation type="unfinished"></translation>
+        <translation>Large step</translation>
     </message>
 </context>
 <context>
