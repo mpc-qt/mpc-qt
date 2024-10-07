@@ -875,7 +875,6 @@ void SettingsWindow::sendSignals()
         emit option("deband", false);
     }
 
-    emit option("gamma", WIDGET_LOOKUP(ui->ccGamma));
     emit option("gamut-mapping-mode", WIDGET_TO_TEXT(ui->ccGamutMapping));
     emit option("target-gamut", WIDGET_TO_TEXT(ui->ccTargetGamut));
     emit option("target-prim", WIDGET_TO_TEXT(ui->ccTargetPrim));

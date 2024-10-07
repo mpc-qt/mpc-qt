@@ -4009,33 +4009,6 @@ media file played</string>
                   <property name="fieldGrowthPolicy">
                    <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
                   </property>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="ccGammaLabel">
-                    <property name="text">
-                     <string>Gamma</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <layout class="QHBoxLayout" name="ccGammaLayout" stretch="1">
-                    <item>
-                     <widget class="QDoubleSpinBox" name="ccGamma">
-                      <property name="decimals">
-                       <number>6</number>
-                      </property>
-                      <property name="minimum">
-                       <double>0.100000000000000</double>
-                      </property>
-                      <property name="maximum">
-                       <double>2.000000000000000</double>
-                      </property>
-                      <property name="value">
-                       <double>1.000000000000000</double>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
                   <item row="3" column="0">
                    <widget class="QLabel" name="ccTargetPrimLabel">
                     <property name="text">
