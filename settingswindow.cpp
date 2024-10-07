@@ -1136,6 +1136,15 @@ void SettingsWindow::self_volumeMax(int maximum)
     ui->playbackVolume->setMaximum(maximum);
 }
 
+void SettingsWindow::restoreColorControls()
+{
+    emit option("brightness", acceptedSettings.value("miscBrightness").value.toInt());
+    emit option("contrast", acceptedSettings.value("miscContrast").value.toInt());
+    emit option("gamma", acceptedSettings.value("miscGamma").value.toInt());
+    emit option("hue", acceptedSettings.value("miscHue").value.toInt());
+    emit option("saturation", acceptedSettings.value("miscSaturation").value.toInt());
+}
+
 void SettingsWindow::colorPick_clicked(QLineEdit *colorValue)
 {
     QColor initial = QString("#%1").arg(colorValue->text());
@@ -1180,6 +1189,8 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
         actionEditor->updateActions();
         sendSignals();
     }
+    else
+        restoreColorControls();
     if (buttonRole == QDialogButtonBox::AcceptRole ||
             buttonRole == QDialogButtonBox::RejectRole)
         close();
@@ -1344,26 +1355,31 @@ void SettingsWindow::on_playbackMouseHideWindowed_toggled(bool checked)
 void SettingsWindow::on_miscBrightness_valueChanged(int value)
 {
     ui->miscBrightnessValue->setText(QString("%1").arg(value, 4, 10, QChar(' ')));
+    emit option("brightness", value);
 }
 
 void SettingsWindow::on_miscContrast_valueChanged(int value)
 {
     ui->miscContrastValue->setText(QString("%1").arg(value, 4, 10, QChar(' ')));
+    emit option("contrast", value);
 }
 
 void SettingsWindow::on_miscGamma_valueChanged(int value)
 {
     ui->miscGammaValue->setText(QString("%1").arg(value, 4, 10, QChar(' ')));
+    emit option("gamma", value);
 }
 
 void SettingsWindow::on_miscHue_valueChanged(int value)
 {
     ui->miscHueValue->setText(QString("%1").arg(value, 4, 10, QChar(' ')));
+    emit option("hue", value);
 }
 
 void SettingsWindow::on_miscSaturation_valueChanged(int value)
 {
     ui->miscSaturationValue->setText(QString("%1").arg(value, 4, 10, QChar(' ')));
+    emit option("saturation", value);
 }
 
 void SettingsWindow::on_miscResetColor_clicked()
