@@ -7613,6 +7613,9 @@ media file played</string>
              <property name="text">
               <string>Limit volume to 100% like mpc-hc</string>
              </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
            <item row="5" column="0" colspan="2">
