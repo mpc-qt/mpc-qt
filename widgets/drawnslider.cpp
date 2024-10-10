@@ -94,6 +94,7 @@ void DrawnSlider::setSliderGeometry(int handleWidth, int handleHeight,
     this->handleHeight = handleHeight;
     this->marginX = marginX;
     this->marginY = marginY;
+    this->paddingHeight = paddingHeight;
 
     setMinimumHeight(handleHeight+(paddingHeight*2));
     setMaximumHeight(handleHeight+(paddingHeight*2));
