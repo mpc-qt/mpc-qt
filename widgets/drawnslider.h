@@ -46,7 +46,7 @@ protected:
     void resizeEvent(QResizeEvent *event);
 
     bool highContrast = false;
-    bool redrawPics = true;
+    bool redrawHandle = true;
     QImage backgroundPic;
     QImage handlePics[16];
 

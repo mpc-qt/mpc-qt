@@ -6,6 +6,7 @@
 #include <QCursor>
 #include <cmath>
 #include "drawnslider.h"
+#include "logger.h"
 
 
 
@@ -75,13 +76,13 @@ double DrawnSlider::minimum()
 void DrawnSlider::setHighContrast(bool enabled)
 {
     highContrast = enabled;
-    redrawPics = true;
+    redrawHandle = true;
     update();
 }
 
 void DrawnSlider::applicationPaletteChanged()
 {
-    redrawPics = true;
+    redrawHandle = true;
     update();
 }
 
@@ -153,10 +154,10 @@ void DrawnSlider::paintEvent(QPaintEvent *event)
         }
     }
 
-    if (redrawPics) {
-        makeBackground();
+    makeBackground();
+    if (redrawHandle) {
         makeHandle();
-        redrawPics = false;
+        redrawHandle = false;
     }
 
     QPainter p(this);
@@ -259,7 +260,7 @@ height  |         +          ----    hH
     grooveArea.adjust(marginX, marginY, -marginX, -marginY);
     sliderArea = grooveArea;
     sliderArea.adjust(0, 0, -(handleWidth&1), 0);
-    redrawPics = true;
+    redrawHandle = true;
 }
 
 void DrawnSlider::mousePressEvent(QMouseEvent *ev)
@@ -304,7 +305,7 @@ void MediaSlider::clearTicks()
     ticks.clear();
     vLoopA = vLoopB = -1;
     loopArea = { -1, -1, 0, 0 };
-    redrawPics = true;
+    redrawHandle = true;
 }
 
 void MediaSlider::setTick(double value, QString text)
@@ -339,6 +340,7 @@ void MediaSlider::resizeEvent(QResizeEvent *event)
 
 void MediaSlider::makeBackground()
 {
+    LogStream("drawnslider") << "MediaSlider::makeBackground";
     qreal pr = devicePixelRatioF();
     int pw = width() * pr;
     int ph = width() * pr;
@@ -464,6 +466,7 @@ VolumeSlider::VolumeSlider(QWidget *parent) :
 
 void VolumeSlider::makeBackground()
 {
+    LogStream("drawnslider") << "VolumeSlider::makeBackground";
     qreal pr = devicePixelRatioF();
     int pw = int(drawnArea.width() * pr);
     int ph = int(drawnArea.height() * pr);
