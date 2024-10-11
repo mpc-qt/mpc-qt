@@ -211,6 +211,7 @@ public slots:
 private slots:
     void self_volumeMax(int maximum);
     void restoreColorControls();
+    void restoreAudioSettings();
     void colorPick_clicked(QLineEdit *colorValue);
     void colorPick_changed(QLineEdit *colorValue, QPushButton *colorPick);
 

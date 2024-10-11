@@ -1142,6 +1142,11 @@ void SettingsWindow::restoreColorControls()
     emit option("hue", acceptedSettings.value("miscHue").value.toInt());
     emit option("saturation", acceptedSettings.value("miscSaturation").value.toInt());
 }
+void SettingsWindow::restoreAudioSettings()
+{
+    emit audioFilter("stereotools=balance_out=" +
+        QString().number(WIDGET_LOOKUP(ui->playbackBalance).toDouble()/100), true);
+}
 
 void SettingsWindow::colorPick_clicked(QLineEdit *colorValue)
 {
@@ -1187,8 +1192,10 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
         actionEditor->updateActions();
         sendSignals();
     }
-    else
+    else {
         restoreColorControls();
+        restoreAudioSettings();
+    }
     if (buttonRole == QDialogButtonBox::AcceptRole ||
             buttonRole == QDialogButtonBox::RejectRole)
         close();
@@ -1334,6 +1341,7 @@ void SettingsWindow::on_fullscreenHideControls_toggled(bool checked)
 void SettingsWindow::on_playbackBalance_valueChanged(int value)
 {
     QToolTip::showText(QCursor::pos(), QString().number(value), ui->playbackBalance);
+    emit audioFilter("stereotools=balance_out=" + QString().number((double) value/100), true);
 }
 
 void SettingsWindow::on_playbackAutoZoom_toggled(bool checked)
