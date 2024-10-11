@@ -261,6 +261,8 @@ private slots:
 
     void on_fullscreenHideControls_toggled(bool checked);
 
+    void on_playbackVolume_valueChanged(int value);
+
     void on_playbackBalance_valueChanged(int value);
 
     void on_playbackAutoZoom_toggled(bool checked);

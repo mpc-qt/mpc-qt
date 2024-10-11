@@ -1338,6 +1338,11 @@ void SettingsWindow::on_fullscreenHideControls_toggled(bool checked)
     ui->fullscreenShowWhenDuration->setEnabled(checked);
 }
 
+void SettingsWindow::on_playbackVolume_valueChanged(int value)
+{
+    QToolTip::showText(QCursor::pos(), QString().number(value), ui->playbackVolume);
+}
+
 void SettingsWindow::on_playbackBalance_valueChanged(int value)
 {
     QToolTip::showText(QCursor::pos(), QString().number(value), ui->playbackBalance);
