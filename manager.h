@@ -209,7 +209,7 @@ private:
     double mpvLength = 0.0;
     double mpvSpeed = 1.0;
     double speedStep = 2.0;
-    bool speedStepAdditive = true;
+    bool speedStepAdditive = false;
     double stepTimeNormal = 5.0;
     double stepTimeLarge = 20.0;
     PlaybackState playbackState_ = StoppedState;

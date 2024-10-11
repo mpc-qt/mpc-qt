@@ -1102,7 +1102,7 @@ media file played</string>
                    <string>Use additive speed step</string>
                   </property>
                   <property name="checked">
-                   <bool>true</bool>
+                   <bool>false</bool>
                   </property>
                  </widget>
                 </item>
@@ -7612,6 +7612,9 @@ media file played</string>
             <widget class="QCheckBox" name="tweaksVolumeLimit">
              <property name="text">
               <string>Limit volume to 100% like mpc-hc</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
