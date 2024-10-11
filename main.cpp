@@ -792,6 +792,8 @@ void Flow::setupFlowConnections()
             this, &Flow::settingswindow_keymapData);
     connect(settingsWindow, &SettingsWindow::inhibitScreensaver,
             this, &Flow::settingswindow_inhibitScreensaver);
+    connect(settingsWindow, &SettingsWindow::rememberHistory,
+            this, &Flow::settingswindow_rememberHistory);
     connect(settingsWindow, &SettingsWindow::rememberFilePosition,
             this, &Flow::settingswindow_rememberFilePosition);
     connect(settingsWindow, &SettingsWindow::rememberWindowGeometry,
@@ -1363,6 +1365,12 @@ void Flow::settingswindow_inhibitScreensaver(bool yes)
     manager_stateChanged(playbackManager->playbackState());
 }
 
+void Flow::settingswindow_rememberHistory(bool yes)
+{
+    // Remember our preference to the list of recent files
+    this->rememberHistory = yes;
+}
+
 void Flow::settingswindow_rememberFilePosition(bool yes)
 {
     // Remember our preference to restore the position when opening a file
@@ -1499,7 +1507,7 @@ void Flow::updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title
     recentFiles.insert(0, track);
 
     // Trim the recent file list
-    while (recentFiles.size() > 20)
+    while (recentFiles.size() > (rememberHistory ? 20 : 0))
         recentFiles.removeLast();
 
     // Notify (2022-03: the main window) that the recents have changed

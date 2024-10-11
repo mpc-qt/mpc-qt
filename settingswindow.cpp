@@ -475,7 +475,6 @@ void SettingsWindow::setupUnimplementedWidgets()
     ui->playerLimitProportions->setVisible(false);
     ui->playerDisableOpenDisc->setVisible(false);
     ui->playerTitleBox->setVisible(false);
-    ui->playerKeepHistory->setVisible(false);
     ui->playerRememberLastPlaylist->setVisible(false);
     ui->playerRememberPanScanZoom->setVisible(false);
 
