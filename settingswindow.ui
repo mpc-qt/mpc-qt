@@ -1459,7 +1459,7 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="suffix">
-                 <string notr="true">ms</string>
+                 <string notr="true"> ms</string>
                 </property>
                 <property name="minimum">
                  <number>10</number>
@@ -1497,7 +1497,7 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="suffix">
-                 <string notr="true">ms</string>
+                 <string notr="true"> ms</string>
                 </property>
                 <property name="minimum">
                  <number>10</number>
@@ -4964,7 +4964,7 @@ media file played</string>
               <item row="1" column="1">
                <widget class="QSpinBox" name="fullscreenShowWhenDuration">
                 <property name="suffix">
-                 <string notr="true">ms</string>
+                 <string notr="true"> ms</string>
                 </property>
                 <property name="maximum">
                  <number>5000</number>
