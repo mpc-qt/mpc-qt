@@ -688,6 +688,8 @@ void Flow::setupMpvObjectConnections()
             mpvObject, &MpvObject::setVolume);
     connect(settingsWindow, &SettingsWindow::option,
             mpvObject, &MpvObject::setCachedMpvOption);
+    connect(settingsWindow, &SettingsWindow::audioFilter,
+            mpvObject, &MpvObject::setAudioFilter);
     connect(settingsWindow, &SettingsWindow::clientDebuggingMessages,
             mpvObject, &MpvObject::setClientDebuggingMessages);
     connect(settingsWindow, &SettingsWindow::mpvLogLevel,

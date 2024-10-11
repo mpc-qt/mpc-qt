@@ -189,7 +189,7 @@ signals:
     void logHistory(int lines);
 
     void videoFilter(const QString &s);
-    void audioFilter(const QString &s);
+    void audioFilter(QString filter, const bool add);
 
 public slots:
     void takeActions(const QList<QAction*> actions);
@@ -259,6 +259,8 @@ private slots:
     void on_shadersWikiSync_clicked();
 
     void on_fullscreenHideControls_toggled(bool checked);
+
+    void on_playbackBalance_valueChanged(int value);
 
     void on_playbackAutoZoom_toggled(bool checked);
 
