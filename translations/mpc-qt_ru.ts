@@ -1059,7 +1059,7 @@
     </message>
     <message>
         <source>Do No&amp;thing</source>
-        <translation>&amp;Ничего не делать</translation>
+        <translation type="vanished">&amp;Ничего не делать</translation>
     </message>
     <message>
         <source>Repe&amp;at</source>
@@ -1115,11 +1115,11 @@
     </message>
     <message>
         <source>Once</source>
-        <translation>Один раз</translation>
+        <translation type="vanished">Один раз</translation>
     </message>
     <message>
         <source>Every time</source>
-        <translation>Каждый раз</translation>
+        <translation type="vanished">Каждый раз</translation>
     </message>
     <message>
         <source>View</source>

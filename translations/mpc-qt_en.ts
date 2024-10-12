@@ -1059,7 +1059,7 @@
     </message>
     <message>
         <source>Do No&amp;thing</source>
-        <translation>Do No&amp;thing</translation>
+        <translation type="vanished">Do No&amp;thing</translation>
     </message>
     <message>
         <source>Repe&amp;at</source>
@@ -1115,11 +1115,11 @@
     </message>
     <message>
         <source>Once</source>
-        <translation>Once</translation>
+        <translation type="vanished">Once</translation>
     </message>
     <message>
         <source>Every time</source>
-        <translation>Every time</translation>
+        <translation type="vanished">Every time</translation>
     </message>
     <message>
         <source>View</source>

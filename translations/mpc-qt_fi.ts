@@ -1039,7 +1039,7 @@
     </message>
     <message>
         <source>Do No&amp;thing</source>
-        <translation>Älä Tee Mi&amp;tään</translation>
+        <translation type="vanished">Älä Tee Mi&amp;tään</translation>
     </message>
     <message>
         <source>Repe&amp;at</source>
@@ -1095,11 +1095,11 @@
     </message>
     <message>
         <source>Once</source>
-        <translation>Kerran</translation>
+        <translation type="vanished">Kerran</translation>
     </message>
     <message>
         <source>Every time</source>
-        <translation>Joka kerta</translation>
+        <translation type="vanished">Joka kerta</translation>
     </message>
     <message>
         <source>View</source>
