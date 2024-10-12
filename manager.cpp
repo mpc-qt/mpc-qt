@@ -647,7 +647,8 @@ void PlaybackManager::checkAfterPlayback()
         action = afterPlaybackAlways;
 
     afterPlaybackOnce = Helpers::DoNothingAfter;
-    emit afterPlaybackReset();
+    if (action != Helpers::RepeatAfter && action != Helpers::PlayNextAfter)
+        emit afterPlaybackReset();
 
     switch (action) {
     case Helpers::ExitAfter:

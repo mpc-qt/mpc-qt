@@ -1050,10 +1050,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Do No&amp;thing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Repe&amp;at</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1107,11 +1103,11 @@
     </message>
     <message>
         <source>Once</source>
-        <translation>Una volta</translation>
+        <translation type="vanished">Una volta</translation>
     </message>
     <message>
         <source>Every time</source>
-        <translation>Ogni volta</translation>
+        <translation type="vanished">Ogni volta</translation>
     </message>
     <message>
         <source>View</source>
@@ -3725,7 +3721,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>BT.470M</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470M</translation>
     </message>
     <message>
         <source>V-Gamut</source>
@@ -3753,15 +3749,15 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Gamma 2.0</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gamma 2.0</translation>
     </message>
     <message>
         <source>Gamma 2.4</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gamma 2.4</translation>
     </message>
     <message>
         <source>Gamma 2.6</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gamma 2.6</translation>
     </message>
     <message>
         <source>ST 428</source>

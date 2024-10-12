@@ -1059,7 +1059,7 @@
     </message>
     <message>
         <source>Do No&amp;thing</source>
-        <translation>什么都不做(&amp;T)</translation>
+        <translation type="vanished">什么都不做(&amp;T)</translation>
     </message>
     <message>
         <source>Repe&amp;at</source>
@@ -1115,11 +1115,11 @@
     </message>
     <message>
         <source>Once</source>
-        <translation>此次播放</translation>
+        <translation type="vanished">此次播放</translation>
     </message>
     <message>
         <source>Every time</source>
-        <translation>每次播放</translation>
+        <translation type="vanished">每次播放</translation>
     </message>
     <message>
         <source>View</source>

@@ -379,10 +379,7 @@ private slots:
     void on_actionPlayAfterOnceLogoff_triggered();
     void on_actionPlayAfterOnceLock_triggered();
     void on_actionPlayAfterOnceNothing_triggered();
-    void on_actionPlayAfterOnceRepeat_triggered();
     void on_actionPlayAfterAlwaysRepeat_triggered();
-    void on_actionPlayAfterAlwaysExit_triggered();
-    void on_actionPlayAfterAlwaysNothing_triggered();
     void on_actionPlayAfterAlwaysNext_triggered();
 
     void on_actionNavigateChaptersPrevious_triggered();

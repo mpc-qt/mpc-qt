@@ -1051,7 +1051,7 @@
     </message>
     <message>
         <source>Do No&amp;thing</source>
-        <translation>&amp;Tidak melakukan apapun</translation>
+        <translation type="vanished">&amp;Tidak melakukan apapun</translation>
     </message>
     <message>
         <source>Repe&amp;at</source>
@@ -1107,11 +1107,11 @@
     </message>
     <message>
         <source>Once</source>
-        <translation>Sekali</translation>
+        <translation type="vanished">Sekali</translation>
     </message>
     <message>
         <source>Every time</source>
-        <translation>Setiap kali</translation>
+        <translation type="vanished">Setiap kali</translation>
     </message>
     <message>
         <source>View</source>
@@ -3745,7 +3745,7 @@ media file played</source>
     </message>
     <message>
         <source>BT.470M</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470M</translation>
     </message>
     <message>
         <source>V-Gamut</source>

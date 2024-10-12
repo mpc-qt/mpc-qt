@@ -535,13 +535,6 @@ void MainWindow::setupMenu()
     ui->actionViewHideCapture->setVisible(false);
     ui->actionViewHideNavigation->setVisible(false);
 
-    // Work around separators with text in the designer not showing as
-    // sections
-    ui->menuPlayAfter->insertSection(ui->actionPlayAfterOnceExit,
-                                       tr("Once"));
-    ui->menuPlayAfter->insertSection(ui->actionPlayAfterAlwaysExit,
-                                      tr("Every time"));
-
     ui->infoStats->setVisible(false);
 
     connect(Platform::deviceManager(), &DeviceManager::deviceListChanged,
@@ -661,15 +654,10 @@ void MainWindow::setupActionGroups()
     ag->addAction(ui->actionPlayAfterOnceLock);
     ag->addAction(ui->actionPlayAfterOnceLogoff);
     ag->addAction(ui->actionPlayAfterOnceNothing);
-    ag->addAction(ui->actionPlayAfterOnceRepeat);
+    ag->addAction(ui->actionPlayAfterAlwaysRepeat);
     ag->addAction(ui->actionPlayAfterOnceShutdown);
     ag->addAction(ui->actionPlayAfterOnceStandby);
-
-    ag = new QActionGroup(this);
-    ag->addAction(ui->actionPlayAfterAlwaysExit);
     ag->addAction(ui->actionPlayAfterAlwaysNext);
-    ag->addAction(ui->actionPlayAfterAlwaysNothing);
-    ag->addAction(ui->actionPlayAfterAlwaysRepeat);
 }
 
 void MainWindow::setupPositionSlider()
@@ -1520,10 +1508,6 @@ void MainWindow::httpAfterPlaybackNothing()
         ui->actionPlayAfterOnceNothing->setChecked(true);
         ui->actionPlayAfterOnceNothing->trigger();
     }
-    if (ui->actionPlayAfterAlwaysNothing->isEnabled()) {
-        ui->actionPlayAfterAlwaysNothing->setChecked(true);
-        ui->actionPlayAfterAlwaysNothing->trigger();
-    }
 }
 
 void MainWindow::httpAfterPlaybackPlayNext()
@@ -2081,10 +2065,8 @@ void MainWindow::resetPlayAfterOnce()
 void MainWindow::setPlayAfterAlways(AfterPlayback action)
 {
     QMap<Helpers::AfterPlayback, QAction*> map {
-        { Helpers::DoNothingAfter, ui->actionPlayAfterAlwaysNothing },
         { Helpers::RepeatAfter, ui->actionPlayAfterAlwaysRepeat },
-        { Helpers::PlayNextAfter, ui->actionPlayAfterAlwaysNext },
-        { Helpers::ExitAfter, ui->actionPlayAfterAlwaysExit }
+        { Helpers::PlayNextAfter, ui->actionPlayAfterAlwaysNext }
     };
     if (map.contains(action))
         map[action]->setChecked(true);
@@ -2845,24 +2827,9 @@ void MainWindow::on_actionPlayAfterOnceNothing_triggered()
     emit afterPlaybackOnce(Helpers::DoNothingAfter);
 }
 
-void MainWindow::on_actionPlayAfterOnceRepeat_triggered()
-{
-    emit afterPlaybackOnce(Helpers::RepeatAfter);
-}
-
 void MainWindow::on_actionPlayAfterAlwaysRepeat_triggered()
 {
     emit afterPlaybackAlways(Helpers::RepeatAfter);
-}
-
-void MainWindow::on_actionPlayAfterAlwaysExit_triggered()
-{
-    emit afterPlaybackAlways(Helpers::ExitAfter);
-}
-
-void MainWindow::on_actionPlayAfterAlwaysNothing_triggered()
-{
-    emit afterPlaybackAlways(Helpers::DoNothingAfter);
 }
 
 void MainWindow::on_actionPlayAfterAlwaysNext_triggered()
