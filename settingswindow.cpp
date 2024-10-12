@@ -7,6 +7,7 @@
 #include <QProcess>
 #include <QProcessEnvironment>
 #include <QList>
+#include <QToolTip>
 #include "logger.h"
 #include "platform/unify.h"
 #include "settingswindow.h"
@@ -480,9 +481,6 @@ void SettingsWindow::setupUnimplementedWidgets()
 
     ui->formatPage->setEnabled(false);
 
-    ui->playbackBalanceLabel->setVisible(false);
-    ui->playbackBalance->setVisible(false);
-
     ui->shadersWikiTab->setVisible(false);
     ui->shadersPresetsBox->setVisible(false);
 
@@ -761,6 +759,8 @@ void SettingsWindow::sendSignals()
         emit speedStep(i > 0 ? 1.0 + i/100.0 : 2.0);
         emit speedStepAdditive(WIDGET_LOOKUP(ui->playbackSpeedStepAdditive).toBool());
     }
+    emit audioFilter("stereotools=balance_out=" +
+        QString().number(WIDGET_LOOKUP(ui->playbackBalance).toDouble()/100), true);
     emit stepTimeNormal(WIDGET_LOOKUP(ui->playbackNormalStep).toInt());
     emit stepTimeLarge(WIDGET_LOOKUP(ui->playbackLargeStep).toInt());
 
@@ -1142,6 +1142,11 @@ void SettingsWindow::restoreColorControls()
     emit option("hue", acceptedSettings.value("miscHue").value.toInt());
     emit option("saturation", acceptedSettings.value("miscSaturation").value.toInt());
 }
+void SettingsWindow::restoreAudioSettings()
+{
+    emit audioFilter("stereotools=balance_out=" +
+        QString().number(WIDGET_LOOKUP(ui->playbackBalance).toDouble()/100), true);
+}
 
 void SettingsWindow::colorPick_clicked(QLineEdit *colorValue)
 {
@@ -1187,8 +1192,10 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
         actionEditor->updateActions();
         sendSignals();
     }
-    else
+    else {
         restoreColorControls();
+        restoreAudioSettings();
+    }
     if (buttonRole == QDialogButtonBox::AcceptRole ||
             buttonRole == QDialogButtonBox::RejectRole)
         close();
@@ -1329,6 +1336,17 @@ void SettingsWindow::on_fullscreenHideControls_toggled(bool checked)
 {
     ui->fullscreenShowWhen->setEnabled(checked);
     ui->fullscreenShowWhenDuration->setEnabled(checked);
+}
+
+void SettingsWindow::on_playbackVolume_valueChanged(int value)
+{
+    QToolTip::showText(QCursor::pos(), QString().number(value), ui->playbackVolume);
+}
+
+void SettingsWindow::on_playbackBalance_valueChanged(int value)
+{
+    QToolTip::showText(QCursor::pos(), QString().number(value), ui->playbackBalance);
+    emit audioFilter("stereotools=balance_out=" + QString().number((double) value/100), true);
 }
 
 void SettingsWindow::on_playbackAutoZoom_toggled(bool checked)

@@ -59,6 +59,7 @@ public:
     void setMouseHideTime(int msec);
     void setLogoUrl(const QString &filename);
     void setLogoBackground(const QColor &color);
+    void setAudioFilter(QString filter, bool add);
     void setSubFile(QString filename);
     void addSubFile(QString filename);
     void setSubtitlesDelay(int subDelayStep);

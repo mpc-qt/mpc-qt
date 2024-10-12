@@ -396,6 +396,14 @@ void MpvObject::setLogoBackground(const QColor &color)
         widget->setLogoBackground(color);
 }
 
+void MpvObject::setAudioFilter(QString filter, bool add)
+{
+    if (add)
+        setMpvPropertyVariant("af", filter);
+    else
+        setMpvPropertyVariant("af", "");
+}
+
 void MpvObject::setSubFile(QString filename)
 {
     emit ctrlSetOptionVariant("sub-files", filename);

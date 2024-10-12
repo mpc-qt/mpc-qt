@@ -1351,6 +1351,9 @@ media file played</string>
                 <property name="orientation">
                  <enum>Qt::Orientation::Horizontal</enum>
                 </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
                </widget>
               </item>
               <item row="1" column="0">
