@@ -2066,7 +2066,8 @@ void MainWindow::setPlayAfterAlways(AfterPlayback action)
 {
     QMap<Helpers::AfterPlayback, QAction*> map {
         { Helpers::RepeatAfter, ui->actionPlayAfterAlwaysRepeat },
-        { Helpers::PlayNextAfter, ui->actionPlayAfterAlwaysNext }
+        { Helpers::PlayNextAfter, ui->actionPlayAfterAlwaysNext },
+        { Helpers::ExitAfter, ui->actionPlayAfterOnceExit }
     };
     if (map.contains(action))
         map[action]->setChecked(true);
