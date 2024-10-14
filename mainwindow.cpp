@@ -313,6 +313,12 @@ void MainWindow::unfreezeWindow()
     frozenWindow = false;
 }
 
+void MainWindow::setActionPlayLoopUse()
+{
+    ui->actionPlayLoopUse->setChecked(false);
+    ui->actionPlayLoopUse->setChecked(true);
+}
+
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
     Q_UNUSED(event)
@@ -654,7 +660,6 @@ void MainWindow::setupActionGroups()
     ag->addAction(ui->actionPlayAfterOnceLock);
     ag->addAction(ui->actionPlayAfterOnceLogoff);
     ag->addAction(ui->actionPlayAfterOnceNothing);
-    ag->addAction(ui->actionPlayAfterAlwaysRepeat);
     ag->addAction(ui->actionPlayAfterOnceShutdown);
     ag->addAction(ui->actionPlayAfterOnceStandby);
     ag->addAction(ui->actionPlayAfterAlwaysNext);
@@ -2065,7 +2070,6 @@ void MainWindow::resetPlayAfterOnce()
 void MainWindow::setPlayAfterAlways(AfterPlayback action)
 {
     QMap<Helpers::AfterPlayback, QAction*> map {
-        { Helpers::RepeatAfter, ui->actionPlayAfterAlwaysRepeat },
         { Helpers::PlayNextAfter, ui->actionPlayAfterAlwaysNext },
         { Helpers::ExitAfter, ui->actionPlayAfterOnceExit }
     };
@@ -2078,7 +2082,10 @@ void MainWindow::setPlayAfterAlwaysDefault(Helpers::AfterPlayback action)
     static bool setOnce = false;
     if (!setOnce) {
         setOnce = true;
-        setPlayAfterAlways(action);
+        if (action == Helpers::RepeatAfter)
+            emit repeatAfter();
+        else
+            setPlayAfterAlways(action);
     }
 }
 
@@ -2749,8 +2756,9 @@ void MainWindow::on_actionPlayLoopEnd_triggered()
                                   positionSlider_->loopB());
 }
 
-void MainWindow::on_actionPlayLoopUse_triggered(bool checked)
+void MainWindow::on_actionPlayLoopUse_toggled(bool checked)
 {
+    LogStream("mainwindow") << "on_actionPlayLoopUse_toggled: " << checked;
     if (checked) {
         if (positionSlider_->loopA() < 0)
             positionSlider_->setLoopA(0);
@@ -2826,11 +2834,6 @@ void MainWindow::on_actionPlayAfterOnceLock_triggered()
 void MainWindow::on_actionPlayAfterOnceNothing_triggered()
 {
     emit afterPlaybackOnce(Helpers::DoNothingAfter);
-}
-
-void MainWindow::on_actionPlayAfterAlwaysRepeat_triggered()
-{
-    emit afterPlaybackAlways(Helpers::RepeatAfter);
 }
 
 void MainWindow::on_actionPlayAfterAlwaysNext_triggered()

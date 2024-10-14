@@ -45,6 +45,7 @@ public:
     QSize desirableSize(bool first_run = false);
     QPoint desirablePosition(QSize &size, bool first_run = false);
     void unfreezeWindow();
+    void setActionPlayLoopUse();
 
 protected:
     void resizeEvent(QResizeEvent *event);
@@ -162,6 +163,7 @@ signals:
     void organizeFavorites();
     void fullscreenHideControls(bool checked);
     void timeShortModeSet(bool timeShortMode);
+    void repeatAfter();
 
 public slots:
     void httpQuickOpenFile();
@@ -365,7 +367,7 @@ private slots:
 
     void on_actionPlayLoopStart_triggered();
     void on_actionPlayLoopEnd_triggered();
-    void on_actionPlayLoopUse_triggered(bool checked);
+    void on_actionPlayLoopUse_toggled(bool checked);
     void on_actionPlayLoopClear_triggered();
 
     void on_actionPlayVolumeUp_triggered();
@@ -379,7 +381,6 @@ private slots:
     void on_actionPlayAfterOnceLogoff_triggered();
     void on_actionPlayAfterOnceLock_triggered();
     void on_actionPlayAfterOnceNothing_triggered();
-    void on_actionPlayAfterAlwaysRepeat_triggered();
     void on_actionPlayAfterAlwaysNext_triggered();
 
     void on_actionNavigateChaptersPrevious_triggered();

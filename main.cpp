@@ -766,6 +766,8 @@ void Flow::setupFlowConnections()
             this, &Flow::mainwindow_instanceShouldQuit);
     connect(mainWindow, &MainWindow::fullscreenHideControls,
             this, &Flow::mainwindow_fullscreenHideControls);
+    connect(mainWindow, &MainWindow::repeatAfter,
+            this, &Flow::mainwindow_repeatAfter);
 
     // manager -> this
     connect(playbackManager, &PlaybackManager::playLengthChanged,
@@ -1169,9 +1171,16 @@ void Flow::mainwindow_fullscreenHideControls(bool hide)
         this->settings.value("fullscreenShowWhenDuration").toInt(), false);
 }
 
+void Flow::mainwindow_repeatAfter()
+{
+    repeatAfter = true;
+}
+
 void Flow::mainwindow_recentOpened(const TrackInfo &track, bool isFromRecents)
 {
     updateRecentPosition(false);
+    if (repeatAfter)
+        mainWindow->setActionPlayLoopUse();
     // attempt to play the playlist item if possible, otherwise act like it
     // is a new file
     QUrl old = mainWindow->playlistWindow()->getUrlOf(track.list, track.item);
@@ -1314,11 +1323,15 @@ void Flow::manager_hasNoSubtitles(bool none)
 void Flow::manager_playLengthChanged() {
     LogStream("main") << "manager_playLengthChanged";
     updateRecentPosition(false);
+    if (repeatAfter)
+        mainWindow->setActionPlayLoopUse();
 }
 
 void Flow::manager_openingNewFile()
 {
     updateRecentPosition(false);
+    if (repeatAfter)
+        mainWindow->setActionPlayLoopUse();
 }
 
 void Flow::manager_startingPlayingFile(QUrl url)
