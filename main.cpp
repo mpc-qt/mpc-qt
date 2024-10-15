@@ -847,12 +847,6 @@ void Flow::setupFlowConnections()
     connect(screenSaver, &ScreenSaver::loggedOff,
             this, &Flow::endProgram);
 
-    // this -> mainwindow
-    connect(this, &Flow::recentFilesChanged,
-            mainWindow, &MainWindow::setRecentDocuments);
-    connect(this, &Flow::fullscreenControls,
-            mainWindow, &MainWindow::setControlsInFullscreen);
-
     // this -> this
     connect(this, &Flow::windowsRestored,
             this, &Flow::self_windowsRestored);
@@ -1165,7 +1159,7 @@ void Flow::mainwindow_instanceShouldQuit()
 void Flow::mainwindow_fullscreenHideControls(bool hide)
 {
     this->settings["fullscreenHideControls"] = hide;
-    emit fullscreenControls(hide, this->settings.value("fullscreenShowWhen").toInt(), \
+    mainWindow->setControlsInFullscreen(hide, this->settings.value("fullscreenShowWhen").toInt(), \
         this->settings.value("fullscreenShowWhenDuration").toInt(), false);
 }
 
@@ -1513,7 +1507,7 @@ void Flow::updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title
         recentFiles.removeLast();
 
     // Notify (2022-03: the main window) that the recents have changed
-    emit recentFilesChanged(recentFiles);
+    mainWindow->setRecentDocuments(recentFiles);
 }
 
 void Flow::endProgram()
