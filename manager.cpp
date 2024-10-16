@@ -816,7 +816,7 @@ void PlaybackManager::mpvw_playbackIdling()
 }
 
 void PlaybackManager::mpvw_playbackFinished() {
-    if (playbackState_ == BufferingState || playbackState_ == WaitingState) {
+    if (playbackState_ == BufferingState) {
         playbackState_ = StoppedState;
         emit stateChanged(playbackState_);
         mpvw_eofReachedChanged(strTrue);
