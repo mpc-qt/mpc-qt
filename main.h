@@ -18,6 +18,7 @@
 #include "platform/windowmanager.h"
 
 class MprisInstance;
+class QLockFile;
 class QThread;
 
 // a simple class to control program exection and own application objects
@@ -101,6 +102,7 @@ private slots:
     void exportPlaylist(QString fname, QStringList items);
 
 private:
+    std::unique_ptr<QLockFile> lockFile_;
     MpcQtServer *server = nullptr;
     MpvServer *mpvServer = nullptr;
     MpcHcServer *mpcHcServer = nullptr;
