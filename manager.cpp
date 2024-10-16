@@ -669,9 +669,6 @@ void PlaybackManager::checkAfterPlayback()
     case Helpers::LockAfter:
         emit systemShouldLock();
         break;
-    case Helpers::RepeatAfter:
-        repeatThisFile();
-        break;
     case Helpers::PlayNextAfter:
         playNext(true);
         break;

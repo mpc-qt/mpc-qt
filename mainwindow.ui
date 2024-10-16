@@ -887,7 +887,6 @@
      <addaction name="actionPlayAfterOnceLogoff"/>
      <addaction name="actionPlayAfterOnceLock"/>
      <addaction name="actionPlayAfterAlwaysNext"/>
-     <addaction name="actionPlayAfterAlwaysRepeat"/>
      <addaction name="actionPlayAfterOnceNothing"/>
     </widget>
     <widget class="QMenu" name="menuPlayLoop">
@@ -1984,14 +1983,6 @@
    </property>
    <property name="text">
     <string>Do &amp;Nothing</string>
-   </property>
-  </action>
-  <action name="actionPlayAfterAlwaysRepeat">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Repe&amp;at</string>
    </property>
   </action>
   <action name="actionViewOSDMessages">
