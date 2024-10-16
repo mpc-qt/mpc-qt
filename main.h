@@ -37,9 +37,6 @@ public:
     static void earlyPlatformOverride();
 
 signals:
-    void recentFilesChanged(QList<TrackInfo> urls);
-    void fullscreenControls(bool hide, int showWhen, int showWhenDuration,
-                            bool setControlsInFullscreen = true);
     void windowsRestored();
 
 private:
