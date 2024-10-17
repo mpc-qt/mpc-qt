@@ -17,7 +17,7 @@
 #include "helpers.h"
 #include "platform/unify.h"
 
-QSet<QString> Helpers::fileExtensions {
+QSet<QString> Helpers::audioVideoFileExtensions {
     // DVD/Blu-ray audio formats
     "ac3", "a52",
     "eac3",
@@ -118,6 +118,11 @@ QSet<QString> Helpers::fileExtensions {
     "m3u", "m3u8",
     "pls",
     "cue",
+    // Modfiles
+    "mod"
+};
+
+QSet<QString> Helpers::imagesFileExtensions {
     // Image formats
     "bmp",
     "dds",
@@ -142,18 +147,26 @@ QSet<QString> Helpers::fileExtensions {
     "sunrast",
     "tiff",
     "webp",
-    "xpm",
-    // Modfiles
-    "mod",
+    "xpm"
+};
+
+QSet<QString> Helpers::archivesFileExtensions {
     // Archives
     "rar",
     "zip",
     "cbz",
-    "cbr",
+    "cbr"
+};
+QSet<QString> Helpers::othersFileExtensions {
     // Other formats
     "at9",
     "mpc"
 };
+
+QSet<QString> Helpers::allMediaExtensions = Helpers::audioVideoFileExtensions |
+                                            Helpers::imagesFileExtensions |
+                                            Helpers::archivesFileExtensions |
+                                            Helpers::othersFileExtensions;
 
 QSet<QString> Helpers::subsExtensions {
     "aqtitle", "aqt",
@@ -479,7 +492,7 @@ QString Helpers::parseFormatEx(QString fmt, QUrl sourceUrl, QString filePath,
 
 QString Helpers::fileOpenFilter()
 {
-    const QString ext = QStringList(Helpers::fileExtensions.values()).join(" *.");
+    const QString ext = QStringList(Helpers::allMediaExtensions.values()).join(" *.");
     return QString(QObject::tr("All Media (*.%1);;All Files (*.*)")).arg(ext);
 }
 
@@ -496,7 +509,7 @@ bool Helpers::urlSurvivesFilter(const QUrl &url)
     QFileInfo info(url.toLocalFile());
     if (info.isDir())
         return true;
-    return fileExtensions.contains(info.suffix().toLower());
+    return audioVideoFileExtensions.contains(info.suffix().toLower());
 }
 
 QList<QUrl> Helpers::filterUrls(const QList<QUrl> &urls)
@@ -518,7 +531,7 @@ QList<QUrl> Helpers::filterUrls(const QList<QUrl> &urls)
             filtered.append(filterUrls(children));
             continue;
         }
-        if (fileExtensions.contains(info.suffix().toLower())) {
+        if (Helpers::allMediaExtensions.contains(info.suffix().toLower())) {
             filtered << u;
             continue;
         }
