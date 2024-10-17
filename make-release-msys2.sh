@@ -190,6 +190,7 @@ cp $BINDIR/libva.dll                    "$DEST"
 cp $BINDIR/libva_win32.dll              "$DEST"
 cp $BINDIR/libvpl-*.dll                 "$DEST"
 cp $BINDIR/libzvbi-*.dll                "$DEST"
+cp $BINDIR/liblc3-*.dll                 "$DEST"
 
 echo Copying executable
 cp "$BUILD/mpc-qt.exe" "$DEST"
