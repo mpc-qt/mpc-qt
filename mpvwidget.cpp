@@ -48,6 +48,7 @@ MpvObject::PropertyDispatchMap MpvObject::propertyDispatch = {
     HANDLE_PROP("pause", pausedChanged, toBool, true),
     HANDLE_PROP("eof-reached", eofReachedChanged, toString, QString()),
     HANDLE_PROP("media-title", mediaTitleChanged, toString, QString()),
+    HANDLE_PROP("chapter", self_chapterChanged, toDouble, 0.0),
     HANDLE_PROP("chapter-metadata", chapterDataChanged, toMap, QVariantMap()),
     HANDLE_PROP("chapter-list", chaptersChanged, toList, QVariantList()),
     HANDLE_PROP("track-list", tracksChanged, toList, QVariantList()),
@@ -154,6 +155,7 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
         { "video-params/aspect", 0, MPV_FORMAT_DOUBLE },
         { "video-params/aspect-name", 0, MPV_FORMAT_STRING },
         { "media-title", 0, MPV_FORMAT_STRING },
+        { "chapter", 0, MPV_FORMAT_DOUBLE },
         { "chapter-metadata", 0, MPV_FORMAT_NODE },
         { "track-list", 0, MPV_FORMAT_NODE },
         { "chapter-list", 0, MPV_FORMAT_NODE },
@@ -440,7 +442,7 @@ void MpvObject::disableVideoAspect(bool yes)
 
 int64_t MpvObject::chapter()
 {
-    return getMpvPropertyVariant("chapter").toLongLong();
+    return chapter_;
 }
 
 bool MpvObject::setChapter(int64_t chapter)
@@ -743,6 +745,11 @@ void MpvObject::self_playLengthChanged(double playLength)
 {
     playLength_ = playLength;
     emit playLengthChanged(playLength);
+}
+
+void MpvObject::self_chapterChanged(double chapter)
+{
+    chapter_ = chapter;
 }
 
 void MpvObject::self_metadata(QVariantMap metadata)
