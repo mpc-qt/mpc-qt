@@ -161,6 +161,7 @@ private slots:
     void ctrl_videoSizeChanged(QSize size);
     void self_playTimeChanged(double playTime);
     void self_playLengthChanged(double playLength);
+    void self_chapterChanged(double chapter);
     void self_metadata(QVariantMap metadata);
     void self_audioDeviceList(const QVariantList &list);
     void hideTimer_timeout();
@@ -187,6 +188,7 @@ private:
     QSize videoSize_;
     double playTime_ = 0.0;
     double playLength_ = 0.0;
+    double chapter_ = 0.0;
     double aspect = 0.0;
 
     int shownStatsPage = 0;
