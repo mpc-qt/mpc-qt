@@ -57,6 +57,7 @@ MpvObject::PropertyDispatchMap MpvObject::propertyDispatch = {
     HANDLE_PROP("decoder-frame-drop-count", decoderFramedropsChanged, toLongLong, 0ll),
     HANDLE_PROP("audio-bitrate", audioBitrateChanged, toDouble, 0.0),
     HANDLE_PROP("video-bitrate", videoBitrateChanged, toDouble, 0.0),
+    HANDLE_PROP("video-params/aspect", self_aspectChanged, toDouble, 0.0),
     HANDLE_PROP("video-params/aspect-name", aspectNameChanged, toString, QString()),
     HANDLE_PROP("metadata", self_metadata, toMap, QVariantMap()),
     HANDLE_PROP("audio-device-list", self_audioDeviceList, toList, QVariantList()),
@@ -150,6 +151,7 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
         { "time-pos", 0, MPV_FORMAT_DOUBLE },
         { "pause", 0, MPV_FORMAT_FLAG },
         { "eof-reached", 0, MPV_FORMAT_FLAG },
+        { "video-params/aspect", 0, MPV_FORMAT_DOUBLE },
         { "video-params/aspect-name", 0, MPV_FORMAT_STRING },
         { "media-title", 0, MPV_FORMAT_STRING },
         { "chapter-metadata", 0, MPV_FORMAT_NODE },
@@ -423,8 +425,7 @@ void MpvObject::setSubtitlesDelay(int subDelayStep)
 
 void MpvObject::setVideoAspect(double aspectDiff)
 {
-    double currAspect = getMpvPropertyVariant("video-params/aspect").toDouble();
-    setMpvPropertyVariant("video-aspect-override", currAspect + aspectDiff);
+    setMpvPropertyVariant("video-aspect-override", aspect + aspectDiff);
 }
 
 void MpvObject::setVideoAspectPreset(double aspect)
@@ -654,6 +655,11 @@ void MpvObject::hideCursor()
             return;
         w->setCursor(Qt::BlankCursor);
     }
+}
+
+void MpvObject::self_aspectChanged(double newAspect)
+{
+    aspect = newAspect;
 }
 
 void MpvObject::ctrl_mpvPropertyChanged(QString name, QVariant v)
