@@ -164,6 +164,7 @@ private slots:
     void self_metadata(QVariantMap metadata);
     void self_audioDeviceList(const QVariantList &list);
     void hideTimer_timeout();
+    void self_aspectChanged(double newAspect);
 
     void self_mouseMoved(int x, int y);
     void self_mousePress(int x, int y, int btn);
@@ -186,6 +187,7 @@ private:
     QSize videoSize_;
     double playTime_ = 0.0;
     double playLength_ = 0.0;
+    double aspect = 0.0;
 
     int shownStatsPage = 0;
     bool loopImages = true;
