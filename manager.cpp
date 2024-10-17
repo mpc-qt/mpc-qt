@@ -126,7 +126,7 @@ QUrl PlaybackManager::nowPlaying()
 
 bool PlaybackManager::eofReached()
 {
-    return mpvObject_->eofReached();
+    return eofReached_;
 }
 
 PlaybackManager::PlaybackState PlaybackManager::playbackState()
@@ -244,7 +244,7 @@ void PlaybackManager::pausePlayer()
 void PlaybackManager::unpausePlayer()
 {
     if (playbackState_ == PausedState) {
-        if (mpvObject_->eofReached())
+        if (eofReached_)
             navigateToTime(0);
         mpvObject_->setPaused(false);
     }
@@ -822,13 +822,16 @@ void PlaybackManager::mpvw_playbackFinished() {
 
 void PlaybackManager::mpvw_eofReachedChanged(QString eof) {
     LogStream("manager") << "mpvw_eofReachedChanged eof: " << eof;
-    if (eof == strFalse)
+    if (eof == strFalse) {
+        eofReached_ = false;
         return;
+    }
     else if (eof.isEmpty()) {
         emit fileClosed();
         showAspectOsdTriggeredBy = AspectNameChanged::OnOpen;
         return;
     }
+    eofReached_ = true;
 
     emit stoppedPlaying();
 

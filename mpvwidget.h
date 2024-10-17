@@ -86,7 +86,6 @@ public:
     void setSendKeyEvents(bool enabled);
     void setSendMouseEvents(bool enabled);
 
-    bool eofReached();
     double playLength();
     double playTime();
     QSize videoSize();

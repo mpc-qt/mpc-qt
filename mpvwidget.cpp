@@ -548,11 +548,6 @@ void MpvObject::setSendMouseEvents(bool enabled)
     sendMouseEvents = enabled;
 }
 
-bool MpvObject::eofReached()
-{
-    return getMpvPropertyVariant("eof-reached").toBool();
-}
-
 double MpvObject::playLength()
 {
     return playLength_;
