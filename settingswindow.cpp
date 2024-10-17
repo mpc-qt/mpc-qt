@@ -1091,6 +1091,9 @@ void SettingsWindow::setFreestanding(bool freestanding)
     bool yes = !freestanding;
     ui->ipcNotice->setVisible(yes);
     ui->ipcMpris->setVisible(yes);
+    ui->playerOpenSame->setVisible(yes);
+    ui->playerOpenNew->setVisible(yes);
+    ui->playerOpenBox->setEnabled(yes);
     ui->playerKeepHistory->setVisible(yes);
     ui->playerRememberFilePosition->setVisible(yes);
     ui->playerRememberLastPlaylist->setVisible(false /*yes*/);

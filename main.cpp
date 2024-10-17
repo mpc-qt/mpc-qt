@@ -10,6 +10,7 @@
 #include <QCommandLineParser>
 #include <QSurfaceFormat>
 #include <QStyleFactory>
+#include <QLockFile>
 #include <QThread>
 #include <QTranslator>
 #include <QLibraryInfo>
@@ -222,6 +223,17 @@ void Flow::detectMode() {
     // Attempt to send our urls to a previous instance, and bail out if it works.
     bool alreadyAServer = JsonServer::sendPayload(makePayload(), MpcQtServer::defaultSocketName());
     programMode = alreadyAServer ? EarlyQuitMode : PrimaryMode;
+
+    if (programMode == PrimaryMode) {
+        QString lockFilePath =
+            QDir::tempPath() + QLatin1Char('/') + QLatin1String("mpc-qt.lock");
+        std::unique_ptr<QLockFile> lockFile = std::make_unique<QLockFile>(lockFilePath);
+        lockFile->setStaleLockTime(0);
+        if (!lockFile->tryLock())
+            programMode = EarlyQuitMode;
+        else
+            lockFile_ = std::move(lockFile);
+    }
 }
 
 void Flow::init() {
