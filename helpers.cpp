@@ -509,7 +509,7 @@ bool Helpers::urlSurvivesFilter(const QUrl &url)
     QFileInfo info(url.toLocalFile());
     if (info.isDir())
         return true;
-    return audioVideoFileExtensions.contains(info.suffix().toLower());
+    return audioVideoFileExtensions.contains(info.suffix().toLower().split(" ")[0]);
 }
 
 QList<QUrl> Helpers::filterUrls(const QList<QUrl> &urls)
@@ -531,7 +531,7 @@ QList<QUrl> Helpers::filterUrls(const QList<QUrl> &urls)
             filtered.append(filterUrls(children));
             continue;
         }
-        if (Helpers::allMediaExtensions.contains(info.suffix().toLower())) {
+        if (Helpers::allMediaExtensions.contains(info.suffix().toLower().split(" ")[0])) {
             filtered << u;
             continue;
         }
