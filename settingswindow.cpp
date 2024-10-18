@@ -499,9 +499,6 @@ void SettingsWindow::setupUnimplementedWidgets()
     // Remove the trailing : (looks odd with the rest of the tooltip options hidden)
     ui->tweaksTimeTooltip->setText(ui->tweaksTimeTooltip->text().replace(":",""));
     ui->tweaksTimeTooltipLocation->setVisible(false);
-    ui->tweaksOsdFont->setVisible(false);
-    ui->tweaksOsdFontLabel->setVisible(false);
-    ui->tweaksOsdSize->setVisible(false);
 
     ui->miscExportKeys->setVisible(false);
     ui->miscExportSettings->setVisible(false);
@@ -1063,6 +1060,8 @@ void SettingsWindow::sendSignals()
     emit timeTooltip(WIDGET_LOOKUP(ui->tweaksTimeTooltip).toBool(),
                      WIDGET_LOOKUP(ui->tweaksTimeTooltipLocation).toInt() == 0);
     emit osdTimerOnSeek(WIDGET_LOOKUP(ui->tweaksOsdTimerOnSeek).toBool());
+    emit option("osd-font", WIDGET_LOOKUP(ui->tweaksOsdFont).toString());
+    emit option("osd-font-size", WIDGET_LOOKUP(ui->tweaksOsdSize).toInt());
     emit option("brightness", WIDGET_LOOKUP(ui->miscBrightness).toInt());
     emit option("contrast", WIDGET_LOOKUP(ui->miscContrast).toInt());
     emit option("gamma", WIDGET_LOOKUP(ui->miscGamma).toInt());
