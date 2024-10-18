@@ -118,7 +118,7 @@ signals:
     void playbackIdling();
     void mediaTitleChanged(QString title);
     void metaDataChanged(QVariantMap metadata);
-    void chapterDataChanged(QVariantMap metadata);
+    void chapterTitleChanged(QString title);
     void chaptersChanged(QVariantList chapters);
     void tracksChanged(QVariantList tracks);
     void videoSizeChanged(QSize size);
