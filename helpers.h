@@ -58,7 +58,7 @@ namespace Helpers {
                           double timeBegin, double timeEnd);
     QString fileOpenFilter();
     QString subsOpenFilter();
-    bool urlSurvivesFilter(const QUrl &url);
+    bool urlSurvivesFilter(const QUrl &url, bool onlyAudioVideo);
     QList<QUrl> filterUrls(const QList<QUrl> &urls);
     QRect vmapToRect(const QVariantMap &m);
     QVariantMap rectToVmap(const QRect &r);

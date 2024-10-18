@@ -739,7 +739,7 @@ bool PlaybackManager::playNextFileUrl(QUrl url, int delta)
             return false;
         nextFile = dir.filePath(files.value(index));
         url = QUrl::fromLocalFile(nextFile);
-    } while (!Helpers::urlSurvivesFilter(url));
+    } while (!Helpers::urlSurvivesFilter(url, true));
     playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, { url });
     startPlayWithUuid(url, nowPlayingList, nowPlayingItem, false);
     return true;
@@ -961,10 +961,12 @@ void PlaybackManager::mpvw_metadataChanged(QVariantMap metadata)
 
 void PlaybackManager::mpvw_playlistChanged(const QVariantList &playlist)
 {
-    // replace current item with whatever we got, and trigger its playback
+    // replace current item with the content we got from the archive, and trigger its playback
     QList<QUrl> urls;
-    for (auto i : playlist)
-        urls.append(QUrl::fromUserInput(i.toMap()["filename"].toString()));
+    for (auto i : playlist) {
+        if (Helpers::urlSurvivesFilter(QUrl::fromUserInput(i.toMap()["filename"].toString()), false))
+            urls.append(QUrl::fromUserInput(i.toMap()["filename"].toString()));
+    }
     playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, urls);
     playItem(nowPlayingList, nowPlayingItem);
 }

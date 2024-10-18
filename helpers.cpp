@@ -502,14 +502,21 @@ QString Helpers::subsOpenFilter()
     return QString(QObject::tr("All Subtitles (*.%1);;All Files (*.*)")).arg(ext);
 }
 
-bool Helpers::urlSurvivesFilter(const QUrl &url)
+bool Helpers::urlSurvivesFilter(const QUrl &url, bool onlyAudioVideo)
 {
-    if (!url.isLocalFile())
-        return true;
     QFileInfo info(url.toLocalFile());
-    if (info.isDir())
-        return true;
-    return audioVideoFileExtensions.contains(info.suffix().toLower().split(" ")[0]);
+    if (url.scheme() != "archive") {
+        if (!url.isLocalFile())
+            return true;
+        if (info.isDir())
+            return true;
+    }
+    else
+        info = QFileInfo(url.fileName());
+    if (onlyAudioVideo)
+        return audioVideoFileExtensions.contains(info.suffix().toLower().split(" ")[0]);
+    else
+        return allMediaExtensions.contains(info.suffix().toLower().split(" ")[0]);
 }
 
 QList<QUrl> Helpers::filterUrls(const QList<QUrl> &urls)
