@@ -50,7 +50,6 @@ signals:
     void timeChanged(double time, double length);
     void playLengthChanged();
     void titleChanged(QString title);
-    void chapterTitleChanged(QString title);
     void videoSizeChanged(QSize size);
     void playbackSpeedChanged(double speed);
     void stateChanged(PlaybackManager::PlaybackState state);
@@ -182,7 +181,6 @@ private slots:
     void mpvw_playbackFinished();
     void mpvw_eofReachedChanged(QString eof);
     void mpvw_mediaTitleChanged(QString title);
-    void mpvw_chapterDataChanged(QVariantMap metadata);
     void mpvw_chaptersChanged(QVariantList chapters);
     void mpvw_tracksChanged(QVariantList tracks);
     void mpvw_videoSizeChanged(QSize size);

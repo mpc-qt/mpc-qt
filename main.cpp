@@ -505,8 +505,6 @@ void Flow::setupMainWindowConnections()
             mainWindow, &MainWindow::setTime);
     connect(playbackManager, &PlaybackManager::titleChanged,
             mainWindow, &MainWindow::setMediaTitle);
-    connect(playbackManager, &PlaybackManager::chapterTitleChanged,
-            mainWindow, &MainWindow::setChapterTitle);
     connect(playbackManager, &PlaybackManager::videoSizeChanged,
             mainWindow, &MainWindow::setVideoSize);
     connect(playbackManager, &PlaybackManager::stateChanged,
@@ -746,6 +744,8 @@ void Flow::setupMpvObjectConnections()
             mainWindow, &MainWindow::subtitleTrackSet);
     connect(mpvObject, &MpvObject::videoTrackSet,
             mainWindow, &MainWindow::videoTrackSet);
+    connect(mpvObject, &MpvObject::chapterTitleChanged,
+            mainWindow, &MainWindow::setChapterTitle);
 
     // settingswindow -> log
     auto logger = Logger::singleton();

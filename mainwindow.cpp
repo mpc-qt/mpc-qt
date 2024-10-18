@@ -1131,6 +1131,8 @@ void MainWindow::updateInfostats()
     bool infoShow = ui->actionViewHideInformation->isChecked();
     bool statShow = ui->actionViewHideStatistics->isChecked();
 
+    ui->title->setVisible(infoShow);
+    ui->titleLabel->setVisible(infoShow);
     ui->chapter->setVisible(infoShow);
     ui->chapterLabel->setVisible(infoShow);
 
@@ -1726,6 +1728,7 @@ void MainWindow::setMediaTitle(QString title)
     if (!title.isEmpty())
         window_title.append(" - ").append(title);
     setWindowTitle(window_title);
+    ui->title->setText(!title.isEmpty() ? title : "-");
 }
 
 void MainWindow::setChapterTitle(QString title)
