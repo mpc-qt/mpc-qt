@@ -591,6 +591,9 @@
                <property name="text">
                 <string notr="true">-</string>
                </property>
+               <property name="leftMargin">
+                <number>10</number>
+               </property>
               </widget>
              </item>
              <item row="1" column="0">
@@ -604,6 +607,9 @@
               <widget class="QLabel" name="chapter">
                <property name="text">
                 <string notr="true">-</string>
+               </property>
+               <property name="leftMargin">
+                <number>10</number>
                </property>
               </widget>
              </item>
@@ -619,6 +625,9 @@
                <property name="text">
                 <string notr="true">-</string>
                </property>
+               <property name="leftMargin">
+                <number>10</number>
+               </property>
               </widget>
              </item>
              <item row="3" column="0">
@@ -632,6 +641,9 @@
               <widget class="QLabel" name="avsync">
                <property name="text">
                 <string notr="true">-</string>
+               </property>
+               <property name="leftMargin">
+                <number>10</number>
                </property>
               </widget>
              </item>
@@ -647,6 +659,9 @@
                <property name="text">
                 <string>vo: 0, decoder: 0</string>
                </property>
+               <property name="leftMargin">
+                <number>10</number>
+               </property>
               </widget>
              </item>
              <item row="5" column="0">
@@ -660,6 +675,9 @@
               <widget class="QLabel" name="bitrate">
                <property name="text">
                 <string notr="true">v: 0 kb/s, a: 0kb/s</string>
+               </property>
+               <property name="leftMargin">
+                <number>10</number>
                </property>
               </widget>
              </item>
