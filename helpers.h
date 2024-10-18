@@ -36,7 +36,11 @@ namespace Helpers {
     enum TimeFormat { LongFormat, ShortFormat,
                       LongHourFormat, ShortHourFormat };
 
-    extern QSet<QString> fileExtensions;
+    extern QSet<QString> audioVideoFileExtensions;
+    extern QSet<QString> imagesFileExtensions;
+    extern QSet<QString> archivesFileExtensions;
+    extern QSet<QString> othersFileExtensions;
+    extern QSet<QString> allMediaExtensions;
     extern QSet<QString> subsExtensions;
 
     QString fileSizeToString(int64_t bytes);
