@@ -148,6 +148,9 @@
                  <normalon>:/images/theme/black/media-playback-start.svg</normalon>
                 </iconset>
                </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
                <property name="flat">
                 <bool>true</bool>
                </property>
@@ -186,6 +189,9 @@
                 <iconset>
                  <normalon>:/images/theme/black/media-playback-stop.svg</normalon>
                 </iconset>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
                </property>
                <property name="flat">
                 <bool>true</bool>
