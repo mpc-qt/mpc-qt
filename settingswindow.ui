@@ -7671,6 +7671,9 @@ media file played</string>
            </item>
            <item row="9" column="1">
             <widget class="QComboBox" name="tweaksTimeTooltipLocation">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="sizePolicy">
               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -7716,10 +7719,17 @@ media file played</string>
            <item row="11" column="1">
             <layout class="QHBoxLayout" name="tweaksOsdLayout" stretch="1,0">
              <item>
-              <widget class="QFontComboBox" name="tweaksOsdFont"/>
+              <widget class="QFontComboBox" name="tweaksOsdFont">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QSpinBox" name="tweaksOsdSize">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
                <property name="minimum">
                 <number>1</number>
                </property>

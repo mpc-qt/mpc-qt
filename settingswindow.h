@@ -271,6 +271,10 @@ private slots:
 
     void on_playbackMouseHideWindowed_toggled(bool checked);
 
+    void on_tweaksTimeTooltip_toggled(bool checked);
+
+    void on_tweaksOsdFontChkBox_toggled(bool checked);
+
     void on_miscBrightness_valueChanged(int value);
 
     void on_miscContrast_valueChanged(int value);

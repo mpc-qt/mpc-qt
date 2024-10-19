@@ -1057,8 +1057,8 @@ void SettingsWindow::sendSignals()
     emit timeTooltip(WIDGET_LOOKUP(ui->tweaksTimeTooltip).toBool(),
                      WIDGET_LOOKUP(ui->tweaksTimeTooltipLocation).toInt() == 0);
     emit osdTimerOnSeek(WIDGET_LOOKUP(ui->tweaksOsdTimerOnSeek).toBool());
-    emit option("osd-font", WIDGET_LOOKUP(ui->tweaksOsdFont).toString());
-    emit option("osd-font-size", WIDGET_LOOKUP(ui->tweaksOsdSize).toInt());
+    emit option("osd-font", WIDGET_LOOKUP(ui->tweaksOsdFontChkBox).toBool() ? WIDGET_LOOKUP(ui->tweaksOsdFont).toString() : "");
+    emit option("osd-font-size", WIDGET_LOOKUP(ui->tweaksOsdFontChkBox).toBool() ? WIDGET_LOOKUP(ui->tweaksOsdSize).toInt() : 55);
     emit option("brightness", WIDGET_LOOKUP(ui->miscBrightness).toInt());
     emit option("contrast", WIDGET_LOOKUP(ui->miscContrast).toInt());
     emit option("gamma", WIDGET_LOOKUP(ui->miscGamma).toInt());
@@ -1365,6 +1365,17 @@ void SettingsWindow::on_playbackMouseHideFullscreen_toggled(bool checked)
 void SettingsWindow::on_playbackMouseHideWindowed_toggled(bool checked)
 {
     ui->playbackMouseHideWindowedDuration->setEnabled(checked);
+}
+
+void SettingsWindow::on_tweaksTimeTooltip_toggled(bool checked)
+{
+    ui->tweaksTimeTooltipLocation->setEnabled(checked);
+}
+
+void SettingsWindow::on_tweaksOsdFontChkBox_toggled(bool checked)
+{
+    ui->tweaksOsdFont->setEnabled(checked);
+    ui->tweaksOsdSize->setEnabled(checked);
 }
 
 void SettingsWindow::on_miscBrightness_valueChanged(int value)
