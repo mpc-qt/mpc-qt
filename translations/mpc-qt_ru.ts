@@ -1063,7 +1063,7 @@
     </message>
     <message>
         <source>Repe&amp;at</source>
-        <translation>Повтор&amp;ить</translation>
+        <translation type="vanished">Повтор&amp;ить</translation>
     </message>
     <message>
         <source>&amp;Repeat</source>
@@ -1335,6 +1335,10 @@
     </message>
     <message>
         <source>Seek Backwards (large step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3461,7 +3465,7 @@ media file played</source>
     </message>
     <message>
         <source>OSD font:</source>
-        <translation>Шрифт экранного уведомления:</translation>
+        <translation type="vanished">Шрифт экранного уведомления:</translation>
     </message>
     <message>
         <source>Prefer Wayland over XWayland (restart required)</source>
@@ -3749,7 +3753,7 @@ media file played</source>
     </message>
     <message>
         <source>Use time tooltip:</source>
-        <translation>Использовать подсказку времени:</translation>
+        <translation type="vanished">Использовать подсказку времени:</translation>
     </message>
     <message>
         <source>Language Override</source>
@@ -3889,6 +3893,14 @@ media file played</source>
     </message>
     <message>
         <source>Large step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show time tooltip:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change OSD font:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
