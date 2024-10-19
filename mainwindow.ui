@@ -580,72 +580,104 @@
               <number>0</number>
              </property>
              <item row="0" column="0">
+              <widget class="QLabel" name="titleLabel">
+               <property name="text">
+                <string>Title</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLabel" name="title">
+               <property name="text">
+                <string notr="true">-</string>
+               </property>
+               <property name="leftMargin">
+                <number>10</number>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
               <widget class="QLabel" name="chapterLabel">
                <property name="text">
                 <string>Chapter</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
+             <item row="1" column="1">
               <widget class="QLabel" name="chapter">
                <property name="text">
                 <string notr="true">-</string>
                </property>
+               <property name="leftMargin">
+                <number>10</number>
+               </property>
               </widget>
              </item>
-             <item row="1" column="0">
+             <item row="2" column="0">
               <widget class="QLabel" name="framerateLabel">
                <property name="text">
                 <string>Frame rate</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="1">
+             <item row="2" column="1">
               <widget class="QLabel" name="framerate">
                <property name="text">
                 <string notr="true">-</string>
                </property>
+               <property name="leftMargin">
+                <number>10</number>
+               </property>
               </widget>
              </item>
-             <item row="2" column="0">
+             <item row="3" column="0">
               <widget class="QLabel" name="avsyncLabel">
                <property name="text">
                 <string>Sync Offset</string>
                </property>
               </widget>
              </item>
-             <item row="2" column="1">
+             <item row="3" column="1">
               <widget class="QLabel" name="avsync">
                <property name="text">
                 <string notr="true">-</string>
                </property>
+               <property name="leftMargin">
+                <number>10</number>
+               </property>
               </widget>
              </item>
-             <item row="3" column="0">
+             <item row="4" column="0">
               <widget class="QLabel" name="framedropsLabel">
                <property name="text">
                 <string>Framedrops</string>
                </property>
               </widget>
              </item>
-             <item row="3" column="1">
+             <item row="4" column="1">
               <widget class="QLabel" name="framedrops">
                <property name="text">
                 <string>vo: 0, decoder: 0</string>
                </property>
+               <property name="leftMargin">
+                <number>10</number>
+               </property>
               </widget>
              </item>
-             <item row="4" column="0">
+             <item row="5" column="0">
               <widget class="QLabel" name="bitrateLabel">
                <property name="text">
                 <string>Bitrate</string>
                </property>
               </widget>
              </item>
-             <item row="4" column="1">
+             <item row="5" column="1">
               <widget class="QLabel" name="bitrate">
                <property name="text">
                 <string notr="true">v: 0 kb/s, a: 0kb/s</string>
+               </property>
+               <property name="leftMargin">
+                <number>10</number>
                </property>
               </widget>
              </item>

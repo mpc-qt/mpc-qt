@@ -78,8 +78,6 @@ void PlaybackManager::setMpvObject(MpvObject *mpvObject, bool makeConnections)
                 this, &PlaybackManager::mpvw_eofReachedChanged);
         connect(mpvObject, &MpvObject::mediaTitleChanged,
                 this, &PlaybackManager::mpvw_mediaTitleChanged);
-        connect(mpvObject, &MpvObject::chapterDataChanged,
-                this, &PlaybackManager::mpvw_chapterDataChanged);
         connect(mpvObject, &MpvObject::chaptersChanged,
                 this, &PlaybackManager::mpvw_chaptersChanged);
         connect(mpvObject, &MpvObject::tracksChanged,
@@ -849,11 +847,6 @@ void PlaybackManager::mpvw_mediaTitleChanged(QString title)
 {
     nowPlayingTitle = title;
     emit titleChanged(title);
-}
-
-void PlaybackManager::mpvw_chapterDataChanged(QVariantMap metadata)
-{
-    emit chapterTitleChanged(metadata.value("title").toString());
 }
 
 void PlaybackManager::mpvw_chaptersChanged(QVariantList chapters)
