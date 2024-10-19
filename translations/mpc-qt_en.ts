@@ -1359,7 +1359,7 @@
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Title</translation>
     </message>
 </context>
 <context>
@@ -3925,11 +3925,11 @@ media file played</translation>
     </message>
     <message>
         <source>Show time tooltip:</source>
-        <translation type="unfinished"></translation>
+        <translation>Show time tooltip:</translation>
     </message>
     <message>
         <source>Change OSD font:</source>
-        <translation type="unfinished"></translation>
+        <translation>Change OSD font:</translation>
     </message>
     <message>
         <source>Only keep history for videos</source>
