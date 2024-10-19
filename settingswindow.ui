@@ -7653,17 +7653,21 @@ media file played</string>
             </widget>
            </item>
            <item row="9" column="0">
-            <widget class="QCheckBox" name="tweaksTimeTooltip">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="text">
-              <string>Use time tooltip:</string>
-             </property>
-            </widget>
+            <layout class="QHBoxLayout" name="tweaksTimeTooltipLayout" stretch="1">
+             <item>
+              <widget class="QCheckBox" name="tweaksTimeTooltip">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Show time tooltip:</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item row="9" column="1">
             <widget class="QComboBox" name="tweaksTimeTooltipLocation">
@@ -7693,11 +7697,21 @@ media file played</string>
             </widget>
            </item>
            <item row="11" column="0">
-            <widget class="QLabel" name="tweaksOsdFontLabel">
-             <property name="text">
-              <string>OSD font:</string>
-             </property>
-            </widget>
+            <layout class="QHBoxLayout" name="tweaksOsdFontLayout" stretch="1">
+             <item>
+              <widget class="QCheckBox" name="tweaksOsdFontChkBox">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Change OSD font:</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item row="11" column="1">
             <layout class="QHBoxLayout" name="tweaksOsdLayout" stretch="1,0">
