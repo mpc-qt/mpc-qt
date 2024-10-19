@@ -1063,7 +1063,7 @@
     </message>
     <message>
         <source>Repe&amp;at</source>
-        <translation>Repe&amp;at</translation>
+        <translation type="vanished">Repe&amp;at</translation>
     </message>
     <message>
         <source>&amp;Repeat</source>
@@ -1356,6 +1356,10 @@
     <message>
         <source>Seek Backwards (large step)</source>
         <translation>Seek Backwards (large step)</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3489,7 +3493,7 @@ media file played</translation>
     </message>
     <message>
         <source>OSD font:</source>
-        <translation>OSD font:</translation>
+        <translation type="vanished">OSD font:</translation>
     </message>
     <message>
         <source>Prefer Wayland over XWayland (restart required)</source>
@@ -3781,7 +3785,7 @@ media file played</translation>
     </message>
     <message>
         <source>Use time tooltip:</source>
-        <translation>Use time tooltip:</translation>
+        <translation type="vanished">Use time tooltip:</translation>
     </message>
     <message>
         <source>Language Override</source>
@@ -3918,6 +3922,14 @@ media file played</translation>
     <message>
         <source>Large step</source>
         <translation>Large step</translation>
+    </message>
+    <message>
+        <source>Show time tooltip:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change OSD font:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

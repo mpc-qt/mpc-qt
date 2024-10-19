@@ -1050,10 +1050,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Repe&amp;at</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Repeat</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1315,6 +1311,10 @@
     </message>
     <message>
         <source>Seek Backwards (large step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3417,7 +3417,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>OSD font:</source>
-        <translation>Font OSD:</translation>
+        <translation type="vanished">Font OSD:</translation>
     </message>
     <message>
         <source>Prefer Wayland over XWayland (restart required)</source>
@@ -3705,7 +3705,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Use time tooltip:</source>
-        <translation>Mostra tempo in un suggerimento:</translation>
+        <translation type="vanished">Mostra tempo in un suggerimento:</translation>
     </message>
     <message>
         <source>Language Override</source>
@@ -3841,6 +3841,14 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Large step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show time tooltip:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change OSD font:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
