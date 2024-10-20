@@ -3893,42 +3893,42 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Only keep history for videos</source>
-        <translation type="unfinished"></translation>
+        <translation>Solo guardar el historial de los vídeos</translation>
     </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
     <message>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Fuente</translation>
     </message>
     <message>
         <source>&amp;Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Navegar...</translation>
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagen</translation>
     </message>
     <message>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Ancho</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Disposición</translation>
     </message>
     <message>
         <source>Rows</source>
-        <translation type="unfinished"></translation>
+        <translation>Filas</translation>
     </message>
     <message>
         <source>&amp;Go!</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;¡Ir!</translation>
     </message>
     <message>
         <source>Thu&amp;mbnail</source>
