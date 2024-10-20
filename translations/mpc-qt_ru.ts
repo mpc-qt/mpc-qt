@@ -3903,6 +3903,10 @@ media file played</source>
         <source>Change OSD font:</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Only keep history for videos</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

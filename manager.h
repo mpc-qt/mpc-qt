@@ -27,6 +27,7 @@ public:
     bool isExternal = false;
     bool isForced = false;
     bool isDefault = false;
+    bool isImage = false;
     QString formatted();
 };
 
@@ -153,7 +154,7 @@ public slots:
     void sendCurrentTrackInfo();
     void getCurrentTrackInfo(QUrl &url, QUuid &listUuid, QUuid &itemUuid, QString title,
                              double &length, double &position, int64_t &videoTrack,
-                             int64_t &audioTrack, int64_t &subtitleTrack);
+                             int64_t &audioTrack, int64_t &subtitleTrack, bool &hasVideo);
 
 private:
     enum AspectNameChanged { OnOpen, OnFirstPlay, Manually };
@@ -217,6 +218,7 @@ private:
     QList<QPair<int64_t,QString>> videoList;
     QList<QPair<int64_t,QString>> audioList;
     QList<QPair<int64_t,QString>> subtitleList;
+    QMap<int64_t,TrackData> videoListData;
     QMap<int64_t,TrackData> audioListData;
     QMap<int64_t,TrackData> subtitleListData;
     QVariantList chapters = QVariantList();

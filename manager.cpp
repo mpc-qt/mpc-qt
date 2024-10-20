@@ -30,6 +30,8 @@ TrackData TrackData::fromMap(const QVariantMap &map)
         td.isExternal = map["external"].toBool();
     if (map.contains("default"))
         td.isDefault = map["default"].toBool();
+    if (map.contains("image"))
+        td.isImage = map["image"].toBool();
     return td;
 }
 
@@ -535,7 +537,7 @@ void PlaybackManager::sendCurrentTrackInfo()
 
 void PlaybackManager::getCurrentTrackInfo(QUrl& url, QUuid& listUuid, QUuid& itemUuid, QString title,
                                           double& length, double& position, int64_t& videoTrack,
-                                          int64_t& audioTrack, int64_t& subtitleTrack)
+                                          int64_t& audioTrack, int64_t& subtitleTrack, bool& hasVideo)
 {
     url = playlistWindow_->getUrlOf(nowPlayingList, nowPlayingItem);
     listUuid = nowPlayingList;
@@ -546,6 +548,7 @@ void PlaybackManager::getCurrentTrackInfo(QUrl& url, QUuid& listUuid, QUuid& ite
     videoTrack = videoTrackSelected;
     audioTrack = audioTrackSelected;
     subtitleTrack = subtitleTrackSelected;
+    hasVideo = !videoList.isEmpty() && !videoListData[1].isImage;
 }
 
 void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
@@ -863,6 +866,7 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
     LogStream("manager") << "mpvw_tracksChanged";
     videoList.clear();
     audioList.clear();
+    videoListData.clear();
     audioListData.clear();
     subtitleList.clear();
     subtitleListData.clear();
@@ -875,6 +879,7 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
         item.second = td.formatted();
         if (td.type == "video") {
             videoList.append(item);
+            videoListData.insert(td.trackId, td);
         } else if (td.type == "audio") {
             audioList.append(item);
             audioListData.insert(td.trackId, td);
