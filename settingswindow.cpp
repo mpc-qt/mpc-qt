@@ -713,7 +713,8 @@ void SettingsWindow::sendSignals()
     emit titleBarFormat(WIDGET_LOOKUP(ui->playerTitleDisplayFullPath).toBool() ? Helpers::PrefixFullPath
                         : WIDGET_LOOKUP(ui->playerTitleFileNameOnly).toBool() ? Helpers::PrefixFileName : Helpers::NoPrefix);
     emit titleUseMediaTitle(WIDGET_LOOKUP(ui->playerTitleReplaceName).toBool());
-    emit rememberHistory(WIDGET_LOOKUP(ui->playerKeepHistory).toBool());
+    emit rememberHistory(WIDGET_LOOKUP(ui->playerKeepHistory).toBool(),
+                         WIDGET_LOOKUP(ui->playerKeepHistoryOnlyForVideos).toBool());
     emit rememberFilePosition(WIDGET_LOOKUP(ui->playerRememberFilePosition).toBool());
     emit rememberSelectedPlaylist(WIDGET_LOOKUP(ui->playerRememberLastPlaylist).toBool());
     emit rememberWindowGeometry(WIDGET_LOOKUP(ui->playerRememberWindowGeometry).toBool());
@@ -1091,6 +1092,7 @@ void SettingsWindow::setFreestanding(bool freestanding)
     ui->playerOpenNew->setVisible(yes);
     ui->playerOpenBox->setEnabled(yes);
     ui->playerKeepHistory->setVisible(yes);
+    ui->playerKeepHistoryOnlyForVideos->setVisible(yes);
     ui->playerRememberFilePosition->setVisible(yes);
     ui->playerRememberLastPlaylist->setVisible(false /*yes*/);
     ui->playerRememberWindowGeometry->setVisible(yes);
@@ -1206,6 +1208,7 @@ void SettingsWindow::on_playerKeepHistory_checkStateChanged(Qt::CheckState state
     bool playerKeepHistoryEnabled = state == Qt::Checked;
     if (!playerKeepHistoryEnabled)
         ui->playerRememberFilePosition->setChecked(false);
+    ui->playerKeepHistoryOnlyForVideos->setEnabled(playerKeepHistoryEnabled);
     ui->playerRememberFilePosition->setEnabled(playerKeepHistoryEnabled);
 }
 

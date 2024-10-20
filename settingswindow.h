@@ -86,7 +86,7 @@ signals:
     void inhibitScreensaver(bool yes);
     void titleBarFormat(Helpers::TitlePrefix format);
     void titleUseMediaTitle(bool yes);
-    void rememberHistory(bool yes);
+    void rememberHistory(bool yes, bool onlyVideos);
     void rememberFilePosition(bool yes);
     void rememberSelectedPlaylist(bool yes);
     void rememberWindowGeometry(bool yes);

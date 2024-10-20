@@ -198,6 +198,16 @@
                </widget>
               </item>
               <item>
+               <widget class="QCheckBox" name="playerKeepHistoryOnlyForVideos">
+                <property name="text">
+                 <string>Only keep history for videos</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QCheckBox" name="playerRememberFilePosition">
                 <property name="text">
                  <string>Remember file position</string>
