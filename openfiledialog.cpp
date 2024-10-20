@@ -30,6 +30,9 @@ void OpenFileDialog::on_fileBrowse_clicked()
 {
     static QString filter;
     static QFileDialog::Options options;
+#ifdef Q_OS_MAC
+    options = QFileDialog::DontUseNativeDialog;
+#endif
     if (filter.isEmpty())
         filter = Helpers::fileOpenFilter();
     QUrl url = QFileDialog::getOpenFileUrl(this, tr("Select File"), QUrl(), filter,
@@ -42,6 +45,9 @@ void OpenFileDialog::on_subsBrowse_clicked()
 {
     static QString subsFilter;
     static QFileDialog::Options options;
+#ifdef Q_OS_MAC
+    options = QFileDialog::DontUseNativeDialog;
+#endif
     if (subsFilter.isEmpty())
         subsFilter = Helpers::subsOpenFilter();
     QUrl url = QFileDialog::getOpenFileUrl(this, tr("Select File"), QUrl(), subsFilter,

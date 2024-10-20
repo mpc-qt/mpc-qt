@@ -60,6 +60,9 @@ void ThumbnailerWindow::setScreenshotFormat(QString format)
 void ThumbnailerWindow::on_saveImageBrowse_clicked()
 {
     static QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = QFileDialog::DontUseNativeDialog;
+#endif
     QString filename = QFileDialog::getSaveFileName(this, "Save Thumbnails",
                                                     ui->saveImage->text(),
                                                     saveDialogFilter,

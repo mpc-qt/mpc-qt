@@ -218,6 +218,9 @@ QString PropertiesWindow::sectionText(const QString &header, const QVariantMap &
 void PropertiesWindow::on_save_clicked()
 {
     static QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = QFileDialog::DontUseNativeDialog;
+#endif
     QString docsFolder = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
     QFileInfo info(filename + ".MediaInfo.txt");
     QString filename = QString("%1/%2").arg(docsFolder, info.fileName());
