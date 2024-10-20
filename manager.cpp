@@ -672,6 +672,9 @@ void PlaybackManager::checkAfterPlayback()
         break;
     case Helpers::DoNothingAfter:
         playNextTrack();
+        break;
+    case Helpers::RepeatAfter:
+        break;
     }
 }
 
