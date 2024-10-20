@@ -492,6 +492,9 @@ void PlaylistWindow::duplicateTab()
 void PlaylistWindow::importTab()
 {
     static QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = QFileDialog::DontUseNativeDialog;
+#endif
     QString file;
     file = QFileDialog::getOpenFileName(this, tr("Import File"), QString(),
                                         tr("Playlist files (*.m3u *.m3u8)"), nullptr, options);
@@ -691,6 +694,9 @@ void PlaylistWindow::finishSearch()
 void PlaylistWindow::savePlaylist(const QUuid &playlistUuid)
 {
     static QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = QFileDialog::DontUseNativeDialog;
+#endif
     QString file;
     file = QFileDialog::getSaveFileName(this, tr("Export File"), QString(),
                                         tr("Playlist files (*.m3u *.m3u8)"), nullptr, options);
