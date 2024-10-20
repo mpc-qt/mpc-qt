@@ -1505,11 +1505,12 @@ void Flow::updateRecentPosition(bool resetPosition)
     int64_t videoTrack;
     int64_t audioTrack;
     int64_t subtitleTrack;
+    bool hasVideo;
     if (playbackManager->eofReached())
         resetPosition = true;
     playbackManager->getCurrentTrackInfo(url, listUuid, itemUuid, title, length, position,
-                                         videoTrack, audioTrack, subtitleTrack);
-    if (!itemUuid.isNull())
+                                         videoTrack, audioTrack, subtitleTrack, hasVideo);
+    if (!itemUuid.isNull() && hasVideo)
         updateRecents(url, listUuid, itemUuid, title, length, resetPosition ? 0 : position,
                       videoTrack, audioTrack, subtitleTrack);
 }
