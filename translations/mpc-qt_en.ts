@@ -3933,7 +3933,7 @@ media file played</translation>
     </message>
     <message>
         <source>Only keep history for videos</source>
-        <translation type="unfinished"></translation>
+        <translation>Only keep history for videos</translation>
     </message>
 </context>
 <context>
