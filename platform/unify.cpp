@@ -36,7 +36,7 @@ const bool Platform::isWindows =
 ;
 
 const bool Platform::isUnix =
-#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
+#if defined(Q_OS_UNIX)
     true
 #else
     false

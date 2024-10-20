@@ -56,9 +56,6 @@ void LogWindow::on_copy_clicked()
 void LogWindow::on_save_clicked()
 {
     static QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = QFileDialog::DontUseNativeDialog;
-#endif
     QString textToSave = ui->messages->document()->toPlainText();
     static QString lastLog;
     QString file = QFileDialog::getSaveFileName(this, tr("Save File"), lastLog, "Text files (*.txt)",
