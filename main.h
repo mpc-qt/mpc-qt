@@ -76,6 +76,7 @@ private slots:
     void manager_fileClosed();
     void manager_subtitlesVisible(bool visible);
     void manager_hasNoSubtitles(bool none);
+    void manager_playingNextFile();
     void manager_openingNewFile();
     void manager_startingPlayingFile(QUrl url);
     void manager_stoppedPlaying();

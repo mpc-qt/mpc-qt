@@ -800,6 +800,8 @@ void Flow::setupFlowConnections()
             this, &Flow::manager_subtitlesVisible);
     connect(playbackManager, &PlaybackManager::hasNoSubtitles,
             this, &Flow::manager_hasNoSubtitles);
+    connect(playbackManager, &PlaybackManager::playingNextFile,
+            this, &Flow::manager_playingNextFile);
 
     // settings -> this
     connect(settingsWindow, &SettingsWindow::settingsData,
@@ -1324,6 +1326,13 @@ void Flow::manager_hasNoSubtitles(bool none)
     // Remember that there's no subtitle tracks (used for saving screenshots)
     // or not
     nowPlayingNoSubtitleTracks = none;
+}
+
+void Flow::manager_playingNextFile()
+{
+    // Save the position just before opening the next file
+    LogStream("main") << "manager_playingNextFile";
+    updateRecentPosition(false);
 }
 
 void Flow::manager_playLengthChanged() {
