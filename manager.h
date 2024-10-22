@@ -62,6 +62,7 @@ signals:
     void audioTracksAvailable(QList<QPair<int64_t,QString>> tracks);
     void videoTracksAvailable(QList<QPair<int64_t,QString>> tracks);
     void subtitleTracksAvailable(QList<QPair<int64_t,QString>> tracks);
+    void playingNextFile();
     void hasNoVideo(bool empty);
     void hasNoAudio(bool empty);
     void hasNoSubtitles(bool empty);
