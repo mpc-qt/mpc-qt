@@ -44,6 +44,7 @@ mpc-qt
 *.pyc
 
 # qmake
+/build/
 /release/
 /debug/
 /object_script.*.Debug
