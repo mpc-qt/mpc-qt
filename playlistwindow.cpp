@@ -56,26 +56,26 @@ void PlaylistWindow::clearPlaylist(QUuid what)
     updatePlaylistHasItems();
 }
 
-QPair<QUuid, QUuid> PlaylistWindow::addToPlaylist(const QUuid &playlist, const QList<QUrl> &what)
+PlaylistItem PlaylistWindow::addToPlaylist(const QUuid &playlist, const QList<QUrl> &what)
 {
     QList<QUrl> filtered = Helpers::filterUrls(what);
-    QPair<QUuid, QUuid> info;
+    PlaylistItem info;
     auto qdp = widgets.contains(playlist) ? widgets.value(playlist) : widgets[QUuid()];
     for (QUrl &url : filtered) {
-        QPair<QUuid,QUuid> itemInfo = qdp->importUrl(url);
-        if (info.second.isNull())
+        PlaylistItem itemInfo = qdp->importUrl(url);
+        if (info.item.isNull())
             info = itemInfo;
     }
     updatePlaylistHasItems();
     return info;
 }
 
-QPair<QUuid, QUuid> PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
+PlaylistItem PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
 {
     return addToPlaylist(currentPlaylist, what);
 }
 
-QPair<QUuid, QUuid> PlaylistWindow::urlToQuickPlaylist(QUrl what)
+PlaylistItem PlaylistWindow::urlToQuickPlaylist(QUrl what)
 {
     auto pl = PlaylistCollection::getSingleton()->playlistOf(QUuid());
     pl->clear();
@@ -107,14 +107,14 @@ bool PlaylistWindow::isPlaylistShuffle(QUuid list)
     return pl->shuffle();
 }
 
-QPair<QUuid,QUuid> PlaylistWindow::getItemAfter(QUuid list, QUuid item)
+PlaylistItem PlaylistWindow::getItemAfter(QUuid list, QUuid item)
 {
     auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
     if (!pl)
         return { QUuid(), QUuid() };
     auto qpl = PlaylistCollection::queuePlaylist();
-    QPair<QUuid, QUuid> next = qpl->takeFirst();
-    if (!next.second.isNull())
+    PlaylistItem next = qpl->takeFirst();
+    if (!next.item.isNull())
         return next;
     QSharedPointer<Item> after;
     if (pl->shuffle() && !pl->isEmpty()) {
@@ -424,7 +424,7 @@ void PlaylistWindow::changePlaylistSelection( QUrl itemUrl, QUuid playlistUuid, 
         return;
     auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
     auto qpl = PlaylistCollection::queuePlaylist();
-    if (!itemUuid.isNull() && qpl->first().second == itemUuid) {
+    if (!itemUuid.isNull() && qpl->first().item == itemUuid) {
         queueWidget->removeItem(itemUuid);
     }
 }

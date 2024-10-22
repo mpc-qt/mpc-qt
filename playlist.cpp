@@ -536,15 +536,15 @@ QueuePlaylist::QueuePlaylist(const QString &title)
 
 }
 
-QPair<QUuid,QUuid> QueuePlaylist::first()
+PlaylistItem QueuePlaylist::first()
 {
     QReadLocker lock(&listLock);
     if (items.isEmpty())
-        return QPair<QUuid,QUuid>(QUuid(),QUuid());
+        return { QUuid(), QUuid() };
     return { items.first()->playlistUuid(), items.first()->uuid() };
 }
 
-QPair<QUuid,QUuid> QueuePlaylist::takeFirst()
+PlaylistItem QueuePlaylist::takeFirst()
 {
     QWriteLocker lock(&listLock);
     if (items.isEmpty())

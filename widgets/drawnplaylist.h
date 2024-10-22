@@ -62,7 +62,7 @@ public:
     void sort(std::function<T(QSharedPointer<Item>)> converter,
               std::function<bool(const T &a, const T &b)> lessThan);
 
-    QPair<QUuid,QUuid> importUrl(QUrl url);
+    PlaylistItem importUrl(QUrl url);
     void currentToQueue();
 
     QUuid nowPlayingItem();

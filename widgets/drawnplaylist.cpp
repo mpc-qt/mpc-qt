@@ -253,18 +253,19 @@ void DrawnPlaylist::removeAll()
     clear();
 }
 
-QPair<QUuid,QUuid> DrawnPlaylist::importUrl(QUrl url)
+PlaylistItem DrawnPlaylist::importUrl(QUrl url)
 {
-    QPair<QUuid,QUuid> info;
+    PlaylistItem playlistItem;
     QSharedPointer<Playlist> playlist = this->playlist();
-    if (!playlist)  return info;
+    if (!playlist)
+        return playlistItem;
     auto item = playlist->addItem(url);
-    info.first = uuid_;
-    info.second = item->uuid();
+    playlistItem.list = uuid_;
+    playlistItem.item = item->uuid();
     if (currentFilterText.isEmpty() ||
             PlaylistSearcher::itemMatchesFilter(item, currentFilterList))
         addItem(item->uuid());
-    return info;
+    return playlistItem;
 }
 
 void DrawnPlaylist::currentToQueue()

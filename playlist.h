@@ -16,6 +16,11 @@
 #include <QVariantMap>
 #include <QReadWriteLock>
 
+struct PlaylistItem {
+    QUuid list;
+    QUuid item;
+};
+
 class Item {
 public:
     Item(QUrl url = QUrl());
@@ -148,8 +153,8 @@ class QueuePlaylist : public Playlist {
 public:
     QueuePlaylist(const QString &title = QString());
 
-    QPair<QUuid, QUuid> first();
-    QPair<QUuid, QUuid> takeFirst();
+    PlaylistItem first();
+    PlaylistItem takeFirst();
     int toggle(const QUuid &playlistUuid, const QUuid &itemUuid, bool always = false);
     void toggle(const QUuid &playlistUuid, const QList<QUuid> &uuids, QList<QUuid> &added, QList<int> &removed);
     void toggleFromPlaylist(const QUuid &playlistUuid, QList<QUuid> &added, QList<int> &removedIndices);
