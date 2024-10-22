@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Toets</translation>
     </message>
     <message>
         <source>Mouse Window</source>
@@ -21,29 +21,29 @@
     </message>
     <message>
         <source>Mouse Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Muis volledig scherm</translation>
     </message>
 </context>
 <context>
     <name>ButtonWidget</name>
     <message>
         <source>B</source>
-        <translation type="unfinished"></translation>
+        <translation>B</translation>
     </message>
     <message>
         <source>K</source>
-        <translation type="unfinished"></translation>
+        <translation>K</translation>
     </message>
     <message>
         <source>↑↓</source>
-        <translation type="unfinished"></translation>
+        <translation>↑↓</translation>
     </message>
 </context>
 <context>
     <name>FavoritesWindow</name>
     <message>
         <source>Organize Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Organiseer Favorieten</translation>
     </message>
     <message>
         <source>&amp;Update</source>
@@ -51,111 +51,111 @@
     </message>
     <message>
         <source>&amp;Files</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bestanden</translation>
     </message>
     <message>
         <source>&amp;Streams</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Streams</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Verwijderen</translation>
     </message>
 </context>
 <context>
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Start a new process without saving data.</source>
-        <translation type="unfinished"></translation>
+        <translation>Start een nieuw proces zonder data op te slaan.</translation>
     </message>
     <message>
         <source>Main window size.</source>
-        <translation type="unfinished"></translation>
+        <translation>Grootte hoofdscherm.</translation>
     </message>
     <message>
         <source>Main window position.</source>
-        <translation type="unfinished"></translation>
+        <translation>Positie hoofdscherm.</translation>
     </message>
     <message>
         <source>URLs to open, optionally.</source>
-        <translation type="unfinished"></translation>
+        <translation>URLs om optioneel te openen.</translation>
     </message>
     <message>
         <source>Save Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeelding opslaan</translation>
     </message>
     <message>
         <source>Playing Media</source>
-        <translation type="unfinished"></translation>
+        <translation>Media Afspelen</translation>
     </message>
     <message>
         <source>Do not load any config files.</source>
-        <translation type="unfinished"></translation>
+        <translation>Laad geen config bestanden.</translation>
     </message>
     <message>
         <source>Do not load file history, playlists, or favorites.</source>
-        <translation type="unfinished"></translation>
+        <translation>Laad geen bestandshistorie, afspeellijsten, of favorieten.</translation>
     </message>
 </context>
 <context>
     <name>LibraryWindow</name>
     <message>
         <source>Library</source>
-        <translation type="unfinished"></translation>
+        <translation>Bibliotheek</translation>
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Herstellen</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijderen</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Afsluiten</translation>
     </message>
 </context>
 <context>
     <name>LogWindow</name>
     <message>
         <source>Log Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Log Berichten</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopieren</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Wissen</translation>
     </message>
     <message>
         <source>Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestand Opslaan</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished"></translation>
+        <translation>Afspelen</translation>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Pauzeren</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -167,11 +167,11 @@
     </message>
     <message>
         <source>Speed Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>Snelheid Verminderen</translation>
     </message>
     <message>
         <source>Speed Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>Snelheid Verhogen</translation>
     </message>
     <message>
         <source>Skip Forward</source>
@@ -179,11 +179,11 @@
     </message>
     <message>
         <source>Step Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>Stap Terug</translation>
     </message>
     <message>
         <source>Step Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Stap Vooruit</translation>
     </message>
     <message>
         <source>Set Loop Start</source>
@@ -195,11 +195,11 @@
     </message>
     <message>
         <source>Chapter</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoofdstuk</translation>
     </message>
     <message>
         <source>Frame rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Framerate</translation>
     </message>
     <message>
         <source>Sync Offset</source>
@@ -211,19 +211,19 @@
     </message>
     <message>
         <source>vo: 0, decoder: 0</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">vo: 0, decoder: 0</translation>
     </message>
     <message>
         <source>Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitrate</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestopt</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bestand</translation>
     </message>
     <message>
         <source>O&amp;pen Disc</source>
@@ -231,11 +231,11 @@
     </message>
     <message>
         <source>Recent &amp;Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Recent &amp;Bestanden</translation>
     </message>
     <message>
         <source>Subtitle Data&amp;base</source>
-        <translation type="unfinished"></translation>
+        <translation>Ondertiteling Data&amp;base</translation>
     </message>
     <message>
         <source>&amp;View</source>
@@ -243,11 +243,11 @@
     </message>
     <message>
         <source>&amp;Presets</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Presets</translation>
     </message>
     <message>
         <source>&amp;Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Zoom</translation>
     </message>
     <message>
         <source>On &amp;Top</source>
