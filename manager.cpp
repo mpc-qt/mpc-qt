@@ -711,10 +711,10 @@ void PlaybackManager::playNextTrack()
 
 void PlaybackManager::playPrevTrack()
 {
-    QUuid uuid = playlistWindow_->getItemBefore(nowPlayingList, nowPlayingItem);
-    QUrl url = playlistWindow_->getUrlOf(nowPlayingList, uuid);
+    QUuid itemUuid = playlistWindow_->getItemBefore(nowPlayingList, nowPlayingItem);
+    QUrl url = playlistWindow_->getUrlOf(nowPlayingList, itemUuid);
     if (!url.isEmpty())
-        startPlayWithUuid(url, nowPlayingList, uuid, false);
+        startPlayWithUuid(url, nowPlayingList, itemUuid, false);
 }
 
 bool PlaybackManager::playNextFileUrl(QUrl url, int delta)

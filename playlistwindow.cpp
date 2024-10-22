@@ -437,9 +437,9 @@ void PlaylistWindow::addSimplePlaylist(QStringList data)
     addNewTab(pl->uuid(), pl->title());
 }
 
-void PlaylistWindow::addPlaylistByUuid(QUuid uuid)
+void PlaylistWindow::addPlaylistByUuid(QUuid playlistUuid)
 {
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(uuid);
+    auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
     if (!pl) {
         throw std::runtime_error("received a nullptr for a playlist");
     }
@@ -504,8 +504,8 @@ void PlaylistWindow::importTab()
 
 void PlaylistWindow::exportTab()
 {
-    auto uuid = currentPlaylistWidget()->uuid();
-    savePlaylist(uuid);
+    auto playlistUuid = currentPlaylistWidget()->uuid();
+    savePlaylist(playlistUuid);
 }
 
 void PlaylistWindow::copy()
@@ -569,8 +569,8 @@ void PlaylistWindow::incExtraPlayTimes()
 {
     auto qdp = currentPlaylistWidget();
     auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
-    auto incrementer = [pl](QUuid uuid) {
-        auto item = pl->itemOf(uuid);
+    auto incrementer = [pl](QUuid itemUuid) {
+        auto item = pl->itemOf(itemUuid);
         if (Q_LIKELY(!item.isNull()))
             item->incExtraPlayTimes();
     };
@@ -582,8 +582,8 @@ void PlaylistWindow::decExtraPlayTimes()
 {
     auto qdp = currentPlaylistWidget();
     auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
-    auto decrementer = [pl](QUuid uuid) {
-        auto item = pl->itemOf(uuid);
+    auto decrementer = [pl](QUuid itemUuid) {
+        auto item = pl->itemOf(itemUuid);
         if (Q_LIKELY(!item.isNull()))
             item->decExtraPlayTimes();
     };
@@ -595,8 +595,8 @@ void PlaylistWindow::zeroExtraPlayTimes()
 {
     auto qdp = currentPlaylistWidget();
     auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
-    auto zeroer = [pl](QUuid uuid) {
-        auto item = pl->itemOf(uuid);
+    auto zeroer = [pl](QUuid itemUuid) {
+        auto item = pl->itemOf(itemUuid);
         if (Q_LIKELY(!item.isNull()))
             item->setExtraPlayTimes(0);
     };
@@ -786,7 +786,7 @@ void PlaylistWindow::playlist_removeItemRequested()
     if (!qdp)
         return;
 
-    qdp->traverseSelected([qdp](QUuid uuid) { qdp->removeItem(uuid); });
+    qdp->traverseSelected([qdp](QUuid itemUuid) { qdp->removeItem(itemUuid); });
     updatePlaylistHasItems();
 }
 

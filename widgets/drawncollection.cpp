@@ -37,15 +37,15 @@ QSize CollectionPainter::sizeHint(const QStyleOptionViewItem &option, const QMod
 
 
 
-CollectionItem::CollectionItem(QUuid uuid, QListWidget *parent)
-    : QListWidgetItem(uuid.toString(), parent)
+CollectionItem::CollectionItem(QUuid playlistUuid, QListWidget *parent)
+    : QListWidgetItem(playlistUuid.toString(), parent)
 {
-    uuid_ = uuid;
+    playlistUuid_ = playlistUuid;
 }
 
 QUuid CollectionItem::uuid()
 {
-    return uuid_;
+    return playlistUuid_;
 }
 
 
@@ -90,9 +90,9 @@ void DrawnCollection::repopulatePlaylists()
 
 void DrawnCollection::self_currentRowChanged(int currentRow)
 {
-    QUuid uuid;
+    QUuid playlistUuid;
     if (currentRow != -1)
-        uuid = reinterpret_cast<CollectionItem*>(this->item(currentRow))->uuid();
-    emit playlistSelected(uuid);
+        playlistUuid = reinterpret_cast<CollectionItem*>(this->item(currentRow))->uuid();
+    emit playlistSelected(playlistUuid);
 }
 

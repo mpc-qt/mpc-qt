@@ -83,7 +83,7 @@ public slots:
     bool activateItem(QUuid playlistUuid, QUuid itemUuid);
     void changePlaylistSelection(QUrl itemUrl, QUuid playlistUuid, QUuid itemUuid);
     void addSimplePlaylist(QStringList data);
-    void addPlaylistByUuid(QUuid uuid);
+    void addPlaylistByUuid(QUuid playlistUuid);
     void setDisplayFormatSpecifier(QString fmt);
     void dockLocationMaybeChanged();
 

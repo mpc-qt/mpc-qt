@@ -23,7 +23,7 @@ public:
 
 class PlayItem : public QListWidgetItem {
 public:
-    PlayItem(const QUuid &uuid = QUuid(), const QUuid &playlistUuid = QUuid(), QListWidget *parent = nullptr);
+    PlayItem(const QUuid &itemUuid = QUuid(), const QUuid &playlistUuid = QUuid(), QListWidget *parent = nullptr);
     ~PlayItem();
 
     QUuid playlistUuid();
@@ -31,7 +31,7 @@ public:
 
 private:
     QUuid playlistUuid_;
-    QUuid uuid_;
+    QUuid itemUuid_;
 };
 
 
@@ -46,16 +46,16 @@ public:
     void setCollection(QSharedPointer<PlaylistCollection> collection);
     virtual QSharedPointer<Playlist> playlist() const;
     QUuid uuid() const;
-    void setUuid(const QUuid &uuid);
+    void setUuid(const QUuid &playlistUuid);
     QUuid currentItemUuid() const;
     QList<QUuid> currentItemUuids() const;
     void traverseSelected(std::function<void(QUuid)> callback);
     void setCurrentItem(QUuid itemUuid);
     void scrollToItem(QUuid itemUuid);
-    virtual void addItem(QUuid uuid);
+    virtual void addItem(QUuid itemUuid);
     void addItems(const QList<QUuid> &items);
     void addItemsAfter(QUuid item, const QList<QUuid> &items);
-    void removeItem(QUuid uuid);
+    void removeItem(QUuid itemUuid);
     void removeItems(const QList<int> &indicies);
     void removeAll();
     template<class T>
@@ -66,7 +66,7 @@ public:
     void currentToQueue();
 
     QUuid nowPlayingItem();
-    void setNowPlayingItem(QUuid uuid);
+    void setNowPlayingItem(QUuid itemUuid);
 
     QVariantMap toVMap() const;
     void fromVMap(const QVariantMap &qvm);
@@ -81,7 +81,7 @@ protected:
 
 private:
     QSharedPointer<PlaylistCollection> collection_;
-    QUuid uuid_;
+    QUuid playlistUuid_;
     QHash <QUuid, PlayItem*> itemsByUuid;
     QUuid lastSelectedItem;
     QUuid nowPlayingItem_;
@@ -138,7 +138,7 @@ class DrawnQueue : public DrawnPlaylist {
 public:
     DrawnQueue();
     virtual QSharedPointer<Playlist> playlist() const;
-    void addItem(QUuid uuid);
+    void addItem(QUuid itemUuid);
 };
 
 class PlaylistSelectionPrivate;

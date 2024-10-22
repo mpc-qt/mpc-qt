@@ -26,9 +26,9 @@ public:
     Item(QUrl url = QUrl());
 
     QUuid uuid() const;
-    void setUuid(const QUuid &uuid);
+    void setUuid(const QUuid &itemUuid);
     QUuid playlistUuid() const;
-    void setPlaylistUuid(const QUuid &uuid);
+    void setPlaylistUuid(const QUuid &playlistUuid);
     QUrl url() const;
     void setUrl(const QUrl &url);
     const QVariantMap &metadata() const;
@@ -58,7 +58,7 @@ public:
     void fromVMap(const QVariantMap &qvm);
 
 private:
-    QUuid uuid_;
+    QUuid itemUuid_;
     QUuid playlistUuid_;
     QUrl url_;
     QVariantMap metadata_;
@@ -96,22 +96,22 @@ public:
     Playlist(const QString &title = QString());
     ~Playlist();
     QSharedPointer<Item> addItem(const QUrl &url = QUrl());
-    QSharedPointer<Item> addItem(const QUuid &uuid, const QUrl &url);
+    QSharedPointer<Item> addItem(const QUuid &itemUuid, const QUrl &url);
     QSharedPointer<Item> addItemClone(const QSharedPointer<Item> &item);
     void addItemRaw(const QSharedPointer<Item> &item);
 
     QSharedPointer<Item> itemAt(int index);
-    QSharedPointer<Item> itemOf(const QUuid &uuid);
-    QSharedPointer<Item> itemAfter(const QUuid &uuid);
-    QSharedPointer<Item> itemBefore(const QUuid &uuid);
+    QSharedPointer<Item> itemOf(const QUuid &itemUuid);
+    QSharedPointer<Item> itemAfter(const QUuid &itemUuid);
+    QSharedPointer<Item> itemBefore(const QUuid &itemUuid);
     QSharedPointer<Item> itemFirst();
     QSharedPointer<Item> itemLast();
     int count();
     bool isEmpty();
-    bool contains(const QUuid &uuid);
+    bool contains(const QUuid &itemUuid);
     void iterateItems(const std::function<void(QSharedPointer<Item>)> &callback);
     virtual void addItems(const QUuid &where, const QList<QSharedPointer<Item> > &itemsToAdd);
-    virtual void removeItem(const QUuid &uuid);
+    virtual void removeItem(const QUuid &itemUuid);
     void takeItemsRaw(const QList<QSharedPointer<Item>> &itemsToRemove);
     QList<QUuid> replaceItem(const QUuid &where, const QList<QUrl> &urls);
     virtual void clear();
@@ -123,9 +123,9 @@ public:
     bool shuffle();
     void setShuffle(bool shuffle);
     QUuid uuid();
-    void setUuid(const QUuid &uuid);
+    void setUuid(const QUuid &playlistUuid);
     QUuid nowPlaying();
-    void setNowPlaying(const QUuid &uuid);
+    void setNowPlaying(const QUuid &itemUuid);
 
     QStringList toStringList();
     void fromStringList(QStringList sl);
@@ -140,7 +140,7 @@ protected:
     QDateTime created_;
     QString title_;
     bool shuffle_ = false;
-    QUuid uuid_;
+    QUuid playlistUuid_;
     QUuid nowPlaying_;
 
     QReadWriteLock listLock;
@@ -160,7 +160,7 @@ public:
     void toggleFromPlaylist(const QUuid &playlistUuid, QList<QUuid> &added, QList<int> &removedIndices);
     void appendItems(const QUuid &playlistUuid, const QList<QUuid> &itemsToAdd);
     void addItems(const QUuid &where, const QList<QSharedPointer<Item> > &itemsToAdd);
-    void removeItem(const QUuid &uuid);
+    void removeItem(const QUuid &itemUuid);
     void removeItems(const QList<QUuid> &itemsToRemove);
     void clear();
     int contains(const QList<QUuid> &itemsToCheck);
@@ -168,7 +168,7 @@ public:
 private:
     int toggle_(const QUuid &playlistUuid, const QUuid &itemUuid, bool always = false);
     int contains_(const QList<QUuid> &itemsToCheck) const;
-    void removeItem_(const QUuid &uuid);
+    void removeItem_(const QUuid &itemUuid);
     QList<int> removeItems_(const QList<QUuid> &itemsToRemove);
 };
 
@@ -188,12 +188,12 @@ public:
 
     void iteratePlaylists(const std::function<void(QSharedPointer<Playlist>)> &callback);
     QSharedPointer<Playlist> newPlaylist(const QString &title = QString());
-    QSharedPointer<Playlist> clonePlaylist(const QUuid &uuid);
-    QSharedPointer<Playlist> takePlaylist(const QUuid &uuid);
-    void removePlaylist(const QUuid &uuid);
+    QSharedPointer<Playlist> clonePlaylist(const QUuid &playlistUuid);
+    QSharedPointer<Playlist> takePlaylist(const QUuid &playlistUuid);
+    void removePlaylist(const QUuid &playlistUuid);
     void removePlaylist(const QSharedPointer<Playlist> &p);
     QSharedPointer<Playlist> playlistAt(int col) const;
-    QSharedPointer<Playlist> playlistOf(const QUuid &uuid) const;
+    QSharedPointer<Playlist> playlistOf(const QUuid &playlistUuid) const;
 
     void addPlaylist(const QSharedPointer<Playlist> &playlist);
     void fromVList(const QVariantList &data);
@@ -204,7 +204,7 @@ private:
     QHash<QUuid, QSharedPointer<Playlist>> playlistsByUuid;
 
     QSharedPointer<Playlist> doNewPlaylist(const QString &title,
-                                           const QUuid &uuid);
+                                           const QUuid &playlistUuid);
 };
 
 class PlaylistSearcher : public QObject {
