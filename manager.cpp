@@ -1,8 +1,6 @@
 #include <QRegularExpression>
 #include "manager.h"
-#include "mpvwidget.h"
 #include "playlistwindow.h"
-#include "helpers.h"
 #include "logger.h"
 
 using namespace Helpers;
@@ -683,7 +681,7 @@ void PlaybackManager::checkAfterPlayback()
 
 void PlaybackManager::updateChapters()
 {
-    QList<QPair<double,QString>> list;
+    QList<Chapter> list;
 
     if (!chapters.isEmpty()) {
         for (QVariant &v : chapters) {
@@ -692,7 +690,7 @@ void PlaybackManager::updateChapters()
                     toDateFormatFixed(node["time"].toDouble(),
                                     timeShortMode ? Helpers::ShortFormat : Helpers::LongFormat),
                     node["title"].toString());
-            QPair<double,QString> item(node["time"].toDouble(), text);
+            Chapter item { node["time"].toDouble(), text };
             list.append(item);
         }
     }

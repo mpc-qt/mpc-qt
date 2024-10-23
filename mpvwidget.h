@@ -14,6 +14,11 @@
 #include "qthelper.hpp"
 #include "helpers.h"
 
+struct Chapter {
+    double time;
+    QString title;
+};
+
 class QLayout;
 class QMainWindow;
 class QThread;

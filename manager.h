@@ -12,6 +12,7 @@
 #include <QSize>
 #include <QVariant>
 #include "helpers.h"
+#include "mpvwidget.h"
 
 class MpvObject;
 class PlaylistWindow;
@@ -57,7 +58,7 @@ signals:
     void fileClosed();
     void typeChanged(PlaybackManager::PlaybackType type);
     // Transmit a map of chapter index to time,description pairs
-    void chaptersAvailable(QList<QPair<double,QString>> chapters);
+    void chaptersAvailable(QList<Chapter> chapters);
     // These signals transmit a list of (id, description) pairs
     void audioTracksAvailable(QList<QPair<int64_t,QString>> tracks);
     void videoTracksAvailable(QList<QPair<int64_t,QString>> tracks);
@@ -222,7 +223,7 @@ private:
     QMap<int64_t,TrackData> videoListData;
     QMap<int64_t,TrackData> audioListData;
     QMap<int64_t,TrackData> subtitleListData;
-    QVariantList chapters = QVariantList();
+    QVariantList chapters;
 
     QStringList audioLangPref;
     QStringList subtitleLangPref;

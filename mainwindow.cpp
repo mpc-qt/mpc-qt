@@ -1901,7 +1901,7 @@ void MainWindow::disableChaptersMenus()
     ui->menuNavigateChapters->setEnabled(false);
 }
 
-void MainWindow::setChapters(QList<QPair<double, QString>> chapters)
+void MainWindow::setChapters(QList<Chapter> chapters)
 {
     positionSlider_->clearTicks();
     ui->menuNavigateChapters->clear();
@@ -1910,10 +1910,10 @@ void MainWindow::setChapters(QList<QPair<double, QString>> chapters)
         return;
     ui->menuNavigateChapters->setEnabled(true);
     int64_t index = 0;
-    for (const QPair<double,QString> &chapter : chapters) {
-        positionSlider_->setTick(chapter.first, chapter.second);
+    for (const Chapter &chapter : chapters) {
+        positionSlider_->setTick(chapter.time, chapter.title);
         QAction *action = new QAction(this);
-        action->setText(chapter.second);
+        action->setText(chapter.title);
         connect (action, &QAction::triggered, this, [this,index]() {
            emit chapterSelected(index);
         });
