@@ -59,15 +59,14 @@ void PlaylistWindow::clearPlaylist(QUuid what)
 PlaylistItem PlaylistWindow::addToPlaylist(const QUuid &playlist, const QList<QUrl> &what)
 {
     QList<QUrl> filtered = Helpers::filterUrls(what);
-    PlaylistItem info;
+    PlaylistItem playlistItem;
     auto qdp = widgets.contains(playlist) ? widgets.value(playlist) : widgets[QUuid()];
     for (QUrl &url : filtered) {
-        PlaylistItem itemInfo = qdp->importUrl(url);
-        if (info.item.isNull())
-            info = itemInfo;
+        if (playlistItem.item.isNull())
+            playlistItem = qdp->importUrl(url);;
     }
     updatePlaylistHasItems();
-    return info;
+    return playlistItem;
 }
 
 PlaylistItem PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
