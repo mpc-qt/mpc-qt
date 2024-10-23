@@ -17,7 +17,7 @@ void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
     auto p = playWidget->playlist();
     if (p == nullptr)
         return;
-    QSharedPointer<Item> i = p->itemOf(QUuid(index.data(Qt::DisplayRole).toString()));
+    QSharedPointer<Item> i = p->getItem(QUuid(index.data(Qt::DisplayRole).toString()));
     if (i == nullptr)
         return;
 
@@ -141,7 +141,7 @@ void DrawnPlaylist::setCollection(QSharedPointer<PlaylistCollection> collection)
 
 QSharedPointer<Playlist> DrawnPlaylist::playlist() const
 {
-    return collection_->playlistOf(playlistUuid_);
+    return collection_->getPlaylist(playlistUuid_);
 }
 
 QUuid DrawnPlaylist::uuid() const
@@ -376,7 +376,7 @@ void DrawnPlaylist::model_rowsMoved(const QModelIndex &parent,
     QList<QSharedPointer<Item>> itemsToGrab;
     for (int index = start; index <= end; index++) {
         QUuid itemUuid = QUuid(QListWidget::item(index)->text());
-        itemsToGrab.append(p->itemOf(itemUuid));
+        itemsToGrab.append(p->getItem(itemUuid));
     }
     p->takeItemsRaw(itemsToGrab);
     p->addItems(destinationId, itemsToGrab);
@@ -431,10 +431,10 @@ PlaylistSelection::~PlaylistSelection()
 void PlaylistSelection::fromItem(QUuid playlistUuid, QUuid itemUuid)
 {
     d->items.clear();
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(playlistUuid);
     if (Q_UNLIKELY(!pl))
         return;
-    auto i = pl->itemOf(itemUuid);
+    auto i = pl->getItem(itemUuid);
     if (Q_LIKELY(!i.isNull()))
         d->items.append(i);
 }
@@ -443,7 +443,7 @@ void PlaylistSelection::fromQueue(DrawnPlaylist *list)
 {
     d->items.clear();
     auto queue = PlaylistCollection::queuePlaylist();
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(list->uuid());
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(list->uuid());
     if (Q_UNLIKELY(!pl))
         return;
     auto itemAdder = [this](QSharedPointer<Item> item) {
@@ -454,25 +454,25 @@ void PlaylistSelection::fromQueue(DrawnPlaylist *list)
         //CHECKME: will this still correct when the queue widget is shown?
         QUuid activeItem = list->nowPlayingItem();
         if (!activeItem.isNull())
-            d->items.append(pl->itemOf(activeItem));
+            d->items.append(pl->getItem(activeItem));
     }
 }
 
 void PlaylistSelection::fromSelected(DrawnPlaylist *list)
 {
     d->items.clear();
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(list->uuid());
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(list->uuid());
     if (Q_UNLIKELY(!pl))
         return;
     auto itemAdder = [this,pl](QUuid item) {
-        d->items.append(pl->itemOf(item));
+        d->items.append(pl->getItem(item));
     };
     list->traverseSelected(itemAdder);
 }
 
 void PlaylistSelection::appendToPlaylist(DrawnPlaylist *list)
 {
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(list->uuid());
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(list->uuid());
     if (Q_UNLIKELY(!pl))
         return;
     for (auto &i : d->items) {
@@ -484,7 +484,7 @@ void PlaylistSelection::appendToPlaylist(DrawnPlaylist *list)
 void PlaylistSelection::appendAndQuickQueue(DrawnPlaylist *list)
 {
     auto queue = PlaylistCollection::queuePlaylist();
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(list->uuid());
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(list->uuid());
     if (Q_UNLIKELY(!pl))
         return;
     for (auto &i : d->items) {
@@ -507,7 +507,7 @@ QSharedPointer<Playlist> DrawnQueue::playlist() const
 
 void DrawnQueue::addItem(QUuid itemUuid)
 {
-    auto actualItem = ItemCollection::getSingleton()->itemOf(itemUuid);
+    auto actualItem = ItemCollection::getSingleton()->getItem(itemUuid);
     if (actualItem.isNull())
         return;
     PlayItem *playItem = new PlayItem(itemUuid, actualItem->playlistUuid(), this);

@@ -76,7 +76,7 @@ PlaylistItem PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
 
 PlaylistItem PlaylistWindow::urlToQuickPlaylist(QUrl what)
 {
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(QUuid());
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(QUuid());
     pl->clear();
     widgets[QUuid()]->clear();
     ui->tabWidget->setCurrentWidget(widgets[QUuid()]);
@@ -85,13 +85,13 @@ PlaylistItem PlaylistWindow::urlToQuickPlaylist(QUrl what)
 
 bool PlaylistWindow::isCurrentPlaylistEmpty()
 {
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(currentPlaylist);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(currentPlaylist);
     return pl ? pl->isEmpty() : true;
 }
 
 bool PlaylistWindow::isPlaylistSingularFile(QUuid list)
 {
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(list);
     if (!pl || pl->count() != 1)
         return false;
     auto item = pl->itemFirst();
@@ -100,7 +100,7 @@ bool PlaylistWindow::isPlaylistSingularFile(QUuid list)
 
 bool PlaylistWindow::isPlaylistShuffle(QUuid list)
 {
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(list);
     if (!pl)
         return false;
     return pl->shuffle();
@@ -108,7 +108,7 @@ bool PlaylistWindow::isPlaylistShuffle(QUuid list)
 
 PlaylistItem PlaylistWindow::getItemAfter(QUuid list, QUuid item)
 {
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(list);
     if (!pl)
         return { QUuid(), QUuid() };
     auto qpl = PlaylistCollection::queuePlaylist();
@@ -129,7 +129,7 @@ PlaylistItem PlaylistWindow::getItemAfter(QUuid list, QUuid item)
 
 QUuid PlaylistWindow::getItemBefore(QUuid list, QUuid item)
 {
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(list);
     if (!pl)
         return QUuid();
     QSharedPointer<Item> before = pl->itemBefore(item);
@@ -140,10 +140,10 @@ QUuid PlaylistWindow::getItemBefore(QUuid list, QUuid item)
 
 QUrl PlaylistWindow::getUrlOf(QUuid list, QUuid item)
 {
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(list);
     if (!pl)
         return QUrl();
-    auto i = pl->itemOf(item);
+    auto i = pl->getItem(item);
     if (!i)
         return QUrl();
     return i->url();
@@ -151,7 +151,7 @@ QUrl PlaylistWindow::getUrlOf(QUuid list, QUuid item)
 
 QUrl PlaylistWindow::getUrlOfFirst(QUuid list)
 {
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(list);
     auto item = pl->itemFirst();
     if (item.isNull())
         return QUrl();
@@ -160,10 +160,10 @@ QUrl PlaylistWindow::getUrlOfFirst(QUuid list)
 
 void PlaylistWindow::setMetadata(QUuid list, QUuid item, const QVariantMap &map)
 {
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(list);
     if (!pl)
         return;
-    auto i = pl->itemOf(item);
+    auto i = pl->getItem(item);
     if (!i)
         return;
     i->setMetadata(map);
@@ -176,7 +176,7 @@ void PlaylistWindow::setMetadata(QUuid list, QUuid item, const QVariantMap &map)
 
 void PlaylistWindow::replaceItem(QUuid list, QUuid item, const QList<QUrl> &urls)
 {
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(list);
     if (!pl)
         return;
 
@@ -200,19 +200,19 @@ void PlaylistWindow::replaceItem(QUuid list, QUuid item, const QList<QUrl> &urls
 
 int PlaylistWindow::extraPlayTimes(QUuid list, QUuid item)
 {
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(list);
     if (!pl)
         return -1;
-    auto i = pl->itemOf(item);
+    auto i = pl->getItem(item);
     return i ? i->extraPlayTimes() : -1;
 }
 
 void PlaylistWindow::setExtraPlayTimes(QUuid list, QUuid item, int amount)
 {
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(list);
     if (!pl)
         return;
-    auto i = pl->itemOf(item);
+    auto i = pl->getItem(item);
     if (!i)
         return;
     i->setExtraPlayTimes(amount);
@@ -220,10 +220,10 @@ void PlaylistWindow::setExtraPlayTimes(QUuid list, QUuid item, int amount)
 
 void PlaylistWindow::deltaExtraPlayTimes(QUuid list, QUuid item, int delta)
 {
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(list);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(list);
     if (!pl)
         return;
-    auto i = pl->itemOf(item);
+    auto i = pl->getItem(item);
     if (!i)
         return;
     i->deltaExtraPlayTimes(delta);
@@ -252,7 +252,7 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
                 this, &PlaylistWindow::itemDesired);
         connect(qdp, &DrawnPlaylist::contextMenuRequested,
                 this, &PlaylistWindow::playlist_contextMenuRequested);
-        auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+        auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
         ui->tabWidget->addTab(qdp, pl->title());
         widgets.insert(pl->uuid(), qdp);
     }
@@ -421,7 +421,7 @@ void PlaylistWindow::changePlaylistSelection( QUrl itemUrl, QUuid playlistUuid, 
     (void)itemUrl;
     if (!activateItem(playlistUuid, itemUuid))
         return;
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(playlistUuid);
     auto qpl = PlaylistCollection::queuePlaylist();
     if (!itemUuid.isNull() && qpl->first().item == itemUuid) {
         queueWidget->removeItem(itemUuid);
@@ -438,7 +438,7 @@ void PlaylistWindow::addSimplePlaylist(QStringList data)
 
 void PlaylistWindow::addPlaylistByUuid(QUuid playlistUuid)
 {
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(playlistUuid);
     if (!pl) {
         throw std::runtime_error("received a nullptr for a playlist");
     }
@@ -530,7 +530,7 @@ void PlaylistWindow::pasteQueue()
 void PlaylistWindow::playCurrentItem()
 {
     auto qdp = currentPlaylistWidget();
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
     auto itemUuid = qdp->currentItemUuid();
     if (itemUuid.isNull())
         return;
@@ -540,7 +540,7 @@ void PlaylistWindow::playCurrentItem()
 bool PlaylistWindow::playActiveItem()
 {
     auto qdp = currentPlaylistWidget();
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
     auto itemUuid = qdp->nowPlayingItem();
     if (itemUuid.isNull())
         return false;
@@ -567,9 +567,9 @@ void PlaylistWindow::selectPrevious()
 void PlaylistWindow::incExtraPlayTimes()
 {
     auto qdp = currentPlaylistWidget();
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
     auto incrementer = [pl](QUuid itemUuid) {
-        auto item = pl->itemOf(itemUuid);
+        auto item = pl->getItem(itemUuid);
         if (Q_LIKELY(!item.isNull()))
             item->incExtraPlayTimes();
     };
@@ -580,9 +580,9 @@ void PlaylistWindow::incExtraPlayTimes()
 void PlaylistWindow::decExtraPlayTimes()
 {
     auto qdp = currentPlaylistWidget();
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
     auto decrementer = [pl](QUuid itemUuid) {
-        auto item = pl->itemOf(itemUuid);
+        auto item = pl->getItem(itemUuid);
         if (Q_LIKELY(!item.isNull()))
             item->decExtraPlayTimes();
     };
@@ -593,9 +593,9 @@ void PlaylistWindow::decExtraPlayTimes()
 void PlaylistWindow::zeroExtraPlayTimes()
 {
     auto qdp = currentPlaylistWidget();
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
     auto zeroer = [pl](QUuid itemUuid) {
-        auto item = pl->itemOf(itemUuid);
+        auto item = pl->getItem(itemUuid);
         if (Q_LIKELY(!item.isNull()))
             item->setExtraPlayTimes(0);
     };
@@ -607,7 +607,7 @@ void PlaylistWindow::activateNext()
 {
     auto qdp = currentPlaylistWidget();
     auto now = qdp->nowPlayingItem();
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
     auto next = pl->itemAfter(now);
     if (!!next)
         activateItem(qdp->uuid(), next->uuid());
@@ -617,7 +617,7 @@ void PlaylistWindow::activatePrevious()
 {
     auto qdp = currentPlaylistWidget();
     auto now = qdp->nowPlayingItem();
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(qdp->uuid());
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
     auto prev = pl->itemBefore(now);
     if (!!prev)
         activateItem(qdp->uuid(), prev->uuid());
@@ -699,7 +699,7 @@ void PlaylistWindow::savePlaylist(const QUuid &playlistUuid)
     QString file;
     file = QFileDialog::getSaveFileName(this, tr("Export File"), QString(),
                                         tr("Playlist files (*.m3u *.m3u8)"), nullptr, options);
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(playlistUuid);
     if (!file.isEmpty() && pl)
         emit exportPlaylist(file, pl->toStringList());
 }
@@ -807,7 +807,7 @@ void PlaylistWindow::playlist_copySelectionToClipboard(const QUuid &playlistUuid
     auto pl = qdp->playlist();
     QList<QUrl> urls;
     qdp->traverseSelected([&pl,&urls](QUuid itemUuid) {
-        urls.append(pl->itemOf(itemUuid)->url());
+        urls.append(pl->getItem(itemUuid)->url());
     });
     QMimeData *mimeData = new QMimeData();
     mimeData->setUrls(urls);
@@ -983,7 +983,7 @@ void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
         int tabIndex = ui->tabWidget->indexOf(widget);
         if (tabIndex < 0)
             return;
-        auto pl = PlaylistCollection::getSingleton()->playlistOf(tabUuid);
+        auto pl = PlaylistCollection::getSingleton()->getPlaylist(tabUuid);
         if (!pl)
             return;
         pl->setTitle(qid->textValue());

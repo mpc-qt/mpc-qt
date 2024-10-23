@@ -197,7 +197,7 @@ QSharedPointer<Item> ItemCollection::addItem(const QUuid &itemUuid, const QUrl &
     return item;
 }
 
-QSharedPointer<Item> ItemCollection::itemOf(const QUuid &itemUuid)
+QSharedPointer<Item> ItemCollection::getItem(const QUuid &itemUuid)
 {
     return items.value(itemUuid, QSharedPointer<Item>());
 }
@@ -272,7 +272,7 @@ QSharedPointer<Item> Playlist::itemAt(int index)
     return items.value(index);
 }
 
-QSharedPointer<Item> Playlist::itemOf(const QUuid &itemUuid)
+QSharedPointer<Item> Playlist::getItem(const QUuid &itemUuid)
 {
     QReadLocker locker(&listLock);
     return itemsByUuid.value(itemUuid, QSharedPointer<Item>());
@@ -581,7 +581,7 @@ void QueuePlaylist::toggle(const QUuid &playlistUuid, const QList<QUuid> &uuids,
 void QueuePlaylist::toggleFromPlaylist(const QUuid &playlistUuid, QList<QUuid> &added, QList<int> &removedIndices)
 {
     QWriteLocker lock(&listLock);
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(playlistUuid);
     QReadLocker plLock(&pl->listLock);
     if (contains_(pl->itemsByUuid.keys()) == pl->itemsByUuid.count()) {
         // remove all items from playlist
@@ -659,10 +659,10 @@ int QueuePlaylist::toggle_(const QUuid &playlistUuid, const QUuid &itemUuid, boo
         }
         return 0;
     }
-    auto pl = PlaylistCollection::getSingleton()->playlistOf(playlistUuid);
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(playlistUuid);
     if (!pl)
         return 0;
-    QSharedPointer<Item> item = pl->itemOf(itemUuid);
+    QSharedPointer<Item> item = pl->getItem(itemUuid);
     if (!item)
         return 0;
     items.append(item);
@@ -785,7 +785,7 @@ QSharedPointer<Playlist> PlaylistCollection::clonePlaylist(const QUuid &playlist
 
 QSharedPointer<Playlist> PlaylistCollection::takePlaylist(const QUuid &playlistUuid)
 {
-    QSharedPointer<Playlist> playlist = playlistOf(playlistUuid);
+    QSharedPointer<Playlist> playlist = getPlaylist(playlistUuid);
     removePlaylist(playlistUuid);
     return playlist;
 }
@@ -811,7 +811,7 @@ QSharedPointer<Playlist> PlaylistCollection::playlistAt(int col) const
     return (col < playlists.count()) ? playlists.at(col) : QSharedPointer<Playlist>();
 }
 
-QSharedPointer<Playlist> PlaylistCollection::playlistOf(const QUuid &playlistUuid) const
+QSharedPointer<Playlist> PlaylistCollection::getPlaylist(const QUuid &playlistUuid) const
 {
     return playlistsByUuid.value(playlistUuid);
 }

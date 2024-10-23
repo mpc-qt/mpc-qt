@@ -80,7 +80,7 @@ public:
 
     QSharedPointer<Item> addItem(const QUrl url = QUrl());
     QSharedPointer<Item> addItem(const QUuid &itemUuid, const QUrl &url);
-    QSharedPointer<Item> itemOf(const QUuid &itemUuid);
+    QSharedPointer<Item> getItem(const QUuid &itemUuid);
     void removeItem(const QUuid &itemUuid);
     void storeItem(const QSharedPointer<Item> &item);
 
@@ -101,7 +101,7 @@ public:
     void addItemRaw(const QSharedPointer<Item> &item);
 
     QSharedPointer<Item> itemAt(int index);
-    QSharedPointer<Item> itemOf(const QUuid &itemUuid);
+    QSharedPointer<Item> getItem(const QUuid &itemUuid);
     QSharedPointer<Item> itemAfter(const QUuid &itemUuid);
     QSharedPointer<Item> itemBefore(const QUuid &itemUuid);
     QSharedPointer<Item> itemFirst();
@@ -193,7 +193,7 @@ public:
     void removePlaylist(const QUuid &playlistUuid);
     void removePlaylist(const QSharedPointer<Playlist> &p);
     QSharedPointer<Playlist> playlistAt(int col) const;
-    QSharedPointer<Playlist> playlistOf(const QUuid &playlistUuid) const;
+    QSharedPointer<Playlist> getPlaylist(const QUuid &playlistUuid) const;
 
     void addPlaylist(const QSharedPointer<Playlist> &playlist);
     void fromVList(const QVariantList &data);

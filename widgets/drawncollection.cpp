@@ -11,7 +11,7 @@ void CollectionPainter::paint(QPainter *painter, const QStyleOptionViewItem &opt
 {
     DrawnCollection *collectionWidget = qobject_cast<DrawnCollection*>(parent());
     auto collection = collectionWidget->collection();
-    auto playlist = collection->playlistOf(QUuid(index.data(Qt::DisplayRole).toString()));
+    auto playlist = collection->getPlaylist(QUuid(index.data(Qt::DisplayRole).toString()));
 
 
     QStyleOptionViewItem o2 = option;
