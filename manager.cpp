@@ -869,22 +869,21 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
     audioListData.clear();
     subtitleList.clear();
     subtitleListData.clear();
-    QPair<int64_t,QString> item;
+    Track track;
 
-    for (QVariant &track : tracks) {
-        QVariantMap t = track.toMap();
-        TrackData td = TrackData::fromMap(t);
-        item.first = td.trackId;
-        item.second = td.formatted();
+    for (QVariant &trackItem : tracks) {
+        TrackData td = TrackData::fromMap(trackItem.toMap());
+        track.id = td.trackId;
+        track.title = td.formatted();
         if (td.type == "video") {
-            videoList.append(item);
+            videoList.append(track);
             videoListData.insert(td.trackId, td);
         } else if (td.type == "audio") {
-            audioList.append(item);
+            audioList.append(track);
             audioListData.insert(td.trackId, td);
         } else if (td.type == "sub") {
             if (!subtitlesIgnoreEmbedded || td.isExternal) {
-                subtitleList.append(item);
+                subtitleList.append(track);
                 subtitleListData.insert(td.trackId, td);
             }
         }
