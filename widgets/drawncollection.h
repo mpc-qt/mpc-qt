@@ -19,10 +19,10 @@ public:
 class CollectionItem : public QListWidgetItem
 {
 public:
-    CollectionItem(QUuid uuid, QListWidget *parent = nullptr);
+    CollectionItem(QUuid playlistUuid, QListWidget *parent = nullptr);
     QUuid uuid();
 private:
-    QUuid uuid_;
+    QUuid playlistUuid_;
 };
 
 

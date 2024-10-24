@@ -250,10 +250,10 @@ public slots:
     void setPlaybackState(PlaybackManager::PlaybackState state);
     void setPlaybackType(PlaybackManager::PlaybackType type);
     void disableChaptersMenus();
-    void setChapters(QList<QPair<double,QString>> chapters);
-    void setAudioTracks(QList<QPair<int64_t,QString>> tracks);
-    void setVideoTracks(QList<QPair<int64_t,QString>> tracks);
-    void setSubtitleTracks(QList<QPair<int64_t,QString>> tracks);
+    void setChapters(QList<Chapter> chapters);
+    void setAudioTracks(QList<Track> tracks);
+    void setVideoTracks(QList<Track> tracks);
+    void setSubtitleTracks(QList<Track> tracks);
     void audioTrackSet(int64_t id);
     void videoTrackSet(int64_t id);
     void subtitleTrackSet(int64_t id);

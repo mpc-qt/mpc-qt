@@ -12,6 +12,12 @@
 #include <QSize>
 #include <QVariant>
 #include "helpers.h"
+#include "mpvwidget.h"
+
+struct Track {
+    int64_t id;
+    QString title;
+};
 
 class MpvObject;
 class PlaylistWindow;
@@ -57,11 +63,11 @@ signals:
     void fileClosed();
     void typeChanged(PlaybackManager::PlaybackType type);
     // Transmit a map of chapter index to time,description pairs
-    void chaptersAvailable(QList<QPair<double,QString>> chapters);
+    void chaptersAvailable(QList<Chapter> chapters);
     // These signals transmit a list of (id, description) pairs
-    void audioTracksAvailable(QList<QPair<int64_t,QString>> tracks);
-    void videoTracksAvailable(QList<QPair<int64_t,QString>> tracks);
-    void subtitleTracksAvailable(QList<QPair<int64_t,QString>> tracks);
+    void audioTracksAvailable(QList<Track> tracks);
+    void videoTracksAvailable(QList<Track> tracks);
+    void subtitleTracksAvailable(QList<Track> tracks);
     void playingNextFile();
     void hasNoVideo(bool empty);
     void hasNoAudio(bool empty);
@@ -216,13 +222,13 @@ private:
     PlaybackState playbackState_ = StoppedState;
     PlaybackState playbackStartState = PlayingState;
 
-    QList<QPair<int64_t,QString>> videoList;
-    QList<QPair<int64_t,QString>> audioList;
-    QList<QPair<int64_t,QString>> subtitleList;
+    QList<Track> videoList;
+    QList<Track> audioList;
+    QList<Track> subtitleList;
     QMap<int64_t,TrackData> videoListData;
     QMap<int64_t,TrackData> audioListData;
     QMap<int64_t,TrackData> subtitleListData;
-    QVariantList chapters = QVariantList();
+    QVariantList chapters;
 
     QStringList audioLangPref;
     QStringList subtitleLangPref;

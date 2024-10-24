@@ -1,8 +1,6 @@
 #include <QRegularExpression>
 #include "manager.h"
-#include "mpvwidget.h"
 #include "playlistwindow.h"
-#include "helpers.h"
 #include "logger.h"
 
 using namespace Helpers;
@@ -146,10 +144,10 @@ void PlaybackManager::openSeveralFiles(QList<QUrl> what, bool important)
     bool playAfterAdd = (playlistWindow_->isCurrentPlaylistEmpty()
                          && (important || nowPlayingItem == QUuid()))
                         || !playlistWindow_->isVisible();
-    auto info = playlistWindow_->addToCurrentPlaylist(what);
-    if (playAfterAdd && !info.second.isNull()) {
-        QUrl urlToPlay = playlistWindow_->getUrlOf(info.first, info.second);
-        startPlayWithUuid(urlToPlay, info.first, info.second, false);
+    PlaylistItem playlistItem = playlistWindow_->addToCurrentPlaylist(what);
+    if (playAfterAdd && !playlistItem.item.isNull()) {
+        QUrl urlToPlay = playlistWindow_->getUrlOf(playlistItem.list, playlistItem.item);
+        startPlayWithUuid(urlToPlay, playlistItem.list, playlistItem.item, false);
     }
 }
 
@@ -158,10 +156,10 @@ void PlaybackManager::openFile(QUrl what, QUrl with)
     if (!nowPlayingItem.isNull())
         emit openingNewFile();
 
-    auto info = playlistWindow_->urlToQuickPlaylist(what);
-    if (!info.second.isNull()) {
-        QUrl urlToPlay = playlistWindow_->getUrlOf(info.first, info.second);
-        startPlayWithUuid(urlToPlay, info.first, info.second, false, with);
+    PlaylistItem playlistItem = playlistWindow_->urlToQuickPlaylist(what);
+    if (!playlistItem.item.isNull()) {
+        QUrl urlToPlay = playlistWindow_->getUrlOf(playlistItem.list, playlistItem.item);
+        startPlayWithUuid(urlToPlay, playlistItem.list, playlistItem.item, false, with);
     }
 }
 
@@ -183,9 +181,9 @@ void PlaybackManager::playDiscFiles(QUrl where)
 
 void PlaybackManager::playStream(QUrl stream)
 {
-    auto info = playlistWindow_->addToCurrentPlaylist({ stream });
-    QUrl urlToPlay = playlistWindow_->getUrlOf(info.first, info.second);
-    startPlayWithUuid(urlToPlay, info.first, info.second, false);
+    PlaylistItem playlistItem = playlistWindow_->addToCurrentPlaylist({ stream });
+    QUrl urlToPlay = playlistWindow_->getUrlOf(playlistItem.list, playlistItem.item);
+    startPlayWithUuid(urlToPlay, playlistItem.list, playlistItem.item, false);
 }
 
 void PlaybackManager::playItem(QUuid playlist, QUuid item)
@@ -683,7 +681,7 @@ void PlaybackManager::checkAfterPlayback()
 
 void PlaybackManager::updateChapters()
 {
-    QList<QPair<double,QString>> list;
+    QList<Chapter> list;
 
     if (!chapters.isEmpty()) {
         for (QVariant &v : chapters) {
@@ -692,7 +690,7 @@ void PlaybackManager::updateChapters()
                     toDateFormatFixed(node["time"].toDouble(),
                                     timeShortMode ? Helpers::ShortFormat : Helpers::LongFormat),
                     node["title"].toString());
-            QPair<double,QString> item(node["time"].toDouble(), text);
+            Chapter item { node["time"].toDouble(), text };
             list.append(item);
         }
     }
@@ -702,19 +700,19 @@ void PlaybackManager::updateChapters()
 
 void PlaybackManager::playNextTrack()
 {
-    QPair<QUuid, QUuid> next;
+    PlaylistItem next;
     next = playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
-    QUrl url = playlistWindow_->getUrlOf(next.first, next.second);
+    QUrl url = playlistWindow_->getUrlOf(next.list, next.item);
     if (!url.isEmpty())
-        startPlayWithUuid(url, next.first, next.second, false);
+        startPlayWithUuid(url, next.list, next.item, false);
 }
 
 void PlaybackManager::playPrevTrack()
 {
-    QUuid uuid = playlistWindow_->getItemBefore(nowPlayingList, nowPlayingItem);
-    QUrl url = playlistWindow_->getUrlOf(nowPlayingList, uuid);
+    QUuid itemUuid = playlistWindow_->getItemBefore(nowPlayingList, nowPlayingItem);
+    QUrl url = playlistWindow_->getUrlOf(nowPlayingList, itemUuid);
     if (!url.isEmpty())
-        startPlayWithUuid(url, nowPlayingList, uuid, false);
+        startPlayWithUuid(url, nowPlayingList, itemUuid, false);
 }
 
 bool PlaybackManager::playNextFileUrl(QUrl url, int delta)
@@ -871,22 +869,21 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
     audioListData.clear();
     subtitleList.clear();
     subtitleListData.clear();
-    QPair<int64_t,QString> item;
+    Track track;
 
-    for (QVariant &track : tracks) {
-        QVariantMap t = track.toMap();
-        TrackData td = TrackData::fromMap(t);
-        item.first = td.trackId;
-        item.second = td.formatted();
+    for (QVariant &trackItem : tracks) {
+        TrackData td = TrackData::fromMap(trackItem.toMap());
+        track.id = td.trackId;
+        track.title = td.formatted();
         if (td.type == "video") {
-            videoList.append(item);
+            videoList.append(track);
             videoListData.insert(td.trackId, td);
         } else if (td.type == "audio") {
-            audioList.append(item);
+            audioList.append(track);
             audioListData.insert(td.trackId, td);
         } else if (td.type == "sub") {
             if (!subtitlesIgnoreEmbedded || td.isExternal) {
-                subtitleList.append(item);
+                subtitleList.append(track);
                 subtitleListData.insert(td.trackId, td);
             }
         }

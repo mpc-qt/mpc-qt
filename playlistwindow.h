@@ -6,6 +6,7 @@
 #include <QUuid>
 #include <random>
 #include "helpers.h"
+#include "playlist.h"
 
 namespace Ui {
 class PlaylistWindow;
@@ -25,13 +26,13 @@ public:
 
     void setCurrentPlaylist(QUuid what);
     void clearPlaylist(QUuid what);
-    QPair<QUuid, QUuid> addToPlaylist(const QUuid &playlist, const QList<QUrl> &what);
-    QPair<QUuid, QUuid> addToCurrentPlaylist(QList<QUrl> what);
-    QPair<QUuid, QUuid> urlToQuickPlaylist(QUrl what);
+    PlaylistItem addToPlaylist(const QUuid &playlist, const QList<QUrl> &what);
+    PlaylistItem addToCurrentPlaylist(QList<QUrl> what);
+    PlaylistItem urlToQuickPlaylist(QUrl what);
     bool isCurrentPlaylistEmpty();
     bool isPlaylistSingularFile(QUuid list);
     bool isPlaylistShuffle(QUuid list);
-    QPair<QUuid, QUuid> getItemAfter(QUuid list, QUuid item);
+    PlaylistItem getItemAfter(QUuid list, QUuid item);
     QUuid getItemBefore(QUuid list, QUuid item);
     QUrl getUrlOf(QUuid list, QUuid item);
     QUrl getUrlOfFirst(QUuid list);
@@ -82,7 +83,7 @@ public slots:
     bool activateItem(QUuid playlistUuid, QUuid itemUuid);
     void changePlaylistSelection(QUrl itemUrl, QUuid playlistUuid, QUuid itemUuid);
     void addSimplePlaylist(QStringList data);
-    void addPlaylistByUuid(QUuid uuid);
+    void addPlaylistByUuid(QUuid playlistUuid);
     void setDisplayFormatSpecifier(QString fmt);
     void dockLocationMaybeChanged();
 

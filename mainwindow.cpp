@@ -1901,7 +1901,7 @@ void MainWindow::disableChaptersMenus()
     ui->menuNavigateChapters->setEnabled(false);
 }
 
-void MainWindow::setChapters(QList<QPair<double, QString>> chapters)
+void MainWindow::setChapters(QList<Chapter> chapters)
 {
     positionSlider_->clearTicks();
     ui->menuNavigateChapters->clear();
@@ -1910,10 +1910,10 @@ void MainWindow::setChapters(QList<QPair<double, QString>> chapters)
         return;
     ui->menuNavigateChapters->setEnabled(true);
     int64_t index = 0;
-    for (const QPair<double,QString> &chapter : chapters) {
-        positionSlider_->setTick(chapter.first, chapter.second);
+    for (const Chapter &chapter : chapters) {
+        positionSlider_->setTick(chapter.time, chapter.title);
         QAction *action = new QAction(this);
-        action->setText(chapter.second);
+        action->setText(chapter.title);
         connect (action, &QAction::triggered, this, [this,index]() {
            emit chapterSelected(index);
         });
@@ -1922,7 +1922,7 @@ void MainWindow::setChapters(QList<QPair<double, QString>> chapters)
     }
 }
 
-void MainWindow::setAudioTracks(QList<QPair<int64_t, QString>> tracks)
+void MainWindow::setAudioTracks(QList<Track> tracks)
 {
     ui->menuPlayAudio->clear();
     ui->menuPlayAudio->setEnabled(false);
@@ -1932,12 +1932,12 @@ void MainWindow::setAudioTracks(QList<QPair<int64_t, QString>> tracks)
         return;
     ui->menuPlayAudio->setEnabled(true);
     audioTracksGroup = new QActionGroup(this);
-    for (const QPair<int64_t, QString> &track : tracks) {
+    for (const Track &track : tracks) {
         QAction *action = new QAction(this);
-        action->setText(track.second);
+        action->setText(track.title);
         action->setCheckable(true);
         action->setActionGroup(audioTracksGroup);
-        int64_t index = track.first;
+        int64_t index = track.id;
         connect(action, &QAction::triggered, this, [this,index] {
             emit audioTrackSelected(index, true);
         });
@@ -1946,7 +1946,7 @@ void MainWindow::setAudioTracks(QList<QPair<int64_t, QString>> tracks)
     audioTracksGroup->actions()[0]->setChecked(true);
 }
 
-void MainWindow::setVideoTracks(QList<QPair<int64_t, QString>> tracks)
+void MainWindow::setVideoTracks(QList<Track> tracks)
 {
     ui->menuPlayVideo->clear();
     ui->menuPlayVideo->setEnabled(false);
@@ -1961,12 +1961,12 @@ void MainWindow::setVideoTracks(QList<QPair<int64_t, QString>> tracks)
     ui->menuPlayVideo->addAction(ui->actionResetVideoAspect);
     ui->menuPlayVideo->addAction(ui->actionDisableVideoAspect);
     ui->menuPlayVideo->addSeparator();
-    for (const QPair<int64_t, QString> &track : tracks) {
+    for (const Track &track : tracks) {
         QAction *action = new QAction(this);
-        action->setText(track.second);
+        action->setText(track.title);
         action->setCheckable(true);
         action->setActionGroup(videoTracksGroup);
-        int64_t index = track.first;
+        int64_t index = track.id;
         connect(action, &QAction::triggered, this, [this,index]() {
             emit videoTrackSelected(index, true);
         });
@@ -1976,7 +1976,7 @@ void MainWindow::setVideoTracks(QList<QPair<int64_t, QString>> tracks)
     updateOnTop();
 }
 
-void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
+void MainWindow::setSubtitleTracks(QList<Track > tracks)
 {
     ui->menuPlaySubtitles->clear();
     ui->menuPlaySubtitles->setEnabled(false);
@@ -1997,12 +1997,12 @@ void MainWindow::setSubtitleTracks(QList<QPair<int64_t, QString> > tracks)
     ui->menuPlaySubtitles->addAction(ui->actionDecreaseSubtitlesDelay);
     ui->menuPlaySubtitles->addAction(ui->actionIncreaseSubtitlesDelay);
     ui->menuPlaySubtitles->addSeparator();
-    for (const QPair<int64_t, QString> &track : tracks) {
+    for (const Track &track : tracks) {
         QAction *action = new QAction(this);
-        action->setText(track.second);
+        action->setText(track.title);
         action->setCheckable(true);
         action->setActionGroup(subtitleTracksGroup);
-        int64_t index = track.first;
+        int64_t index = track.id;
         connect(action, &QAction::triggered, this, [this,index]() {
             emit subtitleTrackSelected(index, true);
         });
