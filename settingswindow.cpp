@@ -1105,7 +1105,6 @@ void SettingsWindow::setFreestanding(bool freestanding)
 void SettingsWindow::setVolume(int level)
 {
     WIDGET_LOOKUP(ui->playbackVolume).setValue(level);
-    ui->playbackVolume->setValue(level);
 }
 
 void SettingsWindow::setZoomPreset(int which)
