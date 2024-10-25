@@ -743,7 +743,8 @@ bool PlaybackManager::playNextFileUrl(QUrl url, int delta)
         url = QUrl::fromLocalFile(nextFile);
     } while (!Helpers::urlSurvivesFilter(url, true));
     emit playingNextFile();
-    playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, { url });
+    playlistWindow_->clearPlaylist(nowPlayingList);
+    nowPlayingItem = playlistWindow_->addToPlaylist(nowPlayingList, { url }).item;
     startPlayWithUuid(url, nowPlayingList, nowPlayingItem, false);
     return true;
 }
