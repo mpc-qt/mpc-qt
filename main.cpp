@@ -395,7 +395,9 @@ void Flow::readConfig()
         QVariantMap favoriteMap = storage.readVMap(fileFavorites);
         favoriteFiles = TrackInfo::tracksFromVList(favoriteMap.value(keyFiles).toList());
         favoriteStreams = TrackInfo::tracksFromVList(favoriteMap.value(keyStreams).toList());
+        LogStream("main") << "reading fileRecent start";
         recentFiles = TrackInfo::tracksFromVList(storage.readVList(fileRecent));
+        LogStream("main") << "reading fileRecent done";
     }
 }
 
@@ -1539,7 +1541,7 @@ void Flow::updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title
     recentFiles.insert(0, track);
 
     // Trim the recent file list
-    while (recentFiles.size() > (rememberHistory ? 20 : 0))
+    while (recentFiles.size() > (rememberHistory ? (rememberFilePosition ? 1000 : 20) : 0))
         recentFiles.removeLast();
 
     // Notify (2022-03: the main window) that the recents have changed

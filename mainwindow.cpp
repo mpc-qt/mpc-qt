@@ -1615,7 +1615,7 @@ void MainWindow::setRecentDocuments(QList<TrackInfo> tracks)
     if (isEmpty)
         return;
 
-    for (int i = 0; i < tracks.count(); i++) {
+    for (int i = 0; i < tracks.count() && i < 20; i++) {
         TrackInfo track = tracks[i];
         QString displayString = track.url.fileName();
         QAction *a = new QAction(QString("%1 - %2").arg(i).arg(displayString),
