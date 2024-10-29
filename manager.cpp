@@ -702,6 +702,8 @@ void PlaybackManager::playNextTrack()
 {
     PlaylistItem next;
     next = playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
+    if (next.item.isNull() && playlistWindow_->isPlaylistRepeat(nowPlayingList))
+       next = playlistWindow_->getFirstItem(nowPlayingList);
     QUrl url = playlistWindow_->getUrlOf(next.list, next.item);
     if (!url.isEmpty())
         startPlayWithUuid(url, next.list, next.item, false);

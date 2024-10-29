@@ -31,7 +31,9 @@ public:
     PlaylistItem urlToQuickPlaylist(QUrl what);
     bool isCurrentPlaylistEmpty();
     bool isPlaylistSingularFile(QUuid list);
+    bool isPlaylistRepeat(QUuid list);
     bool isPlaylistShuffle(QUuid list);
+    PlaylistItem getFirstItem(QUuid list);
     PlaylistItem getItemAfter(QUuid list, QUuid item);
     QUuid getItemBefore(QUuid list, QUuid item);
     QUrl getUrlOf(QUuid list, QUuid item);
@@ -72,6 +74,7 @@ signals:
     void exportPlaylist(QString fname, QStringList items);
     void quickQueueMode(bool yes);
     void playlistAddItem(QUuid playlistUUid);
+    void playlistRepeatChanged(QUuid playlistUuid, bool repeat);
     void playlistShuffleChanged(QUuid playlistUuid, bool shuffle);
     void hideFullscreenChanged(bool checked);
     void playlistMovedToBackup(QUuid backupUuid);

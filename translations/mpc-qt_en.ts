@@ -1726,6 +1726,10 @@
         <source>&amp;Export Playlist</source>
         <translation>&amp;Export Playlist</translation>
     </message>
+    <message>
+        <source>Repeat</source>
+        <translation type="unfinished">Repeat</translation>
+    </message>
 </context>
 <context>
     <name>PropertiesWindow</name>

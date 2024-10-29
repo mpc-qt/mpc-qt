@@ -1698,6 +1698,10 @@
         <source>&amp;Export Playlist</source>
         <translation>导出播放列表(&amp;E)</translation>
     </message>
+    <message>
+        <source>Repeat</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PropertiesWindow</name>

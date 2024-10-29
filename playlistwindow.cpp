@@ -98,12 +98,29 @@ bool PlaylistWindow::isPlaylistSingularFile(QUuid list)
     return item->url().isLocalFile();
 }
 
+bool PlaylistWindow::isPlaylistRepeat(QUuid list)
+{
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(list);
+    if (!pl)
+        return false;
+    return pl->repeat();
+}
+
 bool PlaylistWindow::isPlaylistShuffle(QUuid list)
 {
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(list);
     if (!pl)
         return false;
     return pl->shuffle();
+}
+
+PlaylistItem PlaylistWindow::getFirstItem(QUuid list)
+{
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(list);
+    auto item = pl->itemFirst();
+    if (item.isNull())
+        return PlaylistItem();
+    return {item->playlistUuid(), item->uuid()};
 }
 
 PlaylistItem PlaylistWindow::getItemAfter(QUuid list, QUuid item)
@@ -912,6 +929,18 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     m->addAction(a);
 
     m->addSeparator();
+
+    a = new QAction(m);
+    a->setText(tr("Repeat"));
+    a->setCheckable(true);
+    a->setChecked(listWidget->playlist()->repeat());
+    connect(a, &QAction::triggered,
+            this, [this,playlistUuid](bool checked) {
+        if (widgets.contains(playlistUuid))
+            widgets[playlistUuid]->playlist()->setRepeat(checked);
+        emit playlistRepeatChanged(playlistUuid, checked);
+    });
+    m->addAction(a);
 
     a = new QAction(m);
     a->setText(tr("Shuffle"));

@@ -10,6 +10,7 @@ static char keyCreated[] = "created";
 static char keyItems[] = "items";
 static char keyMetadata[] = "metadata";
 static char keyNowPlaying[] = "nowplaying";
+static char keyRepeat[] = "repeat";
 static char keyShuffle[] = "shuffle";
 static char keyTitle[] = "title";
 static char keyUrl[] = "url";
@@ -427,6 +428,16 @@ void Playlist::setTitle(const QString &title)
     title_ = title;
 }
 
+bool Playlist::repeat()
+{
+    return repeat_;
+}
+
+void Playlist::setRepeat(bool repeat)
+{
+    repeat_ = repeat;
+}
+
 bool Playlist::shuffle()
 {
     return shuffle_;
@@ -488,6 +499,7 @@ QVariantMap Playlist::toVMap()
     QVariantMap qvm;
     qvm.insert(keyCreated, created_);
     qvm.insert(keyTitle, title_);
+    qvm.insert(keyRepeat, repeat_);
     qvm.insert(keyShuffle, shuffle_);
     qvm.insert(keyUuid, playlistUuid_);
     qvm.insert(keyNowPlaying, nowPlaying_);
@@ -512,6 +524,7 @@ void Playlist::fromVMap(const QVariantMap &qvm)
 
     created_ = qvm.contains(keyCreated) ? qvm[keyCreated].toDateTime() : created_;
     title_ = qvm.contains(keyTitle) ? qvm[keyTitle].toString() : QString();
+    repeat_ = qvm.contains(keyRepeat) ? qvm[keyRepeat].toBool() : false;
     shuffle_ = qvm.contains(keyShuffle) ? qvm[keyShuffle].toBool() : false;
     playlistUuid_ = qvm.contains(keyUuid) ? qvm[keyUuid].toUuid() : QUuid::createUuid();
     nowPlaying_ = qvm.contains(keyNowPlaying) ? qvm[keyNowPlaying].toUuid() : nowPlaying_;
