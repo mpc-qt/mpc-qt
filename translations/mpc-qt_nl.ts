@@ -1664,11 +1664,11 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Verwijderen</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wissen</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -1692,7 +1692,7 @@
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Herstellen</translation>
     </message>
     <message>
         <source>Shuffle</source>
@@ -1724,6 +1724,10 @@
     </message>
     <message>
         <source>&amp;Export Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeat</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2732,19 +2736,19 @@ media file played</source>
     </message>
     <message>
         <source>BT.601-525</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {601-525?}</translation>
     </message>
     <message>
         <source>BT.601-625</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {601-625?}</translation>
     </message>
     <message>
         <source>BT.709</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {709?}</translation>
     </message>
     <message>
         <source>BT.2020</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {2020?}</translation>
     </message>
     <message>
         <source>Apple</source>
@@ -2772,7 +2776,7 @@ media file played</source>
     </message>
     <message>
         <source>BT.1886</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {1886?}</translation>
     </message>
     <message>
         <source>sRGB</source>
@@ -2980,7 +2984,7 @@ media file played</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Verwijderen</translation>
     </message>
     <message>
         <source>Add to shaders</source>
@@ -2992,7 +2996,7 @@ media file played</source>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Opslaan</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -3437,7 +3441,7 @@ media file played</source>
     </message>
     <message>
         <source>Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bitrate</translation>
     </message>
     <message>
         <source>kBits</source>
@@ -3797,7 +3801,7 @@ media file played</source>
     </message>
     <message>
         <source>BT.470M</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {470M?}</translation>
     </message>
     <message>
         <source>V-Gamut</source>

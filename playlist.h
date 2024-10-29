@@ -120,6 +120,8 @@ public:
     void setCreated(const QDateTime &dt);
     QString title();
     void setTitle(const QString &title);
+    bool repeat();
+    void setRepeat(bool repeat);
     bool shuffle();
     void setShuffle(bool shuffle);
     QUuid uuid();
@@ -139,6 +141,7 @@ protected:
     //QList<QUuid> queue;
     QDateTime created_;
     QString title_;
+    bool repeat_ = false;
     bool shuffle_ = false;
     QUuid playlistUuid_;
     QUuid nowPlaying_;
