@@ -139,7 +139,7 @@ PlaylistItem PlaylistWindow::getItemAfter(QUuid list, QUuid item)
     } else {
         after = pl->itemAfter(item);
     }
-    if (!after || after->uuid() == item)
+    if (!after || (after->uuid() == item && pl->count() < 2))
         return { QUuid(), QUuid() };
     return { pl->uuid(), after->uuid() };
 }
