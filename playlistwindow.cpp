@@ -16,9 +16,7 @@
 PlaylistWindow::PlaylistWindow(QWidget *parent) :
     QDockWidget(parent),
     ui(new Ui::PlaylistWindow),
-    currentPlaylist(),
-    randomDevice(),
-    randomGenerator(randomDevice())
+    currentPlaylist()
 {
     clipboard = new PlaylistSelection;
 
@@ -133,13 +131,8 @@ PlaylistItem PlaylistWindow::getItemAfter(QUuid list, QUuid item)
     if (!next.item.isNull())
         return next;
     QSharedPointer<Item> after;
-    if (pl->shuffle() && !pl->isEmpty()) {
-        std::uniform_int_distribution<> itemDistribution(0, pl->count()-1);
-        after = pl->itemAt(itemDistribution(randomGenerator));
-    } else {
-        after = pl->itemAfter(item);
-    }
-    if (!after || (after->uuid() == item && pl->count() < 2))
+    after = pl->itemAfter(item);
+    if (!after)
         return { QUuid(), QUuid() };
     return { pl->uuid(), after->uuid() };
 }
@@ -749,20 +742,27 @@ void PlaylistWindow::sortPlaylistByUrl(const QUuid &playlistUuid)
     qdp->sort<QString>(converter, lessThan);
 }
 
-void PlaylistWindow::randomizePlaylist(const QUuid &playlistUuid)
+void PlaylistWindow::shufflePlaylist(const QUuid &playlistUuid, bool shuffle)
+{
+    if (widgets.contains(playlistUuid))
+        widgets[playlistUuid]->playlist()->setShuffle(shuffle);
+    refreshPlaylist(playlistUuid);
+}
+
+void PlaylistWindow::reshufflePlaylist(const QUuid &playlistUuid)
+{
+    if (widgets.contains(playlistUuid))
+        widgets[playlistUuid]->playlist()->shuffleItems();
+    refreshPlaylist(playlistUuid);
+}
+
+void PlaylistWindow::refreshPlaylist(const QUuid &playlistUuid)
 {
     auto qdp = widgets.value(playlistUuid, nullptr);
-    if (!qdp)
-        return;
-    std::uniform_int_distribution<> itemDistribution(0, qdp->count()-1);
-    auto converter = [&](QSharedPointer<Item> i) {
-        Q_UNUSED(i)
-        return itemDistribution(randomGenerator);
-    };
-    auto lessThan = [](const int &a, const int &b) {
-        return a < b;
-    };
-    qdp->sort<int>(converter, lessThan);
+    if (qdp) {
+        qdp->repopulateItems();
+        qdp->setCurrentItem(widgets[playlistUuid]->playlist()->nowPlaying());
+    }
 }
 
 void PlaylistWindow::restorePlaylist(const QUuid &playlistUuid)
@@ -842,6 +842,7 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     if (!widgets.contains(playlistUuid))
         return;
     DrawnPlaylist *listWidget = widgets[playlistUuid];
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(playlistUuid);
 
     QMenu *m = new QMenu(this);
     QAction *a;
@@ -902,6 +903,8 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
             this, [this,playlistUuid]() {
         sortPlaylistByLabel(playlistUuid);
     });
+    if (pl && pl->shuffle())
+        a->setDisabled(true);
     m->addAction(a);
 
     a = new QAction(m);
@@ -910,14 +913,8 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
             this, [this,playlistUuid]() {
         sortPlaylistByUrl(playlistUuid);
     });
-    m->addAction(a);
-
-    a = new QAction(m);
-    a->setText(tr("Randomize"));
-    connect(a, &QAction::triggered,
-            this, [this,playlistUuid]() {
-        randomizePlaylist(playlistUuid);
-    });
+    if (pl && pl->shuffle())
+        a->setDisabled(true);
     m->addAction(a);
 
     a = new QAction(m);
@@ -926,6 +923,18 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
             this, [this,playlistUuid]() {
         restorePlaylist(playlistUuid);
     });
+    if (pl && pl->shuffle())
+        a->setDisabled(true);
+    m->addAction(a);
+
+    a = new QAction(m);
+    a->setText(tr("Reshuffle"));
+    connect(a, &QAction::triggered,
+            this, [this,playlistUuid]() {
+                reshufflePlaylist(playlistUuid);
+    });
+    if (!pl || !pl->shuffle())
+        a->setDisabled(true);
     m->addAction(a);
 
     m->addSeparator();
@@ -948,9 +957,8 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     a->setChecked(listWidget->playlist()->shuffle());
     connect(a, &QAction::triggered,
             this, [this,playlistUuid](bool checked) {
-        if (widgets.contains(playlistUuid))
-            widgets[playlistUuid]->playlist()->setShuffle(checked);
-        emit playlistShuffleChanged(playlistUuid, checked);
+                shufflePlaylist(playlistUuid, checked);
+                emit playlistShuffleChanged(playlistUuid, checked);
     });
     m->addAction(a);
 

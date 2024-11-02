@@ -2,6 +2,7 @@
 #include <QMutableListIterator>
 #include <cmath>
 #include "playlist.h"
+#include <random>
 
 
 
@@ -15,6 +16,7 @@ static char keyShuffle[] = "shuffle";
 static char keyTitle[] = "title";
 static char keyUrl[] = "url";
 static char keyUuid[] = "uuid";
+static char keyOriginalPosition[] = "originalposition";
 
 
 
@@ -69,7 +71,7 @@ void Item::setMetadata(const QVariantMap &qvm)
     metadata_ = qvm;
 }
 
-int Item::originalPosition()
+int Item::originalPosition() const
 {
     return originalPosition_;
 }
@@ -154,6 +156,8 @@ QVariantMap Item::toVMap() const
     v.insert(keyUrl, url());
     v.insert(keyUuid, uuid());
     v.insert(keyMetadata, metadata());
+    if (PlaylistCollection::getSingleton()->getPlaylist(playlistUuid())->shuffle())
+        v.insert(keyOriginalPosition, originalPosition());
     return v;
 }
 
@@ -162,6 +166,8 @@ void Item::fromVMap(const QVariantMap &qvm)
     url_ = qvm.contains(keyUrl) ? qvm.value(keyUrl).toUrl() : QUrl();
     itemUuid_ = qvm.contains(keyUuid) ? qvm.value(keyUuid).toUuid() : QUuid::createUuid();
     metadata_ = qvm.contains(keyMetadata) ? qvm.value(keyMetadata).toMap() : QVariantMap();
+    if (qvm.contains(keyOriginalPosition))
+        originalPosition_ = qvm.value(keyOriginalPosition).toInt();
 }
 
 QSharedPointer<ItemCollection> ItemCollection::collection;
@@ -446,6 +452,29 @@ bool Playlist::shuffle()
 void Playlist::setShuffle(bool shuffling)
 {
     shuffle_ = shuffling;
+    if (shuffling)
+        shuffleItems();
+    else
+        unshuffleItems();
+}
+
+void Playlist::shuffleItems()
+{
+    QWriteLocker locker(&listLock);
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::shuffle(items.begin(), items.end(), gen);
+    locker.unlock();
+    this->setNowPlaying(items.first()->uuid());
+}
+
+void Playlist::unshuffleItems()
+{
+    QWriteLocker locker(&listLock);
+    std::sort(items.begin(), items.end(),
+        [](const QSharedPointer<Item> &a, const QSharedPointer<Item> &b) {
+            return a->originalPosition() < b->originalPosition();
+    });
 }
 
 QUuid Playlist::uuid()
@@ -537,6 +566,11 @@ void Playlist::fromVMap(const QVariantMap &qvm)
             this->items.append(i);
             this->itemsByUuid.insert(i->uuid(), i);
             ItemCollection::getSingleton()->storeItem(i);
+        }
+        // Reshuffle on first start with non shuffled list in shuffle mode
+        if (shuffle() && !items.isEmpty() && !items[0].toMap().contains(keyOriginalPosition)) {
+            locker.unlock();
+            shuffleItems();
         }
     }
 }

@@ -34,7 +34,7 @@ public:
     const QVariantMap &metadata() const;
     void setMetadata(const QVariantMap &qvm);
 
-    int originalPosition();
+    int originalPosition() const;
     void setOriginalPosition(int i);
 
     int queuePosition() const;
@@ -124,6 +124,8 @@ public:
     void setRepeat(bool repeat);
     bool shuffle();
     void setShuffle(bool shuffle);
+    void shuffleItems();
+    void unshuffleItems();
     QUuid uuid();
     void setUuid(const QUuid &playlistUuid);
     QUuid nowPlaying();
