@@ -42,6 +42,7 @@ public:
     int extraPlayTimes(QUuid list, QUuid item);
     void setExtraPlayTimes(QUuid list, QUuid item, int amount);
     void deltaExtraPlayTimes(QUuid list, QUuid item, int delta);
+    void reshufflePlaylist(const QUuid &playlistUuid);
 
     QVariantList tabsToVList() const;
     void tabsFromVList(const QVariantList &qvl);
@@ -124,7 +125,6 @@ private slots:
     void sortPlaylistByLabel(const QUuid &playlistUuid);
     void sortPlaylistByUrl(const QUuid &playlistUuid);
     void shufflePlaylist(const QUuid &playlistUuid, bool shuffle);
-    void reshufflePlaylist(const QUuid &playlistUuid);
     void refreshPlaylist(const QUuid & playlistUuid);
     void restorePlaylist(const QUuid &playlistUuid);
 
