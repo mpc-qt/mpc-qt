@@ -494,6 +494,10 @@ void Flow::setupMainWindowConnections()
     connect(mainWindow->playlistWindow(), &PlaylistWindow::hideFullscreenChanged,
             mainWindow, &MainWindow::setFullscreenHidePanels);
 
+    // propertieswindow -> mainwindow
+    connect(propertiesWindow, &PropertiesWindow::artistAndTitleChanged,
+            mainWindow, &MainWindow::setMediaTitle);
+
     // mainwindow -> playlistwindow
     connect(mainWindow, &MainWindow::playCurrentItemRequested,
             mainWindow->playlistWindow(), &PlaylistWindow::playCurrentItem);
