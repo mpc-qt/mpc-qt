@@ -395,9 +395,7 @@ void Flow::readConfig()
         QVariantMap favoriteMap = storage.readVMap(fileFavorites);
         favoriteFiles = TrackInfo::tracksFromVList(favoriteMap.value(keyFiles).toList());
         favoriteStreams = TrackInfo::tracksFromVList(favoriteMap.value(keyStreams).toList());
-        LogStream("main") << "reading fileRecent start";
         recentFiles = TrackInfo::tracksFromVList(storage.readVList(fileRecent));
-        LogStream("main") << "reading fileRecent done";
     }
 }
 

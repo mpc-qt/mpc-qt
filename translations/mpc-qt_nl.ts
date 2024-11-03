@@ -1687,10 +1687,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Randomize</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Restore</source>
         <translation type="unfinished">Herstellen</translation>
     </message>
@@ -1728,6 +1724,10 @@
     </message>
     <message>
         <source>Repeat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reshuffle</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

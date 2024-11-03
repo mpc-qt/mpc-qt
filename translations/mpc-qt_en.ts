@@ -1688,7 +1688,7 @@
     </message>
     <message>
         <source>Randomize</source>
-        <translation>Randomize</translation>
+        <translation type="vanished">Randomize</translation>
     </message>
     <message>
         <source>Restore</source>
@@ -1729,6 +1729,10 @@
     <message>
         <source>Repeat</source>
         <translation type="unfinished">Repeat</translation>
+    </message>
+    <message>
+        <source>Reshuffle</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

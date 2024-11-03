@@ -1660,7 +1660,7 @@
     </message>
     <message>
         <source>Randomize</source>
-        <translation>随机排序</translation>
+        <translation type="vanished">随机排序</translation>
     </message>
     <message>
         <source>Restore</source>
@@ -1700,6 +1700,10 @@
     </message>
     <message>
         <source>Repeat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reshuffle</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

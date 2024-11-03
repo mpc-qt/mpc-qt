@@ -76,6 +76,8 @@ public:
 
     void setFilter(QString needles);
 
+    void repopulateItems();
+
 protected:
     bool event(QEvent *e);
 
@@ -101,8 +103,6 @@ signals:
     void contextMenuRequested(QPoint p, QUuid playlistUuid, QUuid itemUuid);
 
 private slots:
-    void repopulateItems();
-
     void model_rowsMoved(const QModelIndex & parent, int start, int end,
                          const QModelIndex & destination, int row);
     void self_currentItemChanged(QListWidgetItem *current,

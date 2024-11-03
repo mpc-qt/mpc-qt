@@ -4,7 +4,6 @@
 #include <QDockWidget>
 #include <QHash>
 #include <QUuid>
-#include <random>
 #include "helpers.h"
 #include "playlist.h"
 
@@ -43,6 +42,7 @@ public:
     int extraPlayTimes(QUuid list, QUuid item);
     void setExtraPlayTimes(QUuid list, QUuid item, int amount);
     void deltaExtraPlayTimes(QUuid list, QUuid item, int delta);
+    void reshufflePlaylist(const QUuid &playlistUuid);
 
     QVariantList tabsToVList() const;
     void tabsFromVList(const QVariantList &qvl);
@@ -124,7 +124,8 @@ private slots:
     void savePlaylist(const QUuid &playlistUuid);
     void sortPlaylistByLabel(const QUuid &playlistUuid);
     void sortPlaylistByUrl(const QUuid &playlistUuid);
-    void randomizePlaylist(const QUuid &playlistUuid);
+    void shufflePlaylist(const QUuid &playlistUuid, bool shuffle);
+    void refreshPlaylist(const QUuid & playlistUuid);
     void restorePlaylist(const QUuid &playlistUuid);
 
     void self_visibilityChanged();
@@ -158,8 +159,6 @@ private:
     QHash<QUuid, DrawnPlaylist*> widgets;
     DrawnPlaylist* queueWidget = nullptr;
     PlaylistSelection *clipboard = nullptr;
-    std::random_device randomDevice;
-    std::mt19937 randomGenerator;
 };
 
 #endif // PLAYLISTWINDOW_H

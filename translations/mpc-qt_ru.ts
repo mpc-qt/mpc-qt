@@ -1668,7 +1668,7 @@
     </message>
     <message>
         <source>Randomize</source>
-        <translation>Перемешать</translation>
+        <translation type="vanished">Перемешать</translation>
     </message>
     <message>
         <source>Restore</source>
@@ -1709,6 +1709,10 @@
     <message>
         <source>Repeat</source>
         <translation type="unfinished">Повтор</translation>
+    </message>
+    <message>
+        <source>Reshuffle</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

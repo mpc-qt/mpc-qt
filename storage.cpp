@@ -8,6 +8,7 @@
 #include <QFileInfo>
 #include <QTextStream>
 #include <QUrl>
+#include "logger.h"
 #include "storage.h"
 #include "platform/unify.h"
 
@@ -56,8 +57,10 @@ void Storage::writeVList(QString name, const QVariantList &qvl)
 
 QVariantList Storage::readVList(QString name)
 {
-    QJsonDocument doc = readJsonObject(name);
-    return doc.array().toVariantList();
+    LogStream("storage") << "reading " + name + " start";
+    QVariantList vList = readJsonObject(name).array().toVariantList();
+    LogStream("storage") << "reading " + name + " done";
+    return vList;
 }
 
 QStringList Storage::readM3U(const QString &where)
