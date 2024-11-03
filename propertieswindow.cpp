@@ -150,6 +150,8 @@ void PropertiesWindow::setMetaData(QVariantMap data)
     ui->clipDescription->setTextCursor(cursor);
 
     metadataText = sectionText(tr("General"), data);
+    if (data.contains("artist") && data.contains("title"))
+        emit artistAndTitleChanged(data["artist"].toString() + " - " + data["title"].toString());
     updateLastTab();
 }
 
