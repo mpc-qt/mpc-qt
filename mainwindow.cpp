@@ -1726,7 +1726,7 @@ void MainWindow::setMediaTitle(QString title)
     if (freestanding_)
         window_title.append(tr(" [Freestanding]"));
     if (!title.isEmpty())
-        window_title.append(" - ").append(title);
+        window_title.prepend(" - ").prepend(title);
     setWindowTitle(window_title);
     ui->title->setText(!title.isEmpty() ? title : "-");
 }
