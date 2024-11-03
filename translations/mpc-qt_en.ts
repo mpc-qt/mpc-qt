@@ -1732,7 +1732,7 @@
     </message>
     <message>
         <source>Reshuffle</source>
-        <translation type="unfinished"></translation>
+        <translation>Reshuffle</translation>
     </message>
 </context>
 <context>
