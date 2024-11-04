@@ -5645,10 +5645,10 @@ media file played</string>
               <item>
                <widget class="QLineEdit" name="playlistFormat">
                 <property name="text">
-                 <string notr="true">%track{#. }{}{}%artist{# - }{Unknown Artist - }{}%title{#}{$}{$}</string>
+                 <string notr="true">%artist{# - }{Unknown Artist - }{}%title{#}{$}{$}</string>
                 </property>
                 <property name="placeholderText">
-                 <string notr="true">%track{#. }{}{}%artist{# - }{Unknown Artist - }{}%title{#}{$}{$}</string>
+                 <string notr="true">%artist{# - }{Unknown Artist - }{}%title{#}{$}{$}</string>
                 </property>
                </widget>
               </item>
