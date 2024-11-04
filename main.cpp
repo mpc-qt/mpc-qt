@@ -229,9 +229,12 @@ void Flow::detectMode() {
             QDir::tempPath() + QLatin1Char('/') + QLatin1String("mpc-qt.lock");
         std::unique_ptr<QLockFile> lockFile = std::make_unique<QLockFile>(lockFilePath);
         lockFile->setStaleLockTime(0);
-        if (!lockFile->tryLock())
-            programMode = EarlyQuitMode;
-        else
+        while (!lockFile->tryLock()) {
+            programMode = alreadyAServer ? EarlyQuitMode : PrimaryMode;
+            if (programMode == EarlyQuitMode)
+                break;
+        }
+        if (lockFile->isLocked() || lockFile->tryLock())
             lockFile_ = std::move(lockFile);
     }
 }
