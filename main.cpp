@@ -230,6 +230,7 @@ void Flow::detectMode() {
         std::unique_ptr<QLockFile> lockFile = std::make_unique<QLockFile>(lockFilePath);
         lockFile->setStaleLockTime(0);
         while (!lockFile->tryLock()) {
+            alreadyAServer = JsonServer::sendPayload(makePayload(), MpcQtServer::defaultSocketName());
             programMode = alreadyAServer ? EarlyQuitMode : PrimaryMode;
             if (programMode == EarlyQuitMode)
                 break;
