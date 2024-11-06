@@ -13,6 +13,7 @@
 #include "settingswindow.h"
 #include "propertieswindow.h"
 #include "favoriteswindow.h"
+#include "gotowindow.h"
 #include "thumbnailerwindow.h"
 #include "platform/screensaver.h"
 #include "platform/windowmanager.h"
@@ -114,6 +115,7 @@ private:
     SettingsWindow *settingsWindow = nullptr;
     PropertiesWindow *propertiesWindow = nullptr;
     FavoritesWindow *favoritesWindow = nullptr;
+    GoToWindow *gotoWindow = nullptr;
     LogWindow *logWindow = nullptr;
     LibraryWindow *libraryWindow = nullptr;
     ThumbnailerWindow *thumbnailerWindow = nullptr;

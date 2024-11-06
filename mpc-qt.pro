@@ -128,6 +128,7 @@ win32:HEADERS += platform/screensaver_win.h \
                  platform/devicemanager_win.h
 
 SOURCES += main.cpp\
+    gotowindow.cpp \
     librarywindow.cpp \
     mpvwidget.cpp \
     mainwindow.cpp \
@@ -159,6 +160,7 @@ SOURCES += main.cpp\
     widgets/screencombo.cpp
 
 HEADERS  += \
+    gotowindow.h \
     librarywindow.h \
     mpvwidget.h \
     mainwindow.h \
@@ -191,6 +193,7 @@ HEADERS  += \
     widgets/screencombo.h
 
 FORMS    += \
+    gotowindow.ui \
     librarywindow.ui \
     mainwindow.ui \
     playlistwindow.ui \

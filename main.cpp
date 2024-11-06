@@ -150,6 +150,10 @@ Flow::~Flow()
         delete favoritesWindow;
         favoritesWindow = nullptr;
     }
+    if (gotoWindow) {
+        delete gotoWindow;
+        gotoWindow = nullptr;
+    }
     if (screenSaver) {
         screenSaver->uninhibitSaver();
         delete screenSaver;
@@ -261,6 +265,8 @@ void Flow::init() {
     propertiesWindow = new PropertiesWindow();
     Logger::log("main", "creating favorites window");
     favoritesWindow = new FavoritesWindow();
+    Logger::log("main", "creating goto window");
+    gotoWindow = new GoToWindow();
     Logger::log("main", "creating log window");
     logWindow = new LogWindow();
     Logger::log("main", "creating library window");
@@ -546,6 +552,10 @@ void Flow::setupMainWindowConnections()
     connect(mainWindow, &MainWindow::organizeFavorites,
             favoritesWindow, &FavoritesWindow::show);
 
+    // mainwindow -> goto
+    connect(mainWindow, &MainWindow::showGoToWindow,
+            gotoWindow, &GoToWindow::init);
+
     // favorites -> mainwindow
     connect(favoritesWindow, &FavoritesWindow::favoriteTracks,
             mainWindow, &MainWindow::setFavoriteTracks);
@@ -584,6 +594,10 @@ void Flow::setupManagerConnections()
     // manager -> settings
     connect(playbackManager, &PlaybackManager::playerSettingsRequested,
             settingsWindow, &SettingsWindow::sendSignals);
+
+    // goto -> manager
+    connect(gotoWindow, &GoToWindow::goTo,
+            playbackManager, &PlaybackManager::navigateToTime);
 }
 
 void Flow::setupSettingsConnections()

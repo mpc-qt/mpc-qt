@@ -154,6 +154,7 @@ signals:
     void chapterNext();
     void filePrevious(bool forceFolderFallback);
     void fileNext(bool forceFolderFallback);
+    void showGoToWindow(double playTime, double playLength, double fps);
     void chapterSelected(int64_t id);
     void timeSelected(double time);
     void fullscreenModeChanged(bool fullscreen);
@@ -388,6 +389,8 @@ private slots:
 
     void on_actionNavigateFilesPrevious_triggered();
     void on_actionNavigateFilesNext_triggered();
+
+    void on_actionNavigateGoto_triggered();
 
     void on_actionHelpHomepage_triggered();
     void on_actionHelpAbout_triggered();

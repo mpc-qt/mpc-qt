@@ -252,6 +252,12 @@ QString Helpers::toDateFormat(double time)
             .arg(QString().number(fr),3,'0');
 }
 
+QString Helpers::toDateFormatWithZero(double time)
+{
+    QString date = toDateFormat(time);
+    return date.split(':').first().length() < 2 ? "0" + date : date;
+}
+
 QString Helpers::toDateFormatFixed(double time, Helpers::TimeFormat format)
 {
     int t = int(time*1000 + 0.5);
@@ -300,6 +306,15 @@ QTime Helpers::timeFromCFormat(const char time[])
     return t;
 }
 
+double Helpers::fromDateFormat(QString date)
+{
+    QStringList times = date.split(':');
+    for (auto time : times) {
+        if (time.toDouble() >= 60)
+            return -1;
+    }
+    return times[0].toDouble()*3600 + times[1].toDouble()*60 + times[2].toDouble();
+}
 
 static QString grabBrackets(QString source, int &position, int &length) {
     QString match;
