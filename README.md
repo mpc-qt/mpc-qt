@@ -69,6 +69,8 @@ Alternatively, you can submit the translations as a PR.
 
 ## Compiling
 
+[![C/C++ CI]][C/C++ CI link]
+
 The best version is git master, and everyone is encouraged to increase their
 computer-fu by compiling from source (see sections below).  Compiling from
 source gives you several advantages over the usual user, such as the ability to
@@ -124,6 +126,8 @@ libmpv by following the instructions at the [mpv-build repo].
 
 ## Compiling on Windows
 
+[![Msys2 CI]][Msys2 CI link]
+
 While this program is meant for Unix, it is possible to compile it on Windows
 with MSYS2.  MSVC is not supported due to the nature of the build process, but
 may work in theory if you throw enough stubbornness at it.
@@ -177,6 +181,10 @@ Yes! You just need to change two SVP settings:
 [libmpv]:https://github.com/mpv-player/mpv
 [weblate]:https://hosted.weblate.org/engage/mpc-qt/
 [Translation status]:https://hosted.weblate.org/widgets/mpc-qt/-/svg-badge.svg
+[C/C++ CI]:https://github.com/mpc-qt/mpc-qt/actions/workflows/linux.yml/badge.svg
+[C/C++ CI link]:https://github.com/mpc-qt/mpc-qt/actions/workflows/linux.yml
+[Msys2 CI]:https://github.com/mpc-qt/mpc-qt/actions/workflows/windows-msys2.yml/badge.svg
+[Msys2 CI link]:https://github.com/mpc-qt/mpc-qt/actions/workflows/windows-msys2.yml
 [aur]:https://aur.archlinux.org/packages/mpc-qt-git/
 [ports]:https://www.freshports.org/multimedia/mpc-qt
 [mpv-build repo]:https://github.com/mpv-player/mpv-build
