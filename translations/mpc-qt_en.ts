@@ -105,23 +105,23 @@
     <name>GoToWindow</name>
     <message>
         <source>Go To...</source>
-        <translation type="unfinished"></translation>
+        <translation>Go To...</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Time</translation>
     </message>
     <message>
         <source>Go!</source>
-        <translation type="unfinished"></translation>
+        <translation>Go!</translation>
     </message>
     <message>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Frame</translation>
     </message>
     <message>
         <source>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitely.</source>
-        <translation type="unfinished"></translation>
+        <translation>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitly.</translation>
     </message>
 </context>
 <context>
@@ -1751,7 +1751,7 @@
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished">Repeat</translation>
+        <translation>Repeat</translation>
     </message>
     <message>
         <source>Reshuffle</source>
