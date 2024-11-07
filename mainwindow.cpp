@@ -976,7 +976,7 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionNavigateChaptersNext->setEnabled(enabled);
     ui->actionNavigateFilesPrevious->setEnabled(enabled);
     ui->actionNavigateFilesNext->setEnabled(enabled);
-    ui->actionNavigateGoto->setEnabled(false);
+    ui->actionNavigateGoto->setEnabled(enabled);
     ui->actionFavoritesAdd->setEnabled(enabled);
 
     ui->menuFileSubtitleDatabase->setEnabled(false);
@@ -2864,6 +2864,12 @@ void MainWindow::on_actionNavigateFilesPrevious_triggered()
 void MainWindow::on_actionNavigateFilesNext_triggered()
 {
     emit fileNext(true);
+}
+
+void MainWindow::on_actionNavigateGoto_triggered()
+{
+    emit showGoToWindow(mpvObject_->playTime(), mpvObject_->playLength(),
+                        ui->framerate->text().toDouble());
 }
 
 void MainWindow::on_actionHelpHomepage_triggered()

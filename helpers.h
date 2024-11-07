@@ -46,9 +46,11 @@ namespace Helpers {
     QString fileSizeToString(int64_t bytes);
     QString fileSizeToStringShort(int64_t bytes);
     QString toDateFormat(double time);
+    QString toDateFormatWithZero(double time);
     QString toDateFormatFixed(double time, TimeFormat format);
     QDate dateFromCFormat(const char date[]);
     QTime timeFromCFormat(const char time[]);
+    double fromDateFormat(QString date);
     QString parseFormat(QString fmt, QString fileName, DisabledTrack disabled,
                         Subtitles subtitles, double timeNav, double timeBegin,
                         double timeEnd);
