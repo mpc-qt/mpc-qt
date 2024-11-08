@@ -2132,11 +2132,11 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Color film stock</source>
-        <translation>Cinta de película en color</translation>
+        <translation type="vanished">Cinta de película en color</translation>
     </message>
     <message>
         <source>Black and white film stock</source>
-        <translation>Cinta de película en blanco y negro</translation>
+        <translation type="vanished">Cinta de película en blanco y negro</translation>
     </message>
     <message>
         <source>Triangle in circle</source>
@@ -3894,6 +3894,10 @@ archivo multimedia reproducido</translation>
     <message>
         <source>Only keep history for videos</source>
         <translation>Solo guardar el historial de los vídeos</translation>
+    </message>
+    <message>
+        <source>Cinema screen</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

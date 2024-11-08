@@ -601,12 +601,7 @@ media file played</string>
                </item>
                <item>
                 <property name="text">
-                 <string>Color film stock</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Black and white film stock</string>
+                 <string>Cinema screen</string>
                 </property>
                </item>
                <item>
