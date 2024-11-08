@@ -2143,11 +2143,11 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Color film stock</source>
-        <translation>Pellicola a colori</translation>
+        <translation type="vanished">Pellicola a colori</translation>
     </message>
     <message>
         <source>Black and white film stock</source>
-        <translation>Pellicola in bianco e nero</translation>
+        <translation type="vanished">Pellicola in bianco e nero</translation>
     </message>
     <message>
         <source>Triangle in circle</source>
@@ -3880,6 +3880,10 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Only keep history for videos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cinema screen</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -2171,11 +2171,11 @@ media file played</source>
     </message>
     <message>
         <source>Color film stock</source>
-        <translation>Цветная киноплёнка</translation>
+        <translation type="vanished">Цветная киноплёнка</translation>
     </message>
     <message>
         <source>Black and white film stock</source>
-        <translation>Чёрно-белая кинопленка</translation>
+        <translation type="vanished">Чёрно-белая кинопленка</translation>
     </message>
     <message>
         <source>Triangle in circle</source>
@@ -3936,6 +3936,10 @@ media file played</source>
     </message>
     <message>
         <source>Only keep history for videos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cinema screen</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
