@@ -3968,7 +3968,7 @@ media file played</translation>
     </message>
     <message>
         <source>Cinema screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Cinema screen</translation>
     </message>
 </context>
 <context>
