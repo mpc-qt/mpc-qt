@@ -2160,14 +2160,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Color film stock</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Black and white film stock</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Triangle in circle</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3882,6 +3874,10 @@ media file played</source>
     </message>
     <message>
         <source>Only keep history for videos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cinema screen</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
