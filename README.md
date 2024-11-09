@@ -176,7 +176,7 @@ Yes! You just need to change two SVP settings:
 - the path to mpv's JSON IPC to point to `/tmp/cmdrkotori.mpc-qt.mpv`
 - the path to the player to point to `/usr/bin/mpc-qt`
 
-[screenshot]:https://raw.githubusercontent.com/mpc-qt/mpc-qt-screenshots/master/Screenshot_20220226_155532.png
+[screenshot]:https://raw.githubusercontent.com/mpc-qt/mpc-qt-screenshots/refs/heads/master/Screenshot_20241109_190909.png
 [mpc-hc]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
 [weblate]:https://hosted.weblate.org/engage/mpc-qt/
