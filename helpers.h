@@ -13,6 +13,9 @@
 #include <QTime>
 #include <QDir>
 
+static const char blackIconsPath[] = ":/images/theme/black/";
+static const char whiteIconsPath[] = ":/images/theme/white/";
+
 class QPushButton;
 class QFileDialog;
 class QLocalServer;
@@ -89,9 +92,9 @@ public slots:
 
 private:
     QList<IconData> iconDataList;
-    FolderMode mode;
-    QString fallback;
-    QString custom;
+    FolderMode folderMode_;
+    QString fallbackFolder_;
+    QString customFolder_;
 };
 
 class DisplayNode;

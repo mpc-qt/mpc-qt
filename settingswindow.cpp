@@ -131,8 +131,8 @@ static QMap<QString,FilterKernel> filterKernels {
 
 
 QHash<QString, QStringList> SettingMap::indexedValueToText = {
-    {"interfaceIconsInbuilt", { ":/images/theme/black/", \
-                                ":/images/theme/white/" }},
+    {"interfaceIconsInbuilt", { blackIconsPath, \
+                                whiteIconsPath }},
     {"videoFramebuffer", {"rgb8-rgba8", "rgb10-rgb10_a2", "rgba12-rgba12",\
                           "rgb16-rgba16", "rgb16f-rgba16f",\
                           "rgb32f-rgba32f"}},
