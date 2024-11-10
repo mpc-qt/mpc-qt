@@ -77,7 +77,7 @@ signals:
     void playlistMovedToBackup(QUuid backupUuid);
 
 public slots:
-    void setIconTheme(IconThemer::FolderMode mode, const QString &fallback, const QString &custom);
+    void setIconTheme(IconThemer::FolderMode folderMode, const QString &fallbackFolder, const QString &customFolder);
     void setHideFullscreen(bool hidden);
 
     bool activateItem(QUuid playlistUuid, QUuid itemUuid);

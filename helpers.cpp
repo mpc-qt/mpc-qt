@@ -639,23 +639,23 @@ void IconThemer::addIconData(const IconThemer::IconData &data)
 
 QIcon IconThemer::fetchIcon(const QString &name)
 {
-    QDir customDir(custom);
-    if (mode == CustomFolder && customDir.exists() && customDir.exists(name)) {
-        return QIcon(custom + name + ".svg");
+    QDir customDir(customFolder_);
+    if (folderMode_ == CustomFolder && customDir.exists() && customDir.exists(name)) {
+        return QIcon(customFolder_ + name + ".svg");
     }
-    if (mode != SystemFolder) {
-        return QIcon(fallback + name + ".svg");
+    if (folderMode_ != SystemFolder) {
+        return QIcon(fallbackFolder_ + name + ".svg");
     }
-    return QIcon::fromTheme(name, QIcon(fallback + name + ".svg"));
+    return QIcon::fromTheme(name, QIcon(fallbackFolder_ + name + ".svg"));
 }
 
 void IconThemer::setIconFolders(FolderMode folderMode,
                                 const QString &fallbackFolder,
                                 const QString &customFolder)
 {
-    mode = folderMode;
-    fallback = fallbackFolder;
-    custom = customFolder;
+    folderMode_ = folderMode;
+    fallbackFolder_ = fallbackFolder;
+    customFolder_ = customFolder;
     for (const IconData &data : std::as_const(iconDataList))
         updateButton(data);
 }
