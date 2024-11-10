@@ -658,10 +658,27 @@ QIcon IconThemer::fetchIcon(const QString &name)
     if (folderMode_ == CustomFolder && customDir.exists() && customDir.exists(name)) {
         return QIcon(customFolder_ + name + ".svg");
     }
+    QIcon icon;
     if (folderMode_ != SystemFolder) {
-        return QIcon(fallbackFolder_ + name + ".svg");
+        icon = QIcon(fallbackFolder_ + name + ".svg");
     }
-    return QIcon::fromTheme(name, QIcon(fallbackFolder_ + name + ".svg"));
+    else {
+        icon =  QIcon::fromTheme(name, QIcon(fallbackFolder_ + name + ".svg"));
+    }
+    if (fallbackFolder_ == whiteIconsPath) {
+        // Add a disabled mode for white icons (dark theme) as Qt doesn't provide one
+        QImage image = icon.pixmap(QSize(16, 16), QIcon::Normal, QIcon::On).toImage();
+        for (int x = 0; x < image.width(); x++) {
+            for (int y = 0; y < image.height(); y++) {
+                QColor pixelColor = image.pixelColor(x, y);
+                pixelColor.setAlpha(pixelColor.alpha() / 3);
+                image.setPixelColor(x, y, pixelColor);
+            }
+        }
+        QPixmap pixmap = QPixmap::fromImage(image);
+        icon.addPixmap(pixmap, QIcon::Disabled);
+    }
+    return icon;
 }
 
 void IconThemer::setIconFolders(FolderMode folderMode,

@@ -13,6 +13,9 @@
 #include <QTime>
 #include <QDir>
 
+static const char blackIconsPath[] = ":/images/theme/black/";
+static const char whiteIconsPath[] = ":/images/theme/white/";
+
 class QPushButton;
 class QFileDialog;
 class QLocalServer;
