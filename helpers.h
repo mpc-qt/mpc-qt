@@ -89,9 +89,9 @@ public slots:
 
 private:
     QList<IconData> iconDataList;
-    FolderMode mode;
-    QString fallback;
-    QString custom;
+    FolderMode folderMode_;
+    QString fallbackFolder_;
+    QString customFolder_;
 };
 
 class DisplayNode;

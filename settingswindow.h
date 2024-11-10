@@ -94,7 +94,7 @@ signals:
 
     void mprisIpc(bool enabled);
     void logoSource(const QString &s);
-    void iconTheme(IconThemer::FolderMode mode, const QString &fallback, const QString &custom);
+    void iconTheme(IconThemer::FolderMode folderMode, const QString &fallbackFolder, const QString &customFolder);
     void highContrastWidgets(bool yes);
     void applicationPalette(const QPalette s);
     void videoColor(QColor background);
