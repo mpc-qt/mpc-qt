@@ -1200,6 +1200,12 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
         close();
 }
 
+void SettingsWindow::closeEvent(QCloseEvent *event)
+{
+    restoreColorControls();
+    restoreAudioSettings();
+}
+
 void SettingsWindow::on_playerKeepHistory_checkStateChanged(Qt::CheckState state)
 {
     // playerRememberFilePosition depends on playerKeepHistory
