@@ -156,8 +156,9 @@ QVariantMap Item::toVMap() const
     v.insert(keyUrl, url());
     v.insert(keyUuid, uuid());
     v.insert(keyMetadata, metadata());
-    if (PlaylistCollection::getSingleton()->getPlaylist(playlistUuid())->shuffle())
-        v.insert(keyOriginalPosition, originalPosition());
+    if (PlaylistCollection::getSingleton()->getPlaylist(playlistUuid()) &&
+        PlaylistCollection::getSingleton()->getPlaylist(playlistUuid())->shuffle())
+            v.insert(keyOriginalPosition, originalPosition());
     return v;
 }
 
