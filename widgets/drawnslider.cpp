@@ -173,9 +173,8 @@ void DrawnSlider::paintEvent(QPaintEvent *event)
         double px;
         double x = isDragging ? xPosition : valueToX(value());
         x -= handleWidth/2.0;
-        x *= pr;
         int index = int(modf(x, &px) * 16.0)&15;
-        p.drawImage(QPointF(px - 0.5, (height() - handleHeight)/2), handlePics[index]);
+        p.drawImage(QPointF(px, (height() - handleHeight)/2)*pr, handlePics[index]);
     }
 }
 
