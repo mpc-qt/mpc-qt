@@ -219,6 +219,8 @@ private slots:
 
     void on_buttonBox_clicked(QAbstractButton *button);
 
+    void closeEvent(QCloseEvent *event) override;
+
     void on_playerKeepHistory_checkStateChanged(Qt::CheckState state);
 
     void on_ccHdrMapper_currentIndexChanged(int index);
