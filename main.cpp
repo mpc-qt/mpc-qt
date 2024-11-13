@@ -104,6 +104,8 @@ Flow::Flow(QObject *owner) :
     logger->moveToThread(logThread);
     connect(logThread, &QThread::finished,
             logger, &QObject::deleteLater);
+    connect(this, &Flow::flushLog,
+            logger, &Logger::flushMessages);
 
     readConfig();
     Logger::log("main", "finished reading config");
@@ -168,6 +170,7 @@ Flow::~Flow()
         logWindow = nullptr;
     }
     if (logThread) {
+        emit flushLog();
         logThread->quit();
         logThread->wait();
         delete logThread;
