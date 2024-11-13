@@ -1,7 +1,16 @@
 #ifndef STORAGE_H
 #define STORAGE_H
 
+#include <QJsonDocument>
 #include <QObject>
+
+extern const char fileFavorites[];
+extern const char fileGeometryV2[];
+extern const char fileKeys[];
+extern const char filePlaylists[];
+extern const char filePlaylistsBackup[];
+extern const char fileRecent[];
+extern const char fileSettings[];
 
 class Storage : public QObject
 {
@@ -29,6 +38,7 @@ public slots:
 
 private:
     static QString configPath;
+    QJsonDocument playlistsBackup;
 };
 
 #endif // STORAGE_H
