@@ -40,6 +40,7 @@ public:
 
 signals:
     void windowsRestored();
+    void flushLog();
 
 private:
     void readConfig();
