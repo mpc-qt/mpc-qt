@@ -57,9 +57,11 @@ QVariantMap Storage::readVMap(QString name)
 
 void Storage::writeVList(QString name, const QVariantList &qvl)
 {
+    LogStream("storage") << "writing " + name + " start";
     QJsonDocument doc;
     doc.setArray(QJsonArray::fromVariantList(qvl));
     writeJsonObject(name, doc);
+    LogStream("storage") << "writing " + name + " done";
 }
 
 QVariantList Storage::readVList(QString name)
