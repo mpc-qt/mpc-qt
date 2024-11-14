@@ -7,10 +7,10 @@
 #include "mainwindow.h"
 #include "windowmanager.h"
 
-static const char keyGeometry[] = "geometry";
-static const char keyMaximized[] = "maximized";
-static const char keyQtState[] = "qtState";
-static const char keyState[] = "state";
+constexpr char keyGeometry[] = "geometry";
+constexpr char keyMaximized[] = "maximized";
+constexpr char keyQtState[] = "qtState";
+constexpr char keyState[] = "state";
 
 WindowManager::WindowManager(QObject *parent)
     : QObject{parent}

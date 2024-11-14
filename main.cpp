@@ -29,12 +29,12 @@
 
 //---------------------------------------------------------------------------
 
-static const char flatpakDesktopFile[] = "io.github.mpc_qt.Mpc-Qt";
+constexpr char flatpakDesktopFile[] = "io.github.mpc_qt.Mpc-Qt";
 
-static const char keyCommand[] = "command";
-static const char keyDirectory[] = "directory";
-static const char keyFiles[] = "files";
-static const char keyStreams[] = "streams";
+constexpr char keyCommand[] = "command";
+constexpr char keyDirectory[] = "directory";
+constexpr char keyFiles[] = "files";
+constexpr char keyStreams[] = "streams";
 
 //---------------------------------------------------------------------------
 

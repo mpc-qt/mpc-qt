@@ -11,10 +11,10 @@
 #include "ui_thumbnailerwindow.h"
 
 // NOTE: do we configure the thumb format in the settings dialog?
-static const char logModule[] = "thumbnailer";
-static const char friendlyName[] = "Media Player Classic Qute Theater - Thumbnailer";
-static const char thumbFormat[] = "%f_thumbs_[%t{yyyy.MM.dd_hh.mm.ss}]";
-static const char saveDialogFilter[] = "Images (*.png *.jpg *.jpeg)";
+constexpr char logModule[] = "thumbnailer";
+constexpr char friendlyName[] = "Media Player Classic Qute Theater - Thumbnailer";
+constexpr char thumbFormat[] = "%f_thumbs_[%t{yyyy.MM.dd_hh.mm.ss}]";
+constexpr char saveDialogFilter[] = "Images (*.png *.jpg *.jpeg)";
 
 constexpr int thumbMargin = 8;
 constexpr int pageMargin = 10;
