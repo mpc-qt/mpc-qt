@@ -17,6 +17,9 @@
 #include "helpers.h"
 #include "platform/unify.h"
 
+const char blackIconsPath[] = ":/images/theme/black/";
+const char whiteIconsPath[] = ":/images/theme/white/";
+
 QSet<QString> Helpers::audioVideoFileExtensions {
     // DVD/Blu-ray audio formats
     "ac3", "a52",
