@@ -11,12 +11,12 @@
 #include "platform/devicemanager.h"
 #include "platform/unify.h"
 
-static const char httpVersion[] = "HTTP/1.1";
-static const char errorDocument[] = "<html><head><title>%1</title></head>"
+constexpr char httpVersion[] = "HTTP/1.1";
+constexpr char errorDocument[] = "<html><head><title>%1</title></head>"
                                     "<body><h1>%1</h1></body></html>";
-static const char mimeFormUrlEncoded[] = "application/x-www-form-urlencoded";
-static const char mimeHtml[] = "text/html";
-static const char dateZero[] = "1970.01.01 00:00";
+constexpr char mimeFormUrlEncoded[] = "application/x-www-form-urlencoded";
+constexpr char mimeHtml[] = "text/html";
+constexpr char dateZero[] = "1970.01.01 00:00";
 
 static QMap<HttpResponse::HttpStatus,QString> statusToText = {
     { HttpResponse::Http200Ok, "200 OK" },
@@ -80,7 +80,7 @@ HttpResponse::HttpResponse()
 
 void HttpResponse::fillHeaders()
 {
-    static const char dateFmt[] = "ddd, dd MMM yyyy HH:mm:ss t";
+    constexpr char dateFmt[] = "ddd, dd MMM yyyy HH:mm:ss t";
     headers["Date"] = dateResponse.toString(dateFmt);
     if (!headers.contains("Server"))
         headers["Server"] = QCoreApplication::applicationName();
@@ -227,7 +227,7 @@ QString HttpServer::urlEncode(QString plainText)
         map[(byte)']'] = 1;
         return map;
     }();
-    static const char hexadecimal[] = "0123456789ABCDEF";
+    constexpr char hexadecimal[] = "0123456789ABCDEF";
     QByteArray ba = plainText.toUtf8();
     QByteArray dest;
     const byte *data = reinterpret_cast<const byte*>(ba.constData());

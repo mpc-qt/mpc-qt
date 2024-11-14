@@ -4,8 +4,8 @@
 #include "logger.h"
 
 using namespace Helpers;
-static const char strTrue[] =  "true";
-static const char strFalse[] =  "false";
+constexpr char strTrue[] =  "true";
+constexpr char strFalse[] =  "false";
 
 Q_GLOBAL_STATIC_WITH_ARGS(QRegularExpression, wordSplitter, ("\\W+"));
 

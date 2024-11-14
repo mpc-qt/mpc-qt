@@ -28,8 +28,8 @@
 #include <QStyle>
 
 using namespace Helpers;
-static const char SKIPACTION[] = "Skip";
-static const char textWindowTitle[] = "Media Player Classic Qute Theater";
+constexpr char SKIPACTION[] = "Skip";
+constexpr char textWindowTitle[] = "Media Player Classic Qute Theater";
 
 
 MainWindow::MainWindow(QWidget *parent) :
