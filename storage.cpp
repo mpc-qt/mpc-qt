@@ -1,7 +1,6 @@
 #include <QCoreApplication>
 #include <QStandardPaths>
 #include <QSettings>
-#include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QDir>
@@ -11,6 +10,14 @@
 #include "logger.h"
 #include "storage.h"
 #include "platform/unify.h"
+
+const char fileFavorites[] = "favorites";
+const char fileGeometryV2[] = "geometry_v2";
+const char fileKeys[] = "keys_v2";
+const char filePlaylists[] = "playlists";
+const char filePlaylistsBackup[] = "playlists_backup";
+const char fileRecent[] = "recent";
+const char fileSettings[] = "settings";
 
 QString Storage::configPath;
 
@@ -50,9 +57,11 @@ QVariantMap Storage::readVMap(QString name)
 
 void Storage::writeVList(QString name, const QVariantList &qvl)
 {
+    LogStream("storage") << "writing " + name + " start";
     QJsonDocument doc;
     doc.setArray(QJsonArray::fromVariantList(qvl));
     writeJsonObject(name, doc);
+    LogStream("storage") << "writing " + name + " done";
 }
 
 QVariantList Storage::readVList(QString name)
@@ -90,6 +99,11 @@ void Storage::writeM3U(const QString &where, QStringList items)
 
 void Storage::writeJsonObject(QString fname, const QJsonDocument &doc)
 {
+    if (fname == filePlaylistsBackup && doc == playlistsBackup &&
+            QFileInfo::exists(QDir(configPath).absoluteFilePath(fname + ".json"))) {
+        LogStream("storage") << "backup not needed for " + fname;
+        return;
+    }
     QFile file(QDir(configPath).absoluteFilePath(fname + ".json"));
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
         return;
@@ -102,5 +116,7 @@ QJsonDocument Storage::readJsonObject(QString fname)
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
         return QJsonDocument();
     QJsonDocument doc = QJsonDocument::fromJson(QTextStream(&file).readAll().toUtf8());
+    if (fname == filePlaylistsBackup)
+        playlistsBackup = doc;
     return doc;
 }
