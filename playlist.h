@@ -54,7 +54,7 @@ public:
     QString toString() const;
     void fromString(QString input);
 
-    QVariantMap toVMap() const;
+    QVariantMap toVMap(bool savePosition) const;
     void fromVMap(const QVariantMap &qvm);
 
 private:

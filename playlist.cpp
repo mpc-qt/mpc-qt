@@ -150,15 +150,14 @@ void Item::fromString(QString input)
     setUrl(QUrl::fromUserInput(input));
 }
 
-QVariantMap Item::toVMap() const
+QVariantMap Item::toVMap(bool savePosition) const
 {
     QVariantMap v;
     v.insert(keyUrl, url());
     v.insert(keyUuid, uuid());
     v.insert(keyMetadata, metadata());
-    if (PlaylistCollection::getSingleton()->getPlaylist(playlistUuid()) &&
-        PlaylistCollection::getSingleton()->getPlaylist(playlistUuid())->shuffle())
-            v.insert(keyOriginalPosition, originalPosition());
+    if (savePosition)
+        v.insert(keyOriginalPosition, originalPosition());
     return v;
 }
 
@@ -536,7 +535,7 @@ QVariantMap Playlist::toVMap()
 
     QVariantList qvl;
     for (auto &i : items) {
-        qvl.append(i->toVMap());
+        qvl.append(i->toVMap(shuffle_));
     }
     qvm.insert(keyItems, qvl);
     return qvm;
