@@ -1,4 +1,5 @@
 #include <clocale>
+#include <csignal>
 #include <QApplication>
 #include <QLocalSocket>
 #include <QFileDialog>
@@ -40,6 +41,12 @@ constexpr char keyStreams[] = "streams";
 
 int main(int argc, char *argv[])
 {
+    #if !defined(Q_OS_WIN)
+    std::signal(SIGHUP, signalHandler);
+    #endif
+    std::signal(SIGINT, signalHandler);
+    std::signal(SIGTERM, signalHandler);
+
     Flow::earlyPlatformOverride();
 
     QApplication a(argc, argv);
@@ -80,6 +87,10 @@ int main(int argc, char *argv[])
         return 0;
     f.init();
     return f.run();
+}
+
+void signalHandler(int) {
+    QMetaObject::invokeMethod(qApp, "quit", Qt::QueuedConnection);
 }
 
 //---------------------------------------------------------------------------

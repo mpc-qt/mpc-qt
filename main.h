@@ -22,7 +22,9 @@ class MprisInstance;
 class QLockFile;
 class QThread;
 
-// a simple class to control program exection and own application objects
+void signalHandler(int);
+
+// a simple class to control program execution and own application objects
 class Flow : public QObject {
     Q_OBJECT
     enum ProgramMode { UnknownMode, EarlyQuitMode, PrimaryMode, FreestandingMode, };
