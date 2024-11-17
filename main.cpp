@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
 }
 
 void signalHandler(int) {
-    QMetaObject::invokeMethod(qApp, "quit", Qt::QueuedConnection);
+    QMetaObject::invokeMethod(qApp, "exit", Qt::QueuedConnection);
 }
 
 //---------------------------------------------------------------------------
