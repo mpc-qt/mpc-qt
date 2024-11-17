@@ -124,6 +124,7 @@ Flow::Flow(QObject *owner) :
 
 Flow::~Flow()
 {
+    Logger::log("main", "~Flow");
     if (server) {
         delete server;
         server = nullptr;
@@ -184,6 +185,7 @@ Flow::~Flow()
         logWindow = nullptr;
     }
     if (logThread) {
+        Logger::log("logger", "flushing log before closing it");
         emit flushLog();
         logThread->quit();
         logThread->wait();
