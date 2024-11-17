@@ -133,6 +133,9 @@ Flow::~Flow()
         // as the sole application.  Freestanding applications don't write any
         // settings, but they do inherit them.
         if (programMode == PrimaryMode) {
+            updateRecentPosition(false);
+            settings = settingsWindow->settings();
+            writeConfig();
             storage.writeVList(filePlaylists, mainWindow->playlistWindow()->tabsToVList());
             storage.writeVList(filePlaylistsBackup, PlaylistCollection::getBackup()->toVList());
         }
@@ -1577,10 +1580,6 @@ void Flow::updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title
 void Flow::endProgram()
 {
     Logger::log("main", "endProgram");
-    updateRecentPosition(false);
-    // We're about to quit, so write out our config
-    settings = settingsWindow->settings();
-    writeConfig();
     QMetaObject::invokeMethod(qApp, "exit", Qt::QueuedConnection);
 }
 
