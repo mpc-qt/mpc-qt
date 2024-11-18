@@ -1,0 +1,20 @@
+name: Run mpc-qt
+description: "Run mpc-qt with xvfb-run and wait for it to start then check if it's running"
+
+runs:
+  using: "composite"
+
+  steps:
+  - name: Run mpc-qt
+    run:  |
+        : Run mpc-qt
+        chmod +x mpc-qt/mpc-qt
+        xvfb-run -s '-terminate' mpc-qt/mpc-qt &
+    shell: bash
+  - name: wait 5 seconds
+    run:  sleep 5
+    shell: bash
+  - name: check that mpc-qt is running
+    uses: ./.github/actions/linux/commands/check_if_running
+    with:
+      should_be_running: "yes"

@@ -1,0 +1,33 @@
+name: Start-Stop
+description: 'Test starting with config and log'
+
+runs:
+  using: "composite"
+
+  steps:
+  - name: Copy settings file
+    run:  mkdir -p ~/.config/mpc-qt/ && cp ./.github/actions/linux/data/settings.json ~/.config/mpc-qt/settings.json
+    shell: bash
+  - name: Run mpc-qt
+    uses: ./.github/actions/linux/commands/run_mpc-qt
+  - name: Kill mpc-q
+    uses: ./.github/actions/linux/commands/kill_mpc-qt
+  - name: ls ~/.config/mpc-qt/
+    run:  ls ~/.config/mpc-qt/
+    shell: bash
+  - name: cat log
+    run:  |
+      echo "::group::mpc-qt-log.txt"
+      cat mpc-qt-log.txt
+      echo "::endgroup::"
+    shell: bash
+  - name: Check if mpc-qt stopped correctly
+    run:  |
+      : Check if mpc-qt stopped correctly
+      if [[ $( cat mpc-qt-log.txt | grep "flushing log before closing it") ]]; then
+        echo "mpc-qt stopped correctly ✓"
+      else
+        echo "mpc-qt did NOT stop correctly ✗"
+        exit 1
+      fi
+    shell: bash
