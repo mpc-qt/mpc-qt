@@ -2,17 +2,15 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]
 
 jobs:
   build:
-
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
-    - name: install packages
+    - name: Install packages
       run: sudo apt-get -y install build-essential qmake6 qt6-base-dev qt6-l10n-tools libqt6svg6-dev libgl-dev libmpv-dev
     - uses: actions/checkout@v4
     - name: qmake
@@ -24,3 +22,7 @@ jobs:
       with:
         name: "mpc-qt"
         path: bin/mpc-qt
+  tests:
+    name: Linux
+    needs: build
+    uses: ./.github/workflows/linux_tests.yml
