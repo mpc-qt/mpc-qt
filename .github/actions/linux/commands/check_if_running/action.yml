@@ -1,0 +1,29 @@
+name: Check if running
+description: 'Check if mpc-qt is running'
+
+inputs:
+  should_be_running:
+    description: 'Whether mpc-qt should be running'
+    required: true
+    default: 'yes'
+runs:
+  using: "composite"
+
+  steps:
+  - name: Check if mpc-qt is running
+    run:  |
+      : Check if mpc-qt is running
+      if [ $( pidof mpc-qt) ]; then
+        if [[ "${{ inputs.should_be_running }}" == 'yes' ]]; then
+          echo "mpc-qt is running ✓"
+        else
+          echo "mpc-qt is running but should not ✗"
+          exit 1
+        fi
+      elif [[ "${{ inputs.should_be_running }}" == 'no' ]]; then
+        echo "mpc-qt is not running ✓"
+      else
+        echo "mpc-qt is not running but should ✗"
+        exit 1
+      fi
+    shell: bash

@@ -1,4 +1,5 @@
 #include <clocale>
+#include <csignal>
 #include <QApplication>
 #include <QLocalSocket>
 #include <QFileDialog>
@@ -48,6 +49,12 @@ static const char fileSettings[] = "settings";
 
 int main(int argc, char *argv[])
 {
+    #if !defined(Q_OS_WIN)
+    std::signal(SIGHUP, signalHandler);
+    #endif
+    std::signal(SIGINT, signalHandler);
+    std::signal(SIGTERM, signalHandler);
+
     Flow::earlyPlatformOverride();
 
     QApplication a(argc, argv);
@@ -90,6 +97,10 @@ int main(int argc, char *argv[])
     return f.run();
 }
 
+void signalHandler(int) {
+    QMetaObject::invokeMethod(qApp, "exit", Qt::QueuedConnection);
+}
+
 //---------------------------------------------------------------------------
 
 bool Flow::settingsDisableWindowManagement = false;
@@ -104,6 +115,8 @@ Flow::Flow(QObject *owner) :
     logger->moveToThread(logThread);
     connect(logThread, &QThread::finished,
             logger, &QObject::deleteLater);
+    connect(this, &Flow::flushLog,
+            logger, &Logger::flushMessages);
 
     readConfig();
     Logger::log("main", "finished reading config");
@@ -111,6 +124,7 @@ Flow::Flow(QObject *owner) :
 
 Flow::~Flow()
 {
+    Logger::log("main", "~Flow");
     if (server) {
         delete server;
         server = nullptr;
@@ -128,6 +142,9 @@ Flow::~Flow()
         // as the sole application.  Freestanding applications don't write any
         // settings, but they do inherit them.
         if (programMode == PrimaryMode) {
+            updateRecentPosition(false);
+            settings = settingsWindow->settings();
+            writeConfig();
             storage.writeVList(filePlaylists, mainWindow->playlistWindow()->tabsToVList());
             storage.writeVList(filePlaylistsBackup, PlaylistCollection::getBackup()->toVList());
         }
@@ -168,6 +185,8 @@ Flow::~Flow()
         logWindow = nullptr;
     }
     if (logThread) {
+        Logger::log("logger", "flushing log before closing it");
+        emit flushLog();
         logThread->quit();
         logThread->wait();
         delete logThread;
@@ -1555,10 +1574,6 @@ void Flow::updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title
 void Flow::endProgram()
 {
     Logger::log("main", "endProgram");
-    updateRecentPosition(false);
-    // We're about to quit, so write out our config
-    settings = settingsWindow->settings();
-    writeConfig();
     QMetaObject::invokeMethod(qApp, "exit", Qt::QueuedConnection);
 }
 

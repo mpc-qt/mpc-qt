@@ -1,0 +1,42 @@
+name: Start
+description: 'Test starting and writing JSON files'
+
+runs:
+  using: "composite"
+
+  steps:
+  - name: Run mpc-qt
+    uses: ./.github/actions/linux/commands/run_mpc-qt
+  - name: Kill mpc-q
+    uses: ./.github/actions/linux/commands/kill_mpc-qt
+  - name: ls ~/.config/mpc-qt/
+    run: ls ~/.config/mpc-qt/
+    shell: bash
+  - name: Check that mpc-qt wrote favorites.json
+    uses: ./.github/actions/linux/commands/check_if_file_exists
+    with:
+      filename: "favorites.json"
+  - name: Check that mpc-qt wrote geometry_v2.json
+    uses: ./.github/actions/linux/commands/check_if_file_exists
+    with:
+      filename: "geometry_v2.json"
+  - name: Check that mpc-qt wrote keys_v2.json
+    uses: ./.github/actions/linux/commands/check_if_file_exists
+    with:
+      filename: "keys_v2.json"
+  - name: Check that mpc-qt wrote playlists.json
+    uses: ./.github/actions/linux/commands/check_if_file_exists
+    with:
+      filename: "playlists.json"
+  - name: Check that mpc-qt wrote playlists_backup.json
+    uses: ./.github/actions/linux/commands/check_if_file_exists
+    with:
+      filename: "playlists_backup.json"
+  - name: Check that mpc-qt wrote recent.json
+    uses: ./.github/actions/linux/commands/check_if_file_exists
+    with:
+      filename: "recent.json"
+  - name: Check that mpc-qt wrote settings.json
+    uses: ./.github/actions/linux/commands/check_if_file_exists
+    with:
+      filename: "settings.json"

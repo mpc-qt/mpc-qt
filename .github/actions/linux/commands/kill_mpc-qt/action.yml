@@ -1,0 +1,17 @@
+name: Kill mpc-qt
+description: "Kill mpc-qt and wait for it to start then check that it's not running"
+
+runs:
+  using: "composite"
+
+  steps:
+  - name: Kill mpc-qt
+    run:  killall mpc-qt
+    shell: bash
+  - name: Wait 5 seconds
+    run:  sleep 5
+    shell: bash
+  - name: Check that mpc-qt is not running
+    uses: ./.github/actions/linux/commands/check_if_running
+    with:
+      should_be_running: "no"
