@@ -109,6 +109,7 @@ Flow::Flow(QObject *owner) :
             logger, &QObject::deleteLater);
     connect(this, &Flow::flushLog,
             logger, &Logger::flushMessages);
+    Logger::log("main", "starting logging");
 
     readConfig();
     Logger::log("main", "finished reading config");
@@ -357,6 +358,7 @@ void Flow::init() {
     settingsWindow->setFreestanding(programMode == FreestandingMode);
 
     Logger::log("main", "finished initialization");
+    showVersionInfo();
 }
 
 
@@ -1103,6 +1105,18 @@ void Flow::setupMpcHc()
             mpcHcServer, &MpcHcServer::setPlaybackRate);
     connect(playbackManager, &PlaybackManager::stateChanged,
             mpcHcServer, &MpcHcServer::setPlaybackState);
+}
+
+void Flow::showVersionInfo()
+{
+    constexpr char spaces[] = "               ";
+    QString logMessages = "Version information:\n";
+    logMessages += (QString) spaces + "OS: " + QSysInfo::productType() + " " + QSysInfo::productVersion() + "\n";
+    logMessages += (QString) spaces + "Qt: " + (QString) QT_VERSION_STR + "\n";
+    logMessages += (QString) spaces + mainWindow->mpvObject()->mpvVersion() + "\n";
+    logMessages += (QString) spaces + "mpc-qt: " + (QString) MPCQT_VERSION_STR;
+    logMessages += " " + (QString) __DATE__ + " " + __TIME__;
+    LogStream("main") << logMessages;
 }
 
 QByteArray Flow::makePayload() const
