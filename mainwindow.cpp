@@ -2013,19 +2013,19 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
 
 void MainWindow::audioTrackSet(int64_t id)
 {
-    if (audioTracksGroup != nullptr)
+    if (audioTracksGroup != nullptr && id <= audioTracksGroup->actions().length())
         audioTracksGroup->actions()[static_cast <int> (id) -1]->setChecked(true);
 }
 
 void MainWindow::videoTrackSet(int64_t id)
 {
-    if (videoTracksGroup != nullptr)
+    if (videoTracksGroup != nullptr && id <= videoTracksGroup->actions().length())
         videoTracksGroup->actions()[static_cast <int> (id) -1]->setChecked(true);
 }
 
 void MainWindow::subtitleTrackSet(int64_t id)
 {
-    if (subtitleTracksGroup != nullptr) {
+    if (subtitleTracksGroup != nullptr && id <= subtitleTracksGroup->actions().length()) {
         if (id <= 0)
             id = subtitleTracksGroup->actions().length();
         subtitleTracksGroup->actions()[static_cast <int> (id) -1]->setChecked(true);
