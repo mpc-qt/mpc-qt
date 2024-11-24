@@ -37,6 +37,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
 
 PlaylistWindow::~PlaylistWindow()
 {
+    Logger::log("playlistwindow", "~PlaylistWindow");
     delete ui;
     delete clipboard;
 }
