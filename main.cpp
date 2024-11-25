@@ -128,7 +128,8 @@ Flow::Flow(QObject *owner) :
     connect(logThread, &QThread::finished,
             logger, &QObject::deleteLater);
     connect(this, &Flow::flushLog,
-            logger, &Logger::flushMessages);
+            logger, &Logger::flushMessages,
+            Qt::BlockingQueuedConnection);
     Logger::log("main", "starting logging");
 
     readConfig();
