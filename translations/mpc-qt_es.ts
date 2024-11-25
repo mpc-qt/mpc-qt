@@ -109,23 +109,23 @@
     <name>GoToWindow</name>
     <message>
         <source>Go To...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ir a…</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiempo</translation>
     </message>
     <message>
         <source>Go!</source>
-        <translation type="unfinished"></translation>
+        <translation>¡Vamos!</translation>
     </message>
     <message>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Fotograma</translation>
     </message>
     <message>
         <source>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitely.</source>
-        <translation type="unfinished"></translation>
+        <translation>Introduce un código de tiempo utilizando el formato [hh:]mm:ss.ms para saltar a una hora determinada. No es necesario introducir los separadores explícitamente.</translation>
     </message>
 </context>
 <context>
