@@ -7,6 +7,7 @@
 #include "drawnplaylist.h"
 #include "playlist.h"
 #include "helpers.h"
+#include "logger.h"
 
 PlayPainter::PlayPainter(QObject *parent) : QAbstractItemDelegate(parent) {}
 
@@ -131,6 +132,7 @@ DrawnPlaylist::DrawnPlaylist(QSharedPointer<PlaylistCollection> collection,
 
 DrawnPlaylist::~DrawnPlaylist()
 {
+    Logger::log("drawnplaylist", "~DrawnPlaylist");
     worker->deleteLater();
 }
 

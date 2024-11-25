@@ -79,6 +79,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    Logger::log("mainwindow", "~MainWindow");
     mpvObject_->setWidgetType(Helpers::NullWidget);
     delete playlistWindow_;
     delete ui;
@@ -374,6 +375,10 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+    Logger::log("mainwindow", "closeEvent");
+    bool showPlaylist = ui->actionViewHidePlaylist->isChecked();
+    playlistWindow_->close();
+    ui->actionViewHidePlaylist->setChecked(showPlaylist);
     event->accept();
     emit instanceShouldQuit();
 }
