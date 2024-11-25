@@ -374,6 +374,10 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+    Logger::log("mainwindow", "closeEvent");
+    bool showPlaylist = ui->actionViewHidePlaylist->isChecked();
+    playlistWindow_->close();
+    ui->actionViewHidePlaylist->setChecked(showPlaylist);
     event->accept();
     emit instanceShouldQuit();
 }
