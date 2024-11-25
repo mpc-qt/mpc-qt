@@ -100,6 +100,10 @@
         <source>Do not load file history, playlists, or favorites.</source>
         <translation>Не загружать историю файлов, списки воспроизведения или избранное.</translation>
     </message>
+    <message>
+        <source>Also write logging messages to console.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>GoToWindow</name>
