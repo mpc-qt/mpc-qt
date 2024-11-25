@@ -20,6 +20,7 @@ public:
     explicit Logger(QObject *owner = nullptr);
     ~Logger();
     static Logger *singleton();
+    static void setConsoleLogging(bool consoleLogging);
 
     // log: lossely based on the requirements for printing mpv messages
     static void log(QString line);

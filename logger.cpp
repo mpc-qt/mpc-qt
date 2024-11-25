@@ -20,6 +20,7 @@ public:
 };
 
 
+static bool logToConsole = false; // by default, do not log to console
 static bool loggerInstanceSetBefore = false;
 static Logger *loggerInstance = nullptr;
 static StdFileCopy realStdErr(stderr);
@@ -81,6 +82,11 @@ Logger *Logger::singleton()
         loggerInstanceSetBefore = true;
     }
     return loggerInstance;
+}
+
+void Logger::setConsoleLogging(bool consoleLogging)
+{
+    logToConsole = consoleLogging;
 }
 
 // The log buffer class has likely been moved to
@@ -217,8 +223,11 @@ void Logger::makeLog(QString line)
     if (!loggingEnabled)
         return;
     line = QString("[%1] %2").arg(QString::number(elapsed.nsecsElapsed()/1000000000.0, 'f', 3), line.trimmed());
-    // If you're encountering early or fantastic errors, uncomment this line:
-    //fprintf(realStdErr.ptr, "%s\n",  line.toLocal8Bit().constData());
+    // If you're encountering early or fantastic errors, make this if statement true
+    if (logToConsole) {
+        fprintf(realStdErr.ptr, "%s\n",  line.toLocal8Bit().constData());
+        fflush(realStdErr.ptr);
+    }
     if (immediateMode) {
         emit logMessage(line);
         if (logFileStream) {
