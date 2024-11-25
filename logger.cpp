@@ -44,6 +44,7 @@ void loggerCallback(QtMsgType type, const QMessageLogContext &context, const QSt
     case QtFatalMsg:
         Logger::fatalMessage();
         fprintf(realStdErr.ptr, "[FATALITY] [qt] fatal: %s\n", msg.toUtf8().data());
+        fflush(realStdErr.ptr);
         std::abort();
     }
 }
@@ -144,7 +145,7 @@ void Logger::fatalMessage()
 {
     // Oops!  Something went very wrong!
     // Try to flush anything pending to stderr and abort
-    if (loggerInstance) {
+    if (loggerInstance && !logToConsole) {
         for (const auto &i : std::as_const(loggerInstance->pendingMessages))
             std::fprintf(realStdErr.ptr, "%s\n", i.toLocal8Bit().data());
     }
