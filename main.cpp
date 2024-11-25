@@ -1,5 +1,6 @@
 #include <clocale>
 #include <csignal>
+#include <cstring>
 #include <QApplication>
 #include <QLocalSocket>
 #include <QFileDialog>
@@ -37,6 +38,9 @@ constexpr char keyDirectory[] = "directory";
 constexpr char keyFiles[] = "files";
 constexpr char keyStreams[] = "streams";
 
+constexpr char optConsoleLog[] = "log-to-console";
+constexpr char optConsoleLogEx[] = "--log-to-console";
+
 //---------------------------------------------------------------------------
 
 int main(int argc, char *argv[])
@@ -50,6 +54,14 @@ int main(int argc, char *argv[])
     Flow::earlyPlatformOverride();
 
     QApplication a(argc, argv);
+    bool foundLoggingOpt = false;
+    for (int i = 1; i < argc; i++) {
+        if (!std::strcmp(argv[i], optConsoleLogEx)) {
+            foundLoggingOpt = true;
+            break;
+        }
+    }
+    Logger::setConsoleLogging(foundLoggingOpt);
     Logger::singleton();
     a.setWindowIcon(QIcon(":/images/icon/mpc-qt.svg"));
 
@@ -204,12 +216,14 @@ void Flow::parseArgs()
     QCommandLineOption noFilesOpt("no-files", tr("Do not load file history, playlists, or favorites."));
     QCommandLineOption sizeOpt("size", tr("Main window size."), "w,h");
     QCommandLineOption posOpt("pos", tr("Main window position."), "x,y");
+    QCommandLineOption loggingOpt(optConsoleLog, tr("Also write logging messages to console."));
 
     parser.addOption(freestandingOpt);
     parser.addOption(noConfigOpt);
     parser.addOption(noFilesOpt);
     parser.addOption(sizeOpt);
     parser.addOption(posOpt);
+    parser.addOption(loggingOpt);
     parser.addPositionalArgument("urls", tr("URLs to open, optionally."), "[urls...]");
 
     parser.process(QCoreApplication::arguments());
