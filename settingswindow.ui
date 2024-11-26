@@ -7898,7 +7898,7 @@ media file played</string>
               <item>
                <widget class="QRadioButton" name="logUpdateNoDelay">
                 <property name="text">
-                 <string>No delay (consumes cpu)</string>
+                 <string>No delay (consumes cpu, use this for testing)</string>
                 </property>
                </widget>
               </item>
@@ -7921,7 +7921,7 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="suffix">
-                 <string> msec</string>
+                 <string> ms</string>
                 </property>
                 <property name="prefix">
                  <string>Every </string>
