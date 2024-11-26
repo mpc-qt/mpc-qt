@@ -42,9 +42,9 @@ void loggerCallback(QtMsgType type, const QMessageLogContext &context, const QSt
         Logger::log("qt", "crit", msg);
         break;
     case QtFatalMsg:
-        Logger::fatalMessage();
-        fprintf(realStdErr.ptr, "[FATALITY] [qt] fatal: %s\n", msg.toUtf8().data());
-        fflush(realStdErr.ptr);
+        Logger::log("qt", "fatal", msg);
+        QMetaObject::invokeMethod(Logger::singleton(), "fatalMessage",
+                                  Qt::BlockingQueuedConnection);
         std::abort();
     }
 }
@@ -141,16 +141,6 @@ void Logger::logs(QString prefix, QString level, const QStringList &strings)
     log(prefix, level, strings.join(' '));
 }
 
-void Logger::fatalMessage()
-{
-    // Oops!  Something went very wrong!
-    // Try to flush anything pending to stderr and abort
-    if (loggerInstance && !logToConsole) {
-        for (const auto &i : std::as_const(loggerInstance->pendingMessages))
-            std::fprintf(realStdErr.ptr, "%s\n", i.toLocal8Bit().data());
-    }
-}
-
 void Logger::setLogFile(QString fileName)
 {
     if (logFileName == fileName)
@@ -205,6 +195,22 @@ void Logger::setFlushTime(int msec)
         flushTimer->setInterval(std::max(100, msec));
         flushTimer->start();
     }
+}
+
+void Logger::fatalMessage()
+{
+    // Oops!  Something went very wrong!
+    // Try to flush anything pending to stderr
+    if (!logToConsole) { // ignore when lines are already written
+        for (const auto &i : std::as_const(pendingMessages))
+            std::fprintf(realStdErr.ptr, "%s\n", i.toLocal8Bit().data());
+        fflush(realStdErr.ptr);
+    }
+    if (logFileStream) {
+        *logFileStream << pendingMessages.join("\n") << '\n';
+        logFileStream->flush();
+    }
+    pendingMessages.clear();
 }
 
 void Logger::flushMessages()
