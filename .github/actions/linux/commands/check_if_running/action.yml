@@ -15,15 +15,15 @@ runs:
       : Check if mpc-qt is running
       if [ $( pidof mpc-qt) ]; then
         if [[ "${{ inputs.should_be_running }}" == 'yes' ]]; then
-          echo "mpc-qt is running ✓"
+          echo -e "\033[32m""mpc-qt is running ✓""\033[0m"
         else
-          echo "mpc-qt is running but should not ✗"
+          echo -e "\033[31m""mpc-qt is running but should not ✗""\033[0m"
           exit 1
         fi
       elif [[ "${{ inputs.should_be_running }}" == 'no' ]]; then
-        echo "mpc-qt is not running ✓"
+        echo -e "\033[32m""mpc-qt is not running ✓""\033[0m"
       else
-        echo "mpc-qt is not running but should ✗"
+        echo -e "\033[31m""mpc-qt is not running but should ✗""\033[0m"
         exit 1
       fi
     shell: bash

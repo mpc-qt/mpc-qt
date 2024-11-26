@@ -1,0 +1,15 @@
+name: Take a screenshot
+description: "Take a screenshot and upload it"
+
+inputs:
+  number:
+    description: "Screenshot number to add to the filename"
+    required: true
+    default: ""
+runs:
+  using: "composite"
+
+  steps:
+  - name: Take a screenshot
+    run: xwd -display :99 -root -silent | convert xwd:- png:screenshot${{ inputs.number }}.png
+    shell: bash
