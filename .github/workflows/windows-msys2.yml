@@ -27,9 +27,7 @@ jobs:
           mingw-w64-x86_64-qt6
           mingw-w64-x86_64-qt-creator
           mingw-w64-x86_64-imagemagick
-          mingw-w64-x86_64-librsvg
           mingw-w64-x86_64-boost
-          mingw-w64-x86_64-inkscape
           mingw-w64-x86_64-mpv
     - name: Avoid line ending issues on Windows
       run: git config --global core.autocrlf input
@@ -46,6 +44,8 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: "mpc-qt-win"
-        path: |
-          mpc-qt-*.zip
-          mpc-qt-*.zip.sha512
+        path: mpc-qt-*/
+  tests:
+    name: Windows
+    needs: build
+    uses: ./.github/workflows/windows_tests.yml
