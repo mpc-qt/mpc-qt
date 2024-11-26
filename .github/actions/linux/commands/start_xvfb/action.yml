@@ -1,0 +1,13 @@
+name: Start Xvfb
+description: "Start Xvfb"
+
+runs:
+  using: "composite"
+
+  steps:
+  - name: Start Xvfb
+    run: Xvfb :99 -screen 0 1024x768x24 &
+    shell: bash
+  - name: wait 5 seconds
+    run:  sleep 5
+    shell: bash

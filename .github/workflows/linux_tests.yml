@@ -16,8 +16,17 @@ jobs:
     - name: Install packages
       run: |
         sudo apt-get update
-        sudo apt-get -y install qt6-base-dev qt6-l10n-tools libqt6svg6-dev libgl-dev libmpv-dev xvfb
+        sudo apt-get -y install qt6-base-dev qt6-l10n-tools libqt6svg6-dev libgl-dev libmpv-dev xvfb x11-apps imagemagick
+    - name: Start Xvfb
+      uses: ./.github/actions/linux/commands/start_xvfb
+    - name: Set CONFIGDIR environment variable
+      run: echo "CONFIGDIR=$HOME/.config/mpc-qt" >> $GITHUB_ENV
     - name: Start without config
       uses: ./.github/actions/linux/tests/start
     - name: Start with config
       uses: ./.github/actions/linux/tests/start_with_config
+    - name: Start with config and video
+      uses: ./.github/actions/linux/tests/start_with_config_video
+    - name: Upload screenshots
+      if: ${{ !cancelled() }}
+      uses: ./.github/actions/commands/upload_screenshots

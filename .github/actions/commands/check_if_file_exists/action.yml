@@ -13,10 +13,10 @@ runs:
   - name: Check if mpc-qt wrote ${{ inputs.filename }}
     run:  |
       : Check if mpc-qt wrote ${{ inputs.filename }}
-      if [[ -f ~/.config/mpc-qt/${{ inputs.filename }} ]]; then
-        echo "mpc-qt wrote ${{ inputs.filename }} ✓"
+      if [[ -f "${{ env.CONFIGDIR }}/${{ inputs.filename }}" ]]; then
+        echo -e "\033[32m""mpc-qt wrote ${{ inputs.filename }} ✓""\033[0m"
       else
-        echo "mpc-qt did NOT write ${{ inputs.filename }} ✗"
+        echo -e "\033[31m""mpc-qt did NOT write ${{ inputs.filename }} ✗""\033[0m"
         exit 1
       fi
     shell: bash
