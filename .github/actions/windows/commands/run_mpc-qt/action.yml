@@ -1,0 +1,22 @@
+name: Run mpc-qt
+description: "Run mpc-qt and wait for it to start then check if it's running"
+
+inputs:
+  filename:
+    description: "File to open with mpc-qt"
+    required: false
+    default: ""
+runs:
+  using: "composite"
+
+  steps:
+  - name: Run mpc-qt and open a file if provided
+    run: ${{ env.EXEDIR }}mpc-qt.exe ${{ inputs.filename }} &
+    shell: msys2 {0}
+  - name: wait 3 seconds
+    run:  sleep 3
+    shell: bash
+  - name: check that mpc-qt is running
+    uses: ./.github/actions/windows/commands/check_if_running
+    with:
+      should_be_running: "yes"

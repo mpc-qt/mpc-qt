@@ -1,0 +1,29 @@
+name: Check if running
+description: 'Check if mpc-qt is running'
+
+inputs:
+  should_be_running:
+    description: 'Whether mpc-qt should be running'
+    required: true
+    default: 'yes'
+runs:
+  using: "composite"
+
+  steps:
+  - name: Check if mpc-qt is running
+    run:  |
+      : Check if mpc-qt is running
+      if ps | grep mpc-qt > /dev/null; then
+        if [[ "${{ inputs.should_be_running }}" == 'yes' ]]; then
+          echo -e "\033[32m""mpc-qt is running ✓""\033[0m"
+        else
+          echo -e "\033[31m""mpc-qt is running but should not ✗""\033[0m"
+          exit 1
+        fi
+      elif [[ "${{ inputs.should_be_running }}" == 'no' ]]; then
+        echo -e "\033[32m""mpc-qt is not running ✓""\033[0m"
+      else
+        echo -e "\033[31m""mpc-qt is not running but should ✗""\033[0m"
+        exit 1
+      fi
+    shell: msys2 {0}

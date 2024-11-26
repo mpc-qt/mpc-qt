@@ -1,0 +1,41 @@
+name: Start-Stop
+description: 'Test starting with config, log and video'
+
+runs:
+  using: "composite"
+
+  steps:
+  - name: Create settings dir if needed
+    run:  mkdir -p ${{ env.CONFIGDIR }}
+    shell: msys2 {0}
+  - name: Copy settings file
+    run:  cp ./.github/actions/data/settings.json ${{ env.CONFIGDIR }}/settings.json
+    shell: msys2 {0}
+  - name: Run mpc-qt
+    uses: ./.github/actions/windows/commands/run_mpc-qt
+    with:
+      filename: "./.github/actions/data/test.mkv"
+  - name: Take a screenshot
+    uses: ./.github/actions/windows/commands/screenshot
+    with:
+      number: "2"
+  - name: Kill mpc-q
+    uses: ./.github/actions/windows/commands/kill_mpc-qt
+  - name: Check mpc-qt config dir
+    run: ls ${{ env.CONFIGDIR }}
+    shell: bash
+  - name: cat settings.json
+    run:  |
+      echo "::group::settings.json"
+      cat $CONFIGDIR/settings.json
+      echo "::endgroup::"
+    shell: msys2 {0}
+  - name: cat log
+    run:  |
+      echo "::group::mpc-qt-log.txt"
+      cat mpc-qt-log.txt
+      echo "::endgroup::"
+    shell: msys2 {0}
+  - name: Check if mpc-qt stopped correctly
+    uses: ./.github/actions/commands/check_stop
+
