@@ -3576,11 +3576,11 @@ media file played</source>
     </message>
     <message>
         <source>No delay (consumes cpu)</source>
-        <translation>Без задержки (загружает процессор)</translation>
+        <translation type="vanished">Без задержки (загружает процессор)</translation>
     </message>
     <message>
         <source> msec</source>
-        <translation> мс</translation>
+        <translation type="vanished"> мс</translation>
     </message>
     <message>
         <source>Every </source>
@@ -3948,6 +3948,14 @@ media file played</source>
     </message>
     <message>
         <source>Update interval</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No delay (consumes cpu, use this for testing)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> ms</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
