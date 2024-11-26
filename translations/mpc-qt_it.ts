@@ -3519,10 +3519,6 @@ ogni file multimediale riprodotto</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Window update interval</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>No delay (consumes cpu)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3888,6 +3884,10 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Cinema screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update interval</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

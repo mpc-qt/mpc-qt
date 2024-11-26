@@ -3583,10 +3583,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Window update interval</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>No delay (consumes cpu)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3956,6 +3952,10 @@ media file played</source>
     </message>
     <message>
         <source>Cinema screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update interval</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

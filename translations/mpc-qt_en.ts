@@ -3600,7 +3600,7 @@ media file played</translation>
     </message>
     <message>
         <source>Window update interval</source>
-        <translation>Window update interval</translation>
+        <translation type="vanished">Window update interval</translation>
     </message>
     <message>
         <source>No delay (consumes cpu)</source>
@@ -3973,6 +3973,10 @@ media file played</translation>
     <message>
         <source>Cinema screen</source>
         <translation>Cinema screen</translation>
+    </message>
+    <message>
+        <source>Update interval</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
