@@ -30,7 +30,6 @@ public:
     static void logs(const QStringList &strings);
     static void logs(QString prefix, const QStringList &strings);
     static void logs(QString prefix, QString level, const QStringList &strings);
-    static void fatalMessage();
 
 signals:
     void logMessage(QString message);
@@ -40,6 +39,7 @@ public slots:
     void setLogFile(QString fileName);
     void setLoggingEnabled(bool enabled);
     void setFlushTime(int msec);
+    void fatalMessage();
     void flushMessages();
     void makeLog(QString line);
     void makeLogPrefixed(QString prefix, QString message);
