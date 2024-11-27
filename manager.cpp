@@ -588,14 +588,14 @@ void PlaybackManager::selectDesiredTracks()
     auto findSubIdByPreference = [&](void) -> int64_t {
         if (subtitlesPreferExternal) {
             for (auto it = subtitleListData.constBegin();
-                it != subtitleListData.constEnd(); it++) {
+                 it != subtitleListData.constEnd(); it++) {
                 if (it.value().isExternal)
                     return it.key();
             }
         }
         if (subtitlesPreferDefaultForced) {
             for (auto it = subtitleListData.constBegin();
-                it != subtitleListData.constEnd(); it++)
+                 it != subtitleListData.constEnd(); it++)
                 if (it.value().isForced || it.value().isDefault)
                     return it.key();
         }
@@ -606,7 +606,7 @@ void PlaybackManager::selectDesiredTracks()
         int64_t lastGoodTrack = -1;
         for (const QString &lang : langPref) {
             for (auto it = tracks.constBegin();
-                it != tracks.constEnd(); it++)
+                 it != tracks.constEnd(); it++)
                 if (it.value().lang == lang) {
                     if (it.value().isForced || it.value().isDefault)
                         lastGoodTrack = it.key();
