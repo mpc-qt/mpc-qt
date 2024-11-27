@@ -11,16 +11,12 @@ runs:
 
   steps:
   - name: Run mpc-qt and open a file if provided
-    run:  |
-        : Run mpc-qt
-        chmod +x mpc-qt/mpc-qt
-        export DISPLAY=:99
-        mpc-qt/mpc-qt "${{ inputs.filename }}" &
-    shell: bash
+    run: ${{ env.EXEDIR }}mpc-qt.exe ${{ inputs.filename }} &
+    shell: msys2 {0}
   - name: wait 3 seconds
     run:  sleep 3
     shell: bash
   - name: check that mpc-qt is running
-    uses: ./.github/actions/linux/commands/check_if_running
+    uses: ./.github/actions/windows/commands/check_if_running
     with:
       should_be_running: "yes"

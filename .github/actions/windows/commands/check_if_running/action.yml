@@ -13,7 +13,7 @@ runs:
   - name: Check if mpc-qt is running
     run:  |
       : Check if mpc-qt is running
-      if [ $( pidof mpc-qt) ]; then
+      if ps | grep mpc-qt > /dev/null; then
         if [[ "${{ inputs.should_be_running }}" == 'yes' ]]; then
           echo -e "\033[32m""mpc-qt is running ✓""\033[0m"
         else
@@ -26,4 +26,4 @@ runs:
         echo -e "\033[31m""mpc-qt is not running but should ✗""\033[0m"
         exit 1
       fi
-    shell: bash
+    shell: msys2 {0}
