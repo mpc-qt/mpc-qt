@@ -1258,13 +1258,19 @@ void Flow::mainwindow_recentOpened(const TrackInfo &track, bool isFromRecents)
     else
         playbackManager->openFile(track.url);
 
-    // Navigate to a particular position if set and if this is from the favorites menu
+    // Navigate to a particular position if this is from the favorites menu
     // or if this is from the recents menu and not disabled
-    if (track.position > 0 && track.url.isLocalFile() && (!isFromRecents || rememberFilePosition)) {
-        playbackManager->navigateToTime(track.position);
+    if (track.url.isLocalFile() && (!isFromRecents || rememberFilePosition)) {
+        if (track.position > 0)
+            playbackManager->navigateToTime(track.position);
         playbackManager->setVideoTrack(track.videoTrack, true);
         playbackManager->setAudioTrack(track.audioTrack, true);
         playbackManager->setSubtitleTrack(track.subtitleTrack, true);
+    }
+    else {
+        playbackManager->setVideoTrack(-1, true);
+        playbackManager->setAudioTrack(-1, true);
+        playbackManager->setSubtitleTrack(-1, true);
     }
 }
 
