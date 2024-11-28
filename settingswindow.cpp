@@ -1202,6 +1202,7 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
 
 void SettingsWindow::closeEvent(QCloseEvent *event)
 {
+    Q_UNUSED(event)
     restoreColorControls();
     restoreAudioSettings();
 }
