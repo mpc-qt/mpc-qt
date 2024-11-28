@@ -589,15 +589,21 @@ void PlaybackManager::selectDesiredTracks()
         if (subtitlesPreferExternal) {
             for (auto it = subtitleListData.constBegin();
                  it != subtitleListData.constEnd(); it++) {
-                if (it.value().isExternal)
+                if (it.value().isExternal) {
+                    Logger::log("manager",
+                                "external subtitle track auto selected: " + QString::number(it.key()));
                     return it.key();
+                }
             }
         }
         if (subtitlesPreferDefaultForced) {
             for (auto it = subtitleListData.constBegin();
                  it != subtitleListData.constEnd(); it++)
-                if (it.value().isForced || it.value().isDefault)
+                if (it.value().isForced || it.value().isDefault) {
+                    Logger::log("manager",
+                                "default/forced subtitle track auto selected: " + QString::number(it.key()));
                     return it.key();
+                }
         }
         return -1;
     };
@@ -610,10 +616,15 @@ void PlaybackManager::selectDesiredTracks()
                 if (it.value().lang == lang) {
                     if (it.value().isForced || it.value().isDefault)
                         lastGoodTrack = it.key();
-                    else
+                    else{
+                        Logger::log("manager",
+                                    "lang track auto selected: " + QString::number(it.key()));
                         return it.key();
+                    }
                 }
         }
+        Logger::log("manager",
+                    "lastGoodTrack track auto selected: " + QString::number(lastGoodTrack));
         return lastGoodTrack;
     };
     int64_t videoId = videoTrackSelected;
