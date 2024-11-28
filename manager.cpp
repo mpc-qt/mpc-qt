@@ -399,30 +399,26 @@ void PlaybackManager::setAudioTrackPreference(QString langs)
 
 void PlaybackManager::setAudioTrack(int64_t id, bool userSelected)
 {
-    if (id > 0) {
-        if (userSelected)
-            audioTrackSelected = id;
+    if (userSelected)
+        audioTrackSelected = id;
+    if (id > 0)
         mpvObject_->setAudioTrack(id);
-    }
 }
 
 void PlaybackManager::setSubtitleTrack(int64_t id, bool userSelected)
 {
-    if (id >= 0) {
-        if (userSelected)
-            subtitleTrackSelected = id;
-        subtitleTrackActive = id;
-        updateSubtitleTrack();
-    }
+    if (userSelected)
+        subtitleTrackSelected = id;
+    subtitleTrackActive = id;
+    updateSubtitleTrack();
 }
 
 void PlaybackManager::setVideoTrack(int64_t id, bool userSelected)
 {
-    if (id > 0) {
-        if (userSelected)
-            videoTrackSelected = id;
+    if (userSelected)
+        videoTrackSelected = id;
+    if (id > 0)
         mpvObject_->setVideoTrack(id);
-    }
 }
 
 void PlaybackManager::setSubtitleEnabled(bool enabled)
