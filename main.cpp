@@ -50,6 +50,7 @@ int main(int argc, char *argv[])
     #endif
     std::signal(SIGINT, signalHandler);
     std::signal(SIGTERM, signalHandler);
+    std::signal(SIGSEGV, signalHandler);
 
     Flow::earlyPlatformOverride();
 
@@ -101,8 +102,14 @@ int main(int argc, char *argv[])
     return f.run();
 }
 
-void signalHandler(int) {
-    QMetaObject::invokeMethod(qApp, "exit", Qt::QueuedConnection);
+void signalHandler(int signal) {
+    if (signal == SIGSEGV) {
+        Logger::log("main", "Segmentation fault! Please report this error.");
+        QMetaObject::invokeMethod(Logger::singleton(), "flushMessages", Qt::BlockingQueuedConnection);
+        exit(1);
+    }
+    else
+        QMetaObject::invokeMethod(qApp, "exit", Qt::QueuedConnection);
 }
 
 //---------------------------------------------------------------------------

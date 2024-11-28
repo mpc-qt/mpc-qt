@@ -22,7 +22,7 @@ class MprisInstance;
 class QLockFile;
 class QThread;
 
-void signalHandler(int);
+void signalHandler(int signal);
 
 // a simple class to control program execution and own application objects
 class Flow : public QObject {
