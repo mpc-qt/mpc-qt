@@ -20,6 +20,7 @@ public:
 };
 
 
+static bool logToConsole = false; // by default, do not log to console
 static bool loggerInstanceSetBefore = false;
 static Logger *loggerInstance = nullptr;
 static StdFileCopy realStdErr(stderr);
@@ -41,8 +42,9 @@ void loggerCallback(QtMsgType type, const QMessageLogContext &context, const QSt
         Logger::log("qt", "crit", msg);
         break;
     case QtFatalMsg:
-        Logger::fatalMessage();
-        fprintf(realStdErr.ptr, "[FATALITY] [qt] fatal: %s\n", msg.toUtf8().data());
+        Logger::log("qt", "fatal", msg);
+        QMetaObject::invokeMethod(Logger::singleton(), "fatalMessage",
+                                  Qt::BlockingQueuedConnection);
         std::abort();
     }
 }
@@ -81,6 +83,11 @@ Logger *Logger::singleton()
         loggerInstanceSetBefore = true;
     }
     return loggerInstance;
+}
+
+void Logger::setConsoleLogging(bool consoleLogging)
+{
+    logToConsole = consoleLogging;
 }
 
 // The log buffer class has likely been moved to
@@ -132,16 +139,6 @@ void Logger::logs(QString prefix, const QStringList &strings)
 void Logger::logs(QString prefix, QString level, const QStringList &strings)
 {
     log(prefix, level, strings.join(' '));
-}
-
-void Logger::fatalMessage()
-{
-    // Oops!  Something went very wrong!
-    // Try to flush anything pending to stderr and abort
-    if (loggerInstance) {
-        for (const auto &i : std::as_const(loggerInstance->pendingMessages))
-            std::fprintf(realStdErr.ptr, "%s\n", i.toLocal8Bit().data());
-    }
 }
 
 void Logger::setLogFile(QString fileName)
@@ -200,6 +197,22 @@ void Logger::setFlushTime(int msec)
     }
 }
 
+void Logger::fatalMessage()
+{
+    // Oops!  Something went very wrong!
+    // Try to flush anything pending to stderr
+    if (!logToConsole) { // ignore when lines are already written
+        for (const auto &i : std::as_const(pendingMessages))
+            std::fprintf(realStdErr.ptr, "%s\n", i.toLocal8Bit().data());
+        fflush(realStdErr.ptr);
+    }
+    if (logFileStream) {
+        *logFileStream << pendingMessages.join("\n") << '\n';
+        logFileStream->flush();
+    }
+    pendingMessages.clear();
+}
+
 void Logger::flushMessages()
 {
     if (pendingMessages.isEmpty())
@@ -217,8 +230,11 @@ void Logger::makeLog(QString line)
     if (!loggingEnabled)
         return;
     line = QString("[%1] %2").arg(QString::number(elapsed.nsecsElapsed()/1000000000.0, 'f', 3), line.trimmed());
-    // If you're encountering early or fantastic errors, uncomment this line:
-    //fprintf(realStdErr.ptr, "%s\n",  line.toLocal8Bit().constData());
+    // If you're encountering early or fantastic errors, make this if statement true
+    if (logToConsole) {
+        fprintf(realStdErr.ptr, "%s\n",  line.toLocal8Bit().constData());
+        fflush(realStdErr.ptr);
+    }
     if (immediateMode) {
         emit logMessage(line);
         if (logFileStream) {

@@ -1,0 +1,22 @@
+name: Take a screenshot
+description: "Take a screenshot and upload it"
+
+inputs:
+  number:
+    description: "Screenshot number to add to the filename"
+    required: true
+    default: ""
+runs:
+  using: "composite"
+
+  steps:
+    - name: Take a screenshot with PowerShell
+      run: |
+          Add-Type -AssemblyName System.Windows.Forms
+          Add-Type -AssemblyName System.Drawing
+          $bmp = New-Object Drawing.Bitmap([System.Windows.Forms.Screen]::PrimaryScreen.Bounds.Width,
+             [System.Windows.Forms.Screen]::PrimaryScreen.Bounds.Height)
+          $graphics = [System.Drawing.Graphics]::FromImage($bmp)
+          $graphics.CopyFromScreen([System.Drawing.Point]::Empty, [System.Drawing.Point]::Empty, $bmp.Size)
+          $bmp.Save('screenshot${{ inputs.number }}.png')
+      shell: pwsh

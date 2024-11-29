@@ -79,6 +79,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    Logger::log("mainwindow", "~MainWindow");
     mpvObject_->setWidgetType(Helpers::NullWidget);
     delete playlistWindow_;
     delete ui;
@@ -374,6 +375,10 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+    Logger::log("mainwindow", "closeEvent");
+    bool showPlaylist = ui->actionViewHidePlaylist->isChecked();
+    playlistWindow_->close();
+    ui->actionViewHidePlaylist->setChecked(showPlaylist);
     event->accept();
     emit instanceShouldQuit();
 }
@@ -2013,14 +2018,20 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
 
 void MainWindow::audioTrackSet(int64_t id)
 {
-    if (audioTracksGroup != nullptr && id <= audioTracksGroup->actions().length())
+    if (audioTracksGroup != nullptr && id <= audioTracksGroup->actions().length()) {
+        if (id <= 0)
+            id = audioTracksGroup->actions().length();
         audioTracksGroup->actions()[static_cast <int> (id) -1]->setChecked(true);
+    }
 }
 
 void MainWindow::videoTrackSet(int64_t id)
 {
-    if (videoTracksGroup != nullptr && id <= videoTracksGroup->actions().length())
+    if (videoTracksGroup != nullptr && id <= videoTracksGroup->actions().length()) {
+        if (id <= 0)
+            id = videoTracksGroup->actions().length();
         videoTracksGroup->actions()[static_cast <int> (id) -1]->setChecked(true);
+    }
 }
 
 void MainWindow::subtitleTrackSet(int64_t id)

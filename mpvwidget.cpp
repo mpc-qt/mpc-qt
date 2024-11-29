@@ -198,6 +198,7 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
 
 MpvObject::~MpvObject()
 {
+    Logger::log("mpvwidget", "~MpvObject");
     if (widget)
         delete widget;
     if (hideTimer) {

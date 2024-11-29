@@ -1,0 +1,22 @@
+name: Check if file exists
+description: 'Check if mpc-qt wrote a file'
+
+inputs:
+  filename:
+    description: 'Name of the file to check'
+    required: true
+    default: 'no_file'
+runs:
+  using: "composite"
+
+  steps:
+  - name: Check if mpc-qt wrote ${{ inputs.filename }}
+    run:  |
+      : Check if mpc-qt wrote ${{ inputs.filename }}
+      if [[ -f "${{ env.CONFIGDIR }}/${{ inputs.filename }}" ]]; then
+        echo -e "\033[32m""mpc-qt wrote ${{ inputs.filename }} ✓""\033[0m"
+      else
+        echo -e "\033[31m""mpc-qt did NOT write ${{ inputs.filename }} ✗""\033[0m"
+        exit 1
+      fi
+    shell: bash

@@ -1,0 +1,70 @@
+name: Msys2 CI Tests
+
+on:
+  [workflow_call]
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: windows-2022
+    defaults:
+      run:
+        shell: msys2 {0}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Download mpc-qt build
+      uses: actions/download-artifact@v4
+    - name: Install packages
+      uses: msys2/setup-msys2@v2
+      with:
+        msystem: mingw64
+        update: true
+        install: >-
+          coreutils
+          mingw-w64-x86_64-mpv
+
+    - name: Get mpc-qt dir
+      run: |
+        dir_name=$(ls -d mpc-qt-win/mpc-qt-*/ | head -n 1)
+        echo "Directory found: $dir_name"
+        echo "EXEDIR=$dir_name" >> $GITHUB_ENV
+
+    - name: Set CONFIGDIR environment variable
+      run: echo "CONFIGDIR=$(cygpath -u $USERPROFILE)/AppData/Roaming/mpc-qt/mpc-qt" >> $GITHUB_ENV
+
+    - name: Cache dep
+      id: cache
+      uses: actions/cache@v4
+      with:
+        path: |
+          ${{ env.EXEDIR }}x64\opengl32.dll
+          ${{ env.EXEDIR }}x64\libglapi.dll
+        key: ${{ runner.os }}-gldlls
+
+    # The mingw mesa package doesn't include libglapi.dll, so we need to download a build
+    - name: Download Mesa DLLs
+      if: steps.cache.outputs.cache-hit != 'true'
+      shell: cmd
+      run: |
+        curl.exe -L --output mesa.7z --url https://github.com/pal1000/mesa-dist-win/releases/download/20.3.2/mesa3d-20.3.2-release-msvc.7z
+        7z x mesa.7z
+      working-directory: ${{ env.EXEDIR }}
+
+    - name: Configure Mesa DLLs
+      shell: cmd
+      run: |
+        mklink opengl32.dll "x64\opengl32.dll"
+        mklink libglapi.dll "x64\libglapi.dll"
+      working-directory: ${{ env.EXEDIR }}
+
+    - name: Start without config
+      uses: ./.github/actions/windows/tests/start
+
+    - name: Start with config and video
+      uses: ./.github/actions/windows/tests/start_with_config_video
+
+    - name: Upload screenshots
+      if: ${{ !cancelled() }}
+      uses: ./.github/actions/commands/upload_screenshots

@@ -399,30 +399,26 @@ void PlaybackManager::setAudioTrackPreference(QString langs)
 
 void PlaybackManager::setAudioTrack(int64_t id, bool userSelected)
 {
-    if (id > 0) {
-        if (userSelected)
-            audioTrackSelected = id;
+    if (userSelected)
+        audioTrackSelected = id;
+    if (id > 0)
         mpvObject_->setAudioTrack(id);
-    }
 }
 
 void PlaybackManager::setSubtitleTrack(int64_t id, bool userSelected)
 {
-    if (id >= 0) {
-        if (userSelected)
-            subtitleTrackSelected = id;
-        subtitleTrackActive = id;
-        updateSubtitleTrack();
-    }
+    if (userSelected)
+        subtitleTrackSelected = id;
+    subtitleTrackActive = id;
+    updateSubtitleTrack();
 }
 
 void PlaybackManager::setVideoTrack(int64_t id, bool userSelected)
 {
-    if (id > 0) {
-        if (userSelected)
-            videoTrackSelected = id;
+    if (userSelected)
+        videoTrackSelected = id;
+    if (id > 0)
         mpvObject_->setVideoTrack(id);
-    }
 }
 
 void PlaybackManager::setSubtitleEnabled(bool enabled)
@@ -588,16 +584,22 @@ void PlaybackManager::selectDesiredTracks()
     auto findSubIdByPreference = [&](void) -> int64_t {
         if (subtitlesPreferExternal) {
             for (auto it = subtitleListData.constBegin();
-                it != subtitleListData.constEnd(); it++) {
-                if (it.value().isExternal)
+                 it != subtitleListData.constEnd(); it++) {
+                if (it.value().isExternal) {
+                    Logger::log("manager",
+                                "external subtitle track auto selected: " + QString::number(it.key()));
                     return it.key();
+                }
             }
         }
         if (subtitlesPreferDefaultForced) {
             for (auto it = subtitleListData.constBegin();
-                it != subtitleListData.constEnd(); it++)
-                if (it.value().isForced || it.value().isDefault)
+                 it != subtitleListData.constEnd(); it++)
+                if (it.value().isForced || it.value().isDefault) {
+                    Logger::log("manager",
+                                "default/forced subtitle track auto selected: " + QString::number(it.key()));
                     return it.key();
+                }
         }
         return -1;
     };
@@ -606,14 +608,19 @@ void PlaybackManager::selectDesiredTracks()
         int64_t lastGoodTrack = -1;
         for (const QString &lang : langPref) {
             for (auto it = tracks.constBegin();
-                it != tracks.constEnd(); it++)
+                 it != tracks.constEnd(); it++)
                 if (it.value().lang == lang) {
                     if (it.value().isForced || it.value().isDefault)
                         lastGoodTrack = it.key();
-                    else
+                    else{
+                        Logger::log("manager",
+                                    "lang track auto selected: " + QString::number(it.key()));
                         return it.key();
+                    }
                 }
         }
+        Logger::log("manager",
+                    "lastGoodTrack track auto selected: " + QString::number(lastGoodTrack));
         return lastGoodTrack;
     };
     int64_t videoId = videoTrackSelected;

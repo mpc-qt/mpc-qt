@@ -1,5 +1,6 @@
 #include <clocale>
 #include <csignal>
+#include <cstring>
 #include <QApplication>
 #include <QLocalSocket>
 #include <QFileDialog>
@@ -45,6 +46,9 @@ static const char filePlaylistsBackup[] = "playlists_backup";
 static const char fileRecent[] = "recent";
 static const char fileSettings[] = "settings";
 
+constexpr char optConsoleLog[] = "log-to-console";
+constexpr char optConsoleLogEx[] = "--log-to-console";
+
 //---------------------------------------------------------------------------
 
 int main(int argc, char *argv[])
@@ -54,10 +58,19 @@ int main(int argc, char *argv[])
     #endif
     std::signal(SIGINT, signalHandler);
     std::signal(SIGTERM, signalHandler);
+    std::signal(SIGSEGV, signalHandler);
 
     Flow::earlyPlatformOverride();
 
     QApplication a(argc, argv);
+    bool foundLoggingOpt = false;
+    for (int i = 1; i < argc; i++) {
+        if (!std::strcmp(argv[i], optConsoleLogEx)) {
+            foundLoggingOpt = true;
+            break;
+        }
+    }
+    Logger::setConsoleLogging(foundLoggingOpt);
     Logger::singleton();
     a.setWindowIcon(QIcon(":/images/icon/mpc-qt.svg"));
 
@@ -97,8 +110,14 @@ int main(int argc, char *argv[])
     return f.run();
 }
 
-void signalHandler(int) {
-    QMetaObject::invokeMethod(qApp, "exit", Qt::QueuedConnection);
+void signalHandler(int signal) {
+    if (signal == SIGSEGV) {
+        Logger::log("main", "Segmentation fault! Please report this error.");
+        QMetaObject::invokeMethod(Logger::singleton(), "flushMessages", Qt::BlockingQueuedConnection);
+        exit(1);
+    }
+    else
+        QMetaObject::invokeMethod(qApp, "exit", Qt::QueuedConnection);
 }
 
 //---------------------------------------------------------------------------
@@ -116,7 +135,8 @@ Flow::Flow(QObject *owner) :
     connect(logThread, &QThread::finished,
             logger, &QObject::deleteLater);
     connect(this, &Flow::flushLog,
-            logger, &Logger::flushMessages);
+            logger, &Logger::flushMessages,
+            Qt::BlockingQueuedConnection);
     Logger::log("main", "starting logging");
 
     readConfig();
@@ -208,12 +228,14 @@ void Flow::parseArgs()
     QCommandLineOption noFilesOpt("no-files", tr("Do not load file history, playlists, or favorites."));
     QCommandLineOption sizeOpt("size", tr("Main window size."), "w,h");
     QCommandLineOption posOpt("pos", tr("Main window position."), "x,y");
+    QCommandLineOption loggingOpt(optConsoleLog, tr("Also write logging messages to console."));
 
     parser.addOption(freestandingOpt);
     parser.addOption(noConfigOpt);
     parser.addOption(noFilesOpt);
     parser.addOption(sizeOpt);
     parser.addOption(posOpt);
+    parser.addOption(loggingOpt);
     parser.addPositionalArgument("urls", tr("URLs to open, optionally."), "[urls...]");
 
     parser.process(QCoreApplication::arguments());
@@ -1236,13 +1258,19 @@ void Flow::mainwindow_recentOpened(const TrackInfo &track, bool isFromRecents)
     else
         playbackManager->openFile(track.url);
 
-    // Navigate to a particular position if set and if this is from the favorites menu
+    // Navigate to a particular position if this is from the favorites menu
     // or if this is from the recents menu and not disabled
-    if (track.position > 0 && track.url.isLocalFile() && (!isFromRecents || rememberFilePosition)) {
-        playbackManager->navigateToTime(track.position);
+    if (track.url.isLocalFile() && (!isFromRecents || rememberFilePosition)) {
+        if (track.position > 0)
+            playbackManager->navigateToTime(track.position);
         playbackManager->setVideoTrack(track.videoTrack, true);
         playbackManager->setAudioTrack(track.audioTrack, true);
         playbackManager->setSubtitleTrack(track.subtitleTrack, true);
+    }
+    else {
+        playbackManager->setVideoTrack(-1, true);
+        playbackManager->setAudioTrack(-1, true);
+        playbackManager->setSubtitleTrack(-1, true);
     }
 }
 

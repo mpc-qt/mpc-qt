@@ -100,6 +100,10 @@
         <source>Do not load file history, playlists, or favorites.</source>
         <translation>Не загружать историю файлов, списки воспроизведения или избранное.</translation>
     </message>
+    <message>
+        <source>Also write logging messages to console.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LibraryWindow</name>
@@ -3537,15 +3541,15 @@ media file played</source>
     </message>
     <message>
         <source>Window update interval</source>
-        <translation>Интервал обновления окна</translation>
+        <translation type="vanished">Интервал обновления окна</translation>
     </message>
     <message>
         <source>No delay (consumes cpu)</source>
-        <translation>Без задержки (загружает процессор)</translation>
+        <translation type="vanished">Без задержки (загружает процессор)</translation>
     </message>
     <message>
         <source> msec</source>
-        <translation> мс</translation>
+        <translation type="vanished"> мс</translation>
     </message>
     <message>
         <source>Every </source>
@@ -3909,6 +3913,18 @@ media file played</source>
     </message>
     <message>
         <source>Cinema screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update interval</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No delay (consumes cpu, use this for testing)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> ms</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
