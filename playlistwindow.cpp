@@ -7,6 +7,7 @@
 #include <QFileDialog>
 #include <QMenu>
 #include <QThread>
+#include "logger.h"
 #include "playlistwindow.h"
 #include "ui_playlistwindow.h"
 #include "widgets/drawnplaylist.h"
