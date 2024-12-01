@@ -986,6 +986,7 @@ void MainWindow::setUiEnabledState(bool enabled)
 
     ui->menuFileSubtitleDatabase->setEnabled(false);
     ui->menuPlayLoop->setEnabled(enabled);
+    ui->menuPlayVolume->setEnabled(enabled);
     if (!enabled) {
         ui->menuPlayAudio->setEnabled(false);
         ui->menuPlaySubtitles->setEnabled(false);
