@@ -304,7 +304,7 @@
     "playerTitleDontPrefix": false,
     "playerTitleFileNameOnly": true,
     "playerTitleReplaceName": true,
-    "playerTrayIcon": false,
+    "playerTrayIcon": true,
     "playlistFormat": "%artist{# - }{Unknown Artist - }{}%title{#}{$}{$}",
     "pngColorspace": false,
     "pngCompression": 7,
