@@ -112,6 +112,8 @@ private:
     void showOsdTimer(bool onSeek);
     QList<QUrl> doQuickOpenFileDialog();
 
+    QIcon createIconFromSvg(const QString& svgPath, int maxSize);
+
 signals:
     void instanceShouldQuit();
     void fileOpened(QUrl what, QUrl subs);
