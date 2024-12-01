@@ -1419,6 +1419,7 @@ void Flow::manager_openingNewFile()
 void Flow::manager_startingPlayingFile(QUrl url)
 {
     if (rememberFilePosition) {
+        updateRecentPosition(false);
         // Check if there's a position saved in recents for this file
         foreach (TrackInfo track, recentFiles) {
             if (track.url == url) {
@@ -1587,7 +1588,7 @@ void Flow::updateRecentPosition(bool resetPosition)
         resetPosition = true;
     playbackManager->getCurrentTrackInfo(url, listUuid, itemUuid, title, length, position,
                                          videoTrack, audioTrack, subtitleTrack, hasVideo);
-    if (!itemUuid.isNull() && (hasVideo || !rememberHistoryOnlyForVideos))
+    if (!itemUuid.isNull() && url.isLocalFile() && (hasVideo || !rememberHistoryOnlyForVideos))
         updateRecents(url, listUuid, itemUuid, title, length, resetPosition ? 0 : position,
                       videoTrack, audioTrack, subtitleTrack);
 }
