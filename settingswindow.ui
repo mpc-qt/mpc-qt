@@ -7770,6 +7770,9 @@ media file played</string>
              <property name="title">
               <string>Debugging</string>
              </property>
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
              <layout class="QFormLayout" name="formLayout_7">
               <item row="0" column="0">
                <widget class="QLabel" name="debugClientLabel">
@@ -7853,6 +7856,9 @@ media file played</string>
              <property name="title">
               <string>Log file</string>
              </property>
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
              <layout class="QFormLayout" name="formLayout_4">
               <item row="1" column="0" colspan="2">
                <widget class="QCheckBox" name="logFileCreate">
@@ -7894,6 +7900,9 @@ media file played</string>
              <property name="title">
               <string>Update interval</string>
              </property>
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
              <layout class="QVBoxLayout" name="verticalLayout_7">
               <item>
                <widget class="QRadioButton" name="logUpdateNoDelay">
@@ -7945,6 +7954,9 @@ media file played</string>
              <property name="title">
               <string>Window history</string>
              </property>
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
              <layout class="QVBoxLayout" name="verticalLayout_8">
               <item>
                <widget class="QRadioButton" name="logHistoryUnlimited">
