@@ -10,6 +10,12 @@ Classic Qute Theater (mpc-qt) aims to reproduce most of the interface and
 functionality of mpc-hc while using [libmpv] to play video instead of
 DirectShow.
 
+* [Releases](#releases)
+* [Features and improvements over mpc-hc](#features-and-improvements-over-mpc-hc)
+* [Contributing](#contributing)
+* [Compiling](#compiling)
+* [Compiling on Windows](#compiling-on-windows)
+* [Questions and answers](#questions-and-answers)
 
 ## Releases
 
