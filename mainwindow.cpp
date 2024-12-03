@@ -26,6 +26,8 @@
 #include <QToolTip>
 #include <QScreen>
 #include <QStyle>
+#include <QSvgRenderer>
+#include <QPainter>
 
 using namespace Helpers;
 static const char SKIPACTION[] = "Skip";
@@ -626,7 +628,9 @@ void MainWindow::setupTrayIcon()
     trayIcon = new QSystemTrayIcon(this);
     trayIcon->setContextMenu(trayMenu);
     trayIcon->setToolTip(textWindowTitle);
-    trayIcon->setIcon(QIcon(":/images/icon/mpc-qt.svg"));
+    Logger::log("mainwindow", "rendering trayIcon sizes");
+    trayIcon->setIcon(createIconFromSvg(QStringLiteral(":/images/icon/mpc-qt.svg"), 64));
+    Logger::log("mainwindow", "rendering trayIcon sizes done");
 }
 
 void MainWindow::setupActionGroups()
@@ -986,6 +990,7 @@ void MainWindow::setUiEnabledState(bool enabled)
 
     ui->menuFileSubtitleDatabase->setEnabled(false);
     ui->menuPlayLoop->setEnabled(enabled);
+    ui->menuPlayVolume->setEnabled(enabled);
     if (!enabled) {
         ui->menuPlayAudio->setEnabled(false);
         ui->menuPlaySubtitles->setEnabled(false);
@@ -1260,6 +1265,21 @@ QList<QUrl> MainWindow::doQuickOpenFileDialog()
     if (!urls.isEmpty())
         lastDir = urls[0];
     return urls;
+}
+
+QIcon MainWindow::createIconFromSvg(const QString& svgPath, int maxSize) {
+    QIcon icon;
+    QSvgRenderer svgRenderer(svgPath);
+
+    // Render the SVG at multiple sizes and add to the QIcon
+    for (int size = 16; size <= maxSize; ++size) {
+        QPixmap pixmap(QSize(size, size));
+        pixmap.fill(Qt::transparent); // Ensure transparency
+        QPainter painter(&pixmap);
+        svgRenderer.render(&painter);
+        icon.addPixmap(pixmap);
+    }
+    return icon;
 }
 
 void MainWindow::httpQuickOpenFile()

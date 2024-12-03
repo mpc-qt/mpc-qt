@@ -364,11 +364,6 @@ SettingsWindow::~SettingsWindow()
     delete ui;
 }
 
-QVariantMap SettingsWindow::settings()
-{
-    return acceptedSettings.toVMap();
-}
-
 void SettingsWindow::disableWindowManagment()
 {
     // Wayland breaks applications
@@ -693,16 +688,19 @@ void SettingsWindow::sendSignals()
     // However some times this is not the case: logging for example should
     // be turned on early.
 
-    emit logFilePath(WIDGET_LOOKUP(ui->logFileCreate).toBool()
-                     ? WIDGET_PLACEHOLD_LOOKUP(ui->logFilePathValue)
-                     : QString());
-    emit loggingEnabled(WIDGET_LOOKUP(ui->loggingEnabled).toBool());
-    emit clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
-    emit mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
-    emit logDelay(WIDGET_LOOKUP(ui->logUpdateDelayed).toBool() ?
-                  WIDGET_LOOKUP(ui->logUpdateInterval).toInt() : -1);
-    emit logHistory(WIDGET_LOOKUP(ui->logHistoryTrim).toBool() ?
-                    WIDGET_LOOKUP(ui->logHistoryLines).toInt() : 0);
+    bool loggingIsEnabled = WIDGET_LOOKUP(ui->loggingEnabled).toBool();
+    emit loggingEnabled(loggingIsEnabled);
+    if (loggingIsEnabled) {
+        emit logFilePath(WIDGET_LOOKUP(ui->logFileCreate).toBool()
+                         ? WIDGET_PLACEHOLD_LOOKUP(ui->logFilePathValue)
+                         : QString());
+        emit clientDebuggingMessages(WIDGET_LOOKUP(ui->debugClient).toBool());
+        emit mpvLogLevel(WIDGET_TO_TEXT(ui->debugMpv));
+        emit logDelay(WIDGET_LOOKUP(ui->logUpdateDelayed).toBool() ?
+                    WIDGET_LOOKUP(ui->logUpdateInterval).toInt() : -1);
+        emit logHistory(WIDGET_LOOKUP(ui->logHistoryTrim).toBool() ?
+                        WIDGET_LOOKUP(ui->logHistoryLines).toInt() : 0);
+    }
 
     emit trayIcon(WIDGET_LOOKUP(ui->playerTrayIcon).toBool());
     emit showOsd(WIDGET_LOOKUP(ui->playerOSD).toBool());
@@ -1104,6 +1102,9 @@ void SettingsWindow::setFreestanding(bool freestanding)
 void SettingsWindow::setVolume(int level)
 {
     WIDGET_LOOKUP(ui->playbackVolume).setValue(level);
+    ui->playbackVolume->setValue(level);
+
+    emit settingsData(acceptedSettings.toVMap());
 }
 
 void SettingsWindow::setZoomPreset(int which)
@@ -1384,6 +1385,14 @@ void SettingsWindow::on_tweaksOsdFontChkBox_toggled(bool checked)
 {
     ui->tweaksOsdFont->setEnabled(checked);
     ui->tweaksOsdSize->setEnabled(checked);
+}
+
+void SettingsWindow::on_loggingEnabled_toggled(bool checked)
+{
+    ui->debugBox->setEnabled(checked);
+    ui->logFileBox->setEnabled(checked);
+    ui->logUpdateBox->setEnabled(checked);
+    ui->logHistoryBox->setEnabled(checked);
 }
 
 void SettingsWindow::on_miscBrightness_valueChanged(int value)
