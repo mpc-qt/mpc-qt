@@ -364,11 +364,6 @@ SettingsWindow::~SettingsWindow()
     delete ui;
 }
 
-QVariantMap SettingsWindow::settings()
-{
-    return acceptedSettings.toVMap();
-}
-
 void SettingsWindow::disableWindowManagment()
 {
     // Wayland breaks applications
@@ -1107,6 +1102,9 @@ void SettingsWindow::setFreestanding(bool freestanding)
 void SettingsWindow::setVolume(int level)
 {
     WIDGET_LOOKUP(ui->playbackVolume).setValue(level);
+    ui->playbackVolume->setValue(level);
+
+    emit settingsData(acceptedSettings.toVMap());
 }
 
 void SettingsWindow::setZoomPreset(int which)

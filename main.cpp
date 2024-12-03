@@ -164,7 +164,6 @@ Flow::~Flow()
         // settings, but they do inherit them.
         if (programMode == PrimaryMode) {
             updateRecentPosition(false);
-            settings = settingsWindow->settings();
             writeConfig();
             storage.writeVList(filePlaylists, mainWindow->playlistWindow()->tabsToVList());
             storage.writeVList(filePlaylistsBackup, PlaylistCollection::getBackup()->toVList());
