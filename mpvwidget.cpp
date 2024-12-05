@@ -641,8 +641,10 @@ void MpvObject::setMpvOptionVariant(QString name, QVariant value)
 
 void MpvObject::showCursor()
 {
-    if (widget)
+    if (widget) {
         widget->self()->setCursor(Qt::ArrowCursor);
+        widget->self()->window()->setCursor(Qt::ArrowCursor);
+    }
 }
 
 void MpvObject::hideCursor()
@@ -652,6 +654,12 @@ void MpvObject::hideCursor()
         if (qApp->platformName().contains("wayland") && !w->window()->isActiveWindow())
             return;
         w->setCursor(Qt::BlankCursor);
+        //REMOVEME: work around KDE Plasma 6.2.4 bug where cursor stays visible in rightmost position
+        auto window = w->window();
+        if (window->isFullScreen() && QCursor::pos().x() == window->geometry().right()) {
+            window->setCursor(Qt::BlankCursor);
+            LogStream("glwidget") << "workaround: hiding cursor on rightmost pixels";
+        }
     }
 }
 
