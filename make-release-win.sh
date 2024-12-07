@@ -62,7 +62,7 @@ platforms/qdirect2d.dll
 platforms/qminimal.dll
 platforms/qoffscreen.dll
 platforms/qwindows.dll
-styles/qwindowsvistastyle.dll
+styles/qmodernwindowsstyle.dll
 EOF
 
 read -r -d '' docs <<'EOF'
@@ -98,7 +98,7 @@ done)<<<"$docs"
         cp "binaries/$binary" "$DEST/$binary"
 done)<<<"$binaries"
 
-cp "$BUILD/mpc-qt.exe" "$DEST"
+cp "$BUILD/bin/mpc-qt.exe" "$DEST"
 cp mpv-dev/lib/libmpv-2.dll "$DEST"
 7z a "$DEST.zip" "./$DEST/*"
 sha512sum "$DEST.zip" >"$DEST.zip.sha512"
