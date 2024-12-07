@@ -70,19 +70,19 @@
     </message>
     <message>
         <source>Start a new process without saving data.</source>
-        <translation type="unfinished"></translation>
+        <translation>Veriyi kaydetmeden yeni bir süreç başlatın.</translation>
     </message>
     <message>
         <source>Main window size.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ana pencere boyutu.</translation>
     </message>
     <message>
         <source>Main window position.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ana pencere konumu.</translation>
     </message>
     <message>
         <source>URLs to open, optionally.</source>
-        <translation type="unfinished"></translation>
+        <translation>Açılacak URL, isteğe bağlı.</translation>
     </message>
     <message>
         <source>Save Image</source>
