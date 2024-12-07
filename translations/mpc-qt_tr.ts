@@ -5,15 +5,15 @@
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Komut</translation>
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Anahtar</translation>
     </message>
     <message>
         <source>Mouse Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Fare Penceresi</translation>
     </message>
     <message>
         <source>Mouse Fullscr</source>
@@ -21,29 +21,29 @@
     </message>
     <message>
         <source>Mouse Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Fare Tam ekran</translation>
     </message>
 </context>
 <context>
     <name>ButtonWidget</name>
     <message>
         <source>B</source>
-        <translation type="unfinished"></translation>
+        <translation>B</translation>
     </message>
     <message>
         <source>K</source>
-        <translation type="unfinished"></translation>
+        <translation>K</translation>
     </message>
     <message>
         <source>↑↓</source>
-        <translation type="unfinished"></translation>
+        <translation>↑↓</translation>
     </message>
 </context>
 <context>
     <name>FavoritesWindow</name>
     <message>
         <source>Organize Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Favorileri Organize Et</translation>
     </message>
     <message>
         <source>&amp;Update</source>
@@ -51,22 +51,22 @@
     </message>
     <message>
         <source>&amp;Files</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Dosyalar</translation>
     </message>
     <message>
         <source>&amp;Streams</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Yayınlar</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sil</translation>
     </message>
 </context>
 <context>
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Start a new process without saving data.</source>
