@@ -373,7 +373,6 @@ void SettingsWindow::disableWindowManagment()
 {
     // Wayland breaks applications
     ui->playerLimitProportions->setDisabled(true);
-    ui->playerRememberWindowGeometry->setDisabled(true);
     ui->playbackAutoCenterWindow->setDisabled(true);
 }
 
