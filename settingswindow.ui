@@ -235,6 +235,16 @@
                </widget>
               </item>
               <item>
+               <widget class="QCheckBox" name="playerRememberPanels">
+                <property name="text">
+                 <string>Remember panels state</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QCheckBox" name="playerRememberPanScanZoom">
                 <property name="text">
                  <string>Remember last Pan-n-Scan Zoom</string>
