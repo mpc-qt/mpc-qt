@@ -316,6 +316,14 @@ void MainWindow::unfreezeWindow()
     frozenWindow = false;
 }
 
+// REMOVEME: work around bug on Wayland where video doesn't fit window
+void MainWindow::fixMpvwSize()
+{
+    QSize size = mpvw->size();
+    mpvw->resize(noVideoSize_);
+    mpvw->resize(size);
+}
+
 void MainWindow::setActionPlayLoopUse()
 {
     ui->actionPlayLoopUse->setChecked(false);
