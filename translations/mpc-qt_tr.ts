@@ -1034,55 +1034,55 @@
     </message>
     <message>
         <source>Save Pl&amp;ain Image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Düz Gö&amp;rsel Kaydet…</translation>
     </message>
     <message>
         <source>Alt+Shift+I</source>
-        <translation type="unfinished"></translation>
+        <translation>Seçenek+Üst Karakter+I</translation>
     </message>
     <message>
         <source>Save Plain Ima&amp;ge (Auto)</source>
-        <translation type="unfinished"></translation>
+        <translation>Düz Görsel Ka&amp;ydet (Kendiliğinden)</translation>
     </message>
     <message>
         <source>Shift+F5</source>
-        <translation type="unfinished"></translation>
+        <translation>Üst Karakter+F5</translation>
     </message>
     <message>
         <source>Export Encode...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kodlamayı Dışa Aktar…</translation>
     </message>
     <message>
         <source>F12</source>
-        <translation type="unfinished"></translation>
+        <translation>F12</translation>
     </message>
     <message>
         <source>S&amp;how Quick Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Tez Kuyruğ&amp;u Göster</translation>
     </message>
     <message>
         <source>Ctrl+`</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrol+`</translation>
     </message>
     <message>
         <source>Save &amp;Window Image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Pencere &amp;Görselini Kaydet…</translation>
     </message>
     <message>
         <source>Save Window Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Pencere Görselini Kaydet</translation>
     </message>
     <message>
         <source>Ctrl+Alt+I</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrol+Seçenek+I</translation>
     </message>
     <message>
         <source>Save Window Image (Auto)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pencere Görselini Kaydet (Kendiliğinden)</translation>
     </message>
     <message>
         <source>Ctrl+F5</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrol+F5</translation>
     </message>
     <message>
         <source>Do No&amp;thing</source>
@@ -1094,51 +1094,51 @@
     </message>
     <message>
         <source>&amp;Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Yinele</translation>
     </message>
     <message>
         <source>&amp;Application Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Uygulama İletileri</translation>
     </message>
     <message>
         <source>&amp;General Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Genel İstatistikler</translation>
     </message>
     <message>
         <source>&amp;Frame Timings</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kare Zamanlamaları</translation>
     </message>
     <message>
         <source>&amp;Cycle</source>
-        <translation type="unfinished"></translation>
+        <translation>Ç&amp;evrim</translation>
     </message>
     <message>
         <source>Ctrl+J</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrol+J</translation>
     </message>
     <message>
         <source>&amp;No Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>İ&amp;leti Yok</translation>
     </message>
     <message>
         <source>&amp;Escape Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Tam Ekranda&amp;n Çık</translation>
     </message>
     <message>
         <source>Enable &amp;Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Altyazıları Etkinleştir</translation>
     </message>
     <message>
         <source>&amp;Next Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sonraki Altyazı</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>Ön&amp;ceki Altyazı</translation>
     </message>
     <message>
         <source>Lo&amp;g</source>
-        <translation type="unfinished"></translation>
+        <translation>Gün&amp;lük</translation>
     </message>
     <message>
         <source>Once</source>
@@ -1150,31 +1150,31 @@
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>Görünüm</translation>
     </message>
     <message>
         <source>Hide &amp;Borders</source>
-        <translation type="unfinished"></translation>
+        <translation>Kenarlı&amp;kları Gizle</translation>
     </message>
     <message>
         <source>Sho&amp;w Caption and Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt &amp;Yazıyı ve Menüyü Göster</translation>
     </message>
     <message>
         <source>Quick Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Tez Aç</translation>
     </message>
     <message>
         <source>No files favorited</source>
-        <translation type="unfinished"></translation>
+        <translation>Sık kullanılanlara eklenen dosya yok</translation>
     </message>
     <message>
         <source>No streams favorited</source>
-        <translation type="unfinished"></translation>
+        <translation>Sık kullanılanlara eklenen akış yok</translation>
     </message>
     <message>
         <source> [Freestanding]</source>
-        <translation type="unfinished"></translation>
+        <translation> [Bekleyen]</translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
