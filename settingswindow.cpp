@@ -720,6 +720,7 @@ void SettingsWindow::sendSignals()
     emit rememberFilePosition(WIDGET_LOOKUP(ui->playerRememberFilePosition).toBool());
     emit rememberSelectedPlaylist(WIDGET_LOOKUP(ui->playerRememberLastPlaylist).toBool());
     emit rememberWindowGeometry(WIDGET_LOOKUP(ui->playerRememberWindowGeometry).toBool());
+    emit rememberPanels(WIDGET_LOOKUP(ui->playerRememberPanels).toBool());
     emit rememberPanNScan(WIDGET_LOOKUP(ui->playerRememberPanScanZoom).toBool());
 
     emit mprisIpc(WIDGET_LOOKUP(ui->ipcMpris).toBool());
@@ -1098,6 +1099,7 @@ void SettingsWindow::setFreestanding(bool freestanding)
     ui->playerRememberFilePosition->setVisible(yes);
     ui->playerRememberLastPlaylist->setVisible(false /*yes*/);
     ui->playerRememberWindowGeometry->setVisible(yes);
+    ui->playerRememberPanels->setVisible(yes);
     ui->playerRememberPanScanZoom->setVisible(false /*yes*/);
     ui->playerHistoryBox->setEnabled(yes);
     ui->webTcpIpBox->setEnabled(yes);

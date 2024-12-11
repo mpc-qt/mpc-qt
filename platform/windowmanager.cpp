@@ -33,12 +33,18 @@ QVariantMap WindowManager::json()
     return json_;
 }
 
-void WindowManager::saveAppWindow(MainWindow *window)
+void WindowManager::saveAppWindow(MainWindow *window, bool rememberWindowGeometry, bool rememberPanels)
 {
+    QVariantMap geometry;
+    QVariantMap panels;
+    if (rememberWindowGeometry)
+        geometry = Helpers::rectToVmap(QRect(window->geometry().topLeft(),
+                                            window->size()));
+    if (rememberPanels)
+        panels = window->state();
     QVariantMap data = {
-        { keyGeometry, Helpers::rectToVmap(QRect(window->geometry().topLeft(),
-                                            window->size())) },
-        { keyState, window->state() },
+        { keyGeometry, geometry },
+        { keyState, panels },
         { keyMaximized, window->isMaximized() }
     };
     json_.insert(window->objectName(), data);

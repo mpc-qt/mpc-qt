@@ -91,6 +91,7 @@ private slots:
     void settingswindow_rememberHistory(bool yes, bool onlyVideos);
     void settingswindow_rememberFilePosition(bool yes);
     void settingswindow_rememberWindowGeometry(bool yes);
+    void settingswindow_rememberPanels(bool yes);
     void settingswindow_keymapData(const QVariantMap &keyMap);
     void settingswindow_mprisIpc(bool enabled);
     void settingswindow_stylesheetIsFusion(bool yes);
@@ -149,6 +150,7 @@ private:
     bool rememberHistoryOnlyForVideos = true;
     bool rememberFilePosition = false;
     bool rememberWindowGeometry = false;
+    bool rememberPanels = false;
     bool nowPlayingDisplayingSubtitles = true;
     bool nowPlayingNoSubtitleTracks = false;
     bool repeatAfter = false;

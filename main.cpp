@@ -873,6 +873,8 @@ void Flow::setupFlowConnections()
             this, &Flow::settingswindow_rememberFilePosition);
     connect(settingsWindow, &SettingsWindow::rememberWindowGeometry,
             this, &Flow::settingswindow_rememberWindowGeometry);
+    connect(settingsWindow, &SettingsWindow::rememberPanels,
+            this, &Flow::settingswindow_rememberPanels);
     connect(settingsWindow, &SettingsWindow::mprisIpc,
             this, &Flow::settingswindow_mprisIpc);
     connect(settingsWindow, &SettingsWindow::stylesheetIsFusion,
@@ -1198,16 +1200,16 @@ QVariantMap Flow::favoritesToVMap() const
 
 QVariantMap Flow::windowsToVMap_v2()
 {
-    if (!rememberWindowGeometry)
-        return QVariantMap();
-
     windowManager.clearJson();
-    windowManager.saveDocks(mainWindow->dockHost());
-    windowManager.saveWindow(settingsWindow);
-    windowManager.saveWindow(propertiesWindow);
-    windowManager.saveWindow(logWindow);
-    windowManager.saveWindow(libraryWindow);
-    windowManager.saveAppWindow(mainWindow);
+    if (rememberPanels)
+        windowManager.saveDocks(mainWindow->dockHost());
+    if (rememberWindowGeometry) {
+        windowManager.saveWindow(settingsWindow);
+        windowManager.saveWindow(propertiesWindow);
+        windowManager.saveWindow(logWindow);
+        windowManager.saveWindow(libraryWindow);
+    }
+    windowManager.saveAppWindow(mainWindow, rememberWindowGeometry, rememberPanels);
     return windowManager.json();
 }
 
@@ -1492,6 +1494,12 @@ void Flow::settingswindow_rememberWindowGeometry(bool yes)
 {
     // Remember our preference to process the window geometry when we exit
     this->rememberWindowGeometry = yes;
+}
+
+void Flow::settingswindow_rememberPanels(bool yes)
+{
+    // Remember our preference to save the panels state when we exit
+    this->rememberPanels = yes;
 }
 
 void Flow::settingswindow_keymapData(const QVariantMap &keyMap)
