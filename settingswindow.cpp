@@ -1378,6 +1378,13 @@ void SettingsWindow::on_playbackMouseHideWindowed_toggled(bool checked)
     ui->playbackMouseHideWindowedDuration->setEnabled(checked);
 }
 
+// REMOVEME: Disable auto zoom in Wayland mode as window centering isn't possible yet
+void SettingsWindow::on_tweaksPreferWayland_toggled(bool checked)
+{
+    if (checked && QGuiApplication::platformName() == "wayland")
+        ui->playbackAutoZoom->setChecked(false);
+}
+
 void SettingsWindow::on_tweaksTimeTooltip_toggled(bool checked)
 {
     ui->tweaksTimeTooltipLocation->setEnabled(checked);
