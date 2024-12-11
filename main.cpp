@@ -1426,6 +1426,10 @@ void Flow::manager_openingNewFile()
 
 void Flow::manager_startingPlayingFile(QUrl url)
 {
+    if (firstFile) {
+        firstFile = false;
+        mainWindow->fixMpvwSize();
+    }
     if (rememberFilePosition) {
         updateRecentPosition(false);
         // Check if there's a position saved in recents for this file

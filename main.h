@@ -142,6 +142,7 @@ private:
     QStringList customFiles;
 
     static bool settingsDisableWindowManagement;
+    bool firstFile = true;
     bool inhibitScreensaver = false;
     bool manipulateScreensaver = false;
     bool rememberHistory = true;

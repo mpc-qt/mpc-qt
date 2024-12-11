@@ -45,6 +45,7 @@ public:
     QSize desirableSize(bool first_run = false);
     QPoint desirablePosition(QSize &size, bool first_run = false);
     void unfreezeWindow();
+    void fixMpvwSize();
     void setActionPlayLoopUse();
 
 protected:
