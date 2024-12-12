@@ -90,6 +90,7 @@ signals:
     void rememberFilePosition(bool yes);
     void rememberSelectedPlaylist(bool yes);
     void rememberWindowGeometry(bool yes);
+    void rememberPanels(bool yes);
     void rememberPanNScan(bool yes);
 
     void mprisIpc(bool enabled);

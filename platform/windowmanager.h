@@ -34,7 +34,7 @@ public:
     void setJson(const QVariantMap &json);
     QVariantMap json();
 
-    void saveAppWindow(MainWindow *window);
+    void saveAppWindow(MainWindow *window, bool rememberWindowGeometry, bool rememberPanels);
     void saveDocks(QMainWindow *dockHost);
     void saveWindow(QWidget *window);
 
