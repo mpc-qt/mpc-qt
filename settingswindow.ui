@@ -177,7 +177,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>21</number>
+          <number>8</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -771,8 +771,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>98</width>
-                   <height>28</height>
+                   <width>677</width>
+                   <height>70</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -1594,7 +1594,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="videoTabs">
                 <property name="currentIndex">
-                 <number>4</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="generalTab">
                  <attribute name="title">
@@ -4297,7 +4297,7 @@ media file played</string>
                        </sizepolicy>
                       </property>
                       <property name="currentIndex">
-                       <number>5</number>
+                       <number>1</number>
                       </property>
                       <widget class="QWidget" name="ccHdrClipPage">
                        <layout class="QFormLayout" name="formLayout_2">
@@ -7777,12 +7777,12 @@ media file played</string>
            </item>
            <item row="1" column="0" colspan="2">
             <widget class="QGroupBox" name="debugBox">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="title">
               <string>Debugging</string>
              </property>
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
              <layout class="QFormLayout" name="formLayout_7">
               <item row="0" column="0">
                <widget class="QLabel" name="debugClientLabel">
@@ -7863,12 +7863,12 @@ media file played</string>
            </item>
            <item row="2" column="0" colspan="2">
             <widget class="QGroupBox" name="logFileBox">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="title">
               <string>Log file</string>
              </property>
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
              <layout class="QFormLayout" name="formLayout_4">
               <item row="1" column="0" colspan="2">
                <widget class="QCheckBox" name="logFileCreate">
@@ -7907,12 +7907,12 @@ media file played</string>
            </item>
            <item row="3" column="0">
             <widget class="QGroupBox" name="logUpdateBox">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="title">
               <string>Update interval</string>
              </property>
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
              <layout class="QVBoxLayout" name="verticalLayout_7">
               <item>
                <widget class="QRadioButton" name="logUpdateNoDelay">
@@ -7961,12 +7961,12 @@ media file played</string>
            </item>
            <item row="3" column="1">
             <widget class="QGroupBox" name="logHistoryBox">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="title">
               <string>Window history</string>
              </property>
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
              <layout class="QVBoxLayout" name="verticalLayout_8">
               <item>
                <widget class="QRadioButton" name="logHistoryUnlimited">
