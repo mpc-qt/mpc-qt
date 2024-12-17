@@ -3890,6 +3890,18 @@ ogni file multimediale riprodotto</translation>
         <source> ms</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Remember panels state</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open ICC Profile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ICC profile files (*.icc *.icm)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

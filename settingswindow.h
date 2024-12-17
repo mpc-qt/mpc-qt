@@ -274,6 +274,10 @@ private slots:
 
     void on_playbackMouseHideWindowed_toggled(bool checked);
 
+    void on_ccICCAutodetect_toggled(bool checked);
+
+    void on_ccICCBrowse_clicked();
+
     void on_tweaksPreferWayland_toggled(bool checked);
 
     void on_tweaksTimeTooltip_toggled(bool checked);
