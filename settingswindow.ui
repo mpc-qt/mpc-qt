@@ -4554,12 +4554,19 @@ media file played</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="ccICCLocation"/>
+                     <widget class="QLineEdit" name="ccICCLocation">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
+                     </widget>
                     </item>
                     <item>
                      <widget class="QPushButton" name="ccICCBrowse">
                       <property name="text">
                        <string>Browse</string>
+                      </property>
+                      <property name="enabled">
+                       <bool>false</bool>
                       </property>
                      </widget>
                     </item>

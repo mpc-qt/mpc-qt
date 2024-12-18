@@ -1379,6 +1379,28 @@ void SettingsWindow::on_playbackMouseHideWindowed_toggled(bool checked)
     ui->playbackMouseHideWindowedDuration->setEnabled(checked);
 }
 
+void SettingsWindow::on_ccICCAutodetect_toggled(bool checked)
+{
+    ui->ccICCLocation->setEnabled(!checked);
+    ui->ccICCBrowse->setEnabled(!checked);
+}
+
+void SettingsWindow::on_ccICCBrowse_clicked()
+{
+    static QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = QFileDialog::DontUseNativeDialog;
+#endif
+    QString file = WIDGET_LOOKUP(ui->ccICCLocation).toString();
+    file = QFileDialog::getOpenFileName(this, tr("Open ICC Profile"),
+                                        file, tr("ICC profile files (*.icc *.icm)"),
+                                        nullptr, options);
+    if (file.isEmpty())
+        return;
+
+    ui->ccICCLocation->setText(file);
+}
+
 // REMOVEME: Disable auto zoom in Wayland mode as window centering isn't possible yet
 void SettingsWindow::on_tweaksPreferWayland_toggled(bool checked)
 {
