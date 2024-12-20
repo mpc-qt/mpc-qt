@@ -2,20 +2,20 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="16"
    height="16"
    viewBox="0 0 16 16"
    version="1.1"
    id="svg1430"
-   inkscape:version="0.92.1 r15371"
-   sodipodi:docname="media-playback-stop.svg">
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="media-playback-stop.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
      id="defs1424" />
   <sodipodi:namedview
@@ -26,8 +26,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="31.678384"
-     inkscape:cx="5.5304034"
-     inkscape:cy="10.611512"
+     inkscape:cx="10.669736"
+     inkscape:cy="10.606602"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -35,14 +35,21 @@
      inkscape:pagecheckerboard="true"
      inkscape:object-paths="true"
      inkscape:window-width="1920"
-     inkscape:window-height="1015"
+     inkscape:window-height="1012"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="1">
+     inkscape:window-maximized="1"
+     inkscape:showpageshadow="0"
+     inkscape:deskcolor="#505050">
     <inkscape:grid
        type="xygrid"
        id="grid1978"
-       empspacing="4" />
+       empspacing="4"
+       originx="0"
+       originy="0"
+       spacingy="1"
+       spacingx="1"
+       units="px" />
   </sodipodi:namedview>
   <metadata
      id="metadata1427">
@@ -64,10 +71,10 @@
     <rect
        style="opacity:1;fill:#fcfcfc;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4144"
-       width="8"
-       height="8.9999828"
-       x="3"
-       y="295.76666"
+       width="12"
+       height="12.000012"
+       x="2"
+       y="294.76666"
        ry="1.7382812e-05" />
   </g>
 </svg>
