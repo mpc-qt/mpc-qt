@@ -733,6 +733,7 @@ void SettingsWindow::sendSignals()
                             ? paletteEditor->variantToPalette(WIDGET_LOOKUP(paletteEditor))
                             : paletteEditor->systemPalette());
     emit videoColor(QString("#%1").arg(WIDGET_LOOKUP(ui->windowVideoValue).toString()));
+    emit option("background-color", QString("#%1").arg(WIDGET_LOOKUP(ui->windowVideoValue).toString()));
     emit infoStatsColors(QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoForegroundValue).toString()),
                          QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoBackgroundValue).toString()));
 
