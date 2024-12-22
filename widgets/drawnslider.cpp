@@ -344,8 +344,8 @@ void MediaSlider::makeBackground()
     qreal pr = devicePixelRatioF();
     int pw = width() * pr;
     int ph = width() * pr;
-    backgroundPic = QImage(pw, ph, QImage::Format_RGB32);
-    backgroundPic.fill(bgColor);
+    backgroundPic = QImage(pw, ph, QImage::Format_RGBA8888);
+    backgroundPic.fill(Qt::transparent);
     QPainter p(&backgroundPic);
     p.scale(pr, pr);
 
@@ -470,8 +470,8 @@ void VolumeSlider::makeBackground()
     qreal pr = devicePixelRatioF();
     int pw = int(drawnArea.width() * pr);
     int ph = int(drawnArea.height() * pr);
-    backgroundPic = QImage(pw, ph, QImage::Format_RGB32);
-    backgroundPic.fill(bgColor);
+    backgroundPic = QImage(pw, ph, QImage::Format_RGBA8888);
+    backgroundPic.fill(Qt::transparent);
     QPainter p(&backgroundPic);
     p.scale(pr, pr);
 
