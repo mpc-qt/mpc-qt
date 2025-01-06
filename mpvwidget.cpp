@@ -441,6 +441,11 @@ void MpvObject::disableVideoAspect(bool yes)
     setMpvPropertyVariant("keepaspect", !yes ? "yes" : "no");
 }
 
+void MpvObject::setPanScan(double panScan)
+{
+    setMpvPropertyVariant("panscan", panScan);
+}
+
 int64_t MpvObject::chapter()
 {
     return chapter_;
