@@ -102,7 +102,7 @@
     </message>
     <message>
         <source>Also write logging messages to console.</source>
-        <translation type="unfinished"></translation>
+        <translation>Also write logging messages to console.</translation>
     </message>
 </context>
 <context>
@@ -1390,27 +1390,27 @@
     </message>
     <message>
         <source>&amp;Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Aspect ratio</translation>
     </message>
     <message>
         <source>&amp;Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pan and Scan</translation>
     </message>
     <message>
         <source>Decrease &amp;Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>Decrease &amp;Pan and Scan</translation>
     </message>
     <message>
         <source>Increase Pan and &amp;Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>Increase Pan and &amp;Scan</translation>
     </message>
     <message>
         <source>&amp;Minimum Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Minimum Pan and Scan</translation>
     </message>
     <message>
         <source>M&amp;aximum Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>M&amp;aximum Pan and Scan</translation>
     </message>
 </context>
 <context>
