@@ -1178,51 +1178,51 @@
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tez Oynatma Listesine Ekle</translation>
     </message>
     <message>
         <source>&amp;Quick Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>Tez D&amp;osya Aç</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Dizin Aç</translation>
     </message>
     <message>
         <source>Enter Network Stream</source>
-        <translation type="unfinished"></translation>
+        <translation>Ağ Akışına Gir</translation>
     </message>
     <message>
         <source>Network Stream</source>
-        <translation type="unfinished"></translation>
+        <translation>Ağ Akışı</translation>
     </message>
     <message>
         <source>Open Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>Altyazı Aç</translation>
     </message>
     <message>
         <source>Development Build</source>
-        <translation type="unfinished"></translation>
+        <translation>Geliştirme Yapısı</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Sürüm %1</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Media Player Classic Qute Theater Hakkında</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation type="unfinished"></translation>
+        <translation>Media Player Classic’in Qt ile yazılmış bir klonu</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Qt %1 ve %2 tabanlı</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 üzerine %2 tarihinde yapıldı</translation>
     </message>
     <message>
         <source>Alt+Q</source>
@@ -1230,23 +1230,23 @@
     </message>
     <message>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrol+Q</translation>
     </message>
     <message>
         <source>Paused</source>
-        <translation type="unfinished"></translation>
+        <translation>Duraklatıldı</translation>
     </message>
     <message>
         <source>Playing</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatılıyor</translation>
     </message>
     <message>
         <source>Buffering</source>
-        <translation type="unfinished"></translation>
+        <translation>Arabelleğe alınıyor</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilinmiyor</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
@@ -1254,23 +1254,23 @@
     </message>
     <message>
         <source>Libr&amp;ary</source>
-        <translation type="unfinished"></translation>
+        <translation>K&amp;itaplık</translation>
     </message>
     <message>
         <source>Ctrl+=</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrol+=</translation>
     </message>
     <message>
         <source>Ctrl+-</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrol+-</translation>
     </message>
     <message>
         <source>&amp;Copy Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>Altyazıyı Ko&amp;pyala</translation>
     </message>
     <message>
         <source>Controls in Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Tam Ekranda Denetimler</translation>
     </message>
     <message>
         <source>i</source>
@@ -1278,47 +1278,47 @@
     </message>
     <message>
         <source>&amp;Previous File</source>
-        <translation type="unfinished"></translation>
+        <translation>Ö&amp;nceki Dosya</translation>
     </message>
     <message>
         <source>Ctrl+PgUp</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrol+Sayfa Yukarı</translation>
     </message>
     <message>
         <source>&amp;Next File</source>
-        <translation type="unfinished"></translation>
+        <translation>So&amp;nraki Dosya</translation>
     </message>
     <message>
         <source>Ctrl+PgDown</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrol+Sayfa Aşağı</translation>
     </message>
     <message>
         <source>Play next &amp;file</source>
-        <translation type="unfinished"></translation>
+        <translation>Sonraki &amp;Dosyayı Oynat</translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Altyazılar</translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Sessize Al</translation>
     </message>
     <message>
         <source>&amp;Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Sık Kullanılanlara &amp;Ekle</translation>
     </message>
     <message>
         <source>&amp;Decrease Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Gecikmeyi &amp;Azalt</translation>
     </message>
     <message>
         <source>&amp;Increase Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Gecikmeyi A&amp;rtır</translation>
     </message>
     <message>
         <source>&amp;Video</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Video</translation>
     </message>
     <message>
         <source>&amp;Decrease Aspect</source>
@@ -1338,380 +1338,380 @@
     </message>
     <message>
         <source>&amp;Show OSD Timer</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran Üzeri Görüntü Sayacını &amp;Göster</translation>
     </message>
     <message>
         <source>I</source>
-        <translation type="unfinished"></translation>
+        <translation>I</translation>
     </message>
     <message>
         <source>&amp;Decrease Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>En–Boy Oranını Azalt</translation>
     </message>
     <message>
         <source>&amp;Increase Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>En–Boy Oranını A&amp;rtır</translation>
     </message>
     <message>
         <source>&amp;Reset Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>En–Boy Oranını &amp;Sıfırla</translation>
     </message>
     <message>
         <source>Disable &amp;Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>En–Boy Oranını &amp;Devre Dışı Bırak</translation>
     </message>
     <message>
         <source>C</source>
-        <translation type="unfinished"></translation>
+        <translation>C</translation>
     </message>
     <message>
         <source>%1 / %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1/%2</translation>
     </message>
     <message>
         <source>Seek Forwards (normal step)</source>
-        <translation type="unfinished"></translation>
+        <translation>İleri Bak (Normal Adım)</translation>
     </message>
     <message>
         <source>Seek Backwards (normal step)</source>
-        <translation type="unfinished"></translation>
+        <translation>Geri Bak (Normal Adım)</translation>
     </message>
     <message>
         <source>Seek Forwards (large step)</source>
-        <translation type="unfinished"></translation>
+        <translation>İleri Bak (Büyük Adım)</translation>
     </message>
     <message>
         <source>Seek Backwards (large step)</source>
-        <translation type="unfinished"></translation>
+        <translation>Geri Bak (Büyük Adım)</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Başlık</translation>
     </message>
 </context>
 <context>
     <name>MouseState</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Yok</translation>
     </message>
     <message>
         <source>Wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekerlek</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Sol</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Sağ</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished"></translation>
+        <translation>Orta</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Geri</translation>
     </message>
     <message>
         <source>Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>İleri</translation>
     </message>
     <message>
         <source>Task</source>
-        <translation type="unfinished"></translation>
+        <translation>Görev</translation>
     </message>
     <message>
         <source>XButton4</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton4</translation>
     </message>
     <message>
         <source>XButton5</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton5</translation>
     </message>
     <message>
         <source>XButton6</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton6</translation>
     </message>
     <message>
         <source>XButton7</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton7</translation>
     </message>
     <message>
         <source>XButton8</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton8</translation>
     </message>
     <message>
         <source>XButton9</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton9</translation>
     </message>
     <message>
         <source>XButton10</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton10</translation>
     </message>
     <message>
         <source>XButton11</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton11</translation>
     </message>
     <message>
         <source>XButton12</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton12</translation>
     </message>
     <message>
         <source>XButton13</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton13</translation>
     </message>
     <message>
         <source>XButton14</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton14</translation>
     </message>
     <message>
         <source>XButton15</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton15</translation>
     </message>
     <message>
         <source>XButton16</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton16</translation>
     </message>
     <message>
         <source>XButton17</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton17</translation>
     </message>
     <message>
         <source>XButton18</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton18</translation>
     </message>
     <message>
         <source>XButton19</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton19</translation>
     </message>
     <message>
         <source>XButton20</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton20</translation>
     </message>
     <message>
         <source>XButton21</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton21</translation>
     </message>
     <message>
         <source>XButton22</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton22</translation>
     </message>
     <message>
         <source>XButton23</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton23</translation>
     </message>
     <message>
         <source>XButton24</source>
-        <translation type="unfinished"></translation>
+        <translation>XButton24</translation>
     </message>
     <message>
         <source>Shift</source>
-        <translation type="unfinished"></translation>
+        <translation>Üst Karakter</translation>
     </message>
     <message>
         <source>Control</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrol</translation>
     </message>
     <message>
         <source>Alt</source>
-        <translation type="unfinished"></translation>
+        <translation>Seçenek</translation>
     </message>
     <message>
         <source>Meta</source>
-        <translation type="unfinished"></translation>
+        <translation>Meta</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Aşağı</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Yukarı</translation>
     </message>
     <message>
         <source>Twice</source>
-        <translation type="unfinished"></translation>
+        <translation>Çift</translation>
     </message>
 </context>
 <context>
     <name>MpvObject</name>
     <message>
         <source>Subtitles delay: %1 ms</source>
-        <translation type="unfinished"></translation>
+        <translation>Altyazı gecikmesi: %1 ms</translation>
     </message>
 </context>
 <context>
     <name>OpenFileDialog</name>
     <message>
         <source>Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosya Aç</translation>
     </message>
     <message>
         <source>Fi&amp;le</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Dosya</translation>
     </message>
     <message>
         <source>&amp;Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Altyazılar</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosya Seç</translation>
     </message>
 </context>
 <context>
     <name>PaletteEditor</name>
     <message>
         <source>Button</source>
-        <translation type="unfinished"></translation>
+        <translation>Düğme</translation>
     </message>
     <message>
         <source>Button &amp;&amp; Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Düğme ve Pencere</translation>
     </message>
     <message>
         <source>Reset to System</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistem Ayarlarına Sıfırla</translation>
     </message>
     <message>
         <source>Generate</source>
-        <translation type="unfinished"></translation>
+        <translation>Üret</translation>
     </message>
 </context>
 <context>
     <name>PlaybackManager</name>
     <message>
         <source>Speed: %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>Hız: %%1</translation>
     </message>
     <message>
         <source>Volume: %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses düzeyi: %%1</translation>
     </message>
     <message>
         <source>Mute: on</source>
-        <translation type="unfinished"></translation>
+        <translation>Sessiz: Açık</translation>
     </message>
     <message>
         <source>Mute: off</source>
-        <translation type="unfinished"></translation>
+        <translation>Sessiz: Kapalı</translation>
     </message>
     <message>
         <source>0: None</source>
-        <translation type="unfinished"></translation>
+        <translation>0: Yok</translation>
     </message>
     <message>
         <source>Aspect ratio: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>En–boy oranı: %1</translation>
     </message>
 </context>
 <context>
     <name>PlaylistCollection</name>
     <message>
         <source>Quick playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Tez oynatma listesi</translation>
     </message>
 </context>
 <context>
     <name>PlaylistWindow</name>
     <message>
         <source>P&amp;laylist</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma &amp;listesi</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Ara</translation>
     </message>
     <message>
         <source>Visible Items to Quick Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Görünür Ögeler Tez Kuyruğa</translation>
     </message>
     <message>
         <source>New Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni Sekme</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Sekmeyi Kapat</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Sekmeyi Çoğalt</translation>
     </message>
     <message>
         <source>Import Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma Listesi İçe Aktar</translation>
     </message>
     <message>
         <source>Export Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma Listesini Dışa Aktar</translation>
     </message>
     <message>
         <source>Show Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuyruğu Göster</translation>
     </message>
     <message>
         <source>Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma Listesi</translation>
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Tez Oynatma Listesi</translation>
     </message>
     <message>
         <source>New Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni Oynatma Listesi</translation>
     </message>
     <message>
         <source>Enter Playlist Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma Listesi Adı Gir</translation>
     </message>
     <message>
         <source>Import File</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosya İçe Aktar</translation>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma listesi dosyaları (*.m3u *.m3u8)</translation>
     </message>
     <message>
         <source>Export File</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosyayı Dışa Aktar</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Aç</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekle</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaldır</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Temizle</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Panoya Kopyala</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Farklı Kaydet…</translation>
     </message>
     <message>
         <source>Sort By Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Etikete Göre Sırala</translation>
     </message>
     <message>
         <source>Sort By Url</source>
-        <translation type="unfinished"></translation>
+        <translation>URL’ye Göre Sırala</translation>
     </message>
     <message>
         <source>Randomize</source>
@@ -1719,219 +1719,221 @@
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Geri Yükle</translation>
     </message>
     <message>
         <source>Shuffle</source>
-        <translation type="unfinished"></translation>
+        <translation>Karıştır</translation>
     </message>
     <message>
         <source>Hide On Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Tam Ekranda Gizle</translation>
     </message>
     <message>
         <source>Enter playlist name</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma listesi adı gir</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Yeni Oynatma Listesi</translation>
     </message>
     <message>
         <source>&amp;Remove Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Oynatma Listesini Kaldır</translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Oyn&amp;atma Listesini Çoğalt</translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma Listesi İç&amp;e Aktar</translation>
     </message>
     <message>
         <source>&amp;Export Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma &amp;Listesini Dışa Aktar</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation>Yinele</translation>
     </message>
     <message>
         <source>Reshuffle</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeniden Karıştır</translation>
     </message>
 </context>
 <context>
     <name>PropertiesWindow</name>
     <message>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Özellikler</translation>
     </message>
     <message>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Ayrıntılar</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tür:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Boyut:</translation>
     </message>
     <message>
         <source>Media length:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ortam uzunluğu:</translation>
     </message>
     <message>
         <source>Video size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Video boyutu:</translation>
     </message>
     <message>
         <source>Created:</source>
-        <translation type="unfinished"></translation>
+        <translation>Oluşturulma:</translation>
     </message>
     <message>
         <source>Clip</source>
-        <translation type="unfinished"></translation>
+        <translation>Klip</translation>
     </message>
     <message>
         <source>Clip:</source>
-        <translation type="unfinished"></translation>
+        <translation>Klip:</translation>
     </message>
     <message>
         <source>Author:</source>
-        <translation type="unfinished"></translation>
+        <translation>Yazar:</translation>
     </message>
     <message>
         <source>Copyright:</source>
-        <translation type="unfinished"></translation>
+        <translation>Telif hakkı:</translation>
     </message>
     <message>
         <source>Rating:</source>
-        <translation type="unfinished"></translation>
+        <translation>Derecelendirme:</translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation type="unfinished"></translation>
+        <translation>Konum:</translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Açıklama:</translation>
     </message>
     <message>
         <source>MediaInfo</source>
-        <translation type="unfinished"></translation>
+        <translation>Ortam Bilgisi</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kaydet</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses</translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Altyazılar</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Genel</translation>
     </message>
     <message>
         <source>Menu
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Menü
+</translation>
     </message>
     <message>
         <source>File has no data for this section.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Bu bölüm için dosyada veri yok.
+</translation>
     </message>
     <message>
         <source>Text documents (*.txt);;All files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Metin belgeleri (*.txt);;Tüm dosyalar (*.*)</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>All Media (*.%1);;All Files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tüm ortamlar (*.%1);;Tüm dosyalar (*.*)</translation>
     </message>
     <message>
         <source>All Subtitles (*.%1);;All Files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tüm altyazılar (*.%1);;Tüm dosyalar (*.*)</translation>
     </message>
     <message>
         <source>Window text</source>
-        <translation type="unfinished"></translation>
+        <translation>Pencere metni</translation>
     </message>
     <message>
         <source>Button</source>
-        <translation type="unfinished"></translation>
+        <translation>Düğme</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Açık</translation>
     </message>
     <message>
         <source>Midlight</source>
-        <translation type="unfinished"></translation>
+        <translation>Orta tonlu</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>Koyu</translation>
     </message>
     <message>
         <source>Mid</source>
-        <translation type="unfinished"></translation>
+        <translation>Orta</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Metin</translation>
     </message>
     <message>
         <source>Bright text</source>
-        <translation type="unfinished"></translation>
+        <translation>Aydınlık metin</translation>
     </message>
     <message>
         <source>Button text</source>
-        <translation type="unfinished"></translation>
+        <translation>Düğme metni</translation>
     </message>
     <message>
         <source>Base</source>
-        <translation type="unfinished"></translation>
+        <translation>Taban</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Pencere</translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>Gölge</translation>
     </message>
     <message>
         <source>Highlight</source>
-        <translation type="unfinished"></translation>
+        <translation>Vurgu</translation>
     </message>
     <message>
         <source>Highlighted text</source>
-        <translation type="unfinished"></translation>
+        <translation>Vurgulanmış metin</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Bağlantı</translation>
     </message>
     <message>
         <source>Link (visited)</source>
-        <translation type="unfinished"></translation>
+        <translation>Bağlantı (ziyaret edilmiş)</translation>
     </message>
     <message>
         <source>Base (alternate)</source>
