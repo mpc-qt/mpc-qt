@@ -1989,10 +1989,16 @@ void MainWindow::setVideoTracks(QList<Track> tracks)
         return;
     ui->menuPlayVideo->setEnabled(true);
     videoTracksGroup = new QActionGroup(this);
-    ui->menuPlayVideo->addAction(ui->actionDecreaseVideoAspect);
-    ui->menuPlayVideo->addAction(ui->actionIncreaseVideoAspect);
-    ui->menuPlayVideo->addAction(ui->actionResetVideoAspect);
-    ui->menuPlayVideo->addAction(ui->actionDisableVideoAspect);
+    ui->menuPlayVideo->addMenu(ui->menuPlayVideoAspect);
+    ui->menuPlayVideoAspect->addAction(ui->actionDecreaseVideoAspect);
+    ui->menuPlayVideoAspect->addAction(ui->actionIncreaseVideoAspect);
+    ui->menuPlayVideoAspect->addAction(ui->actionResetVideoAspect);
+    ui->menuPlayVideoAspect->addAction(ui->actionDisableVideoAspect);
+    ui->menuPlayVideo->addMenu(ui->menuPlayVideoPanScan);
+    ui->menuPlayVideoPanScan->addAction(ui->actionDecreasePanScan);
+    ui->menuPlayVideoPanScan->addAction(ui->actionIncreasePanScan);
+    ui->menuPlayVideoPanScan->addAction(ui->actionMinPanScan);
+    ui->menuPlayVideoPanScan->addAction(ui->actionMaxPanScan);
     ui->menuPlayVideo->addSeparator();
     for (const Track &track : tracks) {
         QAction *action = new QAction(this);
@@ -2644,6 +2650,34 @@ void MainWindow::on_actionDisableVideoAspect_toggled(bool checked)
 {
     mpvObject_->disableVideoAspect(checked);
     ui->actionDisableVideoAspect->setChecked(checked);
+}
+
+void MainWindow::on_actionDecreasePanScan_triggered()
+{
+    panScan -= 0.01;
+    if (panScan < 0)
+        panScan = 0;
+    mpvObject_->setPanScan(panScan);
+}
+
+void MainWindow::on_actionIncreasePanScan_triggered()
+{
+    panScan += 0.01;
+    if (panScan > 1)
+        panScan = 1;
+    mpvObject_->setPanScan(panScan);
+}
+
+void MainWindow::on_actionMinPanScan_triggered()
+{
+    panScan = 0;
+    mpvObject_->setPanScan(panScan);
+}
+
+void MainWindow::on_actionMaxPanScan_triggered()
+{
+    panScan = 1;
+    mpvObject_->setPanScan(panScan);
 }
 
 void MainWindow::on_actionViewOntopDefault_toggled(bool checked)

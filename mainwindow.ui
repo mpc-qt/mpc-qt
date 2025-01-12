@@ -900,11 +900,25 @@
      <property name="title">
       <string>&amp;Video</string>
      </property>
-     <addaction name="actionDecreaseVideoAspect"/>
-     <addaction name="actionIncreaseVideoAspect"/>
-     <addaction name="actionResetVideoAspect"/>
-     <addaction name="actionDisableVideoAspect"/>
-     <addaction name="separator"/>
+     <widget class="QMenu" name="menuPlayVideoAspect">
+      <property name="title">
+       <string>&amp;Aspect ratio</string>
+      </property>
+      <addaction name="actionDecreaseVideoAspect"/>
+      <addaction name="actionIncreaseVideoAspect"/>
+      <addaction name="actionResetVideoAspect"/>
+      <addaction name="actionDisableVideoAspect"/>
+     </widget>
+     <widget class="QMenu" name="menuPlayVideoPanScan">
+      <property name="title">
+       <string>&amp;Pan and Scan</string>
+      </property>
+      <addaction name="actionDecreasePanScan"/>
+      <addaction name="actionIncreasePanScan"/>
+      <addaction name="actionMinPanScan"/>
+      <addaction name="actionMaxPanScan"/>
+     </widget>
+      <addaction name="separator"/>
     </widget>
     <widget class="QMenu" name="menuPlayVolume">
      <property name="title">
@@ -2164,6 +2178,38 @@
    </property>
    <property name="shortcut">
     <string>9</string>
+   </property>
+  </action>
+  <action name="actionDecreasePanScan">
+   <property name="text">
+    <string>Decrease &amp;Pan and Scan</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">-</string>
+   </property>
+  </action>
+  <action name="actionIncreasePanScan">
+   <property name="text">
+    <string>Increase Pan and &amp;Scan</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">+</string>
+   </property>
+  </action>
+  <action name="actionMinPanScan">
+   <property name="text">
+    <string>&amp;Minimum Pan and Scan</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">/</string>
+   </property>
+  </action>
+  <action name="actionMaxPanScan">
+   <property name="text">
+    <string>M&amp;aximum Pan and Scan</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">*</string>
    </property>
   </action>
   <action name="actionViewHideLog">

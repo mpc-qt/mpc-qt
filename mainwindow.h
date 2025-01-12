@@ -343,6 +343,11 @@ private slots:
     void on_actionResetVideoAspect_triggered();
     void on_actionDisableVideoAspect_toggled(bool checked);
 
+    void on_actionDecreasePanScan_triggered();
+    void on_actionIncreasePanScan_triggered();
+    void on_actionMinPanScan_triggered();
+    void on_actionMaxPanScan_triggered();
+
     void on_actionViewOntopDefault_toggled(bool checked);
     void on_actionViewOntopAlways_toggled(bool checked);
     void on_actionViewOntopPlaying_toggled(bool checked);
@@ -474,6 +479,7 @@ private:
     int64_t decoderDrops = 0;
     double audioBitrate = 0;
     double videoBitrate = 0;
+    double panScan = 0;
 
     IconThemer themer;
     QList<QAction *> menuFavoritesTail;
