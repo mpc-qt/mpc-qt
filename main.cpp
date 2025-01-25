@@ -1428,6 +1428,7 @@ void Flow::manager_openingNewFile()
 
 void Flow::manager_startingPlayingFile(QUrl url)
 {
+    Logger::log("main", "manager_startingPlayingFile");
     if (firstFile) {
         firstFile = false;
         mainWindow->fixMpvwSize();
