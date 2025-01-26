@@ -663,7 +663,7 @@ void MpvObject::hideCursor()
         auto window = w->window();
         if (window->isFullScreen() && QCursor::pos().x() == window->geometry().right()) {
             window->setCursor(Qt::BlankCursor);
-            LogStream("glwidget") << "workaround: hiding cursor on rightmost pixels";
+            Logger::log("glwidget", "workaround: hiding cursor on rightmost pixels");
         }
     }
 }

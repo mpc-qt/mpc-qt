@@ -1408,12 +1408,12 @@ void Flow::manager_hasNoSubtitles(bool none)
 void Flow::manager_playingNextFile()
 {
     // Save the position just before opening the next file
-    LogStream("main") << "manager_playingNextFile";
+    Logger::log("main", "manager_playingNextFile");
     updateRecentPosition(false);
 }
 
 void Flow::manager_playLengthChanged() {
-    LogStream("main") << "manager_playLengthChanged";
+    Logger::log("main", "manager_playLengthChanged");
     updateRecentPosition(false);
     if (repeatAfter)
         mainWindow->setActionPlayLoopUse();
@@ -1466,7 +1466,7 @@ void Flow::settingswindow_settingsData(const QVariantMap &settings)
     // The selected options have changed, so write them to disk
     this->settings = settings;
     writeConfig(true);
-    LogStream("main") << "settingswindow_settingsData";
+    Logger::log("main", "settingswindow_settingsData");
 }
 
 void Flow::settingswindow_inhibitScreensaver(bool yes)
@@ -1594,7 +1594,7 @@ void Flow::favoriteswindow_favoriteTracksCancel()
 // Update the position of the current file
 void Flow::updateRecentPosition(bool resetPosition)
 {
-    LogStream("main") << "updateRecentPosition";
+    Logger::log("main", "updateRecentPosition");
     QUrl url;
     QUuid listUuid;
     QUuid itemUuid;
