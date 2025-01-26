@@ -340,7 +340,7 @@ void MediaSlider::resizeEvent(QResizeEvent *event)
 
 void MediaSlider::makeBackground()
 {
-    LogStream("drawnslider") << "MediaSlider::makeBackground";
+    Logger::log("drawnslider", "MediaSlider::makeBackground");
     qreal pr = devicePixelRatioF();
     int pw = width() * pr;
     int ph = width() * pr;
@@ -466,7 +466,7 @@ VolumeSlider::VolumeSlider(QWidget *parent) :
 
 void VolumeSlider::makeBackground()
 {
-    LogStream("drawnslider") << "VolumeSlider::makeBackground";
+    Logger::log("drawnslider", "VolumeSlider::makeBackground");
     qreal pr = devicePixelRatioF();
     int pw = int(drawnArea.width() * pr);
     int ph = int(drawnArea.height() * pr);

@@ -316,7 +316,7 @@ void PlaybackManager::navigateToChapter(int64_t chapter)
         // Out-of-bounds chapter navigation request. i.e. unseekable chapter
         // from either past-the-end or invalid.  So stop playback and continue
         // on the next via the playback finished slot.
-        LogStream("manager") << "navigateToChapter: setChapter failed";
+        Logger::log("manager", "navigateToChapter: setChapter failed");
         if (folderFallback)
             playNext(false);
         else {
@@ -549,7 +549,7 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
                                         QUuid itemUuid, bool isRepeating,
                                         QUrl with)
 {
-    LogStream("manager") << "startPlayWithUuid";
+    Logger::log("manager", "startPlayWithUuid");
     if (playbackState_ == WaitingState || what.isEmpty())
         return;
     emit stateChanged(playbackState_ = WaitingState);
@@ -580,7 +580,7 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
 
 void PlaybackManager::selectDesiredTracks()
 {
-    LogStream("manager") << "selectDesiredTracks";
+    Logger::log("manager", "selectDesiredTracks");
     auto findSubIdByPreference = [&](void) -> int64_t {
         if (subtitlesPreferExternal) {
             for (auto it = subtitleListData.constBegin();
@@ -724,7 +724,7 @@ void PlaybackManager::playPrevTrack()
 
 bool PlaybackManager::playNextFileUrl(QUrl url, int delta)
 {
-    LogStream("manager") << "playNextFileUrl";
+    Logger::log("manager", "playNextFileUrl");
     QFileInfo info;
     QDir dir;
     QStringList files;
@@ -870,7 +870,7 @@ void PlaybackManager::mpvw_chaptersChanged(QVariantList chapters)
 
 void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
 {
-    LogStream("manager") << "mpvw_tracksChanged";
+    Logger::log("manager", "mpvw_tracksChanged");
     videoList.clear();
     audioList.clear();
     videoListData.clear();
