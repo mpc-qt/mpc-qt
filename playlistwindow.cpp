@@ -750,11 +750,11 @@ void PlaylistWindow::sortPlaylistByUrl(const QUuid &playlistUuid)
 
 void PlaylistWindow::shufflePlaylist(const QUuid &playlistUuid, bool shuffle)
 {
-    LogStream("playlistwindow") << "shufflePlaylist start";
+    Logger::log("playlistwindow", "shufflePlaylist start");
     if (widgets.contains(playlistUuid))
         widgets[playlistUuid]->playlist()->setShuffle(shuffle);
     refreshPlaylist(playlistUuid);
-    LogStream("playlistwindow") << "shufflePlaylist done";
+    Logger::log("playlistwindow", "shufflePlaylist done");
 }
 
 void PlaylistWindow::reshufflePlaylist(const QUuid &playlistUuid)
@@ -766,13 +766,13 @@ void PlaylistWindow::reshufflePlaylist(const QUuid &playlistUuid)
 
 void PlaylistWindow::refreshPlaylist(const QUuid &playlistUuid)
 {
-    LogStream("playlistwindow") << "refreshPlaylist start";
+    Logger::log("playlistwindow", "refreshPlaylist start");
     auto qdp = widgets.value(playlistUuid, nullptr);
     if (qdp) {
         qdp->repopulateItems();
         qdp->setCurrentItem(widgets[playlistUuid]->playlist()->nowPlaying());
     }
-    LogStream("playlistwindow") << "refreshPlaylist done";
+    Logger::log("playlistwindow", "refreshPlaylist done");
 }
 
 void PlaylistWindow::restorePlaylist(const QUuid &playlistUuid)
