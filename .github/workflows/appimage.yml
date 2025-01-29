@@ -1,0 +1,83 @@
+name: AppImage maker
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    name: Build with PPA
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Install packages
+      run: |
+        sudo apt update
+        sudo apt install build-essential
+        sudo add-apt-repository ppa:savoury1/build-tools
+        sudo add-apt-repository ppa:savoury1/qt-6-2
+        sudo add-apt-repository ppa:savoury1/llvm-defaults-13
+        sudo add-apt-repository ppa:savoury1/graphics
+        sudo add-apt-repository ppa:savoury1/display
+        sudo add-apt-repository ppa:savoury1/multimedia
+        sudo apt upgrade
+        sudo apt dist-upgrade
+        sudo apt install qmake6 qt6-base-dev qt6-l10n-tools libqt6svg6-dev
+        sudo apt install devscripts equivs git
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Checkout mpv repository
+      uses: actions/checkout@v4
+      with:
+        repository: "mpv-player/mpv-build"
+        path: mpv-build
+    - name: Copy build options
+      run: |
+        cp .github/actions/data/build_options/* mpv-build/
+    - name: Get mpv dependencies
+      run: |
+        cd mpv-build
+        sed -i '/libdisplay-info-dev/d' debian/control
+        ./update
+        cp debian/changelog.TEMPLATE debian/changelog
+        mk-build-deps -s sudo -i
+    - name: Build mpv package
+      run: |
+        cd mpv-build
+        export DEB_BUILD_OPTIONS=nostrip
+        dpkg-buildpackage -uc -us -b
+    - name: Install mpv package
+      run: |
+        mv mpv-build/*.deb ./
+        sudo dpkg -i *.deb
+    - name: Use built libmpv for mpc-qt
+      run: sed -i 's|unix:PKGCONFIG += mpv|unix:LIBS += -lmpv|' mpc-qt.pro
+    - name: Set version
+      run: echo "MPCQT_VERSION=$( cat .github/actions/data/VERSION )" >> $GITHUB_ENV
+    - name: qmake6
+      run: qmake6 MPCQT_VERSION=$MPCQT_VERSION PREFIX=/usr mpc-qt.pro
+    - name: make
+      run: make
+    - name: make install
+      run: make install INSTALL_ROOT=AppDir
+    - name: Install packages
+      run: sudo apt install libfuse2 libqt6svg6-dev libqt6openglwidgets6 qmake6
+    - name: Make sure mpc-qt is executable
+      run:  chmod +x AppDir/usr/bin/mpc-qt
+    - name: Download linuxdeploy
+      uses: pcolby/install-linuxdeploy@v1
+      with:
+        arch: x86_64
+        dir: linuxdeploy
+        install-deps: false
+        plugins: qt
+        set-env: true
+        version: 1-alpha-20240109-1
+    - name: Build AppImage
+      run: EXTRA_QT_PLUGINS="svg;" QMAKE=/usr/bin/qmake6 linuxdeploy/linuxdeploy-x86_64.AppImage --appdir AppDir -e bin/mpc-qt --custom-apprun ./AppImage/AppRun -i images/icon/mpc-qt.svg --plugin qt --output appimage
+    - name: Rename AppImage
+      run:  mv *.AppImage mpc-qt-x86_64.AppImage
+    - name: Upload AppImage
+      uses: actions/upload-artifact@v4
+      with:
+        name: "mpc-qt-x86_64.AppImage"
+        path: ./mpc-qt-x86_64.AppImage
