@@ -11,7 +11,9 @@ jobs:
 
     steps:
     - name: Install packages
-      run: sudo apt-get -y install build-essential qmake6 qt6-base-dev qt6-l10n-tools libqt6svg6-dev libgl-dev libmpv-dev
+      run: |
+        sudo apt-get update
+        sudo apt-get -y install build-essential qmake6 qt6-base-dev qt6-l10n-tools libqt6svg6-dev libgl-dev libmpv-dev
     - uses: actions/checkout@v4
     - name: qmake
       run: qmake6 MPCQT_VERSION=GithubAction mpc-qt.pro
