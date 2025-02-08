@@ -12,7 +12,6 @@
 #include "ui_playlistwindow.h"
 #include "widgets/drawnplaylist.h"
 #include "playlist.h"
-#include "platform/unify.h"
 
 PlaylistWindow::PlaylistWindow(QWidget *parent) :
     QDockWidget(parent),
