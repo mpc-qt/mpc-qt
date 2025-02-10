@@ -53,6 +53,7 @@ constexpr char optConsoleLogEx[] = "--log-to-console";
 
 int main(int argc, char *argv[])
 {
+    Logger::log("main", "starting logging");
     #if !defined(Q_OS_WIN)
     std::signal(SIGHUP, signalHandler);
     #endif
@@ -137,7 +138,6 @@ Flow::Flow(QObject *owner) :
     connect(this, &Flow::flushLog,
             logger, &Logger::flushMessages,
             Qt::BlockingQueuedConnection);
-    Logger::log("main", "starting logging");
 
     readConfig();
     Logger::log("main", "finished reading config");
