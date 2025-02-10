@@ -1362,7 +1362,7 @@
     </message>
     <message>
         <source>&amp;Aspect ratio</source>
-        <translation>长款比(&amp;A)</translation>
+        <translation>长宽比(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Pan and Scan</source>
