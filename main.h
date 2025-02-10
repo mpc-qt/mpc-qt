@@ -39,6 +39,7 @@ public:
     int run();
     bool earlyQuit();
     static void earlyPlatformOverride();
+    static bool isNvidiaGPU();
 
 signals:
     void windowsRestored();

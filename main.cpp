@@ -18,6 +18,7 @@
 #include <QLibraryInfo>
 #include "logger.h"
 #include "main.h"
+#include "qprocess.h"
 #include "storage.h"
 #include "mainwindow.h"
 #include "manager.h"
@@ -419,14 +420,16 @@ void Flow::earlyPlatformOverride()
 
     // Wayland doesn't support run-time centering and it doesn't look like
     // it'll support it any time soon.  I'll remove this code when it does.
+    bool nvidiaDetected = Flow::isNvidiaGPU();
     Storage s;
     QVariantMap settings = s.readVMap(fileSettings);
-    if (!settings.value("tweaksPreferWayland", QVariant(false)).toBool()) {
+    if (!settings.value("tweaksPreferWayland", QVariant(false)).toBool())
         qputenv("QT_QPA_PLATFORM", "xcb");
-    } else if (!qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY")) {
+    else if (!qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY"))
         settingsDisableWindowManagement = true;
-    }
-    qputenv("QT_XCB_GL_INTEGRATION", "xcb_egl");
+    // The Nvidia drivers don't work well with EGL
+    if (!nvidiaDetected)
+        qputenv("QT_XCB_GL_INTEGRATION", "xcb_egl");
 }
 
 void Flow::readConfig()
@@ -1129,6 +1132,23 @@ void Flow::setupMpcHc()
             mpcHcServer, &MpcHcServer::setPlaybackRate);
     connect(playbackManager, &PlaybackManager::stateChanged,
             mpcHcServer, &MpcHcServer::setPlaybackState);
+}
+
+bool Flow::isNvidiaGPU()
+{
+    bool foundNvidia = false;
+    QProcess process;
+    Logger::log("main", "Display devices:");
+    process.start("lspci", QStringList() << "-v" << "-d" << "::0300");
+    process.waitForFinished(1000);
+    QString result = process.readAllStandardOutput();
+    for (const QString &line : result.split('\n'))
+        LogStream("main") << line;
+
+    if (result.contains("nvidia", Qt::CaseSensitivity::CaseInsensitive) > 0) {
+        foundNvidia = true;
+    }
+    return foundNvidia;
 }
 
 void Flow::showVersionInfo()
