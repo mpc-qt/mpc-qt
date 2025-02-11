@@ -117,7 +117,7 @@
     </message>
     <message>
         <source>Go!</source>
-        <translation type="unfinished">跳转</translation>
+        <translation>跳转</translation>
     </message>
     <message>
         <source>Frame</source>
@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitely.</source>
-        <translation type="unfinished"></translation>
+        <translation>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitly.</translation>
     </message>
 </context>
 <context>
@@ -140,7 +140,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">移除</translation>
+        <translation>移除</translation>
     </message>
     <message>
         <source>Close</source>
@@ -1030,7 +1030,7 @@
     </message>
     <message>
         <source>About &amp;Qt...</source>
-        <translation>关于 Qt(&amp;Q)...</translation>
+        <translation>关于 Qt (&amp;Q)...</translation>
     </message>
     <message>
         <source>Save Pl&amp;ain Image...</source>
@@ -1262,7 +1262,7 @@
     </message>
     <message>
         <source>Controls in Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>控制栏(全屏)</translation>
     </message>
     <message>
         <source>&amp;Previous File</source>
@@ -1286,7 +1286,7 @@
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished">字幕</translation>
+        <translation>字幕</translation>
     </message>
     <message>
         <source>Mute</source>
@@ -1362,7 +1362,7 @@
     </message>
     <message>
         <source>&amp;Aspect ratio</source>
-        <translation>长宽比(&amp;A)</translation>
+        <translation>长款比(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Pan and Scan</source>
@@ -2027,7 +2027,7 @@
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished">字幕</translation>
+        <translation>字幕</translation>
     </message>
     <message>
         <source>Default Style</source>
@@ -2125,7 +2125,7 @@ media file played</source>
     </message>
     <message>
         <source>Keep history of recently opened files</source>
-        <translation type="unfinished">保存历史记录</translation>
+        <translation>保存历史记录</translation>
     </message>
     <message>
         <source>Remember last selected playlist</source>
@@ -2145,7 +2145,7 @@ media file played</source>
     </message>
     <message>
         <source>Association</source>
-        <translation type="unfinished"></translation>
+        <translation>文件关联</translation>
     </message>
     <message>
         <source>Video</source>
@@ -2165,7 +2165,7 @@ media file played</source>
     </message>
     <message>
         <source>MPRIS</source>
-        <translation type="unfinished"></translation>
+        <translation>MPRIS</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -2237,7 +2237,7 @@ media file played</source>
     </message>
     <message>
         <source>Widget Color</source>
-        <translation type="unfinished"></translation>
+        <translation>部件颜色</translation>
     </message>
     <message>
         <source>Use custom theme</source>
@@ -2333,11 +2333,11 @@ media file played</source>
     </message>
     <message>
         <source>Dumb mode</source>
-        <translation type="unfinished"></translation>
+        <translation>简化模式</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished">一般</translation>
+        <translation>一般</translation>
     </message>
     <message>
         <source>Framebuffer</source>
@@ -2405,15 +2405,15 @@ media file played</source>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished"></translation>
+        <translation>低</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"></translation>
+        <translation>高</translation>
     </message>
     <message>
         <source>Highest</source>
-        <translation type="unfinished"></translation>
+        <translation>最高</translation>
     </message>
     <message>
         <source>Placebo</source>
@@ -2585,11 +2585,11 @@ media file played</source>
     </message>
     <message>
         <source>Bilinear</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilinear</translation>
     </message>
     <message>
         <source>Bicubic_fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Bicubic_fast</translation>
     </message>
     <message>
         <source>Oversample</source>
@@ -2597,83 +2597,83 @@ media file played</source>
     </message>
     <message>
         <source>Spline16</source>
-        <translation type="unfinished"></translation>
+        <translation>Spline16</translation>
     </message>
     <message>
         <source>Spline36</source>
-        <translation type="unfinished"></translation>
+        <translation>Spline36</translation>
     </message>
     <message>
         <source>Spline64</source>
-        <translation type="unfinished"></translation>
+        <translation>Spline64</translation>
     </message>
     <message>
         <source>Lanczos</source>
-        <translation type="unfinished"></translation>
+        <translation>Lanczos</translation>
     </message>
     <message>
         <source>Ginseng</source>
-        <translation type="unfinished"></translation>
+        <translation>Ginseng</translation>
     </message>
     <message>
         <source>Ewa lanczos</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa lanczos</translation>
     </message>
     <message>
         <source>Ewa hanning</source>
-        <translation type="unfinished"></translation>
+        <translation>hanning</translation>
     </message>
     <message>
         <source>Ewa ginseng</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa ginseng</translation>
     </message>
     <message>
         <source>Ewa lanczos sharp</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa lanczos sharp</translation>
     </message>
     <message>
         <source>Ewa lanczos soft</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa lanczos soft</translation>
     </message>
     <message>
         <source>Haasnsoft</source>
-        <translation type="unfinished"></translation>
+        <translation>Haasnsoft</translation>
     </message>
     <message>
         <source>Bicubic</source>
-        <translation type="unfinished"></translation>
+        <translation>Bicubic</translation>
     </message>
     <message>
         <source>Bc spline</source>
-        <translation type="unfinished"></translation>
+        <translation>Bc spline</translation>
     </message>
     <message>
         <source>Catmull rom</source>
-        <translation type="unfinished"></translation>
+        <translation>Catmull rom</translation>
     </message>
     <message>
         <source>Mitchell</source>
-        <translation type="unfinished"></translation>
+        <translation>Mitchell</translation>
     </message>
     <message>
         <source>Robidoux</source>
-        <translation type="unfinished"></translation>
+        <translation>Robidoux</translation>
     </message>
     <message>
         <source>Robidoux sharp</source>
-        <translation type="unfinished"></translation>
+        <translation>Robidoux sharp</translation>
     </message>
     <message>
         <source>Ewa robidoux</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa robidoux</translation>
     </message>
     <message>
         <source>Ewa robidoux sharp</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa robidoux sharp</translation>
     </message>
     <message>
         <source>Nearest</source>
-        <translation type="unfinished"></translation>
+        <translation>Nearest</translation>
     </message>
     <message>
         <source>Downscale</source>
@@ -2693,7 +2693,7 @@ media file played</source>
     </message>
     <message>
         <source>Linear</source>
-        <translation type="unfinished"></translation>
+        <translation>Linear</translation>
     </message>
     <message>
         <source>Deband</source>
@@ -3049,7 +3049,7 @@ media file played</source>
     </message>
     <message>
         <source>Framedropping</source>
-        <translation type="unfinished"></translation>
+        <translation>丢帧</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -3061,7 +3061,7 @@ media file played</source>
     </message>
     <message>
         <source>Decoder+Video</source>
-        <translation type="unfinished"></translation>
+        <translation>解码器+视频</translation>
     </message>
     <message>
         <source>None</source>
@@ -3169,11 +3169,11 @@ media file played</source>
     </message>
     <message>
         <source>times</source>
-        <translation type="unfinished"></translation>
+        <translation>次</translation>
     </message>
     <message>
         <source>Repeat fore&amp;ver</source>
-        <translation type="unfinished"></translation>
+        <translation>一直重复</translation>
     </message>
     <message>
         <source>Always loop images (manual progression)</source>
@@ -3185,39 +3185,39 @@ media file played</source>
     </message>
     <message>
         <source>qrc:/text/playlistFormat.html</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/text/playlistFormat.html</translation>
     </message>
     <message>
         <source>Placement</source>
-        <translation type="unfinished"></translation>
+        <translation>位置</translation>
     </message>
     <message>
         <source>Override default subtitle placement</source>
-        <translation type="unfinished"></translation>
+        <translation>忽略默认的字幕位置</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>左</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>右</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>上</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>下</translation>
     </message>
     <message>
         <source>Position</source>
@@ -3242,11 +3242,11 @@ media file played</source>
     <message>
         <source>ASS override</source>
         <extracomment>Might cause issues</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>ASS 格式覆盖</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>是</translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
@@ -3254,27 +3254,27 @@ media file played</source>
     </message>
     <message>
         <source>Force</source>
-        <translation type="unfinished"></translation>
+        <translation>强制</translation>
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>字体</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished"></translation>
+        <translation>样式</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>粗体</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
+        <translation>斜体</translation>
     </message>
     <message>
         <source>Border style</source>
-        <translation type="unfinished"></translation>
+        <translation>粗体样式</translation>
     </message>
     <message>
         <source>Border size</source>
@@ -3294,7 +3294,7 @@ media file played</source>
     </message>
     <message>
         <source>Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>颜色</translation>
     </message>
     <message>
         <source>Border color</source>
@@ -3310,31 +3310,31 @@ media file played</source>
     </message>
     <message>
         <source>Automatically load external subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>自动加载外部字幕</translation>
     </message>
     <message>
         <source>Autoload paths</source>
-        <translation type="unfinished"></translation>
+        <translation>自动加载路径</translation>
     </message>
     <message>
         <source>Path</source>
-        <translation type="unfinished"></translation>
+        <translation>路径</translation>
     </message>
     <message>
         <source>Match</source>
-        <translation type="unfinished"></translation>
+        <translation>匹配方式</translation>
     </message>
     <message>
         <source>Exact</source>
-        <translation type="unfinished"></translation>
+        <translation>精确</translation>
     </message>
     <message>
         <source>Fuzzy</source>
-        <translation type="unfinished"></translation>
+        <translation>模糊</translation>
     </message>
     <message>
         <source>Online database</source>
-        <translation type="unfinished"></translation>
+        <translation>在线数据库</translation>
     </message>
     <message>
         <source>Base url of the online subtitle database:</source>
@@ -3342,27 +3342,27 @@ media file played</source>
     </message>
     <message>
         <source>https://</source>
-        <translation type="unfinished"></translation>
+        <translation>https://</translation>
     </message>
     <message>
         <source>Test</source>
-        <translation type="unfinished"></translation>
+        <translation>测试</translation>
     </message>
     <message>
         <source>Directories</source>
-        <translation type="unfinished"></translation>
+        <translation>目录</translation>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕截图</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Encode</source>
-        <translation type="unfinished"></translation>
+        <translation>编码</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Unchecked directories will place output files in the source directory. Streams do not have a source directory and will bring up a dialog when a field is left blank; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; will always ask where to place files. Directories will be created if necessary; this may not work across all filesystems.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -3370,11 +3370,11 @@ media file played</source>
     </message>
     <message>
         <source>Filename template</source>
-        <translation type="unfinished"></translation>
+        <translation>文件名模板</translation>
     </message>
     <message>
         <source>qrc:/text/encodeFormat.html</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/text/encodeFormat.html</translation>
     </message>
     <message>
         <source>Save with high bit depth</source>
@@ -3382,7 +3382,7 @@ media file played</source>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>质量</translation>
     </message>
     <message>
         <source>Smooth</source>
@@ -3394,7 +3394,7 @@ media file played</source>
     </message>
     <message>
         <source>Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>压缩</translation>
     </message>
     <message>
         <source>Filter</source>
@@ -3402,7 +3402,7 @@ media file played</source>
     </message>
     <message>
         <source>Colorspace</source>
-        <translation type="unfinished"></translation>
+        <translation>色彩空间</translation>
     </message>
     <message>
         <source>Include tag</source>
@@ -3410,7 +3410,7 @@ media file played</source>
     </message>
     <message>
         <source>Don&apos;t encode the video</source>
-        <translation type="unfinished"></translation>
+        <translation>不要编码视频</translation>
     </message>
     <message>
         <source>Hardsub</source>
@@ -3418,11 +3418,11 @@ media file played</source>
     </message>
     <message>
         <source>Filesi&amp;ze</source>
-        <translation type="unfinished"></translation>
+        <translation>文件大小</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation>MB</translation>
     </message>
     <message>
         <source>Bitrate</source>
@@ -3430,31 +3430,31 @@ media file played</source>
     </message>
     <message>
         <source>kBits</source>
-        <translation type="unfinished"></translation>
+        <translation>kBits</translation>
     </message>
     <message>
         <source>crf</source>
-        <translation type="unfinished"></translation>
+        <translation>crf</translation>
     </message>
     <message>
         <source>qmin</source>
-        <translation type="unfinished"></translation>
+        <translation>qmin</translation>
     </message>
     <message>
         <source>qmax</source>
-        <translation type="unfinished"></translation>
+        <translation>qmax</translation>
     </message>
     <message>
         <source>Don&apos;t encode the audio</source>
-        <translation type="unfinished"></translation>
+        <translation>不要编码音频</translation>
     </message>
     <message>
         <source>&quot;Don&apos;t encode&quot; checkboxes are ignored for audio-only or video-only files.</source>
-        <translation type="unfinished"></translation>
+        <translation>“不要编码”选项对只有音频/只有视频的文件无效</translation>
     </message>
     <message>
         <source>Fast seek (when skipping)</source>
-        <translation type="unfinished"></translation>
+        <translation>快速定位</translation>
     </message>
     <message>
         <source>Drop frames before the seek target in the decoder</source>
@@ -3474,11 +3474,11 @@ media file played</source>
     </message>
     <message>
         <source>Prefer Wayland over XWayland (restart required)</source>
-        <translation type="unfinished"></translation>
+        <translation>优先使用 Wayland 而不是 XWayland (需要重启)</translation>
     </message>
     <message>
         <source>Turn on logging (may produce stuttering)</source>
-        <translation type="unfinished"></translation>
+        <translation>启用日志（可能造成卡顿）</translation>
     </message>
     <message>
         <source>Debugging</source>
@@ -3494,7 +3494,7 @@ media file played</source>
     </message>
     <message>
         <source>mpv</source>
-        <translation type="unfinished"></translation>
+        <translation>mpv</translation>
     </message>
     <message>
         <source>No (complete silence)</source>
@@ -3502,27 +3502,27 @@ media file played</source>
     </message>
     <message>
         <source>Fatal</source>
-        <translation type="unfinished"></translation>
+        <translation>Fatal</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Error</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Warning</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation type="unfinished"></translation>
+        <translation>Informational</translation>
     </message>
     <message>
         <source>Verbose</source>
-        <translation type="unfinished"></translation>
+        <translation>Verbose</translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation type="unfinished"></translation>
+        <translation>Debug</translation>
     </message>
     <message>
         <source>Trace (very noisy)</source>
@@ -3530,7 +3530,7 @@ media file played</source>
     </message>
     <message>
         <source>Log file</source>
-        <translation type="unfinished"></translation>
+        <translation>日志文件</translation>
     </message>
     <message>
         <source>Create log file (contents will be overwritten)</source>
@@ -3538,11 +3538,11 @@ media file played</source>
     </message>
     <message>
         <source>~/mpc-qt-log.txt</source>
-        <translation type="unfinished"></translation>
+        <translation>~/mpc-qt-log.txt</translation>
     </message>
     <message>
         <source>Every </source>
-        <translation type="unfinished"></translation>
+        <translation>每 </translation>
     </message>
     <message>
         <source>Window history</source>
@@ -3594,7 +3594,7 @@ media file played</source>
     </message>
     <message>
         <source>Paths</source>
-        <translation type="unfinished"></translation>
+        <translation>路径</translation>
     </message>
     <message>
         <source>Dela&amp;yed</source>
@@ -3602,11 +3602,11 @@ media file played</source>
     </message>
     <message>
         <source>Unlimited (consumes &amp;memory)</source>
-        <translation type="unfinished"></translation>
+        <translation>无限 (使用更多内存)</translation>
     </message>
     <message>
         <source>Auto-load external audio files</source>
-        <translation type="unfinished"></translation>
+        <translation>自动加载外部音频文件</translation>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
@@ -3646,15 +3646,15 @@ media file played</source>
     </message>
     <message>
         <source>Ignore embedded subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>忽略内置字幕</translation>
     </message>
     <message>
         <source>Web Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Web 界面</translation>
     </message>
     <message>
         <source>Allow access from localhost only</source>
-        <translation type="unfinished"></translation>
+        <translation>仅允许来自 localhost 的连接</translation>
     </message>
     <message>
         <source>webroot</source>
@@ -3666,11 +3666,11 @@ media file played</source>
     </message>
     <message>
         <source>index.html</source>
-        <translation type="unfinished"></translation>
+        <translation>index.html</translation>
     </message>
     <message>
         <source>TCP/IP</source>
-        <translation type="unfinished"></translation>
+        <translation>TCP/IP</translation>
     </message>
     <message>
         <source>&lt;a href=&quot;#&quot;&gt;Launch in web browser...&lt;/a&gt;</source>
@@ -3678,7 +3678,7 @@ media file played</source>
     </message>
     <message>
         <source>Local files</source>
-        <translation type="unfinished"></translation>
+        <translation>本地文件</translation>
     </message>
     <message>
         <source>Web root</source>
@@ -3686,11 +3686,11 @@ media file played</source>
     </message>
     <message>
         <source>Security</source>
-        <translation type="unfinished"></translation>
+        <translation>安全</translation>
     </message>
     <message>
         <source>Enable web server</source>
-        <translation type="unfinished"></translation>
+        <translation>启动 Web 服务器</translation>
     </message>
     <message>
         <source>Serve pages from disk</source>
@@ -3706,35 +3706,35 @@ media file played</source>
     </message>
     <message>
         <source>Stylesheet</source>
-        <translation type="unfinished"></translation>
+        <translation>样式</translation>
     </message>
     <message>
         <source>Application Stylesheet</source>
-        <translation type="unfinished"></translation>
+        <translation>程序样式表</translation>
     </message>
     <message>
         <source>High-contrast timeline and volume sliders</source>
-        <translation type="unfinished"></translation>
+        <translation>在进度条和音量控制栏使用高对比度颜色</translation>
     </message>
     <message>
         <source>Default After Playback action:</source>
-        <translation type="unfinished"></translation>
+        <translation>默认播放完成后动作:</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>什么都不做</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">重复</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>退出</translation>
     </message>
     <message>
         <source>After Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>播放完成后</translation>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
@@ -3742,15 +3742,15 @@ media file played</source>
     </message>
     <message>
         <source>Pipewire</source>
-        <translation type="unfinished"></translation>
+        <translation>Pipewire</translation>
     </message>
     <message>
         <source>Language Override</source>
-        <translation type="unfinished"></translation>
+        <translation>语言设置</translation>
     </message>
     <message>
         <source>Locale (Autodetect)</source>
-        <translation type="unfinished"></translation>
+        <translation>Locale (自动检测)</translation>
     </message>
     <message>
         <source>Medium</source>
@@ -3758,47 +3758,47 @@ media file played</source>
     </message>
     <message>
         <source>BT.470M</source>
-        <translation type="unfinished"></translation>
+        <translation>BT.470M</translation>
     </message>
     <message>
         <source>V-Gamut</source>
-        <translation type="unfinished"></translation>
+        <translation>V-Gamut</translation>
     </message>
     <message>
         <source>S-Gamut</source>
-        <translation type="unfinished"></translation>
+        <translation>S-Gamut</translation>
     </message>
     <message>
         <source>EBU3213</source>
-        <translation type="unfinished"></translation>
+        <translation>EBU3213</translation>
     </message>
     <message>
         <source>Film-C</source>
-        <translation type="unfinished"></translation>
+        <translation>Film-C</translation>
     </message>
     <message>
         <source>ACES AP0</source>
-        <translation type="unfinished"></translation>
+        <translation>ACES AP0</translation>
     </message>
     <message>
         <source>ACES AP1</source>
-        <translation type="unfinished"></translation>
+        <translation>ACES AP1</translation>
     </message>
     <message>
         <source>Gamma 2.0</source>
-        <translation type="unfinished"></translation>
+        <translation>Gamma 2.0</translation>
     </message>
     <message>
         <source>Gamma 2.4</source>
-        <translation type="unfinished"></translation>
+        <translation>Gamma 2.4</translation>
     </message>
     <message>
         <source>Gamma 2.6</source>
-        <translation type="unfinished"></translation>
+        <translation>Gamma 2.6</translation>
     </message>
     <message>
         <source>ST 428</source>
-        <translation type="unfinished"></translation>
+        <translation>ST 428</translation>
     </message>
     <message>
         <source>Target Gamut</source>
@@ -3834,11 +3834,11 @@ media file played</source>
     </message>
     <message>
         <source>Send mouse events to mpv</source>
-        <translation type="unfinished"></translation>
+        <translation>将鼠标事件发送给 mpv</translation>
     </message>
     <message>
         <source>Send key events to mpv</source>
-        <translation type="unfinished"></translation>
+        <translation>将按键事件发送到 mpv</translation>
     </message>
     <message>
         <source>Remember file position</source>
@@ -3850,7 +3850,7 @@ media file played</source>
     </message>
     <message>
         <source>Play next file</source>
-        <translation type="unfinished"></translation>
+        <translation>播放下一个文件</translation>
     </message>
     <message>
         <source>Delay step</source>
@@ -3858,7 +3858,7 @@ media file played</source>
     </message>
     <message>
         <source>Autodetect - best of VAAPI, DXVA, D3D11VA, etc.</source>
-        <translation type="unfinished"></translation>
+        <translation>自动选择 - 优先使用VAAPI,DXVA,D3D11VA等</translation>
     </message>
     <message>
         <source>Linux - works with Intel and AMD GPUs through Mesa, and with nVidia through a translation layer; may only be correct in BT.601 and BT.709</source>
@@ -3866,7 +3866,7 @@ media file played</source>
     </message>
     <message>
         <source>nVidia only (faster than CUDA)</source>
-        <translation type="unfinished"></translation>
+        <translation>只适用于 nVidia (快于NUDA)</translation>
     </message>
     <message>
         <source>Show OSD timer on seek</source>
@@ -3886,7 +3886,7 @@ media file played</source>
     </message>
     <message>
         <source>Change OSD font:</source>
-        <translation type="unfinished"></translation>
+        <translation>更改 OSD 字体:</translation>
     </message>
     <message>
         <source>Only keep history for videos</source>
@@ -3906,11 +3906,11 @@ media file played</source>
     </message>
     <message>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation>毫秒</translation>
     </message>
     <message>
         <source>Remember panels state</source>
-        <translation type="unfinished"></translation>
+        <translation>记住面板状态</translation>
     </message>
     <message>
         <source>Open ICC Profile</source>
@@ -3918,58 +3918,58 @@ media file played</source>
     </message>
     <message>
         <source>ICC profile files (*.icc *.icm)</source>
-        <translation type="unfinished"></translation>
+        <translation>ICC 配置文件 (*.icc *.icm)</translation>
     </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
     <message>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation>来源</translation>
     </message>
     <message>
         <source>&amp;Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>浏览(&amp;B)...</translation>
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>图像</translation>
     </message>
     <message>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>Width</source>
-        <translation type="unfinished"></translation>
+        <translation>宽度</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>样式</translation>
     </message>
     <message>
         <source>Rows</source>
-        <translation type="unfinished"></translation>
+        <translation>行</translation>
     </message>
     <message>
         <source>&amp;Go!</source>
-        <translation type="unfinished"></translation>
+        <translation>开始</translation>
     </message>
     <message>
         <source>Thu&amp;mbnail</source>
-        <translation type="unfinished"></translation>
+        <translation>预览图</translation>
     </message>
     <message>
         <source>&amp;Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>质量(&amp;Q)</translation>
     </message>
     <message>
         <source>&amp;Columns</source>
-        <translation type="unfinished"></translation>
+        <translation>列</translation>
     </message>
     <message>
         <source>Save Thumbnails</source>
-        <translation type="unfinished"></translation>
+        <translation>保存预览图</translation>
     </message>
 </context>
 </TS>
