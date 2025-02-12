@@ -32,7 +32,7 @@
 
 //---------------------------------------------------------------------------
 
-static const char flatpakDesktopFile[] = "io.github.mpc_qt.Mpc-Qt";
+static const char desktopFile[] = "io.github.mpc-qt.mpc-qt";
 
 static const char keyCommand[] = "command";
 static const char keyDirectory[] = "directory";
@@ -416,8 +416,7 @@ void Flow::earlyPlatformOverride()
     if (!Platform::isUnix)
         return;
 
-    if (!qEnvironmentVariableIsEmpty("FLATPAK_ID"))
-        QGuiApplication::setDesktopFileName(flatpakDesktopFile);
+    QGuiApplication::setDesktopFileName(desktopFile);
 
     // Wayland doesn't support run-time centering and it doesn't look like
     // it'll support it any time soon.  I'll remove this code when it does.
