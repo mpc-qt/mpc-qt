@@ -82,16 +82,19 @@ CONFIG += lrelease embed_translations
 #NOTE: lupdate is run with "-locations none -no-ui-lines".  Edit your config.
 LRELEASE_DIR=.
 QM_FILES_RESOURCE_PREFIX=/i18n/
-TRANSLATIONS += translations/mpc-qt_en.ts \
-		        translations/mpc-qt_es.ts \
+TRANSLATIONS += translations/mpc-qt_ca.ts \
+                translations/mpc-qt_en.ts \
+                translations/mpc-qt_es.ts \
                 translations/mpc-qt_fi.ts \
                 translations/mpc-qt_id.ts \
                 translations/mpc-qt_it.ts \
                 translations/mpc-qt_nl.ts \
                 translations/mpc-qt_ru.ts \
+                translations/mpc-qt_ta.ts \
+                translations/mpc-qt_tr.ts \
                 translations/mpc-qt_zh_CN.ts
 
-LCONVERT_LANGS=es fi id it nl ru zh_CN
+LCONVERT_LANGS=ca es fi id it nl ru ta tr zh_CN
 include(lconvert.pri)
 
 unix {
