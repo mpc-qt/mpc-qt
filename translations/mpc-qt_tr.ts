@@ -1388,6 +1388,30 @@
         <source>Title</source>
         <translation>Başlık</translation>
     </message>
+    <message>
+        <source>&amp;Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Pan and Scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decrease &amp;Pan and Scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase Pan and &amp;Scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Minimum Pan and Scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>M&amp;aximum Pan and Scan</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -1979,7 +2003,7 @@
     </message>
     <message>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">1</translation>
     </message>
     <message>
         <source>Player</source>
@@ -2027,11 +2051,11 @@
     </message>
     <message>
         <source>Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Oynatma Listesi</translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Altyazılar</translation>
     </message>
     <message>
         <source>Default Style</source>
@@ -2153,11 +2177,11 @@ media file played</source>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Video</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ses</translation>
     </message>
     <message>
         <source>All</source>
@@ -2273,7 +2297,7 @@ media file played</source>
     </message>
     <message>
         <source>Control</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kontrol</translation>
     </message>
     <message>
         <source>Volume step</source>
@@ -2357,7 +2381,7 @@ media file played</source>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Genel</translation>
     </message>
     <message>
         <source>Framebuffer</source>
@@ -2529,7 +2553,7 @@ media file played</source>
     </message>
     <message>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">2</translation>
     </message>
     <message>
         <source>Anti-ring</source>
@@ -2541,7 +2565,7 @@ media file played</source>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pencere</translation>
     </message>
     <message>
         <source>Box</source>
@@ -2769,19 +2793,19 @@ media file played</source>
     </message>
     <message>
         <source>BT.601-525</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {601-525?}</translation>
     </message>
     <message>
         <source>BT.601-625</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {601-625?}</translation>
     </message>
     <message>
         <source>BT.709</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {709?}</translation>
     </message>
     <message>
         <source>BT.2020</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {2020?}</translation>
     </message>
     <message>
         <source>Apple</source>
@@ -2809,7 +2833,7 @@ media file played</source>
     </message>
     <message>
         <source>BT.1886</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {1886?}</translation>
     </message>
     <message>
         <source>sRGB</source>
@@ -2853,7 +2877,7 @@ media file played</source>
     </message>
     <message>
         <source>Clip</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Klip</translation>
     </message>
     <message>
         <source>Mobius</source>
@@ -3017,7 +3041,7 @@ media file played</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kaldır</translation>
     </message>
     <message>
         <source>Add to shaders</source>
@@ -3029,7 +3053,7 @@ media file played</source>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kaydet</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -3097,7 +3121,7 @@ media file played</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yok</translation>
     </message>
     <message>
         <source>Default</source>
@@ -3249,11 +3273,11 @@ media file played</source>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sol</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sağ</translation>
     </message>
     <message>
         <source>Y</source>
@@ -3474,7 +3498,7 @@ media file played</source>
     </message>
     <message>
         <source>Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kare Hızı</translation>
     </message>
     <message>
         <source>kBits</source>
@@ -3794,7 +3818,7 @@ media file played</source>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yinele</translation>
     </message>
     <message>
         <source>Play next in the folder</source>
@@ -3834,7 +3858,7 @@ media file played</source>
     </message>
     <message>
         <source>BT.470M</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {470M?}</translation>
     </message>
     <message>
         <source>V-Gamut</source>
@@ -3982,6 +4006,18 @@ media file played</source>
     </message>
     <message>
         <source> ms</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember panels state</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open ICC Profile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ICC profile files (*.icc *.icm)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
