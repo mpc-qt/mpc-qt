@@ -14,22 +14,14 @@ else
     # v23.02-74-g60b18fa -> 23.02.74
     VERSION=`git describe --tags  | sed 's/[^0-9]*\([0-9]*\)[^0-9]*\([0-9]*\)[^0-9]*\([0-9]*\).*/\1.\2.\3/'`
 fi
-BUILD=release
-EXECUTABLE="$BUILD/mpc-qt.exe"
+BUILDDIR=bin
+EXECUTABLE="$BUILDDIR/mpc-qt.exe"
 BINDIR="/mingw64/bin"
 SUFFIX="win-x64-$VERSION"
 DEST="mpc-qt-$SUFFIX"
 
-qmake6 "MPCQT_VERSION=$VERSION" "ENABLE_LOCAL_MPV=1" mpc-qt.pro
-
-mkdir -p $BUILD
-rm $BUILD/*
-make $BUILD-clean
-if [ -v GITHUB_SHA ]; then
-    make $BUILD
-else
-    make -j`nproc` $BUILD
-fi
+cmake -DMPCQT_VERSION=$VERSION -DENABLE_LOCAL_MPV=ON -G Ninja -B build
+ninja -C build
 
 if [ ! -f "$EXECUTABLE" ]; then
     echo Failed to find executable
@@ -60,6 +52,7 @@ cp "$PLUGDIR/styles/qmodernwindowsstyle.dll"    "$DEST/styles"
 
 
 # Use ldd to find dependencies and copy them
+echo Finding dependencies and copying them
 ldd "$EXECUTABLE" | awk '/=>/ {print $3}' | while read -r dll; do
   if [[ -n "$dll" && -f "$dll" ]]; then
     # Check if the DLL is in /mingw64/bin before copying
@@ -97,7 +90,7 @@ cp $BINDIR/libjpeg-*.dll                "$DEST"
 echo "All required DLLs from $BINDIR have been copied to $DEST."
 
 echo Copying executable
-cp "$BUILD/mpc-qt.exe" "$DEST"
+cp "$BUILDDIR/mpc-qt.exe" "$DEST"
 
 echo Copying libmpv
 cp mpv-dev/lib/libmpv-2.dll "$DEST"

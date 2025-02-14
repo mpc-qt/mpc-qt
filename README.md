@@ -80,7 +80,7 @@ users, there could even be packages in your distro that help with this (e.g.
 
 You need the Qt6 SDK installed and a recent edition of libmpv.  On Ubuntu you
 can usually install the required libraries and tools with the
-`build-essential`, `qmake6`, `qt6-base-dev`, `qt6-l10n-tools`, `libqt6svg6-dev`,
+`build-essential`, `cmake`, `qt6-base-dev`, `qt6-l10n-tools`, `libqt6svg6-dev`,
 and `libmpv-dev` packages.  A recent edition of [libmpv] means either from git
 head or at least version 0.37.0.
 
@@ -102,20 +102,50 @@ Finally, `cd` into the checked-out repository.
 
 >cd mpc-qt
 
-Then build with qmake+make.
+Then the easiest way to build with CMake and install:
 
->qmake6
+>cmake .
 
 >make -j\`nproc\`
 
+To install:
+
 >sudo make install
+
+To uninstall:
+
+>sudo make uninstall
+
+If you plan to help with development, it's better to build with CMake + Ninja in a subdirectory:
+
+>cmake -B build -G Ninja
+
+>cmake --build build -t update_translations
+
+>cmake --build build
+
+or
+
+>cmake -G Ninja -B build ; cmake --build build -t update_translations ; cmake --build build
+
+To install:
+
+>sudo cmake --install build
+
+To uninstall:
+
+>sudo cmake --build build -t uninstall
+
+To clean the build files:
+
+>cmake --build build -t clean
 
 You're done!  Later on, performing a git pull from inside the source code
 directory will get the latest changes.
 
 >git pull origin master
 
-Rebuild by following the qmake+make steps as described above.
+Rebuild by following the cmake+make or cmake+ninja steps as described above.
 
 ### I have compiler/linker errors
 
@@ -140,17 +170,10 @@ Restart MSYS2 MINGW64 when prompted to do so and re-run pacman.
 At this stage packages required for building can be installed (Copy and paste
 this as one line).
 
->pacman -S base-devel git mingw-w64-x86_64-toolchain mingw-w64-x86_64-clang
+>pacman -S base-devel mingw-w64-x86_64-cmake git mingw-w64-x86_64-toolchain mingw-w64-x86_64-clang
 >mingw-w64-x86_64-cmake mingw-w64-x86_64-qt6 mingw-w64-x86_64-qt-creator
 >mingw-w64-x86_64-qt6-doc mingw-w64-x86_64-imagemagick mingw-w64-x86_64-librsvg
 >mingw-w64-x86_64-inkscape
-
-At the time of writing, there is a slight bug in qmake where it looks for the wrong
-version of lupdate/lrelease.  Create the required symlinks.
-
->ln -s lrelease-qt6.exe /mingw64/bin/lrelease.exe
-
->ln -s lupdate-qt6.exe /mingw64/bin/lupdate.exe
 
 Mpc-Qt can be compiled with a libmpv linked to MSYS2's ffmpeg libraries, or by
 using the prebuilt library released on sourceforge.  To use the prebuilt
@@ -158,9 +181,9 @@ library after cloning this repository, download libmpv from [shinchiro's
 release page], and extract it somewhere.  Place the files in the root folder
 of mpv-dev-x86_64-*.7z into `mpv-dev/lib`. Then place the files in its include
 folder into `mpv-dev/include/mpv`.  If you do this, compile with the
-`ENABLE_LOCAL_MPV=1` option.
+`-DENABLE_LOCAL_MPV=ON` option.
 
->qmake6 ENABLE_LOCAL_MPV=1 mpc-qt.pro
+>cmake -DENABLE_LOCAL_MPV=ON .
 
 >make -j\`nproc\`
 

@@ -14,24 +14,6 @@
 *.rc
 *.ico
 
-# Qt-es
-=======
-
-/.qmake.cache
-/.qmake.stash
-*.pro.user
-*.pro.user.*
-*.qbs.user
-*.qbs.user.*
-*.moc
-moc_*.cpp
-moc_*.h
-qrc_*.cpp
-ui_*.h
-Makefile*
-*-build-*
-mpc-qt
-
 # QtCreator
 
 *.autosave
@@ -43,13 +25,9 @@ mpc-qt
 #Python
 *.pyc
 
-# qmake
+# CMake
+/bin/
 /build/
-/release/
-/debug/
-/object_script.*.Debug
-/object_script.*.Release
-/resources/translations/
 
 # make release scripts
 /mpc-qt-*/
@@ -58,11 +36,6 @@ mpc-qt
 
 # transifex
 .transifexrc
-
-# translations
-*.qm
-qmake_qm_res.qrc
-qmake_qmake_qm_files.qrc
 
 # Appimage
 AppDir
