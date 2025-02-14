@@ -74,11 +74,6 @@ QString Platform::resourcesPath()
 {
     if (Platform::isWindows)
         return QApplication::applicationDirPath();
-    if (Platform::isUnix) {
-#ifdef MPCQT_PREFIX
-        return MPCQT_PREFIX "/share/mpc-qt";
-#endif
-    }
     return ".";
 }
 

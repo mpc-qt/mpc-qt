@@ -3,15 +3,14 @@
 
 VERSION=`date +'%y%m'`
 DOTTEDVERSION=`date +'%y.%m'`
-BUILD=release
+BUILDDIR=bin
 SUFFIX="win-x64-$VERSION"
 DEST="mpc-qt-$SUFFIX"
 
-qmake6 "MPCQT_VERSION=$DOTTEDVERSION" "ENABLE_LOCAL_MPV=1" mpc-qt.pro
-mkdir -p release
-rm release/*
-make release-clean
-make -j`nproc` release
+cmake --build build --target clean
+rm -r build/*
+cmake -DMPCQT_VERSION=$DOTTEDVERSION -DENABLE_LOCAL_MPV=ON -G Ninja -B build
+cmake --build build
 
 read -r -d '' dirs <<'EOF'
 .
@@ -98,7 +97,7 @@ done)<<<"$docs"
         cp "binaries/$binary" "$DEST/$binary"
 done)<<<"$binaries"
 
-cp "$BUILD/bin/mpc-qt.exe" "$DEST"
+cp "$BUILDDIR/mpc-qt.exe" "$DEST"
 cp mpv-dev/lib/libmpv-2.dll "$DEST"
 7z a "$DEST.zip" "./$DEST/*"
 sha512sum "$DEST.zip" >"$DEST.zip.sha512"

@@ -23,6 +23,8 @@ jobs:
           base-devel
           wget
           p7zip
+          mingw-w64-x86_64-cmake
+          mingw-w64-x86_64-ninja
           mingw-w64-x86_64-toolchain
           mingw-w64-x86_64-qt6
           mingw-w64-x86_64-qt-creator
@@ -53,8 +55,6 @@ jobs:
       run: |
         chmod +x *.sh
         set +e
-        ln -s lrelease-qt6.exe /mingw64/bin/lrelease.exe
-        ln -s lupdate-qt6.exe /mingw64/bin/lupdate.exe
         bash make-win-icon.sh
         bash make-release-msys2.sh
     - name: Upload
