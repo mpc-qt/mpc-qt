@@ -28,10 +28,27 @@ jobs:
           mingw-w64-x86_64-qt-creator
           mingw-w64-x86_64-imagemagick
           mingw-w64-x86_64-boost
-          mingw-w64-x86_64-mpv
     - name: Avoid line ending issues on Windows
       run: git config --global core.autocrlf input
     - uses: actions/checkout@v4
+    - name: Download static build of libmpv
+      uses: robinraju/release-downloader@v1
+      with:
+        repository: "shinchiro/mpv-winbuild-cmake"
+        latest: true
+        fileName: "mpv-dev-x86_64-????????-git-*.7z"
+    - name: Download yt-dlp
+      uses: robinraju/release-downloader@v1
+      with:
+        repository: "yt-dlp/yt-dlp"
+        latest: true
+        fileName: "yt-dlp.exe"
+    - name: Extract mpv
+      run: |
+        7z x mpv-dev-x86_64-*.7z -ompv-dev
+        mv mpv-dev/libmpv* mpv-dev/lib
+    - name: Set version
+      run: echo "FORCE_VERSION=$( cat .github/actions/data/VERSION )" >> $GITHUB_ENV
     - name: Build
       run: |
         chmod +x *.sh
@@ -39,7 +56,7 @@ jobs:
         ln -s lrelease-qt6.exe /mingw64/bin/lrelease.exe
         ln -s lupdate-qt6.exe /mingw64/bin/lupdate.exe
         bash make-win-icon.sh
-        bash make-release-msys2.sh          
+        bash make-release-msys2.sh
     - name: Upload
       uses: actions/upload-artifact@v4
       with:
