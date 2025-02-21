@@ -158,7 +158,8 @@ QSet<QString> Helpers::archivesFileExtensions {
     "rar",
     "zip",
     "cbz",
-    "cbr"
+    "cbr",
+    "iso"
 };
 QSet<QString> Helpers::othersFileExtensions {
     // Other formats
