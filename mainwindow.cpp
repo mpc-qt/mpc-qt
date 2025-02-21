@@ -2631,16 +2631,22 @@ void MainWindow::on_actionViewZoomDisable_triggered()
 
 void MainWindow::on_actionDecreaseVideoAspect_triggered()
 {
+    mpvObject_->disableVideoAspect(false);
+    ui->actionDisableVideoAspect->setChecked(false);
     mpvObject_->setVideoAspect(-0.02);
 }
 
 void MainWindow::on_actionIncreaseVideoAspect_triggered()
 {
+    mpvObject_->disableVideoAspect(false);
+    ui->actionDisableVideoAspect->setChecked(false);
     mpvObject_->setVideoAspect(0.02);
 }
 
 void MainWindow::on_actionResetVideoAspect_triggered()
 {
+    mpvObject_->disableVideoAspect(false);
+    ui->actionDisableVideoAspect->setChecked(false);
     mpvObject_->setVideoAspectPreset(-1);
 }
 
