@@ -1,0 +1,8 @@
+--enable-gnutls
+--enable-libbluray
+--enable-libmp3lame
+--enable-librubberband
+--enable-libvorbis
+--enable-libvpx
+--enable-libx264
+--disable-vulkan

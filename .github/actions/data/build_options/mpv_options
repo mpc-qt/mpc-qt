@@ -1,0 +1,9 @@
+-Dlibmpv=true
+-Dbuild-date=false
+-Dcdda=enabled
+-Ddvdnav=enabled
+-Dsdl2=enabled
+-Dsndio=disabled
+-Ddvbin=enabled
+-Djack=disabled
+-Dpipewire=disabled
