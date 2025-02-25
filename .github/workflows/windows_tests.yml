@@ -23,7 +23,6 @@ jobs:
         update: true
         install: >-
           coreutils
-          mingw-w64-x86_64-mpv
 
     - name: Get mpc-qt dir
       run: |

@@ -18,6 +18,7 @@
 #include <QLibraryInfo>
 #include "logger.h"
 #include "main.h"
+#include "qprocess.h"
 #include "storage.h"
 #include "mainwindow.h"
 #include "manager.h"
@@ -31,7 +32,7 @@
 
 //---------------------------------------------------------------------------
 
-static const char flatpakDesktopFile[] = "io.github.mpc_qt.Mpc-Qt";
+static const char desktopFile[] = "io.github.mpc-qt.mpc-qt";
 
 static const char keyCommand[] = "command";
 static const char keyDirectory[] = "directory";
@@ -53,6 +54,7 @@ constexpr char optConsoleLogEx[] = "--log-to-console";
 
 int main(int argc, char *argv[])
 {
+    Logger::log("main", "starting logging");
     #if !defined(Q_OS_WIN)
     std::signal(SIGHUP, signalHandler);
     #endif
@@ -137,7 +139,6 @@ Flow::Flow(QObject *owner) :
     connect(this, &Flow::flushLog,
             logger, &Logger::flushMessages,
             Qt::BlockingQueuedConnection);
-    Logger::log("main", "starting logging");
 
     readConfig();
     Logger::log("main", "finished reading config");
@@ -415,19 +416,20 @@ void Flow::earlyPlatformOverride()
     if (!Platform::isUnix)
         return;
 
-    if (!qEnvironmentVariableIsEmpty("FLATPAK_ID"))
-        QGuiApplication::setDesktopFileName(flatpakDesktopFile);
+    QGuiApplication::setDesktopFileName(desktopFile);
 
     // Wayland doesn't support run-time centering and it doesn't look like
     // it'll support it any time soon.  I'll remove this code when it does.
+    bool nvidiaDetected = Flow::isNvidiaGPU();
     Storage s;
     QVariantMap settings = s.readVMap(fileSettings);
-    if (!settings.value("tweaksPreferWayland", QVariant(false)).toBool()) {
+    if (!settings.value("tweaksPreferWayland", QVariant(false)).toBool())
         qputenv("QT_QPA_PLATFORM", "xcb");
-    } else if (!qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY")) {
+    else if (!qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY"))
         settingsDisableWindowManagement = true;
-    }
-    qputenv("QT_XCB_GL_INTEGRATION", "xcb_egl");
+    // The Nvidia drivers don't work well with EGL
+    if (!nvidiaDetected)
+        qputenv("QT_XCB_GL_INTEGRATION", "xcb_egl");
 }
 
 void Flow::readConfig()
@@ -1120,6 +1122,23 @@ void Flow::setupMpcHc()
             mpcHcServer, &MpcHcServer::setPlaybackState);
 }
 
+bool Flow::isNvidiaGPU()
+{
+    bool foundNvidia = false;
+    QProcess process;
+    Logger::log("main", "Display devices:");
+    process.start("lspci", QStringList() << "-v" << "-d" << "::0300");
+    process.waitForFinished(1000);
+    QString result = process.readAllStandardOutput();
+    for (const QString &line : result.split('\n'))
+        LogStream("main") << line;
+
+    if (result.contains("nvidia", Qt::CaseSensitivity::CaseInsensitive) > 0) {
+        foundNvidia = true;
+    }
+    return foundNvidia;
+}
+
 void Flow::showVersionInfo()
 {
     constexpr char spaces[] = "               ";
@@ -1397,12 +1416,12 @@ void Flow::manager_hasNoSubtitles(bool none)
 void Flow::manager_playingNextFile()
 {
     // Save the position just before opening the next file
-    LogStream("main") << "manager_playingNextFile";
+    Logger::log("main", "manager_playingNextFile");
     updateRecentPosition(false);
 }
 
 void Flow::manager_playLengthChanged() {
-    LogStream("main") << "manager_playLengthChanged";
+    Logger::log("main", "manager_playLengthChanged");
     updateRecentPosition(false);
     if (repeatAfter)
         mainWindow->setActionPlayLoopUse();
@@ -1450,7 +1469,7 @@ void Flow::settingswindow_settingsData(const QVariantMap &settings)
     // The selected options have changed, so write them to disk
     this->settings = settings;
     writeConfig(true);
-    LogStream("main") << "settingswindow_settingsData";
+    Logger::log("main", "settingswindow_settingsData");
 }
 
 void Flow::settingswindow_inhibitScreensaver(bool yes)
@@ -1572,7 +1591,7 @@ void Flow::favoriteswindow_favoriteTracksCancel()
 // Update the position of the current file
 void Flow::updateRecentPosition(bool resetPosition)
 {
-    LogStream("main") << "updateRecentPosition";
+    Logger::log("main", "updateRecentPosition");
     QUrl url;
     QUuid listUuid;
     QUuid itemUuid;

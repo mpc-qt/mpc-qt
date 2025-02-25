@@ -4,10 +4,12 @@
 set -e
 
 VERSION=""
-if [ -v GITHUB_SHA ]; then
-    VERSION=`date +'%Y.%m.%d'`
-elif [ -v FORCE_VERSION ]; then
-    VERSION=$FORCE_VERSION
+if [ -v FORCE_VERSION ]; then
+    if [[ $FORCE_VERSION == "GithubAction" ]]; then
+        VERSION=`date +'%Y.%m.%d'`
+    else
+        VERSION=$FORCE_VERSION
+    fi
 else
     # v23.02-74-g60b18fa -> 23.02.74
     VERSION=`git describe --tags  | sed 's/[^0-9]*\([0-9]*\)[^0-9]*\([0-9]*\)[^0-9]*\([0-9]*\).*/\1.\2.\3/'`
@@ -18,7 +20,7 @@ BINDIR="/mingw64/bin"
 SUFFIX="win-x64-$VERSION"
 DEST="mpc-qt-$SUFFIX"
 
-qmake6 "MPCQT_VERSION=$VERSION" mpc-qt.pro
+qmake6 "MPCQT_VERSION=$VERSION" "ENABLE_LOCAL_MPV=1" mpc-qt.pro
 
 mkdir -p $BUILD
 rm $BUILD/*
@@ -70,14 +72,38 @@ ldd "$EXECUTABLE" | awk '/=>/ {print $3}' | while read -r dll; do
   fi
 done
 
-# Manually copy Qt6Svg.dll as it's dynamically loaded
-cp $BINDIR/Qt6Svg.dll                   "$DEST"
+DLLS=("Qt6Core.dll" "Qt6Gui.dll" "Qt6Network.dll" "Qt6OpenGLWidgets.dll")
+
+for dll in "${DLLS[@]}"; do
+  echo " "
+  echo "Checking dependencies for $dll"
+  ldd "$BINDIR/$dll" | awk '/=>/ {print $3}' | while read -r dep; do
+    if [[ -n "$dep" && -f "$dep" ]]; then
+      # Check if the DLL is in /mingw64/bin before copying
+      if [[ "$dep" == "$BINDIR"* ]]; then
+        echo "Copying $dep to $DEST"
+        cp -u "$dep" "$DEST"
+      else
+        echo "Skipping $dep (not in $BINDIR)"
+      fi
+    fi
+  done
+done
+
+# Manually copy Qt6Svg.dll as it's needed by imageformats/qjpeg.dll
+echo "Copying libjpeg-*.dll to $DEST"
+cp $BINDIR/libjpeg-*.dll                "$DEST"
 
 echo "All required DLLs from $BINDIR have been copied to $DEST."
 
-
 echo Copying executable
 cp "$BUILD/mpc-qt.exe" "$DEST"
+
+echo Copying libmpv
+cp mpv-dev/lib/libmpv-2.dll "$DEST"
+
+echo Copying yt-dlp
+cp "yt-dlp.exe" "$DEST"
 
 echo Zipping and checksumming
 7z a "$DEST.zip" "./$DEST/*"

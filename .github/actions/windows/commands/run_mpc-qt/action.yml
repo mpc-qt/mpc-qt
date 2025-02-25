@@ -13,8 +13,8 @@ runs:
   - name: Run mpc-qt and open a file if provided
     run: ${{ env.EXEDIR }}mpc-qt.exe ${{ inputs.filename }} &
     shell: msys2 {0}
-  - name: wait 3 seconds
-    run:  sleep 3
+  - name: wait 5 seconds
+    run:  sleep 5
     shell: bash
   - name: check that mpc-qt is running
     uses: ./.github/actions/windows/commands/check_if_running

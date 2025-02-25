@@ -658,7 +658,7 @@ void MpvObject::hideCursor()
         auto window = w->window();
         if (window->isFullScreen() && QCursor::pos().x() == window->geometry().right()) {
             window->setCursor(Qt::BlankCursor);
-            LogStream("glwidget") << "workaround: hiding cursor on rightmost pixels";
+            Logger::log("glwidget", "workaround: hiding cursor on rightmost pixels");
         }
     }
 }
@@ -998,11 +998,12 @@ void MpvGlWidget::paintGL()
         return;
     }
 
-    bool yes = true;
+    int yes = 1; //true
     mpv_opengl_fbo fbo { static_cast<int>(defaultFramebufferObject()), glWidth, glHeight, 0 };
     mpv_render_param params[] {
-        {MPV_RENDER_PARAM_OPENGL_FBO, &fbo },
-        {MPV_RENDER_PARAM_FLIP_Y, &yes}
+        { MPV_RENDER_PARAM_OPENGL_FBO, &fbo },
+        { MPV_RENDER_PARAM_FLIP_Y, &yes },
+        { MPV_RENDER_PARAM_INVALID, nullptr }
     };
     mpv_render_context_render(render, params);
 }
