@@ -5,6 +5,9 @@ runs:
   using: "composite"
 
   steps:
+  - name: Wait 15 seconds
+    run:  sleep 15
+    shell: bash
   - name: Kill mpc-qt
     run:  taskkill /im mpc-qt.exe
     shell: pwsh
