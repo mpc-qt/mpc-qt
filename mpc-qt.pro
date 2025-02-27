@@ -88,13 +88,15 @@ TRANSLATIONS += translations/mpc-qt_ca.ts \
                 translations/mpc-qt_fi.ts \
                 translations/mpc-qt_id.ts \
                 translations/mpc-qt_it.ts \
+                translations/mpc-qt_ja.ts \
                 translations/mpc-qt_nl.ts \
+                translations/mpc-qt_pt_BR.ts \
                 translations/mpc-qt_ru.ts \
                 translations/mpc-qt_ta.ts \
                 translations/mpc-qt_tr.ts \
                 translations/mpc-qt_zh_CN.ts
 
-LCONVERT_LANGS=ca es fi id it nl ru ta tr zh_CN
+LCONVERT_LANGS=ca es fi id it ja nl pt_BR ru ta tr zh_CN
 include(lconvert.pri)
 
 unix {
