@@ -35,7 +35,7 @@
      inkscape:pagecheckerboard="true"
      inkscape:object-paths="true"
      inkscape:window-width="1920"
-     inkscape:window-height="1012"
+     inkscape:window-height="1005"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -69,15 +69,15 @@
      id="layer1"
      transform="translate(0,-292.76665)">
     <rect
-       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.66256;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4146-14-9"
-       width="2"
+       width="2.717438"
        height="15.999988"
-       x="10"
+       x="11.239733"
        y="292.76666" />
     <path
-       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1,300.76665 7,8 v -16 z"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.06665px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 1,300.76665 7.9642365,8 v -16 z"
        id="path4148-5-5"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc" />
