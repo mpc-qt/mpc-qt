@@ -722,6 +722,11 @@ media file played</string>
                 </property>
                 <item>
                  <property name="text">
+                  <string>Auto</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
                   <string>Black (for white palette)</string>
                  </property>
                 </item>
