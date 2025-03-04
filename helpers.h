@@ -13,6 +13,7 @@
 #include <QTime>
 #include <QDir>
 
+extern const char autoIcons[];
 extern const char blackIconsPath[];
 extern const char whiteIconsPath[];
 

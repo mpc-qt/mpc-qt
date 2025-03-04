@@ -17,6 +17,7 @@
 #include "helpers.h"
 #include "platform/unify.h"
 
+const char autoIcons[] = "auto";
 const char blackIconsPath[] = ":/images/theme/black/";
 const char whiteIconsPath[] = ":/images/theme/white/";
 
@@ -690,7 +691,15 @@ void IconThemer::setIconFolders(FolderMode folderMode,
                                 const QString &customFolder)
 {
     folderMode_ = folderMode;
-    fallbackFolder_ = fallbackFolder;
+    if (fallbackFolder == autoIcons) {
+        // FIXME: with Qt 6.5, use QGuiApplication::styleHints()->colorScheme()
+        const QPalette defaultPalette;
+        const auto text = defaultPalette.color(QPalette::WindowText);
+        const auto window = defaultPalette.color(QPalette::Window);
+        fallbackFolder_ = text.lightness() > window.lightness() ? whiteIconsPath : blackIconsPath;
+    }
+    else
+        fallbackFolder_ = fallbackFolder;
     customFolder_ = customFolder;
     for (const IconData &data : std::as_const(iconDataList))
         updateButton(data);
