@@ -5,6 +5,10 @@ runs:
   using: "composite"
 
   steps:
+  - name: Enable dark theme for apps
+    run: |
+      reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v "AppsUseLightTheme" /t REG_DWORD /d 0 /f
+    shell: pwsh
   - name: Run mpc-qt
     uses: ./.github/actions/windows/commands/run_mpc-qt
   - name: Take a screenshot
