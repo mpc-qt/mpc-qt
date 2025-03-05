@@ -3920,6 +3920,10 @@ media file played</source>
         <source>ICC profile files (*.icc *.icm)</source>
         <translation>ICC 配置文件 (*.icc *.icm)</translation>
     </message>
+    <message>
+        <source>Allows dark theme support on Windows</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

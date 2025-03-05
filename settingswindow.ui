@@ -886,6 +886,9 @@ media file played</string>
           <layout class="QVBoxLayout" name="verticalLayout_15">
            <item>
             <widget class="QCheckBox" name="stylesheetFusion">
+             <property name="toolTip">
+              <string>Allows dark theme support on Windows</string>
+             </property>
              <property name="text">
               <string>Use Qt's inbuilt fusion style</string>
              </property>

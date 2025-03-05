@@ -3970,6 +3970,10 @@ archivo multimedia reproducido</translation>
         <source>ICC profile files (*.icc *.icm)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Allows dark theme support on Windows</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
