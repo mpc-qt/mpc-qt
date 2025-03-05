@@ -5,6 +5,9 @@ runs:
   using: "composite"
 
   steps:
+  - name: Wait 5 seconds
+    run:  sleep 5
+    shell: bash
   - name: Kill mpc-qt
     run:  killall mpc-qt
     shell: bash
