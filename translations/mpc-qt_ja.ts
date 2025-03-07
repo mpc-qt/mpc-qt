@@ -47,7 +47,7 @@
     </message>
     <message>
         <source>&amp;Update</source>
-        <translation type="vanished">&amp;Update</translation>
+        <translation type="vanished">更新(&amp;U)</translation>
     </message>
     <message>
         <source>&amp;Files</source>
@@ -298,7 +298,7 @@
     </message>
     <message>
         <source>&amp;Video Stream</source>
-        <translation type="vanished">&amp;Video Stream</translation>
+        <translation type="vanished">ビデオ ストリーム(&amp;V)</translation>
     </message>
     <message>
         <source>V&amp;olume</source>
@@ -730,7 +730,7 @@
     </message>
     <message>
         <source>Play next in the &amp;folder</source>
-        <translation type="vanished">Play next in the &amp;folder</translation>
+        <translation type="vanished">フォルダー内の次の曲を再生(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;Previous</source>
@@ -790,7 +790,7 @@
     </message>
     <message>
         <source>&amp;Add to Favorites...</source>
-        <translation type="vanished">&amp;Add to Favorites...</translation>
+        <translation type="vanished">お気に入りへ追加(&amp;A)...</translation>
     </message>
     <message>
         <source>&amp;Organize Favorites...</source>
@@ -834,7 +834,7 @@
     </message>
     <message>
         <source>Seek Forwards</source>
-        <translation type="vanished">Seek Forwards</translation>
+        <translation type="vanished">前方にシーク</translation>
     </message>
     <message>
         <source>Right</source>
@@ -842,7 +842,7 @@
     </message>
     <message>
         <source>Seek Backwards</source>
-        <translation type="vanished">Seek Backwards</translation>
+        <translation type="vanished">後方にシーク</translation>
     </message>
     <message>
         <source>Left</source>
@@ -850,7 +850,7 @@
     </message>
     <message>
         <source>Seek Forwards Finely</source>
-        <translation type="vanished">Seek Forwards Finely</translation>
+        <translation type="vanished">前方を細かくシーク</translation>
     </message>
     <message>
         <source>Shift+Right</source>
@@ -858,7 +858,7 @@
     </message>
     <message>
         <source>Seek Backwards Finely</source>
-        <translation type="vanished">Seek Backwards Finely</translation>
+        <translation type="vanished">後方を細かくシーク</translation>
     </message>
     <message>
         <source>Shift+Left</source>
@@ -882,7 +882,7 @@
     </message>
     <message>
         <source>&amp;Use Loop Points</source>
-        <translation type="vanished">&amp;Use Loop Points</translation>
+        <translation type="vanished">ループポイントを使用する(&amp;U)</translation>
     </message>
     <message>
         <source>Ctrl+Backspace</source>
@@ -1086,11 +1086,11 @@
     </message>
     <message>
         <source>Do No&amp;thing</source>
-        <translation type="vanished">Do No&amp;thing</translation>
+        <translation type="vanished">何もしない(&amp;T)</translation>
     </message>
     <message>
         <source>Repe&amp;at</source>
-        <translation type="vanished">Repe&amp;at</translation>
+        <translation type="vanished">繰り返し(&amp;A)t</translation>
     </message>
     <message>
         <source>&amp;Repeat</source>
@@ -1142,11 +1142,11 @@
     </message>
     <message>
         <source>Once</source>
-        <translation type="vanished">Once</translation>
+        <translation type="vanished">1回</translation>
     </message>
     <message>
         <source>Every time</source>
-        <translation type="vanished">Every time</translation>
+        <translation type="vanished">毎回</translation>
     </message>
     <message>
         <source>View</source>
@@ -1250,7 +1250,7 @@
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
-        <translation type="vanished">&lt;unknown&gt;</translation>
+        <translation type="vanished">&lt;不明&gt;</translation>
     </message>
     <message>
         <source>Libr&amp;ary</source>
@@ -1322,19 +1322,19 @@
     </message>
     <message>
         <source>&amp;Decrease Aspect</source>
-        <translation type="vanished">&amp;Decrease Aspect</translation>
+        <translation type="vanished">アスペクト比を下げる(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Increase Aspect</source>
-        <translation type="vanished">&amp;Increase Aspect</translation>
+        <translation type="vanished">アスペクト比を上げる(&amp;I)</translation>
     </message>
     <message>
         <source>&amp;Reset Aspect</source>
-        <translation type="vanished">&amp;Reset Aspect</translation>
+        <translation type="vanished">アスペクト比をリセット(&amp;R)</translation>
     </message>
     <message>
         <source>Disable &amp;aspect</source>
-        <translation type="vanished">Disable &amp;aspect</translation>
+        <translation type="vanished">アスペクト比を無効にする(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Show OSD Timer</source>
@@ -1739,7 +1739,7 @@
     </message>
     <message>
         <source>Randomize</source>
-        <translation type="vanished">Randomize</translation>
+        <translation type="vanished">ランダム</translation>
     </message>
     <message>
         <source>Restore</source>
@@ -2219,11 +2219,11 @@ media file played</source>
     </message>
     <message>
         <source>Color film stock</source>
-        <translation type="vanished">Color film stock</translation>
+        <translation type="vanished">カラーフィルム ストック</translation>
     </message>
     <message>
         <source>Black and white film stock</source>
-        <translation type="vanished">Black and white film stock</translation>
+        <translation type="vanished">白黒フィルム ストック</translation>
     </message>
     <message>
         <source>Triangle in circle</source>
@@ -2315,11 +2315,11 @@ media file played</source>
     </message>
     <message>
         <source>Time step</source>
-        <translation type="vanished">Time step</translation>
+        <translation type="vanished">時間ステップ</translation>
     </message>
     <message>
         <source>Fine step</source>
-        <translation type="vanished">Fine step</translation>
+        <translation type="vanished">細かいステップ</translation>
     </message>
     <message>
         <source>Center window when zooming</source>
@@ -2779,7 +2779,7 @@ media file played</source>
     </message>
     <message>
         <source>Only implemented on Mac</source>
-        <translation type="vanished">Only implemented on Mac</translation>
+        <translation type="vanished">Macのみ実装</translation>
     </message>
     <message>
         <source>Autodetect</source>
@@ -3195,7 +3195,7 @@ media file played</source>
     </message>
     <message>
         <source>Autodetect - best of VAAPI, DXVA, D3D11VA</source>
-        <translation type="vanished">Autodetect - best of VAAPI, DXVA, D3D11VA</translation>
+        <translation type="vanished">自動検出 - best of VAAPI, DXVA, D3D11VA</translation>
     </message>
     <message>
         <source>A&amp;utodetect</source>
@@ -3203,7 +3203,7 @@ media file played</source>
     </message>
     <message>
         <source>Linux - requires Mesa 11 and most likely works with Intel GPUs only; may only be correct in BT.601 and BT.709</source>
-        <translation type="vanished">Linux - requires Mesa 11 and most likely works with Intel GPUs only; may only be correct in BT.601 and BT.709</translation>
+        <translation type="vanished">Linux - Mesa 11が必要で、おそらくIntel GPUでのみ動作します; BT.601とBT.709でのみ正しい可能性があります</translation>
     </message>
     <message>
         <source>Linux - some gpus, does not always treat certain colorspaces like BT.2020 correctly</source>
@@ -3219,11 +3219,11 @@ media file played</source>
     </message>
     <message>
         <source>Raspberry PI - hardware overlay renderer</source>
-        <translation type="vanished">Raspberry PI - hardware overlay renderer</translation>
+        <translation type="vanished">Raspberry PI - ハードウェア オーバーレイ レンダラー</translation>
     </message>
     <message>
         <source>MacOS - safe</source>
-        <translation type="vanished">MacOS - safe</translation>
+        <translation type="vanished">MacOS - 安全</translation>
     </message>
     <message>
         <source>nVidia only (likely 10x0+ only) - safe</source>
@@ -3540,7 +3540,7 @@ media file played</source>
     </message>
     <message>
         <source>Play next file in folder when there is only one item in the playlist</source>
-        <translation type="vanished">Play next file in folder when there is only one item in the playlist</translation>
+        <translation type="vanished">プレイリストに項目が 1つしかない場合は、フォルダ内の次のファイルを再生する</translation>
     </message>
     <message>
         <source>Above seekbar</source>
@@ -3552,7 +3552,7 @@ media file played</source>
     </message>
     <message>
         <source>OSD font:</source>
-        <translation type="vanished">OSD font:</translation>
+        <translation type="vanished">OSD フォント :</translation>
     </message>
     <message>
         <source>Prefer Wayland over XWayland (restart required)</source>
@@ -3624,15 +3624,15 @@ media file played</source>
     </message>
     <message>
         <source>Window update interval</source>
-        <translation type="vanished">Window update interval</translation>
+        <translation type="vanished">ウィンドウの更新間隔</translation>
     </message>
     <message>
         <source>No delay (consumes cpu)</source>
-        <translation type="vanished">No delay (consumes cpu)</translation>
+        <translation type="vanished">遅延なし (CPUを消費します)</translation>
     </message>
     <message>
         <source> msec</source>
-        <translation type="vanished"> msec</translation>
+        <translation type="vanished"> ミリ秒</translation>
     </message>
     <message>
         <source>Every </source>
@@ -3824,7 +3824,7 @@ media file played</source>
     </message>
     <message>
         <source>Play next in the folder</source>
-        <translation type="vanished">Play next in the folder</translation>
+        <translation type="vanished">フォルダー内の次の曲を再生</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -3844,7 +3844,7 @@ media file played</source>
     </message>
     <message>
         <source>Use time tooltip:</source>
-        <translation type="vanished">Use time tooltip:</translation>
+        <translation type="vanished">時間ツールチップを使用 :</translation>
     </message>
     <message>
         <source>Language Override</source>
@@ -4024,7 +4024,7 @@ media file played</source>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Windowsでダークテーマのサポートが可能</translation>
     </message>
 </context>
 <context>
