@@ -417,6 +417,7 @@ void SettingsWindow::setupPlatformWidgets()
         ui->playbackAutozoomWarn->setVisible(false);
     }
 
+    ui->stylesheetFusion->setChecked(Platform::isWindows);
     ui->ipcMpris->setVisible(Platform::isUnix);
     ui->hwdecBackendVaapi->setEnabled(Platform::isUnix);
     ui->hwdecBackendNvdec->setEnabled(Platform::isWindows || Platform::isUnix);

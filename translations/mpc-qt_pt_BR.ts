@@ -2791,19 +2791,19 @@ media file played</source>
     </message>
     <message>
         <source>BT.601-525</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {601-525?}</translation>
     </message>
     <message>
         <source>BT.601-625</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {601-625?}</translation>
     </message>
     <message>
         <source>BT.709</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {709?}</translation>
     </message>
     <message>
         <source>BT.2020</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {2020?}</translation>
     </message>
     <message>
         <source>Apple</source>
@@ -2831,7 +2831,7 @@ media file played</source>
     </message>
     <message>
         <source>BT.1886</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {1886?}</translation>
     </message>
     <message>
         <source>sRGB</source>
@@ -3856,7 +3856,7 @@ media file played</source>
     </message>
     <message>
         <source>BT.470M</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BT.470m {470M?}</translation>
     </message>
     <message>
         <source>V-Gamut</source>
@@ -4016,6 +4016,10 @@ media file played</source>
     </message>
     <message>
         <source>ICC profile files (*.icc *.icm)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allows dark theme support on Windows</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

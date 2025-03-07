@@ -4022,6 +4022,10 @@ arxiu multimèdia reproduït</translation>
         <source>ICC profile files (*.icc *.icm)</source>
         <translation>Arxius de perfil ICC (*.icc *.icm)</translation>
     </message>
+    <message>
+        <source>Allows dark theme support on Windows</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
