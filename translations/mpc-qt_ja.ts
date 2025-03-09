@@ -82,7 +82,7 @@
     </message>
     <message>
         <source>URLs to open, optionally.</source>
-        <translation type="unfinished">開くURL(任意)。</translation>
+        <translation>開くURL(任意)。</translation>
     </message>
     <message>
         <source>Save Image</source>
@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitely.</source>
-        <translation type="unfinished">指定した時間にジャンプするには、[hh:]mm:ss.ms の形式を使用してタイムコードを入力します。区切り文字を明示的に入力する必要はありません。</translation>
+        <translation>指定した時間にジャンプするには、[hh:]mm:ss.ms の形式を使用してタイムコードを入力します。区切り文字を明示的に入力する必要はありません。</translation>
     </message>
 </context>
 <context>
@@ -190,27 +190,27 @@
     </message>
     <message>
         <source>Skip Backward</source>
-        <translation type="unfinished">後方にスキップ</translation>
+        <translation>戻る</translation>
     </message>
     <message>
         <source>Speed Decrease</source>
-        <translation type="unfinished">速度を落とす</translation>
+        <translation>再生速度 遅く</translation>
     </message>
     <message>
         <source>Speed Increase</source>
-        <translation type="unfinished">速度を上げる</translation>
+        <translation>再生速度 速く</translation>
     </message>
     <message>
         <source>Skip Forward</source>
-        <translation type="unfinished">前方へスキップ</translation>
+        <translation>進む</translation>
     </message>
     <message>
         <source>Step Backward</source>
-        <translation type="unfinished">戻る</translation>
+        <translation>コマ戻し</translation>
     </message>
     <message>
         <source>Step Forward</source>
-        <translation type="unfinished">進む</translation>
+        <translation>コマ送り</translation>
     </message>
     <message>
         <source>Set Loop Start</source>
@@ -230,7 +230,7 @@
     </message>
     <message>
         <source>Sync Offset</source>
-        <translation type="unfinished">同期オフセット</translation>
+        <translation>同期オフセット</translation>
     </message>
     <message>
         <source>Framedrops</source>
@@ -678,7 +678,7 @@
     </message>
     <message>
         <source>&amp;Up</source>
-        <translation>上げる(&amp;U)</translation>
+        <translation>音量を上げる(&amp;U)</translation>
     </message>
     <message>
         <source>0</source>
@@ -686,7 +686,7 @@
     </message>
     <message>
         <source>&amp;Down</source>
-        <translation>下げる(&amp;D)</translation>
+        <translation>音量を下げる(&amp;D)</translation>
     </message>
     <message>
         <source>9</source>
@@ -966,7 +966,7 @@
     </message>
     <message>
         <source>Queue &amp;Visible</source>
-        <translation type="unfinished">キュー表示(&amp;V)</translation>
+        <translation>キュー表示(&amp;V)</translation>
     </message>
     <message>
         <source>Ctrl+Shift+Q</source>
@@ -1094,7 +1094,7 @@
     </message>
     <message>
         <source>&amp;Repeat</source>
-        <translation>繰り返し(&amp;R)</translation>
+        <translation>ループ(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Application Messages</source>
@@ -1174,7 +1174,7 @@
     </message>
     <message>
         <source> [Freestanding]</source>
-        <translation type="unfinished"> [Freestanding]</translation>
+        <translation> [Freestanding]</translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
@@ -1182,7 +1182,7 @@
     </message>
     <message>
         <source>&amp;Quick Open File</source>
-        <translation type="unfinished">クイック ファイルを開く(&amp;Q)</translation>
+        <translation>クイック 再生(&amp;Q)</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -1222,7 +1222,7 @@
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation type="unfinished">Built on %1 at %2</translation>
+        <translation>Built on %1 at %2</translation>
     </message>
     <message>
         <source>Alt+Q</source>
@@ -1282,7 +1282,7 @@
     </message>
     <message>
         <source>Ctrl+PgUp</source>
-        <translation type="unfinished">Ctrl+PgUp</translation>
+        <translation>Ctrl+PgUp</translation>
     </message>
     <message>
         <source>&amp;Next File</source>
@@ -1290,7 +1290,7 @@
     </message>
     <message>
         <source>Ctrl+PgDown</source>
-        <translation type="unfinished">Ctrl+PgDown</translation>
+        <translation>Ctrl+PgDown</translation>
     </message>
     <message>
         <source>Play next &amp;file</source>
@@ -1366,7 +1366,7 @@
     </message>
     <message>
         <source>%1 / %2</source>
-        <translation type="unfinished">%1 / %2</translation>
+        <translation>%1 / %2</translation>
     </message>
     <message>
         <source>Seek Forwards (normal step)</source>
@@ -1449,103 +1449,103 @@
     </message>
     <message>
         <source>XButton4</source>
-        <translation type="unfinished">XButton4</translation>
+        <translation>XButton4</translation>
     </message>
     <message>
         <source>XButton5</source>
-        <translation type="unfinished">XButton5</translation>
+        <translation>XButton5</translation>
     </message>
     <message>
         <source>XButton6</source>
-        <translation type="unfinished">XButton6</translation>
+        <translation>XButton6</translation>
     </message>
     <message>
         <source>XButton7</source>
-        <translation type="unfinished">XButton7</translation>
+        <translation>XButton7</translation>
     </message>
     <message>
         <source>XButton8</source>
-        <translation type="unfinished">XButton8</translation>
+        <translation>XButton8</translation>
     </message>
     <message>
         <source>XButton9</source>
-        <translation type="unfinished">XButton9</translation>
+        <translation>XButton9</translation>
     </message>
     <message>
         <source>XButton10</source>
-        <translation type="unfinished">XButton10</translation>
+        <translation>XButton10</translation>
     </message>
     <message>
         <source>XButton11</source>
-        <translation type="unfinished">XButton11</translation>
+        <translation>XButton11</translation>
     </message>
     <message>
         <source>XButton12</source>
-        <translation type="unfinished">XButton12</translation>
+        <translation>XButton12</translation>
     </message>
     <message>
         <source>XButton13</source>
-        <translation type="unfinished">XButton13</translation>
+        <translation>XButton13</translation>
     </message>
     <message>
         <source>XButton14</source>
-        <translation type="unfinished">XButton14</translation>
+        <translation>XButton14</translation>
     </message>
     <message>
         <source>XButton15</source>
-        <translation type="unfinished">XButton15</translation>
+        <translation>XButton15</translation>
     </message>
     <message>
         <source>XButton16</source>
-        <translation type="unfinished">XButton16</translation>
+        <translation>XButton16</translation>
     </message>
     <message>
         <source>XButton17</source>
-        <translation type="unfinished">XButton17</translation>
+        <translation>XButton17</translation>
     </message>
     <message>
         <source>XButton18</source>
-        <translation type="unfinished">XButton18</translation>
+        <translation>XButton18</translation>
     </message>
     <message>
         <source>XButton19</source>
-        <translation type="unfinished">XButton19</translation>
+        <translation>XButton19</translation>
     </message>
     <message>
         <source>XButton20</source>
-        <translation type="unfinished">XButton20</translation>
+        <translation>XButton20</translation>
     </message>
     <message>
         <source>XButton21</source>
-        <translation type="unfinished">XButton21</translation>
+        <translation>XButton21</translation>
     </message>
     <message>
         <source>XButton22</source>
-        <translation type="unfinished">XButton22</translation>
+        <translation>XButton22</translation>
     </message>
     <message>
         <source>XButton23</source>
-        <translation type="unfinished">XButton23</translation>
+        <translation>XButton23</translation>
     </message>
     <message>
         <source>XButton24</source>
-        <translation type="unfinished">XButton24</translation>
+        <translation>XButton24</translation>
     </message>
     <message>
         <source>Shift</source>
-        <translation type="unfinished">Shift</translation>
+        <translation>Shift</translation>
     </message>
     <message>
         <source>Control</source>
-        <translation type="unfinished">Control</translation>
+        <translation>Control</translation>
     </message>
     <message>
         <source>Alt</source>
-        <translation type="unfinished">Alt</translation>
+        <translation>Alt</translation>
     </message>
     <message>
         <source>Meta</source>
-        <translation type="unfinished">Meta</translation>
+        <translation>Meta</translation>
     </message>
     <message>
         <source>Down</source>
@@ -1557,7 +1557,7 @@
     </message>
     <message>
         <source>Twice</source>
-        <translation>2回</translation>
+        <translation>ダブルクリック</translation>
     </message>
 </context>
 <context>
@@ -1602,14 +1602,14 @@
     </message>
     <message>
         <source>Generate</source>
-        <translation type="unfinished">生成</translation>
+        <translation>生成</translation>
     </message>
 </context>
 <context>
     <name>PlaybackManager</name>
     <message>
         <source>Speed: %1%</source>
-        <translation>速度 : %1%</translation>
+        <translation>再生速度 : %1%</translation>
     </message>
     <message>
         <source>Volume: %1%</source>
@@ -1651,7 +1651,7 @@
     </message>
     <message>
         <source>Visible Items to Quick Queue</source>
-        <translation type="unfinished">クイックキューに表示する項目</translation>
+        <translation>クイックキューに表示する項目</translation>
     </message>
     <message>
         <source>New Tab</source>
@@ -1905,19 +1905,19 @@
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished">明</translation>
+        <translation>明</translation>
     </message>
     <message>
         <source>Midlight</source>
-        <translation type="unfinished">中明</translation>
+        <translation>中明</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished">暗</translation>
+        <translation>暗</translation>
     </message>
     <message>
         <source>Mid</source>
-        <translation type="unfinished">中</translation>
+        <translation>中</translation>
     </message>
     <message>
         <source>Text</source>
@@ -1965,11 +1965,11 @@
     </message>
     <message>
         <source>No role</source>
-        <translation type="unfinished">ロールなし</translation>
+        <translation>ロールなし</translation>
     </message>
     <message>
         <source>Tooltip base</source>
-        <translation type="unfinished">ツールチップ ベース</translation>
+        <translation>ツールチップ ベース</translation>
     </message>
     <message>
         <source>Tooltip text</source>
@@ -2179,7 +2179,7 @@ media file played</source>
     </message>
     <message>
         <source>Video</source>
-        <translation>ビデオ</translation>
+        <translation>ビデオの背景色</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -2227,11 +2227,11 @@ media file played</source>
     </message>
     <message>
         <source>Triangle in circle</source>
-        <translation type="unfinished">円の中の三角形</translation>
+        <translation>再生マーク</translation>
     </message>
     <message>
         <source>Multi purpose vehicle</source>
-        <translation type="unfinished">多目的媒体</translation>
+        <translation>多目的媒体</translation>
     </message>
     <message>
         <source>Icons</source>
@@ -2291,11 +2291,11 @@ media file played</source>
     </message>
     <message>
         <source>Info Background</source>
-        <translation type="unfinished">背景の情報</translation>
+        <translation>情報欄の背景色</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation type="unfinished">前景の情報</translation>
+        <translation>情報欄の文字色</translation>
     </message>
     <message>
         <source>Control</source>
@@ -2371,7 +2371,7 @@ media file played</source>
     </message>
     <message>
         <source>Windowed</source>
-        <translation type="unfinished">ウィンドウ付き</translation>
+        <translation>ウィンドウ表示</translation>
     </message>
     <message>
         <source>Video Renderer</source>
@@ -2379,7 +2379,7 @@ media file played</source>
     </message>
     <message>
         <source>Dumb mode</source>
-        <translation type="unfinished">シンプル モード</translation>
+        <translation>シンプル モード</translation>
     </message>
     <message>
         <source>General</source>
@@ -2423,7 +2423,7 @@ media file played</source>
     </message>
     <message>
         <source>Blend on black</source>
-        <translation type="unfinished">黒地にブレンド</translation>
+        <translation>黒地にブレンド</translation>
     </message>
     <message>
         <source>Use</source>
@@ -2495,7 +2495,7 @@ media file played</source>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished">No</translation>
+        <translation>No</translation>
     </message>
     <message>
         <source>Size</source>
@@ -2511,7 +2511,7 @@ media file played</source>
     </message>
     <message>
         <source>Period</source>
-        <translation type="unfinished">期間</translation>
+        <translation>期間</translation>
     </message>
     <message>
         <source>This can lead to flicker on LCD displays, since these  have a high reaction time.</source>
@@ -2579,51 +2579,51 @@ media file played</source>
     </message>
     <message>
         <source>Bartlett</source>
-        <translation type="unfinished">Bartlett</translation>
+        <translation>Bartlett</translation>
     </message>
     <message>
         <source>Hanning</source>
-        <translation type="unfinished">Hanning</translation>
+        <translation>Hanning</translation>
     </message>
     <message>
         <source>Hamming</source>
-        <translation type="unfinished">Hamming</translation>
+        <translation>Hamming</translation>
     </message>
     <message>
         <source>Quadric</source>
-        <translation type="unfinished">Quadric</translation>
+        <translation>Quadric</translation>
     </message>
     <message>
         <source>Welch</source>
-        <translation type="unfinished">Welch</translation>
+        <translation>Welch</translation>
     </message>
     <message>
         <source>Kaiser</source>
-        <translation type="unfinished">Kaiser</translation>
+        <translation>Kaiser</translation>
     </message>
     <message>
         <source>Blackman</source>
-        <translation type="unfinished">Blackman</translation>
+        <translation>Blackman</translation>
     </message>
     <message>
         <source>Gaussian</source>
-        <translation type="unfinished">Gaussian</translation>
+        <translation>Gaussian</translation>
     </message>
     <message>
         <source>Sinc</source>
-        <translation type="unfinished">Sinc</translation>
+        <translation>Sinc</translation>
     </message>
     <message>
         <source>Jinc</source>
-        <translation type="unfinished">Jinc</translation>
+        <translation>Jinc</translation>
     </message>
     <message>
         <source>Sphinx</source>
-        <translation type="unfinished">Sphinx</translation>
+        <translation>Sphinx</translation>
     </message>
     <message>
         <source>Clamp</source>
-        <translation type="unfinished">Clamp</translation>
+        <translation>Clamp</translation>
     </message>
     <message>
         <source>Radius</source>
@@ -2643,47 +2643,47 @@ media file played</source>
     </message>
     <message>
         <source>Spline16</source>
-        <translation type="unfinished">Spline16</translation>
+        <translation>Spline16</translation>
     </message>
     <message>
         <source>Spline36</source>
-        <translation type="unfinished">Spline36</translation>
+        <translation>Spline36</translation>
     </message>
     <message>
         <source>Spline64</source>
-        <translation type="unfinished">Spline64</translation>
+        <translation>Spline64</translation>
     </message>
     <message>
         <source>Lanczos</source>
-        <translation type="unfinished">Lanczos</translation>
+        <translation>Lanczos</translation>
     </message>
     <message>
         <source>Ginseng</source>
-        <translation type="unfinished">Ginseng</translation>
+        <translation>Ginseng</translation>
     </message>
     <message>
         <source>Ewa lanczos</source>
-        <translation type="unfinished">Ewa lanczos</translation>
+        <translation>Ewa lanczos</translation>
     </message>
     <message>
         <source>Ewa hanning</source>
-        <translation type="unfinished">Ewa hanning</translation>
+        <translation>Ewa hanning</translation>
     </message>
     <message>
         <source>Ewa ginseng</source>
-        <translation type="unfinished">Ewa ginseng</translation>
+        <translation>Ewa ginseng</translation>
     </message>
     <message>
         <source>Ewa lanczos sharp</source>
-        <translation type="unfinished">Ewa lanczos sharp</translation>
+        <translation>Ewa lanczos sharp</translation>
     </message>
     <message>
         <source>Ewa lanczos soft</source>
-        <translation type="unfinished">Ewa lanczos soft</translation>
+        <translation>Ewa lanczos soft</translation>
     </message>
     <message>
         <source>Haasnsoft</source>
-        <translation type="unfinished">Haasnsoft</translation>
+        <translation>Haasnsoft</translation>
     </message>
     <message>
         <source>Bicubic</source>
@@ -2695,27 +2695,27 @@ media file played</source>
     </message>
     <message>
         <source>Catmull rom</source>
-        <translation type="unfinished">Catmull rom</translation>
+        <translation>Catmull rom</translation>
     </message>
     <message>
         <source>Mitchell</source>
-        <translation type="unfinished">Mitchell</translation>
+        <translation>Mitchell</translation>
     </message>
     <message>
         <source>Robidoux</source>
-        <translation type="unfinished">Robidoux</translation>
+        <translation>Robidoux</translation>
     </message>
     <message>
         <source>Robidoux sharp</source>
-        <translation type="unfinished">Robidoux sharp</translation>
+        <translation>Robidoux sharp</translation>
     </message>
     <message>
         <source>Ewa robidoux</source>
-        <translation type="unfinished">Ewa robidoux</translation>
+        <translation>Ewa robidoux</translation>
     </message>
     <message>
         <source>Ewa robidoux sharp</source>
-        <translation type="unfinished">Ewa robidoux sharp</translation>
+        <translation>Ewa robidoux sharp</translation>
     </message>
     <message>
         <source>Nearest</source>
@@ -2743,7 +2743,7 @@ media file played</source>
     </message>
     <message>
         <source>Deband</source>
-        <translation type="unfinished">Deband</translation>
+        <translation>バンディング除去</translation>
     </message>
     <message>
         <source>State</source>
@@ -2755,7 +2755,7 @@ media file played</source>
     </message>
     <message>
         <source>Iterations</source>
-        <translation type="unfinished">反復回数</translation>
+        <translation>反復回数</translation>
     </message>
     <message>
         <source>Threshold</source>
@@ -2767,7 +2767,7 @@ media file played</source>
     </message>
     <message>
         <source>Grain</source>
-        <translation type="unfinished">粒子</translation>
+        <translation>粒子ノイズ</translation>
     </message>
     <message>
         <source>Color Correction</source>
@@ -2787,7 +2787,7 @@ media file played</source>
     </message>
     <message>
         <source>Target Prim</source>
-        <translation type="unfinished">表示原色</translation>
+        <translation>ターゲット Prim</translation>
     </message>
     <message>
         <source>BT.470m</source>
@@ -2831,7 +2831,7 @@ media file played</source>
     </message>
     <message>
         <source>Target TRC</source>
-        <translation>Target TRC</translation>
+        <translation>ターゲット TRC</translation>
     </message>
     <message>
         <source>BT.1886</source>
@@ -3035,7 +3035,7 @@ media file played</source>
     </message>
     <message>
         <source>Filesystem</source>
-        <translation type="unfinished">Filesystem</translation>
+        <translation>Filesystem</translation>
     </message>
     <message>
         <source>Add shader file(s)...</source>
@@ -3131,15 +3131,15 @@ media file played</source>
     </message>
     <message>
         <source>Non reference</source>
-        <translation type="unfinished">Non reference</translation>
+        <translation>Non reference</translation>
     </message>
     <message>
         <source>Bi-directional</source>
-        <translation type="unfinished">Bi-directional</translation>
+        <translation>Bi-directional</translation>
     </message>
     <message>
         <source>Non key</source>
-        <translation type="unfinished">Non key</translation>
+        <translation>Non key</translation>
     </message>
     <message>
         <source>Audio/Video sync</source>
@@ -3243,7 +3243,7 @@ media file played</source>
     </message>
     <message>
         <source>times</source>
-        <translation>回数</translation>
+        <translation>回</translation>
     </message>
     <message>
         <source>Repeat fore&amp;ver</source>
@@ -3251,7 +3251,7 @@ media file played</source>
     </message>
     <message>
         <source>Always loop images (manual progression)</source>
-        <translation>常に画像をループする (手動進行)</translation>
+        <translation>常にループする (手動進行)</translation>
     </message>
     <message>
         <source>Display Format</source>
@@ -3259,7 +3259,7 @@ media file played</source>
     </message>
     <message>
         <source>qrc:/text/playlistFormat.html</source>
-        <translation type="unfinished">qrc:/text/playlistFormat.html</translation>
+        <translation>qrc:/text/playlistFormat.html</translation>
     </message>
     <message>
         <source>Placement</source>
@@ -3848,7 +3848,7 @@ media file played</source>
     </message>
     <message>
         <source>Language Override</source>
-        <translation>言語の上書き</translation>
+        <translation>言語の設定</translation>
     </message>
     <message>
         <source>Locale (Autodetect)</source>
@@ -3856,7 +3856,7 @@ media file played</source>
     </message>
     <message>
         <source>Medium</source>
-        <translation>Medium</translation>
+        <translation>中</translation>
     </message>
     <message>
         <source>BT.470M</source>
@@ -4024,7 +4024,7 @@ media file played</source>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
-        <translation type="unfinished">Windowsでダークテーマのサポートが可能</translation>
+        <translation>Windowsでダークテーマのサポートが可能</translation>
     </message>
 </context>
 <context>
