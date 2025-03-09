@@ -190,27 +190,27 @@
     </message>
     <message>
         <source>Skip Backward</source>
-        <translation type="unfinished">後方にスキップ</translation>
+        <translation>戻る</translation>
     </message>
     <message>
         <source>Speed Decrease</source>
-        <translation type="unfinished">速度を落とす</translation>
+        <translation>再生速度 遅く</translation>
     </message>
     <message>
         <source>Speed Increase</source>
-        <translation type="unfinished">速度を上げる</translation>
+        <translation>再生速度 速く</translation>
     </message>
     <message>
         <source>Skip Forward</source>
-        <translation type="unfinished">前方へスキップ</translation>
+        <translation>進む</translation>
     </message>
     <message>
         <source>Step Backward</source>
-        <translation type="unfinished">戻る</translation>
+        <translation>コマ戻し</translation>
     </message>
     <message>
         <source>Step Forward</source>
-        <translation type="unfinished">進む</translation>
+        <translation>コマ送り</translation>
     </message>
     <message>
         <source>Set Loop Start</source>
@@ -678,7 +678,7 @@
     </message>
     <message>
         <source>&amp;Up</source>
-        <translation>上げる(&amp;U)</translation>
+        <translation>音量を上げる(&amp;U)</translation>
     </message>
     <message>
         <source>0</source>
@@ -686,7 +686,7 @@
     </message>
     <message>
         <source>&amp;Down</source>
-        <translation>下げる(&amp;D)</translation>
+        <translation>音量を下げる(&amp;D)</translation>
     </message>
     <message>
         <source>9</source>
@@ -1090,11 +1090,11 @@
     </message>
     <message>
         <source>Repe&amp;at</source>
-        <translation type="vanished">繰り返し(&amp;A)t</translation>
+        <translation type="vanished">繰り返し(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Repeat</source>
-        <translation>繰り返し(&amp;R)</translation>
+        <translation>ループ(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Application Messages</source>
@@ -1182,7 +1182,7 @@
     </message>
     <message>
         <source>&amp;Quick Open File</source>
-        <translation type="unfinished">クイック ファイルを開く(&amp;Q)</translation>
+        <translation type="unfinished">クイック 再生(&amp;Q)</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -1282,7 +1282,7 @@
     </message>
     <message>
         <source>Ctrl+PgUp</source>
-        <translation type="unfinished">Ctrl+PgUp</translation>
+        <translation>Ctrl+PgUp</translation>
     </message>
     <message>
         <source>&amp;Next File</source>
@@ -1290,7 +1290,7 @@
     </message>
     <message>
         <source>Ctrl+PgDown</source>
-        <translation type="unfinished">Ctrl+PgDown</translation>
+        <translation>Ctrl+PgDown</translation>
     </message>
     <message>
         <source>Play next &amp;file</source>
@@ -1557,7 +1557,7 @@
     </message>
     <message>
         <source>Twice</source>
-        <translation>2回</translation>
+        <translation>ダブルクリック</translation>
     </message>
 </context>
 <context>
@@ -1609,7 +1609,7 @@
     <name>PlaybackManager</name>
     <message>
         <source>Speed: %1%</source>
-        <translation>速度 : %1%</translation>
+        <translation>再生速度 : %1%</translation>
     </message>
     <message>
         <source>Volume: %1%</source>
@@ -2094,16 +2094,12 @@
         <translation>開くオプション</translation>
     </message>
     <message>
-        <source>Use the same player for
-each &amp;media file</source>
-        <translation>再生するメディア ファイルに同じ
-プレーヤーを使用する(&amp;M)</translation>
+        <source>Use the same player for each &amp;media file</source>
+        <translation>再生するメディア ファイルに同じプレーヤーを使用する(&amp;M)</translation>
     </message>
     <message>
-        <source>Open a new &amp;player for each
-media file played</source>
-        <translation>再生するメディア ファイルごとに
-新規プレーヤーを開く(&amp;P)</translation>
+        <source>Open a new &amp;player for each media file played</source>
+        <translation>再生するメディア ファイルごとに新規プレーヤーを開く(&amp;P)</translation>
     </message>
     <message>
         <source>Other</source>
@@ -2179,7 +2175,7 @@ media file played</source>
     </message>
     <message>
         <source>Video</source>
-        <translation>ビデオ</translation>
+        <translation>ビデオの背景色</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -2227,7 +2223,7 @@ media file played</source>
     </message>
     <message>
         <source>Triangle in circle</source>
-        <translation type="unfinished">円の中の三角形</translation>
+        <translation type="unfinished">再生マーク</translation>
     </message>
     <message>
         <source>Multi purpose vehicle</source>
@@ -2291,11 +2287,11 @@ media file played</source>
     </message>
     <message>
         <source>Info Background</source>
-        <translation type="unfinished">背景の情報</translation>
+        <translation type="unfinished">情報欄の背景色</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation type="unfinished">前景の情報</translation>
+        <translation type="unfinished">情報欄の文字色</translation>
     </message>
     <message>
         <source>Control</source>
@@ -2363,7 +2359,7 @@ media file played</source>
     </message>
     <message>
         <source>Default track preference</source>
-        <translation>既定のトラック設定</translation>
+        <translation>既定のトラックの優先順位</translation>
     </message>
     <message>
         <source>Mouse hiding</source>
@@ -2371,7 +2367,7 @@ media file played</source>
     </message>
     <message>
         <source>Windowed</source>
-        <translation type="unfinished">ウィンドウ付き</translation>
+        <translation type="unfinished">ウィンドウ表示</translation>
     </message>
     <message>
         <source>Video Renderer</source>
@@ -2743,7 +2739,7 @@ media file played</source>
     </message>
     <message>
         <source>Deband</source>
-        <translation type="unfinished">Deband</translation>
+        <translation type="unfinished">バンディング除去</translation>
     </message>
     <message>
         <source>State</source>
@@ -2767,7 +2763,7 @@ media file played</source>
     </message>
     <message>
         <source>Grain</source>
-        <translation type="unfinished">粒子</translation>
+        <translation type="unfinished">粒子ノイズ</translation>
     </message>
     <message>
         <source>Color Correction</source>
@@ -2787,7 +2783,7 @@ media file played</source>
     </message>
     <message>
         <source>Target Prim</source>
-        <translation type="unfinished">表示原色</translation>
+        <translation>ターゲット Prim</translation>
     </message>
     <message>
         <source>BT.470m</source>
@@ -2831,7 +2827,7 @@ media file played</source>
     </message>
     <message>
         <source>Target TRC</source>
-        <translation>Target TRC</translation>
+        <translation>ターゲット TRC</translation>
     </message>
     <message>
         <source>BT.1886</source>
@@ -3243,7 +3239,7 @@ media file played</source>
     </message>
     <message>
         <source>times</source>
-        <translation>回数</translation>
+        <translation>回</translation>
     </message>
     <message>
         <source>Repeat fore&amp;ver</source>
@@ -3251,7 +3247,7 @@ media file played</source>
     </message>
     <message>
         <source>Always loop images (manual progression)</source>
-        <translation>常に画像をループする (手動進行)</translation>
+        <translation>常にループする (手動進行)</translation>
     </message>
     <message>
         <source>Display Format</source>
@@ -3732,7 +3728,7 @@ media file played</source>
     </message>
     <message>
         <source>Use additive speed step</source>
-        <translation>追加のスピードステップを使用する</translation>
+        <translation>追加の速度ステップを使用する</translation>
     </message>
     <message>
         <source>Prefer external subtitles over embedded subtitles</source>
@@ -3848,7 +3844,7 @@ media file played</source>
     </message>
     <message>
         <source>Language Override</source>
-        <translation>言語の上書き</translation>
+        <translation>言語の設定</translation>
     </message>
     <message>
         <source>Locale (Autodetect)</source>
@@ -3856,7 +3852,7 @@ media file played</source>
     </message>
     <message>
         <source>Medium</source>
-        <translation>Medium</translation>
+        <translation type="unfinished">中</translation>
     </message>
     <message>
         <source>BT.470M</source>
