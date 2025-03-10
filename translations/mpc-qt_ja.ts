@@ -2095,11 +2095,13 @@
     </message>
     <message>
         <source>Use the same player for each &amp;media file</source>
-        <translation>再生するメディア ファイルに同じプレーヤーを使用する(&amp;M)</translation>
+        <translation>再生するメディア ファイルに同じ
+            プレーヤーを使用する(&amp;M)</translation>
     </message>
     <message>
         <source>Open a new &amp;player for each media file played</source>
-        <translation>再生するメディア ファイルごとに新規プレーヤーを開く(&amp;P)</translation>
+        <translation>再生するメディア ファイルごとに
+                新規プレーヤーを開く(&amp;P)</translation>
     </message>
     <message>
         <source>Other</source>
