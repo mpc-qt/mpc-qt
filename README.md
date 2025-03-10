@@ -68,7 +68,8 @@ Suggestions welcome.
 ## Contributing
 
 If you are a coder, try to follow the conventions in the code and make a PR.
-If you are a translator, we will be using [Weblate] to translate.
+If you are a translator, we will be using [Weblate] to [translate][Translating]
+.
 Alternatively, you can submit the translations as a PR.
 
 [![Translation status]][Weblate]
@@ -186,6 +187,7 @@ Yes! You just need to change two SVP settings:
 [mpc-hc]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
 [weblate]:https://hosted.weblate.org/engage/mpc-qt/
+[Translating]:https://github.com/mpc-qt/mpc-qt/wiki/Translating
 [Translation status]:https://hosted.weblate.org/widgets/mpc-qt/-/svg-badge.svg
 [C/C++ CI]:https://github.com/mpc-qt/mpc-qt/actions/workflows/linux.yml/badge.svg
 [C/C++ CI link]:https://github.com/mpc-qt/mpc-qt/actions/workflows/linux.yml
