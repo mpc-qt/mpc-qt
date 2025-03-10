@@ -82,7 +82,7 @@
     </message>
     <message>
         <source>URLs to open, optionally.</source>
-        <translation>開くURL(任意)。</translation>
+        <translation type="unfinished">開くURL(任意)。</translation>
     </message>
     <message>
         <source>Save Image</source>
@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitely.</source>
-        <translation>指定した時間にジャンプするには、[hh:]mm:ss.ms の形式を使用してタイムコードを入力します。区切り文字を明示的に入力する必要はありません。</translation>
+        <translation type="unfinished">指定した時間にジャンプするには、[hh:]mm:ss.ms の形式を使用してタイムコードを入力します。区切り文字を明示的に入力する必要はありません。</translation>
     </message>
 </context>
 <context>
@@ -230,7 +230,7 @@
     </message>
     <message>
         <source>Sync Offset</source>
-        <translation>同期オフセット</translation>
+        <translation type="unfinished">同期オフセット</translation>
     </message>
     <message>
         <source>Framedrops</source>
@@ -966,7 +966,7 @@
     </message>
     <message>
         <source>Queue &amp;Visible</source>
-        <translation>キュー表示(&amp;V)</translation>
+        <translation type="unfinished">キュー表示(&amp;V)</translation>
     </message>
     <message>
         <source>Ctrl+Shift+Q</source>
@@ -1090,7 +1090,7 @@
     </message>
     <message>
         <source>Repe&amp;at</source>
-        <translation type="vanished">繰り返し(&amp;A)t</translation>
+        <translation type="vanished">繰り返し(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Repeat</source>
@@ -1174,7 +1174,7 @@
     </message>
     <message>
         <source> [Freestanding]</source>
-        <translation> [Freestanding]</translation>
+        <translation type="unfinished"> [Freestanding]</translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
@@ -1182,7 +1182,7 @@
     </message>
     <message>
         <source>&amp;Quick Open File</source>
-        <translation>クイック 再生(&amp;Q)</translation>
+        <translation type="unfinished">クイック 再生(&amp;Q)</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -1222,7 +1222,7 @@
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation>Built on %1 at %2</translation>
+        <translation type="unfinished">Built on %1 at %2</translation>
     </message>
     <message>
         <source>Alt+Q</source>
@@ -1366,7 +1366,7 @@
     </message>
     <message>
         <source>%1 / %2</source>
-        <translation>%1 / %2</translation>
+        <translation type="unfinished">%1 / %2</translation>
     </message>
     <message>
         <source>Seek Forwards (normal step)</source>
@@ -1449,103 +1449,103 @@
     </message>
     <message>
         <source>XButton4</source>
-        <translation>XButton4</translation>
+        <translation type="unfinished">XButton4</translation>
     </message>
     <message>
         <source>XButton5</source>
-        <translation>XButton5</translation>
+        <translation type="unfinished">XButton5</translation>
     </message>
     <message>
         <source>XButton6</source>
-        <translation>XButton6</translation>
+        <translation type="unfinished">XButton6</translation>
     </message>
     <message>
         <source>XButton7</source>
-        <translation>XButton7</translation>
+        <translation type="unfinished">XButton7</translation>
     </message>
     <message>
         <source>XButton8</source>
-        <translation>XButton8</translation>
+        <translation type="unfinished">XButton8</translation>
     </message>
     <message>
         <source>XButton9</source>
-        <translation>XButton9</translation>
+        <translation type="unfinished">XButton9</translation>
     </message>
     <message>
         <source>XButton10</source>
-        <translation>XButton10</translation>
+        <translation type="unfinished">XButton10</translation>
     </message>
     <message>
         <source>XButton11</source>
-        <translation>XButton11</translation>
+        <translation type="unfinished">XButton11</translation>
     </message>
     <message>
         <source>XButton12</source>
-        <translation>XButton12</translation>
+        <translation type="unfinished">XButton12</translation>
     </message>
     <message>
         <source>XButton13</source>
-        <translation>XButton13</translation>
+        <translation type="unfinished">XButton13</translation>
     </message>
     <message>
         <source>XButton14</source>
-        <translation>XButton14</translation>
+        <translation type="unfinished">XButton14</translation>
     </message>
     <message>
         <source>XButton15</source>
-        <translation>XButton15</translation>
+        <translation type="unfinished">XButton15</translation>
     </message>
     <message>
         <source>XButton16</source>
-        <translation>XButton16</translation>
+        <translation type="unfinished">XButton16</translation>
     </message>
     <message>
         <source>XButton17</source>
-        <translation>XButton17</translation>
+        <translation type="unfinished">XButton17</translation>
     </message>
     <message>
         <source>XButton18</source>
-        <translation>XButton18</translation>
+        <translation type="unfinished">XButton18</translation>
     </message>
     <message>
         <source>XButton19</source>
-        <translation>XButton19</translation>
+        <translation type="unfinished">XButton19</translation>
     </message>
     <message>
         <source>XButton20</source>
-        <translation>XButton20</translation>
+        <translation type="unfinished">XButton20</translation>
     </message>
     <message>
         <source>XButton21</source>
-        <translation>XButton21</translation>
+        <translation type="unfinished">XButton21</translation>
     </message>
     <message>
         <source>XButton22</source>
-        <translation>XButton22</translation>
+        <translation type="unfinished">XButton22</translation>
     </message>
     <message>
         <source>XButton23</source>
-        <translation>XButton23</translation>
+        <translation type="unfinished">XButton23</translation>
     </message>
     <message>
         <source>XButton24</source>
-        <translation>XButton24</translation>
+        <translation type="unfinished">XButton24</translation>
     </message>
     <message>
         <source>Shift</source>
-        <translation>Shift</translation>
+        <translation type="unfinished">Shift</translation>
     </message>
     <message>
         <source>Control</source>
-        <translation>Control</translation>
+        <translation type="unfinished">Control</translation>
     </message>
     <message>
         <source>Alt</source>
-        <translation>Alt</translation>
+        <translation type="unfinished">Alt</translation>
     </message>
     <message>
         <source>Meta</source>
-        <translation>Meta</translation>
+        <translation type="unfinished">Meta</translation>
     </message>
     <message>
         <source>Down</source>
@@ -1602,7 +1602,7 @@
     </message>
     <message>
         <source>Generate</source>
-        <translation>生成</translation>
+        <translation type="unfinished">生成</translation>
     </message>
 </context>
 <context>
@@ -1651,7 +1651,7 @@
     </message>
     <message>
         <source>Visible Items to Quick Queue</source>
-        <translation>クイックキューに表示する項目</translation>
+        <translation type="unfinished">クイックキューに表示する項目</translation>
     </message>
     <message>
         <source>New Tab</source>
@@ -1905,19 +1905,19 @@
     </message>
     <message>
         <source>Light</source>
-        <translation>明</translation>
+        <translation type="unfinished">明</translation>
     </message>
     <message>
         <source>Midlight</source>
-        <translation>中明</translation>
+        <translation type="unfinished">中明</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation>暗</translation>
+        <translation type="unfinished">暗</translation>
     </message>
     <message>
         <source>Mid</source>
-        <translation>中</translation>
+        <translation type="unfinished">中</translation>
     </message>
     <message>
         <source>Text</source>
@@ -1965,11 +1965,11 @@
     </message>
     <message>
         <source>No role</source>
-        <translation>ロールなし</translation>
+        <translation type="unfinished">ロールなし</translation>
     </message>
     <message>
         <source>Tooltip base</source>
-        <translation>ツールチップ ベース</translation>
+        <translation type="unfinished">ツールチップ ベース</translation>
     </message>
     <message>
         <source>Tooltip text</source>
@@ -2227,11 +2227,11 @@ media file played</source>
     </message>
     <message>
         <source>Triangle in circle</source>
-        <translation>再生マーク</translation>
+        <translation type="unfinished">再生マーク</translation>
     </message>
     <message>
         <source>Multi purpose vehicle</source>
-        <translation>多目的媒体</translation>
+        <translation type="unfinished">多目的媒体</translation>
     </message>
     <message>
         <source>Icons</source>
@@ -2291,11 +2291,11 @@ media file played</source>
     </message>
     <message>
         <source>Info Background</source>
-        <translation>情報欄の背景色</translation>
+        <translation type="unfinished">情報欄の背景色</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation>情報欄の文字色</translation>
+        <translation type="unfinished">情報欄の文字色</translation>
     </message>
     <message>
         <source>Control</source>
@@ -2363,7 +2363,7 @@ media file played</source>
     </message>
     <message>
         <source>Default track preference</source>
-        <translation>既定のトラック設定</translation>
+        <translation>既定のトラックの優先順位</translation>
     </message>
     <message>
         <source>Mouse hiding</source>
@@ -2371,7 +2371,7 @@ media file played</source>
     </message>
     <message>
         <source>Windowed</source>
-        <translation>ウィンドウ表示</translation>
+        <translation type="unfinished">ウィンドウ表示</translation>
     </message>
     <message>
         <source>Video Renderer</source>
@@ -2379,7 +2379,7 @@ media file played</source>
     </message>
     <message>
         <source>Dumb mode</source>
-        <translation>シンプル モード</translation>
+        <translation type="unfinished">シンプル モード</translation>
     </message>
     <message>
         <source>General</source>
@@ -2423,7 +2423,7 @@ media file played</source>
     </message>
     <message>
         <source>Blend on black</source>
-        <translation>黒地にブレンド</translation>
+        <translation type="unfinished">黒地にブレンド</translation>
     </message>
     <message>
         <source>Use</source>
@@ -2495,7 +2495,7 @@ media file played</source>
     </message>
     <message>
         <source>No</source>
-        <translation>No</translation>
+        <translation type="unfinished">No</translation>
     </message>
     <message>
         <source>Size</source>
@@ -2511,7 +2511,7 @@ media file played</source>
     </message>
     <message>
         <source>Period</source>
-        <translation>期間</translation>
+        <translation type="unfinished">期間</translation>
     </message>
     <message>
         <source>This can lead to flicker on LCD displays, since these  have a high reaction time.</source>
@@ -2579,51 +2579,51 @@ media file played</source>
     </message>
     <message>
         <source>Bartlett</source>
-        <translation>Bartlett</translation>
+        <translation type="unfinished">Bartlett</translation>
     </message>
     <message>
         <source>Hanning</source>
-        <translation>Hanning</translation>
+        <translation type="unfinished">Hanning</translation>
     </message>
     <message>
         <source>Hamming</source>
-        <translation>Hamming</translation>
+        <translation type="unfinished">Hamming</translation>
     </message>
     <message>
         <source>Quadric</source>
-        <translation>Quadric</translation>
+        <translation type="unfinished">Quadric</translation>
     </message>
     <message>
         <source>Welch</source>
-        <translation>Welch</translation>
+        <translation type="unfinished">Welch</translation>
     </message>
     <message>
         <source>Kaiser</source>
-        <translation>Kaiser</translation>
+        <translation type="unfinished">Kaiser</translation>
     </message>
     <message>
         <source>Blackman</source>
-        <translation>Blackman</translation>
+        <translation type="unfinished">Blackman</translation>
     </message>
     <message>
         <source>Gaussian</source>
-        <translation>Gaussian</translation>
+        <translation type="unfinished">Gaussian</translation>
     </message>
     <message>
         <source>Sinc</source>
-        <translation>Sinc</translation>
+        <translation type="unfinished">Sinc</translation>
     </message>
     <message>
         <source>Jinc</source>
-        <translation>Jinc</translation>
+        <translation type="unfinished">Jinc</translation>
     </message>
     <message>
         <source>Sphinx</source>
-        <translation>Sphinx</translation>
+        <translation type="unfinished">Sphinx</translation>
     </message>
     <message>
         <source>Clamp</source>
-        <translation>Clamp</translation>
+        <translation type="unfinished">Clamp</translation>
     </message>
     <message>
         <source>Radius</source>
@@ -2643,47 +2643,47 @@ media file played</source>
     </message>
     <message>
         <source>Spline16</source>
-        <translation>Spline16</translation>
+        <translation type="unfinished">Spline16</translation>
     </message>
     <message>
         <source>Spline36</source>
-        <translation>Spline36</translation>
+        <translation type="unfinished">Spline36</translation>
     </message>
     <message>
         <source>Spline64</source>
-        <translation>Spline64</translation>
+        <translation type="unfinished">Spline64</translation>
     </message>
     <message>
         <source>Lanczos</source>
-        <translation>Lanczos</translation>
+        <translation type="unfinished">Lanczos</translation>
     </message>
     <message>
         <source>Ginseng</source>
-        <translation>Ginseng</translation>
+        <translation type="unfinished">Ginseng</translation>
     </message>
     <message>
         <source>Ewa lanczos</source>
-        <translation>Ewa lanczos</translation>
+        <translation type="unfinished">Ewa lanczos</translation>
     </message>
     <message>
         <source>Ewa hanning</source>
-        <translation>Ewa hanning</translation>
+        <translation type="unfinished">Ewa hanning</translation>
     </message>
     <message>
         <source>Ewa ginseng</source>
-        <translation>Ewa ginseng</translation>
+        <translation type="unfinished">Ewa ginseng</translation>
     </message>
     <message>
         <source>Ewa lanczos sharp</source>
-        <translation>Ewa lanczos sharp</translation>
+        <translation type="unfinished">Ewa lanczos sharp</translation>
     </message>
     <message>
         <source>Ewa lanczos soft</source>
-        <translation>Ewa lanczos soft</translation>
+        <translation type="unfinished">Ewa lanczos soft</translation>
     </message>
     <message>
         <source>Haasnsoft</source>
-        <translation>Haasnsoft</translation>
+        <translation type="unfinished">Haasnsoft</translation>
     </message>
     <message>
         <source>Bicubic</source>
@@ -2695,27 +2695,27 @@ media file played</source>
     </message>
     <message>
         <source>Catmull rom</source>
-        <translation>Catmull rom</translation>
+        <translation type="unfinished">Catmull rom</translation>
     </message>
     <message>
         <source>Mitchell</source>
-        <translation>Mitchell</translation>
+        <translation type="unfinished">Mitchell</translation>
     </message>
     <message>
         <source>Robidoux</source>
-        <translation>Robidoux</translation>
+        <translation type="unfinished">Robidoux</translation>
     </message>
     <message>
         <source>Robidoux sharp</source>
-        <translation>Robidoux sharp</translation>
+        <translation type="unfinished">Robidoux sharp</translation>
     </message>
     <message>
         <source>Ewa robidoux</source>
-        <translation>Ewa robidoux</translation>
+        <translation type="unfinished">Ewa robidoux</translation>
     </message>
     <message>
         <source>Ewa robidoux sharp</source>
-        <translation>Ewa robidoux sharp</translation>
+        <translation type="unfinished">Ewa robidoux sharp</translation>
     </message>
     <message>
         <source>Nearest</source>
@@ -2743,7 +2743,7 @@ media file played</source>
     </message>
     <message>
         <source>Deband</source>
-        <translation>バンディング除去</translation>
+        <translation type="unfinished">バンディング除去</translation>
     </message>
     <message>
         <source>State</source>
@@ -2755,7 +2755,7 @@ media file played</source>
     </message>
     <message>
         <source>Iterations</source>
-        <translation>反復回数</translation>
+        <translation type="unfinished">反復回数</translation>
     </message>
     <message>
         <source>Threshold</source>
@@ -2767,7 +2767,7 @@ media file played</source>
     </message>
     <message>
         <source>Grain</source>
-        <translation>粒子ノイズ</translation>
+        <translation type="unfinished">粒子ノイズ</translation>
     </message>
     <message>
         <source>Color Correction</source>
@@ -3035,7 +3035,7 @@ media file played</source>
     </message>
     <message>
         <source>Filesystem</source>
-        <translation>Filesystem</translation>
+        <translation type="unfinished">Filesystem</translation>
     </message>
     <message>
         <source>Add shader file(s)...</source>
@@ -3131,15 +3131,15 @@ media file played</source>
     </message>
     <message>
         <source>Non reference</source>
-        <translation>Non reference</translation>
+        <translation type="unfinished">Non reference</translation>
     </message>
     <message>
         <source>Bi-directional</source>
-        <translation>Bi-directional</translation>
+        <translation type="unfinished">Bi-directional</translation>
     </message>
     <message>
         <source>Non key</source>
-        <translation>Non key</translation>
+        <translation type="unfinished">Non key</translation>
     </message>
     <message>
         <source>Audio/Video sync</source>
@@ -3259,7 +3259,7 @@ media file played</source>
     </message>
     <message>
         <source>qrc:/text/playlistFormat.html</source>
-        <translation>qrc:/text/playlistFormat.html</translation>
+        <translation type="unfinished">qrc:/text/playlistFormat.html</translation>
     </message>
     <message>
         <source>Placement</source>
@@ -3732,7 +3732,7 @@ media file played</source>
     </message>
     <message>
         <source>Use additive speed step</source>
-        <translation>追加のスピードステップを使用する</translation>
+        <translation>追加の速度ステップを使用する</translation>
     </message>
     <message>
         <source>Prefer external subtitles over embedded subtitles</source>
@@ -3856,7 +3856,7 @@ media file played</source>
     </message>
     <message>
         <source>Medium</source>
-        <translation>中</translation>
+        <translation type="unfinished">中</translation>
     </message>
     <message>
         <source>BT.470M</source>
@@ -4024,7 +4024,7 @@ media file played</source>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
-        <translation>Windowsでダークテーマのサポートが可能</translation>
+        <translation type="unfinished">Windowsでダークテーマのサポートが可能</translation>
     </message>
 </context>
 <context>
