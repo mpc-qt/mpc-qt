@@ -28,3 +28,8 @@ jobs:
     name: Linux
     needs: build
     uses: ./.github/workflows/linux_tests.yml
+
+  flatpak:
+    name: Flatpak
+    needs: tests
+    uses: ./.github/workflows/flatpak.yml
