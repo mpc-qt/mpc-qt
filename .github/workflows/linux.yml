@@ -33,3 +33,8 @@ jobs:
     name: AppImage
     needs: tests
     uses: ./.github/workflows/appimage.yml
+
+  flatpak:
+    name: Flatpak
+    needs: tests
+    uses: ./.github/workflows/flatpak.yml
