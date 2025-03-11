@@ -78,5 +78,5 @@ jobs:
     - name: Upload AppImage
       uses: actions/upload-artifact@v4
       with:
-        name: "mpc-qt-x86_64.AppImage"
+        name: "mpc-qt-x86_64-AppImage"
         path: ./mpc-qt-x86_64.AppImage
