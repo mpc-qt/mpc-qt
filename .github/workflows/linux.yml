@@ -28,3 +28,8 @@ jobs:
     name: Linux
     needs: build
     uses: ./.github/workflows/linux_tests.yml
+
+  appimage:
+    name: AppImage
+    needs: tests
+    uses: ./.github/workflows/appimage.yml

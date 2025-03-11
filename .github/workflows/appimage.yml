@@ -1,11 +1,10 @@
 name: AppImage maker
 
 on:
-  push:
-  pull_request:
+  [workflow_call]
 
 jobs:
-  build:
+  appimage:
     name: Build with PPA
     runs-on: ubuntu-20.04
     steps:
