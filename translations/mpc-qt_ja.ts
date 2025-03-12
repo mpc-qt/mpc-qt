@@ -1929,7 +1929,7 @@
     </message>
     <message>
         <source>Button text</source>
-        <translation>メニュー文字</translation>
+        <translation>メニューのテキスト</translation>
     </message>
     <message>
         <source>Base</source>
