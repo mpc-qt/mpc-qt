@@ -1929,7 +1929,7 @@
     </message>
     <message>
         <source>Button text</source>
-        <translation>ボタン テキスト</translation>
+        <translation>メニュー文字</translation>
     </message>
     <message>
         <source>Base</source>
@@ -1945,7 +1945,7 @@
     </message>
     <message>
         <source>Highlight</source>
-        <translation>強調表示</translation>
+        <translation>強調表示の背景</translation>
     </message>
     <message>
         <source>Highlighted text</source>
