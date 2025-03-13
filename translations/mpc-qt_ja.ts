@@ -1921,7 +1921,7 @@
     </message>
     <message>
         <source>Text</source>
-        <translation>再生リスト/コンテキスト テキスト</translation>
+        <translation>再生リスト/プルダウン テキスト</translation>
     </message>
     <message>
         <source>Bright text</source>
@@ -1929,11 +1929,11 @@
     </message>
     <message>
         <source>Button text</source>
-        <translation>メニューのテキスト</translation>
+        <translation>メニューバーのテキスト</translation>
     </message>
     <message>
         <source>Base</source>
-        <translation>リスト/メニューの背景</translation>
+        <translation>リスト/プルダウンの背景</translation>
     </message>
     <message>
         <source>Window</source>
