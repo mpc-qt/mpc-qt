@@ -1921,7 +1921,7 @@
     </message>
     <message>
         <source>Text</source>
-        <translation>テキスト</translation>
+        <translation>再生リスト/コンテキスト テキスト</translation>
     </message>
     <message>
         <source>Bright text</source>
@@ -1929,11 +1929,11 @@
     </message>
     <message>
         <source>Button text</source>
-        <translation>ボタン テキスト</translation>
+        <translation>メニューのテキスト</translation>
     </message>
     <message>
         <source>Base</source>
-        <translation>ベース</translation>
+        <translation>リスト/メニューの背景</translation>
     </message>
     <message>
         <source>Window</source>
@@ -1945,11 +1945,11 @@
     </message>
     <message>
         <source>Highlight</source>
-        <translation>強調表示</translation>
+        <translation>選択項目の背景</translation>
     </message>
     <message>
         <source>Highlighted text</source>
-        <translation>強調表示テキスト</translation>
+        <translation>選択項目のテキスト</translation>
     </message>
     <message>
         <source>Link</source>
