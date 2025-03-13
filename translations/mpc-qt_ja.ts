@@ -1921,7 +1921,7 @@
     </message>
     <message>
         <source>Text</source>
-        <translation>再生リスト/コンテキスト テキスト</translation>
+        <translation>再生リスト/プルダウン テキスト</translation>
     </message>
     <message>
         <source>Bright text</source>
