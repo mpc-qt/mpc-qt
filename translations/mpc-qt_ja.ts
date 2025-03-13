@@ -1905,19 +1905,19 @@
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished">明</translation>
+        <translation>(未使用)</translation>
     </message>
     <message>
         <source>Midlight</source>
-        <translation type="unfinished">中明</translation>
+        <translation>(未使用)</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished">暗</translation>
+        <translation>(未使用)</translation>
     </message>
     <message>
         <source>Mid</source>
-        <translation type="unfinished">中</translation>
+        <translation>(未使用)</translation>
     </message>
     <message>
         <source>Text</source>
@@ -1925,7 +1925,7 @@
     </message>
     <message>
         <source>Bright text</source>
-        <translation>明るいテキスト</translation>
+        <translation>(未使用)</translation>
     </message>
     <message>
         <source>Button text</source>
@@ -1941,7 +1941,7 @@
     </message>
     <message>
         <source>Shadow</source>
-        <translation>影</translation>
+        <translation>(未使用)</translation>
     </message>
     <message>
         <source>Highlight</source>
@@ -1961,11 +1961,11 @@
     </message>
     <message>
         <source>Base (alternate)</source>
-        <translation>ベース (代替)</translation>
+        <translation>(未使用)</translation>
     </message>
     <message>
         <source>No role</source>
-        <translation type="unfinished">ロールなし</translation>
+        <translation>(未使用)</translation>
     </message>
     <message>
         <source>Tooltip base</source>
