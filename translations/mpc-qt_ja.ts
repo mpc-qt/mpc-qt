@@ -1933,7 +1933,7 @@
     </message>
     <message>
         <source>Base</source>
-        <translation>リスト/メニューの背景</translation>
+        <translation>リスト/プルダウンの背景</translation>
     </message>
     <message>
         <source>Window</source>
