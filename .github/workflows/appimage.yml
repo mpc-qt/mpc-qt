@@ -73,10 +73,17 @@ jobs:
         version: 1-alpha-20240109-1
     - name: Build AppImage
       run: EXTRA_QT_PLUGINS="svg;" QMAKE=/usr/bin/qmake6 linuxdeploy/linuxdeploy-x86_64.AppImage --appdir AppDir -e bin/mpc-qt --custom-apprun ./AppImage/AppRun -i images/icon/mpc-qt.svg --plugin qt --output appimage
+    - name: Get version
+      run: |
+        if [[ "$GITHUB_REF" == *"refs/heads/release/"* ]]; then
+          echo "MPC-QT_PACKAGE_VERSION=$(echo $GITHUB_REF | sed 's,refs/heads/release/,,g')">> $GITHUB_ENV
+        else
+          echo "MPC-QT_PACKAGE_VERSION=continuous">> $GITHUB_ENV
+        fi
     - name: Rename AppImage
-      run:  mv *.AppImage mpc-qt-x86_64.AppImage
+      run:  mv *.AppImage mpc-qt-${{env.MPC-QT_PACKAGE_VERSION}}-linux-x86_64.AppImage
     - name: Upload AppImage
       uses: actions/upload-artifact@v4
       with:
         name: "mpc-qt-x86_64-AppImage"
-        path: ./mpc-qt-x86_64.AppImage
+        path: ./mpc-qt[-_]*.AppImage
