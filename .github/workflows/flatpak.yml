@@ -13,9 +13,6 @@ jobs:
     steps:
       - name: Check out repository
         uses: sithlord48/fancy-checkout@v1.0.0
-
-      - run: git config --global protocol.file.allow always
-
       - name: Get version
         run: |
           if [[ "$GITHUB_REF" == *"refs/heads/release/"* ]]; then
@@ -23,14 +20,13 @@ jobs:
           else
             echo "MPC-QT_PACKAGE_VERSION=continuous">> $GITHUB_ENV
           fi
-      - uses: flatpak/flatpak-github-actions/flatpak-builder@master
-        name: "Build"
+      - name: Build
+        uses: flatpak/flatpak-github-actions/flatpak-builder@master
         with:
           bundle: mpc-qt-${{env.MPC-QT_PACKAGE_VERSION}}-linux-x86_64.flatpak
           manifest-path: deploy/dist/flatpak/io.github.mpc_qt.mpc-qt.yml
           cache-key: flatpak-builder-${{ github.sha }}
           upload-artifact: false
-
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
