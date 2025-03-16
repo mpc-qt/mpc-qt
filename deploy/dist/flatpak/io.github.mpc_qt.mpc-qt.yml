@@ -13,12 +13,13 @@ finish-args:
   - --socket=wayland
   - --socket=pulseaudio
   - --device=dri
+  - --filesystem=xdg-run/gamescope-0:rw
   - --filesystem=xdg-run/pipewire-0:ro
   - --filesystem=host:ro
   - --filesystem=home
   - --talk-name=org.freedesktop.ScreenSaver
   - --talk-name=org.freedesktop.FileManager1
-  - --own-name=org.mpris.MediaPlayer2.io.github.mpc_qt.mpc-qt
+  - --own-name=org.mpris.MediaPlayer2.MpcQt
   - --system-talk-name=org.freedesktop.UDisks2
 cleanup:
   - '*.a'
@@ -214,7 +215,7 @@ modules:
                   url-template: https://ffmpeg.org/releases/ffmpeg-$version.tar.gz
             modules:
               - name: libjxl
-                buildsystem: cmake
+                buildsystem: cmake-ninja
                 config-opts:
                   - -DCMAKE_BUILD_TYPE=Release
                   - -DBUILD_TESTING=OFF
