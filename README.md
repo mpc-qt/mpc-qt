@@ -19,9 +19,10 @@ DirectShow.
 
 ## Releases
 
-There are builds for Windows users on the release page; these use time-based
-versioning (e.g. 17.07 corresponds to a 2017 July).  There are also build
-artifacts from Github actions.
+There are release builds for Windows and Linux users on the [release page]; these use time-based
+versioning (e.g. 17.07 corresponds to July 2017).  
+There are development builds for [Windows] and Linux ([AppImage] and [Flatpak]).  
+There are also build artifacts from Github actions.
 
 Note that unimplemented features in the options dialog are hidden and (where
 this is not possible) disabled.  This is to preserve the familiar options layout
@@ -186,6 +187,10 @@ Yes! You just need to change two SVP settings:
 [screenshot]:https://raw.githubusercontent.com/mpc-qt/mpc-qt-screenshots/refs/heads/master/Screenshot_20241109_190909.png
 [mpc-hc]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
+[release page]:https://github.com/mpc-qt/mpc-qt/releases
+[Windows]:https://github.com/mpc-qt/dev-builds/releases/download/continuous/mpc-qt-continuous-win-x86_64.zip
+[AppImage]:https://github.com/mpc-qt/dev-builds/releases/download/continuous/mpc-qt-continuous-linux-x86_64.AppImage
+[Flatpak]:https://github.com/mpc-qt/dev-builds/releases/download/continuous/mpc-qt-continuous-linux-x86_64.flatpak
 [weblate]:https://hosted.weblate.org/engage/mpc-qt/
 [Translating]:https://github.com/mpc-qt/mpc-qt/wiki/Translating
 [Translation status]:https://hosted.weblate.org/widgets/mpc-qt/-/svg-badge.svg
