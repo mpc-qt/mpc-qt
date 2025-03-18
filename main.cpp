@@ -32,7 +32,7 @@
 
 //---------------------------------------------------------------------------
 
-static const char desktopFile[] = "io.github.mpc-qt.mpc-qt";
+constexpr char desktopFile[] = "io.github.mpc_qt.mpc-qt";
 
 static const char keyCommand[] = "command";
 static const char keyDirectory[] = "directory";
