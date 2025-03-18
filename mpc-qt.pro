@@ -108,7 +108,7 @@ unix {
     shortcut.files = io.github.mpc_qt.mpc-qt.desktop
     shortcut.path = $$PREFIX/share/applications/
 
-    appdata.files = io.github.mpc_qt.Mpc-Qt.appdata.xml
+    appdata.files = io.github.mpc_qt.mpc-qt.appdata.xml
     appdata.path = $$PREFIX/share/metainfo/
 
     logo.files = images/icon/mpc-qt.svg
@@ -218,7 +218,7 @@ OTHER_FILES += \
     DOCS/codebase2.svg \
     DOCS/codebase.svg \
     'DOCS/coding standards.md' \
-    io.github.mpc_qt.Mpc-Qt.appdata.xml \
+    io.github.mpc_qt.mpc-qt.appdata.xml \
     lconvert.pri
 
 DISTFILES += \
