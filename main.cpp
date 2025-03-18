@@ -32,7 +32,7 @@
 
 //---------------------------------------------------------------------------
 
-constexpr char desktopFile[] = "io.github.mpc-qt.mpc-qt";
+constexpr char desktopFile[] = "io.github.mpc_qt.mpc-qt";
 
 constexpr char keyCommand[] = "command";
 constexpr char keyDirectory[] = "directory";
