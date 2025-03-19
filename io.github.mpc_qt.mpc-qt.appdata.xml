@@ -4,7 +4,7 @@
  <metadata_license>CC0-1.0</metadata_license>
  <project_license>GPL-2.0+</project_license>
  <name>Media Player Classic Qute Theater</name>
- <summary>A clone of Media Player Classic reimplemented in Qt.</summary>
+ <summary>A clone of Media Player Classic reimplemented in Qt</summary>
  <launchable type="desktop-id">io.github.mpc_qt.mpc-qt.desktop</launchable>
  <content_rating type="oars-1.1" />
  <developer id="io.github.mpc-qt">
@@ -32,4 +32,36 @@
  </screenshots>
  <url type="homepage">https://mpc-qt.github.io/</url>
  <url type="bugtracker">https://github.com/mpc-qt/mpc-qt/issues</url>
+ <recommends>
+  <control>keyboard</control>
+  <control>pointing</control>
+  <control>touch</control>
+ </recommends>
+ <releases>
+  <release version="24.12.1" date="2025-02-25">
+    <url type="details">https://github.com/mpc-qt/mpc-qt/releases/tag/v24.12.1</url>
+    <description>
+      <p>Release description</p>
+        <ul>
+          <li>Fixes a long standing bug that could lead to a crash.</li>
+          <li>Fixes a regression for Nvidia GPUs introduced by previous version.</li>
+          <li>Fixes the new "remember file position" feature.</li>
+        </ul>
+    </description>
+  </release>
+  <release version="24.12" date="2024-12-07">
+    <url type="details">https://github.com/mpc-qt/mpc-qt/releases/tag/v24.12</url>
+    <description>
+      <p>Release description</p>
+        <ul>
+          <li>Position, audio, video and subtitle tracks can now be remembered for 1000 videos.</li>
+          <li>Seek bar is easier to use.</li>
+          <li>Updated hardware decoding backends.</li>
+          <li>Active subtitle, audio and video tracks are shown.</li>
+          <li>Subtitles delay and video aspect ratio are adjustable.</li>
+          <li>Current and total time and other information shown in OSD.</li>
+        </ul>
+    </description>
+  </release>
+ </releases>
 </component>
