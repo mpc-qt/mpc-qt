@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ja">
+<TS version="2.1" language="ar">
 <context>
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
-        <translation>コマンド</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Key</source>
-        <translation>キー</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mouse Window</source>
-        <translation>マウス ウィンドウ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mouse Fullscr</source>
@@ -21,1208 +21,1208 @@
     </message>
     <message>
         <source>Mouse Fullscreen</source>
-        <translation>マウス 全画面</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ButtonWidget</name>
     <message>
         <source>B</source>
-        <translation>B</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>K</source>
-        <translation>K</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>↑↓</source>
-        <translation>↑↓</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>FavoritesWindow</name>
     <message>
         <source>Organize Favorites</source>
-        <translation>お気に入りの整理</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Update</source>
-        <translation type="vanished">更新(&amp;U)</translation>
+        <translation type="vanished">&amp;Update</translation>
     </message>
     <message>
         <source>&amp;Files</source>
-        <translation>ファイル(&amp;F)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Streams</source>
-        <translation>ストリーム(&amp;S)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation>削除(&amp;R)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation>Media Player Classic Qute Theater</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Start a new process without saving data.</source>
-        <translation>データを保存せずに新しいプロセスを開始する。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Main window size.</source>
-        <translation>メインウィンドウのサイズ。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Main window position.</source>
-        <translation>メインウィンドウの位置。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>URLs to open, optionally.</source>
-        <translation type="unfinished">開くURL(任意)。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save Image</source>
-        <translation>画像の保存</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Playing Media</source>
-        <translation>メディアの再生</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Do not load any config files.</source>
-        <translation>設定ファイルを読み込まない。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Do not load file history, playlists, or favorites.</source>
-        <translation>ファイル履歴、プレイリスト、お気に入りを読み込まない。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Also write logging messages to console.</source>
-        <translation>ログメッセージもコンソールに書き込む。</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>GoToWindow</name>
     <message>
         <source>Go To...</source>
-        <translation>移動...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time</source>
-        <translation>時間</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Go!</source>
-        <translation>移動 !</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Frame</source>
-        <translation>フレーム</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitely.</source>
-        <translation type="unfinished">指定した時間にジャンプするには、[hh:]mm:ss.ms の形式を使用してタイムコードを入力します。区切り文字を明示的に入力する必要はありません。</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>LibraryWindow</name>
     <message>
         <source>Library</source>
-        <translation>ライブラリ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restore</source>
-        <translation>元に戻す</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>削除</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>閉じる</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>LogWindow</name>
     <message>
         <source>Log Messages</source>
-        <translation>ログ メッセージ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation>コピー</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>保存</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation>消去</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save File</source>
-        <translation>ファイルの保存</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation>Media Player Classic Qute Theater</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Play</source>
-        <translation>再生</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pause</source>
-        <translation>一時停止</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation>停止</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Skip Backward</source>
-        <translation>戻る</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Speed Decrease</source>
-        <translation>再生速度 遅く</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Speed Increase</source>
-        <translation>再生速度 速く</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Skip Forward</source>
-        <translation>進む</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Step Backward</source>
-        <translation>コマ戻し</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Step Forward</source>
-        <translation>コマ送り</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set Loop Start</source>
-        <translation>ループ開始点の設定</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set Loop End</source>
-        <translation>ループ終了点の設定</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Chapter</source>
-        <translation>チャプター</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Frame rate</source>
-        <translation>フレームレート</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sync Offset</source>
-        <translation type="unfinished">同期オフセット</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Framedrops</source>
-        <translation>コマ落ち</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>vo: 0, decoder: 0</source>
-        <translation>vo : 0, デコーダー : 0</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bitrate</source>
-        <translation>ビットレート</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation>停止</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>ファイル(&amp;F)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>O&amp;pen Disc</source>
-        <translation>ディスクを開く(&amp;P)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Recent &amp;Files</source>
-        <translation>最近使ったファイル(&amp;F)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Subtitle Data&amp;base</source>
-        <translation>字幕データベース(&amp;B)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation>表示(&amp;V)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Presets</source>
-        <translation>プリセット(&amp;P)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Zoom</source>
-        <translation>拡大(&amp;Z)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>On &amp;Top</source>
-        <translation>手前に表示(&amp;T)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OS&amp;D</source>
-        <translation>OS&amp;D(&amp;D)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>P&amp;lay</source>
-        <translation>再生(&amp;L)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Audio</source>
-        <translation>音声(&amp;A)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Su&amp;btitles</source>
-        <translation>字幕(&amp;B)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Video Stream</source>
-        <translation type="vanished">ビデオ ストリーム(&amp;V)</translation>
+        <translation type="vanished">&amp;Video Stream</translation>
     </message>
     <message>
         <source>V&amp;olume</source>
-        <translation>音量(&amp;O)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Af&amp;ter Playback</source>
-        <translation>再生終了後(&amp;T)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Loop</source>
-        <translation>ループ(&amp;L)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Navigate</source>
-        <translation>操作(&amp;N)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Chapters</source>
-        <translation>チャプター(&amp;C)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Favo&amp;rites</source>
-        <translation>お気に入り(&amp;R)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>ヘルプ(&amp;H)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>編集(&amp;E)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Extra Play Times</source>
-        <translation>追加再生回数(&amp;E)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Quick Open File...</source>
-        <translation>クイック再生(&amp;Q)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Open File...</source>
-        <translation>ファイルを開く(&amp;P)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+O</source>
-        <translation>Ctrl+O</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open &amp;DVD/BD...</source>
-        <translation>&amp;DVD/BDを開く(&amp;D)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+D</source>
-        <translation>Ctrl+D</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open De&amp;vice...</source>
-        <translation>デバイスを開く(&amp;V)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+V</source>
-        <translation>Ctrl+V</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open Dir&amp;ectory...</source>
-        <translation>ディレクトリを開く(&amp;E)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Clear list</source>
-        <translation>リストを消去(&amp;C)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Close File</source>
-        <translation>ファイルを閉じる(&amp;C)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+W</source>
-        <translation>Ctrl+W</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Save a Copy...</source>
-        <translation>コピーを保存(&amp;S)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save &amp;Image...</source>
-        <translation>画像を保存(&amp;I)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+I</source>
-        <translation>Alt+I</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save &amp;Thumbnails</source>
-        <translation>サムネイルを保存(&amp;T)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
-        <translation>字幕の読み込み(&amp;L)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+L</source>
-        <translation>Ctrl+L</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save S&amp;ubtitle...</source>
-        <translation>字幕を保存(&amp;U)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+S</source>
-        <translation>Ctrl+S</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Upload...</source>
-        <translation>アップロード(&amp;U)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Download...</source>
-        <translation>ダウンロード(&amp;D)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>D</source>
-        <translation>D</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Search...</source>
-        <translation>検索(&amp;S)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>P&amp;roperties</source>
-        <translation>プロパティ(&amp;R)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shift+F10</source>
-        <translation>Shift+F10</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation>終了(&amp;X)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+X</source>
-        <translation>Alt+X</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide &amp;Menu</source>
-        <translation>メニューを隠す(&amp;M)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+0</source>
-        <translation>Ctrl+0</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>See&amp;k Bar</source>
-        <translation>シークバー(&amp;K)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+1</source>
-        <translation>Ctrl+1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Controls</source>
-        <translation>コントロール(&amp;C)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+2</source>
-        <translation>Ctrl+2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Information</source>
-        <translation>ファイル情報(&amp;I)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+3</source>
-        <translation>Ctrl+3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Statistics</source>
-        <translation>統計情報(&amp;S)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+4</source>
-        <translation>Ctrl+4</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>S&amp;tatus</source>
-        <translation>ステータス(&amp;T)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+5</source>
-        <translation>Ctrl+5</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Su&amp;bresync</source>
-        <translation>字幕調整(&amp;B)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+6</source>
-        <translation>Ctrl+6</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Play&amp;list</source>
-        <translation>再生リスト(&amp;L)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+7</source>
-        <translation>Ctrl+7</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Captu&amp;re</source>
-        <translation>キャプチャ(&amp;R)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+8</source>
-        <translation>Ctrl+8</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Na&amp;vigation</source>
-        <translation>ナビゲーション(&amp;V)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+9</source>
-        <translation>Ctrl+9</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Minimal</source>
-        <translation>最小(&amp;M)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1</source>
-        <translation>1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Compact</source>
-        <translation>コンパクト(&amp;C)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2</source>
-        <translation>2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Normal</source>
-        <translation>標準(&amp;N)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>3</source>
-        <translation>3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>F&amp;ullscreen</source>
-        <translation>全画面表示(&amp;U)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+Return</source>
-        <translation>Alt+Return</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+1</source>
-        <translation>Alt+1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+2</source>
-        <translation>Alt+2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+3</source>
-        <translation>Alt+3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto &amp;Fit</source>
-        <translation>自動調整(&amp;F)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+4</source>
-        <translation>Alt+4</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto Fit (&amp;Larger Only)</source>
-        <translation>自動調整(&amp;L)(大きいサイズのみ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+5</source>
-        <translation>Alt+5</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Disable snapping</source>
-        <translation>スナップを無効にする(&amp;D)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+0</source>
-        <translation>Alt+0</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Default</source>
-        <translation>標準(&amp;D)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Always</source>
-        <translation>常に(&amp;A)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+A</source>
-        <translation>Ctrl+A</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>While &amp;Playing</source>
-        <translation>再生中(&amp;P)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>While Playing &amp;Video</source>
-        <translation>ビデオの再生中(&amp;V)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Options...</source>
-        <translation>オプション(&amp;O)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>O</source>
-        <translation>O</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Pause</source>
-        <translation>一時停止(&amp;P)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Space</source>
-        <translation>スペース</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation>停止(&amp;S)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>.</source>
-        <translation>.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>F&amp;rame Step Forward</source>
-        <translation>コマ送り(&amp;R)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Right</source>
-        <translation>Ctrl+Right</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fra&amp;me Step Backward</source>
-        <translation>コマ戻し(&amp;M)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Left</source>
-        <translation>Ctrl+左</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Decrease Rate</source>
-        <translation>再生速度 遅く(&amp;D)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Down</source>
-        <translation>Ctrl+下</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Increase Rate</source>
-        <translation>再生速度 速く(&amp;I)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Up</source>
-        <translation>Ctrl+上</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>R&amp;eset Rate</source>
-        <translation>再生速度 標準(&amp;E)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+R</source>
-        <translation>Ctrl+R</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Up</source>
-        <translation>音量を上げる(&amp;U)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0</source>
-        <translation>0</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Down</source>
-        <translation>音量を下げる(&amp;D)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>9</source>
-        <translation>9</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Mute</source>
-        <translation>ミュート(&amp;M)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+M</source>
-        <translation>Ctrl+M</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Exit</source>
-        <translation>終了(&amp;E)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Stand by</source>
-        <translation>スタンバイ(&amp;S)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Hibernate</source>
-        <translation>休止状態(&amp;H)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shut&amp;down</source>
-        <translation>シャットダウン(&amp;D)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Log &amp;Off</source>
-        <translation>ログオフ(&amp;O)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Lock</source>
-        <translation>ロック(&amp;L)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Do &amp;Nothing</source>
-        <translation>何もしない(&amp;N)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Play next in the &amp;folder</source>
-        <translation type="vanished">フォルダー内の次の曲を再生(&amp;F)</translation>
+        <translation type="vanished">Play next in the &amp;folder</translation>
     </message>
     <message>
         <source>&amp;Previous</source>
-        <translation>前へ(&amp;P)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PgUp</source>
-        <translation>PgUp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation>次へ(&amp;N)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PgDown</source>
-        <translation>PgDown</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Go To...</source>
-        <translation>移動(&amp;G)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+G</source>
-        <translation>Ctrl+G</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Title Menu</source>
-        <translation>タイトル メニュー(&amp;T)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+T</source>
-        <translation>Alt+T</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Root Menu</source>
-        <translation>ルート メニュー(&amp;R)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+R</source>
-        <translation>Alt+R</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Subtitle Menu</source>
-        <translation>字幕 メニュー(&amp;S)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Audio Menu</source>
-        <translation>音声 メニュー(&amp;A)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Angle &amp;Menu</source>
-        <translation>アングル メニュー(&amp;M)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Chapt&amp;er Menu</source>
-        <translation>チャプター メニュー(&amp;E)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Add to Favorites...</source>
-        <translation type="vanished">お気に入りへ追加(&amp;A)...</translation>
+        <translation type="vanished">&amp;Add to Favorites...</translation>
     </message>
     <message>
         <source>&amp;Organize Favorites...</source>
-        <translation>お気に入りの整理(&amp;O)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Home Page</source>
-        <translation>ホームページ(&amp;H)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;About This Program...</source>
-        <translation>バージョン情報(&amp;A)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open &amp;Network Stream...</source>
-        <translation>ネットワーク ストリームを開く(&amp;N)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save I&amp;mage (Auto)</source>
-        <translation>画像の保存(&amp;M) (自動)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>F5</source>
-        <translation>F5</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto Fit (&amp;Smaller Only)</source>
-        <translation>自動調整(&amp;S) (小さいサイズのみ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+6</source>
-        <translation>Alt+6</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Play Current</source>
-        <translation>現在の再生(&amp;P)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Return</source>
-        <translation>戻る</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Seek Forwards</source>
-        <translation type="vanished">前方にシーク</translation>
+        <translation type="vanished">Seek Forwards</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>右</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Seek Backwards</source>
-        <translation type="vanished">後方にシーク</translation>
+        <translation type="vanished">Seek Backwards</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>左</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Seek Forwards Finely</source>
-        <translation type="vanished">前方を細かくシーク</translation>
+        <translation type="vanished">Seek Forwards Finely</translation>
     </message>
     <message>
         <source>Shift+Right</source>
-        <translation>Shift+右</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Seek Backwards Finely</source>
-        <translation type="vanished">後方を細かくシーク</translation>
+        <translation type="vanished">Seek Backwards Finely</translation>
     </message>
     <message>
         <source>Shift+Left</source>
-        <translation>Shift+左</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Set Loop Start</source>
-        <translation>ループ開始点の設定(&amp;S)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Home</source>
-        <translation>Ctrl+Home</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set &amp;Loop End</source>
-        <translation>ループ終了点の設定(&amp;L)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+End</source>
-        <translation>Ctrl+End</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Use Loop Points</source>
-        <translation type="vanished">ループポイントを使用する(&amp;U)</translation>
+        <translation type="vanished">&amp;Use Loop Points</translation>
     </message>
     <message>
         <source>Ctrl+Backspace</source>
-        <translation>Ctrl+Backspace</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Clear Loop</source>
-        <translation>ループの消去(&amp;C)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Backspace</source>
-        <translation>Backspace</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Search Playlist</source>
-        <translation>再生リストの検索(&amp;S)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+F</source>
-        <translation>Ctrl+F</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Quick Queue Toggle</source>
-        <translation>クイックキューの切り替え(&amp;Q)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Q</source>
-        <translation>Q</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Finish Searching</source>
-        <translation>検索終了(&amp;F)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Esc</source>
-        <translation>Esc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation>新しいタブ(&amp;N)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
-        <translation>Ctrl+Shift+T</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation>タブを閉じる(&amp;L)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>タブを閉じる</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
-        <translation>Ctrl+Shift+W</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>タブを複製(&amp;D)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
-        <translation>Ctrl+Shift+D</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation>再生リストのインポート(&amp;I)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Shift+O</source>
-        <translation>Ctrl+Shift+O</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>E&amp;xport Playlist</source>
-        <translation>再生リストのエクスポート(&amp;X)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Shift+S</source>
-        <translation>Ctrl+Shift+S</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Queue &amp;Visible</source>
-        <translation type="unfinished">キュー表示(&amp;V)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Shift+Q</source>
-        <translation>Ctrl+Shift+Q</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Increment</source>
-        <translation>増やす(&amp;I)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>E</source>
-        <translation>E</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Decrement</source>
-        <translation>減らす(&amp;D)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shift+E</source>
-        <translation>Shift+E</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Clear Play Times</source>
-        <translation>再生回数の消去(&amp;C)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+E</source>
-        <translation>Ctrl+E</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Copy Selection</source>
-        <translation>選択項目をコピー(&amp;C)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Shift+C</source>
-        <translation>Ctrl+Shift+C</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation>貼り付け</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Shift+V</source>
-        <translation>Ctrl+Shift+V</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>C&amp;opy Queue</source>
-        <translation>キューをコピー(&amp;O)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Alt+C</source>
-        <translation>Ctrl+Alt+C</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Paste and Q&amp;ueue</source>
-        <translation>貼り付けとキュー(&amp;U)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Alt+V</source>
-        <translation>Ctrl+Alt+V</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>About &amp;Qt...</source>
-        <translation>&amp;Qt について(&amp;Q)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save Pl&amp;ain Image...</source>
-        <translation>プレーン画像として保存(&amp;A)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+Shift+I</source>
-        <translation>Alt+Shift+I</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save Plain Ima&amp;ge (Auto)</source>
-        <translation>プレーン画像の保存(&amp;G) (自動)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shift+F5</source>
-        <translation>Shift+F5</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export Encode...</source>
-        <translation>エンコードのエクスポート...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>F12</source>
-        <translation>F12</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>S&amp;how Quick Queue</source>
-        <translation>クイックキューの表示(&amp;H)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+`</source>
-        <translation>Ctrl+`</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save &amp;Window Image...</source>
-        <translation>ウィンドウ画像の保存(&amp;W)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save Window Image</source>
-        <translation>ウィンドウ画像の保存</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Alt+I</source>
-        <translation>Ctrl+Alt+I</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save Window Image (Auto)</source>
-        <translation>ウィンドウ画像の保存 (自動)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+F5</source>
-        <translation>Ctrl+F5</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Do No&amp;thing</source>
-        <translation type="vanished">何もしない(&amp;T)</translation>
+        <translation type="vanished">Do No&amp;thing</translation>
     </message>
     <message>
         <source>Repe&amp;at</source>
-        <translation type="vanished">繰り返し(&amp;A)</translation>
+        <translation type="vanished">Repe&amp;at</translation>
     </message>
     <message>
         <source>&amp;Repeat</source>
-        <translation>ループ(&amp;R)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Application Messages</source>
-        <translation>アプリケーションのメッセージ(&amp;A)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;General Statistics</source>
-        <translation>一般統計(&amp;G)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Frame Timings</source>
-        <translation>フレーム タイミング(&amp;F)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Cycle</source>
-        <translation>サイクル(&amp;C)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+J</source>
-        <translation>Ctrl+J</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;No Messages</source>
-        <translation>メッセージなし(&amp;N)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Escape Fullscreen</source>
-        <translation>全画面表示の解除(&amp;E)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable &amp;Subtitles</source>
-        <translation>字幕有効(&amp;S)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Next Subtitle</source>
-        <translation>次の字幕(&amp;N)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Previous Subtitle</source>
-        <translation>前の字幕(&amp;P)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Lo&amp;g</source>
-        <translation>ログ(&amp;G)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Once</source>
-        <translation type="vanished">1回</translation>
+        <translation type="vanished">Once</translation>
     </message>
     <message>
         <source>Every time</source>
-        <translation type="vanished">毎回</translation>
+        <translation type="vanished">Every time</translation>
     </message>
     <message>
         <source>View</source>
-        <translation>表示</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide &amp;Borders</source>
-        <translation>境界線を隠す(&amp;B)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sho&amp;w Caption and Menu</source>
-        <translation>キャプションとメニューを表示(&amp;W)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quick Open</source>
-        <translation>クイック再生</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No files favorited</source>
-        <translation>お気に入りファイルがありません</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No streams favorited</source>
-        <translation>お気に入りのストリームはありません</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source> [Freestanding]</source>
-        <translation type="unfinished"> [Freestanding]</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
-        <translation>再生リストへクイック追加(&amp;Q)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Quick Open File</source>
-        <translation type="unfinished">クイック 再生(&amp;Q)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation>ディレクトリを開く</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enter Network Stream</source>
-        <translation>ネットワーク ストリームの入力</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Network Stream</source>
-        <translation>ネットワーク ストリーム</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open Subtitle</source>
-        <translation>字幕を開く</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Development Build</source>
-        <translation>開発ビルド</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation>バージョン %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation>Media Player Classic Qute Theater について</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation>Qt で書かれた Media Player Classic のクローン</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation>Qt %1 および %2 に基づく</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation type="unfinished">Built on %1 at %2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+Q</source>
@@ -1230,47 +1230,47 @@
     </message>
     <message>
         <source>Ctrl+Q</source>
-        <translation>Ctrl+Q</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Paused</source>
-        <translation>一時停止</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Playing</source>
-        <translation>再生</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Buffering</source>
-        <translation>バッファリング</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation>不明</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
-        <translation type="vanished">&lt;不明&gt;</translation>
+        <translation type="vanished">&lt;unknown&gt;</translation>
     </message>
     <message>
         <source>Libr&amp;ary</source>
-        <translation>ライブラリ(&amp;A)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+=</source>
-        <translation>Ctrl+=</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+-</source>
-        <translation>Ctrl+-</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Copy Subtitle</source>
-        <translation>字幕のコピー(&amp;C)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Controls in Fullscreen</source>
-        <translation>全画面表示でのコントロール</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>i</source>
@@ -1278,1516 +1278,1512 @@
     </message>
     <message>
         <source>&amp;Previous File</source>
-        <translation>前のファイル(&amp;P)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+PgUp</source>
-        <translation>Ctrl+PgUp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Next File</source>
-        <translation>次のファイル(&amp;N)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+PgDown</source>
-        <translation>Ctrl+PgDown</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Play next &amp;file</source>
-        <translation>次のファイルを再生(&amp;F)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation>字幕</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation>ミュート</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Add to Favorites</source>
-        <translation>お気に入りへ追加(&amp;A)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Decrease Delay</source>
-        <translation>遅延を減らす(&amp;D)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Increase Delay</source>
-        <translation>遅延を増やす(&amp;I)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Video</source>
-        <translation>ビデオ(&amp;V)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Decrease Aspect</source>
-        <translation type="vanished">アスペクト比を下げる(&amp;D)</translation>
+        <translation type="vanished">&amp;Decrease Aspect</translation>
     </message>
     <message>
         <source>&amp;Increase Aspect</source>
-        <translation type="vanished">アスペクト比を上げる(&amp;I)</translation>
+        <translation type="vanished">&amp;Increase Aspect</translation>
     </message>
     <message>
         <source>&amp;Reset Aspect</source>
-        <translation type="vanished">アスペクト比をリセット(&amp;R)</translation>
+        <translation type="vanished">&amp;Reset Aspect</translation>
     </message>
     <message>
         <source>Disable &amp;aspect</source>
-        <translation type="vanished">アスペクト比を無効にする(&amp;A)</translation>
+        <translation type="vanished">Disable &amp;aspect</translation>
     </message>
     <message>
         <source>&amp;Show OSD Timer</source>
-        <translation>OSD タイマーの表示(&amp;S)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>I</source>
-        <translation>I</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Decrease Aspect ratio</source>
-        <translation>アスペクト比を下げる(&amp;D)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Increase Aspect ratio</source>
-        <translation>アスペクト比を上げる(&amp;I)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Reset Aspect ratio</source>
-        <translation>アスペクト比をリセット(&amp;R)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disable &amp;Aspect ratio</source>
-        <translation>アスペクト比を無効にする(&amp;A)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>C</source>
-        <translation>C</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 / %2</source>
-        <translation type="unfinished">%1 / %2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Seek Forwards (normal step)</source>
-        <translation>前方シーク (通常ステップ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Seek Backwards (normal step)</source>
-        <translation>後方シーク (通常ステップ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Seek Forwards (large step)</source>
-        <translation>前方シーク (大きいステップ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Seek Backwards (large step)</source>
-        <translation>後方シーク (大きいステップ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>タイトル</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Aspect ratio</source>
-        <translation>アスペクト比(&amp;A)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Pan and Scan</source>
-        <translation>パンとスキャン(&amp;P)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Decrease &amp;Pan and Scan</source>
-        <translation>パンとスキャンを縮小(&amp;P)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Increase Pan and &amp;Scan</source>
-        <translation>パンとスキャンを拡大(&amp;S)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Minimum Pan and Scan</source>
-        <translation>最小限のパンとスキャン(&amp;M)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>M&amp;aximum Pan and Scan</source>
-        <translation>最大限のパンとスキャン(&amp;A)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MouseState</name>
     <message>
         <source>None</source>
-        <translation>なし</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wheel</source>
-        <translation>ホイール</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>左</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>右</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>中</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>戻る</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Forward</source>
-        <translation>進む</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Task</source>
-        <translation>タスク</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton4</source>
-        <translation type="unfinished">XButton4</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton5</source>
-        <translation type="unfinished">XButton5</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton6</source>
-        <translation type="unfinished">XButton6</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton7</source>
-        <translation type="unfinished">XButton7</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton8</source>
-        <translation type="unfinished">XButton8</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton9</source>
-        <translation type="unfinished">XButton9</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton10</source>
-        <translation type="unfinished">XButton10</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton11</source>
-        <translation type="unfinished">XButton11</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton12</source>
-        <translation type="unfinished">XButton12</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton13</source>
-        <translation type="unfinished">XButton13</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton14</source>
-        <translation type="unfinished">XButton14</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton15</source>
-        <translation type="unfinished">XButton15</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton16</source>
-        <translation type="unfinished">XButton16</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton17</source>
-        <translation type="unfinished">XButton17</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton18</source>
-        <translation type="unfinished">XButton18</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton19</source>
-        <translation type="unfinished">XButton19</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton20</source>
-        <translation type="unfinished">XButton20</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton21</source>
-        <translation type="unfinished">XButton21</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton22</source>
-        <translation type="unfinished">XButton22</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton23</source>
-        <translation type="unfinished">XButton23</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XButton24</source>
-        <translation type="unfinished">XButton24</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shift</source>
-        <translation type="unfinished">Shift</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Control</source>
-        <translation type="unfinished">Control</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt</source>
-        <translation type="unfinished">Alt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Meta</source>
-        <translation type="unfinished">Meta</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Down</source>
-        <translation>下</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Up</source>
-        <translation>上</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Twice</source>
-        <translation>ダブルクリック</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MpvObject</name>
     <message>
         <source>Subtitles delay: %1 ms</source>
-        <translation>字幕の遅延 : %1 ミリ秒</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>OpenFileDialog</name>
     <message>
         <source>Open File</source>
-        <translation>ファイルを開く</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fi&amp;le</source>
-        <translation>ファイル(&amp;L)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Subtitles</source>
-        <translation>字幕(&amp;S)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation>ファイルの選択</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PaletteEditor</name>
     <message>
         <source>Button</source>
-        <translation>ボタン</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Button &amp;&amp; Window</source>
-        <translation>ボタン と ウィンドウ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Reset to System</source>
-        <translation>既定へリセット</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Generate</source>
-        <translation type="unfinished">生成</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PlaybackManager</name>
     <message>
         <source>Speed: %1%</source>
-        <translation>再生速度 : %1%</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Volume: %1%</source>
-        <translation>音量 : %1%</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mute: on</source>
-        <translation>ミュート : オン</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mute: off</source>
-        <translation>ミュート : オフ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0: None</source>
-        <translation>0 : なし</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Aspect ratio: %1</source>
-        <translation>アスペクト比 : %1</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PlaylistCollection</name>
     <message>
         <source>Quick playlist</source>
-        <translation>クイック 再生リスト</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PlaylistWindow</name>
     <message>
         <source>P&amp;laylist</source>
-        <translation>再生リスト(&amp;L)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>検索</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Visible Items to Quick Queue</source>
-        <translation type="unfinished">クイックキューに表示する項目</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>New Tab</source>
-        <translation>新しいタブ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>タブを閉じる</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation>タブを複製</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Import Playlist</source>
-        <translation>再生リストのインポート</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export Playlist</source>
-        <translation>再生リストのエクスポート</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show Queue</source>
-        <translation>キューを表示</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Playlist</source>
-        <translation>再生リスト</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation>クイック 再生リスト</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>New Playlist</source>
-        <translation>新しい再生リスト</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enter Playlist Name</source>
-        <translation>再生リスト名の入力</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Import File</source>
-        <translation>ファイルのインポート</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
-        <translation>再生リスト ファイル (*.m3u *.m3u8)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export File</source>
-        <translation>ファイルのエクスポート</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open</source>
-        <translation>開く</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>追加</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>削除</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation>消去</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
-        <translation>クリップボードへコピー</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>名前を付けて保存...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sort By Label</source>
-        <translation>ラベルで並べ替え</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sort By Url</source>
-        <translation>URLで並べ替え</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Randomize</source>
-        <translation type="vanished">ランダム</translation>
+        <translation type="vanished">Randomize</translation>
     </message>
     <message>
         <source>Restore</source>
-        <translation>元に戻す</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shuffle</source>
-        <translation>シャッフル</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide On Fullscreen</source>
-        <translation>全画面時に隠す</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enter playlist name</source>
-        <translation>再生リスト名の入力</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
-        <translation>新しい再生リスト(&amp;N)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Remove Playlist</source>
-        <translation>再生リストの削除(&amp;R)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
-        <translation>再生リストを複製(&amp;D)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation>再生リストのインポート(&amp;I)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Export Playlist</source>
-        <translation>再生リストのエクスポート(&amp;E)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation>繰り返し</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Reshuffle</source>
-        <translation>再シャッフル</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PropertiesWindow</name>
     <message>
         <source>Properties</source>
-        <translation>プロパティ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Details</source>
-        <translation>詳細</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation>ファイルの種類 :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation>サイズ :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Media length:</source>
-        <translation>メディアの長さ :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Video size:</source>
-        <translation>ビデオのサイズ :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Created:</source>
-        <translation>作成日時 :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clip</source>
-        <translation>クリップ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clip:</source>
-        <translation>クリップ :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Author:</source>
-        <translation>作成者 :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copyright:</source>
-        <translation>著作権 :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rating:</source>
-        <translation>評価 :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation>場所 :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation>説明 :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MediaInfo</source>
-        <translation>メディア情報</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>保存(&amp;S)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Video</source>
-        <translation>ビデオ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation>音声</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation>字幕</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>General</source>
-        <translation>全般</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Menu
 </source>
-        <translation>メニュー
-</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>File has no data for this section.
 </source>
-        <translation>ファイルにはこのセクションのデータがありません。
-</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text documents (*.txt);;All files (*.*)</source>
-        <translation>テキスト ドキュメント (*.txt);;すべてのファイル (*.*)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>All Media (*.%1);;All Files (*.*)</source>
-        <translation>すべてのメディア (*.%1);;すべてのファイル (*.*)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>All Subtitles (*.%1);;All Files (*.*)</source>
-        <translation>すべての字幕 (*.%1);;すべてのファイル (*.*)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Window text</source>
-        <translation>ウィンドウ テキスト</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Button</source>
-        <translation>ボタン</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished">明(Linuxのみ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Midlight</source>
-        <translation type="unfinished">中明(Linuxのみ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished">暗(Linuxのみ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mid</source>
-        <translation type="unfinished">中(Linuxのみ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text</source>
-        <translation>再生リスト/プルダウン テキスト</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bright text</source>
-        <translation>明るいテキスト(Linuxのみ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Button text</source>
-        <translation>メニューバーのテキスト</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Base</source>
-        <translation>リスト/プルダウンの背景</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Window</source>
-        <translation>ウィンドウ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation>影(Linuxのみ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Highlight</source>
-        <translation>選択項目の背景</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Highlighted text</source>
-        <translation>選択項目のテキスト</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Link</source>
-        <translation>リンク</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Link (visited)</source>
-        <translation>リンク (訪問済み)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Base (alternate)</source>
-        <translation>ベース代替(Linuxのみ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No role</source>
-        <translation type="unfinished">役割なし(Linuxのみ)</translation>
-   </message>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Tooltip base</source>
-        <translation type="unfinished">ツールチップ 背景</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tooltip text</source>
-        <translation>ツールチップ テキスト</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Active</source>
-        <translation>アクティブ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation>無効</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Inactive</source>
-        <translation>非アクティブ</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ScreenCombo</name>
     <message>
         <source>Current</source>
-        <translation>現在</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SettingsWindow</name>
     <message>
         <source>Options</source>
-        <translation>オプション</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1</source>
-        <translation>1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Player</source>
-        <translation>プレーヤー</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Formats</source>
-        <translation>形式</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Keys</source>
-        <translation>キー</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Logo</source>
-        <translation>ロゴ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation>インターフェイス</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Playback</source>
-        <translation>再生</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Output</source>
-        <translation>出力</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shaders</source>
-        <translation>シェーダー</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fullscreen</source>
-        <translation>全画面表示</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sync</source>
-        <translation>同期</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hw. Decoding</source>
-        <translation>ハードウェア デコーディング</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Playlist</source>
-        <translation>再生リスト</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation>字幕</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default Style</source>
-        <translation>既定のスタイル</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation>その他</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export</source>
-        <translation>エクスポート</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Encoding</source>
-        <translation>エンコーディング</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tweaks</source>
-        <translation>詳細設定</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Logging</source>
-        <translation>ログ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Miscellaneous</source>
-        <translation>その他</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;big&gt;&lt;b&gt;Player</source>
-        <translation>&lt;big&gt;&lt;b&gt;プレーヤー</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open options</source>
-        <translation>開くオプション</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use the same player for
 each &amp;media file</source>
-        <translation>再生するメディア ファイルに同じ
-プレーヤーを使用する(&amp;M)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open a new &amp;player for each
 media file played</source>
-        <translation>再生するメディア ファイルごとに
-新規プレーヤーを開く(&amp;P)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Other</source>
-        <translation>その他</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tray icon</source>
-        <translation>タスク トレイ アイコン</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show OSD</source>
-        <translation>OSD を表示する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Limit window proportions on resize</source>
-        <translation>リサイズ時にウィンドウの縦横比を固定する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disable &quot;Open Disc&quot; menu</source>
-        <translation>&quot;ディスクを開く&quot; メニューを無効にする</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disable screensaver while playing</source>
-        <translation>再生中はスクリーンセーバーを無効にする</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Title bar</source>
-        <translation>タイトル バー</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disp&amp;lay full path</source>
-        <translation>フル パスを表示する(&amp;L)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>File &amp;name only</source>
-        <translation>ファイル名のみ(&amp;N)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
-        <translation>接頭辞を付けない(&amp;X)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Replace file name with title</source>
-        <translation>ファイル名をタイトルに置き換える</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>History</source>
-        <translation>履歴</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Keep history of recently opened files</source>
-        <translation>最近使ったファイルの履歴を保存する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remember last selected playlist</source>
-        <translation>終了時の再生リストを記憶する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remember last window geometry</source>
-        <translation>終了時のウィンドウ サイズを記憶する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remember last Pan-n-Scan Zoom</source>
-        <translation>終了時のパンとスキャンの拡大率を記憶する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MIME types</source>
-        <translation>MIME 種類</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Association</source>
-        <translation>関連付け</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Video</source>
-        <translation>ビデオの背景色</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation>音声</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>All</source>
-        <translation>すべて</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</source>
-        <translation>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt;  は %1 が利用可能です</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MPRIS</source>
-        <translation>MPRIS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation>リセット</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>E&amp;xternal</source>
-        <translation>外部(&amp;X)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Interna&amp;l</source>
-        <translation>内部(&amp;L)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Browse...</source>
-        <translation>参照...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Blank</source>
-        <translation>空</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Color film stock</source>
-        <translation type="vanished">カラーフィルム ストック</translation>
+        <translation type="vanished">Color film stock</translation>
     </message>
     <message>
         <source>Black and white film stock</source>
-        <translation type="vanished">白黒フィルム ストック</translation>
+        <translation type="vanished">Black and white film stock</translation>
     </message>
     <message>
         <source>Triangle in circle</source>
-        <translation type="unfinished">再生マーク</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Multi purpose vehicle</source>
-        <translation type="unfinished">多目的媒体</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Icons</source>
-        <translation>アイコン</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation>テーマ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Built-in fallback</source>
-        <translation>内蔵フォールバック</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation>カスタム</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>System (Linux only)</source>
-        <translation>システム (Linux のみ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Folder (e.g. ~/Pictures/MyIcons/mpc-qt/leet)</source>
-        <translation>フォルダー (例 : ~/Pictures/MyIcons/mpc-qt/leet)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>アイコン名については、 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;ソース リポジトリ&lt;/a&gt; を参照してください。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fallback</source>
-        <translation>フォールバック</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
-        <translation>黒 (白パレット用)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>White (for black palette)</source>
-        <translation>白 (黒パレット用)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Widget Color</source>
-        <translation>ウィジェットの色</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use custom theme</source>
-        <translation>カスタム テーマを使用する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Window Color</source>
-        <translation>ウィンドウの色</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>HHHHHH</source>
-        <translation>HHHHHH</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Info Background</source>
-        <translation type="unfinished">情報欄の背景色</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation type="unfinished">情報欄の文字色</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Control</source>
-        <translation>コントロール</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Volume step</source>
-        <translation>音量調整の刻み幅</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Speed step</source>
-        <translation>速度調整の刻み幅</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation>自動</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time step</source>
-        <translation type="vanished">時間ステップ</translation>
+        <translation type="vanished">Time step</translation>
     </message>
     <message>
         <source>Fine step</source>
-        <translation type="vanished">細かいステップ</translation>
+        <translation type="vanished">Fine step</translation>
     </message>
     <message>
         <source>Center window when zooming</source>
-        <translation>拡大時にウィンドウを中央に表示する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto zoom</source>
-        <translation>自動拡大</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Autofit</source>
-        <translation>自動調整</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Autofit (Larger Only)</source>
-        <translation>自動調整 (大きいサイズのみ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Autofit (Smaller Only)</source>
-        <translation>自動調整 (小さいサイズのみ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto fit factor</source>
-        <translation>自動調整の倍率</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Autofitting in tiling window managers requires that the window be in floating mode.</source>
-        <translation>タイル ウィンドウ マネージャーで自動調整を行うには、ウィンドウがフローティング モードになっている必要があります。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Volume</source>
-        <translation>音量</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use Qt&apos;s inbuilt fusion style</source>
-        <translation>Qt内蔵の融合スタイルを使用する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation>バランス</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default track preference</source>
-        <translation>既定のトラックの優先順位</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mouse hiding</source>
-        <translation>マウスを隠す</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Windowed</source>
-        <translation type="unfinished">ウィンドウ表示</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Video Renderer</source>
-        <translation>ビデオ レンダラー</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dumb mode</source>
-        <translation type="unfinished">シンプル モード</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>General</source>
-        <translation>全般</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Framebuffer</source>
-        <translation>フレーム バッファ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>8 bits</source>
-        <translation>8 bits</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>10 bits</source>
-        <translation>10 bits</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>12 bits</source>
-        <translation>12 bits</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>16 bits</source>
-        <translation>16 bits</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>16 bits float</source>
-        <translation>16 bits float</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>32 bits float</source>
-        <translation>32 bits float</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alpha channel</source>
-        <translation>アルファ チャンネル</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alpha</source>
-        <translation>アルファ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Blend on black</source>
-        <translation type="unfinished">黒地にブレンド</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use</source>
-        <translation>使用</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ignore</source>
-        <translation>無視</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sharpen</source>
-        <translation>シャープ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation>無効</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Presets</source>
-        <translation>プリセット</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Plain</source>
-        <translation>プレイン</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Low</source>
-        <translation>低</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>High</source>
-        <translation>高</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Highest</source>
-        <translation>最高</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Placebo</source>
-        <translation>プラセボ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Load</source>
-        <translation>読み込み</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dither</source>
-        <translation>ディザ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dithering</source>
-        <translation>ディザリング</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Depth</source>
-        <translation>深さ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Type</source>
-        <translation>種類</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fruit</source>
-        <translation type="unfinished">フルーツ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ordered</source>
-        <translation>順序</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished">No</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>サイズ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Often, LCDs perform dithering on their own, which conflicts with OpenGL&apos;s output and can lead to ugly output.  In which case you should lower the dither depth.</source>
-        <translation>多くの場合、LCD は独自にディザリングを実行しますが、これが OpenGL の出力と競合し、醜い出力につながる可能性があります。その場合は、ディザの深さを下げる必要があります。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Temporal dithering</source>
-        <translation>時間的ディザリング</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Period</source>
-        <translation type="unfinished">期間</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>This can lead to flicker on LCD displays, since these  have a high reaction time.</source>
-        <translation>LCD ディスプレイは反応時間が長いため、ちらつきが発生する可能性があります。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scaling</source>
-        <translation>スケーリング</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Correct downscaling</source>
-        <translation>正確なダウンスケーリング</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Temporal interpolation</source>
-        <translation>フレーム補間</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Blend subtitles</source>
-        <translation>字幕のブレンド</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sigmoidized upscaling</source>
-        <translation>S字カーブによるアップスケーリング</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Center</source>
-        <translation>中央</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Slope</source>
-        <translation>角度</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation>スケール</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scaler</source>
-        <translation>スケーラー</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2</source>
-        <translation>2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Anti-ring</source>
-        <translation>リング除去</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Blur</source>
-        <translation>ぼかし</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Window</source>
-        <translation>ウィンドウ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Box</source>
-        <translation>ボックス</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Triangle</source>
-        <translation>三角</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bartlett</source>
-        <translation type="unfinished">Bartlett</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hanning</source>
-        <translation type="unfinished">Hanning</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hamming</source>
-        <translation type="unfinished">Hamming</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quadric</source>
-        <translation type="unfinished">Quadric</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Welch</source>
-        <translation type="unfinished">Welch</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Kaiser</source>
-        <translation type="unfinished">Kaiser</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Blackman</source>
-        <translation type="unfinished">Blackman</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gaussian</source>
-        <translation type="unfinished">Gaussian</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sinc</source>
-        <translation type="unfinished">Sinc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Jinc</source>
-        <translation type="unfinished">Jinc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sphinx</source>
-        <translation type="unfinished">Sphinx</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clamp</source>
-        <translation type="unfinished">Clamp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Radius</source>
-        <translation>半径</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bilinear</source>
-        <translation>バイリニア</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bicubic_fast</source>
-        <translation>バイキュービック_高速</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Oversample</source>
-        <translation>オーバーサンプル</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Spline16</source>
-        <translation type="unfinished">Spline16</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Spline36</source>
-        <translation type="unfinished">Spline36</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Spline64</source>
-        <translation type="unfinished">Spline64</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Lanczos</source>
-        <translation type="unfinished">Lanczos</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ginseng</source>
-        <translation type="unfinished">Ginseng</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ewa lanczos</source>
-        <translation type="unfinished">Ewa lanczos</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ewa hanning</source>
-        <translation type="unfinished">Ewa hanning</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ewa ginseng</source>
-        <translation type="unfinished">Ewa ginseng</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ewa lanczos sharp</source>
-        <translation type="unfinished">Ewa lanczos sharp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ewa lanczos soft</source>
-        <translation type="unfinished">Ewa lanczos soft</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Haasnsoft</source>
-        <translation type="unfinished">Haasnsoft</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bicubic</source>
-        <translation>バイキュービック</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bc spline</source>
-        <translation>Bc スプライン</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Catmull rom</source>
-        <translation type="unfinished">Catmull rom</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mitchell</source>
-        <translation type="unfinished">Mitchell</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Robidoux</source>
-        <translation type="unfinished">Robidoux</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Robidoux sharp</source>
-        <translation type="unfinished">Robidoux sharp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ewa robidoux</source>
-        <translation type="unfinished">Ewa robidoux</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ewa robidoux sharp</source>
-        <translation type="unfinished">Ewa robidoux sharp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Nearest</source>
-        <translation>ニアレスト</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Downscale</source>
-        <translation>ダウンスケール</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unset</source>
-        <translation>設定解除</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Color</source>
-        <translation>色</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Temporal</source>
-        <translation type="unfinished">Temporal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Linear</source>
-        <translation>リニア</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Deband</source>
-        <translation type="unfinished">バンディング除去</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>State</source>
-        <translation>状態</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enabled</source>
-        <translation>有効</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Iterations</source>
-        <translation type="unfinished">反復回数</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Threshold</source>
-        <translation>しきい値</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Range</source>
-        <translation>範囲</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Grain</source>
-        <translation type="unfinished">粒子ノイズ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Color Correction</source>
-        <translation>色補正</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gamma</source>
-        <translation>ガンマ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Only implemented on Mac</source>
-        <translation type="vanished">Macのみ実装</translation>
+        <translation type="vanished">Only implemented on Mac</translation>
     </message>
     <message>
         <source>Autodetect</source>
-        <translation>自動検出</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Target Prim</source>
-        <translation>ターゲット Prim</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>BT.470m</source>
@@ -2795,115 +2791,115 @@ media file played</source>
     </message>
     <message>
         <source>BT.601-525</source>
-        <translation>BT.601-525</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>BT.601-625</source>
-        <translation>BT.601-625</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>BT.709</source>
-        <translation>BT.709</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>BT.2020</source>
-        <translation>BT.2020</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Apple</source>
-        <translation>Apple</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Adobe</source>
-        <translation>Adobe</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ProPhoto</source>
-        <translation>ProPhoto</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>CIE1931</source>
-        <translation>CIE1931</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DCI-P3</source>
-        <translation>DCI-P3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Target TRC</source>
-        <translation>ターゲット TRC</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>BT.1886</source>
-        <translation>BT.1886</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sRGB</source>
-        <translation>sRGB</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gamma 1.8</source>
-        <translation>ガンマ 1.8</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gamma 2.2</source>
-        <translation>ガンマ 2.2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gamma 2.8</source>
-        <translation>ガンマ 2.8</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PQ</source>
-        <translation>PQ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>HLG</source>
-        <translation>HLG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Panasonic V-Log</source>
-        <translation>Panasonic V-Log</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sony S-Log1</source>
-        <translation>Sony S-Log1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sony S-Log2</source>
-        <translation>Sony S-Log2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>HDR Tone mapping</source>
-        <translation>HDR トーン マッピング</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clip</source>
-        <translation>クリップ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mobius</source>
-        <translation>Mobius</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Reinhard</source>
-        <translation>Reinhard</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hable</source>
-        <translation>Hable</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Luma</source>
-        <translation>Luma</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Juncture</source>
-        <translation>Juncture</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Contrast</source>
-        <translation>コントラスト</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>HDR Desaturate</source>
@@ -2911,1171 +2907,1171 @@ media file played</source>
     </message>
     <message>
         <source>ICC Profile</source>
-        <translation>ICC プロファイル</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>参照</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio Renderer</source>
-        <translation>オーディオ レンダラー</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Device</source>
-        <translation>デバイス</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Channel layout</source>
-        <translation>チャンネル レイアウト</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>System layout (stereo fallback)</source>
-        <translation>システム レイアウト (ステレオ フォールバック)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Maximal layout (may output to unconnected channels)</source>
-        <translation>最大レイアウト (接続されていないチャネルに出力可能)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stereo</source>
-        <translation>ステレオ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio switcher (WIP)</source>
-        <translation>オーディオ切り替え (WIP)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stream silence (HDMI fixup)</source>
-        <translation>ストリームの無音化 (HDMI 修正)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source> seconds</source>
-        <translation> 秒</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pitch correction</source>
-        <translation>ピッチ補正</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Exclusive mode</source>
-        <translation>排他モード</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Normalize downmix</source>
-        <translation>ダウンミックスの正規化</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use S/PDIF when available</source>
-        <translation>利用可能な場合はS/PDIFを使用する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pulse</source>
-        <translation>パルス</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Buffer</source>
-        <translation>バッファ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fixes</source>
-        <translation>修正</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Latency hacks</source>
-        <translation>Latency hacks</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alsa</source>
-        <translation>Alsa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Resample (may introduce latency)</source>
-        <translation>再サンプリング (遅延が発生する可能性があります)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ignore channel map (for specific alsa setups)</source>
-        <translation>チャネルマップを無視する (特定の ALSA 設定の場合)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Oss</source>
-        <translation>Oss</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mixer device</source>
-        <translation>ミキサー デバイス</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mixer channel</source>
-        <translation>ミキサー チャンネル</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Jack</source>
-        <translation>ジャック</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>名前</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Port</source>
-        <translation>ポート</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto connect</source>
-        <translation>自動接続</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Start jackd at startup</source>
-        <translation>起動時にjackdを起動する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Startup</source>
-        <translation>起動時</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Filesystem</source>
-        <translation type="unfinished">Filesystem</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add shader file(s)...</source>
-        <translation>シェーダー ファイルの追加...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>削除</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add to shaders</source>
-        <translation>シェーダーへ追加</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shader presets</source>
-        <translation>シェーダー プリセット</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>保存</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>削除</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wiki</source>
-        <translation>Wiki</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Active shaders</source>
-        <translation>アクティブ シェーダー</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fullscreen monitor</source>
-        <translation>全画面表示モニター</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Launch files in fullscreen</source>
-        <translation>全画面表示でファイルを起動する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Exit fullscreen at the end of playback</source>
-        <translation>再生終了時に全画面表示を解除する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hiding</source>
-        <translation>隠す</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide docked panels</source>
-        <translation>ドッキングされたパネルを隠す</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide controls in fullscreen</source>
-        <translation>全画面表示でコントロールを隠す</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Never show</source>
-        <translation>常に表示しない</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show when moving the cursor, hide after:</source>
-        <translation>カーソルを移動したときに表示する。 表示時間 :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show when hovering control, hide after:</source>
-        <translation>コントロールをポイントしたときに表示する。 表示時間 :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Framedropping</source>
-        <translation>コマ落ち</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation>モード</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Decoder</source>
-        <translation>デコーダー</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Decoder+Video</source>
-        <translation>デコーダー+ビデオ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>None</source>
-        <translation>なし</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default</source>
-        <translation>既定</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Non reference</source>
-        <translation type="unfinished">Non reference</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bi-directional</source>
-        <translation type="unfinished">Bi-directional</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Non key</source>
-        <translation type="unfinished">Non key</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio/Video sync</source>
-        <translation>オーディオ/ビデオ 同期</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Resample audio to match video</source>
-        <translation>ビデオに合わせてオーディオを再サンプリングする</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Resample audio to match video (may drop frames)</source>
-        <translation>ビデオに合わせてオーディオを再サンプリングする (フレームがコマ落ちする可能性がある)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Drop or repeat video frames</source>
-        <translation>ビデオフレームの間引きまたは繰り返し</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Drop or repeat audio data</source>
-        <translation>オーディオデータを間引きまたは繰り返す</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio drop size</source>
-        <translation>オーディオの間引きサイズ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Max audio change</source>
-        <translation>最大オーディオ変更</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Max video change</source>
-        <translation>最大ビデオ変更</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hardware decoding may produce a smoother, more efficient overall experience and reduce strain on your cpu. However, some of the listed codecs (depending upon your installed hardware and software) may not be available, may be broken, and may produce incorrect output. A safe and always correct rule of thumb with respect to image quality is to prefer software decoding if your cpu can handle it.</source>
-        <translation>ハードウェア デコードにより、全体的なエクスペリエンスがよりスムーズで効率的になり、CPU の負荷が軽減されます。ただし、リストされているコーデックの一部は (インストールされているハードウェアとソフトウェアによって異なりますが) 使用できない、壊れている、または出力が正しくない可能性があります。画像品質に関する安全で常に正しい経験則は、CPU が処理できる場合はソフトウェア デコードを優先します。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use hardware-accelerated decoding</source>
-        <translation>ハードウェアアクセラレーションによるデコードを使用する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Codecs to allow hardware decoding</source>
-        <translation>ハードウェアデコードを許可するコーデック</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hardware decoding backend</source>
-        <translation>ハードウェアデコーディング バックエンド</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hover over each backend to display a description.</source>
-        <translation>各バックエンドにマウスを合わせると説明が表示されます。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Autodetect - best of VAAPI, DXVA, D3D11VA</source>
-        <translation type="vanished">自動検出 - best of VAAPI, DXVA, D3D11VA</translation>
+        <translation type="vanished">Autodetect - best of VAAPI, DXVA, D3D11VA</translation>
     </message>
     <message>
         <source>A&amp;utodetect</source>
-        <translation>自動検出(&amp;U)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Linux - requires Mesa 11 and most likely works with Intel GPUs only; may only be correct in BT.601 and BT.709</source>
-        <translation type="vanished">Linux - Mesa 11が必要で、おそらくIntel GPUでのみ動作します; BT.601とBT.709でのみ正しい可能性があります</translation>
+        <translation type="vanished">Linux - requires Mesa 11 and most likely works with Intel GPUs only; may only be correct in BT.601 and BT.709</translation>
     </message>
     <message>
         <source>Linux - some gpus, does not always treat certain colorspaces like BT.2020 correctly</source>
-        <translation>Linux - 一部の GPU では、BT.2020 などの特定のカラースペースが必ずしも正しく処理されません</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Windows - not safe; it appears to always use BT.601 for forced RGB conversion, but actual behavior depends on the GPU drivers</source>
-        <translation>Windows - 安全ではありません。強制RGB変換には常にBT.601が使用されるようですが、実際の動作はGPUドライバーによって異なります</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Windows 8+ - usually safe but rounds 10 bit to 8 bit</source>
-        <translation>Windows 8以降 - 通常は安全だが、10ビットを8ビットに丸める</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Raspberry PI - hardware overlay renderer</source>
-        <translation type="vanished">Raspberry PI - ハードウェア オーバーレイ レンダラー</translation>
+        <translation type="vanished">Raspberry PI - hardware overlay renderer</translation>
     </message>
     <message>
         <source>MacOS - safe</source>
-        <translation type="vanished">MacOS - 安全</translation>
+        <translation type="vanished">MacOS - safe</translation>
     </message>
     <message>
         <source>nVidia only (likely 10x0+ only) - safe</source>
-        <translation>nVidiaのみ (おそらく10x0+のみ) - 安全</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PCI-E decoder card - safe</source>
-        <translation>PCI-E デコーダーカード - 安全</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Playback progression</source>
-        <translation>再生進行状況</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pla&amp;y</source>
-        <translation>再生(&amp;Y)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>times</source>
-        <translation>回</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Repeat fore&amp;ver</source>
-        <translation>永遠に繰り返す(&amp;Y)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Always loop images (manual progression)</source>
-        <translation>常にループする (手動進行)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Display Format</source>
-        <translation>表示形式</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>qrc:/text/playlistFormat.html</source>
-        <translation type="unfinished">qrc:/text/playlistFormat.html</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Placement</source>
-        <translation>配置</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Override default subtitle placement</source>
-        <translation>既定の字幕配置を上書きする</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>左</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>右</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>上</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>下</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>位置</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use margins</source>
-        <translation>余白を使用する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Force grayscale</source>
-        <translation>グレースケールを強制</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fix timing</source>
-        <translation>タイミングを修正</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clear on seek</source>
-        <translation>シーク時に消去</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ASS override</source>
         <extracomment>Might cause issues</extracomment>
-        <translation>ASS字幕の上書き</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation>はい</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation>はい、そして記号のみを拡大</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Force</source>
-        <translation>強制</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Font</source>
-        <translation>フォント</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Style</source>
-        <translation>スタイル</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation>太字</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation>斜体</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Border style</source>
-        <translation>境界線のスタイル</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Border size</source>
-        <translation>境界線のサイズ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shadow offset</source>
-        <translation>影 オフセット</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Screen Alignment &amp;&amp; Margins</source>
-        <translation>表示位置と余白</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Position subs relative to the video frame</source>
-        <translation>ビデオ フレームを基準に字幕を配置する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Colors</source>
-        <translation>色</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Border color</source>
-        <translation>境界線の色</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shadow color</source>
-        <translation>影の色</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Prefer forced and/or default subtitle tracks</source>
-        <translation>強制字幕トラックや既定の字幕トラックを優先する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Automatically load external subtitles</source>
-        <translation>外部字幕を自動的に読み込む</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Autoload paths</source>
-        <translation>自動読み込みパス</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Path</source>
-        <translation>パス</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Match</source>
-        <translation>一致</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Exact</source>
-        <translation>正確</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fuzzy</source>
-        <translation>あいまい</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Online database</source>
-        <translation>オンライン データベース</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Base url of the online subtitle database:</source>
-        <translation>オンライン字幕データベースのベース URL :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>https://</source>
-        <translation>https://</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Test</source>
-        <translation>テスト</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Directories</source>
-        <translation>ディレクトリ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation>スクリーンショット</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Encode</source>
-        <translation>エンコード</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Unchecked directories will place output files in the source directory. Streams do not have a source directory and will bring up a dialog when a field is left blank; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; will always ask where to place files. Directories will be created if necessary; this may not work across all filesystems.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;チェックされていないディレクトリは、出力ファイルをソース ディレクトリに配置します。ストリームにはソース ディレクトリがないため、フィールドが空白のままになっているとダイアログが表示されます。&lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; を押すと、常にファイルの配置場所が尋ねられます。必要に応じてディレクトリが作成されますが、すべてのファイル システムで機能するとは限りません。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Filename template</source>
-        <translation>ファイル名のテンプレート</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>qrc:/text/encodeFormat.html</source>
-        <translation>qrc:/text/encodeFormat.html</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save with high bit depth</source>
-        <translation>高ビット深度で保存</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation>品質</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Smooth</source>
-        <translation>スムース</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Source Chroma</source>
-        <translation>ソース クロマ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Compression</source>
-        <translation>圧縮</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Filter</source>
-        <translation>フィルター</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Colorspace</source>
-        <translation>色空間</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Include tag</source>
-        <translation>タグを含める</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Don&apos;t encode the video</source>
-        <translation>ビデオをエンコードしない</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hardsub</source>
-        <translation>焼き込み字幕</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Filesi&amp;ze</source>
-        <translation>ファイルサイズ(&amp;Z)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MB</source>
-        <translation>MB</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bitrate</source>
-        <translation>ビットレート</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>kBits</source>
-        <translation>kBits</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>crf</source>
-        <translation>crf</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>qmin</source>
-        <translation>qmin</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>qmax</source>
-        <translation>qmax</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Don&apos;t encode the audio</source>
-        <translation>オーディオをエンコードしない</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&quot;Don&apos;t encode&quot; checkboxes are ignored for audio-only or video-only files.</source>
-        <translation>オーディオのみまたはビデオのみのファイルの場合、「エンコードしない」チェックボックスは無視されます。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fast seek (when skipping)</source>
-        <translation>高速シーク (スキップ時)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Drop frames before the seek target in the decoder</source>
-        <translation>デコーダーでシーク目標位置前のフレームを破棄する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show chapter marks in seek bar</source>
-        <translation>シークバーにチャプターマークを表示する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Play next file in folder when there is only one item in the playlist</source>
-        <translation type="vanished">プレイリストに項目が 1つしかない場合は、フォルダ内の次のファイルを再生する</translation>
+        <translation type="vanished">Play next file in folder when there is only one item in the playlist</translation>
     </message>
     <message>
         <source>Above seekbar</source>
-        <translation>シークバーの上</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Below seekbar</source>
-        <translation>シークバーの下</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OSD font:</source>
-        <translation type="vanished">OSD フォント :</translation>
+        <translation type="vanished">OSD font:</translation>
     </message>
     <message>
         <source>Prefer Wayland over XWayland (restart required)</source>
-        <translation>XWayland よりも Wayland を優先する (再起動が必要)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Turn on logging (may produce stuttering)</source>
-        <translation>ログ記録をオンにする (途切れが生じる可能性がある)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Debugging</source>
-        <translation>デバッグ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Client</source>
-        <translation>クライアント</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Event messages</source>
-        <translation>イベント メッセージ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mpv</source>
-        <translation>mpv</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No (complete silence)</source>
-        <translation>いいえ (完全な沈黙)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fatal</source>
-        <translation>致命的</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
-        <translation>エラー</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation>警告</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation>情報</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Verbose</source>
-        <translation>冗長</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation>デバッグ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trace (very noisy)</source>
-        <translation>トレース (非常にノイズが多い)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Log file</source>
-        <translation>ログ ファイル</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Create log file (contents will be overwritten)</source>
-        <translation>ログファイルを作成する (内容は上書きされます)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>~/mpc-qt-log.txt</source>
-        <translation>~/mpc-qt-log.txt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Window update interval</source>
-        <translation type="vanished">ウィンドウの更新間隔</translation>
+        <translation type="vanished">Window update interval</translation>
     </message>
     <message>
         <source>No delay (consumes cpu)</source>
-        <translation type="vanished">遅延なし (CPUを消費します)</translation>
+        <translation type="vanished">No delay (consumes cpu)</translation>
     </message>
     <message>
         <source> msec</source>
-        <translation type="vanished"> ミリ秒</translation>
+        <translation type="vanished"> msec</translation>
     </message>
     <message>
         <source>Every </source>
-        <translation>毎 </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Window history</source>
-        <translation>ウィンドウの履歴</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trim old lines</source>
-        <translation>古い行をトリミングする</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source> lines</source>
-        <translation> 行</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Keep </source>
-        <translation>保持 </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Color controls</source>
-        <translation>カラー コントロール</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation>明るさ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hue</source>
-        <translation>色合い</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Saturation</source>
-        <translation>鮮やかさ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Settings management</source>
-        <translation>設定の管理</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export keys</source>
-        <translation>キーをエクスポート</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open Logo Image</source>
-        <translation>ロゴ画像を開く</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio open settings</source>
-        <translation>オーディオの開く設定</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Paths</source>
-        <translation>パス</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dela&amp;yed</source>
-        <translation>遅延(&amp;Y)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unlimited (consumes &amp;memory)</source>
-        <translation>無制限(&amp;M) (メモリを消費します)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto-load external audio files</source>
-        <translation>外部オーディオ ファイルを自動で読み込む</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>mpc-hcのように音量を100%に制限する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
-        <translation>mpc-hcのように再生時間インジケーターを短くする</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>HDR Compute Peak</source>
-        <translation>HDR ピーク輝度算出</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Target Peak</source>
-        <translation>ターゲット ピーク</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Based on TRC</source>
-        <translation>TRCに基づく</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Downscale in linear light</source>
-        <translation>リニアライトでダウンスケール</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Upscale in linear light</source>
-        <translation>リニアライトでアップスケール</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use additive speed step</source>
-        <translation>追加の速度ステップを使用する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Prefer external subtitles over embedded subtitles</source>
-        <translation>埋め込まれた字幕ではなく外部字幕を優先する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ignore embedded subtitles</source>
-        <translation>埋め込まれた字幕を無視する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Web Interface</source>
-        <translation>ウェブ インターフェイス</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Allow access from localhost only</source>
-        <translation>ローカルホストからのアクセスのみ許可する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>webroot</source>
-        <translation>webroot</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default page</source>
-        <translation>既定のページ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>index.html</source>
-        <translation>index.html</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TCP/IP</source>
-        <translation>TCP/IP</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;a href=&quot;#&quot;&gt;Launch in web browser...&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;#&quot;&gt;Web ブラウザで起動...&lt;/a&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Local files</source>
-        <translation>ローカル ファイル</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Web root</source>
-        <translation>Web root</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Security</source>
-        <translation>セキュリティ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable web server</source>
-        <translation>ウェブ サーバーを有効にする</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Serve pages from disk</source>
-        <translation>ディスクからページを配信する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back color</source>
-        <translation>背景色</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable back color</source>
-        <translation>背景色を有効にする</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stylesheet</source>
-        <translation>スタイルシート</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Application Stylesheet</source>
-        <translation>アプリのスタイルシート</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>High-contrast timeline and volume sliders</source>
-        <translation>ハイコントラストのタイムラインと音量スライダー</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default After Playback action:</source>
-        <translation>再生後の既定のアクション :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation>何もしない</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation>繰り返し</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Play next in the folder</source>
-        <translation type="vanished">フォルダー内の次の曲を再生</translation>
+        <translation type="vanished">Play next in the folder</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation>終了</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>After Playback</source>
-        <translation>再生後</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
-        <translation>シェーダーには、ビデオ レンダリング プロセスに追加できる特殊効果が含まれています。コミュニティが作成したシェーダーの一覧は、&lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;mpv wiki&lt;/span&gt;&lt;/a&gt; にあります。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pipewire</source>
-        <translation>パイプワイヤー</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use time tooltip:</source>
-        <translation type="vanished">時間ツールチップを使用 :</translation>
+        <translation type="vanished">Use time tooltip:</translation>
     </message>
     <message>
         <source>Language Override</source>
-        <translation>言語の設定</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Locale (Autodetect)</source>
-        <translation>地域 (自動検出)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished">中</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>BT.470M</source>
-        <translation>BT.470M</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>V-Gamut</source>
-        <translation>V-Gamut</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>S-Gamut</source>
-        <translation>S-Gamut</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>EBU3213</source>
-        <translation>EBU3213</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Film-C</source>
-        <translation>Film-C</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ACES AP0</source>
-        <translation>ACES AP0</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ACES AP1</source>
-        <translation>ACES AP1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gamma 2.0</source>
-        <translation>ガンマ 2.0</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gamma 2.4</source>
-        <translation>ガンマ 2.4</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gamma 2.6</source>
-        <translation>ガンマ 2.6</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ST 428</source>
-        <translation>ST 428</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Target Gamut</source>
-        <translation>ターゲット色域</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gamut mapping</source>
-        <translation>色域マッピング</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Perceptual</source>
-        <translation>知覚的</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Relative</source>
-        <translation>相対的</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Absolute</source>
-        <translation>絶対</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Desaturate</source>
-        <translation>彩度を下げる</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation>暗くする</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Warn</source>
-        <translation>警告する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Send mouse events to mpv</source>
-        <translation>マウスイベントをmpvに送信する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Send key events to mpv</source>
-        <translation>キーイベントをmpvに送信する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remember file position</source>
-        <translation>ファイルの再生位置を記憶する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use next/previous file in folder when there is only one item in the playlist</source>
-        <translation>再生リストに項目が 1 つしかない場合は、フォルダ内の次のファイル/前のファイルを使用する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Play next file</source>
-        <translation>次のファイルを再生</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delay step</source>
-        <translation>遅延のステップ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Autodetect - best of VAAPI, DXVA, D3D11VA, etc.</source>
-        <translation>自動検出 - VAAPI、DXVA、D3D11VA などの最適なもの。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Linux - works with Intel and AMD GPUs through Mesa, and with nVidia through a translation layer; may only be correct in BT.601 and BT.709</source>
-        <translation>Linux - Mesa 経由で Intel および AMD GPU で動作し、変換レイヤー経由で nVidia で動作します。BT.601 および BT.709 でのみ正しい可能性があります</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>nVidia only (faster than CUDA)</source>
-        <translation>nVidiaのみ (CUDAより高速)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show OSD timer on seek</source>
-        <translation>シーク時に OSD タイマーを表示する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Normal step</source>
-        <translation>標準のステップ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Large step</source>
-        <translation>大きいステップ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show time tooltip:</source>
-        <translation>時間のツールチップを表示する :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Change OSD font:</source>
-        <translation>OSD フォントの変更 :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Only keep history for videos</source>
-        <translation>ビデオの履歴のみを保存する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cinema screen</source>
-        <translation>シネマ スクリーン</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Update interval</source>
-        <translation>更新間隔</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No delay (consumes cpu, use this for testing)</source>
-        <translation>遅延なし (CPU を消費するため、テストに使用)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source> ms</source>
-        <translation>ミリ秒</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remember panels state</source>
-        <translation>パネルの状態を記憶する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open ICC Profile</source>
-        <translation>ICC プロファイルを開く</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ICC profile files (*.icc *.icm)</source>
-        <translation>ICC プロファイル (*.icc *.icm)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
-        <translation type="unfinished">Windowsでダークテーマのサポートが可能</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
     <message>
         <source>Source</source>
-        <translation>ソース</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Browse...</source>
-        <translation>参照(&amp;B)...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Image</source>
-        <translation>画像</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%</source>
-        <translation>%</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Width</source>
-        <translation>幅</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation>レイアウト</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rows</source>
-        <translation>行</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Go!</source>
-        <translation>移動(&amp;G)!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Thu&amp;mbnail</source>
-        <translation>サムネイル(&amp;M)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Quality</source>
-        <translation>品質(&amp;Q)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Columns</source>
-        <translation>列(&amp;C)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save Thumbnails</source>
-        <translation>サムネイルの保存</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -28,3 +28,26 @@ jobs:
     name: Linux
     needs: build
     uses: ./.github/workflows/linux_tests.yml
+
+  appimage:
+    name: AppImage
+    needs: tests
+    uses: ./.github/workflows/appimage.yml
+
+  flatpak:
+    name: Flatpak
+    needs: tests
+    uses: ./.github/workflows/flatpak.yml
+
+  pre-release:
+    name: Pre-release
+    if: github.ref_name == 'master'
+    runs-on: ubuntu-latest
+    needs: [appimage, flatpak]
+    env:
+      GH_TOKEN: ${{ secrets.API_TOKEN_GITHUB_DEV_BUILDS }}
+
+    steps:
+    - name: Trigger dev-builds release workflow
+      run: |
+        gh workflow run --repo mpc-qt/dev-builds "Release maker"

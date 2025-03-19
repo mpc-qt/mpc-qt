@@ -4024,7 +4024,7 @@ media file played</translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Allows dark theme support on Windows</translation>
     </message>
 </context>
 <context>
