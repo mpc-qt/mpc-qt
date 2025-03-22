@@ -108,7 +108,8 @@ void signalHandler(int signal) {
     if (signal == SIGSEGV) {
         Logger::log("main", "Segmentation fault! Please report this error.");
         QMetaObject::invokeMethod(Logger::singleton(), "flushMessages", Qt::BlockingQueuedConnection);
-        exit(1);
+        std::signal(SIGSEGV, SIG_DFL);
+        std::raise(SIGSEGV);
     }
     else
         QMetaObject::invokeMethod(qApp, "exit", Qt::QueuedConnection);
