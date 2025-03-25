@@ -1,23 +1,38 @@
 app-id: io.github.mpc_qt.mpc-qt
 runtime: org.kde.Platform
-runtime-version: 6.7
+runtime-version: '6.8'
 sdk: org.kde.Sdk
 command: mpc-qt
 rename-icon: mpc-qt
 copy-icon: true
+add-extensions:
+  org.freedesktop.Platform.ffmpeg-full:
+    version: '24.08'
+    directory: lib/ffmpeg
+    add-ld-path: .
 finish-args:
   - --share=ipc
   - --share=network
+# We support both Xwayland and Wayland (selectable in the Tweaks settings) because
+# Wayland doesn't allow centering the window after we resize it
   - --socket=x11
   - --socket=wayland
   - --socket=pulseaudio
   - --device=dri
-  - --filesystem=xdg-run/gamescope-0:rw
+# These can't be :ro to access subtitles when file opened from the app
+  - --filesystem=/media
+  - --filesystem=/run/media
+  - --filesystem=/mnt
+  - --filesystem=xdg-desktop
+  - --filesystem=xdg-documents
+  - --filesystem=xdg-download
+  - --filesystem=xdg-music
+  - --filesystem=xdg-pictures
+  - --filesystem=xdg-public-share
+  - --filesystem=xdg-videos
+  - --filesystem=xdg-run/gamescope-0:ro
   - --filesystem=xdg-run/pipewire-0:ro
-  - --filesystem=host:ro
-  - --filesystem=home
   - --talk-name=org.freedesktop.ScreenSaver
-  - --talk-name=org.freedesktop.FileManager1
   - --own-name=org.mpris.MediaPlayer2.MpcQt
   - --system-talk-name=org.freedesktop.UDisks2
 cleanup:
@@ -27,13 +42,15 @@ cleanup:
   - /lib/cmake
   - /lib/pkgconfig
   - /share/man
+cleanup-commands:
+  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 modules:
   - name: mpc-qt
-    buildsystem: qmake
+    buildsystem: cmake-ninja
     sources:
       - type: git
         url: https://github.com/mpc-qt/mpc-qt.git
-        branch: master
+        tag: v24.12.1-flatpak
     modules:
       - name: libmpv
         cleanup:
@@ -45,6 +62,7 @@ modules:
         buildsystem: meson
         config-opts:
           - -Dlibmpv=true
+          - -Dcplayer=false
           - -Dlua=enabled
           - -Ddebug=false
           - -Dbuild-date=false
@@ -53,8 +71,8 @@ modules:
           - -Dvulkan=enabled
         sources:
           - type: archive
-            url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.39.0.tar.gz
-            sha256: 2ca92437affb62c2b559b4419ea4785c70d023590500e8a52e95ea3ab4554683
+            url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.40.0.tar.gz
+            sha256: 10a0f4654f62140a6dd4d380dcf0bbdbdcf6e697556863dc499c296182f081a3
             x-checker-data:
               type: anitya
               project-id: 5348
@@ -131,8 +149,8 @@ modules:
                   stable-only: true
                   url-template: https://code.videolan.org/videolan/libplacebo/-/archive/v$version/libplacebo-v$version.tar.gz
               - type: archive
-                url: https://github.com/pallets/jinja/archive/refs/tags/3.1.5.tar.gz
-                sha256: 684d78790cc747f4b4b68b365783af8cac770c2c66d9f414b21c8b8480e019d0
+                url: https://github.com/pallets/jinja/archive/refs/tags/3.1.6.tar.gz
+                sha256: 2074b22a72caa65474902234b320d73463d6d4c223ee49f4b433495758356337
                 dest: 3rdparty/jinja
                 x-checker-data:
                   type: anitya
@@ -158,82 +176,6 @@ modules:
                   project-id: 17166
                   stable-only: true
                   url-template: https://xorg.freedesktop.org/archive/individual/lib/libXpresent-$version.tar.xz
-
-          - name: nv-codec-headers
-            cleanup:
-              - '*'
-            no-autogen: true
-            make-install-args:
-              - PREFIX=/app
-            sources:
-              - type: archive
-                url: https://github.com/FFmpeg/nv-codec-headers/archive/refs/tags/n13.0.19.0.tar.gz
-                sha256: 86d15d1a7c0ac73a0eafdfc57bebfeba7da8264595bf531cf4d8db1c22940116
-                x-checker-data:
-                  type: anitya
-                  project-id: 223796
-                  stable-only: true
-                  url-template: https://github.com/FFmpeg/nv-codec-headers/archive/refs/tags/n$version.tar.gz
-
-          - name: ffmpeg
-            cleanup:
-              - /share/ffmpeg/examples
-            config-opts:
-              - --disable-debug
-              - --disable-doc
-              - --disable-programs
-              - --disable-static
-              - --disable-encoders
-              - --disable-muxers
-              - --enable-shared
-              - --enable-gnutls
-              - --enable-gpl
-              - --enable-version3
-              - --enable-encoder=png,libwebp,libjxl
-              - --enable-libv4l2
-              - --enable-libdav1d
-              - --enable-libfontconfig
-              - --enable-libfreetype
-              - --enable-libopus
-              - --enable-librsvg
-              - --enable-libvpx
-              - --enable-libmp3lame
-              - --enable-libwebp
-              - --enable-libjxl
-              - --enable-libxml2
-              - --enable-vulkan
-#             - --enable-libx264 (needed for encoding)
-            sources:
-              - type: archive
-                url: https://ffmpeg.org/releases/ffmpeg-7.1.tar.gz
-                sha256: 42a7dc0d1583885d1b8f6559fa7ce28f97acafea6803de6a8f73e3ba229348bd
-                x-checker-data:
-                  type: anitya
-                  project-id: 5405
-                  stable-only: true
-                  url-template: https://ffmpeg.org/releases/ffmpeg-$version.tar.gz
-            modules:
-              - name: libjxl
-                buildsystem: cmake-ninja
-                config-opts:
-                  - -DCMAKE_BUILD_TYPE=Release
-                  - -DBUILD_TESTING=OFF
-                sources:
-                  - type: git
-                    url: https://github.com/libjxl/libjxl.git
-                    tag: v0.11.1
-                    commit: 794a5dcf0d54f9f0b20d288a12e87afb91d20dfc
-                    disable-shallow-clone: true
-                    x-checker-data:
-                      type: git
-                      tag-pattern: ^v([\d.]+)$
-
-              - name: vulkan-headers
-                buildsystem: cmake-ninja
-                sources:
-                  - type: archive
-                    url: https://github.com/KhronosGroup/Vulkan-Headers/archive/v1.3.286.tar.gz
-                    sha256: a82a6982efe5e603e23505ca19b469e8f3d876fc677c46b7bfb6177f517bf8fe
 
           - name: libass
             config-opts:
@@ -265,6 +207,31 @@ modules:
                   stable-only: true
                   url-template: https://www.freedesktop.org/software/uchardet/releases/uchardet-$version.tar.xz
 
+          # Needed for mpv 0.40 vaapi support
+          - name: libdisplay-info
+            buildsystem: meson
+            sources:
+              - type: archive
+                url: https://gitlab.freedesktop.org/emersion/libdisplay-info/-/archive/0.2.0/libdisplay-info-0.2.0.tar.gz
+                sha256: f7331fcaf5527251b84c8fb84238d06cd2f458422ce950c80e86c72927aa8c2b
+                x-checker-data:
+                  type: anitya
+                  project-id: 326668
+                  stable-only: true
+                  url-template: https://gitlab.freedesktop.org/emersion/libdisplay-info/-/archive/0.2.0/libdisplay-info-$version.tar.gz
+
+            modules:
+              - name: hwdata
+                sources:
+                  - type: archive
+                    url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.393.tar.gz
+                    sha256: 322add86944680e99d04468d49de180a7ce0c77fb406f7abde8ab14f2d161051
+                    x-checker-data:
+                      type: anitya
+                      project-id: 5387
+                      stable-only: true
+                      url-template: https://github.com/vcrhonek/hwdata/archive/refs/tags/v$version.tar.gz
+
       - name: yt-dlp
         no-autogen: true
         no-make-install: true
@@ -275,8 +242,8 @@ modules:
           - install yt-dlp /app/bin
         sources:
           - type: archive
-            url: https://github.com/yt-dlp/yt-dlp/archive/refs/tags/2025.02.19.tar.gz
-            sha256: 3942d04ac56b7cbd51881653946662dc84b8628c9405f9e9bacb29d0259e0ab1
+            url: https://github.com/yt-dlp/yt-dlp/archive/refs/tags/2025.03.26.tar.gz
+            sha256: f91b7cd8e58d538e90855fee2e24c34c5f78668a28889c388ed293ce4089b78c
             x-checker-data:
               type: anitya
               project-id: 143399
