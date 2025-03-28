@@ -11,6 +11,17 @@ runs:
       taskkill /f /im explorer.exe
       start explorer.exe
     shell: pwsh
+  - name: Set Environment Variables for translation test
+    shell: msys2 {0}
+    run: |
+      echo "LANG=es_ES.UTF-8" >> $GITHUB_ENV
+      echo "LC_ALL=es_ES.UTF-8" >> $GITHUB_ENV
+  - name: Verify Locale Settings
+    shell: msys2 {0}
+    run: |
+      echo "Current LANG: $LANG"
+      echo "Current LC_ALL: $LC_ALL"
+      locale
   - name: Create settings dir if needed
     run:  mkdir -p ${{ env.CONFIGDIR }}
     shell: msys2 {0}

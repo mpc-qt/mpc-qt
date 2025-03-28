@@ -6,12 +6,25 @@ inputs:
     description: "File to open with mpc-qt"
     required: false
     default: ""
+  locale:
+    description: "Locale to use"
+    required: false
+    default: "en_US.UTF-8"
 runs:
   using: "composite"
 
   steps:
   - name: Run mpc-qt and open a file if provided
     run:  |
+        : Set the locale to ${{ inputs.locale }}
+        sudo apt-get update
+        sudo apt-get install -y locales
+        sudo locale-gen ${{ inputs.locale }}
+        sudo update-locale LANG=${{ inputs.locale }}
+        export LANG=${{ inputs.locale }}
+        export LANGUAGE=${{ inputs.locale }}
+        export LC_ALL=${{ inputs.locale }}
+        locale
         : Run mpc-qt
         chmod +x mpc-qt/mpc-qt
         export DISPLAY=:99

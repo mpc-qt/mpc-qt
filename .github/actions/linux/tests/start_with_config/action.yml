@@ -10,6 +10,8 @@ runs:
     shell: bash
   - name: Run mpc-qt
     uses: ./.github/actions/linux/commands/run_mpc-qt
+    with:
+      locale: "es_ES.UTF-8"
   - name: Take a screenshot
     uses: ./.github/actions/linux/commands/screenshot
     with:
