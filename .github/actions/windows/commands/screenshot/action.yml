@@ -6,6 +6,10 @@ inputs:
     description: "Screenshot number to add to the filename"
     required: true
     default: ""
+  description:
+    description: "Screenshot description to add to the filename"
+    required: true
+    default: ""
 runs:
   using: "composite"
 
@@ -18,5 +22,5 @@ runs:
              [System.Windows.Forms.Screen]::PrimaryScreen.Bounds.Height)
           $graphics = [System.Drawing.Graphics]::FromImage($bmp)
           $graphics.CopyFromScreen([System.Drawing.Point]::Empty, [System.Drawing.Point]::Empty, $bmp.Size)
-          $bmp.Save('screenshot${{ inputs.number }}.png')
+          $bmp.Save('screenshot${{ inputs.number }}_${{ inputs.description }}.png')
       shell: pwsh
