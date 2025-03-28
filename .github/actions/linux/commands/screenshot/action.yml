@@ -6,10 +6,14 @@ inputs:
     description: "Screenshot number to add to the filename"
     required: true
     default: ""
+  description:
+    description: "Screenshot description to add to the filename"
+    required: true
+    default: ""
 runs:
   using: "composite"
 
   steps:
   - name: Take a screenshot
-    run: xwd -display :99 -root -silent | convert xwd:- png:screenshot${{ inputs.number }}.png
+    run: xwd -display :99 -root -silent | convert xwd:- png:screenshot${{ inputs.number }}_${{ inputs.description }}.png
     shell: bash

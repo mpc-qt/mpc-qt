@@ -11,6 +11,7 @@ runs:
     uses: ./.github/actions/windows/commands/screenshot
     with:
       number: "1"
+      description: "no_config_dark_theme"
   - name: Kill mpc-q
     uses: ./.github/actions/windows/commands/kill_mpc-qt
   - name: Check mpc-qt config dir
