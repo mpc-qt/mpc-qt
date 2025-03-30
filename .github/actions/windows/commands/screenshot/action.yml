@@ -6,10 +6,17 @@ inputs:
     description: "Screenshot number to add to the filename"
     required: true
     default: ""
+  description:
+    description: "Screenshot description to add to the filename"
+    required: true
+    default: ""
 runs:
   using: "composite"
 
   steps:
+    - name: Wait 5 seconds
+      run:  sleep 5
+      shell: bash
     - name: Take a screenshot with PowerShell
       run: |
           Add-Type -AssemblyName System.Windows.Forms
@@ -18,5 +25,5 @@ runs:
              [System.Windows.Forms.Screen]::PrimaryScreen.Bounds.Height)
           $graphics = [System.Drawing.Graphics]::FromImage($bmp)
           $graphics.CopyFromScreen([System.Drawing.Point]::Empty, [System.Drawing.Point]::Empty, $bmp.Size)
-          $bmp.Save('screenshot${{ inputs.number }}.png')
+          $bmp.Save('screenshot${{ inputs.number }}_${{ inputs.description }}.png')
       shell: pwsh
