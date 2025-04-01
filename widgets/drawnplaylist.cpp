@@ -180,17 +180,22 @@ void DrawnPlaylist::setCurrentItem(QUuid itemUuid)
     QList<QListWidgetItem *> items = findItems(itemUuid.toString(), Qt::MatchExactly);
     if (items.isEmpty())
         setCurrentRow(-1);
-    else
+    else {
+        scrollToItem(itemUuid, false);
         QListWidget::setCurrentItem(items.first());
+    }
 }
 
-void DrawnPlaylist::scrollToItem(QUuid itemUuid)
+void DrawnPlaylist::scrollToItem(QUuid itemUuid, bool clickedInPlaylist)
 {
     auto items = findItems(itemUuid.toString(), Qt::MatchExactly);
     if (items.empty())
         return;
     auto item = items.first();
-    scrollTo(indexFromItem(item));
+    if (clickedInPlaylist)
+        scrollTo(indexFromItem(item), QAbstractItemView::EnsureVisible);
+    else
+        scrollTo(indexFromItem(item), QAbstractItemView::PositionAtCenter);
 }
 
 void DrawnPlaylist::setUuid(const QUuid &playlistUuid)
@@ -396,7 +401,7 @@ void DrawnPlaylist::self_currentItemChanged(QListWidgetItem *current,
 void DrawnPlaylist::self_itemDoubleClicked(QListWidgetItem *item)
 {
     PlayItem *playItem = reinterpret_cast<PlayItem*>(item);
-    emit itemDesired(playItem->playlistUuid(), playItem->uuid());
+    emit itemDesiredByDoubleClick(playItem->playlistUuid(), playItem->uuid());
 }
 
 void DrawnPlaylist::self_customContextMenuRequested(const QPoint &p)

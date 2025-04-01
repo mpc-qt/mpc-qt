@@ -73,7 +73,7 @@ signals:
     void hasNoAudio(bool empty);
     void hasNoSubtitles(bool empty);
     void subtitlesVisible(bool visible);
-    void nowPlayingChanged(QUrl itemUrl, QUuid listUuid, QUuid itemUuid);
+    void nowPlayingChanged(QUrl itemUrl, QUuid listUuid, QUuid itemUuid, bool clickedInPlaylist = false);
     void finishedPlaying(QUuid item);
     void afterPlaybackReset();
     void instanceShouldClose();
@@ -101,7 +101,7 @@ public slots:
 
     void playDiscFiles(QUrl where);             // from dvd/bd open
     void playStream(QUrl stream);               // from menu
-    void playItem(QUuid playlist, QUuid item);  // called by playlistwindow
+    void playItem(QUuid playlist, QUuid item, bool clickedInPlaylist = false);  // called by playlistwindow
     void playDevice(QUrl device);   // I don't have a device to test this
 
     void loadSubtitle(QUrl with);
@@ -166,7 +166,7 @@ public slots:
 private:
     enum AspectNameChanged { OnOpen, OnFirstPlay, Manually };
     void startPlayWithUuid(QUrl what, QUuid playlistUuid, QUuid itemUuid,
-                           bool isRepeating, QUrl with = QUrl());
+                           bool isRepeating, QUrl with = QUrl(), bool clickedInPlaylist = false);
     void selectDesiredTracks();
     void updateSubtitleTrack();
     void updateChapters();

@@ -263,7 +263,7 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
         auto qdp = new DrawnPlaylist(PlaylistCollection::getSingleton());
         qdp->setDisplayParser(&displayParser);
         qdp->fromVMap(v.toMap());
-        connect(qdp, &DrawnPlaylist::itemDesired,
+        connect(qdp, &DrawnPlaylist::itemDesiredByDoubleClick,
                 this, &PlaylistWindow::itemDesired);
         connect(qdp, &DrawnPlaylist::contextMenuRequested,
                 this, &PlaylistWindow::playlist_contextMenuRequested);
@@ -391,7 +391,7 @@ void PlaylistWindow::addNewTab(QUuid playlist, QString title)
     auto qdp = new DrawnPlaylist(PlaylistCollection::getSingleton());
     qdp->setDisplayParser(&displayParser);
     qdp->setUuid(playlist);
-    connect(qdp, &DrawnPlaylist::itemDesired, this, &PlaylistWindow::itemDesired);
+    connect(qdp, &DrawnPlaylist::itemDesiredByDoubleClick, this, &PlaylistWindow::itemDesired);
     connect(qdp, &DrawnPlaylist::contextMenuRequested,
             this, &PlaylistWindow::playlist_contextMenuRequested);
     widgets.insert(playlist, qdp);
@@ -404,7 +404,7 @@ void PlaylistWindow::addQuickQueue()
     queueWidget = new DrawnQueue();
     queueWidget->setDisplayParser(&displayParser);
     queueWidget->setUuid(QUuid());
-    connect(queueWidget, &DrawnQueue::itemDesired,
+    connect(queueWidget, &DrawnQueue::itemDesiredByDoubleClick,
             this, &PlaylistWindow::itemDesired);
     ui->quickPage->layout()->addWidget(queueWidget);
 }
@@ -421,20 +421,22 @@ void PlaylistWindow::setHideFullscreen(bool hidden)
     hideFullscreen = hidden;
 }
 
-bool PlaylistWindow::activateItem(QUuid playlistUuid, QUuid itemUuid)
+bool PlaylistWindow::activateItem(QUuid playlistUuid, QUuid itemUuid,
+                                  bool clickedInPlaylist)
 {
     if (!widgets.contains(playlistUuid))
         return false;
     auto qdp = widgets[playlistUuid];
-    qdp->scrollToItem(itemUuid);
+    qdp->scrollToItem(itemUuid, clickedInPlaylist);
     qdp->setNowPlayingItem(itemUuid);
     return true;
 }
 
-void PlaylistWindow::changePlaylistSelection( QUrl itemUrl, QUuid playlistUuid, QUuid itemUuid)
+void PlaylistWindow::changePlaylistSelection(QUrl itemUrl, QUuid playlistUuid,
+                                             QUuid itemUuid, bool clickedInPlaylist)
 {
     (void)itemUrl;
-    if (!activateItem(playlistUuid, itemUuid))
+    if (!activateItem(playlistUuid, itemUuid, clickedInPlaylist))
         return;
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(playlistUuid);
     auto qpl = PlaylistCollection::queuePlaylist();
@@ -549,7 +551,7 @@ void PlaylistWindow::playCurrentItem()
     auto itemUuid = qdp->currentItemUuid();
     if (itemUuid.isNull())
         return;
-    emit itemDesired(pl->uuid(), itemUuid);
+    emit itemDesired(pl->uuid(), itemUuid, false);
 }
 
 bool PlaylistWindow::playActiveItem()
@@ -559,7 +561,7 @@ bool PlaylistWindow::playActiveItem()
     auto itemUuid = qdp->nowPlayingItem();
     if (itemUuid.isNull())
         return false;
-    emit itemDesired(pl->uuid(), itemUuid);
+    emit itemDesired(pl->uuid(), itemUuid, false);
     return true;
 }
 
@@ -860,7 +862,7 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     a->setText(tr("Open"));
     connect(a, &QAction::triggered,
             this, [this,playlistUuid,itemUuid]() {
-        emit itemDesired(playlistUuid, itemUuid);
+        emit itemDesired(playlistUuid, itemUuid, true);
     });
     m->addAction(a);
 

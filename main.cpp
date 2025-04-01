@@ -1124,9 +1124,11 @@ void Flow::setupMpcHc()
     connect(playbackManager, &PlaybackManager::titleChanged,
             mpcHcServer, &MpcHcServer::setMediaTitle);
     connect(playbackManager, &PlaybackManager::nowPlayingChanged,
-            mpcHcServer, [this](QUrl itemUrl, QUuid listUuid, QUuid itemUuid) {
+            mpcHcServer, [this](QUrl itemUrl, QUuid listUuid, QUuid itemUuid,
+                                              bool clickedInPlaylist) {
             Q_UNUSED(listUuid);
             Q_UNUSED(itemUuid);
+            Q_UNUSED(clickedInPlaylist);
             mpcHcServer->setNowPlaying(itemUrl); });
     connect(playbackManager, &PlaybackManager::playbackSpeedChanged,
             mpcHcServer, &MpcHcServer::setPlaybackRate);

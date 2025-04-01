@@ -69,7 +69,7 @@ signals:
     void windowDocked();
     void viewActionChanged(bool visible);
     void currentPlaylistHasItems(bool yes);
-    void itemDesired(QUuid playlistUuid, QUuid itemUuid);
+    void itemDesired(QUuid playlistUuid, QUuid itemUuid, bool clickedInPlaylist);
     void importPlaylist(QString fname);
     void exportPlaylist(QString fname, QStringList items);
     void quickQueueMode(bool yes);
@@ -83,8 +83,8 @@ public slots:
     void setIconTheme(IconThemer::FolderMode folderMode, const QString &fallbackFolder, const QString &customFolder);
     void setHideFullscreen(bool hidden);
 
-    bool activateItem(QUuid playlistUuid, QUuid itemUuid);
-    void changePlaylistSelection(QUrl itemUrl, QUuid playlistUuid, QUuid itemUuid);
+    bool activateItem(QUuid playlistUuid, QUuid itemUuid, bool clickedInPlaylist = false);
+    void changePlaylistSelection(QUrl itemUrl, QUuid playlistUuid, QUuid itemUuid, bool clickedInPlaylist);
     void addSimplePlaylist(QStringList data);
     void addPlaylistByUuid(QUuid playlistUuid);
     void setDisplayFormatSpecifier(QString fmt);
