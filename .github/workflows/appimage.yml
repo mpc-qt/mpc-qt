@@ -11,7 +11,7 @@ jobs:
     - name: Install packages
       run: |
         sudo apt update
-        sudo apt install build-essential
+        sudo apt install build-essential cmake
         sudo add-apt-repository ppa:savoury1/build-tools
         sudo add-apt-repository ppa:savoury1/qt-6-2
         sudo add-apt-repository ppa:savoury1/llvm-defaults-13
@@ -20,7 +20,7 @@ jobs:
         sudo add-apt-repository ppa:savoury1/multimedia
         sudo apt upgrade
         sudo apt dist-upgrade
-        sudo apt install qmake6 qt6-base-dev qt6-l10n-tools libqt6svg6-dev
+        sudo apt install linguist-qt6 qt6-tools-dev qmake6 qt6-base-dev libqt6svg6-dev
         sudo apt install devscripts equivs git libunwind-dev
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -48,20 +48,21 @@ jobs:
       run: |
         mv mpv-build/*.deb ./
         sudo dpkg -i *.deb
-    - name: Use built libmpv for mpc-qt
-      run: sed -i 's|unix:PKGCONFIG += mpv|unix:LIBS += -lmpv|' mpc-qt.pro
     - name: Set version
-      run: echo "MPCQT_VERSION=$( cat .github/actions/data/VERSION )" >> $GITHUB_ENV
-    - name: qmake6
-      run: qmake6 MPCQT_VERSION=$MPCQT_VERSION PREFIX=/usr mpc-qt.pro
-    - name: make
-      run: make
-    - name: make install
-      run: make install INSTALL_ROOT=AppDir
+      run: |
+        VERSION=$( cat .github/actions/data/VERSION )
+        if [[ $VERSION == "GithubAction" ]]; then
+          VERSION=$( date +'%Y.%m.%d' )
+        fi
+        echo "MPCQT_VERSION=$VERSION" >> $GITHUB_ENV
+    - name: cmake
+      run: cmake -DMPCQT_VERSION=$MPCQT_VERSION -G Ninja -B build
+    - name: Build
+      run: cmake --build build
+    - name: ninja install
+      run: DESTDIR=AppDir ninja -C build install
     - name: Install packages
-      run: sudo apt install libfuse2 libqt6svg6-dev libqt6openglwidgets6 qmake6
-    - name: Make sure mpc-qt is executable
-      run:  chmod +x AppDir/usr/bin/mpc-qt
+      run: sudo apt install libfuse2 libqt6svg6-dev libqt6openglwidgets6
     - name: Download linuxdeploy
       uses: pcolby/install-linuxdeploy@v1
       with:
@@ -72,7 +73,7 @@ jobs:
         set-env: true
         version: 1-alpha-20240109-1
     - name: Build AppImage
-      run: EXTRA_QT_PLUGINS="svg;" QMAKE=/usr/bin/qmake6 linuxdeploy/linuxdeploy-x86_64.AppImage --appdir AppDir -e bin/mpc-qt --custom-apprun ./AppImage/AppRun -i images/icon/mpc-qt.svg --plugin qt --output appimage
+      run: EXTRA_QT_PLUGINS="svg;" QMAKE=/usr/bin/qmake6 linuxdeploy/linuxdeploy-x86_64.AppImage --appdir AppDir -e bin/mpc-qt --custom-apprun ./AppImage/AppRun -d io.github.mpc_qt.mpc-qt.desktop -i images/icon/mpc-qt.svg --plugin qt --output appimage
     - name: Get version
       run: |
         if [[ "$GITHUB_REF" == *"refs/heads/release/"* ]]; then

@@ -42,13 +42,12 @@ OLD_CWD=$(readlink -f .)
 # switch to build dir
 pushd "$BUILD_DIR"
 
-# configure build files with qmake
-# we need to explicitly set the install prefix, as CMake's default is /usr/local for some reason...
-qmake6 PREFIX=/usr "MPCQT_VERSION=$VERSION" "$REPO_ROOT"
+# configure build files with cmake
+cmake -DMPCQT_VERSION=$MPCQT_VERSION "$REPO_ROOT" -G Ninja -B build
 
 # build project and install files into AppDir
-make -j$(nproc)
-make install INSTALL_ROOT=AppDir
+ninja -C build
+DESTDIR=AppDir ninja -C build install
 
 # now, build AppImage using linuxdeploy and linuxdeploy-plugin-qt
 # download linuxdeploy and its Qt plugin
@@ -59,7 +58,7 @@ wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/cont
 chmod +x linuxdeploy*.AppImage
 
 # initialize AppDir, bundle shared libraries, add desktop file and icon, use Qt plugin to bundle additional resources, and build AppImage, all in one command
-EXTRA_QT_PLUGINS="svg;" QMAKE=/usr/bin/qmake6 ./linuxdeploy-x86_64.AppImage --appdir AppDir -e bin/mpc-qt -i "$REPO_ROOT"/images/icon/mpc-qt.svg -d "$REPO_ROOT"/io.github.mpc_qt.mpc-qt.desktop --plugin qt --output appimage
+EXTRA_QT_PLUGINS="svg;" QMAKE=/usr/bin/qmake6 ./linuxdeploy-x86_64.AppImage --appdir AppDir -e "$REPO_ROOT"/bin/mpc-qt --custom-apprun "$REPO_ROOT"/AppImage/AppRun -i "$REPO_ROOT"/images/icon/mpc-qt.svg -d "$REPO_ROOT"/io.github.mpc_qt.mpc-qt.desktop --plugin qt --output appimage
 
 # move built AppImage back into original CWD
 mv Media_Player_Classic_Qute_Theater-x86_64.AppImage "$OLD_CWD/$DEST.AppImage"
