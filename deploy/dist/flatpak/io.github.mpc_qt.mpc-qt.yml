@@ -5,7 +5,7 @@ sdk: org.kde.Sdk
 command: mpc-qt
 rename-icon: mpc-qt
 copy-icon: true
-add-extensions:
+add-build-extensions:
   org.freedesktop.Platform.ffmpeg-full:
     version: '24.08'
     directory: lib/ffmpeg
@@ -43,7 +43,7 @@ cleanup:
   - /lib/pkgconfig
   - /share/man
 cleanup-commands:
-  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
+  - mkdir -p /app/lib/ffmpeg
 modules:
   - name: mpc-qt
     buildsystem: cmake-ninja
@@ -83,9 +83,9 @@ modules:
             no-autogen: true
             make-args:
               - BUILDMODE=dynamic
-              - PREFIX=${FLATPAK_DEST}
+              - PREFIX=/app
             make-install-args:
-              - PREFIX=${FLATPAK_DEST}
+              - PREFIX=/app
             sources:
               - type: git
                 url: https://github.com/openresty/luajit2.git
@@ -100,7 +100,7 @@ modules:
 
           - name: vapoursynth
             config-opts:
-              - --with-python-prefix=${FLATPAK_DEST}
+              - --with-python-prefix=/app
 
             sources:
               - type: archive
