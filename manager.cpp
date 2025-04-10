@@ -186,10 +186,10 @@ void PlaybackManager::playStream(QUrl stream)
     startPlayWithUuid(urlToPlay, playlistItem.list, playlistItem.item, false);
 }
 
-void PlaybackManager::playItem(QUuid playlist, QUuid item)
+void PlaybackManager::playItem(QUuid playlist, QUuid item, bool clickedInPlaylist)
 {
     auto url = playlistWindow_->getUrlOf(playlist, item);
-    startPlayWithUuid(url, playlist, item, false);
+    startPlayWithUuid(url, playlist, item, false, QUrl(), clickedInPlaylist);
 }
 
 void PlaybackManager::playDevice(QUrl device)
@@ -547,7 +547,7 @@ void PlaybackManager::getCurrentTrackInfo(QUrl& url, QUuid& listUuid, QUuid& ite
 
 void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
                                         QUuid itemUuid, bool isRepeating,
-                                        QUrl with)
+                                        QUrl with, bool clickedInPlaylist)
 {
     Logger::log("manager", "startPlayWithUuid");
     if (playbackState_ == WaitingState || what.isEmpty())
@@ -575,7 +575,7 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
         // configured in the settings dialog.
         playlistWindow_->setExtraPlayTimes(playlistUuid, itemUuid, playbackPlayTimes - 1);
     }
-    emit nowPlayingChanged(nowPlaying_, nowPlayingList, nowPlayingItem);
+    emit nowPlayingChanged(nowPlaying_, nowPlayingList, nowPlayingItem, clickedInPlaylist);
 }
 
 void PlaybackManager::selectDesiredTracks()

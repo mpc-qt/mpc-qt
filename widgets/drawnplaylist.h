@@ -51,7 +51,7 @@ public:
     QList<QUuid> currentItemUuids() const;
     void traverseSelected(std::function<void(QUuid)> callback);
     void setCurrentItem(QUuid itemUuid);
-    void scrollToItem(QUuid itemUuid);
+    void scrollToItem(QUuid itemUuid, bool clickedInPlaylist);
     virtual void addItem(QUuid itemUuid);
     void addItems(const QList<QUuid> &items);
     void addItemsAfter(QUuid item, const QList<QUuid> &items);
@@ -94,9 +94,7 @@ private:
     QStringList currentFilterList;
 
 signals:
-    // for lack of a better term that doesn't conflict with what we already
-    // have, when an item is made hot by double clicking.
-    void itemDesired(QUuid playlistUuid, QUuid itemUuid);
+    void itemDesiredByDoubleClick(QUuid playlistUuid, QUuid itemUuid, bool clickedInPlaylist = true);
     void searcher_filterPlaylist(QSharedPointer<Playlist>, QString text);
     void menuOpenItem(QUuid playlistUuid, QUuid itemUuid);
 
