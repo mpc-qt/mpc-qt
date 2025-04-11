@@ -646,23 +646,29 @@ void MpvObject::setMpvOptionVariant(QString name, QVariant value)
 
 void MpvObject::showCursor()
 {
-    if (widget) {
+    if (!widget)
+        return;
+    auto w = widget->self()->window();
+    if (w->cursor() == Qt::BlankCursor || w->isFullScreen()
+                                       || w->isMaximized()) {
         widget->self()->setCursor(Qt::ArrowCursor);
-        widget->self()->window()->setCursor(Qt::ArrowCursor);
+        w->setCursor(Qt::ArrowCursor);
     }
 }
 
 void MpvObject::hideCursor()
 {
-    if (widget) {
-        QWidget *w = widget->self();
-        if (qApp->platformName().contains("wayland") && !w->window()->isActiveWindow())
+    if (!widget)
+        return;
+    auto w = widget->self()->window();
+    if (w->cursor() == Qt::ArrowCursor || w->isFullScreen()
+                                       || w->isMaximized()) {
+        if (qApp->platformName().contains("wayland") && !w->isActiveWindow())
             return;
-        w->setCursor(Qt::BlankCursor);
+        widget->self()->setCursor(Qt::BlankCursor);
         //REMOVEME: work around KDE Plasma 6.2.4 bug where cursor stays visible in rightmost position
-        auto window = w->window();
-        if (window->isFullScreen() && QCursor::pos().x() == window->geometry().right()) {
-            window->setCursor(Qt::BlankCursor);
+        if (w->isFullScreen() && QCursor::pos().x() == w->geometry().right()) {
+            w->setCursor(Qt::BlankCursor);
             Logger::log("glwidget", "workaround: hiding cursor on rightmost pixels");
         }
     }
@@ -1027,12 +1033,34 @@ void MpvGlWidget::mouseMoveEvent(QMouseEvent *event)
     emit mpvObject->mouseMoved(pos.x()*devicePixelRatioF(),
                                pos.y()*devicePixelRatioF());
     event->accept();
-    if (!windowDragging && event->buttons().testAnyFlag(Qt::LeftButton)
-        && event->position() != mousePressPosition) {
-        QWindow *parentWindow = this->window()->windowHandle();
-        parentWindow->startSystemMove();
-        windowDragging = true;
+    int e = 0;
+    if (!window()->isFullScreen() && !window()->isMaximized()) {
+        if (pos.x() < 10) { e |= Qt::LeftEdge; }
+        if (pos.x() > width() - 10) { e |= Qt::RightEdge; }
+        if (pos.y() < 10) { e |= Qt::TopEdge; }
+        if (pos.y() > height() - 10) { e |= Qt::BottomEdge; }
+
+        if (e == 0) {
+            setCursor(Qt::ArrowCursor);
+            if (!windowDragging && event->buttons().testAnyFlag(Qt::LeftButton)
+                && event->position() != mousePressPosition) {
+                QWindow *parentWindow = this->window()->windowHandle();
+                parentWindow->startSystemMove();
+                windowDragging = true;
+            }
+        }
+        else {
+            if ((e & Qt::LeftEdge && e & Qt::BottomEdge) || (e & Qt::RightEdge && e & Qt::TopEdge))
+                setCursor(Qt::SizeBDiagCursor);
+            else if ((e & Qt::LeftEdge && e & Qt::TopEdge) || (e & Qt::RightEdge && e & Qt::BottomEdge))
+                setCursor(Qt::SizeFDiagCursor);
+            else if (e & Qt::LeftEdge || e & Qt::RightEdge)
+                setCursor(Qt::SizeHorCursor);
+            else if (e & Qt::TopEdge || e & Qt::BottomEdge)
+                setCursor(Qt::SizeVerCursor);
+        }
     }
+    this->resizeEdge = e;
 }
 
 void MpvGlWidget::mousePressEvent(QMouseEvent *event)
@@ -1045,6 +1073,8 @@ void MpvGlWidget::mousePressEvent(QMouseEvent *event)
                                pos.y()*devicePixelRatioF(),
                                btn);
     QOpenGLWidget::mousePressEvent(event);
+    if (this->resizeEdge != 0)
+        window()->windowHandle()->startSystemResize((Qt::Edge) this->resizeEdge);
 }
 
 void MpvGlWidget::mouseReleaseEvent(QMouseEvent *event)
