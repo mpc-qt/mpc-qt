@@ -47,9 +47,8 @@ constexpr char optConsoleLogEx[] = "--log-to-console";
 int main(int argc, char *argv[])
 {
     Logger::log("main", "starting logging");
-    #if !defined(Q_OS_WIN)
-    std::signal(SIGHUP, signalHandler);
-    #endif
+    if (!Platform::isWindows)
+        std::signal(SIGHUP, signalHandler);
     std::signal(SIGINT, signalHandler);
     std::signal(SIGTERM, signalHandler);
     std::signal(SIGSEGV, signalHandler);
