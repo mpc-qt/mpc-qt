@@ -356,7 +356,6 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
 
     setupPageTree();
     setupColorPickers();
-    setupSelfSignals();
     setupUnimplementedWidgets();
 }
 
@@ -455,12 +454,6 @@ void SettingsWindow::setupFullscreenCombo()
     screenCombo = new ScreenCombo(this);
     screenCombo->setObjectName("fullscreenMonitor");
     ui->fullscreenMonitorLayout->addWidget(screenCombo);
-}
-
-void SettingsWindow::setupSelfSignals()
-{
-    connect(this, &SettingsWindow::volumeMax,
-            this, &SettingsWindow::self_volumeMax);
 }
 
 void SettingsWindow::setupUnimplementedWidgets()
@@ -745,10 +738,8 @@ void SettingsWindow::sendSignals()
     emit webserverRoot(WIDGET_PLACEHOLD_LOOKUP(ui->webRoot));
     emit webserverDefaultPage(WIDGET_PLACEHOLD_LOOKUP(ui->webDefaultPage));
 
-    int vol = WIDGET_LOOKUP(ui->playbackVolume).toInt();
     int volmax = WIDGET_LOOKUP(ui->tweaksVolumeLimit).toBool() ? 100 : 130;
     emit volumeMax(volmax);
-    emit volume(std::min(vol, volmax), true);
     emit volumeStep(WIDGET_LOOKUP(ui->playbackVolumeStep).toInt());
     {
         int i = WIDGET_LOOKUP(ui->playbackSpeedStep).toInt();
@@ -756,7 +747,7 @@ void SettingsWindow::sendSignals()
         emit speedStepAdditive(WIDGET_LOOKUP(ui->playbackSpeedStepAdditive).toBool());
     }
     emit audioFilter("stereotools=balance_out=" +
-        QString().number(WIDGET_LOOKUP(ui->playbackBalance).toDouble()/100), true);
+        QString().number(WIDGET_LOOKUP(ui->audioBalance).toDouble()/100), true);
     emit stepTimeNormal(WIDGET_LOOKUP(ui->playbackNormalStep).toInt());
     emit stepTimeLarge(WIDGET_LOOKUP(ui->playbackLargeStep).toInt());
 
@@ -1104,11 +1095,6 @@ void SettingsWindow::setFreestanding(bool freestanding)
     ui->webLocalFilesBox->setEnabled(yes);
 }
 
-void SettingsWindow::setVolume(int level)
-{
-    WIDGET_LOOKUP(ui->playbackVolume).setValue(level);
-}
-
 void SettingsWindow::setZoomPreset(int which)
 {
     bool autoZoom = which != -1;
@@ -1131,11 +1117,6 @@ void SettingsWindow::setHidePanels(bool hidden)
     emit settingsData(acceptedSettings.toVMap());
 }
 
-void SettingsWindow::self_volumeMax(int maximum)
-{
-    ui->playbackVolume->setMaximum(maximum);
-}
-
 void SettingsWindow::restoreColorControls()
 {
     emit option("brightness", acceptedSettings.value("miscBrightness").value.toInt());
@@ -1147,7 +1128,7 @@ void SettingsWindow::restoreColorControls()
 void SettingsWindow::restoreAudioSettings()
 {
     emit audioFilter("stereotools=balance_out=" +
-        QString().number(WIDGET_LOOKUP(ui->playbackBalance).toDouble()/100), true);
+        QString().number(WIDGET_LOOKUP(ui->audioBalance).toDouble()/100), true);
 }
 
 void SettingsWindow::colorPick_clicked(QLineEdit *colorValue)
@@ -1348,14 +1329,9 @@ void SettingsWindow::on_fullscreenHideControls_toggled(bool checked)
     ui->fullscreenShowWhenDuration->setEnabled(checked);
 }
 
-void SettingsWindow::on_playbackVolume_valueChanged(int value)
+void SettingsWindow::on_audioBalance_valueChanged(int value)
 {
-    QToolTip::showText(QCursor::pos(), QString().number(value), ui->playbackVolume);
-}
-
-void SettingsWindow::on_playbackBalance_valueChanged(int value)
-{
-    QToolTip::showText(QCursor::pos(), QString().number(value), ui->playbackBalance);
+    QToolTip::showText(QCursor::pos(), QString().number(value), ui->audioBalance);
     emit audioFilter("stereotools=balance_out=" + QString().number((double) value/100), true);
 }
 

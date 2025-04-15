@@ -2351,7 +2351,7 @@ media file played</translation>
     </message>
     <message>
         <source>Volume</source>
-        <translation>Volume</translation>
+        <translation type="vanished">Volume</translation>
     </message>
     <message>
         <source>Use Qt&apos;s inbuilt fusion style</source>
@@ -2359,7 +2359,7 @@ media file played</translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation>Balance</translation>
+        <translation type="vanished">Balance</translation>
     </message>
     <message>
         <source>Default track preference</source>
@@ -4025,6 +4025,10 @@ media file played</translation>
     <message>
         <source>Allows dark theme support on Windows</source>
         <translation>Allows dark theme support on Windows</translation>
+    </message>
+    <message>
+        <source>Audio balance</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -1337,73 +1337,6 @@ media file played</string>
              </layout>
             </widget>
            </item>
-           <item row="0" column="0" colspan="2">
-            <widget class="QGroupBox" name="playbackAudioBox">
-             <property name="title">
-              <string>Audio</string>
-             </property>
-             <layout class="QGridLayout" name="playbackAudioBoxLayout" columnstretch="1,1">
-              <item row="0" column="0">
-               <widget class="QLabel" name="playbackVolumeLabel">
-                <property name="text">
-                 <string>Volume</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignmentFlag::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QLabel" name="playbackBalanceLabel">
-                <property name="text">
-                 <string>Balance</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignmentFlag::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QScrollBar" name="playbackBalance">
-                <property name="cursor">
-                 <cursorShape>PointingHandCursor</cursorShape>
-                </property>
-                <property name="minimum">
-                 <number>-100</number>
-                </property>
-                <property name="maximum">
-                 <number>100</number>
-                </property>
-                <property name="orientation">
-                 <enum>Qt::Orientation::Horizontal</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QSlider" name="playbackVolume">
-                <property name="cursor">
-                 <cursorShape>PointingHandCursor</cursorShape>
-                </property>
-                <property name="maximum">
-                 <number>130</number>
-                </property>
-                <property name="value">
-                 <number>100</number>
-                </property>
-                <property name="orientation">
-                 <enum>Qt::Orientation::Horizontal</enum>
-                </property>
-                <property name="tickPosition">
-                 <enum>QSlider::TickPosition::TicksBothSides</enum>
-                </property>
-                <property name="tickInterval">
-                 <number>10</number>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
            <item row="4" column="0">
             <spacer name="playbackSpacer">
              <property name="orientation">
@@ -5687,8 +5620,8 @@ media file played</string>
           </layout>
          </widget>
          <widget class="QWidget" name="audioPage">
-          <layout class="QVBoxLayout" name="audioPageLayout">
-           <item>
+          <layout class="QGridLayout" name="audioPageLayout">
+           <item row="0" column="0" colspan="2">>
             <widget class="QGroupBox" name="audioBox">
              <property name="title">
               <string>Audio Renderer</string>
@@ -6044,7 +5977,7 @@ media file played</string>
              </layout>
             </widget>
            </item>
-           <item>
+           <item row="1" column="0">
             <widget class="QGroupBox" name="audioAutoloadBox">
              <property name="title">
               <string>Audio open settings</string>
@@ -6112,6 +6045,31 @@ media file played</string>
                   <string>All</string>
                  </property>
                 </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QGroupBox" name="audioBalanceBox">
+             <property name="title">
+              <string>Audio balance</string>
+             </property>
+             <layout class="QGridLayout" name="audioBalanceBoxLayout" columnstretch="1,1">
+              <item colspan="2">>
+               <widget class="QScrollBar" name="audioBalance">
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="minimum">
+                 <number>-100</number>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
                </widget>
               </item>
              </layout>
