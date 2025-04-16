@@ -176,6 +176,7 @@ QVariantMap MainWindow::state()
         { WRAP(ui->actionViewHideLog) },
         { WRAP(ui->actionViewHideLibrary) },
         { WRAP(ui->actionViewHideControlsInFullscreen) },
+        { WRAP(ui->actionViewMusicMode) },
         { WRAP(ui->actionViewOntopDefault) },
         { WRAP(ui->actionViewOntopAlways) },
         { WRAP(ui->actionViewOntopPlaying) },
@@ -207,6 +208,7 @@ void MainWindow::setState(const QVariantMap &map)
     UNWRAP(ui->actionViewHideLog, false);
     UNWRAP(ui->actionViewHideLibrary, false);
     UNWRAP(ui->actionViewHideControlsInFullscreen, false);
+    UNWRAP(ui->actionViewMusicMode, false);
     UNWRAP(ui->actionViewOntopDefault, true);
     UNWRAP(ui->actionViewOntopAlways, false);
     UNWRAP(ui->actionViewOntopPlaying, false);
@@ -331,11 +333,24 @@ void MainWindow::setActionPlayLoopUse()
     ui->actionPlayLoopUse->setChecked(true);
 }
 
+void MainWindow::resizePlaylistToFit()
+{
+    if (ui->actionViewMusicMode->isChecked() && !playlistWindow_->isFloating()) {
+        int otherWidgetsHeight = ui->menubar->height() + ui->bottomArea->height();
+        playlistWindow_->setMinimumSize(QSize(this->width(), this->height() - otherWidgetsHeight));
+        playlistWindow_->setMaximumSize(QSize(this->width(), this->height() - otherWidgetsHeight));
+        dockHost()->resizeDocks({playlistWindow_}, {this->width()}, Qt::Horizontal);
+        dockHost()->resizeDocks({playlistWindow_}, {this->height()}, Qt::Vertical);
+        QApplication::processEvents();
+    }
+}
+
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
     Q_UNUSED(event)
     updateBottomAreaGeometry();
     checkBottomArea(QCursor::pos());
+    resizePlaylistToFit();
 }
 
 bool MainWindow::eventFilter(QObject *object, QEvent *event)
@@ -597,6 +612,7 @@ void MainWindow::setupContextMenu()
     contextView->addAction(ui->actionViewHideSubresync);
     contextView->addAction(ui->actionViewHidePlaylist);
     contextView->addAction(ui->actionViewHideControlsInFullscreen);
+    contextView->addAction(ui->actionViewMusicMode);
     contextView->addAction(ui->actionViewHideCapture);
     contextView->addAction(ui->actionViewHideNavigation);
     contextView->addMenu(ui->menuViewPresets);
@@ -2448,6 +2464,32 @@ void MainWindow::on_actionViewHideLibrary_toggled(bool checked)
 void MainWindow::on_actionViewHideControlsInFullscreen_toggled(bool checked)
 {
     emit fullscreenHideControls(!checked);
+}
+
+void MainWindow::on_actionViewMusicMode_triggered(bool checked)
+{
+    if (!playlistWindow_->isFloating()) {
+        if (checked) {
+            playlistWindow_->setFeatures(playlistWindow_->features() & ~QDockWidget::DockWidgetFloatable
+                                                                     & ~QDockWidget::DockWidgetMovable
+                                                                     & ~QDockWidget::DockWidgetClosable);
+        }
+        else {
+            playlistWindow_->setFeatures(playlistWindow_->features() | QDockWidget::DockWidgetFloatable
+                                                                     | QDockWidget::DockWidgetMovable
+                                                                     | QDockWidget::DockWidgetClosable);
+            playlistWindow_->setMinimumSize(QSize(0, 0));
+            playlistWindow_->setMaximumSize(QSize(65550, 65550));
+        }
+        ui->stepBackward->setVisible(!checked);
+        ui->stepForward->setVisible(!checked);
+        ui->verticalLine2->setVisible(!checked);
+        ui->subs->setVisible(!checked);
+        playlistWindow_->setVisible(checked);
+        ui->actionViewHidePlaylist->setEnabled(!checked);
+        mpvObject_->setCachedMpvOption("audio-display", checked ? "no" : "embedded-first");
+        resizePlaylistToFit();
+    }
 }
 
 void MainWindow::on_actionViewPresetsMinimal_triggered()
