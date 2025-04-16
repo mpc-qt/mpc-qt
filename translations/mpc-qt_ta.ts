@@ -2351,7 +2351,7 @@ media file played</source>
     </message>
     <message>
         <source>Volume</source>
-        <translation>தொகுதி</translation>
+        <translation type="vanished">தொகுதி</translation>
     </message>
     <message>
         <source>Use Qt&apos;s inbuilt fusion style</source>
@@ -2359,7 +2359,7 @@ media file played</source>
     </message>
     <message>
         <source>Balance</source>
-        <translation>இருப்பு</translation>
+        <translation type="vanished">இருப்பு</translation>
     </message>
     <message>
         <source>Default track preference</source>
@@ -4024,6 +4024,10 @@ media file played</source>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio balance</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

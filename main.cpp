@@ -642,8 +642,6 @@ void Flow::setupSettingsConnections()
 {
 
     // mainwindow -> settings
-    connect(mainWindow, &MainWindow::volumeChanged,
-            settingsWindow, &SettingsWindow::setVolume);
     connect(mainWindow, &MainWindow::zoomPresetChanged,
             settingsWindow, &SettingsWindow::setZoomPreset);
 

@@ -64,7 +64,6 @@ private:
     void setupPaletteEditor();
     void setupColorPickers();
     void setupFullscreenCombo();
-    void setupSelfSignals();
     void setupUnimplementedWidgets();
     void updateAcceptedSettings();
     SettingMap generateSettingMap(QWidget *root);
@@ -205,12 +204,10 @@ public slots:
     void setServerName(const QString &name);
     void setFreestanding(bool freestanding);
 
-    void setVolume(int level);
     void setZoomPreset(int which);
     void setHidePanels(bool hidden);
 
 private slots:
-    void self_volumeMax(int maximum);
     void restoreColorControls();
     void restoreAudioSettings();
     void colorPick_clicked(QLineEdit *colorValue);
@@ -264,9 +261,7 @@ private slots:
 
     void on_fullscreenHideControls_toggled(bool checked);
 
-    void on_playbackVolume_valueChanged(int value);
-
-    void on_playbackBalance_valueChanged(int value);
+    void on_audioBalance_valueChanged(int value);
 
     void on_playbackAutoZoom_toggled(bool checked);
 

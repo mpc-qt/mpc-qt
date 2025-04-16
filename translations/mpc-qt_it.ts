@@ -2295,7 +2295,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Volume</source>
-        <translation>Volume</translation>
+        <translation type="vanished">Volume</translation>
     </message>
     <message>
         <source>Use Qt&apos;s inbuilt fusion style</source>
@@ -2303,7 +2303,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation>Bilanciamento</translation>
+        <translation type="vanished">Bilanciamento</translation>
     </message>
     <message>
         <source>Default track preference</source>
@@ -3928,6 +3928,10 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio balance</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
