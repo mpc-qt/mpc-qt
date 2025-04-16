@@ -4028,7 +4028,7 @@ media file played</translation>
     </message>
     <message>
         <source>Audio balance</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio balance</translation>
     </message>
 </context>
 <context>
