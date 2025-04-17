@@ -440,6 +440,7 @@ private:
     QActionGroup* subtitleTracksGroup = nullptr;
 
     bool freestanding_ = false;
+    bool mainwindowIsClosing = false; // Prevents toggleViewAction from affecting saved setting for actionViewHidePlaylist
     DecorationState decorationState_ = AllDecorations;
     QString fullscreenName;
     FullscreenMemory fullscreenMemory;

@@ -390,6 +390,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
     bool showPlaylist = ui->actionViewHidePlaylist->isChecked();
     playlistWindow_->close();
     ui->actionViewHidePlaylist->setChecked(showPlaylist);
+    mainwindowIsClosing = true;
     event->accept();
     emit instanceShouldQuit();
 }
@@ -2185,9 +2186,7 @@ void MainWindow::libraryWindowClosed()
 }
 
 void MainWindow::setPlaylistVisibleState(bool yes) {
-    if (fullscreenMode_)
-        return;
-    if (!ui)
+    if (fullscreenMode_ || !ui || mainwindowIsClosing)
         return;
     ui->actionFileOpenQuick->setText(yes ? tr("&Quick Add To Playlist")
                                          : tr("&Quick Open File"));
