@@ -2186,6 +2186,7 @@ void MainWindow::libraryWindowClosed()
 }
 
 void MainWindow::setPlaylistVisibleState(bool yes) {
+    Logger::log("mainwindow", "setPlaylistVisibleState");
     if (fullscreenMode_ || !ui || mainwindowIsClosing)
         return;
     ui->actionFileOpenQuick->setText(yes ? tr("&Quick Add To Playlist")
@@ -2397,16 +2398,15 @@ void MainWindow::on_actionViewHideSubresync_toggled(bool checked)
 
 void MainWindow::on_actionViewHidePlaylist_toggled(bool checked)
 {
+    Logger::log("mainwindow", "on_actionViewHidePlaylist_toggled");
     if (fullscreenMode_ && fullscreenHidePanels)
         return;
 
     if (isMinimized())
         return;
 
-    if (checked && playlistWindow_->isHidden())
-        playlistWindow_->show();
-    else if (!checked && playlistWindow_->isVisible())
-        playlistWindow_->hide();
+    if (checked != playlistWindow_->isVisible())
+        playlistWindow_->setVisible(checked);
 
     if (fullscreenMode_ && !fullscreenHidePanels)
         updateBottomAreaGeometry();
