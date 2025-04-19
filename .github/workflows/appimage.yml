@@ -8,20 +8,36 @@ jobs:
     name: Build with PPA
     runs-on: ubuntu-22.04
     steps:
-    - name: Install packages
+    - name: Update repositories
       run: |
         sudo apt update
+    - name: Install packages
+      run: |
         sudo apt install build-essential cmake
+    - name: Add repositories
+      run: |
         sudo add-apt-repository ppa:savoury1/build-tools
         sudo add-apt-repository ppa:savoury1/qt-6-2
         sudo add-apt-repository ppa:savoury1/llvm-defaults-13
         sudo add-apt-repository ppa:savoury1/graphics
         sudo add-apt-repository ppa:savoury1/display
         sudo add-apt-repository ppa:savoury1/multimedia
-        sudo apt upgrade
-        sudo apt dist-upgrade
-        sudo apt install linguist-qt6 qt6-tools-dev qmake6 qt6-base-dev libqt6svg6-dev
-        sudo apt install devscripts equivs git libunwind-dev
+    - name: Update packages
+      run: |
+        for i in 1 2 3; do
+          sudo apt upgrade && break || sleep 60
+        done
+        for i in 1 2 3; do
+          sudo apt dist-upgrade && break || sleep 60
+        done
+    - name: Install packages
+      run: |
+        for i in 1 2 3; do
+          sudo apt install linguist-qt6 qt6-tools-dev qmake6 qt6-base-dev libqt6svg6-dev && break || sleep 60
+        done
+        for i in 1 2 3; do
+          sudo apt install devscripts equivs git libunwind-dev && break || sleep 60
+        done
     - name: Checkout repository
       uses: actions/checkout@v4
     - name: Checkout mpv repository
