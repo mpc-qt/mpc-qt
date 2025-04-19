@@ -865,6 +865,7 @@
     <addaction name="actionViewHideLog"/>
     <addaction name="actionViewHideLibrary"/>
     <addaction name="actionViewHideControlsInFullscreen"/>
+    <addaction name="actionViewMusicMode"/>
     <addaction name="menuOSD"/>
     <addaction name="menuViewPresets"/>
     <addaction name="separator"/>
@@ -2243,6 +2244,17 @@
    </property>
    <property name="shortcut">
     <string>C</string>
+   </property>
+  </action>
+  <action name="actionViewMusicMode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Music Mode</string>
+   </property>
+   <property name="shortcut">
+    <string>M</string>
    </property>
   </action>
   <action name="actionPlaySubtitlesCopy">

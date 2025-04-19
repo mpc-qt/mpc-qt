@@ -1412,6 +1412,14 @@
         <source>M&amp;aximum Pan and Scan</source>
         <translation>எம் &amp; ஆக்சிமம் பான் மற்றும் ச்கேன்</translation>
     </message>
+    <message>
+        <source>Music Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>M</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
