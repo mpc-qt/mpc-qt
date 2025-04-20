@@ -426,9 +426,10 @@ void PlaybackManager::selectNextAudioTrack()
     if (audioList.isEmpty())
         return;
     int64_t nextAudioTrack = audioTrackSelected + 1;
-    if (nextAudioTrack > audioList.count())
+    if (nextAudioTrack > audioList.count() || nextAudioTrack < 1)
         nextAudioTrack = 1;
     setAudioTrack(nextAudioTrack, true);
+    mpvObject_->showMessage(tr("Audio track: ") + audioList[nextAudioTrack - 1].title);
 }
 
 void PlaybackManager::selectPrevAudioTrack()
@@ -439,12 +440,14 @@ void PlaybackManager::selectPrevAudioTrack()
     if (previousAudioTrack < 1)
         previousAudioTrack = audioList.count();
     setAudioTrack(previousAudioTrack, true);
+    mpvObject_->showMessage(tr("Audio track: ") + audioList[previousAudioTrack - 1].title);
 }
 
 void PlaybackManager::setSubtitleEnabled(bool enabled)
 {
     subtitleEnabled = enabled;
     updateSubtitleTrack();
+    mpvObject_->showMessage(subtitleEnabled ? tr("Subtitles: on") : tr("Subtitles: off"));
 }
 
 void PlaybackManager::selectNextSubtitle()
@@ -455,6 +458,7 @@ void PlaybackManager::selectNextSubtitle()
     if (nextSubs >= subtitleList.count())
         nextSubs = 0;
     setSubtitleTrack(nextSubs, true);
+    mpvObject_->showMessage(tr("Subtitles track: ") + subtitleList[nextSubs].title);
 }
 
 void PlaybackManager::selectPrevSubtitle()
@@ -465,6 +469,7 @@ void PlaybackManager::selectPrevSubtitle()
     if (previousSubs < 0)
         previousSubs = subtitleList.count() - 1;
     setSubtitleTrack(previousSubs, true);
+    mpvObject_->showMessage(tr("Subtitles track: ") + subtitleList[previousSubs].title);
 }
 
 void PlaybackManager::setVolume(int64_t volume, bool onInit)
