@@ -111,6 +111,7 @@ private:
     void updateMouseHideTime();
     void updateDiscList();
     void showOsdTimer(bool onSeek);
+    void resizePlaylistToFit();
     QList<QUrl> doQuickOpenFileDialog();
 
     QIcon createIconFromSvg(const QString& svgPath, int maxSize);
@@ -310,6 +311,7 @@ private slots:
     void on_actionViewHideLog_toggled(bool checked);
     void on_actionViewHideLibrary_toggled(bool checked);
     void on_actionViewHideControlsInFullscreen_toggled(bool checked);
+    void on_actionViewMusicMode_triggered(bool checked);
 
     void on_actionViewOSDNone_triggered();
     void on_actionViewOSDMessages_triggered();

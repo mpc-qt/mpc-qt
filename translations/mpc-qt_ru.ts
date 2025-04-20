@@ -1392,6 +1392,14 @@
         <source>M&amp;aximum Pan and Scan</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Music Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>M</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
