@@ -147,6 +147,8 @@ signals:
     void audioTrackSelected(int64_t id, bool userSelected);
     void subtitleTrackSelected(int64_t id, bool userSelected);
     void videoTrackSelected(int64_t id, bool userSelected);
+    void nextAudioTrackSelected();
+    void previousAudioTrackSelected();
     void subtitlesEnabled(bool enabled);
     void nextSubtitleSelected();
     void previousSubtitleSelected();
@@ -208,6 +210,8 @@ public slots:
     void httpVolumeUp();
     void httpVolumeDown();
     void httpVolumeMute();
+    void httpNextAudio();
+    void httpPrevAudio();
     void httpNextSubtitle();
     void httpPrevSubtitle();
     void httpOnOffSubtitles();
@@ -369,6 +373,9 @@ private slots:
     void on_actionPlaySeekForwardsLarge_triggered();
     void on_actionPlaySeekBackwardsLarge_triggered();
 
+    void on_actionPlayAudioTrackNext_triggered();
+    void on_actionPlayAudioTrackPrevious_triggered();
+    
     void on_actionPlaySubtitlesEnabled_triggered(bool checked);
     void on_actionPlaySubtitlesNext_triggered();
     void on_actionPlaySubtitlesPrevious_triggered();

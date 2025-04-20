@@ -503,6 +503,10 @@ void Flow::setupMainWindowConnections()
             playbackManager, &PlaybackManager::setSubtitleTrack);
     connect(mainWindow, &MainWindow::videoTrackSelected,
             playbackManager, &PlaybackManager::setVideoTrack);
+    connect(mainWindow, &MainWindow::nextAudioTrackSelected,
+            playbackManager, &PlaybackManager::selectNextAudioTrack);
+    connect(mainWindow, &MainWindow::previousAudioTrackSelected,
+            playbackManager, &PlaybackManager::selectPrevAudioTrack);
     connect(mainWindow, &MainWindow::subtitlesEnabled,
             playbackManager, &PlaybackManager::setSubtitleEnabled);
     connect(mainWindow, &MainWindow::nextSubtitleSelected,
@@ -1076,6 +1080,10 @@ void Flow::setupMpcHc()
             mainWindow, &MainWindow::httpVolumeDown);
     connect(mpcHcServer, &MpcHcServer::volumeMute,
             mainWindow, &MainWindow::httpVolumeMute);
+    connect(mpcHcServer, &MpcHcServer::nextAudioTrack,
+            mainWindow, &MainWindow::httpNextAudio);
+    connect(mpcHcServer, &MpcHcServer::previousAudioTrack,
+            mainWindow, &MainWindow::httpPrevAudio);
     connect(mpcHcServer, &MpcHcServer::nextSubtitleTrack,
             mainWindow, &MainWindow::httpNextSubtitle);
     connect(mpcHcServer, &MpcHcServer::previousSubtitleTrack,

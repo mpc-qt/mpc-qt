@@ -135,6 +135,8 @@ signals:
     void volumeUp();
     void volumeDown();
     void volumeMute();
+    void nextAudioTrack();
+    void previousAudioTrack();
     void nextSubtitleTrack();
     void previousSubtitleTrack();
     void onOffSubtitles();

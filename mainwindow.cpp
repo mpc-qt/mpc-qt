@@ -1542,6 +1542,18 @@ void MainWindow::httpVolumeMute()
         ui->actionPlayVolumeMute->toggle();
 }
 
+void MainWindow::httpNextAudio()
+{
+    if (ui->actionPlayAudioTrackNext->isEnabled())
+        ui->actionPlayAudioTrackNext->trigger();
+}
+
+void MainWindow::httpPrevAudio()
+{
+    if (ui->actionPlayAudioTrackPrevious->isEnabled())
+        ui->actionPlayAudioTrackPrevious->trigger();
+}
+
 void MainWindow::httpNextSubtitle()
 {
     if (ui->actionPlaySubtitlesNext->isEnabled())
@@ -1979,10 +1991,15 @@ void MainWindow::setAudioTracks(QList<Track> tracks)
     ui->menuPlayAudio->setEnabled(false);
     audioTracksGroup = nullptr;
     hasAudio = !tracks.isEmpty();
+    ui->actionPlayAudioTrackPrevious->setEnabled(hasAudio);
+    ui->actionPlayAudioTrackNext->setEnabled(hasAudio);
     if (!hasAudio)
         return;
     ui->menuPlayAudio->setEnabled(true);
     audioTracksGroup = new QActionGroup(this);
+    ui->menuPlayAudio->addAction(ui->actionPlayAudioTrackPrevious);
+    ui->menuPlayAudio->addAction(ui->actionPlayAudioTrackNext);
+    ui->menuPlayAudio->addSeparator();
     for (const Track &track : tracks) {
         QAction *action = new QAction(this);
         action->setText(track.title);
@@ -2831,6 +2848,16 @@ void MainWindow::on_actionPlaySeekBackwardsLarge_triggered()
 {
     emit relativeSeek(false, true);
     showOsdTimer(true);
+}
+
+void MainWindow::on_actionPlayAudioTrackNext_triggered()
+{
+    emit nextAudioTrackSelected();
+}
+
+void MainWindow::on_actionPlayAudioTrackPrevious_triggered()
+{
+    emit previousAudioTrackSelected();
 }
 
 void MainWindow::on_actionPlaySubtitlesEnabled_triggered(bool checked)

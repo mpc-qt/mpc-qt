@@ -421,6 +421,26 @@ void PlaybackManager::setVideoTrack(int64_t id, bool userSelected)
         mpvObject_->setVideoTrack(id);
 }
 
+void PlaybackManager::selectNextAudioTrack()
+{
+    if (audioList.isEmpty())
+        return;
+    int64_t nextAudioTrack = audioTrackSelected + 1;
+    if (nextAudioTrack > audioList.count())
+        nextAudioTrack = 1;
+    setAudioTrack(nextAudioTrack, true);
+}
+
+void PlaybackManager::selectPrevAudioTrack()
+{
+    if (audioList.isEmpty())
+        return;
+    int64_t previousAudioTrack = audioTrackSelected - 1;
+    if (previousAudioTrack < 1)
+        previousAudioTrack = audioList.count();
+    setAudioTrack(previousAudioTrack, true);
+}
+
 void PlaybackManager::setSubtitleEnabled(bool enabled)
 {
     subtitleEnabled = enabled;
