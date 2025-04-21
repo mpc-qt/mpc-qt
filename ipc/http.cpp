@@ -483,6 +483,8 @@ void MpcHcServer::setupWmCommands()
         { 907, "Volume Up",                 [&](){ emit volumeUp(); } },
         { 908, "Volume Down",               [&](){ emit volumeDown(); } },
         { 909, "Volume Mute",               [&](){ emit volumeMute(); } },
+        { 952, "Next Audio Track",          [&](){ emit nextAudioTrack(); } },
+        { 953, "Prev Audio Track",          [&](){ emit previousAudioTrack(); } },
         { 954, "Next Subtitle Track",       [&](){ emit nextSubtitleTrack(); } },
         { 955, "Prev Subtitle Track",       [&](){ emit previousSubtitleTrack(); } },
         { 956, "On/Off Subtitles",          [&](){ emit onOffSubtitles(); } },

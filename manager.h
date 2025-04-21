@@ -139,6 +139,8 @@ public slots:
     void setAudioTrack(int64_t id, bool userSelected);
     void setSubtitleTrack(int64_t id, bool userSelected);
     void setVideoTrack(int64_t id, bool userSelected);
+    void selectNextAudioTrack();
+    void selectPrevAudioTrack();
     void setSubtitleEnabled(bool enabled);
     void selectNextSubtitle();
     void selectPrevSubtitle();

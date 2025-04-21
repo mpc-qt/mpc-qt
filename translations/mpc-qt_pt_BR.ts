@@ -1420,6 +1420,14 @@
         <source>M</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;Previous Audio Track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next Audio Track</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -1723,11 +1731,11 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Remover</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Limpar</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -1751,7 +1759,7 @@
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Restaurar</translation>
     </message>
     <message>
         <source>Shuffle</source>
@@ -2009,7 +2017,7 @@
     </message>
     <message>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">1</translation>
     </message>
     <message>
         <source>Player</source>
@@ -2191,10 +2199,6 @@ media file played</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2551,7 +2555,7 @@ media file played</source>
     </message>
     <message>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">2</translation>
     </message>
     <message>
         <source>Anti-ring</source>
@@ -3039,7 +3043,7 @@ media file played</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Remover</translation>
     </message>
     <message>
         <source>Add to shaders</source>
@@ -3051,7 +3055,7 @@ media file played</source>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Salvar</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -4024,6 +4028,10 @@ media file played</source>
     </message>
     <message>
         <source>Audio balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

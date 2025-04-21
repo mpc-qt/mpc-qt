@@ -1392,6 +1392,14 @@
         <source>M</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;Previous Audio Track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next Audio Track</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

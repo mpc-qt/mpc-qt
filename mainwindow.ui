@@ -884,6 +884,8 @@
      <property name="title">
       <string>&amp;Audio</string>
      </property>
+     <addaction name="actionPlayAudioTrackPrevious"/>
+     <addaction name="actionPlayAudioTrackNext"/>
     </widget>
     <widget class="QMenu" name="menuPlaySubtitles">
      <property name="title">
@@ -2098,6 +2100,22 @@
    </property>
    <property name="shortcut">
     <string notr="true">`</string>
+   </property>
+  </action>
+  <action name="actionPlayAudioTrackPrevious">
+   <property name="text">
+    <string>&amp;Previous Audio Track</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Shift+A</string>
+   </property>
+  </action>
+  <action name="actionPlayAudioTrackNext">
+   <property name="text">
+    <string>&amp;Next Audio Track</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">A</string>
    </property>
   </action>
   <action name="actionPlaySubtitlesEnabled">

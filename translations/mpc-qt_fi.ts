@@ -1388,6 +1388,14 @@
         <source>M</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;Previous Audio Track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next Audio Track</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2161,10 +2169,6 @@ media file played</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3922,6 +3926,10 @@ media file played</source>
     </message>
     <message>
         <source>Audio balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
