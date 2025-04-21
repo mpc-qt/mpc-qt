@@ -1647,6 +1647,22 @@
         <source>Aspect ratio: %1</source>
         <translation>Aspect ratio: %1</translation>
     </message>
+    <message>
+        <source>Audio track: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles track: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles: on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles: off</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PlaylistCollection</name>
