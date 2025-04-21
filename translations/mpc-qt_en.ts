@@ -1422,11 +1422,11 @@
     </message>
     <message>
         <source>&amp;Previous Audio Track</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Previous Audio Track</translation>
     </message>
     <message>
         <source>&amp;Next Audio Track</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Next Audio Track</translation>
     </message>
 </context>
 <context>
