@@ -1649,19 +1649,19 @@
     </message>
     <message>
         <source>Audio track: </source>
-        <translation type="unfinished"></translation>
+        <translation>Audio track: </translation>
     </message>
     <message>
         <source>Subtitles track: </source>
-        <translation type="unfinished"></translation>
+        <translation>Subtitles track: </translation>
     </message>
     <message>
         <source>Subtitles: on</source>
-        <translation type="unfinished"></translation>
+        <translation>Subtitles: on</translation>
     </message>
     <message>
         <source>Subtitles: off</source>
-        <translation type="unfinished"></translation>
+        <translation>Subtitles: off</translation>
     </message>
 </context>
 <context>
