@@ -510,6 +510,9 @@ media file played</string>
                  <property name="text">
                   <string>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</string>
                  </property>
+                 <property name="openExternalLinks">
+                  <bool>true</bool>
+                 </property>
                 </widget>
                </item>
                <item>
