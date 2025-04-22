@@ -1997,9 +1997,6 @@ void MainWindow::setAudioTracks(QList<Track> tracks)
         return;
     ui->menuPlayAudio->setEnabled(true);
     audioTracksGroup = new QActionGroup(this);
-    ui->menuPlayAudio->addAction(ui->actionPlayAudioTrackPrevious);
-    ui->menuPlayAudio->addAction(ui->actionPlayAudioTrackNext);
-    ui->menuPlayAudio->addSeparator();
     for (const Track &track : tracks) {
         QAction *action = new QAction(this);
         action->setText(track.title);
@@ -2011,6 +2008,9 @@ void MainWindow::setAudioTracks(QList<Track> tracks)
         });
         ui->menuPlayAudio->addAction(action);
     }
+    ui->menuPlayAudio->addSeparator();
+    ui->menuPlayAudio->addAction(ui->actionPlayAudioTrackPrevious);
+    ui->menuPlayAudio->addAction(ui->actionPlayAudioTrackNext);
     audioTracksGroup->actions()[0]->setChecked(true);
 }
 
@@ -2024,17 +2024,6 @@ void MainWindow::setVideoTracks(QList<Track> tracks)
         return;
     ui->menuPlayVideo->setEnabled(true);
     videoTracksGroup = new QActionGroup(this);
-    ui->menuPlayVideo->addMenu(ui->menuPlayVideoAspect);
-    ui->menuPlayVideoAspect->addAction(ui->actionDecreaseVideoAspect);
-    ui->menuPlayVideoAspect->addAction(ui->actionIncreaseVideoAspect);
-    ui->menuPlayVideoAspect->addAction(ui->actionResetVideoAspect);
-    ui->menuPlayVideoAspect->addAction(ui->actionDisableVideoAspect);
-    ui->menuPlayVideo->addMenu(ui->menuPlayVideoPanScan);
-    ui->menuPlayVideoPanScan->addAction(ui->actionDecreasePanScan);
-    ui->menuPlayVideoPanScan->addAction(ui->actionIncreasePanScan);
-    ui->menuPlayVideoPanScan->addAction(ui->actionMinPanScan);
-    ui->menuPlayVideoPanScan->addAction(ui->actionMaxPanScan);
-    ui->menuPlayVideo->addSeparator();
     for (const Track &track : tracks) {
         QAction *action = new QAction(this);
         action->setText(track.title);
@@ -2046,6 +2035,17 @@ void MainWindow::setVideoTracks(QList<Track> tracks)
         });
         ui->menuPlayVideo->addAction(action);
     }
+    ui->menuPlayVideo->addSeparator();
+    ui->menuPlayVideo->addMenu(ui->menuPlayVideoAspect);
+    ui->menuPlayVideoAspect->addAction(ui->actionDecreaseVideoAspect);
+    ui->menuPlayVideoAspect->addAction(ui->actionIncreaseVideoAspect);
+    ui->menuPlayVideoAspect->addAction(ui->actionResetVideoAspect);
+    ui->menuPlayVideoAspect->addAction(ui->actionDisableVideoAspect);
+    ui->menuPlayVideo->addMenu(ui->menuPlayVideoPanScan);
+    ui->menuPlayVideoPanScan->addAction(ui->actionDecreasePanScan);
+    ui->menuPlayVideoPanScan->addAction(ui->actionIncreasePanScan);
+    ui->menuPlayVideoPanScan->addAction(ui->actionMinPanScan);
+    ui->menuPlayVideoPanScan->addAction(ui->actionMaxPanScan);
     videoTracksGroup->actions()[0]->setChecked(true);
     updateOnTop();
 }
@@ -2064,13 +2064,6 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
         return;
     ui->menuPlaySubtitles->setEnabled(true);
     subtitleTracksGroup = new QActionGroup(this);
-    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesEnabled);
-    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesPrevious);
-    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesNext);
-    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesCopy);
-    ui->menuPlaySubtitles->addAction(ui->actionDecreaseSubtitlesDelay);
-    ui->menuPlaySubtitles->addAction(ui->actionIncreaseSubtitlesDelay);
-    ui->menuPlaySubtitles->addSeparator();
     for (const Track &track : tracks) {
         QAction *action = new QAction(this);
         action->setText(track.title);
@@ -2082,6 +2075,13 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
         });
         ui->menuPlaySubtitles->addAction(action);
     }
+    ui->menuPlaySubtitles->addSeparator();
+    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesEnabled);
+    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesPrevious);
+    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesNext);
+    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesCopy);
+    ui->menuPlaySubtitles->addAction(ui->actionDecreaseSubtitlesDelay);
+    ui->menuPlaySubtitles->addAction(ui->actionIncreaseSubtitlesDelay);
     subtitleTracksGroup->actions()[0]->setChecked(true);
 }
 
