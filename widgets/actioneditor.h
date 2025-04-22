@@ -34,6 +34,9 @@ signals:
     void mouseFullscreenMap(MouseStateMap map);
     void mouseWindowedMap(MouseStateMap map);
 
+    public slots:
+    void filterActions(const QString &text);
+
 private:
     QStandardItemModel model;
     QList<Command> commands;

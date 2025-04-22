@@ -4062,6 +4062,10 @@ arxiu multimèdia reproduït</translation>
         <source>Audio balance</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Search...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

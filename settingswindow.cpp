@@ -317,6 +317,8 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
             this, &SettingsWindow::mouseWindowedMap);
     connect(actionEditor, &ActionEditor::mouseFullscreenMap,
             this, &SettingsWindow::mouseFullscreenMap);
+    connect(ui->keysSearchField, &QLineEdit::textChanged,
+            actionEditor, &ActionEditor::filterActions);
 
     actionEditor->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     actionEditor->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
