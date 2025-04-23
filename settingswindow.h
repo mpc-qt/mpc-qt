@@ -174,6 +174,7 @@ signals:
     void timeShorten(bool yes);
     void mpvMouseEvents(bool yes);
     void mpvKeyEvents(bool yes);
+    void videoPreview(bool enable);
     void timeTooltip(bool yes, bool above);
     void osdTimerOnSeek(bool yes);
     void osdFont(const QString &family, const QString &size);
@@ -274,6 +275,8 @@ private slots:
     void on_ccICCBrowse_clicked();
 
     void on_tweaksPreferWayland_toggled(bool checked);
+
+    void on_tweaksVideoPreview_toggled(bool checked);
 
     void on_tweaksTimeTooltip_toggled(bool checked);
 

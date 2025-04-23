@@ -9,6 +9,7 @@
 #include "helpers.h"
 #include "widgets/drawnslider.h"
 #include "widgets/drawnstatus.h"
+#include "widgets/videopreview.h"
 #include "manager.h"
 #include "playlistwindow.h"
 #include "platform/screensaver.h"
@@ -253,6 +254,7 @@ public slots:
     void setMouseHideTimeWindowed(int msec);
     void setBottomAreaBehavior(Helpers::ControlHiding method);
     void setBottomAreaHideTime(int milliseconds);
+    void setVideoPreview(bool enable);
     void setTimeTooltip(bool show, bool above);
     void setOsdTimerOnSeek(bool enabled);
     void setFullscreenHidePanels(bool hidden);
@@ -283,6 +285,8 @@ public slots:
     void setPlaylistQuickQueueMode(bool yes);
     void setAudioBitrate(double bitrate);
     void setVideoBitrate(double bitrate);
+    void setIsVideo(bool isVideo);
+    void setVideoPreviewItem(QUrl itemUrl);
     void logWindowClosed();
     void libraryWindowClosed();
 
@@ -417,6 +421,7 @@ private slots:
     void mpvw_customContextMenuRequested(const QPoint &pos);
     void position_sliderMoved(int position);
     void position_hoverValue(double value, QString text, double x);
+    void position_hoverEnd();
     void on_play_clicked();
     void volume_sliderMoved(double position);
     void playlistWindow_windowDocked();
@@ -437,6 +442,7 @@ private:
     //MpvGlCbWidget *mpvw = nullptr;
     MediaSlider *positionSlider_ = nullptr;
     VolumeSlider *volumeSlider_ = nullptr;
+    VideoPreview *videoPreview = nullptr;
     StatusTime *timePosition = nullptr;
     StatusTime *timeDuration = nullptr;
     PlaylistWindow *playlistWindow_ = nullptr;
@@ -473,6 +479,7 @@ private:
     bool hasVideo = false;
     bool hasAudio = false;
     bool hasSubs = false;
+    bool isVideo_ = false;
     QString subtitleText;
     int subtitlesDelayStep = 100;
     int volumeStep = 10;
@@ -490,6 +497,7 @@ private:
     double audioBitrate = 0;
     double videoBitrate = 0;
     double panScan = 0;
+    QUrl currentFile;
 
     IconThemer themer;
     QList<QAction *> menuFavoritesTail;

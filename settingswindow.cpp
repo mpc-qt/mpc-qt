@@ -1050,6 +1050,7 @@ void SettingsWindow::sendSignals()
     emit mpvMouseEvents(WIDGET_LOOKUP(ui->tweaksMpvMouseEvents).toBool());
     emit mpvKeyEvents(WIDGET_LOOKUP(ui->tweaksMpvKeyEvents).toBool());
     emit timeShorten(WIDGET_LOOKUP(ui->tweaksTimeShort).toBool());
+    emit videoPreview(WIDGET_LOOKUP(ui->tweaksVideoPreview).toBool());
     emit timeTooltip(WIDGET_LOOKUP(ui->tweaksTimeTooltip).toBool(),
                      WIDGET_LOOKUP(ui->tweaksTimeTooltipLocation).toInt() == 0);
     emit osdTimerOnSeek(WIDGET_LOOKUP(ui->tweaksOsdTimerOnSeek).toBool());
@@ -1383,6 +1384,12 @@ void SettingsWindow::on_tweaksPreferWayland_toggled(bool checked)
 {
     if (checked && QGuiApplication::platformName() == "wayland")
         ui->playbackAutoZoom->setChecked(false);
+}
+
+void SettingsWindow::on_tweaksVideoPreview_toggled(bool checked)
+{
+    ui->tweaksTimeTooltip->setEnabled(!checked);
+    ui->tweaksTimeTooltipLocation->setEnabled(!checked);
 }
 
 void SettingsWindow::on_tweaksTimeTooltip_toggled(bool checked)

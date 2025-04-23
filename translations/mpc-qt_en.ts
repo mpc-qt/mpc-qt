@@ -4066,6 +4066,10 @@ media file played</translation>
         <source>Search...</source>
         <translation>Search…</translation>
     </message>
+    <message>
+        <source>Show video preview</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

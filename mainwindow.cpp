@@ -540,8 +540,11 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
 
     if (fullscreenMode)
         fullscreenMemory = WindowManager::makeFullscreen(this, fullscreenName);
-    else
+    else {
         WindowManager::restoreFullscreen(this, fullscreenMemory);
+        if (videoPreview)
+            videoPreview->hide();
+    }
 
     ui->actionViewFullscreenEscape->setEnabled(fullscreenMode);
     updateMouseHideTime();
@@ -708,6 +711,8 @@ void MainWindow::setupPositionSlider()
             this, &MainWindow::position_sliderMoved);
     connect(positionSlider_, &MediaSlider::hoverValue,
             this, &MainWindow::position_hoverValue);
+    connect(positionSlider_, &MediaSlider::hoverEnd,
+            this, &MainWindow::position_hoverEnd);
 }
 
 void MainWindow::setupVolumeSlider()
@@ -1893,6 +1898,19 @@ void MainWindow::setBottomAreaHideTime(int milliseconds)
     hideTimer.setInterval(milliseconds);
 }
 
+void MainWindow::setVideoPreview(bool enable)
+{
+    if (!videoPreview && enable) {
+        videoPreview = new VideoPreview(this);
+        videoPreview->hide();
+        setVideoPreviewItem(currentFile);
+    }
+    else if (videoPreview && !enable) {
+        videoPreview->deleteLater();
+        videoPreview = nullptr;
+    }
+}
+
 void MainWindow::setTimeTooltip(bool shown, bool above)
 {
     timeTooltipShown = shown;
@@ -2206,6 +2224,19 @@ void MainWindow::setVideoBitrate(double bitrate)
 {
     videoBitrate = bitrate;
     updateBitrate();
+}
+
+void MainWindow::setIsVideo(bool isVideo)
+{
+    isVideo_ = isVideo;
+}
+
+void MainWindow::setVideoPreviewItem(QUrl itemUrl)
+{
+    currentFile = itemUrl;
+    isVideo_ = false;
+    if (videoPreview)
+        videoPreview->openFile(itemUrl);
 }
 
 void MainWindow::logWindowClosed()
@@ -3088,7 +3119,7 @@ void MainWindow::position_sliderMoved(int position)
 
 void MainWindow::position_hoverValue(double position, QString chapterInfo, double x)
 {
-    if (!timeTooltipShown)
+    if (!timeTooltipShown && !videoPreview)
         return;
 
     QString t = QString("%1%2%3").arg(Helpers::toDateFormatFixed(
@@ -3096,10 +3127,32 @@ void MainWindow::position_hoverValue(double position, QString chapterInfo, doubl
                                             timeShortMode ? Helpers::ShortFormat : Helpers::LongFormat),
                                       chapterInfo.isEmpty() ? "" : " - ",
                                       chapterInfo);
-    QPoint where = positionSlider_->mapToGlobal(QPoint(int(x), timeTooltipAbove ? -40 : 0));
-    QToolTip::showText(where, t, positionSlider_);
+    if (videoPreview && isVideo_) {
+        int tooltipWidth = videoPreview->width();
+        int xPos = x - std::round(tooltipWidth / 2);
+        // For some reason there's a different gap between left and right side
+        if (xPos + tooltipWidth + 26 > this->width())
+            xPos = this->width() - tooltipWidth - 26;
+        else if (xPos < 14)
+            xPos = 14;
+        QPoint where = positionSlider_->mapToGlobal(QPoint(int(xPos), -200));
+        videoPreview->move(where);
+        videoPreview->setTimeText(t, position);
+        QToolTip::hideText();
+        videoPreview->show();
+    } else {
+        QPoint where = positionSlider_->mapToGlobal(QPoint(int(x), timeTooltipAbove ? -40 : 0));
+        QToolTip::showText(where, t, positionSlider_);
+    }
+}
 
-    //FIXME: use a widget not the system tooltip?
+void MainWindow::position_hoverEnd()
+{
+    if (videoPreview)
+        // The delay prevents flickering
+        QTimer::singleShot(10, this, [this]() {
+            videoPreview->hide();
+        });
 }
 
 void MainWindow::on_play_clicked()

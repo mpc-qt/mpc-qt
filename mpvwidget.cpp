@@ -677,6 +677,7 @@ void MpvObject::hideCursor()
 void MpvObject::self_aspectChanged(double newAspect)
 {
     aspect = newAspect;
+    emit aspectChanged(newAspect);
 }
 
 void MpvObject::ctrl_mpvPropertyChanged(QString name, QVariant v)

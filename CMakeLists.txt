@@ -113,6 +113,7 @@ set(SOURCES
     widgets/logowidget.cpp widgets/logowidget.h
     widgets/paletteeditor.cpp widgets/paletteeditor.h
     widgets/screencombo.cpp widgets/screencombo.h
+    widgets/videopreview.cpp widgets/videopreview.h
 )
 
 qt_add_executable(mpc-qt WIN32 MACOSX_BUNDLE ${SOURCES})
