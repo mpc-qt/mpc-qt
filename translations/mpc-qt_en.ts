@@ -4064,7 +4064,7 @@ media file played</translation>
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Search…</translation>
     </message>
 </context>
 <context>
