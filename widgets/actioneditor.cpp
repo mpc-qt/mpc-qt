@@ -26,6 +26,26 @@ ActionEditor::ActionEditor(QWidget *parent) :
     setEditTriggers(QAbstractItemView::AllEditTriggers);
 }
 
+void ActionEditor::filterActions(const QString &text)
+{
+    if (text.isEmpty()) {
+        for (int i = 0; i < model.rowCount(); ++i) {
+            setRowHidden(i, false);
+        }
+        return;
+    }
+
+    for (int i = 0; i < model.rowCount(); ++i) {
+        bool match = false;
+        for (int j = 0; j < model.columnCount(); ++j) {
+            QString keyText = model.item(i, j)->text().toLower();
+            if (keyText.contains(text.toLower()))
+                match = true;
+        }
+        setRowHidden(i, !match);
+    }
+}
+
 void ActionEditor::setCommands(const QList<Command> &commands)
 {
     model.setRowCount(0);

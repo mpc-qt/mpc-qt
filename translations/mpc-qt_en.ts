@@ -4062,6 +4062,10 @@ media file played</translation>
         <source>Audio balance</source>
         <translation>Audio balance</translation>
     </message>
+    <message>
+        <source>Search...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
