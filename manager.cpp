@@ -458,7 +458,10 @@ void PlaybackManager::selectNextSubtitle()
     if (nextSubs >= subtitleList.count())
         nextSubs = 0;
     setSubtitleTrack(nextSubs, true);
-    mpvObject_->showMessage(tr("Subtitles track: ") + subtitleList[nextSubs].title);
+    int64_t nextSubsRealIdx = nextSubs - 1;
+    if (nextSubsRealIdx < 0)
+        nextSubsRealIdx = subtitleList.count() - 1;
+    mpvObject_->showMessage(tr("Subtitles track: ") + subtitleList[nextSubsRealIdx].title);
 }
 
 void PlaybackManager::selectPrevSubtitle()
@@ -469,7 +472,10 @@ void PlaybackManager::selectPrevSubtitle()
     if (previousSubs < 0)
         previousSubs = subtitleList.count() - 1;
     setSubtitleTrack(previousSubs, true);
-    mpvObject_->showMessage(tr("Subtitles track: ") + subtitleList[previousSubs].title);
+    int64_t previousSubsRealIdx = previousSubs - 1;
+    if (previousSubsRealIdx < 0)
+        previousSubsRealIdx = subtitleList.count() - 1;
+    mpvObject_->showMessage(tr("Subtitles track: ") + subtitleList[previousSubsRealIdx].title);
 }
 
 void PlaybackManager::setVolume(int64_t volume, bool onInit)
