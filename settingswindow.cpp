@@ -1177,10 +1177,6 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
         actionEditor->updateActions();
         sendSignals();
     }
-    else {
-        restoreColorControls();
-        restoreAudioSettings();
-    }
     if (buttonRole == QDialogButtonBox::AcceptRole ||
             buttonRole == QDialogButtonBox::RejectRole)
         close();
