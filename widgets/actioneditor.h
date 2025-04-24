@@ -34,7 +34,7 @@ signals:
     void mouseFullscreenMap(MouseStateMap map);
     void mouseWindowedMap(MouseStateMap map);
 
-    public slots:
+public slots:
     void filterActions(const QString &text);
 
 private:
@@ -51,8 +51,12 @@ public:
     void setKeySequence(const QKeySequence &keySequence);
     QKeySequence keySequence();
 
+signals:
+    void finishedEditing(ShortcutWidget *editor);
+
 private slots:
     void keyClear_clicked();
+    void editingFinished();
 
 private:
     QKeySequenceEdit *keyEditor = nullptr;
