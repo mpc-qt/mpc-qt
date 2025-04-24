@@ -152,7 +152,10 @@ QWidget *ShortcutDelegate::createEditor(QWidget *parent, const QStyleOptionViewI
     Q_UNUSED(option)
     Q_UNUSED(index)
     ShortcutWidget *editor = new ShortcutWidget(parent);
-    return static_cast<QWidget*>(editor);
+    connect(editor, &ShortcutWidget::finishedEditing,
+            this, &ShortcutDelegate::commitData);
+
+    return editor;
 }
 
 void ShortcutDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
@@ -164,6 +167,7 @@ void ShortcutDelegate::setEditorData(QWidget *editor, const QModelIndex &index) 
 void ShortcutDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 {
     ShortcutWidget *keyEditor = static_cast<ShortcutWidget*>(editor);
+    editor->close();
     QKeySequence seq = keyEditor->keySequence();
     Command c = owner->getCommand(index.row());
     c.keys = seq;
@@ -335,9 +339,12 @@ ShortcutWidget::ShortcutWidget(QWidget *parent) : QWidget(parent)
     layout->setContentsMargins(0,0,0,0);
     layout->setSpacing(0);
     setLayout(layout);
+    keyEditor->grabKeyboard();
 
     connect(keyClear, &QToolButton::clicked,
             this, &ShortcutWidget::keyClear_clicked);
+    connect(keyEditor, &QKeySequenceEdit::editingFinished,
+            this, &ShortcutWidget::editingFinished);
 }
 
 void ShortcutWidget::setKeySequence(const QKeySequence &keySequence)
@@ -352,5 +359,11 @@ QKeySequence ShortcutWidget::keySequence()
 
 void ShortcutWidget::keyClear_clicked()
 {
-    keyEditor->setKeySequence(QKeySequence());
+    keyEditor->clear();
+    keyEditor->grabKeyboard();
+}
+
+void ShortcutWidget::editingFinished()
+{
+    emit finishedEditing(this);
 }

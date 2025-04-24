@@ -1171,9 +1171,12 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
     QDialogButtonBox::ButtonRole buttonRole;
     buttonRole = ui->buttonBox->buttonRole(button);
     if (buttonRole == QDialogButtonBox::ApplyRole ||
-            buttonRole == QDialogButtonBox::AcceptRole) {\
+            buttonRole == QDialogButtonBox::AcceptRole) {
+        QString keysSearchText = ui->keysSearchField->text();
+        ui->keysSearchField->clear();
         updateAcceptedSettings();
         sendAcceptedSettings();
+        ui->keysSearchField->setText(keysSearchText);
         actionEditor->updateActions();
         sendSignals();
     }
