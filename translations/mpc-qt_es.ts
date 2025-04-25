@@ -681,10 +681,6 @@
         <translation>S&amp;ubir</translation>
     </message>
     <message>
-        <source>0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Down</source>
         <translation>&amp;Bajar</translation>
     </message>

@@ -673,10 +673,6 @@
         <translation>&amp;Ylös</translation>
     </message>
     <message>
-        <source>0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Down</source>
         <translation>&amp;Alas</translation>
     </message>

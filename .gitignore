@@ -15,7 +15,7 @@
 *.ico
 
 # QtCreator
-
+*.user
 *.autosave
 
 #QtCtreator Qml
