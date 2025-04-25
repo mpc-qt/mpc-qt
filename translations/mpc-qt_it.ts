@@ -674,7 +674,7 @@
     </message>
     <message>
         <source>0</source>
-        <translation>0</translation>
+        <translation type="vanished">0</translation>
     </message>
     <message>
         <source>&amp;Down</source>
