@@ -510,7 +510,8 @@ SettingMap SettingsWindow::generateSettingMap(QWidget *root)
         QObject *item = toParse.takeFirst();
         if (Setting::classFetcher.contains(item->metaObject()->className())
             && !item->objectName().isEmpty()
-            && item->objectName() != "qt_spinbox_lineedit") {
+            && item->objectName() != "qt_spinbox_lineedit"
+            && item->objectName() != "qt_keysequenceedit_lineedit") {
             QString name = item->objectName();
             QString className = item->metaObject()->className();
             QVariant value = Setting::classFetcher[className](item);
