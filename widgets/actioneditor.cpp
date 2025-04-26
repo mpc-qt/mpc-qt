@@ -360,10 +360,11 @@ QKeySequence ShortcutWidget::keySequence()
 void ShortcutWidget::keyClear_clicked()
 {
     keyEditor->clear();
-    keyEditor->grabKeyboard();
+    keyEditor->setFocus();
 }
 
 void ShortcutWidget::editingFinished()
 {
+    keyEditor->releaseKeyboard();
     emit finishedEditing(this);
 }
