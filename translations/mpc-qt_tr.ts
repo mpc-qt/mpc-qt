@@ -102,7 +102,7 @@
     </message>
     <message>
         <source>Also write logging messages to console.</source>
-        <translation>Ayrıcı günlük iletilerini konsola yazın.</translation>
+        <translation>Ayrıca günlük iletilerini konsola yazdırın.</translation>
     </message>
 </context>
 <context>
@@ -234,7 +234,7 @@
     </message>
     <message>
         <source>Framedrops</source>
-        <translation>Kare Bırakmaları</translation>
+        <translation>Kare Düşürmeleri</translation>
     </message>
     <message>
         <source>vo: 0, decoder: 0</source>
@@ -1390,7 +1390,7 @@
     </message>
     <message>
         <source>&amp;Aspect ratio</source>
-        <translation>&amp;En–boy oranı</translation>
+        <translation>&amp;En–boy Oranı</translation>
     </message>
     <message>
         <source>&amp;Pan and Scan</source>
@@ -2071,7 +2071,7 @@
     </message>
     <message>
         <source>Fullscreen</source>
-        <translation>Tam ekran</translation>
+        <translation>Tam Ekran</translation>
     </message>
     <message>
         <source>Sync</source>
@@ -2303,7 +2303,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Widget Color</source>
-        <translation>Araç Takımı Rengi</translation>
+        <translation>Araç takımı rengi</translation>
     </message>
     <message>
         <source>Use custom theme</source>
@@ -2311,7 +2311,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Window Color</source>
-        <translation>Pencere Rengi</translation>
+        <translation>Pencere rengi</translation>
     </message>
     <message>
         <source>HHHHHH</source>
@@ -2319,11 +2319,11 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Info Background</source>
-        <translation>Bilgi Arka Planı</translation>
+        <translation>Bilgi arka planı</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation>Bilgi Ön Planı</translation>
+        <translation>Bilgi ön planı</translation>
     </message>
     <message>
         <source>Control</source>
@@ -2743,7 +2743,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Downscale</source>
-        <translation>Aşağı ölçeklendir</translation>
+        <translation>Aşağı Ölçekle</translation>
     </message>
     <message>
         <source>Unset</source>
@@ -2763,7 +2763,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Deband</source>
-        <translation>Bandı kaldır</translation>
+        <translation>Bandı Kaldır</translation>
     </message>
     <message>
         <source>State</source>
@@ -2955,111 +2955,111 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Maximal layout (may output to unconnected channels)</source>
-        <translation type="unfinished"></translation>
+        <translation>En büyük yerleşim (bağlanmamış kanallara çıkış yapabilir)</translation>
     </message>
     <message>
         <source>Stereo</source>
-        <translation type="unfinished"></translation>
+        <translation>Stereo</translation>
     </message>
     <message>
         <source>Audio switcher (WIP)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses değiştiricisi (yapım aşamasında)</translation>
     </message>
     <message>
         <source>Stream silence (HDMI fixup)</source>
-        <translation type="unfinished"></translation>
+        <translation>Akış sessizliği (HDMI düzeltmesi)</translation>
     </message>
     <message>
         <source> seconds</source>
-        <translation type="unfinished"></translation>
+        <translation> saniye</translation>
     </message>
     <message>
         <source>Pitch correction</source>
-        <translation type="unfinished"></translation>
+        <translation>Perde düzeltmesi</translation>
     </message>
     <message>
         <source>Exclusive mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Özel kip</translation>
     </message>
     <message>
         <source>Normalize downmix</source>
-        <translation type="unfinished"></translation>
+        <translation>Aşağı karışımı olağanlaştır</translation>
     </message>
     <message>
         <source>Use S/PDIF when available</source>
-        <translation type="unfinished"></translation>
+        <translation>Varsa S/PDIF kullan</translation>
     </message>
     <message>
         <source>Pulse</source>
-        <translation type="unfinished"></translation>
+        <translation>Nabız</translation>
     </message>
     <message>
         <source>Buffer</source>
-        <translation type="unfinished"></translation>
+        <translation>Arabellek</translation>
     </message>
     <message>
         <source>Fixes</source>
-        <translation type="unfinished"></translation>
+        <translation>Düzeltmeler</translation>
     </message>
     <message>
         <source>Latency hacks</source>
-        <translation type="unfinished"></translation>
+        <translation>Gecikme ince ayarları</translation>
     </message>
     <message>
         <source>Alsa</source>
-        <translation type="unfinished"></translation>
+        <translation>Alsa</translation>
     </message>
     <message>
         <source>Resample (may introduce latency)</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeniden örnekle (gecikmeye neden olabilir)</translation>
     </message>
     <message>
         <source>Ignore channel map (for specific alsa setups)</source>
-        <translation type="unfinished"></translation>
+        <translation>Kanal eşlemini yok say (belirli Alsa kurulumları için)</translation>
     </message>
     <message>
         <source>Oss</source>
-        <translation type="unfinished"></translation>
+        <translation>Oss</translation>
     </message>
     <message>
         <source>Mixer device</source>
-        <translation type="unfinished"></translation>
+        <translation>Karıştırıcı aygıtı</translation>
     </message>
     <message>
         <source>Mixer channel</source>
-        <translation type="unfinished"></translation>
+        <translation>Karıştırıcı kanalı</translation>
     </message>
     <message>
         <source>Jack</source>
-        <translation type="unfinished"></translation>
+        <translation>Jack</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Ad</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapı</translation>
     </message>
     <message>
         <source>Auto connect</source>
-        <translation type="unfinished"></translation>
+        <translation>Kendiliğinden bağlan</translation>
     </message>
     <message>
         <source>Start jackd at startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Başlangıçta jackd’yi başlat</translation>
     </message>
     <message>
         <source>Startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Başlangıç</translation>
     </message>
     <message>
         <source>Filesystem</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosya Sistemi</translation>
     </message>
     <message>
         <source>Add shader file(s)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Gölgelendirici Dosyaları Ekle…</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -3067,11 +3067,11 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Add to shaders</source>
-        <translation type="unfinished"></translation>
+        <translation>Gölgelendiricilere Ekle</translation>
     </message>
     <message>
         <source>Shader presets</source>
-        <translation type="unfinished"></translation>
+        <translation>Gölgelendirici önayarları</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3079,67 +3079,67 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <source>Wiki</source>
-        <translation type="unfinished"></translation>
+        <translation>Viki</translation>
     </message>
     <message>
         <source>Active shaders</source>
-        <translation type="unfinished"></translation>
+        <translation>Etkin gölgelendiriciler</translation>
     </message>
     <message>
         <source>Fullscreen monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Tam ekran monitör</translation>
     </message>
     <message>
         <source>Launch files in fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosyaları tam ekranda başlat</translation>
     </message>
     <message>
         <source>Exit fullscreen at the end of playback</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma sonunda tam ekrandan çık</translation>
     </message>
     <message>
         <source>Hiding</source>
-        <translation type="unfinished"></translation>
+        <translation>Gizleme</translation>
     </message>
     <message>
         <source>Hide docked panels</source>
-        <translation type="unfinished"></translation>
+        <translation>Rıhtımlanan panelleri gizle</translation>
     </message>
     <message>
         <source>Hide controls in fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Tam ekranda denetimleri gizle</translation>
     </message>
     <message>
         <source>Never show</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiçbir zaman gösterme</translation>
     </message>
     <message>
         <source>Show when moving the cursor, hide after:</source>
-        <translation type="unfinished"></translation>
+        <translation>İmleci hareket ettirirken göster; şundan sonra gizle:</translation>
     </message>
     <message>
         <source>Show when hovering control, hide after:</source>
-        <translation type="unfinished"></translation>
+        <translation>Denetimin üzerine gelindiğinde göster; şundan sonra gizle:</translation>
     </message>
     <message>
         <source>Framedropping</source>
-        <translation type="unfinished"></translation>
+        <translation>Kare düşürme</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Kip</translation>
     </message>
     <message>
         <source>Decoder</source>
-        <translation type="unfinished"></translation>
+        <translation>Kod çözücü</translation>
     </message>
     <message>
         <source>Decoder+Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Kod çözücü+Video</translation>
     </message>
     <message>
         <source>None</source>
@@ -3147,71 +3147,71 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Öntanımlı</translation>
     </message>
     <message>
         <source>Non reference</source>
-        <translation type="unfinished"></translation>
+        <translation>Başvuru olmayan</translation>
     </message>
     <message>
         <source>Bi-directional</source>
-        <translation type="unfinished"></translation>
+        <translation>İki yönlü</translation>
     </message>
     <message>
         <source>Non key</source>
-        <translation type="unfinished"></translation>
+        <translation>Düğme olmayan</translation>
     </message>
     <message>
         <source>Audio/Video sync</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses/video eşzamanlaması</translation>
     </message>
     <message>
         <source>Resample audio to match video</source>
-        <translation type="unfinished"></translation>
+        <translation>Videoyla eşleşmesi için sesi yeniden örnekle</translation>
     </message>
     <message>
         <source>Resample audio to match video (may drop frames)</source>
-        <translation type="unfinished"></translation>
+        <translation>Videoyla eşleşmesi için sesi yeniden örnekle (kare düşürebilir)</translation>
     </message>
     <message>
         <source>Drop or repeat video frames</source>
-        <translation type="unfinished"></translation>
+        <translation>Video karelerini düşür veya yinele</translation>
     </message>
     <message>
         <source>Drop or repeat audio data</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses verisini düşür veya yinele</translation>
     </message>
     <message>
         <source>Audio drop size</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses düşürme boyutu</translation>
     </message>
     <message>
         <source>Max audio change</source>
-        <translation type="unfinished"></translation>
+        <translation>En yüksek ses değişikliği</translation>
     </message>
     <message>
         <source>Max video change</source>
-        <translation type="unfinished"></translation>
+        <translation>En yüksek video değişikliği</translation>
     </message>
     <message>
         <source>Hardware decoding may produce a smoother, more efficient overall experience and reduce strain on your cpu. However, some of the listed codecs (depending upon your installed hardware and software) may not be available, may be broken, and may produce incorrect output. A safe and always correct rule of thumb with respect to image quality is to prefer software decoding if your cpu can handle it.</source>
-        <translation type="unfinished"></translation>
+        <translation>Donanım ile kod çözme, daha pürüzsüz, daha verimli bir genel deneyim sağlayabilir ve CPU’nuzdaki zorlanmayı azaltabilir. Ancak, listelenen kod çözücülerin bazıları (kurulu donanım ve yazılımınıza bağlı olarak) var olmayabilir, bozulabilir ve yanlış çıktı üretebilir. Görsel kalitesiyle ilgili güvenli ve her zaman doğru bir kural, CPU’nuz kaldırabiliyorsa yazılım ile kod çözmeyi tercih etmektir.</translation>
     </message>
     <message>
         <source>Use hardware-accelerated decoding</source>
-        <translation type="unfinished"></translation>
+        <translation>Donanım ile ivmelendirilmiş kod çözmeyi kullan</translation>
     </message>
     <message>
         <source>Codecs to allow hardware decoding</source>
-        <translation type="unfinished"></translation>
+        <translation>Donanım ile kod çözmeye izin vermek için kodlayıcılar</translation>
     </message>
     <message>
         <source>Hardware decoding backend</source>
-        <translation type="unfinished"></translation>
+        <translation>Donanım ile kod çözme arka ucu</translation>
     </message>
     <message>
         <source>Hover over each backend to display a description.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir açıklama görüntülemek için her bir arka ucun üzerine fareyle gelin.</translation>
     </message>
     <message>
         <source>Autodetect - best of VAAPI, DXVA, D3D11VA</source>
@@ -3219,7 +3219,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>A&amp;utodetect</source>
-        <translation type="unfinished"></translation>
+        <translation>Kendiliğinden &amp;algıla</translation>
     </message>
     <message>
         <source>Linux - requires Mesa 11 and most likely works with Intel GPUs only; may only be correct in BT.601 and BT.709</source>
@@ -3227,15 +3227,15 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Linux - some gpus, does not always treat certain colorspaces like BT.2020 correctly</source>
-        <translation type="unfinished"></translation>
+        <translation>Linux — BT.2020 gibi bazı GPU’lar, belirli renk uzaylarını her zaman doğru şekilde işlemez</translation>
     </message>
     <message>
         <source>Windows - not safe; it appears to always use BT.601 for forced RGB conversion, but actual behavior depends on the GPU drivers</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows — güvenli değildir; zorunlu RGB dönüşümü için her zaman BT.601 kullanıyor gibi görünür; ancak gerçek davranış GPU sürücülerine bağlıdır</translation>
     </message>
     <message>
         <source>Windows 8+ - usually safe but rounds 10 bit to 8 bit</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows 8+ — genellikle güvenlidir; ancak 10 bit’i 8 bit’e yuvarlar</translation>
     </message>
     <message>
         <source>Raspberry PI - hardware overlay renderer</source>
@@ -3247,51 +3247,51 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>nVidia only (likely 10x0+ only) - safe</source>
-        <translation type="unfinished"></translation>
+        <translation>Yalnızca nVidia (büyük olasılıkla 10x0+) — güvenlidir</translation>
     </message>
     <message>
         <source>PCI-E decoder card - safe</source>
-        <translation type="unfinished"></translation>
+        <translation>PCI-E kod çözücü kart — güvenlidir</translation>
     </message>
     <message>
         <source>Playback progression</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma ilerlemesi</translation>
     </message>
     <message>
         <source>Pla&amp;y</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Oynat</translation>
     </message>
     <message>
         <source>times</source>
-        <translation type="unfinished"></translation>
+        <translation>kez</translation>
     </message>
     <message>
         <source>Repeat fore&amp;ver</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sonsuza dek yinele</translation>
     </message>
     <message>
         <source>Always loop images (manual progression)</source>
-        <translation type="unfinished"></translation>
+        <translation>Görselleri her zaman döngüle (elle ilerleme)</translation>
     </message>
     <message>
         <source>Display Format</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü biçimi</translation>
     </message>
     <message>
         <source>qrc:/text/playlistFormat.html</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/text/playlistFormat.html</translation>
     </message>
     <message>
         <source>Placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Konumlandırma</translation>
     </message>
     <message>
         <source>Override default subtitle placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Öntanımlı altyazı konumlandırmasını geçersiz kıl</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Left</source>
@@ -3303,84 +3303,84 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Üst</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>Konum</translation>
     </message>
     <message>
         <source>Use margins</source>
-        <translation type="unfinished"></translation>
+        <translation>Kenar boşlukları kullan</translation>
     </message>
     <message>
         <source>Force grayscale</source>
-        <translation type="unfinished"></translation>
+        <translation>Gri tonlamayı zorla</translation>
     </message>
     <message>
         <source>Fix timing</source>
-        <translation type="unfinished"></translation>
+        <translation>Zamanlamayı düzelt</translation>
     </message>
     <message>
         <source>Clear on seek</source>
-        <translation type="unfinished"></translation>
+        <translation>Ararken temizle</translation>
     </message>
     <message>
         <source>ASS override</source>
         <extracomment>Might cause issues</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>ASS’yi geçersiz kıl</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Evet</translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation type="unfinished"></translation>
+        <translation>Evet ve yalnızca yakınlaştırma işaretleri</translation>
     </message>
     <message>
         <source>Force</source>
-        <translation type="unfinished"></translation>
+        <translation>Zorla</translation>
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Yazıtipi</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Biçem</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalın</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
+        <translation>Yatık</translation>
     </message>
     <message>
         <source>Border style</source>
-        <translation type="unfinished"></translation>
+        <translation>Kenarlık biçemi</translation>
     </message>
     <message>
         <source>Border size</source>
-        <translation type="unfinished"></translation>
+        <translation>Kenarlık boyutu</translation>
     </message>
     <message>
         <source>Shadow offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Gölge ofseti</translation>
     </message>
     <message>
         <source>Screen Alignment &amp;&amp; Margins</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran hizalaması ve kenar boşlukları</translation>
     </message>
     <message>
         <source>Position subs relative to the video frame</source>
@@ -3448,7 +3448,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation>Ekran görüntüsü</translation>
+        <translation>Ekran Görüntüsü</translation>
     </message>
     <message>
         <source>...</source>
@@ -3460,63 +3460,63 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Unchecked directories will place output files in the source directory. Streams do not have a source directory and will bring up a dialog when a field is left blank; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; will always ask where to place files. Directories will be created if necessary; this may not work across all filesystems.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;İşaretlenmemiş dizinler çıktı dosyalarını kaynak dizinine yerleştirir. Akışların bir kaynak dizini yoktur ve bir alan boş bırakıldığında bir iletişim kutusu açar; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; her zaman dosyaların nereye yerleştirileceğini sorar. Gerekirse dizinler oluşturulur; bu tüm dosya sistemlerinde çalışmayabilir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Filename template</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosya adı şablonu</translation>
     </message>
     <message>
         <source>qrc:/text/encodeFormat.html</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/text/encodeFormat.html</translation>
     </message>
     <message>
         <source>Save with high bit depth</source>
-        <translation type="unfinished"></translation>
+        <translation>Yüksek bit derinliğiyle kaydet</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalite</translation>
     </message>
     <message>
         <source>Smooth</source>
-        <translation type="unfinished"></translation>
+        <translation>Pürüzsüz</translation>
     </message>
     <message>
         <source>Source Chroma</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaynak renk</translation>
     </message>
     <message>
         <source>Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>Sıkıştırma</translation>
     </message>
     <message>
         <source>Filter</source>
-        <translation type="unfinished"></translation>
+        <translation>Süzgeç</translation>
     </message>
     <message>
         <source>Colorspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Renk uzayı</translation>
     </message>
     <message>
         <source>Include tag</source>
-        <translation type="unfinished"></translation>
+        <translation>Künyeyi içer</translation>
     </message>
     <message>
         <source>Don&apos;t encode the video</source>
-        <translation type="unfinished"></translation>
+        <translation>Videoyu kodlama</translation>
     </message>
     <message>
         <source>Hardsub</source>
-        <translation type="unfinished"></translation>
+        <translation>Zorlanmış altyazı</translation>
     </message>
     <message>
         <source>Filesi&amp;ze</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Dosya boyutu</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation>MB</translation>
     </message>
     <message>
         <source>Bitrate</source>
@@ -3524,19 +3524,19 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>kBits</source>
-        <translation type="unfinished"></translation>
+        <translation>kBit</translation>
     </message>
     <message>
         <source>crf</source>
-        <translation type="unfinished"></translation>
+        <translation>crf</translation>
     </message>
     <message>
         <source>qmin</source>
-        <translation type="unfinished"></translation>
+        <translation>qmin</translation>
     </message>
     <message>
         <source>qmax</source>
-        <translation type="unfinished"></translation>
+        <translation>qmax</translation>
     </message>
     <message>
         <source>Don&apos;t encode the audio</source>
@@ -3584,7 +3584,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Debugging</source>
-        <translation>Hata Ayıklama</translation>
+        <translation>Hata ayıklama</translation>
     </message>
     <message>
         <source>Client</source>
@@ -3744,7 +3744,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Downscale in linear light</source>
-        <translation>Doğrusal ışıkta aşağı ölçeklendir</translation>
+        <translation>Doğrusal ışıkta aşağı ölçekle</translation>
     </message>
     <message>
         <source>Upscale in linear light</source>
@@ -3820,7 +3820,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Stylesheet</source>
-        <translation>Biçem sayfası</translation>
+        <translation>Biçem Sayfası</translation>
     </message>
     <message>
         <source>Application Stylesheet</source>
@@ -3852,15 +3852,15 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>After Playback</source>
-        <translation>Oynatma Sonrası</translation>
+        <translation>Oynatma sonrası</translation>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gölgelendiriciler, video oluşturma sürecine eklenebilen özel efektler içerir. Topluluk tarafından yapılmış gölgelendiricilerin bir listesine &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wikisinde&lt;/span&gt;&lt;/a&gt; bulunabilir.</translation>
     </message>
     <message>
         <source>Pipewire</source>
-        <translation type="unfinished"></translation>
+        <translation>Pipewire</translation>
     </message>
     <message>
         <source>Use time tooltip:</source>
@@ -3868,15 +3868,15 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Language Override</source>
-        <translation type="unfinished"></translation>
+        <translation>Dil zorlaması</translation>
     </message>
     <message>
         <source>Locale (Autodetect)</source>
-        <translation type="unfinished"></translation>
+        <translation>Yerel (kendiliğinden algıla)</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"></translation>
+        <translation>Orta</translation>
     </message>
     <message>
         <source>BT.470M</source>
@@ -3884,171 +3884,171 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>V-Gamut</source>
-        <translation type="unfinished"></translation>
+        <translation>V gamı</translation>
     </message>
     <message>
         <source>S-Gamut</source>
-        <translation type="unfinished"></translation>
+        <translation>S gamı</translation>
     </message>
     <message>
         <source>EBU3213</source>
-        <translation type="unfinished"></translation>
+        <translation>EBU3213</translation>
     </message>
     <message>
         <source>Film-C</source>
-        <translation type="unfinished"></translation>
+        <translation>Film-C</translation>
     </message>
     <message>
         <source>ACES AP0</source>
-        <translation type="unfinished"></translation>
+        <translation>ACES AP0</translation>
     </message>
     <message>
         <source>ACES AP1</source>
-        <translation type="unfinished"></translation>
+        <translation>ACES AP1</translation>
     </message>
     <message>
         <source>Gamma 2.0</source>
-        <translation type="unfinished"></translation>
+        <translation>Gama 2.0</translation>
     </message>
     <message>
         <source>Gamma 2.4</source>
-        <translation type="unfinished"></translation>
+        <translation>Gama 2.4</translation>
     </message>
     <message>
         <source>Gamma 2.6</source>
-        <translation type="unfinished"></translation>
+        <translation>Gama 2.6</translation>
     </message>
     <message>
         <source>ST 428</source>
-        <translation type="unfinished"></translation>
+        <translation>ST 428</translation>
     </message>
     <message>
         <source>Target Gamut</source>
-        <translation type="unfinished"></translation>
+        <translation>Hedef Gam</translation>
     </message>
     <message>
         <source>Gamut mapping</source>
-        <translation type="unfinished"></translation>
+        <translation>Gam eşlemlemesi</translation>
     </message>
     <message>
         <source>Perceptual</source>
-        <translation type="unfinished"></translation>
+        <translation>Algısal</translation>
     </message>
     <message>
         <source>Relative</source>
-        <translation type="unfinished"></translation>
+        <translation>Göreceli</translation>
     </message>
     <message>
         <source>Absolute</source>
-        <translation type="unfinished"></translation>
+        <translation>Mutlak</translation>
     </message>
     <message>
         <source>Desaturate</source>
-        <translation type="unfinished"></translation>
+        <translation>Doygunlaştırmayı kaldır</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Koyulaştır</translation>
     </message>
     <message>
         <source>Warn</source>
-        <translation type="unfinished"></translation>
+        <translation>Uyar</translation>
     </message>
     <message>
         <source>Send mouse events to mpv</source>
-        <translation type="unfinished"></translation>
+        <translation>Fare olaylarını mpv’ye gönder</translation>
     </message>
     <message>
         <source>Send key events to mpv</source>
-        <translation type="unfinished"></translation>
+        <translation>Düğme olaylarını mpv’ye gönder</translation>
     </message>
     <message>
         <source>Remember file position</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosya konumunu anımsa</translation>
     </message>
     <message>
         <source>Use next/previous file in folder when there is only one item in the playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma listesinde yalnızca bir öge olduğunda klasördeki sonraki/önceki dosyayı kullan</translation>
     </message>
     <message>
         <source>Play next file</source>
-        <translation type="unfinished"></translation>
+        <translation>Sonraki dosyayı oynat</translation>
     </message>
     <message>
         <source>Delay step</source>
-        <translation type="unfinished"></translation>
+        <translation>Adımı geciktir</translation>
     </message>
     <message>
         <source>Autodetect - best of VAAPI, DXVA, D3D11VA, etc.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kendiliğinden algıla — VAAPI, DXVA, D3D11VA vb. arasından en iyisi</translation>
     </message>
     <message>
         <source>Linux - works with Intel and AMD GPUs through Mesa, and with nVidia through a translation layer; may only be correct in BT.601 and BT.709</source>
-        <translation type="unfinished"></translation>
+        <translation>Linux — Mesa aracılığıyla Intel ve AMD GPU’larla ve bir çeviri katmanı aracılığıyla nVidia ile çalışır; yalnızca BT.601’de ve BT.709’da doğru olabilir</translation>
     </message>
     <message>
         <source>nVidia only (faster than CUDA)</source>
-        <translation type="unfinished"></translation>
+        <translation>Yalnızca nVidia (CUDA’dan daha hızlı)</translation>
     </message>
     <message>
         <source>Show OSD timer on seek</source>
-        <translation type="unfinished"></translation>
+        <translation>Ararken Ekran Üzeri Görüntü sayacını göster</translation>
     </message>
     <message>
         <source>Normal step</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal adım</translation>
     </message>
     <message>
         <source>Large step</source>
-        <translation type="unfinished"></translation>
+        <translation>Büyük adım</translation>
     </message>
     <message>
         <source>Show time tooltip:</source>
-        <translation type="unfinished"></translation>
+        <translation>Zaman araç ipucunu göster:</translation>
     </message>
     <message>
         <source>Change OSD font:</source>
-        <translation type="unfinished"></translation>
+        <translation>EÜG yazıtipini değiştir:</translation>
     </message>
     <message>
         <source>Only keep history for videos</source>
-        <translation type="unfinished"></translation>
+        <translation>Yalnızca videoların geçmişini tut</translation>
     </message>
     <message>
         <source>Cinema screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Sinema ekranı</translation>
     </message>
     <message>
         <source>Update interval</source>
-        <translation type="unfinished"></translation>
+        <translation>Güncelleme aralığı</translation>
     </message>
     <message>
         <source>No delay (consumes cpu, use this for testing)</source>
-        <translation type="unfinished"></translation>
+        <translation>Gecikme yok (CPU’yu tüketir; bunu sınama amaçlı kullanın)</translation>
     </message>
     <message>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation>ms</translation>
     </message>
     <message>
         <source>Remember panels state</source>
-        <translation type="unfinished"></translation>
+        <translation>Panellerin durumunu anımsa</translation>
     </message>
     <message>
         <source>Open ICC Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>ICC Profili Aç</translation>
     </message>
     <message>
         <source>ICC profile files (*.icc *.icm)</source>
-        <translation type="unfinished"></translation>
+        <translation>ICC profili dosyaları (*.icc *.icm)</translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows üzerinde koyu tema desteğine olanak tanır</translation>
     </message>
     <message>
         <source>Audio balance</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses dengesi</translation>
     </message>
     <message>
         <source>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</source>
@@ -4056,58 +4056,58 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ara…</translation>
     </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
     <message>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaynak</translation>
     </message>
     <message>
         <source>&amp;Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Göz At…</translation>
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Görsel</translation>
     </message>
     <message>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Genişlik</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Yerleşim</translation>
     </message>
     <message>
         <source>Rows</source>
-        <translation type="unfinished"></translation>
+        <translation>Satırlar</translation>
     </message>
     <message>
         <source>&amp;Go!</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Git!</translation>
     </message>
     <message>
         <source>Thu&amp;mbnail</source>
-        <translation type="unfinished"></translation>
+        <translation>Küçük gö&amp;rsel</translation>
     </message>
     <message>
         <source>&amp;Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kalite</translation>
     </message>
     <message>
         <source>&amp;Columns</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sütunlar</translation>
     </message>
     <message>
         <source>Save Thumbnails</source>
-        <translation type="unfinished"></translation>
+        <translation>Küçük Görselleri Kaydet</translation>
     </message>
 </context>
 </TS>
