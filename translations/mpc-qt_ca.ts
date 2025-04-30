@@ -51,11 +51,11 @@
     </message>
     <message>
         <source>&amp;Files</source>
-        <translation>&amp;Arxius</translation>
+        <translation>&amp;Fitxers</translation>
     </message>
     <message>
         <source>&amp;Streams</source>
-        <translation>&amp;Fluxos</translation>
+        <translation>&amp;Seqüències</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
@@ -74,7 +74,7 @@
     </message>
     <message>
         <source>Main window size.</source>
-        <translation>Tamany de la finestra principal.</translation>
+        <translation>Dimensions de la finestra principal.</translation>
     </message>
     <message>
         <source>Main window position.</source>
@@ -86,11 +86,11 @@
     </message>
     <message>
         <source>Save Image</source>
-        <translation>Desar Imatge</translation>
+        <translation>Desar imatge</translation>
     </message>
     <message>
         <source>Playing Media</source>
-        <translation>Reproduint Mitjans</translation>
+        <translation>Reproduint mitjans</translation>
     </message>
     <message>
         <source>Do not load any config files.</source>
@@ -109,7 +109,7 @@
     <name>GoToWindow</name>
     <message>
         <source>Go To...</source>
-        <translation>Anar A...</translation>
+        <translation>Anar a...</translation>
     </message>
     <message>
         <source>Time</source>
@@ -151,7 +151,7 @@
     <name>LogWindow</name>
     <message>
         <source>Log Messages</source>
-        <translation>Missatges de Registre</translation>
+        <translation>Registre de missatges</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -167,7 +167,7 @@
     </message>
     <message>
         <source>Save File</source>
-        <translation>Desar Arxiu</translation>
+        <translation>Desar arxiu</translation>
     </message>
 </context>
 <context>
@@ -190,7 +190,7 @@
     </message>
     <message>
         <source>Skip Backward</source>
-        <translation>Anar Enrere</translation>
+        <translation>Anar enrere</translation>
     </message>
     <message>
         <source>Speed Decrease</source>
@@ -202,7 +202,7 @@
     </message>
     <message>
         <source>Skip Forward</source>
-        <translation>Anar Endavant</translation>
+        <translation>Anar endavant</translation>
     </message>
     <message>
         <source>Step Backward</source>
@@ -214,11 +214,11 @@
     </message>
     <message>
         <source>Set Loop Start</source>
-        <translation>Establir Inici del Bucle</translation>
+        <translation>Establir inici del bucle</translation>
     </message>
     <message>
         <source>Set Loop End</source>
-        <translation>Establir Final de Bucle</translation>
+        <translation>Establir final del bucle</translation>
     </message>
     <message>
         <source>Chapter</source>
@@ -226,15 +226,15 @@
     </message>
     <message>
         <source>Frame rate</source>
-        <translation>Fotogrames Per Segon</translation>
+        <translation>Fotogrames per segon</translation>
     </message>
     <message>
         <source>Sync Offset</source>
-        <translation>Desfase de Sincronització</translation>
+        <translation>Desfase de sincronització</translation>
     </message>
     <message>
         <source>Framedrops</source>
-        <translation>Pèrdua de Fotogrames</translation>
+        <translation>Pèrdua de fotogrames</translation>
     </message>
     <message>
         <source>vo: 0, decoder: 0</source>
@@ -250,19 +250,19 @@
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>&amp;Arxiu</translation>
+        <translation>&amp;Fitxer</translation>
     </message>
     <message>
         <source>O&amp;pen Disc</source>
-        <translation>O&amp;brir un Disc</translation>
+        <translation>O&amp;brir un disc</translation>
     </message>
     <message>
         <source>Recent &amp;Files</source>
-        <translation>Arxius &amp;Recents</translation>
+        <translation>&amp;Fitxers recents</translation>
     </message>
     <message>
         <source>Subtitle Data&amp;base</source>
-        <translation>Base de dades de &amp;Subtítols</translation>
+        <translation>&amp;Base de dades de subtítols</translation>
     </message>
     <message>
         <source>&amp;View</source>
@@ -278,7 +278,7 @@
     </message>
     <message>
         <source>On &amp;Top</source>
-        <translation>A S&amp;obre</translation>
+        <translation>A s&amp;obre</translation>
     </message>
     <message>
         <source>OS&amp;D</source>
@@ -290,7 +290,7 @@
     </message>
     <message>
         <source>&amp;Audio</source>
-        <translation>&amp;Audio</translation>
+        <translation>&amp;Àudio</translation>
     </message>
     <message>
         <source>Su&amp;btitles</source>
@@ -306,7 +306,7 @@
     </message>
     <message>
         <source>Af&amp;ter Playback</source>
-        <translation>&amp;Després de Reproduir</translation>
+        <translation>&amp;Després de reproduir</translation>
     </message>
     <message>
         <source>&amp;Loop</source>
@@ -322,7 +322,7 @@
     </message>
     <message>
         <source>Favo&amp;rites</source>
-        <translation>Pre&amp;ferits</translation>
+        <translation>P&amp;referits</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -334,15 +334,15 @@
     </message>
     <message>
         <source>&amp;Extra Play Times</source>
-        <translation>Temps de Reproducció &amp;Extra</translation>
+        <translation>Temps de reproducció &amp;extra</translation>
     </message>
     <message>
         <source>&amp;Quick Open File...</source>
-        <translation>Obertura &amp;ràpida d&apos;Arxiu...</translation>
+        <translation>Obertura &amp;ràpida de fitxer...</translation>
     </message>
     <message>
         <source>&amp;Open File...</source>
-        <translation>&amp;Obrir Arxiu...</translation>
+        <translation>&amp;Obrir fitxer...</translation>
     </message>
     <message>
         <source>Ctrl+O</source>
@@ -358,7 +358,7 @@
     </message>
     <message>
         <source>Open De&amp;vice...</source>
-        <translation>Obrir &amp;Dispositiu...</translation>
+        <translation>Obrir &amp;dispositiu...</translation>
     </message>
     <message>
         <source>Ctrl+V</source>
@@ -366,15 +366,15 @@
     </message>
     <message>
         <source>Open Dir&amp;ectory...</source>
-        <translation>Obrir Dir&amp;ectori...</translation>
+        <translation>Obrir dir&amp;ectori...</translation>
     </message>
     <message>
         <source>&amp;Clear list</source>
-        <translation>&amp;Netejar Llista</translation>
+        <translation>&amp;Netejar llista</translation>
     </message>
     <message>
         <source>&amp;Close File</source>
-        <translation>&amp;Tancar Arxiu</translation>
+        <translation>&amp;Tancar fitxer</translation>
     </message>
     <message>
         <source>Ctrl+W</source>
@@ -382,11 +382,11 @@
     </message>
     <message>
         <source>&amp;Save a Copy...</source>
-        <translation>Desar una &amp;Còpia...</translation>
+        <translation>Desar una &amp;còpia...</translation>
     </message>
     <message>
         <source>Save &amp;Image...</source>
-        <translation>Desar &amp;Imatge...</translation>
+        <translation>Desar &amp;imatge...</translation>
     </message>
     <message>
         <source>Alt+I</source>
@@ -394,11 +394,11 @@
     </message>
     <message>
         <source>Save &amp;Thumbnails</source>
-        <translation>Desar &amp;Miniatures</translation>
+        <translation>Desar &amp;miniatures</translation>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
-        <translation>&amp;Carregar un Subtítol...</translation>
+        <translation>&amp;Carregar un subtítol...</translation>
     </message>
     <message>
         <source>Ctrl+L</source>
@@ -406,7 +406,7 @@
     </message>
     <message>
         <source>Save S&amp;ubtitle...</source>
-        <translation>Desar S&amp;ubtítol...</translation>
+        <translation>Desar s&amp;ubtítol...</translation>
     </message>
     <message>
         <source>Ctrl+S</source>
@@ -430,7 +430,7 @@
     </message>
     <message>
         <source>P&amp;roperties</source>
-        <translation>Pr&amp;opietats</translation>
+        <translation>P&amp;ropietats</translation>
     </message>
     <message>
         <source>Shift+F10</source>
@@ -446,7 +446,7 @@
     </message>
     <message>
         <source>Hide &amp;Menu</source>
-        <translation>Ocultar &amp;Menú</translation>
+        <translation>Ocultar &amp;menú</translation>
     </message>
     <message>
         <source>Ctrl+0</source>
@@ -486,7 +486,7 @@
     </message>
     <message>
         <source>S&amp;tatus</source>
-        <translation>E&amp;stat</translation>
+        <translation>Es&amp;tat</translation>
     </message>
     <message>
         <source>Ctrl+5</source>
@@ -502,7 +502,7 @@
     </message>
     <message>
         <source>Play&amp;list</source>
-        <translation>&amp;Llista de Reproducció</translation>
+        <translation>&amp;Llista de reproducció</translation>
     </message>
     <message>
         <source>Ctrl+7</source>
@@ -550,7 +550,7 @@
     </message>
     <message>
         <source>F&amp;ullscreen</source>
-        <translation>Pantalla &amp;Completa</translation>
+        <translation>Pantalla &amp;completa</translation>
     </message>
     <message>
         <source>Alt+Return</source>
@@ -570,7 +570,7 @@
     </message>
     <message>
         <source>Auto &amp;Fit</source>
-        <translation>Auto Aj&amp;ustar</translation>
+        <translation>Auto aj&amp;ustar</translation>
     </message>
     <message>
         <source>Alt+4</source>
@@ -578,7 +578,7 @@
     </message>
     <message>
         <source>Auto Fit (&amp;Larger Only)</source>
-        <translation>Auto Ajustar (Només més &amp;Gran)</translation>
+        <translation>Auto ajustar (Només més &amp;gran)</translation>
     </message>
     <message>
         <source>Alt+5</source>
@@ -586,7 +586,7 @@
     </message>
     <message>
         <source>&amp;Disable snapping</source>
-        <translation>&amp;Deshabilitar Ajustament</translation>
+        <translation>&amp;Deshabilitar ajustament</translation>
     </message>
     <message>
         <source>Alt+0</source>
@@ -594,7 +594,7 @@
     </message>
     <message>
         <source>&amp;Default</source>
-        <translation>Per &amp;Defecte</translation>
+        <translation>Per &amp;defecte</translation>
     </message>
     <message>
         <source>&amp;Always</source>
@@ -606,11 +606,11 @@
     </message>
     <message>
         <source>While &amp;Playing</source>
-        <translation>Al Reprod&amp;uir</translation>
+        <translation>Al re&amp;produir</translation>
     </message>
     <message>
         <source>While Playing &amp;Video</source>
-        <translation>Al Reproduir &amp;Vídeos</translation>
+        <translation>Al reproduir &amp;vídeos</translation>
     </message>
     <message>
         <source>&amp;Options...</source>
@@ -638,7 +638,7 @@
     </message>
     <message>
         <source>F&amp;rame Step Forward</source>
-        <translation>&amp;Següent Fotograma</translation>
+        <translation>&amp;Següent fotograma</translation>
     </message>
     <message>
         <source>Ctrl+Right</source>
@@ -646,7 +646,7 @@
     </message>
     <message>
         <source>Fra&amp;me Step Backward</source>
-        <translation>Fotograma &amp;Anterior</translation>
+        <translation>Fotogra&amp;ma anterior</translation>
     </message>
     <message>
         <source>Ctrl+Left</source>
@@ -654,7 +654,7 @@
     </message>
     <message>
         <source>&amp;Decrease Rate</source>
-        <translation>&amp;Disminuir Velocitat</translation>
+        <translation>&amp;Disminuir velocitat</translation>
     </message>
     <message>
         <source>Ctrl+Down</source>
@@ -662,7 +662,7 @@
     </message>
     <message>
         <source>&amp;Increase Rate</source>
-        <translation>&amp;Incrementar Velocitat</translation>
+        <translation>&amp;Incrementar velocitat</translation>
     </message>
     <message>
         <source>Ctrl+Up</source>
@@ -670,7 +670,7 @@
     </message>
     <message>
         <source>R&amp;eset Rate</source>
-        <translation>&amp;Restablir Velocitat</translation>
+        <translation>R&amp;establir velocitat</translation>
     </message>
     <message>
         <source>Ctrl+R</source>
@@ -706,7 +706,7 @@
     </message>
     <message>
         <source>&amp;Stand by</source>
-        <translation>&amp;Posar en Repòs</translation>
+        <translation>&amp;Posar en repòs</translation>
     </message>
     <message>
         <source>&amp;Hibernate</source>
@@ -718,7 +718,7 @@
     </message>
     <message>
         <source>Log &amp;Off</source>
-        <translation>&amp;Tancar la Sessió</translation>
+        <translation>&amp;Tancar la sessió</translation>
     </message>
     <message>
         <source>&amp;Lock</source>
@@ -726,7 +726,7 @@
     </message>
     <message>
         <source>Do &amp;Nothing</source>
-        <translation>No fer &amp;Res</translation>
+        <translation>No fer &amp;res</translation>
     </message>
     <message>
         <source>Play next in the &amp;folder</source>
@@ -750,7 +750,7 @@
     </message>
     <message>
         <source>&amp;Go To...</source>
-        <translation>&amp;Anar A...</translation>
+        <translation>&amp;Anar a...</translation>
     </message>
     <message>
         <source>Ctrl+G</source>
@@ -758,7 +758,7 @@
     </message>
     <message>
         <source>&amp;Title Menu</source>
-        <translation>&amp;Títol del Menú</translation>
+        <translation>&amp;Títol del menú</translation>
     </message>
     <message>
         <source>Alt+T</source>
@@ -766,7 +766,7 @@
     </message>
     <message>
         <source>&amp;Root Menu</source>
-        <translation>Menú A&amp;rrel</translation>
+        <translation>Menú a&amp;rrel</translation>
     </message>
     <message>
         <source>Alt+R</source>
@@ -774,19 +774,19 @@
     </message>
     <message>
         <source>&amp;Subtitle Menu</source>
-        <translation>Menú dels &amp;Subtítols</translation>
+        <translation>Menú dels &amp;subtítols</translation>
     </message>
     <message>
         <source>&amp;Audio Menu</source>
-        <translation>Menú d&apos;Àu&amp;dio</translation>
+        <translation>Menú d&apos;&amp;àudio</translation>
     </message>
     <message>
         <source>Angle &amp;Menu</source>
-        <translation>Menú d&apos;A&amp;ngles</translation>
+        <translation>&amp;Menú d&apos;angles</translation>
     </message>
     <message>
         <source>Chapt&amp;er Menu</source>
-        <translation>Menú de &amp;Capítols</translation>
+        <translation>Menú d&amp;e capítols</translation>
     </message>
     <message>
         <source>&amp;Add to Favorites...</source>
@@ -794,23 +794,23 @@
     </message>
     <message>
         <source>&amp;Organize Favorites...</source>
-        <translation>&amp;Organitzar Preferits...</translation>
+        <translation>&amp;Organitzar preferits...</translation>
     </message>
     <message>
         <source>&amp;Home Page</source>
-        <translation>Pàgina d&apos;&amp;Inici</translation>
+        <translation>Pàgina d&apos;&amp;inici</translation>
     </message>
     <message>
         <source>&amp;About This Program...</source>
-        <translation>Sobre Aquest &amp;Programa...</translation>
+        <translation>Sobre &amp;aquest programa...</translation>
     </message>
     <message>
         <source>Open &amp;Network Stream...</source>
-        <translation>Obrir &amp;Flux de Xarxa...</translation>
+        <translation>Obrir &amp;flux de xarxa...</translation>
     </message>
     <message>
         <source>Save I&amp;mage (Auto)</source>
-        <translation>Desar I&amp;matge (Auto)</translation>
+        <translation>Desar i&amp;matge (auto)</translation>
     </message>
     <message>
         <source>F5</source>
@@ -818,7 +818,7 @@
     </message>
     <message>
         <source>Auto Fit (&amp;Smaller Only)</source>
-        <translation>Auto Ajustar (Només més &amp;Petits)</translation>
+        <translation>Auto ajustar (Nomé&amp;s més petits)</translation>
     </message>
     <message>
         <source>Alt+6</source>
@@ -826,7 +826,7 @@
     </message>
     <message>
         <source>&amp;Play Current</source>
-        <translation>Reproduir &amp;Actual</translation>
+        <translation>Re&amp;produir actual</translation>
     </message>
     <message>
         <source>Return</source>
@@ -866,7 +866,7 @@
     </message>
     <message>
         <source>&amp;Set Loop Start</source>
-        <translation>Establir &amp;Inici del Bucle</translation>
+        <translation>Establir &amp;inici del bucle</translation>
     </message>
     <message>
         <source>Ctrl+Home</source>
@@ -874,11 +874,11 @@
     </message>
     <message>
         <source>Set &amp;Loop End</source>
-        <translation>Establir &amp;Final del Bucle</translation>
+        <translation>Establir &amp;final del bucle</translation>
     </message>
     <message>
         <source>Ctrl+End</source>
-        <translation>Ctrl+Fi</translation>
+        <translation>Ctrl+Final</translation>
     </message>
     <message>
         <source>&amp;Use Loop Points</source>
@@ -890,7 +890,7 @@
     </message>
     <message>
         <source>&amp;Clear Loop</source>
-        <translation>&amp;Netejar Bucle</translation>
+        <translation>Netejar bu&amp;cle</translation>
     </message>
     <message>
         <source>Backspace</source>
@@ -898,7 +898,7 @@
     </message>
     <message>
         <source>&amp;Search Playlist</source>
-        <translation>&amp;Cercar Llista de Reproducció</translation>
+        <translation>Bu&amp;scar llista de reproducció</translation>
     </message>
     <message>
         <source>Ctrl+F</source>
@@ -906,7 +906,7 @@
     </message>
     <message>
         <source>&amp;Quick Queue Toggle</source>
-        <translation>Commutació &amp;Ràpida de Cua</translation>
+        <translation>Commutació &amp;ràpida de cua</translation>
     </message>
     <message>
         <source>Q</source>
@@ -914,7 +914,7 @@
     </message>
     <message>
         <source>&amp;Finish Searching</source>
-        <translation>&amp;Finalitzar Cerca</translation>
+        <translation>&amp;Finalitzar cerca</translation>
     </message>
     <message>
         <source>Esc</source>
@@ -930,11 +930,11 @@
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation>&amp;Tancar Pestanya</translation>
+        <translation>&amp;Tancar pestanya</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Tancar Pestanya</translation>
+        <translation>Tancar pestanya</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -942,7 +942,7 @@
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>&amp;Duplicar Pestanya</translation>
+        <translation>&amp;Duplicar pestanya</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
@@ -950,7 +950,7 @@
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation>&amp;Importar Llista de Reproducció</translation>
+        <translation>&amp;Importar llista de reproducció</translation>
     </message>
     <message>
         <source>Ctrl+Shift+O</source>
@@ -958,7 +958,7 @@
     </message>
     <message>
         <source>E&amp;xport Playlist</source>
-        <translation>&amp;Exportar Llista de Reproducció</translation>
+        <translation>&amp;Exportar llista de reproducció</translation>
     </message>
     <message>
         <source>Ctrl+Shift+S</source>
@@ -966,7 +966,7 @@
     </message>
     <message>
         <source>Queue &amp;Visible</source>
-        <translation>Cua &amp;Visible</translation>
+        <translation>Cua &amp;visible</translation>
     </message>
     <message>
         <source>Ctrl+Shift+Q</source>
@@ -990,7 +990,7 @@
     </message>
     <message>
         <source>&amp;Clear Play Times</source>
-        <translation>Netejar &amp;Temps de Reproducció</translation>
+        <translation>Netejar &amp;temps de reproducció</translation>
     </message>
     <message>
         <source>Ctrl+E</source>
@@ -998,7 +998,7 @@
     </message>
     <message>
         <source>&amp;Copy Selection</source>
-        <translation>&amp;Copiar Selecció</translation>
+        <translation>&amp;Copiar selecció</translation>
     </message>
     <message>
         <source>Ctrl+Shift+C</source>
@@ -1014,7 +1014,7 @@
     </message>
     <message>
         <source>C&amp;opy Queue</source>
-        <translation>C&amp;opiar Cua</translation>
+        <translation>C&amp;opiar cua</translation>
     </message>
     <message>
         <source>Ctrl+Alt+C</source>
@@ -1022,7 +1022,7 @@
     </message>
     <message>
         <source>Paste and Q&amp;ueue</source>
-        <translation>Enganxar i &amp;Posar a la Cua</translation>
+        <translation>Enganxar i &amp;posar a la cua</translation>
     </message>
     <message>
         <source>Ctrl+Alt+V</source>
@@ -1034,7 +1034,7 @@
     </message>
     <message>
         <source>Save Pl&amp;ain Image...</source>
-        <translation>Desar Imatge &amp;Plana...</translation>
+        <translation>Desar imatge &amp;plana...</translation>
     </message>
     <message>
         <source>Alt+Shift+I</source>
@@ -1042,7 +1042,7 @@
     </message>
     <message>
         <source>Save Plain Ima&amp;ge (Auto)</source>
-        <translation>Desar I&amp;matge Plana (Auto)</translation>
+        <translation>Desar i&amp;matge plana (auto)</translation>
     </message>
     <message>
         <source>Shift+F5</source>
@@ -1050,7 +1050,7 @@
     </message>
     <message>
         <source>Export Encode...</source>
-        <translation>Exportar Codificació...</translation>
+        <translation>Exportar codificació...</translation>
     </message>
     <message>
         <source>F12</source>
@@ -1058,7 +1058,7 @@
     </message>
     <message>
         <source>S&amp;how Quick Queue</source>
-        <translation>Mostrar la Cua &amp;Ràpida</translation>
+        <translation>Mostrar la cua &amp;ràpida</translation>
     </message>
     <message>
         <source>Ctrl+`</source>
@@ -1066,11 +1066,11 @@
     </message>
     <message>
         <source>Save &amp;Window Image...</source>
-        <translation>Desar Imatge de la &amp;Finestra...</translation>
+        <translation>Desar imatge de la &amp;finestra...</translation>
     </message>
     <message>
         <source>Save Window Image</source>
-        <translation>Desar Imatge de la Finestra</translation>
+        <translation>Desar imatge de la finestra</translation>
     </message>
     <message>
         <source>Ctrl+Alt+I</source>
@@ -1078,7 +1078,7 @@
     </message>
     <message>
         <source>Save Window Image (Auto)</source>
-        <translation>Desar Imatge de la Finestra (Auto)</translation>
+        <translation>Desar imatge de la finestra (auto)</translation>
     </message>
     <message>
         <source>Ctrl+F5</source>
@@ -1098,15 +1098,15 @@
     </message>
     <message>
         <source>&amp;Application Messages</source>
-        <translation>Missatges de l&apos;&amp;Aplicació</translation>
+        <translation>Missatges de l&apos;&amp;aplicació</translation>
     </message>
     <message>
         <source>&amp;General Statistics</source>
-        <translation>Estadístiques &amp;Generals</translation>
+        <translation>Estadístiques &amp;generals</translation>
     </message>
     <message>
         <source>&amp;Frame Timings</source>
-        <translation>Temps de &amp;Fotograma</translation>
+        <translation>Temps de &amp;fotograma</translation>
     </message>
     <message>
         <source>&amp;Cycle</source>
@@ -1118,23 +1118,23 @@
     </message>
     <message>
         <source>&amp;No Messages</source>
-        <translation>&amp;Sense Missatges</translation>
+        <translation>&amp;Sense missatges</translation>
     </message>
     <message>
         <source>&amp;Escape Fullscreen</source>
-        <translation>Sortir de &amp;Pantalla Completa</translation>
+        <translation>Sortir de &amp;pantalla completa</translation>
     </message>
     <message>
         <source>Enable &amp;Subtitles</source>
-        <translation>&amp;Habilitar Subtítols</translation>
+        <translation>&amp;Habilitar subtítols</translation>
     </message>
     <message>
         <source>&amp;Next Subtitle</source>
-        <translation>S&amp;egüent Subtítol</translation>
+        <translation>S&amp;egüent subtítol</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitle</source>
-        <translation>&amp;Anterior Subtítol</translation>
+        <translation>&amp;Anterior subtítol</translation>
     </message>
     <message>
         <source>Lo&amp;g</source>
@@ -1154,15 +1154,15 @@
     </message>
     <message>
         <source>Hide &amp;Borders</source>
-        <translation>Amagar &amp;Marges</translation>
+        <translation>Amagar &amp;marges</translation>
     </message>
     <message>
         <source>Sho&amp;w Caption and Menu</source>
-        <translation>Mostrar Llegen&amp;da i Menú</translation>
+        <translation>Mostrar llegen&amp;da i menú</translation>
     </message>
     <message>
         <source>Quick Open</source>
-        <translation>Obertura Ràpida</translation>
+        <translation>Obertura ràpida</translation>
     </message>
     <message>
         <source>No files favorited</source>
@@ -1178,31 +1178,31 @@
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
-        <translation>Addició &amp;Ràpida a Llista de Reproducció</translation>
+        <translation>Addició &amp;ràpida a llista de reproducció</translation>
     </message>
     <message>
         <source>&amp;Quick Open File</source>
-        <translation>Obertura Ràpida d&apos;Ar&amp;xiu</translation>
+        <translation>&amp;Obertura ràpida de fitxer</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation>Obrir Carpeta</translation>
+        <translation>Obrir directori</translation>
     </message>
     <message>
         <source>Enter Network Stream</source>
-        <translation>Introduir Flux de Xarxa</translation>
+        <translation>Introduir flux de xarxa</translation>
     </message>
     <message>
         <source>Network Stream</source>
-        <translation>Flux de Xarxa</translation>
+        <translation>Flux de xarxa</translation>
     </message>
     <message>
         <source>Open Subtitle</source>
-        <translation>Obrir Subtítol</translation>
+        <translation>Obrir subtítol</translation>
     </message>
     <message>
         <source>Development Build</source>
-        <translation>Compilació de Desenvolupament</translation>
+        <translation>Compilació de desenvolupament</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -1214,7 +1214,7 @@
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation>Un clon del Media Player Classic escrit amb Qt</translation>
+        <translation>Un clon del Media Player Classic escrit en Qt</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
@@ -1242,7 +1242,7 @@
     </message>
     <message>
         <source>Buffering</source>
-        <translation type="unfinished">Buffering</translation>
+        <translation>Memòria intermèdia</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -1266,11 +1266,11 @@
     </message>
     <message>
         <source>&amp;Copy Subtitle</source>
-        <translation>&amp;Copiar Subtítol</translation>
+        <translation>&amp;Copiar subtítol</translation>
     </message>
     <message>
         <source>Controls in Fullscreen</source>
-        <translation>Controls a la Pantalla Completa</translation>
+        <translation>Controls a la pantalla completa</translation>
     </message>
     <message>
         <source>i</source>
@@ -1278,7 +1278,7 @@
     </message>
     <message>
         <source>&amp;Previous File</source>
-        <translation>Arxiu &amp;Anterior</translation>
+        <translation>Fitxer &amp;anterior</translation>
     </message>
     <message>
         <source>Ctrl+PgUp</source>
@@ -1286,7 +1286,7 @@
     </message>
     <message>
         <source>&amp;Next File</source>
-        <translation>Arxiu &amp;Següent</translation>
+        <translation>Fitxer &amp;següent</translation>
     </message>
     <message>
         <source>Ctrl+PgDown</source>
@@ -1294,7 +1294,7 @@
     </message>
     <message>
         <source>Play next &amp;file</source>
-        <translation>Reproduir Arxiu S&amp;egüent</translation>
+        <translation>Reproduir &amp;fitxer següent</translation>
     </message>
     <message>
         <source>Subtitles</source>
@@ -1306,15 +1306,15 @@
     </message>
     <message>
         <source>&amp;Add to Favorites</source>
-        <translation>&amp;Afegir als Preferits</translation>
+        <translation>&amp;Afegir als preferits</translation>
     </message>
     <message>
         <source>&amp;Decrease Delay</source>
-        <translation>Dis&amp;minuir Retard</translation>
+        <translation>&amp;Disminuir retard</translation>
     </message>
     <message>
         <source>&amp;Increase Delay</source>
-        <translation>&amp;Incrementar Retard</translation>
+        <translation>&amp;Incrementar retard</translation>
     </message>
     <message>
         <source>&amp;Video</source>
@@ -1338,7 +1338,7 @@
     </message>
     <message>
         <source>&amp;Show OSD Timer</source>
-        <translation>&amp;Mostrar el Temps OSD</translation>
+        <translation>&amp;Mostrar el temps OSD</translation>
     </message>
     <message>
         <source>I</source>
@@ -1346,19 +1346,19 @@
     </message>
     <message>
         <source>&amp;Decrease Aspect ratio</source>
-        <translation>&amp;Disminuir Ràtio d&apos;Aspecte</translation>
+        <translation>&amp;Disminuir ràtio d&apos;aspecte</translation>
     </message>
     <message>
         <source>&amp;Increase Aspect ratio</source>
-        <translation>&amp;Incrementar Ràtio d&apos;Aspecte</translation>
+        <translation>&amp;Incrementar ràtio d&apos;aspecte</translation>
     </message>
     <message>
         <source>&amp;Reset Aspect ratio</source>
-        <translation>&amp;Restablir Ràtio d&apos;Aspecte</translation>
+        <translation>&amp;Restablir ràtio d&apos;aspecte</translation>
     </message>
     <message>
         <source>Disable &amp;Aspect ratio</source>
-        <translation>&amp;Deshabilitar Ràtio d&apos;Aspecte</translation>
+        <translation>Deshabilitar ràtio d&apos;&amp;aspecte</translation>
     </message>
     <message>
         <source>C</source>
@@ -1370,19 +1370,19 @@
     </message>
     <message>
         <source>Seek Forwards (normal step)</source>
-        <translation>Buscar cap Endavant (pas normal)</translation>
+        <translation>Buscar cap endavant (pas normal)</translation>
     </message>
     <message>
         <source>Seek Backwards (normal step)</source>
-        <translation>Buscar cap Enrere (pas normal)</translation>
+        <translation>Buscar cap enrere (pas normal)</translation>
     </message>
     <message>
         <source>Seek Forwards (large step)</source>
-        <translation>Buscar cap Endavant (pas llarg)</translation>
+        <translation>Buscar cap endavant (pas llarg)</translation>
     </message>
     <message>
         <source>Seek Backwards (large step)</source>
-        <translation>Buscar cap Enrere (pas llarg)</translation>
+        <translation>Buscar cap enrere (pas llarg)</translation>
     </message>
     <message>
         <source>Title</source>
@@ -1390,43 +1390,43 @@
     </message>
     <message>
         <source>&amp;Aspect ratio</source>
-        <translation>Ràtio d&apos;&amp;Aspecte</translation>
+        <translation>Ràtio d&apos;&amp;aspecte</translation>
     </message>
     <message>
         <source>&amp;Pan and Scan</source>
-        <translation>&amp;Pan and Scan</translation>
+        <translation>&amp;Pan and scan</translation>
     </message>
     <message>
         <source>Decrease &amp;Pan and Scan</source>
-        <translation>Disminuir &amp;Pan and Scan</translation>
+        <translation>Disminuir &amp;pan and scan</translation>
     </message>
     <message>
         <source>Increase Pan and &amp;Scan</source>
-        <translation>Incrementar Pan and &amp;Scan</translation>
+        <translation>Incrementar pan and &amp;scan</translation>
     </message>
     <message>
         <source>&amp;Minimum Pan and Scan</source>
-        <translation>Pan and Scan &amp;Mínim</translation>
+        <translation>Pan and scan &amp;mínim</translation>
     </message>
     <message>
         <source>M&amp;aximum Pan and Scan</source>
-        <translation>Pan and Scan Mà&amp;xim</translation>
+        <translation>Pan and scan mà&amp;xim</translation>
     </message>
     <message>
         <source>Music Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode música</translation>
     </message>
     <message>
         <source>M</source>
-        <translation type="unfinished"></translation>
+        <translation>M</translation>
     </message>
     <message>
         <source>&amp;Previous Audio Track</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Anterior pista d&apos;àudio</translation>
     </message>
     <message>
         <source>&amp;Next Audio Track</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Següent pista d&apos;àudio</translation>
     </message>
 </context>
 <context>
@@ -1587,11 +1587,11 @@
     <name>OpenFileDialog</name>
     <message>
         <source>Open File</source>
-        <translation>Obrir Arxiu</translation>
+        <translation>Obrir fitxer</translation>
     </message>
     <message>
         <source>Fi&amp;le</source>
-        <translation>Ar&amp;xiu</translation>
+        <translation>Fit&amp;xer</translation>
     </message>
     <message>
         <source>&amp;Subtitles</source>
@@ -1599,7 +1599,7 @@
     </message>
     <message>
         <source>Select File</source>
-        <translation>Seleccionar Arxiu</translation>
+        <translation>Seleccionar fitxer</translation>
     </message>
 </context>
 <context>
@@ -1610,11 +1610,11 @@
     </message>
     <message>
         <source>Button &amp;&amp; Window</source>
-        <translation>Botó &amp;&amp; Finestra</translation>
+        <translation>Botó &amp;&amp; finestra</translation>
     </message>
     <message>
         <source>Reset to System</source>
-        <translation>Restablir als valors del Sistema</translation>
+        <translation>Restablir als valors del sistema</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -1645,23 +1645,23 @@
     </message>
     <message>
         <source>Aspect ratio: %1</source>
-        <translation>Ràtio d&apos;Aspecte: %1</translation>
+        <translation>Ràtio d&apos;aspecte: %1</translation>
     </message>
     <message>
         <source>Audio track: </source>
-        <translation type="unfinished"></translation>
+        <translation>Pista d&apos;àudio: </translation>
     </message>
     <message>
         <source>Subtitles track: </source>
-        <translation type="unfinished"></translation>
+        <translation>Pista de subtítols: </translation>
     </message>
     <message>
         <source>Subtitles: on</source>
-        <translation type="unfinished"></translation>
+        <translation>Subtítols: activats</translation>
     </message>
     <message>
         <source>Subtitles: off</source>
-        <translation type="unfinished"></translation>
+        <translation>Subtítols: desactivats</translation>
     </message>
 </context>
 <context>
@@ -1675,11 +1675,11 @@
     <name>PlaylistWindow</name>
     <message>
         <source>P&amp;laylist</source>
-        <translation>Llista de Reproducció</translation>
+        <translation>Llista de reproducció</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>Cercar</translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <source>Visible Items to Quick Queue</source>
@@ -1687,55 +1687,55 @@
     </message>
     <message>
         <source>New Tab</source>
-        <translation>Nova Pestanya</translation>
+        <translation>Nova pestanya</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Tancar Pestanya</translation>
+        <translation>Tancar pestanya</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation>Duplicar Pestanya</translation>
+        <translation>Duplicar pestanya</translation>
     </message>
     <message>
         <source>Import Playlist</source>
-        <translation>Importar Llista de Reproducció</translation>
+        <translation>Importar llista de reproducció</translation>
     </message>
     <message>
         <source>Export Playlist</source>
-        <translation>Exportar Llista de Reproducció</translation>
+        <translation>Exportar llista de reproducció</translation>
     </message>
     <message>
         <source>Show Queue</source>
-        <translation>Mostrar la Cua</translation>
+        <translation>Mostrar la cua</translation>
     </message>
     <message>
         <source>Playlist</source>
-        <translation>Llista de Reproducció</translation>
+        <translation>Llista de reproducció</translation>
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation>Llista de Reproducció Ràpida</translation>
+        <translation>Llista de reproducció ràpida</translation>
     </message>
     <message>
         <source>New Playlist</source>
-        <translation>Nova Llista de Reproducció</translation>
+        <translation>Nova llista de reproducció</translation>
     </message>
     <message>
         <source>Enter Playlist Name</source>
-        <translation>Introduir Nom de la Llista de Reproducció</translation>
+        <translation>Introduir nom de la llista de reproducció</translation>
     </message>
     <message>
         <source>Import File</source>
-        <translation>Importar Arxiu</translation>
+        <translation>Importar fitxer</translation>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
-        <translation>Arxius de llista de reproducció (*.m3u *.m3u8)</translation>
+        <translation>Fitxers de llista de reproducció (*.m3u *.m3u8)</translation>
     </message>
     <message>
         <source>Export File</source>
-        <translation>Exportar Arxiu</translation>
+        <translation>Exportar fitxer</translation>
     </message>
     <message>
         <source>Open</source>
@@ -1759,11 +1759,11 @@
     </message>
     <message>
         <source>Save As...</source>
-        <translation>Desar Com...</translation>
+        <translation>Desar com a...</translation>
     </message>
     <message>
         <source>Sort By Label</source>
-        <translation>Ordenar per Etiqueta</translation>
+        <translation>Ordenar per etiqueta</translation>
     </message>
     <message>
         <source>Sort By Url</source>
@@ -1783,7 +1783,7 @@
     </message>
     <message>
         <source>Hide On Fullscreen</source>
-        <translation>Amagar a la Pantalla Completa</translation>
+        <translation>Amagar a la pantalla completa</translation>
     </message>
     <message>
         <source>Enter playlist name</source>
@@ -1791,23 +1791,23 @@
     </message>
     <message>
         <source>&amp;New Playlist</source>
-        <translation>&amp;Nova Llista de Reproducció</translation>
+        <translation>&amp;Nova llista de reproducció</translation>
     </message>
     <message>
         <source>&amp;Remove Playlist</source>
-        <translation>&amp;Eliminar Llista de Reproducció</translation>
+        <translation>&amp;Eliminar llista de reproducció</translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
-        <translation>&amp;Duplicar Llista de Reproducció</translation>
+        <translation>&amp;Duplicar llista de reproducció</translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation>&amp;Importar Llista de Reproducció</translation>
+        <translation>&amp;Importar llista de reproducció</translation>
     </message>
     <message>
         <source>&amp;Export Playlist</source>
-        <translation>E&amp;xportar Llista de Reproducció</translation>
+        <translation>E&amp;xportar llista de reproducció</translation>
     </message>
     <message>
         <source>Repeat</source>
@@ -1834,7 +1834,7 @@
     </message>
     <message>
         <source>Size:</source>
-        <translation>Tamany:</translation>
+        <translation>Mida:</translation>
     </message>
     <message>
         <source>Media length:</source>
@@ -1909,7 +1909,7 @@
     <message>
         <source>File has no data for this section.
 </source>
-        <translation>L&apos;arxiu no té dades per aquesta secció.
+        <translation>El fitxer no té dades per aquesta secció.
 </translation>
     </message>
     <message>
@@ -1997,7 +1997,7 @@
     </message>
     <message>
         <source>No role</source>
-        <translation>Cap paper</translation>
+        <translation>Cap rol</translation>
     </message>
     <message>
         <source>Tooltip base</source>
@@ -2079,7 +2079,7 @@
     </message>
     <message>
         <source>Hw. Decoding</source>
-        <translation>Descodificació per hardware</translation>
+        <translation>Descodificació per maquinari</translation>
     </message>
     <message>
         <source>Playlist</source>
@@ -2155,7 +2155,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Disable &quot;Open Disc&quot; menu</source>
-        <translation>Deshabilitar el menú &quot;Obrir Disc&quot;</translation>
+        <translation>Deshabilitar el menú &quot;Obrir disc&quot;</translation>
     </message>
     <message>
         <source>Disable screensaver while playing</source>
@@ -2307,7 +2307,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Widget Color</source>
-        <translation>Color del Widget</translation>
+        <translation>Color del giny</translation>
     </message>
     <message>
         <source>Use custom theme</source>
@@ -2315,7 +2315,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Window Color</source>
-        <translation>Color de la Finestra</translation>
+        <translation>Color de la finestra</translation>
     </message>
     <message>
         <source>HHHHHH</source>
@@ -2323,7 +2323,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Info Background</source>
-        <translation>Fons d&apos;informació</translation>
+        <translation>Informació de fons</translation>
     </message>
     <message>
         <source>Info Foreground</source>
@@ -2407,7 +2407,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Video Renderer</source>
-        <translation>Renderitzador de Vídeo</translation>
+        <translation>Renderitzador de vídeo</translation>
     </message>
     <message>
         <source>Dumb mode</source>
@@ -2951,7 +2951,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Audio Renderer</source>
-        <translation>Renderitzador d&apos;Àudio</translation>
+        <translation>Renderitzador d&apos;àudio</translation>
     </message>
     <message>
         <source>Device</source>
@@ -3067,11 +3067,11 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Filesystem</source>
-        <translation>Sistema d&apos;arxius</translation>
+        <translation>Sistema de fitxers</translation>
     </message>
     <message>
         <source>Add shader file(s)...</source>
-        <translation>Afegir arxiu(s) d&apos;ombreig...</translation>
+        <translation>Afegir fitxer(s) d&apos;ombreig...</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -3175,7 +3175,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Audio/Video sync</source>
-        <translation>Sincronització d&apos;Àudio/Vídeo</translation>
+        <translation>Sincronització d&apos;àudio/vídeo</translation>
     </message>
     <message>
         <source>Resample audio to match video</source>
@@ -3392,7 +3392,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Screen Alignment &amp;&amp; Margins</source>
-        <translation>Alineació de pantalla &amp;&amp; Marges</translation>
+        <translation>Alineació de pantalla &amp;&amp; marges</translation>
     </message>
     <message>
         <source>Position subs relative to the video frame</source>
@@ -3456,7 +3456,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Directories</source>
-        <translation>Carpetes</translation>
+        <translation>Directoris</translation>
     </message>
     <message>
         <source>Screenshot</source>
@@ -3524,7 +3524,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Filesi&amp;ze</source>
-        <translation>Mida d&apos;ar&amp;xiu</translation>
+        <translation>Mida del fit&amp;xer</translation>
     </message>
     <message>
         <source>MB</source>
@@ -3644,11 +3644,11 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Log file</source>
-        <translation>Arxiu de registre</translation>
+        <translation>Fitxer del registre</translation>
     </message>
     <message>
         <source>Create log file (contents will be overwritten)</source>
-        <translation>Crear arxiu de registre (el contingut es sobre-escriurà)</translation>
+        <translation>Crear fitxer de registre (el contingut es sobre-escriurà)</translation>
     </message>
     <message>
         <source>~/mpc-qt-log.txt</source>
@@ -3776,7 +3776,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Web Interface</source>
-        <translation>Interfície Web</translation>
+        <translation>Interfície web</translation>
     </message>
     <message>
         <source>Allow access from localhost only</source>
@@ -3792,11 +3792,11 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>index.html</source>
-        <translation type="unfinished">index.html</translation>
+        <translation>index.html</translation>
     </message>
     <message>
         <source>TCP/IP</source>
-        <translation type="unfinished">TCP/IP</translation>
+        <translation>TCP/IP</translation>
     </message>
     <message>
         <source>&lt;a href=&quot;#&quot;&gt;Launch in web browser...&lt;/a&gt;</source>
@@ -3804,7 +3804,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Local files</source>
-        <translation>Arxius locals</translation>
+        <translation>Fitxers locals</translation>
     </message>
     <message>
         <source>Web root</source>
@@ -3976,15 +3976,15 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Remember file position</source>
-        <translation>Recordar la posició dels arxius</translation>
+        <translation>Recordar la posició dels fitxers</translation>
     </message>
     <message>
         <source>Use next/previous file in folder when there is only one item in the playlist</source>
-        <translation>Utilitzar el següent/anterior arxiu de la carpeta quan només hi hagi un sol element a la llista de reproducció</translation>
+        <translation>Utilitzar el següent/anterior fitxer de la carpeta quan només hi hagi un sol element a la llista de reproducció</translation>
     </message>
     <message>
         <source>Play next file</source>
-        <translation>Reproduir el següent arxiu</translation>
+        <translation>Reproduir el següent fitxer</translation>
     </message>
     <message>
         <source>Delay step</source>
@@ -4056,15 +4056,15 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Permet suport per al tema fosc a Windows</translation>
     </message>
     <message>
         <source>Audio balance</source>
-        <translation type="unfinished"></translation>
+        <translation>Balanç d&apos;àudio</translation>
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar…</translation>
     </message>
 </context>
 <context>
@@ -4115,7 +4115,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Save Thumbnails</source>
-        <translation>Desar Miniatures</translation>
+        <translation>Desar miniatures</translation>
     </message>
 </context>
 </TS>
