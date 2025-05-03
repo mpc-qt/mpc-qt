@@ -4068,7 +4068,7 @@ media file played</translation>
     </message>
     <message>
         <source>Show video preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Show video preview</translation>
     </message>
 </context>
 <context>
