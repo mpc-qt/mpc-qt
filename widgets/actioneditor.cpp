@@ -1,11 +1,8 @@
 #include <QActionGroup>
 #include <QHBoxLayout>
-#include <QKeySequence>
 #include <QKeySequenceEdit>
-#include <QPushButton>
 #include <QToolButton>
 #include <QMenu>
-#include <cmath>
 #include "actioneditor.h"
 #include "logger.h"
 

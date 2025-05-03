@@ -4,8 +4,6 @@
 
 #include <QMimeDatabase>
 #include <QTextCursor>
-#include <QVariantMap>
-#include <QProcess>
 #include <QStandardPaths>
 #include <QFileDialog>
 

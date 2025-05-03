@@ -4,9 +4,6 @@
 #include <QFileInfo>
 #include <QFileDialog>
 #include <QColorDialog>
-#include <QProcess>
-#include <QProcessEnvironment>
-#include <QList>
 #include <QToolTip>
 #include "logger.h"
 #include "platform/unify.h"

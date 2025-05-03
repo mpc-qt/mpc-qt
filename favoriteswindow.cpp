@@ -1,6 +1,5 @@
 #include <QLineEdit>
 #include <QPainter>
-#include <QtGlobal>
 
 #include "favoriteswindow.h"
 #include "ui_favoriteswindow.h"

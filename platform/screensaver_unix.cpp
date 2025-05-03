@@ -1,7 +1,6 @@
 #include <QCoreApplication>
 #include <QDBusPendingReply>
 #include <QDBusPendingCall>
-#include <QDBusPendingCallWatcher>
 #include <QDBusReply>
 #include "screensaver_unix.h"
 

@@ -1,9 +1,5 @@
 // A simple(?) set of sliders related to controlling multimedia players.
-#include <QApplication>
 #include <QPainter>
-#include <QOpenGLContext>
-#include <QTimer>
-#include <QCursor>
 #include <cmath>
 #include "drawnslider.h"
 #include "logger.h"

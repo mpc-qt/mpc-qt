@@ -1,4 +1,3 @@
-#include <QCoreApplication>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QMetaObject>

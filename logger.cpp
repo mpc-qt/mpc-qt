@@ -1,6 +1,3 @@
-#include <QDebug>
-#include <QMetaMethod>
-#include <QMessageBox>
 #include <cstdio>
 #include <cstdlib>
 #include <unistd.h>

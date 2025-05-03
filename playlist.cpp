@@ -1,6 +1,4 @@
 ﻿#include <QFileInfo>
-#include <QMutableListIterator>
-#include <cmath>
 #include "playlist.h"
 #include <random>
 

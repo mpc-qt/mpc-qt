@@ -1,7 +1,6 @@
 #include <QObject>
 #include <QProcess>
 #include <QApplication>
-#include <QDir>
 #include "logger.h"
 #include "unify.h"
 
@@ -10,7 +9,6 @@
 #include "devicemanager_win.h"
 #include "screensaver_win.h"
 #else
-#include <dlfcn.h>
 #include "devicemanager_unix.h"
 #include "screensaver_unix.h"
 #endif

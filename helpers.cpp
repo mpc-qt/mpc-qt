@@ -1,15 +1,7 @@
-#include <QDateTime>
 #include <QScreen>
 #include <QPushButton>
-#include <QFileDialog>
 #include <QApplication>
-#include <QLocalServer>
-#include <QLocalSocket>
-#include <QPainter>
-#include <QOpenGLTexture>
-#include <QOpenGLWidget>
 #include <QMouseEvent>
-#include <QWheelEvent>
 #include <QAction>
 #include <cmath>
 #include <QRegularExpression>

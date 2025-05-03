@@ -2,7 +2,6 @@
 #include <QThread>
 #include <QPainter>
 #include <QFontMetrics>
-#include <QMenu>
 #include <QKeyEvent>
 #include "drawnplaylist.h"
 #include "playlist.h"
