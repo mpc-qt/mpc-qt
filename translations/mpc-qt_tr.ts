@@ -4058,6 +4058,10 @@ yeni bir &amp;oynatıcı aç</translation>
         <source>Search...</source>
         <translation>Ara…</translation>
     </message>
+    <message>
+        <source>Show video preview</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

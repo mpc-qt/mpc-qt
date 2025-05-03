@@ -945,6 +945,7 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
     emit hasNoVideo(videoList.empty());
     emit hasNoAudio(audioList.empty());
     emit hasNoSubtitles(subtitleList.empty());
+    emit isVideo(!videoList.isEmpty() && !videoListData[1].isImage);
 }
 
 void PlaybackManager::mpvw_videoSizeChanged(QSize size)

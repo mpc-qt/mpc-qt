@@ -4066,6 +4066,10 @@ arxiu multimèdia reproduït</translation>
         <source>Search...</source>
         <translation>Buscar…</translation>
     </message>
+    <message>
+        <source>Show video preview</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

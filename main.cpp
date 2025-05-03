@@ -589,6 +589,10 @@ void Flow::setupMainWindowConnections()
             mainWindow, &MainWindow::setVideoBitrate);
     connect(playbackManager, &PlaybackManager::afterPlaybackReset,
             mainWindow, &MainWindow::resetPlayAfterOnce);
+    connect(playbackManager, &PlaybackManager::nowPlayingChanged,
+            mainWindow, &MainWindow::setVideoPreviewItem);
+    connect(playbackManager, &PlaybackManager::isVideo,
+            mainWindow, &MainWindow::setIsVideo);
 
     // mainwindow -> favorites
     connect(mainWindow, &MainWindow::organizeFavorites,
@@ -690,6 +694,8 @@ void Flow::setupSettingsConnections()
             mainWindow, &MainWindow::setSubtitlesDelayStep);
     connect(settingsWindow, &SettingsWindow::timeShorten,
             mainWindow, &MainWindow::setTimeShortMode);
+    connect(settingsWindow, &SettingsWindow::videoPreview,
+            mainWindow, &MainWindow::setVideoPreview);
     connect(settingsWindow, &SettingsWindow::timeTooltip,
             mainWindow, &MainWindow::setTimeTooltip);
     connect(settingsWindow, &SettingsWindow::osdTimerOnSeek,
