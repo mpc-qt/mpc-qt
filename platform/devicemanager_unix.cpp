@@ -1,5 +1,3 @@
-#include <QLatin1String>
-#include <QtDBus>
 #include "logger.h"
 #include "devicemanager_unix.h"
 

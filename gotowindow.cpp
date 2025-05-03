@@ -1,7 +1,6 @@
 #include <QKeyEvent>
 #include <QLineEdit>
 #include <QRegularExpressionValidator>
-#include <QtGlobal>
 #include <helpers.h>
 
 #include "gotowindow.h"

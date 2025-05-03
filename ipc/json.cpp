@@ -1,6 +1,5 @@
 #include <QLocalSocket>
 #include <QLocalServer>
-#include <QCoreApplication>
 #include <QMetaMethod>
 #include <QJsonDocument>
 

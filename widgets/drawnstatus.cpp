@@ -1,5 +1,4 @@
 #include <QPainter>
-#include <QTimer>
 #include "helpers.h"
 #include "drawnstatus.h"
 

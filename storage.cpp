@@ -1,12 +1,10 @@
 #include <QCoreApplication>
 #include <QStandardPaths>
-#include <QSettings>
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QDir>
 #include <QFileInfo>
 #include <QTextStream>
-#include <QUrl>
 #include "logger.h"
 #include "storage.h"
 #include "platform/unify.h"

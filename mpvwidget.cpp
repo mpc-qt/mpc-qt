@@ -1,7 +1,6 @@
 // Portions of code in this module came from the examples directory in mpv's
 // git repo.  Reworked by me.
 
-#include <QtGlobal>
 #include <QLayout>
 #include <QMainWindow>
 #include <QGuiApplication>
@@ -11,7 +10,6 @@
 #include <QMouseEvent>
 #include <QMetaObject>
 #include <QDir>
-#include <QDebug>
 #include <QWindow>
 #include <cmath>
 #include <stdexcept>

@@ -1,10 +1,6 @@
-#include <QAction>
-#include <QByteArray>
 #include <QCoreApplication>
 #include <QFile>
 #include <QFileInfo>
-#include <QList>
-#include <QPair>
 #include <QTcpSocket>
 #include "helpers.h"
 #include "ipc/http.h"
