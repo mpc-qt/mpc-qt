@@ -30,8 +30,8 @@ runs:
         export DISPLAY=:99
         mpc-qt/mpc-qt "${{ inputs.filename }}" &
     shell: bash
-  - name: wait 3 seconds
-    run:  sleep 3
+  - name: wait 5 seconds
+    run:  sleep 5
     shell: bash
   - name: check that mpc-qt is running
     uses: ./.github/actions/linux/commands/check_if_running
