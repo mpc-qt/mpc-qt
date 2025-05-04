@@ -3115,6 +3115,8 @@ void MainWindow::position_sliderMoved(int position)
 
 void MainWindow::position_hoverValue(double position, QString chapterInfo, double x)
 {
+    setCursor(Qt::PointingHandCursor);
+
     if (!timeTooltipShown && !videoPreview)
         return;
 
@@ -3144,6 +3146,8 @@ void MainWindow::position_hoverValue(double position, QString chapterInfo, doubl
 
 void MainWindow::position_hoverEnd()
 {
+    setCursor(Qt::ArrowCursor);
+
     if (videoPreview)
         // The delay prevents flickering
         QTimer::singleShot(10, this, [this]() {
