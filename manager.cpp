@@ -443,11 +443,12 @@ void PlaybackManager::selectPrevAudioTrack()
     mpvObject_->showMessage(tr("Audio track: ") + audioList[previousAudioTrack - 1].title);
 }
 
-void PlaybackManager::setSubtitleEnabled(bool enabled)
+void PlaybackManager::setSubtitleEnabled(bool enabled, bool onInit)
 {
     subtitleEnabled = enabled;
     updateSubtitleTrack();
-    mpvObject_->showMessage(subtitleEnabled ? tr("Subtitles: on") : tr("Subtitles: off"));
+    if (!onInit)
+        mpvObject_->showMessage(subtitleEnabled ? tr("Subtitles: on") : tr("Subtitles: off"));
 }
 
 void PlaybackManager::selectNextSubtitle()
