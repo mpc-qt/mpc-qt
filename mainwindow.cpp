@@ -215,8 +215,7 @@ void MainWindow::setState(const QVariantMap &map)
 
     on_actionPlaySubtitlesEnabled_triggered(ui->actionPlaySubtitlesEnabled->isChecked());
     on_actionPlayVolumeMute_toggled(ui->actionPlayVolumeMute->isChecked(), true);
-    volumeSlider_->setValue(map.value("volume", 100).toInt());
-    volume_sliderMoved(volumeSlider_->value());
+    setVolume(map.value("volume", 100).toInt(), true);
     setOSDPage(map.value("shownStatsPage",0).toInt());
     updateOnTop();
 
