@@ -320,7 +320,7 @@ private slots:
     void on_actionViewHideLog_toggled(bool checked);
     void on_actionViewHideLibrary_toggled(bool checked);
     void on_actionViewHideControlsInFullscreen_toggled(bool checked);
-    void on_actionViewMusicMode_triggered(bool checked);
+    void on_actionViewMusicMode_toggled(bool checked);
 
     void on_actionViewOSDNone_triggered();
     void on_actionViewOSDMessages_triggered();

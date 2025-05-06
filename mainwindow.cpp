@@ -2516,7 +2516,7 @@ void MainWindow::on_actionViewHideControlsInFullscreen_toggled(bool checked)
     emit fullscreenHideControls(!checked);
 }
 
-void MainWindow::on_actionViewMusicMode_triggered(bool checked)
+void MainWindow::on_actionViewMusicMode_toggled(bool checked)
 {
     if (!playlistWindow_->isFloating()) {
         if (checked) {
