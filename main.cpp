@@ -662,8 +662,6 @@ void Flow::setupSettingsConnections()
             mainWindow, &MainWindow::setHighContrastWidgets);
     connect(settingsWindow, &SettingsWindow::infoStatsColors,
             mainWindow, &MainWindow::setInfoColors);
-    connect(settingsWindow, &SettingsWindow::volume,
-            mainWindow, &MainWindow::setVolume);
     connect(settingsWindow, &SettingsWindow::volumeStep,
             mainWindow, &MainWindow::setVolumeStep);
     connect(settingsWindow, &SettingsWindow::zoomPreset,
@@ -758,8 +756,6 @@ void Flow::setupMpvObjectConnections()
             mpvObject, &MpvObject::setLogoBackground);
     connect(settingsWindow, &SettingsWindow::logoSource,
             mpvObject, &MpvObject::setLogoUrl);
-    connect(settingsWindow, &SettingsWindow::volume,
-            mpvObject, &MpvObject::setVolume);
     connect(settingsWindow, &SettingsWindow::option,
             mpvObject, &MpvObject::setCachedMpvOption);
     connect(settingsWindow, &SettingsWindow::audioFilter,
