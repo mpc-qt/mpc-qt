@@ -150,7 +150,7 @@ signals:
     void videoTrackSelected(int64_t id, bool userSelected);
     void nextAudioTrackSelected();
     void previousAudioTrackSelected();
-    void subtitlesEnabled(bool enabled);
+    void subtitlesEnabled(bool enabled, bool onInit);
     void nextSubtitleSelected();
     void previousSubtitleSelected();
     void volumeChanged(int64_t volume, bool onInit = false);
@@ -272,6 +272,7 @@ public slots:
     void setVolume(int level, bool onInit = false);
     void setVolumeDouble(double level);
     void setVolumeMax(int level);
+    void setSubtitlesEnabled(bool enabled, bool onInit = false);
     void setSubtitlesDelayStep(int subtitlesDelayStep);
     void setTimeShortMode(bool shortened);
     void resetPlayAfterOnce();

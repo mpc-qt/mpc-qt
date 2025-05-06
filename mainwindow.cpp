@@ -213,7 +213,7 @@ void MainWindow::setState(const QVariantMap &map)
     UNWRAP(ui->actionPlaySubtitlesEnabled, true);
     UNWRAP(ui->actionPlayVolumeMute, false);
 
-    on_actionPlaySubtitlesEnabled_triggered(ui->actionPlaySubtitlesEnabled->isChecked());
+    setSubtitlesEnabled(ui->actionPlaySubtitlesEnabled->isChecked(), true);
     on_actionPlayVolumeMute_toggled(ui->actionPlayVolumeMute->isChecked(), true);
     setVolume(map.value("volume", 100).toInt(), true);
     setOSDPage(map.value("shownStatsPage",0).toInt());
@@ -2147,6 +2147,13 @@ void MainWindow::setVolumeMax(int level)
     volumeSlider_->setMaximum(level);
 }
 
+void MainWindow::setSubtitlesEnabled(bool enabled, bool onInit)
+{
+    emit subtitlesEnabled(enabled, onInit);
+    ui->actionPlaySubtitlesEnabled->setChecked(enabled);
+    ui->subs->setChecked(!enabled);
+}
+
 void MainWindow::setSubtitlesDelayStep(int subtitlesDelayStep)
 {
     this->subtitlesDelayStep = subtitlesDelayStep;
@@ -2888,9 +2895,7 @@ void MainWindow::on_actionPlayAudioTrackPrevious_triggered()
 
 void MainWindow::on_actionPlaySubtitlesEnabled_triggered(bool checked)
 {
-    emit subtitlesEnabled(checked);
-    ui->actionPlaySubtitlesEnabled->setChecked(checked);
-    ui->subs->setChecked(!checked);
+    setSubtitlesEnabled(checked);
 }
 
 void MainWindow::on_actionPlaySubtitlesNext_triggered()
