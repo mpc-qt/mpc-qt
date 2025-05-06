@@ -431,6 +431,8 @@ private slots:
 
     void on_actionFileLoadSubtitle_triggered();
 
+    void on_actionFileSubtitleDatabaseSearch_triggered();
+
     void on_actionFavoritesAdd_triggered();
 
     void on_actionFavoritesOrganize_triggered();

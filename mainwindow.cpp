@@ -1014,7 +1014,9 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionNavigateGoto->setEnabled(enabled);
     ui->actionFavoritesAdd->setEnabled(enabled);
 
-    ui->menuFileSubtitleDatabase->setEnabled(false);
+    ui->menuFileSubtitleDatabase->setEnabled(enabled);
+    ui->actionFileSubtitleDatabaseUpload->setEnabled(false);
+    ui->actionFileSubtitleDatabaseDownload->setEnabled(false);
     ui->menuPlayLoop->setEnabled(enabled);
     ui->menuPlayVolume->setEnabled(enabled);
     if (!enabled) {
@@ -2389,6 +2391,13 @@ void MainWindow::on_actionFileLoadSubtitle_triggered()
         return;
     lastUrl = url;
     emit subtitlesLoaded(url);
+}
+
+void MainWindow::on_actionFileSubtitleDatabaseSearch_triggered()
+{
+    QString fileNameNoExt = QFileInfo(currentFile.fileName()).completeBaseName();
+    QDesktopServices::openUrl(QUrl("https://www.opensubtitles.org/search2/moviename-" +
+                                   fileNameNoExt + "/sublanguageid-all"));
 }
 
 void MainWindow::on_actionFileClose_triggered()
