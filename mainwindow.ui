@@ -1335,7 +1335,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string notr="true">&amp;50%</string>
+    <string>&amp;50%</string>
    </property>
    <property name="shortcut">
     <string>Alt+1</string>
@@ -1346,7 +1346,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string notr="true">&amp;100%</string>
+    <string>&amp;100%</string>
    </property>
    <property name="shortcut">
     <string>Alt+2</string>
@@ -1357,7 +1357,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string notr="true">&amp;200%</string>
+    <string>&amp;200%</string>
    </property>
    <property name="shortcut">
     <string>Alt+3</string>
@@ -1941,7 +1941,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string notr="true">25%</string>
+    <string>25%</string>
    </property>
   </action>
   <action name="actionViewZoom075">
@@ -1949,7 +1949,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string notr="true">&amp;75%</string>
+    <string>&amp;75%</string>
    </property>
   </action>
   <action name="actionViewZoom150">
@@ -1957,7 +1957,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string notr="true">15&amp;0%</string>
+    <string>15&amp;0%</string>
    </property>
   </action>
   <action name="actionViewZoom400">
@@ -1965,7 +1965,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string notr="true">&amp;400%</string>
+    <string>&amp;400%</string>
    </property>
   </action>
   <action name="actionViewZoom300">
@@ -1973,7 +1973,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string notr="true">&amp;300%</string>
+    <string>&amp;300%</string>
    </property>
   </action>
   <action name="actionFileSavePlainImage">
