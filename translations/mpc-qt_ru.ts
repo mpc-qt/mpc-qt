@@ -4106,6 +4106,10 @@ media file played</source>
         <source>400%</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Remove subtitles additions for the deaf or hard-of-hearing (SDH)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
