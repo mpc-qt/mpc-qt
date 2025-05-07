@@ -4092,7 +4092,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Show video preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Video önizlemesini göster</translation>
     </message>
     <message>
         <source>100%</source>
