@@ -425,10 +425,6 @@
         <translation>Ominaisuudet</translation>
     </message>
     <message>
-        <source>Shift+F10</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>E&amp;xit</source>
         <translation>P&amp;oistu</translation>
     </message>
@@ -545,10 +541,6 @@
         <translation>Koko Näyttö</translation>
     </message>
     <message>
-        <source>Alt+Return</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Alt+1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -618,7 +610,7 @@
     </message>
     <message>
         <source>Space</source>
-        <translation>Välilyönti</translation>
+        <translation type="vanished">Välilyönti</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
@@ -633,32 +625,16 @@
         <translation>K&amp;ehysaskel eteenpäin</translation>
     </message>
     <message>
-        <source>Ctrl+Right</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Fra&amp;me Step Backward</source>
         <translation>K&amp;ehysaskel taaksepäin</translation>
-    </message>
-    <message>
-        <source>Ctrl+Left</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Decrease Rate</source>
         <translation>&amp;Pienennä Nopeutta</translation>
     </message>
     <message>
-        <source>Ctrl+Down</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Increase Rate</source>
         <translation>&amp;Nosta Nopeutta</translation>
-    </message>
-    <message>
-        <source>Ctrl+Up</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>R&amp;eset Rate</source>
@@ -721,16 +697,8 @@
         <translation>&amp;Edellinen</translation>
     </message>
     <message>
-        <source>PgUp</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Next</source>
         <translation>&amp;Seuraava</translation>
-    </message>
-    <message>
-        <source>PgDown</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Go To...</source>
@@ -793,10 +761,6 @@
         <translation>Tallenna kuva (automaattisesti)</translation>
     </message>
     <message>
-        <source>F5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Auto Fit (&amp;Smaller Only)</source>
         <translation>Automaattinen Sovitus (Vain &amp;Pienemmät)</translation>
     </message>
@@ -810,7 +774,7 @@
     </message>
     <message>
         <source>Return</source>
-        <translation>Takaisin</translation>
+        <translation type="vanished">Takaisin</translation>
     </message>
     <message>
         <source>Seek Forwards</source>
@@ -818,7 +782,7 @@
     </message>
     <message>
         <source>Right</source>
-        <translation>Oikea</translation>
+        <translation type="vanished">Oikea</translation>
     </message>
     <message>
         <source>Seek Backwards</source>
@@ -826,7 +790,7 @@
     </message>
     <message>
         <source>Left</source>
-        <translation>Vasen</translation>
+        <translation type="vanished">Vasen</translation>
     </message>
     <message>
         <source>Seek Forwards Finely</source>
@@ -834,7 +798,7 @@
     </message>
     <message>
         <source>Shift+Right</source>
-        <translation>Shift+Oikea</translation>
+        <translation type="vanished">Shift+Oikea</translation>
     </message>
     <message>
         <source>Seek Backwards Finely</source>
@@ -842,27 +806,19 @@
     </message>
     <message>
         <source>Shift+Left</source>
-        <translation>Shift+Vasen</translation>
+        <translation type="vanished">Shift+Vasen</translation>
     </message>
     <message>
         <source>&amp;Set Loop Start</source>
         <translation>&amp;Aseta Syklin Aloitus</translation>
     </message>
     <message>
-        <source>Ctrl+Home</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Set &amp;Loop End</source>
         <translation>Aseta &amp;Syklin Loppu</translation>
     </message>
     <message>
-        <source>Ctrl+End</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ctrl+Backspace</source>
-        <translation>Ctrl+Askelpalautin</translation>
+        <translation type="vanished">Ctrl+Askelpalautin</translation>
     </message>
     <message>
         <source>&amp;Clear Loop</source>
@@ -870,7 +826,7 @@
     </message>
     <message>
         <source>Backspace</source>
-        <translation>Askelpalautin</translation>
+        <translation type="vanished">Askelpalautin</translation>
     </message>
     <message>
         <source>&amp;Search Playlist</source>
@@ -1021,16 +977,8 @@
         <translation>Tallenna Yksinkertainen Ku&amp;va (Automaattisesti)</translation>
     </message>
     <message>
-        <source>Shift+F5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Export Encode...</source>
         <translation>Vie Koodaus...</translation>
-    </message>
-    <message>
-        <source>F12</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>S&amp;how Quick Queue</source>
@@ -1055,10 +1003,6 @@
     <message>
         <source>Save Window Image (Auto)</source>
         <translation>Tallenna Ikkunan Kuva (automaattisesti)</translation>
-    </message>
-    <message>
-        <source>Ctrl+F5</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Do No&amp;thing</source>
@@ -1245,16 +1189,8 @@
         <translation>&amp;Edellinen Tiedosto</translation>
     </message>
     <message>
-        <source>Ctrl+PgUp</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Next File</source>
         <translation>&amp;Seuraava Tiedosto</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgDown</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Play next &amp;file</source>
