@@ -1430,35 +1430,35 @@
     </message>
     <message>
         <source>&amp;50%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;50%</translation>
     </message>
     <message>
         <source>&amp;100%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;100%</translation>
     </message>
     <message>
         <source>&amp;200%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;200%</translation>
     </message>
     <message>
         <source>25%</source>
-        <translation type="unfinished"></translation>
+        <translation>25%</translation>
     </message>
     <message>
         <source>&amp;75%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;75%</translation>
     </message>
     <message>
         <source>15&amp;0%</source>
-        <translation type="unfinished"></translation>
+        <translation>15&amp;0%</translation>
     </message>
     <message>
         <source>&amp;400%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;400%</translation>
     </message>
     <message>
         <source>&amp;300%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;300%</translation>
     </message>
 </context>
 <context>
@@ -4104,35 +4104,35 @@ media file played</translation>
     </message>
     <message>
         <source>100%</source>
-        <translation type="unfinished"></translation>
+        <translation>100%</translation>
     </message>
     <message>
         <source>25%</source>
-        <translation type="unfinished"></translation>
+        <translation>25%</translation>
     </message>
     <message>
         <source>50%</source>
-        <translation type="unfinished"></translation>
+        <translation>50%</translation>
     </message>
     <message>
         <source>75%</source>
-        <translation type="unfinished"></translation>
+        <translation>75%</translation>
     </message>
     <message>
         <source>150%</source>
-        <translation type="unfinished"></translation>
+        <translation>150%</translation>
     </message>
     <message>
         <source>200%</source>
-        <translation type="unfinished"></translation>
+        <translation>200%</translation>
     </message>
     <message>
         <source>300%</source>
-        <translation type="unfinished"></translation>
+        <translation>300%</translation>
     </message>
     <message>
         <source>400%</source>
-        <translation type="unfinished"></translation>
+        <translation>400%</translation>
     </message>
 </context>
 <context>
