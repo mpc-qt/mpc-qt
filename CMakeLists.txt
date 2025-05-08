@@ -17,7 +17,7 @@ find_package(PkgConfig REQUIRED)
 # These two SET CMAKE_AUTOMOC and CMAKE_AUTOUIC can be replaced with Qt 6.3 by
 # qt_standard_project_setup()
 # Starting with Qt 6.7,
-# qt_standard_project_setup(I18N_TRANSLATED_LANGUAGES ca en es fi id it ja nl pt_BR ru ta tr zh_CN)
+# qt_standard_project_setup(I18N_TRANSLATED_LANGUAGES ar ca en es fi fr id it ja nl pt_BR ru ta tr zh_CN)
 # can be used instead so that the TS_FILES don't need to be listed below
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -119,10 +119,12 @@ set(SOURCES
 qt_add_executable(mpc-qt WIN32 MACOSX_BUNDLE ${SOURCES})
 
 set(TS_FILES
+    translations/mpc-qt_ar.ts
     translations/mpc-qt_ca.ts
     translations/mpc-qt_en.ts
     translations/mpc-qt_es.ts
     translations/mpc-qt_fi.ts
+    translations/mpc-qt_fr.ts
     translations/mpc-qt_id.ts
     translations/mpc-qt_it.ts
     translations/mpc-qt_ja.ts
