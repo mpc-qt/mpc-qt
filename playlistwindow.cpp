@@ -12,6 +12,8 @@
 #include "widgets/drawnplaylist.h"
 #include "playlist.h"
 
+static char keyCurrentPlaylist[] = "currentPlaylist";
+
 PlaylistWindow::PlaylistWindow(QWidget *parent) :
     QDockWidget(parent),
     ui(new Ui::PlaylistWindow),
@@ -244,6 +246,7 @@ void PlaylistWindow::deltaExtraPlayTimes(QUuid list, QUuid item, int delta)
     widgets[list]->viewport()->repaint();
 }
 
+// Save the tabs on stop
 QVariantList PlaylistWindow::tabsToVList() const
 {
     QVariantList qvl;
@@ -251,17 +254,25 @@ QVariantList PlaylistWindow::tabsToVList() const
         auto widget = reinterpret_cast<DrawnPlaylist *>(ui->tabWidget->widget(i));
         qvl.append(widget->toVMap());
     }
+    qvl.append(QVariantMap{{keyCurrentPlaylist, currentPlaylist}});
     return qvl;
 }
 
+// Create the tabs on start
 void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
 {
     ui->tabWidget->clear();
     widgets.clear();
     for (const QVariant &v : qvl) {
+        QVariantMap qvm = v.toMap();
+        if (qvm.contains(keyCurrentPlaylist)) {
+            if (rememberSelectedPlaylist)
+                setCurrentPlaylist(qvm[keyCurrentPlaylist].toUuid());
+            continue;
+        }
         auto qdp = new DrawnPlaylist(PlaylistCollection::getSingleton());
         qdp->setDisplayParser(&displayParser);
-        qdp->fromVMap(v.toMap());
+        qdp->fromVMap(qvm);
         connect(qdp, &DrawnPlaylist::itemDesiredByDoubleClick,
                 this, &PlaylistWindow::itemDesired);
         connect(qdp, &DrawnPlaylist::contextMenuRequested,
@@ -418,6 +429,11 @@ void PlaylistWindow::setIconTheme(IconThemer::FolderMode folderMode,
 void PlaylistWindow::setHideFullscreen(bool hidden)
 {
     hideFullscreen = hidden;
+}
+
+void PlaylistWindow::setRememberSelectedPlaylist(bool remember)
+{
+    rememberSelectedPlaylist = remember;
 }
 
 bool PlaylistWindow::activateItem(QUuid playlistUuid, QUuid itemUuid,
