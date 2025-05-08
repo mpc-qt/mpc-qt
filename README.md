@@ -19,6 +19,7 @@ DirectShow.
 
 ## Releases
 
+[Packages are available] for various systems.  
 There are release builds for Windows and Linux users on the [release page]; these use time-based
 versioning (e.g. 17.07 corresponds to July 2017).  
 There are development builds for [Windows] and Linux ([AppImage] and [Flatpak]).  
@@ -211,6 +212,7 @@ Yes! You just need to change two SVP settings:
 [mpc-hc]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
 [release page]:https://github.com/mpc-qt/mpc-qt/releases
+[Packages are available]:https://mpc-qt.github.io/downloads
 [Windows]:https://github.com/mpc-qt/dev-builds/releases/download/continuous/mpc-qt-continuous-win-x86_64.zip
 [AppImage]:https://github.com/mpc-qt/dev-builds/releases/download/continuous/mpc-qt-continuous-linux-x86_64.AppImage
 [Flatpak]:https://github.com/mpc-qt/dev-builds/releases/download/continuous/mpc-qt-continuous-linux-x86_64.flatpak
