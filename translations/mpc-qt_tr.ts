@@ -1428,6 +1428,38 @@
         <source>&amp;Next Audio Track</source>
         <translation>&amp;Sonraki Ses Parçası</translation>
     </message>
+    <message>
+        <source>&amp;50%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;100%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;200%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>25%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;75%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>15&amp;0%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;400%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;300%</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -4060,6 +4092,38 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Show video preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>100%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>25%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>50%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>75%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>150%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>200%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>300%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>400%</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -1220,49 +1220,49 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="currentText">
-                 <string notr="true">100%</string>
+                 <string>100%</string>
                 </property>
                 <property name="currentIndex">
                  <number>3</number>
                 </property>
                 <item>
                  <property name="text">
-                  <string notr="true">25%</string>
+                  <string>25%</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string notr="true">50%</string>
+                  <string>50%</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string notr="true">75%</string>
+                  <string>75%</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string notr="true">100%</string>
+                  <string>100%</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string notr="true">150%</string>
+                  <string>150%</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string notr="true">200%</string>
+                  <string>200%</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string notr="true">300%</string>
+                  <string>300%</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string notr="true">400%</string>
+                  <string>400%</string>
                  </property>
                 </item>
                 <item>
