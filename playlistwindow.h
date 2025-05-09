@@ -82,6 +82,7 @@ signals:
 public slots:
     void setIconTheme(IconThemer::FolderMode folderMode, const QString &fallbackFolder, const QString &customFolder);
     void setHideFullscreen(bool hidden);
+    void setRememberSelectedPlaylist(bool remember);
 
     bool activateItem(QUuid playlistUuid, QUuid itemUuid, bool clickedInPlaylist = false);
     void changePlaylistSelection(QUrl itemUrl, QUuid playlistUuid, QUuid itemUuid, bool clickedInPlaylist);
@@ -155,6 +156,7 @@ private:
     DisplayParser displayParser;
     bool showSearch = false;
     bool hideFullscreen = false;
+    bool rememberSelectedPlaylist = false;
 
     QHash<QUuid, DrawnPlaylist*> widgets;
     DrawnPlaylist* queueWidget = nullptr;

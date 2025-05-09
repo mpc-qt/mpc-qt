@@ -464,7 +464,6 @@ void SettingsWindow::setupUnimplementedWidgets()
     ui->playerLimitProportions->setVisible(false);
     ui->playerDisableOpenDisc->setVisible(false);
     ui->playerTitleBox->setVisible(false);
-    ui->playerRememberLastPlaylist->setVisible(false);
     ui->playerRememberPanScanZoom->setVisible(false);
 
     ui->formatPage->setEnabled(false);
@@ -1088,7 +1087,7 @@ void SettingsWindow::setFreestanding(bool freestanding)
     ui->playerKeepHistory->setVisible(yes);
     ui->playerKeepHistoryOnlyForVideos->setVisible(yes);
     ui->playerRememberFilePosition->setVisible(yes);
-    ui->playerRememberLastPlaylist->setVisible(false /*yes*/);
+    ui->playerRememberLastPlaylist->setVisible(yes);
     ui->playerRememberWindowGeometry->setVisible(yes);
     ui->playerRememberPanels->setVisible(yes);
     ui->playerRememberPanScanZoom->setVisible(false /*yes*/);

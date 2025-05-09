@@ -702,6 +702,8 @@ void Flow::setupSettingsConnections()
             mainWindow->playlistWindow(), &PlaylistWindow::setHideFullscreen);
     connect(settingsWindow, &SettingsWindow::playlistFormat,
             mainWindow->playlistWindow(), &PlaylistWindow::setDisplayFormatSpecifier);
+    connect(settingsWindow, &SettingsWindow::rememberSelectedPlaylist,
+            mainWindow->playlistWindow(), &PlaylistWindow::setRememberSelectedPlaylist);
 
     // playlistWindow -> settings
     connect(mainWindow->playlistWindow(), &PlaylistWindow::hideFullscreenChanged,
