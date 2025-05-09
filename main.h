@@ -39,6 +39,7 @@ public:
     int run();
     bool earlyQuit();
     static void earlyPlatformOverride();
+    static void setTranslation(QApplication *app, QTranslator *qtTranslator, QTranslator *appTranslator);
     static bool isNvidiaGPU();
 
 signals:
