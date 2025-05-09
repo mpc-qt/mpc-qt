@@ -434,7 +434,7 @@
     </message>
     <message>
         <source>Shift+F10</source>
-        <translation>Shift+F10</translation>
+        <translation type="vanished">Shift+F10</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -554,7 +554,7 @@
     </message>
     <message>
         <source>Alt+Return</source>
-        <translation>Alt+Return</translation>
+        <translation type="vanished">Alt+Return</translation>
     </message>
     <message>
         <source>Alt+1</source>
@@ -626,7 +626,7 @@
     </message>
     <message>
         <source>Space</source>
-        <translation>Пробел</translation>
+        <translation type="vanished">Пробел</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
@@ -642,7 +642,7 @@
     </message>
     <message>
         <source>Ctrl+Right</source>
-        <translation>Ctrl+Вправо</translation>
+        <translation type="vanished">Ctrl+Вправо</translation>
     </message>
     <message>
         <source>Fra&amp;me Step Backward</source>
@@ -650,7 +650,7 @@
     </message>
     <message>
         <source>Ctrl+Left</source>
-        <translation>Ctrl+Влево</translation>
+        <translation type="vanished">Ctrl+Влево</translation>
     </message>
     <message>
         <source>&amp;Decrease Rate</source>
@@ -658,7 +658,7 @@
     </message>
     <message>
         <source>Ctrl+Down</source>
-        <translation>Ctrl+Вниз</translation>
+        <translation type="vanished">Ctrl+Вниз</translation>
     </message>
     <message>
         <source>&amp;Increase Rate</source>
@@ -666,7 +666,7 @@
     </message>
     <message>
         <source>Ctrl+Up</source>
-        <translation>Ctrl+Вверх</translation>
+        <translation type="vanished">Ctrl+Вверх</translation>
     </message>
     <message>
         <source>R&amp;eset Rate</source>
@@ -738,7 +738,7 @@
     </message>
     <message>
         <source>PgUp</source>
-        <translation>PgUp</translation>
+        <translation type="vanished">PgUp</translation>
     </message>
     <message>
         <source>&amp;Next</source>
@@ -746,7 +746,7 @@
     </message>
     <message>
         <source>PgDown</source>
-        <translation>PgDown</translation>
+        <translation type="vanished">PgDown</translation>
     </message>
     <message>
         <source>&amp;Go To...</source>
@@ -814,7 +814,7 @@
     </message>
     <message>
         <source>F5</source>
-        <translation>F5</translation>
+        <translation type="vanished">F5</translation>
     </message>
     <message>
         <source>Auto Fit (&amp;Smaller Only)</source>
@@ -830,7 +830,7 @@
     </message>
     <message>
         <source>Return</source>
-        <translation>Возврат</translation>
+        <translation type="vanished">Возврат</translation>
     </message>
     <message>
         <source>Seek Forwards</source>
@@ -838,7 +838,7 @@
     </message>
     <message>
         <source>Right</source>
-        <translation>Вправо</translation>
+        <translation type="vanished">Вправо</translation>
     </message>
     <message>
         <source>Seek Backwards</source>
@@ -846,7 +846,7 @@
     </message>
     <message>
         <source>Left</source>
-        <translation>Влево</translation>
+        <translation type="vanished">Влево</translation>
     </message>
     <message>
         <source>Seek Forwards Finely</source>
@@ -854,7 +854,7 @@
     </message>
     <message>
         <source>Shift+Right</source>
-        <translation>Shift+Вправо</translation>
+        <translation type="vanished">Shift+Вправо</translation>
     </message>
     <message>
         <source>Seek Backwards Finely</source>
@@ -862,7 +862,7 @@
     </message>
     <message>
         <source>Shift+Left</source>
-        <translation>Shift+Влево</translation>
+        <translation type="vanished">Shift+Влево</translation>
     </message>
     <message>
         <source>&amp;Set Loop Start</source>
@@ -870,7 +870,7 @@
     </message>
     <message>
         <source>Ctrl+Home</source>
-        <translation>Ctrl+Home</translation>
+        <translation type="vanished">Ctrl+Home</translation>
     </message>
     <message>
         <source>Set &amp;Loop End</source>
@@ -878,7 +878,7 @@
     </message>
     <message>
         <source>Ctrl+End</source>
-        <translation>Ctrl+End</translation>
+        <translation type="vanished">Ctrl+End</translation>
     </message>
     <message>
         <source>&amp;Use Loop Points</source>
@@ -886,7 +886,7 @@
     </message>
     <message>
         <source>Ctrl+Backspace</source>
-        <translation>Ctrl+Backspace</translation>
+        <translation type="vanished">Ctrl+Backspace</translation>
     </message>
     <message>
         <source>&amp;Clear Loop</source>
@@ -894,7 +894,7 @@
     </message>
     <message>
         <source>Backspace</source>
-        <translation>Backspace</translation>
+        <translation type="vanished">Backspace</translation>
     </message>
     <message>
         <source>&amp;Search Playlist</source>
@@ -1046,7 +1046,7 @@
     </message>
     <message>
         <source>Shift+F5</source>
-        <translation>Shift+F5</translation>
+        <translation type="vanished">Shift+F5</translation>
     </message>
     <message>
         <source>Export Encode...</source>
@@ -1054,7 +1054,7 @@
     </message>
     <message>
         <source>F12</source>
-        <translation>F12</translation>
+        <translation type="vanished">F12</translation>
     </message>
     <message>
         <source>S&amp;how Quick Queue</source>
@@ -1082,7 +1082,7 @@
     </message>
     <message>
         <source>Ctrl+F5</source>
-        <translation>Ctrl+F5</translation>
+        <translation type="vanished">Ctrl+F5</translation>
     </message>
     <message>
         <source>Do No&amp;thing</source>
@@ -1278,7 +1278,7 @@
     </message>
     <message>
         <source>Ctrl+PgUp</source>
-        <translation>Ctrl+PgUp</translation>
+        <translation type="vanished">Ctrl+PgUp</translation>
     </message>
     <message>
         <source>&amp;Next File</source>
@@ -1286,7 +1286,7 @@
     </message>
     <message>
         <source>Ctrl+PgDown</source>
-        <translation>Ctrl+PgDown</translation>
+        <translation type="vanished">Ctrl+PgDown</translation>
     </message>
     <message>
         <source>Play next &amp;file</source>

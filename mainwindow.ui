@@ -1162,7 +1162,7 @@
     <string>P&amp;roperties</string>
    </property>
    <property name="shortcut">
-    <string>Shift+F10</string>
+    <string notr="true">Shift+F10</string>
    </property>
   </action>
   <action name="actionFileExit">
@@ -1327,7 +1327,7 @@
     <string>F&amp;ullscreen</string>
    </property>
    <property name="shortcut">
-    <string>Alt+Return</string>
+    <string notr="true">Alt+Return</string>
    </property>
   </action>
   <action name="actionViewZoom050">
@@ -1450,7 +1450,7 @@
     <string>&amp;Pause</string>
    </property>
    <property name="shortcut">
-    <string>Space</string>
+    <string notr="true">Space</string>
    </property>
   </action>
   <action name="actionPlayStop">
@@ -1466,7 +1466,7 @@
     <string>Fra&amp;me Step Backward</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Left</string>
+    <string notr="true">Ctrl+Left</string>
    </property>
   </action>
   <action name="actionPlayFrameForward">
@@ -1474,7 +1474,7 @@
     <string>F&amp;rame Step Forward</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Right</string>
+    <string notr="true">Ctrl+Right</string>
    </property>
   </action>
   <action name="actionPlayRateDecrease">
@@ -1482,7 +1482,7 @@
     <string>&amp;Decrease Rate</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Down</string>
+    <string notr="true">Ctrl+Down</string>
    </property>
   </action>
   <action name="actionPlayRateIncrease">
@@ -1490,7 +1490,7 @@
     <string>&amp;Increase Rate</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Up</string>
+    <string notr="true">Ctrl+Up</string>
    </property>
   </action>
   <action name="actionPlayRateReset">
@@ -1592,7 +1592,7 @@
     <string>&amp;Previous</string>
    </property>
    <property name="shortcut">
-    <string>PgUp</string>
+    <string notr="true">PgUp</string>
    </property>
   </action>
   <action name="actionNavigateChaptersNext">
@@ -1600,7 +1600,7 @@
     <string>&amp;Next</string>
    </property>
    <property name="shortcut">
-    <string>PgDown</string>
+    <string notr="true">PgDown</string>
    </property>
   </action>
   <action name="actionNavigateFilesPrevious">
@@ -1608,7 +1608,7 @@
     <string>&amp;Previous File</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+PgUp</string>
+    <string notr="true">Ctrl+PgUp</string>
    </property>
   </action>
   <action name="actionNavigateFilesNext">
@@ -1616,7 +1616,7 @@
     <string>&amp;Next File</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+PgDown</string>
+    <string notr="true">Ctrl+PgDown</string>
    </property>
   </action>
   <action name="actionNavigateGoto">
@@ -1711,7 +1711,7 @@
     <string>Save I&amp;mage (Auto)</string>
    </property>
    <property name="shortcut">
-    <string>F5</string>
+    <string notr="true">F5</string>
    </property>
   </action>
   <action name="actionViewZoomAutofitSmaller">
@@ -1730,7 +1730,7 @@
     <string>&amp;Play Current</string>
    </property>
    <property name="shortcut">
-    <string>Return</string>
+    <string notr="true">Return</string>
    </property>
   </action>
   <action name="actionPlaySeekForwardsNormal">
@@ -1738,7 +1738,7 @@
     <string>Seek Forwards (normal step)</string>
    </property>
    <property name="shortcut">
-    <string>Right</string>
+    <string notr="true">Right</string>
    </property>
   </action>
   <action name="actionPlaySeekBackwardsNormal">
@@ -1746,7 +1746,7 @@
     <string>Seek Backwards (normal step)</string>
    </property>
    <property name="shortcut">
-    <string>Left</string>
+    <string notr="true">Left</string>
    </property>
   </action>
   <action name="actionPlaySeekForwardsLarge">
@@ -1754,7 +1754,7 @@
     <string>Seek Forwards (large step)</string>
    </property>
    <property name="shortcut">
-    <string>Shift+Right</string>
+    <string notr="true">Shift+Right</string>
    </property>
   </action>
   <action name="actionPlaySeekBackwardsLarge">
@@ -1762,7 +1762,7 @@
     <string>Seek Backwards (large step)</string>
    </property>
    <property name="shortcut">
-    <string>Shift+Left</string>
+    <string notr="true">Shift+Left</string>
    </property>
   </action>
   <action name="actionPlayLoopStart">
@@ -1770,7 +1770,7 @@
     <string>&amp;Set Loop Start</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Home</string>
+    <string notr="true">Ctrl+Home</string>
    </property>
   </action>
   <action name="actionPlayLoopEnd">
@@ -1778,7 +1778,7 @@
     <string>Set &amp;Loop End</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+End</string>
+    <string notr="true">Ctrl+End</string>
    </property>
   </action>
   <action name="actionPlayLoopUse">
@@ -1789,7 +1789,7 @@
     <string>&amp;Repeat</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Backspace</string>
+    <string notr="true">Ctrl+Backspace</string>
    </property>
   </action>
   <action name="actionPlayLoopClear">
@@ -1797,7 +1797,7 @@
     <string>&amp;Clear Loop</string>
    </property>
    <property name="shortcut">
-    <string>Backspace</string>
+    <string notr="true">Backspace</string>
    </property>
   </action>
   <action name="actionPlaylistSearch">
@@ -1989,7 +1989,7 @@
     <string>Save Plain Ima&amp;ge (Auto)</string>
    </property>
    <property name="shortcut">
-    <string>Shift+F5</string>
+    <string notr="true">Shift+F5</string>
    </property>
   </action>
   <action name="actionFileExportEncode">
@@ -1997,7 +1997,7 @@
     <string>Export Encode...</string>
    </property>
    <property name="shortcut">
-    <string>F12</string>
+    <string notr="true">F12</string>
    </property>
   </action>
   <action name="actionPlaylistShowQuickQueue">
@@ -2027,7 +2027,7 @@
     <string>Save Window Image (Auto)</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+F5</string>
+    <string notr="true">Ctrl+F5</string>
    </property>
   </action>
   <action name="actionPlayAfterOnceNothing">

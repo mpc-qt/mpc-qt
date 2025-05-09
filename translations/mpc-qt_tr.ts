@@ -434,7 +434,7 @@
     </message>
     <message>
         <source>Shift+F10</source>
-        <translation>Üst Karakter+F10</translation>
+        <translation type="vanished">Üst Karakter+F10</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -554,7 +554,7 @@
     </message>
     <message>
         <source>Alt+Return</source>
-        <translation>Seçenek+Dönüş</translation>
+        <translation type="vanished">Seçenek+Dönüş</translation>
     </message>
     <message>
         <source>Alt+1</source>
@@ -626,7 +626,7 @@
     </message>
     <message>
         <source>Space</source>
-        <translation>Boşluk</translation>
+        <translation type="vanished">Boşluk</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
@@ -642,7 +642,7 @@
     </message>
     <message>
         <source>Ctrl+Right</source>
-        <translation>Kontrol+Sağ</translation>
+        <translation type="vanished">Kontrol+Sağ</translation>
     </message>
     <message>
         <source>Fra&amp;me Step Backward</source>
@@ -650,7 +650,7 @@
     </message>
     <message>
         <source>Ctrl+Left</source>
-        <translation>Kontrol+Sol</translation>
+        <translation type="vanished">Kontrol+Sol</translation>
     </message>
     <message>
         <source>&amp;Decrease Rate</source>
@@ -658,7 +658,7 @@
     </message>
     <message>
         <source>Ctrl+Down</source>
-        <translation>Kontrol+Aşağı</translation>
+        <translation type="vanished">Kontrol+Aşağı</translation>
     </message>
     <message>
         <source>&amp;Increase Rate</source>
@@ -666,7 +666,7 @@
     </message>
     <message>
         <source>Ctrl+Up</source>
-        <translation>Kontrol+Yukarı</translation>
+        <translation type="vanished">Kontrol+Yukarı</translation>
     </message>
     <message>
         <source>R&amp;eset Rate</source>
@@ -738,7 +738,7 @@
     </message>
     <message>
         <source>PgUp</source>
-        <translation>Sayfa Yukarı</translation>
+        <translation type="vanished">Sayfa Yukarı</translation>
     </message>
     <message>
         <source>&amp;Next</source>
@@ -746,7 +746,7 @@
     </message>
     <message>
         <source>PgDown</source>
-        <translation>Sayfa Aşağı</translation>
+        <translation type="vanished">Sayfa Aşağı</translation>
     </message>
     <message>
         <source>&amp;Go To...</source>
@@ -814,7 +814,7 @@
     </message>
     <message>
         <source>F5</source>
-        <translation>F5</translation>
+        <translation type="vanished">F5</translation>
     </message>
     <message>
         <source>Auto Fit (&amp;Smaller Only)</source>
@@ -830,7 +830,7 @@
     </message>
     <message>
         <source>Return</source>
-        <translation>Dönüş</translation>
+        <translation type="vanished">Dönüş</translation>
     </message>
     <message>
         <source>Seek Forwards</source>
@@ -838,7 +838,7 @@
     </message>
     <message>
         <source>Right</source>
-        <translation>Sağ</translation>
+        <translation type="vanished">Sağ</translation>
     </message>
     <message>
         <source>Seek Backwards</source>
@@ -846,7 +846,7 @@
     </message>
     <message>
         <source>Left</source>
-        <translation>Sol</translation>
+        <translation type="vanished">Sol</translation>
     </message>
     <message>
         <source>Seek Forwards Finely</source>
@@ -854,7 +854,7 @@
     </message>
     <message>
         <source>Shift+Right</source>
-        <translation>Üst Karakter+Sağ</translation>
+        <translation type="vanished">Üst Karakter+Sağ</translation>
     </message>
     <message>
         <source>Seek Backwards Finely</source>
@@ -862,7 +862,7 @@
     </message>
     <message>
         <source>Shift+Left</source>
-        <translation>Üst Karakter+Sol</translation>
+        <translation type="vanished">Üst Karakter+Sol</translation>
     </message>
     <message>
         <source>&amp;Set Loop Start</source>
@@ -870,7 +870,7 @@
     </message>
     <message>
         <source>Ctrl+Home</source>
-        <translation>Kontrol+Baş</translation>
+        <translation type="vanished">Kontrol+Baş</translation>
     </message>
     <message>
         <source>Set &amp;Loop End</source>
@@ -878,7 +878,7 @@
     </message>
     <message>
         <source>Ctrl+End</source>
-        <translation>Kontrol+Son</translation>
+        <translation type="vanished">Kontrol+Son</translation>
     </message>
     <message>
         <source>&amp;Use Loop Points</source>
@@ -886,7 +886,7 @@
     </message>
     <message>
         <source>Ctrl+Backspace</source>
-        <translation>Kontrol+Geri Sil</translation>
+        <translation type="vanished">Kontrol+Geri Sil</translation>
     </message>
     <message>
         <source>&amp;Clear Loop</source>
@@ -894,7 +894,7 @@
     </message>
     <message>
         <source>Backspace</source>
-        <translation>Geri Sil</translation>
+        <translation type="vanished">Geri Sil</translation>
     </message>
     <message>
         <source>&amp;Search Playlist</source>
@@ -1046,7 +1046,7 @@
     </message>
     <message>
         <source>Shift+F5</source>
-        <translation>Üst Karakter+F5</translation>
+        <translation type="vanished">Üst Karakter+F5</translation>
     </message>
     <message>
         <source>Export Encode...</source>
@@ -1054,7 +1054,7 @@
     </message>
     <message>
         <source>F12</source>
-        <translation>F12</translation>
+        <translation type="vanished">F12</translation>
     </message>
     <message>
         <source>S&amp;how Quick Queue</source>
@@ -1082,7 +1082,7 @@
     </message>
     <message>
         <source>Ctrl+F5</source>
-        <translation>Kontrol+F5</translation>
+        <translation type="vanished">Kontrol+F5</translation>
     </message>
     <message>
         <source>Do No&amp;thing</source>
@@ -1282,7 +1282,7 @@
     </message>
     <message>
         <source>Ctrl+PgUp</source>
-        <translation>Kontrol+Sayfa Yukarı</translation>
+        <translation type="vanished">Kontrol+Sayfa Yukarı</translation>
     </message>
     <message>
         <source>&amp;Next File</source>
@@ -1290,7 +1290,7 @@
     </message>
     <message>
         <source>Ctrl+PgDown</source>
-        <translation>Kontrol+Sayfa Aşağı</translation>
+        <translation type="vanished">Kontrol+Sayfa Aşağı</translation>
     </message>
     <message>
         <source>Play next &amp;file</source>

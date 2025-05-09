@@ -434,7 +434,7 @@
     </message>
     <message>
         <source>Shift+F10</source>
-        <translation>சிப்ட்+எஃப் 10</translation>
+        <translation type="vanished">சிப்ட்+எஃப் 10</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -554,7 +554,7 @@
     </message>
     <message>
         <source>Alt+Return</source>
-        <translation>Alt+திரும்ப</translation>
+        <translation type="vanished">Alt+திரும்ப</translation>
     </message>
     <message>
         <source>Alt+1</source>
@@ -626,7 +626,7 @@
     </message>
     <message>
         <source>Space</source>
-        <translation>இடைவெளி</translation>
+        <translation type="vanished">இடைவெளி</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
@@ -642,7 +642,7 @@
     </message>
     <message>
         <source>Ctrl+Right</source>
-        <translation>Ctrl+சரி</translation>
+        <translation type="vanished">Ctrl+சரி</translation>
     </message>
     <message>
         <source>Fra&amp;me Step Backward</source>
@@ -650,7 +650,7 @@
     </message>
     <message>
         <source>Ctrl+Left</source>
-        <translation>Ctrl+இடது</translation>
+        <translation type="vanished">Ctrl+இடது</translation>
     </message>
     <message>
         <source>&amp;Decrease Rate</source>
@@ -658,7 +658,7 @@
     </message>
     <message>
         <source>Ctrl+Down</source>
-        <translation>Ctrl+down</translation>
+        <translation type="vanished">Ctrl+down</translation>
     </message>
     <message>
         <source>&amp;Increase Rate</source>
@@ -666,7 +666,7 @@
     </message>
     <message>
         <source>Ctrl+Up</source>
-        <translation>Ctrl+up</translation>
+        <translation type="vanished">Ctrl+up</translation>
     </message>
     <message>
         <source>R&amp;eset Rate</source>
@@ -738,7 +738,7 @@
     </message>
     <message>
         <source>PgUp</source>
-        <translation>Pgup</translation>
+        <translation type="vanished">Pgup</translation>
     </message>
     <message>
         <source>&amp;Next</source>
@@ -746,7 +746,7 @@
     </message>
     <message>
         <source>PgDown</source>
-        <translation>Pgdown</translation>
+        <translation type="vanished">Pgdown</translation>
     </message>
     <message>
         <source>&amp;Go To...</source>
@@ -814,7 +814,7 @@
     </message>
     <message>
         <source>F5</source>
-        <translation>எஃப் 5</translation>
+        <translation type="vanished">எஃப் 5</translation>
     </message>
     <message>
         <source>Auto Fit (&amp;Smaller Only)</source>
@@ -830,7 +830,7 @@
     </message>
     <message>
         <source>Return</source>
-        <translation>திரும்ப</translation>
+        <translation type="vanished">திரும்ப</translation>
     </message>
     <message>
         <source>Seek Forwards</source>
@@ -838,7 +838,7 @@
     </message>
     <message>
         <source>Right</source>
-        <translation>வலது</translation>
+        <translation type="vanished">வலது</translation>
     </message>
     <message>
         <source>Seek Backwards</source>
@@ -846,7 +846,7 @@
     </message>
     <message>
         <source>Left</source>
-        <translation>இடது</translation>
+        <translation type="vanished">இடது</translation>
     </message>
     <message>
         <source>Seek Forwards Finely</source>
@@ -854,7 +854,7 @@
     </message>
     <message>
         <source>Shift+Right</source>
-        <translation>சிப்ட்+சரியானது</translation>
+        <translation type="vanished">சிப்ட்+சரியானது</translation>
     </message>
     <message>
         <source>Seek Backwards Finely</source>
@@ -862,7 +862,7 @@
     </message>
     <message>
         <source>Shift+Left</source>
-        <translation>சிப்ட்+இடது</translation>
+        <translation type="vanished">சிப்ட்+இடது</translation>
     </message>
     <message>
         <source>&amp;Set Loop Start</source>
@@ -870,7 +870,7 @@
     </message>
     <message>
         <source>Ctrl+Home</source>
-        <translation>Ctrl+வீடு</translation>
+        <translation type="vanished">Ctrl+வீடு</translation>
     </message>
     <message>
         <source>Set &amp;Loop End</source>
@@ -878,7 +878,7 @@
     </message>
     <message>
         <source>Ctrl+End</source>
-        <translation>Ctrl+end</translation>
+        <translation type="vanished">Ctrl+end</translation>
     </message>
     <message>
         <source>&amp;Use Loop Points</source>
@@ -886,7 +886,7 @@
     </message>
     <message>
         <source>Ctrl+Backspace</source>
-        <translation>Ctrl+பேக்ச்பேச்</translation>
+        <translation type="vanished">Ctrl+பேக்ச்பேச்</translation>
     </message>
     <message>
         <source>&amp;Clear Loop</source>
@@ -894,7 +894,7 @@
     </message>
     <message>
         <source>Backspace</source>
-        <translation>பேக்ச்பேச்</translation>
+        <translation type="vanished">பேக்ச்பேச்</translation>
     </message>
     <message>
         <source>&amp;Search Playlist</source>
@@ -1046,7 +1046,7 @@
     </message>
     <message>
         <source>Shift+F5</source>
-        <translation>சிப்ட்+எஃப் 5</translation>
+        <translation type="vanished">சிப்ட்+எஃப் 5</translation>
     </message>
     <message>
         <source>Export Encode...</source>
@@ -1054,7 +1054,7 @@
     </message>
     <message>
         <source>F12</source>
-        <translation>எஃப் 12</translation>
+        <translation type="vanished">எஃப் 12</translation>
     </message>
     <message>
         <source>S&amp;how Quick Queue</source>
@@ -1082,7 +1082,7 @@
     </message>
     <message>
         <source>Ctrl+F5</source>
-        <translation>Ctrl+F5</translation>
+        <translation type="vanished">Ctrl+F5</translation>
     </message>
     <message>
         <source>Do No&amp;thing</source>
@@ -1282,7 +1282,7 @@
     </message>
     <message>
         <source>Ctrl+PgUp</source>
-        <translation>Ctrl+pgup</translation>
+        <translation type="vanished">Ctrl+pgup</translation>
     </message>
     <message>
         <source>&amp;Next File</source>
@@ -1290,7 +1290,7 @@
     </message>
     <message>
         <source>Ctrl+PgDown</source>
-        <translation>Ctrl+pgdown</translation>
+        <translation type="vanished">Ctrl+pgdown</translation>
     </message>
     <message>
         <source>Play next &amp;file</source>
