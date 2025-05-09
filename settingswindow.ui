@@ -6768,6 +6768,13 @@ media file played</string>
             </widget>
            </item>
            <item>
+            <widget class="QCheckBox" name="subtitlesRemoveSdh">
+             <property name="text">
+              <string>Remove subtitles additions for the deaf or hard-of-hearing (SDH)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QGroupBox" name="subtitlesAutoloadBox">
              <property name="title">
               <string>Autoload paths</string>

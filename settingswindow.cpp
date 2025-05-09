@@ -1019,6 +1019,7 @@ void SettingsWindow::sendSignals()
     emit subsPreferExternal(WIDGET_LOOKUP(ui->subtitlesPreferExternal).toBool());
     emit subsIgnoreEmbeded(WIDGET_LOOKUP(ui->subtitlesIgnoreEmbedded).toBool());
     bool subsAutoload = WIDGET_LOOKUP(ui->subtitlesAutoloadExternal).toBool();
+    emit option("sub-filter-sdh", WIDGET_LOOKUP(ui->subtitlesRemoveSdh).toBool());
     emit option("sub-auto", subsAutoload ? WIDGET_TO_TEXT(ui->subtitlesAutoloadMatch) : QString("no"));
     emit option("sub-file-paths", WIDGET_PLACEHOLD_LOOKUP(ui->subtitlesAutoloadPath).split(';'));
 
