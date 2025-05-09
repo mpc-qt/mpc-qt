@@ -254,179 +254,179 @@
     </message>
     <message>
         <source>O&amp;pen Disc</source>
-        <translation type="unfinished">Ouvrir un &amp;disque</translation>
+        <translation>Ouvrir un &amp;disque</translation>
     </message>
     <message>
         <source>Recent &amp;Files</source>
-        <translation type="unfinished">&amp;Fichiers récents</translation>
+        <translation>&amp;Fichiers récents</translation>
     </message>
     <message>
         <source>Subtitle Data&amp;base</source>
-        <translation type="unfinished">Base de données des &amp;sous-titres</translation>
+        <translation>Base de données des &amp;sous-titres</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished">&amp;Affichage</translation>
+        <translation>&amp;Affichage</translation>
     </message>
     <message>
         <source>&amp;Presets</source>
-        <translation type="unfinished">&amp;Préréglages</translation>
+        <translation>&amp;Préréglages</translation>
     </message>
     <message>
         <source>&amp;Zoom</source>
-        <translation type="unfinished">&amp;Zoom</translation>
+        <translation>&amp;Zoom</translation>
     </message>
     <message>
         <source>On &amp;Top</source>
-        <translation type="unfinished">Au-&amp;dessus</translation>
+        <translation>Au-&amp;dessus</translation>
     </message>
     <message>
         <source>OS&amp;D</source>
-        <translation type="unfinished">Affichage &amp;OSD</translation>
+        <translation>&amp;OSD</translation>
     </message>
     <message>
         <source>P&amp;lay</source>
-        <translation type="unfinished">L&amp;ecture</translation>
+        <translation>&amp;Lecture</translation>
     </message>
     <message>
         <source>&amp;Audio</source>
-        <translation type="unfinished">&amp;Audio</translation>
+        <translation>A&amp;udio</translation>
     </message>
     <message>
         <source>Su&amp;btitles</source>
-        <translation type="unfinished">So&amp;us-titres</translation>
+        <translation>&amp;Sous-titres</translation>
     </message>
     <message>
         <source>V&amp;olume</source>
-        <translation type="unfinished">V&amp;olume</translation>
+        <translation>Vo&amp;lume</translation>
     </message>
     <message>
         <source>Af&amp;ter Playback</source>
-        <translation type="unfinished">Ap&amp;rès lecture</translation>
+        <translation>Ap&amp;rès lecture</translation>
     </message>
     <message>
         <source>&amp;Loop</source>
-        <translation type="unfinished">&amp;Boucle</translation>
+        <translation>&amp;Boucle</translation>
     </message>
     <message>
         <source>&amp;Navigate</source>
-        <translation type="unfinished">&amp;Navigation</translation>
+        <translation>&amp;Navigation</translation>
     </message>
     <message>
         <source>&amp;Chapters</source>
-        <translation type="unfinished">&amp;Chapitres</translation>
+        <translation>&amp;Chapitres</translation>
     </message>
     <message>
         <source>Favo&amp;rites</source>
-        <translation type="unfinished">Favo&amp;ris</translation>
+        <translation>Fa&amp;voris</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished">&amp;Aide</translation>
+        <translation>A&amp;ide</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished">&amp;Édition</translation>
+        <translation>&amp;Édition</translation>
     </message>
     <message>
         <source>&amp;Extra Play Times</source>
-        <translation type="unfinished">Lectures &amp;supplémentaires</translation>
+        <translation>Lectures &amp;supplémentaires</translation>
     </message>
     <message>
         <source>&amp;Quick Open File...</source>
-        <translation type="unfinished">Ouvrir un fichier &amp;rapidement...</translation>
+        <translation>Ouvrir un fichier &amp;rapidement...</translation>
     </message>
     <message>
         <source>&amp;Open File...</source>
-        <translation type="unfinished">&amp;Ouvrir un fichier...</translation>
+        <translation>&amp;Ouvrir un fichier...</translation>
     </message>
     <message>
         <source>Ctrl+O</source>
-        <translation type="unfinished">Ctrl+O</translation>
+        <translation>Ctrl+O</translation>
     </message>
     <message>
         <source>Open &amp;DVD/BD...</source>
-        <translation type="unfinished">Ouvrir un &amp;DVD/BD...</translation>
+        <translation>Ouvrir un &amp;DVD/BD...</translation>
     </message>
     <message>
         <source>Ctrl+D</source>
-        <translation type="unfinished">Ctrl+D</translation>
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <source>Open De&amp;vice...</source>
-        <translation type="unfinished">Ouvrir un pé&amp;riphérique...</translation>
+        <translation>Ouvrir un &amp;périphérique...</translation>
     </message>
     <message>
         <source>Ctrl+V</source>
-        <translation type="unfinished">Ctrl+V</translation>
+        <translation>Ctrl+V</translation>
     </message>
     <message>
         <source>Open Dir&amp;ectory...</source>
-        <translation type="unfinished">Ouvrir un rép&amp;ertoire...</translation>
+        <translation>Ouvrir un r&amp;épertoire...</translation>
     </message>
     <message>
         <source>&amp;Clear list</source>
-        <translation type="unfinished">&amp;Effacer la liste</translation>
+        <translation>&amp;Effacer la liste</translation>
     </message>
     <message>
         <source>&amp;Close File</source>
-        <translation type="unfinished">&amp;Fermer le fichier</translation>
+        <translation>Fermer le fic&amp;hier</translation>
     </message>
     <message>
         <source>Ctrl+W</source>
-        <translation type="unfinished">Ctrl+W</translation>
+        <translation>Ctrl+W</translation>
     </message>
     <message>
         <source>&amp;Save a Copy...</source>
-        <translation type="unfinished">&amp;Enregistrer une copie...</translation>
+        <translation>Enregistrer une co&amp;pie...</translation>
     </message>
     <message>
         <source>Save &amp;Image...</source>
-        <translation type="unfinished">Enregistrer l&apos;&amp;image...</translation>
+        <translation>Enregistrer l&apos;&amp;image...</translation>
     </message>
     <message>
         <source>Alt+I</source>
-        <translation type="unfinished">Alt+I</translation>
+        <translation>Alt+I</translation>
     </message>
     <message>
         <source>Save &amp;Thumbnails</source>
-        <translation type="unfinished">Enregistrer les &amp;miniatures</translation>
+        <translation>Enregistrer les mi&amp;niatures</translation>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
-        <translation type="unfinished">&amp;Charger les sous-titres...</translation>
+        <translation>&amp;Charger les sous-titres...</translation>
     </message>
     <message>
         <source>Ctrl+L</source>
-        <translation type="unfinished">Ctrl+L</translation>
+        <translation>Ctrl+L</translation>
     </message>
     <message>
         <source>Save S&amp;ubtitle...</source>
-        <translation type="unfinished">Enregistrer le so&amp;us-titre...</translation>
+        <translation>Enregistrer les sous-&amp;titres...</translation>
     </message>
     <message>
         <source>Ctrl+S</source>
-        <translation type="unfinished">Ctrl+S</translation>
+        <translation>Ctrl+S</translation>
     </message>
     <message>
         <source>&amp;Upload...</source>
-        <translation type="unfinished">&amp;Téléverser...</translation>
+        <translation>Télé&amp;verser...</translation>
     </message>
     <message>
         <source>&amp;Download...</source>
-        <translation type="unfinished">&amp;Télécharger...</translation>
+        <translation>&amp;Télécharger...</translation>
     </message>
     <message>
         <source>D</source>
-        <translation type="unfinished">D</translation>
+        <translation>D</translation>
     </message>
     <message>
         <source>&amp;Search...</source>
-        <translation type="unfinished">&amp;Rechercher...</translation>
+        <translation>&amp;Rechercher...</translation>
     </message>
     <message>
         <source>P&amp;roperties</source>
-        <translation type="unfinished">P&amp;ropriétés</translation>
+        <translation>&amp;Propriétés</translation>
     </message>
     <message>
         <source>Shift+F10</source>
@@ -434,71 +434,71 @@
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation type="unfinished">Q&amp;uitter</translation>
+        <translation>&amp;Quitter</translation>
     </message>
     <message>
         <source>Alt+X</source>
-        <translation type="unfinished">Alt+X</translation>
+        <translation>Alt+X</translation>
     </message>
     <message>
         <source>Hide &amp;Menu</source>
-        <translation type="unfinished">Cacher le &amp;menu</translation>
+        <translation>Cacher le &amp;menu</translation>
     </message>
     <message>
         <source>Ctrl+0</source>
-        <translation type="unfinished">Ctrl+0</translation>
+        <translation>Ctrl+0</translation>
     </message>
     <message>
         <source>See&amp;k Bar</source>
-        <translation type="unfinished">Barre de &amp;défilement</translation>
+        <translation>Barre de &amp;défilement</translation>
     </message>
     <message>
         <source>Ctrl+1</source>
-        <translation type="unfinished">Ctrl+1</translation>
+        <translation>Ctrl+1</translation>
     </message>
     <message>
         <source>&amp;Controls</source>
-        <translation type="unfinished">&amp;Contrôles</translation>
+        <translation>&amp;Contrôles</translation>
     </message>
     <message>
         <source>Ctrl+2</source>
-        <translation type="unfinished">Ctrl+2</translation>
+        <translation>Ctrl+2</translation>
     </message>
     <message>
         <source>&amp;Information</source>
-        <translation type="unfinished">&amp;Informations</translation>
+        <translation>&amp;Informations</translation>
     </message>
     <message>
         <source>Ctrl+3</source>
-        <translation type="unfinished">Ctrl+3</translation>
+        <translation>Ctrl+3</translation>
     </message>
     <message>
         <source>&amp;Statistics</source>
-        <translation type="unfinished">&amp;Statistiques</translation>
+        <translation>&amp;Statistiques</translation>
     </message>
     <message>
         <source>Ctrl+4</source>
-        <translation type="unfinished">Ctrl+4</translation>
+        <translation>Ctrl+4</translation>
     </message>
     <message>
         <source>S&amp;tatus</source>
-        <translation type="unfinished">&amp;État</translation>
+        <translation>É&amp;tat</translation>
     </message>
     <message>
         <source>Ctrl+5</source>
-        <translation type="unfinished">Ctrl+5</translation>
+        <translation>Ctrl+5</translation>
     </message>
     <message>
         <source>Su&amp;bresync</source>
-        <translation type="unfinished">Re&amp;synchro ST</translation>
+        <translation>Re&amp;synchro ST</translation>
     </message>
     <message>
         <source>Ctrl+6</source>
-        <translation type="unfinished">Ctrl+6</translation>
+        <translation>Ctrl+6</translation>
     </message>
     <message>
         <source>Play&amp;list</source>
-        <translation type="unfinished">&amp;Liste de lecture</translation>
+        <translation>&amp;Liste de lecture</translation>
     </message>
     <message>
         <source>Ctrl+7</source>
@@ -546,7 +546,7 @@
     </message>
     <message>
         <source>F&amp;ullscreen</source>
-        <translation>Plein &amp;écran</translation>
+        <translation>Plein écra&amp;n</translation>
     </message>
     <message>
         <source>Alt+Return</source>
@@ -1214,7 +1214,7 @@
     </message>
     <message>
         <source>Controls in Fullscreen</source>
-        <translation>Contrôles en plein écran</translation>
+        <translation>Co&amp;ntrôles en plein écran</translation>
     </message>
     <message>
         <source>&amp;Previous File</source>
