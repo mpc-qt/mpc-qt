@@ -272,6 +272,9 @@
              <property name="title">
               <string>Language Override</string>
              </property>
+             <property name="toolTip">
+              <string>Requires restarting the application to apply changes</string>
+             </property>
              <layout class="QVBoxLayout" name="verticalLayout_17">
               <item>
                <widget class="QComboBox" name="playerLanguageComboBox_v2">
@@ -281,6 +284,11 @@
                 <item>
                  <property name="text">
                   <string>Locale (Autodetect)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true" extracomment="en - English">English</string>
                  </property>
                 </item>
                </widget>

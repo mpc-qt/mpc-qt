@@ -4138,6 +4138,10 @@ media file played</translation>
         <source>Remove subtitles additions for the deaf or hard-of-hearing (SDH)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Requires restarting the application to apply changes</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

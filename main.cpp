@@ -75,15 +75,10 @@ int main(int argc, char *argv[])
     qRegisterMetaType<uint64_t>("uint64_t");
     qRegisterMetaType<uint16_t>("uint16_t");
 
-    // Register the translations
-    QLocale locale;
     QTranslator qtTranslator;
-    if (qtTranslator.load(locale, "qt", "_", ":/i18n"))
-        a.installTranslator(&qtTranslator);
+    QTranslator appTranslator;
 
-    QTranslator aTranslator;
-    if (aTranslator.load(locale, "mpc-qt", "_", ":/i18n"))
-        a.installTranslator(&aTranslator);
+    Flow::setTranslation(&a, &qtTranslator, &appTranslator);
 
 #ifndef MPCQT_VERSION_STR
 #define MPCQT_VERSION_STR MainWindow::tr("Development Build")
@@ -426,6 +421,23 @@ void Flow::earlyPlatformOverride()
     // The Nvidia drivers don't work well with EGL
     if (!nvidiaDetected)
         qputenv("QT_XCB_GL_INTEGRATION", "xcb_egl");
+}
+
+// Register the translations
+void Flow::setTranslation(QApplication *app, QTranslator *qtTranslator, QTranslator *appTranslator)
+{
+    QLocale locale;
+    Storage s;
+    QVariantMap settings = s.readVMap(fileSettings);
+    int localeSetting = settings.value("playerLanguageComboBox_v2", 0).toInt();
+    if (localeSetting != 0)
+        locale = QLocale("en");
+
+    if (qtTranslator->load(locale, "qt", "_", ":/i18n"))
+        app->installTranslator(qtTranslator);
+
+    if (appTranslator->load(locale, "mpc-qt", "_", ":/i18n"))
+        app->installTranslator(appTranslator);
 }
 
 void Flow::readConfig()
