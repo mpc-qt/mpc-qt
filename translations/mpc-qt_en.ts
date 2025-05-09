@@ -4140,7 +4140,7 @@ media file played</translation>
     </message>
     <message>
         <source>Requires restarting the application to apply changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Requires restarting the application to apply changes</translation>
     </message>
 </context>
 <context>
