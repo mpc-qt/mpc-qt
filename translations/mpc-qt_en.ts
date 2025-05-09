@@ -4136,7 +4136,7 @@ media file played</translation>
     </message>
     <message>
         <source>Remove subtitles additions for the deaf or hard-of-hearing (SDH)</source>
-        <translation type="unfinished"></translation>
+        <translation>Remove subtitles additions for the deaf or hard-of-hearing (SDH)</translation>
     </message>
     <message>
         <source>Requires restarting the application to apply changes</source>
