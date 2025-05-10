@@ -679,7 +679,7 @@
              <item row="5" column="1">
               <widget class="QLabel" name="bitrate">
                <property name="text">
-                <string notr="true">v: 0 kb/s, a: 0kb/s</string>
+                <string>v: 0 kb/s, a: 0kb/s</string>
                </property>
                <property name="leftMargin" stdset="0">
                 <number>10</number>
