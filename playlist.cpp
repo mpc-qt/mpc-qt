@@ -781,7 +781,7 @@ QSharedPointer<PlaylistCollection> PlaylistCollection::getSingleton()
 {
     if (collection.isNull()) {
         collection.reset(new PlaylistCollection());
-        collection->doNewPlaylist(tr("Quick playlist"), QUuid());
+        collection->doNewPlaylist(tr("Quick Playlist"), QUuid());
     }
     return collection;
 }

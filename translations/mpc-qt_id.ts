@@ -1683,7 +1683,7 @@
 <context>
     <name>PlaylistCollection</name>
     <message>
-        <source>Quick playlist</source>
+        <source>Quick Playlist</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1727,10 +1727,6 @@
     </message>
     <message>
         <source>Playlist</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Quick Playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1836,6 +1832,10 @@
     <message>
         <source>Name</source>
         <translation type="unfinished">Nama</translation>
+    </message>
+    <message>
+        <source>Quick Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

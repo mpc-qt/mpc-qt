@@ -1684,7 +1684,11 @@
     <name>PlaylistCollection</name>
     <message>
         <source>Quick playlist</source>
-        <translation>快速播放列表</translation>
+        <translation type="vanished">快速播放列表</translation>
+    </message>
+    <message>
+        <source>Quick Playlist</source>
+        <translation type="unfinished">快速播放列表</translation>
     </message>
 </context>
 <context>
@@ -1840,6 +1844,10 @@
     <message>
         <source>Name</source>
         <translation type="unfinished">名称</translation>
+    </message>
+    <message>
+        <source>Quick playlist</source>
+        <translation type="obsolete">快速播放列表</translation>
     </message>
 </context>
 <context>

@@ -1712,7 +1712,11 @@
     <name>PlaylistCollection</name>
     <message>
         <source>Quick playlist</source>
-        <translation>Llista de reproducció ràpida</translation>
+        <translation type="vanished">Llista de reproducció ràpida</translation>
+    </message>
+    <message>
+        <source>Quick Playlist</source>
+        <translation type="unfinished">Llista de reproducció ràpida</translation>
     </message>
 </context>
 <context>
@@ -1868,6 +1872,10 @@
     <message>
         <source>Name</source>
         <translation type="unfinished">Nom</translation>
+    </message>
+    <message>
+        <source>Quick playlist</source>
+        <translation type="obsolete">Llista de reproducció ràpida</translation>
     </message>
 </context>
 <context>

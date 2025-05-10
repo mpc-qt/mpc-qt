@@ -1692,7 +1692,11 @@
     <name>PlaylistCollection</name>
     <message>
         <source>Quick playlist</source>
-        <translation>Быстрый список воспроизведения</translation>
+        <translation type="vanished">Быстрый список воспроизведения</translation>
+    </message>
+    <message>
+        <source>Quick Playlist</source>
+        <translation type="unfinished">Быстрый список воспроизведения</translation>
     </message>
 </context>
 <context>
@@ -1848,6 +1852,10 @@
     <message>
         <source>Name</source>
         <translation type="unfinished">Название</translation>
+    </message>
+    <message>
+        <source>Quick playlist</source>
+        <translation type="obsolete">Быстрый список воспроизведения</translation>
     </message>
 </context>
 <context>

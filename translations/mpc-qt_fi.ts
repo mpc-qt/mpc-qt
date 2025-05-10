@@ -1612,7 +1612,11 @@
     <name>PlaylistCollection</name>
     <message>
         <source>Quick playlist</source>
-        <translation>Pikasoittolista</translation>
+        <translation type="vanished">Pikasoittolista</translation>
+    </message>
+    <message>
+        <source>Quick Playlist</source>
+        <translation type="unfinished">Pikasoittolista</translation>
     </message>
 </context>
 <context>
@@ -1768,6 +1772,10 @@
     <message>
         <source>Name</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quick playlist</source>
+        <translation type="obsolete">Pikasoittolista</translation>
     </message>
 </context>
 <context>

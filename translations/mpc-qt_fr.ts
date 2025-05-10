@@ -1636,7 +1636,11 @@
     <name>PlaylistCollection</name>
     <message>
         <source>Quick playlist</source>
-        <translation>Liste rapide</translation>
+        <translation type="vanished">Liste rapide</translation>
+    </message>
+    <message>
+        <source>Quick Playlist</source>
+        <translation type="unfinished">Liste rapide</translation>
     </message>
 </context>
 <context>
@@ -1788,6 +1792,10 @@
     <message>
         <source>Name</source>
         <translation>Nom</translation>
+    </message>
+    <message>
+        <source>Quick playlist</source>
+        <translation type="obsolete">Liste rapide</translation>
     </message>
 </context>
 <context>
