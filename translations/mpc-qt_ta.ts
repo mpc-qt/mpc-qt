@@ -1759,7 +1759,7 @@
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation>விரைவான பிளேலிச்ட்</translation>
+        <translation type="vanished">விரைவான பிளேலிச்ட்</translation>
     </message>
     <message>
         <source>New Playlist</source>
@@ -1868,6 +1868,10 @@
     <message>
         <source>Name</source>
         <translation type="unfinished">பெயர்</translation>
+    </message>
+    <message>
+        <source>Quick playlist</source>
+        <translation type="unfinished">விரைவான பிளேலிச்ட்</translation>
     </message>
 </context>
 <context>

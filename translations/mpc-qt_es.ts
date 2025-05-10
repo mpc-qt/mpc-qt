@@ -1707,7 +1707,7 @@
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation>Lista de reproducción rápida</translation>
+        <translation type="vanished">Lista de reproducción rápida</translation>
     </message>
     <message>
         <source>New Playlist</source>
@@ -1816,6 +1816,10 @@
     <message>
         <source>Name</source>
         <translation type="unfinished">Nombre</translation>
+    </message>
+    <message>
+        <source>Quick playlist</source>
+        <translation type="unfinished">Lista de reproducción rápida</translation>
     </message>
 </context>
 <context>

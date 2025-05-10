@@ -1739,7 +1739,7 @@
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation>Быстрый список воспроизведения</translation>
+        <translation type="vanished">Быстрый список воспроизведения</translation>
     </message>
     <message>
         <source>New Playlist</source>
@@ -1848,6 +1848,10 @@
     <message>
         <source>Name</source>
         <translation type="unfinished">Название</translation>
+    </message>
+    <message>
+        <source>Quick playlist</source>
+        <translation type="unfinished">Быстрый список воспроизведения</translation>
     </message>
 </context>
 <context>

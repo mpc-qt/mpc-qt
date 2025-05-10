@@ -1759,7 +1759,7 @@
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation>Tez Oynatma Listesi</translation>
+        <translation type="vanished">Tez Oynatma Listesi</translation>
     </message>
     <message>
         <source>New Playlist</source>
@@ -1868,6 +1868,10 @@
     <message>
         <source>Name</source>
         <translation type="unfinished">Ad</translation>
+    </message>
+    <message>
+        <source>Quick playlist</source>
+        <translation type="unfinished">Tez oynatma listesi</translation>
     </message>
 </context>
 <context>

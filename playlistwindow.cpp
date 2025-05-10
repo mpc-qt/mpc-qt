@@ -24,7 +24,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     ui->setupUi(this);
     setObjectName("playlistWindow");
     setWindowTitle(tr("Playlist"));
-    addNewTab(QUuid(), tr("Quick Playlist"));
+    addNewTab(QUuid(), tr("Quick playlist"));
     addQuickQueue();
     ui->searchHost->setVisible(false);
     ui->searchField->installEventFilter(this);
@@ -282,7 +282,7 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
         widgets.insert(pl->uuid(), qdp);
     }
     if (widgets.count() < 1)
-        addNewTab(QUuid(), tr("Quick Playlist"));
+        addNewTab(QUuid(), tr("Quick playlist"));
     updatePlaylistHasItems();
 }
 
