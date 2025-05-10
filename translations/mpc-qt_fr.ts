@@ -4074,6 +4074,14 @@ fichier média lu</translation>
         <source>Requires restarting the application to apply changes</source>
         <translation>Le redémarrage de l&apos;application est nécessaire pour appliquer les changements</translation>
     </message>
+    <message>
+        <source>yt-dlp (web videos)</source>
+        <translation>yt-dlp (vidéos web)</translation>
+    </message>
+    <message>
+        <source>Max video height:</source>
+        <translation>Hauteur maximale des vidéos :</translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

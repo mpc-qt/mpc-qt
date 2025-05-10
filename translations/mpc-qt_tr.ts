@@ -4146,6 +4146,14 @@ yeni bir &amp;oynatıcı aç</translation>
         <source>Requires restarting the application to apply changes</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>yt-dlp (web videos)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Max video height:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

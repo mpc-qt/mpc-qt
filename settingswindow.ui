@@ -1510,6 +1510,74 @@ media file played</string>
              </layout>
             </widget>
            </item>
+           <item row="3" column="1">
+            <widget class="QGroupBox" name="ytdlpBox">
+             <property name="title">
+              <string>yt-dlp (web videos)</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_17">
+              <item>
+               <widget class="QLabel" name="ytdlpLabel">
+                <property name="text">
+                 <string>Max video height:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="ytdlpMaxHeight">
+                <property name="currentIndex">
+                 <number>4</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string notr="true">240</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">360</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">480</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">720</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">1080</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">1440</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">2160</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">2880</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">4320</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
           </layout>
          </widget>
          <widget class="QWidget" name="outputPage">
