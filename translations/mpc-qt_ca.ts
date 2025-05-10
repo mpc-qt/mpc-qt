@@ -1759,7 +1759,7 @@
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation>Llista de reproducció ràpida</translation>
+        <translation type="vanished">Llista de reproducció ràpida</translation>
     </message>
     <message>
         <source>New Playlist</source>
@@ -1860,6 +1860,18 @@
     <message>
         <source>Reshuffle</source>
         <translation>Re-aleatoritzar</translation>
+    </message>
+    <message>
+        <source>Queue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nom</translation>
+    </message>
+    <message>
+        <source>Quick playlist</source>
+        <translation type="unfinished">Llista de reproducció ràpida</translation>
     </message>
 </context>
 <context>

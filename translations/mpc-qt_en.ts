@@ -1759,7 +1759,7 @@
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation>Quick Playlist</translation>
+        <translation type="vanished">Quick Playlist</translation>
     </message>
     <message>
         <source>New Playlist</source>
@@ -1860,6 +1860,18 @@
     <message>
         <source>Reshuffle</source>
         <translation>Reshuffle</translation>
+    </message>
+    <message>
+        <source>Queue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Name</translation>
+    </message>
+    <message>
+        <source>Quick playlist</source>
+        <translation type="unfinished">Quick playlist</translation>
     </message>
 </context>
 <context>

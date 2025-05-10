@@ -24,7 +24,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     ui->setupUi(this);
     setObjectName("playlistWindow");
     setWindowTitle(tr("Playlist"));
-    addNewTab(QUuid(), tr("Quick Playlist"));
+    addNewTab(QUuid(), tr("Quick playlist"));
     addQuickQueue();
     ui->searchHost->setVisible(false);
     ui->searchField->installEventFilter(this);
@@ -282,7 +282,7 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
         widgets.insert(pl->uuid(), qdp);
     }
     if (widgets.count() < 1)
-        addNewTab(QUuid(), tr("Quick Playlist"));
+        addNewTab(QUuid(), tr("Quick playlist"));
     updatePlaylistHasItems();
 }
 
@@ -495,7 +495,7 @@ void PlaylistWindow::newTab()
 {
     bool ok;
     QString title = QInputDialog::getText(this, tr("Enter Playlist Name"),
-                                           "Name", QLineEdit::Normal,
+                                           tr("Name"), QLineEdit::Normal,
                                           tr("New Playlist"), &ok);
     if (!ok)
         return;
@@ -692,7 +692,7 @@ void PlaylistWindow::visibleToQueue()
 void PlaylistWindow::setQueueMode(bool yes)
 {
     ui->playStack->setCurrentIndex(yes ? 1 : 0);
-    setWindowTitle(yes ? "Queue" : "Playlist");
+    setWindowTitle(yes ? tr("Queue") : tr("Playlist"));
     ui->showQueue->setChecked(yes);
     emit quickQueueMode(yes);
 }

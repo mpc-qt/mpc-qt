@@ -1659,7 +1659,7 @@
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation>Pikasoittolista</translation>
+        <translation type="vanished">Pikasoittolista</translation>
     </message>
     <message>
         <source>New Playlist</source>
@@ -1760,6 +1760,18 @@
     <message>
         <source>Reshuffle</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Queue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quick playlist</source>
+        <translation type="unfinished">Pikasoittolista</translation>
     </message>
 </context>
 <context>
