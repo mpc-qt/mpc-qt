@@ -874,7 +874,7 @@
     </message>
     <message>
         <source>&amp;Quick Queue Toggle</source>
-        <translation>Activer la &amp;file rapide</translation>
+        <translation>Acti&amp;ver la file rapide</translation>
     </message>
     <message>
         <source>Q</source>
@@ -3356,7 +3356,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Screen Alignment &amp;&amp; Margins</source>
-        <translation>Alignement de l’écran &amp;&amp; Marges</translation>
+        <translation>Alignement de l’écran &amp;&amp; marges</translation>
     </message>
     <message>
         <source>Position subs relative to the video frame</source>
@@ -3424,7 +3424,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation>Capture d’écran</translation>
+        <translation>Captures d’écran</translation>
     </message>
     <message>
         <source>...</source>
@@ -3432,7 +3432,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Encode</source>
-        <translation>Encoder</translation>
+        <translation>Encodage</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Unchecked directories will place output files in the source directory. Streams do not have a source directory and will bring up a dialog when a field is left blank; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; will always ask where to place files. Directories will be created if necessary; this may not work across all filesystems.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -3688,7 +3688,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Dela&amp;yed</source>
-        <translation>Dela&amp;yed</translation>
+        <translation>&amp;Retardé</translation>
     </message>
     <message>
         <source>Unlimited (consumes &amp;memory)</source>
@@ -3940,7 +3940,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Remember file position</source>
-        <translation>Se souvenir de la position du fichier</translation>
+        <translation>Se souvenir de la position dans les fichiers</translation>
     </message>
     <message>
         <source>Use next/previous file in folder when there is only one item in the playlist</source>
