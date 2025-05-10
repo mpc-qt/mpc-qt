@@ -1360,6 +1360,18 @@
         <source>M</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>vo: %1, decoder: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>v: %1 kb/s, a: %2 kb/s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>v: 0 kb/s, a: 0kb/s</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

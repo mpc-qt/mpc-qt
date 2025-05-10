@@ -238,7 +238,7 @@
     </message>
     <message>
         <source>vo: 0, decoder: 0</source>
-        <translation>vo: 0, decodeur: 0</translation>
+        <translation>vo : 0, décodeur : 0</translation>
     </message>
     <message>
         <source>Bitrate</source>
@@ -1383,6 +1383,18 @@
     <message>
         <source>M</source>
         <translation>M</translation>
+    </message>
+    <message>
+        <source>vo: %1, decoder: %2</source>
+        <translation>vo : %1, décodeur : %2</translation>
+    </message>
+    <message>
+        <source>v: %1 kb/s, a: %2 kb/s</source>
+        <translation>v : %1 ko/s, a : %2 ko/s</translation>
+    </message>
+    <message>
+        <source>v: 0 kb/s, a: 0kb/s</source>
+        <translation>v : 0 ko/s, a : 0 ko/s</translation>
     </message>
 </context>
 <context>

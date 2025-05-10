@@ -1131,14 +1131,14 @@ void MainWindow::updateTime()
 
 void MainWindow::updateFramedrops()
 {
-    ui->framedrops->setText(QString("vo: %1, decoder: %2")
+    ui->framedrops->setText(QString(tr("vo: %1, decoder: %2"))
                             .arg(displayDrops > 0 ? displayDrops : 0)
                             .arg(decoderDrops > 0 ? decoderDrops : 0));
 }
 
 void MainWindow::updateBitrate()
 {
-    ui->bitrate->setText(QString("v: %1 kb/s, a: %2 kb/s")
+    ui->bitrate->setText(QString(tr("v: %1 kb/s, a: %2 kb/s"))
                          .arg(std::lrint(videoBitrate / 1000))
                          .arg(std::lrint(audioBitrate / 1000)));
 }
