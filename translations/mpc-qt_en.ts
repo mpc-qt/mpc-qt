@@ -1462,15 +1462,15 @@
     </message>
     <message>
         <source>vo: %1, decoder: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>vo: %1, decoder: %2</translation>
     </message>
     <message>
         <source>v: %1 kb/s, a: %2 kb/s</source>
-        <translation type="unfinished"></translation>
+        <translation>v: %1 kb/s, a: %2 kb/s</translation>
     </message>
     <message>
         <source>v: 0 kb/s, a: 0kb/s</source>
-        <translation type="unfinished"></translation>
+        <translation>v: 0 kb/s, a: 0kb/s</translation>
     </message>
 </context>
 <context>
