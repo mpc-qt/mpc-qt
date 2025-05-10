@@ -1861,6 +1861,14 @@
         <source>Reshuffle</source>
         <translation>再シャッフル</translation>
     </message>
+    <message>
+        <source>Queue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">名前</translation>
+    </message>
 </context>
 <context>
     <name>PropertiesWindow</name>

@@ -495,7 +495,7 @@ void PlaylistWindow::newTab()
 {
     bool ok;
     QString title = QInputDialog::getText(this, tr("Enter Playlist Name"),
-                                           "Name", QLineEdit::Normal,
+                                           tr("Name"), QLineEdit::Normal,
                                           tr("New Playlist"), &ok);
     if (!ok)
         return;
@@ -692,7 +692,7 @@ void PlaylistWindow::visibleToQueue()
 void PlaylistWindow::setQueueMode(bool yes)
 {
     ui->playStack->setCurrentIndex(yes ? 1 : 0);
-    setWindowTitle(yes ? "Queue" : "Playlist");
+    setWindowTitle(yes ? tr("Queue") : tr("Playlist"));
     ui->showQueue->setChecked(yes);
     emit quickQueueMode(yes);
 }

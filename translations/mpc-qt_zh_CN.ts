@@ -1833,6 +1833,14 @@
         <source>Reshuffle</source>
         <translation>重新随机排序</translation>
     </message>
+    <message>
+        <source>Queue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">名称</translation>
+    </message>
 </context>
 <context>
     <name>PropertiesWindow</name>

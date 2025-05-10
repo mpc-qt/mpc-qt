@@ -1861,6 +1861,14 @@
         <source>Reshuffle</source>
         <translation>Re-aleatoritzar</translation>
     </message>
+    <message>
+        <source>Queue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nom</translation>
+    </message>
 </context>
 <context>
     <name>PropertiesWindow</name>
