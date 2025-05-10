@@ -4046,6 +4046,14 @@ ogni file multimediale riprodotto</translation>
         <source>Requires restarting the application to apply changes</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>yt-dlp (web videos)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Max video height:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
