@@ -934,7 +934,7 @@
     </message>
     <message>
         <source>Queue &amp;Visible</source>
-        <translation>&amp;Afficher la file</translation>
+        <translation>&amp;Afficher la file d&apos;attente</translation>
     </message>
     <message>
         <source>Ctrl+Shift+Q</source>
@@ -982,7 +982,7 @@
     </message>
     <message>
         <source>C&amp;opy Queue</source>
-        <translation>C&amp;opier la file</translation>
+        <translation>C&amp;opier la file d&apos;attente</translation>
     </message>
     <message>
         <source>Ctrl+Alt+C</source>
@@ -1026,7 +1026,7 @@
     </message>
     <message>
         <source>S&amp;how Quick Queue</source>
-        <translation>Affic&amp;her la file rapide</translation>
+        <translation>Affic&amp;her la liste rapide</translation>
     </message>
     <message>
         <source>Ctrl+`</source>
@@ -1651,7 +1651,7 @@
     </message>
     <message>
         <source>Visible Items to Quick Queue</source>
-        <translation>Éléments visibles vers la file rapide</translation>
+        <translation>Éléments visibles vers la liste rapide</translation>
     </message>
     <message>
         <source>New Tab</source>
@@ -1675,7 +1675,7 @@
     </message>
     <message>
         <source>Show Queue</source>
-        <translation>Afficher la file</translation>
+        <translation>Afficher la file d&apos;attente</translation>
     </message>
     <message>
         <source>Playlist</source>
@@ -1780,6 +1780,14 @@
     <message>
         <source>Restore</source>
         <translation type="unfinished">Restaurer</translation>
+    </message>
+    <message>
+        <source>Queue</source>
+        <translation>File d&apos;attente</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nom</translation>
     </message>
 </context>
 <context>
