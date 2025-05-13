@@ -4092,11 +4092,11 @@ fichier média lu</translation>
     </message>
     <message>
         <source>yt-dlp (web videos)</source>
-        <translation>yt-dlp (vidéos web)</translation>
+        <translation type="unfinished">yt-dlp (vidéos web)</translation>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation>Hauteur maximale des vidéos :</translation>
+        <translation type="unfinished">Hauteur maximale des vidéos :</translation>
     </message>
 </context>
 <context>
