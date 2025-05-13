@@ -1716,7 +1716,7 @@
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation type="unfinished">Quick Playlist</translation>
+        <translation>Quick Playlist</translation>
     </message>
 </context>
 <context>
@@ -1867,7 +1867,7 @@
     </message>
     <message>
         <source>Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Queue</translation>
     </message>
     <message>
         <source>Name</source>
