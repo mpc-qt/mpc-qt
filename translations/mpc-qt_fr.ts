@@ -1787,7 +1787,7 @@
     </message>
     <message>
         <source>Queue</source>
-        <translation>File d&apos;attente</translation>
+        <translation type="unfinished">File d&apos;attente</translation>
     </message>
     <message>
         <source>Name</source>
