@@ -1787,7 +1787,7 @@
     </message>
     <message>
         <source>Queue</source>
-        <translation type="unfinished">File d&apos;attente</translation>
+        <translation>File d&apos;attente</translation>
     </message>
     <message>
         <source>Name</source>
@@ -3315,7 +3315,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Force grayscale</source>
-        <translation>Forcer le niveau de gris</translation>
+        <translation>Forcer en niveaux de gris</translation>
     </message>
     <message>
         <source>Fix timing</source>
@@ -4084,7 +4084,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Remove subtitles additions for the deaf or hard-of-hearing (SDH)</source>
-        <translation type="unfinished">Supprimer les ajouts de sous-titres pour sourds ou malentendants (SDH)</translation>
+        <translation>Supprimer les ajouts de sous-titres pour sourds ou malentendants (SDH)</translation>
     </message>
     <message>
         <source>Requires restarting the application to apply changes</source>
@@ -4092,11 +4092,11 @@ fichier média lu</translation>
     </message>
     <message>
         <source>yt-dlp (web videos)</source>
-        <translation type="unfinished">yt-dlp (vidéos web)</translation>
+        <translation>yt-dlp (vidéos web)</translation>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation type="unfinished">Hauteur maximale des vidéos :</translation>
+        <translation>Hauteur maximale des vidéos&#xa0;:</translation>
     </message>
 </context>
 <context>
