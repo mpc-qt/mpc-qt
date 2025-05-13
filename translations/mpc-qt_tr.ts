@@ -1712,7 +1712,11 @@
     <name>PlaylistCollection</name>
     <message>
         <source>Quick playlist</source>
-        <translation>Tez oynatma listesi</translation>
+        <translation type="vanished">Tez oynatma listesi</translation>
+    </message>
+    <message>
+        <source>Quick Playlist</source>
+        <translation type="unfinished">Tez Oynatma Listesi</translation>
     </message>
 </context>
 <context>
@@ -1860,6 +1864,18 @@
     <message>
         <source>Reshuffle</source>
         <translation>Yeniden Karıştır</translation>
+    </message>
+    <message>
+        <source>Queue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Ad</translation>
+    </message>
+    <message>
+        <source>Quick playlist</source>
+        <translation type="obsolete">Tez oynatma listesi</translation>
     </message>
 </context>
 <context>

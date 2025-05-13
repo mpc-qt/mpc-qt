@@ -1660,7 +1660,11 @@
     <name>PlaylistCollection</name>
     <message>
         <source>Quick playlist</source>
-        <translation>Lista de reproducción rápida</translation>
+        <translation type="vanished">Lista de reproducción rápida</translation>
+    </message>
+    <message>
+        <source>Quick Playlist</source>
+        <translation type="unfinished">Lista de reproducción rápida</translation>
     </message>
 </context>
 <context>
@@ -1808,6 +1812,18 @@
     <message>
         <source>Reshuffle</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Queue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nombre</translation>
+    </message>
+    <message>
+        <source>Quick playlist</source>
+        <translation type="obsolete">Lista de reproducción rápida</translation>
     </message>
 </context>
 <context>

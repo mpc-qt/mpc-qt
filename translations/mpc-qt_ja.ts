@@ -1712,7 +1712,11 @@
     <name>PlaylistCollection</name>
     <message>
         <source>Quick playlist</source>
-        <translation>クイック 再生リスト</translation>
+        <translation type="vanished">クイック 再生リスト</translation>
+    </message>
+    <message>
+        <source>Quick Playlist</source>
+        <translation type="unfinished">クイック 再生リスト</translation>
     </message>
 </context>
 <context>
@@ -1860,6 +1864,18 @@
     <message>
         <source>Reshuffle</source>
         <translation>再シャッフル</translation>
+    </message>
+    <message>
+        <source>Queue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">名前</translation>
+    </message>
+    <message>
+        <source>Quick playlist</source>
+        <translation type="obsolete">クイック 再生リスト</translation>
     </message>
 </context>
 <context>
