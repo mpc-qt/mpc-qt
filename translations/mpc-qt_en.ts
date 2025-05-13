@@ -4172,11 +4172,11 @@ media file played</translation>
     </message>
     <message>
         <source>yt-dlp (web videos)</source>
-        <translation type="unfinished"></translation>
+        <translation>yt-dlp (web videos)</translation>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation type="unfinished"></translation>
+        <translation>Max video height:</translation>
     </message>
 </context>
 <context>
