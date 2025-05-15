@@ -1,3 +1,4 @@
+#include <QApplication>
 #include <QToolTip>
 #include "videopreview.h"
 
@@ -15,7 +16,10 @@ VideoPreview::VideoPreview(QWidget *parent) : QWidget(parent)
     layout->addWidget(videoWidget);
     layout->addWidget(textLabel);
     setLayout(layout);
-    setWindowFlags(Qt::ToolTip);
+    if (QApplication::platformName() == "wayland")
+        setWindowFlags(Qt::Tool | Qt::FramelessWindowHint);
+    else
+        setWindowFlags(Qt::ToolTip);
 
     textLabel->setAutoFillBackground(true);
     QPalette tooltipPalette = QToolTip::palette();
