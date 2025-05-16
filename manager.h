@@ -28,6 +28,12 @@ public:
     int64_t trackId = 0;
     QString type;
     QString codec;
+    QString codecProfile;
+    int width = 0;
+    int height = 0;
+    int samplerate = 0;
+    QString channels;
+    int bitrate = 0;
     QString lang;
     QString title;
     bool isExternal = false;

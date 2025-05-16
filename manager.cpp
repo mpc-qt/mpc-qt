@@ -18,6 +18,23 @@ TrackData TrackData::fromMap(const QVariantMap &map)
         td.type = map["type"].toString();
     if (map.contains("codec"))
         td.codec = map["codec"].toString();
+    if (map.contains("codec-profile"))
+        td.codecProfile = map["codec-profile"].toString();
+    if (map.contains("demux-w"))
+        td.width = map["demux-w"].toInt();
+    if (map.contains("demux-h"))
+        td.height = map["demux-h"].toInt();
+    if (map.contains("demux-samplerate"))
+        td.samplerate = map["demux-samplerate"].toInt();
+    if (map.contains("demux-channels"))
+        td.channels = map["demux-channels"].toString();
+    if (map.contains("demux-bitrate"))
+        td.bitrate = map["demux-bitrate"].toInt();
+    else if (map.contains("metadata")) {
+        QVariantMap metadata = map["metadata"].toMap();
+        if (metadata.contains("BPS"))
+            td.bitrate = metadata["BPS"].toInt();
+    }
     if (map.contains("lang"))
         td.lang = map["lang"].toString();
     if (map.contains("title"))
@@ -37,12 +54,37 @@ QString TrackData::formatted()
 {
     QString output;
     output.append(QString("%1: ").arg(trackId));
-    if (!codec.isEmpty())
-        output.append(QString("[%1] ").arg(codec));
-    if (!lang.isEmpty())
-        output.append(QString("%1 ").arg(lang));
+    if (!lang.isEmpty()) {
+#if QT_VERSION < QT_VERSION_CHECK(6,3,0)
+        QString langName = QLocale::languageToString(QLocale(lang).language());
+#else
+        QString langName = QLocale::languageToString(QLocale::codeToLanguage(lang, QLocale::AnyLanguageCode));
+#endif
+        output.append(QString("%1 ").arg(langName));
+        output.append(QString("[%1] ").arg(lang));
+    }
+    if (!codec.isEmpty() && !isImage) {
+        if (!lang.isEmpty())
+            output.append("(");
+        output.append(QString("%1").arg(codec));
+        if (type != "sub") {
+            if (!codecProfile.isEmpty())
+                output.append(QString(" %1").arg(codecProfile.toCaseFolded()));
+            if (samplerate != 0)
+                output.append(QString(", %1 kHz").arg(std::round(samplerate / 100) / 10.0));
+            if (!channels.isEmpty())
+                output.append(QString(", %1").arg(channels.contains("unknown") ?
+                                                  channels.remove("unknown") + "ch" : channels));
+            if (bitrate != 0)
+                output.append(QString(", %1 kb/s").arg(std::round(bitrate / 1000.0)));
+            if (width != 0 && height != 0)
+                output.append(QString(", %1x%2").arg(width).arg(height));
+        }
+        if (!lang.isEmpty())
+            output.append(")");
+    }
     if (!title.isEmpty())
-        output.append(QString("- %1 ").arg(title));
+        output.append(QString(" - %1 ").arg(title));
     return output;
 }
 

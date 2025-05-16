@@ -2198,7 +2198,7 @@ void MainWindow::setPlayAfterAlwaysDefault(Helpers::AfterPlayback action)
 
 void MainWindow::setFps(double fps)
 {
-    ui->framerate->setText(std::isnan(fps) ? "-" : QString::number(fps, 'f', 2));
+    ui->framerate->setText(std::isnan(fps) ? "-" : QString::number(fps, 'g', 6));
 }
 
 void MainWindow::setAvsync(double sync)

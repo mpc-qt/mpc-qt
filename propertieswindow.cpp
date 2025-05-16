@@ -106,9 +106,9 @@ void PropertiesWindow::setTracks(const QVariantList &tracks)
             line << QString("%1x%2").arg(QString::number(track["demux-w"].toInt()),
                                          QString::number(track["demux-h"].toInt()));
         if (track.contains("demux-fps"))
-            line << QString("%1fps").arg(QString::number(track["demux-fps"].toDouble(), 'g', 3));
+            line << QString("%1fps").arg(QString::number(track["demux-fps"].toDouble(), 'g', 6));
         if (track.contains("demux-samplerate"))
-            line << QString("%1Hz").arg(track["demux-samplerate"].toInt());
+            line << QString("%1kHz").arg(std::round(track["demux-samplerate"].toInt() / 100) / 10.0);
         if (track.contains("audio-channels"))
             line << QString("%1ch").arg(track["audio-channels"].toInt());
         lines << line.join(' ');
