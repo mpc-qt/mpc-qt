@@ -6623,7 +6623,11 @@ media file played</string>
                         </widget>
                        </item>
                        <item row="1" column="1">
-                        <widget class="QSpinBox" name="subsMarginY"/>
+                        <widget class="QSpinBox" name="subsMarginY">
+                         <property name="value">
+                          <number>20</number>
+                         </property>
+                        </widget>
                        </item>
                       </layout>
                      </item>
