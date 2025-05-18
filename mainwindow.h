@@ -421,7 +421,7 @@ private slots:
 
     void mpvw_customContextMenuRequested(const QPoint &pos);
     void position_sliderMoved(int position);
-    void position_hoverValue(double value, QString text, double x);
+    void position_hoverValue(double value, QString text, double mouseX);
     void position_hoverEnd();
     void on_play_clicked();
     void volume_sliderMoved(double position);
