@@ -1,5 +1,6 @@
 #include "helpers.h"
 #include "propertieswindow.h"
+#include "platform/unify.h"
 #include "ui_propertieswindow.h"
 
 #include <QMimeDatabase>
@@ -13,6 +14,11 @@ PropertiesWindow::PropertiesWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->tabWidget->setCurrentIndex(0);
+    if (Platform::isWindows) {
+        QFont monoFont;
+        monoFont.setFamily("Consolas");
+        ui->mediaInfoText->setFont(monoFont);
+    }
     setMetaData(QVariantMap());
     updateSaveVisibility();
     connect(ui->tabWidget, &QTabWidget::currentChanged,
