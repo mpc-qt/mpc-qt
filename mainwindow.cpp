@@ -1899,7 +1899,6 @@ void MainWindow::setVideoPreview(bool enable)
 {
     if (!videoPreview && enable) {
         videoPreview = new VideoPreview(this);
-        videoPreview->hide();
         setVideoPreviewItem(currentFile);
     }
     else if (videoPreview && !enable) {
@@ -3126,7 +3125,7 @@ void MainWindow::position_sliderMoved(int position)
     emit timeSelected(position);
 }
 
-void MainWindow::position_hoverValue(double position, QString chapterInfo, double x)
+void MainWindow::position_hoverValue(double position, QString chapterInfo, double mouseX)
 {
     setCursor(Qt::PointingHandCursor);
 
@@ -3139,33 +3138,22 @@ void MainWindow::position_hoverValue(double position, QString chapterInfo, doubl
                                       chapterInfo.isEmpty() ? "" : " - ",
                                       chapterInfo);
     if (videoPreview && isVideo_) {
-        int tooltipWidth = videoPreview->width();
-        int xPos = x - std::round(tooltipWidth / 2);
-        // For some reason there's a different gap between left and right side
-        if (xPos + tooltipWidth + 26 > this->width())
-            xPos = this->width() - tooltipWidth - 26;
-        else if (xPos < 14)
-            xPos = 14;
-        QPoint where = positionSlider_->mapToGlobal(QPoint(int(xPos), -200));
-        videoPreview->move(where);
-        videoPreview->setTimeText(t, position);
         QToolTip::hideText();
-        videoPreview->show();
+        QPoint where = positionSlider_->mapTo(this, QPoint(std::round(mouseX), 0));
+        videoPreview->show(t, position, where, this->width());
+        mpvw->update();
     } else {
-        QPoint where = positionSlider_->mapToGlobal(QPoint(int(x), timeTooltipAbove ? -40 : 0));
+        QPoint where = positionSlider_->mapToGlobal(QPoint(std::round(mouseX), timeTooltipAbove ? -40 : 0));
         QToolTip::showText(where, t, positionSlider_);
     }
 }
 
 void MainWindow::position_hoverEnd()
 {
-    setCursor(Qt::ArrowCursor);
-
     if (videoPreview)
-        // The delay prevents flickering
-        QTimer::singleShot(10, this, [this]() {
-            videoPreview->hide();
-        });
+        videoPreview->hide();
+
+    setCursor(Qt::ArrowCursor);
 }
 
 void MainWindow::on_play_clicked()

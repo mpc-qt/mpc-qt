@@ -1,25 +1,17 @@
-#include <QApplication>
 #include <QToolTip>
 #include "videopreview.h"
+
+constexpr int previewMarginX = 20;
+constexpr int labelHeight = 20;
+constexpr int videoHeight = 180;
 
 VideoPreview::VideoPreview(QWidget *parent) : QWidget(parent)
 {
     mpv = new MpvObject(this);
-    videoWidget = new MpvGlWidget(mpv, this);
+    videoWidget = new MpvGlWidget(mpv, parent);
     mpv->setWidgetType(Helpers::CustomWidget, videoWidget);
-    videoWidget->setFixedSize(1, 1);
-    textLabel = new QLabel(this);
+    textLabel = new QLabel(parent);
     textLabel->setAlignment(Qt::AlignCenter);
-    layout = new QVBoxLayout(this);
-    layout->setSpacing(0);
-    layout->setContentsMargins(0,0,0,0);
-    layout->addWidget(videoWidget);
-    layout->addWidget(textLabel);
-    setLayout(layout);
-    if (QApplication::platformName() == "wayland")
-        setWindowFlags(Qt::Tool | Qt::FramelessWindowHint);
-    else
-        setWindowFlags(Qt::ToolTip);
 
     textLabel->setAutoFillBackground(true);
     QPalette tooltipPalette = QToolTip::palette();
@@ -35,21 +27,12 @@ VideoPreview::VideoPreview(QWidget *parent) : QWidget(parent)
     emit mpv->ctrlSetOptionVariant("audio-display", "no");
     emit mpv->ctrlSetOptionVariant("ytdl-format", "worst");
 
-    connect(mpv, &MpvObject::aspectChanged, this, [this](double newAspect) {
-        if (newAspect == 0) {
-            aspectRatioSet = false;
-            return;
-        }
-        int baseHeight = 180;
-        int newWidth = int(baseHeight * newAspect);
-        videoWidget->setFixedSize(newWidth, baseHeight);
-        aspectRatioSet = true;
-        if (shouldBeShown)
-            show();
-    });
+    connect(mpv, &MpvObject::aspectChanged,
+            this, &VideoPreview::updateWidth);
 
-    show();
     shouldBeShown = false;
+    hide();
+    this->setVisible(false);
 }
 
 VideoPreview::~VideoPreview()
@@ -69,25 +52,57 @@ void VideoPreview::openFile(const QUrl &fileUrl)
     aspectRatioSet = false;
 }
 
-void VideoPreview::setTimeText(const QString &text, double videoPosition)
+void VideoPreview::show(const QString &text, double videoPosition, QPoint where, int mainWindowWidth)
 {
     textLabel->setText(text);
     mpv->setTime(videoPosition);
     mpv->setPaused(true);
     videoWidget->update();
+    setPreviewPosition(where, mainWindowWidth);
+    show();
 }
 
-void VideoPreview::showEvent(QShowEvent *event)
+void VideoPreview::setPreviewPosition(QPoint where, int mainWindowWidth)
+{
+    int tooltipWidth = videoWidget->width();
+    int xPos = where.x() - std::round(tooltipWidth / 2);
+    if (xPos + tooltipWidth + previewMarginX > mainWindowWidth)
+        xPos = mainWindowWidth - tooltipWidth - previewMarginX;
+    else if (xPos < previewMarginX)
+        xPos = previewMarginX;
+    previewBottomLeft = QPoint(xPos, where.y());
+}
+
+void VideoPreview::updateWidth(double newAspect)
+{
+    if (newAspect == 0) {
+        aspectRatioSet = false;
+        return;
+    }
+    int newWidth = int(videoHeight * newAspect);
+    videoWidget->setFixedSize(newWidth, videoHeight);
+    textLabel->setFixedSize(newWidth, labelHeight);
+    aspectRatioSet = true;
+    if (shouldBeShown)
+        show();
+    else
+        hide();
+}
+
+void VideoPreview::show()
 {
     if (!aspectRatioSet) {
         shouldBeShown = true;
         return;
     }
-    QWidget::showEvent(event);
+    videoWidget->move(previewBottomLeft.x(),
+                      previewBottomLeft.y() - videoWidget->height() - textLabel->height());
+    textLabel->move(previewBottomLeft.x(),
+                    previewBottomLeft.y() - textLabel->height());
 }
 
-void VideoPreview::hideEvent(QHideEvent *event)
-{
+void VideoPreview::hide() {
     shouldBeShown = false;
-    QWidget::hideEvent(event);
+    videoWidget->move(-50000, -50000);
+    textLabel->move(-50000, -50000);
 }
