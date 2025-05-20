@@ -1462,15 +1462,15 @@
     </message>
     <message>
         <source>vo: %1, decoder: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>vo: %1, kod çözücü: %2</translation>
     </message>
     <message>
         <source>v: %1 kb/s, a: %2 kb/s</source>
-        <translation type="unfinished"></translation>
+        <translation>v: %1 kb/sn, s: %2 kb/sn</translation>
     </message>
     <message>
         <source>v: 0 kb/s, a: 0kb/s</source>
-        <translation type="unfinished"></translation>
+        <translation>v: 0 kb/sn, s: 0 kb/sn</translation>
     </message>
 </context>
 <context>
@@ -1716,7 +1716,7 @@
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation type="unfinished">Tez Oynatma Listesi</translation>
+        <translation>Tez Oynatma Listesi</translation>
     </message>
 </context>
 <context>
@@ -1867,11 +1867,11 @@
     </message>
     <message>
         <source>Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuyruk</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Ad</translation>
+        <translation>Ad</translation>
     </message>
     <message>
         <source>Quick playlist</source>
@@ -4156,19 +4156,19 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Remove subtitles additions for the deaf or hard-of-hearing (SDH)</source>
-        <translation type="unfinished"></translation>
+        <translation>Sağır veya işitme güçlüğü çekenler (SDH) için altyazı eklerini kaldır</translation>
     </message>
     <message>
         <source>Requires restarting the application to apply changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Değişikliklerin uygulanması için uygulamanın yeniden başlatılmasını gerektirir</translation>
     </message>
     <message>
         <source>yt-dlp (web videos)</source>
-        <translation type="unfinished"></translation>
+        <translation>yt-dlp (web videoları)</translation>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation type="unfinished"></translation>
+        <translation>En çok video yüksekliği:</translation>
     </message>
 </context>
 <context>
