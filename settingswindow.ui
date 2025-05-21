@@ -1515,7 +1515,7 @@ media file played</string>
              <property name="title">
               <string>yt-dlp (web videos)</string>
              </property>
-             <layout class="QVBoxLayout" name="verticalLayout_17">
+             <layout class="QVBoxLayout" name="verticalLayout_18">
               <item>
                <widget class="QLabel" name="ytdlpLabel">
                 <property name="text">
