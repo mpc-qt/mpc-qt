@@ -15,6 +15,9 @@ jobs:
         sudo apt-get update
         sudo apt-get -y install build-essential cmake linguist-qt6 qt6-tools-dev qt6-base-dev libqt6svg6-dev libgl-dev libmpv-dev
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 1000
+        fetch-tags: true
     - name: cmake
       run: cmake -G Ninja -B build
     - name: Build
