@@ -21,6 +21,7 @@
 #include "settingswindow.h"
 #include "mpvwidget.h"
 #include "propertieswindow.h"
+#include "version.h"
 #include "ipc/mpris.h"
 #include "platform/devicemanager.h"
 #include "platform/unify.h"

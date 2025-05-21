@@ -4,6 +4,7 @@
 #include "openfiledialog.h"
 #include "helpers.h"
 #include "logger.h"
+#include "version.h"
 #include "platform/unify.h"
 #include "platform/devicemanager.h"
 #include <QActionGroup>

@@ -1,0 +1,6 @@
+#ifndef VERSION_H
+#define VERSION_H
+
+#define MPCQT_VERSION_STR "@VERSTR@"
+
+#endif // VERSION_H

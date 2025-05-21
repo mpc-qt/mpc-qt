@@ -3,6 +3,7 @@
 #include <QFileInfo>
 #include <QTcpSocket>
 #include "helpers.h"
+#include "version.h"
 #include "ipc/http.h"
 #include "platform/devicemanager.h"
 #include "platform/unify.h"
