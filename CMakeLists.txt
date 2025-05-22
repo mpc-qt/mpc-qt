@@ -76,8 +76,11 @@ else()
     endif()
 endif()
 
-# Define version as a preprocessor definition
-add_compile_definitions(MPCQT_VERSION_STR="${VERSTR}")
+# Generate version.h with version information
+configure_file(
+    ${CMAKE_SOURCE_DIR}/version.h.in
+    ${CMAKE_BINARY_DIR}/version.h
+)
 
 message(STATUS "The version appears to be ${VERSTR}, and the Windows manifest would say this is ${VERSTR_WIN}.")
 
@@ -117,6 +120,8 @@ set(SOURCES
 )
 
 qt_add_executable(mpc-qt WIN32 MACOSX_BUNDLE ${SOURCES})
+
+target_include_directories(mpc-qt PRIVATE ${CMAKE_BINARY_DIR})
 
 set(TS_FILES
     translations/mpc-qt_ar.ts
