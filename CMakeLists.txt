@@ -55,6 +55,7 @@ else()
         if(NOT "${VERSTR}" STREQUAL "")
             string(REPLACE "v" "" VERSTR ${VERSTR})
             set(VERSTR_WIN "${VERSTR}.${VERSTR_BLD}")
+	    string(REPLACE "-master" "" VERSTR_WIN ${VERSTR_WIN})
         endif()
 
         if(NOT "${VERSTR_BLD}" STREQUAL "0")
