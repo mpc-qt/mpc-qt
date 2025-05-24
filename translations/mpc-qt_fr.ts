@@ -51,7 +51,7 @@
     </message>
     <message>
         <source>&amp;Files</source>
-        <translation>&amp;FIchiers</translation>
+        <translation>&amp;Fichiers</translation>
     </message>
     <message>
         <source>&amp;Streams</source>
@@ -109,7 +109,7 @@
     <name>GoToWindow</name>
     <message>
         <source>Go To...</source>
-        <translation>Aller à...</translation>
+        <translation>Atteindre</translation>
     </message>
     <message>
         <source>Time</source>
@@ -117,15 +117,15 @@
     </message>
     <message>
         <source>Go!</source>
-        <translation>Aller&#x202f;!</translation>
+        <translation>Atteindre</translation>
     </message>
     <message>
         <source>Frame</source>
-        <translation>Cadre</translation>
+        <translation>Image</translation>
     </message>
     <message>
         <source>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitely.</source>
-        <translation>Entrez un code temporel en utilisant le format [hh:]mm:ss.ms pour sauter à un moment spécifié. Vous n&apos;avez pas besoin d&apos;entrer les séparateurs explicitement.</translation>
+        <translation>Entrez un code temporel en utilisant le format [hh:]mm:ss.ms pour atteindre une position spécifique. Les séparateurs sont facultatifs.</translation>
     </message>
 </context>
 <context>
@@ -742,7 +742,7 @@
     </message>
     <message>
         <source>&amp;Go To...</source>
-        <translation>&amp;Aller à...</translation>
+        <translation>&amp;Atteindre...</translation>
     </message>
     <message>
         <source>Ctrl+G</source>
@@ -4131,7 +4131,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>&amp;Go!</source>
-        <translation>&amp;Aller!</translation>
+        <translation>&amp;Atteindre</translation>
     </message>
     <message>
         <source>Thu&amp;mbnail</source>
