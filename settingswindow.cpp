@@ -744,7 +744,7 @@ void SettingsWindow::sendSignals()
     emit volumeStep(WIDGET_LOOKUP(ui->playbackVolumeStep).toInt());
     {
         int i = WIDGET_LOOKUP(ui->playbackSpeedStep).toInt();
-        emit speedStep(i > 0 ? 1.0 + i/100.0 : 2.0);
+        emit speedStep(i > 0 ? 1.0 + i/100.0 : 1.25);
         emit speedStepAdditive(WIDGET_LOOKUP(ui->playbackSpeedStepAdditive).toBool());
     }
     emit audioFilter("stereotools=balance_out=" +
