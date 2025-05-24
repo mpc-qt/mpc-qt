@@ -380,14 +380,15 @@ void PlaybackManager::speedUp()
 {
     double speed = speedStepAdditive ? mpvSpeed + speedStep - 1.0
                                      : mpvSpeed * speedStep;
-    setPlaybackSpeed(std::min(8.0, speed));
+    setPlaybackSpeed(std::min(100.0, speed));
 }
 
 void PlaybackManager::speedDown()
 {
     double speed = speedStepAdditive ? mpvSpeed - speedStep + 1.0
                                      : mpvSpeed / speedStep;
-    setPlaybackSpeed(std::max(0.125, speed));
+    double minSpeed = std::max(0.01, speedStep - 1.0);
+    setPlaybackSpeed(std::max(minSpeed, speed));
 }
 
 void PlaybackManager::speedReset()
