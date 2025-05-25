@@ -223,8 +223,8 @@ private:
     double mpvTime = 0.0;
     double mpvLength = 0.0;
     double mpvSpeed = 1.0;
-    double speedStep = 2.0;
-    bool speedStepAdditive = false;
+    double speedStep = 1.25;
+    bool speedStepAdditive = true;
     bool eofReached_ = false;
     double stepTimeNormal = 5.0;
     double stepTimeLarge = 20.0;
