@@ -107,7 +107,9 @@ double DrawnSlider::valueToX(double value)
     double stride = sliderArea.right() - sliderArea.left();
     double x = sliderArea.left() + (((value-minimum()) * stride)
                                  / std::max(1.0, maximum() - minimum()));
-    return qBound(sliderArea.left(), x, sliderArea.right());
+    return qBound(sliderArea.left(),
+                 x,
+                 sliderArea.right() > sliderArea.left() ? sliderArea.right() : sliderArea.left());
 }
 
 double DrawnSlider::xToValue(double x)
