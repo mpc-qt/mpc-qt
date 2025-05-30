@@ -45,7 +45,7 @@ jobs:
     - name: Install packages
       run: |
         for i in 1 2 3; do
-          sudo apt install linguist-qt6 qt6-tools-dev qmake6 qt6-base-dev libqt6svg6-dev && break || sleep 60
+          sudo apt install linguist-qt6 qt6-tools-dev qmake6 qt6-base-dev libboost-all-dev libqt6svg6-dev && break || sleep 60
         done
         for i in 1 2 3; do
           sudo apt install devscripts equivs git libunwind-dev && break || sleep 60

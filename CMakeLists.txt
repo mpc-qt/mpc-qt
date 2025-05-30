@@ -172,6 +172,7 @@ if(UNIX)
     )
     find_package(Qt6 REQUIRED COMPONENTS DBus)
     target_link_libraries(mpc-qt PRIVATE Qt::DBus)
+    add_compile_definitions(BOOST_STACKTRACE_USE_ADDR2LINE)
 endif()
 
 if(WIN32)
