@@ -30,8 +30,6 @@ if(DEFINED MPCQT_VERSION)
     set(FILEFLAGS_WIN "0x0L")
 else()
     add_compile_definitions(MPCQT_DEVELOPMENT)
-    # Set Windows metadata to "contains debugging information"
-    set(FILEFLAGS_WIN "VS_FF_DEBUG")
     # Check if we are in a git repository
     find_package(Git QUIET)
     if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
