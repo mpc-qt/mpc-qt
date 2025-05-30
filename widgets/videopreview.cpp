@@ -24,6 +24,7 @@ VideoPreview::VideoPreview(QWidget *parent) : QWidget(parent)
     emit mpv->ctrlSetOptionVariant("keep-open", true);
     emit mpv->ctrlSetOptionVariant("sub-visibility", "no");
     emit mpv->ctrlSetOptionVariant("hr-seek", "no");
+    emit mpv->ctrlSetOptionVariant("audio", "no");
     emit mpv->ctrlSetOptionVariant("audio-display", "no");
     emit mpv->ctrlSetOptionVariant("ytdl-format", "worst");
 
