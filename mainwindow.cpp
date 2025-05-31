@@ -412,19 +412,24 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
         checkBottomArea(event->globalPosition());
 }
 
-static bool insideWidget(QPoint p, QWidget *mpvw) {
-    if (mpvw == nullptr)
+static bool insideWidget(QPoint p, QWidget *widget) {
+    if (widget == nullptr)
         return false;
-    QRect rc(mpvw->mapToGlobal(QPoint()), mpvw->size());
+    QRect rc(widget->mapToGlobal(QPoint()), widget->size());
     return rc.contains(p);
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
     QPoint pos = event->globalPosition().toPoint();
-    bool ok = mpvw ? insideWidget(pos, mpvw) : false;
-    if (ok && mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseDown)))
+    bool isInMpvw = mpvw ? insideWidget(pos, mpvw) : false;
+    bool isInBottomArea = ui->bottomArea->isVisible() ? insideWidget(pos, ui->bottomArea) : false;
+    if (isInMpvw && mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseDown)))
         event->accept();
+    else if (isInBottomArea)  {
+        QWindow *parentWindow = this->window()->windowHandle();
+        parentWindow->startSystemMove();
+    }
     else
         QMainWindow::mousePressEvent(event);
 }
