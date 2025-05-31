@@ -4131,11 +4131,11 @@ fichier média lu</translation>
     </message>
     <message>
         <source>&amp;Go!</source>
-        <translation>&amp;Atteindre</translation>
+        <translation>&amp;Enregistrer</translation>
     </message>
     <message>
         <source>Thu&amp;mbnail</source>
-        <translation>Miniature</translation>
+        <translation>Sortie</translation>
     </message>
     <message>
         <source>&amp;Quality</source>
