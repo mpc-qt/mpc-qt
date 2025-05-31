@@ -47,6 +47,8 @@ cleanup-commands:
 modules:
   - name: mpc-qt
     buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_PREFIX_PATH=/app/boost
     sources:
       - type: git
         url: https://github.com/mpc-qt/mpc-qt.git
@@ -251,3 +253,18 @@ modules:
               project-id: 143399
               stable-only: true
               url-template: https://github.com/yt-dlp/yt-dlp/archive/refs/tags/$version.tar.gz
+
+      - name: boost
+        buildsystem: simple
+        build-commands:
+          - ./bootstrap.sh
+          - ./b2 install --prefix=/app/boost
+        sources:
+          - type: archive
+            url: https://github.com/boostorg/boost/releases/download/boost-1.88.0/boost-1.88.0-cmake.tar.gz
+            sha256: dcea50f40ba1ecfc448fdf886c0165cf3e525fef2c9e3e080b9804e8117b9694
+            x-checker-data:
+              type: anitya
+              project-id: 6845
+              stable-only: true
+              url-template: https://github.com/boostorg/boost/releases/download/boost-$version/boost-$version-cmake.tar.gz

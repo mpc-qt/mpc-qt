@@ -92,7 +92,7 @@ users, there could even be packages in your distro that help with this (e.g.
 You need the Qt6 SDK installed and a recent edition of libmpv.  On Ubuntu you
 can usually install the required libraries and tools with the
 `build-essential`, `cmake`, `qt6-base-dev`, `qt6-l10n-tools`, `libqt6svg6-dev`,
-and `libmpv-dev` packages.  A recent edition of [libmpv] means either from git
+`libmpv-dev` and `boost` packages.  A recent edition of [libmpv] means either from git
 head or at least version 0.37.0.
 
 ### I don't know git, how do I do this?
@@ -183,10 +183,9 @@ Restart MSYS2 MINGW64 when prompted to do so and re-run pacman.
 At this stage packages required for building can be installed (Copy and paste
 this as one line).
 
->pacman -S base-devel mingw-w64-x86_64-cmake git mingw-w64-x86_64-toolchain mingw-w64-x86_64-clang
->mingw-w64-x86_64-cmake mingw-w64-x86_64-qt6 mingw-w64-x86_64-qt-creator
->mingw-w64-x86_64-qt6-doc mingw-w64-x86_64-imagemagick mingw-w64-x86_64-librsvg
->mingw-w64-x86_64-inkscape
+>pacman -S base-devel mingw-w64-x86_64-cmake git mingw-w64-x86_64-toolchain
+>mingw-w64-x86_64-qt6 mingw-w64-x86_64-qt-creator
+>mingw-w64-x86_64-imagemagick mingw-w64-x86_64-boost
 
 Mpc-Qt can be compiled with a libmpv linked to MSYS2's ffmpeg libraries, or by
 using the prebuilt library released on sourceforge.  To use the prebuilt

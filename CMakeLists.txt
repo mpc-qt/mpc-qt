@@ -14,6 +14,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 
 find_package(Qt6 REQUIRED COMPONENTS Gui LinguistTools Network OpenGLWidgets Svg Widgets)
 find_package(PkgConfig REQUIRED)
+find_package(Boost CONFIG REQUIRED)
+message(STATUS "Boost version: ${Boost_VERSION}")
 # These two SET CMAKE_AUTOMOC and CMAKE_AUTOUIC can be replaced with Qt 6.3 by
 # qt_standard_project_setup()
 # Starting with Qt 6.7,
@@ -121,6 +123,7 @@ set(SOURCES
 qt_add_executable(mpc-qt WIN32 MACOSX_BUNDLE ${SOURCES})
 
 target_include_directories(mpc-qt PRIVATE ${CMAKE_BINARY_DIR})
+target_include_directories(mpc-qt PRIVATE ${Boost_INCLUDE_DIRS})
 
 set(TS_FILES
     translations/mpc-qt_ar.ts
