@@ -146,6 +146,7 @@ void MpvThumbnailer::execute(const MpvThumbnailer::Params &p)
     emit mpv->ctrlSetOptionVariant("osd-bold", "yes");
     emit mpv->ctrlSetOptionVariant("ao", "null");
     emit mpv->ctrlSetOptionVariant("ao-null-untimed", "yes");
+    emit mpv->ctrlSetOptionVariant("audio", "no");
     emit mpv->ctrlSetOptionVariant("untimed", "yes");
     emit mpv->ctrlSetOptionVariant("fps", 200);
     mpv->urlOpen(p.sourceUrl);
