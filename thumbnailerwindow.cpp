@@ -259,7 +259,7 @@ void MpvThumbnailer::renderImage()
     QFontMetrics selfMetrics(selfFont);
     QString self = "MPC-QT";
     QRect selfRect = captionArea.adjusted(0, -selfMetrics.descent(),
-                                          -pageMargin, selfMetrics.descent()*2);
+                                          -pageMargin, selfMetrics.descent());
 
     // Create new image with size.
     // h = captionbottom + margin-thumbmargin + (thumb+thumbmargin)*rows
