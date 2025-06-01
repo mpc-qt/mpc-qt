@@ -352,7 +352,6 @@ void MpvThumbnailer::mpv_playTimeChanged(double time)
     // option.  Perhaps core-idle?  Patches welcome.
     mpvTime = time;
     if (time < 0) {
-        thumbState = AvailableState;
         return;
     }
 
