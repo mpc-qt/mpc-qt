@@ -146,6 +146,7 @@ void MpvThumbnailer::execute(const MpvThumbnailer::Params &p)
     emit mpv->ctrlSetOptionVariant("osd-bold", "yes");
     emit mpv->ctrlSetOptionVariant("ao", "null");
     emit mpv->ctrlSetOptionVariant("ao-null-untimed", "yes");
+    emit mpv->ctrlSetOptionVariant("audio", "no");
     emit mpv->ctrlSetOptionVariant("untimed", "yes");
     emit mpv->ctrlSetOptionVariant("fps", 200);
     mpv->urlOpen(p.sourceUrl);
@@ -258,7 +259,7 @@ void MpvThumbnailer::renderImage()
     QFontMetrics selfMetrics(selfFont);
     QString self = "MPC-QT";
     QRect selfRect = captionArea.adjusted(0, -selfMetrics.descent(),
-                                          -pageMargin, selfMetrics.descent()*2);
+                                          -pageMargin, selfMetrics.descent());
 
     // Create new image with size.
     // h = captionbottom + margin-thumbmargin + (thumb+thumbmargin)*rows
@@ -337,6 +338,9 @@ void MpvThumbnailer::mpv_playLengthChanged(double length)
 
 void MpvThumbnailer::mpv_playTimeChanged(double time)
 {
+    Logger::log("MpvThumbnailer::mpv_playTimeChanged");
+    LogStream(logModule) << "thumbState: " << thumbState;
+    LogStream(logModule) << "time: " << time;
     // This function is called:
     // * Once at file open with timestamp 0
     // * Once per seek navigation with the requested time (sometimes)
@@ -352,7 +356,6 @@ void MpvThumbnailer::mpv_playTimeChanged(double time)
     // option.  Perhaps core-idle?  Patches welcome.
     mpvTime = time;
     if (time < 0) {
-        thumbState = AvailableState;
         return;
     }
 
