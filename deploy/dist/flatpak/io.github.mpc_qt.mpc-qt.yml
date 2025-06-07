@@ -35,6 +35,9 @@ finish-args:
   - --talk-name=org.freedesktop.ScreenSaver
   - --own-name=org.mpris.MediaPlayer2.MpcQt
   - --system-talk-name=org.freedesktop.UDisks2
+# Give access to legacy ~/.icons custom mouse cursor themes path
+  - --filesystem=home/.icons:ro
+  - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons:~/.icons
 cleanup:
   - '*.a'
   - '*.la'
