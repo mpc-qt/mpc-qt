@@ -3,8 +3,8 @@
  <id>io.github.mpc_qt.mpc-qt</id>
  <metadata_license>CC0-1.0</metadata_license>
  <project_license>GPL-2.0+</project_license>
- <name>Media Player Classic Qute Theater</name>
- <summary>A clone of Media Player Classic reimplemented in Qt</summary>
+ <name>MPC-QT</name>
+ <summary>Media Player Classic reimplemented with Qt and libmpv</summary>
  <launchable type="desktop-id">io.github.mpc_qt.mpc-qt.desktop</launchable>
  <content_rating type="oars-1.1" />
  <developer id="io.github.mpc-qt">
@@ -12,22 +12,36 @@
  </developer>
  <description>
   <p>
-   Media Player Classic Qute Theater (MPC-QT) is a cross-platform application that uses Qt to reproduce most of the interface and functionality of Media Player Classic Home Cinema (MPC-HC), and uses libmpv's powerful media presentation framework to play video instead of DirectShow. It is not a strict clone; there are some improvements.
+   Open source media player focusing on ease of use and effectiveness.
   </p>
   <p>Features:</p>
   <ul>
-   <li>libmpv backend</li>
    <li>Multiple playlists</li>
+   <li>Video preview on seekbar (thumbnail)</li>
    <li>Quick queueing like xmms/qmmp</li>
-   <li>Mpris - multimedia keys support</li>
-   <li>Web interface like MPC-HC's</li>
-   <li>Screenshot templates</li>
+   <li>Play online videos (with youtube-dl)</li>
+   <li>Configurable shortcuts and mouse buttons</li>
+   <li>Multimedia keys support (Mpris)</li>
+   <li>Web interface</li>
+   <li>Thumbnails maker</li>w
   </ul>
  </description>
  <screenshots>
   <screenshot type="default">
-   <image>https://mpc-qt.github.io/images/Screenshot_20241109_190909.png</image>
-   <caption>The main window showing the application in action</caption>
+   <caption>Main window with video preview</caption>
+   <image>https://mpc-qt.github.io/images/Screenshot_main_screen_20250602_151626.png</image>
+  </screenshot>
+  <screenshot>
+   <caption>Playlist and context menu</caption>
+   <image>https://mpc-qt.github.io/images/Screenshot_context_menu_20250604_105236.png</image>
+  </screenshot>
+  <screenshot>
+   <caption>Keys editor</caption>
+   <image>https://mpc-qt.github.io/images/Screenshot_keys_editor_20250613_065949.png</image>
+  </screenshot>
+  <screenshot>
+   <caption>Video output settings</caption>
+   <image>https://mpc-qt.github.io/images/Screenshot_options_20250602_153020.png</image>
   </screenshot>
  </screenshots>
  <url type="homepage">https://mpc-qt.github.io/</url>
