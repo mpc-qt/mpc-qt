@@ -659,7 +659,7 @@ void MpvObject::hideCursor()
     if (!widget)
         return;
     auto w = widget->self()->window();
-    if (w->cursor() == Qt::ArrowCursor || w->isFullScreen()
+    if (widget->self()->cursor() == Qt::ArrowCursor || w->isFullScreen()
                                        || w->isMaximized()) {
         if (qApp->platformName().contains("wayland") && !w->isActiveWindow())
             return;
