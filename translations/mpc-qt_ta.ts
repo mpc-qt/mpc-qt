@@ -136,7 +136,7 @@
     </message>
     <message>
         <source>Restore</source>
-        <translation>மீட்டமை</translation>
+        <translation>மீட்டெடு</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -342,7 +342,7 @@
     </message>
     <message>
         <source>&amp;Open File...</source>
-        <translation>கோப்பு திற... (&amp;o)</translation>
+        <translation>கோப்பு திற...</translation>
     </message>
     <message>
         <source>Ctrl+O</source>
@@ -614,7 +614,7 @@
     </message>
     <message>
         <source>&amp;Options...</source>
-        <translation>விருப்பங்கள்... (&amp;o)</translation>
+        <translation>விருப்பங்கள்...</translation>
     </message>
     <message>
         <source>O</source>
@@ -770,7 +770,7 @@
     </message>
     <message>
         <source>Alt+R</source>
-        <translation>Alt+r.</translation>
+        <translation>மாற்று+R</translation>
     </message>
     <message>
         <source>&amp;Subtitle Menu</source>
@@ -1414,63 +1414,63 @@
     </message>
     <message>
         <source>Music Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>இசை முறை</translation>
     </message>
     <message>
         <source>M</source>
-        <translation type="unfinished"></translation>
+        <translation>மீ</translation>
     </message>
     <message>
         <source>&amp;Previous Audio Track</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp; முந்தைய ஆடியோ டிராக்</translation>
     </message>
     <message>
         <source>&amp;Next Audio Track</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp; அடுத்த ஆடியோ டிராக்</translation>
     </message>
     <message>
         <source>&amp;50%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp; 50%</translation>
     </message>
     <message>
         <source>&amp;100%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp; 100%</translation>
     </message>
     <message>
         <source>&amp;200%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp; 200%</translation>
     </message>
     <message>
         <source>25%</source>
-        <translation type="unfinished"></translation>
+        <translation>25%</translation>
     </message>
     <message>
         <source>&amp;75%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp; 75%</translation>
     </message>
     <message>
         <source>15&amp;0%</source>
-        <translation type="unfinished"></translation>
+        <translation>15 &amp; 0%</translation>
     </message>
     <message>
         <source>&amp;400%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp; 400%</translation>
     </message>
     <message>
         <source>&amp;300%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp; 300%</translation>
     </message>
     <message>
         <source>vo: %1, decoder: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>VO: %1, டிகோடர்: %2</translation>
     </message>
     <message>
         <source>v: %1 kb/s, a: %2 kb/s</source>
-        <translation type="unfinished"></translation>
+        <translation>v: %1 kb/s, a: %2 kb/s</translation>
     </message>
     <message>
         <source>v: 0 kb/s, a: 0kb/s</source>
-        <translation type="unfinished"></translation>
+        <translation>v: 0 kb/s, a: 0kb/s</translation>
     </message>
 </context>
 <context>
@@ -1693,19 +1693,19 @@
     </message>
     <message>
         <source>Audio track: </source>
-        <translation type="unfinished"></translation>
+        <translation>ஆடியோ டிராக்: </translation>
     </message>
     <message>
         <source>Subtitles track: </source>
-        <translation type="unfinished"></translation>
+        <translation>வசன வரிகள்: </translation>
     </message>
     <message>
         <source>Subtitles: on</source>
-        <translation type="unfinished"></translation>
+        <translation>வசன வரிகள்: ஆன்</translation>
     </message>
     <message>
         <source>Subtitles: off</source>
-        <translation type="unfinished"></translation>
+        <translation>வசன வரிகள்: ஆஃப்</translation>
     </message>
 </context>
 <context>
@@ -1716,7 +1716,7 @@
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation type="unfinished">விரைவான பிளேலிச்ட்</translation>
+        <translation>விரைவான பிளேலிச்ட்</translation>
     </message>
 </context>
 <context>
@@ -1823,7 +1823,7 @@
     </message>
     <message>
         <source>Restore</source>
-        <translation>மீட்டமை</translation>
+        <translation>மீட்டெடு</translation>
     </message>
     <message>
         <source>Shuffle</source>
@@ -1867,11 +1867,11 @@
     </message>
     <message>
         <source>Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>வரிசை</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">பெயர்</translation>
+        <translation>பெயர்</translation>
     </message>
     <message>
         <source>Quick playlist</source>
@@ -2703,7 +2703,7 @@ media file played</source>
     </message>
     <message>
         <source>Sinc</source>
-        <translation>Sinc</translation>
+        <translation>சின்சி</translation>
     </message>
     <message>
         <source>Jinc</source>
@@ -2727,7 +2727,7 @@ media file played</source>
     </message>
     <message>
         <source>Bicubic_fast</source>
-        <translation>Bicubic_fast</translation>
+        <translation>இருகணம்_வேகம்</translation>
     </message>
     <message>
         <source>Oversample</source>
@@ -2923,7 +2923,7 @@ media file played</source>
     </message>
     <message>
         <source>Target TRC</source>
-        <translation>இலக்கு டி.ஆர்.சி.</translation>
+        <translation>இலக்கு டிஆர்சி</translation>
     </message>
     <message>
         <source>BT.1886</source>
@@ -3091,7 +3091,7 @@ media file played</source>
     </message>
     <message>
         <source>Oss</source>
-        <translation>Oss</translation>
+        <translation>ஒஎச்எச்</translation>
     </message>
     <message>
         <source>Mixer device</source>
@@ -3199,7 +3199,7 @@ media file played</source>
     </message>
     <message>
         <source>Framedropping</source>
-        <translation>Framedropping</translation>
+        <translation>சட்டம்விடுதல்</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -3532,7 +3532,7 @@ media file played</source>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Unchecked directories will place output files in the source directory. Streams do not have a source directory and will bring up a dialog when a field is left blank; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; will always ask where to place files. Directories will be created if necessary; this may not work across all filesystems.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;HTML&gt; &lt;HEAD/&gt; &lt;body&gt; &lt;p&gt; சரிபார்க்கப்படாத கோப்பகங்கள் வெளியீட்டு கோப்புகளை மூல கோப்பகத்தில் வைக்கும். நீரோடைகளுக்கு மூல அடைவு இல்லை, மேலும் ஒரு புலம் காலியாக இருக்கும்போது உரையாடலைக் கொண்டு வரும்; &lt;span சூல் தண்டு = &quot;font-weight: 600;&quot;&gt; alt+i &lt;/span&gt; எப்போதும் கோப்புகளை எங்கு வைக்க வேண்டும் என்று கேட்கும். தேவைப்பட்டால் கோப்பகங்கள் உருவாக்கப்படும்; இது எல்லா கோப்பு முறைமைகளிலும் வேலை செய்யாது. &lt;/p&gt; &lt;/body&gt; &lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt; &lt;p&gt; சரிபார்க்கப்படாத கோப்பகங்கள் வெளியீட்டு கோப்புகளை மூல கோப்பகத்தில் வைக்கும். நீரோடைகளுக்கு மூல அடைவு இல்லை, மேலும் ஒரு புலம் காலியாக இருக்கும்போது உரையாடலைக் கொண்டு வரும்; &lt;span style=&quot; font-weight:600;&quot;&gt;மாற்று+I&lt;/span&gt; எப்போதும் கோப்புகளை எங்கு வைக்க வேண்டும் என்று கேட்கும். தேவைப்பட்டால் கோப்பகங்கள் உருவாக்கப்படும்; இது எல்லா கோப்பு முறைமைகளிலும் வேலை செய்யாது. &lt;/p&gt; &lt;/body&gt; &lt;/html&gt;</translation>
     </message>
     <message>
         <source>Filename template</source>
@@ -3668,7 +3668,7 @@ media file played</source>
     </message>
     <message>
         <source>mpv</source>
-        <translation>mpv</translation>
+        <translation>எம்பிவி</translation>
     </message>
     <message>
         <source>No (complete silence)</source>
@@ -3752,7 +3752,7 @@ media file played</source>
     </message>
     <message>
         <source>Brightness</source>
-        <translation>ஒளி</translation>
+        <translation>வெளிச்சம்</translation>
     </message>
     <message>
         <source>Hue</source>
@@ -3928,7 +3928,7 @@ media file played</source>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
-        <translation>வீடியோ வழங்குதல் செயல்முறையில் சேர்க்கக்கூடிய சிறப்பு விளைவுகள் சேடர்களில் உள்ளன. சமூகத்தால் தயாரிக்கப்பட்ட சேடர்களின் பட்டியலை &lt;a href = &quot;https://github.com/mpv-player/mpv/wiki/user-scripts#user-shaders&quot;&gt; &lt;ச்பான் பாணி = &quot;உரை-டெக்சரேசன்: அடிக்கோடிட்டு;</translation>
+        <translation>வீடியோ வழங்குதல் செயல்முறையில் சேர்க்கக்கூடிய சிறப்பு விளைவுகள் சேடர்களில் உள்ளன. சமூகத்தால் தயாரிக்கப்பட்ட சேடர்களின் பட்டியலை &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;அந்த எம்பிவி விக்கியில்&lt;/span&gt;&lt;/a&gt; கிடைக்கும்.</translation>
     </message>
     <message>
         <source>Pipewire</source>
@@ -4116,67 +4116,67 @@ media file played</source>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>சாளரங்களில் இருண்ட கருப்பொருள் ஆதரவை அனுமதிக்கிறது</translation>
     </message>
     <message>
         <source>Audio balance</source>
-        <translation type="unfinished"></translation>
+        <translation>ஆடியோ இருப்பு</translation>
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>தேடுங்கள்…</translation>
     </message>
     <message>
         <source>Show video preview</source>
-        <translation type="unfinished"></translation>
+        <translation>வீடியோ முன்னோட்டத்தைக் காட்டு</translation>
     </message>
     <message>
         <source>100%</source>
-        <translation type="unfinished"></translation>
+        <translation>100%</translation>
     </message>
     <message>
         <source>25%</source>
-        <translation type="unfinished"></translation>
+        <translation>25%</translation>
     </message>
     <message>
         <source>50%</source>
-        <translation type="unfinished"></translation>
+        <translation>50%</translation>
     </message>
     <message>
         <source>75%</source>
-        <translation type="unfinished"></translation>
+        <translation>75%</translation>
     </message>
     <message>
         <source>150%</source>
-        <translation type="unfinished"></translation>
+        <translation>150%</translation>
     </message>
     <message>
         <source>200%</source>
-        <translation type="unfinished"></translation>
+        <translation>200%</translation>
     </message>
     <message>
         <source>300%</source>
-        <translation type="unfinished"></translation>
+        <translation>300%</translation>
     </message>
     <message>
         <source>400%</source>
-        <translation type="unfinished"></translation>
+        <translation>400%</translation>
     </message>
     <message>
         <source>Remove subtitles additions for the deaf or hard-of-hearing (SDH)</source>
-        <translation type="unfinished"></translation>
+        <translation>காது கேளாதோர் அல்லது கடினமாக கேட்கும் (எச்.டி.எச்) வசன வரிகள் சேர்த்தல்களை அகற்றவும்</translation>
     </message>
     <message>
         <source>Requires restarting the application to apply changes</source>
-        <translation type="unfinished"></translation>
+        <translation>மாற்றங்களைப் பயன்படுத்த விண்ணப்பத்தை மறுதொடக்கம் செய்ய வேண்டும்</translation>
     </message>
     <message>
         <source>yt-dlp (web videos)</source>
-        <translation type="unfinished"></translation>
+        <translation>YT-DLP (வலை வீடியோக்கள்)</translation>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation type="unfinished"></translation>
+        <translation>அதிகபட்ச வீடியோ உயரம்:</translation>
     </message>
 </context>
 <context>
