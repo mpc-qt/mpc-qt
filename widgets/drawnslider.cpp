@@ -294,7 +294,7 @@ void DrawnSlider::mouseMoveEvent(QMouseEvent *ev)
 }
 
 MediaSlider::MediaSlider(QWidget *parent) :
-    DrawnSlider(parent, QSize(11, 12), QSize(5, 3), 9)
+    DrawnSlider(parent, QSize(11, 12), QSize(5, 3), 8)
 {
 }
 
