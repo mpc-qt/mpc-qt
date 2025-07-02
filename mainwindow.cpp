@@ -3146,7 +3146,7 @@ void MainWindow::position_hoverValue(double position, QString chapterInfo, doubl
                                       chapterInfo);
     if (videoPreview && isVideo_) {
         QToolTip::hideText();
-        QPoint where = positionSlider_->mapTo(this, QPoint(std::round(mouseX), 0));
+        QPoint where = positionSlider_->mapTo(this, QPoint(std::round(mouseX), -1));
         videoPreview->show(t, position, where, this->width());
         mpvw->update();
     } else {
