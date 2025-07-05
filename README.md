@@ -40,6 +40,10 @@ file *for each playlist*.  Finally you can eliminate the need to keep track of
 your progress in a spreadsheet, all while never leaving the comfort of your
 favorite media player.
 
+**Video preview on seekbar (thumbnail)**
+
+**Play online videos (with youtube-dl)**
+
 **Quick queuing:**  Out-of-order playback in the same style of xmms/qmmp.
 Got some compilation albums in a playlist, but want to hear only some rock
 tracks for a while?  Now you can, without obliterating your playlist.
