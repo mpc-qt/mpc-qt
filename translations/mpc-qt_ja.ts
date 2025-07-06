@@ -1466,7 +1466,7 @@
     </message>
     <message>
         <source>v: %1 kb/s, a: %2 kb/s</source>
-        <translation type="unfinished">v: %1 kb/s, a: %2 kb/s</translation>
+        <translation>v: %1 kb/s, a: %2 kb/s</translation>
     </message>
     <message>
         <source>v: 0 kb/s, a: 0kb/s</source>
@@ -1693,19 +1693,19 @@
     </message>
     <message>
         <source>Audio track: </source>
-        <translation type="unfinished"></translation>
+        <translation>オーディオ トラック : </translation>
     </message>
     <message>
         <source>Subtitles track: </source>
-        <translation type="unfinished"></translation>
+        <translation>字幕トラック : </translation>
     </message>
     <message>
         <source>Subtitles: on</source>
-        <translation type="unfinished"></translation>
+        <translation>字幕 : on</translation>
     </message>
     <message>
         <source>Subtitles: off</source>
-        <translation type="unfinished"></translation>
+        <translation>字幕 : off</translation>
     </message>
 </context>
 <context>
@@ -1716,7 +1716,7 @@
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation type="unfinished">クイック 再生リスト</translation>
+        <translation>クイック 再生リスト</translation>
     </message>
 </context>
 <context>
@@ -1867,11 +1867,11 @@
     </message>
     <message>
         <source>Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>キュー</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">名前</translation>
+        <translation>名前</translation>
     </message>
     <message>
         <source>Quick playlist</source>
@@ -2061,7 +2061,7 @@
     </message>
     <message>
         <source>Tooltip base</source>
-        <translation type="unfinished">ツールチップ ベース</translation>
+        <translation>ツールチップ ベース</translation>
     </message>
     <message>
         <source>Tooltip text</source>
@@ -2283,7 +2283,7 @@ media file played</source>
     </message>
     <message>
         <source>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</source>
-        <translation>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt;  は %1 が利用可能です</translation>
+        <translation>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; は %1 が利用可能です</translation>
     </message>
     <message>
         <source>MPRIS</source>
@@ -2319,11 +2319,11 @@ media file played</source>
     </message>
     <message>
         <source>Triangle in circle</source>
-        <translation type="unfinished">再生マーク</translation>
+        <translation>再生マーク</translation>
     </message>
     <message>
         <source>Multi purpose vehicle</source>
-        <translation type="unfinished">多目的媒体</translation>
+        <translation>多目的媒体</translation>
     </message>
     <message>
         <source>Icons</source>
@@ -2383,11 +2383,11 @@ media file played</source>
     </message>
     <message>
         <source>Info Background</source>
-        <translation type="unfinished">情報欄の背景色</translation>
+        <translation>情報欄の背景色</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation type="unfinished">情報欄の文字色</translation>
+        <translation>情報欄の文字色</translation>
     </message>
     <message>
         <source>Control</source>
@@ -2463,7 +2463,7 @@ media file played</source>
     </message>
     <message>
         <source>Windowed</source>
-        <translation type="unfinished">ウィンドウ表示</translation>
+        <translation>ウィンドウ表示</translation>
     </message>
     <message>
         <source>Video Renderer</source>
@@ -2471,7 +2471,7 @@ media file played</source>
     </message>
     <message>
         <source>Dumb mode</source>
-        <translation type="unfinished">シンプル モード</translation>
+        <translation>シンプル モード</translation>
     </message>
     <message>
         <source>General</source>
@@ -2515,7 +2515,7 @@ media file played</source>
     </message>
     <message>
         <source>Blend on black</source>
-        <translation type="unfinished">黒地にブレンド</translation>
+        <translation>黒地にブレンド</translation>
     </message>
     <message>
         <source>Use</source>
@@ -2579,7 +2579,7 @@ media file played</source>
     </message>
     <message>
         <source>Fruit</source>
-        <translation type="unfinished">フルーツ</translation>
+        <translation>フルーツ</translation>
     </message>
     <message>
         <source>Ordered</source>
@@ -2587,7 +2587,7 @@ media file played</source>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished">No</translation>
+        <translation>No</translation>
     </message>
     <message>
         <source>Size</source>
@@ -2603,7 +2603,7 @@ media file played</source>
     </message>
     <message>
         <source>Period</source>
-        <translation type="unfinished">期間</translation>
+        <translation>期間</translation>
     </message>
     <message>
         <source>This can lead to flicker on LCD displays, since these  have a high reaction time.</source>
@@ -2671,51 +2671,51 @@ media file played</source>
     </message>
     <message>
         <source>Bartlett</source>
-        <translation type="unfinished">Bartlett</translation>
+        <translation>Bartlett</translation>
     </message>
     <message>
         <source>Hanning</source>
-        <translation type="unfinished">Hanning</translation>
+        <translation>Hanning</translation>
     </message>
     <message>
         <source>Hamming</source>
-        <translation type="unfinished">Hamming</translation>
+        <translation>Hamming</translation>
     </message>
     <message>
         <source>Quadric</source>
-        <translation type="unfinished">Quadric</translation>
+        <translation>Quadric</translation>
     </message>
     <message>
         <source>Welch</source>
-        <translation type="unfinished">Welch</translation>
+        <translation>Welch</translation>
     </message>
     <message>
         <source>Kaiser</source>
-        <translation type="unfinished">Kaiser</translation>
+        <translation>Kaiser</translation>
     </message>
     <message>
         <source>Blackman</source>
-        <translation type="unfinished">Blackman</translation>
+        <translation>Blackman</translation>
     </message>
     <message>
         <source>Gaussian</source>
-        <translation type="unfinished">Gaussian</translation>
+        <translation>Gaussian</translation>
     </message>
     <message>
         <source>Sinc</source>
-        <translation type="unfinished">Sinc</translation>
+        <translation>Sinc</translation>
     </message>
     <message>
         <source>Jinc</source>
-        <translation type="unfinished">Jinc</translation>
+        <translation>Jinc</translation>
     </message>
     <message>
         <source>Sphinx</source>
-        <translation type="unfinished">Sphinx</translation>
+        <translation>Sphinx</translation>
     </message>
     <message>
         <source>Clamp</source>
-        <translation type="unfinished">Clamp</translation>
+        <translation>Clamp</translation>
     </message>
     <message>
         <source>Radius</source>
@@ -2735,47 +2735,47 @@ media file played</source>
     </message>
     <message>
         <source>Spline16</source>
-        <translation type="unfinished">Spline16</translation>
+        <translation>Spline16</translation>
     </message>
     <message>
         <source>Spline36</source>
-        <translation type="unfinished">Spline36</translation>
+        <translation>Spline36</translation>
     </message>
     <message>
         <source>Spline64</source>
-        <translation type="unfinished">Spline64</translation>
+        <translation>Spline64</translation>
     </message>
     <message>
         <source>Lanczos</source>
-        <translation type="unfinished">Lanczos</translation>
+        <translation>Lanczos</translation>
     </message>
     <message>
         <source>Ginseng</source>
-        <translation type="unfinished">Ginseng</translation>
+        <translation>Ginseng</translation>
     </message>
     <message>
         <source>Ewa lanczos</source>
-        <translation type="unfinished">Ewa lanczos</translation>
+        <translation>Ewa lanczos</translation>
     </message>
     <message>
         <source>Ewa hanning</source>
-        <translation type="unfinished">Ewa hanning</translation>
+        <translation>Ewa hanning</translation>
     </message>
     <message>
         <source>Ewa ginseng</source>
-        <translation type="unfinished">Ewa ginseng</translation>
+        <translation>Ewa ginseng</translation>
     </message>
     <message>
         <source>Ewa lanczos sharp</source>
-        <translation type="unfinished">Ewa lanczos sharp</translation>
+        <translation>Ewa lanczos sharp</translation>
     </message>
     <message>
         <source>Ewa lanczos soft</source>
-        <translation type="unfinished">Ewa lanczos soft</translation>
+        <translation>Ewa lanczos soft</translation>
     </message>
     <message>
         <source>Haasnsoft</source>
-        <translation type="unfinished">Haasnsoft</translation>
+        <translation>Haasnsoft</translation>
     </message>
     <message>
         <source>Bicubic</source>
@@ -2787,27 +2787,27 @@ media file played</source>
     </message>
     <message>
         <source>Catmull rom</source>
-        <translation type="unfinished">Catmull rom</translation>
+        <translation>Catmull rom</translation>
     </message>
     <message>
         <source>Mitchell</source>
-        <translation type="unfinished">Mitchell</translation>
+        <translation>Mitchell</translation>
     </message>
     <message>
         <source>Robidoux</source>
-        <translation type="unfinished">Robidoux</translation>
+        <translation>Robidoux</translation>
     </message>
     <message>
         <source>Robidoux sharp</source>
-        <translation type="unfinished">Robidoux sharp</translation>
+        <translation>Robidoux sharp</translation>
     </message>
     <message>
         <source>Ewa robidoux</source>
-        <translation type="unfinished">Ewa robidoux</translation>
+        <translation>Ewa robidoux</translation>
     </message>
     <message>
         <source>Ewa robidoux sharp</source>
-        <translation type="unfinished">Ewa robidoux sharp</translation>
+        <translation>Ewa robidoux sharp</translation>
     </message>
     <message>
         <source>Nearest</source>
@@ -2827,7 +2827,7 @@ media file played</source>
     </message>
     <message>
         <source>Temporal</source>
-        <translation type="unfinished">Temporal</translation>
+        <translation>Temporal</translation>
     </message>
     <message>
         <source>Linear</source>
@@ -2835,7 +2835,7 @@ media file played</source>
     </message>
     <message>
         <source>Deband</source>
-        <translation type="unfinished">バンディング除去</translation>
+        <translation>バンディング除去</translation>
     </message>
     <message>
         <source>State</source>
@@ -2847,7 +2847,7 @@ media file played</source>
     </message>
     <message>
         <source>Iterations</source>
-        <translation type="unfinished">反復回数</translation>
+        <translation>反復回数</translation>
     </message>
     <message>
         <source>Threshold</source>
@@ -2859,7 +2859,7 @@ media file played</source>
     </message>
     <message>
         <source>Grain</source>
-        <translation type="unfinished">粒子ノイズ</translation>
+        <translation>粒子ノイズ</translation>
     </message>
     <message>
         <source>Color Correction</source>
@@ -3127,7 +3127,7 @@ media file played</source>
     </message>
     <message>
         <source>Filesystem</source>
-        <translation type="unfinished">Filesystem</translation>
+        <translation>Filesystem</translation>
     </message>
     <message>
         <source>Add shader file(s)...</source>
@@ -3223,15 +3223,15 @@ media file played</source>
     </message>
     <message>
         <source>Non reference</source>
-        <translation type="unfinished">Non reference</translation>
+        <translation>Non reference</translation>
     </message>
     <message>
         <source>Bi-directional</source>
-        <translation type="unfinished">Bi-directional</translation>
+        <translation>Bi-directional</translation>
     </message>
     <message>
         <source>Non key</source>
-        <translation type="unfinished">Non key</translation>
+        <translation>Non key</translation>
     </message>
     <message>
         <source>Audio/Video sync</source>
@@ -3351,7 +3351,7 @@ media file played</source>
     </message>
     <message>
         <source>qrc:/text/playlistFormat.html</source>
-        <translation type="unfinished">qrc:/text/playlistFormat.html</translation>
+        <translation>qrc:/text/playlistFormat.html</translation>
     </message>
     <message>
         <source>Placement</source>
@@ -3948,7 +3948,7 @@ media file played</source>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished">中</translation>
+        <translation>中</translation>
     </message>
     <message>
         <source>BT.470M</source>
@@ -4116,67 +4116,67 @@ media file played</source>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
-        <translation type="unfinished">Windowsでダークテーマのサポートが可能</translation>
+        <translation>Windowsでダークテーマのサポートが可能</translation>
     </message>
     <message>
         <source>Audio balance</source>
-        <translation type="unfinished"></translation>
+        <translation>オーディオ バランス</translation>
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>検索…</translation>
     </message>
     <message>
         <source>Show video preview</source>
-        <translation type="unfinished"></translation>
+        <translation>ビデオプレビューの表示</translation>
     </message>
     <message>
         <source>100%</source>
-        <translation type="unfinished"></translation>
+        <translation>100%</translation>
     </message>
     <message>
         <source>25%</source>
-        <translation type="unfinished"></translation>
+        <translation>25%</translation>
     </message>
     <message>
         <source>50%</source>
-        <translation type="unfinished"></translation>
+        <translation>50%</translation>
     </message>
     <message>
         <source>75%</source>
-        <translation type="unfinished"></translation>
+        <translation>75%</translation>
     </message>
     <message>
         <source>150%</source>
-        <translation type="unfinished"></translation>
+        <translation>150%</translation>
     </message>
     <message>
         <source>200%</source>
-        <translation type="unfinished"></translation>
+        <translation>200%</translation>
     </message>
     <message>
         <source>300%</source>
-        <translation type="unfinished"></translation>
+        <translation>300%</translation>
     </message>
     <message>
         <source>400%</source>
-        <translation type="unfinished"></translation>
+        <translation>400%</translation>
     </message>
     <message>
         <source>Remove subtitles additions for the deaf or hard-of-hearing (SDH)</source>
-        <translation type="unfinished"></translation>
+        <translation>聴覚障害者または難聴者向けの字幕の追加を削除 (SDH)</translation>
     </message>
     <message>
         <source>Requires restarting the application to apply changes</source>
-        <translation type="unfinished"></translation>
+        <translation>変更を適用するにはアプリケーションの再起動が必要です</translation>
     </message>
     <message>
         <source>yt-dlp (web videos)</source>
-        <translation type="unfinished"></translation>
+        <translation>yt-dlp (ウェブビデオ)</translation>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation type="unfinished"></translation>
+        <translation>ビデオの最大高さ :</translation>
     </message>
 </context>
 <context>
