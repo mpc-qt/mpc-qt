@@ -82,7 +82,7 @@
     </message>
     <message>
         <source>URLs to open, optionally.</source>
-        <translation type="unfinished">開くURL(任意)。</translation>
+        <translation>開くURL(任意)。</translation>
     </message>
     <message>
         <source>Save Image</source>
@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitely.</source>
-        <translation type="unfinished">指定した時間にジャンプするには、[hh:]mm:ss.ms の形式を使用してタイムコードを入力します。区切り文字を明示的に入力する必要はありません。</translation>
+        <translation>指定した時間にジャンプするには、[hh:]mm:ss.ms の形式を使用してタイムコードを入力します。区切り文字を明示的に入力する必要はありません。</translation>
     </message>
 </context>
 <context>
@@ -230,7 +230,7 @@
     </message>
     <message>
         <source>Sync Offset</source>
-        <translation type="unfinished">同期オフセット</translation>
+        <translation>同期オフセット</translation>
     </message>
     <message>
         <source>Framedrops</source>
@@ -966,7 +966,7 @@
     </message>
     <message>
         <source>Queue &amp;Visible</source>
-        <translation type="unfinished">キュー表示(&amp;V)</translation>
+        <translation>キュー表示(&amp;V)</translation>
     </message>
     <message>
         <source>Ctrl+Shift+Q</source>
@@ -1174,7 +1174,7 @@
     </message>
     <message>
         <source> [Freestanding]</source>
-        <translation type="unfinished"> [Freestanding]</translation>
+        <translation> [Freestanding]</translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
@@ -1182,7 +1182,7 @@
     </message>
     <message>
         <source>&amp;Quick Open File</source>
-        <translation type="unfinished">クイック 再生(&amp;Q)</translation>
+        <translation>クイック 再生(&amp;Q)</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -1222,7 +1222,7 @@
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation type="unfinished">Built on %1 at %2</translation>
+        <translation>Built on %1 at %2</translation>
     </message>
     <message>
         <source>Alt+Q</source>
@@ -1366,7 +1366,7 @@
     </message>
     <message>
         <source>%1 / %2</source>
-        <translation type="unfinished">%1 / %2</translation>
+        <translation>%1 / %2</translation>
     </message>
     <message>
         <source>Seek Forwards (normal step)</source>
@@ -1414,63 +1414,63 @@
     </message>
     <message>
         <source>Music Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>ミュージック モード</translation>
     </message>
     <message>
         <source>M</source>
-        <translation type="unfinished"></translation>
+        <translation>M</translation>
     </message>
     <message>
         <source>&amp;Previous Audio Track</source>
-        <translation type="unfinished"></translation>
+        <translation>前のオーディオトラック(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;Next Audio Track</source>
-        <translation type="unfinished"></translation>
+        <translation>次のオーディオトラック(&amp;N)</translation>
     </message>
     <message>
         <source>&amp;50%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;50%</translation>
     </message>
     <message>
         <source>&amp;100%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;100%</translation>
     </message>
     <message>
         <source>&amp;200%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;200%</translation>
     </message>
     <message>
         <source>25%</source>
-        <translation type="unfinished"></translation>
+        <translation>25%</translation>
     </message>
     <message>
         <source>&amp;75%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;75%</translation>
     </message>
     <message>
         <source>15&amp;0%</source>
-        <translation type="unfinished"></translation>
+        <translation>15&amp;0%</translation>
     </message>
     <message>
         <source>&amp;400%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;400%</translation>
     </message>
     <message>
         <source>&amp;300%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;300%</translation>
     </message>
     <message>
         <source>vo: %1, decoder: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>音量 : %1, デコーダー : %2</translation>
     </message>
     <message>
         <source>v: %1 kb/s, a: %2 kb/s</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">v: %1 kb/s, a: %2 kb/s</translation>
     </message>
     <message>
         <source>v: 0 kb/s, a: 0kb/s</source>
-        <translation type="unfinished"></translation>
+        <translation>v: 0 kb/s, a: 0kb/s</translation>
     </message>
 </context>
 <context>
@@ -1509,103 +1509,103 @@
     </message>
     <message>
         <source>XButton4</source>
-        <translation type="unfinished">XButton4</translation>
+        <translation>XButton4</translation>
     </message>
     <message>
         <source>XButton5</source>
-        <translation type="unfinished">XButton5</translation>
+        <translation>XButton5</translation>
     </message>
     <message>
         <source>XButton6</source>
-        <translation type="unfinished">XButton6</translation>
+        <translation>XButton6</translation>
     </message>
     <message>
         <source>XButton7</source>
-        <translation type="unfinished">XButton7</translation>
+        <translation>XButton7</translation>
     </message>
     <message>
         <source>XButton8</source>
-        <translation type="unfinished">XButton8</translation>
+        <translation>XButton8</translation>
     </message>
     <message>
         <source>XButton9</source>
-        <translation type="unfinished">XButton9</translation>
+        <translation>XButton9</translation>
     </message>
     <message>
         <source>XButton10</source>
-        <translation type="unfinished">XButton10</translation>
+        <translation>XButton10</translation>
     </message>
     <message>
         <source>XButton11</source>
-        <translation type="unfinished">XButton11</translation>
+        <translation>XButton11</translation>
     </message>
     <message>
         <source>XButton12</source>
-        <translation type="unfinished">XButton12</translation>
+        <translation>XButton12</translation>
     </message>
     <message>
         <source>XButton13</source>
-        <translation type="unfinished">XButton13</translation>
+        <translation>XButton13</translation>
     </message>
     <message>
         <source>XButton14</source>
-        <translation type="unfinished">XButton14</translation>
+        <translation>XButton14</translation>
     </message>
     <message>
         <source>XButton15</source>
-        <translation type="unfinished">XButton15</translation>
+        <translation>XButton15</translation>
     </message>
     <message>
         <source>XButton16</source>
-        <translation type="unfinished">XButton16</translation>
+        <translation>XButton16</translation>
     </message>
     <message>
         <source>XButton17</source>
-        <translation type="unfinished">XButton17</translation>
+        <translation>XButton17</translation>
     </message>
     <message>
         <source>XButton18</source>
-        <translation type="unfinished">XButton18</translation>
+        <translation>XButton18</translation>
     </message>
     <message>
         <source>XButton19</source>
-        <translation type="unfinished">XButton19</translation>
+        <translation>XButton19</translation>
     </message>
     <message>
         <source>XButton20</source>
-        <translation type="unfinished">XButton20</translation>
+        <translation>XButton20</translation>
     </message>
     <message>
         <source>XButton21</source>
-        <translation type="unfinished">XButton21</translation>
+        <translation>XButton21</translation>
     </message>
     <message>
         <source>XButton22</source>
-        <translation type="unfinished">XButton22</translation>
+        <translation>XButton22</translation>
     </message>
     <message>
         <source>XButton23</source>
-        <translation type="unfinished">XButton23</translation>
+        <translation>XButton23</translation>
     </message>
     <message>
         <source>XButton24</source>
-        <translation type="unfinished">XButton24</translation>
+        <translation>XButton24</translation>
     </message>
     <message>
         <source>Shift</source>
-        <translation type="unfinished">Shift</translation>
+        <translation>Shift</translation>
     </message>
     <message>
         <source>Control</source>
-        <translation type="unfinished">Control</translation>
+        <translation>Control</translation>
     </message>
     <message>
         <source>Alt</source>
-        <translation type="unfinished">Alt</translation>
+        <translation>Alt</translation>
     </message>
     <message>
         <source>Meta</source>
-        <translation type="unfinished">Meta</translation>
+        <translation>Meta</translation>
     </message>
     <message>
         <source>Down</source>
@@ -1662,7 +1662,7 @@
     </message>
     <message>
         <source>Generate</source>
-        <translation type="unfinished">生成</translation>
+        <translation>生成</translation>
     </message>
 </context>
 <context>
@@ -1731,7 +1731,7 @@
     </message>
     <message>
         <source>Visible Items to Quick Queue</source>
-        <translation type="unfinished">クイックキューに表示する項目</translation>
+        <translation>クイックキューに表示する項目</translation>
     </message>
     <message>
         <source>New Tab</source>
