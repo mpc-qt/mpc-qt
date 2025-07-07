@@ -7,6 +7,10 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_compile_options(-Wall -Wextra -O2)
 
+if(CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
+    add_compile_definitions(BOOST_STACKTRACE_GNU_SOURCE_NOT_REQUIRED)
+endif()
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # For clangd
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
