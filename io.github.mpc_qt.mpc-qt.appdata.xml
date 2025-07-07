@@ -52,6 +52,20 @@
   <control>touch</control>
  </recommends>
  <releases>
+  <release version="25.07" date="2025-07-05">
+    <url type="details">https://github.com/mpc-qt/mpc-qt/releases/tag/v25.07</url>
+    <description>
+      <p>Release description</p>
+        <ul>
+          <li>A video preview is shown on the seek bar.</li>
+          <li>Improved shuffle feature, playlist view and new music mode.</li>
+          <li>The keys editor has a search field and a better workflow.</li>
+          <li>Subtitles additions for deaf or hard-of-hearing (SDH) can be automatically hidden.</li>
+          <li>Bigger icons and updated subtitles icon.</li>
+          <li>The interface language can be forced to English.</li>
+        </ul>
+    </description>
+  </release>
   <release version="24.12.1" date="2025-02-25">
     <url type="details">https://github.com/mpc-qt/mpc-qt/releases/tag/v24.12.1</url>
     <description>
