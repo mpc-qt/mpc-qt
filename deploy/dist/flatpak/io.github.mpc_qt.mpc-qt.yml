@@ -35,8 +35,8 @@ finish-args:
   - --talk-name=org.freedesktop.ScreenSaver
   - --own-name=org.mpris.MediaPlayer2.MpcQt
   - --system-talk-name=org.freedesktop.UDisks2
-# Give access to legacy ~/.icons custom mouse cursor themes path
-  - --filesystem=home/.icons:ro
+# Give access to home folder to be able to load external subtitles and make downloaded mouse cursor themes from legacy ~/.icons path work
+  - --filesystem=home:ro
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons:~/.icons
 cleanup:
   - '*.a'
@@ -249,8 +249,8 @@ modules:
           - install yt-dlp /app/bin
         sources:
           - type: archive
-            url: https://github.com/yt-dlp/yt-dlp/archive/refs/tags/2025.03.26.tar.gz
-            sha256: f91b7cd8e58d538e90855fee2e24c34c5f78668a28889c388ed293ce4089b78c
+            url: https://github.com/yt-dlp/yt-dlp/archive/refs/tags/2025.05.22.tar.gz
+            sha256: c09ad17e0b3d5f23af3948b4b3dc7e1a9781e66a9a4d93b7dc631803e538b137
             x-checker-data:
               type: anitya
               project-id: 143399
