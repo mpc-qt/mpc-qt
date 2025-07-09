@@ -1,17 +1,17 @@
 ## Media Player Classic Qute Theater
 
-A clone of Media Player Classic reimplemented in Qt.
+Media Player Classic reimplemented with Qt and libmpv.
 
 ![screenshot]
 
-[Media Player Classic Home Cinema][mpc-hc] (mpc-hc) is considered by many to
+[Media Player Classic Home Cinema][mpc-hc] (MPC-HC) is considered by many to
 be the quintessential media player for the Windows desktop.  Media Player
-Classic Qute Theater (mpc-qt) aims to reproduce most of the interface and
-functionality of mpc-hc while using [libmpv] to play video instead of
+Classic Qute Theater (MPC-QT) aims to reproduce most of the interface and
+functionality of MPC-HC while using [libmpv] to play video instead of
 DirectShow.
 
 * [Releases](#releases)
-* [Features and improvements over mpc-hc](#features-and-improvements-over-mpc-hc)
+* [Features and improvements over MPC-HC](#features-and-improvements-over-mpc-hc)
 * [Contributing](#contributing)
 * [Compiling](#compiling)
 * [Compiling on Windows](#compiling-on-windows)
@@ -22,17 +22,16 @@ DirectShow.
 [Packages are available] for various systems.  
 There are release builds for Windows and Linux users on the [release page]; these use time-based
 versioning (e.g. 17.07 corresponds to July 2017).  
-There are development builds for [Windows] and Linux ([AppImage] and [Flatpak]).  
-There are also build artifacts from Github actions.
+There are [development builds] for Windows and Linux (AppImage, Flatpak and native build).  
 
 Note that unimplemented features in the options dialog are hidden and (where
 this is not possible) disabled.  This is to preserve the familiar options layout
-from mpc-hc in the meantime.
+from MPC-HC in the meantime.
 
 
-## Features and improvements over mpc-hc
+## Features and improvements over MPC-HC
 
-**Clone:** Nearly everything that mpc-hc does for the casual user.
+**Clone:** Nearly everything that MPC-HC does for the casual user.
 
 **Multiple playlists:**  When you're watching shows on your backlog, load
 every show into separate playlists and still keep track of the last played
@@ -191,7 +190,7 @@ this as one line).
 >mingw-w64-x86_64-qt6 mingw-w64-x86_64-qt-creator
 >mingw-w64-x86_64-imagemagick mingw-w64-x86_64-boost
 
-Mpc-Qt can be compiled with a libmpv linked to MSYS2's ffmpeg libraries, or by
+MPC-QT can be compiled with a libmpv linked to MSYS2's ffmpeg libraries, or by
 using the prebuilt library released on sourceforge.  To use the prebuilt
 library after cloning this repository, download libmpv from [shinchiro's
 release page], and extract it somewhere.  Place the files in the root folder
@@ -203,22 +202,20 @@ folder into `mpv-dev/include/mpv`.  If you do this, compile with the
 
 >make -j\`nproc\`
 
-Congratulations, you have now built mpc-qt!
+Congratulations, you have now built MPC-QT!
 
 ## Questions and answers
-### Is mpc-qt compatible with SVP (SmoothVideo Project)?
+### Is MPC-QT compatible with SVP (SmoothVideo Project)?
 Yes! You just need to change two SVP settings:
 - the path to mpv's JSON IPC to point to `/tmp/cmdrkotori.mpc-qt.mpv`
 - the path to the player to point to `/usr/bin/mpc-qt`
 
-[screenshot]:https://raw.githubusercontent.com/mpc-qt/mpc-qt-screenshots/refs/heads/master/Screenshot_20241109_190909.png
+[screenshot]:https://raw.githubusercontent.com/mpc-qt/mpc-qt-screenshots/refs/heads/master/Screenshot_20250602_151626.png
 [mpc-hc]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
 [release page]:https://github.com/mpc-qt/mpc-qt/releases
 [Packages are available]:https://mpc-qt.github.io/downloads
-[Windows]:https://github.com/mpc-qt/dev-builds/releases/download/continuous/mpc-qt-continuous-win-x86_64.zip
-[AppImage]:https://github.com/mpc-qt/dev-builds/releases/download/continuous/mpc-qt-continuous-linux-x86_64.AppImage
-[Flatpak]:https://github.com/mpc-qt/dev-builds/releases/download/continuous/mpc-qt-continuous-linux-x86_64.flatpak
+[development builds]:https://mpc-qt.github.io/downloads#dev-builds
 [weblate]:https://hosted.weblate.org/engage/mpc-qt/
 [Translating]:https://github.com/mpc-qt/mpc-qt/wiki/Translating
 [Translation status]:https://hosted.weblate.org/widgets/mpc-qt/-/svg-badge.svg
