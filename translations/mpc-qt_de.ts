@@ -36,7 +36,7 @@
     </message>
     <message>
         <source>↑↓</source>
-        <translation type="unfinished"></translation>
+        <translation>↑↓</translation>
     </message>
 </context>
 <context>
@@ -55,7 +55,7 @@
     </message>
     <message>
         <source>&amp;Streams</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Streams</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
@@ -121,7 +121,7 @@
     </message>
     <message>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Einzelbild</translation>
     </message>
     <message>
         <source>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitely.</source>
@@ -163,7 +163,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Leeren</translation>
     </message>
     <message>
         <source>Save File</source>
@@ -246,7 +246,7 @@
     </message>
     <message>
         <source>Stopped</source>
-        <translation>Angehalten</translation>
+        <translation>Gestoppt</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -258,19 +258,19 @@
     </message>
     <message>
         <source>Recent &amp;Files</source>
-        <translation type="unfinished"></translation>
+        <translation>zuletzt geöffnete &amp;Dateien</translation>
     </message>
     <message>
         <source>Subtitle Data&amp;base</source>
-        <translation type="unfinished"></translation>
+        <translation>Untertitel Daten&amp;bank</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ansicht</translation>
     </message>
     <message>
         <source>&amp;Presets</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Voreinstellungen</translation>
     </message>
     <message>
         <source>&amp;Zoom</source>
@@ -286,7 +286,7 @@
     </message>
     <message>
         <source>P&amp;lay</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Wiedergabe</translation>
     </message>
     <message>
         <source>&amp;Audio</source>
@@ -294,7 +294,7 @@
     </message>
     <message>
         <source>Su&amp;btitles</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Untertitel</translation>
     </message>
     <message>
         <source>&amp;Video Stream</source>
@@ -302,35 +302,35 @@
     </message>
     <message>
         <source>V&amp;olume</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lautstärke</translation>
     </message>
     <message>
         <source>Af&amp;ter Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nach der Wiedergabe</translation>
     </message>
     <message>
         <source>&amp;Loop</source>
-        <translation type="unfinished"></translation>
+        <translation>L&amp;oop</translation>
     </message>
     <message>
         <source>&amp;Navigate</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Navigation</translation>
     </message>
     <message>
         <source>&amp;Chapters</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kapitel</translation>
     </message>
     <message>
         <source>Favo&amp;rites</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Favoriten</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hilfe</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bearbeiten</translation>
     </message>
     <message>
         <source>&amp;Extra Play Times</source>
@@ -338,55 +338,55 @@
     </message>
     <message>
         <source>&amp;Quick Open File...</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei &amp;schnell öffnen…</translation>
     </message>
     <message>
         <source>&amp;Open File...</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei &amp;öffnen…</translation>
     </message>
     <message>
         <source>Ctrl+O</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+O</translation>
     </message>
     <message>
         <source>Open &amp;DVD/BD...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;DVD/BD öffnen…</translation>
     </message>
     <message>
         <source>Ctrl+D</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+D</translation>
     </message>
     <message>
         <source>Open De&amp;vice...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Gerät öffnen…</translation>
     </message>
     <message>
         <source>Ctrl+V</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+V</translation>
     </message>
     <message>
         <source>Open Dir&amp;ectory...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Verzeichnis öffnen…</translation>
     </message>
     <message>
         <source>&amp;Clear list</source>
-        <translation type="unfinished"></translation>
+        <translation>L&amp;iste leeren</translation>
     </message>
     <message>
         <source>&amp;Close File</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei s&amp;chließen</translation>
     </message>
     <message>
         <source>Ctrl+W</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+W</translation>
     </message>
     <message>
         <source>&amp;Save a Copy...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopie &amp;speichern…</translation>
     </message>
     <message>
         <source>Save &amp;Image...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bild speichern…</translation>
     </message>
     <message>
         <source>Alt+I</source>
@@ -394,31 +394,31 @@
     </message>
     <message>
         <source>Save &amp;Thumbnails</source>
-        <translation type="unfinished"></translation>
+        <translation>V&amp;orschaubilder speichern</translation>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
-        <translation type="unfinished"></translation>
+        <translation>U&amp;ntertiteldatei öffnen…</translation>
     </message>
     <message>
         <source>Ctrl+L</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+L</translation>
     </message>
     <message>
         <source>Save S&amp;ubtitle...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Untertitel speichern…</translation>
     </message>
     <message>
         <source>Ctrl+S</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+S</translation>
     </message>
     <message>
         <source>&amp;Upload...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hochladen…</translation>
     </message>
     <message>
         <source>&amp;Download...</source>
-        <translation type="unfinished"></translation>
+        <translation>Herunter&amp;laden</translation>
     </message>
     <message>
         <source>D</source>
