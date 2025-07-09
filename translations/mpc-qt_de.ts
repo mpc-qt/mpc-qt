@@ -70,15 +70,15 @@
     </message>
     <message>
         <source>Start a new process without saving data.</source>
-        <translation>Einen neuen Prozess starten ohne zu speichern</translation>
+        <translation>Einen neuen Prozess starten ohne zu speichern.</translation>
     </message>
     <message>
         <source>Main window size.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hauptfenster Größe.</translation>
     </message>
     <message>
         <source>Main window position.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hauptfenster Position.</translation>
     </message>
     <message>
         <source>URLs to open, optionally.</source>
@@ -86,38 +86,38 @@
     </message>
     <message>
         <source>Save Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild speichern</translation>
     </message>
     <message>
         <source>Playing Media</source>
-        <translation type="unfinished"></translation>
+        <translation>Medien abspielen</translation>
     </message>
     <message>
         <source>Do not load any config files.</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine config-Dateien laden.</translation>
     </message>
     <message>
         <source>Do not load file history, playlists, or favorites.</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Dateihistorie, Playlisten oder Favoriten laden.</translation>
     </message>
     <message>
         <source>Also write logging messages to console.</source>
-        <translation type="unfinished"></translation>
+        <translation>Logging-Nachrichten auch in die Konsole schreiben.</translation>
     </message>
 </context>
 <context>
     <name>GoToWindow</name>
     <message>
         <source>Go To...</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehe zu...</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeit</translation>
     </message>
     <message>
         <source>Go!</source>
-        <translation type="unfinished"></translation>
+        <translation>Los!</translation>
     </message>
     <message>
         <source>Frame</source>
@@ -125,41 +125,41 @@
     </message>
     <message>
         <source>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitely.</source>
-        <translation type="unfinished"></translation>
+        <translation>Geben Sie einen Timecode im Format [hh:]mm:ss.ms ein, um zu einer bestimmten Zeit zu springen. Die Trennzeichen brauchen Sie nicht mit anzugeben.</translation>
     </message>
 </context>
 <context>
     <name>LibraryWindow</name>
     <message>
         <source>Library</source>
-        <translation type="unfinished"></translation>
+        <translation>Bibliothek</translation>
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiederherstellen</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Entfernen</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Schließen</translation>
     </message>
 </context>
 <context>
     <name>LogWindow</name>
     <message>
         <source>Log Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Log Nachrichten</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopieren</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichern</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -167,7 +167,7 @@
     </message>
     <message>
         <source>Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei speichern</translation>
     </message>
 </context>
 <context>
@@ -178,63 +178,63 @@
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiedergabe</translation>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Pause</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Stopp</translation>
     </message>
     <message>
         <source>Skip Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>Zurück springen</translation>
     </message>
     <message>
         <source>Speed Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>Geschwindigkeit verringern</translation>
     </message>
     <message>
         <source>Speed Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>Geschwindigkeit erhöhen</translation>
     </message>
     <message>
         <source>Skip Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorwärts springen</translation>
     </message>
     <message>
         <source>Step Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>Schritt zurück</translation>
     </message>
     <message>
         <source>Step Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Schritt vorwärts</translation>
     </message>
     <message>
         <source>Set Loop Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Loop Start setzen</translation>
     </message>
     <message>
         <source>Set Loop End</source>
-        <translation type="unfinished"></translation>
+        <translation>Loop Ende setzen</translation>
     </message>
     <message>
         <source>Chapter</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapitel</translation>
     </message>
     <message>
         <source>Frame rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildrate</translation>
     </message>
     <message>
         <source>Sync Offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Synchronisation Abweichung</translation>
     </message>
     <message>
         <source>Framedrops</source>
-        <translation type="unfinished"></translation>
+        <translation>ausgelassene Bilder</translation>
     </message>
     <message>
         <source>vo: 0, decoder: 0</source>
@@ -242,15 +242,15 @@
     </message>
     <message>
         <source>Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitrate</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="unfinished"></translation>
+        <translation>Angehalten</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Datei</translation>
     </message>
     <message>
         <source>O&amp;pen Disc</source>
@@ -1186,23 +1186,23 @@
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Verzeichnis öffnen</translation>
     </message>
     <message>
         <source>Enter Network Stream</source>
-        <translation type="unfinished"></translation>
+        <translation>Netzwerkstream eintragen</translation>
     </message>
     <message>
         <source>Network Stream</source>
-        <translation type="unfinished"></translation>
+        <translation>Netzwerkstream</translation>
     </message>
     <message>
         <source>Open Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>Untertitel öffnen</translation>
     </message>
     <message>
         <source>Development Build</source>
-        <translation type="unfinished"></translation>
+        <translation>Entwicklerversion</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -1210,15 +1210,15 @@
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Über Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation type="unfinished"></translation>
+        <translation>Ein Klon von Media Player Classic, geschrieben in Qt</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Basierend auf Qt %1 und %2</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
@@ -1234,19 +1234,19 @@
     </message>
     <message>
         <source>Paused</source>
-        <translation type="unfinished"></translation>
+        <translation>Angehalten</translation>
     </message>
     <message>
         <source>Playing</source>
-        <translation type="unfinished"></translation>
+        <translation>Wird abgespielt</translation>
     </message>
     <message>
         <source>Buffering</source>
-        <translation type="unfinished"></translation>
+        <translation>Puffern</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>Unbekannt</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
