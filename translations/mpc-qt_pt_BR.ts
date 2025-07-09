@@ -1380,6 +1380,18 @@
         <source>v: 0 kb/s, a: 0kb/s</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>(Unknown)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Running under %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XWayland or X11</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
