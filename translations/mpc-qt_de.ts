@@ -1118,7 +1118,7 @@
     </message>
     <message>
         <source>&amp;No Messages</source>
-        <translation>&amp;Keine Nachrichten anzeigen</translation>
+        <translation>&amp;Keine Meldungen anzeigen</translation>
     </message>
     <message>
         <source>&amp;Escape Fullscreen</source>
@@ -1178,11 +1178,11 @@
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Schnelles &amp;Hinzufügen zur Wiedergabeliste</translation>
     </message>
     <message>
         <source>&amp;Quick Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei schnell ö&amp;ffnen</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -1206,7 +1206,7 @@
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Version %1</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
@@ -1230,7 +1230,7 @@
     </message>
     <message>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+Q</translation>
     </message>
     <message>
         <source>Paused</source>
@@ -1254,23 +1254,23 @@
     </message>
     <message>
         <source>Libr&amp;ary</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bibliothek</translation>
     </message>
     <message>
         <source>Ctrl+=</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+=</translation>
     </message>
     <message>
         <source>Ctrl+-</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+-</translation>
     </message>
     <message>
         <source>&amp;Copy Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>Untertitel ko&amp;pieren</translation>
     </message>
     <message>
         <source>Controls in Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Steuerlemente im Vollbild</translation>
     </message>
     <message>
         <source>i</source>
@@ -1278,7 +1278,7 @@
     </message>
     <message>
         <source>&amp;Previous File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Vorige Datei</translation>
     </message>
     <message>
         <source>Ctrl+PgUp</source>
@@ -1286,7 +1286,7 @@
     </message>
     <message>
         <source>&amp;Next File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nächste Datei</translation>
     </message>
     <message>
         <source>Ctrl+PgDown</source>
