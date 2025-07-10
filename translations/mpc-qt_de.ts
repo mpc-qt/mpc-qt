@@ -706,7 +706,7 @@
     </message>
     <message>
         <source>&amp;Stand by</source>
-        <translation>&amp;Bereitschaft</translation>
+        <translation>Be&amp;reitschaft</translation>
     </message>
     <message>
         <source>&amp;Hibernate</source>
