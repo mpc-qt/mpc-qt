@@ -66,7 +66,7 @@
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Start a new process without saving data.</source>
@@ -174,7 +174,7 @@
     <name>MainWindow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Play</source>
@@ -274,7 +274,7 @@
     </message>
     <message>
         <source>&amp;Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zoom</translation>
     </message>
     <message>
         <source>On &amp;Top</source>
@@ -282,7 +282,7 @@
     </message>
     <message>
         <source>OS&amp;D</source>
-        <translation type="unfinished"></translation>
+        <translation>OS&amp;D</translation>
     </message>
     <message>
         <source>P&amp;lay</source>
@@ -290,7 +290,7 @@
     </message>
     <message>
         <source>&amp;Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Audio</translation>
     </message>
     <message>
         <source>Su&amp;btitles</source>
@@ -390,7 +390,7 @@
     </message>
     <message>
         <source>Alt+I</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+I</translation>
     </message>
     <message>
         <source>Save &amp;Thumbnails</source>
@@ -422,7 +422,7 @@
     </message>
     <message>
         <source>D</source>
-        <translation type="unfinished"></translation>
+        <translation>D</translation>
     </message>
     <message>
         <source>&amp;Search...</source>
@@ -442,7 +442,7 @@
     </message>
     <message>
         <source>Alt+X</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+X</translation>
     </message>
     <message>
         <source>Hide &amp;Menu</source>
@@ -514,43 +514,43 @@
     </message>
     <message>
         <source>Ctrl+8</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+8</translation>
     </message>
     <message>
         <source>Na&amp;vigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Na&amp;vigation</translation>
     </message>
     <message>
         <source>Ctrl+9</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+9</translation>
     </message>
     <message>
         <source>&amp;Minimal</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Minimal</translation>
     </message>
     <message>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
         <source>&amp;Compact</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kompakt</translation>
     </message>
     <message>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation>2</translation>
     </message>
     <message>
         <source>&amp;Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Normal</translation>
     </message>
     <message>
         <source>3</source>
-        <translation type="unfinished"></translation>
+        <translation>3</translation>
     </message>
     <message>
         <source>F&amp;ullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Vollbild</translation>
     </message>
     <message>
         <source>Alt+Return</source>
@@ -558,71 +558,71 @@
     </message>
     <message>
         <source>Alt+1</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+1</translation>
     </message>
     <message>
         <source>Alt+2</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+2</translation>
     </message>
     <message>
         <source>Alt+3</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+3</translation>
     </message>
     <message>
         <source>Auto &amp;Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisch &amp;anpassen</translation>
     </message>
     <message>
         <source>Alt+4</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+4</translation>
     </message>
     <message>
         <source>Auto Fit (&amp;Larger Only)</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisch anpassen (nur &amp;größere)</translation>
     </message>
     <message>
         <source>Alt+5</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+5</translation>
     </message>
     <message>
         <source>&amp;Disable snapping</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Einrasten deaktivieren</translation>
     </message>
     <message>
         <source>Alt+0</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+0</translation>
     </message>
     <message>
         <source>&amp;Default</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Standardeinstellung</translation>
     </message>
     <message>
         <source>&amp;Always</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Immer</translation>
     </message>
     <message>
         <source>Ctrl+A</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+A</translation>
     </message>
     <message>
         <source>While &amp;Playing</source>
-        <translation type="unfinished"></translation>
+        <translation>Während der &amp;Wiedergabe</translation>
     </message>
     <message>
         <source>While Playing &amp;Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Während der Wiedergabe von &amp;Video</translation>
     </message>
     <message>
         <source>&amp;Options...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Optionen…</translation>
     </message>
     <message>
         <source>O</source>
-        <translation type="unfinished"></translation>
+        <translation>O</translation>
     </message>
     <message>
         <source>&amp;Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pause</translation>
     </message>
     <message>
         <source>Space</source>
@@ -630,15 +630,15 @@
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Stopp</translation>
     </message>
     <message>
         <source>.</source>
-        <translation type="unfinished"></translation>
+        <translation>.</translation>
     </message>
     <message>
         <source>F&amp;rame Step Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Ein &amp;Bild vorwärts</translation>
     </message>
     <message>
         <source>Ctrl+Right</source>
@@ -646,7 +646,7 @@
     </message>
     <message>
         <source>Fra&amp;me Step Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>Ein Bild &amp;zurück</translation>
     </message>
     <message>
         <source>Ctrl+Left</source>
@@ -654,7 +654,7 @@
     </message>
     <message>
         <source>&amp;Decrease Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Geschwindigkeit &amp;verlangsamen</translation>
     </message>
     <message>
         <source>Ctrl+Down</source>
@@ -662,7 +662,7 @@
     </message>
     <message>
         <source>&amp;Increase Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Geschwindigkeit &amp;erhöhen</translation>
     </message>
     <message>
         <source>Ctrl+Up</source>
@@ -670,15 +670,15 @@
     </message>
     <message>
         <source>R&amp;eset Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Geschwindigkeit zurücksetzen</translation>
     </message>
     <message>
         <source>Ctrl+R</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+R</translation>
     </message>
     <message>
         <source>&amp;Up</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lauter</translation>
     </message>
     <message>
         <source>0</source>
@@ -686,43 +686,43 @@
     </message>
     <message>
         <source>&amp;Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Lei&amp;ser</translation>
     </message>
     <message>
         <source>9</source>
-        <translation type="unfinished"></translation>
+        <translation>9</translation>
     </message>
     <message>
         <source>&amp;Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Stummschalten</translation>
     </message>
     <message>
         <source>Ctrl+M</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+M</translation>
     </message>
     <message>
         <source>&amp;Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Beenden</translation>
     </message>
     <message>
         <source>&amp;Stand by</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bereitschaft</translation>
     </message>
     <message>
         <source>&amp;Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ruhezustand</translation>
     </message>
     <message>
         <source>Shut&amp;down</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Herunterfahren</translation>
     </message>
     <message>
         <source>Log &amp;Off</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Abmelden</translation>
     </message>
     <message>
         <source>&amp;Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sperren</translation>
     </message>
     <message>
         <source>Do &amp;Nothing</source>
