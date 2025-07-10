@@ -706,7 +706,7 @@
     </message>
     <message>
         <source>&amp;Stand by</source>
-        <translation>Be&amp;reitschaft</translation>
+        <translation>Bereit&amp;schaft</translation>
     </message>
     <message>
         <source>&amp;Hibernate</source>
@@ -722,11 +722,11 @@
     </message>
     <message>
         <source>&amp;Lock</source>
-        <translation>&amp;Sperren</translation>
+        <translation>S&amp;perren</translation>
     </message>
     <message>
         <source>Do &amp;Nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nichts tun</translation>
     </message>
     <message>
         <source>Play next in the &amp;folder</source>
@@ -734,7 +734,7 @@
     </message>
     <message>
         <source>&amp;Previous</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Vorherige</translation>
     </message>
     <message>
         <source>PgUp</source>
@@ -742,7 +742,7 @@
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nächste</translation>
     </message>
     <message>
         <source>PgDown</source>
@@ -750,43 +750,43 @@
     </message>
     <message>
         <source>&amp;Go To...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Gehe zu…</translation>
     </message>
     <message>
         <source>Ctrl+G</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+G</translation>
     </message>
     <message>
         <source>&amp;Title Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Titelmenu</translation>
     </message>
     <message>
         <source>Alt+T</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+T</translation>
     </message>
     <message>
         <source>&amp;Root Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hauptmenu</translation>
     </message>
     <message>
         <source>Alt+R</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+R</translation>
     </message>
     <message>
         <source>&amp;Subtitle Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Untertitel Menu</translation>
     </message>
     <message>
         <source>&amp;Audio Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Audio Menu</translation>
     </message>
     <message>
         <source>Angle &amp;Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Blickwinkel &amp;Menu</translation>
     </message>
     <message>
         <source>Chapt&amp;er Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kapitel Menu</translation>
     </message>
     <message>
         <source>&amp;Add to Favorites...</source>
@@ -794,7 +794,7 @@
     </message>
     <message>
         <source>&amp;Organize Favorites...</source>
-        <translation type="unfinished"></translation>
+        <translation>Favoriten &amp;verwalten</translation>
     </message>
     <message>
         <source>&amp;Home Page</source>
