@@ -1462,34 +1462,34 @@
     </message>
     <message>
         <source>vo: %1, decoder: %2</source>
-        <translation>vo: %1, decoder: %2</translation>
+        <translation>vo: %1, Decoder: %2</translation>
     </message>
     <message>
         <source>v: %1 kb/s, a: %2 kb/s</source>
-        <translation type="unfinished"></translation>
+        <translation>v: %1 kb/s, a: %2 kb/s</translation>
     </message>
     <message>
         <source>v: 0 kb/s, a: 0kb/s</source>
-        <translation type="unfinished"></translation>
+        <translation>v: 0 kb/s, a: 0kb/s</translation>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished"></translation>
+        <translation>(unbekannt)</translation>
     </message>
     <message>
         <source>Running under %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Läuft unter %1</translation>
     </message>
     <message>
         <source>XWayland or X11</source>
-        <translation type="unfinished"></translation>
+        <translation>XWayland oder X11</translation>
     </message>
 </context>
 <context>
     <name>MouseState</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine</translation>
     </message>
     <message>
         <source>Wheel</source>
@@ -1497,27 +1497,27 @@
     </message>
     <message>
         <source>Left</source>
-        <translation>Left</translation>
+        <translation>Links</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Right</translation>
+        <translation>Rechts</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished"></translation>
+        <translation>Mitte</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Zurück</translation>
     </message>
     <message>
         <source>Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorwärts</translation>
     </message>
     <message>
         <source>Task</source>
-        <translation type="unfinished"></translation>
+        <translation>Aufgabe</translation>
     </message>
     <message>
         <source>XButton4</source>
