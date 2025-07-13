@@ -1398,15 +1398,15 @@
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished"></translation>
+        <translation>(inconnu)</translation>
     </message>
     <message>
         <source>Running under %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fonctionne sous %1</translation>
     </message>
     <message>
         <source>XWayland or X11</source>
-        <translation type="unfinished"></translation>
+        <translation>XWayland ou X11</translation>
     </message>
 </context>
 <context>
