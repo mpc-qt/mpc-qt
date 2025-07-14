@@ -2342,6 +2342,10 @@ void MainWindow::on_actionFileOpenNetworkStream_triggered()
     qid->setWindowModality(Qt::WindowModal);
     qid->setWindowTitle(tr("Enter Network Stream"));
     qid->setLabelText(tr("Network Stream"));
+    const QClipboard *clipboard = QApplication::clipboard();
+    const QMimeData *mimeData = clipboard->mimeData();
+    if (mimeData->hasText() && QUrl::fromUserInput(mimeData->text()).isValid())
+        qid->setTextValue(QUrl::fromUserInput(mimeData->text()).toString());
     qid->resize(500, qid->height());
     connect(qid, &QInputDialog::accepted, this, [=] () {
         emit streamOpened(QUrl::fromUserInput(qid->textValue()));
