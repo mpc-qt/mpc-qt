@@ -17,7 +17,7 @@ fi
 BUILDDIR=bin
 EXECUTABLE="$BUILDDIR/mpc-qt.exe"
 BINDIR="/mingw64/bin"
-SUFFIX="win-x64-$VERSION"
+SUFFIX="win-x64"
 DEST="mpc-qt-$SUFFIX"
 
 cmake -DMPCQT_VERSION=$VERSION -DENABLE_LOCAL_MPV=ON -G Ninja -B build
@@ -93,11 +93,10 @@ echo Copying executable
 cp "$BUILDDIR/mpc-qt.exe" "$DEST"
 
 echo Copying libmpv
-cp mpv-dev/lib/libmpv-2.dll "$DEST"
+cp $BINDIR/libmpv-2.dll "$DEST"
 
 echo Copying yt-dlp
 cp "yt-dlp.exe" "$DEST"
 
-echo Zipping and checksumming
-7z a "$DEST.zip" "./$DEST/*"
-sha512sum "$DEST.zip" >"$DEST.zip.sha512"
+echo Creating NSIS installer
+makensis deploy/dist/nsis/mpc-qt.nsi
