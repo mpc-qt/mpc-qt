@@ -978,7 +978,7 @@ void MpvGlWidget::initializeGL()
     }
 #if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
     else if (auto x11App = qApp->nativeInterface<QNativeInterface::QX11Application>()) {
-        Logger::log("glwidget", "assigning v display");
+        Logger::log("glwidget", "assigning X11 display");
         params[2].type = MPV_RENDER_PARAM_X11_DISPLAY;
         params[2].data = x11App->display();
     }
