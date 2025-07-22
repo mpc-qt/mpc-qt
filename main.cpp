@@ -44,6 +44,7 @@ constexpr char optConsoleLogEx[] = "--log-to-console";
 
 int main(int argc, char *argv[])
 {
+    QCoreApplication::setApplicationName("MPC-QT");
     Logger::log("main", "starting logging");
     #if !defined(Q_OS_WIN)
     std::signal(SIGHUP, signalHandler);
