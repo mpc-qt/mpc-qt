@@ -168,17 +168,20 @@ Section "Install"
   Delete "$INSTDIR\doc\*.*"
   Delete "$INSTDIR\iconengines\*.*"
   Delete "$INSTDIR\imageformats\*.*"
+  Delete "$INSTDIR\mpc-qt-assoc\*.*"
   Delete "$INSTDIR\platforms\*.*"
   Delete "$INSTDIR\styles\*.*"
 
   RMDir "$INSTDIR\doc"
   RMDir "$INSTDIR\iconengines"
   RMDir "$INSTDIR\imageformats"
+  RMDir "$INSTDIR\mpc-qt-assoc"
   RMDir "$INSTDIR\platforms"
   RMDir "$INSTDIR\styles"
 
   File "..\..\..\LICENSE"
   File /r "..\..\..\mpc-qt-win-x64\*.*"
+  File /r "..\..\..\deploy\dist\nsis\mpc-qt-assoc"
 
   ;Store installation folder
   WriteRegStr HKLM "Software\MPC-QT" "" $INSTDIR
@@ -223,6 +226,11 @@ Section "Install"
   CreateShortCut "$SMPROGRAMS\MPC-QT\MPC-QT.lnk" "$INSTDIR\mpc-qt.exe"
 
   ;!insertmacro MUI_STARTMENU_WRITE_END
+
+  DetailPrint "Creating file associations..."
+  nsExec::ExecToLog /TIMEOUT=20000 '"$sysdir\cmd.exe" /c if 1==1 "$INSTDIR\mpc-qt-assoc\mpc-qt-assoc-install.bat" /u'
+  Pop $0
+
 SectionEnd
 
 ;--------------------------------
@@ -246,16 +254,22 @@ Section "Uninstall"
   # Try to remove the Start Menu folder - this will only happen if it is empty
   RMDir "$SMPROGRAMS\MPC-QT"
 
+  DetailPrint "Removing file associations..."
+  nsExec::ExecToLog /TIMEOUT=20000 '"$sysdir\cmd.exe" /c if 1==1 "$INSTDIR\mpc-qt-assoc\mpc-qt-assoc-uninstall.bat /u"'
+  Pop $0
+
   Delete "$INSTDIR\*.*"
   Delete "$INSTDIR\doc\*.*"
   Delete "$INSTDIR\iconengines\*.*"
   Delete "$INSTDIR\imageformats\*.*"
+  Delete "$INSTDIR\mpc-qt-assoc\*.*"
   Delete "$INSTDIR\platforms\*.*"
   Delete "$INSTDIR\styles\*.*"
 
   RMDir "$INSTDIR\doc"
   RMDir "$INSTDIR\iconengines"
   RMDir "$INSTDIR\imageformats"
+  RMDir "$INSTDIR\mpc-qt-assoc"
   RMDir "$INSTDIR\platforms"
   RMDir "$INSTDIR\styles"
   RMDir "$INSTDIR"
