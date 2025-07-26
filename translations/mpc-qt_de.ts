@@ -1966,7 +1966,7 @@
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Untertitel</translation>
     </message>
     <message>
         <source>General</source>
@@ -2157,7 +2157,7 @@
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Untertitel</translation>
     </message>
     <message>
         <source>Default Style</source>
@@ -3223,7 +3223,7 @@ media file played</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Keine</translation>
     </message>
     <message>
         <source>Default</source>
@@ -4144,7 +4144,7 @@ media file played</source>
     </message>
     <message>
         <source>25%</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">25%</translation>
     </message>
     <message>
         <source>50%</source>
