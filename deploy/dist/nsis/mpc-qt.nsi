@@ -8,7 +8,8 @@
 
 ;--------------------------------
 ;Include Modern UI
-  !include "MUI.nsh"
+  !include LogicLib.nsh
+  !include MUI.nsh
 
   Var INSTALLED_SIZE
 
@@ -34,6 +35,12 @@
 
   ;Request application privileges for Windows Vista
   RequestExecutionLevel admin
+
+;--------------------------------
+;Constants
+
+  ;mpc-qt-assoc version to check if we need to run it again
+  !define FILE_ASSOC_VERSION 1
 
 ;--------------------------------
 ;Interface Settings
@@ -227,9 +234,18 @@ Section "Install"
 
   ;!insertmacro MUI_STARTMENU_WRITE_END
 
-  DetailPrint "Creating file associations..."
-  nsExec::ExecToLog /TIMEOUT=20000 '"$sysdir\cmd.exe" /c if 1==1 "$INSTDIR\mpc-qt-assoc\mpc-qt-assoc-install.bat" /u'
-  Pop $0
+  Var /GLOBAL FileAssocVersion
+  Var /GLOBAL ExitCode
+  ReadRegDWORD $FileAssocVersion HKLM "Software\MPC-QT" "FileAssociationsVersion"
+  ${If} $FileAssocVersion = 0
+  ${OrIf} $FileAssocVersion < FILE_ASSOC_VERSION
+    DetailPrint "Creating file associations..."
+    nsExec::ExecToLog /TIMEOUT=20000 '"$sysdir\cmd.exe" /c if 1==1 "$INSTDIR\mpc-qt-assoc\mpc-qt-assoc-install.bat" /u'
+    Pop $ExitCode
+    ${If} $ExitCode == "0"
+      WriteRegDWORD HKLM "Software\MPC-QT" "FileAssociationsVersion" ${FILE_ASSOC_VERSION}
+    ${EndIf}
+  ${EndIf}
 
 SectionEnd
 
