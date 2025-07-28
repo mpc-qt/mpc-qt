@@ -27,6 +27,7 @@
 using namespace Helpers;
 constexpr char SKIPACTION[] = "Skip";
 constexpr char textWindowTitle[] = "Media Player Classic Qute Theater";
+constexpr char tinyIconPath[] = ":/images/icon/tinyicon.svg";
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -793,6 +794,7 @@ void MainWindow::setupPlaylist()
 
 void MainWindow::setupStatus()
 {
+    ui->tinyicon->setPixmap(renderPixmapFromSvg(tinyIconPath));
     timePosition = new StatusTime();
     ui->statusbarLayout->insertWidget(2, timePosition);
     timeDuration = new StatusTime();
@@ -1314,6 +1316,18 @@ QIcon MainWindow::createIconFromSvg(const QString& svgPath, int maxSize) {
         icon.addPixmap(pixmap);
     }
     return icon;
+}
+
+QPixmap MainWindow::renderPixmapFromSvg(const QString &path) {
+    QSvgRenderer renderer(path);
+    qreal devicePixelRatio = this->devicePixelRatioF();
+    int iconSize = 16;
+    QPixmap pixmap(iconSize * devicePixelRatio, iconSize * devicePixelRatio);
+    pixmap.fill(Qt::transparent);
+    QPainter painter(&pixmap);
+    renderer.render(&painter);
+    pixmap.setDevicePixelRatio(devicePixelRatio);
+    return pixmap;
 }
 
 void MainWindow::httpQuickOpenFile()

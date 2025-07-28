@@ -116,6 +116,7 @@ private:
     QList<QUrl> doQuickOpenFileDialog();
 
     QIcon createIconFromSvg(const QString& svgPath, int maxSize);
+    QPixmap renderPixmapFromSvg(const QString &path);
 
 signals:
     void instanceShouldQuit();

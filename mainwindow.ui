@@ -705,11 +705,7 @@
               <number>0</number>
              </property>
              <item>
-              <widget class="QLabel" name="tinyicon">
-               <property name="pixmap">
-                <pixmap resource="build/.qt/rcc/res.qrc">:/images/icon/tinyicon.svg</pixmap>
-               </property>
-              </widget>
+              <widget class="QLabel" name="tinyicon" />
              </item>
              <item>
               <widget class="QLabel" name="status">
