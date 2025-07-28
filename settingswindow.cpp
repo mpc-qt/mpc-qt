@@ -465,7 +465,6 @@ void SettingsWindow::setupUnimplementedWidgets()
     ui->playerOSD->setVisible(false);
     ui->playerLimitProportions->setVisible(false);
     ui->playerDisableOpenDisc->setVisible(false);
-    ui->playerTitleBox->setVisible(false);
     ui->playerRememberPanScanZoom->setVisible(false);
 
     ui->formatPage->setEnabled(false);
@@ -1194,6 +1193,22 @@ void SettingsWindow::closeEvent(QCloseEvent *event)
     restoreColorControls();
     restoreAudioSettings();
 }
+
+void SettingsWindow::on_playerTitleDisplayFullPath_clicked()
+{
+    ui->playerTitleReplaceName->setEnabled(true);
+}
+
+void SettingsWindow::on_playerTitleFileNameOnly_clicked()
+{
+    ui->playerTitleReplaceName->setEnabled(true);
+}
+
+void SettingsWindow::on_playerTitleDontPrefix_clicked()
+{
+    ui->playerTitleReplaceName->setEnabled(false);
+}
+
 
 void SettingsWindow::on_playerKeepHistory_checkStateChanged(Qt::CheckState state)
 {

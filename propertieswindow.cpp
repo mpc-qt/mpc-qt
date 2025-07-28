@@ -155,7 +155,8 @@ void PropertiesWindow::setMetaData(QVariantMap data)
 
     metadataText = sectionText(tr("General"), data);
     if (data.contains("artist") && data.contains("title"))
-        emit artistAndTitleChanged(data["artist"].toString() + " - " + data["title"].toString());
+        emit artistAndTitleChanged(data["artist"].toString() + " - " + data["title"].toString(),
+                                   this->filename);
     updateLastTab();
 }
 

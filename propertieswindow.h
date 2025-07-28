@@ -19,7 +19,7 @@ public:
     ~PropertiesWindow();
 
 signals:
-    void artistAndTitleChanged(QString artistAndTitle);
+    void artistAndTitleChanged(QString artistAndTitle, QString filename);
 
 public slots:
     void setFileName(const QString &filename);

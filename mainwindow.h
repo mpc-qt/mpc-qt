@@ -229,6 +229,8 @@ public slots:
     void setFullscreenMode(bool fullscreenMode);
     void setNoVideoSize(const QSize &sz);
     void setTrayIcon(bool enabled);
+    void setTitleBarFormat(Helpers::TitlePrefix titlebarFormat);
+    void setTitleUseMediaTitle(bool enabled);
     void setWindowedMouseMap(const MouseStateMap &map);
     void setFullscreenMouseMap(const MouseStateMap &map);
     void setRecentDocuments(QList<TrackInfo> tracks);
@@ -239,6 +241,7 @@ public slots:
     void setInfoColors(const QColor &foreground, const QColor &background);
     void setTime(double time, double length);
     void setMediaTitle(QString title);
+    void setMediaTitleWithFilename(QString title, QString filename);
     void setChapterTitle(QString title);
     void setVideoSize(QSize size);
     void setVolumeStep(int stepSize);
@@ -458,6 +461,8 @@ private:
     QActionGroup* subtitleTracksGroup = nullptr;
 
     bool freestanding_ = false;
+    Helpers::TitlePrefix titlebarFormat_ = Helpers::PrefixFileName;
+    bool titleUseMediaTitle = true;
     bool mainwindowIsClosing = false; // Prevents toggleViewAction from affecting saved setting for actionViewHidePlaylist
     DecorationState decorationState_ = AllDecorations;
     QString fullscreenName;
