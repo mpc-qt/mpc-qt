@@ -671,7 +671,7 @@ void MainWindow::setupActionGroups()
     ag->addAction(ui->actionViewOSDNone);
     ag->addAction(ui->actionViewOSDMessages);
     ag->addAction(ui->actionViewOSDStatistics);
-    ag->addAction(ui->actionViewOSDFrameTimings);
+    ag->addAction(ui->actionViewOSDInputCacheStats);
 
     ag = new QActionGroup(this);
     ag->addAction(ui->actionViewZoom025);
@@ -959,7 +959,7 @@ void MainWindow::setOSDPage(int page)
     ui->actionViewOSDNone->setChecked(page == -1);
     ui->actionViewOSDMessages->setChecked(page == 0);
     ui->actionViewOSDStatistics->setChecked(page == 1);
-    ui->actionViewOSDFrameTimings->setChecked(page == 2);
+    ui->actionViewOSDInputCacheStats->setChecked(page == 3);
     ui->actionViewOSDTimer->setEnabled(page == 0);
     mpvObject_->showStatsPage(page);
 }
@@ -2622,9 +2622,9 @@ void MainWindow::on_actionViewOSDStatistics_triggered()
     ui->actionViewOSDTimer->setEnabled(false);
 }
 
-void MainWindow::on_actionViewOSDFrameTimings_triggered()
+void MainWindow::on_actionViewOSDInputCacheStats_triggered()
 {
-    mpvObject_->showStatsPage(2);
+    mpvObject_->showStatsPage(3);
     ui->actionViewOSDTimer->setEnabled(false);
 }
 
@@ -3238,4 +3238,5 @@ void MainWindow::on_actionFavoritesOrganize_triggered()
 {
     emit organizeFavorites();
 }
+
 
