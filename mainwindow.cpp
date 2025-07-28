@@ -27,6 +27,7 @@
 using namespace Helpers;
 constexpr char SKIPACTION[] = "Skip";
 constexpr char textWindowTitle[] = "Media Player Classic Qute Theater";
+constexpr char mpcQtIconPath[] = ":/images/icon/mpc-qt.svg";
 constexpr char tinyIconPath[] = ":/images/icon/tinyicon.svg";
 
 
@@ -660,7 +661,7 @@ void MainWindow::setupTrayIcon()
     trayIcon->setContextMenu(trayMenu);
     trayIcon->setToolTip(textWindowTitle);
     Logger::log("mainwindow", "rendering trayIcon sizes");
-    trayIcon->setIcon(createIconFromSvg(QStringLiteral(":/images/icon/mpc-qt.svg"), 64));
+    trayIcon->setIcon(createIconFromSvg(mpcQtIconPath, 64));
     Logger::log("mainwindow", "rendering trayIcon sizes done");
 }
 
