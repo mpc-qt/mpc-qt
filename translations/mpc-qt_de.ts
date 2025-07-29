@@ -1106,7 +1106,7 @@
     </message>
     <message>
         <source>&amp;Frame Timings</source>
-        <translation>Bild-Anzeige&amp;dauer</translation>
+        <translation type="vanished">Bild-Anzeige&amp;dauer</translation>
     </message>
     <message>
         <source>&amp;Cycle</source>
@@ -1483,6 +1483,10 @@
     <message>
         <source>XWayland or X11</source>
         <translation>XWayland oder X11</translation>
+    </message>
+    <message>
+        <source>&amp;Input Cache Statistics</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

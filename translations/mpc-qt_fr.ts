@@ -1066,7 +1066,7 @@
     </message>
     <message>
         <source>&amp;Frame Timings</source>
-        <translation>Chronométrage des &amp;images</translation>
+        <translation type="vanished">Chronométrage des &amp;images</translation>
     </message>
     <message>
         <source>&amp;Cycle</source>
@@ -1407,6 +1407,10 @@
     <message>
         <source>XWayland or X11</source>
         <translation>XWayland ou X11</translation>
+    </message>
+    <message>
+        <source>&amp;Input Cache Statistics</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
