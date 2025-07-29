@@ -1130,11 +1130,11 @@
     </message>
     <message>
         <source>&amp;Next Subtitle</source>
-        <translation>次の字幕(&amp;N)</translation>
+        <translation type="vanished">次の字幕(&amp;N)</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitle</source>
-        <translation>前の字幕(&amp;P)</translation>
+        <translation type="vanished">前の字幕(&amp;P)</translation>
     </message>
     <message>
         <source>Lo&amp;g</source>
@@ -1486,6 +1486,14 @@
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Previous Subtitles track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next Subtitles track</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

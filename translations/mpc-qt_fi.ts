@@ -1050,11 +1050,11 @@
     </message>
     <message>
         <source>&amp;Next Subtitle</source>
-        <translation>&amp;Seuraava Tekstitys</translation>
+        <translation type="vanished">&amp;Seuraava Tekstitys</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitle</source>
-        <translation>&amp;Edellinen Tekstitys</translation>
+        <translation type="vanished">&amp;Edellinen Tekstitys</translation>
     </message>
     <message>
         <source>Lo&amp;g</source>
@@ -1386,6 +1386,14 @@
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Previous Subtitles track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next Subtitles track</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

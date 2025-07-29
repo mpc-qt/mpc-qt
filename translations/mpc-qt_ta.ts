@@ -1130,11 +1130,11 @@
     </message>
     <message>
         <source>&amp;Next Subtitle</source>
-        <translation>&amp; அடுத்த வசன வரிகள்</translation>
+        <translation type="vanished">&amp; அடுத்த வசன வரிகள்</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitle</source>
-        <translation>&amp; முந்தைய வசன வரிகள்</translation>
+        <translation type="vanished">&amp; முந்தைய வசன வரிகள்</translation>
     </message>
     <message>
         <source>Lo&amp;g</source>
@@ -1486,6 +1486,14 @@
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Previous Subtitles track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next Subtitles track</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
