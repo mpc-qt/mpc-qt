@@ -940,6 +940,8 @@ void PlaybackManager::mpvw_mediaTitleChanged(QString title)
 {
     nowPlayingTitle = title;
     emit titleChanged(title);
+    emit titleChangedWithFilename(title,
+                                  nowPlaying().isLocalFile() ? nowPlaying().fileName() : QString());
 }
 
 void PlaybackManager::mpvw_chaptersChanged(QVariantList chapters)

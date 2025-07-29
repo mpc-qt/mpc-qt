@@ -1666,7 +1666,7 @@ void MainWindow::httpAfterPlaybackLock()
 void MainWindow::setFreestanding(bool freestanding)
 {
     freestanding_ = freestanding;
-    setMediaTitle(QString());
+    setMediaTitleWithFilename(QString(), QString());
 }
 
 void MainWindow::setNoVideoSize(const QSize &size)
@@ -1691,6 +1691,7 @@ void MainWindow::setTitleBarFormat(Helpers::TitlePrefix titlebarFormat)
 void MainWindow::setTitleUseMediaTitle(bool enabled)
 {
     titleUseMediaTitle = enabled;
+    setMediaTitleWithFilename(currentTitle, currentFilename);
 }
 
 void MainWindow::setWindowedMouseMap(const MouseStateMap &map)
@@ -1815,22 +1816,21 @@ void MainWindow::setTime(double time, double length)
     updateTime();
 }
 
-void MainWindow::setMediaTitle(QString title)
-{
-    setMediaTitleWithFilename(title, QString());
-}
-
 void MainWindow::setMediaTitleWithFilename(QString title, QString filename)
 {
+    currentTitle = title;
+    currentFilename = filename;
     QString window_title(textWindowTitle);
     if (freestanding_)
         window_title.append(tr(" [Freestanding]"));
 
     if (titlebarFormat_ != Helpers::NoPrefix) {
-        if (!titleUseMediaTitle && !filename.isEmpty())
-            title = filename;
-        else if (titlebarFormat_ == Helpers::PrefixFullPath)
-            title = this->currentFile.toString();
+        if (!titleUseMediaTitle) {
+            if (titlebarFormat_ == Helpers::PrefixFullPath)
+                title = this->currentFile.toString();
+            else if (!filename.isEmpty())
+                title = filename;
+        }
         if (!title.isEmpty())
             window_title.prepend(" - ").prepend(title);
     }

@@ -578,8 +578,8 @@ void Flow::setupMainWindowConnections()
     // manager -> mainwindow
     connect(playbackManager, &PlaybackManager::timeChanged,
             mainWindow, &MainWindow::setTime);
-    connect(playbackManager, &PlaybackManager::titleChanged,
-            mainWindow, &MainWindow::setMediaTitle);
+    connect(playbackManager, &PlaybackManager::titleChangedWithFilename,
+            mainWindow, &MainWindow::setMediaTitleWithFilename);
     connect(playbackManager, &PlaybackManager::videoSizeChanged,
             mainWindow, &MainWindow::setVideoSize);
     connect(playbackManager, &PlaybackManager::stateChanged,
