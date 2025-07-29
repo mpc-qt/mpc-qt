@@ -2672,11 +2672,16 @@ void MainWindow::on_actionViewOSDCycle_triggered()
     int newpage;
 
     newpage = mpvObject_->cycleStatsPage();
-    nextOsdAction = osdActionGroup->actions().value(newpage+1, nullptr);
+    QMap<int, QAction*> pageToAction = {
+        { -1, ui->actionViewOSDNone },
+        { 0, ui->actionViewOSDMessages },
+        { 1, ui->actionViewOSDStatistics },
+        { 3, ui->actionViewOSDInputCacheStats }
+    };
+    nextOsdAction = pageToAction.value(newpage, nullptr);
     if (nextOsdAction)
         nextOsdAction->setChecked(true);
     ui->actionViewOSDTimer->setEnabled(newpage == 0);
-
 }
 
 void MainWindow::on_actionViewOSDTimer_triggered()
