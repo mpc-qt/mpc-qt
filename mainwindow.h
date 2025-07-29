@@ -329,7 +329,7 @@ private slots:
     void on_actionViewOSDNone_triggered();
     void on_actionViewOSDMessages_triggered();
     void on_actionViewOSDStatistics_triggered();
-    void on_actionViewOSDFrameTimings_triggered();
+    void on_actionViewOSDInputCacheStats_triggered();
     void on_actionViewOSDCycle_triggered();
     void on_actionViewOSDTimer_triggered();
 

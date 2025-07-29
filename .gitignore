@@ -40,3 +40,5 @@
 # Appimage
 AppDir
 *.AppImage
+
+.cache

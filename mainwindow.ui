@@ -841,7 +841,7 @@
      <addaction name="actionViewOSDNone"/>
      <addaction name="actionViewOSDMessages"/>
      <addaction name="actionViewOSDStatistics"/>
-     <addaction name="actionViewOSDFrameTimings"/>
+     <addaction name="actionViewOSDInputCacheStats"/>
      <addaction name="separator"/>
      <addaction name="actionViewOSDCycle"/>
      <addaction name="separator"/>
@@ -2056,12 +2056,12 @@
     <string>&amp;General Statistics</string>
    </property>
   </action>
-  <action name="actionViewOSDFrameTimings">
+  <action name="actionViewOSDInputCacheStats">
    <property name="checkable">
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>&amp;Frame Timings</string>
+    <string>&amp;Input Cache Statistics</string>
    </property>
   </action>
   <action name="actionViewOSDCycle">

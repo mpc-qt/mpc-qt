@@ -1263,8 +1263,8 @@ void MpvController::setLogLevel(QString logLevel)
 
 void MpvController::showStatsPage(int page)
 {
-    bool statsVisible = (shownStatsPage > 0 && shownStatsPage < 3);
-    bool wantVisible = (page > 0 && page < 3);
+    bool statsVisible = shownStatsPage > 0;
+    bool wantVisible = page > 0;
     if (wantVisible ^ statsVisible) {
         Logger::log("mpvctrl", "toggling stats page");
         command(QStringList({"script-binding",
