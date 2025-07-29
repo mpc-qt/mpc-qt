@@ -1683,6 +1683,16 @@ void MainWindow::setTrayIcon(bool enabled)
         trayIcon->hide();
 }
 
+void MainWindow::setTitleBarFormat(Helpers::TitlePrefix titlebarFormat)
+{
+    titlebarFormat_ = titlebarFormat;
+}
+
+void MainWindow::setTitleUseMediaTitle(bool enabled)
+{
+    titleUseMediaTitle = enabled;
+}
+
 void MainWindow::setWindowedMouseMap(const MouseStateMap &map)
 {
     mouseMapWindowed = map;
@@ -1807,13 +1817,25 @@ void MainWindow::setTime(double time, double length)
 
 void MainWindow::setMediaTitle(QString title)
 {
-    QString window_title(textWindowTitle);
+    setMediaTitleWithFilename(title, QString());
+}
 
+void MainWindow::setMediaTitleWithFilename(QString title, QString filename)
+{
+    QString window_title(textWindowTitle);
     if (freestanding_)
         window_title.append(tr(" [Freestanding]"));
-    if (!title.isEmpty())
-        window_title.prepend(" - ").prepend(title);
+
+    if (titlebarFormat_ != Helpers::NoPrefix) {
+        if (!titleUseMediaTitle && !filename.isEmpty())
+            title = filename;
+        else if (titlebarFormat_ == Helpers::PrefixFullPath)
+            title = this->currentFile.toString();
+        if (!title.isEmpty())
+            window_title.prepend(" - ").prepend(title);
+    }
     setWindowTitle(window_title);
+
     ui->title->setText(!title.isEmpty() ? title : "-");
 }
 

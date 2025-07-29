@@ -219,6 +219,12 @@ private slots:
 
     void closeEvent(QCloseEvent *event) override;
 
+    void on_playerTitleDisplayFullPath_clicked();
+
+    void on_playerTitleFileNameOnly_clicked();
+
+    void on_playerTitleDontPrefix_clicked();
+
     void on_playerKeepHistory_checkStateChanged(Qt::CheckState state);
 
     void on_ccHdrMapper_currentIndexChanged(int index);
