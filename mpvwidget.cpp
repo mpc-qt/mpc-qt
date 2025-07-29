@@ -308,7 +308,14 @@ void MpvObject::showStatsPage(int page)
 
 int MpvObject::cycleStatsPage()
 {
-    showStatsPage(shownStatsPage < 2 ? shownStatsPage+1 : -1);
+    QMap<int,int> pageFromTo = {
+        { -1, 0 },
+        { 0, 1 },
+        { 1, 3 },
+        { 2, 3 },
+        { 3, -1 }
+    };
+    showStatsPage(pageFromTo.value(shownStatsPage, -1));
     return shownStatsPage;
 }
 

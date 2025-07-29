@@ -1013,10 +1013,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Frame Timings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Cycle</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1382,6 +1378,10 @@
     </message>
     <message>
         <source>XWayland or X11</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Input Cache Statistics</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
