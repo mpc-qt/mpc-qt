@@ -27,6 +27,8 @@
 using namespace Helpers;
 constexpr char SKIPACTION[] = "Skip";
 constexpr char textWindowTitle[] = "Media Player Classic Qute Theater";
+constexpr char mpcQtIconPath[] = ":/images/icon/mpc-qt.svg";
+constexpr char tinyIconPath[] = ":/images/icon/tinyicon.svg";
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -659,7 +661,7 @@ void MainWindow::setupTrayIcon()
     trayIcon->setContextMenu(trayMenu);
     trayIcon->setToolTip(textWindowTitle);
     Logger::log("mainwindow", "rendering trayIcon sizes");
-    trayIcon->setIcon(createIconFromSvg(QStringLiteral(":/images/icon/mpc-qt.svg"), 64));
+    trayIcon->setIcon(createIconFromSvg(mpcQtIconPath, 64));
     Logger::log("mainwindow", "rendering trayIcon sizes done");
 }
 
@@ -793,6 +795,7 @@ void MainWindow::setupPlaylist()
 
 void MainWindow::setupStatus()
 {
+    ui->tinyicon->setPixmap(renderPixmapFromSvg(tinyIconPath));
     timePosition = new StatusTime();
     ui->statusbarLayout->insertWidget(2, timePosition);
     timeDuration = new StatusTime();
@@ -1314,6 +1317,18 @@ QIcon MainWindow::createIconFromSvg(const QString& svgPath, int maxSize) {
         icon.addPixmap(pixmap);
     }
     return icon;
+}
+
+QPixmap MainWindow::renderPixmapFromSvg(const QString &path) {
+    QSvgRenderer renderer(path);
+    qreal devicePixelRatio = this->devicePixelRatioF();
+    int iconSize = 16;
+    QPixmap pixmap(iconSize * devicePixelRatio, iconSize * devicePixelRatio);
+    pixmap.fill(Qt::transparent);
+    QPainter painter(&pixmap);
+    renderer.render(&painter);
+    pixmap.setDevicePixelRatio(devicePixelRatio);
+    return pixmap;
 }
 
 void MainWindow::httpQuickOpenFile()
