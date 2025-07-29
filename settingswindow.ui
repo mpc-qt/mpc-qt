@@ -7750,7 +7750,7 @@ media file played</string>
            <item row="10" column="1">
             <widget class="QComboBox" name="tweaksTimeTooltipLocation">
              <property name="enabled">
-              <bool>true</bool>
+              <bool>false</bool>
              </property>
              <property name="sizePolicy">
               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
