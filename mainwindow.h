@@ -241,7 +241,6 @@ public slots:
     void setHighContrastWidgets(bool yes);
     void setInfoColors(const QColor &foreground, const QColor &background);
     void setTime(double time, double length);
-    void setMediaTitle(QString title);
     void setMediaTitleWithFilename(QString title, QString filename);
     void setChapterTitle(QString title);
     void setVideoSize(QSize size);
@@ -507,6 +506,8 @@ private:
     double videoBitrate = 0;
     double panScan = 0;
     QUrl currentFile;
+    QString currentFilename;
+    QString currentTitle;
 
     IconThemer themer;
     QList<QAction *> menuFavoritesTail;
