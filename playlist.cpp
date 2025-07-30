@@ -557,7 +557,7 @@ void Playlist::fromVMap(const QVariantMap &qvm)
     nowPlaying_ = qvm.contains(keyNowPlaying) ? qvm[keyNowPlaying].toUuid() : nowPlaying_;
     if (qvm.contains(keyItems)) {
         auto items = qvm[keyItems].toList();
-        for (const QVariant &v : items) {
+        for (const QVariant &v : std::as_const(items)) {
             QSharedPointer<Item> i(new Item());
             i->setPlaylistUuid(playlistUuid_);
             i->fromVMap(v.toMap());
@@ -586,7 +586,7 @@ PlaylistItem QueuePlaylist::first()
     QReadLocker lock(&listLock);
     if (items.isEmpty())
         return { QUuid(), QUuid() };
-    return { items.first()->playlistUuid(), items.first()->uuid() };
+    return { items.constFirst()->playlistUuid(), items.constFirst()->uuid() };
 }
 
 PlaylistItem QueuePlaylist::takeFirst()
@@ -802,7 +802,7 @@ QSharedPointer<QueuePlaylist> PlaylistCollection::queuePlaylist()
 
 void PlaylistCollection::iteratePlaylists(const std::function<void (QSharedPointer<Playlist>)> &callback)
 {
-    for (const auto &p : playlists) {
+    for (const auto &p : std::as_const(playlists)) {
         callback(p);
     }
 }
@@ -886,7 +886,7 @@ void PlaylistCollection::fromVList(const QVariantList &data)
 QVariantList PlaylistCollection::toVList()
 {
     QVariantList l;
-    for (const auto &p : playlists) {
+    for (const auto &p : std::as_const(playlists)) {
         l.append(p->toVMap());
     }
     return l;

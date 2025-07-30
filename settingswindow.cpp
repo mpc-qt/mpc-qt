@@ -1321,7 +1321,7 @@ void SettingsWindow::on_shadersAddToShaders_clicked()
 {
     QList<QListWidgetItem *> items = ui->shadersFileList->selectedItems();
     QStringList files;
-    for (auto item : items)
+    for (auto item : std::as_const(items))
         files.append(item->text());
     ui->shadersActiveList->addItems(files);
 }

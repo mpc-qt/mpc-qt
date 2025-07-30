@@ -459,7 +459,7 @@ bool MprisPlayerServer::maybeChangeMetadata()
 
     auto trackMangle = [](QString &key, QVariant &value) -> bool {
         key = "track";
-        QRegularExpression re("\\d+");
+        static QRegularExpression re("\\d+");
         value = re.match(value.toString()).captured().toInt();
         return true;
     };

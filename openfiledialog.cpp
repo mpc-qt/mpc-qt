@@ -2,7 +2,6 @@
 #include "helpers.h"
 #include "openfiledialog.h"
 #include "ui_openfiledialog.h"
-#include "logger.h"
 
 OpenFileDialog::OpenFileDialog(QWidget *parent) :
     QDialog(parent),

@@ -1733,10 +1733,10 @@ void MainWindow::setControlsInFullscreen(bool hide, int showWhen, int showWhenDu
         Helpers::ControlHiding method = static_cast<Helpers::ControlHiding>(showWhen);
         if (method == Helpers::ShowWhenMoving && !showWhenDuration) {
             setBottomAreaBehavior(Helpers::ShowWhenHovering);
-            emit setBottomAreaHideTime(0);
+            setBottomAreaHideTime(0);
         } else {
             setBottomAreaBehavior(method);
-            emit setBottomAreaHideTime(showWhenDuration);
+            setBottomAreaHideTime(showWhenDuration);
         }
     } else
         setBottomAreaBehavior(Helpers::AlwaysShow);
@@ -2068,7 +2068,7 @@ void MainWindow::setAudioTracks(QList<Track> tracks)
     ui->menuPlayAudio->addSeparator();
     ui->menuPlayAudio->addAction(ui->actionPlayAudioTrackPrevious);
     ui->menuPlayAudio->addAction(ui->actionPlayAudioTrackNext);
-    audioTracksGroup->actions()[0]->setChecked(true);
+    audioTracksGroup->actions().constFirst()->setChecked(true);
 }
 
 void MainWindow::setVideoTracks(QList<Track> tracks)
@@ -2103,7 +2103,7 @@ void MainWindow::setVideoTracks(QList<Track> tracks)
     ui->menuPlayVideoPanScan->addAction(ui->actionIncreasePanScan);
     ui->menuPlayVideoPanScan->addAction(ui->actionMinPanScan);
     ui->menuPlayVideoPanScan->addAction(ui->actionMaxPanScan);
-    videoTracksGroup->actions()[0]->setChecked(true);
+    videoTracksGroup->actions().constFirst()->setChecked(true);
     updateOnTop();
 }
 
@@ -2139,7 +2139,7 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesCopy);
     ui->menuPlaySubtitles->addAction(ui->actionDecreaseSubtitlesDelay);
     ui->menuPlaySubtitles->addAction(ui->actionIncreaseSubtitlesDelay);
-    subtitleTracksGroup->actions()[0]->setChecked(true);
+    subtitleTracksGroup->actions().constFirst()->setChecked(true);
 }
 
 void MainWindow::audioTrackSet(int64_t id)
@@ -2147,7 +2147,7 @@ void MainWindow::audioTrackSet(int64_t id)
     if (audioTracksGroup != nullptr && id <= audioTracksGroup->actions().length()) {
         if (id <= 0)
             id = audioTracksGroup->actions().length();
-        audioTracksGroup->actions()[static_cast <int> (id) -1]->setChecked(true);
+        audioTracksGroup->actions().constData()[static_cast <int> (id) -1]->setChecked(true);
     }
 }
 
@@ -2156,7 +2156,7 @@ void MainWindow::videoTrackSet(int64_t id)
     if (videoTracksGroup != nullptr && id <= videoTracksGroup->actions().length()) {
         if (id <= 0)
             id = videoTracksGroup->actions().length();
-        videoTracksGroup->actions()[static_cast <int> (id) -1]->setChecked(true);
+        videoTracksGroup->actions().constData()[static_cast <int> (id) -1]->setChecked(true);
     }
 }
 
@@ -2165,7 +2165,7 @@ void MainWindow::subtitleTrackSet(int64_t id)
     if (subtitleTracksGroup != nullptr && id <= subtitleTracksGroup->actions().length()) {
         if (id <= 0)
             id = subtitleTracksGroup->actions().length();
-        subtitleTracksGroup->actions()[static_cast <int> (id) -1]->setChecked(true);
+        subtitleTracksGroup->actions().constData()[static_cast <int> (id) -1]->setChecked(true);
     }
 }
 
@@ -2667,7 +2667,6 @@ void MainWindow::on_actionViewOSDInputCacheStats_triggered()
 
 void MainWindow::on_actionViewOSDCycle_triggered()
 {
-    QActionGroup *osdActionGroup = ui->actionViewOSDMessages->actionGroup();
     QAction *nextOsdAction;
     int newpage;
 
