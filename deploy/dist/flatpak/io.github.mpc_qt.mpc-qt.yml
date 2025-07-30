@@ -1,10 +1,9 @@
 app-id: io.github.mpc_qt.mpc-qt
 runtime: org.kde.Platform
-runtime-version: '6.8'
+runtime-version: '6.9'
 sdk: org.kde.Sdk
 command: mpc-qt
 rename-icon: mpc-qt
-copy-icon: true
 add-build-extensions:
   org.freedesktop.Platform.ffmpeg-full:
     version: '24.08'
@@ -50,8 +49,6 @@ cleanup-commands:
 modules:
   - name: mpc-qt
     buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_PREFIX_PATH=/app/boost
     sources:
       - type: git
         url: https://github.com/mpc-qt/mpc-qt.git
@@ -74,6 +71,9 @@ modules:
           - -Dalsa=disabled
           - -Dmanpage-build=disabled
           - -Dvulkan=enabled
+          - -Dx11=enabled
+          - -Dwayland=enabled
+          - -Ddrm=enabled
         sources:
           - type: archive
             url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.40.0.tar.gz
@@ -260,8 +260,8 @@ modules:
       - name: boost
         buildsystem: simple
         build-commands:
-          - ./bootstrap.sh
-          - ./b2 install --prefix=/app/boost
+          - ./bootstrap.sh --with-libraries=stacktrace,headers
+          - ./b2 install variant=release link=shared runtime-link=shared --prefix=/app
         sources:
           - type: archive
             url: https://github.com/boostorg/boost/releases/download/boost-1.88.0/boost-1.88.0-cmake.tar.gz
