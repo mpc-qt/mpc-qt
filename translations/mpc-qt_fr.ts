@@ -1090,11 +1090,11 @@
     </message>
     <message>
         <source>&amp;Next Subtitle</source>
-        <translation>Sous-titres &amp;suivants</translation>
+        <translation type="vanished">Sous-titres &amp;suivants</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitle</source>
-        <translation>Sous-titres &amp;précédents</translation>
+        <translation type="vanished">Sous-titres &amp;précédents</translation>
     </message>
     <message>
         <source>Lo&amp;g</source>
@@ -1410,6 +1410,14 @@
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Previous Subtitles track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next Subtitles track</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

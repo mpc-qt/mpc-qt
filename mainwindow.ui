@@ -2131,7 +2131,7 @@
   </action>
   <action name="actionPlaySubtitlesPrevious">
    <property name="text">
-    <string>&amp;Previous Subtitle</string>
+    <string>&amp;Previous Subtitles track</string>
    </property>
    <property name="shortcut">
     <string notr="true">Shift+S</string>
@@ -2139,7 +2139,7 @@
   </action>
   <action name="actionPlaySubtitlesNext">
    <property name="text">
-    <string>&amp;Next Subtitle</string>
+    <string>&amp;Next Subtitles track</string>
    </property>
    <property name="shortcut">
     <string notr="true">S</string>

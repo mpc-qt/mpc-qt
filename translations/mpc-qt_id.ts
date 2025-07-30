@@ -1122,11 +1122,11 @@
     </message>
     <message>
         <source>&amp;Next Subtitle</source>
-        <translation>Takarir Selanjut&amp;nya</translation>
+        <translation type="vanished">Takarir Selanjut&amp;nya</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitle</source>
-        <translation>Takarir Sebelumnya (&amp;p)</translation>
+        <translation type="vanished">Takarir Sebelumnya (&amp;p)</translation>
     </message>
     <message>
         <source>Lo&amp;g</source>
@@ -1458,6 +1458,14 @@
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Previous Subtitles track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next Subtitles track</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

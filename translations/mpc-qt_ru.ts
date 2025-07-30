@@ -1130,11 +1130,11 @@
     </message>
     <message>
         <source>&amp;Next Subtitle</source>
-        <translation>&amp;Следующие субтитры</translation>
+        <translation type="vanished">&amp;Следующие субтитры</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitle</source>
-        <translation>&amp;Предыдущие субтитры</translation>
+        <translation type="vanished">&amp;Предыдущие субтитры</translation>
     </message>
     <message>
         <source>Lo&amp;g</source>
@@ -1466,6 +1466,14 @@
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Previous Subtitles track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Next Subtitles track</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
