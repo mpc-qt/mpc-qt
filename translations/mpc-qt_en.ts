@@ -1490,11 +1490,11 @@
     </message>
     <message>
         <source>&amp;Previous Subtitles track</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Previous Subtitles track</translation>
     </message>
     <message>
         <source>&amp;Next Subtitles track</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Next Subtitles track</translation>
     </message>
 </context>
 <context>
