@@ -168,7 +168,7 @@ void MpcQtServer::self_newConnection(QLocalSocket *socket)
 
     connect(socket, &QLocalSocket::readyRead, this, [=]() {
         QList<QByteArray> dataList = socket->readAll().split('\n');
-        for (const QByteArray &data : dataList) {
+        for (const QByteArray &data : std::as_const(dataList)) {
             if(data.size())
                 socket_payloadReceived(data, socket);
         }
@@ -212,7 +212,7 @@ void MpcQtServer::ipc_playFiles(const QVariantMap &map)
     QStringList filesAsText = map["files"].toStringList();
     bool important = !map.value("append", false).toBool();
     QList<QUrl> files;
-    for (const QString &s : filesAsText) {
+    for (const QString &s : std::as_const(filesAsText)) {
         files << QUrl::fromUserInput(s, workingDirectory);
     }
     if (!files.empty()) {

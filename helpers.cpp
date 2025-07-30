@@ -289,7 +289,8 @@ QString Helpers::toDateFormatFixed(double time, Helpers::TimeFormat format)
 
 QDate Helpers::dateFromCFormat(const char date[])
 {
-    QStringList dates = QString(date).simplified().split(QRegularExpression("\\s+"));
+    static auto regexp = QRegularExpression("\\s+");
+    QStringList dates = QString(date).simplified().split(regexp);
     QStringList months = { "Jan", "Feb", "Mar", "Apr", "May", "Jun",
                            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
     QDate d(dates[2].toInt(), months.indexOf(dates[0])+1, dates[1].toInt());
@@ -306,7 +307,7 @@ QTime Helpers::timeFromCFormat(const char time[])
 double Helpers::fromDateFormat(QString date)
 {
     QStringList times = date.split(':');
-    for (auto time : times) {
+    for (auto &time : std::as_const(times)) {
         if (time.toDouble() >= 60)
             return -1;
     }
@@ -575,7 +576,8 @@ QVariantMap Helpers::rectToVmap(const QRect &r) {
 template <class T>
 bool pairFromString(T &result, const QString &text)
 {
-    QStringList parts = text.split(QRegularExpression("[^\\d]+"));
+    static auto regexp = QRegularExpression("[^\\d]+");
+    QStringList parts = text.split(regexp);
     int a, b;
     if (parts.length() != 2)
         return false;

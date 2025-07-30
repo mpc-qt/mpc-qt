@@ -689,7 +689,7 @@ void MpvObject::ctrl_mpvPropertyChanged(QString name, QVariant v)
 {
     QVariant vForLog = v;
     // Don't show more than 3 decimals or none if those are zero
-    if (vForLog.typeId() == QVariant::Double) {
+    if (vForLog.typeId() == QMetaType::Double) {
         vForLog = QString("%1").arg(QString::number(vForLog.toDouble(), 'f', 3));
         if (vForLog.toString().section('.', 1) == "000")
             vForLog = vForLog.toString().section('.', 0, 0);

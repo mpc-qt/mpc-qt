@@ -6,7 +6,12 @@
 class StdFileCopy {
 public:
     StdFileCopy(FILE *fp) {
-        ptr = fdopen(dup(fileno(fp)), "wt");
+        int handle = dup(fileno(fp));
+        if (handle == -1) {
+            ptr = fp;
+            return;
+        }
+        ptr = fdopen(handle, "wt");
         fclose(fp);
     }
     ~StdFileCopy() {
