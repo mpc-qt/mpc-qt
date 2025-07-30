@@ -1486,7 +1486,7 @@
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Input Cache Statistics</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitles track</source>
