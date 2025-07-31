@@ -44,6 +44,7 @@ cleanup:
   - /lib/cmake
   - /lib/pkgconfig
   - /share/man
+  - /share/hwdata
 cleanup-commands:
   - mkdir -p /app/lib/ffmpeg
 modules:
