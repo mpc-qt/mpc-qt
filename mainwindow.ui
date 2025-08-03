@@ -879,6 +879,13 @@
      <property name="title">
       <string>&amp;Audio</string>
      </property>
+     <widget class="QMenu" name="menuPlayAudioFilters">
+      <property name="title">
+       <string>&amp;Filters</string>
+      </property>
+      <addaction name="actionAudioFilterExtrastereo"/>
+      <addaction name="actionAudioFilterAcompressor"/>
+     </widget>
      <addaction name="actionPlayAudioTrackPrevious"/>
      <addaction name="actionPlayAudioTrackNext"/>
     </widget>
@@ -898,6 +905,12 @@
      <property name="title">
       <string>&amp;Video</string>
      </property>
+     <widget class="QMenu" name="menuPlayVideoFilters">
+      <property name="title">
+       <string>&amp;Filters</string>
+      </property>
+      <addaction name="actionVideoFilterDeinterlace"/>
+     </widget>
      <widget class="QMenu" name="menuPlayVideoAspect">
       <property name="title">
        <string>&amp;Aspect ratio</string>
@@ -2099,6 +2112,22 @@
     <string notr="true">`</string>
    </property>
   </action>
+  <action name="actionAudioFilterExtrastereo">
+   <property name="text">
+    <string>&amp;Extra Stereo</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionAudioFilterAcompressor">
+   <property name="text">
+    <string>&amp;Compressor</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </action>
   <action name="actionPlayAudioTrackPrevious">
    <property name="text">
     <string>&amp;Previous Audio Track</string>
@@ -2159,6 +2188,14 @@
    </property>
    <property name="shortcut">
     <string notr="true">F2</string>
+   </property>
+  </action>
+  <action name="actionVideoFilterDeinterlace">
+   <property name="text">
+    <string>&amp;Deinterlace</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
    </property>
   </action>
   <action name="actionDecreaseVideoAspect">

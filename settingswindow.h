@@ -188,8 +188,8 @@ signals:
     void logDelay(int msecs);
     void logHistory(int lines);
 
-    void videoFilter(const QString &s);
-    void audioFilter(QString filter, const bool add);
+    void audioFilters(const QList<QPair<QString, QString>> &audioFiltersList);
+    void videoFilters(const QList<QPair<QString, QString>> &videoFiltersList);
 
 public slots:
     void takeActions(const QList<QAction*> actions);
@@ -197,6 +197,8 @@ public slots:
     void takeKeyMap(const QVariantMap &payload);
     void setMouseMapDefaults(const QVariantMap &payload);
     void setAudioDevices(const QList<AudioDevice> &devices);
+    void setAudioFilter(QString filter, QString options, bool add);
+    void setVideoFilter(QString filter, QString options, bool add);
     void sendSignals();
     void sendAcceptedSettings();
 
@@ -208,6 +210,7 @@ public slots:
     void setHidePanels(bool hidden);
 
 private slots:
+    void setFilter(QList<QPair<QString, QString>> &filtersList, QString filter, QString options, bool add);
     void restoreColorControls();
     void restoreAudioSettings();
     void colorPick_clicked(QLineEdit *colorValue);
@@ -325,6 +328,8 @@ private:
     QVariantMap acceptedKeyMap;
     QVariantMap defaultKeyMap;
     QList<AudioDevice> audioDevices;
+    QList<QPair<QString, QString>> audioFiltersList;
+    QList<QPair<QString, QString>> videoFiltersList;
 };
 
 #endif // SETTINGSWINDOW_H

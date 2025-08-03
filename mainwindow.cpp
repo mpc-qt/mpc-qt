@@ -181,6 +181,8 @@ QVariantMap MainWindow::state()
         { WRAP(ui->actionViewOntopPlaying) },
         { WRAP(ui->actionViewOntopVideo) },
         { WRAP(ui->actionViewFullscreen) },
+        { WRAP(ui->actionAudioFilterExtrastereo) },
+        { WRAP(ui->actionAudioFilterAcompressor) },
         { WRAP(ui->actionPlaySubtitlesEnabled) },
         { WRAP(ui->actionPlayVolumeMute) },
         { "volume", volumeSlider_->value() },
@@ -213,9 +215,13 @@ void MainWindow::setState(const QVariantMap &map)
     UNWRAP(ui->actionViewOntopPlaying, false);
     UNWRAP(ui->actionViewOntopVideo, false);
     UNWRAP(ui->actionViewFullscreen, false);
+    UNWRAP(ui->actionAudioFilterExtrastereo, false);
+    UNWRAP(ui->actionAudioFilterAcompressor, false);
     UNWRAP(ui->actionPlaySubtitlesEnabled, true);
     UNWRAP(ui->actionPlayVolumeMute, false);
 
+    ui->actionAudioFilterExtrastereo->isChecked() ? on_actionAudioFilterExtrastereo_triggered(true) : qt_noop();
+    ui->actionAudioFilterAcompressor->isChecked() ? on_actionAudioFilterAcompressor_triggered(true) : qt_noop();
     setSubtitlesEnabled(ui->actionPlaySubtitlesEnabled->isChecked(), true);
     on_actionPlayVolumeMute_toggled(ui->actionPlayVolumeMute->isChecked(), true);
     setVolume(map.value("volume", 100).toInt(), true);
@@ -2066,6 +2072,9 @@ void MainWindow::setAudioTracks(QList<Track> tracks)
         ui->menuPlayAudio->addAction(action);
     }
     ui->menuPlayAudio->addSeparator();
+    ui->menuPlayAudio->addMenu(ui->menuPlayAudioFilters);
+    ui->menuPlayAudioFilters->addAction(ui->actionAudioFilterExtrastereo);
+    ui->menuPlayAudioFilters->addAction(ui->actionAudioFilterAcompressor);
     ui->menuPlayAudio->addAction(ui->actionPlayAudioTrackPrevious);
     ui->menuPlayAudio->addAction(ui->actionPlayAudioTrackNext);
     audioTracksGroup->actions().constFirst()->setChecked(true);
@@ -2093,6 +2102,8 @@ void MainWindow::setVideoTracks(QList<Track> tracks)
         ui->menuPlayVideo->addAction(action);
     }
     ui->menuPlayVideo->addSeparator();
+    ui->menuPlayVideo->addMenu(ui->menuPlayVideoFilters);
+    ui->menuPlayVideoFilters->addAction(ui->actionVideoFilterDeinterlace);
     ui->menuPlayVideo->addMenu(ui->menuPlayVideoAspect);
     ui->menuPlayVideoAspect->addAction(ui->actionDecreaseVideoAspect);
     ui->menuPlayVideoAspect->addAction(ui->actionIncreaseVideoAspect);
@@ -2941,6 +2952,25 @@ void MainWindow::on_actionPlaySeekBackwardsLarge_triggered()
 {
     emit relativeSeek(false, true);
     showOsdTimer(true);
+}
+
+void MainWindow::on_actionAudioFilterExtrastereo_triggered(bool checked)
+{
+    emit audioFilter("extrastereo", "", checked);
+}
+
+void MainWindow::on_actionAudioFilterAcompressor_triggered(bool checked)
+{
+    emit audioFilter("acompressor", "", checked);
+}
+
+void MainWindow::on_actionVideoFilterDeinterlace_triggered(bool checked)
+{
+    // Deinterlacing doesn't work with hardware acceleration
+    if (checked)
+        mpvObject_->setCachedMpvOption("hwdec", "no");
+
+    emit videoFilter("yadif", "mode=1", checked);
 }
 
 void MainWindow::on_actionPlayAudioTrackNext_triggered()

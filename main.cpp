@@ -671,6 +671,10 @@ void Flow::setupSettingsConnections()
     // mainwindow -> settings
     connect(mainWindow, &MainWindow::zoomPresetChanged,
             settingsWindow, &SettingsWindow::setZoomPreset);
+    connect(mainWindow, &MainWindow::audioFilter,
+            settingsWindow, &SettingsWindow::setAudioFilter);
+    connect(mainWindow, &MainWindow::videoFilter,
+            settingsWindow, &SettingsWindow::setVideoFilter);
 
     // settings -> mainwindow
     connect(settingsWindow, &SettingsWindow::trayIcon,
@@ -787,8 +791,10 @@ void Flow::setupMpvObjectConnections()
             mpvObject, &MpvObject::setLogoUrl);
     connect(settingsWindow, &SettingsWindow::option,
             mpvObject, &MpvObject::setCachedMpvOption);
-    connect(settingsWindow, &SettingsWindow::audioFilter,
-            mpvObject, &MpvObject::setAudioFilter);
+    connect(settingsWindow, &SettingsWindow::audioFilters,
+            mpvObject, &MpvObject::setAudioFilters);
+    connect(settingsWindow, &SettingsWindow::videoFilters,
+            mpvObject, &MpvObject::setVideoFilters);
     connect(settingsWindow, &SettingsWindow::clientDebuggingMessages,
             mpvObject, &MpvObject::setClientDebuggingMessages);
     connect(settingsWindow, &SettingsWindow::mpvLogLevel,
