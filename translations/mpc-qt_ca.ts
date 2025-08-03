@@ -1496,6 +1496,22 @@
         <source>&amp;Next Subtitles track</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;Filters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Deinterlace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Extra Stereo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Compressor</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

@@ -406,12 +406,24 @@ void MpvObject::setLogoBackground(const QColor &color)
         widget->setLogoBackground(color);
 }
 
-void MpvObject::setAudioFilter(QString filter, bool add)
+void MpvObject::setAudioFilters(const QList<QPair<QString, QString>> &filtersList)
 {
-    if (add)
-        setMpvPropertyVariant("af", filter);
-    else
-        setMpvPropertyVariant("af", "");
+    emit ctrlCommand("no-osd af set \"" + formatFiltersList(filtersList) + "\"");
+}
+
+void MpvObject::setVideoFilters(const QList<QPair<QString, QString>> &filtersList)
+{
+    emit ctrlCommand("no-osd vf set \"" + formatFiltersList(filtersList) + "\"");
+}
+
+QString MpvObject::formatFiltersList(const QList<QPair<QString, QString>> &filtersList)
+{
+    QString filters;
+    for (auto filterPair : filtersList) {
+        filters.append(filterPair.first).append("=").append(filterPair.second).append(",");
+    }
+    filters.chop(1);
+    return filters;
 }
 
 void MpvObject::setSubFile(QString filename)

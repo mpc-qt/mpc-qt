@@ -173,6 +173,8 @@ signals:
     void fullscreenHideControls(bool checked);
     void timeShortModeSet(bool timeShortMode);
     void repeatAfter();
+    void audioFilter(QString filter, QString options, bool add);
+    void videoFilter(QString filter, QString options, bool add);
 
 public slots:
     void httpQuickOpenFile();
@@ -380,6 +382,11 @@ private slots:
     void on_actionPlaySeekBackwardsNormal_triggered();
     void on_actionPlaySeekForwardsLarge_triggered();
     void on_actionPlaySeekBackwardsLarge_triggered();
+
+    void on_actionAudioFilterExtrastereo_triggered(bool checked);
+    void on_actionAudioFilterAcompressor_triggered(bool checked);
+
+    void on_actionVideoFilterDeinterlace_triggered(bool checked);
 
     void on_actionPlayAudioTrackNext_triggered();
     void on_actionPlayAudioTrackPrevious_triggered();

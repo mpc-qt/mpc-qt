@@ -59,7 +59,6 @@ public:
     bool eofReached();
 
 signals:
-    void playerSettingsRequested();
     void timeChanged(double time, double length);
     void playLengthChanged();
     void titleChanged(QString title);

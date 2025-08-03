@@ -746,7 +746,7 @@ void SettingsWindow::sendSignals()
         emit speedStep(i > 0 ? 1.0 + i/100.0 : 1.25);
         emit speedStepAdditive(WIDGET_LOOKUP(ui->playbackSpeedStepAdditive).toBool());
     }
-    emit audioFilter("stereotools=balance_out=" +
+    setAudioFilter("stereotools", "balance_out=" +
         QString().number(WIDGET_LOOKUP(ui->audioBalance).toDouble()/100), true);
     emit stepTimeNormal(WIDGET_LOOKUP(ui->playbackNormalStep).toInt());
     emit stepTimeLarge(WIDGET_LOOKUP(ui->playbackLargeStep).toInt());
@@ -1121,6 +1121,37 @@ void SettingsWindow::setHidePanels(bool hidden)
     emit settingsData(acceptedSettings.toVMap());
 }
 
+void SettingsWindow::setAudioFilter(QString filter, QString options, bool add)
+{
+    setFilter(audioFiltersList, filter, options, add);
+    emit audioFilters(audioFiltersList);
+}
+
+void SettingsWindow::setVideoFilter(QString filter, QString options, bool add)
+{
+    setFilter(videoFiltersList, filter, options, add);
+    emit videoFilters(videoFiltersList);
+}
+
+void SettingsWindow::setFilter(QList<QPair<QString, QString>> &filtersList, QString filter, QString options, bool add)
+{
+    auto it = std::find_if(filtersList.begin(),
+                                     filtersList.end(),
+                                     [&](const QPair<QString, QString> &pair) {
+        return pair.first == filter;
+    });
+
+    if (it != filtersList.end()) { // Filter found
+        int i = std::distance(filtersList.begin(), it);
+        if (add)
+            filtersList.replace(i, QPair<QString, QString>(filter, options));
+        else
+            filtersList.erase(it);
+    }
+    else
+        filtersList.append(QPair<QString, QString>(filter, options));
+}
+
 void SettingsWindow::restoreColorControls()
 {
     emit option("brightness", acceptedSettings.value("miscBrightness").value.toInt());
@@ -1131,7 +1162,7 @@ void SettingsWindow::restoreColorControls()
 }
 void SettingsWindow::restoreAudioSettings()
 {
-    emit audioFilter("stereotools=balance_out=" +
+    setAudioFilter("stereotools", "balance_out=" +
         QString().number(WIDGET_LOOKUP(ui->audioBalance).toDouble()/100), true);
 }
 
@@ -1351,7 +1382,7 @@ void SettingsWindow::on_fullscreenHideControls_toggled(bool checked)
 void SettingsWindow::on_audioBalance_valueChanged(int value)
 {
     QToolTip::showText(QCursor::pos(), QString().number(value), ui->audioBalance);
-    emit audioFilter("stereotools=balance_out=" + QString().number((double) value/100), true);
+    setAudioFilter("stereotools", "balance_out=" + QString().number((double) value/100), true);
 }
 
 void SettingsWindow::on_playbackAutoZoom_toggled(bool checked)
