@@ -656,10 +656,6 @@ void Flow::setupManagerConnections()
     connect(playbackManager, &PlaybackManager::currentTrackInfo,
             favoritesWindow, &FavoritesWindow::addTrack);
 
-    // manager -> settings
-    connect(playbackManager, &PlaybackManager::playerSettingsRequested,
-            settingsWindow, &SettingsWindow::sendSignals);
-
     // goto -> manager
     connect(gotoWindow, &GoToWindow::goTo,
             playbackManager, &PlaybackManager::navigateToTime);
