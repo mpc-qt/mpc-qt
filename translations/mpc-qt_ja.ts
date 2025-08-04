@@ -282,7 +282,7 @@
     </message>
     <message>
         <source>OS&amp;D</source>
-        <translation>OS&amp;D(&amp;D)</translation>
+        <translation>OSD(&amp;D)</translation>
     </message>
     <message>
         <source>P&amp;lay</source>
@@ -350,7 +350,7 @@
     </message>
     <message>
         <source>Open &amp;DVD/BD...</source>
-        <translation>&amp;DVD/BDを開く(&amp;D)...</translation>
+        <translation>DVD/BDを開く(&amp;D)...</translation>
     </message>
     <message>
         <source>Ctrl+D</source>
@@ -1030,7 +1030,7 @@
     </message>
     <message>
         <source>About &amp;Qt...</source>
-        <translation>&amp;Qt について(&amp;Q)...</translation>
+        <translation>Qt について(&amp;Q)...</translation>
     </message>
     <message>
         <source>Save Pl&amp;ain Image...</source>
@@ -1474,43 +1474,43 @@
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished"></translation>
+        <translation>(不明)</translation>
     </message>
     <message>
         <source>Running under %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 で実行中</translation>
     </message>
     <message>
         <source>XWayland or X11</source>
-        <translation type="unfinished"></translation>
+        <translation>XWayland または X11</translation>
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>入力キャッシュの統計(&amp;I)</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitles track</source>
-        <translation type="unfinished"></translation>
+        <translation>前の字幕トラック(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;Next Subtitles track</source>
-        <translation type="unfinished"></translation>
+        <translation>次の字幕トラック(&amp;N)</translation>
     </message>
     <message>
         <source>&amp;Filters</source>
-        <translation type="unfinished"></translation>
+        <translation>フィルター(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;Deinterlace</source>
-        <translation type="unfinished"></translation>
+        <translation>インターレース解除(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Extra Stereo</source>
-        <translation type="unfinished"></translation>
+        <translation>エクストラ ステレオ(&amp;E)</translation>
     </message>
     <message>
         <source>&amp;Compressor</source>
-        <translation type="unfinished"></translation>
+        <translation>コンプレッサー(&amp;C)</translation>
     </message>
 </context>
 <context>
@@ -2037,19 +2037,19 @@
     </message>
     <message>
         <source>Light</source>
-        <translation>明(Linuxのみ)</translation>
+        <translation>明るい</translation>
     </message>
     <message>
         <source>Midlight</source>
-        <translation>中明(Linuxのみ)</translation>
+        <translation>中間の明るさ</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation>暗(Linuxのみ)</translation>
+        <translation>暗い</translation>
     </message>
     <message>
         <source>Mid</source>
-        <translation>中(Linuxのみ)</translation>
+        <translation>中間</translation>
     </message>
     <message>
         <source>Text</source>
@@ -2057,7 +2057,7 @@
     </message>
     <message>
         <source>Bright text</source>
-        <translation>明るいテキスト(Linuxのみ)</translation>
+        <translation>明るいテキスト</translation>
     </message>
     <message>
         <source>Button text</source>
@@ -2073,7 +2073,7 @@
     </message>
     <message>
         <source>Shadow</source>
-        <translation>影(Linuxのみ)</translation>
+        <translation>シャドウ</translation>
     </message>
     <message>
         <source>Highlight</source>
@@ -2093,11 +2093,11 @@
     </message>
     <message>
         <source>Base (alternate)</source>
-        <translation>ベース代替(Linuxのみ)</translation>
+        <translation>ベース (代替)</translation>
     </message>
     <message>
         <source>No role</source>
-        <translation>役割なし(Linuxのみ)</translation>
+        <translation>役割なし</translation>
     </message>
     <message>
         <source>Tooltip base</source>
@@ -2303,7 +2303,7 @@ media file played</source>
     </message>
     <message>
         <source>MIME types</source>
-        <translation>MIME 種類</translation>
+        <translation>MIME タイプ</translation>
     </message>
     <message>
         <source>Association</source>
@@ -2487,7 +2487,7 @@ media file played</source>
     </message>
     <message>
         <source>Use Qt&apos;s inbuilt fusion style</source>
-        <translation>Qt内蔵の融合スタイルを使用する</translation>
+        <translation>Qt 内蔵の融合スタイルを使用する</translation>
     </message>
     <message>
         <source>Balance</source>
@@ -2519,7 +2519,7 @@ media file played</source>
     </message>
     <message>
         <source>Framebuffer</source>
-        <translation>フレーム バッファ</translation>
+        <translation>フレーム バッファー</translation>
     </message>
     <message>
         <source>8 bits</source>
@@ -3099,7 +3099,7 @@ media file played</source>
     </message>
     <message>
         <source>Use S/PDIF when available</source>
-        <translation>利用可能な場合はS/PDIFを使用する</translation>
+        <translation>利用可能な場合は S/PDIF を使用する</translation>
     </message>
     <message>
         <source>Pulse</source>
@@ -3107,7 +3107,7 @@ media file played</source>
     </message>
     <message>
         <source>Buffer</source>
-        <translation>バッファ</translation>
+        <translation>バッファー</translation>
     </message>
     <message>
         <source>Fixes</source>
@@ -3203,7 +3203,7 @@ media file played</source>
     </message>
     <message>
         <source>Fullscreen monitor</source>
-        <translation>全画面表示モニター</translation>
+        <translation>全画面表示するディスプレイ</translation>
     </message>
     <message>
         <source>Launch files in fullscreen</source>
@@ -3448,7 +3448,7 @@ media file played</source>
     <message>
         <source>ASS override</source>
         <extracomment>Might cause issues</extracomment>
-        <translation>ASS字幕の上書き</translation>
+        <translation>ASS 字幕ファイルを上書き</translation>
     </message>
     <message>
         <source>Yes</source>
@@ -3692,7 +3692,7 @@ media file played</source>
     </message>
     <message>
         <source>Turn on logging (may produce stuttering)</source>
-        <translation>ログ記録をオンにする (途切れが生じる可能性がある)</translation>
+        <translation>ログ記録をオンにする (途切れが発生する可能性があります)</translation>
     </message>
     <message>
         <source>Debugging</source>
@@ -3836,11 +3836,11 @@ media file played</source>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>mpc-hcのように音量を100%に制限する</translation>
+        <translation>MPC-HC のように音量を 100% に制限する</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
-        <translation>mpc-hcのように再生時間インジケーターを短くする</translation>
+        <translation>MPC-HC のように再生時間インジケーターを短くする</translation>
     </message>
     <message>
         <source>HDR Compute Peak</source>
@@ -3900,7 +3900,7 @@ media file played</source>
     </message>
     <message>
         <source>&lt;a href=&quot;#&quot;&gt;Launch in web browser...&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;#&quot;&gt;Web ブラウザで起動...&lt;/a&gt;</translation>
+        <translation>&lt;a href=&quot;#&quot;&gt;ウェブ ブラウザーで起動...&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Local files</source>
@@ -3908,7 +3908,7 @@ media file played</source>
     </message>
     <message>
         <source>Web root</source>
-        <translation>Web root</translation>
+        <translation>ウェブ ルート</translation>
     </message>
     <message>
         <source>Security</source>
@@ -4068,11 +4068,11 @@ media file played</source>
     </message>
     <message>
         <source>Send mouse events to mpv</source>
-        <translation>マウスイベントをmpvに送信する</translation>
+        <translation>マウスイベントを mpv に送信する</translation>
     </message>
     <message>
         <source>Send key events to mpv</source>
-        <translation>キーイベントをmpvに送信する</translation>
+        <translation>キーイベントを mpv に送信する</translation>
     </message>
     <message>
         <source>Remember file position</source>
@@ -4080,7 +4080,7 @@ media file played</source>
     </message>
     <message>
         <source>Use next/previous file in folder when there is only one item in the playlist</source>
-        <translation>再生リストに項目が 1 つしかない場合は、フォルダ内の次のファイル/前のファイルを使用する</translation>
+        <translation>再生リストに項目が 1 つしかない場合は、フォルダー内の次のファイル/前のファイルを使用する</translation>
     </message>
     <message>
         <source>Play next file</source>
