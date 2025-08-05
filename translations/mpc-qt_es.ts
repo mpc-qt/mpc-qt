@@ -4130,6 +4130,10 @@ archivo multimedia reproducido</translation>
         <source>Max video height:</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Custom mpv options:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

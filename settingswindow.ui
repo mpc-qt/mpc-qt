@@ -7821,6 +7821,37 @@ media file played</string>
              </item>
             </layout>
            </item>
+           <item row="13" column="0">
+            <layout class="QHBoxLayout" name="tweaksMpvOptionsLayout" stretch="1">
+             <item>
+              <widget class="QCheckBox" name="tweaksMpvOptionsChkBox">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Custom mpv options:</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="13" column="1">
+            <layout class="QHBoxLayout" name="tweaksMpvOptionsTextLayout" stretch="1,0">
+             <item>
+              <widget class="QLineEdit" name="tweaksMpvOptionsText">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="placeholderText">
+                <string notr="true">hwdec=auto interpolation=yes</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
           </layout>
          </widget>
          <widget class="QWidget" name="loggingPage">

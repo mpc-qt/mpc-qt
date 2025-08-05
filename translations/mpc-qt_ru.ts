@@ -4190,6 +4190,10 @@ media file played</source>
         <source>Max video height:</source>
         <translation>Максимальная высота видео:</translation>
     </message>
+    <message>
+        <source>Custom mpv options:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
