@@ -1061,6 +1061,12 @@ void SettingsWindow::sendSignals()
     emit option("gamma", WIDGET_LOOKUP(ui->miscGamma).toInt());
     emit option("hue", WIDGET_LOOKUP(ui->miscHue).toInt());
     emit option("saturation", WIDGET_LOOKUP(ui->miscSaturation).toInt());
+    if (ui->tweaksMpvOptionsText->isEnabled()) {
+        QList<MpvOption> mpvOptions = parseMpvOptions(ui->tweaksMpvOptionsText->text());
+        for (const auto &mpvOption : mpvOptions) {
+            emit option(mpvOption.name, mpvOption.value);
+        }
+    }
 }
 
 void SettingsWindow::sendAcceptedSettings()
@@ -1180,6 +1186,23 @@ void SettingsWindow::colorPick_clicked(QLineEdit *colorValue)
 void SettingsWindow::colorPick_changed(QLineEdit *colorValue, QPushButton *colorPick)
 {
     colorPick->setStyleSheet(QString("background: #%1").arg(colorValue->text()));
+}
+
+QList<MpvOption> SettingsWindow::parseMpvOptions(const QString& optionsInline)
+{
+    QList<MpvOption> mpvOptions;
+    const QStringList options = optionsInline.split(' ', Qt::SkipEmptyParts);
+    for (const QString& option : options) {
+        int equalPos = option.indexOf('=');
+        if (equalPos > 0) {
+            QString name = option.left(equalPos).trimmed();
+            QString value = option.mid(equalPos + 1).trimmed();
+            mpvOptions.append(MpvOption{name, value});
+        } else {
+            mpvOptions.append(MpvOption{option.trimmed(), QString()});
+        }
+    }
+    return mpvOptions;
 }
 
 void SettingsWindow::on_pageTree_itemSelectionChanged()
@@ -1448,6 +1471,11 @@ void SettingsWindow::on_tweaksOsdFontChkBox_toggled(bool checked)
 {
     ui->tweaksOsdFont->setEnabled(checked);
     ui->tweaksOsdSize->setEnabled(checked);
+}
+
+void SettingsWindow::on_tweaksMpvOptionsChkBox_toggled(bool checked)
+{
+    ui->tweaksMpvOptionsText->setEnabled(checked);
 }
 
 void SettingsWindow::on_loggingEnabled_toggled(bool checked)

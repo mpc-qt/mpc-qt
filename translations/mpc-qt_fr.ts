@@ -4138,6 +4138,10 @@ fichier média lu</translation>
         <source>Max video height:</source>
         <translation>Hauteur maximale des vidéos&#xa0;:</translation>
     </message>
+    <message>
+        <source>Custom mpv options:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

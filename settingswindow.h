@@ -43,6 +43,11 @@ public:
     void fromVMap(const QVariantMap &m);
 };
 
+struct MpvOption {
+    QString name;
+    QString value;
+};
+
 namespace Ui {
 class SettingsWindow;
 }
@@ -215,6 +220,7 @@ private slots:
     void restoreAudioSettings();
     void colorPick_clicked(QLineEdit *colorValue);
     void colorPick_changed(QLineEdit *colorValue, QPushButton *colorPick);
+    QList<MpvOption> parseMpvOptions(const QString& optionsInline);
 
     void on_pageTree_itemSelectionChanged();
 
@@ -289,6 +295,8 @@ private slots:
     void on_tweaksTimeTooltip_toggled(bool checked);
 
     void on_tweaksOsdFontChkBox_toggled(bool checked);
+
+    void on_tweaksMpvOptionsChkBox_toggled(bool checked);
 
     void on_loggingEnabled_toggled(bool checked);
 

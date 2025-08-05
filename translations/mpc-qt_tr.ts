@@ -4210,6 +4210,10 @@ yeni bir &amp;oynatıcı aç</translation>
         <source>Max video height:</source>
         <translation>En çok video yüksekliği:</translation>
     </message>
+    <message>
+        <source>Custom mpv options:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

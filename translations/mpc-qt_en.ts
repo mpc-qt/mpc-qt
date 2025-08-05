@@ -4218,6 +4218,10 @@ media file played</translation>
         <source>Max video height:</source>
         <translation>Max video height:</translation>
     </message>
+    <message>
+        <source>Custom mpv options:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
