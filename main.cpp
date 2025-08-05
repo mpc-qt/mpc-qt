@@ -1335,7 +1335,7 @@ void Flow::mainwindow_recentOpened(const TrackInfo &track, bool isFromRecents)
 
     // Navigate to a particular position if this is from the favorites menu
     // or if this is from the recents menu and not disabled
-    if (track.url.isLocalFile() && (!isFromRecents || rememberFilePosition)) {
+    if (!isFromRecents || rememberFilePosition) {
         if (track.position > 0)
             playbackManager->navigateToTime(track.position);
         playbackManager->setVideoTrack(track.videoTrack, true);
@@ -1674,7 +1674,7 @@ void Flow::updateRecentPosition(bool resetPosition)
         resetPosition = true;
     playbackManager->getCurrentTrackInfo(url, listUuid, itemUuid, title, length, position,
                                          videoTrack, audioTrack, subtitleTrack, hasVideo);
-    if (!itemUuid.isNull() && url.isLocalFile() && (hasVideo || !rememberHistoryOnlyForVideos))
+    if (!itemUuid.isNull() && !url.isEmpty() && (hasVideo || !rememberHistoryOnlyForVideos))
         updateRecents(url, listUuid, itemUuid, title, length, resetPosition ? 0 : position,
                       videoTrack, audioTrack, subtitleTrack);
 }
