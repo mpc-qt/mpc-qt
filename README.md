@@ -12,7 +12,7 @@ DirectShow.
 
 * [Releases](#releases)
 * [Features and improvements over MPC-HC](#features-and-improvements-over-mpc-hc)
-* [Contributing](#contributing)
+* [Contributing and translation](#contributing-code-and-translations)
 * [Compiling](#compiling)
 * [Compiling on Windows](#compiling-on-windows)
 * [Questions and answers](#questions-and-answers)
@@ -70,11 +70,10 @@ writing an encoder-orientated backend.
 
 Suggestions welcome.
 
-## Contributing
+## Contributing code and translations
 
-If you are a coder, try to follow the conventions in the code and make a PR.
-If you are a translator, we will be using [Weblate] to [translate][Translating]
-.
+If you are a coder, try to follow the conventions in the code and make a PR (pull request).<br />
+If you are a translator, we will be using [Weblate] to [translate][Translating].<br />
 Alternatively, you can submit the translations as a PR.
 
 [![Translation status]][Weblate]
@@ -218,7 +217,8 @@ Yes! You just need to change two SVP settings:
 [development builds]:https://mpc-qt.github.io/downloads#dev-builds
 [weblate]:https://hosted.weblate.org/engage/mpc-qt/
 [Translating]:https://github.com/mpc-qt/mpc-qt/wiki/Translating
-[Translation status]:https://hosted.weblate.org/widgets/mpc-qt/-/svg-badge.svg
+[Translation status]:https://hosted.weblate.org/widget/mpc-qt/multi-auto.svg
+
 [C/C++ CI]:https://github.com/mpc-qt/mpc-qt/actions/workflows/linux.yml/badge.svg
 [C/C++ CI link]:https://github.com/mpc-qt/mpc-qt/actions/workflows/linux.yml
 [Msys2 CI]:https://github.com/mpc-qt/mpc-qt/actions/workflows/windows-msys2.yml/badge.svg
