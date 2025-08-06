@@ -1721,7 +1721,7 @@ void MainWindow::setRecentDocuments(QList<TrackInfo> tracks)
     for (int i = 0; i < tracks.count() && i < 20; i++) {
         TrackInfo track = tracks[i];
         QString displayString = track.url.fileName();
-        QAction *a = new QAction(QString("%1 - %2").arg(i + 1).arg(displayString),
+        QAction *a = new QAction(QString("%1").arg(displayString),
                                  this);
         connect(a, &QAction::triggered, this, [=]() {
             emit recentOpened(track, true);
