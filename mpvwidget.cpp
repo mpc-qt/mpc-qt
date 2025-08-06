@@ -137,7 +137,8 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
         { "ytdl", "yes" },
         { "audio-client-name", clientName },
         { "load-scripts", true },
-        { "scripts", scripts }
+        { "scripts", scripts },
+        { "clipboard-backends", "clr" }
     };
     QMetaObject::invokeMethod(ctrl, "create", Qt::BlockingQueuedConnection,
                               Q_ARG(MpvController::OptionList, earlyOptions));
