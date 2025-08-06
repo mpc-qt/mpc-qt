@@ -227,6 +227,7 @@ private slots:
     void on_buttonBox_clicked(QAbstractButton *button);
 
     void closeEvent(QCloseEvent *event) override;
+    void keyPressEvent(QKeyEvent *event) override;
 
     void on_playerTitleDisplayFullPath_clicked();
 
