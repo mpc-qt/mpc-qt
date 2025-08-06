@@ -1248,6 +1248,14 @@ void SettingsWindow::closeEvent(QCloseEvent *event)
     restoreAudioSettings();
 }
 
+void SettingsWindow::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Escape)
+        this->close();
+    else
+        QWidget::keyPressEvent(event);
+}
+
 void SettingsWindow::on_playerTitleDisplayFullPath_clicked()
 {
     ui->playerTitleReplaceName->setEnabled(true);
