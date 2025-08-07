@@ -458,6 +458,7 @@ void MpcHcServer::setupWmCommands()
         { 894, "Decreate Rate",             [&](){ emit decreaseRate(); } },
         { 920, "Next File",                 [&](){ emit nextFile(false); } },
         { 919, "Previous File",             [&](){ emit previousFile(false); } },
+        { 921, "Move to Recycle Bin",       [&](){ emit moveToRecycleBin(); } },
         { 975, "Quick add favorite",        [&](){ emit quickAddFavorite(); } },
         { 937, "Organize Favorites...",     [&](){ emit organizeFavorites(); } },
         { 817, "Toggle Caption&amp;Menu",   [&](){ emit toggleCaptionMenu(); } },

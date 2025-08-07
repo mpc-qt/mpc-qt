@@ -92,6 +92,7 @@ signals:
     void currentTrackInfo(TrackInfo track);
     void openingNewFile();
     void startingPlayingFile(QUrl url);
+    void removePlaylistItemRequested(QUuid itemUuid);
     void stoppedPlaying();
 
     void fpsChanged(double fps);
@@ -124,8 +125,9 @@ public slots:
     void stepForward();
     void navigateToNextChapter();
     void navigateToPrevChapter();
-    void playNext(bool forceFolderFallback);
+    bool playNext(bool forceFolderFallback);
     void playPrev(bool forceFolderFallback);
+    void moveToRecycleBin();
     void repeatThisFile();
     void deltaExtraPlaytimes(int delta);
     void navigateToChapter(int64_t chapter);
@@ -180,10 +182,10 @@ private:
     void updateSubtitleTrack();
     void updateChapters();
     void checkAfterPlayback();
-    void playNextTrack();
+    bool playNextTrack();
     void playPrevTrack();
     bool playNextFileUrl(QUrl url, int delta = 1);
-    void playNextFile(int delta = 1);
+    bool playNextFile(int delta = 1);
     void playPrevFile();
     void playHalt();
 
