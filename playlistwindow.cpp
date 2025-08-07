@@ -832,6 +832,16 @@ void PlaylistWindow::playlist_removeItemRequested()
     updatePlaylistHasItems();
 }
 
+void PlaylistWindow::removePlaylistItem(const QUuid &itemUuid)
+{
+    auto qdp = currentPlaylistWidget();
+    if (!qdp)
+        return;
+
+    qdp->removeItem(itemUuid);
+    updatePlaylistHasItems();
+}
+
 void PlaylistWindow::playlist_removeAllRequested()
 {
     auto qdp = currentPlaylistWidget();

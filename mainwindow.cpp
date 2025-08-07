@@ -1026,6 +1026,7 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionNavigateChaptersNext->setEnabled(enabled);
     ui->actionNavigateFilesPrevious->setEnabled(enabled);
     ui->actionNavigateFilesNext->setEnabled(enabled);
+    ui->actionFileMoveToRecycleBin->setEnabled(enabled);
     ui->actionNavigateGoto->setEnabled(enabled);
     ui->actionFavoritesAdd->setEnabled(enabled);
 
@@ -3133,6 +3134,11 @@ void MainWindow::on_actionNavigateFilesPrevious_triggered()
 void MainWindow::on_actionNavigateFilesNext_triggered()
 {
     emit fileNext(true);
+}
+
+void MainWindow::on_actionFileMoveToRecycleBin_triggered()
+{
+    emit moveToRecycleBin();
 }
 
 void MainWindow::on_actionNavigateGoto_triggered()

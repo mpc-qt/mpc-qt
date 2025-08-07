@@ -775,6 +775,7 @@
     <addaction name="menuFileOpenDisc"/>
     <addaction name="menuFileRecent"/>
     <addaction name="actionFileClose"/>
+    <addaction name="actionFileMoveToRecycleBin"/>
     <addaction name="separator"/>
     <addaction name="actionFileSaveCopy"/>
     <addaction name="actionFileSaveImage"/>
@@ -1113,6 +1114,14 @@
    <property name="shortcut">
     <string>Ctrl+W</string>
    </property>
+  </action>
+  <action name="actionFileMoveToRecycleBin">
+    <property name="text">
+      <string>Move File to Recycle Bin</string>
+    </property>
+    <property name="shortcut">
+      <string notr="true">Del</string>
+    </property>
   </action>
   <action name="actionFileSaveCopy">
    <property name="text">

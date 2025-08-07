@@ -1436,6 +1436,10 @@
         <source>&amp;Compressor</source>
         <translation>&amp;Compresseur</translation>
     </message>
+    <message>
+        <source>Move File to Recycle Bin</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -1670,6 +1674,14 @@
     <message>
         <source>Subtitles track: </source>
         <translation>Piste de sous-titres : </translation>
+    </message>
+    <message>
+        <source>File moved to recycle bin: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to move file to recycle bin: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

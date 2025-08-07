@@ -1,4 +1,6 @@
 #include <QRegularExpression>
+#include <QFile>
+#include <QFileInfo>
 #include "manager.h"
 #include "playlistwindow.h"
 #include "logger.h"
@@ -324,13 +326,12 @@ void PlaybackManager::navigateToPrevChapter()
         playPrev(false);
 }
 
-void PlaybackManager::playNext(bool forceFolderFallback)
+bool PlaybackManager::playNext(bool forceFolderFallback)
 {
-    if ((folderFallback || forceFolderFallback) && playlistWindow_->isPlaylistSingularFile(nowPlayingList)) {
-        playNextFile();
-    } else {
-        playNextTrack();
-    }
+    if ((folderFallback || forceFolderFallback) && playlistWindow_->isPlaylistSingularFile(nowPlayingList))
+        return playNextFile();
+    else
+        return playNextTrack();
 }
 
 void PlaybackManager::playPrev(bool forceFolderFallback)
@@ -340,6 +341,39 @@ void PlaybackManager::playPrev(bool forceFolderFallback)
     } else {
         playPrevTrack();
     }
+}
+
+void PlaybackManager::moveToRecycleBin()
+{
+    if (nowPlayingItem.isNull())
+        return;
+
+    QUuid oldPlayingItem = nowPlayingItem;
+    QUrl currentFileUrl;
+    if (nowPlayingList.isNull())
+        currentFileUrl = nowPlaying_;
+    else
+        currentFileUrl = playlistWindow_->getUrlOf(nowPlayingList, nowPlayingItem);
+
+    if (currentFileUrl.isEmpty() || !currentFileUrl.isLocalFile())
+        return;
+
+    QString filePath = currentFileUrl.toLocalFile();
+    QFileInfo fileInfo(filePath);
+
+    bool hasNextFile = playNext(folderFallback);
+    emit removePlaylistItemRequested(oldPlayingItem);
+
+    if (fileInfo.exists()) {
+        QFile file(filePath);
+        if (file.moveToTrash())
+            mpvObject_->showMessage(tr("File moved to recycle bin: %1").arg(fileInfo.fileName()));
+        else
+            mpvObject_->showMessage(tr("Failed to move file to recycle bin: %1").arg(fileInfo.fileName()));
+    }
+
+    if (!hasNextFile)
+        stopPlayer();
 }
 
 void PlaybackManager::repeatThisFile()
@@ -780,7 +814,7 @@ void PlaybackManager::updateChapters()
     emit chaptersAvailable(list);
 }
 
-void PlaybackManager::playNextTrack()
+bool PlaybackManager::playNextTrack()
 {
     PlaylistItem next;
     next = playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
@@ -790,8 +824,11 @@ void PlaybackManager::playNextTrack()
         next = playlistWindow_->getFirstItem(nowPlayingList);
     }
     QUrl url = playlistWindow_->getUrlOf(next.list, next.item);
-    if (!url.isEmpty())
+    if (!url.isEmpty()) {
         startPlayWithUuid(url, next.list, next.item, false);
+        return true;
+    }
+    return false;
 }
 
 void PlaybackManager::playPrevTrack()
@@ -836,10 +873,10 @@ bool PlaybackManager::playNextFileUrl(QUrl url, int delta)
     return true;
 }
 
-void PlaybackManager::playNextFile(int delta)
+bool PlaybackManager::playNextFile(int delta)
 {
     QUrl url = playlistWindow_->getUrlOfFirst(nowPlayingList);
-    playNextFileUrl(url, delta);
+    return playNextFileUrl(url, delta);
 }
 
 void PlaybackManager::playPrevFile()

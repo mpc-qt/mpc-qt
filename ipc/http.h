@@ -113,6 +113,7 @@ signals:
     void decreaseRate();
     void nextFile(bool forceFolderFallback);
     void previousFile(bool forceFolderFallback);
+    void moveToRecycleBin();
     void quickAddFavorite();
     void organizeFavorites();
     void toggleCaptionMenu();

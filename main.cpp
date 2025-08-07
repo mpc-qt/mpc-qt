@@ -550,6 +550,8 @@ void Flow::setupMainWindowConnections()
             playbackManager, &PlaybackManager::playPrev);
     connect(mainWindow, &MainWindow::fileNext,
             playbackManager, &PlaybackManager::playNext);
+    connect(mainWindow, &MainWindow::moveToRecycleBin,
+            playbackManager, &PlaybackManager::moveToRecycleBin);
     connect(mainWindow, &MainWindow::chapterSelected,
             playbackManager, &PlaybackManager::navigateToChapter);
     connect(mainWindow, &MainWindow::timeSelected,
@@ -612,6 +614,10 @@ void Flow::setupMainWindowConnections()
             mainWindow, &MainWindow::setVideoPreviewItem);
     connect(playbackManager, &PlaybackManager::isVideo,
             mainWindow, &MainWindow::setIsVideo);
+
+    // manager -> playlistwindow
+    connect(playbackManager, &PlaybackManager::removePlaylistItemRequested,
+            mainWindow->playlistWindow(), &PlaylistWindow::removePlaylistItem);
 
     // mainwindow -> favorites
     connect(mainWindow, &MainWindow::organizeFavorites,
@@ -1141,6 +1147,8 @@ void Flow::setupMpcHc()
             playbackManager, &PlaybackManager::playNext);
     connect(mpcHcServer, &MpcHcServer::previousFile,
             playbackManager, &PlaybackManager::playPrev);
+    connect(mpcHcServer, &MpcHcServer::moveToRecycleBin,
+            playbackManager, &PlaybackManager::moveToRecycleBin);
 
     // mainWindow -> mpcHcServer
     connect(mainWindow, &MainWindow::volumeChanged,

@@ -162,6 +162,7 @@ signals:
     void chapterNext();
     void filePrevious(bool forceFolderFallback);
     void fileNext(bool forceFolderFallback);
+    void moveToRecycleBin();
     void showGoToWindow(double playTime, double playLength, double fps);
     void chapterSelected(int64_t id);
     void timeSelected(double time);
@@ -421,6 +422,7 @@ private slots:
 
     void on_actionNavigateFilesPrevious_triggered();
     void on_actionNavigateFilesNext_triggered();
+    void on_actionFileMoveToRecycleBin_triggered();
 
     void on_actionNavigateGoto_triggered();
 
