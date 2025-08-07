@@ -1438,7 +1438,7 @@
     </message>
     <message>
         <source>Move File to Recycle Bin</source>
-        <translation type="unfinished"></translation>
+        <translation>Déplacer le fichier dans la corbeille</translation>
     </message>
 </context>
 <context>
@@ -1677,11 +1677,11 @@
     </message>
     <message>
         <source>File moved to recycle bin: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier déplacé dans la corbeille&#xa0;: %1</translation>
     </message>
     <message>
         <source>Failed to move file to recycle bin: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de déplacer le fichier dans la corbeille&#xa0;: %1</translation>
     </message>
 </context>
 <context>
@@ -4152,7 +4152,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Custom mpv options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Options avancées pour mpv&#xa0;:</translation>
     </message>
 </context>
 <context>
