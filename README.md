@@ -1,12 +1,13 @@
-## Media Player Classic Qute Theater
+## Media Player Classic Qute Theater ([homepage])
 
 Media Player Classic reimplemented with Qt and libmpv.
 
 ![screenshot]
+More screenshots: https://mpc-qt.github.io/gallery
 
-[Media Player Classic Home Cinema][mpc-hc] (MPC-HC) is considered by many to
-be the quintessential media player for the Windows desktop.  Media Player
-Classic Qute Theater (MPC-QT) aims to reproduce most of the interface and
+[MPC-HC][mpc-hc] (Media Player Classic Home Cinema) is considered by many to
+be the quintessential media player for the Windows desktop.  MPC-QT (Media Player
+Classic Qute Theater) aims to reproduce most of the interface and
 functionality of MPC-HC while using [libmpv] to play video instead of
 DirectShow.
 
@@ -41,7 +42,7 @@ favorite media player.
 
 **Video preview on seekbar (thumbnail)**
 
-**Play online videos (with youtube-dl)**
+**Play online videos (with [yt-dlp])**
 
 **Quick queuing:**  Out-of-order playback in the same style of xmms/qmmp.
 Got some compilation albums in a playlist, but want to hear only some rock
@@ -209,12 +210,14 @@ Yes! You just need to change two SVP settings:
 - the path to mpv's JSON IPC to point to `/tmp/cmdrkotori.mpc-qt.mpv`
 - the path to the player to point to `/usr/bin/mpc-qt`
 
+[homepage]:https://mpc-qt.github.io/
 [screenshot]:https://raw.githubusercontent.com/mpc-qt/mpc-qt-screenshots/refs/heads/master/Screenshot_20250602_151626.png
 [mpc-hc]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
 [release page]:https://github.com/mpc-qt/mpc-qt/releases
 [Packages are available]:https://mpc-qt.github.io/downloads
 [development builds]:https://mpc-qt.github.io/downloads#dev-builds
+[yt-dlp]:https://github.com/yt-dlp/yt-dlp
 [weblate]:https://hosted.weblate.org/engage/mpc-qt/
 [Translating]:https://github.com/mpc-qt/mpc-qt/wiki/Translating
 [Translation status]:https://hosted.weblate.org/widget/mpc-qt/multi-auto.svg
