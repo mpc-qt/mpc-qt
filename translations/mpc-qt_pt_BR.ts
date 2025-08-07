@@ -66,7 +66,7 @@
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation>Reprodutor Mídia Clássico Qute Theater</translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Start a new process without saving data.</source>
@@ -174,7 +174,7 @@
     <name>MainWindow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation>Media Player Clássico Qute Theater</translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Play</source>
@@ -1114,11 +1114,11 @@
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Sobre o Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation type="unfinished"></translation>
+        <translation>Um clone de Media Player Classic escrito em Qt</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
@@ -2029,7 +2029,7 @@
     <name>SettingsWindow</name>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opções</translation>
     </message>
     <message>
         <source>1</source>
@@ -2037,7 +2037,7 @@
     </message>
     <message>
         <source>Player</source>
-        <translation type="unfinished"></translation>
+        <translation>Player</translation>
     </message>
     <message>
         <source>Formats</source>
@@ -2121,17 +2121,19 @@
     </message>
     <message>
         <source>Open options</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir opções</translation>
     </message>
     <message>
         <source>Use the same player for
 each &amp;media file</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar o mesmo player para cada
+arquivo de mídia</translation>
     </message>
     <message>
         <source>Open a new &amp;player for each
 media file played</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir um novo player para cada
+arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Other</source>
