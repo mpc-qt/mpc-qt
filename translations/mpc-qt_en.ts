@@ -1514,7 +1514,7 @@
     </message>
     <message>
         <source>Move File to Recycle Bin</source>
-        <translation type="unfinished"></translation>
+        <translation>Move File to Recycle Bin</translation>
     </message>
 </context>
 <context>
@@ -1753,11 +1753,11 @@
     </message>
     <message>
         <source>File moved to recycle bin: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>File moved to recycle bin: %1</translation>
     </message>
     <message>
         <source>Failed to move file to recycle bin: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Failed to move file to recycle bin: %1</translation>
     </message>
 </context>
 <context>
@@ -4232,7 +4232,7 @@ media file played</translation>
     </message>
     <message>
         <source>Custom mpv options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Custom mpv options:</translation>
     </message>
 </context>
 <context>
