@@ -1496,6 +1496,10 @@
         <source>Move File to Recycle Bin</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Screenshot</source>
+        <translation type="unfinished">Снимок экрана</translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

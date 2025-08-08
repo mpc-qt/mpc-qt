@@ -757,6 +757,17 @@
      <addaction name="actionFileRecentClear"/>
      <addaction name="separator"/>
     </widget>
+    <widget class="QMenu" name="menuFileScreenshot">
+     <property name="title">
+      <string>Screenshot</string>
+     </property>
+     <addaction name="actionFileSaveImage"/>
+     <addaction name="actionFileSaveImageAuto"/>
+     <addaction name="actionFileSavePlainImage"/>
+     <addaction name="actionFileSavePlainImageAuto"/>
+     <addaction name="actionFileSaveWindowImage"/>
+     <addaction name="actionFileSaveWindowImageAuto"/>
+    </widget>
     <widget class="QMenu" name="menuFileSubtitleDatabase">
      <property name="title">
       <string>Subtitle Data&amp;base</string>
@@ -778,12 +789,7 @@
     <addaction name="actionFileMoveToRecycleBin"/>
     <addaction name="separator"/>
     <addaction name="actionFileSaveCopy"/>
-    <addaction name="actionFileSaveImage"/>
-    <addaction name="actionFileSaveImageAuto"/>
-    <addaction name="actionFileSavePlainImage"/>
-    <addaction name="actionFileSavePlainImageAuto"/>
-    <addaction name="actionFileSaveWindowImage"/>
-    <addaction name="actionFileSaveWindowImageAuto"/>
+    <addaction name="menuFileScreenshot"/>
     <addaction name="actionFileSaveThumbnails"/>
     <addaction name="separator"/>
     <addaction name="actionFileExportEncode"/>

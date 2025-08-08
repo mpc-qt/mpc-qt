@@ -1001,6 +1001,7 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionFileOpenDevice->setEnabled(false);
     ui->actionFileClose->setEnabled(enabled);
     ui->actionFileSaveCopy->setEnabled(enabled && false);
+    ui->menuFileScreenshot->setEnabled(enabled);
     ui->actionFileSaveImage->setEnabled(enabled);
     ui->actionFileSaveImageAuto->setEnabled(enabled);
     ui->actionFileSavePlainImage->setEnabled(enabled);

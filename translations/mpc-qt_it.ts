@@ -1448,6 +1448,10 @@
         <source>Move File to Recycle Bin</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Screenshot</source>
+        <translation type="unfinished">Istantanee</translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
