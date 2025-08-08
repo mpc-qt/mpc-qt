@@ -143,17 +143,17 @@ QWidget *FavoritesDelegate::createEditor(QWidget *parent, const QStyleOptionView
 void FavoritesDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
 {
     FavoritesItem *item = static_cast<FavoritesItem*>(owner->item(index.row()));
-    static_cast<QLineEdit*>(editor)->setText(item->track().text);
+    static_cast<QLineEdit*>(editor)->setText(item->track().title);
 }
 
 void FavoritesDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 {
     Q_UNUSED(model)
     FavoritesItem *item = static_cast<FavoritesItem*>(owner->item(index.row()));
-    QString text = static_cast<QLineEdit*>(editor)->text();
-    if (text.isEmpty())
-        text = item->track().url.toString();
-    item->track().text = text;
+    QString title = static_cast<QLineEdit*>(editor)->text();
+    if (title.isEmpty())
+        title = item->track().url.toString();
+    item->track().title = title;
 }
 
 QSize FavoritesDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -171,13 +171,13 @@ void FavoritesDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
     QApplication::style()->drawControl(QStyle::CE_ItemViewItem, &option, painter);
 
-    QString text = listItem->track().text;
+    QString title = listItem->track().title;
     QString time = Helpers::toDateFormat(listItem->track().position) + " / "
                    + Helpers::toDateFormat(listItem->track().length);
     QRect rc = option.rect.adjusted(3, 0, -3, 0);
     painter->drawText(rc, Qt::AlignRight|Qt::AlignCenter, time);
     rc.adjust(0, 0, -(3 + option.fontMetrics.horizontalAdvance(time)), 0);
-    painter->drawText(rc, Qt::AlignLeft|Qt::AlignVCenter, text);
+    painter->drawText(rc, Qt::AlignLeft|Qt::AlignVCenter, title);
 }
 
 void FavoritesDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const

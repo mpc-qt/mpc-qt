@@ -1725,7 +1725,7 @@ void MainWindow::setRecentDocuments(QList<TrackInfo> tracks)
         if (track.url.isLocalFile())
             displayString = track.url.fileName();
         else
-            displayString = track.text;
+            displayString = track.title;
         QAction *a = new QAction(QString("%1").arg(displayString),
                                  this);
         connect(a, &QAction::triggered, this, [=]() {
@@ -1776,7 +1776,7 @@ void MainWindow::setFavoriteTracks(QList<TrackInfo> files, QList<TrackInfo> stre
     auto addTracks = [&](const QList<TrackInfo> &tracks) {
         for (const auto &t : tracks) {
             auto a = new QAction(this);
-            a->setText(t.text);
+            a->setText(t.title);
             connect(a, &QAction::triggered,
                     a, [t, this]() {
                 emit this->recentOpened(t);

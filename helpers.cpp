@@ -945,13 +945,13 @@ QString DisplayParser::parseMetadata(QVariantMap metaData,
 
 
 
-TrackInfo::TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item, QString text, double length,
+TrackInfo::TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item, QString title, double length,
                      double position, int64_t videoTrack, int64_t audioTrack, int64_t subtitleTrack)
 {
     this->url = url;
     this->list = list;
     this->item = item;
-    this->text = text.isEmpty() ? url.toString() : text;
+    this->title = title.isEmpty() ? url.toString() : title;
     this->length = length;
     this->position = position;
     this->videoTrack = videoTrack;
@@ -962,7 +962,7 @@ TrackInfo::TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item, QStr
 QVariantMap TrackInfo::toVMap() const
 {
     return QVariantMap({{"url", url}, {"list", list}, {"item", item},
-                        {"text", text}, {"length", length},
+                        {"text", title}, {"length", length},
                         {"position", position}, {"videoTrack", (long long) videoTrack},
                         {"audioTrack", (long long) audioTrack},
                         {"subtitleTrack", (long long) subtitleTrack}});
@@ -973,9 +973,9 @@ void TrackInfo::fromVMap(const QVariantMap &map)
     url = map.value("url").toUrl();
     list = map.value("list").toUuid();
     item = map.value("item").toUuid();
-    text = map.value("text").toString();
-    if (text.isEmpty())
-        text = url.toString();
+    title = map.value("text").toString();
+    if (title.isEmpty())
+        title = url.toString();
     length = map.value("length").toDouble();
     position = map.value("position").toDouble();
     videoTrack = map.value("videoTrack").toLongLong();
