@@ -1440,6 +1440,10 @@
         <source>Move File to Recycle Bin</source>
         <translation>Déplacer le fichier dans la corbeille</translation>
     </message>
+    <message>
+        <source>Screenshot</source>
+        <translation>Capture d’écran</translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

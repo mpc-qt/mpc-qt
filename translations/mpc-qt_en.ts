@@ -1516,6 +1516,10 @@
         <source>Move File to Recycle Bin</source>
         <translation>Move File to Recycle Bin</translation>
     </message>
+    <message>
+        <source>Screenshot</source>
+        <translation>Screenshot</translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
