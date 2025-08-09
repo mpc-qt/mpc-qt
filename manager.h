@@ -170,7 +170,7 @@ public slots:
 
     // misc functions
     void sendCurrentTrackInfo();
-    void getCurrentTrackInfo(QUrl &url, QUuid &listUuid, QUuid &itemUuid, QString title,
+    void getCurrentTrackInfo(QUrl &url, QUuid &listUuid, QUuid &itemUuid, QString &title,
                              double &length, double &position, int64_t &videoTrack,
                              int64_t &audioTrack, int64_t &subtitleTrack, bool &hasVideo);
 

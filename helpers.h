@@ -114,12 +114,12 @@ private:
 class TrackInfo {
 public:
     TrackInfo() {}
-    TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item, QString text, double length,
+    TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item, QString title, double length,
               double position, int64_t videoTrack, int64_t audioTrack, int64_t subtitleTrack);
     QUrl url;
     QUuid list;
     QUuid item;
-    QString text;
+    QString title;
     double length;
     double position;
     int64_t videoTrack;
