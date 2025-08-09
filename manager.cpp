@@ -1082,6 +1082,9 @@ void PlaybackManager::mpvw_aspectNameChanged(QString newAspectName)
 
 void PlaybackManager::mpvw_metadataChanged(QVariantMap metadata)
 {
+    // yt-dlp metadata doesn't include the title, so let's add it
+    if (!nowPlaying_.isLocalFile() && !nowPlayingTitle.isEmpty() && !metadata.contains("title"))
+        metadata.insert("title", nowPlayingTitle);
     playlistWindow_->setMetadata(nowPlayingList, nowPlayingItem, metadata);
 }
 
