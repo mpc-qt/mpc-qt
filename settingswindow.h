@@ -222,12 +222,15 @@ private slots:
     void colorPick_changed(QLineEdit *colorValue, QPushButton *colorPick);
     QList<MpvOption> parseMpvOptions(const QString& optionsInline);
 
+    bool settingsOrKeyMapChanged();
+
     void on_pageTree_itemSelectionChanged();
 
     void on_buttonBox_clicked(QAbstractButton *button);
 
     void closeEvent(QCloseEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
+    bool eventFilter(QObject *obj, QEvent *event) override;
 
     void on_playerTitleDisplayFullPath_clicked();
 
