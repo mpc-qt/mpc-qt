@@ -1072,12 +1072,7 @@ void SettingsWindow::sendSignals()
     emit option("gamma", WIDGET_LOOKUP(ui->miscGamma).toInt());
     emit option("hue", WIDGET_LOOKUP(ui->miscHue).toInt());
     emit option("saturation", WIDGET_LOOKUP(ui->miscSaturation).toInt());
-    if (ui->tweaksMpvOptionsText->isEnabled()) {
-        QList<MpvOption> mpvOptions = parseMpvOptions(ui->tweaksMpvOptionsText->text());
-        for (const auto &mpvOption : mpvOptions) {
-            emit option(mpvOption.name, mpvOption.value);
-        }
-    }
+    setCustomMpvOptions();
 }
 
 void SettingsWindow::sendAcceptedSettings()
@@ -1178,6 +1173,16 @@ void SettingsWindow::setFilter(QList<QPair<QString, QString>> &filtersList, QStr
         filtersList.append(QPair<QString, QString>(filter, options));
 }
 
+void SettingsWindow::setCustomMpvOptions()
+{
+    if (WIDGET_LOOKUP(ui->tweaksMpvOptionsChkBox).toBool()) {
+        QList<MpvOption> mpvOptions = parseMpvOptions(WIDGET_LOOKUP(ui->tweaksMpvOptionsText).toString());
+        for (const auto &mpvOption : mpvOptions) {
+            emit optionUncached(mpvOption.name, mpvOption.value);
+        }
+    }
+}
+
 void SettingsWindow::restoreColorControls()
 {
     emit option("brightness", acceptedSettings.value("miscBrightness").value.toInt());
@@ -1265,6 +1270,7 @@ void SettingsWindow::closeEvent(QCloseEvent *event)
     Q_UNUSED(event)
     restoreColorControls();
     restoreAudioSettings();
+    setCustomMpvOptions();
 }
 
 void SettingsWindow::keyPressEvent(QKeyEvent *event)
