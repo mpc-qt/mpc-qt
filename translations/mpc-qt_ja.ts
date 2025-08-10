@@ -1514,11 +1514,11 @@
     </message>
     <message>
         <source>Move File to Recycle Bin</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルをごみ箱に移動する</translation>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation type="unfinished">スクリーンショット</translation>
+        <translation>スクリーンショット</translation>
     </message>
 </context>
 <context>
@@ -1757,11 +1757,11 @@
     </message>
     <message>
         <source>File moved to recycle bin: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ごみ箱に移動されたファイル : %1</translation>
     </message>
     <message>
         <source>Failed to move file to recycle bin: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ごみ箱に移動できなかったファイル : %1</translation>
     </message>
 </context>
 <context>
@@ -4236,7 +4236,7 @@ media file played</source>
     </message>
     <message>
         <source>Custom mpv options:</source>
-        <translation type="unfinished"></translation>
+        <translation>カスタム mpv オプション :</translation>
     </message>
 </context>
 <context>
