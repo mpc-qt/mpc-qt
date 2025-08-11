@@ -5,7 +5,7 @@
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">حکم</translation>
     </message>
     <message>
         <source>Key</source>
