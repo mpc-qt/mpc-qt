@@ -358,11 +358,20 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     setupPageTree();
     setupColorPickers();
     setupUnimplementedWidgets();
+    ui->pageStack->installEventFilter(this);
 }
 
 SettingsWindow::~SettingsWindow()
 {
     delete ui;
+}
+
+bool SettingsWindow::eventFilter(QObject *obj, QEvent *event)
+{
+    Q_UNUSED (obj)
+    Q_UNUSED (event)
+    ui->buttonBox->button(QDialogButtonBox::Apply)->setEnabled(settingsOrKeyMapChanged());
+    return false;
 }
 
 QVariantMap SettingsWindow::settings()
@@ -508,7 +517,8 @@ SettingMap SettingsWindow::generateSettingMap(QWidget *root)
         if (Setting::classFetcher.contains(item->metaObject()->className())
             && !item->objectName().isEmpty()
             && item->objectName() != "qt_spinbox_lineedit"
-            && item->objectName() != "qt_keysequenceedit_lineedit") {
+            && item->objectName() != "qt_keysequenceedit_lineedit"
+            && item->objectName() != "keysSearchField") {
             QString name = item->objectName();
             QString className = item->metaObject()->className();
             QVariant value = Setting::classFetcher[className](item);
@@ -616,6 +626,7 @@ void SettingsWindow::takeSettings(QVariantMap payload)
         s.sendToControl();
     }
     updateLogoWidget();
+    updateAcceptedSettings();
 }
 
 void SettingsWindow::takeKeyMap(const QVariantMap &payload)
@@ -1075,6 +1086,15 @@ void SettingsWindow::sendAcceptedSettings()
     emit keyMapData(acceptedKeyMap);
 }
 
+bool SettingsWindow::settingsOrKeyMapChanged()
+{
+    SettingMap currentSettings = generateSettingMap(this);
+    QVariantMap currentKeyMap = actionEditor->toVMap();
+
+    return (currentSettings.toVMap() != acceptedSettings.toVMap()) ||
+           (currentKeyMap != acceptedKeyMap);
+}
+
 void SettingsWindow::setScreensaverDisablingEnabled(bool enabled)
 {
     ui->playerDisableScreensaver->setEnabled(enabled);
@@ -1228,17 +1248,16 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
     buttonRole = ui->buttonBox->buttonRole(button);
     if (buttonRole == QDialogButtonBox::ApplyRole ||
             buttonRole == QDialogButtonBox::AcceptRole) {
-        QString keysSearchText = ui->keysSearchField->text();
-        ui->keysSearchField->clear();
         updateAcceptedSettings();
         sendAcceptedSettings();
-        ui->keysSearchField->setText(keysSearchText);
         actionEditor->updateActions();
         sendSignals();
     }
     if (buttonRole == QDialogButtonBox::AcceptRole ||
-            buttonRole == QDialogButtonBox::RejectRole)
+            buttonRole == QDialogButtonBox::RejectRole) {
+        ui->keysSearchField->clear();
         close();
+    }
 }
 
 void SettingsWindow::closeEvent(QCloseEvent *event)
