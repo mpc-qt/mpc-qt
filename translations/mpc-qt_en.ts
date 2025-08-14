@@ -1522,7 +1522,7 @@
     </message>
     <message>
         <source>&amp;Crossfeed (for headphones)</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Crossfeed (for headphones)</translation>
     </message>
 </context>
 <context>
