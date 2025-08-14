@@ -1520,6 +1520,10 @@
         <source>Screenshot</source>
         <translation type="unfinished">Captura de pantalla</translation>
     </message>
+    <message>
+        <source>&amp;Crossfeed (for headphones)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

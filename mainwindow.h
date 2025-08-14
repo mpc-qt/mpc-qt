@@ -386,6 +386,7 @@ private slots:
 
     void on_actionAudioFilterExtrastereo_triggered(bool checked);
     void on_actionAudioFilterAcompressor_triggered(bool checked);
+    void on_actionAudioFilterCrossfeed_triggered(bool checked);
 
     void on_actionVideoFilterDeinterlace_triggered(bool checked);
 
