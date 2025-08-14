@@ -1444,6 +1444,10 @@
         <source>Screenshot</source>
         <translation>Capture d’écran</translation>
     </message>
+    <message>
+        <source>&amp;Crossfeed (casque)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

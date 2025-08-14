@@ -1520,6 +1520,10 @@
         <source>Screenshot</source>
         <translation type="unfinished">Ekran Görüntüsü</translation>
     </message>
+    <message>
+        <source>&amp;Crossfeed (for headphones)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

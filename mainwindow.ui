@@ -892,6 +892,7 @@
       </property>
       <addaction name="actionAudioFilterExtrastereo"/>
       <addaction name="actionAudioFilterAcompressor"/>
+      <addaction name="actionAudioFilterCrossfeed"/>
      </widget>
      <addaction name="actionPlayAudioTrackPrevious"/>
      <addaction name="actionPlayAudioTrackNext"/>
@@ -2138,6 +2139,14 @@
   <action name="actionAudioFilterAcompressor">
    <property name="text">
     <string>&amp;Compressor</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionAudioFilterCrossfeed">
+   <property name="text">
+    <string>&amp;Crossfeed (for headphones)</string>
    </property>
    <property name="checkable">
     <bool>true</bool>

@@ -183,6 +183,7 @@ QVariantMap MainWindow::state()
         { WRAP(ui->actionViewFullscreen) },
         { WRAP(ui->actionAudioFilterExtrastereo) },
         { WRAP(ui->actionAudioFilterAcompressor) },
+        { WRAP(ui->actionAudioFilterCrossfeed) },
         { WRAP(ui->actionPlaySubtitlesEnabled) },
         { WRAP(ui->actionPlayVolumeMute) },
         { "volume", volumeSlider_->value() },
@@ -217,11 +218,13 @@ void MainWindow::setState(const QVariantMap &map)
     UNWRAP(ui->actionViewFullscreen, false);
     UNWRAP(ui->actionAudioFilterExtrastereo, false);
     UNWRAP(ui->actionAudioFilterAcompressor, false);
+    UNWRAP(ui->actionAudioFilterCrossfeed, false);
     UNWRAP(ui->actionPlaySubtitlesEnabled, true);
     UNWRAP(ui->actionPlayVolumeMute, false);
 
     ui->actionAudioFilterExtrastereo->isChecked() ? on_actionAudioFilterExtrastereo_triggered(true) : qt_noop();
     ui->actionAudioFilterAcompressor->isChecked() ? on_actionAudioFilterAcompressor_triggered(true) : qt_noop();
+    ui->actionAudioFilterCrossfeed->isChecked() ? on_actionAudioFilterCrossfeed_triggered(true) : qt_noop();
     setSubtitlesEnabled(ui->actionPlaySubtitlesEnabled->isChecked(), true);
     on_actionPlayVolumeMute_toggled(ui->actionPlayVolumeMute->isChecked(), true);
     setVolume(map.value("volume", 100).toInt(), true);
@@ -2081,6 +2084,7 @@ void MainWindow::setAudioTracks(QList<Track> tracks)
     ui->menuPlayAudio->addMenu(ui->menuPlayAudioFilters);
     ui->menuPlayAudioFilters->addAction(ui->actionAudioFilterExtrastereo);
     ui->menuPlayAudioFilters->addAction(ui->actionAudioFilterAcompressor);
+    ui->menuPlayAudioFilters->addAction(ui->actionAudioFilterCrossfeed);
     ui->menuPlayAudio->addAction(ui->actionPlayAudioTrackPrevious);
     ui->menuPlayAudio->addAction(ui->actionPlayAudioTrackNext);
     audioTracksGroup->actions().constFirst()->setChecked(true);
@@ -2968,6 +2972,11 @@ void MainWindow::on_actionAudioFilterExtrastereo_triggered(bool checked)
 void MainWindow::on_actionAudioFilterAcompressor_triggered(bool checked)
 {
     emit audioFilter("acompressor", "", checked);
+}
+
+void MainWindow::on_actionAudioFilterCrossfeed_triggered(bool checked)
+{
+    emit audioFilter("bs2b", "profile=cmoy", checked);
 }
 
 void MainWindow::on_actionVideoFilterDeinterlace_triggered(bool checked)

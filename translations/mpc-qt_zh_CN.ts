@@ -1492,6 +1492,10 @@
         <source>Screenshot</source>
         <translation type="unfinished">屏幕截图</translation>
     </message>
+    <message>
+        <source>&amp;Crossfeed (for headphones)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
