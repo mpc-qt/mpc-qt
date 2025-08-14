@@ -603,6 +603,11 @@ void MpvObject::setCachedMpvOption(const QString &option, const QVariant &value)
     setMpvOptionVariant(option, value);
 }
 
+void MpvObject::setUncachedMpvOption(const QString &option, const QVariant &value)
+{
+    setMpvOptionVariant(option, value);
+}
+
 QVariant MpvObject::blockingMpvCommand(QVariant params)
 {
     QVariant v;

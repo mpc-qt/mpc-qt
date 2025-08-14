@@ -131,6 +131,7 @@ signals:
     void autoLoadSubs(bool yes);
 
     void option(const QString &s, const QVariant &v);
+    void optionUncached(const QString &s, const QVariant &v);
 
     void fullscreenScreen(QString screen);
     void fullscreenAtLaunch(bool yes);
@@ -216,6 +217,7 @@ public slots:
 
 private slots:
     void setFilter(QList<QPair<QString, QString>> &filtersList, QString filter, QString options, bool add);
+    void setCustomMpvOptions();
     void restoreColorControls();
     void restoreAudioSettings();
     void colorPick_clicked(QLineEdit *colorValue);

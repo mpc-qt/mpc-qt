@@ -100,6 +100,7 @@ public:
     bool clientDebuggingMessages();
 
     void setCachedMpvOption(const QString &option, const QVariant &value);
+    void setUncachedMpvOption(const QString &option, const QVariant &value);
     QVariant blockingMpvCommand(QVariant params);
     QVariant blockingSetMpvPropertyVariant(QString name, QVariant value);
     QVariant blockingSetMpvOptionVariant(QString name, QVariant value);
