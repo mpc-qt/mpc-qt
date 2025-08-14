@@ -365,6 +365,10 @@ private slots:
     void on_actionMinPanScan_triggered();
     void on_actionMaxPanScan_triggered();
 
+    void on_actionDecreaseZoom_triggered();
+    void on_actionIncreaseZoom_triggered();
+    void on_actionResetZoom_triggered();
+
     void on_actionViewOntopDefault_toggled(bool checked);
     void on_actionViewOntopAlways_toggled(bool checked);
     void on_actionViewOntopPlaying_toggled(bool checked);
@@ -515,6 +519,7 @@ private:
     double audioBitrate = 0;
     double videoBitrate = 0;
     double panScan = 0;
+    double videoZoom = 0;
     QUrl currentFile;
     QString currentFilename;
     QString currentTitle;

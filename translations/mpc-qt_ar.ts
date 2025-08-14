@@ -1412,6 +1412,18 @@
         <source>&amp;Crossfeed (for headphones)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;Decrease Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Increase Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Reset Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

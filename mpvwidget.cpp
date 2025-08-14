@@ -464,6 +464,11 @@ void MpvObject::setPanScan(double panScan)
     setMpvPropertyVariant("panscan", panScan);
 }
 
+void MpvObject::setVideoZoom(double zoom)
+{
+    setMpvPropertyVariant("video-zoom", zoom);
+}
+
 int64_t MpvObject::chapter()
 {
     return chapter_;

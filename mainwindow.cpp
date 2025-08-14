@@ -2124,6 +2124,10 @@ void MainWindow::setVideoTracks(QList<Track> tracks)
     ui->menuPlayVideoPanScan->addAction(ui->actionIncreasePanScan);
     ui->menuPlayVideoPanScan->addAction(ui->actionMinPanScan);
     ui->menuPlayVideoPanScan->addAction(ui->actionMaxPanScan);
+    ui->menuPlayVideo->addMenu(ui->menuPlayVideoZoom);
+    ui->menuPlayVideoZoom->addAction(ui->actionDecreaseZoom);
+    ui->menuPlayVideoZoom->addAction(ui->actionIncreaseZoom);
+    ui->menuPlayVideoZoom->addAction(ui->actionResetZoom);
     videoTracksGroup->actions().constFirst()->setChecked(true);
     updateOnTop();
 }
@@ -2857,6 +2861,24 @@ void MainWindow::on_actionMaxPanScan_triggered()
 {
     panScan = 1;
     mpvObject_->setPanScan(panScan);
+}
+
+void MainWindow::on_actionDecreaseZoom_triggered()
+{
+    videoZoom -= 0.02;
+    mpvObject_->setVideoZoom(videoZoom);
+}
+
+void MainWindow::on_actionIncreaseZoom_triggered()
+{
+    videoZoom += 0.02;
+    mpvObject_->setVideoZoom(videoZoom);
+}
+
+void MainWindow::on_actionResetZoom_triggered()
+{
+    videoZoom = 0;
+    mpvObject_->setVideoZoom(videoZoom);
 }
 
 void MainWindow::on_actionViewOntopDefault_toggled(bool checked)

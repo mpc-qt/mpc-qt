@@ -74,6 +74,7 @@ public:
     void setVideoAspectPreset(double aspect);
     void disableVideoAspect(bool yes);
     void setPanScan(double panScan);
+    void setVideoZoom(double zoom);
 
     int64_t chapter();
     bool setChapter(int64_t chapter);
