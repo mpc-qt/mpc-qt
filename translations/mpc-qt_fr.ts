@@ -1445,8 +1445,8 @@
         <translation>Capture d’écran</translation>
     </message>
     <message>
-        <source>&amp;Crossfeed (casque)</source>
-        <translation type="unfinished"></translation>
+        <source>&amp;Crossfeed (for headphones)</source>
+        <translation>&amp;Crossfeed (casque)</translation>
     </message>
 </context>
 <context>
