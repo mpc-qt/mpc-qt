@@ -1185,11 +1185,11 @@ void SettingsWindow::setCustomMpvOptions()
 
 void SettingsWindow::restoreColorControls()
 {
-    emit option("brightness", acceptedSettings.value("miscBrightness").value.toInt());
-    emit option("contrast", acceptedSettings.value("miscContrast").value.toInt());
-    emit option("gamma", acceptedSettings.value("miscGamma").value.toInt());
-    emit option("hue", acceptedSettings.value("miscHue").value.toInt());
-    emit option("saturation", acceptedSettings.value("miscSaturation").value.toInt());
+    emit option("brightness", WIDGET_LOOKUP(ui->miscBrightness).toInt());
+    emit option("contrast", WIDGET_LOOKUP(ui->miscContrast).toInt());
+    emit option("gamma", WIDGET_LOOKUP(ui->miscGamma).toInt());
+    emit option("hue", WIDGET_LOOKUP(ui->miscHue).toInt());
+    emit option("saturation", WIDGET_LOOKUP(ui->miscSaturation).toInt());
 }
 void SettingsWindow::restoreAudioSettings()
 {
