@@ -937,9 +937,18 @@
       <addaction name="actionMinPanScan"/>
       <addaction name="actionMaxPanScan"/>
      </widget>
+     <widget class="QMenu" name="menuPlayVideoZoom">
+      <property name="title">
+       <string>&amp;Zoom</string>
+      </property>
+      <addaction name="actionDecreaseZoom"/>
+      <addaction name="actionIncreaseZoom"/>
+      <addaction name="actionResetZoom"/>
+     </widget>
      <addaction name="separator"/>
      <addaction name="menuPlayVideoAspect"/>
      <addaction name="menuPlayVideoPanScan"/>
+     <addaction name="menuPlayVideoZoom"/>
     </widget>
     <widget class="QMenu" name="menuPlayVolume">
      <property name="title">
@@ -2287,6 +2296,30 @@
    </property>
    <property name="shortcut">
     <string notr="true">*</string>
+   </property>
+  </action>
+  <action name="actionDecreaseZoom">
+   <property name="text">
+    <string>&amp;Decrease Zoom</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+Shift+-</string>
+   </property>
+  </action>
+  <action name="actionIncreaseZoom">
+   <property name="text">
+    <string>&amp;Increase Zoom</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+Shift++</string>
+   </property>
+  </action>
+  <action name="actionResetZoom">
+   <property name="text">
+    <string>&amp;Reset Zoom</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+Shift+/</string>
    </property>
   </action>
   <action name="actionViewHideLog">
