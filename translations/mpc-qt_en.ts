@@ -1526,15 +1526,15 @@
     </message>
     <message>
         <source>&amp;Decrease Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Decrease Zoom</translation>
     </message>
     <message>
         <source>&amp;Increase Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Increase Zoom</translation>
     </message>
     <message>
         <source>&amp;Reset Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Reset Zoom</translation>
     </message>
 </context>
 <context>
