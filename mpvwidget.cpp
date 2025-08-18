@@ -735,8 +735,7 @@ void MpvObject::ctrl_hookEvent(QString name, uint64_t selfId, uint64_t mpvId)
 
     if (name == "on_unload") {
         QVariantList playlist = getMpvPropertyVariant("playlist").toList();
-        if (playlist.count() > 1)
-            emit playlistChanged(playlist);
+        emit playlistChanged(playlist);
     }
     emit ctrlContinueHook(mpvId);
 }

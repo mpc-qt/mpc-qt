@@ -220,6 +220,7 @@ private:
     QUuid nowPlayingList;
     QUuid nowPlayingItem;
     QString nowPlayingTitle;
+    int64_t currentMpvPlaylistItemId = 0;
 
     double mpvStartTime = -1.0;
     double mpvTime = 0.0;

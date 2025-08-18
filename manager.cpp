@@ -1090,12 +1090,26 @@ void PlaybackManager::mpvw_metadataChanged(QVariantMap metadata)
 
 void PlaybackManager::mpvw_playlistChanged(const QVariantList &playlist)
 {
-    // replace current item with the content we got from the archive, and trigger its playback
+    Logger::log("manager", "mpvw_playlistChanged");
+    // replace current item with the content we got from the archive or playlist file, and trigger its playback
     QList<QUrl> urls;
+    bool currentItemFound = false;
     for (auto i : playlist) {
-        if (Helpers::urlSurvivesFilter(QUrl::fromUserInput(i.toMap()["filename"].toString()), false))
+        if (i.toMap()["current"].toBool()) {
+            currentItemFound = true;
+            if (i.toMap()["id"].toInt() != currentMpvPlaylistItemId)
+                currentMpvPlaylistItemId = i.toMap()["id"].toInt();
+            else
+                return;
+            if (i.toMap()["playlist-path"].toString().isEmpty())
+                return;
+        }
+        if (!i.toMap()["playlist-path"].toString().isEmpty() &&
+                Helpers::urlSurvivesFilter(QUrl::fromUserInput(i.toMap()["filename"].toString()), false))
             urls.append(QUrl::fromUserInput(i.toMap()["filename"].toString()));
     }
+    if (!currentItemFound)
+        return;
     playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, urls);
     playItem(nowPlayingList, nowPlayingItem);
 }
