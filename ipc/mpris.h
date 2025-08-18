@@ -36,7 +36,7 @@ signals:
     void raiseWindow();
     void closeInstance();
     void volumeChange(double volume);
-    void playNextTrack(bool forceFolderFallback);
+    void playNextTrack(bool forceFolderFallback, bool replaceMpvPlaylist = true);
     void playPreviousTrack(bool forceFolderFallback);
     void pause();
     void playpause();

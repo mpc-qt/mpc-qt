@@ -111,7 +111,7 @@ signals:
     void frameStepBack();
     void increaseRate();
     void decreaseRate();
-    void nextFile(bool forceFolderFallback);
+    void nextFile(bool forceFolderFallback, bool replaceMpvPlaylist = true);
     void previousFile(bool forceFolderFallback);
     void moveToRecycleBin();
     void quickAddFavorite();
