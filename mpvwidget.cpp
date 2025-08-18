@@ -331,11 +331,14 @@ void MpvObject::urlOpen(QUrl url)
                                : url.fromPercentEncoding(url.toEncoded()));
 }
 
-void MpvObject::fileOpen(QString filename)
+void MpvObject::fileOpen(QString filename, bool replaceMpvPlaylist)
 {
     setSubFile("\n");
     //setStartTime(0.0);
-    emit ctrlCommand(QStringList({"loadfile", filename}));
+    if (replaceMpvPlaylist)
+        emit ctrlCommand(QStringList({"loadfile", filename}));
+    else
+        emit ctrlCommand(QStringList({"loadfile", filename, "append-play"}));
     setMouseHideTime(hideTimer->interval());
 }
 
@@ -735,8 +738,7 @@ void MpvObject::ctrl_hookEvent(QString name, uint64_t selfId, uint64_t mpvId)
 
     if (name == "on_unload") {
         QVariantList playlist = getMpvPropertyVariant("playlist").toList();
-        if (playlist.count() > 1)
-            emit playlistChanged(playlist);
+        emit playlistChanged(playlist);
     }
     emit ctrlContinueHook(mpvId);
 }

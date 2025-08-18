@@ -125,7 +125,7 @@ public slots:
     void stepForward();
     void navigateToNextChapter();
     void navigateToPrevChapter();
-    bool playNext(bool forceFolderFallback);
+    bool playNext(bool forceFolderFallback, bool replaceMpvPlaylist = true);
     void playPrev(bool forceFolderFallback);
     void moveToRecycleBin();
     void repeatThisFile();
@@ -177,15 +177,16 @@ public slots:
 private:
     enum AspectNameChanged { OnOpen, OnFirstPlay, Manually };
     void startPlayWithUuid(QUrl what, QUuid playlistUuid, QUuid itemUuid,
-                           bool isRepeating, QUrl with = QUrl(), bool clickedInPlaylist = false);
+                           bool isRepeating, QUrl with = QUrl(),
+                           bool clickedInPlaylist = false, bool replaceMpvPlaylist = true);
     void selectDesiredTracks();
     void updateSubtitleTrack();
     void updateChapters();
     void checkAfterPlayback();
-    bool playNextTrack();
+    bool playNextTrack(bool replaceMpvPlaylist);
     void playPrevTrack();
-    bool playNextFileUrl(QUrl url, int delta = 1);
-    bool playNextFile(int delta = 1);
+    bool playNextFileUrl(QUrl url, int delta = 1, bool replaceMpvPlaylist = true);
+    bool playNextFile(bool replaceMpvPlaylist = true, int delta = 1);
     void playPrevFile();
     void playHalt();
 
@@ -220,6 +221,7 @@ private:
     QUuid nowPlayingList;
     QUuid nowPlayingItem;
     QString nowPlayingTitle;
+    int64_t currentMpvPlaylistItemId = 0;
 
     double mpvStartTime = -1.0;
     double mpvTime = 0.0;

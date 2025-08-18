@@ -326,12 +326,12 @@ void PlaybackManager::navigateToPrevChapter()
         playPrev(false);
 }
 
-bool PlaybackManager::playNext(bool forceFolderFallback)
+bool PlaybackManager::playNext(bool forceFolderFallback, bool replaceMpvPlaylist)
 {
     if ((folderFallback || forceFolderFallback) && playlistWindow_->isPlaylistSingularFile(nowPlayingList))
-        return playNextFile();
+        return playNextFile(replaceMpvPlaylist);
     else
-        return playNextTrack();
+        return playNextTrack(replaceMpvPlaylist);
 }
 
 void PlaybackManager::playPrev(bool forceFolderFallback)
@@ -378,7 +378,8 @@ void PlaybackManager::moveToRecycleBin()
 
 void PlaybackManager::repeatThisFile()
 {
-    startPlayWithUuid(nowPlaying_, nowPlayingList, nowPlayingItem, true);
+    startPlayWithUuid(nowPlaying_, nowPlayingList, nowPlayingItem,
+                      true, QUrl(), false);
 }
 
 void PlaybackManager::deltaExtraPlaytimes(int delta)
@@ -656,7 +657,8 @@ void PlaybackManager::getCurrentTrackInfo(QUrl& url, QUuid& listUuid, QUuid& ite
 
 void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
                                         QUuid itemUuid, bool isRepeating,
-                                        QUrl with, bool clickedInPlaylist)
+                                        QUrl with, bool clickedInPlaylist,
+                                        bool replaceMpvPlaylist)
 {
     Logger::log("manager", "startPlayWithUuid");
     if (playbackState_ == WaitingState || what.isEmpty())
@@ -670,7 +672,8 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
 
     nowPlaying_ = what;
     mpvObject_->fileOpen(what.isLocalFile() ? what.toLocalFile()
-                                            : what.fromPercentEncoding(what.toEncoded()));
+                                            : what.fromPercentEncoding(what.toEncoded()),
+                         replaceMpvPlaylist);
     mpvObject_->setSubFile(with.toString());
     mpvObject_->setPaused(playbackStartPaused);
     playbackStartState = playbackStartPaused ? PausedState : PlayingState;
@@ -785,10 +788,10 @@ void PlaybackManager::checkAfterPlayback()
         emit systemShouldLock();
         break;
     case Helpers::PlayNextAfter:
-        playNext(true);
+        playNext(true, false);
         break;
     case Helpers::DoNothingAfter:
-        playNextTrack();
+        playNextTrack(false);
         break;
     case Helpers::RepeatAfter:
         break;
@@ -814,7 +817,7 @@ void PlaybackManager::updateChapters()
     emit chaptersAvailable(list);
 }
 
-bool PlaybackManager::playNextTrack()
+bool PlaybackManager::playNextTrack(bool replaceMpvPlaylist)
 {
     PlaylistItem next;
     next = playlistWindow_->getItemAfter(nowPlayingList, nowPlayingItem);
@@ -825,7 +828,8 @@ bool PlaybackManager::playNextTrack()
     }
     QUrl url = playlistWindow_->getUrlOf(next.list, next.item);
     if (!url.isEmpty()) {
-        startPlayWithUuid(url, next.list, next.item, false);
+        startPlayWithUuid(url, next.list, next.item,
+                          false, QUrl(), false, replaceMpvPlaylist);
         return true;
     }
     return false;
@@ -839,7 +843,7 @@ void PlaybackManager::playPrevTrack()
         startPlayWithUuid(url, nowPlayingList, itemUuid, false);
 }
 
-bool PlaybackManager::playNextFileUrl(QUrl url, int delta)
+bool PlaybackManager::playNextFileUrl(QUrl url, int delta, bool replaceMpvPlaylist)
 {
     Logger::log("manager", "playNextFileUrl");
     QFileInfo info;
@@ -869,19 +873,20 @@ bool PlaybackManager::playNextFileUrl(QUrl url, int delta)
     emit playingNextFile();
     playlistWindow_->clearPlaylist(nowPlayingList);
     QUuid nowPlayingItemLocal = playlistWindow_->addToPlaylist(nowPlayingList, { url }).item;
-    startPlayWithUuid(url, nowPlayingList, nowPlayingItemLocal, false);
+    startPlayWithUuid(url, nowPlayingList, nowPlayingItemLocal,
+                      false, QUrl(), false, replaceMpvPlaylist);
     return true;
 }
 
-bool PlaybackManager::playNextFile(int delta)
+bool PlaybackManager::playNextFile(bool replaceMpvPlaylist, int delta)
 {
     QUrl url = playlistWindow_->getUrlOfFirst(nowPlayingList);
-    return playNextFileUrl(url, delta);
+    return playNextFileUrl(url, delta, replaceMpvPlaylist);
 }
 
 void PlaybackManager::playPrevFile()
 {
-    playNextFile(-1);
+    playNextFile(true, -1);
 }
 
 void PlaybackManager::mpvw_playTimeChanged(double time)
@@ -1090,12 +1095,26 @@ void PlaybackManager::mpvw_metadataChanged(QVariantMap metadata)
 
 void PlaybackManager::mpvw_playlistChanged(const QVariantList &playlist)
 {
-    // replace current item with the content we got from the archive, and trigger its playback
+    Logger::log("manager", "mpvw_playlistChanged");
+    // replace current item with the content we got from the archive or playlist file, and trigger its playback
     QList<QUrl> urls;
+    bool currentItemFound = false;
     for (auto i : playlist) {
-        if (Helpers::urlSurvivesFilter(QUrl::fromUserInput(i.toMap()["filename"].toString()), false))
+        if (i.toMap()["current"].toBool()) {
+            currentItemFound = true;
+            if (i.toMap()["id"].toInt() != currentMpvPlaylistItemId)
+                currentMpvPlaylistItemId = i.toMap()["id"].toInt();
+            else
+                return;
+            if (i.toMap()["playlist-path"].toString().isEmpty())
+                return;
+        }
+        if (!i.toMap()["playlist-path"].toString().isEmpty() &&
+                Helpers::urlSurvivesFilter(QUrl::fromUserInput(i.toMap()["filename"].toString()), false))
             urls.append(QUrl::fromUserInput(i.toMap()["filename"].toString()));
     }
+    if (!currentItemFound)
+        return;
     playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, urls);
     playItem(nowPlayingList, nowPlayingItem);
 }

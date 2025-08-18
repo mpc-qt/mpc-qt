@@ -161,7 +161,7 @@ signals:
     void chapterPrevious();
     void chapterNext();
     void filePrevious(bool forceFolderFallback);
-    void fileNext(bool forceFolderFallback);
+    void fileNext(bool forceFolderFallback, bool replaceMpvPlaylist = true);
     void moveToRecycleBin();
     void showGoToWindow(double playTime, double playLength, double fps);
     void chapterSelected(int64_t id);
