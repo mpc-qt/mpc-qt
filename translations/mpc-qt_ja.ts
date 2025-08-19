@@ -1847,7 +1847,7 @@
     </message>
     <message>
         <source>Import File</source>
-        <translation>ファイルのインポート</translation>
+        <translation type="vanished">ファイルのインポート</translation>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
@@ -1855,7 +1855,7 @@
     </message>
     <message>
         <source>Export File</source>
-        <translation>ファイルのエクスポート</translation>
+        <translation type="vanished">ファイルのエクスポート</translation>
     </message>
     <message>
         <source>Open</source>
@@ -1951,6 +1951,14 @@
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8 *.txt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import Playlist File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export Playlist File</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

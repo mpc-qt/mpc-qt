@@ -527,7 +527,7 @@ void PlaylistWindow::importTab()
     options = QFileDialog::DontUseNativeDialog;
 #endif
     QString file;
-    file = QFileDialog::getOpenFileName(this, tr("Import File"), QString(),
+    file = QFileDialog::getOpenFileName(this, tr("Import Playlist File"), QString(),
                                         tr("Playlist files (*.m3u *.m3u8 *.txt)"), nullptr, options);
     if (!file.isEmpty())
         emit importPlaylist(file);
@@ -729,7 +729,7 @@ void PlaylistWindow::savePlaylist(const QUuid &playlistUuid)
     options = QFileDialog::DontUseNativeDialog;
 #endif
     QString file;
-    file = QFileDialog::getSaveFileName(this, tr("Export File"), QString(),
+    file = QFileDialog::getSaveFileName(this, tr("Export Playlist File"), QString(),
                                         tr("Playlist files (*.m3u *.m3u8)"), nullptr, options);
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(playlistUuid);
     if (!file.isEmpty() && pl)

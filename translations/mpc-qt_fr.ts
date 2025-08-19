@@ -1771,7 +1771,7 @@
     </message>
     <message>
         <source>Import File</source>
-        <translation>Importer un fichier</translation>
+        <translation type="vanished">Importer un fichier</translation>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
@@ -1779,7 +1779,7 @@
     </message>
     <message>
         <source>Export File</source>
-        <translation>Exporter le fichier</translation>
+        <translation type="vanished">Exporter le fichier</translation>
     </message>
     <message>
         <source>Open</source>
@@ -1871,6 +1871,14 @@
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8 *.txt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import Playlist File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export Playlist File</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
