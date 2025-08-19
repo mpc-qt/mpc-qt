@@ -1921,6 +1921,10 @@
         <source>Quick playlist</source>
         <translation type="obsolete">快速播放列表</translation>
     </message>
+    <message>
+        <source>Playlist files (*.m3u *.m3u8 *.txt)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PropertiesWindow</name>

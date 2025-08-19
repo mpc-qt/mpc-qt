@@ -528,7 +528,7 @@ void PlaylistWindow::importTab()
 #endif
     QString file;
     file = QFileDialog::getOpenFileName(this, tr("Import File"), QString(),
-                                        tr("Playlist files (*.m3u *.m3u8)"), nullptr, options);
+                                        tr("Playlist files (*.m3u *.m3u8 *.txt)"), nullptr, options);
     if (!file.isEmpty())
         emit importPlaylist(file);
 }

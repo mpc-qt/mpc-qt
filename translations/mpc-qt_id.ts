@@ -1909,6 +1909,10 @@
         <source>Quick Playlist</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Playlist files (*.m3u *.m3u8 *.txt)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PropertiesWindow</name>

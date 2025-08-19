@@ -1869,6 +1869,10 @@
         <source>Quick playlist</source>
         <translation type="obsolete">Liste rapide</translation>
     </message>
+    <message>
+        <source>Playlist files (*.m3u *.m3u8 *.txt)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PropertiesWindow</name>
