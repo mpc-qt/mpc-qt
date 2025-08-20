@@ -909,10 +909,6 @@
         <translation>&amp;Finalizar la búsqueda</translation>
     </message>
     <message>
-        <source>Esc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;New Tab</source>
         <translation>&amp;Nueva pestaña</translation>
     </message>

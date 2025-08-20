@@ -918,7 +918,7 @@
     </message>
     <message>
         <source>Esc</source>
-        <translation>தப்பி</translation>
+        <translation type="vanished">தப்பி</translation>
     </message>
     <message>
         <source>&amp;New Tab</source>

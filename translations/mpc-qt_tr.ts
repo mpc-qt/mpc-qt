@@ -918,7 +918,7 @@
     </message>
     <message>
         <source>Esc</source>
-        <translation>Vazgeç</translation>
+        <translation type="vanished">Vazgeç</translation>
     </message>
     <message>
         <source>&amp;New Tab</source>

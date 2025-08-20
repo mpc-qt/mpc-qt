@@ -886,7 +886,7 @@
     </message>
     <message>
         <source>Esc</source>
-        <translation>Échap</translation>
+        <translation type="vanished">Échap</translation>
     </message>
     <message>
         <source>&amp;New Tab</source>

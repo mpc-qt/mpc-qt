@@ -910,7 +910,7 @@
     </message>
     <message>
         <source>Esc</source>
-        <translation>Esc</translation>
+        <translation type="vanished">Esc</translation>
     </message>
     <message>
         <source>&amp;New Tab</source>
