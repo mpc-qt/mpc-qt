@@ -1955,15 +1955,15 @@
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8 *.txt)</source>
-        <translation type="unfinished"></translation>
+        <translation>Playlist files (*.m3u *.m3u8 *.txt)</translation>
     </message>
     <message>
         <source>Import Playlist File</source>
-        <translation type="unfinished"></translation>
+        <translation>Import Playlist File</translation>
     </message>
     <message>
         <source>Export Playlist File</source>
-        <translation type="unfinished"></translation>
+        <translation>Export Playlist File</translation>
     </message>
 </context>
 <context>
