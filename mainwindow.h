@@ -435,6 +435,7 @@ private slots:
     void on_actionHelpAbout_triggered();
 
     void on_actionPlaylistSearch_triggered();
+    void on_actionPlaylistFinishSearching_triggered();
 
     void mpvw_customContextMenuRequested(const QPoint &pos);
     void position_sliderMoved(int position);
@@ -473,6 +474,7 @@ private:
     QActionGroup* audioTracksGroup = nullptr;
     QActionGroup* videoTracksGroup = nullptr;
     QActionGroup* subtitleTracksGroup = nullptr;
+    QAction * escShortcutActionBackup = nullptr;
 
     bool freestanding_ = false;
     Helpers::TitlePrefix titlebarFormat_ = Helpers::PrefixFileName;

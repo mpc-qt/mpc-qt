@@ -849,10 +849,6 @@
         <translation>&amp;Lopeta haku</translation>
     </message>
     <message>
-        <source>Esc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;New Tab</source>
         <translation>&amp;Uusi Välilehti</translation>
     </message>

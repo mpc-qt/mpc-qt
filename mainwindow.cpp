@@ -3339,8 +3339,26 @@ void MainWindow::on_actionPlaylistSearch_triggered()
     if (playlistWindow_->isHidden())
         playlistWindow_->show();
     playlistWindow_->revealSearch();
+    if (ui->actionPlaylistFinishSearching->shortcut().isEmpty()) {
+        for (auto action : this->findChildren<QAction*>()) {
+            if (action->shortcut() == Qt::Key::Key_Escape) {
+                escShortcutActionBackup = action;
+                action->setShortcut(QKeySequence());
+                break;
+            }
+        }
+        ui->actionPlaylistFinishSearching->setShortcut(Qt::Key::Key_Escape);
+    }
 }
 
+void MainWindow::on_actionPlaylistFinishSearching_triggered()
+{
+    ui->actionPlaylistFinishSearching->setShortcut(QKeySequence());
+    if (escShortcutActionBackup) {
+        escShortcutActionBackup->setShortcut(Qt::Key::Key_Escape);
+        escShortcutActionBackup = nullptr;
+    }
+}
 
 void MainWindow::on_actionFavoritesAdd_triggered()
 {

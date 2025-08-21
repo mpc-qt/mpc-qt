@@ -1854,9 +1854,6 @@
    <property name="text">
     <string>&amp;Finish Searching</string>
    </property>
-   <property name="shortcut">
-    <string>Esc</string>
-   </property>
   </action>
   <action name="actionPlaylistNewTab">
    <property name="text">
@@ -2134,7 +2131,7 @@
     <string>&amp;Escape Fullscreen</string>
    </property>
    <property name="shortcut">
-    <string notr="true">`</string>
+    <string notr="true">Esc</string>
    </property>
   </action>
   <action name="actionAudioFilterExtrastereo">
