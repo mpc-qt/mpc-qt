@@ -1432,6 +1432,10 @@
         <source>&amp;Reset Zoom</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>More Files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

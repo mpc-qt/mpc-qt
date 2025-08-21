@@ -1715,7 +1715,7 @@ void MainWindow::setFullscreenMouseMap(const MouseStateMap &map)
     mouseMapFullscreen = map;
 }
 
-void MainWindow::setRecentDocuments(QList<TrackInfo> tracks)
+void MainWindow::setRecentDocuments(const QList<TrackInfo> &tracks)
 {
     bool isEmpty = tracks.count() == 0;
     ui->menuFileRecent->clear();
@@ -1723,7 +1723,25 @@ void MainWindow::setRecentDocuments(QList<TrackInfo> tracks)
     if (isEmpty)
         return;
 
-    for (int i = 0; i < tracks.count() && i < 20; i++) {
+    addRecentDocumentsEntries(tracks, ui->menuFileRecent, 0, 20);
+
+    if (tracks.count() > 20) {
+        LogStream("mainwindow") << "tracks.count(): " << tracks.count();
+        Logger::log("mainwindow", "setRecentDocuments > 20");
+        QMenu *moreRecentsMenu = new QMenu(tr("More Files"));
+        addRecentDocumentsEntries(tracks, moreRecentsMenu, 20, 50);
+        ui->menuFileRecent->addSeparator();
+        ui->menuFileRecent->addMenu(moreRecentsMenu);
+        Logger::log("mainwindow", "setRecentDocuments > 20 done");
+    }
+
+    ui->menuFileRecent->addSeparator();
+    ui->menuFileRecent->addAction(ui->actionFileRecentClear);
+}
+
+void MainWindow::addRecentDocumentsEntries(const QList<TrackInfo> &tracks, QMenu *menu, int start, int end)
+{
+    for (int i = start; i < tracks.count() && i < end; i++) {
         TrackInfo track = tracks[i];
         QString displayString;
         if (track.url.isLocalFile())
@@ -1735,10 +1753,8 @@ void MainWindow::setRecentDocuments(QList<TrackInfo> tracks)
         connect(a, &QAction::triggered, this, [=]() {
             emit recentOpened(track, true);
         });
-        ui->menuFileRecent->addAction(a);
+        menu->addAction(a);
     }
-    ui->menuFileRecent->addSeparator();
-    ui->menuFileRecent->addAction(ui->actionFileRecentClear);
 }
 
 void MainWindow::setControlsInFullscreen(bool hide, int showWhen, int showWhenDuration,
