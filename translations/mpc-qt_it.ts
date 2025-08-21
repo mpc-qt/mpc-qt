@@ -1779,7 +1779,7 @@
     </message>
     <message>
         <source>Import File</source>
-        <translation>Importa file</translation>
+        <translation type="vanished">Importa file</translation>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
@@ -1787,7 +1787,7 @@
     </message>
     <message>
         <source>Export File</source>
-        <translation>Esporta file</translation>
+        <translation type="vanished">Esporta file</translation>
     </message>
     <message>
         <source>Open</source>
@@ -1876,6 +1876,18 @@
     <message>
         <source>Quick playlist</source>
         <translation type="obsolete">Scaletta rapida</translation>
+    </message>
+    <message>
+        <source>Playlist files (*.m3u *.m3u8 *.txt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import Playlist File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export Playlist File</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -1726,15 +1726,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Import File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Export File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1823,6 +1815,18 @@
     </message>
     <message>
         <source>Quick Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Playlist files (*.m3u *.m3u8 *.txt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import Playlist File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export Playlist File</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
