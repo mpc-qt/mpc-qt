@@ -237,7 +237,7 @@ public slots:
     void setTitleUseMediaTitle(bool enabled);
     void setWindowedMouseMap(const MouseStateMap &map);
     void setFullscreenMouseMap(const MouseStateMap &map);
-    void setRecentDocuments(QList<TrackInfo> tracks);
+    void setRecentDocuments(const QList<TrackInfo> &tracks);
     void setControlsInFullscreen(bool hide, int showWhen, int showWhenDuration, bool setControlsInFullscreen);
     void setFavoriteTracks(QList<TrackInfo> files, QList<TrackInfo> streams);
     void setIconTheme(IconThemer::FolderMode folderMode, QString fallbackFolder, QString customFolder);
@@ -446,6 +446,7 @@ private slots:
     void playlistWindow_windowDocked();
     void playlistWindow_playlistAddItem(const QUuid &playlistUuid);
     void hideTimer_timeout();
+    void addRecentDocumentsEntries(const QList<TrackInfo> &tracks, QMenu *menu, int start, int end);
 
     void on_actionFileLoadSubtitle_triggered();
 
