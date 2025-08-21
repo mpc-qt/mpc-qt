@@ -97,8 +97,8 @@ modules:
             sources:
               - type: git
                 url: https://github.com/openresty/luajit2.git
-                tag: v2.1-20250117
-                commit: 93162f34e7424cd0ea3c4046a9ffacce621626bc
+                tag: v2.1-20250529
+                commit: afc74313c6f919f713e2a25003cf0066852bb24a
                 x-checker-data:
                   type: git
                   tag-pattern: ^v([\d.-]+)$
@@ -112,8 +112,8 @@ modules:
 
             sources:
               - type: archive
-                url: https://github.com/vapoursynth/vapoursynth/archive/refs/tags/R70.tar.gz
-                sha256: 59c813ec36046be33812408ff00e16cae63c6843af6acf4e34595910a80e267b
+                url: https://github.com/vapoursynth/vapoursynth/archive/72.tar.gz
+                sha256: f8fcc5e2e9d2195454310e3356ea13e5334125891e452cc6543e985f28cacd22
                 x-checker-data:
                   type: anitya
                   project-id: 15982
@@ -130,8 +130,8 @@ modules:
                 sources:
                   - type: archive
                     archive-type: tar
-                    url: https://api.github.com/repos/sekrit-twc/zimg/tarball/release-3.0.5
-                    sha256: 1b8998f03f4a49e4d730033143722b32bc28a5306ef809ccfb3b4bbb29e4b784
+                    url: https://api.github.com/repos/sekrit-twc/zimg/tarball/release-3.0.6
+                    sha256: 15140e491c4ce9db5f02a038d8a1eb53e9151b55eeed06a2899425a6ebfef367
                     x-checker-data:
                       type: json
                       url: https://api.github.com/repos/sekrit-twc/zimg/releases/latest
@@ -146,32 +146,18 @@ modules:
               - -Dvulkan=enabled
               - -Dglslang=disabled
               - -Dd3d11=disabled
-              - -Ddemos=False
+              - -Ddemos=false
+            cleanup:
+              - /include
+              - /lib/pkgconfig
             sources:
-              - type: archive
-                url: https://code.videolan.org/videolan/libplacebo/-/archive/v7.349.0/libplacebo-v7.349.0.tar.gz
-                sha256: 79120e685a1836344b51b13b6a5661622486a84e4d4a35f6c8d01679a20fbc86
+              - type: git
+                url: https://github.com/haasn/libplacebo.git
+                tag: v7.351.0
+                commit: 3188549fba13bbdf3a5a98de2a38c2e71f04e21e
                 x-checker-data:
-                  type: anitya
-                  project-id: 20101
-                  stable-only: true
-                  url-template: https://code.videolan.org/videolan/libplacebo/-/archive/v$version/libplacebo-v$version.tar.gz
-              - type: archive
-                url: https://github.com/pallets/jinja/archive/refs/tags/3.1.6.tar.gz
-                sha256: 2074b22a72caa65474902234b320d73463d6d4c223ee49f4b433495758356337
-                dest: 3rdparty/jinja
-                x-checker-data:
-                  type: anitya
-                  project-id: 3894
-                  url-template: https://github.com/pallets/jinja/archive/refs/tags/$version.tar.gz
-              - type: archive
-                url: https://github.com/Dav1dde/glad/archive/refs/tags/v2.0.8.tar.gz
-                sha256: 44f06f9195427c7017f5028d0894f57eb216b0a8f7c4eda7ce883732aeb2d0fc
-                dest: 3rdparty/glad
-                x-checker-data:
-                  type: anitya
-                  project-id: 300234
-                  url-template: https://github.com/Dav1dde/glad/archive/refs/tags/v$version.tar.gz
+                  type: git
+                  tag-pattern: ^v([\d.]+)$
 
           - name: libXpresent
             buildsystem: autotools
@@ -190,8 +176,8 @@ modules:
               - --disable-static
             sources:
               - type: archive
-                url: https://github.com/libass/libass/releases/download/0.17.3/libass-0.17.3.tar.gz
-                sha256: da7c348deb6fa6c24507afab2dee7545ba5dd5bbf90a137bfe9e738f7df68537
+                url: https://github.com/libass/libass/releases/download/0.17.4/libass-0.17.4.tar.gz
+                sha256: a886b3b80867f437bc55cff3280a652bfa0d37b43d2aff39ddf3c4f288b8c5a8
                 x-checker-data:
                   type: anitya
                   project-id: 1560
@@ -220,8 +206,8 @@ modules:
             buildsystem: meson
             sources:
               - type: archive
-                url: https://gitlab.freedesktop.org/emersion/libdisplay-info/-/archive/0.2.0/libdisplay-info-0.2.0.tar.gz
-                sha256: f7331fcaf5527251b84c8fb84238d06cd2f458422ce950c80e86c72927aa8c2b
+                url: https://gitlab.freedesktop.org/emersion/libdisplay-info/-/archive/0.2.0/libdisplay-info-0.3.0.tar.gz
+                sha256: a0fe86d4b43a6347cdd8192f307d19b81d31401fe55251be0576bdbe0b519d7f
                 x-checker-data:
                   type: anitya
                   project-id: 326668
@@ -232,31 +218,31 @@ modules:
               - name: hwdata
                 sources:
                   - type: archive
-                    url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.393.tar.gz
-                    sha256: 322add86944680e99d04468d49de180a7ce0c77fb406f7abde8ab14f2d161051
+                    url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.398.tar.gz
+                    sha256: cd52f7eb5c0f438a3605d1799d9f345a2894ad0f269ab6e8441f55e27e80dd78
                     x-checker-data:
                       type: anitya
                       project-id: 5387
                       stable-only: true
                       url-template: https://github.com/vcrhonek/hwdata/archive/refs/tags/v$version.tar.gz
 
-      - name: yt-dlp
-        no-autogen: true
-        no-make-install: true
-        make-args:
-          - yt-dlp
-          - PYTHON=/usr/bin/python3
-        post-install:
-          - install yt-dlp /app/bin
-        sources:
-          - type: archive
-            url: https://github.com/yt-dlp/yt-dlp/archive/refs/tags/2025.05.22.tar.gz
-            sha256: c09ad17e0b3d5f23af3948b4b3dc7e1a9781e66a9a4d93b7dc631803e538b137
-            x-checker-data:
-              type: anitya
-              project-id: 143399
-              stable-only: true
-              url-template: https://github.com/yt-dlp/yt-dlp/archive/refs/tags/$version.tar.gz
+          - name: yt-dlp
+            no-autogen: true
+            no-make-install: true
+            make-args:
+              - yt-dlp
+              - PYTHON=/usr/bin/python3
+            post-install:
+              - install yt-dlp /app/bin
+            sources:
+              - type: archive
+                url: https://github.com/yt-dlp/yt-dlp/archive/refs/tags/2025.08.20.tar.gz
+                sha256: 2a98934dd1e0f613685c1670e5e75a9f5ae63c9728cf7e3fe13f39ed31e366af
+                x-checker-data:
+                  type: anitya
+                  project-id: 143399
+                  stable-only: true
+                  url-template: https://github.com/yt-dlp/yt-dlp/archive/refs/tags/$version.tar.gz
 
       - name: boost
         buildsystem: simple
@@ -265,8 +251,8 @@ modules:
           - ./b2 install variant=release link=shared runtime-link=shared --prefix=/app
         sources:
           - type: archive
-            url: https://github.com/boostorg/boost/releases/download/boost-1.88.0/boost-1.88.0-cmake.tar.gz
-            sha256: dcea50f40ba1ecfc448fdf886c0165cf3e525fef2c9e3e080b9804e8117b9694
+            url: https://github.com/boostorg/boost/releases/download/boost-1.89.0/boost-1.89.0-cmake.tar.gz
+            sha256: 954a01219bf818c7fb850fa610c2c8c71a4fa28fa32a1900056bcb6ff58cf908
             x-checker-data:
               type: anitya
               project-id: 6845
