@@ -1538,7 +1538,7 @@
     </message>
     <message>
         <source>More Files</source>
-        <translation type="unfinished"></translation>
+        <translation>More Files</translation>
     </message>
 </context>
 <context>
