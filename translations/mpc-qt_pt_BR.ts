@@ -1691,59 +1691,59 @@
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Procurar</translation>
     </message>
     <message>
         <source>Visible Items to Quick Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Itens visíveis da Fila Rápida</translation>
     </message>
     <message>
         <source>New Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Nova Aba</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Fechar Aba</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Duplicar Aba</translation>
     </message>
     <message>
         <source>Import Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar Playlist</translation>
     </message>
     <message>
         <source>Export Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Exportar Playlist</translation>
     </message>
     <message>
         <source>Show Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir Fila</translation>
     </message>
     <message>
         <source>Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Playlist</translation>
     </message>
     <message>
         <source>New Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Nova Playlist</translation>
     </message>
     <message>
         <source>Enter Playlist Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Dê um nome para a Playlist</translation>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
-        <translation type="unfinished"></translation>
+        <translation>Arquivos da Playlist (*.m3u *.m3u8)</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -1755,19 +1755,19 @@
     </message>
     <message>
         <source>Copy To clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar p/ Área de Transferência</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvar Como...</translation>
     </message>
     <message>
         <source>Sort By Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Organizar por Etiqueta</translation>
     </message>
     <message>
         <source>Sort By Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Organizar por URL</translation>
     </message>
     <message>
         <source>Randomize</source>
@@ -1779,187 +1779,189 @@
     </message>
     <message>
         <source>Shuffle</source>
-        <translation type="unfinished"></translation>
+        <translation>Aleatório</translation>
     </message>
     <message>
         <source>Hide On Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar em Tela Cheia</translation>
     </message>
     <message>
         <source>Enter playlist name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome da Playlist</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nova Playlist</translation>
     </message>
     <message>
         <source>&amp;Remove Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Remover Playlist</translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Duplicar Playlist</translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Importar Playlist</translation>
     </message>
     <message>
         <source>&amp;Export Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Exportar Playlist</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation>Repetir</translation>
     </message>
     <message>
         <source>Reshuffle</source>
-        <translation type="unfinished"></translation>
+        <translation>Embaralhar</translation>
     </message>
     <message>
         <source>Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Lista</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Playlist Rápida</translation>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8 *.txt)</source>
-        <translation type="unfinished"></translation>
+        <translation>Arquivos da Playlist (*.m3u *.m3u8 *.txt)</translation>
     </message>
     <message>
         <source>Import Playlist File</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar Arquivo de Playlist</translation>
     </message>
     <message>
         <source>Export Playlist File</source>
-        <translation type="unfinished"></translation>
+        <translation>Exportar Playlist para Arquivo</translation>
     </message>
 </context>
 <context>
     <name>PropertiesWindow</name>
     <message>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Propriedades</translation>
     </message>
     <message>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Detalhes</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipo:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamanho:</translation>
     </message>
     <message>
         <source>Media length:</source>
-        <translation type="unfinished"></translation>
+        <translation>Duração:</translation>
     </message>
     <message>
         <source>Video size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamanho do Vídeo:</translation>
     </message>
     <message>
         <source>Created:</source>
-        <translation type="unfinished"></translation>
+        <translation>Criação:</translation>
     </message>
     <message>
         <source>Clip</source>
-        <translation type="unfinished"></translation>
+        <translation>Clipe</translation>
     </message>
     <message>
         <source>Clip:</source>
-        <translation type="unfinished"></translation>
+        <translation>Clipe:</translation>
     </message>
     <message>
         <source>Author:</source>
-        <translation type="unfinished"></translation>
+        <translation>Autor:</translation>
     </message>
     <message>
         <source>Copyright:</source>
-        <translation type="unfinished"></translation>
+        <translation>Copyright:</translation>
     </message>
     <message>
         <source>Rating:</source>
-        <translation type="unfinished"></translation>
+        <translation>Classificação:</translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation type="unfinished"></translation>
+        <translation>Localização:</translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Descrição:</translation>
     </message>
     <message>
         <source>MediaInfo</source>
-        <translation type="unfinished"></translation>
+        <translation>Info da Mídia</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Salvar</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Áudio</translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Legendas</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Geral</translation>
     </message>
     <message>
         <source>Menu
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Menu
+</translation>
     </message>
     <message>
         <source>File has no data for this section.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>O arquivo não contém dados nesta seção.
+</translation>
     </message>
     <message>
         <source>Text documents (*.txt);;All files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Documento de Texto (*.txt);;Todos os Arquivos (*.*)</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>All Media (*.%1);;All Files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Todos os Arquivos (*.%1);;Todos os Arquivos (*.*)</translation>
     </message>
     <message>
         <source>All Subtitles (*.%1);;All Files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Todas as Legendas (*.%1);;All Files (*.*)</translation>
     </message>
     <message>
         <source>Window text</source>
-        <translation type="unfinished"></translation>
+        <translation>Texto da Janela</translation>
     </message>
     <message>
         <source>Button</source>
-        <translation type="unfinished"></translation>
+        <translation>Botão</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Luz</translation>
     </message>
     <message>
         <source>Midlight</source>
@@ -1967,15 +1969,15 @@
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>Escuro</translation>
     </message>
     <message>
         <source>Mid</source>
-        <translation type="unfinished"></translation>
+        <translation>Médio</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Texto</translation>
     </message>
     <message>
         <source>Bright text</source>
@@ -1983,35 +1985,35 @@
     </message>
     <message>
         <source>Button text</source>
-        <translation type="unfinished"></translation>
+        <translation>Texto do Botão</translation>
     </message>
     <message>
         <source>Base</source>
-        <translation type="unfinished"></translation>
+        <translation>Base</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Janela</translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>Sombra</translation>
     </message>
     <message>
         <source>Highlight</source>
-        <translation type="unfinished"></translation>
+        <translation>Destaque</translation>
     </message>
     <message>
         <source>Highlighted text</source>
-        <translation type="unfinished"></translation>
+        <translation>Texto Destaque</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Link</translation>
     </message>
     <message>
         <source>Link (visited)</source>
-        <translation type="unfinished"></translation>
+        <translation>Link (Visitado)</translation>
     </message>
     <message>
         <source>Base (alternate)</source>
@@ -2019,34 +2021,34 @@
     </message>
     <message>
         <source>No role</source>
-        <translation type="unfinished"></translation>
+        <translation>Sem regra</translation>
     </message>
     <message>
         <source>Tooltip base</source>
-        <translation type="unfinished"></translation>
+        <translation>Dica Base</translation>
     </message>
     <message>
         <source>Tooltip text</source>
-        <translation type="unfinished"></translation>
+        <translation>Dica texto</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation type="unfinished"></translation>
+        <translation>Ativo</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Desativado</translation>
     </message>
     <message>
         <source>Inactive</source>
-        <translation type="unfinished"></translation>
+        <translation>Inativo</translation>
     </message>
 </context>
 <context>
     <name>ScreenCombo</name>
     <message>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>Atual</translation>
     </message>
 </context>
 <context>
@@ -2065,19 +2067,19 @@
     </message>
     <message>
         <source>Formats</source>
-        <translation type="unfinished"></translation>
+        <translation>Formatos</translation>
     </message>
     <message>
         <source>Keys</source>
-        <translation type="unfinished"></translation>
+        <translation>Chaves</translation>
     </message>
     <message>
         <source>Logo</source>
-        <translation type="unfinished"></translation>
+        <translation>Logo</translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Interface</translation>
     </message>
     <message>
         <source>Playback</source>
@@ -2085,7 +2087,7 @@
     </message>
     <message>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Saída</translation>
     </message>
     <message>
         <source>Shaders</source>
@@ -2093,7 +2095,7 @@
     </message>
     <message>
         <source>Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Tela Cheia</translation>
     </message>
     <message>
         <source>Sync</source>
@@ -2105,27 +2107,27 @@
     </message>
     <message>
         <source>Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Lista de Reprodução</translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Legendas</translation>
     </message>
     <message>
         <source>Default Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Estilo Padrão</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished"></translation>
+        <translation>Outros</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Exportar</translation>
     </message>
     <message>
         <source>Encoding</source>
-        <translation type="unfinished"></translation>
+        <translation>Codificando</translation>
     </message>
     <message>
         <source>Tweaks</source>
