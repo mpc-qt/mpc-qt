@@ -1489,12 +1489,6 @@ void SettingsWindow::on_tweaksPreferWayland_toggled(bool checked)
         ui->playbackAutoZoom->setChecked(false);
 }
 
-void SettingsWindow::on_tweaksVideoPreview_toggled(bool checked)
-{
-    ui->tweaksTimeTooltip->setEnabled(!checked);
-    ui->tweaksTimeTooltipLocation->setEnabled(!checked);
-}
-
 void SettingsWindow::on_tweaksTimeTooltip_toggled(bool checked)
 {
     ui->tweaksTimeTooltipLocation->setEnabled(checked);
