@@ -136,6 +136,7 @@ set(SOURCES
     widgets/logowidget.cpp widgets/logowidget.h
     widgets/paletteeditor.cpp widgets/paletteeditor.h
     widgets/screencombo.cpp widgets/screencombo.h
+    widgets/tooltip.cpp widgets/tooltip.h
     widgets/videopreview.cpp widgets/videopreview.h
 )
 

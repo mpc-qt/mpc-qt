@@ -9,6 +9,7 @@
 #include "helpers.h"
 #include "widgets/drawnslider.h"
 #include "widgets/drawnstatus.h"
+#include "widgets/tooltip.h"
 #include "widgets/videopreview.h"
 #include "manager.h"
 #include "playlistwindow.h"
@@ -465,6 +466,7 @@ private:
     MediaSlider *positionSlider_ = nullptr;
     VolumeSlider *volumeSlider_ = nullptr;
     VideoPreview *videoPreview = nullptr;
+    Tooltip *tooltip = nullptr;
     StatusTime *timePosition = nullptr;
     StatusTime *timeDuration = nullptr;
     PlaylistWindow *playlistWindow_ = nullptr;
