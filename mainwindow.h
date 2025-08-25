@@ -246,6 +246,7 @@ public slots:
     void setTime(double time, double length);
     void setMediaTitleWithFilename(QString title, QString filename);
     void setChapterTitle(QString title);
+    void setAspectName(QString aspectName);
     void setVideoSize(QSize size);
     void setVolumeStep(int stepSize);
     void setSizeFactor(double factor);

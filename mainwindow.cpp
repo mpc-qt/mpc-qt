@@ -127,6 +127,8 @@ QList<QAction *> MainWindow::editableActions()
     actionList.move(actionList.indexOf(ui->actionPlaySeekBackwardsNormal),
         indexOfActionPlayFrameForward + 1);
 
+    actionList.remove(actionList.indexOf(ui->actionVideoAspectName));
+
     return actionList;
 }
 
@@ -1875,6 +1877,11 @@ void MainWindow::setChapterTitle(QString title)
     ui->chapter->setText(!title.isEmpty() ? title : "-");
 }
 
+void MainWindow::setAspectName(QString aspectName)
+{
+    ui->actionVideoAspectName->setText(!aspectName.isEmpty() ? aspectName : tr("Unknown"));
+}
+
 void MainWindow::setVideoSize(QSize size)
 {
     (void)size;
@@ -2131,6 +2138,8 @@ void MainWindow::setVideoTracks(QList<Track> tracks)
     ui->menuPlayVideo->addMenu(ui->menuPlayVideoFilters);
     ui->menuPlayVideoFilters->addAction(ui->actionVideoFilterDeinterlace);
     ui->menuPlayVideo->addMenu(ui->menuPlayVideoAspect);
+    ui->menuPlayVideoAspect->addAction(ui->actionVideoAspectName);
+    ui->menuPlayVideoAspect->addSeparator();
     ui->menuPlayVideoAspect->addAction(ui->actionDecreaseVideoAspect);
     ui->menuPlayVideoAspect->addAction(ui->actionIncreaseVideoAspect);
     ui->menuPlayVideoAspect->addAction(ui->actionResetVideoAspect);

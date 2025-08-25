@@ -923,6 +923,7 @@
       <property name="title">
        <string>&amp;Aspect ratio</string>
       </property>
+      <addaction name="actionVideoAspectName"/>
       <addaction name="actionDecreaseVideoAspect"/>
       <addaction name="actionIncreaseVideoAspect"/>
       <addaction name="actionResetVideoAspect"/>
@@ -2226,6 +2227,14 @@
    </property>
    <property name="checkable">
     <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionVideoAspectName">
+   <property name="text">
+    <string>Unknown</string>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
    </property>
   </action>
   <action name="actionDecreaseVideoAspect">

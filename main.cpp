@@ -845,6 +845,8 @@ void Flow::setupMpvObjectConnections()
             mainWindow, &MainWindow::videoTrackSet);
     connect(mpvObject, &MpvObject::chapterTitleChanged,
             mainWindow, &MainWindow::setChapterTitle);
+    connect(mpvObject, &MpvObject::aspectNameChanged,
+            mainWindow, &MainWindow::setAspectName);
 
     // settingswindow -> log
     auto logger = Logger::singleton();
