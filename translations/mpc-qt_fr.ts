@@ -1318,23 +1318,23 @@
     </message>
     <message>
         <source>&amp;Pan and Scan</source>
-        <translation>Zoom et &amp;recadrage</translation>
+        <translation>&amp;Recadrage</translation>
     </message>
     <message>
         <source>Decrease &amp;Pan and Scan</source>
-        <translation>Réduire le zoom et le &amp;recadrage</translation>
+        <translation>&amp;Réduire le recadrage</translation>
     </message>
     <message>
         <source>Increase Pan and &amp;Scan</source>
-        <translation>Augmenter le zoom et le &amp;recadrage</translation>
+        <translation>&amp;Augmenter le recadrage</translation>
     </message>
     <message>
         <source>&amp;Minimum Pan and Scan</source>
-        <translation>Zoom et recadrage &amp;minimum</translation>
+        <translation>Recadrage &amp;minimum</translation>
     </message>
     <message>
         <source>M&amp;aximum Pan and Scan</source>
-        <translation>Zoom et recadrage m&amp;aximum</translation>
+        <translation>Recadrage m&amp;aximum</translation>
     </message>
     <message>
         <source>&amp;50%</source>
@@ -1450,19 +1450,19 @@
     </message>
     <message>
         <source>&amp;Decrease Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Diminuer le zoom</translation>
     </message>
     <message>
         <source>&amp;Increase Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Augmenter le zoom</translation>
     </message>
     <message>
         <source>&amp;Reset Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Réinitialiser le zoom</translation>
     </message>
     <message>
         <source>More Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Plus de fichiers</translation>
     </message>
 </context>
 <context>
@@ -1875,15 +1875,15 @@
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8 *.txt)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichiers de liste (*.m3u *.m3u8 *.txt)</translation>
     </message>
     <message>
         <source>Import Playlist File</source>
-        <translation type="unfinished"></translation>
+        <translation>Importer un fichier de liste</translation>
     </message>
     <message>
         <source>Export Playlist File</source>
-        <translation type="unfinished"></translation>
+        <translation>Exporter un fichier de liste</translation>
     </message>
 </context>
 <context>
