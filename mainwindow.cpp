@@ -18,7 +18,6 @@
 #include <QTime>
 #include <QDesktopServices>
 #include <QMessageBox>
-#include <QToolTip>
 #include <QScreen>
 #include <QStyle>
 #include <QSvgRenderer>
@@ -558,6 +557,8 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
         WindowManager::restoreFullscreen(this, fullscreenMemory);
         if (videoPreview)
             videoPreview->hide();
+        if (tooltip)
+            tooltip->hide();
     }
 
     ui->actionViewFullscreenEscape->setEnabled(fullscreenMode);
@@ -1990,6 +1991,12 @@ void MainWindow::setVideoPreview(bool enable)
 
 void MainWindow::setTimeTooltip(bool shown, bool above)
 {
+    if (!tooltip && shown) {
+        tooltip = new Tooltip(this);
+    } else if (tooltip && !shown) {
+        delete tooltip;
+        tooltip = nullptr;
+    }
     timeTooltipShown = shown;
     timeTooltipAbove = above;
 }
@@ -3295,21 +3302,26 @@ void MainWindow::position_hoverValue(double position, QString chapterInfo, doubl
                                             timeShortMode ? Helpers::ShortFormat : Helpers::LongFormat),
                                       chapterInfo.isEmpty() ? "" : " - ",
                                       chapterInfo);
-    if (videoPreview && isVideo_) {
-        QToolTip::hideText();
-        QPoint where = positionSlider_->mapTo(this, QPoint(std::round(mouseX), -1));
+    QPoint where = positionSlider_->mapTo(this, QPoint(std::round(mouseX), timeTooltipAbove ? -1 : 65));
+    if (videoPreview && isVideo_)
         videoPreview->show(t, position, where, this->width());
-        mpvw->update();
-    } else {
-        QPoint where = positionSlider_->mapToGlobal(QPoint(std::round(mouseX), timeTooltipAbove ? -40 : 0));
-        QToolTip::showText(where, t, positionSlider_);
+    else if (tooltip) {
+        QString textTemplate = QString("%1%2%3").arg(Helpers::toDateFormatFixed(
+                                                        0,
+                                                        timeShortMode ? Helpers::ShortFormat : Helpers::LongFormat),
+                                                    chapterInfo.isEmpty() ? "" : " - ",
+                                                    chapterInfo);
+        tooltip->show(t, where, this->width(), textTemplate);
     }
+    mpvw->update();
 }
 
 void MainWindow::position_hoverEnd()
 {
     if (videoPreview)
         videoPreview->hide();
+    if (tooltip)
+        tooltip->hide();
 
     setCursor(Qt::ArrowCursor);
 }
