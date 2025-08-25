@@ -296,8 +296,6 @@ private slots:
 
     void on_tweaksPreferWayland_toggled(bool checked);
 
-    void on_tweaksVideoPreview_toggled(bool checked);
-
     void on_tweaksTimeTooltip_toggled(bool checked);
 
     void on_tweaksOsdFontChkBox_toggled(bool checked);
