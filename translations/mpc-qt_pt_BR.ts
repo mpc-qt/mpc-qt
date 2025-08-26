@@ -858,7 +858,7 @@
     </message>
     <message>
         <source>Close Tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Fechar Aba</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -874,7 +874,7 @@
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Importar Playlist</translation>
     </message>
     <message>
         <source>Ctrl+Shift+O</source>
@@ -1190,7 +1190,7 @@
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Legendas</translation>
     </message>
     <message>
         <source>Mute</source>
@@ -1610,7 +1610,7 @@
     <name>PaletteEditor</name>
     <message>
         <source>Button</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Botão</translation>
     </message>
     <message>
         <source>Button &amp;&amp; Window</source>
@@ -1680,7 +1680,7 @@
     <name>PlaylistCollection</name>
     <message>
         <source>Quick Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Playlist Rápida</translation>
     </message>
 </context>
 <context>
@@ -2235,11 +2235,11 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Video</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Áudio</translation>
     </message>
     <message>
         <source>All</source>
@@ -2427,7 +2427,7 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Geral</translation>
     </message>
     <message>
         <source>Framebuffer</source>
@@ -2483,7 +2483,7 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Desativado</translation>
     </message>
     <message>
         <source>Presets</source>
@@ -2611,7 +2611,7 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Janela</translation>
     </message>
     <message>
         <source>Box</source>
@@ -2923,7 +2923,7 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Clip</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Clipe</translation>
     </message>
     <message>
         <source>Mobius</source>
@@ -3059,7 +3059,7 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nome</translation>
     </message>
     <message>
         <source>Port</source>
@@ -3864,7 +3864,7 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Repetir</translation>
     </message>
     <message>
         <source>Play next in the folder</source>
