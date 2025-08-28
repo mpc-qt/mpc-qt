@@ -519,9 +519,6 @@
              </item>
              <item>
               <widget class="QPushButton" name="mute">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
                <property name="toolTip">
                 <string>Mute</string>
                </property>
