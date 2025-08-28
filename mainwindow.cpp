@@ -998,9 +998,6 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->loopA->setEnabled(enabled);
     ui->loopB->setEnabled(enabled);
 
-    ui->mute->setEnabled(enabled);
-    volumeSlider()->setEnabled(enabled);
-
     ui->pause->setChecked(false);
     ui->actionPlayPause->setChecked(false);
 
@@ -1026,9 +1023,6 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionPlayRateDecrease->setEnabled(enabled);
     ui->actionPlayRateIncrease->setEnabled(enabled);
     ui->actionPlayRateReset->setEnabled(enabled);
-    ui->actionPlayVolumeUp->setEnabled(enabled);
-    ui->actionPlayVolumeDown->setEnabled(enabled);
-    ui->actionPlayVolumeMute->setEnabled(enabled);
     ui->actionNavigateChaptersPrevious->setEnabled(enabled);
     ui->actionNavigateChaptersNext->setEnabled(enabled);
     ui->actionNavigateFilesPrevious->setEnabled(enabled);
@@ -1041,7 +1035,6 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionFileSubtitleDatabaseUpload->setEnabled(false);
     ui->actionFileSubtitleDatabaseDownload->setEnabled(false);
     ui->menuPlayLoop->setEnabled(enabled);
-    ui->menuPlayVolume->setEnabled(enabled);
     if (!enabled) {
         ui->menuPlayAudio->setEnabled(false);
         ui->menuPlaySubtitles->setEnabled(false);
