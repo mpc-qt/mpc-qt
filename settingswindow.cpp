@@ -1259,10 +1259,8 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
         sendSignals();
     }
     if (buttonRole == QDialogButtonBox::AcceptRole ||
-            buttonRole == QDialogButtonBox::RejectRole) {
-        ui->keysSearchField->clear();
+            buttonRole == QDialogButtonBox::RejectRole)
         close();
-    }
 }
 
 void SettingsWindow::closeEvent(QCloseEvent *event)
@@ -1271,6 +1269,7 @@ void SettingsWindow::closeEvent(QCloseEvent *event)
     restoreColorControls();
     restoreAudioSettings();
     setCustomMpvOptions();
+    ui->keysSearchField->clear();
 }
 
 void SettingsWindow::keyPressEvent(QKeyEvent *event)
