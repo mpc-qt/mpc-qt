@@ -26,8 +26,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="31.678384"
-     inkscape:cx="5.3033008"
-     inkscape:cy="10.290929"
+     inkscape:cx="10.638169"
+     inkscape:cy="10.606602"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -35,7 +35,7 @@
      inkscape:pagecheckerboard="true"
      inkscape:object-paths="true"
      inkscape:window-width="1920"
-     inkscape:window-height="1012"
+     inkscape:window-height="1005"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -69,24 +69,17 @@
      id="layer1"
      transform="translate(0,-292.76665)">
     <rect
-       style="opacity:1;fill:#fcfcfc;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect4146"
-       width="2"
+       style="opacity:1;fill:#fcfcfc;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.66256;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4146-14-9"
+       width="2.717438"
        height="15.999988"
-       x="0"
+       x="11.239733"
        y="292.76666" />
     <path
-       style="fill:#fcfcfc;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 2,300.76665 7,8 v -16 z"
-       id="path4148"
+       style="fill:#fcfcfc;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.06665px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 1,300.76665 7.9642365,8 v -16 z"
+       id="path4148-5-5"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc" />
-    <path
-       style="fill:#fcfcfc;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 9,300.76665 7,8 v -16 z"
-       id="path4148-9"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccc"
-       inkscape:transform-center-x="-1.5625" />
   </g>
 </svg>
