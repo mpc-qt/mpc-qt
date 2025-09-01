@@ -83,7 +83,18 @@ QString ActionEditor::getDescriptiveName(const QAction *action)
         { "actionViewOntopPlaying", tr("On Top: While Playing") },
         { "actionViewOntopVideo", tr("On Top: While Playing Video") },
         { "actionPlaylistExtraIncrement", tr("Extra Play Times: Increment") },
-        { "actionPlaylistExtraDecrement", tr("Extra Play Times: Decrement") }
+        { "actionPlaylistExtraDecrement", tr("Extra Play Times: Decrement") },
+        { "actionDecreaseVideoAspect", tr("Decrease Aspect ratio") },
+        { "actionIncreaseVideoAspect", tr("Increase Aspect ratio") },
+        { "actionResetVideoAspect", tr("Reset Aspect ratio") },
+        { "actionDisableVideoAspect", tr("Disable Aspect ratio") },
+        { "actionDecreasePanScan", tr("Decrease Pan and Scan") },
+        { "actionIncreasePanScan", tr("Increase Pan and Scan") },
+        { "actionMinPanScan", tr("Minimum Pan and Scan") },
+        { "actionMaxPanScan", tr("Maximum Pan and Scan") },
+        { "actionDecreaseZoom", tr("Decrease Zoom") },
+        { "actionIncreaseZoom", tr("Increase Zoom") },
+        { "actionResetZoom", tr("Reset Zoom") }
     };
 
     QString actionDescription;

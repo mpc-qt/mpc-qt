@@ -91,6 +91,50 @@
         <source>Extra Play Times: Decrement</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Decrease Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decrease Pan and Scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase Pan and Scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimum Pan and Scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maximum Pan and Scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decrease Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ButtonWidget</name>
@@ -1414,19 +1458,19 @@
     </message>
     <message>
         <source>&amp;Decrease Aspect ratio</source>
-        <translation>&amp;Disminuir ràtio d&apos;aspecte</translation>
+        <translation type="vanished">&amp;Disminuir ràtio d&apos;aspecte</translation>
     </message>
     <message>
         <source>&amp;Increase Aspect ratio</source>
-        <translation>&amp;Incrementar ràtio d&apos;aspecte</translation>
+        <translation type="vanished">&amp;Incrementar ràtio d&apos;aspecte</translation>
     </message>
     <message>
         <source>&amp;Reset Aspect ratio</source>
-        <translation>&amp;Restablir ràtio d&apos;aspecte</translation>
+        <translation type="vanished">&amp;Restablir ràtio d&apos;aspecte</translation>
     </message>
     <message>
         <source>Disable &amp;Aspect ratio</source>
-        <translation>Deshabilitar ràtio d&apos;&amp;aspecte</translation>
+        <translation type="vanished">Deshabilitar ràtio d&apos;&amp;aspecte</translation>
     </message>
     <message>
         <source>C</source>
@@ -1466,19 +1510,19 @@
     </message>
     <message>
         <source>Decrease &amp;Pan and Scan</source>
-        <translation>Disminuir &amp;pan and scan</translation>
+        <translation type="vanished">Disminuir &amp;pan and scan</translation>
     </message>
     <message>
         <source>Increase Pan and &amp;Scan</source>
-        <translation>Incrementar pan and &amp;scan</translation>
+        <translation type="vanished">Incrementar pan and &amp;scan</translation>
     </message>
     <message>
         <source>&amp;Minimum Pan and Scan</source>
-        <translation>Pan and scan &amp;mínim</translation>
+        <translation type="vanished">Pan and scan &amp;mínim</translation>
     </message>
     <message>
         <source>M&amp;aximum Pan and Scan</source>
-        <translation>Pan and scan mà&amp;xim</translation>
+        <translation type="vanished">Pan and scan mà&amp;xim</translation>
     </message>
     <message>
         <source>Music Mode</source>
@@ -1593,19 +1637,31 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Decrease Zoom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Increase Zoom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Reset Zoom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>More Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Decrease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Increase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D&amp;isable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Minimum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>M&amp;aximum</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
