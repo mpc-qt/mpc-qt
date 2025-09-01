@@ -23,6 +23,74 @@
         <source>Mouse Fullscreen</source>
         <translation>Fare (Tam Ekran)</translation>
     </message>
+    <message>
+        <source>Volume Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume Mute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Playback: Exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Playback: Stand by</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Playback: Hibernate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Playback: Shutdown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Playback: Log Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Playback: Lock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Playback: Play next file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Playback: Do nothing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On Top: Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On Top: Always</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On Top: While Playing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On Top: While Playing Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extra Play Times: Increment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extra Play Times: Decrement</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ButtonWidget</name>

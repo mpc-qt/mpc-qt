@@ -48,8 +48,9 @@ void ActionEditor::setCommands(const QList<Command> &commands)
     model.setRowCount(0);
 
     for (int i = 0; i < commands.count(); i++) {
+        QString actionDescription = getDescriptiveName(commands[i].action);
         QList<QStandardItem*> items = {
-            new QStandardItem(commands[i].action->text().replace('&',"")),
+            new QStandardItem(actionDescription),
             new QStandardItem(commands[i].action->shortcut().toString()),
             new QStandardItem(commands[i].mouseWindowed.toString()),
             new QStandardItem(commands[i].mouseFullscreen.toString()),
@@ -61,6 +62,38 @@ void ActionEditor::setCommands(const QList<Command> &commands)
         model.appendRow(items);
     }
     this->commands = commands;
+}
+
+QString ActionEditor::getDescriptiveName(const QAction *action)
+{
+    QHash<QString, QString> nameToDescription = {
+        { "actionPlayVolumeUp", tr("Volume Up") },
+        { "actionPlayVolumeDown", tr("Volume Down") },
+        { "actionPlayVolumeMute", tr("Volume Mute") },
+        { "actionPlayAfterOnceExit", tr("After Playback: Exit") },
+        { "actionPlayAfterOnceStandby", tr("After Playback: Stand by") },
+        { "actionPlayAfterOnceHibernate", tr("After Playback: Hibernate") },
+        { "actionPlayAfterOnceShutdown", tr("After Playback: Shutdown") },
+        { "actionPlayAfterOnceLogoff", tr("After Playback: Log Off") },
+        { "actionPlayAfterOnceLock", tr("After Playback: Lock") },
+        { "actionPlayAfterAlwaysNext", tr("After Playback: Play next file") },
+        { "actionPlayAfterOnceNothing", tr("After Playback: Do nothing") },
+        { "actionViewOntopDefault", tr("On Top: Default") },
+        { "actionViewOntopAlways", tr("On Top: Always") },
+        { "actionViewOntopPlaying", tr("On Top: While Playing") },
+        { "actionViewOntopVideo", tr("On Top: While Playing Video") },
+        { "actionPlaylistExtraIncrement", tr("Extra Play Times: Increment") },
+        { "actionPlaylistExtraDecrement", tr("Extra Play Times: Decrement") }
+    };
+
+    QString actionDescription;
+    auto it = nameToDescription.find(action->objectName());
+    if (it != nameToDescription.end())
+        actionDescription = it.value();
+    else
+        actionDescription = action->text().replace('&',"");
+
+    return actionDescription;
 }
 
 Command ActionEditor::getCommand(int index) const
