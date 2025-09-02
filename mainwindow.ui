@@ -2236,7 +2236,7 @@
   </action>
   <action name="actionDecreaseVideoAspect">
    <property name="text">
-    <string>&amp;Decrease Aspect ratio</string>
+    <string>&amp;Decrease</string>
    </property>
    <property name="shortcut">
     <string notr="true">4</string>
@@ -2244,7 +2244,7 @@
   </action>
   <action name="actionIncreaseVideoAspect">
    <property name="text">
-    <string>&amp;Increase Aspect ratio</string>
+    <string>&amp;Increase</string>
    </property>
    <property name="shortcut">
     <string notr="true">6</string>
@@ -2252,7 +2252,7 @@
   </action>
   <action name="actionResetVideoAspect">
    <property name="text">
-    <string>&amp;Reset Aspect ratio</string>
+    <string>&amp;Reset</string>
    </property>
    <property name="shortcut">
     <string notr="true">5</string>
@@ -2263,7 +2263,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Disable &amp;Aspect ratio</string>
+    <string>D&amp;isable</string>
    </property>
    <property name="shortcut">
     <string>9</string>
@@ -2271,7 +2271,7 @@
   </action>
   <action name="actionDecreasePanScan">
    <property name="text">
-    <string>Decrease &amp;Pan and Scan</string>
+    <string>&amp;Decrease</string>
    </property>
    <property name="shortcut">
     <string notr="true">-</string>
@@ -2279,7 +2279,7 @@
   </action>
   <action name="actionIncreasePanScan">
    <property name="text">
-    <string>Increase Pan and &amp;Scan</string>
+    <string>&amp;Increase</string>
    </property>
    <property name="shortcut">
     <string notr="true">+</string>
@@ -2287,7 +2287,7 @@
   </action>
   <action name="actionMinPanScan">
    <property name="text">
-    <string>&amp;Minimum Pan and Scan</string>
+    <string>&amp;Minimum</string>
    </property>
    <property name="shortcut">
     <string notr="true">/</string>
@@ -2295,7 +2295,7 @@
   </action>
   <action name="actionMaxPanScan">
    <property name="text">
-    <string>M&amp;aximum Pan and Scan</string>
+    <string>M&amp;aximum</string>
    </property>
    <property name="shortcut">
     <string notr="true">*</string>
@@ -2303,7 +2303,7 @@
   </action>
   <action name="actionDecreaseZoom">
    <property name="text">
-    <string>&amp;Decrease Zoom</string>
+    <string>&amp;Decrease</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+Shift+-</string>
@@ -2311,7 +2311,7 @@
   </action>
   <action name="actionIncreaseZoom">
    <property name="text">
-    <string>&amp;Increase Zoom</string>
+    <string>&amp;Increase</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+Shift++</string>
@@ -2319,7 +2319,7 @@
   </action>
   <action name="actionResetZoom">
    <property name="text">
-    <string>&amp;Reset Zoom</string>
+    <string>&amp;Reset</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+Shift+/</string>

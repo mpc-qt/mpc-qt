@@ -30,6 +30,9 @@ public:
     QVariantMap toVMap() const;
     void fromVMap(const QVariantMap &map);
 
+private:
+    QString getDescriptiveName(const QAction *action);
+
 signals:
     void mouseFullscreenMap(MouseStateMap map);
     void mouseWindowedMap(MouseStateMap map);

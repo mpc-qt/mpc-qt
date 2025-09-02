@@ -23,6 +23,118 @@
         <source>Mouse Fullscreen</source>
         <translation>Maus Vollbildmodus</translation>
     </message>
+    <message>
+        <source>Volume Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume Mute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Playback: Exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Playback: Stand by</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Playback: Hibernate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Playback: Shutdown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Playback: Log Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Playback: Lock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Playback: Play next file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Playback: Do nothing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On Top: Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On Top: Always</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On Top: While Playing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On Top: While Playing Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extra Play Times: Increment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extra Play Times: Decrement</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decrease Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decrease Pan and Scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase Pan and Scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimum Pan and Scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maximum Pan and Scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decrease Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ButtonWidget</name>
@@ -1346,19 +1458,19 @@
     </message>
     <message>
         <source>&amp;Decrease Aspect ratio</source>
-        <translation>Seitenverhältnis ändern (&amp;höher)</translation>
+        <translation type="vanished">Seitenverhältnis ändern (&amp;höher)</translation>
     </message>
     <message>
         <source>&amp;Increase Aspect ratio</source>
-        <translation>Seitenverhältnis ändern (&amp;breiter)</translation>
+        <translation type="vanished">Seitenverhältnis ändern (&amp;breiter)</translation>
     </message>
     <message>
         <source>&amp;Reset Aspect ratio</source>
-        <translation>Seitenverhältnis zurücksetzen</translation>
+        <translation type="vanished">Seitenverhältnis zurücksetzen</translation>
     </message>
     <message>
         <source>Disable &amp;Aspect ratio</source>
-        <translation>Seitenverhältnis &amp;ignorieren</translation>
+        <translation type="vanished">Seitenverhältnis &amp;ignorieren</translation>
     </message>
     <message>
         <source>C</source>
@@ -1398,19 +1510,19 @@
     </message>
     <message>
         <source>Decrease &amp;Pan and Scan</source>
-        <translation>&amp;Pan und Scan mindern</translation>
+        <translation type="vanished">&amp;Pan und Scan mindern</translation>
     </message>
     <message>
         <source>Increase Pan and &amp;Scan</source>
-        <translation>Pan und &amp;Scan erhöhen</translation>
+        <translation type="vanished">Pan und &amp;Scan erhöhen</translation>
     </message>
     <message>
         <source>&amp;Minimum Pan and Scan</source>
-        <translation>Pan und Scan &amp;Minimum</translation>
+        <translation type="vanished">Pan und Scan &amp;Minimum</translation>
     </message>
     <message>
         <source>M&amp;aximum Pan and Scan</source>
-        <translation>Pan und Scan M&amp;aximum</translation>
+        <translation type="vanished">Pan und Scan M&amp;aximum</translation>
     </message>
     <message>
         <source>Music Mode</source>
@@ -1525,19 +1637,31 @@
         <translation>&amp;Crossfeed (für Kopfhörer)</translation>
     </message>
     <message>
-        <source>&amp;Decrease Zoom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Increase Zoom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Reset Zoom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>More Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Decrease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Increase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D&amp;isable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Minimum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>M&amp;aximum</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
