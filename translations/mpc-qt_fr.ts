@@ -25,115 +25,115 @@
     </message>
     <message>
         <source>Volume Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Augmenter le volume</translation>
     </message>
     <message>
         <source>Volume Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Diminuer le volume</translation>
     </message>
     <message>
         <source>Volume Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Muet</translation>
     </message>
     <message>
         <source>After Playback: Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Après la lecture&#xa0;: Quitter</translation>
     </message>
     <message>
         <source>After Playback: Stand by</source>
-        <translation type="unfinished"></translation>
+        <translation>Après la lecture&#xa0;: Veille</translation>
     </message>
     <message>
         <source>After Playback: Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>Après la lecture&#xa0;: Hibernation</translation>
     </message>
     <message>
         <source>After Playback: Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Après la lecture&#xa0;: Éteindre</translation>
     </message>
     <message>
         <source>After Playback: Log Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Après la lecture&#xa0;: Déconnexion</translation>
     </message>
     <message>
         <source>After Playback: Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Après la lecture&#xa0;: Verrouiller</translation>
     </message>
     <message>
         <source>After Playback: Play next file</source>
-        <translation type="unfinished"></translation>
+        <translation>Après la lecture&#xa0;: Lire le fichier suivant</translation>
     </message>
     <message>
         <source>After Playback: Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Après la lecture&#xa0;: Ne rien faire</translation>
     </message>
     <message>
         <source>On Top: Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Au-dessus&#xa0;: Par défaut</translation>
     </message>
     <message>
         <source>On Top: Always</source>
-        <translation type="unfinished"></translation>
+        <translation>Au-dessus&#xa0;: Toujours</translation>
     </message>
     <message>
         <source>On Top: While Playing</source>
-        <translation type="unfinished"></translation>
+        <translation>Au-dessus&#xa0;: Pendant la lecture</translation>
     </message>
     <message>
         <source>On Top: While Playing Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Au-dessus&#xa0;: Pendant la lecture vidéo</translation>
     </message>
     <message>
         <source>Extra Play Times: Increment</source>
-        <translation type="unfinished"></translation>
+        <translation>Lectures supplémentaires&#xa0;: Incrémenter</translation>
     </message>
     <message>
         <source>Extra Play Times: Decrement</source>
-        <translation type="unfinished"></translation>
+        <translation>Lectures supplémentaires&#xa0;: Décrémenter</translation>
     </message>
     <message>
         <source>Decrease Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Réduire le ratio d&apos;aspect</translation>
     </message>
     <message>
         <source>Increase Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Augmenter le ratio d&apos;aspect</translation>
     </message>
     <message>
         <source>Reset Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Réinitialiser le ratio d&apos;aspect</translation>
     </message>
     <message>
         <source>Disable Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Désactiver le ratio d&apos;aspect</translation>
     </message>
     <message>
         <source>Decrease Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>Réduire le recadrage</translation>
     </message>
     <message>
         <source>Increase Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>Augmenter le recadrage</translation>
     </message>
     <message>
         <source>Minimum Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>Recadrage minimum</translation>
     </message>
     <message>
         <source>Maximum Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>Recadrage maximum</translation>
     </message>
     <message>
         <source>Decrease Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Diminuer le zoom</translation>
     </message>
     <message>
         <source>Increase Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Augmenter le zoom</translation>
     </message>
     <message>
         <source>Reset Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Réinitialiser le zoom</translation>
     </message>
 </context>
 <context>
@@ -1578,27 +1578,27 @@
     </message>
     <message>
         <source>&amp;Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Diminuer</translation>
     </message>
     <message>
         <source>&amp;Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Augmenter</translation>
     </message>
     <message>
         <source>&amp;Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Réinitialiser</translation>
     </message>
     <message>
         <source>D&amp;isable</source>
-        <translation type="unfinished"></translation>
+        <translation>Dé&amp;sactiver</translation>
     </message>
     <message>
         <source>&amp;Minimum</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Minimum</translation>
     </message>
     <message>
         <source>M&amp;aximum</source>
-        <translation type="unfinished"></translation>
+        <translation>M&amp;aximum</translation>
     </message>
 </context>
 <context>
