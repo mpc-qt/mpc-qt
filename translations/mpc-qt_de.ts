@@ -2150,7 +2150,7 @@
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Video</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -2731,7 +2731,7 @@ media file played</source>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Deaktiviert</translation>
     </message>
     <message>
         <source>Presets</source>
@@ -3307,7 +3307,7 @@ media file played</source>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Name</translation>
     </message>
     <message>
         <source>Port</source>
@@ -3720,7 +3720,7 @@ media file played</source>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Screenshot</translation>
     </message>
     <message>
         <source>...</source>
@@ -4112,7 +4112,7 @@ media file played</source>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wiederholen</translation>
     </message>
     <message>
         <source>Play next in the folder</source>
