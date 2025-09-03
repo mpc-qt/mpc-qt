@@ -1744,6 +1744,7 @@ void MainWindow::addRecentDocumentsEntries(const QList<TrackInfo> &tracks, QMenu
             displayString = track.url.fileName();
         else
             displayString = track.title;
+        displayString.truncate(100);
         QAction *a = new QAction(QString("%1").arg(displayString),
                                  this);
         connect(a, &QAction::triggered, this, [=]() {
