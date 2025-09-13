@@ -7,6 +7,9 @@ BUILDDIR=bin
 SUFFIX="win-x64-$VERSION"
 DEST="mpc-qt-$SUFFIX"
 
+mkdir -p translations/qt
+cp /mingw64/share/qt6/translations/qtbase_*.qm translations/qt
+
 cmake --build build --target clean
 rm -r build/*
 cmake -DMPCQT_VERSION=$DOTTEDVERSION -DENABLE_LOCAL_MPV=ON -G Ninja -B build
