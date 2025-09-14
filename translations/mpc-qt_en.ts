@@ -2103,7 +2103,7 @@
     </message>
     <message>
         <source>Add Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Folder</translation>
     </message>
 </context>
 <context>
