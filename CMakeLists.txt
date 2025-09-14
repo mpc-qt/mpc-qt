@@ -180,6 +180,16 @@ qt_add_translations(mpc-qt
     LUPDATE_OPTIONS -locations none -no-ui-lines
 )
 
+if(WIN32) # Add the Qt interface translations on Windows
+    file(GLOB QT_QM_FILES "${PROJECT_SOURCE_DIR}/translations/qt/qtbase_*.qm")
+
+    qt_add_resources(mpc-qt "qt_translations"
+        PREFIX "/i18n/"
+        BASE "${PROJECT_SOURCE_DIR}/translations/qt"
+        FILES ${QT_QM_FILES}
+    )
+endif()
+
 target_link_libraries(mpc-qt PRIVATE
     Qt::Gui
     Qt::Network

@@ -444,7 +444,7 @@ void Flow::setTranslation(QApplication *app, QTranslator *qtTranslator, QTransla
     if (localeSetting != 0)
         locale = QLocale("en");
 
-    if (qtTranslator->load(locale, "qt", "_", ":/i18n"))
+    if (qtTranslator->load(locale, "qtbase", "_", ":/i18n"))
         app->installTranslator(qtTranslator);
 
     if (appTranslator->load(locale, "mpc-qt", "_", ":/i18n"))
