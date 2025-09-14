@@ -2091,7 +2091,7 @@
     </message>
     <message>
         <source>Add Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>フォルダーの追加</translation>
     </message>
 </context>
 <context>
