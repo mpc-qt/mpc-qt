@@ -2101,6 +2101,10 @@
         <source>Export Playlist File</source>
         <translation>Export Playlist File</translation>
     </message>
+    <message>
+        <source>Add Folder</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PropertiesWindow</name>

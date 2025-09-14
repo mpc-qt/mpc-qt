@@ -797,6 +797,8 @@ void MainWindow::setupPlaylist()
             this, &MainWindow::playlistWindow_windowDocked);
     connect(playlistWindow_, &PlaylistWindow::playlistAddItem,
             this, &MainWindow::playlistWindow_playlistAddItem);
+    connect(playlistWindow_, &PlaylistWindow::playlistAddFolder,
+            this, &MainWindow::on_actionFileOpenDirectory_triggered);
     connect(playlistWindow_, &PlaylistWindow::currentPlaylistHasItems,
             ui->play, &QPushButton::setEnabled);
     QList<QWidget *> playlistWidgets = playlistWindow_->findChildren<QWidget *>();

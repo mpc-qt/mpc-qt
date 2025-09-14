@@ -2021,6 +2021,10 @@
         <source>Export Playlist File</source>
         <translation>Exporter un fichier de liste</translation>
     </message>
+    <message>
+        <source>Add Folder</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PropertiesWindow</name>

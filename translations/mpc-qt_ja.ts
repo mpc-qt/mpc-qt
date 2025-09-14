@@ -2089,6 +2089,10 @@
         <source>Export Playlist File</source>
         <translation>再生リストのエクスポート</translation>
     </message>
+    <message>
+        <source>Add Folder</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PropertiesWindow</name>

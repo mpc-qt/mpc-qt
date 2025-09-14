@@ -900,6 +900,14 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     m->addAction(a);
 
     a = new QAction(m);
+    a->setText(tr("Add Folder"));
+    connect(a, &QAction::triggered,
+            this, [this]() {
+        emit playlistAddFolder();
+    });
+    m->addAction(a);
+
+    a = new QAction(m);
     a->setText(tr("Remove"));
     connect(a, &QAction::triggered,
             this, &PlaylistWindow::playlist_removeItemRequested);
