@@ -74,6 +74,7 @@ signals:
     void exportPlaylist(QString fname, QStringList items);
     void quickQueueMode(bool yes);
     void playlistAddItem(QUuid playlistUUid);
+    void playlistAddFolder();
     void playlistRepeatChanged(QUuid playlistUuid, bool repeat);
     void playlistShuffleChanged(QUuid playlistUuid, bool shuffle);
     void hideFullscreenChanged(bool checked);
