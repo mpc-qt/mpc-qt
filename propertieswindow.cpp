@@ -60,7 +60,7 @@ void PropertiesWindow::setFileSize(const int64_t &bytes)
 void PropertiesWindow::setMediaLength(double time)
 {
     ui->detailsLength->setText(time < 0 ? QString("-")
-                                        : Helpers::toDateFormat(time));
+                                        : Helpers::toDateFormatFixed(time, Helpers::ShortFormat));
 }
 
 void PropertiesWindow::setVideoSize(const QSize &sz)
