@@ -65,8 +65,8 @@ void PropertiesWindow::setMediaLength(double time)
 
 void PropertiesWindow::setVideoSize(const QSize &sz)
 {
-    ui->detailsLength->setText(sz.isValid() ? QString("-")
-                                            : QString("%1 x %2").arg(sz.width(), sz.height()));
+    ui->detailsVideoSize->setText(!sz.isValid() ? QString("-")
+                                            : QString("%1 x %2").arg(sz.width()).arg(sz.height()));
 }
 
 void PropertiesWindow::setFileCreationTime(const int64_t &secsSinceEpoch)
