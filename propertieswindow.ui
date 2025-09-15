@@ -55,12 +55,6 @@
          </item>
          <item>
           <widget class="QLabel" name="detailsFilename">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
            <property name="text">
             <string notr="true">-</string>
            </property>
@@ -222,12 +216,6 @@
          </item>
          <item>
           <widget class="QLabel" name="clipFilename">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
            <property name="text">
             <string notr="true">-</string>
            </property>
