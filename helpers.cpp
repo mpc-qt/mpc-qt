@@ -257,6 +257,8 @@ QString Helpers::toDateFormatWithZero(double time)
 
 QString Helpers::toDateFormatFixed(double time, Helpers::TimeFormat format)
 {
+    if (format == ShortFormat || format == ShortHourFormat)
+        time = std::round(time);
     int t = int(time*1000 + 0.5);
     if (t < 0)
         t = 0;
