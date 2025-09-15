@@ -2078,7 +2078,7 @@
     </message>
     <message>
         <source>Created:</source>
-        <translation>创建于:</translation>
+        <translation type="vanished">创建于:</translation>
     </message>
     <message>
         <source>Clip</source>
@@ -2147,6 +2147,10 @@
     <message>
         <source>Text documents (*.txt);;All files (*.*)</source>
         <translation>文本文档 (*.txt);;所有文件 (*.*)</translation>
+    </message>
+    <message>
+        <source>Modified:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

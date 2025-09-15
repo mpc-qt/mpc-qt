@@ -2122,7 +2122,7 @@
     </message>
     <message>
         <source>Created:</source>
-        <translation>作成日時 :</translation>
+        <translation type="vanished">作成日時 :</translation>
     </message>
     <message>
         <source>Clip</source>
@@ -2191,6 +2191,10 @@
     <message>
         <source>Text documents (*.txt);;All files (*.*)</source>
         <translation>テキスト ドキュメント (*.txt);;すべてのファイル (*.*)</translation>
+    </message>
+    <message>
+        <source>Modified:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

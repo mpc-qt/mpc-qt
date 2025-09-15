@@ -69,10 +69,12 @@ void PropertiesWindow::setVideoSize(const QSize &sz)
                                             : QString("%1 x %2").arg(sz.width()).arg(sz.height()));
 }
 
-void PropertiesWindow::setFileCreationTime(const int64_t &secsSinceEpoch)
+void PropertiesWindow::setFileModifiedTime(const QUrl &file)
 {
-    QDateTime date(QDateTime::fromMSecsSinceEpoch(secsSinceEpoch * 1000));
-    ui->detailsCreated->setText(date.isNull() ? QString("-") : date.toString());
+    QLocale locale;
+    auto lastModified = QFileInfo(file.toLocalFile()).lastModified();
+    ui->detailsModified->setText(!file.isLocalFile() ? QString("-") :
+                                                       locale.toString(lastModified, QLocale::ShortFormat));
 }
 
 void PropertiesWindow::setMediaTitle(const QString &title)

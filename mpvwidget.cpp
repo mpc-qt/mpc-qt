@@ -62,7 +62,6 @@ MpvObject::PropertyDispatchMap MpvObject::propertyDispatch = {
     HANDLE_PROP("audio-device-list", self_audioDeviceList, toList, QVariantList()),
     HANDLE_PROP("filename", fileNameChanged, toString, QString()),
     HANDLE_PROP("file-format", fileFormatChanged, toString, QString()),
-    HANDLE_PROP("file-date-created", fileCreationTimeChanged, toLongLong, 0ll),
     HANDLE_PROP("file-size", fileSizeChanged, toLongLong, 0ll),
     HANDLE_PROP("path", filePathChanged, toString, QString()),
     HANDLE_PROP("sub-text", subTextChanged, toString, QString())
@@ -171,7 +170,6 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
         { "filename", 0, MPV_FORMAT_STRING },
         { "file-format", 0, MPV_FORMAT_STRING },
         { "file-size", 0, MPV_FORMAT_STRING },
-        { "file-date-created", 0, MPV_FORMAT_NODE },
         { "path", 0, MPV_FORMAT_STRING },
         { "seekable", 0, MPV_FORMAT_FLAG },
         { "sub-text", 0, MPV_FORMAT_STRING }

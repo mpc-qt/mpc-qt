@@ -2054,7 +2054,7 @@
     </message>
     <message>
         <source>Created:</source>
-        <translation>Créé :</translation>
+        <translation type="vanished">Créé :</translation>
     </message>
     <message>
         <source>Clip</source>
@@ -2123,6 +2123,10 @@
     <message>
         <source>Text documents (*.txt);;All files (*.*)</source>
         <translation>Documents texte (*.txt);;Tous les fichiers (*.*)</translation>
+    </message>
+    <message>
+        <source>Modified:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
