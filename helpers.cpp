@@ -114,8 +114,28 @@ QSet<QString> Helpers::audioVideoFileExtensions {
     "m3u", "m3u8",
     "pls",
     "cue",
-    // Modfiles
-    "mod"
+    // Module file formats
+    "mod",
+    "s3m",
+    "xm",
+    "it",
+    "669",
+    "amf",
+    "ams",
+    "dbm",
+    "dmf",
+    "dsm",
+    "far",
+    "mdl",
+    "med",
+    "mtm",
+    "okt",
+    "ptm",
+    "stm",
+    "ult",
+    "umx",
+    "mt2",
+    "psm"
 };
 
 QSet<QString> Helpers::imagesFileExtensions {
