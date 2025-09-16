@@ -104,12 +104,23 @@ void PropertiesWindow::setTracks(const QVariantList &tracks)
         QString type = track.contains("type") ? track["type"].toString() : QString();
         QString typeText = typeToText.value(type, "Unknown:");
         line << typeText << ":";
+        if (track.contains("lang")) {
+#if QT_VERSION < QT_VERSION_CHECK(6,3,0)
+            QString langName = QLocale::languageToString(QLocale(track["lang"].toString()).language());
+#else
+            QString langName = QLocale::languageToString(QLocale::codeToLanguage(
+                                                            track["lang"].toString(),
+                                                            QLocale::AnyLanguageCode));
+#endif
+            line << QString("%1").arg(langName);
+            line << QString("[%1]").arg(track["lang"].toString().remove('\n'));
+        }
         if (track.contains("decoder-desc"))
             line << track["decoder-desc"].toString().remove('\n');
         else if (track.contains("codec"))
             line << track["codec"].toString().remove('\n');
-        if (track.contains("lang"))
-            line << track["lang"].toString().remove('\n');
+        if (track.contains("codec-profile"))
+            line << track["codec-profile"].toString();
         if (track.contains("demux-w") && track.contains("demux-h"))
             line << QString("%1x%2").arg(QString::number(track["demux-w"].toInt()),
                                          QString::number(track["demux-h"].toInt()));
@@ -117,8 +128,22 @@ void PropertiesWindow::setTracks(const QVariantList &tracks)
             line << QString("%1fps").arg(QString::number(track["demux-fps"].toDouble(), 'g', 6));
         if (track.contains("demux-samplerate"))
             line << QString("%1kHz").arg(std::round(track["demux-samplerate"].toInt() / 100) / 10.0);
-        if (track.contains("audio-channels"))
-            line << QString("%1ch").arg(track["audio-channels"].toInt());
+        if (track.contains("demux-channels")) {
+            QString channels = track["demux-channels"].toString();
+            line << QString("%1").arg(channels.contains("unknown") ?
+                                                  channels.remove("unknown") + "ch" : channels);
+        }
+        int bitrate = 0;
+        if (track.contains("demux-bitrate"))
+            bitrate = track["demux-bitrate"].toInt();
+        else if (track.contains("metadata")) {
+            QVariantMap metadata = track["metadata"].toMap();
+            if (metadata.contains("BPS"))
+                bitrate = metadata["BPS"].toInt();
+        }
+        if (bitrate != 0 && (!track.contains("type") || track["type"].toString() != "sub"))
+            line << QString("%1 kb/s").arg(std::round(bitrate / 1000.0));
+
         lines << line.join(' ');
 
         int trackId = 0;
