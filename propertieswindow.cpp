@@ -43,6 +43,10 @@ void PropertiesWindow::setFileName(const QString &filename)
     ui->detailsIcon->setPixmap(icon.pixmap(32, 32));
     ui->clipIcon->setPixmap(icon.pixmap(32, 32));
 
+    generalData.clear();
+    generalData.insert("filename", filename);
+    updateLastTab();
+
     updateSaveVisibility();
 }
 
@@ -50,17 +54,22 @@ void PropertiesWindow::setFileFormat(const QString &format)
 {
     ui->detailsType->setText(format.isEmpty() ? QString("-")
                                               : format);
+    generalData.insert("format", format);
+    updateLastTab();
 }
 
 void PropertiesWindow::setFileSize(const int64_t &bytes)
 {
     ui->detailsSize->setText(Helpers::fileSizeToString(bytes));
+    generalData.insert("size", qlonglong(bytes));
+    updateLastTab();
 }
 
 void PropertiesWindow::setMediaLength(double time)
 {
     ui->detailsLength->setText(time < 0 ? QString("-")
                                         : Helpers::toDateFormatFixed(time, Helpers::ShortFormat));
+    generalData.insert("time", time);
 }
 
 void PropertiesWindow::setVideoSize(const QSize &sz)
@@ -174,7 +183,7 @@ void PropertiesWindow::setMetaData(QVariantMap data)
     ui->clipDescription->clear();
     ui->clipDescription->insertPlainText(data.contains("description") ? data["description"].toString() : QString());
 
-    metadataText = sectionText(tr("General"), data);
+    generalData.insert(data);
     if (data.contains("artist") && data.contains("title"))
         emit artistAndTitleChanged(data["artist"].toString() + " - " + data["title"].toString(),
                                    this->filename);
@@ -214,6 +223,19 @@ void PropertiesWindow::updateLastTab()
 {
     ui->mediaInfoText->clear();
     ui->mediaInfoText->insertPlainText(generalDataText() + trackText + chapterText);
+}
+
+QString PropertiesWindow::generalDataText()
+{
+    QVariantMap generalDataFormatted = generalData;
+    if (generalData.contains("size") && generalData.contains("time")) {
+        int64_t size = generalData["size"].toLongLong();
+        double time = generalData["time"].toDouble();
+        generalDataFormatted.insert("overall_bitrate", QString("%1 kb/s").arg(std::round(size / time / 1000.0 * 8.0)));
+        generalDataFormatted.insert("size", Helpers::fileSizeToString(size));
+        generalDataFormatted.insert("time", Helpers::toDateFormatFixed(time, Helpers::ShortFormat));
+    }
+    return sectionText(tr("General"), generalDataFormatted);
 }
 
 QString PropertiesWindow::sectionText(const QString &header, const QVariantMap &fields)

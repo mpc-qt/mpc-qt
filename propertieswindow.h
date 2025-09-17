@@ -40,12 +40,13 @@ private slots:
 
 private:
     void updateLastTab();
+    QString generalDataText();
     QString sectionText(const QString &header, const QVariantMap &fields);
 
     Ui::PropertiesWindow *ui;
 
     QString filename;
-    QString metadataText;
+    QVariantMap generalData;
     QString trackText;
     QString chapterText;
 };
