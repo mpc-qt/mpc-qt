@@ -153,11 +153,8 @@ void PropertiesWindow::setTracks(const QVariantList &tracks)
         trackText += sectionText(typeText + " #" + QString::number(trackId), track);
     }
 
-    QTextCursor cursor = ui->detailsTracks->textCursor();
-    cursor.select(QTextCursor::Document);
-    cursor.removeSelectedText();
-    cursor.insertText(lines.join('\n'));
-    ui->detailsTracks->setTextCursor(cursor);
+    ui->detailsTracks->clear();
+    ui->detailsTracks->insertPlainText(lines.join('\n'));
 
     updateLastTab();
 }
@@ -174,11 +171,8 @@ void PropertiesWindow::setMetaData(QVariantMap data)
                                : QString("-"));
     ui->clipRating->setText(data.contains("rating") ? data["rating"].toString() : QString("-"));
 
-    QTextCursor cursor = ui->clipDescription->textCursor();
-    cursor.select(QTextCursor::Document);
-    cursor.removeSelectedText();
-    cursor.insertText(data.contains("description") ? data["description"].toString() : QString());
-    ui->clipDescription->setTextCursor(cursor);
+    ui->clipDescription->clear();
+    ui->clipDescription->insertPlainText(data.contains("description") ? data["description"].toString() : QString());
 
     metadataText = sectionText(tr("General"), data);
     if (data.contains("artist") && data.contains("title"))
@@ -218,12 +212,8 @@ void PropertiesWindow::updateSaveVisibility()
 
 void PropertiesWindow::updateLastTab()
 {
-    QTextCursor cursor = ui->mediaInfoText->textCursor();
-    cursor.select(QTextCursor::Document);
-    cursor.removeSelectedText();
-    cursor.insertText(metadataText + trackText + chapterText);
-    cursor.setPosition(0);
-    ui->mediaInfoText->setTextCursor(cursor);
+    ui->mediaInfoText->clear();
+    ui->mediaInfoText->insertPlainText(generalDataText() + trackText + chapterText);
 }
 
 QString PropertiesWindow::sectionText(const QString &header, const QVariantMap &fields)
