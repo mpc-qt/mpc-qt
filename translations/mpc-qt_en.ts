@@ -3852,7 +3852,7 @@ media file played</translation>
     </message>
     <message>
         <source>Fast seek (when skipping)</source>
-        <translation>Fast seek (when skipping)</translation>
+        <translation type="vanished">Fast seek (when skipping)</translation>
     </message>
     <message>
         <source>Drop frames before the seek target in the decoder</source>
@@ -4413,6 +4413,14 @@ media file played</translation>
     <message>
         <source>Custom mpv options:</source>
         <translation>Custom mpv options:</translation>
+    </message>
+    <message>
+        <source>Seek to keyframe when hardware decoding is unavailable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prioritize seeking speed over accuracy</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

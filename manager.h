@@ -166,6 +166,7 @@ public slots:
     // playback options
     void setPlaybackPlayTimes(int times);
     void setPlaybackForever(bool yes);
+    void setFastSeek(bool yes);
     void setFolderFallback(bool yes);
 
     // misc functions
@@ -213,6 +214,7 @@ private slots:
     void mpvw_audioBitrateChanged(double bitrate);
     void mpvw_videoBitrateChanged(double bitrate);
     void mpvw_aspectNameChanged(QString newAspectName);
+    void mpvw_hwdecCurrentChanged(QString newHwdecCurrent);
 
 private:
     MpvObject *mpvObject_ = nullptr;
@@ -230,6 +232,7 @@ private:
     double speedStep = 1.25;
     bool speedStepAdditive = true;
     bool eofReached_ = false;
+    bool fastHardwareDecoding = false;
     double stepTimeNormal = 5.0;
     double stepTimeLarge = 20.0;
     PlaybackState playbackState_ = StoppedState;
@@ -258,6 +261,7 @@ private:
     int playbackPlayTimes = 1;
     bool playbackStartPaused = false;
     bool playbackForever = false;
+    bool fastSeek = true;
     bool folderFallback = false;
 
     bool timeShortMode = false;

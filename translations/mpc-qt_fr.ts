@@ -3772,7 +3772,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Fast seek (when skipping)</source>
-        <translation>Recherche rapide (lors du saut)</translation>
+        <translation type="vanished">Recherche rapide (lors du saut)</translation>
     </message>
     <message>
         <source>Drop frames before the seek target in the decoder</source>
@@ -4333,6 +4333,14 @@ fichier média lu</translation>
     <message>
         <source>Custom mpv options:</source>
         <translation>Options avancées pour mpv&#xa0;:</translation>
+    </message>
+    <message>
+        <source>Seek to keyframe when hardware decoding is unavailable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prioritize seeking speed over accuracy</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

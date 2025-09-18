@@ -146,6 +146,8 @@ void PlaybackManager::setMpvObject(MpvObject *mpvObject, bool makeConnections)
                 this, &PlaybackManager::mpvw_videoBitrateChanged);
         connect(mpvObject, &MpvObject::aspectNameChanged,
                 this, &PlaybackManager::mpvw_aspectNameChanged);
+        connect(mpvObject, &MpvObject::hwdecCurrentChanged,
+                this, &PlaybackManager::mpvw_hwdecCurrentChanged);
 
         connect(this, &PlaybackManager::hasNoVideo,
                 mpvObject, &MpvObject::setDrawLogo);
@@ -434,7 +436,7 @@ void PlaybackManager::speedReset()
 void PlaybackManager::relativeSeek(bool forwards, bool isLarge)
 {
     mpvObject_->seek((forwards ? 1.0 : -1.0) *
-                     (isLarge ? stepTimeLarge : stepTimeNormal), !isLarge);
+                     (isLarge ? stepTimeLarge : stepTimeNormal), fastHardwareDecoding || !fastSeek);
 }
 
 void PlaybackManager::setPlaybackSpeed(double speed)
@@ -624,6 +626,11 @@ void PlaybackManager::setPlaybackPlayTimes(int times)
 void PlaybackManager::setPlaybackForever(bool yes)
 {
     this->playbackForever = yes;
+}
+
+void PlaybackManager::setFastSeek(bool yes)
+{
+    fastSeek = yes;
 }
 
 void PlaybackManager::setFolderFallback(bool yes)
@@ -1083,6 +1090,14 @@ void PlaybackManager::mpvw_aspectNameChanged(QString newAspectName)
         showAspectOsdTriggeredBy = AspectNameChanged::Manually;
     else if (!newAspectName.isEmpty())
         mpvObject_->showMessage(tr("Aspect ratio: %1").arg(newAspectName));
+}
+
+void PlaybackManager::mpvw_hwdecCurrentChanged(QString newHwdecCurrent)
+{
+    LogStream("manager") << "Hardware decoder used: " << newHwdecCurrent;
+    fastHardwareDecoding = !(newHwdecCurrent.isEmpty() ||
+                             newHwdecCurrent == "no" ||
+                             newHwdecCurrent.contains("copy"));
 }
 
 void PlaybackManager::mpvw_metadataChanged(QVariantMap metadata)

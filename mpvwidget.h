@@ -145,6 +145,7 @@ signals:
     void fileSizeChanged(int64_t size);
     void filePathChanged(QString path);
     void subTextChanged(QString subText);
+    void hwdecCurrentChanged(QString hwdecCurrent);
     void playlistChanged(QVariantList playlist);
 
     void audioTrackSet(int64_t id);
