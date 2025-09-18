@@ -823,8 +823,8 @@ void Flow::setupMpvObjectConnections()
             propertiesWindow, &PropertiesWindow::setMediaLength);
     connect(mpvObject, &MpvObject::videoSizeChanged,
             propertiesWindow, &PropertiesWindow::setVideoSize);
-    connect(mpvObject, &MpvObject::fileCreationTimeChanged,
-            propertiesWindow, &PropertiesWindow::setFileCreationTime);
+    connect(playbackManager, &PlaybackManager::startingPlayingFile,
+            propertiesWindow, &PropertiesWindow::setFileModifiedTime);
     connect(mpvObject, &MpvObject::tracksChanged,
             propertiesWindow, &PropertiesWindow::setTracks);
     connect(mpvObject, &MpvObject::mediaTitleChanged,

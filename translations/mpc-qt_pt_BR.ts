@@ -1966,7 +1966,7 @@
     </message>
     <message>
         <source>Created:</source>
-        <translation>Criação:</translation>
+        <translation type="vanished">Criação:</translation>
     </message>
     <message>
         <source>Clip</source>
@@ -2035,6 +2035,10 @@
     <message>
         <source>Text documents (*.txt);;All files (*.*)</source>
         <translation>Documento de Texto (*.txt);;Todos os Arquivos (*.*)</translation>
+    </message>
+    <message>
+        <source>Modified:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

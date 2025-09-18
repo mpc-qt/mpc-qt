@@ -27,7 +27,7 @@ public slots:
     void setFileSize(const int64_t &bytes);
     void setMediaLength(double time);
     void setVideoSize(const QSize &sz);
-    void setFileCreationTime(const int64_t &secsSinceEpoch);
+    void setFileModifiedTime(const QUrl &file);
     void setTracks(const QVariantList &tracks);
     void setMediaTitle(const QString &title);
     void setFilePath(const QString &path);
@@ -40,12 +40,13 @@ private slots:
 
 private:
     void updateLastTab();
+    QString generalDataText();
     QString sectionText(const QString &header, const QVariantMap &fields);
 
     Ui::PropertiesWindow *ui;
 
     QString filename;
-    QString metadataText;
+    QVariantMap generalData;
     QString trackText;
     QString chapterText;
 };

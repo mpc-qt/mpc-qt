@@ -1986,7 +1986,7 @@
     </message>
     <message>
         <source>Created:</source>
-        <translation>Luotu:</translation>
+        <translation type="vanished">Luotu:</translation>
     </message>
     <message>
         <source>Clip</source>
@@ -2055,6 +2055,10 @@
     <message>
         <source>Text documents (*.txt);;All files (*.*)</source>
         <translation>Tekstiasiakirjat (*.txt);;Kaikki tiedostot (*.*)</translation>
+    </message>
+    <message>
+        <source>Modified:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

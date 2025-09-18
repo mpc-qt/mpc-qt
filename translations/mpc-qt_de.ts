@@ -2114,7 +2114,7 @@
     </message>
     <message>
         <source>Created:</source>
-        <translation>Erstellt:</translation>
+        <translation type="vanished">Erstellt:</translation>
     </message>
     <message>
         <source>Clip</source>
@@ -2181,6 +2181,10 @@
     <message>
         <source>Text documents (*.txt);;All files (*.*)</source>
         <translation>Textdokumente (*.txt);;Alle Dateien (*.*)</translation>
+    </message>
+    <message>
+        <source>Modified:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

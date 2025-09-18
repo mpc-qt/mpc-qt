@@ -143,7 +143,6 @@ signals:
     void fileNameChanged(QString filename);
     void fileFormatChanged(QString format);
     void fileSizeChanged(int64_t size);
-    void fileCreationTimeChanged(int64_t secsSinceEpoch);
     void filePathChanged(QString path);
     void subTextChanged(QString subText);
     void playlistChanged(QVariantList playlist);

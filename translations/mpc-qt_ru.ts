@@ -2102,7 +2102,7 @@
     </message>
     <message>
         <source>Created:</source>
-        <translation>Создан:</translation>
+        <translation type="vanished">Создан:</translation>
     </message>
     <message>
         <source>Clip</source>
@@ -2171,6 +2171,10 @@
     <message>
         <source>Text documents (*.txt);;All files (*.*)</source>
         <translation>Текстовые документы (*.txt);;Все файлы (*.*)</translation>
+    </message>
+    <message>
+        <source>Modified:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

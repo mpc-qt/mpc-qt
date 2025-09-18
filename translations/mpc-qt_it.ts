@@ -2018,7 +2018,7 @@
     </message>
     <message>
         <source>Created:</source>
-        <translation>Creato:</translation>
+        <translation type="vanished">Creato:</translation>
     </message>
     <message>
         <source>Clip</source>
@@ -2086,6 +2086,10 @@
     </message>
     <message>
         <source>Text documents (*.txt);;All files (*.*)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modified:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -2057,10 +2057,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Created:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Clip</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2124,6 +2120,10 @@
     </message>
     <message>
         <source>Text documents (*.txt);;All files (*.*)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modified:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
