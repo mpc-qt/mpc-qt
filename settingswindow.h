@@ -242,6 +242,10 @@ private slots:
 
     void on_playerKeepHistory_checkStateChanged(Qt::CheckState state);
 
+    void on_interfaceIconsTheme_currentIndexChanged(int index);
+
+    void on_interfaceWidgetCustom_checkStateChanged(Qt::CheckState state);
+
     void on_ccHdrMapper_currentIndexChanged(int index);
 
     void on_videoDumbMode_toggled(bool checked);
