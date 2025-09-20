@@ -667,6 +667,9 @@ media file played</string>
               </item>
               <item row="2" column="0">
                <widget class="QLabel" name="interfaceIconsCustomLabel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Custom</string>
                 </property>
@@ -676,6 +679,9 @@ media file played</string>
                <layout class="QHBoxLayout" name="interfaceIconsCustomLayout">
                 <item>
                  <widget class="QLineEdit" name="interfaceIconsCustomFolder">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="placeholderText">
                    <string>Folder (e.g. ~/Pictures/MyIcons/mpc-qt/leet)</string>
                   </property>
@@ -683,6 +689,9 @@ media file played</string>
                 </item>
                 <item>
                  <widget class="QPushButton" name="interfaceIconsCustomBrowse">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="text">
                    <string>Browse...</string>
                   </property>
@@ -692,6 +701,9 @@ media file played</string>
               </item>
               <item row="3" column="1">
                <widget class="QLabel" name="interfaceIconsNotice">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</string>
                 </property>
@@ -702,6 +714,9 @@ media file played</string>
               </item>
               <item row="1" column="0">
                <widget class="QLabel" name="interfaceIconsInbuiltLabel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Fallback</string>
                 </property>
@@ -709,6 +724,9 @@ media file played</string>
               </item>
               <item row="1" column="1">
                <widget class="QComboBox" name="interfaceIconsInbuilt">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -760,6 +778,9 @@ media file played</string>
               </item>
               <item>
                <widget class="QScrollArea" name="interfaceWidgetCustomScrollArea">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="horizontalScrollBarPolicy">
                  <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
                 </property>

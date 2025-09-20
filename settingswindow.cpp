@@ -1309,6 +1309,25 @@ void SettingsWindow::on_playerKeepHistory_checkStateChanged(Qt::CheckState state
     ui->playerRememberFilePosition->setEnabled(playerKeepHistoryEnabled);
 }
 
+void SettingsWindow::on_interfaceIconsTheme_currentIndexChanged(int index)
+{
+    bool fallbackIcons = index == 0;
+    bool customIcons = index == 1;
+
+    ui->interfaceIconsInbuiltLabel->setEnabled(fallbackIcons);
+    ui->interfaceIconsInbuilt->setEnabled(fallbackIcons);
+
+    ui->interfaceIconsCustomFolder->setEnabled(customIcons);
+    ui->interfaceIconsCustomBrowse->setEnabled(customIcons);
+    ui->interfaceIconsCustomLabel->setEnabled(customIcons);
+    ui->interfaceIconsNotice->setEnabled(customIcons);
+}
+
+void SettingsWindow::on_interfaceWidgetCustom_checkStateChanged(Qt::CheckState state)
+{
+    ui->interfaceWidgetCustomScrollArea->setEnabled(state);
+}
+
 void SettingsWindow::on_ccHdrMapper_currentIndexChanged(int index)
 {
     ui->ccHdrStack->setCurrentIndex(index);
