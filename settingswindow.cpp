@@ -446,6 +446,9 @@ void SettingsWindow::setupColorPickers()
 {
     struct ValuePick { QLineEdit *value; QPushButton *pick; };
     QVector<ValuePick> colors {
+        { ui->windowVideoValue, ui->windowVideoPick },
+        { ui->windowInfoBackgroundValue, ui->windowInfoBackgroundPick },
+        { ui->windowInfoForegroundValue, ui->windowInfoForegroundPick },
         { ui->subsColorValue, ui->subsColorPick },
         { ui->subsBorderColorValue, ui->subsBorderColorPick },
         { ui->subsShadowColorValue, ui->subsShadowColorPick },
@@ -1304,6 +1307,25 @@ void SettingsWindow::on_playerKeepHistory_checkStateChanged(Qt::CheckState state
         ui->playerRememberFilePosition->setChecked(false);
     ui->playerKeepHistoryOnlyForVideos->setEnabled(playerKeepHistoryEnabled);
     ui->playerRememberFilePosition->setEnabled(playerKeepHistoryEnabled);
+}
+
+void SettingsWindow::on_interfaceIconsTheme_currentIndexChanged(int index)
+{
+    bool fallbackIcons = index == 0;
+    bool customIcons = index == 1;
+
+    ui->interfaceIconsInbuiltLabel->setEnabled(fallbackIcons);
+    ui->interfaceIconsInbuilt->setEnabled(fallbackIcons);
+
+    ui->interfaceIconsCustomFolder->setEnabled(customIcons);
+    ui->interfaceIconsCustomBrowse->setEnabled(customIcons);
+    ui->interfaceIconsCustomLabel->setEnabled(customIcons);
+    ui->interfaceIconsNotice->setEnabled(customIcons);
+}
+
+void SettingsWindow::on_interfaceWidgetCustom_checkStateChanged(Qt::CheckState state)
+{
+    ui->interfaceWidgetCustomScrollArea->setEnabled(state);
 }
 
 void SettingsWindow::on_ccHdrMapper_currentIndexChanged(int index)
