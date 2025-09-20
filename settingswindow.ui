@@ -809,6 +809,9 @@ media file played</string>
                 </item>
                 <item>
                  <widget class="QPushButton" name="windowVideoPick">
+                  <property name="styleSheet">
+                   <string notr="true">background: #000000;</string>
+                  </property>
                   <property name="text">
                    <string/>
                   </property>
@@ -837,6 +840,9 @@ media file played</string>
                 </item>
                 <item>
                  <widget class="QPushButton" name="windowInfoBackgroundPick">
+                  <property name="styleSheet">
+                   <string notr="true">background: #000000;</string>
+                  </property>
                   <property name="text">
                    <string/>
                   </property>
@@ -865,6 +871,9 @@ media file played</string>
                 </item>
                 <item>
                  <widget class="QPushButton" name="windowInfoForegroundPick">
+                  <property name="styleSheet">
+                   <string notr="true">background: #FFFFFF;</string>
+                  </property>
                   <property name="text">
                    <string/>
                   </property>

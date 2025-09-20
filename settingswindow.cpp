@@ -446,6 +446,9 @@ void SettingsWindow::setupColorPickers()
 {
     struct ValuePick { QLineEdit *value; QPushButton *pick; };
     QVector<ValuePick> colors {
+        { ui->windowVideoValue, ui->windowVideoPick },
+        { ui->windowInfoBackgroundValue, ui->windowInfoBackgroundPick },
+        { ui->windowInfoForegroundValue, ui->windowInfoForegroundPick },
         { ui->subsColorValue, ui->subsColorPick },
         { ui->subsBorderColorValue, ui->subsBorderColorPick },
         { ui->subsShadowColorValue, ui->subsShadowColorPick },
