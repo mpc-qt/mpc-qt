@@ -4416,11 +4416,11 @@ media file played</translation>
     </message>
     <message>
         <source>Seek to keyframe when hardware decoding is unavailable</source>
-        <translation type="unfinished"></translation>
+        <translation>Seek to keyframe when hardware decoding is unavailable</translation>
     </message>
     <message>
         <source>Prioritize seeking speed over accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>Prioritize seeking speed over accuracy</translation>
     </message>
     <message>
         <source>Shadow</source>
