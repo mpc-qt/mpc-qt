@@ -174,6 +174,7 @@ signals:
     void encodeAudioBitrate(int kilobits);
 
     void chapterMarks(bool yes);
+    void fastSeek(bool yes);
     void fallbackToFolder(bool yes);
     void volumeMax(int maximum);
     void timeShorten(bool yes);

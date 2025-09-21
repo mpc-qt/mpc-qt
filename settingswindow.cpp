@@ -1058,7 +1058,7 @@ void SettingsWindow::sendSignals()
     emit option("screenshot-png-filter", WIDGET_LOOKUP(ui->pngFilter).toInt());
     emit option("screenshot-tag-colorspace", WIDGET_LOOKUP(ui->pngColorspace).toBool());
 
-    emit option("hr-seek", WIDGET_LOOKUP(ui->tweaksFastSeek).toBool() ? "absolute" : "yes");
+    emit fastSeek(WIDGET_LOOKUP(ui->tweaksFastSeek).toBool());
     emit option("hr-seek-framedrop", WIDGET_LOOKUP(ui->tweaksSeekFramedrop).toBool());
     emit fallbackToFolder(WIDGET_LOOKUP(ui->tweaksOpenNextFile).toBool());
     emit mpvMouseEvents(WIDGET_LOOKUP(ui->tweaksMpvMouseEvents).toBool());

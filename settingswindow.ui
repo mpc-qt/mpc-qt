@@ -7669,7 +7669,10 @@ media file played</string>
            <item row="0" column="0" colspan="2">
             <widget class="QCheckBox" name="tweaksFastSeek">
              <property name="text">
-              <string>Fast seek (when skipping)</string>
+              <string>Prioritize seeking speed over accuracy</string>
+             </property>
+             <property name="toolTip">
+              <string>Seek to keyframe when hardware decoding is unavailable</string>
              </property>
              <property name="checked">
               <bool>true</bool>

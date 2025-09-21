@@ -3671,10 +3671,6 @@ arquivo de mídia reproduzido</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Fast seek (when skipping)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Drop frames before the seek target in the decoder</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4236,6 +4232,14 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Custom mpv options:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seek to keyframe when hardware decoding is unavailable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prioritize seeking speed over accuracy</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
