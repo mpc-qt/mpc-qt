@@ -3971,14 +3971,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Back color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enable back color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Stylesheet</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4276,6 +4268,14 @@ media file played</source>
     </message>
     <message>
         <source>Prioritize seeking speed over accuracy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable shadow</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

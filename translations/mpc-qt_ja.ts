@@ -4104,11 +4104,11 @@ media file played</source>
     </message>
     <message>
         <source>Back color</source>
-        <translation>背景色</translation>
+        <translation type="vanished">背景色</translation>
     </message>
     <message>
         <source>Enable back color</source>
-        <translation>背景色を有効にする</translation>
+        <translation type="vanished">背景色を有効にする</translation>
     </message>
     <message>
         <source>Stylesheet</source>
@@ -4408,6 +4408,14 @@ media file played</source>
     </message>
     <message>
         <source>Prioritize seeking speed over accuracy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation type="unfinished">シャドウ</translation>
+    </message>
+    <message>
+        <source>Enable shadow</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

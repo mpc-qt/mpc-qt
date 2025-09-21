@@ -4076,7 +4076,7 @@ media file played</source>
     </message>
     <message>
         <source>Enable back color</source>
-        <translation>Включить фон</translation>
+        <translation type="vanished">Включить фон</translation>
     </message>
     <message>
         <source>Stylesheet</source>
@@ -4140,7 +4140,7 @@ media file played</source>
     </message>
     <message>
         <source>Back color</source>
-        <translation>Цвет фона</translation>
+        <translation type="vanished">Цвет фона</translation>
     </message>
     <message>
         <source>BT.470M</source>
@@ -4380,6 +4380,14 @@ media file played</source>
     </message>
     <message>
         <source>Prioritize seeking speed over accuracy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation type="unfinished">Тень</translation>
+    </message>
+    <message>
+        <source>Enable shadow</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

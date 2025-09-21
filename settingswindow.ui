@@ -6521,20 +6521,6 @@ media file played</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="borderShadowOffsetLabel">
-                     <property name="text">
-                      <string>Shadow offset</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="QSpinBox" name="borderShadowOffset">
-                     <property name="maximum">
-                      <number>10</number>
-                     </property>
-                    </widget>
-                   </item>
                   </layout>
                  </widget>
                 </item>
@@ -6744,10 +6730,32 @@ media file played</string>
                      </item>
                     </layout>
                    </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="subsShadowBox">
+                  <property name="title">
+                   <string>Shadow</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_2">
+                   <item row="0" column="0" colspan="2">
+                    <widget class="QCheckBox" name="subsShadowEnabled">
+                     <property name="text">
+                      <string>Enable shadow</string>
+                     </property>
+                     <property name="checked">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
                    <item row="2" column="0">
                     <widget class="QLabel" name="subsShadowColorLabel">
                      <property name="text">
                       <string>Shadow color</string>
+                     </property>
+                     <property name="enabled">
+                      <bool>false</bool>
                      </property>
                     </widget>
                    </item>
@@ -6761,6 +6769,9 @@ media file played</string>
                        <property name="text">
                         <string notr="true">000000</string>
                        </property>
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
                       </widget>
                      </item>
                      <item>
@@ -6771,60 +6782,33 @@ media file played</string>
                        <property name="text">
                         <string/>
                        </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QGroupBox" name="subsBackcolorBox">
-                  <property name="title">
-                   <string>Back color</string>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_2">
-                   <item row="0" column="0" colspan="2">
-                    <widget class="QCheckBox" name="subsBackcolorEnabled">
-                     <property name="text">
-                      <string>Enable back color</string>
-                     </property>
-                     <property name="checked">
-                      <bool>false</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="1">
-                    <layout class="QHBoxLayout" name="subsBackcolorLayout">
-                     <item>
-                      <widget class="QLineEdit" name="subsBackcolorValue">
-                       <property name="inputMask">
-                        <string>HHHHHH</string>
-                       </property>
-                       <property name="text">
-                        <string notr="true">000000</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="subsBackcolorpick">
-                       <property name="styleSheet">
-                        <string notr="true">background: #000000;</string>
-                       </property>
-                       <property name="text">
-                        <string/>
+                       <property name="enabled">
+                        <bool>false</bool>
                        </property>
                       </widget>
                      </item>
                     </layout>
                    </item>
                    <item row="3" column="0">
-                    <widget class="QLabel" name="subsBackcolorLabel">
+                    <widget class="QLabel" name="subsShadowOffsetLabel">
                      <property name="text">
-                      <string>Back color</string>
+                      <string>Shadow offset</string>
                      </property>
-                     <property name="alignment">
-                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QSpinBox" name="subsShadowOffset">
+                     <property name="maximum">
+                      <number>10</number>
+                     </property>
+                     <property name="value">
+                      <number>1</number>
+                     </property>
+                     <property name="enabled">
+                      <bool>false</bool>
                      </property>
                     </widget>
                    </item>
@@ -7803,7 +7787,7 @@ media file played</string>
              </item>
             </widget>
            </item>
-           <item row="11" colspan="2">
+           <item row="11" column="0" colspan="2">
             <widget class="QCheckBox" name="tweaksOsdTimerOnSeek">
              <property name="text">
               <string>Show OSD timer on seek</string>

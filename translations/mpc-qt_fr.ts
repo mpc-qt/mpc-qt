@@ -4036,11 +4036,11 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Back color</source>
-        <translation>Couleur de fond</translation>
+        <translation type="vanished">Couleur de fond</translation>
     </message>
     <message>
         <source>Enable back color</source>
-        <translation>Activer la couleur de fond</translation>
+        <translation type="vanished">Activer la couleur de fond</translation>
     </message>
     <message>
         <source>Stylesheet</source>
@@ -4340,6 +4340,14 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Prioritize seeking speed over accuracy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation type="unfinished">Ombre</translation>
+    </message>
+    <message>
+        <source>Enable shadow</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

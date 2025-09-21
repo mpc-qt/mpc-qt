@@ -4116,11 +4116,11 @@ media file played</translation>
     </message>
     <message>
         <source>Back color</source>
-        <translation>Back color</translation>
+        <translation type="vanished">Back color</translation>
     </message>
     <message>
         <source>Enable back color</source>
-        <translation>Enable back color</translation>
+        <translation type="vanished">Enable back color</translation>
     </message>
     <message>
         <source>Stylesheet</source>
@@ -4420,6 +4420,14 @@ media file played</translation>
     </message>
     <message>
         <source>Prioritize seeking speed over accuracy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation type="unfinished">Shadow</translation>
+    </message>
+    <message>
+        <source>Enable shadow</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

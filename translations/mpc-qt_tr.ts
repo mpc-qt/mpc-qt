@@ -4092,11 +4092,11 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Back color</source>
-        <translation>Arka plan rengi</translation>
+        <translation type="vanished">Arka plan rengi</translation>
     </message>
     <message>
         <source>Enable back color</source>
-        <translation>Arka plan rengini etkinleştir</translation>
+        <translation type="vanished">Arka plan rengini etkinleştir</translation>
     </message>
     <message>
         <source>Stylesheet</source>
@@ -4400,6 +4400,14 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Prioritize seeking speed over accuracy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation type="unfinished">Gölge</translation>
+    </message>
+    <message>
+        <source>Enable shadow</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

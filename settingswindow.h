@@ -299,6 +299,8 @@ private slots:
 
     void on_ccICCBrowse_clicked();
 
+    void on_subsShadowEnabled_toggled(bool checked);
+
     void on_tweaksPreferWayland_toggled(bool checked);
 
     void on_tweaksTimeTooltip_toggled(bool checked);

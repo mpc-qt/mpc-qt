@@ -451,8 +451,7 @@ void SettingsWindow::setupColorPickers()
         { ui->windowInfoForegroundValue, ui->windowInfoForegroundPick },
         { ui->subsColorValue, ui->subsColorPick },
         { ui->subsBorderColorValue, ui->subsBorderColorPick },
-        { ui->subsShadowColorValue, ui->subsShadowColorPick },
-        { ui->subsBackcolorValue, ui->subsBackcolorpick }
+        { ui->subsShadowColorValue, ui->subsShadowColorPick }
     };
     for (const ValuePick c : colors) {
         connect(c.pick, &QPushButton::clicked,
@@ -986,7 +985,6 @@ void SettingsWindow::sendSignals()
     emit option("sub-italic", WIDGET_LOOKUP(ui->fontItalic).toBool());
     emit option("sub-font-size", WIDGET_LOOKUP(ui->fontSize).toInt());
     emit option("sub-border-size", WIDGET_LOOKUP(ui->borderSize).toInt());
-    emit option("sub-shadow-offset", WIDGET_LOOKUP(ui->borderShadowOffset).toInt());
     emit subtitlesDelayStep(WIDGET_LOOKUP(ui->subtitlesDelayStep).toInt());
     {
         struct AlignData { QRadioButton *btn; int x; int y; };
@@ -1025,9 +1023,9 @@ void SettingsWindow::sendSignals()
     emit option("sub-use-margins", !WIDGET_LOOKUP(ui->subsRelativeToVideoFrame).toBool());
     emit option("sub-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsColorValue).toString()));
     emit option("sub-border-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsBorderColorValue).toString()));
-    emit option("sub-shadow-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsShadowColorValue).toString()));
-    if (WIDGET_LOOKUP(ui->subsBackcolorEnabled).toBool())
-        emit option("sub-back-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsBackcolorValue).toString()));
+    emit option("sub-shadow-offset", WIDGET_LOOKUP(ui->subsShadowOffset).toInt());
+    if (WIDGET_LOOKUP(ui->subsShadowEnabled).toBool())
+        emit option("sub-back-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsShadowColorValue).toString()));
     else
         emit option("sub-back-color", "#00000000");
 
@@ -1501,6 +1499,15 @@ void SettingsWindow::on_ccICCBrowse_clicked()
         return;
 
     ui->ccICCLocation->setText(file);
+}
+
+void SettingsWindow::on_subsShadowEnabled_toggled(bool checked)
+{
+    ui->subsShadowColorLabel->setEnabled(checked);
+    ui->subsShadowColorValue->setEnabled(checked);
+    ui->subsShadowColorPick->setEnabled(checked);
+    ui->subsShadowOffsetLabel->setEnabled(checked);
+    ui->subsShadowOffset->setEnabled(checked);
 }
 
 // REMOVEME: Disable auto zoom in Wayland mode as window centering isn't possible yet
