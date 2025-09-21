@@ -2194,7 +2194,7 @@
     </message>
     <message>
         <source>Modified:</source>
-        <translation type="unfinished"></translation>
+        <translation>更新日時 :</translation>
     </message>
 </context>
 <context>
