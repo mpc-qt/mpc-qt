@@ -4404,19 +4404,19 @@ media file played</source>
     </message>
     <message>
         <source>Seek to keyframe when hardware decoding is unavailable</source>
-        <translation type="unfinished"></translation>
+        <translation>ハードウェアデコードが利用できない場合にキーフレームをシークする</translation>
     </message>
     <message>
         <source>Prioritize seeking speed over accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>正確さよりも速度を優先する</translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished">シャドウ</translation>
+        <translation>影</translation>
     </message>
     <message>
         <source>Enable shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>影を有効にする</translation>
     </message>
 </context>
 <context>
