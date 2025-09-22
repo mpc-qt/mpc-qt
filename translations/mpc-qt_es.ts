@@ -3983,14 +3983,6 @@ archivo multimedia reproducido</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Back color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enable back color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Stylesheet</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4284,6 +4276,14 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Prioritize seeking speed over accuracy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation type="unfinished">Sombra</translation>
+    </message>
+    <message>
+        <source>Enable shadow</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -4104,11 +4104,11 @@ media file played</source>
     </message>
     <message>
         <source>Back color</source>
-        <translation>பின் நிறம்</translation>
+        <translation type="vanished">பின் நிறம்</translation>
     </message>
     <message>
         <source>Enable back color</source>
-        <translation>பின் வண்ணத்தை இயக்கவும்</translation>
+        <translation type="vanished">பின் வண்ணத்தை இயக்கவும்</translation>
     </message>
     <message>
         <source>Stylesheet</source>
@@ -4408,6 +4408,14 @@ media file played</source>
     </message>
     <message>
         <source>Prioritize seeking speed over accuracy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation type="unfinished">நிழல்</translation>
+    </message>
+    <message>
+        <source>Enable shadow</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
