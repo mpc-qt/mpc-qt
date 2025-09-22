@@ -2223,7 +2223,7 @@
     </message>
     <message>
         <source>Formats</source>
-        <translation>Formatos</translation>
+        <translation type="vanished">Formatos</translation>
     </message>
     <message>
         <source>Keys</source>
@@ -2383,11 +2383,11 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>MIME types</source>
-        <translation>Tipos MIME</translation>
+        <translation type="vanished">Tipos MIME</translation>
     </message>
     <message>
         <source>Association</source>
-        <translation>Asociación</translation>
+        <translation type="vanished">Asociación</translation>
     </message>
     <message>
         <source>Video</source>

@@ -2219,7 +2219,7 @@
     </message>
     <message>
         <source>Formats</source>
-        <translation>Formati</translation>
+        <translation type="vanished">Formati</translation>
     </message>
     <message>
         <source>Keys</source>
@@ -2379,11 +2379,11 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>MIME types</source>
-        <translation>Tipi MIME</translation>
+        <translation type="vanished">Tipi MIME</translation>
     </message>
     <message>
         <source>Association</source>
-        <translation>Associazione</translation>
+        <translation type="vanished">Associazione</translation>
     </message>
     <message>
         <source>Video</source>

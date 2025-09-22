@@ -2303,7 +2303,7 @@
     </message>
     <message>
         <source>Formats</source>
-        <translation>Форматы</translation>
+        <translation type="vanished">Форматы</translation>
     </message>
     <message>
         <source>Keys</source>
@@ -2463,11 +2463,11 @@ media file played</source>
     </message>
     <message>
         <source>MIME types</source>
-        <translation>Типы MIME</translation>
+        <translation type="vanished">Типы MIME</translation>
     </message>
     <message>
         <source>Association</source>
-        <translation>Ассоциация</translation>
+        <translation type="vanished">Ассоциация</translation>
     </message>
     <message>
         <source>Video</source>

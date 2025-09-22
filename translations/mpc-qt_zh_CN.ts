@@ -2279,7 +2279,7 @@
     </message>
     <message>
         <source>Formats</source>
-        <translation>格式</translation>
+        <translation type="vanished">格式</translation>
     </message>
     <message>
         <source>Keys</source>
@@ -2437,11 +2437,11 @@ media file played</source>
     </message>
     <message>
         <source>MIME types</source>
-        <translation>MIME 类型</translation>
+        <translation type="vanished">MIME 类型</translation>
     </message>
     <message>
         <source>Association</source>
-        <translation>文件关联</translation>
+        <translation type="vanished">文件关联</translation>
     </message>
     <message>
         <source>Video</source>

@@ -478,8 +478,6 @@ void SettingsWindow::setupUnimplementedWidgets()
     ui->playerDisableOpenDisc->setVisible(false);
     ui->playerRememberPanScanZoom->setVisible(false);
 
-    ui->formatPage->setEnabled(false);
-
     ui->shadersWikiTab->setVisible(false);
     ui->shadersPresetsBox->setVisible(false);
 
@@ -1237,7 +1235,7 @@ void SettingsWindow::on_pageTree_itemSelectionChanged()
     if (!modelIndex.isValid())
         return;
 
-    static int parentIndex[] = { 0, 7, 14, 15, 18, 20, 21, 22 };
+    static int parentIndex[] = { 0, 6, 13, 14, 17, 19, 20, 21 };
     int index = 0;
     if (!modelIndex.parent().isValid())
         index = parentIndex[modelIndex.row()];

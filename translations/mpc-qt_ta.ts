@@ -2323,7 +2323,7 @@
     </message>
     <message>
         <source>Formats</source>
-        <translation>வடிவங்கள்</translation>
+        <translation type="vanished">வடிவங்கள்</translation>
     </message>
     <message>
         <source>Keys</source>
@@ -2483,11 +2483,11 @@ media file played</source>
     </message>
     <message>
         <source>MIME types</source>
-        <translation>மைம் வகைகள்</translation>
+        <translation type="vanished">மைம் வகைகள்</translation>
     </message>
     <message>
         <source>Association</source>
-        <translation>தொடர்பு</translation>
+        <translation type="vanished">தொடர்பு</translation>
     </message>
     <message>
         <source>Video</source>

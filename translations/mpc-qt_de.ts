@@ -2313,7 +2313,7 @@
     </message>
     <message>
         <source>Formats</source>
-        <translation>Formate</translation>
+        <translation type="vanished">Formate</translation>
     </message>
     <message>
         <source>Keys</source>
@@ -2471,11 +2471,7 @@ media file played</source>
     </message>
     <message>
         <source>MIME types</source>
-        <translation>MIME-Typen</translation>
-    </message>
-    <message>
-        <source>Association</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">MIME-Typen</translation>
     </message>
     <message>
         <source>Video</source>

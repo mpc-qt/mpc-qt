@@ -43,11 +43,6 @@
        </property>
        <item>
         <property name="text">
-         <string>Formats</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
          <string>Keys</string>
         </property>
        </item>
@@ -452,52 +447,6 @@ media file played</string>
                  </size>
                 </property>
                </spacer>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="formatPage">
-          <layout class="QVBoxLayout" name="formatPageLayout" stretch="1,0">
-           <item>
-            <widget class="QGroupBox" name="formatListBox">
-             <property name="title">
-              <string>MIME types</string>
-             </property>
-             <layout class="QVBoxLayout" name="formatListBoxLayout">
-              <item>
-               <widget class="QListWidget" name="formatList"/>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QGroupBox" name="formatAssociateBox">
-             <property name="title">
-              <string>Association</string>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout">
-              <item>
-               <widget class="QPushButton" name="formatAssociateVideo">
-                <property name="text">
-                 <string>Video</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="formatAssociateAudio">
-                <property name="text">
-                 <string>Audio</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="formatAssociateAll">
-                <property name="text">
-                 <string>All</string>
-                </property>
-               </widget>
               </item>
              </layout>
             </widget>
