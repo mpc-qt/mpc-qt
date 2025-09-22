@@ -2126,7 +2126,7 @@
     </message>
     <message>
         <source>Modified:</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifié&#xa0;:</translation>
     </message>
 </context>
 <context>
@@ -4336,19 +4336,19 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Seek to keyframe when hardware decoding is unavailable</source>
-        <translation type="unfinished"></translation>
+        <translation>Déplacement jusqu&apos;à l&apos;image-clé lorsque le décodage matériel n&apos;est pas disponible</translation>
     </message>
     <message>
         <source>Prioritize seeking speed over accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>Donner la priorité à la vitesse de saut plutôt qu&apos;à la précision</translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished">Ombre</translation>
+        <translation>Ombre</translation>
     </message>
     <message>
         <source>Enable shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer l&apos;ombre</translation>
     </message>
 </context>
 <context>
