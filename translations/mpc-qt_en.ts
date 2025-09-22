@@ -4424,11 +4424,11 @@ media file played</translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished">Shadow</translation>
+        <translation>Shadow</translation>
     </message>
     <message>
         <source>Enable shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>Enable shadow</translation>
     </message>
 </context>
 <context>
