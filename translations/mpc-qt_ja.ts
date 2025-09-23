@@ -2323,7 +2323,7 @@
     </message>
     <message>
         <source>Formats</source>
-        <translation>形式</translation>
+        <translation type="vanished">形式</translation>
     </message>
     <message>
         <source>Keys</source>
@@ -2483,11 +2483,11 @@ media file played</source>
     </message>
     <message>
         <source>MIME types</source>
-        <translation>MIME タイプ</translation>
+        <translation type="vanished">MIME タイプ</translation>
     </message>
     <message>
         <source>Association</source>
-        <translation>関連付け</translation>
+        <translation type="vanished">関連付け</translation>
     </message>
     <message>
         <source>Video</source>

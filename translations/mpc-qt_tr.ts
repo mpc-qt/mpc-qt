@@ -2323,7 +2323,7 @@
     </message>
     <message>
         <source>Formats</source>
-        <translation>Biçimler</translation>
+        <translation type="vanished">Biçimler</translation>
     </message>
     <message>
         <source>Keys</source>
@@ -2483,11 +2483,11 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>MIME types</source>
-        <translation>MIME türleri</translation>
+        <translation type="vanished">MIME türleri</translation>
     </message>
     <message>
         <source>Association</source>
-        <translation>İlişkilendirme</translation>
+        <translation type="vanished">İlişkilendirme</translation>
     </message>
     <message>
         <source>Video</source>

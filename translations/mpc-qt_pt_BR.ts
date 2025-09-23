@@ -2167,7 +2167,7 @@
     </message>
     <message>
         <source>Formats</source>
-        <translation>Formatos</translation>
+        <translation type="vanished">Formatos</translation>
     </message>
     <message>
         <source>Keys</source>
@@ -2323,14 +2323,6 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Remember last Pan-n-Scan Zoom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>MIME types</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Association</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

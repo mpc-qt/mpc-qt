@@ -2148,10 +2148,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Formats</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Keys</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2303,14 +2299,6 @@ media file played</source>
     </message>
     <message>
         <source>Remember last Pan-n-Scan Zoom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>MIME types</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Association</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

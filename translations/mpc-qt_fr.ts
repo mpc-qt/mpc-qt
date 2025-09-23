@@ -2255,7 +2255,7 @@
     </message>
     <message>
         <source>Formats</source>
-        <translation>Formats</translation>
+        <translation type="vanished">Formats</translation>
     </message>
     <message>
         <source>Keys</source>
@@ -2415,11 +2415,11 @@ fichier média lu</translation>
     </message>
     <message>
         <source>MIME types</source>
-        <translation>Types MIME</translation>
+        <translation type="vanished">Types MIME</translation>
     </message>
     <message>
         <source>Association</source>
-        <translation>Association</translation>
+        <translation type="vanished">Association</translation>
     </message>
     <message>
         <source>Video</source>
