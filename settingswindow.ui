@@ -1498,23 +1498,18 @@ media file played</string>
               <item>
                <widget class="QLabel" name="ytdlpLabel">
                 <property name="text">
-                 <string>Max video height:</string>
+                 <string>Quality:</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="ytdlpMaxHeight">
+               <widget class="QComboBox" name="ytdlpQuality">
                 <property name="currentIndex">
-                 <number>4</number>
+                 <number>3</number>
                 </property>
                 <item>
                  <property name="text">
-                  <string notr="true">240</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">360</string>
+                  <string notr="true">Minimum</string>
                  </property>
                 </item>
                 <item>

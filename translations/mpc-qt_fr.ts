@@ -4328,7 +4328,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation>Hauteur maximale des vidéos&#xa0;:</translation>
+        <translation type="vanished">Hauteur maximale des vidéos&#xa0;:</translation>
     </message>
     <message>
         <source>Custom mpv options:</source>
@@ -4349,6 +4349,10 @@ fichier média lu</translation>
     <message>
         <source>Enable shadow</source>
         <translation>Activer l&apos;ombre</translation>
+    </message>
+    <message>
+        <source>Quality:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

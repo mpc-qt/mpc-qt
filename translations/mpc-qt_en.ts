@@ -4408,7 +4408,7 @@ media file played</translation>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation>Max video height:</translation>
+        <translation type="vanished">Max video height:</translation>
     </message>
     <message>
         <source>Custom mpv options:</source>
@@ -4429,6 +4429,10 @@ media file played</translation>
     <message>
         <source>Enable shadow</source>
         <translation>Enable shadow</translation>
+    </message>
+    <message>
+        <source>Quality:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

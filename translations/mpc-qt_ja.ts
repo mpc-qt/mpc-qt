@@ -4396,7 +4396,7 @@ media file played</source>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation>ビデオの最大高さ :</translation>
+        <translation type="vanished">ビデオの最大高さ :</translation>
     </message>
     <message>
         <source>Custom mpv options:</source>
@@ -4417,6 +4417,10 @@ media file played</source>
     <message>
         <source>Enable shadow</source>
         <translation>影を有効にする</translation>
+    </message>
+    <message>
+        <source>Quality:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
