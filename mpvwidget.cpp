@@ -275,6 +275,11 @@ QString MpvObject::mpvVersion()
     return getMpvPropertyVariant("mpv-version").toString();
 }
 
+QString MpvObject::ffmpegVersion()
+{
+    return getMpvPropertyVariant("ffmpeg-version").toString();
+}
+
 MpvController *MpvObject::controller()
 {
     return ctrl;

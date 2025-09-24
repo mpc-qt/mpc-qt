@@ -42,6 +42,7 @@ public:
     void setWidgetType(Helpers::MpvWidgetType widgetType, MpvWidgetInterface *customWidget = nullptr);
 
     QString mpvVersion();
+    QString ffmpegVersion();
     MpvController *controller();
     QWidget *mpvWidget();
 
