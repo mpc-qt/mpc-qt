@@ -4396,7 +4396,7 @@ media file played</source>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation>அதிகபட்ச வீடியோ உயரம்:</translation>
+        <translation type="vanished">அதிகபட்ச வீடியோ உயரம்:</translation>
     </message>
     <message>
         <source>Custom mpv options:</source>
@@ -4416,6 +4416,10 @@ media file played</source>
     </message>
     <message>
         <source>Enable shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quality:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

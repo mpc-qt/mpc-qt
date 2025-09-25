@@ -161,8 +161,8 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"ccHdrMapper", {"clip", "mobius", "reinhard", "hable", "gamma", \
                      "linear"}},
     {"ccHdrCompute", {"auto", "yes", "no"}},
-    {"ytdlpMaxHeight", {"240", "360", "480", "720", "1080", "1440",
-                             "2160", "2880", "4320"}},
+    {"ytdlpQuality", {"minimum", "480", "720", "1080",
+                      "1440", "2160", "2880", "4320"}},
     {"audioChannels", {"auto-safe", "auto", "stereo"}},
     {"audioRenderer", {"pulse", "alsa", "oss", "null"}},
     {"audioAutoloadMatch", { "exact", "fuzzy", "all" }},
@@ -768,7 +768,10 @@ void SettingsWindow::sendSignals()
 
     emit afterPlaybackDefault(Helpers::AfterPlayback(WIDGET_LOOKUP(ui->afterPlaybackDefault).toInt()));
 
-    emit option("ytdl-format", QString("bestvideo[height<=%1]+bestaudio/best").arg(WIDGET_TO_TEXT(ui->ytdlpMaxHeight)));
+    if (WIDGET_TO_TEXT(ui->ytdlpQuality) != "minimum")
+        emit option("ytdl-format", QString("bestvideo[height<=%1]+bestaudio/best").arg(WIDGET_TO_TEXT(ui->ytdlpQuality)));
+    else
+        emit option("ytdl-format", "worstvideo+worstaudio");
 
     emit zoomCenter(WIDGET_LOOKUP(ui->playbackAutoCenterWindow).toBool());
     double factor = WIDGET_LOOKUP(ui->playbackAutoFitFactor).toInt() / 100.0;

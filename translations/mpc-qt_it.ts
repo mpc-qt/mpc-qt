@@ -4235,10 +4235,6 @@ ogni file multimediale riprodotto</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Max video height:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Custom mpv options:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4256,6 +4252,10 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Enable shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quality:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
