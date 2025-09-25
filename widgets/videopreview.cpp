@@ -26,7 +26,7 @@ VideoPreview::VideoPreview(QWidget *parent) : QWidget(parent)
     emit mpv->ctrlSetOptionVariant("hr-seek", "no");
     emit mpv->ctrlSetOptionVariant("audio", "no");
     emit mpv->ctrlSetOptionVariant("audio-display", "no");
-    emit mpv->ctrlSetOptionVariant("ytdl-format", "worst");
+    emit mpv->ctrlSetOptionVariant("ytdl-raw-options", "format-sort=[+size,+br,+res,+fps]");
     emit mpv->ctrlSetOptionVariant("clipboard-backends", "clr");
 
     connect(mpv, &MpvObject::aspectChanged,
