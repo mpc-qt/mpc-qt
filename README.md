@@ -214,7 +214,7 @@ Yes! You just need to change two SVP settings:
 [screenshot]:https://raw.githubusercontent.com/mpc-qt/mpc-qt-screenshots/refs/heads/master/Screenshot_20250602_151626.png
 [mpc-hc]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
-[release page]:https://github.com/mpc-qt/mpc-qt/releases
+[release page]:https://github.com/mpc-qt/mpc-qt/releases/latest
 [Packages are available]:https://mpc-qt.github.io/downloads
 [development builds]:https://mpc-qt.github.io/downloads#dev-builds
 [yt-dlp]:https://github.com/yt-dlp/yt-dlp
