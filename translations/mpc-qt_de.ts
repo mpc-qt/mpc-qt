@@ -2237,7 +2237,7 @@
     </message>
     <message>
         <source>Base</source>
-        <translation type="unfinished"></translation>
+        <translation>Grundton</translation>
     </message>
     <message>
         <source>Window</source>
@@ -2249,7 +2249,7 @@
     </message>
     <message>
         <source>Highlight</source>
-        <translation type="unfinished"></translation>
+        <translation>Hervorhebung</translation>
     </message>
     <message>
         <source>Highlighted text</source>
@@ -2265,7 +2265,7 @@
     </message>
     <message>
         <source>Base (alternate)</source>
-        <translation type="unfinished"></translation>
+        <translation>Grundton (alternierend)</translation>
     </message>
     <message>
         <source>No role</source>
@@ -2273,11 +2273,11 @@
     </message>
     <message>
         <source>Tooltip base</source>
-        <translation type="unfinished"></translation>
+        <translation>Tooltip Grundton</translation>
     </message>
     <message>
         <source>Tooltip text</source>
-        <translation type="unfinished"></translation>
+        <translation>Tooltip Text</translation>
     </message>
     <message>
         <source>Active</source>
@@ -2289,14 +2289,14 @@
     </message>
     <message>
         <source>Inactive</source>
-        <translation type="unfinished"></translation>
+        <translation>Inaktiv</translation>
     </message>
 </context>
 <context>
     <name>ScreenCombo</name>
     <message>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktuell</translation>
     </message>
 </context>
 <context>
@@ -2319,7 +2319,7 @@
     </message>
     <message>
         <source>Keys</source>
-        <translation type="unfinished"></translation>
+        <translation>Tasten</translation>
     </message>
     <message>
         <source>Logo</source>
@@ -2327,7 +2327,7 @@
     </message>
     <message>
         <source>Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzeroberfläche</translation>
     </message>
     <message>
         <source>Playback</source>
