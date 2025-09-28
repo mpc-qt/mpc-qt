@@ -3179,7 +3179,7 @@ media file played</source>
     </message>
     <message>
         <source>Clip</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Clip</translation>
     </message>
     <message>
         <source>Mobius</source>
@@ -4388,7 +4388,7 @@ media file played</source>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Schatten</translation>
     </message>
     <message>
         <source>Enable shadow</source>
