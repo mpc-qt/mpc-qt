@@ -271,7 +271,7 @@ Section "Uninstall"
   RMDir "$SMPROGRAMS\MPC-QT"
 
   DetailPrint "Removing file associations..."
-  nsExec::ExecToLog /TIMEOUT=20000 '"$sysdir\cmd.exe" /c if 1==1 "$INSTDIR\mpc-qt-assoc\mpc-qt-assoc-uninstall.bat /u"'
+  nsExec::ExecToLog /TIMEOUT=20000 '"$sysdir\cmd.exe" /c if 1==1 "$INSTDIR\mpc-qt-assoc\mpc-qt-assoc-uninstall.bat" /u'
   Pop $0
 
   Delete "$INSTDIR\*.*"
