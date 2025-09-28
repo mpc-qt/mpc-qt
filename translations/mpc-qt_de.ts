@@ -1846,15 +1846,15 @@
     </message>
     <message>
         <source>Button &amp;&amp; Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Schaltfläche &amp;&amp; Fenster</translation>
     </message>
     <message>
         <source>Reset to System</source>
-        <translation type="unfinished"></translation>
+        <translation>Auf Systemeinstellungen zurücksetzen</translation>
     </message>
     <message>
         <source>Generate</source>
-        <translation type="unfinished"></translation>
+        <translation>Erstellen</translation>
     </message>
 </context>
 <context>
@@ -2347,7 +2347,7 @@
     </message>
     <message>
         <source>Sync</source>
-        <translation type="unfinished"></translation>
+        <translation>Synchronisieren</translation>
     </message>
     <message>
         <source>Hw. Decoding</source>
@@ -2363,7 +2363,7 @@
     </message>
     <message>
         <source>Default Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Voreinstellung</translation>
     </message>
     <message>
         <source>Misc</source>
@@ -2371,19 +2371,19 @@
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Export</translation>
     </message>
     <message>
         <source>Encoding</source>
-        <translation type="unfinished"></translation>
+        <translation>Kodierung</translation>
     </message>
     <message>
         <source>Tweaks</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassungen</translation>
     </message>
     <message>
         <source>Logging</source>
-        <translation type="unfinished"></translation>
+        <translation>Protokollierung</translation>
     </message>
     <message>
         <source>Miscellaneous</source>
@@ -2391,29 +2391,31 @@
     </message>
     <message>
         <source>&lt;big&gt;&lt;b&gt;Player</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;big&gt;&lt;b&gt;Player</translation>
     </message>
     <message>
         <source>Open options</source>
-        <translation type="unfinished"></translation>
+        <translation>Optionen für das Öffnen</translation>
     </message>
     <message>
         <source>Use the same player for
 each &amp;media file</source>
-        <translation type="unfinished"></translation>
+        <translation>Für jede &amp;Mediendatei
+denselben Player benutzen</translation>
     </message>
     <message>
         <source>Open a new &amp;player for each
 media file played</source>
-        <translation type="unfinished"></translation>
+        <translation>Jede Mediendatei in einem
+&amp;neuen Fenster öffnen</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Andere</translation>
     </message>
     <message>
         <source>Tray icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Symbol in der Taskleiste anzeigen</translation>
     </message>
     <message>
         <source>Show OSD</source>
@@ -2421,7 +2423,7 @@ media file played</source>
     </message>
     <message>
         <source>Limit window proportions on resize</source>
-        <translation type="unfinished"></translation>
+        <translation>Fensterproportionen bei Größenänderungen beibehalten</translation>
     </message>
     <message>
         <source>Disable &quot;Open Disc&quot; menu</source>
@@ -2433,11 +2435,11 @@ media file played</source>
     </message>
     <message>
         <source>Title bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Titelleiste</translation>
     </message>
     <message>
         <source>Disp&amp;lay full path</source>
-        <translation type="unfinished"></translation>
+        <translation>Vo&amp;llen Pfad anzeigen</translation>
     </message>
     <message>
         <source>File &amp;name only</source>
@@ -2445,19 +2447,19 @@ media file played</source>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
-        <translation type="unfinished"></translation>
+        <translation>Nichts voran&amp;stellen</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
-        <translation type="unfinished"></translation>
+        <translation>Dateiname mit Titel ersetzen</translation>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>Verlauf</translation>
     </message>
     <message>
         <source>Keep history of recently opened files</source>
-        <translation type="unfinished"></translation>
+        <translation>Kürzlich geöffnete Dateien merken</translation>
     </message>
     <message>
         <source>Remember last selected playlist</source>
@@ -2465,11 +2467,11 @@ media file played</source>
     </message>
     <message>
         <source>Remember last window geometry</source>
-        <translation type="unfinished"></translation>
+        <translation>Fensterabmessungen merken</translation>
     </message>
     <message>
         <source>Remember last Pan-n-Scan Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Pan und Scan Zoom merken</translation>
     </message>
     <message>
         <source>MIME types</source>
@@ -2481,7 +2483,7 @@ media file played</source>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio</translation>
     </message>
     <message>
         <source>All</source>
@@ -2489,11 +2491,11 @@ media file played</source>
     </message>
     <message>
         <source>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; verfügbar unter %1</translation>
     </message>
     <message>
         <source>MPRIS</source>
-        <translation type="unfinished"></translation>
+        <translation>MPRIS</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -2505,15 +2507,15 @@ media file played</source>
     </message>
     <message>
         <source>Interna&amp;l</source>
-        <translation type="unfinished"></translation>
+        <translation>Inter&amp;n</translation>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Durchsuchen...</translation>
     </message>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"></translation>
+        <translation>Leer</translation>
     </message>
     <message>
         <source>Color film stock</source>
@@ -2525,7 +2527,7 @@ media file played</source>
     </message>
     <message>
         <source>Triangle in circle</source>
-        <translation type="unfinished"></translation>
+        <translation>Dreieck im Kreis</translation>
     </message>
     <message>
         <source>Multi purpose vehicle</source>
@@ -2533,19 +2535,19 @@ media file played</source>
     </message>
     <message>
         <source>Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Symbole</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Thema</translation>
     </message>
     <message>
         <source>Built-in fallback</source>
-        <translation type="unfinished"></translation>
+        <translation>Internes Rückfallthema</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzerdefiniert</translation>
     </message>
     <message>
         <source>System (Linux only)</source>
@@ -2553,11 +2555,11 @@ media file played</source>
     </message>
     <message>
         <source>Folder (e.g. ~/Pictures/MyIcons/mpc-qt/leet)</source>
-        <translation>Verzeichnis (Z.Bsp. ~/Pictures/MyIcons/mpc-qt/leet)</translation>
+        <translation>Verzeichnis (z. B. ~/Pictures/MyIcons/mpc-qt/leet)</translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Namen der Symbolbilder finden sich in den &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;Programmquellen&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>Fallback</source>
@@ -2565,19 +2567,19 @@ media file played</source>
     </message>
     <message>
         <source>Black (for white palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Schwarz (für weiße Palette)</translation>
     </message>
     <message>
         <source>White (for black palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Weiß (für schwarze Palette)</translation>
     </message>
     <message>
         <source>Widget Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Widget Farbe</translation>
     </message>
     <message>
         <source>Use custom theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Eigenes Thema benutzen</translation>
     </message>
     <message>
         <source>Window Color</source>
@@ -2585,31 +2587,31 @@ media file played</source>
     </message>
     <message>
         <source>HHHHHH</source>
-        <translation type="unfinished"></translation>
+        <translation>HHHHHH</translation>
     </message>
     <message>
         <source>Info Background</source>
-        <translation type="unfinished"></translation>
+        <translation>Info Hintergrund</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation type="unfinished"></translation>
+        <translation>Info Vordergrund</translation>
     </message>
     <message>
         <source>Control</source>
-        <translation type="unfinished"></translation>
+        <translation>Steuerung</translation>
     </message>
     <message>
         <source>Volume step</source>
-        <translation type="unfinished"></translation>
+        <translation>Lautstärke Schrittweite</translation>
     </message>
     <message>
         <source>Speed step</source>
-        <translation type="unfinished"></translation>
+        <translation>Geschwindigkeit Schrittweite</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>Time step</source>
@@ -2629,23 +2631,23 @@ media file played</source>
     </message>
     <message>
         <source>Autofit</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisch anpassen</translation>
     </message>
     <message>
         <source>Autofit (Larger Only)</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisch anpassen (nur größere)</translation>
     </message>
     <message>
         <source>Autofit (Smaller Only)</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisch anpassen (nur kleinere)</translation>
     </message>
     <message>
         <source>Auto fit factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Faktor für automatisches Anpassen</translation>
     </message>
     <message>
         <source>Autofitting in tiling window managers requires that the window be in floating mode.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bei Nutzung eines Tiling-Window-Managers funktioniert das automatische Anpassen nur, wenn das Fenster sich im Schwebemodus befindet.</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -2653,7 +2655,7 @@ media file played</source>
     </message>
     <message>
         <source>Use Qt&apos;s inbuilt fusion style</source>
-        <translation type="unfinished"></translation>
+        <translation>Nutze den Qt-eigenen Fusion Style</translation>
     </message>
     <message>
         <source>Balance</source>
@@ -2661,15 +2663,15 @@ media file played</source>
     </message>
     <message>
         <source>Default track preference</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorgabe der Spur-Präferenz</translation>
     </message>
     <message>
         <source>Mouse hiding</source>
-        <translation type="unfinished"></translation>
+        <translation>Mauszeiger ausblenden</translation>
     </message>
     <message>
         <source>Windowed</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenstermodus</translation>
     </message>
     <message>
         <source>Video Renderer</source>
@@ -2677,7 +2679,7 @@ media file played</source>
     </message>
     <message>
         <source>Dumb mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Simpler Modus</translation>
     </message>
     <message>
         <source>General</source>
@@ -2685,31 +2687,31 @@ media file played</source>
     </message>
     <message>
         <source>Framebuffer</source>
-        <translation type="unfinished"></translation>
+        <translation>Farbtiefe</translation>
     </message>
     <message>
         <source>8 bits</source>
-        <translation type="unfinished"></translation>
+        <translation>8 Bit</translation>
     </message>
     <message>
         <source>10 bits</source>
-        <translation type="unfinished"></translation>
+        <translation>10 Bit</translation>
     </message>
     <message>
         <source>12 bits</source>
-        <translation type="unfinished"></translation>
+        <translation>12 Bit</translation>
     </message>
     <message>
         <source>16 bits</source>
-        <translation type="unfinished"></translation>
+        <translation>16 Bit</translation>
     </message>
     <message>
         <source>16 bits float</source>
-        <translation type="unfinished"></translation>
+        <translation>16 Bit float</translation>
     </message>
     <message>
         <source>32 bits float</source>
-        <translation type="unfinished"></translation>
+        <translation>32 Bit float</translation>
     </message>
     <message>
         <source>Alpha channel</source>
@@ -2721,11 +2723,11 @@ media file played</source>
     </message>
     <message>
         <source>Blend on black</source>
-        <translation type="unfinished"></translation>
+        <translation>Auf Schwarz mischen</translation>
     </message>
     <message>
         <source>Use</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzen</translation>
     </message>
     <message>
         <source>Ignore</source>
@@ -3473,23 +3475,23 @@ media file played</source>
     </message>
     <message>
         <source>Hardware decoding may produce a smoother, more efficient overall experience and reduce strain on your cpu. However, some of the listed codecs (depending upon your installed hardware and software) may not be available, may be broken, and may produce incorrect output. A safe and always correct rule of thumb with respect to image quality is to prefer software decoding if your cpu can handle it.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hardware-Dekodierer können für eine geschmeidigere und effizientere Wiedergabe sorgen und die Belastung der CPU verringern. Es kann jedoch sein, dass einige der aufgelisteten Codecs (in Abhängigkeit von der installierten Hard- und Software) nicht verfügbar sind, nicht funktionieren oder eine fehlerhafte Ausgabe produzieren. Für eine optimale Bildqualität wird generell empfohlen, einen Software-Dekodierer zu bevorzugen, solange die CPU damit problemlos umgehen kann.</translation>
     </message>
     <message>
         <source>Use hardware-accelerated decoding</source>
-        <translation type="unfinished"></translation>
+        <translation>Nutze hardwarebeschleunigtes Dekodieren</translation>
     </message>
     <message>
         <source>Codecs to allow hardware decoding</source>
-        <translation type="unfinished"></translation>
+        <translation>Codecs, die Hardwarebeschleunigung ermöglichen</translation>
     </message>
     <message>
         <source>Hardware decoding backend</source>
-        <translation type="unfinished"></translation>
+        <translation>Backend für Hardware-Dekodierung</translation>
     </message>
     <message>
         <source>Hover over each backend to display a description.</source>
-        <translation type="unfinished"></translation>
+        <translation>Fahre mit der Maus über jedes Backend, um eine Beschreibung angezeigt zu bekommen.</translation>
     </message>
     <message>
         <source>Autodetect - best of VAAPI, DXVA, D3D11VA</source>
@@ -3497,7 +3499,7 @@ media file played</source>
     </message>
     <message>
         <source>A&amp;utodetect</source>
-        <translation type="unfinished"></translation>
+        <translation>A&amp;utomatisch erkennen</translation>
     </message>
     <message>
         <source>Linux - requires Mesa 11 and most likely works with Intel GPUs only; may only be correct in BT.601 and BT.709</source>
@@ -3505,15 +3507,15 @@ media file played</source>
     </message>
     <message>
         <source>Linux - some gpus, does not always treat certain colorspaces like BT.2020 correctly</source>
-        <translation type="unfinished"></translation>
+        <translation>Linux - unterstützt nicht alle GPUs, behandelt manche Farbräume wie BT.2020 nicht immer korrekt</translation>
     </message>
     <message>
         <source>Windows - not safe; it appears to always use BT.601 for forced RGB conversion, but actual behavior depends on the GPU drivers</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows - nicht sicher; es scheint immer BT.601 zu benutzen für die Umwandlung in RGB-Farben, aber das tatsächliche Verhalten hängt vom verwendeten GPU-Treiber ab</translation>
     </message>
     <message>
         <source>Windows 8+ - usually safe but rounds 10 bit to 8 bit</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows 8+ - normalerweise sicher zu benutzen, rundet jedoch 10 Bit Farbtiefe ab auf 8 Bit</translation>
     </message>
     <message>
         <source>Raspberry PI - hardware overlay renderer</source>
@@ -3525,39 +3527,39 @@ media file played</source>
     </message>
     <message>
         <source>nVidia only (likely 10x0+ only) - safe</source>
-        <translation type="unfinished"></translation>
+        <translation>nur auf nVidia-Karten verfügbar (vermutlich nur ab Modellreihe 10X0 aufwärts) - sicher</translation>
     </message>
     <message>
         <source>PCI-E decoder card - safe</source>
-        <translation type="unfinished"></translation>
+        <translation>PCI-E Dekoder Karte - sicher</translation>
     </message>
     <message>
         <source>Playback progression</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiedergabefortschritt</translation>
     </message>
     <message>
         <source>Pla&amp;y</source>
-        <translation type="unfinished"></translation>
+        <translation>Abs&amp;pielen</translation>
     </message>
     <message>
         <source>times</source>
-        <translation type="unfinished"></translation>
+        <translation>Mal</translation>
     </message>
     <message>
         <source>Repeat fore&amp;ver</source>
-        <translation type="unfinished"></translation>
+        <translation>Für immer &amp;wiederholen</translation>
     </message>
     <message>
         <source>Always loop images (manual progression)</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilder immer loopen (manueller Fortschritt)</translation>
     </message>
     <message>
         <source>Display Format</source>
-        <translation type="unfinished"></translation>
+        <translation>Anzeigeformat</translation>
     </message>
     <message>
         <source>qrc:/text/playlistFormat.html</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/text/playlistFormat.html</translation>
     </message>
     <message>
         <source>Placement</source>
