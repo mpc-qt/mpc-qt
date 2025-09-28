@@ -768,7 +768,7 @@ void SettingsWindow::sendSignals()
 
     emit afterPlaybackDefault(Helpers::AfterPlayback(WIDGET_LOOKUP(ui->afterPlaybackDefault).toInt()));
 
-    emit option("ytdl-format", QString("bestvideo[height<=%1]+bestaudio/best").arg(WIDGET_TO_TEXT(ui->ytdlpMaxHeight)));
+    emit option("ytdl-format", QString("bestvideo[height<=?%1]+bestaudio/best").arg(WIDGET_TO_TEXT(ui->ytdlpMaxHeight)));
 
     emit zoomCenter(WIDGET_LOOKUP(ui->playbackAutoCenterWindow).toBool());
     double factor = WIDGET_LOOKUP(ui->playbackAutoFitFactor).toInt() / 100.0;
