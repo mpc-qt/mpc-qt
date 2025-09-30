@@ -4350,6 +4350,14 @@ fichier média lu</translation>
         <source>Enable shadow</source>
         <translation>Activer l&apos;ombre</translation>
     </message>
+    <message>
+        <source>Select</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preset applied</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

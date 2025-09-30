@@ -345,6 +345,8 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->audioTabs->setCurrentIndex(0);
     ui->hwdecTabs->setCurrentIndex(0);
 
+    ui->videoPresetApplied->clear();
+
     ui->screenshotDirectoryValue->setPlaceholderText(
                 QStandardPaths::writableLocation(
                     QStandardPaths::PicturesLocation) + "/mpc_shots");
@@ -518,7 +520,8 @@ SettingMap SettingsWindow::generateSettingMap(QWidget *root)
             && !item->objectName().isEmpty()
             && item->objectName() != "qt_spinbox_lineedit"
             && item->objectName() != "qt_keysequenceedit_lineedit"
-            && item->objectName() != "keysSearchField") {
+            && item->objectName() != "keysSearchField"
+            && item->objectName() != "videoPreset") {
             QString name = item->objectName();
             QString className = item->metaObject()->className();
             QVariant value = Setting::classFetcher[className](item);
@@ -1268,6 +1271,7 @@ void SettingsWindow::closeEvent(QCloseEvent *event)
     restoreAudioSettings();
     setCustomMpvOptions();
     ui->keysSearchField->clear();
+    ui->videoPreset->setCurrentIndex(0);
 }
 
 void SettingsWindow::keyPressEvent(QKeyEvent *event)
@@ -1365,10 +1369,16 @@ void SettingsWindow::on_logoInternal_currentIndexChanged(int index)
     updateLogoWidget();
 }
 
-void SettingsWindow::on_videoPresetLoad_clicked()
+void SettingsWindow::on_videoPreset_currentIndexChanged(int index)
 {
-    for (Setting &s : videoPresets[ui->videoPreset->currentIndex()])
-        s.sendToControl();
+    if (index > 0) {
+        for (Setting &s : videoPresets[index-1])
+            s.sendToControl();
+        ui->videoPresetApplied->setText(tr("Preset applied"));
+        QTimer::singleShot(3000, this, [this]() {
+            ui->videoPresetApplied->clear();
+        });
+    }
 }
 
 void SettingsWindow::on_screenshotFormat_currentIndexChanged(int index)

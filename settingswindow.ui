@@ -1718,6 +1718,17 @@ media file played</string>
                    <layout class="QHBoxLayout" name="videoPresetLayout" stretch="1,1,2">
                     <item>
                      <widget class="QComboBox" name="videoPreset">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>Select</string>
+                       </property>
+                      </item>
                       <item>
                        <property name="text">
                         <string>Plain</string>
@@ -1751,9 +1762,9 @@ media file played</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="videoPresetLoad">
+                     <widget class="QLabel" name="videoPresetApplied">
                       <property name="text">
-                       <string>Load</string>
+                       <string>Preset applied</string>
                       </property>
                      </widget>
                     </item>

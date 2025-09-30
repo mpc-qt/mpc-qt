@@ -4234,6 +4234,14 @@ arquivo de mídia reproduzido</translation>
         <source>Enable shadow</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Select</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preset applied</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

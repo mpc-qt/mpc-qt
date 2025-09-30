@@ -259,7 +259,7 @@ private slots:
 
     void on_logoInternal_currentIndexChanged(int index);
 
-    void on_videoPresetLoad_clicked();
+    void on_videoPreset_currentIndexChanged(int index);
 
     void on_screenshotFormat_currentIndexChanged(int index);
 
