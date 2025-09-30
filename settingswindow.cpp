@@ -578,7 +578,6 @@ void SettingsWindow::generateVideoPresets()
     setWidget(ui->scaleScaler, 13); // scale=ewa_lanczossharp
     setWidget(ui->dscaleScaler, 15);  // dscale=ewa_lanczossoft
     setWidget(ui->cscaleScaler, 13); // cscale=ewa_lanczossharp
-    setWidget(ui->debandEnabled, true); //deband=yes
     videoPresets.append(videoWidgets);
 
     // placebo
