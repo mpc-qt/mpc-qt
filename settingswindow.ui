@@ -172,7 +172,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>20</number>
+          <number>7</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -264,11 +264,11 @@
            </item>
            <item row="1" column="0">
             <widget class="QGroupBox" name="playerLanguageBox">
-             <property name="title">
-              <string>Language Override</string>
-             </property>
              <property name="toolTip">
               <string>Requires restarting the application to apply changes</string>
+             </property>
+             <property name="title">
+              <string>Language Override</string>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_17">
               <item>
@@ -741,8 +741,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>68</width>
-                   <height>16</height>
+                   <width>96</width>
+                   <height>26</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -1715,7 +1715,7 @@ media file played</string>
                    </widget>
                   </item>
                   <item row="3" column="1">
-                   <layout class="QHBoxLayout" name="videoPresetLayout" stretch="1,1,2">
+                   <layout class="QHBoxLayout" name="videoPresetLayout" stretch="1,0,2">
                     <item>
                      <widget class="QComboBox" name="videoPreset">
                       <property name="sizePolicy">
@@ -6711,11 +6711,11 @@ media file played</string>
                    </item>
                    <item row="2" column="0">
                     <widget class="QLabel" name="subsShadowColorLabel">
-                     <property name="text">
-                      <string>Shadow color</string>
-                     </property>
                      <property name="enabled">
                       <bool>false</bool>
+                     </property>
+                     <property name="text">
+                      <string>Shadow color</string>
                      </property>
                     </widget>
                    </item>
@@ -6723,27 +6723,27 @@ media file played</string>
                     <layout class="QHBoxLayout" name="subsShadowColorLayout">
                      <item>
                       <widget class="QLineEdit" name="subsShadowColorValue">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
                        <property name="inputMask">
                         <string>HHHHHH</string>
                        </property>
                        <property name="text">
                         <string notr="true">000000</string>
                        </property>
-                       <property name="enabled">
-                        <bool>false</bool>
-                       </property>
                       </widget>
                      </item>
                      <item>
                       <widget class="QPushButton" name="subsShadowColorPick">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
                        <property name="styleSheet">
                         <string notr="true">background: #000000;</string>
                        </property>
                        <property name="text">
                         <string/>
-                       </property>
-                       <property name="enabled">
-                        <bool>false</bool>
                        </property>
                       </widget>
                      </item>
@@ -6751,24 +6751,24 @@ media file played</string>
                    </item>
                    <item row="3" column="0">
                     <widget class="QLabel" name="subsShadowOffsetLabel">
-                     <property name="text">
-                      <string>Shadow offset</string>
-                     </property>
                      <property name="enabled">
                       <bool>false</bool>
+                     </property>
+                     <property name="text">
+                      <string>Shadow offset</string>
                      </property>
                     </widget>
                    </item>
                    <item row="3" column="1">
                     <widget class="QSpinBox" name="subsShadowOffset">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
                      <property name="maximum">
                       <number>10</number>
                      </property>
                      <property name="value">
                       <number>1</number>
-                     </property>
-                     <property name="enabled">
-                      <bool>false</bool>
                      </property>
                     </widget>
                    </item>
@@ -7612,11 +7612,11 @@ media file played</string>
           <layout class="QFormLayout" name="tweaksPageLayout">
            <item row="0" column="0" colspan="2">
             <widget class="QCheckBox" name="tweaksFastSeek">
-             <property name="text">
-              <string>Prioritize seeking speed over accuracy</string>
-             </property>
              <property name="toolTip">
               <string>Seek to keyframe when hardware decoding is unavailable</string>
+             </property>
+             <property name="text">
+              <string>Prioritize seeking speed over accuracy</string>
              </property>
              <property name="checked">
               <bool>true</bool>
@@ -7816,7 +7816,7 @@ media file played</string>
             </layout>
            </item>
            <item row="13" column="1">
-            <layout class="QHBoxLayout" name="tweaksMpvOptionsTextLayout" stretch="1,0">
+            <layout class="QHBoxLayout" name="tweaksMpvOptionsTextLayout" stretch="1">
              <item>
               <widget class="QLineEdit" name="tweaksMpvOptionsText">
                <property name="enabled">
