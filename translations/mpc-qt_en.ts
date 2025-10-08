@@ -4438,6 +4438,10 @@ media file played</translation>
         <source>Preset applied</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Position ASS subs relative to the video frame</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

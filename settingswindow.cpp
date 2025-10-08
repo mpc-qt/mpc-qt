@@ -484,8 +484,6 @@ void SettingsWindow::setupUnimplementedWidgets()
     ui->shadersPresetsBox->setVisible(false);
 
     ui->subtitlePlacementBox->setVisible(false);
-    ui->subtitlesFixTiming->setVisible(false);
-    ui->subtitlesClearOnSeek->setVisible(false);
     ui->subtitlesAssOverride->setVisible(false);
     ui->subtitlesAssOverrideLabel->setVisible(false);
 
@@ -985,6 +983,9 @@ void SettingsWindow::sendSignals()
     emit option("sub-italic", WIDGET_LOOKUP(ui->fontItalic).toBool());
     emit option("sub-font-size", WIDGET_LOOKUP(ui->fontSize).toInt());
     emit option("sub-border-size", WIDGET_LOOKUP(ui->borderSize).toInt());
+
+    emit option("sub-fix-timing", WIDGET_LOOKUP(ui->subtitlesFixTiming).toBool());
+    emit option("sub-clear-on-seek", WIDGET_LOOKUP(ui->subtitlesClearOnSeek).toBool());
     emit subtitlesDelayStep(WIDGET_LOOKUP(ui->subtitlesDelayStep).toInt());
     {
         struct AlignData { QRadioButton *btn; int x; int y; };
@@ -1021,6 +1022,7 @@ void SettingsWindow::sendSignals()
     emit option("sub-margin-x", WIDGET_LOOKUP(ui->subsMarginX).toInt());
     emit option("sub-margin-y", WIDGET_LOOKUP(ui->subsMarginY).toInt());
     emit option("sub-use-margins", !WIDGET_LOOKUP(ui->subsRelativeToVideoFrame).toBool());
+    emit option("sub-ass-force-margins", !WIDGET_LOOKUP(ui->subsAssRelativeToVideoFrame).toBool());
     emit option("sub-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsColorValue).toString()));
     emit option("sub-border-color", QString("#%1").arg(WIDGET_LOOKUP(ui->subsBorderColorValue).toString()));
     emit option("sub-shadow-offset", WIDGET_LOOKUP(ui->subsShadowOffset).toInt());
