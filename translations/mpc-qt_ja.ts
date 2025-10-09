@@ -4420,15 +4420,15 @@ media file played</source>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>選択</translation>
     </message>
     <message>
         <source>Preset applied</source>
-        <translation type="unfinished"></translation>
+        <translation>プリセット適用済み</translation>
     </message>
     <message>
         <source>Position ASS subs relative to the video frame</source>
-        <translation type="unfinished"></translation>
+        <translation>ビデオフレームを基準にしてASS字幕を配置する</translation>
     </message>
 </context>
 <context>
