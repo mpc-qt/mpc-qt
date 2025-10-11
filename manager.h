@@ -174,6 +174,7 @@ public slots:
     void getCurrentTrackInfo(QUrl &url, QUuid &listUuid, QUuid &itemUuid, QString &title,
                              double &length, double &position, int64_t &videoTrack,
                              int64_t &audioTrack, int64_t &subtitleTrack, bool &hasVideo);
+    QString nowPlayingTitle();
 
 private:
     enum AspectNameChanged { OnOpen, OnFirstPlay, Manually };
@@ -222,7 +223,7 @@ private:
     QUrl  nowPlaying_;
     QUuid nowPlayingList;
     QUuid nowPlayingItem;
-    QString nowPlayingTitle;
+    QString nowPlayingTitle_;
     int64_t currentMpvPlaylistItemId = 0;
 
     double mpvStartTime = -1.0;
