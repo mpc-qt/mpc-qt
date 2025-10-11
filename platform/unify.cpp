@@ -89,6 +89,8 @@ QString Platform::sanitizedFilename(QString fileName)
     if (isWindows)
         for (auto f : {':', '<', '>', '"', '/', '\\', '|', '?', '*'})
             fileName.replace(f, '.');
+    else
+        fileName.replace('/', '.');
     return fileName;
 }
 

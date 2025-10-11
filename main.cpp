@@ -1230,8 +1230,11 @@ QString Flow::pictureTemplate(Helpers::DisabledTrack tracks, Helpers::Subtitles 
 {
     double playTime = mainWindow->mpvObject()->playTime();
     QUrl nowPlaying = playbackManager->nowPlaying();
-    QString basename = QFileInfo(nowPlaying.toDisplayString().split('/').last())
-                       .completeBaseName();
+    QString basename;
+    if (nowPlaying.isLocalFile())
+        basename = QFileInfo(nowPlaying.fileName()).completeBaseName();
+    else
+        basename = Platform::sanitizedFilename(playbackManager->nowPlayingTitle());
 
     // FIXME: Use parseFormatEx?
     QString fileName = Helpers::parseFormat(screenshotTemplate, basename, tracks, subs, playTime, 0, 0);

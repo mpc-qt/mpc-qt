@@ -642,7 +642,7 @@ void PlaybackManager::sendCurrentTrackInfo()
 {
     QUrl url(playlistWindow_->getUrlOf(nowPlayingList, nowPlayingItem));
     emit currentTrackInfo({url, nowPlayingList, nowPlayingItem,
-                           nowPlayingTitle, mpvLength, mpvTime,
+                           nowPlayingTitle_, mpvLength, mpvTime,
                            videoTrackSelected, audioTrackSelected, subtitleTrackSelected});
 }
 
@@ -653,13 +653,17 @@ void PlaybackManager::getCurrentTrackInfo(QUrl& url, QUuid& listUuid, QUuid& ite
     url = playlistWindow_->getUrlOf(nowPlayingList, nowPlayingItem);
     listUuid = nowPlayingList;
     itemUuid = nowPlayingItem;
-    title = nowPlayingTitle;
+    title = nowPlayingTitle_;
     length = mpvLength;
     position = mpvTime;
     videoTrack = videoTrackSelected;
     audioTrack = audioTrackSelected;
     subtitleTrack = subtitleTrackSelected;
     hasVideo = !videoList.isEmpty() && !videoListData[1].isImage;
+}
+
+QString PlaybackManager::nowPlayingTitle() {
+    return nowPlayingTitle_;
 }
 
 void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
@@ -986,7 +990,7 @@ void PlaybackManager::mpvw_eofReachedChanged(QString eof) {
 
 void PlaybackManager::mpvw_mediaTitleChanged(QString title)
 {
-    nowPlayingTitle = title;
+    nowPlayingTitle_ = title;
     emit titleChanged(title);
     emit titleChangedWithFilename(title,
                                   nowPlaying().isLocalFile() ? nowPlaying().fileName() : QString());
@@ -1103,8 +1107,8 @@ void PlaybackManager::mpvw_hwdecCurrentChanged(QString newHwdecCurrent)
 void PlaybackManager::mpvw_metadataChanged(QVariantMap metadata)
 {
     // yt-dlp metadata doesn't include the title, so let's add it
-    if (!nowPlaying_.isLocalFile() && !nowPlayingTitle.isEmpty() && !metadata.contains("title"))
-        metadata.insert("title", nowPlayingTitle);
+    if (!nowPlaying_.isLocalFile() && !nowPlayingTitle_.isEmpty() && !metadata.contains("title"))
+        metadata.insert("title", nowPlayingTitle_);
     playlistWindow_->setMetadata(nowPlayingList, nowPlayingItem, metadata);
 }
 
