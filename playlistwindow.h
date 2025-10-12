@@ -44,7 +44,7 @@ public:
     void deltaExtraPlayTimes(QUuid list, QUuid item, int delta);
     void reshufflePlaylist(const QUuid &playlistUuid);
 
-    QVariantList tabsToVList() const;
+    QVariantList tabsToVList(bool saveQuickPlaylist) const;
     void tabsFromVList(const QVariantList &qvl);
 
 protected:

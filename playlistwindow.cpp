@@ -247,11 +247,13 @@ void PlaylistWindow::deltaExtraPlayTimes(QUuid list, QUuid item, int delta)
 }
 
 // Save the tabs on stop
-QVariantList PlaylistWindow::tabsToVList() const
+QVariantList PlaylistWindow::tabsToVList(bool saveQuickPlaylist) const
 {
     QVariantList qvl;
     for (int i = 0; i < ui->tabWidget->count(); i++) {
         auto widget = reinterpret_cast<DrawnPlaylist *>(ui->tabWidget->widget(i));
+        if (!saveQuickPlaylist && widget->uuid().isNull())
+            widget->removeAll();
         qvl.append(widget->toVMap());
     }
     qvl.append(QVariantMap{{keyCurrentPlaylist, currentPlaylist}});

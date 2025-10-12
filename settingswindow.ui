@@ -213,6 +213,16 @@
                </widget>
               </item>
               <item>
+               <widget class="QCheckBox" name="playerRememberQuickPlaylist">
+                <property name="text">
+                 <string>Remember Quick Playlist content</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QCheckBox" name="playerRememberLastPlaylist">
                 <property name="text">
                  <string>Remember last selected playlist</string>

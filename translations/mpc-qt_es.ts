@@ -4298,6 +4298,10 @@ archivo multimedia reproducido</translation>
         <source>Position ASS subs relative to the video frame</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Remember Quick Playlist content</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

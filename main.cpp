@@ -162,7 +162,8 @@ Flow::~Flow()
             updateRecentPosition(false);
             settings = settingsWindow->settings();
             writeConfig();
-            storage.writeVList(filePlaylists, mainWindow->playlistWindow()->tabsToVList());
+            storage.writeVList(filePlaylists,
+                               mainWindow->playlistWindow()->tabsToVList(rememberQuickPlaylist));
             storage.writeVList(filePlaylistsBackup, PlaylistCollection::getBackup()->toVList());
         }
         delete mainWindow;
@@ -917,6 +918,8 @@ void Flow::setupFlowConnections()
             this, &Flow::settingswindow_rememberHistory);
     connect(settingsWindow, &SettingsWindow::rememberFilePosition,
             this, &Flow::settingswindow_rememberFilePosition);
+    connect(settingsWindow, &SettingsWindow::rememberQuickPlaylist,
+            this, &Flow::settingswindow_rememberQuickPlaylist);
     connect(settingsWindow, &SettingsWindow::rememberWindowGeometry,
             this, &Flow::settingswindow_rememberWindowGeometry);
     connect(settingsWindow, &SettingsWindow::rememberPanels,
@@ -1567,6 +1570,12 @@ void Flow::settingswindow_rememberFilePosition(bool yes)
 {
     // Remember our preference to restore the position when opening a file
     this->rememberFilePosition = yes;
+}
+
+void Flow::settingswindow_rememberQuickPlaylist(bool yes)
+{
+    // Remember our preference to restore the content of the Quick Playlist
+    this->rememberQuickPlaylist = yes;
 }
 
 void Flow::settingswindow_rememberWindowGeometry(bool yes)
