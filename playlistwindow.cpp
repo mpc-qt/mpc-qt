@@ -278,6 +278,8 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
         connect(qdp, &DrawnPlaylist::contextMenuRequested,
                 this, &PlaylistWindow::playlist_contextMenuRequested);
         auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
+        if (pl->uuid().isNull())
+            pl->setTitle(tr("Quick Playlist"));
         ui->tabWidget->addTab(qdp, pl->title());
         widgets.insert(pl->uuid(), qdp);
     }
