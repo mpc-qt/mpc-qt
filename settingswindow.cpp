@@ -1302,10 +1302,8 @@ void SettingsWindow::on_playerTitleDontPrefix_clicked()
 
 void SettingsWindow::on_playerKeepHistory_checkStateChanged(Qt::CheckState state)
 {
-    // playerRememberFilePosition depends on playerKeepHistory
     bool playerKeepHistoryEnabled = state == Qt::Checked;
-    if (!playerKeepHistoryEnabled)
-        ui->playerRememberFilePosition->setChecked(false);
+    ui->playerRememberFilePosition->setChecked(playerKeepHistoryEnabled);
     ui->playerKeepHistoryOnlyForVideos->setEnabled(playerKeepHistoryEnabled);
     ui->playerRememberFilePosition->setEnabled(playerKeepHistoryEnabled);
 }

@@ -1557,6 +1557,10 @@ void Flow::settingswindow_rememberHistory(bool yes, bool onlyVideos)
     // Remember our preference to the list of recent files
     this->rememberHistory = yes;
     this->rememberHistoryOnlyForVideos = onlyVideos;
+    if (!yes) {
+        recentFiles = QList<TrackInfo>();
+        mainWindow->setRecentDocuments(recentFiles);
+    }
 }
 
 void Flow::settingswindow_rememberFilePosition(bool yes)
@@ -1669,6 +1673,8 @@ void Flow::favoriteswindow_favoriteTracksCancel()
 void Flow::updateRecentPosition(bool resetPosition)
 {
     Logger::log("main", "updateRecentPosition");
+    if (!rememberHistory)
+        return;
     QUrl url;
     QUuid listUuid;
     QUuid itemUuid;
@@ -1702,7 +1708,7 @@ void Flow::updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title
     recentFiles.insert(0, track);
 
     // Trim the recent file list
-    while (recentFiles.size() > (rememberHistory ? (rememberFilePosition ? 1000 : 20) : 0))
+    while (recentFiles.size() > (rememberFilePosition ? 1000 : 20))
         recentFiles.removeLast();
 
     // Notify (2022-03: the main window) that the recents have changed
