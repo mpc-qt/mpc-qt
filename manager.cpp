@@ -185,11 +185,14 @@ void PlaybackManager::openSeveralFiles(QList<QUrl> what, bool important)
 
     if (important) {
         playlistWindow_->setCurrentPlaylist(QUuid());
-        playlistWindow_->clearPlaylist(QUuid());
+        if (!appendToQuickPlaylist)
+            playlistWindow_->clearPlaylist(QUuid());
     }
     bool playAfterAdd = (playlistWindow_->isCurrentPlaylistEmpty()
                          && (important || nowPlayingItem == QUuid()))
-                        || !playlistWindow_->isVisible();
+                        || !playlistWindow_->isVisible()
+                        || (appendToQuickPlaylist && (playbackState_ == StoppedState
+                                                  || playbackState_ == WaitingState));
     PlaylistItem playlistItem = playlistWindow_->addToCurrentPlaylist(what);
     if (playAfterAdd && !playlistItem.item.isNull()) {
         QUrl urlToPlay = playlistWindow_->getUrlOf(playlistItem.list, playlistItem.item);
@@ -202,7 +205,7 @@ void PlaybackManager::openFile(QUrl what, QUrl with)
     if (!nowPlayingItem.isNull())
         emit openingNewFile();
 
-    PlaylistItem playlistItem = playlistWindow_->urlToQuickPlaylist(what);
+    PlaylistItem playlistItem = playlistWindow_->urlToQuickPlaylist(what, appendToQuickPlaylist);
     if (!playlistItem.item.isNull()) {
         QUrl urlToPlay = playlistWindow_->getUrlOf(playlistItem.list, playlistItem.item);
         startPlayWithUuid(urlToPlay, playlistItem.list, playlistItem.item, false, with);
@@ -445,6 +448,11 @@ void PlaybackManager::setPlaybackSpeed(double speed)
     mpvObject_->setSpeed(speed);
     mpvObject_->showMessage(tr("Speed: %1%").arg(speed*100));
     emit playbackSpeedChanged(speed);
+}
+
+void PlaybackManager::setAppendToQuickPlaylist(bool isAppend)
+{
+    appendToQuickPlaylist = isAppend;
 }
 
 void PlaybackManager::setSpeedStep(double step)

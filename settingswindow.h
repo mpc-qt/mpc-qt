@@ -83,6 +83,7 @@ signals:
     void mouseWindowedMap(const MouseStateMap &map);
     void mouseFullscreenMap(const MouseStateMap &map);
 
+    void appendToQuickPlaylist(bool yes);
     void trayIcon(bool yes);
     void showOsd(bool yes);
     void limitProportions(bool yes);
@@ -235,6 +236,12 @@ private slots:
     void closeEvent(QCloseEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
     bool eventFilter(QObject *obj, QEvent *event) override;
+
+    void on_playerOpenSame_clicked();
+
+    void on_playerOpenNew_clicked();
+
+    void on_playerAppendToQuickPlaylist_checkStateChanged(Qt::CheckState state);
 
     void on_playerTitleDisplayFullPath_clicked();
 

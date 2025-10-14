@@ -744,6 +744,8 @@ void Flow::setupSettingsConnections()
             settingsWindow, &SettingsWindow::setHidePanels);
 
     // settings -> manager
+    connect(settingsWindow, &SettingsWindow::appendToQuickPlaylist,
+            playbackManager, &PlaybackManager::setAppendToQuickPlaylist);
     connect(settingsWindow, &SettingsWindow::speedStep,
             playbackManager, &PlaybackManager::setSpeedStep);
     connect(settingsWindow, &SettingsWindow::speedStepAdditive,

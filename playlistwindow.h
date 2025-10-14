@@ -27,7 +27,7 @@ public:
     void clearPlaylist(QUuid what);
     PlaylistItem addToPlaylist(const QUuid &playlist, const QList<QUrl> &what);
     PlaylistItem addToCurrentPlaylist(QList<QUrl> what);
-    PlaylistItem urlToQuickPlaylist(QUrl what);
+    PlaylistItem urlToQuickPlaylist(QUrl what, bool appendToPlaylist);
     bool isCurrentPlaylistEmpty();
     bool isPlaylistSingularFile(QUuid list);
     bool isPlaylistRepeat(QUuid list);
