@@ -221,7 +221,7 @@
     <name>GoToWindow</name>
     <message>
         <source>Go To...</source>
-        <translation>Atteindre</translation>
+        <translation>Atteindre...</translation>
     </message>
     <message>
         <source>Time</source>
@@ -4352,15 +4352,15 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>Choisir</translation>
     </message>
     <message>
         <source>Preset applied</source>
-        <translation type="unfinished"></translation>
+        <translation>Préréglage appliqué</translation>
     </message>
     <message>
         <source>Position ASS subs relative to the video frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Positionner les sous-titres ASS par rapport à la trame vidéo</translation>
     </message>
 </context>
 <context>
