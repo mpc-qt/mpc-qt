@@ -92,6 +92,7 @@ signals:
     void titleUseMediaTitle(bool yes);
     void rememberHistory(bool yes, bool onlyVideos);
     void rememberFilePosition(bool yes);
+    void rememberQuickPlaylist(bool yes);
     void rememberSelectedPlaylist(bool yes);
     void rememberWindowGeometry(bool yes);
     void rememberPanels(bool yes);

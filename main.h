@@ -92,6 +92,7 @@ private slots:
     void settingswindow_inhibitScreensaver(bool yes);
     void settingswindow_rememberHistory(bool yes, bool onlyVideos);
     void settingswindow_rememberFilePosition(bool yes);
+    void settingswindow_rememberQuickPlaylist(bool yes);
     void settingswindow_rememberWindowGeometry(bool yes);
     void settingswindow_rememberPanels(bool yes);
     void settingswindow_keymapData(const QVariantMap &keyMap);
@@ -151,6 +152,7 @@ private:
     bool rememberHistory = true;
     bool rememberHistoryOnlyForVideos = true;
     bool rememberFilePosition = false;
+    bool rememberQuickPlaylist = true;
     bool rememberWindowGeometry = false;
     bool rememberPanels = false;
     bool nowPlayingDisplayingSubtitles = true;

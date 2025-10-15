@@ -4362,6 +4362,10 @@ fichier média lu</translation>
         <source>Position ASS subs relative to the video frame</source>
         <translation>Positionner les sous-titres ASS par rapport à la trame vidéo</translation>
     </message>
+    <message>
+        <source>Remember Quick Playlist content</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

@@ -719,6 +719,10 @@ void SettingsWindow::sendSignals()
     emit rememberHistory(WIDGET_LOOKUP(ui->playerKeepHistory).toBool(),
                          WIDGET_LOOKUP(ui->playerKeepHistoryOnlyForVideos).toBool());
     emit rememberFilePosition(WIDGET_LOOKUP(ui->playerRememberFilePosition).toBool());
+    if (!WIDGET_LOOKUP(ui->playerKeepHistory).toBool())
+        emit rememberQuickPlaylist(false);
+    else
+        emit rememberQuickPlaylist(WIDGET_LOOKUP(ui->playerRememberQuickPlaylist).toBool());
     emit rememberSelectedPlaylist(WIDGET_LOOKUP(ui->playerRememberLastPlaylist).toBool());
     emit rememberWindowGeometry(WIDGET_LOOKUP(ui->playerRememberWindowGeometry).toBool());
     emit rememberPanels(WIDGET_LOOKUP(ui->playerRememberPanels).toBool());
@@ -1114,6 +1118,7 @@ void SettingsWindow::setFreestanding(bool freestanding)
     ui->playerKeepHistory->setVisible(yes);
     ui->playerKeepHistoryOnlyForVideos->setVisible(yes);
     ui->playerRememberFilePosition->setVisible(yes);
+    ui->playerRememberQuickPlaylist->setVisible(yes);
     ui->playerRememberLastPlaylist->setVisible(yes);
     ui->playerRememberWindowGeometry->setVisible(yes);
     ui->playerRememberPanels->setVisible(yes);
@@ -1304,8 +1309,10 @@ void SettingsWindow::on_playerKeepHistory_checkStateChanged(Qt::CheckState state
 {
     bool playerKeepHistoryEnabled = state == Qt::Checked;
     ui->playerRememberFilePosition->setChecked(playerKeepHistoryEnabled);
+    ui->playerRememberQuickPlaylist->setChecked(playerKeepHistoryEnabled);
     ui->playerKeepHistoryOnlyForVideos->setEnabled(playerKeepHistoryEnabled);
     ui->playerRememberFilePosition->setEnabled(playerKeepHistoryEnabled);
+    ui->playerRememberQuickPlaylist->setEnabled(playerKeepHistoryEnabled);
 }
 
 void SettingsWindow::on_interfaceIconsTheme_currentIndexChanged(int index)

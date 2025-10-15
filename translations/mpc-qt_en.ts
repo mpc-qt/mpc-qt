@@ -4442,6 +4442,10 @@ media file played</translation>
         <source>Position ASS subs relative to the video frame</source>
         <translation>Position ASS subs relative to the video frame</translation>
     </message>
+    <message>
+        <source>Remember Quick Playlist content</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
