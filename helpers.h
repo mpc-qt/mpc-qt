@@ -65,7 +65,7 @@ namespace Helpers {
     QString fileOpenFilter();
     QString subsOpenFilter();
     bool urlSurvivesFilter(const QUrl &url, bool onlyAudioVideo);
-    QList<QUrl> filterUrls(const QList<QUrl> &urls);
+    QList<QUrl> filterUrls(QList<QUrl> urls);
     QRect vmapToRect(const QVariantMap &m);
     QVariantMap rectToVmap(const QRect &r);
     bool sizeFromString(QSize &size, const QString &text);
@@ -73,6 +73,7 @@ namespace Helpers {
     QRect availableGeometryFromPoint(const QPoint &point);
     QScreen *findScreenByName(QString s);
     QString screenToVisualName(QScreen *s);
+    QString normalizedSuffix(const QFileInfo& fileInfo);
 }
 
 class IconThemer : public QObject {

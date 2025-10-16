@@ -4,6 +4,7 @@
 #include <QMouseEvent>
 #include <QAction>
 #include <cmath>
+#include <deque>
 #include <QRegularExpression>
 #include <QStandardPaths>
 #include "helpers.h"
@@ -549,35 +550,42 @@ bool Helpers::urlSurvivesFilter(const QUrl &url, bool onlyAudioVideo)
     else
         info = QFileInfo(url.fileName());
     if (onlyAudioVideo)
-        return audioVideoFileExtensions.contains(info.suffix().toLower().split(" ")[0]);
+        return audioVideoFileExtensions.contains(normalizedSuffix(info));
     else
-        return allMediaExtensions.contains(info.suffix().toLower().split(" ")[0]);
+        return allMediaExtensions.contains(normalizedSuffix(info));
 }
 
-QList<QUrl> Helpers::filterUrls(const QList<QUrl> &urls)
-{
+QList<QUrl> Helpers::filterUrls(QList<QUrl> urls) {
     QList<QUrl> filtered;
-    for (const QUrl &u : urls) {
+    QSet<QString> visitedDirs;
+    std::deque<QUrl> queue(std::make_move_iterator(urls.begin()),
+                           std::make_move_iterator(urls.end()));
+
+    while (!queue.empty()) {
+        QUrl u = std::move(queue.front());
+        queue.pop_front();
+
         if (!u.isLocalFile()) {
-            filtered << u;
+            filtered.append(std::move(u));
             continue;
         }
+
         QFileInfo info(u.toLocalFile());
-        if (info.isDir()) {           
-            // FIXME: detect circular symlinks
-            QDir dir(info.filePath());
-            QList<QUrl> children;
-            for (auto &i : dir.entryInfoList(QDir::NoDotAndDotDot | QDir::AllEntries,
-                                             QDir::Name | QDir::DirsLast))
-               children << QUrl::fromLocalFile(i.filePath());
-            filtered.append(filterUrls(children));
-            continue;
-        }
-        if (Helpers::allMediaExtensions.contains(info.suffix().toLower().split(" ")[0])) {
-            filtered << u;
-            continue;
+        if (info.isDir()) {
+            QString canonicalPath = info.canonicalFilePath();
+            if (!canonicalPath.isEmpty() && !visitedDirs.contains(canonicalPath)) {
+                visitedDirs.insert(canonicalPath);
+                QDir dir(canonicalPath);
+                QFileInfoList entries = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::AllEntries,
+                                                          QDir::Name | QDir::DirsLast);
+                for (auto it = entries.rbegin(); it != entries.rend(); ++it)
+                    queue.push_front(QUrl::fromLocalFile(it->filePath()));
+            }
+        } else if (Helpers::allMediaExtensions.contains(normalizedSuffix(info))) {
+            filtered.append(std::move(u));
         }
     }
+
     return filtered;
 }
 
@@ -655,6 +663,14 @@ QString Helpers::screenToVisualName(QScreen *s)
         return QString("%1 %2x%3%4%5").arg(s->name(), w, h, x, y);
     }
     return s->name();
+}
+
+QString Helpers::normalizedSuffix(const QFileInfo& fileInfo) {
+    QString suffix = fileInfo.suffix().toLower();
+    qsizetype spaceIndex = suffix.indexOf(' ');
+    if (spaceIndex != -1)
+        suffix.truncate(spaceIndex);
+    return suffix;
 }
 
 
