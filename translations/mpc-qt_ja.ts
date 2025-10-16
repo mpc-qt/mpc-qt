@@ -4436,7 +4436,7 @@ media file played</source>
     </message>
     <message>
         <source>Append opened files to Quick Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>開いたファイルをクイック再生リストに追加する</translation>
     </message>
 </context>
 <context>
