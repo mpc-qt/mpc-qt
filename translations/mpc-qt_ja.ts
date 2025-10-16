@@ -4432,7 +4432,7 @@ media file played</source>
     </message>
     <message>
         <source>Remember Quick Playlist content</source>
-        <translation type="unfinished"></translation>
+        <translation>クイック再生リストの内容を記憶する</translation>
     </message>
     <message>
         <source>Append opened files to Quick Playlist</source>
