@@ -4444,7 +4444,7 @@ media file played</translation>
     </message>
     <message>
         <source>Remember Quick Playlist content</source>
-        <translation type="unfinished"></translation>
+        <translation>Remember Quick Playlist content</translation>
     </message>
     <message>
         <source>Append opened files to Quick Playlist</source>
