@@ -78,11 +78,13 @@ PlaylistItem PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
     return addToPlaylist(currentPlaylist, what);
 }
 
-PlaylistItem PlaylistWindow::urlToQuickPlaylist(QUrl what)
+PlaylistItem PlaylistWindow::urlToQuickPlaylist(QUrl what, bool appendToPlaylist)
 {
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(QUuid());
-    pl->clear();
-    widgets[QUuid()]->clear();
+    if (!appendToPlaylist) {
+        pl->clear();
+        widgets[QUuid()]->clear();
+    }
     ui->tabWidget->setCurrentWidget(widgets[QUuid()]);
     return addToCurrentPlaylist(QList<QUrl>() << what);
 }

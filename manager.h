@@ -139,6 +139,7 @@ public slots:
 
     // output functions
     void setPlaybackSpeed(double speed);
+    void setAppendToQuickPlaylist(bool isAppend);
     void setSpeedStep(double step);
     void setSpeedStepAdditive(bool isAdditive);
     void setStepTimeNormal(int normalMsec);
@@ -264,6 +265,7 @@ private:
     bool playbackForever = false;
     bool fastSeek = true;
     bool folderFallback = false;
+    bool appendToQuickPlaylist = false;
 
     bool timeShortMode = false;
 

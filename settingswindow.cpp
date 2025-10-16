@@ -708,6 +708,7 @@ void SettingsWindow::sendSignals()
                         WIDGET_LOOKUP(ui->logHistoryLines).toInt() : 0);
     }
 
+    emit appendToQuickPlaylist(WIDGET_LOOKUP(ui->playerAppendToQuickPlaylist).toBool());
     emit trayIcon(WIDGET_LOOKUP(ui->playerTrayIcon).toBool());
     emit showOsd(WIDGET_LOOKUP(ui->playerOSD).toBool());
     emit limitProportions(WIDGET_LOOKUP(ui->playerLimitProportions).toBool());
@@ -1114,6 +1115,7 @@ void SettingsWindow::setFreestanding(bool freestanding)
     ui->ipcMpris->setVisible(yes);
     ui->playerOpenSame->setVisible(yes);
     ui->playerOpenNew->setVisible(yes);
+    ui->playerAppendToQuickPlaylist->setVisible(yes);
     ui->playerOpenBox->setEnabled(yes);
     ui->playerKeepHistory->setVisible(yes);
     ui->playerKeepHistoryOnlyForVideos->setVisible(yes);
@@ -1287,6 +1289,23 @@ void SettingsWindow::keyPressEvent(QKeyEvent *event)
         this->close();
     else
         QWidget::keyPressEvent(event);
+}
+
+void SettingsWindow::on_playerOpenSame_clicked()
+{
+    ui->playerAppendToQuickPlaylist->setEnabled(true);
+}
+
+void SettingsWindow::on_playerOpenNew_clicked()
+{
+    ui->playerAppendToQuickPlaylist->setEnabled(false);
+    ui->playerAppendToQuickPlaylist->setChecked(false);
+}
+
+void SettingsWindow::on_playerAppendToQuickPlaylist_checkStateChanged(Qt::CheckState state)
+{
+    if (state == Qt::Checked)
+        ui->playerRememberQuickPlaylist->setChecked(false);
 }
 
 void SettingsWindow::on_playerTitleDisplayFullPath_clicked()

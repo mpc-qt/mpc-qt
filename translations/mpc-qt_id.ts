@@ -4282,6 +4282,10 @@ media file played</source>
         <source>Remember Quick Playlist content</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Append opened files to Quick Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
