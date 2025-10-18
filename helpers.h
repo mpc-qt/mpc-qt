@@ -74,6 +74,7 @@ namespace Helpers {
     QScreen *findScreenByName(QString s);
     QString screenToVisualName(QScreen *s);
     QString normalizedSuffix(const QFileInfo& fileInfo);
+    QString canonicalOrAbsolutePath(const QFileInfo& fileInfo);
 }
 
 class IconThemer : public QObject {

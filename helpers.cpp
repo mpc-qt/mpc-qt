@@ -8,6 +8,7 @@
 #include <QRegularExpression>
 #include <QStandardPaths>
 #include "helpers.h"
+#include "logger.h"
 #include "platform/unify.h"
 
 const char autoIcons[] = "auto";
@@ -557,7 +558,7 @@ bool Helpers::urlSurvivesFilter(const QUrl &url, bool onlyAudioVideo)
 
 QList<QUrl> Helpers::filterUrls(QList<QUrl> urls) {
     QList<QUrl> filtered;
-    QSet<QString> visitedDirs;
+    QSet<QString> visitedPaths;
     std::deque<QUrl> queue(std::make_move_iterator(urls.begin()),
                            std::make_move_iterator(urls.end()));
 
@@ -571,16 +572,30 @@ QList<QUrl> Helpers::filterUrls(QList<QUrl> urls) {
         }
 
         QFileInfo info(u.toLocalFile());
-        if (info.isDir()) {
-            QString canonicalPath = info.canonicalFilePath();
-            if (!canonicalPath.isEmpty() && !visitedDirs.contains(canonicalPath)) {
-                visitedDirs.insert(canonicalPath);
-                QDir dir(canonicalPath);
-                QFileInfoList entries = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::AllEntries,
-                                                          QDir::Name | QDir::DirsLast);
-                for (auto it = entries.rbegin(); it != entries.rend(); ++it)
-                    queue.push_front(QUrl::fromLocalFile(it->filePath()));
+        QString canonicalPath = canonicalOrAbsolutePath(info);
+
+        if (info.isSymLink()) {
+            QFileInfo linkInfo(info.symLinkTarget());
+            if (canonicalOrAbsolutePath(linkInfo) == canonicalPath) {
+                Logger::logs("helpers", {"skipping circular link:", linkInfo.filePath()});
+                continue;
             }
+        }
+
+        if (visitedPaths.contains(canonicalPath)) {
+            Logger::logs("helpers", {"skipping likely circular link:", info.filePath()});
+            continue;
+        }
+
+        visitedPaths.insert(canonicalPath);
+
+        if (info.isDir()) {
+            QDir dir(canonicalPath);
+            QFileInfoList entries = dir.entryInfoList(
+                QDir::NoDotAndDotDot | QDir::AllEntries,
+                QDir::Name | QDir::DirsLast);
+            for (auto it = entries.rbegin(); it != entries.rend(); ++it)
+                queue.push_front(QUrl::fromLocalFile(it->filePath()));
         } else if (Helpers::allMediaExtensions.contains(normalizedSuffix(info))) {
             filtered.append(std::move(u));
         }
@@ -671,6 +686,13 @@ QString Helpers::normalizedSuffix(const QFileInfo& fileInfo) {
     if (spaceIndex != -1)
         suffix.truncate(spaceIndex);
     return suffix;
+}
+
+QString Helpers::canonicalOrAbsolutePath(const QFileInfo& fileInfo) {
+    QString canonical = fileInfo.canonicalFilePath();
+    if (canonical.isEmpty())
+        return fileInfo.absoluteFilePath();
+    return canonical;
 }
 
 
