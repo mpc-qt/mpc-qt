@@ -25,7 +25,7 @@ public:
 
     void setCurrentPlaylist(QUuid what);
     void clearPlaylist(QUuid what);
-    PlaylistItem addToPlaylist(const QUuid &playlist, const QList<QUrl> &what);
+    PlaylistItem addToPlaylist(const QUuid &playlist, QList<QUrl> what);
     PlaylistItem addToCurrentPlaylist(QList<QUrl> what);
     PlaylistItem urlToQuickPlaylist(QUrl what, bool appendToPlaylist);
     bool isCurrentPlaylistEmpty();
@@ -38,7 +38,7 @@ public:
     QUrl getUrlOf(QUuid list, QUuid item);
     QUrl getUrlOfFirst(QUuid list);
     void setMetadata(QUuid list, QUuid item, const QVariantMap &map);
-    void replaceItem(QUuid list, QUuid item, const QList<QUrl> &urls);
+    void replaceItem(QUuid list, QUuid item, QList<QUrl> urls);
     int extraPlayTimes(QUuid list, QUuid item);
     void setExtraPlayTimes(QUuid list, QUuid item, int amount);
     void deltaExtraPlayTimes(QUuid list, QUuid item, int delta);

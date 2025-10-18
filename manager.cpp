@@ -1142,6 +1142,6 @@ void PlaybackManager::mpvw_playlistChanged(const QVariantList &playlist)
     }
     if (!currentItemFound)
         return;
-    playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, urls);
+    playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, std::move(urls));
     playItem(nowPlayingList, nowPlayingItem);
 }

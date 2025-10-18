@@ -56,9 +56,9 @@ void PlaylistWindow::clearPlaylist(QUuid what)
     updatePlaylistHasItems();
 }
 
-PlaylistItem PlaylistWindow::addToPlaylist(const QUuid &playlist, const QList<QUrl> &what)
+PlaylistItem PlaylistWindow::addToPlaylist(const QUuid &playlist, QList<QUrl> what)
 {
-    QList<QUrl> filtered = Helpers::filterUrls(what);
+    QList<QUrl> filtered = Helpers::filterUrls(std::move(what));
     PlaylistItem firstPlaylistItem, currentItem;
     bool firstSet = false;
     auto qdp = widgets.contains(playlist) ? widgets.value(playlist) : widgets[QUuid()];
@@ -75,7 +75,7 @@ PlaylistItem PlaylistWindow::addToPlaylist(const QUuid &playlist, const QList<QU
 
 PlaylistItem PlaylistWindow::addToCurrentPlaylist(QList<QUrl> what)
 {
-    return addToPlaylist(currentPlaylist, what);
+    return addToPlaylist(currentPlaylist, std::move(what));
 }
 
 PlaylistItem PlaylistWindow::urlToQuickPlaylist(QUrl what, bool appendToPlaylist)
@@ -192,13 +192,13 @@ void PlaylistWindow::setMetadata(QUuid list, QUuid item, const QVariantMap &map)
 
 }
 
-void PlaylistWindow::replaceItem(QUuid list, QUuid item, const QList<QUrl> &urls)
+void PlaylistWindow::replaceItem(QUuid list, QUuid item, QList<QUrl> urls)
 {
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(list);
     if (!pl)
         return;
 
-    QList<QUrl> filtered = Helpers::filterUrls(urls);
+    QList<QUrl> filtered = Helpers::filterUrls(std::move(urls));
     if (filtered.isEmpty()) {
         // FIXME: remove the item that cannot played
         return;
