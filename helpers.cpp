@@ -572,18 +572,14 @@ QList<QUrl> Helpers::filterUrls(QList<QUrl> urls) {
         }
 
         QFileInfo info(u.toLocalFile());
-        QString canonicalPath = canonicalOrAbsolutePath(info);
-
-        if (info.isSymLink()) {
-            QFileInfo linkInfo(info.symLinkTarget());
-            if (canonicalOrAbsolutePath(linkInfo) == canonicalPath) {
-                Logger::logs("helpers", {"skipping circular link:", linkInfo.filePath()});
-                continue;
-            }
+        if (info.isSymLink() && info.absoluteFilePath() == info.canonicalFilePath()) {
+            Logger::logs("helpers", {"skipping circular link:", info.filePath()});
+            continue;
         }
 
+        QString canonicalPath = canonicalOrAbsolutePath(info);
         if (visitedPaths.contains(canonicalPath)) {
-            Logger::logs("helpers", {"skipping likely circular link:", info.filePath()});
+            Logger::logs("helpers", {"skipping visited path:", info.filePath()});
             continue;
         }
 
