@@ -4364,11 +4364,11 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Remember Quick Playlist content</source>
-        <translation type="unfinished"></translation>
+        <translation>Se souvenir du contenu de la liste rapide</translation>
     </message>
     <message>
         <source>Append opened files to Quick Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter les fichiers ouverts à la liste rapide</translation>
     </message>
 </context>
 <context>
