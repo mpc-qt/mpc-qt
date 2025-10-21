@@ -25,15 +25,15 @@
     </message>
     <message>
         <source>Volume Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Aumentar volume</translation>
     </message>
     <message>
         <source>Volume Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Reduzir volume</translation>
     </message>
     <message>
         <source>Volume Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Mutar volume</translation>
     </message>
     <message>
         <source>After Playback: Exit</source>
@@ -93,19 +93,19 @@
     </message>
     <message>
         <source>Decrease Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Reduzir proporção da tela</translation>
     </message>
     <message>
         <source>Increase Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Aumentar proporção da tela</translation>
     </message>
     <message>
         <source>Reset Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Resetar proporção da tela</translation>
     </message>
     <message>
         <source>Disable Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Desabilitar proporção da tela</translation>
     </message>
     <message>
         <source>Decrease Pan and Scan</source>
@@ -125,15 +125,15 @@
     </message>
     <message>
         <source>Decrease Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Reduzir zoom</translation>
     </message>
     <message>
         <source>Increase Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Aumentar zoom</translation>
     </message>
     <message>
         <source>Reset Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Resetar zoom</translation>
     </message>
 </context>
 <context>
@@ -155,7 +155,7 @@
     <name>FavoritesWindow</name>
     <message>
         <source>Organize Favorites</source>
-        <translation>Organizar Favoritos</translation>
+        <translation>Organizar favoritos</translation>
     </message>
     <message>
         <source>&amp;Update</source>
@@ -354,43 +354,43 @@
     </message>
     <message>
         <source>Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitrate</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="unfinished"></translation>
+        <translation>Parado</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Arquivo</translation>
     </message>
     <message>
         <source>O&amp;pen Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>A&amp;brir disco</translation>
     </message>
     <message>
         <source>Recent &amp;Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Arquivos &amp;recentes</translation>
     </message>
     <message>
         <source>Subtitle Data&amp;base</source>
-        <translation type="unfinished"></translation>
+        <translation>B&amp;anco de Legendas</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>E&amp;xibir</translation>
     </message>
     <message>
         <source>&amp;Presets</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Predefinições</translation>
     </message>
     <message>
         <source>&amp;Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zoom</translation>
     </message>
     <message>
         <source>On &amp;Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Janela no &amp;topo</translation>
     </message>
     <message>
         <source>OS&amp;D</source>
@@ -398,15 +398,15 @@
     </message>
     <message>
         <source>P&amp;lay</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Reprodução</translation>
     </message>
     <message>
         <source>&amp;Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Áudio</translation>
     </message>
     <message>
         <source>Su&amp;btitles</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Legendas</translation>
     </message>
     <message>
         <source>&amp;Video Stream</source>
@@ -414,7 +414,7 @@
     </message>
     <message>
         <source>V&amp;olume</source>
-        <translation type="unfinished"></translation>
+        <translation>V&amp;olume</translation>
     </message>
     <message>
         <source>Af&amp;ter Playback</source>
@@ -426,7 +426,7 @@
     </message>
     <message>
         <source>&amp;Navigate</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Navegar</translation>
     </message>
     <message>
         <source>&amp;Chapters</source>
@@ -438,7 +438,7 @@
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>A&amp;juda</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
@@ -822,7 +822,7 @@
     </message>
     <message>
         <source>&amp;Previous</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Anterior</translation>
     </message>
     <message>
         <source>&amp;Next</source>
@@ -874,7 +874,7 @@
     </message>
     <message>
         <source>&amp;Organize Favorites...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Organizar favoritos...</translation>
     </message>
     <message>
         <source>&amp;Home Page</source>
@@ -882,7 +882,7 @@
     </message>
     <message>
         <source>&amp;About This Program...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sobre esse app...</translation>
     </message>
     <message>
         <source>Open &amp;Network Stream...</source>
@@ -1066,7 +1066,7 @@
     </message>
     <message>
         <source>About &amp;Qt...</source>
-        <translation type="unfinished"></translation>
+        <translation>Sobre o &amp;Qt...</translation>
     </message>
     <message>
         <source>Save Pl&amp;ain Image...</source>
@@ -1178,11 +1178,11 @@
     </message>
     <message>
         <source>No files favorited</source>
-        <translation type="unfinished"></translation>
+        <translation>Sem arquivos favoritos</translation>
     </message>
     <message>
         <source>No streams favorited</source>
-        <translation type="unfinished"></translation>
+        <translation>Sem streams favoritos</translation>
     </message>
     <message>
         <source> [Freestanding]</source>
@@ -1290,7 +1290,7 @@
     </message>
     <message>
         <source>&amp;Previous File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Arquivo anterior</translation>
     </message>
     <message>
         <source>&amp;Next File</source>
@@ -1310,7 +1310,7 @@
     </message>
     <message>
         <source>&amp;Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Adicionar aos favoritos</translation>
     </message>
     <message>
         <source>&amp;Decrease Delay</source>
@@ -1394,7 +1394,7 @@
     </message>
     <message>
         <source>&amp;Previous Audio Track</source>
-        <translation type="unfinished"></translation>
+        <translation>Faixa de áudio &amp;anterior</translation>
     </message>
     <message>
         <source>&amp;Next Audio Track</source>
@@ -1462,7 +1462,7 @@
     </message>
     <message>
         <source>&amp;Previous Subtitles track</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Faixa de legenda anterior</translation>
     </message>
     <message>
         <source>&amp;Next Subtitles track</source>
