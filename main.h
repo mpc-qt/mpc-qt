@@ -69,6 +69,7 @@ private:
 
 private slots:
     void self_windowsRestored();
+    void loadPlaylistsBackup();
     void mainwindow_instanceShouldQuit();
     void mainwindow_fullscreenHideControls(bool hide);
     void mainwindow_repeatAfter();
@@ -147,6 +148,7 @@ private:
 
     static bool settingsDisableWindowManagement;
     bool firstFile = true;
+    bool playlistsBackupLoaded = false;
     bool inhibitScreensaver = false;
     bool manipulateScreensaver = false;
     bool rememberHistory = true;
