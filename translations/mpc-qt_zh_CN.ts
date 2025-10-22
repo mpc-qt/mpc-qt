@@ -25,115 +25,115 @@
     </message>
     <message>
         <source>Volume Up</source>
-        <translation type="unfinished"></translation>
+        <translation>增加音量</translation>
     </message>
     <message>
         <source>Volume Down</source>
-        <translation type="unfinished"></translation>
+        <translation>减少音量</translation>
     </message>
     <message>
         <source>Volume Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>静音</translation>
     </message>
     <message>
         <source>After Playback: Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>播放结束后：退出</translation>
     </message>
     <message>
         <source>After Playback: Stand by</source>
-        <translation type="unfinished"></translation>
+        <translation>播放结束后：待机</translation>
     </message>
     <message>
         <source>After Playback: Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>播放结束后：休眠</translation>
     </message>
     <message>
         <source>After Playback: Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>播放结束后：关机</translation>
     </message>
     <message>
         <source>After Playback: Log Off</source>
-        <translation type="unfinished"></translation>
+        <translation>播放结束后：注销</translation>
     </message>
     <message>
         <source>After Playback: Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>播放结束后：锁定</translation>
     </message>
     <message>
         <source>After Playback: Play next file</source>
-        <translation type="unfinished"></translation>
+        <translation>播放结束后：播放下一个</translation>
     </message>
     <message>
         <source>After Playback: Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>播放结束后：等待</translation>
     </message>
     <message>
         <source>On Top: Default</source>
-        <translation type="unfinished"></translation>
+        <translation>置顶：默认</translation>
     </message>
     <message>
         <source>On Top: Always</source>
-        <translation type="unfinished"></translation>
+        <translation>置顶：永远</translation>
     </message>
     <message>
         <source>On Top: While Playing</source>
-        <translation type="unfinished"></translation>
+        <translation>置顶：播放置顶</translation>
     </message>
     <message>
         <source>On Top: While Playing Video</source>
-        <translation type="unfinished"></translation>
+        <translation>置顶：在播放时置顶</translation>
     </message>
     <message>
         <source>Extra Play Times: Increment</source>
-        <translation type="unfinished"></translation>
+        <translation>额外播放次数：增加</translation>
     </message>
     <message>
         <source>Extra Play Times: Decrement</source>
-        <translation type="unfinished"></translation>
+        <translation>额外播放次数：减少</translation>
     </message>
     <message>
         <source>Decrease Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>减少长宽比</translation>
     </message>
     <message>
         <source>Increase Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>增加长宽比</translation>
     </message>
     <message>
         <source>Reset Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>重置长宽比</translation>
     </message>
     <message>
         <source>Disable Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>禁用长宽比</translation>
     </message>
     <message>
         <source>Decrease Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>减少平移和扫描</translation>
     </message>
     <message>
         <source>Increase Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>增加平移和扫描</translation>
     </message>
     <message>
         <source>Minimum Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>最小范围内平移和扫描</translation>
     </message>
     <message>
         <source>Maximum Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>最大范围内平移和扫描</translation>
     </message>
     <message>
         <source>Decrease Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>减小缩放</translation>
     </message>
     <message>
         <source>Increase Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>放大缩放</translation>
     </message>
     <message>
         <source>Reset Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>重置缩放</translation>
     </message>
 </context>
 <context>
@@ -248,7 +248,7 @@
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished">重置顺序</translation>
+        <translation>重置顺序</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -1018,7 +1018,7 @@
     </message>
     <message>
         <source>&amp;Quick Queue Toggle</source>
-        <translation type="unfinished"></translation>
+        <translation>快速切换队列(&amp;Q)</translation>
     </message>
     <message>
         <source>Q</source>
@@ -1078,7 +1078,7 @@
     </message>
     <message>
         <source>Queue &amp;Visible</source>
-        <translation type="unfinished"></translation>
+        <translation>队列状态(&amp;V)</translation>
     </message>
     <message>
         <source>Ctrl+Shift+Q</source>
@@ -1134,7 +1134,7 @@
     </message>
     <message>
         <source>Paste and Q&amp;ueue</source>
-        <translation type="unfinished"></translation>
+        <translation>粘贴与队列(&amp;U)</translation>
     </message>
     <message>
         <source>Ctrl+Alt+V</source>
@@ -1162,7 +1162,7 @@
     </message>
     <message>
         <source>Export Encode...</source>
-        <translation type="unfinished"></translation>
+        <translation>导出编码...</translation>
     </message>
     <message>
         <source>F12</source>
@@ -1170,7 +1170,7 @@
     </message>
     <message>
         <source>S&amp;how Quick Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>显示快速队列(&amp;H)</translation>
     </message>
     <message>
         <source>Ctrl+`</source>
@@ -1478,131 +1478,131 @@
     </message>
     <message>
         <source>&amp;Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>平移和扫描(&amp;P)</translation>
     </message>
     <message>
         <source>Music Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>音乐模式</translation>
     </message>
     <message>
         <source>M</source>
-        <translation type="unfinished"></translation>
+        <translation>M</translation>
     </message>
     <message>
         <source>&amp;Previous Audio Track</source>
-        <translation type="unfinished"></translation>
+        <translation>上一条音轨(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;Next Audio Track</source>
-        <translation type="unfinished"></translation>
+        <translation>下一条音轨(&amp;N)</translation>
     </message>
     <message>
         <source>&amp;50%</source>
-        <translation type="unfinished"></translation>
+        <translation>50%(&amp;5)</translation>
     </message>
     <message>
         <source>&amp;100%</source>
-        <translation type="unfinished"></translation>
+        <translation>100%(&amp;1)</translation>
     </message>
     <message>
         <source>&amp;200%</source>
-        <translation type="unfinished"></translation>
+        <translation>200%(&amp;2)</translation>
     </message>
     <message>
         <source>25%</source>
-        <translation type="unfinished"></translation>
+        <translation>25%</translation>
     </message>
     <message>
         <source>&amp;75%</source>
-        <translation type="unfinished"></translation>
+        <translation>75%(&amp;7)</translation>
     </message>
     <message>
         <source>15&amp;0%</source>
-        <translation type="unfinished"></translation>
+        <translation>150%(&amp;0)</translation>
     </message>
     <message>
         <source>&amp;400%</source>
-        <translation type="unfinished"></translation>
+        <translation>400(&amp;4)</translation>
     </message>
     <message>
         <source>&amp;300%</source>
-        <translation type="unfinished"></translation>
+        <translation>300%(&amp;3)</translation>
     </message>
     <message>
         <source>vo: %1, decoder: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>视频输出：%1，解码器：%2</translation>
     </message>
     <message>
         <source>v: %1 kb/s, a: %2 kb/s</source>
-        <translation type="unfinished"></translation>
+        <translation>视频传输比特率： %1 kb/s，音频传输比特率： %2 kb/s</translation>
     </message>
     <message>
         <source>v: 0 kb/s, a: 0kb/s</source>
-        <translation type="unfinished"></translation>
+        <translation>视频比特率：0 kb/s，音频比特率：0kb/s</translation>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished"></translation>
+        <translation>（未知）</translation>
     </message>
     <message>
         <source>Running under %1</source>
-        <translation type="unfinished"></translation>
+        <translation>在 1% 中运行</translation>
     </message>
     <message>
         <source>XWayland or X11</source>
-        <translation type="unfinished"></translation>
+        <translation>XWayland 或 X11</translation>
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>输入缓存统计信息(&amp;I)</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitles track</source>
-        <translation type="unfinished"></translation>
+        <translation>上一条字幕轨道(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;Next Subtitles track</source>
-        <translation type="unfinished"></translation>
+        <translation>下一条字幕轨道(&amp;N)</translation>
     </message>
     <message>
         <source>&amp;Filters</source>
-        <translation type="unfinished"></translation>
+        <translation>过滤器(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;Deinterlace</source>
-        <translation type="unfinished"></translation>
+        <translation>去交错(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Extra Stereo</source>
-        <translation type="unfinished"></translation>
+        <translation>超立体声(&amp;E)</translation>
     </message>
     <message>
         <source>&amp;Compressor</source>
-        <translation type="unfinished"></translation>
+        <translation>压缩(&amp;C)</translation>
     </message>
     <message>
         <source>Move File to Recycle Bin</source>
-        <translation type="unfinished"></translation>
+        <translation>移动文件到回收站</translation>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation type="unfinished">屏幕截图</translation>
+        <translation>屏幕截图</translation>
     </message>
     <message>
         <source>&amp;Crossfeed (for headphones)</source>
-        <translation type="unfinished"></translation>
+        <translation>交叉馈送（适用于耳机）(&amp;C)</translation>
     </message>
     <message>
         <source>More Files</source>
-        <translation type="unfinished"></translation>
+        <translation>更多文件</translation>
     </message>
     <message>
         <source>&amp;Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>减低(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>增加(&amp;I)</translation>
     </message>
     <message>
         <source>&amp;Reset</source>
@@ -2573,7 +2573,7 @@ media file played</source>
     </message>
     <message>
         <source>Center window when zooming</source>
-        <translation type="unfinished"></translation>
+        <translation>缩放时居中显示窗口</translation>
     </message>
     <message>
         <source>Auto zoom</source>
@@ -2581,23 +2581,23 @@ media file played</source>
     </message>
     <message>
         <source>Autofit</source>
-        <translation type="unfinished"></translation>
+        <translation>自动调整窗口</translation>
     </message>
     <message>
         <source>Autofit (Larger Only)</source>
-        <translation type="unfinished"></translation>
+        <translation>自动调整（仅限放大）</translation>
     </message>
     <message>
         <source>Autofit (Smaller Only)</source>
-        <translation type="unfinished"></translation>
+        <translation>自动调整（仅限缩小）</translation>
     </message>
     <message>
         <source>Auto fit factor</source>
-        <translation type="unfinished"></translation>
+        <translation>自动倍数调整</translation>
     </message>
     <message>
         <source>Autofitting in tiling window managers requires that the window be in floating mode.</source>
-        <translation type="unfinished"></translation>
+        <translation>在平铺式窗口管理器中，自动调整功能需要窗口处于浮动模式。</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -2613,7 +2613,7 @@ media file played</source>
     </message>
     <message>
         <source>Default track preference</source>
-        <translation type="unfinished"></translation>
+        <translation>默认音轨设定</translation>
     </message>
     <message>
         <source>Mouse hiding</source>
@@ -2637,7 +2637,7 @@ media file played</source>
     </message>
     <message>
         <source>Framebuffer</source>
-        <translation type="unfinished"></translation>
+        <translation>帧缓冲区</translation>
     </message>
     <message>
         <source>8 bits</source>
@@ -2665,7 +2665,7 @@ media file played</source>
     </message>
     <message>
         <source>Alpha channel</source>
-        <translation type="unfinished"></translation>
+        <translation>透明通道</translation>
     </message>
     <message>
         <source>Alpha</source>
@@ -2673,11 +2673,11 @@ media file played</source>
     </message>
     <message>
         <source>Blend on black</source>
-        <translation type="unfinished"></translation>
+        <translation>黑色混合</translation>
     </message>
     <message>
         <source>Use</source>
-        <translation type="unfinished"></translation>
+        <translation>使用</translation>
     </message>
     <message>
         <source>Ignore</source>
@@ -2697,7 +2697,7 @@ media file played</source>
     </message>
     <message>
         <source>Plain</source>
-        <translation type="unfinished"></translation>
+        <translation>原色</translation>
     </message>
     <message>
         <source>Low</source>
@@ -2713,7 +2713,7 @@ media file played</source>
     </message>
     <message>
         <source>Placebo</source>
-        <translation type="unfinished"></translation>
+        <translation>低效模式</translation>
     </message>
     <message>
         <source>Load</source>
@@ -2737,15 +2737,15 @@ media file played</source>
     </message>
     <message>
         <source>Fruit</source>
-        <translation type="unfinished"></translation>
+        <translation>扩散抖动</translation>
     </message>
     <message>
         <source>Ordered</source>
-        <translation type="unfinished"></translation>
+        <translation>有序抖动</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>禁用</translation>
     </message>
     <message>
         <source>Size</source>
@@ -2757,11 +2757,11 @@ media file played</source>
     </message>
     <message>
         <source>Temporal dithering</source>
-        <translation type="unfinished"></translation>
+        <translation>时间抖动</translation>
     </message>
     <message>
         <source>Period</source>
-        <translation type="unfinished"></translation>
+        <translation>周期</translation>
     </message>
     <message>
         <source>This can lead to flicker on LCD displays, since these  have a high reaction time.</source>
@@ -2773,27 +2773,27 @@ media file played</source>
     </message>
     <message>
         <source>Correct downscaling</source>
-        <translation type="unfinished"></translation>
+        <translation>周期校正降采样</translation>
     </message>
     <message>
         <source>Temporal interpolation</source>
-        <translation type="unfinished"></translation>
+        <translation>时间插值</translation>
     </message>
     <message>
         <source>Blend subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>混合字幕</translation>
     </message>
     <message>
         <source>Sigmoidized upscaling</source>
-        <translation type="unfinished"></translation>
+        <translation>平滑自适应缩放</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>居中</translation>
     </message>
     <message>
         <source>Slope</source>
-        <translation type="unfinished"></translation>
+        <translation>倾斜度</translation>
     </message>
     <message>
         <source>Scale</source>
@@ -2801,7 +2801,7 @@ media file played</source>
     </message>
     <message>
         <source>Scaler</source>
-        <translation type="unfinished"></translation>
+        <translation>缩放预设</translation>
     </message>
     <message>
         <source>2</source>
@@ -2809,11 +2809,11 @@ media file played</source>
     </message>
     <message>
         <source>Anti-ring</source>
-        <translation type="unfinished"></translation>
+        <translation>防边缘伪影‌</translation>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation>模糊</translation>
     </message>
     <message>
         <source>Window</source>
@@ -2821,7 +2821,7 @@ media file played</source>
     </message>
     <message>
         <source>Box</source>
-        <translation type="unfinished"></translation>
+        <translation>盒式渲染</translation>
     </message>
     <message>
         <source>Triangle</source>
@@ -2829,7 +2829,7 @@ media file played</source>
     </message>
     <message>
         <source>Bartlett</source>
-        <translation type="unfinished"></translation>
+        <translation>平滑处理窗口</translation>
     </message>
     <message>
         <source>Hanning</source>
@@ -2841,19 +2841,19 @@ media file played</source>
     </message>
     <message>
         <source>Quadric</source>
-        <translation type="unfinished"></translation>
+        <translation>二次处理</translation>
     </message>
     <message>
         <source>Welch</source>
-        <translation type="unfinished"></translation>
+        <translation>韦尔奇式优化</translation>
     </message>
     <message>
         <source>Kaiser</source>
-        <translation type="unfinished"></translation>
+        <translation>动态优化</translation>
     </message>
     <message>
         <source>Blackman</source>
-        <translation type="unfinished"></translation>
+        <translation>Blackman平滑</translation>
     </message>
     <message>
         <source>Gaussian</source>
@@ -3517,23 +3517,23 @@ media file played</source>
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>播放进度</translation>
     </message>
     <message>
         <source>Use margins</source>
-        <translation type="unfinished"></translation>
+        <translation>使用边距</translation>
     </message>
     <message>
         <source>Force grayscale</source>
-        <translation type="unfinished"></translation>
+        <translation>强制灰度显示</translation>
     </message>
     <message>
         <source>Fix timing</source>
-        <translation type="unfinished"></translation>
+        <translation>调整时间</translation>
     </message>
     <message>
         <source>Clear on seek</source>
-        <translation type="unfinished"></translation>
+        <translation>清除定位</translation>
     </message>
     <message>
         <source>ASS override</source>
@@ -3546,7 +3546,7 @@ media file played</source>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation type="unfinished"></translation>
+        <translation>确定且仅显示缩放标识</translation>
     </message>
     <message>
         <source>Force</source>
@@ -3574,19 +3574,19 @@ media file played</source>
     </message>
     <message>
         <source>Border size</source>
-        <translation type="unfinished"></translation>
+        <translation>边框尺寸</translation>
     </message>
     <message>
         <source>Shadow offset</source>
-        <translation type="unfinished"></translation>
+        <translation>阴影偏移</translation>
     </message>
     <message>
         <source>Screen Alignment &amp;&amp; Margins</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕对齐与边距(&amp;M)</translation>
     </message>
     <message>
         <source>Position subs relative to the video frame</source>
-        <translation type="unfinished"></translation>
+        <translation>将字幕定位到相对于视频帧的位置</translation>
     </message>
     <message>
         <source>Colors</source>
@@ -3594,15 +3594,15 @@ media file played</source>
     </message>
     <message>
         <source>Border color</source>
-        <translation type="unfinished"></translation>
+        <translation>边框颜色</translation>
     </message>
     <message>
         <source>Shadow color</source>
-        <translation type="unfinished"></translation>
+        <translation>阴影颜色</translation>
     </message>
     <message>
         <source>Prefer forced and/or default subtitle tracks</source>
-        <translation type="unfinished"></translation>
+        <translation>优先使用强制指定字幕或默认字幕轨道</translation>
     </message>
     <message>
         <source>Automatically load external subtitles</source>
@@ -3634,7 +3634,7 @@ media file played</source>
     </message>
     <message>
         <source>Base url of the online subtitle database:</source>
-        <translation type="unfinished"></translation>
+        <translation>在线字幕数据库的基础网址：</translation>
     </message>
     <message>
         <source>https://</source>
@@ -3662,7 +3662,7 @@ media file played</source>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Unchecked directories will place output files in the source directory. Streams do not have a source directory and will bring up a dialog when a field is left blank; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; will always ask where to place files. Directories will be created if necessary; this may not work across all filesystems.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;未勾选的目录将输出文件保存在源目录中。流不具备源目录，当字段留空时会弹出对话框；按下&lt;span style=&quot;font-weight:600;&quot;&gt;Alt+I&lt;/span&gt;将始终询问文件存放位置。必要时会自动创建目录；此功能可能无法在所有文件系统中正常运作。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Filename template</source>
@@ -3674,7 +3674,7 @@ media file played</source>
     </message>
     <message>
         <source>Save with high bit depth</source>
-        <translation type="unfinished"></translation>
+        <translation>以高位深度保存</translation>
     </message>
     <message>
         <source>Quality</source>
@@ -3682,11 +3682,11 @@ media file played</source>
     </message>
     <message>
         <source>Smooth</source>
-        <translation type="unfinished"></translation>
+        <translation>平滑</translation>
     </message>
     <message>
         <source>Source Chroma</source>
-        <translation type="unfinished"></translation>
+        <translation>源色度</translation>
     </message>
     <message>
         <source>Compression</source>
@@ -3694,7 +3694,7 @@ media file played</source>
     </message>
     <message>
         <source>Filter</source>
-        <translation type="unfinished"></translation>
+        <translation>滤镜</translation>
     </message>
     <message>
         <source>Colorspace</source>
@@ -3702,7 +3702,7 @@ media file played</source>
     </message>
     <message>
         <source>Include tag</source>
-        <translation type="unfinished"></translation>
+        <translation>包含标签</translation>
     </message>
     <message>
         <source>Don&apos;t encode the video</source>
@@ -3710,7 +3710,7 @@ media file played</source>
     </message>
     <message>
         <source>Hardsub</source>
-        <translation type="unfinished"></translation>
+        <translation>硬字幕</translation>
     </message>
     <message>
         <source>Filesi&amp;ze</source>
@@ -3754,19 +3754,19 @@ media file played</source>
     </message>
     <message>
         <source>Drop frames before the seek target in the decoder</source>
-        <translation type="unfinished"></translation>
+        <translation>跳转时丢弃目标前已解码帧‌</translation>
     </message>
     <message>
         <source>Show chapter marks in seek bar</source>
-        <translation type="unfinished"></translation>
+        <translation>在进度条中显示章节标记</translation>
     </message>
     <message>
         <source>Above seekbar</source>
-        <translation type="unfinished"></translation>
+        <translation>在进度条上方</translation>
     </message>
     <message>
         <source>Below seekbar</source>
-        <translation type="unfinished"></translation>
+        <translation>在进度条下方</translation>
     </message>
     <message>
         <source>Prefer Wayland over XWayland (restart required)</source>
@@ -3778,15 +3778,15 @@ media file played</source>
     </message>
     <message>
         <source>Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>调试</translation>
     </message>
     <message>
         <source>Client</source>
-        <translation type="unfinished"></translation>
+        <translation>客户端</translation>
     </message>
     <message>
         <source>Event messages</source>
-        <translation type="unfinished"></translation>
+        <translation>事件消息</translation>
     </message>
     <message>
         <source>mpv</source>
@@ -3794,7 +3794,7 @@ media file played</source>
     </message>
     <message>
         <source>No (complete silence)</source>
-        <translation type="unfinished"></translation>
+        <translation>无响应（完全静默）</translation>
     </message>
     <message>
         <source>Fatal</source>
@@ -3822,7 +3822,7 @@ media file played</source>
     </message>
     <message>
         <source>Trace (very noisy)</source>
-        <translation type="unfinished"></translation>
+        <translation>追踪（干扰严重）</translation>
     </message>
     <message>
         <source>Log file</source>
@@ -3830,7 +3830,7 @@ media file played</source>
     </message>
     <message>
         <source>Create log file (contents will be overwritten)</source>
-        <translation type="unfinished"></translation>
+        <translation>创建日志文件（覆盖内容）</translation>
     </message>
     <message>
         <source>~/mpc-qt-log.txt</source>
@@ -3842,51 +3842,51 @@ media file played</source>
     </message>
     <message>
         <source>Window history</source>
-        <translation type="unfinished"></translation>
+        <translation>窗口历史记录</translation>
     </message>
     <message>
         <source>Trim old lines</source>
-        <translation type="unfinished"></translation>
+        <translation>清理旧日志行</translation>
     </message>
     <message>
         <source> lines</source>
-        <translation type="unfinished"></translation>
+        <translation> · 行</translation>
     </message>
     <message>
         <source>Keep </source>
-        <translation type="unfinished"></translation>
+        <translation>保持 </translation>
     </message>
     <message>
         <source>Color controls</source>
-        <translation type="unfinished"></translation>
+        <translation>颜色控制</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>亮度</translation>
     </message>
     <message>
         <source>Hue</source>
-        <translation type="unfinished"></translation>
+        <translation>色调</translation>
     </message>
     <message>
         <source>Saturation</source>
-        <translation type="unfinished"></translation>
+        <translation>饱和度</translation>
     </message>
     <message>
         <source>Settings management</source>
-        <translation type="unfinished"></translation>
+        <translation>设置项管理</translation>
     </message>
     <message>
         <source>Export keys</source>
-        <translation type="unfinished"></translation>
+        <translation>导出密钥</translation>
     </message>
     <message>
         <source>Open Logo Image</source>
-        <translation type="unfinished"></translation>
+        <translation>打开标志图片</translation>
     </message>
     <message>
         <source>Audio open settings</source>
-        <translation type="unfinished"></translation>
+        <translation>音频打开设定</translation>
     </message>
     <message>
         <source>Paths</source>
@@ -3894,7 +3894,7 @@ media file played</source>
     </message>
     <message>
         <source>Dela&amp;yed</source>
-        <translation type="unfinished"></translation>
+        <translation>延迟(&amp;Y)</translation>
     </message>
     <message>
         <source>Unlimited (consumes &amp;memory)</source>
@@ -3906,39 +3906,39 @@ media file played</source>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation type="unfinished"></translation>
+        <translation>将音量限制为100%，如MPC-HC</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
-        <translation type="unfinished"></translation>
+        <translation>缩短播放时间指示器，如MPC-HC</translation>
     </message>
     <message>
         <source>HDR Compute Peak</source>
-        <translation type="unfinished"></translation>
+        <translation>HDR计算峰值</translation>
     </message>
     <message>
         <source>Target Peak</source>
-        <translation type="unfinished"></translation>
+        <translation>目标峰值</translation>
     </message>
     <message>
         <source>Based on TRC</source>
-        <translation type="unfinished"></translation>
+        <translation>基于TRC</translation>
     </message>
     <message>
         <source>Downscale in linear light</source>
-        <translation type="unfinished"></translation>
+        <translation>在线性光中缩放</translation>
     </message>
     <message>
         <source>Upscale in linear light</source>
-        <translation type="unfinished"></translation>
+        <translation>在线性光中提升</translation>
     </message>
     <message>
         <source>Use additive speed step</source>
-        <translation type="unfinished"></translation>
+        <translation>启用渐进式加速</translation>
     </message>
     <message>
         <source>Prefer external subtitles over embedded subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>优先使用外部字幕而非嵌入式字幕</translation>
     </message>
     <message>
         <source>Ignore embedded subtitles</source>
@@ -3954,11 +3954,11 @@ media file played</source>
     </message>
     <message>
         <source>webroot</source>
-        <translation type="unfinished"></translation>
+        <translation>网络根目录</translation>
     </message>
     <message>
         <source>Default page</source>
-        <translation type="unfinished"></translation>
+        <translation>默认页面</translation>
     </message>
     <message>
         <source>index.html</source>
@@ -3970,7 +3970,7 @@ media file played</source>
     </message>
     <message>
         <source>&lt;a href=&quot;#&quot;&gt;Launch in web browser...&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;a href=&quot;#&quot;&gt;启动网络浏览器...&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Local files</source>
@@ -3978,7 +3978,7 @@ media file played</source>
     </message>
     <message>
         <source>Web root</source>
-        <translation type="unfinished"></translation>
+        <translation>网络根目录</translation>
     </message>
     <message>
         <source>Security</source>
@@ -3990,7 +3990,7 @@ media file played</source>
     </message>
     <message>
         <source>Serve pages from disk</source>
-        <translation type="unfinished"></translation>
+        <translation>从磁盘提供页面</translation>
     </message>
     <message>
         <source>Stylesheet</source>
@@ -4026,7 +4026,7 @@ media file played</source>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>着色器包含可添加至视频渲染过程的特效。社区制作的着色器列表可查阅&lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;MPV维基&lt;/span&gt;&lt;/a&gt;。</translation>
     </message>
     <message>
         <source>Pipewire</source>
@@ -4042,7 +4042,7 @@ media file played</source>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"></translation>
+        <translation>中等</translation>
     </message>
     <message>
         <source>BT.470M</source>
@@ -4090,35 +4090,35 @@ media file played</source>
     </message>
     <message>
         <source>Target Gamut</source>
-        <translation type="unfinished"></translation>
+        <translation>目标色域</translation>
     </message>
     <message>
         <source>Gamut mapping</source>
-        <translation type="unfinished"></translation>
+        <translation>色域映射</translation>
     </message>
     <message>
         <source>Perceptual</source>
-        <translation type="unfinished"></translation>
+        <translation>感知性</translation>
     </message>
     <message>
         <source>Relative</source>
-        <translation type="unfinished"></translation>
+        <translation>相对</translation>
     </message>
     <message>
         <source>Absolute</source>
-        <translation type="unfinished"></translation>
+        <translation>绝对</translation>
     </message>
     <message>
         <source>Desaturate</source>
-        <translation type="unfinished"></translation>
+        <translation>去饱和</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>变暗</translation>
     </message>
     <message>
         <source>Warn</source>
-        <translation type="unfinished"></translation>
+        <translation>警告</translation>
     </message>
     <message>
         <source>Send mouse events to mpv</source>
@@ -4130,11 +4130,11 @@ media file played</source>
     </message>
     <message>
         <source>Remember file position</source>
-        <translation type="unfinished"></translation>
+        <translation>记住文件位置</translation>
     </message>
     <message>
         <source>Use next/previous file in folder when there is only one item in the playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>当播放列表中仅有一个项目时，使用文件夹中的下一个/上一个文件</translation>
     </message>
     <message>
         <source>Play next file</source>
@@ -4142,7 +4142,7 @@ media file played</source>
     </message>
     <message>
         <source>Delay step</source>
-        <translation type="unfinished"></translation>
+        <translation>延迟加速</translation>
     </message>
     <message>
         <source>Autodetect - best of VAAPI, DXVA, D3D11VA, etc.</source>
@@ -4150,7 +4150,7 @@ media file played</source>
     </message>
     <message>
         <source>Linux - works with Intel and AMD GPUs through Mesa, and with nVidia through a translation layer; may only be correct in BT.601 and BT.709</source>
-        <translation type="unfinished"></translation>
+        <translation>Linux - 通过Mesa支持英特尔和AMD显卡，通过转换层支持nVidia显卡；仅在BT.601和BT.709标准下可能正确显示</translation>
     </message>
     <message>
         <source>nVidia only (faster than CUDA)</source>
@@ -4158,19 +4158,19 @@ media file played</source>
     </message>
     <message>
         <source>Show OSD timer on seek</source>
-        <translation type="unfinished"></translation>
+        <translation>在跳转时显示OSD计时器</translation>
     </message>
     <message>
         <source>Normal step</source>
-        <translation type="unfinished"></translation>
+        <translation>正常速度</translation>
     </message>
     <message>
         <source>Large step</source>
-        <translation type="unfinished"></translation>
+        <translation>快进</translation>
     </message>
     <message>
         <source>Show time tooltip:</source>
-        <translation type="unfinished"></translation>
+        <translation>显示时间提示：</translation>
     </message>
     <message>
         <source>Change OSD font:</source>
@@ -4178,19 +4178,19 @@ media file played</source>
     </message>
     <message>
         <source>Only keep history for videos</source>
-        <translation type="unfinished"></translation>
+        <translation>仅为视频保留历史记录</translation>
     </message>
     <message>
         <source>Cinema screen</source>
-        <translation type="unfinished"></translation>
+        <translation>影院模式</translation>
     </message>
     <message>
         <source>Update interval</source>
-        <translation type="unfinished"></translation>
+        <translation>更新间隔</translation>
     </message>
     <message>
         <source>No delay (consumes cpu, use this for testing)</source>
-        <translation type="unfinished"></translation>
+        <translation>无延迟（消耗CPU，用于测试）</translation>
     </message>
     <message>
         <source> ms</source>
@@ -4202,7 +4202,7 @@ media file played</source>
     </message>
     <message>
         <source>Open ICC Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>打开ICC配置文件</translation>
     </message>
     <message>
         <source>ICC profile files (*.icc *.icm)</source>
@@ -4210,79 +4210,79 @@ media file played</source>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>支持在 Windows 系统上启用深色主题</translation>
     </message>
     <message>
         <source>Audio balance</source>
-        <translation type="unfinished"></translation>
+        <translation>音频平衡</translation>
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>搜索…</translation>
     </message>
     <message>
         <source>Show video preview</source>
-        <translation type="unfinished"></translation>
+        <translation>显示视频预览</translation>
     </message>
     <message>
         <source>100%</source>
-        <translation type="unfinished"></translation>
+        <translation>100%</translation>
     </message>
     <message>
         <source>25%</source>
-        <translation type="unfinished"></translation>
+        <translation>25%</translation>
     </message>
     <message>
         <source>50%</source>
-        <translation type="unfinished"></translation>
+        <translation>50%</translation>
     </message>
     <message>
         <source>75%</source>
-        <translation type="unfinished"></translation>
+        <translation>75%</translation>
     </message>
     <message>
         <source>150%</source>
-        <translation type="unfinished"></translation>
+        <translation>150%</translation>
     </message>
     <message>
         <source>200%</source>
-        <translation type="unfinished"></translation>
+        <translation>200%</translation>
     </message>
     <message>
         <source>300%</source>
-        <translation type="unfinished"></translation>
+        <translation>300%</translation>
     </message>
     <message>
         <source>400%</source>
-        <translation type="unfinished"></translation>
+        <translation>400%</translation>
     </message>
     <message>
         <source>Remove subtitles additions for the deaf or hard-of-hearing (SDH)</source>
-        <translation type="unfinished"></translation>
+        <translation>移除为聋哑人士或听力障碍者添加的字幕（SDH）</translation>
     </message>
     <message>
         <source>Requires restarting the application to apply changes</source>
-        <translation type="unfinished"></translation>
+        <translation>需要重新启动应用程序才能应用更改</translation>
     </message>
     <message>
         <source>yt-dlp (web videos)</source>
-        <translation type="unfinished"></translation>
+        <translation>YT-DLP（网络视频）</translation>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation type="unfinished"></translation>
+        <translation>最大视频高度：</translation>
     </message>
     <message>
         <source>Custom mpv options:</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义 MPV 设置项：</translation>
     </message>
     <message>
         <source>Seek to keyframe when hardware decoding is unavailable</source>
-        <translation type="unfinished"></translation>
+        <translation>当硬件解码不可用时尝试使用关键帧</translation>
     </message>
     <message>
         <source>Prioritize seeking speed over accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>优先追求速度而非准确性</translation>
     </message>
     <message>
         <source>Shadow</source>
@@ -4290,27 +4290,27 @@ media file played</source>
     </message>
     <message>
         <source>Enable shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>启用阴影</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>选中项</translation>
     </message>
     <message>
         <source>Preset applied</source>
-        <translation type="unfinished"></translation>
+        <translation>预设已应用</translation>
     </message>
     <message>
         <source>Position ASS subs relative to the video frame</source>
-        <translation type="unfinished"></translation>
+        <translation>在视频帧中定位 ASS 字幕的位置</translation>
     </message>
     <message>
         <source>Remember Quick Playlist content</source>
-        <translation type="unfinished"></translation>
+        <translation>记住快速播放列表内容</translation>
     </message>
     <message>
         <source>Append opened files to Quick Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>将打开的文件添加到快速播放列表</translation>
     </message>
 </context>
 <context>
