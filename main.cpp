@@ -164,7 +164,8 @@ Flow::~Flow()
             writeConfig();
             storage.writeVList(filePlaylists,
                                mainWindow->playlistWindow()->tabsToVList(rememberQuickPlaylist));
-            storage.writeVList(filePlaylistsBackup, PlaylistCollection::getBackup()->toVList());
+            if (playlistsBackupLoaded)
+                storage.writeVList(filePlaylistsBackup, PlaylistCollection::getBackup()->toVList());
         }
         delete mainWindow;
         mainWindow = nullptr;
@@ -393,13 +394,10 @@ int Flow::run()
 {
     // Load our data
     auto playlist = cliNoFiles ? QVariantList() : storage.readVList(filePlaylists);
-    auto backup = cliNoFiles ? QVariantList() : storage.readVList(filePlaylistsBackup);
     auto geometry = cliNoConfig ? QVariantMap() : storage.readVMap(fileGeometryV2);
 
     // Send data to the ui
     mainWindow->playlistWindow()->tabsFromVList(playlist);
-    PlaylistCollection::getBackup()->fromVList(backup);
-    libraryWindow->refreshLibrary();
 
     // Restore our window positions
     restoreWindows_v2(geometry);
@@ -868,6 +866,8 @@ void Flow::setupMpvObjectConnections()
 void Flow::setupFlowConnections()
 {
     // mainwindow -> this
+    connect(mainWindow, &MainWindow::showLibraryWindow,
+            this, &Flow::loadPlaylistsBackup);
     connect(mainWindow, &MainWindow::recentOpened,
             this, &Flow::mainwindow_recentOpened);
     connect(mainWindow, &MainWindow::recentClear,
@@ -948,6 +948,8 @@ void Flow::setupFlowConnections()
             this, &Flow::importPlaylist);
     connect(mainWindow->playlistWindow(), &PlaylistWindow::exportPlaylist,
             this, &Flow::exportPlaylist);
+    connect(mainWindow->playlistWindow(), &PlaylistWindow::playlistsBackupRequested,
+            this, &Flow::loadPlaylistsBackup);
 
     // manager -> this.screensaver
     connect(playbackManager, &PlaybackManager::systemShouldHibernate,
@@ -1315,6 +1317,16 @@ void Flow::restoreWindows_v2(const QVariantMap &geometryMap)
 void Flow::self_windowsRestored()
 {
     server->fakePayload(makePayload());
+}
+
+void Flow::loadPlaylistsBackup()
+{
+    if (playlistsBackupLoaded)
+        return;
+    auto backup = cliNoFiles ? QVariantList() : storage.readVList(filePlaylistsBackup);
+    PlaylistCollection::getBackup()->fromVList(backup);
+    libraryWindow->refreshLibrary();
+    playlistsBackupLoaded = true;
 }
 
 void Flow::mainwindow_instanceShouldQuit()

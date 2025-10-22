@@ -37,10 +37,11 @@ runs:
     uses: ./.github/actions/commands/check_if_file_exists
     with:
       filename: "playlists.json"
-  - name: Check that mpc-qt wrote playlists_backup.json
-    uses: ./.github/actions/commands/check_if_file_exists
-    with:
-      filename: "playlists_backup.json"
+  # The playlists backup doesn't get written anymore when not needed.
+  # - name: Check that mpc-qt wrote playlists_backup.json
+  #   uses: ./.github/actions/commands/check_if_file_exists
+  #   with:
+  #     filename: "playlists_backup.json"
   - name: Check that mpc-qt wrote recent.json
     uses: ./.github/actions/commands/check_if_file_exists
     with:

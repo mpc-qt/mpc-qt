@@ -78,6 +78,7 @@ signals:
     void playlistRepeatChanged(QUuid playlistUuid, bool repeat);
     void playlistShuffleChanged(QUuid playlistUuid, bool shuffle);
     void hideFullscreenChanged(bool checked);
+    void playlistsBackupRequested();
     void playlistMovedToBackup(QUuid backupUuid);
 
 public slots:
