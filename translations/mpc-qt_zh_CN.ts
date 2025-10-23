@@ -394,7 +394,7 @@
     </message>
     <message>
         <source>OS&amp;D</source>
-        <translation>OSD(&amp;D)</translation>
+        <translation>启用 OSD 信息(&amp;D)</translation>
     </message>
     <message>
         <source>P&amp;lay</source>
@@ -1110,7 +1110,7 @@
     </message>
     <message>
         <source>&amp;Copy Selection</source>
-        <translation>复制选中的项(&amp;C)</translation>
+        <translation>复制选中项(&amp;C)</translation>
     </message>
     <message>
         <source>Ctrl+Shift+C</source>
@@ -1222,7 +1222,7 @@
     </message>
     <message>
         <source>&amp;Cycle</source>
-        <translation>切换到下一个OSD(&amp;C)</translation>
+        <translation>切换到下一个 OSD 信息(&amp;C)</translation>
     </message>
     <message>
         <source>Ctrl+J</source>
@@ -1230,7 +1230,7 @@
     </message>
     <message>
         <source>&amp;No Messages</source>
-        <translation>不显示OSD(&amp;N)</translation>
+        <translation>不显示 OSD 信息(&amp;N)</translation>
     </message>
     <message>
         <source>&amp;Escape Fullscreen</source>
@@ -1422,7 +1422,7 @@
     </message>
     <message>
         <source>&amp;Show OSD Timer</source>
-        <translation>显示时间 OSD(&amp;S)</translation>
+        <translation>显示时间 OSD 信息(&amp;S)</translation>
     </message>
     <message>
         <source>I</source>
@@ -1474,7 +1474,7 @@
     </message>
     <message>
         <source>&amp;Aspect ratio</source>
-        <translation>长款比(&amp;A)</translation>
+        <translation>长宽比(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Pan and Scan</source>
@@ -1522,7 +1522,7 @@
     </message>
     <message>
         <source>&amp;400%</source>
-        <translation>400(&amp;4)</translation>
+        <translation>400%(&amp;4)</translation>
     </message>
     <message>
         <source>&amp;300%</source>
@@ -1566,7 +1566,7 @@
     </message>
     <message>
         <source>&amp;Filters</source>
-        <translation>过滤器(&amp;F)</translation>
+        <translation>滤镜(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;Deinterlace</source>
@@ -1849,11 +1849,11 @@
     </message>
     <message>
         <source>Subtitles: on</source>
-        <translation>字幕：开启</translation>
+        <translation>字幕： 开</translation>
     </message>
     <message>
         <source>Subtitles: off</source>
-        <translation>字幕：关闭</translation>
+        <translation>字幕： 关</translation>
     </message>
     <message>
         <source>File moved to recycle bin: %1</source>
@@ -2383,7 +2383,7 @@ media file played</source>
     </message>
     <message>
         <source>Show OSD</source>
-        <translation>显示 OSD</translation>
+        <translation>显示 OSD 信息</translation>
     </message>
     <message>
         <source>Limit window proportions on resize</source>
@@ -2411,7 +2411,7 @@ media file played</source>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
-        <translation>不要添加任何前缀(%X)</translation>
+        <translation>不要添加任何前缀(&amp;X)</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
@@ -2503,7 +2503,7 @@ media file played</source>
     </message>
     <message>
         <source>Built-in fallback</source>
-        <translation>退回内置预设</translation>
+        <translation>内置备用主题</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -2659,11 +2659,11 @@ media file played</source>
     </message>
     <message>
         <source>16 bits float</source>
-        <translation>16 bits 浮点</translation>
+        <translation>16 位深度浮点</translation>
     </message>
     <message>
         <source>32 bits float</source>
-        <translation>32 bits 浮点</translation>
+        <translation>32 位深度浮点</translation>
     </message>
     <message>
         <source>Alpha channel</source>
@@ -2835,11 +2835,11 @@ media file played</source>
     </message>
     <message>
         <source>Hanning</source>
-        <translation type="unfinished"></translation>
+        <translation>Hanning</translation>
     </message>
     <message>
         <source>Hamming</source>
-        <translation type="unfinished"></translation>
+        <translation>Hamming</translation>
     </message>
     <message>
         <source>Quadric</source>
@@ -2859,27 +2859,27 @@ media file played</source>
     </message>
     <message>
         <source>Gaussian</source>
-        <translation type="unfinished"></translation>
+        <translation>Gaussian</translation>
     </message>
     <message>
         <source>Sinc</source>
-        <translation type="unfinished"></translation>
+        <translation>Sinc</translation>
     </message>
     <message>
         <source>Jinc</source>
-        <translation type="unfinished"></translation>
+        <translation>Jinc</translation>
     </message>
     <message>
         <source>Sphinx</source>
-        <translation type="unfinished"></translation>
+        <translation>Sphinx</translation>
     </message>
     <message>
         <source>Clamp</source>
-        <translation type="unfinished"></translation>
+        <translation>范围</translation>
     </message>
     <message>
         <source>Radius</source>
-        <translation type="unfinished"></translation>
+        <translation>半径</translation>
     </message>
     <message>
         <source>Bilinear</source>
@@ -2975,11 +2975,11 @@ media file played</source>
     </message>
     <message>
         <source>Downscale</source>
-        <translation type="unfinished"></translation>
+        <translation>向下缩放</translation>
     </message>
     <message>
         <source>Unset</source>
-        <translation type="unfinished"></translation>
+        <translation>Unset</translation>
     </message>
     <message>
         <source>Color</source>
@@ -3127,23 +3127,23 @@ media file played</source>
     </message>
     <message>
         <source>Mobius</source>
-        <translation type="unfinished"></translation>
+        <translation>Mobius</translation>
     </message>
     <message>
         <source>Reinhard</source>
-        <translation type="unfinished"></translation>
+        <translation>Reinhard</translation>
     </message>
     <message>
         <source>Hable</source>
-        <translation type="unfinished"></translation>
+        <translation>Hable</translation>
     </message>
     <message>
         <source>Luma</source>
-        <translation type="unfinished"></translation>
+        <translation>Luma</translation>
     </message>
     <message>
         <source>Juncture</source>
-        <translation type="unfinished"></translation>
+        <translation>校正节点</translation>
     </message>
     <message>
         <source>Contrast</source>
@@ -3211,7 +3211,7 @@ media file played</source>
     </message>
     <message>
         <source>Pulse</source>
-        <translation>Pulse 模式</translation>
+        <translation>Pulse</translation>
     </message>
     <message>
         <source>Buffer</source>
@@ -3475,7 +3475,7 @@ media file played</source>
     </message>
     <message>
         <source>Always loop images (manual progression)</source>
-        <translation>始终循环显示图片（手动切换）</translation>
+        <translation>始终循环显示图像（手动切换）</translation>
     </message>
     <message>
         <source>Display Format</source>
@@ -3728,7 +3728,7 @@ media file played</source>
     </message>
     <message>
         <source>kBits</source>
-        <translation>千比特</translation>
+        <translation>kBits</translation>
     </message>
     <message>
         <source>crf</source>
@@ -3804,7 +3804,7 @@ media file played</source>
     </message>
     <message>
         <source>Error</source>
-        <translation>Error</translation>
+        <translation>错误</translation>
     </message>
     <message>
         <source>Warning</source>
@@ -3820,7 +3820,7 @@ media file played</source>
     </message>
     <message>
         <source>Debug</source>
-        <translation>Debug</translation>
+        <translation>调试</translation>
     </message>
     <message>
         <source>Trace (very noisy)</source>
@@ -3908,11 +3908,11 @@ media file played</source>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>将音量限制为100%，如MPC-HC</translation>
+        <translation>将音量限制为100%，如 MPC-HC</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
-        <translation>缩短播放时间指示器，如MPC-HC</translation>
+        <translation>缩短播放时间指示器，如 MPC-HC</translation>
     </message>
     <message>
         <source>HDR Compute Peak</source>
@@ -4040,7 +4040,7 @@ media file played</source>
     </message>
     <message>
         <source>Locale (Autodetect)</source>
-        <translation>Locale (自动检测)</translation>
+        <translation>系统语言 (自动检测)</translation>
     </message>
     <message>
         <source>Medium</source>
@@ -4160,7 +4160,7 @@ media file played</source>
     </message>
     <message>
         <source>Show OSD timer on seek</source>
-        <translation>在跳转时显示OSD计时器</translation>
+        <translation>在跳转时显示 OSD 计时器</translation>
     </message>
     <message>
         <source>Normal step</source>
@@ -4347,7 +4347,7 @@ media file played</source>
     </message>
     <message>
         <source>&amp;Go!</source>
-        <translation>开始(&amp;G)！</translation>
+        <translation>执行(&amp;G)！</translation>
     </message>
     <message>
         <source>Thu&amp;mbnail</source>
