@@ -182,19 +182,19 @@
     </message>
     <message>
         <source>Start a new process without saving data.</source>
-        <translation>打开一个新进程（不保存数据）</translation>
+        <translation>启动新进程而不保存数据。</translation>
     </message>
     <message>
         <source>Main window size.</source>
-        <translation>窗口大小</translation>
+        <translation>主窗口尺寸。</translation>
     </message>
     <message>
         <source>Main window position.</source>
-        <translation>窗口位置</translation>
+        <translation>主窗口位置。</translation>
     </message>
     <message>
         <source>URLs to open, optionally.</source>
-        <translation>要打开的URL（可选）</translation>
+        <translation>要打开的URL，可选。</translation>
     </message>
     <message>
         <source>Save Image</source>
@@ -206,15 +206,15 @@
     </message>
     <message>
         <source>Do not load any config files.</source>
-        <translation>不要载入任何配置文件</translation>
+        <translation>不要载入任何配置文件。</translation>
     </message>
     <message>
         <source>Do not load file history, playlists, or favorites.</source>
-        <translation>不载入文件历史，播放列表和收藏</translation>
+        <translation>不载入文件历史，播放列表和收藏。</translation>
     </message>
     <message>
         <source>Also write logging messages to console.</source>
-        <translation>同时将日志输出到终端</translation>
+        <translation>同时将日志输出到终端。</translation>
     </message>
 </context>
 <context>
@@ -229,7 +229,7 @@
     </message>
     <message>
         <source>Go!</source>
-        <translation>跳转</translation>
+        <translation>开始！</translation>
     </message>
     <message>
         <source>Frame</source>
@@ -237,7 +237,7 @@
     </message>
     <message>
         <source>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitely.</source>
-        <translation>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitly.</translation>
+        <translation>请使用[hh:]mm:ss.ms格式输入时间码以跳转至指定时间点。无需显式输入分隔符。</translation>
     </message>
 </context>
 <context>
@@ -350,7 +350,7 @@
     </message>
     <message>
         <source>vo: 0, decoder: 0</source>
-        <translation>vo: 0, decoder: 0</translation>
+        <translation>视频输出： 0，解码器： 0</translation>
     </message>
     <message>
         <source>Bitrate</source>
@@ -1606,19 +1606,19 @@
     </message>
     <message>
         <source>&amp;Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>重置(&amp;R)</translation>
     </message>
     <message>
         <source>D&amp;isable</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭(%I)</translation>
     </message>
     <message>
         <source>&amp;Minimum</source>
-        <translation type="unfinished"></translation>
+        <translation>最小化(&amp;M)</translation>
     </message>
     <message>
         <source>M&amp;aximum</source>
-        <translation type="unfinished"></translation>
+        <translation>最大化(&amp;A)</translation>
     </message>
 </context>
 <context>
@@ -1657,87 +1657,87 @@
     </message>
     <message>
         <source>XButton4</source>
-        <translation>XButton4</translation>
+        <translation>扩展键4</translation>
     </message>
     <message>
         <source>XButton5</source>
-        <translation>XButton5</translation>
+        <translation>扩展键5</translation>
     </message>
     <message>
         <source>XButton6</source>
-        <translation>XButton6</translation>
+        <translation>扩展键6</translation>
     </message>
     <message>
         <source>XButton7</source>
-        <translation>XButton7</translation>
+        <translation>扩展键7</translation>
     </message>
     <message>
         <source>XButton8</source>
-        <translation>XButton8</translation>
+        <translation>扩展键8</translation>
     </message>
     <message>
         <source>XButton9</source>
-        <translation>XButton9</translation>
+        <translation>扩展键9</translation>
     </message>
     <message>
         <source>XButton10</source>
-        <translation>XButton10</translation>
+        <translation>扩展键10</translation>
     </message>
     <message>
         <source>XButton11</source>
-        <translation>XButton11</translation>
+        <translation>扩展键11</translation>
     </message>
     <message>
         <source>XButton12</source>
-        <translation>XButton12</translation>
+        <translation>扩展键12</translation>
     </message>
     <message>
         <source>XButton13</source>
-        <translation>XButton13</translation>
+        <translation>扩展键13</translation>
     </message>
     <message>
         <source>XButton14</source>
-        <translation>XButton14</translation>
+        <translation>扩展键14</translation>
     </message>
     <message>
         <source>XButton15</source>
-        <translation>XButton15</translation>
+        <translation>扩展键15</translation>
     </message>
     <message>
         <source>XButton16</source>
-        <translation>XButton16</translation>
+        <translation>扩展键16</translation>
     </message>
     <message>
         <source>XButton17</source>
-        <translation>XButton17</translation>
+        <translation>扩展键17</translation>
     </message>
     <message>
         <source>XButton18</source>
-        <translation>XButton18</translation>
+        <translation>扩展键18</translation>
     </message>
     <message>
         <source>XButton19</source>
-        <translation>XButton19</translation>
+        <translation>扩展键19</translation>
     </message>
     <message>
         <source>XButton20</source>
-        <translation>XButton20</translation>
+        <translation>扩展键20</translation>
     </message>
     <message>
         <source>XButton21</source>
-        <translation>XButton21</translation>
+        <translation>扩展键21</translation>
     </message>
     <message>
         <source>XButton22</source>
-        <translation>XButton22</translation>
+        <translation>扩展键22</translation>
     </message>
     <message>
         <source>XButton23</source>
-        <translation>XButton23</translation>
+        <translation>扩展键23</translation>
     </message>
     <message>
         <source>XButton24</source>
-        <translation>XButton24</translation>
+        <translation>扩展键24</translation>
     </message>
     <message>
         <source>Shift</source>
@@ -1841,27 +1841,27 @@
     </message>
     <message>
         <source>Audio track: </source>
-        <translation type="unfinished"></translation>
+        <translation>音频轨道： </translation>
     </message>
     <message>
         <source>Subtitles track: </source>
-        <translation type="unfinished"></translation>
+        <translation>字幕轨道： </translation>
     </message>
     <message>
         <source>Subtitles: on</source>
-        <translation type="unfinished"></translation>
+        <translation>字幕：开启</translation>
     </message>
     <message>
         <source>Subtitles: off</source>
-        <translation type="unfinished"></translation>
+        <translation>字幕：关闭</translation>
     </message>
     <message>
         <source>File moved to recycle bin: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>文件已移至回收站：%1</translation>
     </message>
     <message>
         <source>Failed to move file to recycle bin: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>文件移至回收站失败：%1</translation>
     </message>
 </context>
 <context>
@@ -1872,7 +1872,7 @@
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation type="unfinished">快速播放列表</translation>
+        <translation>快速播放列表</translation>
     </message>
 </context>
 <context>
@@ -1887,7 +1887,7 @@
     </message>
     <message>
         <source>Visible Items to Quick Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>可见项目发送到快速队列</translation>
     </message>
     <message>
         <source>New Tab</source>
@@ -2023,11 +2023,11 @@
     </message>
     <message>
         <source>Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>队列</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">名称</translation>
+        <translation>名称</translation>
     </message>
     <message>
         <source>Quick playlist</source>
@@ -2035,19 +2035,19 @@
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8 *.txt)</source>
-        <translation type="unfinished"></translation>
+        <translation>播放列表文件 (*.m3u *.m3u8 *.txt)</translation>
     </message>
     <message>
         <source>Import Playlist File</source>
-        <translation type="unfinished"></translation>
+        <translation>导入播放列表</translation>
     </message>
     <message>
         <source>Export Playlist File</source>
-        <translation type="unfinished"></translation>
+        <translation>导出播放列表</translation>
     </message>
     <message>
         <source>Add Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>添加文件夹</translation>
     </message>
 </context>
 <context>
@@ -2110,7 +2110,7 @@
     </message>
     <message>
         <source>MediaInfo</source>
-        <translation>MediaInfo</translation>
+        <translation>音视频信息</translation>
     </message>
     <message>
         <source>&amp;Save</source>
@@ -2150,7 +2150,7 @@
     </message>
     <message>
         <source>Modified:</source>
-        <translation type="unfinished"></translation>
+        <translation>修改：</translation>
     </message>
 </context>
 <context>
@@ -2319,7 +2319,7 @@
     </message>
     <message>
         <source>Playlist</source>
-        <translation type="unfinished">播放列表</translation>
+        <translation>播放列表</translation>
     </message>
     <message>
         <source>Subtitles</source>
@@ -2364,12 +2364,14 @@
     <message>
         <source>Use the same player for
 each &amp;media file</source>
-        <translation>使用同一实例打开所有媒体文件(&amp;M)</translation>
+        <translation>使用同一实例打开
+所有媒体文件(&amp;M)</translation>
     </message>
     <message>
         <source>Open a new &amp;player for each
 media file played</source>
-        <translation>为每个媒体文件打开新实例(&amp;P)</translation>
+        <translation>为每个媒体文件
+打开新实例(&amp;P)</translation>
     </message>
     <message>
         <source>Other</source>
@@ -2409,11 +2411,11 @@ media file played</source>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
-        <translation type="unfinished"></translation>
+        <translation>不要添加任何前缀(%X)</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
-        <translation type="unfinished"></translation>
+        <translation>用标题替换文件名</translation>
     </message>
     <message>
         <source>History</source>
@@ -2433,7 +2435,7 @@ media file played</source>
     </message>
     <message>
         <source>Remember last Pan-n-Scan Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>记得上次的全景扫描缩放</translation>
     </message>
     <message>
         <source>MIME types</source>
@@ -2485,7 +2487,7 @@ media file played</source>
     </message>
     <message>
         <source>Triangle in circle</source>
-        <translation type="unfinished"></translation>
+        <translation>实心圆套三角形</translation>
     </message>
     <message>
         <source>Multi purpose vehicle</source>
@@ -2501,7 +2503,7 @@ media file played</source>
     </message>
     <message>
         <source>Built-in fallback</source>
-        <translation type="unfinished"></translation>
+        <translation>退回内置预设</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -2517,19 +2519,19 @@ media file played</source>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>图标名称见 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;源码仓库&lt;/a&gt;</translation>
+        <translation>图标名称见 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;源码仓库&lt;/a&gt;。</translation>
     </message>
     <message>
         <source>Fallback</source>
-        <translation type="unfinished"></translation>
+        <translation>备用方案</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>黑色（适用于白色配色方案）</translation>
     </message>
     <message>
         <source>White (for black palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>白色（适用于黑色配色方案）</translation>
     </message>
     <message>
         <source>Widget Color</source>
@@ -2549,15 +2551,15 @@ media file played</source>
     </message>
     <message>
         <source>Info Background</source>
-        <translation type="unfinished"></translation>
+        <translation>信息背景</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation type="unfinished"></translation>
+        <translation>信息前景</translation>
     </message>
     <message>
         <source>Control</source>
-        <translation type="unfinished">Control</translation>
+        <translation>控制</translation>
     </message>
     <message>
         <source>Volume step</source>
@@ -2641,19 +2643,19 @@ media file played</source>
     </message>
     <message>
         <source>8 bits</source>
-        <translation>8 bits</translation>
+        <translation>8 位深度</translation>
     </message>
     <message>
         <source>10 bits</source>
-        <translation>10 bits</translation>
+        <translation>10 位深度</translation>
     </message>
     <message>
         <source>12 bits</source>
-        <translation>12 bits</translation>
+        <translation>12 位深度</translation>
     </message>
     <message>
         <source>16 bits</source>
-        <translation>16 bits</translation>
+        <translation>16 位深度</translation>
     </message>
     <message>
         <source>16 bits float</source>
@@ -2689,7 +2691,7 @@ media file played</source>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished">禁用</translation>
+        <translation>禁用</translation>
     </message>
     <message>
         <source>Presets</source>
@@ -2817,7 +2819,7 @@ media file played</source>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished">窗口</translation>
+        <translation>窗口</translation>
     </message>
     <message>
         <source>Box</source>
@@ -2825,7 +2827,7 @@ media file played</source>
     </message>
     <message>
         <source>Triangle</source>
-        <translation type="unfinished"></translation>
+        <translation>三角形</translation>
     </message>
     <message>
         <source>Bartlett</source>
@@ -2881,11 +2883,11 @@ media file played</source>
     </message>
     <message>
         <source>Bilinear</source>
-        <translation>Bilinear</translation>
+        <translation>双线性</translation>
     </message>
     <message>
         <source>Bicubic_fast</source>
-        <translation>Bicubic_fast</translation>
+        <translation>双三次插值_快速</translation>
     </message>
     <message>
         <source>Oversample</source>
@@ -2937,7 +2939,7 @@ media file played</source>
     </message>
     <message>
         <source>Bicubic</source>
-        <translation>Bicubic</translation>
+        <translation>双三次插值</translation>
     </message>
     <message>
         <source>Bc spline</source>
@@ -2985,7 +2987,7 @@ media file played</source>
     </message>
     <message>
         <source>Temporal</source>
-        <translation type="unfinished"></translation>
+        <translation>时间性</translation>
     </message>
     <message>
         <source>Linear</source>
@@ -2997,7 +2999,7 @@ media file played</source>
     </message>
     <message>
         <source>State</source>
-        <translation type="unfinished"></translation>
+        <translation>开始</translation>
     </message>
     <message>
         <source>Enabled</source>
@@ -3005,19 +3007,19 @@ media file played</source>
     </message>
     <message>
         <source>Iterations</source>
-        <translation type="unfinished"></translation>
+        <translation>循环</translation>
     </message>
     <message>
         <source>Threshold</source>
-        <translation type="unfinished"></translation>
+        <translation>限值</translation>
     </message>
     <message>
         <source>Range</source>
-        <translation type="unfinished"></translation>
+        <translation>范围</translation>
     </message>
     <message>
         <source>Grain</source>
-        <translation type="unfinished"></translation>
+        <translation>噪点</translation>
     </message>
     <message>
         <source>Color Correction</source>
@@ -3025,7 +3027,7 @@ media file played</source>
     </message>
     <message>
         <source>Gamma</source>
-        <translation type="unfinished"></translation>
+        <translation>伽马</translation>
     </message>
     <message>
         <source>Autodetect</source>
@@ -3033,7 +3035,7 @@ media file played</source>
     </message>
     <message>
         <source>Target Prim</source>
-        <translation type="unfinished"></translation>
+        <translation>目标原色</translation>
     </message>
     <message>
         <source>BT.601-525</source>
@@ -3053,15 +3055,15 @@ media file played</source>
     </message>
     <message>
         <source>Apple</source>
-        <translation>Apple</translation>
+        <translation>Apple 色域</translation>
     </message>
     <message>
         <source>Adobe</source>
-        <translation>Adobe</translation>
+        <translation>Adobe 色域</translation>
     </message>
     <message>
         <source>ProPhoto</source>
-        <translation>ProPhoto</translation>
+        <translation>专业摄影</translation>
     </message>
     <message>
         <source>CIE1931</source>
@@ -3073,7 +3075,7 @@ media file played</source>
     </message>
     <message>
         <source>Target TRC</source>
-        <translation type="unfinished"></translation>
+        <translation>目标传输函数</translation>
     </message>
     <message>
         <source>BT.1886</source>
@@ -3081,7 +3083,7 @@ media file played</source>
     </message>
     <message>
         <source>sRGB</source>
-        <translation>sRGB</translation>
+        <translation>sRGB 色域</translation>
     </message>
     <message>
         <source>Gamma 1.8</source>
@@ -3105,23 +3107,23 @@ media file played</source>
     </message>
     <message>
         <source>Panasonic V-Log</source>
-        <translation>Panasonic V-Log</translation>
+        <translation>Panasonic V-Log 模式</translation>
     </message>
     <message>
         <source>Sony S-Log1</source>
-        <translation>Sony S-Log1</translation>
+        <translation>Sony S-Log1 模式</translation>
     </message>
     <message>
         <source>Sony S-Log2</source>
-        <translation>Sony S-Log2</translation>
+        <translation>Sony S-Log2 模式</translation>
     </message>
     <message>
         <source>HDR Tone mapping</source>
-        <translation type="unfinished"></translation>
+        <translation>HDR 色调映射</translation>
     </message>
     <message>
         <source>Clip</source>
-        <translation type="unfinished">剪辑</translation>
+        <translation>剪辑</translation>
     </message>
     <message>
         <source>Mobius</source>
@@ -3145,7 +3147,7 @@ media file played</source>
     </message>
     <message>
         <source>Contrast</source>
-        <translation type="unfinished"></translation>
+        <translation>对比</translation>
     </message>
     <message>
         <source>ICC Profile</source>
@@ -3173,7 +3175,7 @@ media file played</source>
     </message>
     <message>
         <source>Maximal layout (may output to unconnected channels)</source>
-        <translation type="unfinished"></translation>
+        <translation>最大化布局（可能输出至未连接的通道）</translation>
     </message>
     <message>
         <source>Stereo</source>
@@ -3181,11 +3183,11 @@ media file played</source>
     </message>
     <message>
         <source>Audio switcher (WIP)</source>
-        <translation type="unfinished"></translation>
+        <translation>音频切换器（开发中）</translation>
     </message>
     <message>
         <source>Stream silence (HDMI fixup)</source>
-        <translation type="unfinished"></translation>
+        <translation>流式静默（HDMI修复）</translation>
     </message>
     <message>
         <source> seconds</source>
@@ -3193,7 +3195,7 @@ media file played</source>
     </message>
     <message>
         <source>Pitch correction</source>
-        <translation type="unfinished"></translation>
+        <translation>音高校正</translation>
     </message>
     <message>
         <source>Exclusive mode</source>
@@ -3201,7 +3203,7 @@ media file played</source>
     </message>
     <message>
         <source>Normalize downmix</source>
-        <translation type="unfinished"></translation>
+        <translation>标准化下混音</translation>
     </message>
     <message>
         <source>Use S/PDIF when available</source>
@@ -3209,11 +3211,11 @@ media file played</source>
     </message>
     <message>
         <source>Pulse</source>
-        <translation>Pulse</translation>
+        <translation>Pulse 模式</translation>
     </message>
     <message>
         <source>Buffer</source>
-        <translation type="unfinished"></translation>
+        <translation>缓冲区</translation>
     </message>
     <message>
         <source>Fixes</source>
@@ -3233,7 +3235,7 @@ media file played</source>
     </message>
     <message>
         <source>Ignore channel map (for specific alsa setups)</source>
-        <translation type="unfinished"></translation>
+        <translation>忽略通道映射（适用于特定 ALSA 配置）</translation>
     </message>
     <message>
         <source>Oss</source>
@@ -3245,7 +3247,7 @@ media file played</source>
     </message>
     <message>
         <source>Mixer channel</source>
-        <translation type="unfinished"></translation>
+        <translation>混音通道</translation>
     </message>
     <message>
         <source>Jack</source>
@@ -3281,7 +3283,7 @@ media file played</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">移除</translation>
+        <translation>移除</translation>
     </message>
     <message>
         <source>Add to shaders</source>
@@ -3293,7 +3295,7 @@ media file played</source>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">保存</translation>
+        <translation>保存</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -3313,7 +3315,7 @@ media file played</source>
     </message>
     <message>
         <source>Launch files in fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>以全屏模式启动</translation>
     </message>
     <message>
         <source>Exit fullscreen at the end of playback</source>
@@ -3325,7 +3327,7 @@ media file played</source>
     </message>
     <message>
         <source>Hide docked panels</source>
-        <translation type="unfinished"></translation>
+        <translation>隐藏停靠面板</translation>
     </message>
     <message>
         <source>Hide controls in fullscreen</source>
@@ -3341,7 +3343,7 @@ media file played</source>
     </message>
     <message>
         <source>Show when hovering control, hide after:</source>
-        <translation type="unfinished"></translation>
+        <translation>悬停时显示控件，在指定时间后隐藏：</translation>
     </message>
     <message>
         <source>Framedropping</source>
@@ -3361,7 +3363,7 @@ media file played</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">无</translation>
+        <translation>无</translation>
     </message>
     <message>
         <source>Default</source>
@@ -3369,15 +3371,15 @@ media file played</source>
     </message>
     <message>
         <source>Non reference</source>
-        <translation type="unfinished"></translation>
+        <translation>不作参考</translation>
     </message>
     <message>
         <source>Bi-directional</source>
-        <translation type="unfinished"></translation>
+        <translation>双向</translation>
     </message>
     <message>
         <source>Non key</source>
-        <translation type="unfinished"></translation>
+        <translation>无密钥</translation>
     </message>
     <message>
         <source>Audio/Video sync</source>
@@ -3429,7 +3431,7 @@ media file played</source>
     </message>
     <message>
         <source>Hover over each backend to display a description.</source>
-        <translation>将鼠标悬停在每个项目上可显示描述</translation>
+        <translation>将鼠标悬停在每个项目上可显示描述。</translation>
     </message>
     <message>
         <source>A&amp;utodetect</source>
@@ -3457,7 +3459,7 @@ media file played</source>
     </message>
     <message>
         <source>Playback progression</source>
-        <translation type="unfinished"></translation>
+        <translation>播放进度</translation>
     </message>
     <message>
         <source>Pla&amp;y</source>
@@ -3473,11 +3475,11 @@ media file played</source>
     </message>
     <message>
         <source>Always loop images (manual progression)</source>
-        <translation type="unfinished"></translation>
+        <translation>始终循环显示图片（手动切换）</translation>
     </message>
     <message>
         <source>Display Format</source>
-        <translation type="unfinished"></translation>
+        <translation>显示格式</translation>
     </message>
     <message>
         <source>qrc:/text/playlistFormat.html</source>
@@ -3726,7 +3728,7 @@ media file played</source>
     </message>
     <message>
         <source>kBits</source>
-        <translation>kBits</translation>
+        <translation>千比特</translation>
     </message>
     <message>
         <source>crf</source>
@@ -3746,7 +3748,7 @@ media file played</source>
     </message>
     <message>
         <source>&quot;Don&apos;t encode&quot; checkboxes are ignored for audio-only or video-only files.</source>
-        <translation>“不要编码”选项对只有音频/只有视频的文件无效</translation>
+        <translation>“不要编码”选项对只有音频/只有视频的文件无效。</translation>
     </message>
     <message>
         <source>Fast seek (when skipping)</source>
@@ -3790,7 +3792,7 @@ media file played</source>
     </message>
     <message>
         <source>mpv</source>
-        <translation>mpv</translation>
+        <translation>MPV</translation>
     </message>
     <message>
         <source>No (complete silence)</source>
@@ -3798,7 +3800,7 @@ media file played</source>
     </message>
     <message>
         <source>Fatal</source>
-        <translation>Fatal</translation>
+        <translation>严重</translation>
     </message>
     <message>
         <source>Error</source>
@@ -3806,15 +3808,15 @@ media file played</source>
     </message>
     <message>
         <source>Warning</source>
-        <translation>Warning</translation>
+        <translation>警告</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation>Informational</translation>
+        <translation>信息</translation>
     </message>
     <message>
         <source>Verbose</source>
-        <translation>Verbose</translation>
+        <translation>详细</translation>
     </message>
     <message>
         <source>Debug</source>
@@ -4014,7 +4016,7 @@ media file played</source>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished">重复</translation>
+        <translation>重复</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -4146,7 +4148,7 @@ media file played</source>
     </message>
     <message>
         <source>Autodetect - best of VAAPI, DXVA, D3D11VA, etc.</source>
-        <translation>自动选择 - 优先使用VAAPI,DXVA,D3D11VA等</translation>
+        <translation>自动选择 - 优先使用VAAPI,DXVA,D3D11VA等。</translation>
     </message>
     <message>
         <source>Linux - works with Intel and AMD GPUs through Mesa, and with nVidia through a translation layer; may only be correct in BT.601 and BT.709</source>
@@ -4286,7 +4288,7 @@ media file played</source>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished">阴影</translation>
+        <translation>阴影</translation>
     </message>
     <message>
         <source>Enable shadow</source>
@@ -4345,7 +4347,7 @@ media file played</source>
     </message>
     <message>
         <source>&amp;Go!</source>
-        <translation>开始</translation>
+        <translation>开始(&amp;G)！</translation>
     </message>
     <message>
         <source>Thu&amp;mbnail</source>
