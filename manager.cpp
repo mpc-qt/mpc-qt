@@ -250,7 +250,7 @@ void PlaybackManager::playDevice(QUrl device)
 void PlaybackManager::loadSubtitle(QUrl with)
 {
     QString f = with.isLocalFile() ? with.toLocalFile()
-                                   : with.fromPercentEncoding(with.toEncoded());
+                                   : QUrl::fromPercentEncoding(with.toEncoded());
     mpvObject_->addSubFile(f);
 }
 
@@ -670,7 +670,8 @@ void PlaybackManager::getCurrentTrackInfo(QUrl& url, QUuid& listUuid, QUuid& ite
     hasVideo = !videoList.isEmpty() && !videoListData[1].isImage;
 }
 
-QString PlaybackManager::nowPlayingTitle() {
+QString PlaybackManager::nowPlayingTitle()
+{
     return nowPlayingTitle_;
 }
 
@@ -691,7 +692,7 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
 
     nowPlaying_ = what;
     mpvObject_->fileOpen(what.isLocalFile() ? what.toLocalFile()
-                                            : what.fromPercentEncoding(what.toEncoded()),
+                                            : QUrl::fromPercentEncoding(what.toEncoded()),
                          replaceMpvPlaylist);
     mpvObject_->setSubFile(with.toString());
     mpvObject_->setPaused(playbackStartPaused);
@@ -822,7 +823,7 @@ void PlaybackManager::updateChapters()
     QList<Chapter> list;
 
     if (!chapters.isEmpty()) {
-        for (QVariant &v : chapters) {
+        for (QVariant const &v : chapters) {
             QMap<QString, QVariant> node = v.toMap();
             QString text = QString("[%1] - %2").arg(
                     toDateFormatFixed(node["time"].toDouble(),
@@ -1021,7 +1022,7 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
     subtitleListData.clear();
     Track track;
 
-    for (QVariant &trackItem : tracks) {
+    for (QVariant const &trackItem : tracks) {
         TrackData td = TrackData::fromMap(trackItem.toMap());
         track.id = td.trackId;
         track.title = td.formatted();
@@ -1126,7 +1127,7 @@ void PlaybackManager::mpvw_playlistChanged(const QVariantList &playlist)
     // replace current item with the content we got from the archive or playlist file, and trigger its playback
     QList<QUrl> urls;
     bool currentItemFound = false;
-    for (auto i : playlist) {
+    for (auto const& i : playlist) {
         if (i.toMap()["current"].toBool()) {
             currentItemFound = true;
             if (i.toMap()["id"].toInt() != currentMpvPlaylistItemId)

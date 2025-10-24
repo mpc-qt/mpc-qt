@@ -40,12 +40,12 @@ public:
     PlaylistWindow *playlistWindow();
     QList<QAction *> editableActions();
     QVariantMap mouseMapDefaults();
-    QMap<int, QAction *> wmCommandMap();
+    QMap<int, QAction *> wmCommandMap() const;
     QVariantMap state();
     void setState(const QVariantMap &map);
     void setScreensaverAbilities(QSet<ScreenSaver::Ability> ab);
     QSize desirableSize(bool first_run = false);
-    QPoint desirablePosition(QSize &size, bool first_run = false);
+    QPoint desirablePosition(QSize &size, bool first_run = false) const;
     void unfreezeWindow();
     void fixMpvwSize();
     void setActionPlayLoopUse();
@@ -68,10 +68,10 @@ private:
     MediaSlider *positionSlider();
     VolumeSlider *volumeSlider();
 
-    DecorationState decorationState();
-    bool fullscreenMode();
-    QSize noVideoSize();
-    double sizeFactor();
+    DecorationState decorationState() const;
+    bool fullscreenMode() const;
+    QSize noVideoSize() const;
+    double sizeFactor() const;
 
     void setDiscState(bool playingADisc);
 
@@ -90,10 +90,10 @@ private:
     void setupBottomArea();
     void setupIconThemer();
     void setupHideTimer();
-    void connectActionsToSignals();
-    void connectActionsToSlots();
+    void connectActionsToSignals() const;
+    void connectActionsToSlots() const;
     void connectButtonsToActions();
-    void connectPlaylistWindowToActions();
+    void connectPlaylistWindowToActions() const;
     void globalizeAllActions();
     void setUiDecorationState(DecorationState state);
     void setOSDPage(int page);
@@ -116,8 +116,8 @@ private:
     void resizePlaylistToFit();
     QList<QUrl> doQuickOpenFileDialog();
 
-    QIcon createIconFromSvg(const QString& svgPath, int maxSize);
-    QPixmap renderPixmapFromSvg(const QString &path);
+    QIcon createIconFromSvg(const QString &svgPath, int maxSize) const;
+    QPixmap renderPixmapFromSvg(const QString &path) const;
 
 signals:
     void instanceShouldQuit();
@@ -452,7 +452,7 @@ private slots:
 
     void on_actionFileLoadSubtitle_triggered();
 
-    void on_actionFileSubtitleDatabaseSearch_triggered();
+    void on_actionFileSubtitleDatabaseSearch_triggered() const;
 
     void on_actionFavoritesAdd_triggered();
 

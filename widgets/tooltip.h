@@ -7,11 +7,11 @@ class Tooltip : public QWidget {
     public:
         explicit Tooltip(QWidget *parent = nullptr);
         ~Tooltip();
-        void show(const QString &text, QPoint &where, int mainWindowWidth, QString &textTemplate);
+        void show(const QString &text, const QPoint &where, int mainWindowWidth, const QString &textTemplate);
         void hide();
 
     private:
-        void setPosition(QPoint &where, int mainWindowWidth);
+        void setPosition(const QPoint &where, int mainWindowWidth);
 
         QLabel *textLabel;
         bool aspectRatioSet = false;

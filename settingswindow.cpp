@@ -31,7 +31,7 @@ struct FilterWindow {
     inline FilterWindow &resizable_() { resizable = true; return *this; }
 };
 
-static QMap<QString,FilterWindow> filterWindows {
+static const QMap<QString,FilterWindow> filterWindows {
     { "box",        FilterWindow().radius_(1) },
     { "triangle",   FilterWindow().radius_(1) },
     { "bartlett",   FilterWindow().radius_(1) },
@@ -73,7 +73,7 @@ struct FilterKernel : public FilterWindow {
     inline FilterKernel &cutoff_(double v) { cutoff = v; return *this; }
 };
 
-static QMap<QString,FilterKernel> filterKernels {
+static const QMap<QString,FilterKernel> filterKernels {
     { "bilinear",           FilterKernel() },
     { "bicubic_fast",       FilterKernel() },
     { "oversample",         FilterKernel() },
@@ -243,7 +243,7 @@ QMap<QString, std::function<void (QObject *, const QVariant &)> > Setting::class
 
 
 
-static QStringList internalLogos = {
+static const QStringList internalLogos = {
     ":/not-a-real-resource.png",
     ":/images/logo/cinema-screen.svg",
     ":/images/logo/triangle-circle.svg",
@@ -252,13 +252,7 @@ static QStringList internalLogos = {
 
 
 
-Setting &Setting::operator =(const Setting &s)
-{
-    name = s.name;
-    widget = s.widget;
-    value = s.value;
-    return *this;
-}
+Setting &Setting::operator =(const Setting &s) = default;
 
 void Setting::sendToControl()
 {
@@ -504,7 +498,7 @@ void SettingsWindow::updateAcceptedSettings() {
     acceptedKeyMap = actionEditor->toVMap();
 }
 
-SettingMap SettingsWindow::generateSettingMap(QWidget *root)
+SettingMap SettingsWindow::generateSettingMap(QWidget *root) const
 {
     SettingMap settingMap;
 
@@ -529,7 +523,7 @@ SettingMap SettingsWindow::generateSettingMap(QWidget *root)
         QObjectList children = item->children();
         foreach(QObject *child, children) {
             if (child->inherits("QWidget") || child->inherits("QLayout"))
-            toParse.append(child);
+                toParse.append(child);
         }
     }
     return settingMap;
@@ -594,7 +588,7 @@ void SettingsWindow::updateLogoWidget()
     logoWidget->setLogo(selectedLogo());
 }
 
-QString SettingsWindow::selectedLogo()
+QString SettingsWindow::selectedLogo() const
 {
     return ui->logoExternal->isChecked()
                                 ? ui->logoExternalLocation->text()
@@ -763,7 +757,7 @@ void SettingsWindow::sendSignals()
         emit speedStepAdditive(WIDGET_LOOKUP(ui->playbackSpeedStepAdditive).toBool());
     }
     setAudioFilter("stereotools", "balance_out=" +
-        QString().number(WIDGET_LOOKUP(ui->audioBalance).toDouble()/100), true);
+        QString::number(WIDGET_LOOKUP(ui->audioBalance).toDouble()/100), true);
     emit stepTimeNormal(WIDGET_LOOKUP(ui->playbackNormalStep).toInt());
     emit stepTimeLarge(WIDGET_LOOKUP(ui->playbackLargeStep).toInt());
 
@@ -1204,7 +1198,7 @@ void SettingsWindow::restoreColorControls()
 void SettingsWindow::restoreAudioSettings()
 {
     setAudioFilter("stereotools", "balance_out=" +
-        QString().number(WIDGET_LOOKUP(ui->audioBalance).toDouble()/100), true);
+        QString::number(WIDGET_LOOKUP(ui->audioBalance).toDouble()/100), true);
 }
 
 void SettingsWindow::colorPick_clicked(QLineEdit *colorValue)
@@ -1218,16 +1212,16 @@ void SettingsWindow::colorPick_clicked(QLineEdit *colorValue)
     colorValue->setFocus();
 }
 
-void SettingsWindow::colorPick_changed(QLineEdit *colorValue, QPushButton *colorPick)
+void SettingsWindow::colorPick_changed(const QLineEdit *colorValue, QPushButton *colorPick)
 {
     colorPick->setStyleSheet(QString("background: #%1").arg(colorValue->text()));
 }
 
-QList<MpvOption> SettingsWindow::parseMpvOptions(const QString& optionsInline)
+QList<MpvOption> SettingsWindow::parseMpvOptions(const QString &optionsInline) const
 {
     QList<MpvOption> mpvOptions;
     const QStringList options = optionsInline.split(' ', Qt::SkipEmptyParts);
-    for (const QString& option : options) {
+    for (const QString &option : options) {
         int equalPos = option.indexOf('=');
         if (equalPos > 0) {
             QString name = option.left(equalPos).trimmed();
@@ -1489,8 +1483,8 @@ void SettingsWindow::on_fullscreenHideControls_toggled(bool checked)
 
 void SettingsWindow::on_audioBalance_valueChanged(int value)
 {
-    QToolTip::showText(QCursor::pos(), QString().number(value), ui->audioBalance);
-    setAudioFilter("stereotools", "balance_out=" + QString().number((double) value/100), true);
+    QToolTip::showText(QCursor::pos(), QString::number(value), ui->audioBalance);
+    setAudioFilter("stereotools", "balance_out=" + QString::number((double) value/100), true);
 }
 
 void SettingsWindow::on_playbackAutoZoom_toggled(bool checked)

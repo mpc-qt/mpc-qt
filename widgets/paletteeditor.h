@@ -21,8 +21,8 @@ public slots:
     void setValue(const QColor &c);
 
 protected:
-    void paintEvent(QPaintEvent *event);
-    void mousePressEvent(QMouseEvent *event);
+    void paintEvent(QPaintEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
 
 private:
     QColor color;
@@ -36,9 +36,9 @@ class PaletteEditor : public QWidget
     Q_PROPERTY(QVariant value READ variant WRITE setVariant NOTIFY valueChanged)
 
 public:
-    typedef QPair<QPalette::ColorGroup,QPalette::ColorRole> ColorPair;
-    typedef QMap<ColorPair,PaletteBox*> BoxMap;
-    typedef QMap<ColorPair,QColor> PaletteEntries;
+    using ColorPair = QPair<QPalette::ColorGroup, QPalette::ColorRole>;
+    using BoxMap = QMap<ColorPair, PaletteBox *>;
+    using PaletteEntries = QMap<ColorPair, QColor>;
 
     explicit PaletteEditor(QWidget *parent = nullptr);
     QPalette palette();

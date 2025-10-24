@@ -36,9 +36,9 @@ public:
     void setLogoBackground(const QColor &color);
 
 protected:
-    void initializeGL();
-    void paintGL();
-    void resizeGL(int w, int h);
+    void initializeGL() override;
+    void paintGL() override;
+    void resizeGL(int w, int h) override;
 
 private:
     LogoDrawer *logoDrawer = nullptr;

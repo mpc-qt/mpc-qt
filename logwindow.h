@@ -27,7 +27,7 @@ public slots:
     void setLogLimit(int lines);
 
 protected:
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event) override;
 
 private slots:
     void on_copy_clicked();

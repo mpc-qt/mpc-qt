@@ -66,7 +66,7 @@ private:
 // Unlike QDebug, this does not insert spaces between << invocations.
 class LogStream {
 public:
-    LogStream(QString prefix = QString(), QString level = QString());
+    explicit LogStream(QString prefix = QString(), QString level = QString());
     ~LogStream();
     LogStream &always();
     LogStream &operator<<(const char *a);

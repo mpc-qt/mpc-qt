@@ -49,7 +49,7 @@ void ScreenCombo::populateItems()
 {
     this->clear();
     this->addItem(tr("Current"));
-    for (auto screen : qApp->screens()) {
+    for (auto screen : QApplication::screens()) {
         this->addItem(Helpers::screenToVisualName(screen));
         if (!Platform::isUnix) {
             QObject::disconnect(screen, &QScreen::geometryChanged,

@@ -9,11 +9,11 @@ class VideoPreview : public QWidget {
         explicit VideoPreview(QWidget *parent = nullptr);
         ~VideoPreview();
         void openFile(const QUrl &fileUrl);
-        void show(const QString &text, double videoPosition, QPoint where, int mainWindowWidth);
+        void show(const QString &text, double videoPosition, const QPoint &where, int mainWindowWidth);
         void hide();
         
     private:
-        void setPreviewPosition(QPoint where, int mainWindowWidth);
+        void setPreviewPosition(const QPoint &where, int mainWindowWidth);
         void show();
         void updateWidth(double newAspect);
 

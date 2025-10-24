@@ -152,9 +152,9 @@ QUuid DrawnPlaylist::uuid() const
 
 QUuid DrawnPlaylist::currentItemUuid() const
 {
-    PlayItem *item = reinterpret_cast<PlayItem*>(currentItem());
+    PlayItem *item = static_cast<PlayItem*>(currentItem());
     if (!item)
-        item = reinterpret_cast<PlayItem*>(QListWidget::item(0));
+        item = static_cast<PlayItem*>(QListWidget::item(0));
     if (item)
         return item->uuid();
     return QUuid();
@@ -238,7 +238,7 @@ void DrawnPlaylist::removeItem(QUuid itemUuid)
     if (playlist && playlist->contains(itemUuid))
         playlist->removeItem(itemUuid);
     auto matchingRows = findItems(itemUuid.toString(), Qt::MatchExactly);
-    if (matchingRows.length() > 0)
+    if (!matchingRows.isEmpty())
         takeItem(row(matchingRows[0]));
 }
 
@@ -393,19 +393,19 @@ void DrawnPlaylist::self_currentItemChanged(QListWidgetItem *current,
 {
     Q_UNUSED(previous)
     QUuid itemUuid;
-    if (current && !(itemUuid=reinterpret_cast<PlayItem*>(current)->uuid()).isNull())
+    if (current && !(itemUuid=static_cast<PlayItem*>(current)->uuid()).isNull())
         lastSelectedItem = itemUuid;
 }
 
 void DrawnPlaylist::self_itemDoubleClicked(QListWidgetItem *item)
 {
-    PlayItem *playItem = reinterpret_cast<PlayItem*>(item);
+    PlayItem *playItem = static_cast<PlayItem*>(item);
     emit itemDesiredByDoubleClick(playItem->playlistUuid(), playItem->uuid());
 }
 
 void DrawnPlaylist::self_customContextMenuRequested(const QPoint &p)
 {
-    PlayItem *playItem = reinterpret_cast<PlayItem*>(this->itemAt(p));
+    PlayItem *playItem = static_cast<PlayItem*>(this->itemAt(p));
     QUuid playItemUuid = playItem ? playItem->uuid() : QUuid();
     emit contextMenuRequested(p, playlistUuid_, playItemUuid);
 }

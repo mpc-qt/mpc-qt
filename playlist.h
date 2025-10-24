@@ -23,7 +23,7 @@ struct PlaylistItem {
 
 class Item {
 public:
-    Item(QUrl url = QUrl());
+    explicit Item(QUrl url = QUrl());
 
     QUuid uuid() const;
     void setUuid(const QUuid &itemUuid);
@@ -93,7 +93,7 @@ private:
 class Playlist : public QObject {
     Q_OBJECT
 public:
-    Playlist(const QString &title = QString());
+    explicit Playlist(const QString &title = QString());
     ~Playlist();
     QSharedPointer<Item> addItem(const QUrl &url = QUrl());
     QSharedPointer<Item> addItem(const QUuid &itemUuid, const QUrl &url);
@@ -137,7 +137,7 @@ public:
     QVariantMap toVMap();
     void fromVMap(const QVariantMap &qvm);
 
-protected:
+private:
     QList<QSharedPointer<Item>> items;
     QHash<QUuid, QSharedPointer<Item>> itemsByUuid;
     //QList<QUuid> queue;
@@ -156,7 +156,7 @@ protected:
 class QueuePlaylist : public Playlist {
     Q_OBJECT
 public:
-    QueuePlaylist(const QString &title = QString());
+    explicit QueuePlaylist(const QString &title = QString());
 
     PlaylistItem first();
     PlaylistItem takeFirst();
@@ -164,10 +164,10 @@ public:
     void toggle(const QUuid &playlistUuid, const QList<QUuid> &uuids, QList<QUuid> &added, QList<int> &removed);
     void toggleFromPlaylist(const QUuid &playlistUuid, QList<QUuid> &added, QList<int> &removedIndices);
     void appendItems(const QUuid &playlistUuid, const QList<QUuid> &itemsToAdd);
-    void addItems(const QUuid &where, const QList<QSharedPointer<Item> > &itemsToAdd);
-    void removeItem(const QUuid &itemUuid);
+    void addItems(const QUuid &where, const QList<QSharedPointer<Item> > &itemsToAdd) override;
+    void removeItem(const QUuid &itemUuid) override;
     void removeItems(const QList<QUuid> &itemsToRemove);
-    void clear();
+    void clear() override;
     int contains(const QList<QUuid> &itemsToCheck);
 
 private:
@@ -230,7 +230,7 @@ signals:
 
 public slots:
     void filterPlaylist(QSharedPointer<Playlist> list, QString text);
-    void clearPlaylistFilter(QSharedPointer<Playlist> &list);
+    void clearPlaylistFilter(QSharedPointer<Playlist> const &list);
 
 private:
     static void findNeedles(const QString &text, const QStringList &needles,

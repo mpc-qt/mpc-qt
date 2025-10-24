@@ -4,17 +4,17 @@
 
 
 
-static char keyContents[] = "contents";
-static char keyCreated[] = "created";
-static char keyItems[] = "items";
-static char keyMetadata[] = "metadata";
-static char keyNowPlaying[] = "nowplaying";
-static char keyRepeat[] = "repeat";
-static char keyShuffle[] = "shuffle";
-static char keyTitle[] = "title";
-static char keyUrl[] = "url";
-static char keyUuid[] = "uuid";
-static char keyOriginalPosition[] = "originalposition";
+constexpr char keyContents[] = "contents";
+constexpr char keyCreated[] = "created";
+constexpr char keyItems[] = "items";
+constexpr char keyMetadata[] = "metadata";
+constexpr char keyNowPlaying[] = "nowplaying";
+constexpr char keyRepeat[] = "repeat";
+constexpr char keyShuffle[] = "shuffle";
+constexpr char keyTitle[] = "title";
+constexpr char keyUrl[] = "url";
+constexpr char keyUuid[] = "uuid";
+constexpr char keyOriginalPosition[] = "originalposition";
 
 
 
@@ -342,7 +342,7 @@ bool Playlist::contains(const QUuid &itemUuid)
 void Playlist::iterateItems(const std::function<void(QSharedPointer<Item>)> &callback)
 {
     QReadLocker locker(&listLock);
-    for (auto &item : items)
+    for (auto const &item : items)
         callback(item);
 }
 
@@ -766,10 +766,7 @@ QSharedPointer<PlaylistCollection> PlaylistCollection::collection;
 QSharedPointer<PlaylistCollection> PlaylistCollection::backup;
 QSharedPointer<QueuePlaylist> PlaylistCollection::queue;
 
-PlaylistCollection::PlaylistCollection()
-{
-
-}
+PlaylistCollection::PlaylistCollection() = default;
 
 PlaylistCollection::~PlaylistCollection()
 {
@@ -958,7 +955,7 @@ void PlaylistSearcher::filterPlaylist(QSharedPointer<Playlist> list, QString tex
     emit playlistFiltered(list->uuid());
 }
 
-void PlaylistSearcher::clearPlaylistFilter(QSharedPointer<Playlist> &list)
+void PlaylistSearcher::clearPlaylistFilter(QSharedPointer<Playlist> const &list)
 {
     if (list.isNull())
         return;

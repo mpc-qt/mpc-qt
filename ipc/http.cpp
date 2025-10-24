@@ -15,7 +15,7 @@ constexpr char mimeFormUrlEncoded[] = "application/x-www-form-urlencoded";
 constexpr char mimeHtml[] = "text/html";
 constexpr char dateZero[] = "1970.01.01 00:00";
 
-static QMap<HttpResponse::HttpStatus,QString> statusToText = {
+static const QMap<HttpResponse::HttpStatus, QString> statusToText = {
     { HttpResponse::Http200Ok, "200 OK" },
     { HttpResponse::Http204NoContent, "204 No Content" },
     { HttpResponse::Http301MovedPermanently, "301 Moved Permanently" },
@@ -29,7 +29,7 @@ static QMap<HttpResponse::HttpStatus,QString> statusToText = {
     { HttpResponse::Http501NotImplemented, "501 Not Implemented" }
 };
 
-static QMap<QString,QString> extensionToText {
+static const QMap<QString, QString> extensionToText {
     { "aac", "audio/aac" },
     { "avi", "video/x-msvideo" },
     { "bin", "application/octet-stream" },
@@ -131,7 +131,7 @@ QString HttpServer::extensionToContentType(QString extension)
 
 QString HttpServer::urlDecode(QString urlText, bool plusToSpace)
 {
-    typedef unsigned char byte;
+    using byte = unsigned char;
     static QByteArray chToHex = [](){
         QByteArray map;
         map.resize(256);
@@ -192,7 +192,7 @@ QString HttpServer::urlDecode(QString urlText, bool plusToSpace)
 
 QString HttpServer::urlEncode(QString plainText)
 {
-    typedef unsigned char byte;
+    using byte = unsigned char;
     static const QByteArray isEncoded = [] {
         QByteArray map;
         map.resize(256);

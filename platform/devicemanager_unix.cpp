@@ -1,10 +1,10 @@
 #include "logger.h"
 #include "devicemanager_unix.h"
 
-typedef QList<unsigned char> dbus_ay;
-typedef QMap<QString,QVariantMap> QVariantMapMap;
-typedef QMap<QDBusObjectPath, QVariantMapMap> DBusManagedObjects;
-typedef QList<QByteArray> ByteArrayList;
+using dbus_ay = QList<unsigned char>;
+using QVariantMapMap = QMap<QString, QVariantMap>;
+using DBusManagedObjects = QMap<QDBusObjectPath, QVariantMapMap>;
+using ByteArrayList = QList<QByteArray>;
 Q_DECLARE_METATYPE(dbus_ay)
 Q_DECLARE_METATYPE(QVariantMapMap)
 Q_DECLARE_METATYPE(DBusManagedObjects)

@@ -143,7 +143,7 @@ MprisServer::MprisServer(QObject *parent)
 
 MprisInstance *MprisServer::instance()
 {
-    return reinterpret_cast<MprisInstance*>(parent());
+    return static_cast<MprisInstance*>(parent());
 }
 
 bool MprisServer::fullscreen()
@@ -210,7 +210,7 @@ MprisPlayerServer::MprisPlayerServer(QObject *parent)
 
 MprisInstance *MprisPlayerServer::instance()
 {
-    return reinterpret_cast<MprisInstance*>(parent());
+    return static_cast<MprisInstance*>(parent());
 }
 
 QString MprisPlayerServer::playbackStatus()

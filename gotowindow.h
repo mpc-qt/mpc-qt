@@ -22,7 +22,7 @@ public slots:
     void init(double currentTime, double maxTime, double fps);
 
 protected:
-    bool eventFilter(QObject *obj, QEvent *event);
+    bool eventFilter(QObject *obj, QEvent *event) override;
 
 private slots:
     void on_goToTime_textChanged(const QString &text);

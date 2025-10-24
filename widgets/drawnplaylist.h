@@ -13,17 +13,17 @@ class PlaylistSearcher;
 class PlayPainter : public QAbstractItemDelegate {
     Q_OBJECT
 public:
-    PlayPainter(QObject *parent = nullptr);
+    explicit PlayPainter(QObject *parent = nullptr);
     void paint(QPainter *painter, const QStyleOptionViewItem &option,
-               const QModelIndex &index) const;
+               const QModelIndex &index) const override;
     QSize sizeHint(const QStyleOptionViewItem &option,
-                   const QModelIndex &index) const;
+                   const QModelIndex &index) const override;
 };
 
 
 class PlayItem : public QListWidgetItem {
 public:
-    PlayItem(const QUuid &itemUuid = QUuid(), const QUuid &playlistUuid = QUuid(), QListWidget *parent = nullptr);
+    explicit PlayItem(const QUuid &itemUuid = QUuid(), const QUuid &playlistUuid = QUuid(), QListWidget *parent = nullptr);
     ~PlayItem();
 
     QUuid playlistUuid();
@@ -41,7 +41,7 @@ private:
 class DrawnPlaylist : public QListWidget {
     Q_OBJECT
 public:
-    DrawnPlaylist(QSharedPointer<PlaylistCollection> collection, QWidget *parent = nullptr);
+    explicit DrawnPlaylist(QSharedPointer<PlaylistCollection> collection, QWidget *parent = nullptr);
     ~DrawnPlaylist();
     void setCollection(QSharedPointer<PlaylistCollection> collection);
     virtual QSharedPointer<Playlist> playlist() const;
@@ -79,7 +79,7 @@ public:
     void repopulateItems();
 
 protected:
-    bool event(QEvent *e);
+    bool event(QEvent *e) override;
 
 private:
     QSharedPointer<PlaylistCollection> collection_;
@@ -135,8 +135,8 @@ class DrawnQueue : public DrawnPlaylist {
     Q_OBJECT
 public:
     DrawnQueue();
-    virtual QSharedPointer<Playlist> playlist() const;
-    void addItem(QUuid itemUuid);
+    QSharedPointer<Playlist> playlist() const override;
+    void addItem(QUuid itemUuid) override;
 };
 
 class PlaylistSelectionPrivate;

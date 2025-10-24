@@ -123,7 +123,7 @@ bool DeviceListener::nativeEvent(const QByteArray &eventType, void *message, lon
 {
     Q_UNUSED(eventType);
     Q_UNUSED(result);
-    MSG *m = reinterpret_cast<MSG*>(message);
+    MSG *m = static_cast<MSG*>(message);
     if (m->message == WM_DEVICECHANGE) {
         Logger::log("devman", "got device change notification");
         rescanTimer.start();

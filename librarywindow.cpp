@@ -42,7 +42,7 @@ void LibraryWindow::on_restorePlaylist_clicked()
     int currentRow = collectionWidget->currentRow();
     if (currentRow == -1)
         return;
-    auto collectionItem = reinterpret_cast<CollectionItem*>(collectionWidget->currentItem());
+    auto collectionItem = static_cast<CollectionItem*>(collectionWidget->currentItem());
     auto playlistCollection = PlaylistCollection::getSingleton();
     auto backupCollection = PlaylistCollection::getBackup();
 
@@ -59,7 +59,7 @@ void LibraryWindow::on_removePlaylist_clicked()
     if (currentRow == -1)
         return;
     auto backupCollection = PlaylistCollection::getBackup();
-    auto collectionItem = reinterpret_cast<CollectionItem*>(collectionWidget->currentItem());
+    auto collectionItem = static_cast<CollectionItem*>(collectionWidget->currentItem());
     backupCollection->removePlaylist(collectionItem->uuid());
     delete collectionWidget->takeItem(currentRow);
 }

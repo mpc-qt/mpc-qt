@@ -12,7 +12,7 @@
 #include "widgets/drawnplaylist.h"
 #include "playlist.h"
 
-static char keyCurrentPlaylist[] = "currentPlaylist";
+constexpr char keyCurrentPlaylist[] = "currentPlaylist";
 
 PlaylistWindow::PlaylistWindow(QWidget *parent) :
     QDockWidget(parent),
@@ -62,7 +62,7 @@ PlaylistItem PlaylistWindow::addToPlaylist(const QUuid &playlist, const QList<QU
     PlaylistItem firstPlaylistItem, currentItem;
     bool firstSet = false;
     auto qdp = widgets.contains(playlist) ? widgets.value(playlist) : widgets[QUuid()];
-    for (QUrl &url : filtered) {
+    for (QUrl const &url : filtered) {
         currentItem = qdp->importUrl(url);
         if (!firstSet) {
             firstPlaylistItem = currentItem;
@@ -253,7 +253,7 @@ QVariantList PlaylistWindow::tabsToVList(bool saveQuickPlaylist) const
 {
     QVariantList qvl;
     for (int i = 0; i < ui->tabWidget->count(); i++) {
-        auto widget = reinterpret_cast<DrawnPlaylist *>(ui->tabWidget->widget(i));
+        auto widget = static_cast<DrawnPlaylist *>(ui->tabWidget->widget(i));
         if (!saveQuickPlaylist && widget->uuid().isNull())
             widget->removeAll();
         qvl.append(widget->toVMap());
@@ -296,7 +296,7 @@ bool PlaylistWindow::eventFilter(QObject *obj, QEvent *event)
 {
     Q_UNUSED(obj)
     if (obj == ui->searchField && event->type() == QEvent::KeyPress) {
-        auto keyEvent = reinterpret_cast<QKeyEvent*>(event);
+        auto keyEvent = static_cast<QKeyEvent*>(event);
         if (!keyEvent->modifiers() &&
                 (keyEvent->key() == Qt::Key_Up ||
                  keyEvent->key() == Qt::Key_Down)) {
@@ -372,7 +372,7 @@ void PlaylistWindow::connectSignalsToSlots()
 
 DrawnPlaylist *PlaylistWindow::currentPlaylistWidget()
 {
-    return reinterpret_cast<DrawnPlaylist *>(ui->tabWidget->currentWidget());
+    return static_cast<DrawnPlaylist *>(ui->tabWidget->currentWidget());
 }
 
 void PlaylistWindow::updateCurrentPlaylist()
@@ -478,7 +478,7 @@ void PlaylistWindow::addPlaylistByUuid(QUuid playlistUuid)
 {
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(playlistUuid);
     if (!pl) {
-        throw std::runtime_error("received a nullptr for a playlist");
+        throw std::invalid_argument("received a nullptr for a playlist");
     }
     addNewTab(pl->uuid(), pl->title());
 }
@@ -1032,7 +1032,7 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
 void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
 {
     int current = ui->tabWidget->currentIndex();
-    auto qdp = reinterpret_cast<DrawnPlaylist *>(ui->tabWidget->widget(index));
+    auto qdp = static_cast<DrawnPlaylist *>(ui->tabWidget->widget(index));
     if (!qdp)
         return;
 
@@ -1058,7 +1058,7 @@ void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
 
 void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
 {
-    auto widget = reinterpret_cast<DrawnPlaylist *>(ui->tabWidget->widget(index));
+    auto widget = static_cast<DrawnPlaylist *>(ui->tabWidget->widget(index));
     QUuid tabUuid = widget->uuid();
     if (tabUuid.isNull())
         return;
@@ -1067,7 +1067,7 @@ void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
     qid->setWindowModality(Qt::ApplicationModal);
     qid->setWindowTitle(tr("Enter playlist name"));
     qid->setTextValue(ui->tabWidget->tabText(index).replace("&", ""));
-    connect(qid, &QInputDialog::accepted, this, [=]() {
+    connect(qid, &QInputDialog::accepted, this, [this, widget, tabUuid, qid]() {
         int tabIndex = ui->tabWidget->indexOf(widget);
         if (tabIndex < 0)
             return;

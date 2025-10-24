@@ -40,12 +40,12 @@ namespace Helpers {
     enum TimeFormat { LongFormat, ShortFormat,
                       LongHourFormat, ShortHourFormat };
 
-    extern QSet<QString> audioVideoFileExtensions;
-    extern QSet<QString> imagesFileExtensions;
-    extern QSet<QString> archivesFileExtensions;
-    extern QSet<QString> othersFileExtensions;
-    extern QSet<QString> allMediaExtensions;
-    extern QSet<QString> subsExtensions;
+    extern const QSet<QString> audioVideoFileExtensions;
+    extern const QSet<QString> imagesFileExtensions;
+    extern const QSet<QString> archivesFileExtensions;
+    extern const QSet<QString> othersFileExtensions;
+    extern const QSet<QString> allMediaExtensions;
+    extern const QSet<QString> subsExtensions;
 
     QString fileSizeToString(int64_t bytes);
     QString fileSizeToStringShort(int64_t bytes);
@@ -72,7 +72,7 @@ namespace Helpers {
     bool pointFromString(QPoint &point, const QString &text);
     QRect availableGeometryFromPoint(const QPoint &point);
     QScreen *findScreenByName(QString s);
-    QString screenToVisualName(QScreen *s);
+    QString screenToVisualName(const QScreen *s);
 }
 
 class IconThemer : public QObject {
@@ -113,7 +113,7 @@ private:
 
 class TrackInfo {
 public:
-    TrackInfo() {}
+    TrackInfo() = default;
     TrackInfo(const QUrl &url, const QUuid &list, const QUuid &item, QString title, double length,
               double position, int64_t videoTrack, int64_t audioTrack, int64_t subtitleTrack);
     QUrl url;
@@ -147,7 +147,7 @@ public:
     MouseState();
     MouseState(const MouseState &m);
     MouseState(int button, int mod, MousePress press);
-    MouseState operator =(const MouseState &other);
+    MouseState& operator =(const MouseState &other);
 
     // Components
     int button;
@@ -191,7 +191,7 @@ inline uint qHash(const MouseState &m, uint seed) {
     return m.mouseHash();
 }
 
-typedef QHash<MouseState, QAction*> MouseStateMap;
+using MouseStateMap = QHash<MouseState, QAction *>;
 
 class Command {
 public:
@@ -218,7 +218,7 @@ public:
 class AudioDevice {
 public:
     AudioDevice();
-    AudioDevice(const QVariantMap &m);
+    explicit AudioDevice(const QVariantMap &m);
     void setFromVMap(const QVariantMap &m);
 
     bool operator ==(const AudioDevice &other) const;

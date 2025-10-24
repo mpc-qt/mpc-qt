@@ -233,7 +233,7 @@ QWidget *ButtonDelegate::createEditor(QWidget *parent, const QStyleOptionViewIte
 {
     Q_UNUSED(option)
     Q_UNUSED(index)
-    return qobject_cast<QWidget*>(new ButtonWidget(parent));
+    return new ButtonWidget(parent);
 }
 
 void ButtonDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const

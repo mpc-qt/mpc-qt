@@ -72,9 +72,9 @@ void DrawnCollection::addPlaylist(QUuid playlistUuid)
 
 QUuid DrawnCollection::currentPlaylistUuid()
 {
-    auto ci = reinterpret_cast<CollectionItem*>(currentItem());
+    auto ci = static_cast<CollectionItem*>(currentItem());
     if (!ci)
-        ci = reinterpret_cast<CollectionItem*>(item(0));
+        ci = static_cast<CollectionItem*>(item(0));
     return ci ? ci->uuid() : QUuid();
 }
 
@@ -92,7 +92,7 @@ void DrawnCollection::self_currentRowChanged(int currentRow)
 {
     QUuid playlistUuid;
     if (currentRow != -1)
-        playlistUuid = reinterpret_cast<CollectionItem*>(this->item(currentRow))->uuid();
+        playlistUuid = static_cast<CollectionItem*>(this->item(currentRow))->uuid();
     emit playlistSelected(playlistUuid);
 }
 
