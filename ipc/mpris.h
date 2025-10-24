@@ -166,7 +166,7 @@ public slots:
     void Stop();
     void Play();
     void Seek(qlonglong Offset);
-    void SetPosition(const QDBusObjectPath& TrackId, qlonglong Position);
+    void SetPosition(const QDBusObjectPath &TrackId, qlonglong Position);
     void OpenUri(QString uri);
 
 private slots:

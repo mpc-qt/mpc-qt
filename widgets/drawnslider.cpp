@@ -124,7 +124,7 @@ void DrawnSlider::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
     QPalette pal;
-    pal = reinterpret_cast<QWidget*>(parentWidget())->palette();
+    pal = parentWidget()->palette();
     if (highContrast) {
         grooveBorder = pal.color(QPalette::Normal, QPalette::Text);
         grooveFill   = pal.color(QPalette::Normal, QPalette::Window);
@@ -413,7 +413,7 @@ void MediaSlider::makeHandle()
     }
 }
 
-void MediaSlider::enterEvent(QEvent *event)
+void MediaSlider::enterEvent(QEnterEvent *event)
 {
     Q_UNUSED(event)
     emit hoverBegin();

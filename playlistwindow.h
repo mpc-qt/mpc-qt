@@ -129,7 +129,7 @@ private slots:
     void sortPlaylistByLabel(const QUuid &playlistUuid);
     void sortPlaylistByUrl(const QUuid &playlistUuid);
     void shufflePlaylist(const QUuid &playlistUuid, bool shuffle);
-    void refreshPlaylist(const QUuid & playlistUuid);
+    void refreshPlaylist(const QUuid &playlistUuid);
     void restorePlaylist(const QUuid &playlistUuid);
 
     void self_visibilityChanged();

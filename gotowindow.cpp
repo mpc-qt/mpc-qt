@@ -25,12 +25,12 @@ void GoToWindow::init(double currentTime, double maxTime, double fps)
 
     ui->goToTime->setText(Helpers::toDateFormatWithZero(currentTime));
     QRegularExpression regexTime(R"(^([0-9]?[0-9]):([0-9]?[0-9]):([0-9]?[0-9])\.[0-9]{3}$)");
-    QRegularExpressionValidator* validatorTime = new QRegularExpressionValidator(regexTime, this);
+    auto const* validatorTime = new QRegularExpressionValidator(regexTime, this);
     ui->goToTime->setValidator(validatorTime);
     ui->goToTime->installEventFilter(this);
 
     QRegularExpression regexFrame(R"(^([0-9]{1,})$)");
-    QRegularExpressionValidator* validatorFrame = new QRegularExpressionValidator(regexFrame, this);
+    auto const* validatorFrame = new QRegularExpressionValidator(regexFrame, this);
     ui->goToFrame->setValidator(validatorFrame);
     ui->goToFrame->setText(QString::number(currentTime * fps, 'f', 0));
 
@@ -77,7 +77,7 @@ void GoToWindow::on_goToFrameButton_clicked()
 bool GoToWindow::eventFilter(QObject *obj, QEvent *event)
 {
     if (obj == ui->goToTime && event->type() == QEvent::KeyPress) {
-        auto keyEvent = reinterpret_cast<QKeyEvent*>(event);
+        auto keyEvent = static_cast<QKeyEvent*>(event);
         int cursorPos = ui->goToTime->cursorPosition();
         int key = keyEvent->key();
         if (key == Qt::Key_Backspace) {

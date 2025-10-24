@@ -16,7 +16,7 @@ class DeviceManagerUnix : public DeviceManager
 public:
     explicit DeviceManagerUnix(QObject *parent = nullptr);
     ~DeviceManagerUnix();
-    bool deviceAccessPossible();
+    bool deviceAccessPossible() override;
 
     QStringList blockDevices();
     UDisks2Block *blockDevice(const QString &node);
@@ -37,7 +37,7 @@ signals:
     void filesystemChanged(const QString &node);
 
 protected:
-    void populate();
+    void populate() override;
 
 private:
     void addDrive(const QString &node);
@@ -61,11 +61,10 @@ private:
 class UDisks2Block : public DeviceInfo {
     Q_OBJECT
 public:
-    explicit UDisks2Block(const QString &node, QObject *parent = NULL);
-    QString toDisplayString();
-    void mount();
+    explicit UDisks2Block(const QString &node, QObject *parent = nullptr);
+    QString toDisplayString() override;
+    void mount() override;
 
-public:
     //QString name;       // deviceName
     QString dev;
     QString id;
@@ -100,7 +99,7 @@ private:
 class UDisks2Filesystem : public QObject {
     Q_OBJECT
 public:
-    UDisks2Filesystem(const QString &node, QObject *parent = nullptr);
+    explicit UDisks2Filesystem(const QString &node, QObject *parent = nullptr);
     const QStringList &mountPoints() const;
     void mount();
     void unmount();
@@ -118,7 +117,7 @@ private:
 class UDisks2Drive : public QObject {
     Q_OBJECT
 public:
-    explicit UDisks2Drive(const QString &node, QObject *parent = NULL);
+    explicit UDisks2Drive(const QString &node, QObject *parent = nullptr);
 
     QString name;
     qulonglong size;

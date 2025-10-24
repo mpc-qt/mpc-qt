@@ -54,7 +54,7 @@ void VideoPreview::openFile(const QUrl &fileUrl)
     aspectRatioSet = false;
 }
 
-void VideoPreview::show(const QString &text, double videoPosition, QPoint where, int mainWindowWidth)
+void VideoPreview::show(const QString &text, double videoPosition, const QPoint &where, int mainWindowWidth)
 {
     textLabel->setText(text);
     mpv->setTime(videoPosition);
@@ -64,7 +64,7 @@ void VideoPreview::show(const QString &text, double videoPosition, QPoint where,
     show();
 }
 
-void VideoPreview::setPreviewPosition(QPoint where, int mainWindowWidth)
+void VideoPreview::setPreviewPosition(const QPoint &where, int mainWindowWidth)
 {
     int tooltipWidth = videoWidget->width();
     int xPos = where.x() - std::round(tooltipWidth / 2);

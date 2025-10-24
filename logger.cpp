@@ -5,7 +5,7 @@
 
 class StdFileCopy {
 public:
-    StdFileCopy(FILE *fp) {
+    explicit StdFileCopy(FILE *fp) {
         int handle = dup(fileno(fp));
         if (handle == -1) {
             ptr = fp;

@@ -256,7 +256,7 @@ void MpvObject::setWidgetType(Helpers::MpvWidgetType widgetType, MpvWidgetInterf
     case Helpers::CustomWidget:
         widget = customWidget;
         if (widget == nullptr)
-            widgetType = Helpers::NullWidget;
+            this->widgetType = Helpers::NullWidget;
         break;
     }
     if (!widget)
@@ -328,7 +328,7 @@ int MpvObject::selectedStatsPage()
 void MpvObject::urlOpen(QUrl url)
 {
     fileOpen(url.isLocalFile() ? url.toLocalFile()
-                               : url.fromPercentEncoding(url.toEncoded()));
+                               : QUrl::fromPercentEncoding(url.toEncoded()));
 }
 
 void MpvObject::fileOpen(QString filename, bool replaceMpvPlaylist)
@@ -423,9 +423,9 @@ void MpvObject::setVideoFilters(const QList<QPair<QString, QString>> &filtersLis
 QString MpvObject::formatFiltersList(const QList<QPair<QString, QString>> &filtersList)
 {
     QString filters;
-    for (auto filterPair : filtersList) {
-        filters.append(filterPair.first).append("=").append(filterPair.second).append(",");
-    }
+    for (auto &[filterName, filterValue] : filtersList)
+        filters.append(filterName).append('=').append(filterValue).append(',');
+
     filters.chop(1);
     return filters;
 }
@@ -616,7 +616,7 @@ void MpvObject::setUncachedMpvOption(const QString &option, const QVariant &valu
     setMpvOptionVariant(option, value);
 }
 
-QVariant MpvObject::blockingMpvCommand(QVariant params)
+QVariant MpvObject::blockingMpvCommand(const QVariant &params)
 {
     QVariant v;
     QMetaObject::invokeMethod(ctrl, "command",
@@ -626,7 +626,7 @@ QVariant MpvObject::blockingMpvCommand(QVariant params)
     return v;
 }
 
-QVariant MpvObject::blockingSetMpvPropertyVariant(QString name, QVariant value)
+QVariant MpvObject::blockingSetMpvPropertyVariant(QString name, const QVariant &value)
 {
     int v;
     QMetaObject::invokeMethod(ctrl, "setPropertyVariant",
@@ -638,7 +638,7 @@ QVariant MpvObject::blockingSetMpvPropertyVariant(QString name, QVariant value)
                                   : QVariant::fromValue(MpvErrorCode(v));
 }
 
-QVariant MpvObject::blockingSetMpvOptionVariant(QString name, QVariant value)
+QVariant MpvObject::blockingSetMpvOptionVariant(QString name, const QVariant &value)
 {
     int v;
     QMetaObject::invokeMethod(ctrl, "setOptionVariant",
@@ -661,14 +661,14 @@ QVariant MpvObject::getMpvPropertyVariant(QString name)
 }
 
 
-void MpvObject::setMpvPropertyVariant(QString name, QVariant value)
+void MpvObject::setMpvPropertyVariant(QString name, const QVariant &value)
 {
     if (debugMessages)
         LogStream("mpvobject") << name << " property set to " << value;
     emit ctrlSetPropertyVariant(name, value);
 }
 
-void MpvObject::setMpvOptionVariant(QString name, QVariant value)
+void MpvObject::setMpvOptionVariant(QString name, const QVariant &value)
 {
     if (debugMessages)
         LogStream("mpvobject") << name << " option set to " << value;
@@ -694,7 +694,7 @@ void MpvObject::hideCursor()
     auto w = widget->self()->window();
     if (widget->self()->cursor() == Qt::ArrowCursor || w->isFullScreen()
                                        || w->isMaximized()) {
-        if (qApp->platformName().contains("wayland") && !w->isActiveWindow())
+        if (QGuiApplication::platformName().contains("wayland") && !w->isActiveWindow())
             return;
         widget->self()->setCursor(Qt::BlankCursor);
         //REMOVEME: work around KDE Plasma 6.2.4 bug where cursor stays visible in rightmost position
@@ -711,7 +711,7 @@ void MpvObject::self_aspectChanged(double newAspect)
     emit aspectChanged(newAspect);
 }
 
-void MpvObject::ctrl_mpvPropertyChanged(QString name, QVariant v)
+void MpvObject::ctrl_mpvPropertyChanged(QString name, const QVariant &v)
 {
     QVariant vForLog = v;
     // Don't show more than 3 decimals or none if those are zero
@@ -798,7 +798,7 @@ void MpvObject::self_playLengthChanged(double playLength)
     emit playLengthChanged(playLength);
 }
 
-void MpvObject::self_chapterChanged(double chapter)
+void MpvObject::self_chapterChanged(int64_t chapter)
 {
     chapter_ = chapter;
 }
@@ -918,7 +918,7 @@ static void* GLAPIENTRY glMPGetNativeDisplay(const char* name)
     (void)ctx;
     auto glctx = QOpenGLContext::currentContext();
     if (!strcmp(name, "glMPGetNativeDisplay"))
-        return reinterpret_cast<void*>(glMPGetNativeDisplay);
+        return reinterpret_cast<void*>(&glMPGetNativeDisplay);
     void * res = glctx ? reinterpret_cast<void*>(glctx->getProcAddress(QByteArray(name))) : nullptr;
     if (!res)
         LogStream("mpvwidget") << "Looked up OpenGL function " << name << ", but it was not available.";
@@ -1130,7 +1130,7 @@ void MpvGlWidget::keyReleaseEvent(QKeyEvent *event)
 
 void MpvGlWidget::render_update(void *ctx)
 {
-    QMetaObject::invokeMethod(reinterpret_cast<MpvGlWidget*>(ctx), "maybeUpdate");
+    QMetaObject::invokeMethod(static_cast<MpvGlWidget*>(ctx), "maybeUpdate");
 }
 
 void MpvGlWidget::maybeUpdate()
@@ -1172,7 +1172,7 @@ MpvCallback::MpvCallback(const Callback &callback,
     this->callback = callback;
 }
 
-void MpvCallback::reply(QVariant value)
+void MpvCallback::reply(const QVariant &value)
 {
     callback(value);
     deleteLater();
@@ -1297,7 +1297,7 @@ void MpvController::showStatsPage(int page)
 {
     bool statsVisible = shownStatsPage > 0;
     bool wantVisible = page > 0;
-    if (wantVisible ^ statsVisible) {
+    if (wantVisible != statsVisible) {
         Logger::log("mpvctrl", "toggling stats page");
         command(QStringList({"script-binding",
                              "stats/display-stats-toggle"}));
@@ -1418,26 +1418,26 @@ void MpvController::handleMpvEvent(mpv_event *event)
     auto propertyToVariant = [event](mpv_event_property *prop) -> QVariant {
         auto asBool = [&](bool dflt = false) {
             return (prop->format != MPV_FORMAT_FLAG || prop->data == nullptr) ?
-                        dflt : *reinterpret_cast<bool*>(prop->data);
+                        dflt : *static_cast<bool*>(prop->data);
         };
         auto asDouble = [&](double dflt = nan("")) {
             return (prop->format != MPV_FORMAT_DOUBLE || prop->data == nullptr) ?
-                        dflt : *reinterpret_cast<double*>(prop->data);
+                        dflt : *static_cast<double*>(prop->data);
         };
         auto asInt64 = [&](int64_t dflt = -1) {
             return (prop->format != MPV_FORMAT_INT64 || prop->data == nullptr) ?
-                        dflt : *reinterpret_cast<int64_t*>(prop->data);
+                        dflt : *static_cast<int64_t*>(prop->data);
         };
         auto asString = [&](QString dflt = QString()) {
             return (!(prop->format == MPV_FORMAT_STRING ||
                       prop->format == MPV_FORMAT_OSD_STRING) ||
                     prop->data == nullptr) ?
-                        dflt : QString(*reinterpret_cast<char**>(prop->data));
+                        dflt : QString(*static_cast<char**>(prop->data));
         };
         auto asNode = [&](QVariant dflt = QVariant()) {
             return (prop->format != MPV_FORMAT_NODE || prop->data == nullptr) ?
                         dflt : mpv::qt::node_to_variant(
-                            reinterpret_cast<mpv_node*>(prop->data));
+                            static_cast<mpv_node*>(prop->data));
         };
         if (prop->data == nullptr) {
             return QVariant::fromValue<MpvErrorCode>(MpvErrorCode(event->error));
@@ -1458,7 +1458,7 @@ void MpvController::handleMpvEvent(mpv_event *event)
 
     switch (event->event_id) {
     case MPV_EVENT_GET_PROPERTY_REPLY: {
-        QVariant v = propertyToVariant(reinterpret_cast<mpv_event_property*>(event->data));
+        QVariant v = propertyToVariant(static_cast<mpv_event_property*>(event->data));
         if (!event->reply_userdata)
             return;
         QMetaObject::invokeMethod(reinterpret_cast<MpvCallback*>(event->reply_userdata),
@@ -1477,8 +1477,8 @@ void MpvController::handleMpvEvent(mpv_event *event)
         break;
     }
     case MPV_EVENT_PROPERTY_CHANGE: {
-        QVariant v = propertyToVariant(reinterpret_cast<mpv_event_property*>(event->data));
-        QString propname = QString::fromUtf8(reinterpret_cast<mpv_event_property*>(event->data)->name);
+        QVariant v = propertyToVariant(static_cast<mpv_event_property*>(event->data));
+        QString propname = QString::fromUtf8(static_cast<mpv_event_property*>(event->data)->name);
         if (throttledProperties.contains(propname))
             setThrottledProperty(propname, v, event->reply_userdata);
         else
@@ -1487,13 +1487,13 @@ void MpvController::handleMpvEvent(mpv_event *event)
     }
     case MPV_EVENT_LOG_MESSAGE: {
         mpv_event_log_message *msg =
-                reinterpret_cast<mpv_event_log_message*>(event->data);
+                static_cast<mpv_event_log_message*>(event->data);
         emit logMessageByParts(msg->prefix, msg->level, msg->text);
         break;
     }
     case MPV_EVENT_CLIENT_MESSAGE: {
         mpv_event_client_message *msg =
-                reinterpret_cast<mpv_event_client_message*>(event->data);
+                static_cast<mpv_event_client_message*>(event->data);
         QStringList list;
         for (int i = 0; i < msg->num_args; i++)
             list.append(msg->args[i]);
@@ -1520,7 +1520,7 @@ void MpvController::handleMpvEvent(mpv_event *event)
         break;
     }
     case MPV_EVENT_HOOK: {
-        mpv_event_hook *msg = reinterpret_cast<mpv_event_hook*>(event->data);
+        mpv_event_hook *msg = static_cast<mpv_event_hook*>(event->data);
         emit hookEvent(msg->name, event->reply_userdata, msg->id);
         break;
     }

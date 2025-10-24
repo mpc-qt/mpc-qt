@@ -31,8 +31,8 @@ class MpvObject : public QObject
 {
     Q_OBJECT
 
-    typedef std::function<void(MpvObject*,bool,const QVariant&)> PropertyDispatchFunction;
-    typedef QMap<QString, PropertyDispatchFunction> PropertyDispatchMap;
+    using PropertyDispatchFunction = std::function<void (MpvObject *, bool, const QVariant &)>;
+    using PropertyDispatchMap = QMap<QString, PropertyDispatchFunction>;
 public:
     explicit MpvObject(QObject *owner, const QString &clientName = "mpv");
     ~MpvObject();
@@ -102,9 +102,9 @@ public:
 
     void setCachedMpvOption(const QString &option, const QVariant &value);
     void setUncachedMpvOption(const QString &option, const QVariant &value);
-    QVariant blockingMpvCommand(QVariant params);
-    QVariant blockingSetMpvPropertyVariant(QString name, QVariant value);
-    QVariant blockingSetMpvOptionVariant(QString name, QVariant value);
+    QVariant blockingMpvCommand(const QVariant &params);
+    QVariant blockingSetMpvPropertyVariant(QString name, const QVariant &value);
+    QVariant blockingSetMpvOptionVariant(QString name, const QVariant &value);
     QVariant getMpvPropertyVariant(QString name);
 
 signals:
@@ -160,19 +160,19 @@ signals:
     void keyRelease(int key);
 
 private:
-    void setMpvPropertyVariant(QString name, QVariant value);
-    void setMpvOptionVariant(QString name, QVariant value);
+    void setMpvPropertyVariant(QString name, const QVariant &value);
+    void setMpvOptionVariant(QString name, const QVariant &value);
     void showCursor();
     void hideCursor();
 
 private slots:
-    void ctrl_mpvPropertyChanged(QString name, QVariant v);
+    void ctrl_mpvPropertyChanged(QString name, const QVariant &v);
     void ctrl_hookEvent(QString name, uint64_t selfId, uint64_t mpvId);
     void ctrl_unhandledMpvEvent(int eventLevel);
     void ctrl_videoSizeChanged(QSize size);
     void self_playTimeChanged(double playTime);
     void self_playLengthChanged(double playLength);
-    void self_chapterChanged(double chapter);
+    void self_chapterChanged(int64_t chapter);
     void self_metadata(QVariantMap metadata);
     void self_audioDeviceList(const QVariantList &list);
     void hideTimer_timeout();
@@ -199,7 +199,7 @@ private:
     QSize videoSize_;
     double playTime_ = 0.0;
     double playLength_ = 0.0;
-    double chapter_ = 0.0;
+    int64_t chapter_ = 0;
     double aspect = 0.0;
 
     int shownStatsPage = 0;
@@ -239,11 +239,11 @@ public:
     explicit MpvGlWidget(MpvObject *object, QWidget *parent = nullptr);
     ~MpvGlWidget();
 
-    QWidget *self();
-    void initMpv();
-    void setLogoUrl(const QString &filename);
-    void setLogoBackground(const QColor &color);
-    void setDrawLogo(bool yes);
+    QWidget *self() override;
+    void initMpv() override;
+    void setLogoUrl(const QString &filename) override;
+    void setLogoBackground(const QColor &color) override;
+    void setDrawLogo(bool yes) override;
     static void *get_proc_address(void *ctx, const char *name);
 
 signals:
@@ -251,14 +251,14 @@ signals:
     void mousePress(int x, int y);
 
 protected:
-    void initializeGL();
-    void paintGL();
-    void resizeGL(int w, int h);
-    void mouseMoveEvent(QMouseEvent *event);
-    void mousePressEvent(QMouseEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);
-    void keyPressEvent(QKeyEvent *event);
-    void keyReleaseEvent(QKeyEvent *event);
+    void initializeGL() override;
+    void paintGL() override;
+    void resizeGL(int w, int h) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
+    void keyPressEvent(QKeyEvent *event) override;
+    void keyReleaseEvent(QKeyEvent *event) override;
 
 private:
     static void render_update(void *ctx);
@@ -273,7 +273,8 @@ private:
     mpv_render_context *render = nullptr;
     LogoDrawer *logo = nullptr;
     bool drawLogo = true;
-    int glWidth = 0, glHeight = 0;
+    int glWidth = 0;
+    int glHeight = 0;
     bool windowDragging = false;
     int resizeEdge = 0;
     QPointF mousePressPosition;
@@ -281,10 +282,10 @@ private:
 
 
 // FIXME: implement MpvVulkanCbWidget
-typedef MpvGlWidget MpvVulkanCbWidget;
+using MpvVulkanCbWidget = MpvGlWidget;
 
 // FIXME: implement MpvEmbedWidget
-typedef MpvGlWidget MpvEmbedWidget;
+using MpvEmbedWidget = MpvGlWidget;
 
 
 
@@ -293,9 +294,9 @@ typedef MpvGlWidget MpvEmbedWidget;
 
 class MpvErrorCode {
 public:
-    MpvErrorCode() {}
-    MpvErrorCode(int value) : value(value) {}
-    MpvErrorCode(const MpvErrorCode &mec) : value(mec.value) {}
+    MpvErrorCode() = default;
+    explicit MpvErrorCode(int value) : value(value) {}
+    MpvErrorCode(const MpvErrorCode &mec) = default;
     ~MpvErrorCode() {}
     int errorcode() { return value; }
 private:
@@ -314,10 +315,10 @@ Q_DECLARE_METATYPE(MpvErrorCode)
 class MpvCallback : public QObject {
     Q_OBJECT
 public:
-    typedef std::function<void(QVariant)> Callback;
+    using Callback = std::function<void (QVariant)>;
     explicit MpvCallback(const Callback &callback, QObject *owner = nullptr);
 public slots:
-    void reply(QVariant value);
+    void reply(const QVariant &value);
 private:
     Callback callback;
 };
@@ -336,14 +337,14 @@ public:
         MpvProperty(const QString &name, uint64_t userData, mpv_format format)
             : name(name), userData(userData), format(format) {}
     };
-    typedef QVector<MpvProperty> PropertyList;
+    using PropertyList = QVector<MpvProperty>;
     struct MpvOption {
         QString name;
         QVariant value;
     };
-    typedef QVector<MpvOption> OptionList;
+    using OptionList = QVector<MpvOption>;
 
-    MpvController(QObject *parent = nullptr);
+    explicit MpvController(QObject *parent = nullptr);
     ~MpvController();
 
 signals:
@@ -404,7 +405,7 @@ private:
 
     QTimer *throttler = nullptr;
     QSet<QString> throttledProperties;
-    typedef QMap<QString,QPair<QVariant,uint64_t>> ThrottledValueMap;
+    using ThrottledValueMap = QMap<QString, QPair<QVariant, uint64_t>>;
     ThrottledValueMap throttledValues;
 
     int shownStatsPage = 0;

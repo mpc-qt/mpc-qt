@@ -13,7 +13,7 @@ const char autoIcons[] = "auto";
 const char blackIconsPath[] = ":/images/theme/black/";
 const char whiteIconsPath[] = ":/images/theme/white/";
 
-QSet<QString> Helpers::audioVideoFileExtensions {
+const QSet<QString> Helpers::audioVideoFileExtensions {
     // DVD/Blu-ray audio formats
     "ac3", "a52",
     "eac3",
@@ -138,7 +138,7 @@ QSet<QString> Helpers::audioVideoFileExtensions {
     "psm"
 };
 
-QSet<QString> Helpers::imagesFileExtensions {
+const QSet<QString> Helpers::imagesFileExtensions {
     // Image formats
     "bmp",
     "dds",
@@ -166,7 +166,7 @@ QSet<QString> Helpers::imagesFileExtensions {
     "xpm"
 };
 
-QSet<QString> Helpers::archivesFileExtensions {
+const QSet<QString> Helpers::archivesFileExtensions {
     // Archives
     "rar",
     "zip",
@@ -174,18 +174,18 @@ QSet<QString> Helpers::archivesFileExtensions {
     "cbr",
     "iso"
 };
-QSet<QString> Helpers::othersFileExtensions {
+const QSet<QString> Helpers::othersFileExtensions {
     // Other formats
     "at9",
     "mpc"
 };
 
-QSet<QString> Helpers::allMediaExtensions = Helpers::audioVideoFileExtensions |
+const QSet<QString> Helpers::allMediaExtensions = Helpers::audioVideoFileExtensions |
                                             Helpers::imagesFileExtensions |
                                             Helpers::archivesFileExtensions |
                                             Helpers::othersFileExtensions;
 
-QSet<QString> Helpers::subsExtensions {
+const QSet<QString> Helpers::subsExtensions {
     "aqtitle", "aqt",
     "ass", "ssa",
     "dvbsub", "sub",
@@ -263,10 +263,10 @@ QString Helpers::toDateFormat(double time)
     int mn = t/60000 % 60;
     int se = t%60000 / 1000;
     int fr = t % 1000;
-    return QString("%1:%2:%3.%4").arg(QString().number(hr))
-            .arg(QString().number(mn),2,'0')
-            .arg(QString().number(se),2,'0')
-            .arg(QString().number(fr),3,'0');
+    return QString("%1:%2:%3.%4").arg(QString::number(hr))
+            .arg(QString::number(mn),2,'0')
+            .arg(QString::number(se),2,'0')
+            .arg(QString::number(fr),3,'0');
 }
 
 QString Helpers::toDateFormatWithZero(double time)
@@ -288,23 +288,23 @@ QString Helpers::toDateFormatFixed(double time, Helpers::TimeFormat format)
     int fr = t % 1000;
     switch (format) {
     case LongFormat:
-        return QString("%1:%2:%3.%4").arg(QString().number(hr))
-                .arg(QString().number(mn),2,'0')
-                .arg(QString().number(se),2,'0')
-                .arg(QString().number(fr),3,'0');
+        return QString("%1:%2:%3.%4").arg(QString::number(hr))
+                .arg(QString::number(mn),2,'0')
+                .arg(QString::number(se),2,'0')
+                .arg(QString::number(fr),3,'0');
     case ShortFormat:
-        return QString("%1:%2:%3").arg(QString().number(hr),2,'0')
-                .arg(QString().number(mn),2,'0')
-                .arg(QString().number(se),2,'0');
+        return QString("%1:%2:%3").arg(QString::number(hr),2,'0')
+                .arg(QString::number(mn),2,'0')
+                .arg(QString::number(se),2,'0');
     case LongHourFormat:
         return QString("%1:%2.%3")
-                .arg(QString().number(mn),2,'0')
-                .arg(QString().number(se),2,'0')
-                .arg(QString().number(fr),3,'0');
+                .arg(QString::number(mn),2,'0')
+                .arg(QString::number(se),2,'0')
+                .arg(QString::number(fr),3,'0');
     case ShortHourFormat:
         return QString("%1:%2")
-                .arg(QString().number(mn),2,'0')
-                .arg(QString().number(se),2,'0');
+                .arg(QString::number(mn),2,'0')
+                .arg(QString::number(se),2,'0');
     }
     return QString();
 }
@@ -336,7 +336,7 @@ double Helpers::fromDateFormat(QString date)
     return times[0].toDouble()*3600 + times[1].toDouble()*60 + times[2].toDouble();
 }
 
-static QString grabBrackets(QString source, int &position, int &length) {
+static QString grabBrackets(QString source, int &position, int const &length) {
     QString match;
     QChar c;
     enum MatchMode { Bracket, Inside, Finish };
@@ -370,7 +370,7 @@ QString Helpers::parseFormat(QString fmt, QString fileName,
 {
     // convenient format parsing
     struct TimeParse {
-        TimeParse(double time) {
+        explicit TimeParse(double time) {
             this->time = time;
             int t = int(time*1000 + 0.5);
             hr = t/3600000;
@@ -635,13 +635,13 @@ QRect Helpers::availableGeometryFromPoint(const QPoint &point)
 
 QScreen *Helpers::findScreenByName(QString s)
 {
-    for (auto screen : qApp->screens())
+    for (auto screen : QApplication::screens())
         if (screenToVisualName(screen) == s)
             return screen;
     return nullptr;
 }
 
-QString Helpers::screenToVisualName(QScreen *s)
+QString Helpers::screenToVisualName(const QScreen *s)
 {
     // If someone has a way to convert QScreen to unique device ids on Windows,
     // please enlighten me.  It would be nice to select a monitor and not lose
@@ -738,7 +738,7 @@ void IconThemer::updateButton(const IconData &data)
 class DisplayNode {
 public:
     enum NodeType { NullNode, PlainText, Trie, Property, DisplayName };
-    DisplayNode() { }
+    DisplayNode() = default;
     ~DisplayNode() {
         empty();
         if (next)
@@ -834,10 +834,7 @@ private:
 
 
 
-DisplayParser::DisplayParser()
-{
-
-}
+DisplayParser::DisplayParser() = default;
 
 DisplayParser::~DisplayParser()
 {
@@ -1038,24 +1035,14 @@ QList<TrackInfo> TrackInfo::tracksFromVList(const QVariantList &list)
 
 MouseState::MouseState() : button(0), mod(0), press(MouseUp) {}
 
-MouseState::MouseState(const MouseState &m) {
-    button = m.button;
-    mod = m.mod;
-    press = m.press;
-}
+MouseState::MouseState(const MouseState &m) = default;
 
 MouseState::MouseState(int button, int mod, MousePress press)
     : button(button), mod(mod), press(press)
 {
 }
 
-MouseState MouseState::operator =(const MouseState &other)
-{
-    button = other.button;
-    mod = other.mod;
-    press = other.press;
-    return *this;
-}
+MouseState& MouseState::operator =(const MouseState &other) = default;
 
 Qt::MouseButtons MouseState::mouseButtons() const
 {
@@ -1245,7 +1232,7 @@ int MouseState::pressToTextCount()
 
 
 
-Command::Command() {}
+Command::Command() = default;
 
 Command::Command(QAction *a, MouseState mf, MouseState mw) : action(a),
     mouseFullscreen(mf), mouseWindowed(mw) {}
@@ -1274,10 +1261,7 @@ void Command::fromAction(QAction *a)
 
 
 
-AudioDevice::AudioDevice()
-{
-
-}
+AudioDevice::AudioDevice() = default;
 
 AudioDevice::AudioDevice(const QVariantMap &m)
 {
