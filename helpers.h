@@ -12,6 +12,7 @@
 #include <QDate>
 #include <QTime>
 #include <QDir>
+#include <QCollator>
 
 extern const char autoIcons[];
 extern const char blackIconsPath[];
@@ -66,6 +67,8 @@ namespace Helpers {
     QString subsOpenFilter();
     bool urlSurvivesFilter(const QUrl &url, bool onlyAudioVideo);
     QList<QUrl> filterUrls(const QList<QUrl> &urls);
+    bool compareUrls(const QUrl &a, const QUrl &b, const QCollator &collator);
+    QString normalizedSuffix(const QFileInfo &fileInfo);
     QRect vmapToRect(const QVariantMap &m);
     QVariantMap rectToVmap(const QRect &r);
     bool sizeFromString(QSize &size, const QString &text);

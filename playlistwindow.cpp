@@ -761,13 +761,15 @@ void PlaylistWindow::sortPlaylistByUrl(const QUuid &playlistUuid)
     auto qdp = widgets.value(playlistUuid, nullptr);
     if (!qdp)
         return;
-    auto converter = [](QSharedPointer<Item> i) {
-        return i->url().toDisplayString();
-    };
-    auto lessThan = [](const QString &a, const QString &b) {
-        return a < b;
-    };
-    qdp->sort<QString>(converter, lessThan);
+
+    QCollator collator;
+    collator.setCaseSensitivity(Qt::CaseInsensitive);
+    collator.setNumericMode(true);
+
+    using namespace std::placeholders;
+    auto converter = [](QSharedPointer<Item> i) { return i->url(); };
+    auto comparer = std::bind(&Helpers::compareUrls, _1, _2, collator);
+    qdp->sort<QUrl>(converter, comparer);
 }
 
 void PlaylistWindow::shufflePlaylist(const QUuid &playlistUuid, bool shuffle)
