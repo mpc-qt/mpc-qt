@@ -3,10 +3,12 @@
 #include <QApplication>
 #include <QMouseEvent>
 #include <QAction>
+#include <QDirIterator>
 #include <cmath>
 #include <QRegularExpression>
 #include <QStandardPaths>
 #include "helpers.h"
+#include "logger.h"
 #include "platform/unify.h"
 
 const char autoIcons[] = "auto";
@@ -549,36 +551,94 @@ bool Helpers::urlSurvivesFilter(const QUrl &url, bool onlyAudioVideo)
     else
         info = QFileInfo(url.fileName());
     if (onlyAudioVideo)
-        return audioVideoFileExtensions.contains(info.suffix().toLower().split(" ")[0]);
+        return audioVideoFileExtensions.contains(normalizedSuffix(info));
     else
-        return allMediaExtensions.contains(info.suffix().toLower().split(" ")[0]);
+        return allMediaExtensions.contains(normalizedSuffix(info));
 }
 
-QList<QUrl> Helpers::filterUrls(const QList<QUrl> &urls)
-{
+QList<QUrl> Helpers::filterUrls(const QList<QUrl> &urls) {
+    QList<QFileInfo> dirs;
     QList<QUrl> filtered;
-    for (const QUrl &u : urls) {
-        if (!u.isLocalFile()) {
-            filtered << u;
+
+    for (const QUrl &url : urls) {
+        if (!url.isLocalFile()) {
+            filtered.append(url);
             continue;
         }
-        QFileInfo info(u.toLocalFile());
-        if (info.isDir()) {           
-            // FIXME: detect circular symlinks
-            QDir dir(info.filePath());
-            QList<QUrl> children;
-            for (auto &i : dir.entryInfoList(QDir::NoDotAndDotDot | QDir::AllEntries,
-                                             QDir::Name | QDir::DirsLast))
-               children << QUrl::fromLocalFile(i.filePath());
-            filtered.append(filterUrls(children));
+
+        QFileInfo info(url.toLocalFile());
+        if (info.isSymLink() && info.absoluteFilePath() == info.canonicalFilePath()) {
+            Logger::logs("helpers", {"skipping circular link:", info.filePath()});
             continue;
         }
-        if (Helpers::allMediaExtensions.contains(info.suffix().toLower().split(" ")[0])) {
-            filtered << u;
-            continue;
+
+        if (info.isDir())
+            dirs.append(info);
+        else if (allMediaExtensions.contains(normalizedSuffix(info)))
+            filtered.append(url);
+    }
+
+    for (const QFileInfo &dir : dirs) {
+        QDirIterator it(dir.absoluteFilePath(), QDir::Files,
+                        QDirIterator::Subdirectories | QDirIterator::FollowSymlinks);
+        while (it.hasNext()) {
+            // nextFileInfo() is more efficient, so use it if we have it
+#if QT_VERSION >= QT_VERSION_CHECK(6,3,0)
+            QFileInfo info = it.nextFileInfo();
+#else
+            QFileInfo info(it.next());
+#endif
+
+            // circular symlink check(s) would be redundant here - QDirIterator does so already
+
+            if (allMediaExtensions.contains(normalizedSuffix(info)))
+                filtered.append(QUrl::fromLocalFile(info.filePath()));
         }
     }
+
+    QCollator collator;
+    collator.setCaseSensitivity(Qt::CaseInsensitive);
+    collator.setNumericMode(true);
+
+    using namespace std::placeholders;
+    std::sort(filtered.begin(), filtered.end(), std::bind(&Helpers::compareUrls, _1, _2, collator));
+
     return filtered;
+}
+
+bool Helpers::compareUrls(const QUrl &a, const QUrl &b, const QCollator &collator)
+{
+    constexpr auto basenameFlags = QString::SectionSkipEmpty | QString::SectionIncludeLeadingSep;
+    constexpr auto urlFlags = QUrl::PreferLocalFile | QUrl::PrettyDecoded | QUrl::StripTrailingSlash;
+
+    QString aStr = a.toString(urlFlags);
+    QString bStr = b.toString(urlFlags);
+
+    // employ more complex sorting for files, comparing basenames and then extensions.
+    // this will, for example, make "file.mp4" appear before "file 2.mp4"
+    if (a.isLocalFile() && b.isLocalFile()) {
+        // compare basenames
+        QString aBase = aStr.section('.', 0, 0, basenameFlags);
+        QString bBase = bStr.section('.', 0, 0, basenameFlags);
+
+        int res = collator.compare(aBase, bBase);
+        if (res != 0 || (aBase.length() == aStr.length() && bBase.length() == bStr.length())) {
+            return res < 0;
+        }
+
+        // basenames are equal... compare extensions
+        return collator.compare(aStr.sliced(aBase.length()), bStr.sliced(bBase.length())) < 0;
+    } else {
+        return collator.compare(aStr, bStr) < 0;
+    }
+}
+
+QString Helpers::normalizedSuffix(const QFileInfo &fileInfo) {
+    QString suffix = fileInfo.suffix().toLower();
+    qsizetype spaceIndex = suffix.indexOf(' ');
+    if (spaceIndex != -1)
+        suffix.truncate(spaceIndex);
+    return suffix;
 }
 
 QRect Helpers::vmapToRect(const QVariantMap &m) {
