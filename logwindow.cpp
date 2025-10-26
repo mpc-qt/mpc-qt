@@ -50,7 +50,7 @@ void LogWindow::closeEvent(QCloseEvent *event)
 void LogWindow::on_copy_clicked()
 {
     QTextDocument *doc = ui->messages->document();
-    qApp->clipboard()->setText(doc->toPlainText());
+    QApplication::clipboard()->setText(doc->toPlainText());
 }
 
 void LogWindow::on_save_clicked()

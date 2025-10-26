@@ -34,7 +34,7 @@ Tooltip::~Tooltip()
     textLabel = nullptr;
 }
 
-void Tooltip::show(const QString &text, QPoint &where, int mainWindowWidth, QString &textTemplate)
+void Tooltip::show(const QString &text, const QPoint &where, int mainWindowWidth, const QString &textTemplate)
 {
     textLabel->setText(text);
     auto rect = QFontMetrics(font()).boundingRect(textTemplate);
@@ -45,7 +45,7 @@ void Tooltip::show(const QString &text, QPoint &where, int mainWindowWidth, QStr
     textLabel->setVisible(true);
 }
 
-void Tooltip::setPosition(QPoint &where, int mainWindowWidth)
+void Tooltip::setPosition(const QPoint &where, int mainWindowWidth)
 {
     int tooltipWidth = textLabel->width();
     int xPos = where.x() - std::round(tooltipWidth / 2);

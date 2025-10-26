@@ -9,7 +9,7 @@
 
 
 
-typedef QList<QPair<QPalette::ColorRole,QString>> RoleLabels;
+using RoleLabels = QList<QPair<QPalette::ColorRole, QString>>;
 Q_GLOBAL_STATIC_WITH_ARGS(RoleLabels, roleText, ({
     { QPalette::WindowText, QObject::tr("Window text") },
     { QPalette::Button, QObject::tr("Button") },
@@ -33,7 +33,7 @@ Q_GLOBAL_STATIC_WITH_ARGS(RoleLabels, roleText, ({
     { QPalette::ToolTipText, QObject::tr("Tooltip text") }
 }));
 
-typedef QList<QPair<QPalette::ColorGroup,QString>> GroupLabels;
+using GroupLabels = QList<QPair<QPalette::ColorGroup, QString>>;
 Q_GLOBAL_STATIC_WITH_ARGS(GroupLabels, groupText, ({
     { QPalette::Active, QObject::tr("Active") },
     { QPalette::Disabled, QObject::tr("Disabled") },
@@ -84,7 +84,7 @@ void PaletteBox::mousePressEvent(QMouseEvent *event)
 
 PaletteEditor::PaletteEditor(QWidget *parent) : QWidget(parent)
 {
-    system = qApp->palette();
+    system = QApplication::palette();
     auto makeBox = [this](ColorPair data) {
         PaletteBox *box = new PaletteBox;
         PaletteEditor *owner = this;
@@ -101,16 +101,16 @@ PaletteEditor::PaletteEditor(QWidget *parent) : QWidget(parent)
     QGridLayout *layout = new QGridLayout();
 
     // First row - labels
-    for (auto &gtt : *groupText)
-        layout->addWidget(new QLabel(gtt.second), row, 1 + col++);
+    for (auto const &[colorGroup, colorGroupTitle] : *groupText)
+        layout->addWidget(new QLabel(colorGroupTitle), row, 1 + col++);
     row++;
 
     // Middle rows - colorboxes
-    for (auto &role : *roleText) {
+    for (auto const &[colorRole, colorRoleTitle] : *roleText) {
         col = 0;
-        layout->addWidget(new QLabel(role.second), row, col++);
-        for (auto &group : *groupText)
-            layout->addWidget(makeBox({group.first,role.first}), row, col++);
+        layout->addWidget(new QLabel(colorRoleTitle), row, col++);
+        for (auto const &[colorGroup, colorGroupTitle] : *groupText)
+            layout->addWidget(makeBox({colorGroup, colorRole}), row, col++);
         row++;
     }
 

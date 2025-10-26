@@ -67,7 +67,7 @@ MainWindow::MainWindow(QWidget *parent) :
     if (Platform::isUnix) {
         setAttribute(Qt::WA_DontShowOnScreen, true);
         show();
-        qApp->processEvents(QEventLoop::AllEvents |
+        QApplication::processEvents(QEventLoop::AllEvents |
                             QEventLoop::WaitForMoreEvents,
                             50);
         hide();
@@ -150,7 +150,7 @@ QVariantMap MainWindow::mouseMapDefaults()
     return commandMap;
 }
 
-QMap<int, QAction *> MainWindow::wmCommandMap()
+QMap<int, QAction *> MainWindow::wmCommandMap() const
 {
     QMap<int, QAction *> wmCommands = {
 
@@ -306,7 +306,7 @@ QSize MainWindow::desirableSize(bool first_run)
     return wanted + fudgeFactor;
 }
 
-QPoint MainWindow::desirablePosition(QSize &size, bool first_run)
+QPoint MainWindow::desirablePosition(QSize &size, bool first_run) const
 {
     QRect available = first_run ? Helpers::availableGeometryFromPoint(QCursor::pos())
                                 : screen()->availableGeometry();
@@ -424,7 +424,7 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
         checkBottomArea(event->globalPosition());
 }
 
-static bool insideWidget(QPoint p, QWidget *widget) {
+static bool insideWidget(QPoint p, QWidget const *widget) {
     if (widget == nullptr)
         return false;
     QRect rc(widget->mapToGlobal(QPoint()), widget->size());
@@ -525,22 +525,22 @@ VolumeSlider *MainWindow::volumeSlider()
     return volumeSlider_;
 }
 
-MainWindow::DecorationState MainWindow::decorationState()
+MainWindow::DecorationState MainWindow::decorationState() const
 {
     return decorationState_;
 }
 
-bool MainWindow::fullscreenMode()
+bool MainWindow::fullscreenMode() const
 {
     return fullscreenMode_;
 }
 
-QSize MainWindow::noVideoSize()
+QSize MainWindow::noVideoSize() const
 {
     return noVideoSize_;
 }
 
-double MainWindow::sizeFactor()
+double MainWindow::sizeFactor() const
 {
     return sizeFactor_;
 }
@@ -858,7 +858,7 @@ void MainWindow::setupHideTimer()
             this, &MainWindow::hideTimer_timeout);
 }
 
-void MainWindow::connectActionsToSignals()
+void MainWindow::connectActionsToSignals() const
 {
     connect(ui->actionFileSaveThumbnails, &QAction::triggered,
             this, &MainWindow::takeThumbnails);
@@ -866,7 +866,7 @@ void MainWindow::connectActionsToSignals()
             this, &MainWindow::showFileProperties);
 }
 
-void MainWindow::connectActionsToSlots()
+void MainWindow::connectActionsToSlots() const
 {
     connect(ui->actionHelpAboutQt, &QAction::triggered,
             qApp, &QApplication::aboutQt);
@@ -904,7 +904,7 @@ void MainWindow::connectButtonsToActions()
             ui->actionPlayVolumeMute, &QAction::toggled);
 }
 
-void MainWindow::connectPlaylistWindowToActions()
+void MainWindow::connectPlaylistWindowToActions() const
 {
     connect(ui->actionPlaylistCopy, &QAction::triggered,
             playlistWindow_, &PlaylistWindow::copy);
@@ -1261,7 +1261,7 @@ void MainWindow::updateMouseHideTime()
 void MainWindow::updateDiscList()
 {
     bool addedSomething = false;
-    auto func = [&](DeviceInfo *device) -> void {
+    auto func = [this, &addedSomething](DeviceInfo *device) {
         if (device->deviceType != DeviceInfo::OpticalDrive &&
             device->deviceType != DeviceInfo::RemovableDrive)
             return;
@@ -1313,7 +1313,8 @@ QList<QUrl> MainWindow::doQuickOpenFileDialog()
     return urls;
 }
 
-QIcon MainWindow::createIconFromSvg(const QString& svgPath, int maxSize) {
+QIcon MainWindow::createIconFromSvg(const QString &svgPath, int maxSize) const
+{
     QIcon icon;
     QSvgRenderer svgRenderer(svgPath);
 
@@ -1328,7 +1329,8 @@ QIcon MainWindow::createIconFromSvg(const QString& svgPath, int maxSize) {
     return icon;
 }
 
-QPixmap MainWindow::renderPixmapFromSvg(const QString &path) {
+QPixmap MainWindow::renderPixmapFromSvg(const QString &path) const
+{
     QSvgRenderer renderer(path);
     qreal devicePixelRatio = this->devicePixelRatioF();
     int iconSize = 16;
@@ -1715,7 +1717,7 @@ void MainWindow::setFullscreenMouseMap(const MouseStateMap &map)
 
 void MainWindow::setRecentDocuments(const QList<TrackInfo> &tracks)
 {
-    bool isEmpty = tracks.count() == 0;
+    bool isEmpty = tracks.isEmpty();
     ui->menuFileRecent->clear();
     ui->menuFileRecent->setDisabled(isEmpty);
     if (isEmpty)
@@ -1749,7 +1751,7 @@ void MainWindow::addRecentDocumentsEntries(const QList<TrackInfo> &tracks, QMenu
         displayString.truncate(100);
         QAction *a = new QAction(QString("%1").arg(displayString),
                                  this);
-        connect(a, &QAction::triggered, this, [=]() {
+        connect(a, &QAction::triggered, this, [this, track]() {
             emit recentOpened(track, true);
         });
         menu->addAction(a);
@@ -2437,7 +2439,7 @@ void MainWindow::on_actionFileOpenNetworkStream_triggered()
     if (mimeData->hasText() && QUrl::fromUserInput(mimeData->text()).isValid())
         qid->setTextValue(QUrl::fromUserInput(mimeData->text()).toString());
     qid->resize(500, qid->height());
-    connect(qid, &QInputDialog::accepted, this, [=] () {
+    connect(qid, &QInputDialog::accepted, this, [this, qid] () {
         emit streamOpened(QUrl::fromUserInput(qid->textValue()));
     });
     qid->show();
@@ -2493,7 +2495,7 @@ void MainWindow::on_actionFileLoadSubtitle_triggered()
     emit subtitlesLoaded(url);
 }
 
-void MainWindow::on_actionFileSubtitleDatabaseSearch_triggered()
+void MainWindow::on_actionFileSubtitleDatabaseSearch_triggered() const
 {
     QString fileNameNoExt = QFileInfo(currentFile.fileName()).completeBaseName();
     QDesktopServices::openUrl(QUrl("https://www.opensubtitles.org/search2/moviename-" +
@@ -3065,7 +3067,7 @@ void MainWindow::on_actionPlaySubtitlesPrevious_triggered()
 
 void MainWindow::on_actionPlaySubtitlesCopy_triggered()
 {
-    QClipboard *clippy = qApp->clipboard();
+    QClipboard *clippy = QApplication::clipboard();
     clippy->setText(subtitleText);
 }
 

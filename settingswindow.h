@@ -17,10 +17,10 @@
 
 class Setting {
 public:
-    Setting() {}
-    Setting(const Setting &s) : name(s.name), widget(s.widget), value(s.value) {}
-    Setting(QString name, QWidget *widget, QVariant value) : name(name), widget(widget), value(value) {}
-    Setting& operator =(const Setting &s);
+    Setting() = default;
+    Setting(const Setting &s) = default;
+    Setting(QString name, QWidget *widget, QVariant const &value) : name(name), widget(widget), value(value) {}
+    Setting &operator =(const Setting &s);
     void sendToControl();
     void fetchFromControl();
 
@@ -71,10 +71,10 @@ private:
     void setupFullscreenCombo();
     void setupUnimplementedWidgets();
     void updateAcceptedSettings();
-    SettingMap generateSettingMap(QWidget *root);
+    SettingMap generateSettingMap(QWidget *root) const;
     void generateVideoPresets();
     void updateLogoWidget();
-    QString selectedLogo();
+    QString selectedLogo() const;
     QString channelSwitcher();
 
 signals:
@@ -224,8 +224,8 @@ private slots:
     void restoreColorControls();
     void restoreAudioSettings();
     void colorPick_clicked(QLineEdit *colorValue);
-    void colorPick_changed(QLineEdit *colorValue, QPushButton *colorPick);
-    QList<MpvOption> parseMpvOptions(const QString& optionsInline);
+    void colorPick_changed(const QLineEdit *colorValue, QPushButton *colorPick);
+    QList<MpvOption> parseMpvOptions(const QString &optionsInline) const;
 
     bool settingsOrKeyMapChanged();
 

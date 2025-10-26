@@ -9,7 +9,7 @@ class StatusTime : public QWidget
     Q_OBJECT
 public:
     explicit StatusTime(QWidget *parent = nullptr);
-    virtual QSize minimumSizeHint() const;
+    QSize minimumSizeHint() const override;
 
     void setTime(double time, double duration);
     void setShortMode(bool shortened);
@@ -17,7 +17,7 @@ public:
 protected:
     void updateTimeFormat();
     void updateText();
-    void paintEvent(QPaintEvent *event);
+    void paintEvent(QPaintEvent *event) override;
 
 private:
     bool shortMode = false;

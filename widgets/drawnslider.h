@@ -42,8 +42,8 @@ protected:
     double valueToX(double value);
     double xToValue(double x);
 
-    void paintEvent(QPaintEvent *event);
-    void resizeEvent(QResizeEvent *event);
+    void paintEvent(QPaintEvent *event) override;
+    void resizeEvent(QResizeEvent *event) override;
 
     bool highContrast = false;
     bool redrawHandle = true;
@@ -59,9 +59,9 @@ protected:
     int handleWidth, handleHeight, marginX, marginY, paddingHeight;
 
 private:
-    void mousePressEvent(QMouseEvent *ev);
-    void mouseReleaseEvent(QMouseEvent *ev);
-    void mouseMoveEvent(QMouseEvent *ev);
+    void mousePressEvent(QMouseEvent *ev) override;
+    void mouseReleaseEvent(QMouseEvent *ev) override;
+    void mouseMoveEvent(QMouseEvent *ev) override;
 
     bool isDragging = false;
     double xPosition = 0.0;
@@ -89,12 +89,12 @@ signals:
     void hoverValue(double position, QString chapterInfo, double x);
 
 protected:
-    void resizeEvent(QResizeEvent *event);
-    void makeBackground();
-    void makeHandle();
-    void enterEvent(QEvent *event);
-    void leaveEvent(QEvent *event);
-    void handleHover(double x);
+    void resizeEvent(QResizeEvent *event) override;
+    void makeBackground() override;
+    void makeHandle() override;
+    void enterEvent(QEnterEvent *event) override;
+    void leaveEvent(QEvent *event) override;
+    void handleHover(double x) override;
 
     void updateLoopArea();
 
@@ -112,7 +112,7 @@ public:
     explicit VolumeSlider(QWidget *parent = nullptr);
 
 protected:
-    void makeBackground();
-    void makeHandle();
+    void makeBackground() override;
+    void makeHandle() override;
 };
 #endif // QDRAWNSLIDER_H

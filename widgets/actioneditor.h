@@ -20,7 +20,7 @@ class ActionEditor : public QTableView
 {
     Q_OBJECT
 public:
-    ActionEditor(QWidget *parent = nullptr);
+    explicit ActionEditor(QWidget *parent = nullptr);
 
     void setCommands(const QList<Command> &commands);
     Command getCommand(int index) const;
@@ -50,7 +50,7 @@ private:
 class ShortcutWidget :public QWidget {
     Q_OBJECT
 public:
-    ShortcutWidget(QWidget *parent = nullptr);
+    explicit ShortcutWidget(QWidget *parent = nullptr);
     void setKeySequence(const QKeySequence &keySequence);
     QKeySequence keySequence();
 
@@ -71,11 +71,11 @@ private:
 class ShortcutDelegate : public QStyledItemDelegate {
     Q_OBJECT
 public:
-    ShortcutDelegate(QObject *parent = nullptr);
-    virtual QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    virtual void setEditorData(QWidget *editor, const QModelIndex &index) const;
-    virtual void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
-    virtual void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    explicit ShortcutDelegate(QObject *parent = nullptr);
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 private:
     ActionEditor *owner = nullptr;
@@ -87,7 +87,7 @@ private:
 class ButtonWidget : public QWidget {
     Q_OBJECT
 public:
-    ButtonWidget(QWidget * parent = nullptr);
+    explicit ButtonWidget(QWidget * parent = nullptr);
     void setState(const MouseState &state);
     MouseState state() const;
 
@@ -111,11 +111,11 @@ private:
 class ButtonDelegate : public QStyledItemDelegate {
     Q_OBJECT
 public:
-    ButtonDelegate(QObject *parent = nullptr, bool fullscreen = false);
-    virtual QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    virtual void setEditorData(QWidget *editor, const QModelIndex &index) const;
-    virtual void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
-    virtual void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    explicit ButtonDelegate(QObject *parent = nullptr, bool fullscreen = false);
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 private:
     ActionEditor *owner = nullptr;

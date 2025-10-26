@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
     }
     Logger::setConsoleLogging(foundLoggingOpt);
     Logger::singleton();
-    a.setWindowIcon(QIcon(":/images/icon/mpc-qt.svg"));
+    QApplication::setWindowIcon(QIcon(":/images/icon/mpc-qt.svg"));
 
     // Qt sets the locale in the QApplication constructor, but libmpv requires
     // the LC_NUMERIC category to be set to "C", so change it back.
@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
     QTranslator qtTranslator;
     QTranslator appTranslator;
 
-    Flow::setTranslation(&a, &qtTranslator, &appTranslator);
+    Flow::setTranslation(&qtTranslator, &appTranslator);
 
 #ifndef MPCQT_VERSION_STR
 #define MPCQT_VERSION_STR MainWindow::tr("Development Build")
@@ -404,7 +404,7 @@ int Flow::run()
 
     // Wait here until quit
     Logger::log("main", "telling the program to run");
-    return qApp->exec();
+    return QApplication::exec();
 }
 
 bool Flow::earlyQuit()
@@ -434,7 +434,7 @@ void Flow::earlyPlatformOverride()
 }
 
 // Register the translations
-void Flow::setTranslation(QApplication *app, QTranslator *qtTranslator, QTranslator *appTranslator)
+void Flow::setTranslation(QTranslator *qtTranslator, QTranslator *appTranslator)
 {
     QLocale locale;
     Storage s;
@@ -444,10 +444,10 @@ void Flow::setTranslation(QApplication *app, QTranslator *qtTranslator, QTransla
         locale = QLocale("en");
 
     if (qtTranslator->load(locale, "qtbase", "_", ":/i18n"))
-        app->installTranslator(qtTranslator);
+        QApplication::installTranslator(qtTranslator);
 
     if (appTranslator->load(locale, "mpc-qt", "_", ":/i18n"))
-        app->installTranslator(appTranslator);
+        QApplication::installTranslator(appTranslator);
 }
 
 void Flow::readConfig()
@@ -783,7 +783,7 @@ void Flow::setupSettingsConnections()
 
     // settings -> application
     connect(settingsWindow, &SettingsWindow::applicationPalette,
-            qApp, [](const QPalette &pal) { qApp->setPalette(pal); });
+            qApp, [](const QPalette &pal) { QApplication::setPalette(pal); });
 }
 
 void Flow::setupMpvObjectConnections()
@@ -1170,7 +1170,7 @@ void Flow::setupMpcHc()
             mpcHcServer, &MpcHcServer::setVolumeMuted);
 
     // mpvObject -> mpcHcServer
-    MpvObject *mpvObject = mainWindow->mpvObject();
+    const MpvObject *mpvObject = mainWindow->mpvObject();
     connect(mpvObject, &MpvObject::fileSizeChanged,
             mpcHcServer, &MpcHcServer::setFileSize);
 
@@ -1203,7 +1203,7 @@ bool Flow::isNvidiaGPU()
     for (const QString &line : result.split('\n'))
         LogStream("main") << line;
 
-    if (result.contains("nvidia", Qt::CaseSensitivity::CaseInsensitive) > 0) {
+    if (result.contains("nvidia", Qt::CaseSensitivity::CaseInsensitive)) {
         foundNvidia = true;
     }
     return foundNvidia;
@@ -1383,7 +1383,7 @@ void Flow::mainwindow_recentClear()
 
 void Flow::mainwindow_takeImage(Helpers::ScreenshotRender render)
 {
-    static QFileDialog::Options options = QFileDialog::Options();
+    static auto options = QFileDialog::Options();
 #ifdef Q_OS_MAC
     options = QFileDialog::DontUseNativeDialog;
 #endif
@@ -1634,14 +1634,14 @@ void Flow::settingswindow_stylesheetIsFusion(bool yes)
 {
     static QString originalApplicationStyle;
     if (originalApplicationStyle.isNull()) {
-        originalApplicationStyle = qApp->style()->name();
+        originalApplicationStyle = QApplication::style()->name();
     }
 
-    bool wasFusion = qApp->style()->name() == "Fusion";
+    bool wasFusion = QApplication::style()->name() == "Fusion";
     if (!yes && wasFusion)
-        qApp->setStyle(originalApplicationStyle);
+        QApplication::setStyle(originalApplicationStyle);
     if (yes && !wasFusion)
-        qApp->setStyle(QStyleFactory::create("Fusion"));
+        QApplication::setStyle(QStyleFactory::create("Fusion"));
 }
 
 void Flow::settingswindow_stylesheetText(QString text)
