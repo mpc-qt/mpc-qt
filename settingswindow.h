@@ -319,6 +319,12 @@ private slots:
 
     void on_loggingEnabled_toggled(bool checked);
 
+    void on_logFileCreate_toggled(bool checked);
+
+    void on_logUpdateDelayed_toggled(bool checked);
+
+    void on_logHistoryTrim_toggled(bool checked);
+
     void on_miscBrightness_valueChanged(int value);
 
     void on_miscContrast_valueChanged(int value);

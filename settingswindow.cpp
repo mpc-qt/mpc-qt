@@ -1568,6 +1568,23 @@ void SettingsWindow::on_loggingEnabled_toggled(bool checked)
     ui->logHistoryBox->setEnabled(checked);
 }
 
+void SettingsWindow::on_logFileCreate_toggled(bool checked)
+{
+    ui->logFilePathLabel->setEnabled(checked);
+    ui->logFilePathValue->setEnabled(checked);
+    ui->logFilePathBrowse->setEnabled(checked);
+}
+
+void SettingsWindow::on_logUpdateDelayed_toggled(bool checked)
+{
+    ui->logUpdateInterval->setEnabled(checked);
+}
+
+void SettingsWindow::on_logHistoryTrim_toggled(bool checked)
+{
+    ui->logHistoryLines->setEnabled(checked);
+}
+
 void SettingsWindow::on_miscBrightness_valueChanged(int value)
 {
     ui->miscBrightnessValue->setText(QString("%1").arg(value, 4, 10, QChar(' ')));
