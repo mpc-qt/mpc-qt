@@ -3636,7 +3636,7 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bitrate</translation>
     </message>
     <message>
         <source>kBits</source>
