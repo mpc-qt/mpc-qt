@@ -237,17 +237,11 @@ private slots:
     void keyPressEvent(QKeyEvent *event) override;
     bool eventFilter(QObject *obj, QEvent *event) override;
 
-    void on_playerOpenSame_clicked();
-
-    void on_playerOpenNew_clicked();
+    void on_playerOpenNew_toggled(bool checked);
 
     void on_playerAppendToQuickPlaylist_checkStateChanged(Qt::CheckState state);
 
-    void on_playerTitleDisplayFullPath_clicked();
-
-    void on_playerTitleFileNameOnly_clicked();
-
-    void on_playerTitleDontPrefix_clicked();
+    void on_playerTitleDontPrefix_toggled(bool checked);
 
     void on_playerKeepHistory_checkStateChanged(Qt::CheckState state);
 

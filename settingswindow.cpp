@@ -1285,15 +1285,11 @@ void SettingsWindow::keyPressEvent(QKeyEvent *event)
         QWidget::keyPressEvent(event);
 }
 
-void SettingsWindow::on_playerOpenSame_clicked()
+void SettingsWindow::on_playerOpenNew_toggled(bool checked)
 {
-    ui->playerAppendToQuickPlaylist->setEnabled(true);
-}
-
-void SettingsWindow::on_playerOpenNew_clicked()
-{
-    ui->playerAppendToQuickPlaylist->setEnabled(false);
-    ui->playerAppendToQuickPlaylist->setChecked(false);
+    ui->playerAppendToQuickPlaylist->setEnabled(!checked);
+    if (checked)
+        ui->playerAppendToQuickPlaylist->setChecked(false);
 }
 
 void SettingsWindow::on_playerAppendToQuickPlaylist_checkStateChanged(Qt::CheckState state)
@@ -1302,21 +1298,10 @@ void SettingsWindow::on_playerAppendToQuickPlaylist_checkStateChanged(Qt::CheckS
         ui->playerRememberQuickPlaylist->setChecked(false);
 }
 
-void SettingsWindow::on_playerTitleDisplayFullPath_clicked()
+void SettingsWindow::on_playerTitleDontPrefix_toggled(bool checked)
 {
-    ui->playerTitleReplaceName->setEnabled(true);
+    ui->playerTitleReplaceName->setEnabled(!checked);
 }
-
-void SettingsWindow::on_playerTitleFileNameOnly_clicked()
-{
-    ui->playerTitleReplaceName->setEnabled(true);
-}
-
-void SettingsWindow::on_playerTitleDontPrefix_clicked()
-{
-    ui->playerTitleReplaceName->setEnabled(false);
-}
-
 
 void SettingsWindow::on_playerKeepHistory_checkStateChanged(Qt::CheckState state)
 {
