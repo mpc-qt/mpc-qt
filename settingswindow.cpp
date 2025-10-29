@@ -1520,6 +1520,12 @@ void SettingsWindow::on_subsShadowEnabled_toggled(bool checked)
     ui->subsShadowOffset->setEnabled(checked);
 }
 
+void SettingsWindow::on_screenshotDirectorySet_toggled(bool checked)
+{
+    ui->screenshotDirectoryValue->setEnabled(checked);
+    ui->screenshotDirectoryBrowse->setEnabled(checked);
+}
+
 // REMOVEME: Disable auto zoom in Wayland mode as window centering isn't possible yet
 void SettingsWindow::on_tweaksPreferWayland_toggled(bool checked)
 {

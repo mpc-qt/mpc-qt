@@ -301,6 +301,8 @@ private slots:
 
     void on_subsShadowEnabled_toggled(bool checked);
 
+    void on_screenshotDirectorySet_toggled(bool checked);
+
     void on_tweaksPreferWayland_toggled(bool checked);
 
     void on_tweaksTimeTooltip_toggled(bool checked);

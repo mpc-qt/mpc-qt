@@ -6977,6 +6977,9 @@ media file played</string>
           </layout>
          </widget>
          <widget class="QWidget" name="exportPage">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
           <layout class="QVBoxLayout" name="exportPageLayout">
            <item>
             <widget class="QGroupBox" name="screenshotDirectoryBox">
@@ -7021,6 +7024,9 @@ media file played</string>
               </item>
               <item row="1" column="0">
                <widget class="QLabel" name="screenshotEncodeLabel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Encode</string>
                 </property>
@@ -7030,6 +7036,9 @@ media file played</string>
                <layout class="QHBoxLayout" name="encodeDirectoryLayout">
                 <item>
                  <widget class="QCheckBox" name="encodeDirectorySet">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="text">
                    <string/>
                   </property>
@@ -7040,6 +7049,9 @@ media file played</string>
                 </item>
                 <item>
                  <widget class="QLineEdit" name="encodeDirectoryValue">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="placeholderText">
                    <string notr="true">~/Videos/mpc_encodes</string>
                   </property>
@@ -7047,6 +7059,9 @@ media file played</string>
                 </item>
                 <item>
                  <widget class="QPushButton" name="encodeDirectoryBrowse">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="text">
                    <string>...</string>
                   </property>
@@ -7089,6 +7104,9 @@ media file played</string>
               </item>
               <item row="1" column="0">
                <widget class="QLabel" name="encodeTemplateLabel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Encode</string>
                 </property>
@@ -7096,6 +7114,9 @@ media file played</string>
               </item>
               <item row="1" column="1">
                <widget class="QLineEdit" name="encodeTemplate">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="placeholderText">
                  <string notr="true">%f_encode_%aP-%bP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}%d{_novideo}{_noaudio}</string>
                 </property>
