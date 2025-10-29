@@ -255,9 +255,7 @@ private slots:
 
     void on_logoExternalBrowse_clicked();
 
-    void on_logoUseInternal_clicked();
-
-    void on_logoExternal_clicked();
+    void on_logoExternal_toggled(bool checked);
 
     void on_logoInternal_currentIndexChanged(int index);
 

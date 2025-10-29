@@ -1358,13 +1358,11 @@ void SettingsWindow::on_logoExternalBrowse_clicked()
         updateLogoWidget();
 }
 
-void SettingsWindow::on_logoUseInternal_clicked()
+void SettingsWindow::on_logoExternal_toggled(bool checked)
 {
-    updateLogoWidget();
-}
-
-void SettingsWindow::on_logoExternal_clicked()
-{
+    ui->logoInternal->setEnabled(!checked);
+    ui->logoExternalLocation->setEnabled(checked);
+    ui->logoExternalBrowse->setEnabled(checked);
     updateLogoWidget();
 }
 
