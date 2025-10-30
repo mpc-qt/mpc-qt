@@ -533,13 +533,6 @@ media file played</string>
            </item>
            <item>
             <layout class="QGridLayout" name="logoLayout">
-             <item row="1" column="0">
-              <widget class="QRadioButton" name="logoExternal">
-               <property name="text">
-                <string>E&amp;xternal</string>
-               </property>
-              </widget>
-             </item>
              <item row="0" column="0">
               <widget class="QRadioButton" name="logoUseInternal">
                <property name="text">
@@ -547,16 +540,6 @@ media file played</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="logoExternalLocation"/>
-             </item>
-             <item row="1" column="2">
-              <widget class="QPushButton" name="logoExternalBrowse">
-               <property name="text">
-                <string>Browse...</string>
                </property>
               </widget>
              </item>
@@ -585,6 +568,30 @@ media file played</string>
                  <string>Multi purpose vehicle</string>
                 </property>
                </item>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QRadioButton" name="logoExternal">
+               <property name="text">
+                <string>E&amp;xternal</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="logoExternalLocation">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QPushButton" name="logoExternalBrowse">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>Browse...</string>
+               </property>
               </widget>
              </item>
             </layout>
@@ -1189,17 +1196,7 @@ media file played</string>
               <string>Output</string>
              </property>
              <layout class="QFormLayout" name="playbackAutoBoxLayout">
-              <item row="0" column="0" colspan="2">
-               <widget class="QCheckBox" name="playbackAutoCenterWindow">
-                <property name="text">
-                 <string>Center window when zooming</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
+              <item row="0" column="0">
                <widget class="QCheckBox" name="playbackAutoZoom">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -1215,7 +1212,7 @@ media file played</string>
                 </property>
                </widget>
               </item>
-              <item row="1" column="1">
+              <item row="0" column="1">
                <widget class="QComboBox" name="playbackAutoZoomMethod">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
@@ -1284,6 +1281,16 @@ media file played</string>
                   <string>Autofit (Smaller Only)</string>
                  </property>
                 </item>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QCheckBox" name="playbackAutoCenterWindow">
+                <property name="text">
+                 <string>Center window when zooming</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="2" column="0">
@@ -6970,6 +6977,9 @@ media file played</string>
           </layout>
          </widget>
          <widget class="QWidget" name="exportPage">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
           <layout class="QVBoxLayout" name="exportPageLayout">
            <item>
             <widget class="QGroupBox" name="screenshotDirectoryBox">
@@ -7014,6 +7024,9 @@ media file played</string>
               </item>
               <item row="1" column="0">
                <widget class="QLabel" name="screenshotEncodeLabel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Encode</string>
                 </property>
@@ -7023,6 +7036,9 @@ media file played</string>
                <layout class="QHBoxLayout" name="encodeDirectoryLayout">
                 <item>
                  <widget class="QCheckBox" name="encodeDirectorySet">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="text">
                    <string/>
                   </property>
@@ -7033,6 +7049,9 @@ media file played</string>
                 </item>
                 <item>
                  <widget class="QLineEdit" name="encodeDirectoryValue">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="placeholderText">
                    <string notr="true">~/Videos/mpc_encodes</string>
                   </property>
@@ -7040,6 +7059,9 @@ media file played</string>
                 </item>
                 <item>
                  <widget class="QPushButton" name="encodeDirectoryBrowse">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="text">
                    <string>...</string>
                   </property>
@@ -7082,6 +7104,9 @@ media file played</string>
               </item>
               <item row="1" column="0">
                <widget class="QLabel" name="encodeTemplateLabel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Encode</string>
                 </property>
@@ -7089,6 +7114,9 @@ media file played</string>
               </item>
               <item row="1" column="1">
                <widget class="QLineEdit" name="encodeTemplate">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="placeholderText">
                  <string notr="true">%f_encode_%aP-%bP_[%t{yyyy.MM.dd_hh.mm.ss}]%s{_subs}%d{_novideo}{_noaudio}</string>
                 </property>
@@ -7971,6 +7999,9 @@ media file played</string>
               </item>
               <item row="3" column="0">
                <widget class="QLabel" name="logFilePathLabel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Path</string>
                 </property>
@@ -7980,6 +8011,9 @@ media file played</string>
                <layout class="QHBoxLayout" name="logFilePathLayout">
                 <item>
                  <widget class="QLineEdit" name="logFilePathValue">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="placeholderText">
                    <string>~/mpc-qt-log.txt</string>
                   </property>
@@ -7987,6 +8021,9 @@ media file played</string>
                 </item>
                 <item>
                  <widget class="QPushButton" name="logFilePathBrowse">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="text">
                    <string>...</string>
                   </property>

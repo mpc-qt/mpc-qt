@@ -1285,15 +1285,11 @@ void SettingsWindow::keyPressEvent(QKeyEvent *event)
         QWidget::keyPressEvent(event);
 }
 
-void SettingsWindow::on_playerOpenSame_clicked()
+void SettingsWindow::on_playerOpenNew_toggled(bool checked)
 {
-    ui->playerAppendToQuickPlaylist->setEnabled(true);
-}
-
-void SettingsWindow::on_playerOpenNew_clicked()
-{
-    ui->playerAppendToQuickPlaylist->setEnabled(false);
-    ui->playerAppendToQuickPlaylist->setChecked(false);
+    ui->playerAppendToQuickPlaylist->setEnabled(!checked);
+    if (checked)
+        ui->playerAppendToQuickPlaylist->setChecked(false);
 }
 
 void SettingsWindow::on_playerAppendToQuickPlaylist_checkStateChanged(Qt::CheckState state)
@@ -1302,21 +1298,10 @@ void SettingsWindow::on_playerAppendToQuickPlaylist_checkStateChanged(Qt::CheckS
         ui->playerRememberQuickPlaylist->setChecked(false);
 }
 
-void SettingsWindow::on_playerTitleDisplayFullPath_clicked()
+void SettingsWindow::on_playerTitleDontPrefix_toggled(bool checked)
 {
-    ui->playerTitleReplaceName->setEnabled(true);
+    ui->playerTitleReplaceName->setEnabled(!checked);
 }
-
-void SettingsWindow::on_playerTitleFileNameOnly_clicked()
-{
-    ui->playerTitleReplaceName->setEnabled(true);
-}
-
-void SettingsWindow::on_playerTitleDontPrefix_clicked()
-{
-    ui->playerTitleReplaceName->setEnabled(false);
-}
-
 
 void SettingsWindow::on_playerKeepHistory_checkStateChanged(Qt::CheckState state)
 {
@@ -1373,13 +1358,11 @@ void SettingsWindow::on_logoExternalBrowse_clicked()
         updateLogoWidget();
 }
 
-void SettingsWindow::on_logoUseInternal_clicked()
+void SettingsWindow::on_logoExternal_toggled(bool checked)
 {
-    updateLogoWidget();
-}
-
-void SettingsWindow::on_logoExternal_clicked()
-{
+    ui->logoInternal->setEnabled(!checked);
+    ui->logoExternalLocation->setEnabled(checked);
+    ui->logoExternalBrowse->setEnabled(checked);
     updateLogoWidget();
 }
 
@@ -1537,6 +1520,12 @@ void SettingsWindow::on_subsShadowEnabled_toggled(bool checked)
     ui->subsShadowOffset->setEnabled(checked);
 }
 
+void SettingsWindow::on_screenshotDirectorySet_toggled(bool checked)
+{
+    ui->screenshotDirectoryValue->setEnabled(checked);
+    ui->screenshotDirectoryBrowse->setEnabled(checked);
+}
+
 // REMOVEME: Disable auto zoom in Wayland mode as window centering isn't possible yet
 void SettingsWindow::on_tweaksPreferWayland_toggled(bool checked)
 {
@@ -1566,6 +1555,23 @@ void SettingsWindow::on_loggingEnabled_toggled(bool checked)
     ui->logFileBox->setEnabled(checked);
     ui->logUpdateBox->setEnabled(checked);
     ui->logHistoryBox->setEnabled(checked);
+}
+
+void SettingsWindow::on_logFileCreate_toggled(bool checked)
+{
+    ui->logFilePathLabel->setEnabled(checked);
+    ui->logFilePathValue->setEnabled(checked);
+    ui->logFilePathBrowse->setEnabled(checked);
+}
+
+void SettingsWindow::on_logUpdateDelayed_toggled(bool checked)
+{
+    ui->logUpdateInterval->setEnabled(checked);
+}
+
+void SettingsWindow::on_logHistoryTrim_toggled(bool checked)
+{
+    ui->logHistoryLines->setEnabled(checked);
 }
 
 void SettingsWindow::on_miscBrightness_valueChanged(int value)

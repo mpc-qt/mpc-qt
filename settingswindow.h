@@ -237,17 +237,11 @@ private slots:
     void keyPressEvent(QKeyEvent *event) override;
     bool eventFilter(QObject *obj, QEvent *event) override;
 
-    void on_playerOpenSame_clicked();
-
-    void on_playerOpenNew_clicked();
+    void on_playerOpenNew_toggled(bool checked);
 
     void on_playerAppendToQuickPlaylist_checkStateChanged(Qt::CheckState state);
 
-    void on_playerTitleDisplayFullPath_clicked();
-
-    void on_playerTitleFileNameOnly_clicked();
-
-    void on_playerTitleDontPrefix_clicked();
+    void on_playerTitleDontPrefix_toggled(bool checked);
 
     void on_playerKeepHistory_checkStateChanged(Qt::CheckState state);
 
@@ -261,9 +255,7 @@ private slots:
 
     void on_logoExternalBrowse_clicked();
 
-    void on_logoUseInternal_clicked();
-
-    void on_logoExternal_clicked();
+    void on_logoExternal_toggled(bool checked);
 
     void on_logoInternal_currentIndexChanged(int index);
 
@@ -309,6 +301,8 @@ private slots:
 
     void on_subsShadowEnabled_toggled(bool checked);
 
+    void on_screenshotDirectorySet_toggled(bool checked);
+
     void on_tweaksPreferWayland_toggled(bool checked);
 
     void on_tweaksTimeTooltip_toggled(bool checked);
@@ -318,6 +312,12 @@ private slots:
     void on_tweaksMpvOptionsChkBox_toggled(bool checked);
 
     void on_loggingEnabled_toggled(bool checked);
+
+    void on_logFileCreate_toggled(bool checked);
+
+    void on_logUpdateDelayed_toggled(bool checked);
+
+    void on_logHistoryTrim_toggled(bool checked);
 
     void on_miscBrightness_valueChanged(int value);
 
