@@ -2615,7 +2615,7 @@ media file played</source>
     </message>
     <message>
         <source>Default track preference</source>
-        <translation>默认音轨设定</translation>
+        <translation>默认轨道偏好</translation>
     </message>
     <message>
         <source>Mouse hiding</source>
@@ -4347,7 +4347,7 @@ media file played</source>
     </message>
     <message>
         <source>&amp;Go!</source>
-        <translation>执行(&amp;G)！</translation>
+        <translation>执行(&amp;G)!</translation>
     </message>
     <message>
         <source>Thu&amp;mbnail</source>
