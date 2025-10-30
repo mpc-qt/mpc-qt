@@ -4347,7 +4347,7 @@ media file played</source>
     </message>
     <message>
         <source>&amp;Go!</source>
-        <translation>执行(&amp;G)!</translation>
+        <translation>快速跳转</translation>
     </message>
     <message>
         <source>Thu&amp;mbnail</source>
