@@ -86,9 +86,10 @@ for dll in "${DLLS[@]}"; do
   done
 done
 
-# Manually copy Qt6Svg.dll as it's needed by imageformats/qjpeg.dll
-echo "Copying libjpeg-*.dll to $DEST"
+# Manually copy other dlls as needed
+echo "Copying other dlls to $DEST"
 cp $BINDIR/libjpeg-*.dll                "$DEST"
+cp $BINDIR/libcrypto-*.dll              "$DEST"
 
 echo "All required DLLs from $BINDIR have been copied to $DEST."
 
