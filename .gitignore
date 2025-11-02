@@ -33,6 +33,7 @@
 /mpc-qt-*/
 *.zip 
 *.sha512
+*.exe
 
 # transifex
 .transifexrc
@@ -42,3 +43,5 @@ AppDir
 *.AppImage
 
 .cache
+
+translations/qt
