@@ -2965,6 +2965,7 @@ void MainWindow::on_actionPlayStop_triggered()
     emit stopped();
     isPlaying = false;
     updateSize();
+    ui->play->setFocus();
 }
 
 void MainWindow::on_actionPlayFrameBackward_triggered()
