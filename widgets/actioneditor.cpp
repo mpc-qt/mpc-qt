@@ -51,7 +51,7 @@ void ActionEditor::setCommands(const QList<Command> &commands)
         QString actionDescription = getDescriptiveName(commands[i].action);
         QList<QStandardItem*> items = {
             new QStandardItem(actionDescription),
-            new QStandardItem(commands[i].action->shortcut().toString()),
+            new QStandardItem(commands[i].action->shortcut().toString(QKeySequence::NativeText)),
             new QStandardItem(commands[i].mouseWindowed.toString()),
             new QStandardItem(commands[i].mouseFullscreen.toString()),
         };
