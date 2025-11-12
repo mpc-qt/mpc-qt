@@ -26,6 +26,15 @@
    <li>Thumbnails maker</li>w
   </ul>
  </description>
+ <keywords>
+  <keyword>media</keyword>
+  <keyword>player</keyword>
+  <keyword>video</keyword>
+  <keyword>audio</keyword>
+  <keyword>mpv</keyword>
+  <keyword>tv</keyword>
+  <keyword>stream</keyword>
+ </keywords>
  <screenshots>
   <screenshot type="default">
    <caption>Main window with video preview</caption>
