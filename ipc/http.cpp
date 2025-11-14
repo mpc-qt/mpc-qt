@@ -97,11 +97,10 @@ void HttpResponse::serveFile(QString filename)
     filename.replace("..", ".");
 
     QFile f(filename);
-    if (!f.exists()) {
+    if (!f.exists() || !f.open(QIODevice::ReadOnly)) {
         statusCode = HttpResponse::Http404NotFound;
         return;
     }
-    f.open(QIODevice::ReadOnly);
 
     auto extension = QFileInfo(filename).suffix();
     contentType = HttpServer::extensionToContentType(extension);
