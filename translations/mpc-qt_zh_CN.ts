@@ -4314,6 +4314,10 @@ media file played</source>
         <source>Append opened files to Quick Playlist</source>
         <translation>将打开的文件添加到快速播放列表</translation>
     </message>
+    <message>
+        <source>%</source>
+        <translation type="unfinished">%</translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
@@ -4364,6 +4368,10 @@ media file played</source>
     <message>
         <source>Save Thumbnails</source>
         <translation>保存预览图</translation>
+    </message>
+    <message>
+        <source>%p%</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

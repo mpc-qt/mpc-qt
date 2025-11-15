@@ -4438,6 +4438,10 @@ media file played</source>
         <source>Append opened files to Quick Playlist</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>%</source>
+        <translation type="unfinished">%</translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
@@ -4488,6 +4492,10 @@ media file played</source>
     <message>
         <source>Save Thumbnails</source>
         <translation>சிறு உருவங்களை சேமிக்கவும்</translation>
+    </message>
+    <message>
+        <source>%p%</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

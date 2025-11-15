@@ -1079,7 +1079,7 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="suffix">
-                 <string notr="true">%</string>
+                 <string>%</string>
                 </property>
                 <property name="minimum">
                  <number>1</number>
@@ -1110,7 +1110,7 @@ media file played</string>
                    <string>Auto</string>
                   </property>
                   <property name="suffix">
-                   <string notr="true">%</string>
+                   <string>%</string>
                   </property>
                   <property name="maximum">
                    <number>100</number>
@@ -1315,7 +1315,7 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="suffix">
-                 <string notr="true">%</string>
+                 <string>%</string>
                 </property>
                 <property name="minimum">
                  <number>25</number>
@@ -6297,7 +6297,7 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="suffix">
-                 <string notr="true">%</string>
+                 <string>%</string>
                 </property>
                 <property name="maximum">
                  <number>100</number>
