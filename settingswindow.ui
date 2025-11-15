@@ -1151,7 +1151,7 @@ media file played</string>
                  <number>1</number>
                 </property>
                 <property name="maximum">
-                 <number>60000</number>
+                 <number>2000000000</number>
                 </property>
                 <property name="value">
                  <number>5000</number>
@@ -1180,7 +1180,7 @@ media file played</string>
                  <number>1</number>
                 </property>
                 <property name="maximum">
-                 <number>60000</number>
+                 <number>2000000000</number>
                 </property>
                 <property name="value">
                  <number>20000</number>
