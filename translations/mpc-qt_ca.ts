@@ -4438,6 +4438,10 @@ arxiu multimèdia reproduït</translation>
         <source>Append opened files to Quick Playlist</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>%</source>
+        <translation type="unfinished">%</translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
@@ -4488,6 +4492,10 @@ arxiu multimèdia reproduït</translation>
     <message>
         <source>Save Thumbnails</source>
         <translation>Desar miniatures</translation>
+    </message>
+    <message>
+        <source>%p%</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -1079,7 +1079,7 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="suffix">
-                 <string notr="true">%</string>
+                 <string>%</string>
                 </property>
                 <property name="minimum">
                  <number>1</number>
@@ -1110,7 +1110,7 @@ media file played</string>
                    <string>Auto</string>
                   </property>
                   <property name="suffix">
-                   <string notr="true">%</string>
+                   <string>%</string>
                   </property>
                   <property name="maximum">
                    <number>100</number>
@@ -1144,6 +1144,9 @@ media file played</string>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
                 <property name="suffix">
                  <string notr="true"> ms</string>
                 </property>
@@ -1172,6 +1175,9 @@ media file played</string>
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
                 </property>
                 <property name="suffix">
                  <string notr="true"> ms</string>
@@ -1309,7 +1315,7 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="suffix">
-                 <string notr="true">%</string>
+                 <string>%</string>
                 </property>
                 <property name="minimum">
                  <number>25</number>
@@ -1415,6 +1421,9 @@ media file played</string>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
                 <property name="suffix">
                  <string notr="true"> ms</string>
                 </property>
@@ -1452,6 +1461,9 @@ media file played</string>
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
                 </property>
                 <property name="suffix">
                  <string notr="true"> ms</string>
@@ -5006,6 +5018,9 @@ media file played</string>
              <layout class="QGridLayout" name="fullscreenHidingBoxLayout">
               <item row="1" column="1">
                <widget class="QSpinBox" name="fullscreenShowWhenDuration">
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
                 <property name="suffix">
                  <string notr="true"> ms</string>
                 </property>
@@ -5626,6 +5641,9 @@ media file played</string>
                 </item>
                 <item>
                  <widget class="QSpinBox" name="playbackPlayAmount">
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
                   <property name="minimum">
                    <number>0</number>
                   </property>
@@ -5861,6 +5879,9 @@ media file played</string>
                   </item>
                   <item row="0" column="1">
                    <widget class="QSpinBox" name="pipewireBuffer">
+                    <property name="showGroupSeparator" stdset="0">
+                     <bool>true</bool>
+                    </property>
                     <property name="minimum">
                      <number>1</number>
                     </property>
@@ -5891,6 +5912,9 @@ media file played</string>
                   </item>
                   <item row="0" column="1">
                    <widget class="QSpinBox" name="pulseBuffer">
+                    <property name="showGroupSeparator" stdset="0">
+                     <bool>true</bool>
+                    </property>
                     <property name="minimum">
                      <number>1</number>
                     </property>
@@ -6273,7 +6297,7 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="suffix">
-                 <string notr="true">%</string>
+                 <string>%</string>
                 </property>
                 <property name="maximum">
                  <number>100</number>
@@ -6329,6 +6353,9 @@ media file played</string>
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
                 </property>
                 <property name="suffix">
                  <string notr="true"> ms</string>
@@ -6464,6 +6491,9 @@ media file played</string>
                        <horstretch>0</horstretch>
                        <verstretch>0</verstretch>
                       </sizepolicy>
+                     </property>
+                     <property name="showGroupSeparator" stdset="0">
+                      <bool>true</bool>
                      </property>
                      <property name="maximum">
                       <number>9000</number>
@@ -7834,6 +7864,9 @@ media file played</string>
                <property name="enabled">
                 <bool>false</bool>
                </property>
+               <property name="showGroupSeparator" stdset="0">
+                <bool>true</bool>
+               </property>
                <property name="minimum">
                 <number>1</number>
                </property>
@@ -8068,6 +8101,9 @@ media file played</string>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
                 <property name="suffix">
                  <string> ms</string>
                 </property>
@@ -8121,6 +8157,9 @@ media file played</string>
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
                 </property>
                 <property name="suffix">
                  <string> lines</string>

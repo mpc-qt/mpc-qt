@@ -4306,6 +4306,10 @@ archivo multimedia reproducido</translation>
         <source>Append opened files to Quick Playlist</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>%</source>
+        <translation type="unfinished">%</translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
@@ -4355,6 +4359,10 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Save Thumbnails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%p%</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
