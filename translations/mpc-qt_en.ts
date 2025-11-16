@@ -4507,7 +4507,7 @@ media file played</translation>
     </message>
     <message>
         <source>%p%</source>
-        <translation></translation>
+        <translation>%p%</translation>
     </message>
 </context>
 </TS>
