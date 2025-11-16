@@ -4427,7 +4427,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>%p%</source>
-        <translation>%p %</translation>
+        <translation type="unfinished">%p %</translation>
     </message>
 </context>
 </TS>
