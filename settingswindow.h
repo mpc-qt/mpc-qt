@@ -221,8 +221,6 @@ public slots:
 private slots:
     void setFilter(QList<QPair<QString, QString>> &filtersList, QString filter, QString options, bool add);
     void setCustomMpvOptions();
-    void restoreColorControls();
-    void restoreAudioSettings();
     void colorPick_clicked(QLineEdit *colorValue);
     void colorPick_changed(const QLineEdit *colorValue, QPushButton *colorPick);
     QList<MpvOption> parseMpvOptions(const QString &optionsInline) const;
