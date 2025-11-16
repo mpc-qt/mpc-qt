@@ -4430,6 +4430,10 @@ yeni bir &amp;oynatıcı aç</translation>
         <source>Append opened files to Quick Playlist</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>%</source>
+        <translation type="unfinished">%</translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
@@ -4480,6 +4484,10 @@ yeni bir &amp;oynatıcı aç</translation>
     <message>
         <source>Save Thumbnails</source>
         <translation>Küçük Görselleri Kaydet</translation>
+    </message>
+    <message>
+        <source>%p%</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

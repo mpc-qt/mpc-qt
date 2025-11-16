@@ -1450,35 +1450,35 @@
     </message>
     <message>
         <source>&amp;50%</source>
-        <translation>&amp;50%</translation>
+        <translation>&amp;50 %</translation>
     </message>
     <message>
         <source>&amp;100%</source>
-        <translation>&amp;100%</translation>
+        <translation>&amp;100 %</translation>
     </message>
     <message>
         <source>&amp;200%</source>
-        <translation>&amp;200%</translation>
+        <translation>&amp;200 %</translation>
     </message>
     <message>
         <source>25%</source>
-        <translation>25%</translation>
+        <translation>25 %</translation>
     </message>
     <message>
         <source>&amp;75%</source>
-        <translation>&amp;75%</translation>
+        <translation>&amp;75 %</translation>
     </message>
     <message>
         <source>15&amp;0%</source>
-        <translation>15&amp;0%</translation>
+        <translation>15&amp;0 %</translation>
     </message>
     <message>
         <source>&amp;400%</source>
-        <translation>&amp;400%</translation>
+        <translation>&amp;400 %</translation>
     </message>
     <message>
         <source>&amp;300%</source>
-        <translation>&amp;300%</translation>
+        <translation>&amp;300 %</translation>
     </message>
     <message>
         <source>&amp;Previous Audio Track</source>
@@ -1797,11 +1797,11 @@
     <name>PlaybackManager</name>
     <message>
         <source>Speed: %1%</source>
-        <translation>Vitesse : %1%</translation>
+        <translation>Vitesse : %1 %</translation>
     </message>
     <message>
         <source>Volume: %1%</source>
-        <translation>Volume : %1%</translation>
+        <translation>Volume : %1 %</translation>
     </message>
     <message>
         <source>Mute: on</source>
@@ -3948,7 +3948,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>Limiter le volume à 100% comme mpc-hc</translation>
+        <translation>Limiter le volume à 100 % comme mpc-hc</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
@@ -4280,11 +4280,11 @@ fichier média lu</translation>
     </message>
     <message>
         <source>100%</source>
-        <translation>100%</translation>
+        <translation>100 %</translation>
     </message>
     <message>
         <source>25%</source>
-        <translation>25%</translation>
+        <translation>25 %</translation>
     </message>
     <message>
         <source>50%</source>
@@ -4292,23 +4292,23 @@ fichier média lu</translation>
     </message>
     <message>
         <source>75%</source>
-        <translation>75%</translation>
+        <translation>75 %</translation>
     </message>
     <message>
         <source>150%</source>
-        <translation>150%</translation>
+        <translation>150 %</translation>
     </message>
     <message>
         <source>200%</source>
-        <translation>200%</translation>
+        <translation>200 %</translation>
     </message>
     <message>
         <source>300%</source>
-        <translation>300%</translation>
+        <translation>300 %</translation>
     </message>
     <message>
         <source>400%</source>
-        <translation>400%</translation>
+        <translation>400 %</translation>
     </message>
     <message>
         <source>Show video preview</source>
@@ -4370,6 +4370,10 @@ fichier média lu</translation>
         <source>Append opened files to Quick Playlist</source>
         <translation>Ajouter les fichiers ouverts à la liste rapide</translation>
     </message>
+    <message>
+        <source>%</source>
+        <translation> %</translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
@@ -4387,7 +4391,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>%</source>
-        <translation>%</translation>
+        <translation> %</translation>
     </message>
     <message>
         <source>Width</source>
@@ -4420,6 +4424,10 @@ fichier média lu</translation>
     <message>
         <source>Save Thumbnails</source>
         <translation>Enregistrer les miniatures</translation>
+    </message>
+    <message>
+        <source>%p%</source>
+        <translation>%p %</translation>
     </message>
 </context>
 </TS>

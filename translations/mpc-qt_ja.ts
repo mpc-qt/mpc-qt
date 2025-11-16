@@ -4438,6 +4438,10 @@ media file played</source>
         <source>Append opened files to Quick Playlist</source>
         <translation>開いたファイルをクイック再生リストに追加する</translation>
     </message>
+    <message>
+        <source>%</source>
+        <translation type="unfinished">%</translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
@@ -4488,6 +4492,10 @@ media file played</source>
     <message>
         <source>Save Thumbnails</source>
         <translation>サムネイルの保存</translation>
+    </message>
+    <message>
+        <source>%p%</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

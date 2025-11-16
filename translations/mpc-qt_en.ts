@@ -4450,6 +4450,10 @@ media file played</translation>
         <source>Append opened files to Quick Playlist</source>
         <translation>Append opened files to Quick Playlist</translation>
     </message>
+    <message>
+        <source>%</source>
+        <translation>%</translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
@@ -4500,6 +4504,10 @@ media file played</translation>
     <message>
         <source>Save Thumbnails</source>
         <translation>Save Thumbnails</translation>
+    </message>
+    <message>
+        <source>%p%</source>
+        <translation></translation>
     </message>
 </context>
 </TS>
