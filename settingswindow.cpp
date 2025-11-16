@@ -1188,20 +1188,6 @@ void SettingsWindow::setCustomMpvOptions()
     }
 }
 
-void SettingsWindow::restoreColorControls()
-{
-    emit option("brightness", WIDGET_LOOKUP(ui->miscBrightness).toInt());
-    emit option("contrast", WIDGET_LOOKUP(ui->miscContrast).toInt());
-    emit option("gamma", WIDGET_LOOKUP(ui->miscGamma).toInt());
-    emit option("hue", WIDGET_LOOKUP(ui->miscHue).toInt());
-    emit option("saturation", WIDGET_LOOKUP(ui->miscSaturation).toInt());
-}
-void SettingsWindow::restoreAudioSettings()
-{
-    setAudioFilter("stereotools", "balance_out=" +
-        QString::number(WIDGET_LOOKUP(ui->audioBalance).toDouble()/100), true);
-}
-
 void SettingsWindow::colorPick_clicked(QLineEdit *colorValue)
 {
     QColor initial = QString("#%1").arg(colorValue->text());
@@ -1256,23 +1242,21 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
 {
     QDialogButtonBox::ButtonRole buttonRole;
     buttonRole = ui->buttonBox->buttonRole(button);
-    if (buttonRole == QDialogButtonBox::ApplyRole ||
-            buttonRole == QDialogButtonBox::AcceptRole) {
+    if (buttonRole != QDialogButtonBox::RejectRole) {
         updateAcceptedSettings();
         sendAcceptedSettings();
         actionEditor->updateActions();
-        sendSignals();
     }
-    if (buttonRole == QDialogButtonBox::AcceptRole ||
-            buttonRole == QDialogButtonBox::RejectRole)
+    if (buttonRole == QDialogButtonBox::ApplyRole)
+        ui->buttonBox->button(QDialogButtonBox::Apply)->setEnabled(false);
+    else
         close();
 }
 
 void SettingsWindow::closeEvent(QCloseEvent *event)
 {
     Q_UNUSED(event)
-    restoreColorControls();
-    restoreAudioSettings();
+    sendSignals();
     setCustomMpvOptions();
     ui->keysSearchField->clear();
     ui->videoPreset->setCurrentIndex(0);
