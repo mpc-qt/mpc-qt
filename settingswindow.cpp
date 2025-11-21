@@ -1531,6 +1531,19 @@ void SettingsWindow::on_screenshotDirectorySet_toggled(bool checked)
     ui->screenshotDirectoryBrowse->setEnabled(checked);
 }
 
+void SettingsWindow::on_screenshotDirectoryBrowse_clicked()
+{
+    static QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options.setFlag(QFileDialog::DontUseNativeDialog)
+#endif
+    QString dir = QFileDialog::getExistingDirectory(this, "", "", options);
+    if (dir.isEmpty())
+        return;
+
+    ui->screenshotDirectoryValue->setText(dir);
+}
+
 // REMOVEME: Disable auto zoom in Wayland mode as window centering isn't possible yet
 void SettingsWindow::on_tweaksPreferWayland_toggled(bool checked)
 {
