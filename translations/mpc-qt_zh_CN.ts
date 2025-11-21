@@ -4324,15 +4324,15 @@ media file played</source>
     </message>
     <message>
         <source>Enable background box</source>
-        <translation type="unfinished"></translation>
+        <translation>启用背景框</translation>
     </message>
     <message>
         <source>Border and background style</source>
-        <translation type="unfinished"></translation>
+        <translation>边框和背景样式</translation>
     </message>
     <message>
         <source>Translucid background box</source>
-        <translation type="unfinished"></translation>
+        <translation>半透明背景框</translation>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
@@ -4391,7 +4391,7 @@ media file played</source>
     </message>
     <message>
         <source>%p%</source>
-        <translation type="unfinished"></translation>
+        <translation>%p%</translation>
     </message>
 </context>
 </TS>
