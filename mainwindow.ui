@@ -944,10 +944,21 @@
       <addaction name="actionIncreaseZoom"/>
       <addaction name="actionResetZoom"/>
      </widget>
+     <widget class="QMenu" name="menuPlayVideoResize">
+      <property name="title">
+       <string>&amp;Resize</string>
+      </property>
+      <addaction name="actionDecreaseWidth"/>
+      <addaction name="actionIncreaseWidth"/>
+      <addaction name="actionDecreaseHeight"/>
+      <addaction name="actionIncreaseHeight"/>
+      <addaction name="actionResetWidthHeight"/>
+     </widget>
      <addaction name="separator"/>
      <addaction name="menuPlayVideoAspect"/>
      <addaction name="menuPlayVideoPanScan"/>
      <addaction name="menuPlayVideoZoom"/>
+     <addaction name="menuPlayVideoResize"/>
     </widget>
     <widget class="QMenu" name="menuPlayVolume">
      <property name="title">
@@ -2329,6 +2340,31 @@
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+Shift+/</string>
+   </property>
+  </action>
+  <action name="actionDecreaseWidth">
+   <property name="text">
+    <string>&amp;Decrease Width</string>
+   </property>
+  </action>
+  <action name="actionIncreaseWidth">
+   <property name="text">
+    <string>&amp;Increase Width</string>
+   </property>
+  </action>
+  <action name="actionDecreaseHeight">
+   <property name="text">
+    <string>D&amp;ecrease Height</string>
+   </property>
+  </action>
+  <action name="actionIncreaseHeight">
+   <property name="text">
+    <string>I&amp;ncrease Height</string>
+   </property>
+  </action>
+  <action name="actionResetWidthHeight">
+   <property name="text">
+    <string>Re&amp;set Size</string>
    </property>
   </action>
   <action name="actionViewHideLog">
