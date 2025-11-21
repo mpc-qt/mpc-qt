@@ -921,6 +921,7 @@
        <string>&amp;Aspect ratio</string>
       </property>
       <addaction name="actionVideoAspectName"/>
+      <addaction name="action43VideoAspect"/>
       <addaction name="actionDecreaseVideoAspect"/>
       <addaction name="actionIncreaseVideoAspect"/>
       <addaction name="actionResetVideoAspect"/>
@@ -2232,6 +2233,11 @@
    </property>
    <property name="enabled">
     <bool>false</bool>
+   </property>
+  </action>
+  <action name="action43VideoAspect">
+   <property name="text">
+    <string notr="true">4:3</string>
    </property>
   </action>
   <action name="actionDecreaseVideoAspect">

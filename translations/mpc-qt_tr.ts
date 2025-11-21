@@ -135,6 +135,10 @@
         <source>Reset Zoom</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>4:3 Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ButtonWidget</name>
