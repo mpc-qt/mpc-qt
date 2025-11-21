@@ -3648,7 +3648,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Border style</source>
-        <translation>Kenarlık biçemi</translation>
+        <translation type="vanished">Kenarlık biçemi</translation>
     </message>
     <message>
         <source>Border size</source>
@@ -4433,6 +4433,18 @@ yeni bir &amp;oynatıcı aç</translation>
     <message>
         <source>%</source>
         <translation type="unfinished">%</translation>
+    </message>
+    <message>
+        <source>Enable background box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Border and background style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translucid background box</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

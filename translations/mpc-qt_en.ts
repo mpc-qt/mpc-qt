@@ -3672,7 +3672,7 @@ media file played</translation>
     </message>
     <message>
         <source>Border style</source>
-        <translation>Border style</translation>
+        <translation type="vanished">Border style</translation>
     </message>
     <message>
         <source>Border size</source>
@@ -4453,6 +4453,18 @@ media file played</translation>
     <message>
         <source>%</source>
         <translation>%</translation>
+    </message>
+    <message>
+        <source>Enable background box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Border and background style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translucid background box</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

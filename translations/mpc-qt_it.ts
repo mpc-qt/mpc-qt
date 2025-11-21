@@ -3528,7 +3528,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Border style</source>
-        <translation>Stile bordo</translation>
+        <translation type="vanished">Stile bordo</translation>
     </message>
     <message>
         <source>Border size</source>
@@ -4280,6 +4280,18 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable background box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Border and background style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translucid background box</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
