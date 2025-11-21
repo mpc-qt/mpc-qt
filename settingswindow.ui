@@ -7840,7 +7840,7 @@ media file played</string>
            <item row="9" column="0" colspan="2">
             <widget class="QCheckBox" name="tweaksVideoPreview">
              <property name="text">
-              <string>Show video preview</string>
+              <string>Show video preview (restart required)</string>
              </property>
              <property name="checked">
               <bool>true</bool>

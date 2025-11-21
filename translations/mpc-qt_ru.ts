@@ -4320,7 +4320,7 @@ media file played</source>
     </message>
     <message>
         <source>Show video preview</source>
-        <translation>Показать предварительный просмотр видео</translation>
+        <translation type="vanished">Показать предварительный просмотр видео</translation>
     </message>
     <message>
         <source>100%</source>
@@ -4424,6 +4424,10 @@ media file played</source>
     </message>
     <message>
         <source>Translucid background box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
