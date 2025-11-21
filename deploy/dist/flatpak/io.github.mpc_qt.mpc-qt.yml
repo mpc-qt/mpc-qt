@@ -1,14 +1,9 @@
 app-id: io.github.mpc_qt.mpc-qt
 runtime: org.kde.Platform
-runtime-version: '6.9'
+runtime-version: '6.10'
 sdk: org.kde.Sdk
 command: mpc-qt
 rename-icon: mpc-qt
-add-build-extensions:
-  org.freedesktop.Platform.ffmpeg-full:
-    version: '24.08'
-    directory: lib/ffmpeg
-    add-ld-path: .
 finish-args:
   - --share=ipc
   - --share=network
@@ -34,7 +29,7 @@ finish-args:
   - --talk-name=org.freedesktop.ScreenSaver
   - --own-name=org.mpris.MediaPlayer2.MpcQt
   - --system-talk-name=org.freedesktop.UDisks2
-# Give access to home folder to be able to load external subtitles and make downloaded mouse cursor themes from legacy ~/.icons path work
+# Access to home folder is needed for external subtitles and for downloaded mouse cursor
   - --filesystem=home:ro
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons:~/.icons
 cleanup:
@@ -45,8 +40,6 @@ cleanup:
   - /lib/pkgconfig
   - /share/man
   - /share/hwdata
-cleanup-commands:
-  - mkdir -p /app/lib/ffmpeg
 modules:
   - name: mpc-qt
     buildsystem: cmake-ninja
@@ -71,7 +64,7 @@ modules:
           - -Dbuild-date=false
           - -Dalsa=disabled
           - -Dmanpage-build=disabled
-          - -Dvulkan=enabled
+          - -Dvulkan=disabled
           - -Dx11=enabled
           - -Dwayland=enabled
           - -Ddrm=enabled
@@ -97,8 +90,8 @@ modules:
             sources:
               - type: git
                 url: https://github.com/openresty/luajit2.git
-                tag: v2.1-20250529
-                commit: afc74313c6f919f713e2a25003cf0066852bb24a
+                tag: v2.1-20251030
+                commit: 71fae383f6c4637d64b03a6d0ec76ae8c19d6821
                 x-checker-data:
                   type: git
                   tag-pattern: ^v([\d.-]+)$
@@ -143,7 +136,7 @@ modules:
             buildsystem: meson
             config-opts:
               - -Dopengl=enabled
-              - -Dvulkan=enabled
+              - -Dvulkan=disabled
               - -Dglslang=disabled
               - -Dd3d11=disabled
               - -Ddemos=false
@@ -163,8 +156,8 @@ modules:
             buildsystem: autotools
             sources:
               - type: archive
-                url: https://xorg.freedesktop.org/archive/individual/lib/libXpresent-1.0.1.tar.xz
-                sha256: b964df9e5a066daa5e08d2dc82692c57ca27d00b8cc257e8e960c9f1cf26231b
+                url: https://xorg.freedesktop.org/archive/individual/lib/libXpresent-1.0.2.tar.xz
+                sha256: 4e5b21b4812206a4b223013606ae31170502c1043038777a1ef8f70c09d37602
                 x-checker-data:
                   type: anitya
                   project-id: 17166
@@ -189,6 +182,7 @@ modules:
             config-opts:
               - -DCMAKE_BUILD_TYPE=Release
               - -DBUILD_STATIC=0
+              - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
             cleanup:
               - /bin
             sources:
@@ -218,8 +212,8 @@ modules:
               - name: hwdata
                 sources:
                   - type: archive
-                    url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.398.tar.gz
-                    sha256: cd52f7eb5c0f438a3605d1799d9f345a2894ad0f269ab6e8441f55e27e80dd78
+                    url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.401.tar.gz
+                    sha256: e9ff93b9807cc014ed8f7f5cb5dc2c31e714058c82ddc59b7355f5c57c9b759e
                     x-checker-data:
                       type: anitya
                       project-id: 5387
@@ -236,13 +230,30 @@ modules:
               - install yt-dlp /app/bin
             sources:
               - type: archive
-                url: https://github.com/yt-dlp/yt-dlp/archive/refs/tags/2025.08.20.tar.gz
-                sha256: 2a98934dd1e0f613685c1670e5e75a9f5ae63c9728cf7e3fe13f39ed31e366af
+                url: https://github.com/yt-dlp/yt-dlp/archive/refs/tags/2025.11.12.tar.gz
+                sha256: 6f5f2d716968d6c84d05d179fc1ce50ccca23706b9dbbc3c57fec97a8b9ea440
                 x-checker-data:
                   type: anitya
                   project-id: 143399
                   stable-only: true
                   url-template: https://github.com/yt-dlp/yt-dlp/archive/refs/tags/$version.tar.gz
+
+      - name: quickjs
+        buildsystem: simple
+        build-commands:
+          - make
+          - make install PREFIX=/app
+        cleanup:
+          - /bin/qjsc
+        sources:
+          - type: archive
+            url: https://bellard.org/quickjs/quickjs-2025-09-13-2.tar.xz
+            sha256: 996c6b5018fc955ad4d06426d0e9cb713685a00c825aa5c0418bd53f7df8b0b4
+            x-checker-data:
+              type: anitya
+              project-id: 138263
+              stable-only: true
+              url-template: https://bellard.org/quickjs/quickjs-$version.tar.xz
 
       - name: boost
         buildsystem: simple
