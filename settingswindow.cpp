@@ -1247,8 +1247,10 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
         sendAcceptedSettings();
         actionEditor->updateActions();
     }
-    if (buttonRole == QDialogButtonBox::ApplyRole)
+    if (buttonRole == QDialogButtonBox::ApplyRole) {
+        sendSignals();
         ui->buttonBox->button(QDialogButtonBox::Apply)->setEnabled(false);
+    }
     else
         close();
 }
