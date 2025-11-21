@@ -4159,10 +4159,6 @@ arquivo de mídia reproduzido</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Show video preview</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>100%</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4264,6 +4260,10 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Translucid background box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

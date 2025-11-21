@@ -4224,7 +4224,7 @@ media file played</source>
     </message>
     <message>
         <source>Show video preview</source>
-        <translation>显示视频预览</translation>
+        <translation type="vanished">显示视频预览</translation>
     </message>
     <message>
         <source>100%</source>
@@ -4328,6 +4328,10 @@ media file played</source>
     </message>
     <message>
         <source>Translucid background box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

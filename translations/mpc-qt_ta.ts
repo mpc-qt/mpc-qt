@@ -4348,7 +4348,7 @@ media file played</source>
     </message>
     <message>
         <source>Show video preview</source>
-        <translation>வீடியோ முன்னோட்டத்தைக் காட்டு</translation>
+        <translation type="vanished">வீடியோ முன்னோட்டத்தைக் காட்டு</translation>
     </message>
     <message>
         <source>100%</source>
@@ -4452,6 +4452,10 @@ media file played</source>
     </message>
     <message>
         <source>Translucid background box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

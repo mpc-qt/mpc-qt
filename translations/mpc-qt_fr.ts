@@ -4312,7 +4312,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Show video preview</source>
-        <translation>Afficher l’aperçu vidéo</translation>
+        <translation type="vanished">Afficher l’aperçu vidéo</translation>
     </message>
     <message>
         <source>Remove subtitles additions for the deaf or hard-of-hearing (SDH)</source>
@@ -4384,6 +4384,10 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Translucid background box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

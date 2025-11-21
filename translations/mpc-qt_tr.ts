@@ -4340,7 +4340,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Show video preview</source>
-        <translation>Video önizlemesini göster</translation>
+        <translation type="vanished">Video önizlemesini göster</translation>
     </message>
     <message>
         <source>100%</source>
@@ -4444,6 +4444,10 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Translucid background box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
