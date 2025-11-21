@@ -3556,7 +3556,7 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Border style</source>
-        <translation>Estilo del borde</translation>
+        <translation type="vanished">Estilo del borde</translation>
     </message>
     <message>
         <source>Border size</source>
@@ -4309,6 +4309,18 @@ archivo multimedia reproducido</translation>
     <message>
         <source>%</source>
         <translation type="unfinished">%</translation>
+    </message>
+    <message>
+        <source>Enable background box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Border and background style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translucid background box</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

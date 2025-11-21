@@ -1031,6 +1031,15 @@ void SettingsWindow::sendSignals()
     else
         emit option("sub-back-color", "#00000000");
 
+    if (WIDGET_LOOKUP(ui->subsBackgroundBoxEnabled).toBool()) {
+        emit option("sub-border-style", "background-box");
+        emit option("sub-shadow-offset", 0);
+        emit option("sub-back-color", WIDGET_LOOKUP(ui->subsBackgroundBoxTranslucid).toBool() ?
+                                        "#99000000" : "#FF000000");
+    }
+    else
+        emit option("sub-border-style", "outline-and-shadow");
+
     emit subsPreferDefaultForced(WIDGET_LOOKUP(ui->subtitlesPreferDefaultForced_v3).toBool());
     emit subsPreferExternal(WIDGET_LOOKUP(ui->subtitlesPreferExternal).toBool());
     emit subsIgnoreEmbeded(WIDGET_LOOKUP(ui->subtitlesIgnoreEmbedded).toBool());
@@ -1494,6 +1503,15 @@ void SettingsWindow::on_ccICCBrowse_clicked()
         return;
 
     ui->ccICCLocation->setText(file);
+}
+
+void SettingsWindow::on_subsBackgroundBoxEnabled_toggled(bool checked)
+{
+    ui->subsBackgroundBoxTranslucid->setEnabled(checked);
+    ui->subsShadowEnabled->setEnabled(!checked);
+    on_subsShadowEnabled_toggled(!checked);
+    if (checked)
+        ui->subsShadowEnabled->setChecked(false);
 }
 
 void SettingsWindow::on_subsShadowEnabled_toggled(bool checked)

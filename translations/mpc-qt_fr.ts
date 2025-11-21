@@ -3592,7 +3592,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Border style</source>
-        <translation>Style de bordure</translation>
+        <translation type="vanished">Style de bordure</translation>
     </message>
     <message>
         <source>Border size</source>
@@ -4373,6 +4373,18 @@ fichier média lu</translation>
     <message>
         <source>%</source>
         <translation> %</translation>
+    </message>
+    <message>
+        <source>Enable background box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Border and background style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translucid background box</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

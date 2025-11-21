@@ -3636,7 +3636,7 @@ media file played</source>
     </message>
     <message>
         <source>Border style</source>
-        <translation>Стиль границ</translation>
+        <translation type="vanished">Стиль границ</translation>
     </message>
     <message>
         <source>Border size</source>
@@ -4413,6 +4413,18 @@ media file played</source>
     <message>
         <source>%</source>
         <translation type="unfinished">%</translation>
+    </message>
+    <message>
+        <source>Enable background box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Border and background style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translucid background box</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
