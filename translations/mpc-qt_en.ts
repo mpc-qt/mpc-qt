@@ -4456,15 +4456,15 @@ media file played</translation>
     </message>
     <message>
         <source>Enable background box</source>
-        <translation type="unfinished"></translation>
+        <translation>Enable background box</translation>
     </message>
     <message>
         <source>Border and background style</source>
-        <translation type="unfinished"></translation>
+        <translation>Border and background style</translation>
     </message>
     <message>
         <source>Translucid background box</source>
-        <translation type="unfinished"></translation>
+        <translation>Translucid background box</translation>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
