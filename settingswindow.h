@@ -303,6 +303,8 @@ private slots:
 
     void on_screenshotDirectorySet_toggled(bool checked);
 
+    void on_screenshotDirectoryBrowse_clicked();
+
     void on_tweaksPreferWayland_toggled(bool checked);
 
     void on_tweaksTimeTooltip_toggled(bool checked);
