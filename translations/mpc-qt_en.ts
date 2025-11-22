@@ -4472,7 +4472,7 @@ media file played</translation>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation type="unfinished"></translation>
+        <translation>Show video preview (restart required)</translation>
     </message>
 </context>
 <context>
