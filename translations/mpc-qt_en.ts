@@ -137,7 +137,7 @@
     </message>
     <message>
         <source>4:3 Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>4:3 Aspect ratio</translation>
     </message>
 </context>
 <context>
