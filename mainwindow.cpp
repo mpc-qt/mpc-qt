@@ -2159,6 +2159,12 @@ void MainWindow::setVideoTracks(QList<Track> tracks)
     ui->menuPlayVideoZoom->addAction(ui->actionDecreaseZoom);
     ui->menuPlayVideoZoom->addAction(ui->actionIncreaseZoom);
     ui->menuPlayVideoZoom->addAction(ui->actionResetZoom);
+    ui->menuPlayVideo->addMenu(ui->menuPlayVideoResize);
+    ui->menuPlayVideoResize->addAction(ui->actionDecreaseWidth);
+    ui->menuPlayVideoResize->addAction(ui->actionIncreaseWidth);
+    ui->menuPlayVideoResize->addAction(ui->actionDecreaseHeight);
+    ui->menuPlayVideoResize->addAction(ui->actionIncreaseHeight);
+    ui->menuPlayVideoResize->addAction(ui->actionResetWidthHeight);
     videoTracksGroup->actions().constFirst()->setChecked(true);
     updateOnTop();
 }
@@ -2917,6 +2923,48 @@ void MainWindow::on_actionResetZoom_triggered()
 {
     videoZoom = 0;
     mpvObject_->setVideoZoom(videoZoom);
+}
+
+void MainWindow::on_actionDecreaseWidth_triggered()
+{
+    mpvObject_->disableVideoAspect(false);
+    ui->actionDisableVideoAspect->setChecked(false);
+    videoWidthScale -= 0.01;
+    mpvObject_->setVideoWidthScale(videoWidthScale);
+}
+
+void MainWindow::on_actionIncreaseWidth_triggered()
+{
+    mpvObject_->disableVideoAspect(false);
+    ui->actionDisableVideoAspect->setChecked(false);
+    videoWidthScale += 0.01;
+    mpvObject_->setVideoWidthScale(videoWidthScale);
+}
+
+void MainWindow::on_actionDecreaseHeight_triggered()
+{
+    mpvObject_->disableVideoAspect(false);
+    ui->actionDisableVideoAspect->setChecked(false);
+    videoHeightScale -= 0.01;
+    mpvObject_->setVideoHeightScale(videoHeightScale);
+}
+
+void MainWindow::on_actionIncreaseHeight_triggered()
+{
+    mpvObject_->disableVideoAspect(false);
+    ui->actionDisableVideoAspect->setChecked(false);
+    videoHeightScale += 0.01;
+    mpvObject_->setVideoHeightScale(videoHeightScale);
+}
+
+void MainWindow::on_actionResetWidthHeight_triggered()
+{
+    mpvObject_->disableVideoAspect(false);
+    ui->actionDisableVideoAspect->setChecked(false);
+    videoWidthScale = 1;
+    videoHeightScale = 1;
+    mpvObject_->setVideoWidthScale(videoWidthScale);
+    mpvObject_->setVideoHeightScale(videoHeightScale);
 }
 
 void MainWindow::on_actionViewOntopDefault_toggled(bool checked)

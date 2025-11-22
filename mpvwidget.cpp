@@ -472,6 +472,16 @@ void MpvObject::setVideoZoom(double zoom)
     setMpvPropertyVariant("video-zoom", zoom);
 }
 
+void MpvObject::setVideoWidthScale(double scale)
+{
+    setMpvPropertyVariant("video-scale-x", scale);
+}
+
+void MpvObject::setVideoHeightScale(double scale)
+{
+    setMpvPropertyVariant("video-scale-y", scale);
+}
+
 int64_t MpvObject::chapter()
 {
     return chapter_;
