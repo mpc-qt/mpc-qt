@@ -137,7 +137,7 @@
     </message>
     <message>
         <source>4:3 Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Ratio d&apos;aspect 4:3</translation>
     </message>
 </context>
 <context>
@@ -4380,19 +4380,19 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Enable background box</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer l&apos;arrière-plan</translation>
     </message>
     <message>
         <source>Border and background style</source>
-        <translation type="unfinished"></translation>
+        <translation>Style de bordure et d&apos;arrière-plan</translation>
     </message>
     <message>
         <source>Translucid background box</source>
-        <translation type="unfinished"></translation>
+        <translation>Arrière-plan translucide</translation>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher l&apos;aperçu vidéo (redémarrage requis)</translation>
     </message>
 </context>
 <context>
@@ -4447,7 +4447,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>%p%</source>
-        <translation type="unfinished">%p %</translation>
+        <translation>%p %</translation>
     </message>
 </context>
 </TS>
