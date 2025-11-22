@@ -137,7 +137,7 @@
     </message>
     <message>
         <source>4:3 Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>4:3 长宽比</translation>
     </message>
 </context>
 <context>
@@ -4320,7 +4320,7 @@ media file played</source>
     </message>
     <message>
         <source>%</source>
-        <translation type="unfinished">%</translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>Enable background box</source>
@@ -4336,7 +4336,7 @@ media file played</source>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation type="unfinished"></translation>
+        <translation>显示视频预览（需重新启动）</translation>
     </message>
 </context>
 <context>
