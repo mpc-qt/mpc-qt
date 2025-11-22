@@ -109,11 +109,11 @@
     </message>
     <message>
         <source>Decrease Pan and Scan</source>
-        <translation>パンとスキャンを減らす</translation>
+        <translation>パンとスキャンを縮小</translation>
     </message>
     <message>
         <source>Increase Pan and Scan</source>
-        <translation>パンとスキャンを増やす</translation>
+        <translation>パンとスキャンを拡大</translation>
     </message>
     <message>
         <source>Minimum Pan and Scan</source>
@@ -137,7 +137,7 @@
     </message>
     <message>
         <source>4:3 Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>4:3 アスペクト比</translation>
     </message>
 </context>
 <context>
@@ -1090,7 +1090,7 @@
     </message>
     <message>
         <source>&amp;Increment</source>
-        <translation>増やす(&amp;I)</translation>
+        <translation>拡大(&amp;I)</translation>
     </message>
     <message>
         <source>E</source>
@@ -1098,7 +1098,7 @@
     </message>
     <message>
         <source>&amp;Decrement</source>
-        <translation>減らす(&amp;D)</translation>
+        <translation>縮小(&amp;D)</translation>
     </message>
     <message>
         <source>Shift+E</source>
@@ -1646,11 +1646,11 @@
     </message>
     <message>
         <source>&amp;Decrease</source>
-        <translation>減らす(&amp;D)</translation>
+        <translation>縮小(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Increase</source>
-        <translation>増やす(&amp;I)</translation>
+        <translation>拡大(&amp;I)</translation>
     </message>
     <message>
         <source>&amp;Reset</source>
@@ -4448,19 +4448,19 @@ media file played</source>
     </message>
     <message>
         <source>Enable background box</source>
-        <translation type="unfinished"></translation>
+        <translation>背景ボックスを有効にする</translation>
     </message>
     <message>
         <source>Border and background style</source>
-        <translation type="unfinished"></translation>
+        <translation>境界線と背景のスタイル</translation>
     </message>
     <message>
         <source>Translucid background box</source>
-        <translation type="unfinished"></translation>
+        <translation>半透明の背景ボックス</translation>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation type="unfinished"></translation>
+        <translation>ビデオ プレビューを表示 (再起動が必要です)</translation>
     </message>
 </context>
 <context>
