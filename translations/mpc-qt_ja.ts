@@ -1670,27 +1670,27 @@
     </message>
     <message>
         <source>&amp;Resize</source>
-        <translation type="unfinished"></translation>
+        <translation>サイズ変更(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Decrease Width</source>
-        <translation type="unfinished"></translation>
+        <translation>幅を狭める(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Increase Width</source>
-        <translation type="unfinished"></translation>
+        <translation>幅を広げる(&amp;I)</translation>
     </message>
     <message>
         <source>D&amp;ecrease Height</source>
-        <translation type="unfinished"></translation>
+        <translation>高さを狭める(&amp;E)</translation>
     </message>
     <message>
         <source>I&amp;ncrease Height</source>
-        <translation type="unfinished"></translation>
+        <translation>高さを広げる(&amp;N)</translation>
     </message>
     <message>
         <source>Re&amp;set Size</source>
-        <translation type="unfinished"></translation>
+        <translation>サイズをリセット(&amp;S)</translation>
     </message>
 </context>
 <context>
