@@ -1604,6 +1604,30 @@
         <source>M&amp;aximum</source>
         <translation>M&amp;aximum</translation>
     </message>
+    <message>
+        <source>&amp;Resize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Decrease Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Increase Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D&amp;ecrease Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I&amp;ncrease Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Re&amp;set Size</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
