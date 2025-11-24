@@ -1682,15 +1682,15 @@
     </message>
     <message>
         <source>D&amp;ecrease Height</source>
-        <translation>高さを狭める(&amp;E)</translation>
+        <translation type="unfinished">高さを狭める(&amp;E)</translation>
     </message>
     <message>
         <source>I&amp;ncrease Height</source>
-        <translation>高さを広げる(&amp;N)</translation>
+        <translation type="unfinished">高さを広げる(&amp;N)</translation>
     </message>
     <message>
         <source>Re&amp;set Size</source>
-        <translation>サイズをリセット(&amp;S)</translation>
+        <translation type="unfinished">サイズをリセット(&amp;S)</translation>
     </message>
 </context>
 <context>
