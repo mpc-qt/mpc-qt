@@ -1626,27 +1626,27 @@
     </message>
     <message>
         <source>&amp;Resize</source>
-        <translation type="unfinished"></translation>
+        <translation>调整大小(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Decrease Width</source>
-        <translation type="unfinished"></translation>
+        <translation>减少宽度(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Increase Width</source>
-        <translation type="unfinished"></translation>
+        <translation>增加宽度(&amp;I)</translation>
     </message>
     <message>
         <source>D&amp;ecrease Height</source>
-        <translation type="unfinished"></translation>
+        <translation>减少高度(&amp;E)</translation>
     </message>
     <message>
         <source>I&amp;ncrease Height</source>
-        <translation type="unfinished"></translation>
+        <translation>增加高度(&amp;N)</translation>
     </message>
     <message>
         <source>Re&amp;set Size</source>
-        <translation type="unfinished"></translation>
+        <translation>重置大小(&amp;S)</translation>
     </message>
 </context>
 <context>
