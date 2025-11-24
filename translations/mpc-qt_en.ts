@@ -1694,15 +1694,15 @@
     </message>
     <message>
         <source>D&amp;ecrease Height</source>
-        <translation type="unfinished"></translation>
+        <translation>D&amp;ecrease Height</translation>
     </message>
     <message>
         <source>I&amp;ncrease Height</source>
-        <translation type="unfinished"></translation>
+        <translation>I&amp;ncrease Height</translation>
     </message>
     <message>
         <source>Re&amp;set Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Re&amp;set Size</translation>
     </message>
 </context>
 <context>
