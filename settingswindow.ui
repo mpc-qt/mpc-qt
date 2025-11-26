@@ -6112,7 +6112,7 @@ media file played</string>
                 <item>
                  <widget class="QLineEdit" name="audioAutoloadPath">
                   <property name="placeholderText">
-                   <string notr="true">.;./audio</string>
+                   <string notr="true">./audio</string>
                   </property>
                  </widget>
                 </item>
