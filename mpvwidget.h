@@ -77,6 +77,8 @@ public:
     void setVideoZoom(double zoom);
     void setVideoWidthScale(double scale);
     void setVideoHeightScale(double scale);
+    void setVideoPanX(double value);
+    void setVideoPanY(double value);
 
     int64_t chapter();
     bool setChapter(int64_t chapter);
