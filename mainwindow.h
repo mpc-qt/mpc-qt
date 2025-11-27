@@ -378,6 +378,12 @@ private slots:
     void on_actionIncreaseHeight_triggered();
     void on_actionResetWidthHeight_triggered();
 
+    void on_actionMoveLeft_triggered();
+    void on_actionMoveRight_triggered();
+    void on_actionMoveUp_triggered();
+    void on_actionMoveDown_triggered();
+    void on_actionResetMove_triggered();
+
     void on_actionViewOntopDefault_toggled(bool checked);
     void on_actionViewOntopAlways_toggled(bool checked);
     void on_actionViewOntopPlaying_toggled(bool checked);
@@ -535,6 +541,8 @@ private:
     double videoZoom = 0;
     double videoWidthScale = 1;
     double videoHeightScale = 1;
+    double videoPanX = 0;
+    double videoPanY = 0;
     QUrl currentFile;
     QString currentFilename;
     QString currentTitle;
