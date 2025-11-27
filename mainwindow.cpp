@@ -2165,6 +2165,12 @@ void MainWindow::setVideoTracks(QList<Track> tracks)
     ui->menuPlayVideoResize->addAction(ui->actionDecreaseHeight);
     ui->menuPlayVideoResize->addAction(ui->actionIncreaseHeight);
     ui->menuPlayVideoResize->addAction(ui->actionResetWidthHeight);
+    ui->menuPlayVideo->addMenu(ui->menuPlayVideoMove);
+    ui->menuPlayVideoMove->addAction(ui->actionMoveLeft);
+    ui->menuPlayVideoMove->addAction(ui->actionMoveRight);
+    ui->menuPlayVideoMove->addAction(ui->actionMoveUp);
+    ui->menuPlayVideoMove->addAction(ui->actionMoveDown);
+    ui->menuPlayVideoMove->addAction(ui->actionResetMove);
     videoTracksGroup->actions().constFirst()->setChecked(true);
     updateOnTop();
 }
@@ -2966,6 +2972,39 @@ void MainWindow::on_actionResetWidthHeight_triggered()
     mpvObject_->setVideoWidthScale(videoWidthScale);
     mpvObject_->setVideoHeightScale(videoHeightScale);
 }
+
+void MainWindow::on_actionMoveLeft_triggered()
+{
+    videoPanX -= 0.01;
+    mpvObject_->setVideoPanX(videoPanX);
+}
+
+void MainWindow::on_actionMoveRight_triggered()
+{
+    videoPanX += 0.01;
+    mpvObject_->setVideoPanX(videoPanX);
+}
+
+void MainWindow::on_actionMoveUp_triggered()
+{
+    videoPanY -= 0.01;
+    mpvObject_->setVideoPanY(videoPanY);
+}
+
+void MainWindow::on_actionMoveDown_triggered()
+{
+    videoPanY += 0.01;
+    mpvObject_->setVideoPanY(videoPanY);
+}
+
+void MainWindow::on_actionResetMove_triggered()
+{
+    videoPanX = 0;
+    videoPanY = 0;
+    mpvObject_->setVideoPanX(videoPanX);
+    mpvObject_->setVideoPanY(videoPanY);
+}
+
 
 void MainWindow::on_actionViewOntopDefault_toggled(bool checked)
 {

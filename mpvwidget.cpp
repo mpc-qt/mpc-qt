@@ -482,6 +482,16 @@ void MpvObject::setVideoHeightScale(double scale)
     setMpvPropertyVariant("video-scale-y", scale);
 }
 
+void MpvObject::setVideoPanX(double value)
+{
+    setMpvPropertyVariant("video-pan-x", value);
+}
+
+void MpvObject::setVideoPanY(double value)
+{
+    setMpvPropertyVariant("video-pan-y", value);
+}
+
 int64_t MpvObject::chapter()
 {
     return chapter_;
