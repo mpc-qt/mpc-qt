@@ -954,11 +954,22 @@
       <addaction name="actionIncreaseHeight"/>
       <addaction name="actionResetWidthHeight"/>
      </widget>
+    <widget class="QMenu" name="menuPlayVideoMove">
+  <property name="title">
+    <string>&amp;Move</string>
+  </property>
+  <addaction name="actionMoveLeft"/>
+  <addaction name="actionMoveRight"/>
+  <addaction name="actionMoveUp"/>
+  <addaction name="actionMoveDown"/>
+  <addaction name="actionResetMove"/>
+  </widget>
      <addaction name="separator"/>
      <addaction name="menuPlayVideoAspect"/>
      <addaction name="menuPlayVideoPanScan"/>
      <addaction name="menuPlayVideoZoom"/>
      <addaction name="menuPlayVideoResize"/>
+     <addaction name="menuPlayVideoMove"/>
     </widget>
     <widget class="QMenu" name="menuPlayVolume">
      <property name="title">
@@ -2366,6 +2377,31 @@
    <property name="text">
     <string>Re&amp;set Size</string>
    </property>
+  </action>
+<action name="actionMoveLeft">
+  <property name="text">
+    <string>&amp;Left</string>
+  </property>
+</action>
+<action name="actionMoveRight">
+  <property name="text">
+    <string>&amp;Right</string>
+  </property>
+</action>
+<action name="actionMoveUp">
+  <property name="text">
+    <string>&amp;Up</string>
+  </property>
+</action>
+<action name="actionMoveDown">
+  <property name="text">
+    <string>&amp;Down</string>
+  </property>
+</action>
+<action name="actionResetMove">
+  <property name="text">
+    <string>R&amp;eset</string>
+  </property>
   </action>
   <action name="actionViewHideLog">
    <property name="checkable">
