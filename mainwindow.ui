@@ -964,12 +964,22 @@
   <addaction name="actionMoveDown"/>
   <addaction name="actionResetMove"/>
   </widget>
+<widget class="QMenu" name="menuPlayVideoRotate">
+  <property name="title">
+    <string>R&amp;otate</string>
+  </property>
+  <addaction name="actionRotateClockwise"/>
+  <addaction name="actionRotateCounterclockwise"/>
+  <addaction name="actionFlipHorizontal"/>
+  <addaction name="actionResetRotate"/>
+</widget>
      <addaction name="separator"/>
      <addaction name="menuPlayVideoAspect"/>
      <addaction name="menuPlayVideoPanScan"/>
      <addaction name="menuPlayVideoZoom"/>
      <addaction name="menuPlayVideoResize"/>
      <addaction name="menuPlayVideoMove"/>
+     <addaction name="menuPlayVideoRotate"/>
     </widget>
     <widget class="QMenu" name="menuPlayVolume">
      <property name="title">
@@ -2401,6 +2411,26 @@
 <action name="actionResetMove">
   <property name="text">
     <string>R&amp;eset</string>
+  </property>
+ </action>
+<action name="actionRotateClockwise">
+  <property name="text">
+    <string>&amp;Clockwise</string>
+  </property>
+</action>
+<action name="actionRotateCounterclockwise">
+  <property name="text">
+    <string>C&amp;ounterclockwise</string>
+  </property>
+</action>
+<action name="actionFlipHorizontal">
+  <property name="text">
+    <string>&amp;Horizontal Flip</string>
+  </property>
+</action>
+<action name="actionResetRotate">
+  <property name="text">
+    <string>&amp;Reset</string>
   </property>
   </action>
   <action name="actionViewHideLog">

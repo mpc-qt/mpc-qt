@@ -383,6 +383,10 @@ private slots:
     void on_actionMoveUp_triggered();
     void on_actionMoveDown_triggered();
     void on_actionResetMove_triggered();
+    void on_actionRotateClockwise_triggered();
+    void on_actionRotateCounterclockwise_triggered();
+    void on_actionFlipHorizontal_triggered();
+    void on_actionResetRotate_triggered();
 
     void on_actionViewOntopDefault_toggled(bool checked);
     void on_actionViewOntopAlways_toggled(bool checked);
@@ -543,6 +547,8 @@ private:
     double videoHeightScale = 1;
     double videoPanX = 0;
     double videoPanY = 0;
+    int currentAngle = 0;
+    bool flipped = false;
     QUrl currentFile;
     QString currentFilename;
     QString currentTitle;
