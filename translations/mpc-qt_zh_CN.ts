@@ -2899,11 +2899,11 @@ media file played</source>
     </message>
     <message>
         <source>Hanning</source>
-        <translation>Hanning</translation>
+        <translation>汉宁窗函数</translation>
     </message>
     <message>
         <source>Hamming</source>
-        <translation>Hamming</translation>
+        <translation>汉明窗函数</translation>
     </message>
     <message>
         <source>Quadric</source>
@@ -2923,15 +2923,15 @@ media file played</source>
     </message>
     <message>
         <source>Gaussian</source>
-        <translation>Gaussian</translation>
+        <translation>高斯函数</translation>
     </message>
     <message>
         <source>Sinc</source>
-        <translation>Sinc</translation>
+        <translation>Sinc 函数</translation>
     </message>
     <message>
         <source>Jinc</source>
-        <translation>Jinc</translation>
+        <translation>Jinc 函数</translation>
     </message>
     <message>
         <source>Sphinx</source>
@@ -2971,7 +2971,7 @@ media file played</source>
     </message>
     <message>
         <source>Lanczos</source>
-        <translation>Lanczos</translation>
+        <translation>Lanczos 重采样</translation>
     </message>
     <message>
         <source>Ginseng</source>
@@ -2979,11 +2979,11 @@ media file played</source>
     </message>
     <message>
         <source>Ewa lanczos</source>
-        <translation>Ewa lanczos</translation>
+        <translation>Ewa lanczos 重采样</translation>
     </message>
     <message>
         <source>Ewa hanning</source>
-        <translation>hanning</translation>
+        <translation>Ewa hanning</translation>
     </message>
     <message>
         <source>Ewa ginseng</source>
@@ -2991,11 +2991,11 @@ media file played</source>
     </message>
     <message>
         <source>Ewa lanczos sharp</source>
-        <translation>Ewa lanczos sharp</translation>
+        <translation>ewa_lanczos 锐利版</translation>
     </message>
     <message>
         <source>Ewa lanczos soft</source>
-        <translation>Ewa lanczos soft</translation>
+        <translation>Ewa lanczos 柔和版</translation>
     </message>
     <message>
         <source>Haasnsoft</source>
@@ -3023,7 +3023,7 @@ media file played</source>
     </message>
     <message>
         <source>Robidoux sharp</source>
-        <translation>Robidoux sharp</translation>
+        <translation>Robidoux 锐利版</translation>
     </message>
     <message>
         <source>Ewa robidoux</source>
@@ -3031,7 +3031,7 @@ media file played</source>
     </message>
     <message>
         <source>Ewa robidoux sharp</source>
-        <translation>Ewa robidoux sharp</translation>
+        <translation>Ewa robidoux 锐利版</translation>
     </message>
     <message>
         <source>Nearest</source>
@@ -3043,7 +3043,7 @@ media file played</source>
     </message>
     <message>
         <source>Unset</source>
-        <translation>Unset</translation>
+        <translation>取消设置</translation>
     </message>
     <message>
         <source>Color</source>
@@ -3055,7 +3055,7 @@ media file played</source>
     </message>
     <message>
         <source>Linear</source>
-        <translation>Linear</translation>
+        <translation>线性</translation>
     </message>
     <message>
         <source>Deband</source>
@@ -3195,7 +3195,7 @@ media file played</source>
     </message>
     <message>
         <source>Reinhard</source>
-        <translation>Reinhard</translation>
+        <translation>Reinhard 色调映射算法</translation>
     </message>
     <message>
         <source>Hable</source>
