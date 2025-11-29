@@ -139,6 +139,26 @@
         <source>4:3 Aspect ratio</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Move Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset Move</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ButtonWidget</name>
@@ -1670,6 +1690,22 @@
     </message>
     <message>
         <source>Re&amp;set Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Move</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>R&amp;eset</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

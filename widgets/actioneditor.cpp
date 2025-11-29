@@ -95,7 +95,12 @@ QString ActionEditor::getDescriptiveName(const QAction *action)
         { "actionMaxPanScan", tr("Maximum Pan and Scan") },
         { "actionDecreaseZoom", tr("Decrease Zoom") },
         { "actionIncreaseZoom", tr("Increase Zoom") },
-        { "actionResetZoom", tr("Reset Zoom") }
+        { "actionResetZoom", tr("Reset Zoom") },
+        { "actionMoveLeft", tr("Move Left") },
+        { "actionMoveRight", tr("Move Right") },
+        { "actionMoveUp", tr("Move Up") },
+        { "actionMoveDown", tr("Move Down") },
+        { "actionResetMove", tr("Reset Move") }
     };
 
     QString actionDescription;
