@@ -171,6 +171,10 @@
         <source>Reset Rotate</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Reset Resize</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ButtonWidget</name>
@@ -1698,10 +1702,6 @@
     </message>
     <message>
         <source>I&amp;ncrease Height</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Re&amp;set Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
