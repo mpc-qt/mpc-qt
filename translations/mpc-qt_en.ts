@@ -1758,19 +1758,19 @@
     </message>
     <message>
         <source>R&amp;otate</source>
-        <translation type="unfinished"></translation>
+        <translation>R&amp;otate</translation>
     </message>
     <message>
         <source>&amp;Clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Clockwise</translation>
     </message>
     <message>
         <source>C&amp;ounterclockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>C&amp;ounterclockwise</translation>
     </message>
     <message>
         <source>&amp;Horizontal Flip</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Horizontal Flip</translation>
     </message>
     <message>
         <source>&amp;Playlist</source>
