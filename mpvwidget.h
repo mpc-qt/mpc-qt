@@ -79,6 +79,8 @@ public:
     void setVideoHeightScale(double scale);
     void setVideoPanX(double value);
     void setVideoPanY(double value);
+    void setVideoRotate(int angle);
+    void setVideoFlip(bool flip);
 
     int64_t chapter();
     bool setChapter(int64_t chapter);

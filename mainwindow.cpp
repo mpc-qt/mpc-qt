@@ -2171,6 +2171,13 @@ void MainWindow::setVideoTracks(QList<Track> tracks)
     ui->menuPlayVideoMove->addAction(ui->actionMoveUp);
     ui->menuPlayVideoMove->addAction(ui->actionMoveDown);
     ui->menuPlayVideoMove->addAction(ui->actionResetMove);
+    ui->menuPlayVideo->addMenu(ui->menuPlayVideoRotate);
+    ui->menuPlayVideoRotate->addAction(ui->actionRotateClockwise);
+    ui->menuPlayVideoRotate->addAction(ui->actionRotateCounterclockwise);
+    ui->menuPlayVideoRotate->addAction(ui->actionFlipHorizontal);
+    ui->menuPlayVideoRotate->addAction(ui->actionResetRotate);
+
+
     videoTracksGroup->actions().constFirst()->setChecked(true);
     updateOnTop();
 }
@@ -3014,6 +3021,33 @@ void MainWindow::on_actionViewOntopDefault_toggled(bool checked)
     updateOnTop();
     ui->actionViewOntopAlways->setShortcut(ui->actionViewOntopDefault->shortcut());
     ui->actionViewOntopDefault->setShortcut(QKeySequence());
+}
+
+void MainWindow::on_actionRotateClockwise_triggered()
+{
+    currentAngle = (currentAngle + 90) % 360;
+    mpvObject_->setVideoRotate(currentAngle);
+}
+
+void MainWindow::on_actionRotateCounterclockwise_triggered()
+{
+    currentAngle = (currentAngle - 90);
+    if (currentAngle < 0) currentAngle += 360;
+    mpvObject_->setVideoRotate(currentAngle);
+}
+
+void MainWindow::on_actionFlipHorizontal_triggered()
+{
+    flipped = !flipped;
+    mpvObject_->setVideoFlip(flipped);
+}
+
+void MainWindow::on_actionResetRotate_triggered()
+{
+    currentAngle = 0;
+    flipped = false;
+    mpvObject_->setVideoRotate(0);
+    mpvObject_->setVideoFlip(false);
 }
 
 void MainWindow::on_actionViewOntopAlways_toggled(bool checked)
