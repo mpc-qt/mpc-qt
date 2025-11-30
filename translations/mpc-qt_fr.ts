@@ -1674,7 +1674,7 @@
     </message>
     <message>
         <source>R&amp;eset</source>
-        <translation>&amp;Centrer</translation>
+        <translation>&amp;Réinitialiser</translation>
     </message>
     <message>
         <source>R&amp;otate</source>
