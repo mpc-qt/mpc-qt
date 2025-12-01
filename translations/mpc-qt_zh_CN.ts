@@ -141,35 +141,35 @@
     </message>
     <message>
         <source>Move Left</source>
-        <translation type="unfinished"></translation>
+        <translation>向左移动</translation>
     </message>
     <message>
         <source>Move Right</source>
-        <translation type="unfinished"></translation>
+        <translation>向右移动</translation>
     </message>
     <message>
         <source>Move Up</source>
-        <translation type="unfinished"></translation>
+        <translation>向上移动</translation>
     </message>
     <message>
         <source>Move Down</source>
-        <translation type="unfinished"></translation>
+        <translation>向下移动</translation>
     </message>
     <message>
         <source>Reset Move</source>
-        <translation type="unfinished"></translation>
+        <translation>重置移动</translation>
     </message>
     <message>
         <source>Rotate Clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>顺时针旋转</translation>
     </message>
     <message>
         <source>Rotate Counterclockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>逆时针旋转</translation>
     </message>
     <message>
         <source>Reset Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>重置旋转</translation>
     </message>
     <message>
         <source>Reset Resize</source>
@@ -1686,35 +1686,35 @@
     </message>
     <message>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>移动(&amp;M)</translation>
     </message>
     <message>
         <source>&amp;Left</source>
-        <translation type="unfinished"></translation>
+        <translation>左(&amp;L)</translation>
     </message>
     <message>
         <source>&amp;Right</source>
-        <translation type="unfinished"></translation>
+        <translation>右(&amp;R)</translation>
     </message>
     <message>
         <source>R&amp;eset</source>
-        <translation type="unfinished"></translation>
+        <translation>重置(&amp;E)</translation>
     </message>
     <message>
         <source>R&amp;otate</source>
-        <translation type="unfinished"></translation>
+        <translation>旋转(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>顺时针(&amp;C)</translation>
     </message>
     <message>
         <source>C&amp;ounterclockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>逆时针(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Horizontal Flip</source>
-        <translation type="unfinished"></translation>
+        <translation>水平翻转(&amp;H)</translation>
     </message>
     <message>
         <source>&amp;Playlist</source>
