@@ -173,7 +173,7 @@
     </message>
     <message>
         <source>Reset Resize</source>
-        <translation type="unfinished"></translation>
+        <translation>サイズ変更をリセット</translation>
     </message>
 </context>
 <context>
@@ -1762,7 +1762,7 @@
     </message>
     <message>
         <source>&amp;Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>再生リスト(&amp;P)</translation>
     </message>
 </context>
 <context>
@@ -4560,7 +4560,7 @@ media file played</source>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
-        <translation type="unfinished"></translation>
+        <translation>これを使う理由はあまりありません。HDMIは非圧縮のマルチチャンネルPCMをサポートし、mpvはロスレスDTS-HDをサポートします</translation>
     </message>
 </context>
 <context>
