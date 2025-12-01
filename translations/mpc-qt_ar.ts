@@ -481,10 +481,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Extra Play Times</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1606,6 +1602,10 @@
     </message>
     <message>
         <source>&amp;Horizontal Flip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Playlist</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

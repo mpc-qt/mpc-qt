@@ -1070,9 +1070,9 @@
     <addaction name="actionHelpAbout"/>
     <addaction name="actionHelpAboutQt"/>
    </widget>
-   <widget class="QMenu" name="menuEdit">
+   <widget class="QMenu" name="menuPlaylist">
     <property name="title">
-     <string>&amp;Edit</string>
+     <string>&amp;Playlist</string>
     </property>
     <widget class="QMenu" name="menuPlay_Times">
      <property name="title">
@@ -1105,7 +1105,7 @@
     <addaction name="actionPlaylistExport"/>
    </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuEdit"/>
+   <addaction name="menuPlaylist"/>
    <addaction name="menuView"/>
    <addaction name="menuPlay"/>
    <addaction name="menuNavigate"/>

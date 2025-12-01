@@ -646,7 +646,7 @@ void MainWindow::setupTrayIcon()
 {
     trayMenu = new QMenu(this);
     trayMenu->addMenu(ui->menuFile);
-    trayMenu->addMenu(ui->menuEdit);
+    trayMenu->addMenu(ui->menuPlaylist);
     trayMenu->addMenu(ui->menuView);
     trayMenu->addMenu(ui->menuPlay);
     trayMenu->addMenu(ui->menuNavigate);
