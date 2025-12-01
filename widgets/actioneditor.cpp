@@ -96,6 +96,7 @@ QString ActionEditor::getDescriptiveName(const QAction *action)
         { "actionDecreaseZoom", tr("Decrease Zoom") },
         { "actionIncreaseZoom", tr("Increase Zoom") },
         { "actionResetZoom", tr("Reset Zoom") },
+        { "actionResetWidthHeight", tr("Reset Resize") },
         { "actionMoveLeft", tr("Move Left") },
         { "actionMoveRight", tr("Move Right") },
         { "actionMoveUp", tr("Move Up") },

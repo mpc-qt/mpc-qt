@@ -2943,6 +2943,8 @@ void MainWindow::on_actionDecreaseWidth_triggered()
     mpvObject_->disableVideoAspect(false);
     ui->actionDisableVideoAspect->setChecked(false);
     videoWidthScale -= 0.01;
+    if (videoWidthScale < 0)
+        videoWidthScale = 0;
     mpvObject_->setVideoWidthScale(videoWidthScale);
 }
 
@@ -2959,6 +2961,8 @@ void MainWindow::on_actionDecreaseHeight_triggered()
     mpvObject_->disableVideoAspect(false);
     ui->actionDisableVideoAspect->setChecked(false);
     videoHeightScale -= 0.01;
+    if (videoHeightScale < 0)
+        videoHeightScale = 0;
     mpvObject_->setVideoHeightScale(videoHeightScale);
 }
 

@@ -2385,7 +2385,7 @@
   </action>
   <action name="actionResetWidthHeight">
    <property name="text">
-    <string>Re&amp;set Size</string>
+    <string>&amp;Reset</string>
    </property>
   </action>
 <action name="actionMoveLeft">
