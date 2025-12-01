@@ -478,7 +478,7 @@
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>திருத்து (&amp;e)</translation>
+        <translation type="vanished">திருத்து (&amp;e)</translation>
     </message>
     <message>
         <source>&amp;Extra Play Times</source>
@@ -1754,6 +1754,10 @@
     </message>
     <message>
         <source>&amp;Horizontal Flip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Playlist</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
