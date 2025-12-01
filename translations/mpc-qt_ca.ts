@@ -4546,6 +4546,10 @@ arxiu multimèdia reproduït</translation>
         <source>Show video preview (restart required)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

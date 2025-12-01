@@ -5851,6 +5851,9 @@ media file played</string>
                   </item>
                   <item row="1" column="0">
                    <widget class="QCheckBox" name="audioSpdif">
+                    <property name="toolTip">
+                     <string>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</string>
+                    </property>
                     <property name="text">
                      <string>Use S/PDIF when available</string>
                     </property>
@@ -7891,7 +7894,7 @@ media file played</string>
              </property>
             </widget>
            </item>
-           <item row="12" column="0" colspan="3">
+           <item row="12" column="0" colspan="2">
             <layout class="QHBoxLayout" name="tweaksOsdFontLayout" stretch="0,1,0">
              <item>
               <widget class="QCheckBox" name="tweaksOsdFontChkBox">

@@ -1507,6 +1507,11 @@ void SettingsWindow::on_ccICCBrowse_clicked()
     ui->ccICCLocation->setText(file);
 }
 
+void SettingsWindow::on_audioSpdif_toggled(bool checked)
+{
+    ui->audioSpdifCodecs->setEnabled(checked);
+}
+
 void SettingsWindow::on_subsBackgroundBoxEnabled_toggled(bool checked)
 {
     ui->subsBackgroundBoxTranslucid->setEnabled(checked);
