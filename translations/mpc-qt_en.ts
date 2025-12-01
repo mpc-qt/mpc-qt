@@ -173,7 +173,7 @@
     </message>
     <message>
         <source>Reset Resize</source>
-        <translation type="unfinished"></translation>
+        <translation>Reset Resize</translation>
     </message>
 </context>
 <context>
@@ -1774,7 +1774,7 @@
     </message>
     <message>
         <source>&amp;Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Playlist</translation>
     </message>
 </context>
 <context>
@@ -4572,7 +4572,7 @@ media file played</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
-        <translation type="unfinished"></translation>
+        <translation>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</translation>
     </message>
 </context>
 <context>
