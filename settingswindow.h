@@ -297,6 +297,8 @@ private slots:
 
     void on_ccICCBrowse_clicked();
 
+    void on_audioSpdif_toggled(bool checked);
+
     void on_subsBackgroundBoxEnabled_toggled(bool checked);
 
     void on_subsShadowEnabled_toggled(bool checked);
