@@ -62,7 +62,7 @@ modules:
           - -Dlua=enabled
           - -Ddebug=false
           - -Dbuild-date=false
-          - -Dalsa=disabled
+          - -Dalsa=enabled
           - -Dmanpage-build=disabled
           - -Dvulkan=disabled
           - -Dx11=enabled
