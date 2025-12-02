@@ -161,19 +161,19 @@
     </message>
     <message>
         <source>Rotate Clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>Pivoter dans le sens horaire</translation>
     </message>
     <message>
         <source>Rotate Counterclockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>Pivoter dans le sens antihoraire</translation>
     </message>
     <message>
         <source>Reset Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Réinitialiser pivoter</translation>
     </message>
     <message>
         <source>Reset Resize</source>
-        <translation type="unfinished"></translation>
+        <translation>Réinitialiser redimensionner</translation>
     </message>
     <message>
         <source>Volume Increase</source>
@@ -1690,23 +1690,23 @@
     </message>
     <message>
         <source>R&amp;otate</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pivoter</translation>
     </message>
     <message>
         <source>&amp;Clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sens horaire</translation>
     </message>
     <message>
         <source>C&amp;ounterclockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>S&amp;ens antihoraire</translation>
     </message>
     <message>
         <source>&amp;Horizontal Flip</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Miroir</translation>
     </message>
     <message>
         <source>&amp;Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>L&amp;iste</translation>
     </message>
 </context>
 <context>
@@ -4500,7 +4500,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
-        <translation type="unfinished"></translation>
+        <translation>Il n’y a pas beaucoup de raisons d’utiliser cette option. HDMI prend en charge le PCM multicanal non compressé et mpv prend en charge le DTS-HD sans perte</translation>
     </message>
 </context>
 <context>
