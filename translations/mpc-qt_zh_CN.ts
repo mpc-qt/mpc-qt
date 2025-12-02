@@ -173,7 +173,7 @@
     </message>
     <message>
         <source>Reset Resize</source>
-        <translation type="unfinished"></translation>
+        <translation>重置调整大小</translation>
     </message>
 </context>
 <context>
@@ -830,7 +830,7 @@
     </message>
     <message>
         <source>&amp;Up</source>
-        <translation>增加音量(&amp;U)</translation>
+        <translation>上(&amp;U)</translation>
     </message>
     <message>
         <source>0</source>
@@ -838,7 +838,7 @@
     </message>
     <message>
         <source>&amp;Down</source>
-        <translation>减少音量(&amp;D)</translation>
+        <translation>下(&amp;D)</translation>
     </message>
     <message>
         <source>9</source>
@@ -1718,7 +1718,7 @@
     </message>
     <message>
         <source>&amp;Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>播放列表(&amp;P)</translation>
     </message>
 </context>
 <context>
@@ -4436,7 +4436,7 @@ media file played</source>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
-        <translation type="unfinished"></translation>
+        <translation>使用它的理由并不多。HDMI 支持未压缩的多声道 PCM，而 mpv支持无损的 DTS-HD</translation>
     </message>
 </context>
 <context>
