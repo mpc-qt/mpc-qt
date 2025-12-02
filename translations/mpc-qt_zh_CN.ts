@@ -25,11 +25,11 @@
     </message>
     <message>
         <source>Volume Up</source>
-        <translation>增加音量</translation>
+        <translation type="vanished">增加音量</translation>
     </message>
     <message>
         <source>Volume Down</source>
-        <translation>减少音量</translation>
+        <translation type="vanished">减少音量</translation>
     </message>
     <message>
         <source>Volume Mute</source>
@@ -174,6 +174,14 @@
     <message>
         <source>Reset Resize</source>
         <translation>重置调整大小</translation>
+    </message>
+    <message>
+        <source>Volume Increase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume Decrease</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

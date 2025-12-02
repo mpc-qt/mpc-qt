@@ -25,11 +25,11 @@
     </message>
     <message>
         <source>Volume Up</source>
-        <translation>音量を上げる</translation>
+        <translation type="vanished">音量を上げる</translation>
     </message>
     <message>
         <source>Volume Down</source>
-        <translation>音量を下げる</translation>
+        <translation type="vanished">音量を下げる</translation>
     </message>
     <message>
         <source>Volume Mute</source>
@@ -174,6 +174,14 @@
     <message>
         <source>Reset Resize</source>
         <translation>サイズ変更をリセット</translation>
+    </message>
+    <message>
+        <source>Volume Increase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume Decrease</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

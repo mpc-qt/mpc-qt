@@ -67,8 +67,8 @@ void ActionEditor::setCommands(const QList<Command> &commands)
 QString ActionEditor::getDescriptiveName(const QAction *action)
 {
     QHash<QString, QString> nameToDescription = {
-        { "actionPlayVolumeUp", tr("Volume Up") },
-        { "actionPlayVolumeDown", tr("Volume Down") },
+        { "actionPlayVolumeUp", tr("Volume Increase") },
+        { "actionPlayVolumeDown", tr("Volume Decrease") },
         { "actionPlayVolumeMute", tr("Volume Mute") },
         { "actionPlayAfterOnceExit", tr("After Playback: Exit") },
         { "actionPlayAfterOnceStandby", tr("After Playback: Stand by") },

@@ -1568,7 +1568,7 @@
   </action>
   <action name="actionPlayVolumeUp">
    <property name="text">
-    <string>&amp;Up</string>
+    <string>&amp;Increase</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+Shift+Up</string>
@@ -1576,7 +1576,7 @@
   </action>
   <action name="actionPlayVolumeDown">
    <property name="text">
-    <string>&amp;Down</string>
+    <string>&amp;Decrease</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+Shift+Down</string>

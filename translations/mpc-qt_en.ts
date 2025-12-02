@@ -25,11 +25,11 @@
     </message>
     <message>
         <source>Volume Up</source>
-        <translation>Volume Up</translation>
+        <translation type="vanished">Volume Up</translation>
     </message>
     <message>
         <source>Volume Down</source>
-        <translation>Volume Down</translation>
+        <translation type="vanished">Volume Down</translation>
     </message>
     <message>
         <source>Volume Mute</source>
@@ -174,6 +174,14 @@
     <message>
         <source>Reset Resize</source>
         <translation>Reset Resize</translation>
+    </message>
+    <message>
+        <source>Volume Increase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume Decrease</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
