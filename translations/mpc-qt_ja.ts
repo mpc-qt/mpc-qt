@@ -177,11 +177,11 @@
     </message>
     <message>
         <source>Volume Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>音量を上げる</translation>
     </message>
     <message>
         <source>Volume Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>音量を下げる</translation>
     </message>
 </context>
 <context>
