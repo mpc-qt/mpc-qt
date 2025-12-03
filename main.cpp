@@ -1211,13 +1211,22 @@ bool Flow::isNvidiaGPU()
 
 void Flow::showVersionInfo()
 {
+    QString package = "Native build";
+    if (qEnvironmentVariableIsSet("FLATPAK_ID"))
+        package = "Flatpak";
+    else if (qEnvironmentVariableIsSet("APPIMAGE"))
+        package = "AppImage";
+    else if (qEnvironmentVariableIsSet("SNAP"))
+        package = "Snap";
+
     constexpr char spaces[] = "               ";
     QString logMessages = "Version information:\n";
     logMessages += (QString) spaces + "OS: " + QSysInfo::productType() + " " + QSysInfo::productVersion() + "\n";
     logMessages += (QString) spaces + "Qt: " + (QString) QT_VERSION_STR + "\n";
     logMessages += (QString) spaces + mainWindow->mpvObject()->mpvVersion() + "\n";
     logMessages += (QString) spaces + "mpc-qt: " + (QString) MPCQT_VERSION_STR;
-    logMessages += " " + (QString) __DATE__ + " " + __TIME__;
+    logMessages += " " + (QString) __DATE__ + " " + __TIME__  + "\n";
+    logMessages += (QString) spaces + "Package: " + package;
     LogStream("main") << logMessages;
 }
 
