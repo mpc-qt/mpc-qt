@@ -24,14 +24,6 @@
         <translation>மவுச் முழுத்திரை</translation>
     </message>
     <message>
-        <source>Volume Up</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Volume Down</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Volume Mute</source>
         <translation type="unfinished"></translation>
     </message>
@@ -173,6 +165,14 @@
     </message>
     <message>
         <source>Reset Resize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume Increase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume Decrease</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
