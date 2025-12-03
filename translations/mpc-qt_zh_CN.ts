@@ -1929,15 +1929,15 @@
     </message>
     <message>
         <source>Volume: %1%</source>
-        <translation>音量:%1%</translation>
+        <translation>音量：%1%</translation>
     </message>
     <message>
         <source>Mute: on</source>
-        <translation>静音:开</translation>
+        <translation>静音：开</translation>
     </message>
     <message>
         <source>Mute: off</source>
-        <translation>静音:关</translation>
+        <translation>静音：关</translation>
     </message>
     <message>
         <source>0: None</source>
@@ -1957,11 +1957,11 @@
     </message>
     <message>
         <source>Subtitles: on</source>
-        <translation>字幕： 开</translation>
+        <translation>字幕：开</translation>
     </message>
     <message>
         <source>Subtitles: off</source>
-        <translation>字幕： 关</translation>
+        <translation>字幕：关</translation>
     </message>
     <message>
         <source>File moved to recycle bin: %1</source>
