@@ -137,23 +137,23 @@
     </message>
     <message>
         <source>4:3 Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>4:3 Seitenverhältnis</translation>
     </message>
     <message>
         <source>Move Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach links bewegen</translation>
     </message>
     <message>
         <source>Move Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach rechts bewegen</translation>
     </message>
     <message>
         <source>Move Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach oben bewegen</translation>
     </message>
     <message>
         <source>Move Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach unten bewegen</translation>
     </message>
     <message>
         <source>Reset Move</source>
@@ -161,19 +161,19 @@
     </message>
     <message>
         <source>Rotate Clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>Im Uhrzeigersinn drehen</translation>
     </message>
     <message>
         <source>Rotate Counterclockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>Gegen den Uhrzeigersinn drehen</translation>
     </message>
     <message>
         <source>Reset Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Orientierung zurücksetzen</translation>
     </message>
     <message>
         <source>Reset Resize</source>
-        <translation type="unfinished"></translation>
+        <translation>Größenänderung zurücksetzen</translation>
     </message>
     <message>
         <source>Volume Increase</source>
@@ -1734,15 +1734,15 @@
     </message>
     <message>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bewegen</translation>
     </message>
     <message>
         <source>&amp;Left</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Links</translation>
     </message>
     <message>
         <source>&amp;Right</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Rechts</translation>
     </message>
     <message>
         <source>R&amp;eset</source>
@@ -1754,7 +1754,7 @@
     </message>
     <message>
         <source>&amp;Clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Uhrzeigersinn</translation>
     </message>
     <message>
         <source>C&amp;ounterclockwise</source>
