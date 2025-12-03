@@ -177,11 +177,11 @@
     </message>
     <message>
         <source>Volume Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>Augmenter le volume</translation>
     </message>
     <message>
         <source>Volume Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>Diminuer le volume</translation>
     </message>
 </context>
 <context>
