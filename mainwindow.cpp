@@ -3387,6 +3387,7 @@ QString displayMode = tr("(Unknown)");
       "<h2>" + tr("Media Player Classic Qute Theater") + "</h2>" +
       "<p>" +  tr("A clone of Media Player Classic written in Qt") +
       "<br>" + tr("Based on Qt %1 and %2").arg(QT_VERSION_STR, mpvObject_->mpvVersion()) +
+      "<br>" + QString("ffmpeg %1").arg(mpvObject_->ffmpegVersion()) +
       (Platform::isUnix ? "<br>" + tr("Running under %1").arg(displayMode) : "") +
       "<p>" +  BUILD_VERSION_STR +
       dateLine +

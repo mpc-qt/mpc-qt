@@ -1224,6 +1224,7 @@ void Flow::showVersionInfo()
     logMessages += (QString) spaces + "OS: " + QSysInfo::productType() + " " + QSysInfo::productVersion() + "\n";
     logMessages += (QString) spaces + "Qt: " + (QString) QT_VERSION_STR + "\n";
     logMessages += (QString) spaces + mainWindow->mpvObject()->mpvVersion() + "\n";
+    logMessages += (QString) spaces + "ffmpeg " + mainWindow->mpvObject()->ffmpegVersion() + "\n";
     logMessages += (QString) spaces + "mpc-qt: " + (QString) MPCQT_VERSION_STR;
     logMessages += " " + (QString) __DATE__ + " " + __TIME__  + "\n";
     logMessages += (QString) spaces + "Package: " + package;
