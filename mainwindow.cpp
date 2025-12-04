@@ -1302,14 +1302,11 @@ QList<QUrl> MainWindow::doQuickOpenFileDialog()
     options = QFileDialog::DontUseNativeDialog;
 #endif
     QList<QUrl> urls;
-    static QUrl lastDir;
     static QString filter;
     if (filter.isEmpty())
         filter = Helpers::fileOpenFilter();
 
-    urls = QFileDialog::getOpenFileUrls(this, tr("Quick Open"), lastDir, filter, nullptr, options);
-    if (!urls.isEmpty())
-        lastDir = urls[0];
+    urls = QFileDialog::getOpenFileUrls(this, tr("Quick Open"), currentFile, filter, nullptr, options);
     return urls;
 }
 
