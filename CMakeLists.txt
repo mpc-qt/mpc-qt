@@ -38,7 +38,7 @@ message(STATUS "Boost version: ${Boost_VERSION}")
 # These two SET CMAKE_AUTOMOC and CMAKE_AUTOUIC can be replaced with Qt 6.3 by
 # qt_standard_project_setup()
 # Starting with Qt 6.7,
-# qt_standard_project_setup(I18N_TRANSLATED_LANGUAGES ar ca de en es fi fr id it ja nl pt_BR ru ta tr zh_CN)
+# qt_standard_project_setup(I18N_TRANSLATED_LANGUAGES ar ca de en es fi fr id it ja nb_NO nl pt_BR ru ta tr zh_CN)
 # can be used instead so that the TS_FILES don't need to be listed below
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -156,6 +156,7 @@ set(TS_FILES
     translations/mpc-qt_id.ts
     translations/mpc-qt_it.ts
     translations/mpc-qt_ja.ts
+    translations/mpc-qt_nb_NO.ts
     translations/mpc-qt_nl.ts
     translations/mpc-qt_pt_BR.ts
     translations/mpc-qt_ru.ts
