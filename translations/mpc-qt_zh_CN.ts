@@ -177,11 +177,11 @@
     </message>
     <message>
         <source>Volume Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>提高音量</translation>
     </message>
     <message>
         <source>Volume Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>降低音量</translation>
     </message>
 </context>
 <context>
@@ -4304,7 +4304,7 @@ media file played</source>
     </message>
     <message>
         <source> ms</source>
-        <translation>毫秒</translation>
+        <translation> 毫秒</translation>
     </message>
     <message>
         <source>Remember panels state</source>
@@ -4479,7 +4479,7 @@ media file played</source>
     </message>
     <message>
         <source>&amp;Go!</source>
-        <translation>快速跳转</translation>
+        <translation>快速跳转(&amp;G)！</translation>
     </message>
     <message>
         <source>Thu&amp;mbnail</source>
