@@ -270,7 +270,7 @@ void Flow::detectMode() {
 
     if (programMode == PrimaryMode) {
         QString lockFilePath =
-            QDir::tempPath() + QLatin1Char('/') + QLatin1String("mpc-qt.lock");
+            Storage::fetchConfigPath() + QLatin1Char('/') + QLatin1String("mpc-qt.lock");
         std::unique_ptr<QLockFile> lockFile = std::make_unique<QLockFile>(lockFilePath);
         lockFile->setStaleLockTime(0);
         while (!lockFile->tryLock()) {
