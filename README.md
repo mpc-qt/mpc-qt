@@ -205,6 +205,7 @@ folder into `mpv-dev/include/mpv`.  If you do this, compile with the
 Congratulations, you have now built MPC-QT!
 
 ## Questions and answers
+See also the [Wiki Q&A] and the other pages of the wiki.
 ### Is MPC-QT compatible with SVP (SmoothVideo Project)?
 Yes! You just need to change two SVP settings:
 - the path to mpv's JSON IPC to point to `/tmp/cmdrkotori.mpc-qt.mpv`
@@ -221,7 +222,6 @@ Yes! You just need to change two SVP settings:
 [weblate]:https://hosted.weblate.org/engage/mpc-qt/
 [Translating]:https://github.com/mpc-qt/mpc-qt/wiki/Translating
 [Translation status]:https://hosted.weblate.org/widget/mpc-qt/multi-auto.svg
-
 [C/C++ CI]:https://github.com/mpc-qt/mpc-qt/actions/workflows/linux.yml/badge.svg
 [C/C++ CI link]:https://github.com/mpc-qt/mpc-qt/actions/workflows/linux.yml
 [Msys2 CI]:https://github.com/mpc-qt/mpc-qt/actions/workflows/windows-msys2.yml/badge.svg
@@ -231,3 +231,4 @@ Yes! You just need to change two SVP settings:
 [mpv-build repo]:https://github.com/mpv-player/mpv-build
 [shinchiro's release page]:https://sourceforge.net/projects/mpv-player-windows/files/libmpv/
 [MSYS2 edition of Qt Creator]:https://wiki.qt.io/MSYS2
+[Wiki Q&A]:https://github.com/mpc-qt/mpc-qt/wiki/Questions-and-answers
