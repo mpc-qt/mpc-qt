@@ -12,7 +12,9 @@
 #include <QLockFile>
 #include <QThread>
 #include <QTranslator>
+#ifdef Boost_FOUND
 #include <boost/stacktrace.hpp>
+#endif
 #include "logger.h"
 #include "main.h"
 #include "qprocess.h"
@@ -102,9 +104,11 @@ int main(int argc, char *argv[])
 void signalHandler(int signal) {
     if (signal == SIGSEGV || SIGABRT) {
         std::ostringstream stacktrace;
+#ifdef Boost_FOUND
         stacktrace << boost::stacktrace::stacktrace();
         Logger::log("main", "Stack trace:");
         Logger::log("main", QString::fromStdString(stacktrace.str()));
+#endif
         if (signal == SIGSEGV)
             Logger::log("main", "Segmentation fault!");
         Logger::log("main", "Please report this error.");

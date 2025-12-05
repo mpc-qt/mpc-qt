@@ -33,8 +33,12 @@ endif()
 
 find_package(Qt6 REQUIRED COMPONENTS Gui LinguistTools Network OpenGLWidgets Svg Widgets)
 find_package(PkgConfig REQUIRED)
-find_package(Boost CONFIG REQUIRED)
-message(STATUS "Boost version: ${Boost_VERSION}")
+find_package(Boost CONFIG QUIET)
+if (Boost_FOUND)
+    message(STATUS "Boost: FOUND (${Boost_VERSION})")
+else()
+    message(STATUS "Boost: NOT FOUND")
+endif()
 # These two SET CMAKE_AUTOMOC and CMAKE_AUTOUIC can be replaced with Qt 6.3 by
 # qt_standard_project_setup()
 # Starting with Qt 6.7,
@@ -143,7 +147,9 @@ set(SOURCES
 qt_add_executable(mpc-qt WIN32 MACOSX_BUNDLE ${SOURCES})
 
 target_include_directories(mpc-qt PRIVATE ${CMAKE_BINARY_DIR})
-target_include_directories(mpc-qt PRIVATE ${Boost_INCLUDE_DIRS})
+if (Boost_FOUND)
+    target_include_directories(mpc-qt PRIVATE ${Boost_INCLUDE_DIRS})
+endif()
 
 set(TS_FILES
     translations/mpc-qt_ar.ts
@@ -207,7 +213,9 @@ if(UNIX)
     )
     find_package(Qt6 REQUIRED COMPONENTS DBus)
     target_link_libraries(mpc-qt PRIVATE Qt::DBus)
-    add_compile_definitions(BOOST_STACKTRACE_USE_ADDR2LINE)
+    if (Boost_FOUND)
+        add_compile_definitions(BOOST_STACKTRACE_USE_ADDR2LINE)
+    endif()
 endif()
 
 if(WIN32)
