@@ -1658,7 +1658,7 @@
     </message>
     <message>
         <source>D&amp;isable</source>
-        <translation>关闭(%I)</translation>
+        <translation>关闭(&amp;I)</translation>
     </message>
     <message>
         <source>&amp;Minimum</source>
@@ -1925,7 +1925,7 @@
     <name>PlaybackManager</name>
     <message>
         <source>Speed: %1%</source>
-        <translation>速度:%1%</translation>
+        <translation>速度：%1%</translation>
     </message>
     <message>
         <source>Volume: %1%</source>
