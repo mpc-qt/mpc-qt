@@ -349,7 +349,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
                     QStandardPaths::PicturesLocation) + "/mpc_encodes");
     ui->logFilePathValue->setPlaceholderText(
                 QStandardPaths::writableLocation(
-                    QStandardPaths::DocumentsLocation) + "/mpc-qt-log.txt");
+                    QStandardPaths::DocumentsLocation) + "/mpc-qt.log");
 
     setupPageTree();
     setupColorPickers();
