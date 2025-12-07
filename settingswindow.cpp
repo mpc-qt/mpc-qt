@@ -1344,14 +1344,13 @@ void SettingsWindow::on_logoExternalBrowse_clicked()
 #ifdef Q_OS_MAC
     options = QFileDialog::DontUseNativeDialog;
 #endif
-    QString file = WIDGET_LOOKUP(ui->logoExternalLocation).toString();
+    QString file = ui->logoExternalLocation->text();
     file = QFileDialog::getOpenFileName(this, tr("Open Logo Image"), file, "", nullptr, options);
     if (file.isEmpty())
         return;
 
     ui->logoExternalLocation->setText(file);
-    if (ui->logoExternal->isChecked())
-        updateLogoWidget();
+    updateLogoWidget();
 }
 
 void SettingsWindow::on_logoExternal_toggled(bool checked)
