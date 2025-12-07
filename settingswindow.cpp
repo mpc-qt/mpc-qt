@@ -1542,7 +1542,10 @@ void SettingsWindow::on_screenshotDirectoryBrowse_clicked()
 #ifdef Q_OS_MAC
     options.setFlag(QFileDialog::DontUseNativeDialog)
 #endif
-    QString dir = QFileDialog::getExistingDirectory(this, "", "", options);
+    QString dir = ui->screenshotDirectoryValue->text().isEmpty() ?
+                                    ui->screenshotDirectoryValue->placeholderText() :
+                                    ui->screenshotDirectoryValue->text();
+    dir = QFileDialog::getExistingDirectory(this, "", dir, options);
     if (dir.isEmpty())
         return;
 
