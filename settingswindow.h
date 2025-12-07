@@ -247,6 +247,8 @@ private slots:
 
     void on_interfaceWidgetCustom_checkStateChanged(Qt::CheckState state);
 
+    void on_interfaceIconsCustomBrowse_clicked();
+
     void on_ccHdrMapper_currentIndexChanged(int index);
 
     void on_videoDumbMode_toggled(bool checked);

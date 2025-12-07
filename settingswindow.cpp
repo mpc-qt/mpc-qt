@@ -1328,6 +1328,20 @@ void SettingsWindow::on_interfaceWidgetCustom_checkStateChanged(Qt::CheckState s
     ui->interfaceWidgetCustomScrollArea->setEnabled(state);
 }
 
+void SettingsWindow::on_interfaceIconsCustomBrowse_clicked()
+{
+    static QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options.setFlag(QFileDialog::DontUseNativeDialog)
+#endif
+    QString dir = ui->interfaceIconsCustomFolder->text();
+    dir = QFileDialog::getExistingDirectory(this, "", dir, options);
+    if (dir.isEmpty())
+        return;
+
+    ui->interfaceIconsCustomFolder->setText(dir);
+}
+
 void SettingsWindow::on_ccHdrMapper_currentIndexChanged(int index)
 {
     ui->ccHdrStack->setCurrentIndex(index);
