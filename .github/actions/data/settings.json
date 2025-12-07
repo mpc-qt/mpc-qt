@@ -247,7 +247,7 @@
     "jpgSmooth": 0,
     "jpgSourceChroma": false,
     "logFileCreate": true,
-    "logFilePathValue": "mpc-qt-log.txt",
+    "logFilePathValue": "mpc-qt.log",
     "logHistoryLines": 1000,
     "logHistoryTrim": true,
     "logHistoryUnlimited": false,

@@ -3891,10 +3891,6 @@ ogni file multimediale riprodotto</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>~/mpc-qt-log.txt</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Every </source>
         <translation type="unfinished"></translation>
     </message>

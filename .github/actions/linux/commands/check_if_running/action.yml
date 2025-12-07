@@ -12,9 +12,9 @@ runs:
   steps:
   - name: cat log
     run:  |
-      if [ -e mpc-qt-log.txt ]; then
-        echo "::group::mpc-qt-log-running.txt"
-        cat mpc-qt-log.txt
+      if [ -e mpc-qt.log ]; then
+        echo "::group::mpc-qt-running.log"
+        cat mpc-qt.log
         echo "::endgroup::"
       fi
     shell: bash

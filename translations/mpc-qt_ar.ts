@@ -3823,10 +3823,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>~/mpc-qt-log.txt</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Window update interval</source>
         <translation type="vanished">Window update interval</translation>
     </message>

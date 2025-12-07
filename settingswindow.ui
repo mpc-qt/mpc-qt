@@ -8132,7 +8132,7 @@ media file played</string>
                    <bool>false</bool>
                   </property>
                   <property name="placeholderText">
-                   <string>~/mpc-qt-log.txt</string>
+                   <string notr="true">~/mpc-qt.log</string>
                   </property>
                  </widget>
                 </item>
