@@ -79,7 +79,6 @@ MainWindow::~MainWindow()
 {
     Logger::log("mainwindow", "~MainWindow");
     mpvObject_->setWidgetType(Helpers::NullWidget);
-    delete playlistWindow_;
     delete ui;
     ui = nullptr;
 }
