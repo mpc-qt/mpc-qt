@@ -175,6 +175,10 @@
         <source>Reset Rotate</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Play / Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ButtonWidget</name>
@@ -754,10 +758,6 @@
     </message>
     <message>
         <source>O</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Pause</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1574,6 +1574,14 @@
     </message>
     <message>
         <source>Running under %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Play</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Pause</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
