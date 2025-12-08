@@ -4446,6 +4446,10 @@ media file played</source>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
         <translation>使用它的理由并不多。HDMI 支持未压缩的多声道 PCM，而 mpv支持无损的 DTS-HD</translation>
     </message>
+    <message>
+        <source>Choose Log File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
