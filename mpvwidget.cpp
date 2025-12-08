@@ -1154,6 +1154,7 @@ void MpvGlWidget::mouseReleaseEvent(QMouseEvent *event)
         return;
     }
     QOpenGLWidget::mouseReleaseEvent(event);
+    emit mpvObject->mouseReleased();
 }
 
 void MpvGlWidget::keyPressEvent(QKeyEvent *event)
