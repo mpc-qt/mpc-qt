@@ -4582,6 +4582,10 @@ media file played</translation>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
         <translation>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</translation>
     </message>
+    <message>
+        <source>Choose Log File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

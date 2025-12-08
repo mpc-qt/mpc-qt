@@ -1695,3 +1695,17 @@ void SettingsWindow::on_webRootBrowse_clicked()
     ui->webRoot->setText(path);
 }
 
+void SettingsWindow::on_logFilePathBrowse_clicked()
+{
+    static QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options |= QFileDialog::DontUseNativeDialog;
+#endif
+    QString file = ui->logFilePathValue->text().isEmpty() ? ui->logFilePathValue->placeholderText() :
+                                                            ui->logFilePathValue->text();
+    file = QFileDialog::getSaveFileName(this, tr("Choose Log File"), file, "*.log *.txt", nullptr, options);
+    if (file.isEmpty())
+        return;
+    ui->logFilePathValue->setText(file);
+}
+

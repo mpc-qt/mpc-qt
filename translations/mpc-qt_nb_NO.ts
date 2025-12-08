@@ -4247,6 +4247,10 @@ media file played</source>
         <source>ICC profile files (*.icc *.icm)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Choose Log File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

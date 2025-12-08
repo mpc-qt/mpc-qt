@@ -349,6 +349,8 @@ private slots:
 
     void on_webRootBrowse_clicked();
 
+    void on_logFilePathBrowse_clicked();
+
 private:
     Ui::SettingsWindow *ui = nullptr;
     ActionEditor *actionEditor = nullptr;
