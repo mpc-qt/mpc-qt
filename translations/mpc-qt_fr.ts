@@ -3972,7 +3972,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>~/mpc-qt-log.txt</source>
-        <translation>~/mpc-qt-log.txt</translation>
+        <translation type="vanished">~/mpc-qt-log.txt</translation>
     </message>
     <message>
         <source>Window update interval</source>
@@ -4501,6 +4501,10 @@ fichier média lu</translation>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
         <translation>Il n’y a pas beaucoup de raisons d’utiliser cette option. HDMI prend en charge le PCM multicanal non compressé et mpv prend en charge le DTS-HD sans perte</translation>
+    </message>
+    <message>
+        <source>Choose Log File</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -247,6 +247,8 @@ private slots:
 
     void on_interfaceWidgetCustom_checkStateChanged(Qt::CheckState state);
 
+    void on_interfaceIconsCustomBrowse_clicked();
+
     void on_ccHdrMapper_currentIndexChanged(int index);
 
     void on_videoDumbMode_toggled(bool checked);
@@ -346,6 +348,8 @@ private slots:
     void on_webPortLink_linkActivated(const QString &link);
 
     void on_webRootBrowse_clicked();
+
+    void on_logFilePathBrowse_clicked();
 
 private:
     Ui::SettingsWindow *ui = nullptr;
