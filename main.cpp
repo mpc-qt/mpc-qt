@@ -98,7 +98,13 @@ int main(int argc, char *argv[])
     if (f.earlyQuit())
         return 0;
     f.init();
-    return f.run();
+    try {
+        return f.run();
+    }
+    catch (const std::exception &e) {
+        Logger::log("main", QString("Uncaught exception: %1").arg(e.what()));
+        throw;
+    }
 }
 
 void signalHandler(int signal) {
