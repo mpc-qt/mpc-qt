@@ -268,7 +268,7 @@ void HttpServer::self_newConnection()
 {
     while (auto sock = nextPendingConnection()) {
         connect(sock, &QTcpSocket::readyRead,
-                this, [=]() {
+                this, [this, sock]() {
             socket_readyRead(sock);
         });
     }

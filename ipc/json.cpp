@@ -166,7 +166,7 @@ void MpcQtServer::self_newConnection(QLocalSocket *socket)
         return;
     }
 
-    connect(socket, &QLocalSocket::readyRead, this, [=]() {
+    connect(socket, &QLocalSocket::readyRead, this, [this, socket]() {
         QList<QByteArray> dataList = socket->readAll().split('\n');
         for (const QByteArray &data : std::as_const(dataList)) {
             if(data.size())
