@@ -4456,7 +4456,7 @@ media file played</source>
     </message>
     <message>
         <source>Choose Log File</source>
-        <translation type="unfinished"></translation>
+        <translation>选择日志文件</translation>
     </message>
 </context>
 <context>
