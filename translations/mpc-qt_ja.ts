@@ -4580,7 +4580,7 @@ media file played</source>
     </message>
     <message>
         <source>Choose Log File</source>
-        <translation type="unfinished"></translation>
+        <translation>ログファイルを選択</translation>
     </message>
 </context>
 <context>
