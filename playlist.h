@@ -237,7 +237,7 @@ private:
                             QSet<QString> &found);
 
     QReadWriteLock bumpLock;
-    volatile int bumps_ = 0;
+    int bumps_ = 0;
 };
 
 
