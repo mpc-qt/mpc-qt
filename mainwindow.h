@@ -298,6 +298,7 @@ public slots:
     void setVideoPreviewItem(QUrl itemUrl);
     void logWindowClosed();
     void libraryWindowClosed();
+    void mpvObject_mouseReleased();
 
 private slots:
     void on_actionFileOpenQuick_triggered();

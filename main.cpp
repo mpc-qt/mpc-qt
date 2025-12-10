@@ -860,6 +860,8 @@ void Flow::setupMpvObjectConnections()
             mainWindow, &MainWindow::setChapterTitle);
     connect(mpvObject, &MpvObject::aspectNameChanged,
             mainWindow, &MainWindow::setAspectName);
+    connect(mpvObject, &MpvObject::mouseReleased,
+            mainWindow, &MainWindow::mpvObject_mouseReleased);
 
     // settingswindow -> log
     auto logger = Logger::singleton();
