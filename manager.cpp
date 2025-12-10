@@ -52,7 +52,7 @@ TrackData TrackData::fromMap(const QVariantMap &map)
     return td;
 }
 
-QString TrackData::formatted()
+QString TrackData::formatted(const QString &nowPlayingTitle)
 {
     QString output;
     output.append(QString("%1: ").arg(trackId));
@@ -85,6 +85,7 @@ QString TrackData::formatted()
         if (!lang.isEmpty())
             output.append(")");
     }
+    title.remove(nowPlayingTitle);
     if (!title.isEmpty())
         output.append(QString(" - %1 ").arg(title));
     return output;
@@ -1025,7 +1026,7 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
     for (QVariant const &trackItem : tracks) {
         TrackData td = TrackData::fromMap(trackItem.toMap());
         track.id = td.trackId;
-        track.title = td.formatted();
+        track.title = td.formatted(nowPlayingTitle_);
         if (td.type == "video") {
             videoList.append(track);
             videoListData.insert(td.trackId, td);
