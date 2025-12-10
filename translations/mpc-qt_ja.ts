@@ -185,7 +185,7 @@
     </message>
     <message>
         <source>Play / Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>再生 / 一時停止</translation>
     </message>
 </context>
 <context>
@@ -1778,7 +1778,7 @@
     </message>
     <message>
         <source>&amp;Play</source>
-        <translation type="unfinished"></translation>
+        <translation>再生(&amp;P)</translation>
     </message>
 </context>
 <context>
