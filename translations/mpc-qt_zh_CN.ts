@@ -183,6 +183,10 @@
         <source>Volume Decrease</source>
         <translation>降低音量</translation>
     </message>
+    <message>
+        <source>Play / Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ButtonWidget</name>
@@ -1727,6 +1731,10 @@
     <message>
         <source>&amp;Playlist</source>
         <translation>播放列表(&amp;P)</translation>
+    </message>
+    <message>
+        <source>&amp;Play</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

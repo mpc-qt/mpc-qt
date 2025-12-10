@@ -396,7 +396,7 @@ private slots:
 
     void on_actionViewOptions_triggered();
 
-    void on_actionPlayPause_triggered(bool checked);
+    void on_actionPlayPause_triggered();
     void on_actionPlayStop_triggered();
     void on_actionPlayFrameBackward_triggered();
     void on_actionPlayFrameForward_triggered();

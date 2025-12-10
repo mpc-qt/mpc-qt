@@ -376,15 +376,10 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)
         QKeyEvent *ke = static_cast<QKeyEvent*>(event);
         switch (ke->key()) {
         case Qt::Key_MediaPlay:
-            ke->accept();
-            if (ui->play->isEnabled())
-                on_play_clicked();
-            return true;
         case Qt::Key_MediaPause:
         case Qt::Key_MediaTogglePlayPause:
             ke->accept();
-            if (ui->actionPlayPause->isEnabled())
-                ui->actionPlayPause->activate(QAction::Trigger);
+            on_play_clicked();
             return true;
         case Qt::Key_MediaStop:
             ke->accept();
@@ -1000,7 +995,6 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->loopB->setEnabled(enabled);
 
     ui->pause->setChecked(false);
-    ui->actionPlayPause->setChecked(false);
 
     ui->actionFileOpenDevice->setEnabled(false);
     ui->actionFileClose->setEnabled(enabled);
@@ -1017,7 +1011,6 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionFileLoadSubtitle->setEnabled(enabled);
     ui->actionFileSaveSubtitle->setEnabled(enabled && false);
     ui->actionFileSubtitleDatabaseDownload->setEnabled(enabled && false);
-    ui->actionPlayPause->setEnabled(enabled);
     ui->actionPlayStop->setEnabled(enabled);
     ui->actionPlayFrameBackward->setEnabled(enabled);
     ui->actionPlayFrameForward->setEnabled(enabled);
@@ -2037,9 +2030,12 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
     isPaused = state == PlaybackManager::PausedState;
     setUiEnabledState(state != PlaybackManager::StoppedState);
     if (isPaused) {
-        ui->actionPlayPause->setChecked(true);
+        ui->actionPlayPause->setText(tr("&Play"));
         ui->pause->setChecked(true);
     }
+    else
+        ui->actionPlayPause->setText(tr("&Pause"));
+
     if (state == PlaybackManager::WaitingState) {
         mpvObject_->setLoopPoints(-1, -1);
         positionSlider_->setLoopA(-1);
@@ -3089,12 +3085,9 @@ void MainWindow::on_actionViewOptions_triggered()
     emit optionsOpenRequested();
 }
 
-void MainWindow::on_actionPlayPause_triggered(bool checked)
+void MainWindow::on_actionPlayPause_triggered()
 {
-    if (checked)
-        emit paused();
-    else
-        emit unpaused();
+    on_play_clicked();
 }
 
 void MainWindow::on_actionPlayStop_triggered()

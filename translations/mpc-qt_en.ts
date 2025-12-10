@@ -183,6 +183,10 @@
         <source>Volume Decrease</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Play / Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ButtonWidget</name>
@@ -1783,6 +1787,10 @@
     <message>
         <source>&amp;Playlist</source>
         <translation>&amp;Playlist</translation>
+    </message>
+    <message>
+        <source>&amp;Play</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -1508,11 +1508,8 @@
    </property>
   </action>
   <action name="actionPlayPause">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
    <property name="text">
-    <string>&amp;Pause</string>
+    <string>&amp;Play</string>
    </property>
    <property name="shortcut">
     <string notr="true">Space</string>
