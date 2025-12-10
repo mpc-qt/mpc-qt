@@ -2587,11 +2587,11 @@ media file played</source>
     </message>
     <message>
         <source>E&amp;xternal</source>
-        <translation>外部</translation>
+        <translation>外部(&amp;X)</translation>
     </message>
     <message>
         <source>Interna&amp;l</source>
-        <translation>内置</translation>
+        <translation>内部(&amp;L)</translation>
     </message>
     <message>
         <source>Browse...</source>
@@ -3551,7 +3551,7 @@ media file played</source>
     </message>
     <message>
         <source>A&amp;utodetect</source>
-        <translation>自动选择</translation>
+        <translation>自动检测(&amp;U)</translation>
     </message>
     <message>
         <source>Linux - some gpus, does not always treat certain colorspaces like BT.2020 correctly</source>
@@ -3579,7 +3579,7 @@ media file played</source>
     </message>
     <message>
         <source>Pla&amp;y</source>
-        <translation>播放</translation>
+        <translation>播放(&amp;Y)</translation>
     </message>
     <message>
         <source>times</source>
@@ -3587,7 +3587,7 @@ media file played</source>
     </message>
     <message>
         <source>Repeat fore&amp;ver</source>
-        <translation>一直重复</translation>
+        <translation>一直重复(&amp;V)</translation>
     </message>
     <message>
         <source>Always loop images (manual progression)</source>
@@ -3832,7 +3832,7 @@ media file played</source>
     </message>
     <message>
         <source>Filesi&amp;ze</source>
-        <translation>文件大小</translation>
+        <translation>文件大小(&amp;Z)</translation>
     </message>
     <message>
         <source>MB</source>
@@ -4495,7 +4495,7 @@ media file played</source>
     </message>
     <message>
         <source>Thu&amp;mbnail</source>
-        <translation>预览图</translation>
+        <translation>缩略图(&amp;M)</translation>
     </message>
     <message>
         <source>&amp;Quality</source>
@@ -4503,11 +4503,11 @@ media file played</source>
     </message>
     <message>
         <source>&amp;Columns</source>
-        <translation>列</translation>
+        <translation>列(&amp;C)</translation>
     </message>
     <message>
         <source>Save Thumbnails</source>
-        <translation>保存预览图</translation>
+        <translation>保存缩略图</translation>
     </message>
     <message>
         <source>%p%</source>
