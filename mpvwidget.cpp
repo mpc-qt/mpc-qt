@@ -452,6 +452,11 @@ void MpvObject::setSubtitlesDelay(int subDelayStep)
     showMessage(tr("Subtitles delay: %1 ms").arg(std::round(newSubDelay * 1000)));
 }
 
+void MpvObject::moveSubtitlesVertically(int diff)
+{
+    emit ctrlCommand(QVariantList({"add", "sub-margin-y", diff}));
+}
+
 void MpvObject::setVideoAspect(double aspectDiff)
 {
     setMpvPropertyVariant("video-aspect-override", aspect + aspectDiff);

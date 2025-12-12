@@ -92,6 +92,14 @@
         <translation>额外播放次数：减少</translation>
     </message>
     <message>
+        <source>Move Subtitles Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move Subtitles Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Decrease Aspect ratio</source>
         <translation>减少长宽比</translation>
     </message>

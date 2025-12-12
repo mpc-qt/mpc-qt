@@ -905,7 +905,13 @@
      <addaction name="actionPlaySubtitlesCopy"/>
      <addaction name="actionDecreaseSubtitlesDelay"/>
      <addaction name="actionIncreaseSubtitlesDelay"/>
-     <addaction name="separator"/>
+    </widget>
+    <widget class="QMenu" name="menuPlaySubtitlesMove">
+     <property name="title">
+      <string>&amp;Move</string>
+     </property>
+     <addaction name="actionMoveSubtitlesUp"/>
+     <addaction name="actionMoveSubtitlesDown"/>
     </widget>
     <widget class="QMenu" name="menuPlayVideo">
      <property name="title">
@@ -1014,6 +1020,7 @@
      <addaction name="actionPlayLoopUse"/>
      <addaction name="actionPlayLoopClear"/>
     </widget>
+    <addaction name="menuPlaySubtitlesMove"/>
     <addaction name="actionPlayPause"/>
     <addaction name="actionPlayStop"/>
     <addaction name="actionPlayFrameBackward"/>
@@ -2248,6 +2255,16 @@
    </property>
    <property name="shortcut">
     <string notr="true">F2</string>
+   </property>
+  </action>
+  <action name="actionMoveSubtitlesUp">
+   <property name="text">
+    <string>&amp;Up</string>
+   </property>
+  </action>
+  <action name="actionMoveSubtitlesDown">
+   <property name="text">
+    <string>&amp;Down</string>
    </property>
   </action>
   <action name="actionVideoFilterDeinterlace">
