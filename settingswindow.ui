@@ -1219,9 +1219,6 @@ media file played</string>
                 <property name="text">
                  <string>Auto zoom</string>
                 </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
                </widget>
               </item>
               <item row="0" column="1">
