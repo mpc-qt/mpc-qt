@@ -270,7 +270,7 @@
     "playbackAudioTracks": "",
     "playbackAutoCenterWindow": true,
     "playbackAutoFitFactor": 75,
-    "playbackAutoZoom": true,
+    "playbackAutoZoom": false,
     "playbackAutoZoomMethod": 3,
     "playbackLargeStep": 20000,
     "playbackLoopImages": true,
