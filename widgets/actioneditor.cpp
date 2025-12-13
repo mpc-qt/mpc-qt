@@ -85,6 +85,8 @@ QString ActionEditor::getDescriptiveName(const QAction *action)
         { "actionViewOntopVideo",          tr("On Top: While Playing Video") },
         { "actionPlaylistExtraIncrement",  tr("Extra Play Times: Increment") },
         { "actionPlaylistExtraDecrement",  tr("Extra Play Times: Decrement") },
+        { "actionMoveSubtitlesUp",         tr("Move Subtitles Up") },
+        { "actionMoveSubtitlesDown",       tr("Move Subtitles Down") },
         { "action43VideoAspect",           tr("4:3 Aspect ratio") },
         { "actionDecreaseVideoAspect",     tr("Decrease Aspect ratio") },
         { "actionIncreaseVideoAspect",     tr("Increase Aspect ratio") },

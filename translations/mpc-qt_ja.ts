@@ -92,6 +92,14 @@
         <translation>追加再生回数 : 減らす</translation>
     </message>
     <message>
+        <source>Move Subtitles Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move Subtitles Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Decrease Aspect ratio</source>
         <translation>アスペクト比を下げる</translation>
     </message>
