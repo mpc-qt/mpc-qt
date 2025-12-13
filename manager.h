@@ -40,7 +40,7 @@ public:
     bool isForced = false;
     bool isDefault = false;
     bool isImage = false;
-    QString formatted();
+    QString formatted(const QString &nowPlayingTitle);
 };
 
 class PlaybackManager : public QObject
