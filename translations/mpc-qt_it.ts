@@ -80,6 +80,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Move Subtitles Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move Subtitles Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Decrease Aspect ratio</source>
         <translation type="unfinished"></translation>
     </message>

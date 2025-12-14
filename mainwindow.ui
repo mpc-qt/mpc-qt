@@ -702,7 +702,7 @@
               <number>0</number>
              </property>
              <item>
-              <widget class="QLabel" name="tinyicon" />
+              <widget class="QLabel" name="tinyicon"/>
              </item>
              <item>
               <widget class="QLabel" name="status">
@@ -891,6 +891,7 @@
       <addaction name="actionAudioFilterAcompressor"/>
       <addaction name="actionAudioFilterCrossfeed"/>
      </widget>
+     <addaction name="menuPlayAudioFilters"/>
      <addaction name="actionPlayAudioTrackPrevious"/>
      <addaction name="actionPlayAudioTrackNext"/>
     </widget>
@@ -904,7 +905,13 @@
      <addaction name="actionPlaySubtitlesCopy"/>
      <addaction name="actionDecreaseSubtitlesDelay"/>
      <addaction name="actionIncreaseSubtitlesDelay"/>
-     <addaction name="separator"/>
+    </widget>
+    <widget class="QMenu" name="menuPlaySubtitlesMove">
+     <property name="title">
+      <string>&amp;Move</string>
+     </property>
+     <addaction name="actionMoveSubtitlesUp"/>
+     <addaction name="actionMoveSubtitlesDown"/>
     </widget>
     <widget class="QMenu" name="menuPlayVideo">
      <property name="title">
@@ -954,26 +961,27 @@
       <addaction name="actionIncreaseHeight"/>
       <addaction name="actionResetWidthHeight"/>
      </widget>
-    <widget class="QMenu" name="menuPlayVideoMove">
-  <property name="title">
-    <string>&amp;Move</string>
-  </property>
-  <addaction name="actionMoveLeft"/>
-  <addaction name="actionMoveRight"/>
-  <addaction name="actionMoveUp"/>
-  <addaction name="actionMoveDown"/>
-  <addaction name="actionResetMove"/>
-  </widget>
-<widget class="QMenu" name="menuPlayVideoRotate">
-  <property name="title">
-    <string>R&amp;otate</string>
-  </property>
-  <addaction name="actionRotateClockwise"/>
-  <addaction name="actionRotateCounterclockwise"/>
-  <addaction name="actionFlipHorizontal"/>
-  <addaction name="actionResetRotate"/>
-</widget>
+     <widget class="QMenu" name="menuPlayVideoMove">
+      <property name="title">
+       <string>&amp;Move</string>
+      </property>
+      <addaction name="actionMoveLeft"/>
+      <addaction name="actionMoveRight"/>
+      <addaction name="actionMoveUp"/>
+      <addaction name="actionMoveDown"/>
+      <addaction name="actionResetMove"/>
+     </widget>
+     <widget class="QMenu" name="menuPlayVideoRotate">
+      <property name="title">
+       <string>R&amp;otate</string>
+      </property>
+      <addaction name="actionRotateClockwise"/>
+      <addaction name="actionRotateCounterclockwise"/>
+      <addaction name="actionFlipHorizontal"/>
+      <addaction name="actionResetRotate"/>
+     </widget>
      <addaction name="separator"/>
+     <addaction name="menuPlayVideoFilters"/>
      <addaction name="menuPlayVideoAspect"/>
      <addaction name="menuPlayVideoPanScan"/>
      <addaction name="menuPlayVideoZoom"/>
@@ -1012,6 +1020,7 @@
      <addaction name="actionPlayLoopUse"/>
      <addaction name="actionPlayLoopClear"/>
     </widget>
+    <addaction name="menuPlaySubtitlesMove"/>
     <addaction name="actionPlayPause"/>
     <addaction name="actionPlayStop"/>
     <addaction name="actionPlayFrameBackward"/>
@@ -1163,12 +1172,12 @@
    </property>
   </action>
   <action name="actionFileMoveToRecycleBin">
-    <property name="text">
-      <string>Move File to Recycle Bin</string>
-    </property>
-    <property name="shortcut">
-      <string notr="true">Del</string>
-    </property>
+   <property name="text">
+    <string>Move File to Recycle Bin</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Del</string>
+   </property>
   </action>
   <action name="actionFileSaveCopy">
    <property name="text">
@@ -2163,27 +2172,27 @@
    </property>
   </action>
   <action name="actionAudioFilterExtrastereo">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>&amp;Extra Stereo</string>
    </property>
+  </action>
+  <action name="actionAudioFilterAcompressor">
    <property name="checkable">
     <bool>true</bool>
    </property>
-  </action>
-  <action name="actionAudioFilterAcompressor">
    <property name="text">
     <string>&amp;Compressor</string>
    </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
   </action>
   <action name="actionAudioFilterCrossfeed">
-   <property name="text">
-    <string>&amp;Crossfeed (for headphones)</string>
-   </property>
    <property name="checkable">
     <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Crossfeed (for headphones)</string>
    </property>
   </action>
   <action name="actionPlayAudioTrackPrevious">
@@ -2248,20 +2257,30 @@
     <string notr="true">F2</string>
    </property>
   </action>
-  <action name="actionVideoFilterDeinterlace">
+  <action name="actionMoveSubtitlesUp">
    <property name="text">
-    <string>&amp;Deinterlace</string>
+    <string>&amp;Up</string>
    </property>
+  </action>
+  <action name="actionMoveSubtitlesDown">
+   <property name="text">
+    <string>&amp;Down</string>
+   </property>
+  </action>
+  <action name="actionVideoFilterDeinterlace">
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="text">
+    <string>&amp;Deinterlace</string>
+   </property>
   </action>
   <action name="actionVideoAspectName">
-   <property name="text">
-    <string>Unknown</string>
-   </property>
    <property name="enabled">
     <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Unknown</string>
    </property>
   </action>
   <action name="action43VideoAspect">
@@ -2385,50 +2404,50 @@
     <string>&amp;Reset</string>
    </property>
   </action>
-<action name="actionMoveLeft">
-  <property name="text">
+  <action name="actionMoveLeft">
+   <property name="text">
     <string>&amp;Left</string>
-  </property>
-</action>
-<action name="actionMoveRight">
-  <property name="text">
+   </property>
+  </action>
+  <action name="actionMoveRight">
+   <property name="text">
     <string>&amp;Right</string>
-  </property>
-</action>
-<action name="actionMoveUp">
-  <property name="text">
+   </property>
+  </action>
+  <action name="actionMoveUp">
+   <property name="text">
     <string>&amp;Up</string>
-  </property>
-</action>
-<action name="actionMoveDown">
-  <property name="text">
+   </property>
+  </action>
+  <action name="actionMoveDown">
+   <property name="text">
     <string>&amp;Down</string>
-  </property>
-</action>
-<action name="actionResetMove">
-  <property name="text">
+   </property>
+  </action>
+  <action name="actionResetMove">
+   <property name="text">
     <string>R&amp;eset</string>
-  </property>
- </action>
-<action name="actionRotateClockwise">
-  <property name="text">
+   </property>
+  </action>
+  <action name="actionRotateClockwise">
+   <property name="text">
     <string>&amp;Clockwise</string>
-  </property>
-</action>
-<action name="actionRotateCounterclockwise">
-  <property name="text">
+   </property>
+  </action>
+  <action name="actionRotateCounterclockwise">
+   <property name="text">
     <string>C&amp;ounterclockwise</string>
-  </property>
-</action>
-<action name="actionFlipHorizontal">
-  <property name="text">
+   </property>
+  </action>
+  <action name="actionFlipHorizontal">
+   <property name="text">
     <string>&amp;Horizontal Flip</string>
-  </property>
-</action>
-<action name="actionResetRotate">
-  <property name="text">
+   </property>
+  </action>
+  <action name="actionResetRotate">
+   <property name="text">
     <string>&amp;Reset</string>
-  </property>
+   </property>
   </action>
   <action name="actionViewHideLog">
    <property name="checkable">

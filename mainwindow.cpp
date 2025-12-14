@@ -2206,6 +2206,9 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesCopy);
     ui->menuPlaySubtitles->addAction(ui->actionDecreaseSubtitlesDelay);
     ui->menuPlaySubtitles->addAction(ui->actionIncreaseSubtitlesDelay);
+    ui->menuPlaySubtitles->addMenu(ui->menuPlaySubtitlesMove);
+    ui->menuPlaySubtitlesMove->addAction(ui->actionMoveSubtitlesUp);
+    ui->menuPlaySubtitlesMove->addAction(ui->actionMoveSubtitlesDown);
     subtitleTracksGroup->actions().constFirst()->setChecked(true);
 }
 
@@ -3210,6 +3213,16 @@ void MainWindow::on_actionDecreaseSubtitlesDelay_triggered()
 void MainWindow::on_actionIncreaseSubtitlesDelay_triggered()
 {
     mpvObject_->setSubtitlesDelay(subtitlesDelayStep);
+}
+
+void MainWindow::on_actionMoveSubtitlesUp_triggered()
+{
+    mpvObject_->moveSubtitlesVertically(10);
+}
+
+void MainWindow::on_actionMoveSubtitlesDown_triggered()
+{
+    mpvObject_->moveSubtitlesVertically(-10);
 }
 
 void MainWindow::on_actionPlayLoopStart_triggered()

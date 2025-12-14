@@ -423,6 +423,8 @@ private slots:
     void on_actionPlaySubtitlesCopy_triggered();
     void on_actionDecreaseSubtitlesDelay_triggered();
     void on_actionIncreaseSubtitlesDelay_triggered();
+    void on_actionMoveSubtitlesUp_triggered();
+    void on_actionMoveSubtitlesDown_triggered();
 
     void on_actionPlayLoopStart_triggered();
     void on_actionPlayLoopEnd_triggered();
