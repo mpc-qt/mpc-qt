@@ -1205,7 +1205,7 @@ media file played</string>
            <item row="1" column="1">
             <widget class="QGroupBox" name="playbackAutoBox">
              <property name="title">
-              <string>Output</string>
+              <string>Window</string>
              </property>
              <layout class="QFormLayout" name="playbackAutoBoxLayout">
               <item row="0" column="0">
@@ -1218,9 +1218,6 @@ media file played</string>
                 </property>
                 <property name="text">
                  <string>Auto zoom</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
                 </property>
                </widget>
               </item>
