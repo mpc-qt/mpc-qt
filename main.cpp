@@ -12,7 +12,9 @@
 #include <QLockFile>
 #include <QThread>
 #include <QTranslator>
+#ifdef Boost_FOUND
 #include <boost/stacktrace.hpp>
+#endif
 #include "logger.h"
 #include "main.h"
 #include "qprocess.h"
@@ -96,15 +98,23 @@ int main(int argc, char *argv[])
     if (f.earlyQuit())
         return 0;
     f.init();
-    return f.run();
+    try {
+        return f.run();
+    }
+    catch (const std::exception &e) {
+        Logger::log("main", QString("Uncaught exception: %1").arg(e.what()));
+        throw;
+    }
 }
 
 void signalHandler(int signal) {
     if (signal == SIGSEGV || SIGABRT) {
         std::ostringstream stacktrace;
+#ifdef Boost_FOUND
         stacktrace << boost::stacktrace::stacktrace();
         Logger::log("main", "Stack trace:");
         Logger::log("main", QString::fromStdString(stacktrace.str()));
+#endif
         if (signal == SIGSEGV)
             Logger::log("main", "Segmentation fault!");
         Logger::log("main", "Please report this error.");
@@ -270,7 +280,7 @@ void Flow::detectMode() {
 
     if (programMode == PrimaryMode) {
         QString lockFilePath =
-            QDir::tempPath() + QLatin1Char('/') + QLatin1String("mpc-qt.lock");
+            Storage::fetchConfigPath() + QLatin1Char('/') + QLatin1String("mpc-qt.lock");
         std::unique_ptr<QLockFile> lockFile = std::make_unique<QLockFile>(lockFilePath);
         lockFile->setStaleLockTime(0);
         while (!lockFile->tryLock()) {

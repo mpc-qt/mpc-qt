@@ -349,7 +349,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
                     QStandardPaths::PicturesLocation) + "/mpc_encodes");
     ui->logFilePathValue->setPlaceholderText(
                 QStandardPaths::writableLocation(
-                    QStandardPaths::DocumentsLocation) + "/mpc-qt-log.txt");
+                    QStandardPaths::DocumentsLocation) + "/mpc-qt.log");
 
     setupPageTree();
     setupColorPickers();
@@ -1328,6 +1328,20 @@ void SettingsWindow::on_interfaceWidgetCustom_checkStateChanged(Qt::CheckState s
     ui->interfaceWidgetCustomScrollArea->setEnabled(state);
 }
 
+void SettingsWindow::on_interfaceIconsCustomBrowse_clicked()
+{
+    static QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options.setFlag(QFileDialog::DontUseNativeDialog)
+#endif
+    QString dir = ui->interfaceIconsCustomFolder->text();
+    dir = QFileDialog::getExistingDirectory(this, "", dir, options);
+    if (dir.isEmpty())
+        return;
+
+    ui->interfaceIconsCustomFolder->setText(dir);
+}
+
 void SettingsWindow::on_ccHdrMapper_currentIndexChanged(int index)
 {
     ui->ccHdrStack->setCurrentIndex(index);
@@ -1344,14 +1358,13 @@ void SettingsWindow::on_logoExternalBrowse_clicked()
 #ifdef Q_OS_MAC
     options = QFileDialog::DontUseNativeDialog;
 #endif
-    QString file = WIDGET_LOOKUP(ui->logoExternalLocation).toString();
+    QString file = ui->logoExternalLocation->text();
     file = QFileDialog::getOpenFileName(this, tr("Open Logo Image"), file, "", nullptr, options);
     if (file.isEmpty())
         return;
 
     ui->logoExternalLocation->setText(file);
-    if (ui->logoExternal->isChecked())
-        updateLogoWidget();
+    updateLogoWidget();
 }
 
 void SettingsWindow::on_logoExternal_toggled(bool checked)
@@ -1542,7 +1555,10 @@ void SettingsWindow::on_screenshotDirectoryBrowse_clicked()
 #ifdef Q_OS_MAC
     options.setFlag(QFileDialog::DontUseNativeDialog)
 #endif
-    QString dir = QFileDialog::getExistingDirectory(this, "", "", options);
+    QString dir = ui->screenshotDirectoryValue->text().isEmpty() ?
+                                    ui->screenshotDirectoryValue->placeholderText() :
+                                    ui->screenshotDirectoryValue->text();
+    dir = QFileDialog::getExistingDirectory(this, "", dir, options);
     if (dir.isEmpty())
         return;
 
@@ -1677,5 +1693,19 @@ void SettingsWindow::on_webRootBrowse_clicked()
     if (path.isEmpty())
         return;
     ui->webRoot->setText(path);
+}
+
+void SettingsWindow::on_logFilePathBrowse_clicked()
+{
+    static QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options |= QFileDialog::DontUseNativeDialog;
+#endif
+    QString file = ui->logFilePathValue->text().isEmpty() ? ui->logFilePathValue->placeholderText() :
+                                                            ui->logFilePathValue->text();
+    file = QFileDialog::getSaveFileName(this, tr("Choose Log File"), file, "*.log *.txt", nullptr, options);
+    if (file.isEmpty())
+        return;
+    ui->logFilePathValue->setText(file);
 }
 

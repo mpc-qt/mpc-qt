@@ -25,7 +25,7 @@ runs:
   - name: cat log
     run:  |
       echo "::group::mpc-qt-log2.txt"
-      cat mpc-qt-log.txt
+      cat mpc-qt.log
       echo "::endgroup::"
     shell: bash
   - name: Check if mpc-qt stopped correctly

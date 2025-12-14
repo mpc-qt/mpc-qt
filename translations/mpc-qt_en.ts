@@ -4052,7 +4052,7 @@ media file played</translation>
     </message>
     <message>
         <source>~/mpc-qt-log.txt</source>
-        <translation>~/mpc-qt-log.txt</translation>
+        <translation type="vanished">~/mpc-qt-log.txt</translation>
     </message>
     <message>
         <source>Window update interval</source>
@@ -4581,6 +4581,10 @@ media file played</translation>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
         <translation>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</translation>
+    </message>
+    <message>
+        <source>Choose Log File</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

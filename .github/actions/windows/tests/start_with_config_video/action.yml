@@ -50,8 +50,8 @@ runs:
     shell: msys2 {0}
   - name: cat log
     run:  |
-      echo "::group::mpc-qt-log.txt"
-      cat mpc-qt-log.txt
+      echo "::group::mpc-qt.log"
+      cat mpc-qt.log
       echo "::endgroup::"
     shell: msys2 {0}
   - name: Check if mpc-qt stopped correctly

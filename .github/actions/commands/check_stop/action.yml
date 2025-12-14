@@ -8,7 +8,7 @@ runs:
   - name: Check if mpc-qt stopped correctly
     run:  |
       : Check if mpc-qt stopped correctly
-      if [[ $( cat mpc-qt-log.txt | grep "flushing log before closing it") ]]; then
+      if [[ $( cat mpc-qt.log | grep "flushing log before closing it") ]]; then
         echo -e "\033[32m""mpc-qt stopped correctly ✓""\033[0m"
       else
         echo -e "\033[31m""mpc-qt did NOT stop correctly ✗""\033[0m"
