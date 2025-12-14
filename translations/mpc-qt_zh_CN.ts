@@ -93,11 +93,11 @@
     </message>
     <message>
         <source>Move Subtitles Up</source>
-        <translation type="unfinished"></translation>
+        <translation>上移字幕</translation>
     </message>
     <message>
         <source>Move Subtitles Down</source>
-        <translation type="unfinished"></translation>
+        <translation>下移字幕</translation>
     </message>
     <message>
         <source>Decrease Aspect ratio</source>
