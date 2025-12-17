@@ -50,8 +50,8 @@
   ;Show all languages, despite user's codepage
   !define MUI_LANGDLL_ALLLANGUAGES
 
-  !define MUI_ICON "..\..\mpc-qt.ico"
-  !define MUI_UNICON "..\..\mpc-qt.ico"
+  !define MUI_ICON "..\..\src\mpc-qt.ico"
+  !define MUI_UNICON "..\..\src\mpc-qt.ico"
 
   !define MUI_WELCOMEFINISHPAGE_BITMAP ${NSISDIR}\Contrib\Graphics\Wizard\nsis3-metro.bmp
   !define MUI_UNWELCOMEFINISHPAGE_BITMAP ${NSISDIR}\Contrib\Graphics\Wizard\nsis3-metro.bmp
