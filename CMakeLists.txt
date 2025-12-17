@@ -339,8 +339,8 @@ qt_add_resources(mpc-qt "res"
 if(UNIX)
     install(TARGETS mpc-qt DESTINATION bin)
     install(FILES DOCS/ipc.md DESTINATION share/doc/mpc-qt)
-    install(FILES io.github.mpc_qt.mpc-qt.desktop DESTINATION share/applications)
-    install(FILES io.github.mpc_qt.mpc-qt.appdata.xml DESTINATION share/metainfo)
+    install(FILES data/io.github.mpc_qt.mpc-qt.desktop DESTINATION share/applications)
+    install(FILES data/io.github.mpc_qt.mpc-qt.metainfo.xml DESTINATION share/metainfo)
     install(FILES images/icon/mpc-qt.svg DESTINATION share/icons/hicolor/scalable/apps)
 
     add_custom_target(uninstall COMMAND xargs rm -vf < install_manifest.txt)
