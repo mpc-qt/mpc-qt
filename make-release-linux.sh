@@ -58,7 +58,7 @@ wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/cont
 chmod +x linuxdeploy*.AppImage
 
 # initialize AppDir, bundle shared libraries, add desktop file and icon, use Qt plugin to bundle additional resources, and build AppImage, all in one command
-EXTRA_QT_PLUGINS="svg;" QMAKE=/usr/bin/qmake6 ./linuxdeploy-x86_64.AppImage --appdir AppDir -e "$REPO_ROOT"/bin/mpc-qt --custom-apprun "$REPO_ROOT"/packaging/appimage/AppRun -i "$REPO_ROOT"/images/icon/mpc-qt.svg -d "$REPO_ROOT"/io.github.mpc_qt.mpc-qt.desktop --plugin qt --output appimage
+EXTRA_QT_PLUGINS="svg;" QMAKE=/usr/bin/qmake6 ./linuxdeploy-x86_64.AppImage --appdir AppDir -e "$REPO_ROOT"/bin/mpc-qt --custom-apprun "$REPO_ROOT"/packaging/appimage/AppRun -i "$REPO_ROOT"/images/icon/mpc-qt.svg -d "$REPO_ROOT"/data/io.github.mpc_qt.mpc-qt.desktop --plugin qt --output appimage
 
 # move built AppImage back into original CWD
 mv Media_Player_Classic_Qute_Theater-x86_64.AppImage "$OLD_CWD/$DEST.AppImage"
