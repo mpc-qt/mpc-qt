@@ -684,7 +684,7 @@ media file played</string>
                  <bool>false</bool>
                 </property>
                 <property name="text">
-                 <string>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</string>
+                 <string>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</string>
                 </property>
                 <property name="openExternalLinks">
                  <bool>true</bool>

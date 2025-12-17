@@ -2683,7 +2683,7 @@ media file played</source>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>படவுரு பெயர்களுக்கு &lt;a href = &quot;https://github.com/mpc-qt/mpc-qt/tree/mages/theme/black&quot;&gt; மூல ரெப்போ &lt;/a&gt; ஐப் பார்க்கவும்.</translation>
+        <translation type="vanished">படவுரு பெயர்களுக்கு &lt;a href = &quot;https://github.com/mpc-qt/mpc-qt/tree/mages/theme/black&quot;&gt; மூல ரெப்போ &lt;/a&gt; ஐப் பார்க்கவும்.</translation>
     </message>
     <message>
         <source>Fallback</source>
@@ -4577,6 +4577,10 @@ media file played</source>
     <message>
         <source>Choose Log File</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
+        <translation>படவுரு பெயர்களுக்கு &lt;a href = &quot;https://github.com/mpc-qt/mpc-qt/tree/mages/theme/black&quot;&gt; மூல ரெப்போ &lt;/a&gt; ஐப் பார்க்கவும்.</translation>
     </message>
 </context>
 <context>

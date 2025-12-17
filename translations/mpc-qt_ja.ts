@@ -2695,7 +2695,7 @@ media file played</source>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>アイコン名については、 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;ソース リポジトリ&lt;/a&gt; を参照してください。</translation>
+        <translation type="vanished">アイコン名については、 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;ソース リポジトリ&lt;/a&gt; を参照してください。</translation>
     </message>
     <message>
         <source>Fallback</source>
@@ -4589,6 +4589,10 @@ media file played</source>
     <message>
         <source>Choose Log File</source>
         <translation>ログファイルを選択</translation>
+    </message>
+    <message>
+        <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
+        <translation>アイコン名については、 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;ソース リポジトリ&lt;/a&gt; を参照してください。</translation>
     </message>
 </context>
 <context>

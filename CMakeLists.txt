@@ -130,7 +130,7 @@ set(TS_FILES
 if(Qt6_VERSION VERSION_GREATER_EQUAL 6.7.0)
     # Starting with Qt 6.7, this can be used to exclude some files from lupdate
     set_property(TARGET mpc-qt PROPERTY QT_EXCLUDE_SOURCES_FROM_TRANSLATION
-        images/*
+        ${CMAKE_SOURCE_DIR}/res/images/*
     )
 endif()
 
@@ -152,6 +152,8 @@ if(WIN32) # Add the Qt interface translations on Windows
         FILES ${QT_QM_FILES}
     )
 endif()
+
+add_subdirectory(res)
 
 target_link_libraries(mpc-qt PRIVATE
     Qt::Gui
@@ -191,80 +193,12 @@ if(WIN32)
     endif()
 endif()
 
-
-set(res_resource_files
-    http/browser.html
-    http/index.html
-    http/info.html
-    http/variables.html
-    images/icon/mpc-qt.svg
-    images/icon/tinyicon.svg
-    images/logo/cinema-screen.svg
-    images/logo/mpv-vlc.svg
-    images/logo/triangle-circle.svg
-    images/theme/black/document-export.svg
-    images/theme/black/document-import.svg
-    images/theme/black/go-next.svg
-    images/theme/black/go-previous.svg
-    images/theme/black/media-playback-pause.svg
-    images/theme/black/media-playback-start.svg
-    images/theme/black/media-playback-stop.svg
-    images/theme/black/media-queue-visible.svg
-    images/theme/black/media-seek-backward.svg
-    images/theme/black/media-seek-forward.svg
-    images/theme/black/media-skip-backward.svg
-    images/theme/black/media-skip-forward.svg
-    images/theme/black/player-volume-muted.svg
-    images/theme/black/player-volume.svg
-    images/theme/black/tab-close.svg
-    images/theme/black/tab-duplicate.svg
-    images/theme/black/tab-new.svg
-    images/theme/black/view-media-queue.svg
-    images/theme/black/view-media-subtitles-hidden.svg
-    images/theme/black/view-media-subtitles.svg
-    images/theme/black/zone-in.svg
-    images/theme/black/zone-out.svg
-    images/theme/white/document-export.svg
-    images/theme/white/document-import.svg
-    images/theme/white/go-next.svg
-    images/theme/white/go-previous.svg
-    images/theme/white/media-playback-pause.svg
-    images/theme/white/media-playback-start.svg
-    images/theme/white/media-playback-stop.svg
-    images/theme/white/media-queue-visible.svg
-    images/theme/white/media-seek-backward.svg
-    images/theme/white/media-seek-forward.svg
-    images/theme/white/media-skip-backward.svg
-    images/theme/white/media-skip-forward.svg
-    images/theme/white/player-volume-muted.svg
-    images/theme/white/player-volume.svg
-    images/theme/white/tab-close.svg
-    images/theme/white/tab-duplicate.svg
-    images/theme/white/tab-new.svg
-    images/theme/white/video-x-generic-16.svg
-    images/theme/white/video-x-generic-32.svg
-    images/theme/white/view-media-queue.svg
-    images/theme/white/view-media-subtitles-hidden.svg
-    images/theme/white/view-media-subtitles.svg
-    images/theme/white/zone-in.svg
-    images/theme/white/zone-out.svg
-    text/encodeFormat.html
-    text/playlistFormat.html
-)
-
-qt_add_resources(mpc-qt "res"
-    PREFIX
-        "/"
-    FILES
-        ${res_resource_files}
-)
-
 if(UNIX)
     install(TARGETS mpc-qt DESTINATION bin)
     install(FILES DOCS/ipc.md DESTINATION share/doc/mpc-qt)
     install(FILES data/io.github.mpc_qt.mpc-qt.desktop DESTINATION share/applications)
     install(FILES data/io.github.mpc_qt.mpc-qt.metainfo.xml DESTINATION share/metainfo)
-    install(FILES images/icon/mpc-qt.svg DESTINATION share/icons/hicolor/scalable/apps)
+    install(FILES res/images/icon/mpc-qt.svg DESTINATION share/icons/hicolor/scalable/apps)
 
     add_custom_target(uninstall COMMAND xargs rm -vf < install_manifest.txt)
 endif()

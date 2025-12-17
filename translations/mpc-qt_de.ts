@@ -2679,7 +2679,7 @@ media file played</source>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>Die Namen der Symbolbilder finden sich in den &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;Programmquellen&lt;/a&gt;.</translation>
+        <translation type="vanished">Die Namen der Symbolbilder finden sich in den &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;Programmquellen&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>Fallback</source>
@@ -4549,6 +4549,10 @@ media file played</source>
     <message>
         <source>Choose Log File</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
+        <translation>Die Namen der Symbolbilder finden sich in den &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;Programmquellen&lt;/a&gt;.</translation>
     </message>
 </context>
 <context>
