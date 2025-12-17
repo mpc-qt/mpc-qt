@@ -46,10 +46,10 @@ jobs:
       run: echo "FORCE_VERSION=$( cat .github/actions/data/VERSION )" >> $GITHUB_ENV
     - name: Build
       run: |
-        chmod +x *.sh
+        chmod +x scripts/*.sh
         set +e
-        bash make-win-icon.sh
-        bash make-release-msys2.sh
+        bash scripts/make-win-icon.sh
+        bash scripts/make-release-msys2.sh
     - name: Upload
       uses: actions/upload-artifact@v4
       with:
