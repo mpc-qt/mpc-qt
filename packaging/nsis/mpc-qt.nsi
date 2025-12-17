@@ -50,8 +50,8 @@
   ;Show all languages, despite user's codepage
   !define MUI_LANGDLL_ALLLANGUAGES
 
-  !define MUI_ICON "..\..\..\mpc-qt.ico"
-  !define MUI_UNICON "..\..\..\mpc-qt.ico"
+  !define MUI_ICON "..\..\mpc-qt.ico"
+  !define MUI_UNICON "..\..\mpc-qt.ico"
 
   !define MUI_WELCOMEFINISHPAGE_BITMAP ${NSISDIR}\Contrib\Graphics\Wizard\nsis3-metro.bmp
   !define MUI_UNWELCOMEFINISHPAGE_BITMAP ${NSISDIR}\Contrib\Graphics\Wizard\nsis3-metro.bmp
@@ -68,7 +68,7 @@
 ;Pages
 
   !insertmacro MUI_PAGE_WELCOME
-  !insertmacro MUI_PAGE_LICENSE "..\..\..\LICENSE"
+  !insertmacro MUI_PAGE_LICENSE "..\..\LICENSE"
   ;!insertmacro MUI_PAGE_COMPONENTS
   !insertmacro MUI_PAGE_DIRECTORY
   ;Var STARTMENU_FOLDER
@@ -186,9 +186,9 @@ Section "Install"
   RMDir "$INSTDIR\platforms"
   RMDir "$INSTDIR\styles"
 
-  File "..\..\..\LICENSE"
-  File /r "..\..\..\mpc-qt-win-x64\*.*"
-  File /r "..\..\..\deploy\dist\nsis\mpc-qt-assoc"
+  File "..\..\LICENSE"
+  File /r "..\..\mpc-qt-win-x64\*.*"
+  File /r "mpc-qt-assoc"
 
   ;Store installation folder
   WriteRegStr HKLM "Software\MPC-QT" "" $INSTDIR

@@ -59,7 +59,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: "mpc-qt-win-installer"
-        path: deploy/dist/nsis/mpc-qt-win-x64-installer.exe
+        path: packaging/nsis/mpc-qt-win-x64-installer.exe
   tests:
     name: Windows
     needs: build
