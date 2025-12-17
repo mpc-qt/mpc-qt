@@ -2627,7 +2627,7 @@ media file played</source>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>图标名称见 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;源码仓库&lt;/a&gt;。</translation>
+        <translation type="vanished">图标名称见 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;源码仓库&lt;/a&gt;。</translation>
     </message>
     <message>
         <source>Fallback</source>
@@ -4449,6 +4449,10 @@ media file played</source>
     <message>
         <source>Choose Log File</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
+        <translation>图标名称见 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;源码仓库&lt;/a&gt;。</translation>
     </message>
 </context>
 <context>

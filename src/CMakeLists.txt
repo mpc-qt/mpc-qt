@@ -45,6 +45,13 @@ set(SOURCES
 
 qt_add_executable(mpc-qt WIN32 MACOSX_BUNDLE ${SOURCES})
 
+if(Qt6_VERSION VERSION_GREATER_EQUAL 6.7.0)
+    # Starting with Qt 6.7, this can be used to exclude some files from lupdate
+    set_property(TARGET mpc-qt PROPERTY QT_EXCLUDE_SOURCES_FROM_TRANSLATION
+        ${CMAKE_SOURCE_DIR}/res/images/*
+    )
+endif()
+
 target_include_directories(mpc-qt PRIVATE ${CMAKE_BINARY_DIR})
 if (Boost_FOUND)
     target_include_directories(mpc-qt PRIVATE ${Boost_INCLUDE_DIRS})
