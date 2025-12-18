@@ -93,11 +93,11 @@
     </message>
     <message>
         <source>Move Subtitles Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Déplacer les sous-titres vers le haut</translation>
     </message>
     <message>
         <source>Move Subtitles Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Déplacer les sous-titres vers le bas</translation>
     </message>
     <message>
         <source>Decrease Aspect ratio</source>
@@ -193,7 +193,7 @@
     </message>
     <message>
         <source>Play / Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Play / Pause</translation>
     </message>
 </context>
 <context>
@@ -1722,7 +1722,7 @@
     </message>
     <message>
         <source>&amp;Play</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Play</translation>
     </message>
 </context>
 <context>
@@ -4520,7 +4520,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Choose Log File</source>
-        <translation type="unfinished"></translation>
+        <translation>Choisir un fichier journal</translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
