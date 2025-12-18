@@ -17,13 +17,13 @@ runs:
         if [[ "${{ inputs.should_be_running }}" == 'yes' ]]; then
           echo -e "\033[32m""mpc-qt is running ✓""\033[0m"
         else
-          echo -e "\033[31m""mpc-qt is running but should not ✗""\033[0m"
+          echo -e "\033[31m""mpc-qt is running but should not be ✗""\033[0m"
           exit 1
         fi
       elif [[ "${{ inputs.should_be_running }}" == 'no' ]]; then
         echo -e "\033[32m""mpc-qt is not running ✓""\033[0m"
       else
-        echo -e "\033[31m""mpc-qt is not running but should ✗""\033[0m"
+        echo -e "\033[31m""mpc-qt is not running but should be ✗""\033[0m"
         exit 1
       fi
     shell: msys2 {0}
