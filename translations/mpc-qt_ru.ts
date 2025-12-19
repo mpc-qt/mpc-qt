@@ -2663,7 +2663,7 @@ media file played</source>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>Смотри &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;репозиторий исходного кода&lt;/a&gt; для названий значков.</translation>
+        <translation type="vanished">Смотри &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;репозиторий исходного кода&lt;/a&gt; для названий значков.</translation>
     </message>
     <message>
         <source>Fallback</source>
@@ -4549,6 +4549,10 @@ media file played</source>
     <message>
         <source>Choose Log File</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
+        <translation>Смотри &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;репозиторий исходного кода&lt;/a&gt; для названий значков.</translation>
     </message>
 </context>
 <context>

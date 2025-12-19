@@ -2627,7 +2627,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>Voir &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;le dépôt source&lt;/a&gt; pour les noms des icônes.</translation>
+        <translation type="vanished">Voir &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;le dépôt source&lt;/a&gt; pour les noms des icônes.</translation>
     </message>
     <message>
         <source>Fallback</source>
@@ -4521,6 +4521,10 @@ fichier média lu</translation>
     <message>
         <source>Choose Log File</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
+        <translation>Voir &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;le dépôt source&lt;/a&gt; pour les noms des icônes.</translation>
     </message>
 </context>
 <context>

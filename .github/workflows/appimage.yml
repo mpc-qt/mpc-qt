@@ -101,7 +101,7 @@ jobs:
         set-env: true
         version: 1-alpha-20240109-1
     - name: Build AppImage
-      run: EXTRA_QT_PLUGINS="svg;" QMAKE=/usr/bin/qmake6 linuxdeploy/linuxdeploy-x86_64.AppImage --appdir AppDir -e bin/mpc-qt --custom-apprun ./AppImage/AppRun -d io.github.mpc_qt.mpc-qt.desktop -i images/icon/mpc-qt.svg --plugin qt --output appimage
+      run: EXTRA_QT_PLUGINS="svg;" QMAKE=/usr/bin/qmake6 linuxdeploy/linuxdeploy-x86_64.AppImage --appdir AppDir -e bin/mpc-qt --custom-apprun ./packaging/appimage/AppRun -d data/io.github.mpc_qt.mpc-qt.desktop -i res/images/icon/mpc-qt.svg --plugin qt --output appimage
     - name: Get version
       run: |
         if [[ "$GITHUB_REF" == *"refs/heads/release/"* ]]; then

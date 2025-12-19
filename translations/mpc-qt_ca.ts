@@ -2683,7 +2683,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>Vegi &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;el repositori font&lt;/a&gt; per als noms d&apos;icones.</translation>
+        <translation type="vanished">Vegi &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;el repositori font&lt;/a&gt; per als noms d&apos;icones.</translation>
     </message>
     <message>
         <source>Fallback</source>
@@ -4573,6 +4573,10 @@ arxiu multimèdia reproduït</translation>
     <message>
         <source>Choose Log File</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
+        <translation>Vegi &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;el repositori font&lt;/a&gt; per als noms d&apos;icones.</translation>
     </message>
 </context>
 <context>
