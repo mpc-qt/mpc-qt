@@ -1301,7 +1301,7 @@ QString Command::toString() const { return action->text(); }
 
 QVariantMap Command::toVMap() const
 {
-    return QVariantMap({{"keys", keys},
+    return QVariantMap({{"keys", keys.toString()},
                         {"fullscreen", mouseFullscreen.toVMap()},
                         {"windowed", mouseWindowed.toVMap()}});
 }
