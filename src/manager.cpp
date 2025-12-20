@@ -872,14 +872,20 @@ bool PlaybackManager::playNextFileUrl(QUrl url, int delta, bool replaceMpvPlayli
     int index;
     QString nextFile;
 
-
     if (url.isEmpty())
         return false;
     info = QFileInfo(url.toLocalFile());
     if (!info.exists())
         return false;
     dir = info.dir();
-    files = dir.entryList(QDir::Files, QDir::Name);
+    files = dir.entryList(QDir::Files);
+
+    // TODO: Use refactored Helpers::compareUrls as comparator and a sort function in Helpers
+    QCollator collator;
+    collator.setCaseSensitivity(Qt::CaseInsensitive);
+    collator.setNumericMode(true);
+    std::sort(files.begin(), files.end(), collator);
+
     index = files.indexOf(info.fileName());
     if (index == -1)
         return false;
