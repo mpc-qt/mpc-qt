@@ -100,6 +100,12 @@ else()
     endif()
 endif()
 
+configure_file(
+    ${PROJECT_SOURCE_DIR}/packaging/nsis/mpc-qt.nsi.in
+    ${CMAKE_BINARY_DIR}/mpc-qt.nsi
+    @ONLY
+)
+
 add_subdirectory(src)
 
 target_include_directories(mpc-qt PRIVATE ${CMAKE_BINARY_DIR})

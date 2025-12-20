@@ -104,4 +104,4 @@ echo Copying yt-dlp
 cp "yt-dlp.exe" "$DEST"
 
 echo Creating NSIS installer
-makensis packaging/nsis/mpc-qt.nsi
+makensis "$BUILDDIR/mpc-qt.nsi"
