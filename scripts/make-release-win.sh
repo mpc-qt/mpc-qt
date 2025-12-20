@@ -3,7 +3,7 @@
 
 VERSION=`date +'%y%m'`
 DOTTEDVERSION=`date +'%y.%m'`
-BUILDDIR=bin
+BINDIR=bin
 SUFFIX="win-x64-$VERSION"
 DEST="mpc-qt-$SUFFIX"
 
@@ -100,7 +100,7 @@ done)<<<"$docs"
         cp "binaries/$binary" "$DEST/$binary"
 done)<<<"$binaries"
 
-cp "$BUILDDIR/mpc-qt.exe" "$DEST"
+cp "$BINDIR/mpc-qt.exe" "$DEST"
 cp mpv-dev/lib/libmpv-2.dll "$DEST"
 7z a "$DEST.zip" "./$DEST/*"
 sha512sum "$DEST.zip" >"$DEST.zip.sha512"
