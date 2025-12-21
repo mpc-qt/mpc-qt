@@ -18,7 +18,7 @@ VS_VERSION_INFO VERSIONINFO
 				VALUE "CompanyName", "The MPC-QT developers"
 				VALUE "FileDescription", "Media Player Classic Qute Theater"
 				VALUE "FileVersion", "@VERSTR_WIN@"
-				VALUE "LegalCopyright", "Copyright (c) 2015 The MPC-QT developers"
+				VALUE "LegalCopyright", "(C) 2015 The MPC-QT developers"
 				VALUE "OriginalFilename", "mpc-qt.exe"
 				VALUE "ProductName", "MPC-QT"
 				VALUE "ProductVersion", "@VERSTR_WIN@"
