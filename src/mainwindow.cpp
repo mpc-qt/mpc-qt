@@ -1179,8 +1179,8 @@ void MainWindow::updateInfostats()
     bool infoShow = ui->actionViewHideInformation->isChecked();
     bool statShow = ui->actionViewHideStatistics->isChecked();
 
-    ui->title->setVisible(infoShow);
-    ui->titleLabel->setVisible(infoShow);
+    ui->infoTitle->setVisible(infoShow);
+    ui->infoTitleLabel->setVisible(infoShow);
     ui->chapter->setVisible(infoShow);
     ui->chapterLabel->setVisible(infoShow);
 
@@ -1859,7 +1859,7 @@ void MainWindow::setMediaTitleWithFilename(const QString& title, const QString& 
         windowTitle.prepend(" - ").prepend(newTitle);
 
     setWindowTitle(windowTitle);
-    ui->title->setText(!newTitle.isEmpty() ? newTitle : "-");
+    ui->infoTitle->setText(!newTitle.isEmpty() ? newTitle : "-");
 }
 
 void MainWindow::setChapterTitle(QString title)

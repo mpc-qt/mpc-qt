@@ -582,14 +582,14 @@
               <number>0</number>
              </property>
              <item row="0" column="0">
-              <widget class="QLabel" name="titleLabel">
+              <widget class="QLabel" name="infoTitleLabel">
                <property name="text">
                 <string>Title</string>
                </property>
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QLabel" name="title">
+              <widget class="QLabel" name="infoTitle">
                <property name="text">
                 <string notr="true">-</string>
                </property>
