@@ -523,7 +523,7 @@
                 <string>Mute</string>
                </property>
                <property name="icon">
-                <iconset resource="build/.qt/rcc/res.qrc">
+                <iconset>
                  <normaloff>:/images/theme/black/player-volume.svg</normaloff>
                  <normalon>:/images/theme/black/player-volume-muted.svg</normalon>:/images/theme/black/player-volume.svg</iconset>
                </property>
@@ -2502,8 +2502,6 @@
    </property>
   </action>
  </widget>
- <resources>
-  <include location="build/.qt/rcc/res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
