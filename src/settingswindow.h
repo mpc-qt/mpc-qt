@@ -261,6 +261,8 @@ private slots:
 
     void on_videoPreset_currentIndexChanged(int index);
 
+    void on_ccHdrCompute_currentIndexChanged(int index);
+
     void on_screenshotFormat_currentIndexChanged(int index);
 
     void on_jpgQuality_valueChanged(int value);

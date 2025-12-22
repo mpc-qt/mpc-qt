@@ -1393,6 +1393,13 @@ void SettingsWindow::on_videoPreset_currentIndexChanged(int index)
     }
 }
 
+void SettingsWindow::on_ccHdrCompute_currentIndexChanged(int index)
+{
+    // Alpha channel is needed for HDR Compute Peak
+    if (index < 2)
+        ui->videoUseAlpha->setChecked(true);
+}
+
 void SettingsWindow::on_screenshotFormat_currentIndexChanged(int index)
 {
     ui->screenshotFormatStack->setCurrentIndex(index);
