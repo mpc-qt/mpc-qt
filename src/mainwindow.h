@@ -235,7 +235,6 @@ public slots:
     void setNoVideoSize(const QSize &sz);
     void setTrayIcon(bool enabled);
     void setTitleBarFormat(Helpers::TitlePrefix titlebarFormat);
-    void setTitleUseMediaTitle(bool enabled);
     void setWindowedMouseMap(const MouseStateMap &map);
     void setFullscreenMouseMap(const MouseStateMap &map);
     void setRecentDocuments(const QList<TrackInfo> &tracks);
@@ -245,7 +244,7 @@ public slots:
     void setHighContrastWidgets(bool yes);
     void setInfoColors(const QColor &foreground, const QColor &background);
     void setTime(double time, double length);
-    void setMediaTitleWithFilename(QString title, QString filename);
+    void setMediaTitleWithFilename(const QString& title, const QString& filename);
     void setChapterTitle(QString title);
     void setAspectName(QString aspectName);
     void setVideoSize(QSize size);
@@ -502,7 +501,6 @@ private:
 
     bool freestanding_ = false;
     Helpers::TitlePrefix titlebarFormat_ = Helpers::PrefixFileName;
-    bool titleUseMediaTitle = true;
     bool mainwindowIsClosing = false; // Prevents toggleViewAction from affecting saved setting for actionViewHidePlaylist
     DecorationState decorationState_ = AllDecorations;
     QString fullscreenName;
@@ -553,8 +551,8 @@ private:
     int currentAngle = 0;
     bool flipped = false;
     QUrl currentFile;
-    QString currentFilename;
-    QString currentTitle;
+    QString currentFileName;
+    QString currentFileTitle;
 
     IconThemer themer;
     QList<QAction *> menuFavoritesTail;

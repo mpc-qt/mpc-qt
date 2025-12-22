@@ -2471,7 +2471,7 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
-        <translation>Sustituir el nombre de archivo por el título</translation>
+        <translation type="vanished">Sustituir el nombre de archivo por el título</translation>
     </message>
     <message>
         <source>History</source>
@@ -4441,6 +4441,10 @@ archivo multimedia reproducido</translation>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
         <translation>Vea &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;el repositorio fuente&lt;/a&gt; para los nombres de iconos.</translation>
+    </message>
+    <message>
+        <source>File title</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

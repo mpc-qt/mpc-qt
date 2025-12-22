@@ -90,7 +90,6 @@ signals:
     void disableOpenDiscMenu(bool yes);
     void inhibitScreensaver(bool yes);
     void titleBarFormat(Helpers::TitlePrefix format);
-    void titleUseMediaTitle(bool yes);
     void rememberHistory(bool yes, bool onlyVideos);
     void rememberFilePosition(bool yes);
     void rememberQuickPlaylist(bool yes);
@@ -238,8 +237,6 @@ private slots:
     void on_playerOpenNew_toggled(bool checked);
 
     void on_playerAppendToQuickPlaylist_checkStateChanged(Qt::CheckState state);
-
-    void on_playerTitleDontPrefix_toggled(bool checked);
 
     void on_playerKeepHistory_checkStateChanged(Qt::CheckState state);
 

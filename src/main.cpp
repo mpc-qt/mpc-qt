@@ -692,8 +692,6 @@ void Flow::setupSettingsConnections()
             mainWindow, &MainWindow::setTrayIcon);
     connect(settingsWindow, &SettingsWindow::titleBarFormat,
             mainWindow, &MainWindow::setTitleBarFormat);
-    connect(settingsWindow, &SettingsWindow::titleUseMediaTitle,
-            mainWindow, &MainWindow::setTitleUseMediaTitle);
     connect(settingsWindow, &SettingsWindow::mouseWindowedMap,
             mainWindow, &MainWindow::setWindowedMouseMap);
     connect(settingsWindow, &SettingsWindow::mouseFullscreenMap,

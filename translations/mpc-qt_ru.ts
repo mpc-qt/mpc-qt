@@ -2551,7 +2551,7 @@ media file played</source>
     </message>
     <message>
         <source>Replace file name with title</source>
-        <translation>Заменить имя файла на заголовок</translation>
+        <translation type="vanished">Заменить имя файла на заголовок</translation>
     </message>
     <message>
         <source>History</source>
@@ -4553,6 +4553,10 @@ media file played</source>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
         <translation>Смотри &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;репозиторий исходного кода&lt;/a&gt; для названий значков.</translation>
+    </message>
+    <message>
+        <source>File title</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -2571,7 +2571,7 @@ media file played</source>
     </message>
     <message>
         <source>Replace file name with title</source>
-        <translation>Dateiname mit Titel ersetzen</translation>
+        <translation type="vanished">Dateiname mit Titel ersetzen</translation>
     </message>
     <message>
         <source>History</source>
@@ -4553,6 +4553,10 @@ media file played</source>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
         <translation>Die Namen der Symbolbilder finden sich in den &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;Programmquellen&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>File title</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
