@@ -1245,6 +1245,9 @@ void SettingsWindow::on_pageTree_itemSelectionChanged()
     ui->pageStack->setCurrentIndex(index);
     ui->pageLabel->setText(QString("<big><b>%1</b></big>").
                            arg(modelIndex.data().toString()));
+
+    if (ui->pageStack->currentWidget() == ui->keysPage)
+        ui->keysSearchField->setFocus();
 }
 
 void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
