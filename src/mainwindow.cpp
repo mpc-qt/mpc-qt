@@ -3279,6 +3279,11 @@ void MainWindow::on_actionPlayVolumeDown_triggered()
     volumeSlider_->setValue(newvol);
 }
 
+void MainWindow::on_actionPlayVolumeMute_toggled(bool checked)
+{
+    on_actionPlayVolumeMute_toggled(checked, false);
+}
+
 void MainWindow::on_actionPlayVolumeMute_toggled(bool checked, bool onInit)
 {
     emit volumeMuteChanged(checked, onInit);
