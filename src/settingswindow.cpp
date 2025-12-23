@@ -1539,6 +1539,30 @@ void SettingsWindow::on_playbackPlayTimes_toggled(bool checked)
     ui->playbackPlayTimesLabel->setEnabled(checked);
 }
 
+void SettingsWindow::on_ditherDithering_toggled(bool checked)
+{
+    ui->ditherDepth->setEnabled(checked);
+    ui->ditherDepthLabel->setEnabled(checked);
+    ui->ditherType->setEnabled(checked);
+    ui->ditherTypeLabel->setEnabled(checked);
+    bool fruitEnabled = checked && (ui->ditherType->currentIndex() == 0);
+    ui->ditherFruitSize->setEnabled(fruitEnabled);
+    ui->ditherFruitSizeLabel->setEnabled(fruitEnabled);
+}
+
+void SettingsWindow::on_ditherType_currentIndexChanged(int index)
+{
+    bool fruitEnabled = index == 0;
+    ui->ditherFruitSize->setEnabled(fruitEnabled);
+    ui->ditherFruitSizeLabel->setEnabled(fruitEnabled);
+}
+
+void SettingsWindow::on_ditherTemporal_toggled(bool checked)
+{
+    ui->ditherTemporalPeriod->setEnabled(checked);
+    ui->ditherTemporalPeriodLabel->setEnabled(checked);
+}
+
 void SettingsWindow::on_audioSpdif_toggled(bool checked)
 {
     ui->audioSpdifCodecs->setEnabled(checked);

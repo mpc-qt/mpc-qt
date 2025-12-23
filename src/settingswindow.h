@@ -305,6 +305,12 @@ private slots:
 
     void on_playbackPlayTimes_toggled(bool checked);
 
+    void on_ditherDithering_toggled(bool checked);
+
+    void on_ditherType_currentIndexChanged(int index);
+
+    void on_ditherTemporal_toggled(bool checked);
+
     void on_audioSpdif_toggled(bool checked);
 
     void on_subsBackgroundBoxEnabled_toggled(bool checked);
