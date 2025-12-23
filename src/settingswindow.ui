@@ -8051,6 +8051,9 @@ media file played</string>
                 <property name="text">
                  <string>Event messages</string>
                 </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="1" column="0">
@@ -8069,7 +8072,7 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="currentIndex">
-                 <number>3</number>
+                 <number>6</number>
                 </property>
                 <item>
                  <property name="text">
@@ -8129,6 +8132,9 @@ media file played</string>
                <widget class="QCheckBox" name="logFileCreate">
                 <property name="text">
                  <string>Create log file (contents will be overwritten)</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
