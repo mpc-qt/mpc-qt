@@ -1478,6 +1478,11 @@ void SettingsWindow::on_fullscreenHideControls_toggled(bool checked)
     ui->fullscreenShowWhenDuration->setEnabled(checked);
 }
 
+void SettingsWindow::on_fullscreenShowWhen_currentIndexChanged(int index)
+{
+    ui->fullscreenShowWhenDuration->setEnabled(index != 0);
+}
+
 void SettingsWindow::on_audioBalance_valueChanged(int value)
 {
     QToolTip::showText(QCursor::pos(), QString::number(value), ui->audioBalance);
@@ -1526,6 +1531,12 @@ void SettingsWindow::on_ccICCBrowse_clicked()
         return;
 
     ui->ccICCLocation->setText(file);
+}
+
+void SettingsWindow::on_playbackPlayTimes_toggled(bool checked)
+{
+    ui->playbackPlayAmount->setEnabled(checked);
+    ui->playbackPlayTimesLabel->setEnabled(checked);
 }
 
 void SettingsWindow::on_audioSpdif_toggled(bool checked)
