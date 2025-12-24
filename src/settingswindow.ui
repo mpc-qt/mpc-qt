@@ -342,9 +342,6 @@
                 <property name="text">
                  <string>Replace file name with title</string>
                 </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
                </widget>
               </item>
               <item>
