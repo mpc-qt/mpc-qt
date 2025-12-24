@@ -4596,7 +4596,7 @@ media file played</source>
     </message>
     <message>
         <source>File title</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル タイトル</translation>
     </message>
 </context>
 <context>
