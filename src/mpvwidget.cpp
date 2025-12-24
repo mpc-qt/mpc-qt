@@ -417,11 +417,13 @@ void MpvObject::setLogoBackground(const QColor &color)
 
 void MpvObject::setAudioFilters(const QList<QPair<QString, QString>> &filtersList)
 {
+    emit ctrlCommand("no-osd af clear");
     emit ctrlCommand("no-osd af set \"" + formatFiltersList(filtersList) + "\"");
 }
 
 void MpvObject::setVideoFilters(const QList<QPair<QString, QString>> &filtersList)
 {
+    emit ctrlCommand("no-osd vf clear");
     emit ctrlCommand("no-osd vf set \"" + formatFiltersList(filtersList) + "\"");
 }
 

@@ -756,8 +756,6 @@ void SettingsWindow::sendSignals()
         emit speedStep(i > 0 ? 1.0 + i/100.0 : 1.25);
         emit speedStepAdditive(WIDGET_LOOKUP(ui->playbackSpeedStepAdditive).toBool());
     }
-    setAudioFilter("stereotools", "balance_out=" +
-        QString::number(WIDGET_LOOKUP(ui->audioBalance).toDouble()/100), true);
     emit stepTimeNormal(WIDGET_LOOKUP(ui->playbackNormalStep).toInt());
     emit stepTimeLarge(WIDGET_LOOKUP(ui->playbackLargeStep).toInt());
 
@@ -1478,7 +1476,10 @@ void SettingsWindow::on_fullscreenHideControls_toggled(bool checked)
 void SettingsWindow::on_audioBalance_valueChanged(int value)
 {
     QToolTip::showText(QCursor::pos(), QString::number(value), ui->audioBalance);
-    setAudioFilter("stereotools", "balance_out=" + QString::number((double) value/100), true);
+    if (value == 0)
+        setAudioFilter("stereotools", "", false);
+    else
+        setAudioFilter("stereotools", "balance_out=" + QString::number((double) value/100), true);
 }
 
 void SettingsWindow::on_playbackAutoZoom_toggled(bool checked)
