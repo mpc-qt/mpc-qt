@@ -432,7 +432,8 @@ private slots:
 
     void on_actionPlayVolumeUp_triggered();
     void on_actionPlayVolumeDown_triggered();
-    void on_actionPlayVolumeMute_toggled(bool checked, bool onInit = false);
+    void on_actionPlayVolumeMute_toggled(bool checked);
+    void on_actionPlayVolumeMute_toggled(bool checked, bool onInit);
 
     void on_actionPlayAfterOnceExit_triggered();
     void on_actionPlayAfterOnceStandby_triggered();
