@@ -5,7 +5,7 @@
  <project_license>GPL-2.0+</project_license>
  <name>MPC-QT</name>
  <summary>Media Player Classic reimplemented with Qt and libmpv</summary>
- <launchable type="desktop-id">io.github.mpc_qt.mpc-qt.desktop</launchable>
+ <launchable type="desktop-id">data/io.github.mpc_qt.mpc-qt.desktop</launchable>
  <content_rating type="oars-1.1" />
  <developer id="io.github.mpc-qt">
   <name>The MPC-QT developers</name>

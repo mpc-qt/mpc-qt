@@ -756,8 +756,6 @@ void SettingsWindow::sendSignals()
         emit speedStep(i > 0 ? 1.0 + i/100.0 : 1.25);
         emit speedStepAdditive(WIDGET_LOOKUP(ui->playbackSpeedStepAdditive).toBool());
     }
-    setAudioFilter("stereotools", "balance_out=" +
-        QString::number(WIDGET_LOOKUP(ui->audioBalance).toDouble()/100), true);
     emit stepTimeNormal(WIDGET_LOOKUP(ui->playbackNormalStep).toInt());
     emit stepTimeLarge(WIDGET_LOOKUP(ui->playbackLargeStep).toInt());
 
@@ -1245,6 +1243,9 @@ void SettingsWindow::on_pageTree_itemSelectionChanged()
     ui->pageStack->setCurrentIndex(index);
     ui->pageLabel->setText(QString("<big><b>%1</b></big>").
                            arg(modelIndex.data().toString()));
+
+    if (ui->pageStack->currentWidget() == ui->keysPage)
+        ui->keysSearchField->setFocus();
 }
 
 void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
@@ -1393,6 +1394,13 @@ void SettingsWindow::on_videoPreset_currentIndexChanged(int index)
     }
 }
 
+void SettingsWindow::on_ccHdrCompute_currentIndexChanged(int index)
+{
+    // Alpha channel is needed for HDR Compute Peak
+    if (index < 2)
+        ui->videoUseAlpha->setChecked(true);
+}
+
 void SettingsWindow::on_screenshotFormat_currentIndexChanged(int index)
 {
     ui->screenshotFormatStack->setCurrentIndex(index);
@@ -1473,10 +1481,18 @@ void SettingsWindow::on_fullscreenHideControls_toggled(bool checked)
     ui->fullscreenShowWhenDuration->setEnabled(checked);
 }
 
+void SettingsWindow::on_fullscreenShowWhen_currentIndexChanged(int index)
+{
+    ui->fullscreenShowWhenDuration->setEnabled(index != 0);
+}
+
 void SettingsWindow::on_audioBalance_valueChanged(int value)
 {
     QToolTip::showText(QCursor::pos(), QString::number(value), ui->audioBalance);
-    setAudioFilter("stereotools", "balance_out=" + QString::number((double) value/100), true);
+    if (value == 0)
+        setAudioFilter("stereotools", "", false);
+    else
+        setAudioFilter("stereotools", "balance_out=" + QString::number((double) value/100), true);
 }
 
 void SettingsWindow::on_playbackAutoZoom_toggled(bool checked)
@@ -1518,6 +1534,36 @@ void SettingsWindow::on_ccICCBrowse_clicked()
         return;
 
     ui->ccICCLocation->setText(file);
+}
+
+void SettingsWindow::on_playbackPlayTimes_toggled(bool checked)
+{
+    ui->playbackPlayAmount->setEnabled(checked);
+    ui->playbackPlayTimesLabel->setEnabled(checked);
+}
+
+void SettingsWindow::on_ditherDithering_toggled(bool checked)
+{
+    ui->ditherDepth->setEnabled(checked);
+    ui->ditherDepthLabel->setEnabled(checked);
+    ui->ditherType->setEnabled(checked);
+    ui->ditherTypeLabel->setEnabled(checked);
+    bool fruitEnabled = checked && (ui->ditherType->currentIndex() == 0);
+    ui->ditherFruitSize->setEnabled(fruitEnabled);
+    ui->ditherFruitSizeLabel->setEnabled(fruitEnabled);
+}
+
+void SettingsWindow::on_ditherType_currentIndexChanged(int index)
+{
+    bool fruitEnabled = index == 0;
+    ui->ditherFruitSize->setEnabled(fruitEnabled);
+    ui->ditherFruitSizeLabel->setEnabled(fruitEnabled);
+}
+
+void SettingsWindow::on_ditherTemporal_toggled(bool checked)
+{
+    ui->ditherTemporalPeriod->setEnabled(checked);
+    ui->ditherTemporalPeriodLabel->setEnabled(checked);
 }
 
 void SettingsWindow::on_audioSpdif_toggled(bool checked)

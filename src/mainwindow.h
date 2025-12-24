@@ -98,6 +98,7 @@ private:
     void setUiDecorationState(DecorationState state);
     void setOSDPage(int page);
     void setUiEnabledState(bool enabled);
+    void setVolumeMuteState(bool checked, bool onInit);
     void reparentBottomArea(bool overlay);
     void checkBottomArea(QPointF mousePosition);
     void leaveBottomArea();
@@ -430,7 +431,7 @@ private slots:
 
     void on_actionPlayVolumeUp_triggered();
     void on_actionPlayVolumeDown_triggered();
-    void on_actionPlayVolumeMute_toggled(bool checked, bool onInit = false);
+    void on_actionPlayVolumeMute_toggled(bool checked);
 
     void on_actionPlayAfterOnceExit_triggered();
     void on_actionPlayAfterOnceStandby_triggered();

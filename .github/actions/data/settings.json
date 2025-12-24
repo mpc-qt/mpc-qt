@@ -302,7 +302,7 @@
     "playerTitleDisplayFullPath": false,
     "playerTitleDontPrefix": false,
     "playerTitleFileNameOnly": true,
-    "playerTitleReplaceName": true,
+    "playerTitleReplaceName": false,
     "playerTrayIcon": true,
     "playlistFormat": "%artist{# - }{Unknown Artist - }{}%title{#}{$}{$}",
     "pngColorspace": false,

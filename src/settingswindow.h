@@ -261,6 +261,8 @@ private slots:
 
     void on_videoPreset_currentIndexChanged(int index);
 
+    void on_ccHdrCompute_currentIndexChanged(int index);
+
     void on_screenshotFormat_currentIndexChanged(int index);
 
     void on_jpgQuality_valueChanged(int value);
@@ -287,6 +289,8 @@ private slots:
 
     void on_fullscreenHideControls_toggled(bool checked);
 
+    void on_fullscreenShowWhen_currentIndexChanged(int index);;
+
     void on_audioBalance_valueChanged(int value);
 
     void on_playbackAutoZoom_toggled(bool checked);
@@ -298,6 +302,14 @@ private slots:
     void on_ccICCAutodetect_toggled(bool checked);
 
     void on_ccICCBrowse_clicked();
+
+    void on_playbackPlayTimes_toggled(bool checked);
+
+    void on_ditherDithering_toggled(bool checked);
+
+    void on_ditherType_currentIndexChanged(int index);
+
+    void on_ditherTemporal_toggled(bool checked);
 
     void on_audioSpdif_toggled(bool checked);
 

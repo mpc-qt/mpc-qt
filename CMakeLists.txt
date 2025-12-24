@@ -100,51 +100,13 @@ else()
     endif()
 endif()
 
-# Generate version.h with version information
 configure_file(
-    ${CMAKE_SOURCE_DIR}/version.h.in
-    ${CMAKE_BINARY_DIR}/version.h
+    ${PROJECT_SOURCE_DIR}/packaging/nsis/mpc-qt.nsi.in
+    ${CMAKE_BINARY_DIR}/mpc-qt.nsi
+    @ONLY
 )
 
-message(STATUS "The version appears to be ${VERSTR}, and the Windows manifest would say this is ${VERSTR_WIN}.")
-
-set(SOURCES
-    favoriteswindow.cpp favoriteswindow.h favoriteswindow.ui
-    gotowindow.cpp gotowindow.h gotowindow.ui
-    helpers.cpp helpers.h
-    ipc/http.cpp ipc/http.h
-    ipc/json.cpp ipc/json.h
-    librarywindow.cpp librarywindow.h librarywindow.ui
-    logger.cpp logger.h
-    logwindow.cpp logwindow.h logwindow.ui
-    main.cpp main.h
-    mainwindow.cpp mainwindow.h mainwindow.ui
-    manager.cpp manager.h
-    mpvwidget.cpp mpvwidget.h
-    openfiledialog.cpp openfiledialog.h openfiledialog.ui
-    platform/devicemanager.cpp platform/devicemanager.h
-    platform/screensaver.cpp platform/screensaver.h
-    platform/unify.cpp platform/unify.h
-    platform/windowmanager.cpp platform/windowmanager.h
-    playlist.cpp playlist.h
-    playlistwindow.cpp playlistwindow.h playlistwindow.ui
-    propertieswindow.cpp propertieswindow.h propertieswindow.ui
-    settingswindow.cpp settingswindow.h settingswindow.ui
-    storage.cpp storage.h
-    thumbnailerwindow.cpp thumbnailerwindow.h thumbnailerwindow.ui
-    widgets/actioneditor.cpp widgets/actioneditor.h
-    widgets/drawncollection.cpp widgets/drawncollection.h
-    widgets/drawnplaylist.cpp widgets/drawnplaylist.h
-    widgets/drawnslider.cpp widgets/drawnslider.h
-    widgets/drawnstatus.cpp widgets/drawnstatus.h
-    widgets/logowidget.cpp widgets/logowidget.h
-    widgets/paletteeditor.cpp widgets/paletteeditor.h
-    widgets/screencombo.cpp widgets/screencombo.h
-    widgets/tooltip.cpp widgets/tooltip.h
-    widgets/videopreview.cpp widgets/videopreview.h
-)
-
-qt_add_executable(mpc-qt WIN32 MACOSX_BUNDLE ${SOURCES})
+add_subdirectory(src)
 
 target_include_directories(mpc-qt PRIVATE ${CMAKE_BINARY_DIR})
 if (Boost_FOUND)
@@ -174,7 +136,7 @@ set(TS_FILES
 if(Qt6_VERSION VERSION_GREATER_EQUAL 6.7.0)
     # Starting with Qt 6.7, this can be used to exclude some files from lupdate
     set_property(TARGET mpc-qt PROPERTY QT_EXCLUDE_SOURCES_FROM_TRANSLATION
-        images/*
+        ${CMAKE_SOURCE_DIR}/res/images/*
     )
 endif()
 
@@ -197,6 +159,8 @@ if(WIN32) # Add the Qt interface translations on Windows
     )
 endif()
 
+add_subdirectory(res)
+
 target_link_libraries(mpc-qt PRIVATE
     Qt::Gui
     Qt::Network
@@ -204,39 +168,6 @@ target_link_libraries(mpc-qt PRIVATE
     Qt::Svg
     Qt::Widgets
 )
-
-if(UNIX)
-    target_sources(mpc-qt PUBLIC
-        ipc/mpris.cpp ipc/mpris.h
-        platform/devicemanager_unix.cpp platform/devicemanager_unix.h
-        platform/screensaver_unix.cpp platform/screensaver_unix.h
-    )
-    find_package(Qt6 REQUIRED COMPONENTS DBus)
-    target_link_libraries(mpc-qt PRIVATE Qt::DBus)
-    if (Boost_FOUND)
-        add_compile_definitions(BOOST_STACKTRACE_USE_ADDR2LINE)
-    endif()
-endif()
-
-if(WIN32)
-    target_sources(mpc-qt PUBLIC
-        platform/devicemanager_win.cpp platform/devicemanager_win.h
-        platform/screensaver_win.cpp platform/screensaver_win.h
-    )
-    target_link_libraries(mpc-qt PRIVATE powrprof)
-
-    # Convert version string to comma-separated format for RC file
-    string(REPLACE "." "," VERSTR_WIN_COMMA "${VERSTR_WIN}")
-
-    # Configure the RC file with version information
-    configure_file(
-        ${CMAKE_SOURCE_DIR}/platform/mpc-qt.rc.in
-        ${CMAKE_BINARY_DIR}/mpc-qt.rc
-    )
-
-    # Add the resource file to the target
-    target_sources(mpc-qt PRIVATE ${CMAKE_BINARY_DIR}/mpc-qt.rc)
-endif()
 
 if(UNIX)
     # Use built version of MPV for the AppImage
@@ -268,80 +199,12 @@ if(WIN32)
     endif()
 endif()
 
-
-set(res_resource_files
-    http/browser.html
-    http/index.html
-    http/info.html
-    http/variables.html
-    images/icon/mpc-qt.svg
-    images/icon/tinyicon.svg
-    images/logo/cinema-screen.svg
-    images/logo/mpv-vlc.svg
-    images/logo/triangle-circle.svg
-    images/theme/black/document-export.svg
-    images/theme/black/document-import.svg
-    images/theme/black/go-next.svg
-    images/theme/black/go-previous.svg
-    images/theme/black/media-playback-pause.svg
-    images/theme/black/media-playback-start.svg
-    images/theme/black/media-playback-stop.svg
-    images/theme/black/media-queue-visible.svg
-    images/theme/black/media-seek-backward.svg
-    images/theme/black/media-seek-forward.svg
-    images/theme/black/media-skip-backward.svg
-    images/theme/black/media-skip-forward.svg
-    images/theme/black/player-volume-muted.svg
-    images/theme/black/player-volume.svg
-    images/theme/black/tab-close.svg
-    images/theme/black/tab-duplicate.svg
-    images/theme/black/tab-new.svg
-    images/theme/black/view-media-queue.svg
-    images/theme/black/view-media-subtitles-hidden.svg
-    images/theme/black/view-media-subtitles.svg
-    images/theme/black/zone-in.svg
-    images/theme/black/zone-out.svg
-    images/theme/white/document-export.svg
-    images/theme/white/document-import.svg
-    images/theme/white/go-next.svg
-    images/theme/white/go-previous.svg
-    images/theme/white/media-playback-pause.svg
-    images/theme/white/media-playback-start.svg
-    images/theme/white/media-playback-stop.svg
-    images/theme/white/media-queue-visible.svg
-    images/theme/white/media-seek-backward.svg
-    images/theme/white/media-seek-forward.svg
-    images/theme/white/media-skip-backward.svg
-    images/theme/white/media-skip-forward.svg
-    images/theme/white/player-volume-muted.svg
-    images/theme/white/player-volume.svg
-    images/theme/white/tab-close.svg
-    images/theme/white/tab-duplicate.svg
-    images/theme/white/tab-new.svg
-    images/theme/white/video-x-generic-16.svg
-    images/theme/white/video-x-generic-32.svg
-    images/theme/white/view-media-queue.svg
-    images/theme/white/view-media-subtitles-hidden.svg
-    images/theme/white/view-media-subtitles.svg
-    images/theme/white/zone-in.svg
-    images/theme/white/zone-out.svg
-    text/encodeFormat.html
-    text/playlistFormat.html
-)
-
-qt_add_resources(mpc-qt "res"
-    PREFIX
-        "/"
-    FILES
-        ${res_resource_files}
-)
-
 if(UNIX)
     install(TARGETS mpc-qt DESTINATION bin)
     install(FILES DOCS/ipc.md DESTINATION share/doc/mpc-qt)
-    install(FILES io.github.mpc_qt.mpc-qt.desktop DESTINATION share/applications)
-    install(FILES io.github.mpc_qt.mpc-qt.appdata.xml DESTINATION share/metainfo)
-    install(FILES images/icon/mpc-qt.svg DESTINATION share/icons/hicolor/scalable/apps)
+    install(FILES data/io.github.mpc_qt.mpc-qt.desktop DESTINATION share/applications)
+    install(FILES data/io.github.mpc_qt.mpc-qt.metainfo.xml DESTINATION share/metainfo)
+    install(FILES res/images/icon/mpc-qt.svg DESTINATION share/icons/hicolor/scalable/apps)
 
     add_custom_target(uninstall COMMAND xargs rm -vf < install_manifest.txt)
 endif()
