@@ -227,7 +227,7 @@ void MainWindow::setState(const QVariantMap &map)
     ui->actionAudioFilterAcompressor->isChecked() ? on_actionAudioFilterAcompressor_triggered(true) : qt_noop();
     ui->actionAudioFilterCrossfeed->isChecked() ? on_actionAudioFilterCrossfeed_triggered(true) : qt_noop();
     setSubtitlesEnabled(ui->actionPlaySubtitlesEnabled->isChecked(), true);
-    on_actionPlayVolumeMute_toggled(ui->actionPlayVolumeMute->isChecked(), true);
+    setVolumeMuteState(ui->actionPlayVolumeMute->isChecked(), true);
     setVolume(map.value("volume", 100).toInt(), true);
     setOSDPage(map.value("shownStatsPage",0).toInt());
     updateOnTop();
@@ -1043,6 +1043,13 @@ void MainWindow::setUiEnabledState(bool enabled)
         ui->menuPlayVideo->setEnabled(false);
         ui->menuNavigateChapters->setEnabled(false);
     }
+}
+
+void MainWindow::setVolumeMuteState(bool checked, bool onInit)
+{
+    emit volumeMuteChanged(checked, onInit);
+    ui->actionPlayVolumeMute->setChecked(checked);
+    ui->mute->setChecked(checked);
 }
 
 void MainWindow::reparentBottomArea(bool overlay)
@@ -3268,14 +3275,7 @@ void MainWindow::on_actionPlayVolumeDown_triggered()
 
 void MainWindow::on_actionPlayVolumeMute_toggled(bool checked)
 {
-    on_actionPlayVolumeMute_toggled(checked, false);
-}
-
-void MainWindow::on_actionPlayVolumeMute_toggled(bool checked, bool onInit)
-{
-    emit volumeMuteChanged(checked, onInit);
-    ui->actionPlayVolumeMute->setChecked(checked);
-    ui->mute->setChecked(checked);
+    setVolumeMuteState(checked, false);
 }
 
 void MainWindow::on_actionPlayAfterOnceExit_triggered()
