@@ -93,11 +93,11 @@
     </message>
     <message>
         <source>Move Subtitles Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Bewege Untertitel hoch</translation>
     </message>
     <message>
         <source>Move Subtitles Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Bewege Untertitel runter</translation>
     </message>
     <message>
         <source>Decrease Aspect ratio</source>
@@ -165,7 +165,7 @@
     </message>
     <message>
         <source>Reset Move</source>
-        <translation type="unfinished"></translation>
+        <translation>Schritt zurücksetzen</translation>
     </message>
     <message>
         <source>Rotate Clockwise</source>
@@ -185,15 +185,15 @@
     </message>
     <message>
         <source>Volume Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>Lautstärke erhöhen</translation>
     </message>
     <message>
         <source>Volume Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>Lautstärke vermindern</translation>
     </message>
     <message>
         <source>Play / Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Abspielen / Pause</translation>
     </message>
 </context>
 <context>
@@ -666,7 +666,7 @@
     </message>
     <message>
         <source>Su&amp;bresync</source>
-        <translation type="unfinished"></translation>
+        <translation>Unter&amp;resynchronisierung</translation>
     </message>
     <message>
         <source>Ctrl+6</source>
@@ -1078,7 +1078,7 @@
     </message>
     <message>
         <source>&amp;Quick Queue Toggle</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Schnelles Umschalten der Warteschlange</translation>
     </message>
     <message>
         <source>Q</source>
@@ -1394,7 +1394,7 @@
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gebaut auf %1 um %2</translation>
     </message>
     <message>
         <source>Alt+Q</source>
@@ -1678,7 +1678,7 @@
     </message>
     <message>
         <source>&amp;Extra Stereo</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Extra Stereo</translation>
     </message>
     <message>
         <source>&amp;Compressor</source>
@@ -1726,23 +1726,23 @@
     </message>
     <message>
         <source>&amp;Resize</source>
-        <translation type="unfinished"></translation>
+        <translation>Größe ändern</translation>
     </message>
     <message>
         <source>&amp;Decrease Width</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Breite verringern</translation>
     </message>
     <message>
         <source>&amp;Increase Width</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Breite erhöhen</translation>
     </message>
     <message>
         <source>D&amp;ecrease Height</source>
-        <translation type="unfinished"></translation>
+        <translation>H&amp;öhe verringern</translation>
     </message>
     <message>
         <source>I&amp;ncrease Height</source>
-        <translation type="unfinished"></translation>
+        <translation>H&amp;öhe erhöhen</translation>
     </message>
     <message>
         <source>&amp;Move</source>
@@ -1758,11 +1758,11 @@
     </message>
     <message>
         <source>R&amp;eset</source>
-        <translation type="unfinished"></translation>
+        <translation>Z&amp;urücksetzen</translation>
     </message>
     <message>
         <source>R&amp;otate</source>
-        <translation type="unfinished"></translation>
+        <translation>D&amp;rehen</translation>
     </message>
     <message>
         <source>&amp;Clockwise</source>
@@ -1770,19 +1770,19 @@
     </message>
     <message>
         <source>C&amp;ounterclockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>G&amp;egen den Uhrzeigersinn</translation>
     </message>
     <message>
         <source>&amp;Horizontal Flip</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Horizontales Spiegeln</translation>
     </message>
     <message>
         <source>&amp;Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Wiedergabeliste</translation>
     </message>
     <message>
         <source>&amp;Play</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Abspielen</translation>
     </message>
 </context>
 <context>
@@ -1849,59 +1849,59 @@
     </message>
     <message>
         <source>XButton11</source>
-        <translation type="unfinished"></translation>
+        <translation>XTaste11</translation>
     </message>
     <message>
         <source>XButton12</source>
-        <translation type="unfinished"></translation>
+        <translation>XTaste12</translation>
     </message>
     <message>
         <source>XButton13</source>
-        <translation type="unfinished"></translation>
+        <translation>XTaste13</translation>
     </message>
     <message>
         <source>XButton14</source>
-        <translation type="unfinished"></translation>
+        <translation>XTaste14</translation>
     </message>
     <message>
         <source>XButton15</source>
-        <translation type="unfinished"></translation>
+        <translation>XTaste15</translation>
     </message>
     <message>
         <source>XButton16</source>
-        <translation type="unfinished"></translation>
+        <translation>XTaste16</translation>
     </message>
     <message>
         <source>XButton17</source>
-        <translation type="unfinished"></translation>
+        <translation>XTaste17</translation>
     </message>
     <message>
         <source>XButton18</source>
-        <translation type="unfinished"></translation>
+        <translation>XTaste18</translation>
     </message>
     <message>
         <source>XButton19</source>
-        <translation type="unfinished"></translation>
+        <translation>XTaste19</translation>
     </message>
     <message>
         <source>XButton20</source>
-        <translation type="unfinished"></translation>
+        <translation>XTaste20</translation>
     </message>
     <message>
         <source>XButton21</source>
-        <translation type="unfinished"></translation>
+        <translation>XTaste21</translation>
     </message>
     <message>
         <source>XButton22</source>
-        <translation type="unfinished"></translation>
+        <translation>XTaste22</translation>
     </message>
     <message>
         <source>XButton23</source>
-        <translation type="unfinished"></translation>
+        <translation>XTaste23</translation>
     </message>
     <message>
         <source>XButton24</source>
-        <translation type="unfinished"></translation>
+        <translation>XTaste24</translation>
     </message>
     <message>
         <source>Shift</source>
@@ -2051,7 +2051,7 @@
     </message>
     <message>
         <source>Visible Items to Quick Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Sichtbare Elemente in die Schnellwarteschlange</translation>
     </message>
     <message>
         <source>New Tab</source>
@@ -2059,7 +2059,7 @@
     </message>
     <message>
         <source>Close Tab</source>
-        <translation type="unfinished">Tab schließen</translation>
+        <translation>Tab schließen</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>
@@ -2274,7 +2274,7 @@
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">Video</translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -2341,7 +2341,7 @@
     </message>
     <message>
         <source>Mid</source>
-        <translation type="unfinished"></translation>
+        <translation>Mitten</translation>
     </message>
     <message>
         <source>Text</source>
@@ -2389,7 +2389,7 @@
     </message>
     <message>
         <source>No role</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Rolle</translation>
     </message>
     <message>
         <source>Tooltip base</source>
@@ -2431,7 +2431,7 @@
     </message>
     <message>
         <source>Player</source>
-        <translation type="unfinished"></translation>
+        <translation>Abspielgerät</translation>
     </message>
     <message>
         <source>Formats</source>
@@ -2459,7 +2459,7 @@
     </message>
     <message>
         <source>Shaders</source>
-        <translation type="unfinished"></translation>
+        <translation>Shader</translation>
     </message>
     <message>
         <source>Fullscreen</source>
@@ -2547,7 +2547,7 @@ media file played</source>
     </message>
     <message>
         <source>Disable &quot;Open Disc&quot; menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Deaktiviere das Menü „Disc öffnen“</translation>
     </message>
     <message>
         <source>Disable screensaver while playing</source>
@@ -2683,7 +2683,7 @@ media file played</source>
     </message>
     <message>
         <source>Fallback</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Rückfallebene/Ersatzlösung</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
@@ -2859,7 +2859,7 @@ media file played</source>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished">Deaktiviert</translation>
+        <translation>Deaktiviert</translation>
     </message>
     <message>
         <source>Presets</source>
@@ -2867,19 +2867,19 @@ media file played</source>
     </message>
     <message>
         <source>Plain</source>
-        <translation type="unfinished"></translation>
+        <translation>Schlicht</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished"></translation>
+        <translation>Gering</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoch</translation>
     </message>
     <message>
         <source>Highest</source>
-        <translation type="unfinished"></translation>
+        <translation>Höchste</translation>
     </message>
     <message>
         <source>Placebo</source>
@@ -2887,7 +2887,7 @@ media file played</source>
     </message>
     <message>
         <source>Load</source>
-        <translation type="unfinished"></translation>
+        <translation>Last</translation>
     </message>
     <message>
         <source>Dither</source>
@@ -2899,7 +2899,7 @@ media file played</source>
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiefe</translation>
     </message>
     <message>
         <source>Type</source>
@@ -2907,7 +2907,7 @@ media file played</source>
     </message>
     <message>
         <source>Fruit</source>
-        <translation type="unfinished"></translation>
+        <translation>Frucht</translation>
     </message>
     <message>
         <source>Ordered</source>
@@ -2915,7 +2915,7 @@ media file played</source>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>Nein</translation>
     </message>
     <message>
         <source>Size</source>
@@ -2931,7 +2931,7 @@ media file played</source>
     </message>
     <message>
         <source>Period</source>
-        <translation type="unfinished"></translation>
+        <translation>Periode</translation>
     </message>
     <message>
         <source>This can lead to flicker on LCD displays, since these  have a high reaction time.</source>
@@ -2943,11 +2943,11 @@ media file played</source>
     </message>
     <message>
         <source>Correct downscaling</source>
-        <translation type="unfinished"></translation>
+        <translation>Korrektes Downscaling</translation>
     </message>
     <message>
         <source>Temporal interpolation</source>
-        <translation type="unfinished"></translation>
+        <translation>Temporale Interpolation</translation>
     </message>
     <message>
         <source>Blend subtitles</source>
@@ -2955,19 +2955,19 @@ media file played</source>
     </message>
     <message>
         <source>Sigmoidized upscaling</source>
-        <translation type="unfinished"></translation>
+        <translation>Sigmoidisierte Hochskalierung</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zentrum/Mitte</translation>
     </message>
     <message>
         <source>Slope</source>
-        <translation type="unfinished"></translation>
+        <translation>Neigung</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished"></translation>
+        <translation>Skala</translation>
     </message>
     <message>
         <source>Scaler</source>
@@ -2983,7 +2983,7 @@ media file played</source>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwischen</translation>
     </message>
     <message>
         <source>Window</source>
@@ -2991,7 +2991,7 @@ media file played</source>
     </message>
     <message>
         <source>Box</source>
-        <translation type="unfinished"></translation>
+        <translation>Box</translation>
     </message>
     <message>
         <source>Triangle</source>
@@ -3011,7 +3011,7 @@ media file played</source>
     </message>
     <message>
         <source>Quadric</source>
-        <translation type="unfinished"></translation>
+        <translation>Quadratisch</translation>
     </message>
     <message>
         <source>Welch</source>
@@ -3027,7 +3027,7 @@ media file played</source>
     </message>
     <message>
         <source>Gaussian</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gaussian</translation>
     </message>
     <message>
         <source>Sinc</source>
@@ -3043,11 +3043,11 @@ media file played</source>
     </message>
     <message>
         <source>Clamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Klammer</translation>
     </message>
     <message>
         <source>Radius</source>
-        <translation type="unfinished"></translation>
+        <translation>Radius</translation>
     </message>
     <message>
         <source>Bilinear</source>
@@ -3059,7 +3059,7 @@ media file played</source>
     </message>
     <message>
         <source>Oversample</source>
-        <translation type="unfinished"></translation>
+        <translation>Überabtastung</translation>
     </message>
     <message>
         <source>Spline16</source>
@@ -3079,27 +3079,27 @@ media file played</source>
     </message>
     <message>
         <source>Ginseng</source>
-        <translation type="unfinished"></translation>
+        <translation>Ginseng</translation>
     </message>
     <message>
         <source>Ewa lanczos</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa Lanczos</translation>
     </message>
     <message>
         <source>Ewa hanning</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa Hanning</translation>
     </message>
     <message>
         <source>Ewa ginseng</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa Ginseng</translation>
     </message>
     <message>
         <source>Ewa lanczos sharp</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa Lanczos scharf</translation>
     </message>
     <message>
         <source>Ewa lanczos soft</source>
-        <translation type="unfinished"></translation>
+        <translation>Ewa Lanczos weich</translation>
     </message>
     <message>
         <source>Haasnsoft</source>
@@ -3139,15 +3139,15 @@ media file played</source>
     </message>
     <message>
         <source>Nearest</source>
-        <translation type="unfinished"></translation>
+        <translation>Nächste</translation>
     </message>
     <message>
         <source>Downscale</source>
-        <translation type="unfinished"></translation>
+        <translation>Herunterskalieren</translation>
     </message>
     <message>
         <source>Unset</source>
-        <translation type="unfinished"></translation>
+        <translation>nicht gesetzt</translation>
     </message>
     <message>
         <source>Color</source>
@@ -3167,7 +3167,7 @@ media file played</source>
     </message>
     <message>
         <source>State</source>
-        <translation type="unfinished"></translation>
+        <translation>Zustand</translation>
     </message>
     <message>
         <source>Enabled</source>
@@ -3187,7 +3187,7 @@ media file played</source>
     </message>
     <message>
         <source>Grain</source>
-        <translation type="unfinished"></translation>
+        <translation>Körnung</translation>
     </message>
     <message>
         <source>Color Correction</source>
@@ -3203,7 +3203,7 @@ media file played</source>
     </message>
     <message>
         <source>Autodetect</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatische Erkennung</translation>
     </message>
     <message>
         <source>Target Prim</source>
@@ -3335,7 +3335,7 @@ media file played</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Durchsuche</translation>
     </message>
     <message>
         <source>Audio Renderer</source>
@@ -3343,19 +3343,19 @@ media file played</source>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerät</translation>
     </message>
     <message>
         <source>Channel layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Kanal-Layout</translation>
     </message>
     <message>
         <source>System layout (stereo fallback)</source>
-        <translation type="unfinished"></translation>
+        <translation>System-Layout (Stereo-Fallback)</translation>
     </message>
     <message>
         <source>Maximal layout (may output to unconnected channels)</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximales Layout (kann auf nicht verbundenen Kanälen ausgegeben werden)</translation>
     </message>
     <message>
         <source>Stereo</source>
@@ -3363,11 +3363,11 @@ media file played</source>
     </message>
     <message>
         <source>Audio switcher (WIP)</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio-Umschalter (WIP)</translation>
     </message>
     <message>
         <source>Stream silence (HDMI fixup)</source>
-        <translation type="unfinished"></translation>
+        <translation>Stream-Stille (HDMI-Korrektur)</translation>
     </message>
     <message>
         <source> seconds</source>
@@ -3375,15 +3375,15 @@ media file played</source>
     </message>
     <message>
         <source>Pitch correction</source>
-        <translation type="unfinished"></translation>
+        <translation>Tonhöhenkorrektur</translation>
     </message>
     <message>
         <source>Exclusive mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Exklusiver Modus</translation>
     </message>
     <message>
         <source>Normalize downmix</source>
-        <translation type="unfinished"></translation>
+        <translation>Downmix normalisieren</translation>
     </message>
     <message>
         <source>Use S/PDIF when available</source>
@@ -3399,23 +3399,23 @@ media file played</source>
     </message>
     <message>
         <source>Fixes</source>
-        <translation type="unfinished"></translation>
+        <translation>Korrekturen</translation>
     </message>
     <message>
         <source>Latency hacks</source>
-        <translation type="unfinished"></translation>
+        <translation>Latenz-Hacks</translation>
     </message>
     <message>
         <source>Alsa</source>
-        <translation type="unfinished"></translation>
+        <translation>Alsa</translation>
     </message>
     <message>
         <source>Resample (may introduce latency)</source>
-        <translation type="unfinished"></translation>
+        <translation>Resample (kann zu Latenz führen)</translation>
     </message>
     <message>
         <source>Ignore channel map (for specific alsa setups)</source>
-        <translation type="unfinished"></translation>
+        <translation>Kanalzuordnung ignorieren (für bestimmte Alsa-Setups)</translation>
     </message>
     <message>
         <source>Oss</source>
@@ -3423,15 +3423,15 @@ media file played</source>
     </message>
     <message>
         <source>Mixer device</source>
-        <translation type="unfinished"></translation>
+        <translation>Mixer</translation>
     </message>
     <message>
         <source>Mixer channel</source>
-        <translation type="unfinished"></translation>
+        <translation>Mixer-Kanal</translation>
     </message>
     <message>
         <source>Jack</source>
-        <translation type="unfinished"></translation>
+        <translation>Jack</translation>
     </message>
     <message>
         <source>Name</source>
@@ -3439,27 +3439,27 @@ media file played</source>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Anschluss</translation>
     </message>
     <message>
         <source>Auto connect</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatische Verbindung</translation>
     </message>
     <message>
         <source>Start jackd at startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Starte jackd beim Start</translation>
     </message>
     <message>
         <source>Startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Hochfahren</translation>
     </message>
     <message>
         <source>Filesystem</source>
-        <translation type="unfinished"></translation>
+        <translation>Dateisystem</translation>
     </message>
     <message>
         <source>Add shader file(s)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Shader-Datei(en) hinzufügen...</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -3467,11 +3467,11 @@ media file played</source>
     </message>
     <message>
         <source>Add to shaders</source>
-        <translation type="unfinished"></translation>
+        <translation>Zu Shadern hinzufügen</translation>
     </message>
     <message>
         <source>Shader presets</source>
-        <translation type="unfinished"></translation>
+        <translation>Shader-Voreinstellungen</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3479,7 +3479,7 @@ media file played</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Löschen</translation>
     </message>
     <message>
         <source>Wiki</source>
@@ -3487,43 +3487,43 @@ media file played</source>
     </message>
     <message>
         <source>Active shaders</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktive Shader</translation>
     </message>
     <message>
         <source>Fullscreen monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Vollbildmonitor</translation>
     </message>
     <message>
         <source>Launch files in fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Starte Dateien im Vollbildmodus</translation>
     </message>
     <message>
         <source>Exit fullscreen at the end of playback</source>
-        <translation type="unfinished"></translation>
+        <translation>Beendet den Vollbildmodus am Ende der Wiedergabe</translation>
     </message>
     <message>
         <source>Hiding</source>
-        <translation type="unfinished"></translation>
+        <translation>Ausblenden</translation>
     </message>
     <message>
         <source>Hide docked panels</source>
-        <translation type="unfinished"></translation>
+        <translation>Angedockte Panels ausblenden</translation>
     </message>
     <message>
         <source>Hide controls in fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Steuerelemente im Vollbildmodus ausblenden</translation>
     </message>
     <message>
         <source>Never show</source>
-        <translation type="unfinished"></translation>
+        <translation>Niemals zeigen</translation>
     </message>
     <message>
         <source>Show when moving the cursor, hide after:</source>
-        <translation type="unfinished"></translation>
+        <translation>Beim Bewegen des Cursors anzeigen, ausblenden nach:</translation>
     </message>
     <message>
         <source>Show when hovering control, hide after:</source>
-        <translation type="unfinished"></translation>
+        <translation>Beim Bewegen des Steuerelements anzeigen, ausblenden nach:</translation>
     </message>
     <message>
         <source>Framedropping</source>
@@ -3531,15 +3531,15 @@ media file played</source>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Modus</translation>
     </message>
     <message>
         <source>Decoder</source>
-        <translation type="unfinished"></translation>
+        <translation>Decodierer</translation>
     </message>
     <message>
         <source>Decoder+Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Decodierer+Video</translation>
     </message>
     <message>
         <source>None</source>
@@ -3547,15 +3547,15 @@ media file played</source>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard</translation>
     </message>
     <message>
         <source>Non reference</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Referenz</translation>
     </message>
     <message>
         <source>Bi-directional</source>
-        <translation type="unfinished"></translation>
+        <translation>Bidirektional</translation>
     </message>
     <message>
         <source>Non key</source>
@@ -3563,35 +3563,35 @@ media file played</source>
     </message>
     <message>
         <source>Audio/Video sync</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio-/Video-Synchronisierung</translation>
     </message>
     <message>
         <source>Resample audio to match video</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio neu abtasten, um es an das Video anzupassen</translation>
     </message>
     <message>
         <source>Resample audio to match video (may drop frames)</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio neu abtasten, um es an das Video anzupassen (kann Frames auslassen)</translation>
     </message>
     <message>
         <source>Drop or repeat video frames</source>
-        <translation type="unfinished"></translation>
+        <translation>Videobilder löschen oder wiederholen</translation>
     </message>
     <message>
         <source>Drop or repeat audio data</source>
-        <translation type="unfinished"></translation>
+        <translation>Audiodaten löschen oder wiederholen</translation>
     </message>
     <message>
         <source>Audio drop size</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio-Löschgröße</translation>
     </message>
     <message>
         <source>Max audio change</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximale Audioänderung</translation>
     </message>
     <message>
         <source>Max video change</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximale Videoänderung</translation>
     </message>
     <message>
         <source>Hardware decoding may produce a smoother, more efficient overall experience and reduce strain on your cpu. However, some of the listed codecs (depending upon your installed hardware and software) may not be available, may be broken, and may produce incorrect output. A safe and always correct rule of thumb with respect to image quality is to prefer software decoding if your cpu can handle it.</source>
@@ -3683,51 +3683,51 @@ media file played</source>
     </message>
     <message>
         <source>Placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Platzierung</translation>
     </message>
     <message>
         <source>Override default subtitle placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Überschreibe die Standardplatzierung der Untertitel</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished">Left</translation>
+        <translation>Links</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished">Right</translation>
+        <translation>Rechts</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Oben</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Unten</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>Position</translation>
     </message>
     <message>
         <source>Use margins</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwende Ränder</translation>
     </message>
     <message>
         <source>Force grayscale</source>
-        <translation type="unfinished"></translation>
+        <translation>Graustufen erzwingen</translation>
     </message>
     <message>
         <source>Fix timing</source>
-        <translation type="unfinished"></translation>
+        <translation>Timing korrigieren</translation>
     </message>
     <message>
         <source>Clear on seek</source>
@@ -3740,67 +3740,67 @@ media file played</source>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Ja</translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ja und nur Zoomzeichen</translation>
     </message>
     <message>
         <source>Force</source>
-        <translation type="unfinished"></translation>
+        <translation>Erzwingen</translation>
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Schriftart</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Stil</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>Fett</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
+        <translation>Kursiv</translation>
     </message>
     <message>
         <source>Border size</source>
-        <translation type="unfinished"></translation>
+        <translation>Randgröße</translation>
     </message>
     <message>
         <source>Shadow offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Schattenversatz</translation>
     </message>
     <message>
         <source>Screen Alignment &amp;&amp; Margins</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildschirmausrichtung &amp;&amp; Ränder</translation>
     </message>
     <message>
         <source>Position subs relative to the video frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Positioniere Untertitel relativ zum Videobild</translation>
     </message>
     <message>
         <source>Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Farben</translation>
     </message>
     <message>
         <source>Border color</source>
-        <translation type="unfinished"></translation>
+        <translation>Randfarbe</translation>
     </message>
     <message>
         <source>Shadow color</source>
-        <translation type="unfinished"></translation>
+        <translation>Schattenfarbe</translation>
     </message>
     <message>
         <source>Prefer forced and/or default subtitle tracks</source>
-        <translation type="unfinished"></translation>
+        <translation>Bevorzuge erzwungene und/oder standardmäßige Untertitelspuren</translation>
     </message>
     <message>
         <source>Automatically load external subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Externe Untertitel automatisch laden</translation>
     </message>
     <message>
         <source>Autoload paths</source>
