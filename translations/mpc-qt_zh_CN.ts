@@ -4472,7 +4472,7 @@ media file played</source>
     </message>
     <message>
         <source>File title</source>
-        <translation type="unfinished"></translation>
+        <translation>文件标题</translation>
     </message>
 </context>
 <context>
