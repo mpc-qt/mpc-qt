@@ -2467,7 +2467,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
-        <translation>Sostituisci nome file con titolo</translation>
+        <translation type="vanished">Sostituisci nome file con titolo</translation>
     </message>
     <message>
         <source>History</source>
@@ -4408,6 +4408,10 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File title</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -2571,7 +2571,7 @@ media file played</source>
     </message>
     <message>
         <source>Replace file name with title</source>
-        <translation>கோப்பு பெயரை தலைப்புடன் மாற்றவும்</translation>
+        <translation type="vanished">கோப்பு பெயரை தலைப்புடன் மாற்றவும்</translation>
     </message>
     <message>
         <source>History</source>
@@ -4581,6 +4581,10 @@ media file played</source>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
         <translation>படவுரு பெயர்களுக்கு &lt;a href = &quot;https://github.com/mpc-qt/mpc-qt/tree/mages/theme/black&quot;&gt; மூல ரெப்போ &lt;/a&gt; ஐப் பார்க்கவும்.</translation>
+    </message>
+    <message>
+        <source>File title</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

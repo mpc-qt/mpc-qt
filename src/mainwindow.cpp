@@ -1179,8 +1179,8 @@ void MainWindow::updateInfostats()
     bool infoShow = ui->actionViewHideInformation->isChecked();
     bool statShow = ui->actionViewHideStatistics->isChecked();
 
-    ui->title->setVisible(infoShow);
-    ui->titleLabel->setVisible(infoShow);
+    ui->infoTitle->setVisible(infoShow);
+    ui->infoTitleLabel->setVisible(infoShow);
     ui->chapter->setVisible(infoShow);
     ui->chapterLabel->setVisible(infoShow);
 
@@ -1686,12 +1686,7 @@ void MainWindow::setTrayIcon(bool enabled)
 void MainWindow::setTitleBarFormat(Helpers::TitlePrefix titlebarFormat)
 {
     titlebarFormat_ = titlebarFormat;
-}
-
-void MainWindow::setTitleUseMediaTitle(bool enabled)
-{
-    titleUseMediaTitle = enabled;
-    setMediaTitleWithFilename(currentTitle, currentFilename);
+    setMediaTitleWithFilename(currentFileTitle, currentFileName);
 }
 
 void MainWindow::setWindowedMouseMap(const MouseStateMap &map)
@@ -1837,27 +1832,34 @@ void MainWindow::setTime(double time, double length)
     updateTime();
 }
 
-void MainWindow::setMediaTitleWithFilename(QString title, QString filename)
+void MainWindow::setMediaTitleWithFilename(const QString& title, const QString& filename)
 {
-    currentTitle = title;
-    currentFilename = filename;
-    QString window_title(textWindowTitle);
+    currentFileTitle = title;
+    currentFileName = filename;
+    QString newTitle = title;
+    QString windowTitle(textWindowTitle);
     if (freestanding_)
-        window_title.append(tr(" [Freestanding]"));
+        windowTitle.append(tr(" [Freestanding]"));
 
-    if (titlebarFormat_ != Helpers::NoPrefix) {
-        if (!titleUseMediaTitle) {
-            if (titlebarFormat_ == Helpers::PrefixFullPath)
-                title = this->currentFile.toString();
-            else if (!filename.isEmpty())
-                title = filename;
-        }
-        if (!title.isEmpty())
-            window_title.prepend(" - ").prepend(title);
+    switch(titlebarFormat_) {
+        case PrefixFullPath:
+            newTitle = currentFile.toString();
+            break;
+        case PrefixFileName:
+            if (!filename.isEmpty())
+                newTitle = filename;
+            break;
+        case PrefixFileTitle:
+            break;
+        case NoPrefix:
+            newTitle.clear();
+            break;
     }
-    setWindowTitle(window_title);
+    if (!newTitle.isEmpty())
+        windowTitle.prepend(" - ").prepend(newTitle);
 
-    ui->title->setText(!title.isEmpty() ? title : "-");
+    setWindowTitle(windowTitle);
+    ui->infoTitle->setText(!newTitle.isEmpty() ? newTitle : "-");
 }
 
 void MainWindow::setChapterTitle(QString title)

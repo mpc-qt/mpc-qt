@@ -2515,7 +2515,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
-        <translation>Remplacer le nom du fichier par le titre</translation>
+        <translation type="vanished">Remplacer le nom du fichier par le titre</translation>
     </message>
     <message>
         <source>History</source>
@@ -4525,6 +4525,10 @@ fichier média lu</translation>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
         <translation>Voir &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;le dépôt source&lt;/a&gt; pour les noms des icônes.</translation>
+    </message>
+    <message>
+        <source>File title</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

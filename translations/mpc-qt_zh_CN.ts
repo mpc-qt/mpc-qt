@@ -2539,7 +2539,7 @@ media file played</source>
     </message>
     <message>
         <source>Replace file name with title</source>
-        <translation>用标题替换文件名</translation>
+        <translation type="vanished">用标题替换文件名</translation>
     </message>
     <message>
         <source>History</source>
@@ -4469,6 +4469,10 @@ media file played</source>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
         <translation>图标名称见 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;源码仓库&lt;/a&gt;。</translation>
+    </message>
+    <message>
+        <source>File title</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

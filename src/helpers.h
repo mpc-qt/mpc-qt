@@ -29,7 +29,7 @@ namespace Helpers {
     enum Subtitles { NoSubtitles, SubtitlesPresent, SubtitlesDisabled, };
     enum FileType { AudioFile, VideoFile };
     enum ScreenshotRender { VideoRender, SubsRender, WindowRender };
-    enum TitlePrefix { PrefixFullPath, PrefixFileName, NoPrefix };
+    enum TitlePrefix { PrefixFullPath, PrefixFileName, PrefixFileTitle, NoPrefix };
     enum MpvWidgetType { NullWidget, EmbedWidget, GlCbWidget, VulkanCbWidget,
                          CustomWidget };
     enum ControlHiding { NeverShown, ShowWhenMoving, ShowWhenHovering,

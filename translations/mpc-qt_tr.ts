@@ -2571,7 +2571,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
-        <translation>Dosya adını başlıkla değiştir</translation>
+        <translation type="vanished">Dosya adını başlıkla değiştir</translation>
     </message>
     <message>
         <source>History</source>
@@ -4573,6 +4573,10 @@ yeni bir &amp;oynatıcı aç</translation>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
         <translation>Simge adları için &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;kaynak depoya&lt;/a&gt; bakın.</translation>
+    </message>
+    <message>
+        <source>File title</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

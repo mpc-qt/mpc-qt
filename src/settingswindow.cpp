@@ -709,8 +709,8 @@ void SettingsWindow::sendSignals()
     emit disableOpenDiscMenu(WIDGET_LOOKUP(ui->playerDisableOpenDisc).toBool());
     emit inhibitScreensaver(WIDGET_LOOKUP(ui->playerDisableScreensaver).toBool());
     emit titleBarFormat(WIDGET_LOOKUP(ui->playerTitleDisplayFullPath).toBool() ? Helpers::PrefixFullPath
-                        : WIDGET_LOOKUP(ui->playerTitleFileNameOnly).toBool() ? Helpers::PrefixFileName : Helpers::NoPrefix);
-    emit titleUseMediaTitle(WIDGET_LOOKUP(ui->playerTitleReplaceName).toBool());
+                        : WIDGET_LOOKUP(ui->playerTitleFileNameOnly).toBool() ? Helpers::PrefixFileName
+                        : WIDGET_LOOKUP(ui->playerTitleFileTitle).toBool() ? Helpers::PrefixFileTitle : Helpers::NoPrefix);
     emit rememberHistory(WIDGET_LOOKUP(ui->playerKeepHistory).toBool(),
                          WIDGET_LOOKUP(ui->playerKeepHistoryOnlyForVideos).toBool());
     emit rememberFilePosition(WIDGET_LOOKUP(ui->playerRememberFilePosition).toBool());
@@ -1292,11 +1292,6 @@ void SettingsWindow::on_playerAppendToQuickPlaylist_checkStateChanged(Qt::CheckS
 {
     if (state == Qt::Checked)
         ui->playerRememberQuickPlaylist->setChecked(false);
-}
-
-void SettingsWindow::on_playerTitleDontPrefix_toggled(bool checked)
-{
-    ui->playerTitleReplaceName->setEnabled(!checked);
 }
 
 void SettingsWindow::on_playerKeepHistory_checkStateChanged(Qt::CheckState state)

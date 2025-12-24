@@ -331,16 +331,16 @@
                </widget>
               </item>
               <item>
-               <widget class="QRadioButton" name="playerTitleDontPrefix">
+               <widget class="QRadioButton" name="playerTitleFileTitle">
                 <property name="text">
-                 <string>Don't prefi&amp;x anything</string>
+                 <string>File title</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="playerTitleReplaceName">
+               <widget class="QRadioButton" name="playerTitleDontPrefix">
                 <property name="text">
-                 <string>Replace file name with title</string>
+                 <string>Don't prefi&amp;x anything</string>
                 </property>
                </widget>
               </item>

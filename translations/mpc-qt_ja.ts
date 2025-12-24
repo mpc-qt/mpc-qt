@@ -2583,7 +2583,7 @@ media file played</source>
     </message>
     <message>
         <source>Replace file name with title</source>
-        <translation>ファイル名をタイトルに置き換える</translation>
+        <translation type="vanished">ファイル名をタイトルに置き換える</translation>
     </message>
     <message>
         <source>History</source>
@@ -4593,6 +4593,10 @@ media file played</source>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
         <translation>アイコン名については、 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;ソース リポジトリ&lt;/a&gt; を参照してください。</translation>
+    </message>
+    <message>
+        <source>File title</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
