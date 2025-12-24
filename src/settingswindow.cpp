@@ -1243,6 +1243,9 @@ void SettingsWindow::on_pageTree_itemSelectionChanged()
     ui->pageStack->setCurrentIndex(index);
     ui->pageLabel->setText(QString("<big><b>%1</b></big>").
                            arg(modelIndex.data().toString()));
+
+    if (ui->pageStack->currentWidget() == ui->keysPage)
+        ui->keysSearchField->setFocus();
 }
 
 void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
@@ -1473,6 +1476,11 @@ void SettingsWindow::on_fullscreenHideControls_toggled(bool checked)
     ui->fullscreenShowWhenDuration->setEnabled(checked);
 }
 
+void SettingsWindow::on_fullscreenShowWhen_currentIndexChanged(int index)
+{
+    ui->fullscreenShowWhenDuration->setEnabled(index != 0);
+}
+
 void SettingsWindow::on_audioBalance_valueChanged(int value)
 {
     QToolTip::showText(QCursor::pos(), QString::number(value), ui->audioBalance);
@@ -1521,6 +1529,36 @@ void SettingsWindow::on_ccICCBrowse_clicked()
         return;
 
     ui->ccICCLocation->setText(file);
+}
+
+void SettingsWindow::on_playbackPlayTimes_toggled(bool checked)
+{
+    ui->playbackPlayAmount->setEnabled(checked);
+    ui->playbackPlayTimesLabel->setEnabled(checked);
+}
+
+void SettingsWindow::on_ditherDithering_toggled(bool checked)
+{
+    ui->ditherDepth->setEnabled(checked);
+    ui->ditherDepthLabel->setEnabled(checked);
+    ui->ditherType->setEnabled(checked);
+    ui->ditherTypeLabel->setEnabled(checked);
+    bool fruitEnabled = checked && (ui->ditherType->currentIndex() == 0);
+    ui->ditherFruitSize->setEnabled(fruitEnabled);
+    ui->ditherFruitSizeLabel->setEnabled(fruitEnabled);
+}
+
+void SettingsWindow::on_ditherType_currentIndexChanged(int index)
+{
+    bool fruitEnabled = index == 0;
+    ui->ditherFruitSize->setEnabled(fruitEnabled);
+    ui->ditherFruitSizeLabel->setEnabled(fruitEnabled);
+}
+
+void SettingsWindow::on_ditherTemporal_toggled(bool checked)
+{
+    ui->ditherTemporalPeriod->setEnabled(checked);
+    ui->ditherTemporalPeriodLabel->setEnabled(checked);
 }
 
 void SettingsWindow::on_audioSpdif_toggled(bool checked)

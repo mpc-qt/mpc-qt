@@ -1853,6 +1853,9 @@ media file played</string>
                      </item>
                      <item row="1" column="0">
                       <widget class="QLabel" name="ditherDepthLabel">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
                        <property name="text">
                         <string>Depth</string>
                        </property>
@@ -1860,6 +1863,9 @@ media file played</string>
                      </item>
                      <item row="1" column="1">
                       <widget class="QSpinBox" name="ditherDepth">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                          <horstretch>0</horstretch>
@@ -1876,6 +1882,9 @@ media file played</string>
                      </item>
                      <item row="2" column="0">
                       <widget class="QLabel" name="ditherTypeLabel">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
                        <property name="text">
                         <string>Type</string>
                        </property>
@@ -1883,6 +1892,9 @@ media file played</string>
                      </item>
                      <item row="2" column="1">
                       <widget class="QComboBox" name="ditherType">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                          <horstretch>0</horstretch>
@@ -1908,6 +1920,9 @@ media file played</string>
                      </item>
                      <item row="3" column="0">
                       <widget class="QLabel" name="ditherFruitSizeLabel">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
                        <property name="text">
                         <string>Size</string>
                        </property>
@@ -1915,6 +1930,9 @@ media file played</string>
                      </item>
                      <item row="3" column="1">
                       <widget class="QSpinBox" name="ditherFruitSize">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                          <horstretch>0</horstretch>
@@ -1972,6 +1990,9 @@ media file played</string>
                      </item>
                      <item row="1" column="0">
                       <widget class="QLabel" name="ditherTemporalPeriodLabel">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
                        <property name="text">
                         <string>Period</string>
                        </property>
@@ -1979,6 +2000,9 @@ media file played</string>
                      </item>
                      <item row="1" column="1">
                       <widget class="QSpinBox" name="ditherTemporalPeriod">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                          <horstretch>0</horstretch>
@@ -8027,6 +8051,9 @@ media file played</string>
                 <property name="text">
                  <string>Event messages</string>
                 </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="1" column="0">
@@ -8045,7 +8072,7 @@ media file played</string>
                  </sizepolicy>
                 </property>
                 <property name="currentIndex">
-                 <number>3</number>
+                 <number>6</number>
                 </property>
                 <item>
                  <property name="text">
@@ -8105,6 +8132,9 @@ media file played</string>
                <widget class="QCheckBox" name="logFileCreate">
                 <property name="text">
                  <string>Create log file (contents will be overwritten)</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
