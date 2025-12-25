@@ -7,6 +7,7 @@
 #include "mainwindow.h"
 #include "windowmanager.h"
 
+static constexpr char logModule[] =  "windowmanager";
 static constexpr char keyGeometry[] = "geometry";
 static constexpr char keyMaximized[] = "maximized";
 static constexpr char keyQtState[] = "qtState";

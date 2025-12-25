@@ -11,6 +11,7 @@
 #include "mpvwidget.h"
 #include "ipc/json.h"
 
+static constexpr char logModule[] =  "ipc";
 static constexpr char serverNameJson[] = "cmdrkotori.mpc-qt";
 static constexpr char serverNameMpv[] = "cmdrkotori.mpc-qt.mpv";
 
@@ -359,7 +360,7 @@ void MpvServer::server_newConnection(QLocalSocket *socket)
         return;
     }
 
-    Logger::log("ipc", "new mpv connection");
+    Logger::log(logModule, "new mpv connection");
     new MpvConnection(socket, playbackManager, mpvObject, this);
 }
 

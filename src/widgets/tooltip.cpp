@@ -1,6 +1,7 @@
 #include <QToolTip>
 #include "tooltip.h"
 
+static constexpr char logModule[] =  "tooltip";
 static constexpr int windowSidesMargin = 20;
 static constexpr int insidePadding = 10;
 

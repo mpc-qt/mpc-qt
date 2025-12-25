@@ -197,7 +197,7 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
 
 MpvObject::~MpvObject()
 {
-    Logger::log("mpvwidget", "~MpvObject");
+    Logger::log(logModule, "~MpvObject");
     if (widget)
         delete widget;
     if (hideTimer) {
@@ -709,14 +709,14 @@ QVariant MpvObject::getMpvPropertyVariant(QString name)
 void MpvObject::setMpvPropertyVariant(QString name, const QVariant &value)
 {
     if (debugMessages)
-        LogStream("mpvobject") << name << " property set to " << value;
+        LogStream(logModule) << name << " property set to " << value;
     emit ctrlSetPropertyVariant(name, value);
 }
 
 void MpvObject::setMpvOptionVariant(QString name, const QVariant &value)
 {
     if (debugMessages)
-        LogStream("mpvobject") << name << " option set to " << value;
+        LogStream(logModule) << name << " option set to " << value;
     emit ctrlSetOptionVariant(name, value);
 }
 
@@ -745,7 +745,7 @@ void MpvObject::hideCursor()
         //REMOVEME: work around KDE Plasma 6.2.4 bug where cursor stays visible in rightmost position
         if (w->isFullScreen() && QCursor::pos().x() == w->geometry().right()) {
             w->setCursor(Qt::BlankCursor);
-            Logger::log("glwidget", "workaround: hiding cursor on rightmost pixels");
+            Logger::log(logModule, "workaround: hiding cursor on rightmost pixels");
         }
     }
 }
@@ -766,14 +766,14 @@ void MpvObject::ctrl_mpvPropertyChanged(QString name, const QVariant &v)
             vForLog = vForLog.toString().section('.', 0, 0);
     }
     if (debugMessages)
-        LogStream("mpvobject") << name << " property changed to " << vForLog;
+        LogStream(logModule) << name << " property changed to " << vForLog;
 
     bool ok = v.metaType().id() < QMetaType::User
               && v.metaType().id() != QMetaType::UnknownType;
     if (propertyDispatch.contains(name))
         propertyDispatch[name](this, ok, v);
     else
-        LogStream("mpvobject") << name << " property changed, but was not in dispatch list.";
+        LogStream(logModule) << name << " property changed, but was not in dispatch list.";
 }
 
 void MpvObject::ctrl_hookEvent(QString name, uint64_t selfId, uint64_t mpvId)
@@ -793,32 +793,32 @@ void MpvObject::ctrl_unhandledMpvEvent(int eventLevel)
     switch(eventLevel) {
     case MPV_EVENT_START_FILE: {
         if (debugMessages)
-            Logger::log("mpvobject", "start file");
+            Logger::log(logModule, "start file");
         emit playbackLoading();
         break;
     }
     case MPV_EVENT_FILE_LOADED: {
         if (debugMessages)
-            Logger::log("mpvobject", "file loaded");
+            Logger::log(logModule, "file loaded");
         emit playbackStarted();
         break;
     }
     case MPV_EVENT_END_FILE: {
         if (debugMessages)
-            Logger::log("mpvobject", "end file");
+            Logger::log(logModule, "end file");
         emit playbackFinished();
         break;
     }
     // Received when the player has no more files to play and is in an idle state
     case MPV_EVENT_IDLE: {
         if (debugMessages)
-            Logger::log("mpvobject", "idling");
+            Logger::log(logModule, "idling");
         emit playbackIdling();
         break;
     }
     case MPV_EVENT_SHUTDOWN: {
         if (debugMessages)
-            Logger::log("mpvobject", "event shutdown");
+            Logger::log(logModule, "event shutdown");
         emit playbackFinished();
         break;
     }
@@ -966,7 +966,7 @@ static void* GLAPIENTRY glMPGetNativeDisplay(const char* name)
         return reinterpret_cast<void*>(&glMPGetNativeDisplay);
     void * res = glctx ? reinterpret_cast<void*>(glctx->getProcAddress(QByteArray(name))) : nullptr;
     if (!res)
-        LogStream("mpvwidget") << "Looked up OpenGL function " << name << ", but it was not available.";
+        LogStream(logModule) << "Looked up OpenGL function " << name << ", but it was not available.";
     return res;
 }
 
@@ -1051,24 +1051,24 @@ void MpvGlWidget::initializeGL()
     };
     QWidget *nativeParent = nativeParentWidget();
     if (nativeParent == nullptr) {
-        Logger::log("glwidget", "no native parent handle");
+        Logger::log(logModule, "no native parent handle");
     }
 #if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
     else if (auto x11App = qApp->nativeInterface<QNativeInterface::QX11Application>()) {
-        Logger::log("glwidget", "assigning X11 display");
+        Logger::log(logModule, "assigning X11 display");
         params[2].type = MPV_RENDER_PARAM_X11_DISPLAY;
         params[2].data = x11App->display();
     }
 #if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
     else if (auto wlApp = qApp->nativeInterface<QNativeInterface::QWaylandApplication>()) {
-        Logger::log("glwidget", "assigning wayland display");
+        Logger::log(logModule, "assigning wayland display");
         params[2].type = MPV_RENDER_PARAM_WL_DISPLAY;
         params[2].data = wlApp->display();
     }
 #endif // is qt >= 6.5
 #endif // is Linux
     else {
-        Logger::log("glwidget", "unknown display mode (eglfs et al)");
+        Logger::log(logModule, "unknown display mode (eglfs et al)");
     }
 
     render = ctrl->createRenderContext(params);
@@ -1078,7 +1078,7 @@ void MpvGlWidget::initializeGL()
 void MpvGlWidget::paintGL()
 {
     if (mpvObject->clientDebuggingMessages())
-        Logger::log("glwidget", "paintGL");
+        Logger::log(logModule, "paintGL");
     if (drawLogo || !render) {
         if (logo)
             logo->paintGL(this);
@@ -1344,12 +1344,12 @@ void MpvController::showStatsPage(int page)
     bool statsVisible = shownStatsPage > 0;
     bool wantVisible = page > 0;
     if (wantVisible != statsVisible) {
-        Logger::log("mpvctrl", "toggling stats page");
+        Logger::log(logModule, "toggling stats page");
         command(QStringList({"script-binding",
                              "stats/display-stats-toggle"}));
     }
     if (wantVisible) {
-        LogStream("mpvctrl") << "setting page to " << page;
+        LogStream(logModule) << "setting page to " << page;
         QString pageCommand("stats/display-page-%1");
         command(QStringList({"script-binding",
                              pageCommand.arg(QString::number(page))}));

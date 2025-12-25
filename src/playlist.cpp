@@ -4,6 +4,7 @@
 
 
 
+static constexpr char logModule[] =  "playlist";
 static constexpr char keyContents[] = "contents";
 static constexpr char keyCreated[] = "created";
 static constexpr char keyItems[] = "items";

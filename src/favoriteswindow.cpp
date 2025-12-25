@@ -4,6 +4,8 @@
 #include "favoriteswindow.h"
 #include "ui_favoriteswindow.h"
 
+static constexpr char logModule[] =  "favorites";
+
 FavoritesWindow::FavoritesWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::FavoritesWindow)

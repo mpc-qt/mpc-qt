@@ -8,6 +8,8 @@
 #include <QStandardPaths>
 #include <QFileDialog>
 
+static constexpr char logModule[] =  "properties";
+
 PropertiesWindow::PropertiesWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::PropertiesWindow)

@@ -62,7 +62,7 @@ private:
 // This log stream class is principally for serializing variants et al.
 // It is generally faster to use the Logger::log(s) functions because
 // LogStream has to jump through a few hoops.  Use LogStream this way:
-//      LogStream("module") << "some text " << value;
+//      LogStream(logModule) << "some text " << value;
 // Unlike QDebug, this does not insert spaces between << invocations.
 class LogStream {
 public:
