@@ -32,15 +32,15 @@
 
 //---------------------------------------------------------------------------
 
-constexpr char desktopFile[] = "io.github.mpc_qt.mpc-qt";
+static constexpr char desktopFile[] = "io.github.mpc_qt.mpc-qt";
 
-constexpr char keyCommand[] = "command";
-constexpr char keyDirectory[] = "directory";
-constexpr char keyFiles[] = "files";
-constexpr char keyStreams[] = "streams";
+static constexpr char keyCommand[] = "command";
+static constexpr char keyDirectory[] = "directory";
+static constexpr char keyFiles[] = "files";
+static constexpr char keyStreams[] = "streams";
 
-constexpr char optConsoleLog[] = "log-to-console";
-constexpr char optConsoleLogEx[] = "--log-to-console";
+static constexpr char optConsoleLog[] = "log-to-console";
+static constexpr char optConsoleLogEx[] = "--log-to-console";
 
 //---------------------------------------------------------------------------
 
@@ -1229,7 +1229,7 @@ void Flow::showVersionInfo()
     else if (qEnvironmentVariableIsSet("SNAP"))
         package = "Snap";
 
-    constexpr char spaces[] = "               ";
+    static constexpr char spaces[] = "               ";
     QString logMessages = "Version information:\n";
     logMessages += (QString) spaces + "OS: " + QSysInfo::productType() + " " + QSysInfo::productVersion() + "\n";
     logMessages += (QString) spaces + "Qt: " + (QString) QT_VERSION_STR + "\n";

@@ -1,8 +1,8 @@
 #include <QToolTip>
 #include "tooltip.h"
 
-constexpr int windowSidesMargin = 20;
-constexpr int insidePadding = 10;
+static constexpr int windowSidesMargin = 20;
+static constexpr int insidePadding = 10;
 
 Tooltip::Tooltip(QWidget *parent) : QWidget(parent)
 {

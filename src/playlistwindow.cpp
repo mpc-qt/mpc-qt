@@ -12,7 +12,7 @@
 #include "widgets/drawnplaylist.h"
 #include "playlist.h"
 
-constexpr char keyCurrentPlaylist[] = "currentPlaylist";
+static constexpr char keyCurrentPlaylist[] = "currentPlaylist";
 
 PlaylistWindow::PlaylistWindow(QWidget *parent) :
     QDockWidget(parent),
