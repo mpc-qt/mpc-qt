@@ -2,6 +2,7 @@
 #include "helpers.h"
 #include "openfiledialog.h"
 #include "ui_openfiledialog.h"
+#include "logger.h"
 
 static constexpr char logModule[] =  "openfile";
 
@@ -9,7 +10,9 @@ OpenFileDialog::OpenFileDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::OpenFileDialog)
 {
+    Logger::log(logModule, "creating ui");
     ui->setupUi(this);
+    Logger::log(logModule, "finished creating ui");
 }
 
 OpenFileDialog::~OpenFileDialog()

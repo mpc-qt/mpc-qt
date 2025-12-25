@@ -22,7 +22,9 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
 {
     clipboard = new PlaylistSelection;
 
+    Logger::log(logModule, "creating ui");
     ui->setupUi(this);
+    Logger::log(logModule, "finished creating ui");
     setObjectName("playlistWindow");
     setWindowTitle(tr("Playlist"));
     addNewTab(QUuid(), tr("Quick Playlist"));

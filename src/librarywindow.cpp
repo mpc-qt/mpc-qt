@@ -4,6 +4,7 @@
 #include "widgets/drawnplaylist.h"
 #include "librarywindow.h"
 #include "ui_librarywindow.h"
+#include "logger.h"
 
 static constexpr char logModule[] =  "library";
 
@@ -11,7 +12,9 @@ LibraryWindow::LibraryWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LibraryWindow)
 {
+    Logger::log(logModule, "creating ui");
     ui->setupUi(this);
+    Logger::log(logModule, "finished creating ui");
 
     collectionWidget = new DrawnCollection(PlaylistCollection::getBackup());
     ui->collectionLayout->addWidget(collectionWidget);

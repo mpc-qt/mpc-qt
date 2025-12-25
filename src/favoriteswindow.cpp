@@ -3,6 +3,7 @@
 
 #include "favoriteswindow.h"
 #include "ui_favoriteswindow.h"
+#include "logger.h"
 
 static constexpr char logModule[] =  "favorites";
 
@@ -10,7 +11,9 @@ FavoritesWindow::FavoritesWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::FavoritesWindow)
 {
+    Logger::log(logModule, "creating ui");
     ui->setupUi(this);
+    Logger::log(logModule, "finished creating ui");
     fileList = new FavoritesList(this);
     streamList = new FavoritesList(this);
     ui->filesTab->layout()->addWidget(fileList);

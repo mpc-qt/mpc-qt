@@ -12,7 +12,9 @@ LogWindow::LogWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LogWindow)
 {
+    Logger::log(logModule, "creating ui");
     ui->setupUi(this);
+    Logger::log(logModule, "finished creating ui");
     Logger *logger = Logger::singleton();
     connect(logger, &Logger::logMessage,
             this, &LogWindow::appendMessage,

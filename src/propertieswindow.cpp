@@ -2,6 +2,7 @@
 #include "propertieswindow.h"
 #include "platform/unify.h"
 #include "ui_propertieswindow.h"
+#include "logger.h"
 
 #include <QMimeDatabase>
 #include <QTextCursor>
@@ -14,7 +15,9 @@ PropertiesWindow::PropertiesWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::PropertiesWindow)
 {
+    Logger::log(logModule, "creating ui");
     ui->setupUi(this);
+    Logger::log(logModule, "finished creating ui");
     ui->tabWidget->setCurrentIndex(0);
     if (Platform::isWindows) {
         QFont monoFont;
