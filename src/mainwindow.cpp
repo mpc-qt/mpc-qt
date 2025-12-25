@@ -24,10 +24,10 @@
 #include <QPainter>
 
 using namespace Helpers;
-constexpr char SKIPACTION[] = "Skip";
-constexpr char textWindowTitle[] = "Media Player Classic Qute Theater";
-constexpr char mpcQtIconPath[] = ":/images/icon/mpc-qt.svg";
-constexpr char tinyIconPath[] = ":/images/icon/tinyicon.svg";
+static constexpr char SKIPACTION[] = "Skip";
+static constexpr char textWindowTitle[] = "Media Player Classic Qute Theater";
+static constexpr char mpcQtIconPath[] = ":/images/icon/mpc-qt.svg";
+static constexpr char tinyIconPath[] = ":/images/icon/tinyicon.svg";
 
 
 MainWindow::MainWindow(QWidget *parent) :
