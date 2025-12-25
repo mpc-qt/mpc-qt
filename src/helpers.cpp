@@ -727,7 +727,10 @@ QString Helpers::screenToVisualName(const QScreen *s)
         QString y = QString("%1%2").arg(r.top() >= 0 ? "+" : "-", QString::number(std::abs(r.top())));
         return QString("%1 %2x%3%4%5").arg(s->name(), w, h, x, y);
     }
-    return s->name();
+    QString makeAndModel;
+    if (!s->manufacturer().isEmpty() && !s->model().isEmpty())
+        makeAndModel = QString(" (%1 %2)").arg(s->manufacturer(), s->model());
+    return s->name() + makeAndModel;
 }
 
 
