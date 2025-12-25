@@ -6,6 +6,7 @@
 #include "logger.h"
 
 using namespace Helpers;
+static constexpr char logModule[] =  "manager";
 static constexpr char strTrue[] =  "true";
 static constexpr char strFalse[] =  "false";
 
@@ -398,7 +399,7 @@ void PlaybackManager::navigateToChapter(int64_t chapter)
         // Out-of-bounds chapter navigation request. i.e. unseekable chapter
         // from either past-the-end or invalid.  So stop playback and continue
         // on the next via the playback finished slot.
-        Logger::log("manager", "navigateToChapter: setChapter failed");
+        Logger::log(logModule, "navigateToChapter: setChapter failed");
         if (folderFallback)
             playNext(false);
         else {
@@ -680,7 +681,7 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
                                         QUrl with, bool clickedInPlaylist,
                                         bool replaceMpvPlaylist)
 {
-    Logger::log("manager", "startPlayWithUuid");
+    Logger::log(logModule, "startPlayWithUuid");
     if (playbackState_ == WaitingState || what.isEmpty())
         return;
     emit stateChanged(playbackState_ = WaitingState);
@@ -712,13 +713,13 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
 
 void PlaybackManager::selectDesiredTracks()
 {
-    Logger::log("manager", "selectDesiredTracks");
+    Logger::log(logModule, "selectDesiredTracks");
     auto findSubIdByPreference = [&](void) -> int64_t {
         if (subtitlesPreferExternal) {
             for (auto it = subtitleListData.constBegin();
                  it != subtitleListData.constEnd(); it++) {
                 if (it.value().isExternal) {
-                    Logger::log("manager",
+                    Logger::log(logModule,
                                 "external subtitle track auto selected: " + QString::number(it.key()));
                     return it.key();
                 }
@@ -728,7 +729,7 @@ void PlaybackManager::selectDesiredTracks()
             for (auto it = subtitleListData.constBegin();
                  it != subtitleListData.constEnd(); it++)
                 if (it.value().isForced || it.value().isDefault) {
-                    Logger::log("manager",
+                    Logger::log(logModule,
                                 "default/forced subtitle track auto selected: " + QString::number(it.key()));
                     return it.key();
                 }
@@ -745,13 +746,13 @@ void PlaybackManager::selectDesiredTracks()
                     if (it.value().isForced || it.value().isDefault)
                         lastGoodTrack = it.key();
                     else{
-                        Logger::log("manager",
+                        Logger::log(logModule,
                                     "lang track auto selected: " + QString::number(it.key()));
                         return it.key();
                     }
                 }
         }
-        Logger::log("manager",
+        Logger::log(logModule,
                     "lastGoodTrack track auto selected: " + QString::number(lastGoodTrack));
         return lastGoodTrack;
     };
@@ -865,7 +866,7 @@ void PlaybackManager::playPrevTrack()
 
 bool PlaybackManager::playNextFileUrl(QUrl url, int delta, bool replaceMpvPlaylist)
 {
-    Logger::log("manager", "playNextFileUrl");
+    Logger::log(logModule, "playNextFileUrl");
     QFileInfo info;
     QDir dir;
     QStringList files;
@@ -979,7 +980,7 @@ void PlaybackManager::mpvw_playbackFinished() {
 }
 
 void PlaybackManager::mpvw_eofReachedChanged(QString eof) {
-    LogStream("manager") << "mpvw_eofReachedChanged eof: " << eof;
+    LogStream(logModule) << "mpvw_eofReachedChanged eof: " << eof;
     if (eof == strFalse) {
         eofReached_ = false;
         return;
@@ -1019,7 +1020,7 @@ void PlaybackManager::mpvw_chaptersChanged(QVariantList chapters)
 
 void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
 {
-    Logger::log("manager", "mpvw_tracksChanged");
+    Logger::log(logModule, "mpvw_tracksChanged");
     videoList.clear();
     audioList.clear();
     videoListData.clear();
@@ -1113,7 +1114,7 @@ void PlaybackManager::mpvw_aspectNameChanged(QString newAspectName)
 
 void PlaybackManager::mpvw_hwdecCurrentChanged(QString newHwdecCurrent)
 {
-    LogStream("manager") << "Hardware decoder used: " << newHwdecCurrent;
+    LogStream(logModule) << "Hardware decoder used: " << newHwdecCurrent;
     fastHardwareDecoding = !(newHwdecCurrent.isEmpty() ||
                              newHwdecCurrent == "no" ||
                              newHwdecCurrent.contains("copy"));
@@ -1129,7 +1130,7 @@ void PlaybackManager::mpvw_metadataChanged(QVariantMap metadata)
 
 void PlaybackManager::mpvw_playlistChanged(const QVariantList &playlist)
 {
-    Logger::log("manager", "mpvw_playlistChanged");
+    Logger::log(logModule, "mpvw_playlistChanged");
     // replace current item with the content we got from the archive or playlist file, and trigger its playback
     QList<QUrl> urls;
     bool currentItemFound = false;

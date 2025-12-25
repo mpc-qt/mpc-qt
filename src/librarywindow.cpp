@@ -5,6 +5,8 @@
 #include "librarywindow.h"
 #include "ui_librarywindow.h"
 
+static constexpr char logModule[] =  "library";
+
 LibraryWindow::LibraryWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LibraryWindow)

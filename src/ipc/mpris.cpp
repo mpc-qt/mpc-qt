@@ -7,6 +7,8 @@
 #include <functional>
 #include "ipc/mpris.h"
 
+static constexpr char logModule[] =  "mpris";
+
 class PlayerFlow;
 
 int MprisInstance::dbusCount = 0;

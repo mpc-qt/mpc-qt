@@ -2,6 +2,8 @@
 #include <QPainter>
 #include "drawncollection.h"
 
+static constexpr char logModule[] =  "drawncollection";
+
 CollectionPainter::CollectionPainter(QObject *parent) : QAbstractItemDelegate(parent)
 {
 

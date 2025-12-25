@@ -4,6 +4,8 @@
 #include "helpers.h"
 #include "screencombo.h"
 
+static constexpr char logModule[] =  "screencombo";
+
 ScreenCombo::ScreenCombo(QWidget *parent) : QComboBox(parent)
 {
     populateItems();

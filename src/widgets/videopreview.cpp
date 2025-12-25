@@ -1,6 +1,7 @@
 #include <QToolTip>
 #include "videopreview.h"
 
+static constexpr char logModule[] =  "videopreview";
 static constexpr int previewMarginX = 20;
 static constexpr int labelHeight = 20;
 static constexpr int videoHeight = 180;

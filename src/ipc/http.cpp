@@ -8,6 +8,7 @@
 #include "platform/devicemanager.h"
 #include "platform/unify.h"
 
+static constexpr char logModule[] =  "http";
 static constexpr char httpVersion[] = "HTTP/1.1";
 static constexpr char errorDocument[] = "<html><head><title>%1</title></head>"
                                     "<body><h1>%1</h1></body></html>";

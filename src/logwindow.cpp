@@ -6,6 +6,7 @@
 #include "logwindow.h"
 #include "ui_logwindow.h"
 
+static constexpr char logModule[] =  "logwindow";
 
 LogWindow::LogWindow(QWidget *parent) :
     QWidget(parent),

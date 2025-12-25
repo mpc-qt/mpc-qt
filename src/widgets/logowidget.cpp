@@ -1,6 +1,8 @@
 #include <QPainter>
 #include "logowidget.h"
 
+static constexpr char logModule[] =  "logowidget";
+
 LogoDrawer::LogoDrawer(QObject *parent)
     : QObject(parent)
 {

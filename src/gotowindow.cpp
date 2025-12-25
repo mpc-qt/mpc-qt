@@ -6,6 +6,8 @@
 #include "gotowindow.h"
 #include "ui_gotowindow.h"
 
+static constexpr char logModule[] =  "goto";
+
 GoToWindow::GoToWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GoToWindow)

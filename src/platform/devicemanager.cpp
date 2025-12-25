@@ -1,6 +1,9 @@
 #include "devicemanager.h"
 
 
+static constexpr char logModule[] =  "devman";
+
+
 DeviceInfo::DeviceInfo(QObject *parent)
     : QObject(parent)
 {

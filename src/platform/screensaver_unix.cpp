@@ -4,6 +4,8 @@
 #include <QDBusReply>
 #include "screensaver_unix.h"
 
+static constexpr char logModule[] =  "screensaver";
+
 ScreenSaverUnix::ScreenSaverUnix(QObject *parent)
     : ScreenSaver(parent),
       dbusScreensaver("org.freedesktop.ScreenSaver",

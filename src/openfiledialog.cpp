@@ -3,6 +3,8 @@
 #include "openfiledialog.h"
 #include "ui_openfiledialog.h"
 
+static constexpr char logModule[] =  "openfile";
+
 OpenFileDialog::OpenFileDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::OpenFileDialog)

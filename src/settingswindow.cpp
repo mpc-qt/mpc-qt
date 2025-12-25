@@ -249,6 +249,7 @@ static const QStringList internalLogos = {
     ":/images/logo/triangle-circle.svg",
     ":/images/logo/mpv-vlc.svg"
 };
+static constexpr char logModule[] =  "settings";
 
 
 
@@ -257,7 +258,7 @@ Setting &Setting::operator =(const Setting &s) = default;
 void Setting::sendToControl()
 {
     if (!widget) {
-        Logger::log("settings", "attempted to send data to null widget!");
+        Logger::log(logModule, "attempted to send data to null widget!");
         return;
     }
     classSetter[widget->metaObject()->className()](widget, value);
@@ -266,7 +267,7 @@ void Setting::sendToControl()
 void Setting::fetchFromControl()
 {
     if (!widget) {
-        Logger::log("settings", "attempted to get data from null widget!");
+        Logger::log(logModule, "attempted to get data from null widget!");
         return;
     }
     value = classFetcher[widget->metaObject()->className()](widget);
@@ -300,9 +301,9 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SettingsWindow)
 {
-    Logger::log("settings", "creating ui");
+    Logger::log(logModule, "creating ui");
     ui->setupUi(this);
-    Logger::log("settings", "finished creating ui");
+    Logger::log(logModule, "finished creating ui");
 
     actionEditor = new ActionEditor(this);
     ui->keysHost->addWidget(actionEditor);
@@ -316,22 +317,22 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     actionEditor->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     actionEditor->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 
-    Logger::log("settings", "creating logo widget");
+    Logger::log(logModule, "creating logo widget");
     logoWidget = new LogoWidget(this);
     ui->logoImageHost->layout()->addWidget(logoWidget);
 
-    Logger::log("settings", "setting up platform widgets");
+    Logger::log(logModule, "setting up platform widgets");
     setupPlatformWidgets();
-    Logger::log("settings", "setting up palette editor");
+    Logger::log(logModule, "setting up palette editor");
     setupPaletteEditor();
-    Logger::log("settings", "setting up fullscreen combo");
+    Logger::log(logModule, "setting up fullscreen combo");
     setupFullscreenCombo();
 
-    Logger::log("settings", "generating settings map");
+    Logger::log(logModule, "generating settings map");
     defaultSettings = generateSettingMap(this);
     acceptedSettings = defaultSettings;
     generateVideoPresets();
-    Logger::log("settings", "finished generating settings");
+    Logger::log(logModule, "finished generating settings");
 
     ui->pageStack->setCurrentIndex(0);
     ui->videoTabs->setCurrentIndex(0);
