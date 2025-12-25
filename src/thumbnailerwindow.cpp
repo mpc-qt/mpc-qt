@@ -30,7 +30,9 @@ ThumbnailerWindow::ThumbnailerWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ThumbnailerWindow)
 {
+    Logger::log(logModule, "creating ui");
     ui->setupUi(this);
+    Logger::log(logModule, "finished creating ui");
     connect(ui->actionGo, &QPushButton::clicked,
             this, &ThumbnailerWindow::begin);
 

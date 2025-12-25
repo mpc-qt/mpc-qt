@@ -35,7 +35,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    Logger::log(logModule, "creating ui");
     ui->setupUi(this);
+    Logger::log(logModule, "finished creating ui");
     setupMenu();
     setupContextMenu();
     setupTrayIcon();
