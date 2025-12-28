@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include "logger.h"
 
+static constexpr char logModule[] =  "logger";
+
 class StdFileCopy {
 public:
     explicit StdFileCopy(FILE *fp) {
@@ -149,7 +151,7 @@ void Logger::setLogFile(QString fileName)
         return;
     logFileName = fileName;
     if (fileName.isEmpty()) {
-        log("logger", "log file closed");
+        log(logModule, "log file closed");
         if (logFileStream) {
             delete logFileStream;
             logFileStream = nullptr;
@@ -164,7 +166,7 @@ void Logger::setLogFile(QString fileName)
     if (!logFile->open(QFile::WriteOnly))
         return;
 
-    logs("logger", {"log file", logFileName, "opened for writing"});
+    logs(logModule, {"log file", logFileName, "opened for writing"});
     logFileStream = new QTextStream(logFile);
     logFileStream->setGenerateByteOrderMark(true);
 }
@@ -173,11 +175,11 @@ void Logger::setLoggingEnabled(bool enabled)
 {
     if (enabled && !loggingEnabled) {
         loggingEnabled = true;
-        makeLogPrefixed("logger", "enabling logging");
+        makeLogPrefixed(logModule, "enabling logging");
         if (!immediateMode)
             flushTimer->start();
     } else if (!enabled && loggingEnabled) {
-        makeLogPrefixed("logger", "disabling logging");
+        makeLogPrefixed(logModule, "disabling logging");
         flushMessages();
         flushTimer->stop();
         loggingEnabled = false;

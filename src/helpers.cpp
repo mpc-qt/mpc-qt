@@ -11,6 +11,7 @@
 #include "logger.h"
 #include "platform/unify.h"
 
+static constexpr char logModule[] =  "helpers";
 const char autoIcons[] = "auto";
 const char blackIconsPath[] = ":/images/theme/black/";
 const char whiteIconsPath[] = ":/images/theme/white/";
@@ -568,7 +569,7 @@ QList<QUrl> Helpers::filterUrls(const QList<QUrl> &urls) {
 
         QFileInfo info(url.toLocalFile());
         if (info.isSymLink() && info.absoluteFilePath() == info.canonicalFilePath()) {
-            Logger::logs("helpers", {"skipping circular link:", info.filePath()});
+            Logger::logs(logModule, {"skipping circular link:", info.filePath()});
             continue;
         }
 
@@ -608,8 +609,8 @@ QList<QUrl> Helpers::filterUrls(const QList<QUrl> &urls) {
 
 bool Helpers::compareUrls(const QUrl &a, const QUrl &b, const QCollator &collator)
 {
-    constexpr auto basenameFlags = QString::SectionSkipEmpty | QString::SectionIncludeLeadingSep;
-    constexpr auto urlFlags = QUrl::PreferLocalFile | QUrl::PrettyDecoded | QUrl::StripTrailingSlash;
+    static constexpr auto basenameFlags = QString::SectionSkipEmpty | QString::SectionIncludeLeadingSep;
+    static constexpr auto urlFlags = QUrl::PreferLocalFile | QUrl::PrettyDecoded | QUrl::StripTrailingSlash;
 
     QString aStr = a.toString(urlFlags);
     QString bStr = b.toString(urlFlags);

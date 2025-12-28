@@ -193,6 +193,7 @@ private slots:
     void self_keyRelease(int key);
 
 private:
+    static constexpr char logModule[] = "mpvobject";
     static PropertyDispatchMap propertyDispatch;
 
     Helpers::MpvWidgetType widgetType = Helpers::NullWidget;
@@ -279,6 +280,7 @@ private slots:
     void self_playbackFinished();
 
 private:
+    static constexpr char logModule[] = "glwidget";
     mpv_render_context *render = nullptr;
     LogoDrawer *logo = nullptr;
     bool drawLogo = true;
@@ -403,6 +405,7 @@ public slots:
     void parseMpvEvents();
 
 private:
+    static constexpr char logModule[] =  "mpvctrl";
     void setThrottledProperty(const QString &name, const QVariant &v, uint64_t userData);
     void flushProperties();
     void handleMpvEvent(mpv_event *event);

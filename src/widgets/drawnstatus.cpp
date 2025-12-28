@@ -2,6 +2,8 @@
 #include "helpers.h"
 #include "drawnstatus.h"
 
+static constexpr char logModule[] =  "drawnstatus";
+
 StatusTime::StatusTime(QWidget *parent) : QWidget(parent)
 {
     setTime(0, 0);

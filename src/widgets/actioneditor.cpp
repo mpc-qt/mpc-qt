@@ -6,6 +6,8 @@
 #include "actioneditor.h"
 #include "logger.h"
 
+static constexpr char logModule[] =  "action";
+
 ActionEditor::ActionEditor(QWidget *parent) :
     QTableView(parent)
 {
@@ -135,21 +137,21 @@ void ActionEditor::setCommand(int index, const Command &c)
             continue;
         Command &other = commands[i];
         if (!!other.mouseFullscreen && other.mouseFullscreen == c.mouseFullscreen) {
-            LogStream("action") << "\"" << c.action->text() << "\" conflicts with \"" << other.action->text()
+            LogStream(logModule) << "\"" << c.action->text() << "\" conflicts with \"" << other.action->text()
                                 << "\" because of fullscreen mouse \"" << c.mouseFullscreen.toString() << "\". \""
                                 << other.action->text() << "\"'s fullscreen mouse was removed.";
             model.setData(model.index(i, 3), "None");
             other.mouseFullscreen = MouseState();
         }
         if (!!other.mouseWindowed && other.mouseWindowed == c.mouseWindowed) {
-            LogStream("action") << "\"" << c.action->text() << "\" conflicts with \"" << other.action->text()
+            LogStream(logModule) << "\"" << c.action->text() << "\" conflicts with \"" << other.action->text()
                                 << "\" because of windowed mouse \"" << c.mouseWindowed.toString() << "\". \""
                                 << other.action->text() << "\"'s windowed mouse was removed.";
             model.setData(model.index(i, 2), "None");
             other.mouseWindowed = MouseState();
         }
         if (!other.keys.isEmpty() && other.keys.matches(c.keys) == QKeySequence::ExactMatch) {
-            LogStream("action") << "\"" << c.action->text() << "\" conflicts with \"" << other.action->text()
+            LogStream(logModule) << "\"" << c.action->text() << "\" conflicts with \"" << other.action->text()
                                 << "\" because of key sequence \"" << c.keys.toString() << "\". \""
                                 << other.action->text() << "\"'s key sequence was removed.";
             model.setData(model.index(i, 1), "");

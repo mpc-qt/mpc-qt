@@ -2,6 +2,8 @@
 #include <powrprof.h>
 #include "screensaver_win.h"
 
+static constexpr char logModule[] =  "screensaver";
+
 ScreenSaverWin::ScreenSaverWin(QObject *parent) : ScreenSaver(parent)
 {
 

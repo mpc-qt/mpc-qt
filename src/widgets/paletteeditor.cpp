@@ -40,6 +40,7 @@ Q_GLOBAL_STATIC_WITH_ARGS(GroupLabels, groupText, ({
     { QPalette::Inactive, QObject::tr("Inactive") }
 }));
 
+static constexpr char logModule[] =  "paletteeditor";
 
 
 PaletteBox::PaletteBox(QWidget *parent) : QWidget(parent), color(0,0,0)

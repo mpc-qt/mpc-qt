@@ -32,22 +32,24 @@
 
 //---------------------------------------------------------------------------
 
-constexpr char desktopFile[] = "io.github.mpc_qt.mpc-qt";
+static constexpr char logModule[] =  "main";
 
-constexpr char keyCommand[] = "command";
-constexpr char keyDirectory[] = "directory";
-constexpr char keyFiles[] = "files";
-constexpr char keyStreams[] = "streams";
+static constexpr char desktopFile[] = "io.github.mpc_qt.mpc-qt";
 
-constexpr char optConsoleLog[] = "log-to-console";
-constexpr char optConsoleLogEx[] = "--log-to-console";
+static constexpr char keyCommand[] = "command";
+static constexpr char keyDirectory[] = "directory";
+static constexpr char keyFiles[] = "files";
+static constexpr char keyStreams[] = "streams";
+
+static constexpr char optConsoleLog[] = "log-to-console";
+static constexpr char optConsoleLogEx[] = "--log-to-console";
 
 //---------------------------------------------------------------------------
 
 int main(int argc, char *argv[])
 {
     QCoreApplication::setApplicationName("MPC-QT");
-    Logger::log("main", "starting logging");
+    Logger::log(logModule, "starting logging");
     #if !defined(Q_OS_WIN)
     std::signal(SIGHUP, signalHandler);
     #endif
@@ -102,7 +104,7 @@ int main(int argc, char *argv[])
         return f.run();
     }
     catch (const std::exception &e) {
-        Logger::log("main", QString("Uncaught exception: %1").arg(e.what()));
+        Logger::log(logModule, QString("Uncaught exception: %1").arg(e.what()));
         throw;
     }
 }
@@ -112,12 +114,12 @@ void signalHandler(int signal) {
         std::ostringstream stacktrace;
 #ifdef Boost_FOUND
         stacktrace << boost::stacktrace::stacktrace();
-        Logger::log("main", "Stack trace:");
-        Logger::log("main", QString::fromStdString(stacktrace.str()));
+        Logger::log(logModule, "Stack trace:");
+        Logger::log(logModule, QString::fromStdString(stacktrace.str()));
 #endif
         if (signal == SIGSEGV)
-            Logger::log("main", "Segmentation fault!");
-        Logger::log("main", "Please report this error.");
+            Logger::log(logModule, "Segmentation fault!");
+        Logger::log(logModule, "Please report this error.");
         QMetaObject::invokeMethod(Logger::singleton(), "flushMessages", Qt::BlockingQueuedConnection);
         if (signal == SIGSEGV) {
             std::signal(SIGSEGV, SIG_DFL);
@@ -146,12 +148,12 @@ Flow::Flow(QObject *owner) :
             Qt::BlockingQueuedConnection);
 
     readConfig();
-    Logger::log("main", "finished reading config");
+    Logger::log(logModule, "finished reading config");
 }
 
 Flow::~Flow()
 {
-    Logger::log("main", "~Flow");
+    Logger::log(logModule, "~Flow");
     if (server) {
         delete server;
         server = nullptr;
@@ -218,7 +220,7 @@ Flow::~Flow()
         logWindow = nullptr;
     }
     if (logThread) {
-        Logger::log("logger", "flushing log before closing it");
+        Logger::log(logModule, "flushing log before closing it");
         emit flushLog();
         logThread->quit();
         logThread->wait();
@@ -229,7 +231,7 @@ Flow::~Flow()
 
 void Flow::parseArgs()
 {
-    Logger::log("main", "parsing arguments");
+    Logger::log(logModule, "parsing arguments");
     QCommandLineParser parser;
     parser.setApplicationDescription(tr("Media Player Classic Qute Theater"));
     parser.addHelpOption();
@@ -261,7 +263,7 @@ void Flow::parseArgs()
 }
 
 void Flow::detectMode() {
-    Logger::log("main", "determining program mode");
+    Logger::log(logModule, "determining program mode");
 
     if (programMode != UnknownMode)
         return;
@@ -297,34 +299,34 @@ void Flow::detectMode() {
 void Flow::init() {
     Q_ASSERT(programMode != UnknownMode);
 
-    Logger::log("main", "starting init");
+    Logger::log(logModule, "starting init");
 
     // Create our windows
-    Logger::log("main", "creating main window");
+    Logger::log(logModule, "creating main window");
     mainWindow = new MainWindow();
-    Logger::log("main", "creating playback manager");
+    Logger::log(logModule, "creating playback manager");
     playbackManager = new PlaybackManager(this);
     playbackManager->setMpvObject(mainWindow->mpvObject(), true);
     playbackManager->setPlaylistWindow(mainWindow->playlistWindow());
-    Logger::log("main", "creating settings window");
+    Logger::log(logModule, "creating settings window");
     settingsWindow = new SettingsWindow();
     settingsWindow->setWindowModality(Qt::WindowModal);
     if (settingsDisableWindowManagement)
         settingsWindow->disableWindowManagment();
-    Logger::log("main", "creating properties window");
+    Logger::log(logModule, "creating properties window");
     propertiesWindow = new PropertiesWindow();
-    Logger::log("main", "creating favorites window");
+    Logger::log(logModule, "creating favorites window");
     favoritesWindow = new FavoritesWindow();
-    Logger::log("main", "creating goto window");
+    Logger::log(logModule, "creating goto window");
     gotoWindow = new GoToWindow();
-    Logger::log("main", "creating log window");
+    Logger::log(logModule, "creating log window");
     logWindow = new LogWindow();
-    Logger::log("main", "creating library window");
+    Logger::log(logModule, "creating library window");
     libraryWindow = new LibraryWindow();
-    Logger::log("main", "creating thumbnailer window");
+    Logger::log(logModule, "creating thumbnailer window");
     thumbnailerWindow = new ThumbnailerWindow();
 
-    Logger::log("main", "finished creating windows");
+    Logger::log(logModule, "finished creating windows");
 
     // Start our servers
     server = new MpcQtServer(mainWindow, playbackManager, this);
@@ -337,7 +339,7 @@ void Flow::init() {
 
     mpcHcServer = new MpcHcServer(this);
 
-    Logger::log("main", "finished creating servers");
+    Logger::log(logModule, "finished creating servers");
 
     // Initialize the screensaver
     inhibitScreensaver = false;
@@ -351,7 +353,7 @@ void Flow::init() {
 
     // Initialize the device manager if present
     if (Platform::deviceManager()->deviceAccessPossible()) {
-        Logger::log("main", "device manager active");
+        Logger::log(logModule, "device manager active");
     }
 
     // Connect the modules together, somewhat like a switchboard.
@@ -366,7 +368,7 @@ void Flow::init() {
     if (programMode == PrimaryMode) {
         setupMpris();
         setupMpcHc();
-        Logger::log("main", "completed setting up primary servers");
+        Logger::log(logModule, "completed setting up primary servers");
     }
 
     // update player framework
@@ -395,7 +397,7 @@ void Flow::init() {
     mainWindow->setFreestanding(programMode == FreestandingMode);
     settingsWindow->setFreestanding(programMode == FreestandingMode);
 
-    Logger::log("main", "finished initialization");
+    Logger::log(logModule, "finished initialization");
     showVersionInfo();
 }
 
@@ -413,7 +415,7 @@ int Flow::run()
     restoreWindows_v2(geometry);
 
     // Wait here until quit
-    Logger::log("main", "telling the program to run");
+    Logger::log(logModule, "telling the program to run");
     return QApplication::exec();
 }
 
@@ -1206,12 +1208,12 @@ bool Flow::isNvidiaGPU()
 {
     bool foundNvidia = false;
     QProcess process;
-    Logger::log("main", "Display devices:");
+    Logger::log(logModule, "Display devices:");
     process.start("lspci", QStringList() << "-v" << "-d" << "::0300");
     process.waitForFinished(1000);
     QString result = process.readAllStandardOutput();
     for (const QString &line : result.split('\n'))
-        LogStream("main") << line;
+        LogStream(logModule) << line;
 
     if (result.contains("nvidia", Qt::CaseSensitivity::CaseInsensitive)) {
         foundNvidia = true;
@@ -1229,7 +1231,7 @@ void Flow::showVersionInfo()
     else if (qEnvironmentVariableIsSet("SNAP"))
         package = "Snap";
 
-    constexpr char spaces[] = "               ";
+    static constexpr char spaces[] = "               ";
     QString logMessages = "Version information:\n";
     logMessages += (QString) spaces + "OS: " + QSysInfo::productType() + " " + QSysInfo::productVersion() + "\n";
     logMessages += (QString) spaces + "Qt: " + (QString) QT_VERSION_STR + "\n";
@@ -1238,7 +1240,7 @@ void Flow::showVersionInfo()
     logMessages += (QString) spaces + "mpc-qt: " + (QString) MPCQT_VERSION_STR;
     logMessages += " " + (QString) __DATE__ + " " + __TIME__  + "\n";
     logMessages += (QString) spaces + "Package: " + package;
-    LogStream("main") << logMessages;
+    LogStream(logModule) << logMessages;
 }
 
 QByteArray Flow::makePayload() const
@@ -1519,12 +1521,12 @@ void Flow::manager_hasNoSubtitles(bool none)
 void Flow::manager_playingNextFile()
 {
     // Save the position just before opening the next file
-    Logger::log("main", "manager_playingNextFile");
+    Logger::log(logModule, "manager_playingNextFile");
     updateRecentPosition(false);
 }
 
 void Flow::manager_playLengthChanged() {
-    Logger::log("main", "manager_playLengthChanged");
+    Logger::log(logModule, "manager_playLengthChanged");
     updateRecentPosition(false);
     if (repeatAfter)
         mainWindow->setActionPlayLoopUse();
@@ -1539,7 +1541,7 @@ void Flow::manager_openingNewFile()
 
 void Flow::manager_startingPlayingFile(QUrl url)
 {
-    Logger::log("main", "manager_startingPlayingFile");
+    Logger::log(logModule, "manager_startingPlayingFile");
     if (firstFile) {
         firstFile = false;
         mainWindow->fixMpvwSize();
@@ -1577,7 +1579,7 @@ void Flow::settingswindow_settingsData(const QVariantMap &settings)
     // The selected options have changed, so write them to disk
     this->settings = settings;
     writeConfig(true);
-    Logger::log("main", "settingswindow_settingsData");
+    Logger::log(logModule, "settingswindow_settingsData");
 }
 
 void Flow::settingswindow_inhibitScreensaver(bool yes)
@@ -1715,7 +1717,7 @@ void Flow::favoriteswindow_favoriteTracksCancel()
 // Update the position of the current file
 void Flow::updateRecentPosition(bool resetPosition)
 {
-    Logger::log("main", "updateRecentPosition");
+    Logger::log(logModule, "updateRecentPosition");
     if (!rememberHistory)
         return;
     QUrl url;
@@ -1760,7 +1762,7 @@ void Flow::updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title
 
 void Flow::endProgram()
 {
-    Logger::log("main", "endProgram");
+    Logger::log(logModule, "endProgram");
     QMetaObject::invokeMethod(qApp, "exit", Qt::QueuedConnection);
 }
 

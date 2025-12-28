@@ -12,7 +12,8 @@
 #include "widgets/drawnplaylist.h"
 #include "playlist.h"
 
-constexpr char keyCurrentPlaylist[] = "currentPlaylist";
+static constexpr char logModule[] =  "playlistwindow";
+static constexpr char keyCurrentPlaylist[] = "currentPlaylist";
 
 PlaylistWindow::PlaylistWindow(QWidget *parent) :
     QDockWidget(parent),
@@ -21,7 +22,9 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
 {
     clipboard = new PlaylistSelection;
 
+    Logger::log(logModule, "creating ui");
     ui->setupUi(this);
+    Logger::log(logModule, "finished creating ui");
     setObjectName("playlistWindow");
     setWindowTitle(tr("Playlist"));
     addNewTab(QUuid(), tr("Quick Playlist"));
@@ -35,7 +38,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
 
 PlaylistWindow::~PlaylistWindow()
 {
-    Logger::log("playlistwindow", "~PlaylistWindow");
+    Logger::log(logModule, "~PlaylistWindow");
     delete ui;
     delete clipboard;
 }
@@ -774,11 +777,11 @@ void PlaylistWindow::sortPlaylistByUrl(const QUuid &playlistUuid)
 
 void PlaylistWindow::shufflePlaylist(const QUuid &playlistUuid, bool shuffle)
 {
-    Logger::log("playlistwindow", "shufflePlaylist start");
+    Logger::log(logModule, "shufflePlaylist start");
     if (widgets.contains(playlistUuid))
         widgets[playlistUuid]->playlist()->setShuffle(shuffle);
     refreshPlaylist(playlistUuid);
-    Logger::log("playlistwindow", "shufflePlaylist done");
+    Logger::log(logModule, "shufflePlaylist done");
 }
 
 void PlaylistWindow::reshufflePlaylist(const QUuid &playlistUuid)
@@ -790,13 +793,13 @@ void PlaylistWindow::reshufflePlaylist(const QUuid &playlistUuid)
 
 void PlaylistWindow::refreshPlaylist(const QUuid &playlistUuid)
 {
-    Logger::log("playlistwindow", "refreshPlaylist start");
+    Logger::log(logModule, "refreshPlaylist start");
     auto qdp = widgets.value(playlistUuid, nullptr);
     if (qdp) {
         qdp->repopulateItems();
         qdp->setCurrentItem(widgets[playlistUuid]->playlist()->nowPlaying());
     }
-    Logger::log("playlistwindow", "refreshPlaylist done");
+    Logger::log(logModule, "refreshPlaylist done");
 }
 
 void PlaylistWindow::restorePlaylist(const QUuid &playlistUuid)

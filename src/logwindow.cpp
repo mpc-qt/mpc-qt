@@ -6,12 +6,15 @@
 #include "logwindow.h"
 #include "ui_logwindow.h"
 
+static constexpr char logModule[] =  "logwindow";
 
 LogWindow::LogWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LogWindow)
 {
+    Logger::log(logModule, "creating ui");
     ui->setupUi(this);
+    Logger::log(logModule, "finished creating ui");
     Logger *logger = Logger::singleton();
     connect(logger, &Logger::logMessage,
             this, &LogWindow::appendMessage,

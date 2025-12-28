@@ -10,27 +10,29 @@
 #include "ui_thumbnailerwindow.h"
 
 // NOTE: do we configure the thumb format in the settings dialog?
-constexpr char logModule[] = "thumbnailer";
-constexpr char friendlyName[] = "Media Player Classic Qute Theater - Thumbnailer";
-constexpr char thumbFormat[] = "%f_thumbs_[%t{yyyy.MM.dd_hh.mm.ss}]";
-constexpr char saveDialogFilter[] = "Images (*.png *.jpg *.jpeg)";
+static constexpr char logModule[] = "thumbnailer";
+static constexpr char friendlyName[] = "Media Player Classic Qute Theater - Thumbnailer";
+static constexpr char thumbFormat[] = "%f_thumbs_[%t{yyyy.MM.dd_hh.mm.ss}]";
+static constexpr char saveDialogFilter[] = "Images (*.png *.jpg *.jpeg)";
 
-constexpr int thumbMargin = 8;
-constexpr int pageMargin = 10;
-constexpr int captionPadding = 10;
-constexpr int rhsPadding = pageMargin - thumbMargin;
-constexpr int emptySpace = pageMargin + rhsPadding;
-constexpr int pageMarginSum = pageMargin * 2;
-constexpr int thumbShadow = 4;
-constexpr int timerWaitMsec = 500;
-constexpr int osdFontSize = 12;
-constexpr int osdFontShadow = 2;
+static constexpr int thumbMargin = 8;
+static constexpr int pageMargin = 10;
+static constexpr int captionPadding = 10;
+static constexpr int rhsPadding = pageMargin - thumbMargin;
+static constexpr int emptySpace = pageMargin + rhsPadding;
+static constexpr int pageMarginSum = pageMargin * 2;
+static constexpr int thumbShadow = 4;
+static constexpr int timerWaitMsec = 500;
+static constexpr int osdFontSize = 12;
+static constexpr int osdFontShadow = 2;
 
 ThumbnailerWindow::ThumbnailerWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ThumbnailerWindow)
 {
+    Logger::log(logModule, "creating ui");
     ui->setupUi(this);
+    Logger::log(logModule, "finished creating ui");
     connect(ui->actionGo, &QPushButton::clicked,
             this, &ThumbnailerWindow::begin);
 

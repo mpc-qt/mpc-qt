@@ -24,17 +24,20 @@
 #include <QPainter>
 
 using namespace Helpers;
-constexpr char SKIPACTION[] = "Skip";
-constexpr char textWindowTitle[] = "Media Player Classic Qute Theater";
-constexpr char mpcQtIconPath[] = ":/images/icon/mpc-qt.svg";
-constexpr char tinyIconPath[] = ":/images/icon/tinyicon.svg";
+static constexpr char logModule[] =  "mainwindow";
+static constexpr char SKIPACTION[] = "Skip";
+static constexpr char textWindowTitle[] = "Media Player Classic Qute Theater";
+static constexpr char mpcQtIconPath[] = ":/images/icon/mpc-qt.svg";
+static constexpr char tinyIconPath[] = ":/images/icon/tinyicon.svg";
 
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    Logger::log(logModule, "creating ui");
     ui->setupUi(this);
+    Logger::log(logModule, "finished creating ui");
     setupMenu();
     setupContextMenu();
     setupTrayIcon();
@@ -77,7 +80,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    Logger::log("mainwindow", "~MainWindow");
+    Logger::log(logModule, "~MainWindow");
     mpvObject_->setWidgetType(Helpers::NullWidget);
     delete ui;
     ui = nullptr;
@@ -403,7 +406,7 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-    Logger::log("mainwindow", "closeEvent");
+    Logger::log(logModule, "closeEvent");
     bool showPlaylist = ui->actionViewHidePlaylist->isChecked();
     playlistWindow_->close();
     ui->actionViewHidePlaylist->setChecked(showPlaylist);
@@ -666,9 +669,9 @@ void MainWindow::setupTrayIcon()
     trayIcon = new QSystemTrayIcon(this);
     trayIcon->setContextMenu(trayMenu);
     trayIcon->setToolTip(textWindowTitle);
-    Logger::log("mainwindow", "rendering trayIcon sizes");
+    Logger::log(logModule, "rendering trayIcon sizes");
     trayIcon->setIcon(createIconFromSvg(mpcQtIconPath, 64));
-    Logger::log("mainwindow", "rendering trayIcon sizes done");
+    Logger::log(logModule, "rendering trayIcon sizes done");
 }
 
 void MainWindow::setupActionGroups()
@@ -1717,13 +1720,13 @@ void MainWindow::setRecentDocuments(const QList<TrackInfo> &tracks)
     addRecentDocumentsEntries(tracks, ui->menuFileRecent, 0, 20);
 
     if (tracks.count() > 20) {
-        LogStream("mainwindow") << "tracks.count(): " << tracks.count();
-        Logger::log("mainwindow", "setRecentDocuments > 20");
+        LogStream(logModule) << "tracks.count(): " << tracks.count();
+        Logger::log(logModule, "setRecentDocuments > 20");
         QMenu *moreRecentsMenu = new QMenu(tr("More Files"));
         addRecentDocumentsEntries(tracks, moreRecentsMenu, 20, 50);
         ui->menuFileRecent->addSeparator();
         ui->menuFileRecent->addMenu(moreRecentsMenu);
-        Logger::log("mainwindow", "setRecentDocuments > 20 done");
+        Logger::log(logModule, "setRecentDocuments > 20 done");
     }
 
     ui->menuFileRecent->addSeparator();
@@ -2383,7 +2386,7 @@ void MainWindow::mpvObject_mouseReleased()
 }
 
 void MainWindow::setPlaylistVisibleState(bool yes) {
-    Logger::log("mainwindow", "setPlaylistVisibleState");
+    Logger::log(logModule, "setPlaylistVisibleState");
     if (fullscreenMode_ || !ui || mainwindowIsClosing)
         return;
     ui->actionFileOpenQuick->setText(yes ? tr("&Quick Add To Playlist")
@@ -2607,7 +2610,7 @@ void MainWindow::on_actionViewHideSubresync_toggled(bool checked)
 
 void MainWindow::on_actionViewHidePlaylist_toggled(bool checked)
 {
-    Logger::log("mainwindow", "on_actionViewHidePlaylist_toggled");
+    Logger::log(logModule, "on_actionViewHidePlaylist_toggled");
     if (fullscreenMode_ && fullscreenHidePanels)
         return;
 
@@ -3252,7 +3255,7 @@ void MainWindow::on_actionPlayLoopEnd_triggered()
 
 void MainWindow::on_actionPlayLoopUse_toggled(bool checked)
 {
-    LogStream("mainwindow") << "on_actionPlayLoopUse_toggled: " << checked;
+    LogStream(logModule) << "on_actionPlayLoopUse_toggled: " << checked;
     if (checked) {
         if (positionSlider_->loopA() < 0)
             positionSlider_->setLoopA(0);
