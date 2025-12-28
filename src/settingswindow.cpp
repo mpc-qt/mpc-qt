@@ -1290,15 +1290,15 @@ void SettingsWindow::on_playerOpenNew_toggled(bool checked)
         ui->playerAppendToQuickPlaylist->setChecked(false);
 }
 
-void SettingsWindow::on_playerAppendToQuickPlaylist_checkStateChanged(Qt::CheckState state)
+void SettingsWindow::on_playerAppendToQuickPlaylist_toggled(bool checked)
 {
-    if (state == Qt::Checked)
+    if (checked)
         ui->playerRememberQuickPlaylist->setChecked(false);
 }
 
-void SettingsWindow::on_playerKeepHistory_checkStateChanged(Qt::CheckState state)
+void SettingsWindow::on_playerKeepHistory_toggled(bool checked)
 {
-    bool playerKeepHistoryEnabled = state == Qt::Checked;
+    bool playerKeepHistoryEnabled = checked;
     ui->playerRememberFilePosition->setChecked(playerKeepHistoryEnabled);
     ui->playerRememberQuickPlaylist->setChecked(playerKeepHistoryEnabled);
     ui->playerKeepHistoryOnlyForVideos->setEnabled(playerKeepHistoryEnabled);
@@ -1320,9 +1320,9 @@ void SettingsWindow::on_interfaceIconsTheme_currentIndexChanged(int index)
     ui->interfaceIconsNotice->setEnabled(customIcons);
 }
 
-void SettingsWindow::on_interfaceWidgetCustom_checkStateChanged(Qt::CheckState state)
+void SettingsWindow::on_interfaceWidgetCustom_toggled(bool checked)
 {
-    ui->interfaceWidgetCustomScrollArea->setEnabled(state);
+    ui->interfaceWidgetCustomScrollArea->setEnabled(checked);
 }
 
 void SettingsWindow::on_interfaceIconsCustomBrowse_clicked()
