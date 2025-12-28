@@ -236,13 +236,13 @@ private slots:
 
     void on_playerOpenNew_toggled(bool checked);
 
-    void on_playerAppendToQuickPlaylist_checkStateChanged(Qt::CheckState state);
+    void on_playerAppendToQuickPlaylist_toggled(bool checked);
 
-    void on_playerKeepHistory_checkStateChanged(Qt::CheckState state);
+    void on_playerKeepHistory_toggled(bool checked);
 
     void on_interfaceIconsTheme_currentIndexChanged(int index);
 
-    void on_interfaceWidgetCustom_checkStateChanged(Qt::CheckState state);
+    void on_interfaceWidgetCustom_toggled(bool checked);
 
     void on_interfaceIconsCustomBrowse_clicked();
 
