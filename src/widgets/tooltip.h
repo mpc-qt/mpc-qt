@@ -14,7 +14,6 @@ class Tooltip : public QWidget {
         void setPosition(const QPoint &where, int mainWindowWidth);
 
         QLabel *textLabel;
-        bool aspectRatioSet = false;
         QPoint bottomLeft;
     };
 
