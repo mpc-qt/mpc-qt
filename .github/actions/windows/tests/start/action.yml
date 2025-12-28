@@ -5,6 +5,8 @@ runs:
   using: "composite"
 
   steps:
+  - name: Remove MPC-QT settings
+    uses: ./.github/actions/commands/remove_settings
   - name: Enable dark theme for apps
     run: |
       reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v "AppsUseLightTheme" /t REG_DWORD /d 0 /f
@@ -14,7 +16,7 @@ runs:
   - name: Take a screenshot
     uses: ./.github/actions/windows/commands/screenshot
     with:
-      number: "1"
+      number: "2"
       description: "no_config_dark_theme"
   - name: Kill mpc-q
     uses: ./.github/actions/windows/commands/kill_mpc-qt

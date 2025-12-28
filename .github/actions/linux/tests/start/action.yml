@@ -5,12 +5,14 @@ runs:
   using: "composite"
 
   steps:
+  - name: Remove MPC-QT settings
+    uses: ./.github/actions/commands/remove_settings
   - name: Run mpc-qt
     uses: ./.github/actions/linux/commands/run_mpc-qt
   - name: Take a screenshot
     uses: ./.github/actions/linux/commands/screenshot
     with:
-      number: "1"
+      number: "3"
       description: "no_config"
   - name: Kill mpc-q
     uses: ./.github/actions/linux/commands/kill_mpc-qt

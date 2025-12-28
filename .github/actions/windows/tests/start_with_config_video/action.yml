@@ -35,7 +35,7 @@ runs:
   - name: Take a screenshot
     uses: ./.github/actions/windows/commands/screenshot
     with:
-      number: "2"
+      number: "1"
       description: "config_video_and_translation"
   - name: Kill mpc-q
     uses: ./.github/actions/windows/commands/kill_mpc-qt

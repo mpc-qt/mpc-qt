@@ -1,0 +1,10 @@
+name: Remove MPC-QT settings
+description: 'Remove the MPC-QT settings folder'
+
+runs:
+  using: "composite"
+
+  steps:
+  - name: Remove the MPC-QT settings folder
+    run: rm -Rd $CONFIGDIR
+    shell: bash

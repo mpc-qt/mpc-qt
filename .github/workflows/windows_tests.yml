@@ -58,11 +58,11 @@ jobs:
         mklink libglapi.dll "x64\libglapi.dll"
       working-directory: ${{ env.EXEDIR }}
 
-    # - name: Start without config
-    #   uses: ./.github/actions/windows/tests/start
-
     - name: Start with config and video
       uses: ./.github/actions/windows/tests/start_with_config_video
+
+    - name: Start without config
+      uses: ./.github/actions/windows/tests/start
 
     - name: Upload screenshots
       if: ${{ !cancelled() }}
