@@ -1394,7 +1394,7 @@
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation type="unfinished">Gebaut auf %1 um %2</translation>
+        <translation>Gebaut auf %1 um %2</translation>
     </message>
     <message>
         <source>Alt+Q</source>
@@ -2683,7 +2683,7 @@ media file played</source>
     </message>
     <message>
         <source>Fallback</source>
-        <translation type="obsolete">Rückfallebene/Ersatzlösung</translation>
+        <translation type="obsolete">Ausweichlösung</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
@@ -2959,7 +2959,7 @@ media file played</source>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished">Zentrum/Mitte</translation>
+        <translation>Mitte</translation>
     </message>
     <message>
         <source>Slope</source>
@@ -2971,7 +2971,7 @@ media file played</source>
     </message>
     <message>
         <source>Scaler</source>
-        <translation type="unfinished"></translation>
+        <translation>Skalierer</translation>
     </message>
     <message>
         <source>2</source>
@@ -2979,7 +2979,7 @@ media file played</source>
     </message>
     <message>
         <source>Anti-ring</source>
-        <translation type="unfinished"></translation>
+        <translation>Anti-Ring</translation>
     </message>
     <message>
         <source>Blur</source>
@@ -2999,7 +2999,7 @@ media file played</source>
     </message>
     <message>
         <source>Bartlett</source>
-        <translation type="unfinished"></translation>
+        <translation>Bartlett</translation>
     </message>
     <message>
         <source>Hanning</source>
@@ -3027,7 +3027,7 @@ media file played</source>
     </message>
     <message>
         <source>Gaussian</source>
-        <translation type="unfinished">Gaussian</translation>
+        <translation>Gaußsche</translation>
     </message>
     <message>
         <source>Sinc</source>
@@ -3163,7 +3163,7 @@ media file played</source>
     </message>
     <message>
         <source>Deband</source>
-        <translation type="unfinished"></translation>
+        <translation>De-Band</translation>
     </message>
     <message>
         <source>State</source>
@@ -3207,7 +3207,7 @@ media file played</source>
     </message>
     <message>
         <source>Target Prim</source>
-        <translation type="unfinished"></translation>
+        <translation>Ziel Prim</translation>
     </message>
     <message>
         <source>BT.470m</source>
@@ -3295,7 +3295,7 @@ media file played</source>
     </message>
     <message>
         <source>HDR Tone mapping</source>
-        <translation type="unfinished"></translation>
+        <translation>HDR-Tonwertzuordnung</translation>
     </message>
     <message>
         <source>Clip</source>
@@ -3391,7 +3391,7 @@ media file played</source>
     </message>
     <message>
         <source>Pulse</source>
-        <translation type="unfinished"></translation>
+        <translation>Puls</translation>
     </message>
     <message>
         <source>Buffer</source>
@@ -3559,7 +3559,7 @@ media file played</source>
     </message>
     <message>
         <source>Non key</source>
-        <translation type="unfinished"></translation>
+        <translation>Nicht-Taste</translation>
     </message>
     <message>
         <source>Audio/Video sync</source>
@@ -3731,12 +3731,12 @@ media file played</source>
     </message>
     <message>
         <source>Clear on seek</source>
-        <translation type="unfinished"></translation>
+        <translation>Bei Suche löschen</translation>
     </message>
     <message>
         <source>ASS override</source>
         <extracomment>Might cause issues</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>ASS überbrücken</translation>
     </message>
     <message>
         <source>Yes</source>
@@ -3804,19 +3804,19 @@ media file played</source>
     </message>
     <message>
         <source>Autoload paths</source>
-        <translation type="unfinished"></translation>
+        <translation>Autoload-Pfade</translation>
     </message>
     <message>
         <source>Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Pfad</translation>
     </message>
     <message>
         <source>Match</source>
-        <translation type="unfinished"></translation>
+        <translation>Übereinstimmung</translation>
     </message>
     <message>
         <source>Exact</source>
-        <translation type="unfinished"></translation>
+        <translation>Genau</translation>
     </message>
     <message>
         <source>Fuzzy</source>
@@ -3824,11 +3824,11 @@ media file played</source>
     </message>
     <message>
         <source>Online database</source>
-        <translation type="unfinished"></translation>
+        <translation>Online-Datenbank</translation>
     </message>
     <message>
         <source>Base url of the online subtitle database:</source>
-        <translation type="unfinished"></translation>
+        <translation>Grund-URL der Online-Datenbank:</translation>
     </message>
     <message>
         <source>https://</source>
@@ -3840,11 +3840,11 @@ media file played</source>
     </message>
     <message>
         <source>Directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordner</translation>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation type="unfinished">Screenshot</translation>
+        <translation>Bildschirmfoto</translation>
     </message>
     <message>
         <source>...</source>
@@ -3860,7 +3860,7 @@ media file played</source>
     </message>
     <message>
         <source>Filename template</source>
-        <translation type="unfinished"></translation>
+        <translation>Dateinamenvorlage</translation>
     </message>
     <message>
         <source>qrc:/text/encodeFormat.html</source>
@@ -3868,23 +3868,23 @@ media file played</source>
     </message>
     <message>
         <source>Save with high bit depth</source>
-        <translation type="unfinished"></translation>
+        <translation>Mit hoher Bit-Tiefe speichern</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Qualität</translation>
     </message>
     <message>
         <source>Smooth</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Weichzeichnen</translation>
     </message>
     <message>
         <source>Source Chroma</source>
-        <translation type="unfinished"></translation>
+        <translation>Quellen-Chroma</translation>
     </message>
     <message>
         <source>Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>Kompression</translation>
     </message>
     <message>
         <source>Filter</source>
@@ -3892,15 +3892,15 @@ media file played</source>
     </message>
     <message>
         <source>Colorspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Farbraum</translation>
     </message>
     <message>
         <source>Include tag</source>
-        <translation type="unfinished"></translation>
+        <translation>Tag inkludieren</translation>
     </message>
     <message>
         <source>Don&apos;t encode the video</source>
-        <translation type="unfinished"></translation>
+        <translation>Video nicht encoden</translation>
     </message>
     <message>
         <source>Hardsub</source>
@@ -4052,7 +4052,7 @@ media file played</source>
     </message>
     <message>
         <source>Trim old lines</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Alte Linien trimmen</translation>
     </message>
     <message>
         <source> lines</source>
@@ -4060,15 +4060,15 @@ media file played</source>
     </message>
     <message>
         <source>Keep </source>
-        <translation type="unfinished"></translation>
+        <translation>Beibehalten </translation>
     </message>
     <message>
         <source>Color controls</source>
-        <translation type="unfinished"></translation>
+        <translation>Farbsteuerung</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>Helligkeit</translation>
     </message>
     <message>
         <source>Hue</source>
@@ -4076,47 +4076,47 @@ media file played</source>
     </message>
     <message>
         <source>Saturation</source>
-        <translation type="unfinished"></translation>
+        <translation>Sättigung</translation>
     </message>
     <message>
         <source>Settings management</source>
-        <translation type="unfinished"></translation>
+        <translation>Einstellungsverwaltung</translation>
     </message>
     <message>
         <source>Export keys</source>
-        <translation type="unfinished"></translation>
+        <translation>Schlüssel Exportieren</translation>
     </message>
     <message>
         <source>Open Logo Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Logobild öffnen</translation>
     </message>
     <message>
         <source>Audio open settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Audioeinstellungen öffnen</translation>
     </message>
     <message>
         <source>Paths</source>
-        <translation type="unfinished"></translation>
+        <translation>Pfade</translation>
     </message>
     <message>
         <source>Dela&amp;yed</source>
-        <translation type="unfinished"></translation>
+        <translation>Verz&amp;ögert</translation>
     </message>
     <message>
         <source>Unlimited (consumes &amp;memory)</source>
-        <translation type="unfinished"></translation>
+        <translation>Unlimitiert (konsumiert &amp;Speicher)</translation>
     </message>
     <message>
         <source>Auto-load external audio files</source>
-        <translation type="unfinished"></translation>
+        <translation>Externe Audiodateien automatisch laden</translation>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation type="unfinished"></translation>
+        <translation>Lautstärke auf 100% begrenzen (wie mpc-hc)</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
-        <translation type="unfinished"></translation>
+        <translation>Verkürzen der Wiedergabezeitanzeige (wie bei mpc-hc)</translation>
     </message>
     <message>
         <source>HDR Compute Peak</source>
