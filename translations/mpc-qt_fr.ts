@@ -4528,7 +4528,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>File title</source>
-        <translation type="unfinished"></translation>
+        <translation>Titre du fichier</translation>
     </message>
 </context>
 <context>
