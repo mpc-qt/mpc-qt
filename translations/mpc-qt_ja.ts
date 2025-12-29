@@ -2699,15 +2699,15 @@ media file played</source>
     </message>
     <message>
         <source>Fallback</source>
-        <translation>フォールバック</translation>
+        <translation type="vanished">フォールバック</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
-        <translation>黒 (白パレット用)</translation>
+        <translation type="vanished">黒 (白パレット用)</translation>
     </message>
     <message>
         <source>White (for black palette)</source>
-        <translation>白 (黒パレット用)</translation>
+        <translation type="vanished">白 (黒パレット用)</translation>
     </message>
     <message>
         <source>Widget Color</source>

@@ -2683,15 +2683,15 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Fallback</source>
-        <translation>Yedek</translation>
+        <translation type="vanished">Yedek</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
-        <translation>Siyah (beyaz palet için)</translation>
+        <translation type="vanished">Siyah (beyaz palet için)</translation>
     </message>
     <message>
         <source>White (for black palette)</source>
-        <translation>Beyaz (siyah palet için)</translation>
+        <translation type="vanished">Beyaz (siyah palet için)</translation>
     </message>
     <message>
         <source>Widget Color</source>

@@ -2687,15 +2687,15 @@ media file played</source>
     </message>
     <message>
         <source>Fallback</source>
-        <translation>தவறா</translation>
+        <translation type="vanished">தவறா</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
-        <translation>கருப்பு (வெள்ளை தட்டுக்கு)</translation>
+        <translation type="vanished">கருப்பு (வெள்ளை தட்டுக்கு)</translation>
     </message>
     <message>
         <source>White (for black palette)</source>
-        <translation>வெள்ளை (கருப்பு தட்டுக்கு)</translation>
+        <translation type="vanished">வெள்ளை (கருப்பு தட்டுக்கு)</translation>
     </message>
     <message>
         <source>Widget Color</source>

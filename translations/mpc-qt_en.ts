@@ -2711,15 +2711,15 @@ media file played</translation>
     </message>
     <message>
         <source>Fallback</source>
-        <translation>Fallback</translation>
+        <translation type="vanished">Fallback</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
-        <translation>Black (for white palette)</translation>
+        <translation type="vanished">Black (for white palette)</translation>
     </message>
     <message>
         <source>White (for black palette)</source>
-        <translation>White (for black palette)</translation>
+        <translation type="vanished">White (for black palette)</translation>
     </message>
     <message>
         <source>Widget Color</source>
