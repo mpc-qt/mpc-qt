@@ -57,12 +57,17 @@ jobs:
       with:
         repository: "mpv-player/mpv-build"
         path: mpv-build
-    - name: Copy build options
+    - name: Copy build options and script
       run: |
         cp .github/actions/data/build_options/* mpv-build/
+        cp .github/actions/data/mpv-build/* mpv-build/
     - name: Get mpv dependencies
       run: |
         cd mpv-build
+        ./use-ffmpeg-release
+        ./use-libass-release
+        ./use-libplacebo-release
+        ./use-mpv-release
         sed -i '/libdisplay-info-dev/d' debian/control
         ./update
         cp debian/changelog.TEMPLATE debian/changelog
