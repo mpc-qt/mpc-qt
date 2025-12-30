@@ -2516,18 +2516,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Fallback</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Black (for white palette)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>White (for black palette)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Widget Color</source>
         <translation type="unfinished"></translation>
     </message>

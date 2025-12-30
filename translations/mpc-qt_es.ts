@@ -2587,15 +2587,15 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Fallback</source>
-        <translation>Alternativa</translation>
+        <translation type="vanished">Alternativa</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
-        <translation>Negro (para paleta blanca)</translation>
+        <translation type="vanished">Negro (para paleta blanca)</translation>
     </message>
     <message>
         <source>White (for black palette)</source>
-        <translation>Blanco (para paleta negra)</translation>
+        <translation type="vanished">Blanco (para paleta negra)</translation>
     </message>
     <message>
         <source>Widget Color</source>

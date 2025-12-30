@@ -2667,15 +2667,15 @@ media file played</source>
     </message>
     <message>
         <source>Fallback</source>
-        <translation>Резервная тема</translation>
+        <translation type="vanished">Резервная тема</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
-        <translation>Чёрные (для белой палитры)</translation>
+        <translation type="vanished">Чёрные (для белой палитры)</translation>
     </message>
     <message>
         <source>White (for black palette)</source>
-        <translation>Белые (для чёрной палитры)</translation>
+        <translation type="vanished">Белые (для чёрной палитры)</translation>
     </message>
     <message>
         <source>Widget Color</source>

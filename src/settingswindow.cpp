@@ -128,9 +128,6 @@ static const QMap<QString,FilterKernel> filterKernels {
 
 
 QHash<QString, QStringList> SettingMap::indexedValueToText = {
-    {"interfaceIconsInbuilt", { autoIcons, \
-                                blackIconsPath, \
-                                whiteIconsPath }},
     {"videoFramebuffer", {"rgb8-rgba8", "rgb10-rgb10_a2", "rgba12-rgba12",\
                           "rgb16-rgba16", "rgb16f-rgba16f",\
                           "rgb32f-rgba32f"}},
@@ -728,7 +725,7 @@ void SettingsWindow::sendSignals()
 
     emit logoSource(selectedLogo());
     emit iconTheme(static_cast<IconThemer::FolderMode>(WIDGET_LOOKUP(ui->interfaceIconsTheme).toInt()),
-                   WIDGET_TO_TEXT(ui->interfaceIconsInbuilt),
+                   autoIcons,
                    WIDGET_LOOKUP(ui->interfaceIconsCustomFolder).toString());
     emit highContrastWidgets(WIDGET_LOOKUP(ui->interfaceWidgetHighContast).toBool());
     emit applicationPalette(WIDGET_LOOKUP(ui->interfaceWidgetCustom).toBool()
@@ -1308,12 +1305,7 @@ void SettingsWindow::on_playerKeepHistory_toggled(bool checked)
 
 void SettingsWindow::on_interfaceIconsTheme_currentIndexChanged(int index)
 {
-    bool fallbackIcons = index == 0;
     bool customIcons = index == 1;
-
-    ui->interfaceIconsInbuiltLabel->setEnabled(fallbackIcons);
-    ui->interfaceIconsInbuilt->setEnabled(fallbackIcons);
-
     ui->interfaceIconsCustomFolder->setEnabled(customIcons);
     ui->interfaceIconsCustomBrowse->setEnabled(customIcons);
     ui->interfaceIconsCustomLabel->setEnabled(customIcons);

@@ -2687,15 +2687,15 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Fallback</source>
-        <translation>Caiguda</translation>
+        <translation type="vanished">Caiguda</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
-        <translation>Negre (per a paleta blanca)</translation>
+        <translation type="vanished">Negre (per a paleta blanca)</translation>
     </message>
     <message>
         <source>White (for black palette)</source>
-        <translation>Blanc (per a paleta negra)</translation>
+        <translation type="vanished">Blanc (per a paleta negra)</translation>
     </message>
     <message>
         <source>Widget Color</source>

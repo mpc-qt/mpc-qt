@@ -2683,15 +2683,15 @@ media file played</source>
     </message>
     <message>
         <source>Fallback</source>
-        <translation type="unfinished">Rückfallebene/Ersatzlösung</translation>
+        <translation type="obsolete">Rückfallebene/Ersatzlösung</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
-        <translation>Schwarz (für weiße Palette)</translation>
+        <translation type="vanished">Schwarz (für weiße Palette)</translation>
     </message>
     <message>
         <source>White (for black palette)</source>
-        <translation>Weiß (für schwarze Palette)</translation>
+        <translation type="vanished">Weiß (für schwarze Palette)</translation>
     </message>
     <message>
         <source>Widget Color</source>

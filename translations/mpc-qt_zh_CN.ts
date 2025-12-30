@@ -2647,15 +2647,15 @@ media file played</source>
     </message>
     <message>
         <source>Fallback</source>
-        <translation>备用方案</translation>
+        <translation type="vanished">备用方案</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
-        <translation>黑色（适用于白色配色方案）</translation>
+        <translation type="vanished">黑色（适用于白色配色方案）</translation>
     </message>
     <message>
         <source>White (for black palette)</source>
-        <translation>白色（适用于黑色配色方案）</translation>
+        <translation type="vanished">白色（适用于黑色配色方案）</translation>
     </message>
     <message>
         <source>Widget Color</source>
