@@ -91,6 +91,7 @@ done
 echo "Copying other dlls to $DEST"
 cp $MINGW_BINDIR/libjpeg-*.dll                "$DEST"
 cp $MINGW_BINDIR/libcrypto-*.dll              "$DEST"
+cp $MINGW_BINDIR/vulkan-*.dll                 "$DEST"
 
 echo "All required DLLs from $MINGW_BINDIR have been copied to $DEST."
 

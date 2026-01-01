@@ -32,6 +32,7 @@ jobs:
           mingw-w64-x86_64-boost
           mingw-w64-x86_64-mpv
           mingw-w64-x86_64-nsis
+          mingw-w64-x86_64-vulkan-loader
     - name: Avoid line ending issues on Windows
       run: git config --global core.autocrlf input
     - name: Download mpc-qt source
