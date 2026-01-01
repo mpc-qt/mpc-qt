@@ -5,8 +5,6 @@ configure_file(
     ${CMAKE_BINARY_DIR}/version.h
 )
 
-message(STATUS "The version appears to be ${VERSTR}, and the Windows manifest would say this is ${VERSTR_WIN}.")
-
 set(SOURCES
     favoriteswindow.cpp favoriteswindow.h favoriteswindow.ui
     gotowindow.cpp gotowindow.h gotowindow.ui
