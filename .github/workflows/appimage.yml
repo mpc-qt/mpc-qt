@@ -3,6 +3,9 @@ name: AppImage maker
 on:
   [workflow_call]
 
+env:
+  DEVBUILD: GithubAction
+
 jobs:
   appimage:
     name: Build with PPA
@@ -81,15 +84,14 @@ jobs:
       run: |
         mv mpv-build/*.deb ./
         sudo dpkg -i *.deb
-    - name: Set version
+    - name: Configure build
       run: |
         VERSION=$( cat .github/actions/data/VERSION )
-        if [[ $VERSION == "GithubAction" ]]; then
-          VERSION=$( date +'%Y.%m.%d' )
+        if [[ $VERSION != $DEVBUILD ]]; then
+          cmake -DMPCQT_VERSION=$VERSION -G Ninja -B build
+        else
+          cmake -G Ninja -B build
         fi
-        echo "MPCQT_VERSION=$VERSION" >> $GITHUB_ENV
-    - name: cmake
-      run: cmake -DMPCQT_VERSION=$MPCQT_VERSION -G Ninja -B build
     - name: Build
       run: cmake --build build
     - name: ninja install
