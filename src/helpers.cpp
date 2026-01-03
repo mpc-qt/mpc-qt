@@ -7,7 +7,6 @@
 #include <cmath>
 #include <QRegularExpression>
 #include <QStandardPaths>
-#include <QStyleHints>
 #include "helpers.h"
 #include "logger.h"
 #include "platform/unify.h"
@@ -770,15 +769,11 @@ void IconThemer::setIconFolders(FolderMode folderMode,
 {
     folderMode_ = folderMode;
     if (fallbackFolder == autoIcons) {
-#if QT_VERSION < QT_VERSION_CHECK(6,5,0)
+        // QGuiApplication::styleHints()->colorScheme() isn't reliable
         const QPalette defaultPalette;
         const auto text = defaultPalette.color(QPalette::WindowText);
         const auto window = defaultPalette.color(QPalette::Window);
         fallbackFolder_ = text.lightness() > window.lightness() ? whiteIconsPath : blackIconsPath;
-#else
-        fallbackFolder_ = QGuiApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark ?
-                                                                              whiteIconsPath : blackIconsPath;
-#endif
     }
     else
         fallbackFolder_ = fallbackFolder;
