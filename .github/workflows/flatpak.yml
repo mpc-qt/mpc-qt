@@ -39,7 +39,6 @@ jobs:
         with:
           bundle: mpc-qt-linux-x64-${{env.MPC-QT_PACKAGE_VERSION}}.flatpak
           manifest-path: flathub/io.github.mpc_qt.mpc-qt.yml
-          cache-key: flatpak-builder-${{ github.sha }}
           upload-artifact: false
       - name: Upload
         uses: actions/upload-artifact@v4
