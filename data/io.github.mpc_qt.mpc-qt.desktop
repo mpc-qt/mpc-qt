@@ -17,7 +17,7 @@ X-DBUS-ServiceName=
 X-DBUS-StartupType=
 X-KDE-SubstituteUID=false
 X-KDE-Username=
-Keywords=mpv;media;player;video;audio;tv;stream;
+Keywords=media;player;video;audio;mpv;tv;stream;mpc;
 Actions=newFreestandingWindow
 
 [Desktop Action newFreestandingWindow]
