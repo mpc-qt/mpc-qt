@@ -5,6 +5,12 @@ on:
 
 env:
   DEVBUILD: GithubAction
+  RUNNEROS: ubuntu-22.04
+  CACHE_KEY_FILES: |
+    mpv-build/ffmpeg/RELEASE
+    mpv-build/libass/RELEASEVERSION
+    mpv-build/libplacebo/.git/packed-refs
+    mpv-build/mpv/MPV_VERSION
 
 jobs:
   appimage:
@@ -51,7 +57,7 @@ jobs:
           sudo apt install linguist-qt6 qt6-tools-dev qmake6 qt6-base-dev libboost-all-dev libqt6svg6-dev && break || sleep 60
         done
         for i in 1 2 3; do
-          sudo apt install devscripts equivs git libunwind-dev && break || sleep 60
+          sudo apt install devscripts equivs git libunwind-dev gdebi && break || sleep 60
         done
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -74,16 +80,48 @@ jobs:
         sed -i '/libdisplay-info-dev/d' debian/control
         ./update
         cp debian/changelog.TEMPLATE debian/changelog
-        mk-build-deps -s sudo -i
+    - name: Check cache key inputs exist
+      id: check-cache-inputs
+      run: |
+        missing=0
+
+        while IFS= read -r file; do
+          [[ -z "$file" ]] && continue
+          if [[ ! -f "$file" ]]; then
+            echo "::warning::Missing cache input file: $file"
+            missing=1
+          fi
+        done <<< "$CACHE_KEY_FILES"
+
+        if [[ $missing -eq 0 ]]; then
+          echo "All cache input files are present."
+          echo "cacheable=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "One or more cache input files are missing; cache will be skipped."
+          echo "cacheable=false" >> "$GITHUB_OUTPUT"
+        fi
+    - name: Restore dependencies or cache them later
+      id: cache-deps
+      if: steps.check-cache-inputs.outputs.cacheable == 'true'
+      uses: actions/cache@v4
+      with:
+        path: deb
+        key: appimage-${{ env.RUNNEROS }}-${{ hashFiles(env.CACHE_KEY_FILES) }}
     - name: Build mpv package
+      if: steps.cache-deps.outputs.cache-hit != 'true'
       run: |
         cd mpv-build
+        mk-build-deps -s sudo -i
         export DEB_BUILD_OPTIONS=nostrip
         dpkg-buildpackage -uc -us -b
+        cd ..
+        mkdir deb
+        mv mpv-build/*.deb deb
     - name: Install mpv package
       run: |
-        mv mpv-build/*.deb ./
-        sudo dpkg -i *.deb
+        mv deb/*.deb ./
+        sudo gdebi --n mpv_*.deb
+        mv ./*.deb deb
     - name: Configure build
       run: |
         VERSION=$( cat .github/actions/data/VERSION )
