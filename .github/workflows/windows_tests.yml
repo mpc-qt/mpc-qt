@@ -26,7 +26,7 @@ jobs:
 
     - name: Get mpc-qt dir
       run: |
-        dir_name=$(ls -d mpc-qt-win/mpc-qt-*/ | head -n 1)
+        dir_name=$(ls -d mpc-qt-win*/mpc-qt-*/ | head -n 1)
         echo "Directory found: $dir_name"
         echo "EXEDIR=$dir_name" >> $GITHUB_ENV
 

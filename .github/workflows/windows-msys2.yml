@@ -4,6 +4,9 @@ on:
   push:
   pull_request:
 
+env:
+  DEVBUILD: continuous
+
 jobs:
   build:
     name: Build
@@ -42,8 +45,13 @@ jobs:
         repository: "yt-dlp/yt-dlp"
         latest: true
         fileName: "yt-dlp.exe"
-    - name: Set version
-      run: echo "FORCE_VERSION=$( cat .github/actions/data/VERSION )" >> $GITHUB_ENV
+    - name: Set version and remove dots
+      run: |
+        FORCE_VERSION=$( cat .github/actions/data/VERSION )
+        if [[ $FORCE_VERSION != $DEVBUILD ]]; then
+          FORCE_VERSION=$( echo $FORCE_VERSION | sed -e 's/\.//g' )
+        fi
+        echo "FORCE_VERSION=$( echo $FORCE_VERSION )" >> $GITHUB_ENV
     - name: Build
       run: |
         chmod +x scripts/*.sh
@@ -53,13 +61,15 @@ jobs:
     - name: Upload
       uses: actions/upload-artifact@v4
       with:
-        name: "mpc-qt-win"
+        name: "mpc-qt-win-x64-${{ env.FORCE_VERSION }}"
         path: mpc-qt-*/
+    - name: Rename installer
+      run: mv build/mpc-qt-win-x64-installer.exe build/mpc-qt-win-x64-${{ env.FORCE_VERSION }}-installer.exe
     - name: Upload
       uses: actions/upload-artifact@v4
       with:
         name: "mpc-qt-win-installer"
-        path: build/mpc-qt-win-x64-installer.exe
+        path: build/mpc-qt-win-x64-*-installer.exe
   tests:
     name: Windows
     needs: build
