@@ -88,9 +88,9 @@ jobs:
       run: |
         VERSION=$( cat .github/actions/data/VERSION )
         if [[ $VERSION != $DEVBUILD ]]; then
-          cmake -DMPCQT_VERSION=$VERSION -G Ninja -B build
+          cmake -DMPCQT_VERSION=$VERSION -DCMAKE_INSTALL_PREFIX=/usr -G Ninja -B build
         else
-          cmake -G Ninja -B build
+          cmake -DCMAKE_INSTALL_PREFIX=/usr -G Ninja -B build
         fi
     - name: Build
       run: cmake --build build
@@ -108,7 +108,17 @@ jobs:
         set-env: true
         version: 1-alpha-20251107-1
     - name: Build AppImage
-      run: EXTRA_QT_MODULES="svg;" QMAKE=/usr/bin/qmake6 LDAI_OUTPUT=mpc-qt-linux-x64-${{env.MPC-QT_PACKAGE_VERSION}}.AppImage LDAI_UPDATE_INFORMATION="gh-releases-zsync|mpc-qt|mpc-qt|latest|mpc-qt-linux-x64-*.AppImage.zsync" linuxdeploy/linuxdeploy-x86_64.AppImage --appdir AppDir -e bin/mpc-qt --custom-apprun ./packaging/appimage/AppRun -d data/io.github.mpc_qt.mpc-qt.desktop -i res/images/icon/mpc-qt.svg --plugin qt --output appimage
+      run: |
+        export EXTRA_QT_MODULES="svg;"
+        export QMAKE=/usr/bin/qmake6
+        export LDAI_OUTPUT="mpc-qt-linux-x64-${{env.MPC-QT_PACKAGE_VERSION}}.AppImage"
+        export LDAI_UPDATE_INFORMATION="gh-releases-zsync|mpc-qt|mpc-qt|latest|mpc-qt-linux-x64-*.AppImage.zsync"
+        linuxdeploy/linuxdeploy-x86_64.AppImage \
+          --appdir build/AppDir \
+          -e build/AppDir/usr/bin/mpc-qt \
+          -d build/AppDir/usr/share/applications/io.github.mpc_qt.mpc-qt.desktop \
+          --custom-apprun ./packaging/appimage/AppRun \
+          --plugin qt --output appimage
     - name: Get version
       run: |
         if [[ "$GITHUB_REF" == *"refs/heads/release/"* ]]; then

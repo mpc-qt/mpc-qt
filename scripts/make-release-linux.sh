@@ -43,7 +43,7 @@ OLD_CWD=$(readlink -f .)
 pushd "$BUILD_DIR"
 
 # configure build files with cmake
-cmake -DMPCQT_VERSION=$MPCQT_VERSION "$REPO_ROOT" -G Ninja -B build
+cmake -DMPCQT_VERSION=$VERSION -DCMAKE_INSTALL_PREFIX=/usr "$REPO_ROOT" -G Ninja -B build
 
 # build project and install files into AppDir
 ninja -C build
@@ -58,7 +58,16 @@ wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/cont
 chmod +x linuxdeploy*.AppImage
 
 # initialize AppDir, bundle shared libraries, add desktop file and icon, use Qt plugin to bundle additional resources, and build AppImage, all in one command
-EXTRA_QT_PLUGINS="svg;" QMAKE=/usr/bin/qmake6 ./linuxdeploy-x86_64.AppImage --appdir AppDir -e "$REPO_ROOT"/bin/mpc-qt --custom-apprun "$REPO_ROOT"/packaging/appimage/AppRun -i "$REPO_ROOT"/res/images/icon/mpc-qt.svg -d "$REPO_ROOT"/data/io.github.mpc_qt.mpc-qt.desktop --plugin qt --output appimage
+export EXTRA_QT_MODULES="svg;"
+export QMAKE=/usr/bin/qmake6
+export LDAI_OUTPUT="$DEST.AppImage"
+export LDAI_UPDATE_INFORMATION="gh-releases-zsync|mpc-qt|mpc-qt|latest|mpc-qt-linux-x64-*.AppImage.zsync"
+linuxdeploy/linuxdeploy-x86_64.AppImage \
+    --appdir "$REPO_ROOT"/build/AppDir \
+    -e "$REPO_ROOT"/build/AppDir/usr/bin/mpc-qt \
+    -d "$REPO_ROOT"/build/AppDir/usr/share/applications/io.github.mpc_qt.mpc-qt.desktop \
+    --custom-apprun "$REPO_ROOT"/packaging/appimage/AppRun \
+    --plugin qt --output appimage
 
 # move built AppImage back into original CWD
-mv Media_Player_Classic_Qute_Theater-x86_64.AppImage "$OLD_CWD/$DEST.AppImage"
+mv $DEST.AppImage $OLD_CWD
