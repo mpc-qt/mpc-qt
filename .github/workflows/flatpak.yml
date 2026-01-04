@@ -19,12 +19,7 @@ jobs:
           repository: 'flathub/io.github.mpc_qt.mpc-qt'
           path: flathub
       - name: Get version
-        run: |
-          if [[ "$GITHUB_REF" == *"refs/heads/release/"* ]]; then
-            echo "MPC-QT_PACKAGE_VERSION=$(echo $GITHUB_REF | sed 's,refs/heads/release/,,g')">> $GITHUB_ENV
-          else
-            echo "MPC-QT_PACKAGE_VERSION=continuous">> $GITHUB_ENV
-          fi
+        run: echo "MPC-QT_PACKAGE_VERSION=$( cat .github/actions/data/VERSION )" >> $GITHUB_ENV
       - name: Prepare Flatpak manifest with modules from Flathub manifest
         uses: mikefarah/yq@v4.50.1
         with:
