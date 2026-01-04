@@ -4,7 +4,7 @@ on:
   [workflow_call]
 
 env:
-  DEVBUILD: GithubAction
+  DEVBUILD: continuous
   RUNNEROS: ubuntu-22.04
   CACHE_KEY_FILES: |
     mpv-build/ffmpeg/RELEASE
@@ -125,6 +125,7 @@ jobs:
     - name: Configure build
       run: |
         VERSION=$( cat .github/actions/data/VERSION )
+        echo "MPC-QT_PACKAGE_VERSION=$VERSION" >> $GITHUB_ENV
         if [[ $VERSION != $DEVBUILD ]]; then
           cmake -DMPCQT_VERSION=$VERSION -DCMAKE_INSTALL_PREFIX=/usr -G Ninja -B build
         else
@@ -157,15 +158,6 @@ jobs:
           -d build/AppDir/usr/share/applications/io.github.mpc_qt.mpc-qt.desktop \
           --custom-apprun ./packaging/appimage/AppRun \
           --plugin qt --output appimage
-    - name: Get version
-      run: |
-        if [[ "$GITHUB_REF" == *"refs/heads/release/"* ]]; then
-          echo "MPC-QT_PACKAGE_VERSION=$(echo $GITHUB_REF | sed 's,refs/heads/release/,,g')">> $GITHUB_ENV
-        else
-          echo "MPC-QT_PACKAGE_VERSION=continuous">> $GITHUB_ENV
-        fi
-    - name: Rename AppImage
-      run:  mv *.AppImage mpc-qt-linux-x64-${{env.MPC-QT_PACKAGE_VERSION}}.AppImage
     - name: Upload AppImage
       uses: actions/upload-artifact@v4
       with:

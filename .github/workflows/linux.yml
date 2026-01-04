@@ -4,6 +4,9 @@ on:
   push:
   pull_request:
 
+env:
+  DEVBUILD: continuous
+
 jobs:
   build:
     name: Build
@@ -30,7 +33,7 @@ jobs:
     - name: Set version
       run: |
         echo "FORCE_VERSION=" >> $GITHUB_ENV
-        if [ $( cat .github/actions/data/VERSION ) != "GithubAction"  ]; then
+        if [ $( cat .github/actions/data/VERSION ) != $DEVBUILD ]; then
             echo "FORCE_VERSION=-DMPCQT_VERSION=$( cat .github/actions/data/VERSION )" >> $GITHUB_ENV
         fi
     - name: cmake
