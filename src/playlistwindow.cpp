@@ -1061,6 +1061,11 @@ void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
         updateCurrentPlaylist();
 }
 
+void PlaylistWindow::on_tabWidget_tabBarClicked(int index)
+{
+    ui->tabWidget->setCurrentIndex(index);
+}
+
 void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
 {
     auto widget = static_cast<DrawnPlaylist *>(ui->tabWidget->widget(index));
