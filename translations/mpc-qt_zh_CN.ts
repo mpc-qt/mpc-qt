@@ -2134,6 +2134,10 @@
         <translation>分割播放列表(&amp;D)</translation>
     </message>
     <message>
+        <source>&amp;Rename Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Import Playlist</source>
         <translation>导入播放列表(&amp;I)</translation>
     </message>

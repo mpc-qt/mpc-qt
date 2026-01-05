@@ -2166,6 +2166,10 @@
         <translation>Playlist &amp;duplizieren</translation>
     </message>
     <message>
+        <source>&amp;Rename Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Import Playlist</source>
         <translation>Playlist &amp;importieren</translation>
     </message>

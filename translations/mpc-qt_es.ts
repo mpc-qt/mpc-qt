@@ -2066,6 +2066,10 @@
         <translation>&amp;Duplicar la lista de reproducción</translation>
     </message>
     <message>
+        <source>&amp;Rename Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Import Playlist</source>
         <translation>&amp;Importar una lista de reproducción</translation>
     </message>

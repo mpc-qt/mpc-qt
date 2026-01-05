@@ -97,6 +97,7 @@ public slots:
     void newTab();
     void closeTab();
     void duplicateTab();
+    void renameTab();
     void importTab();
     void exportTab();
 

@@ -2166,6 +2166,10 @@
         <translation>&amp; நகல் பிளேலிச்ட்</translation>
     </message>
     <message>
+        <source>&amp;Rename Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Import Playlist</source>
         <translation>&amp; பிளேலிச்ட்டை இறக்குமதி செய்யுங்கள்</translation>
     </message>

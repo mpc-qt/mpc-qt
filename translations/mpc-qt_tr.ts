@@ -2166,6 +2166,10 @@
         <translation>Oyn&amp;atma Listesini Çoğalt</translation>
     </message>
     <message>
+        <source>&amp;Rename Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Import Playlist</source>
         <translation>Oynatma Listesi İç&amp;e Aktar</translation>
     </message>
