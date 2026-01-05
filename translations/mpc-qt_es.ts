@@ -2011,7 +2011,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation>Vaciar</translation>
+        <translation type="vanished">Vaciar</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -2056,6 +2056,10 @@
     <message>
         <source>&amp;Remove Playlist</source>
         <translation>&amp;Eliminar la lista de reproducción</translation>
+    </message>
+    <message>
+        <source>&amp;Clear Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>

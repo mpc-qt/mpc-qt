@@ -1919,7 +1919,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation>Tøm</translation>
+        <translation type="vanished">Tøm</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -1959,6 +1959,10 @@
     </message>
     <message>
         <source>&amp;Remove Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Clear Playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

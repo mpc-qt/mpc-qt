@@ -2135,7 +2135,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation>Clear</translation>
+        <translation type="vanished">Clear</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -2180,6 +2180,10 @@
     <message>
         <source>&amp;Remove Playlist</source>
         <translation>&amp;Remove Playlist</translation>
+    </message>
+    <message>
+        <source>&amp;Clear Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>

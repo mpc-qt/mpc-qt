@@ -1975,7 +1975,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation>Tyhjennä</translation>
+        <translation type="vanished">Tyhjennä</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -2020,6 +2020,10 @@
     <message>
         <source>&amp;Remove Playlist</source>
         <translation>&amp;Poista Soittolista</translation>
+    </message>
+    <message>
+        <source>&amp;Clear Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>

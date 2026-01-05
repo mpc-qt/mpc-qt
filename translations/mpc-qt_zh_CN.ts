@@ -2079,7 +2079,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation>清除</translation>
+        <translation type="vanished">清除</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -2124,6 +2124,10 @@
     <message>
         <source>&amp;Remove Playlist</source>
         <translation>移除播放列表(&amp;R)</translation>
+    </message>
+    <message>
+        <source>&amp;Clear Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>

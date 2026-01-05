@@ -927,14 +927,6 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     m->addSeparator();
 
     a = new QAction(m);
-    a->setText(tr("Clear"));
-    connect(a, &QAction::triggered,
-            this, &PlaylistWindow::playlist_removeAllRequested);
-    m->addAction(a);
-
-    m->addSeparator();
-
-    a = new QAction(m);
     a->setText(tr("Copy To clipboard"));
     connect(a, &QAction::triggered,
             this, [this,playlistUuid]() {
@@ -1095,6 +1087,7 @@ void PlaylistWindow::on_tabWidget_customContextMenuRequested(const QPoint &pos)
     QMenu *m = new QMenu(this);
     m->addAction(tr("&New Playlist"), this, SLOT(newTab()));
     m->addAction(tr("&Remove Playlist"), this, SLOT(closeTab()));
+    m->addAction(tr("&Clear Playlist"), this, SLOT(playlist_removeAllRequested()));
     m->addAction(tr("&Duplicate Playlist"), this, SLOT(duplicateTab()));
     m->addAction(tr("&Import Playlist"), this, SLOT(importTab()));
     m->addAction(tr("&Export Playlist"), this, SLOT(exportTab()));
