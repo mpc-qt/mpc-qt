@@ -2127,7 +2127,7 @@
     </message>
     <message>
         <source>&amp;Clear Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>清除播放列表(&amp;C)</translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
@@ -2135,7 +2135,7 @@
     </message>
     <message>
         <source>&amp;Rename Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>重命名播放列表(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
