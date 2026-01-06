@@ -1087,6 +1087,9 @@ void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
 void PlaylistWindow::on_tabWidget_tabBarClicked(int index)
 {
     ui->tabWidget->setCurrentIndex(index);
+    auto qdp = currentPlaylistWidget();
+    if (qdp)
+        qdp->scrollToItem(qdp->nowPlayingItem(), false);
 }
 
 void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
