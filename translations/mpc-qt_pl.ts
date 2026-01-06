@@ -25,47 +25,47 @@
     </message>
     <message>
         <source>Volume Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Zwiększ głośność</translation>
     </message>
     <message>
         <source>Volume Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmniejsz głośność</translation>
     </message>
     <message>
         <source>Volume Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Wycisz</translation>
     </message>
     <message>
         <source>After Playback: Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Po zakończeniu odtwarzania: Wyjdź</translation>
     </message>
     <message>
         <source>After Playback: Stand by</source>
-        <translation type="unfinished"></translation>
+        <translation>Po zakończeniu odtwarzania: Przejdź do stanu gotowości</translation>
     </message>
     <message>
         <source>After Playback: Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>Po zakończeniu odtwarzania: Zahibernuj</translation>
     </message>
     <message>
         <source>After Playback: Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Po zakończeniu odtwarzania: Wyłącz komputer</translation>
     </message>
     <message>
         <source>After Playback: Log Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Po zakończeniu odtwarzania: Wyloguj</translation>
     </message>
     <message>
         <source>After Playback: Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Po zakończeniu odtwarzania: Zablokuj</translation>
     </message>
     <message>
         <source>After Playback: Play next file</source>
-        <translation type="unfinished"></translation>
+        <translation>Po zakończeniu odtwarzania: Odtwórz następny plik</translation>
     </message>
     <message>
         <source>After Playback: Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Po zakończeniu odtwarzania: Nic nie rób</translation>
     </message>
     <message>
         <source>On Top: Default</source>

@@ -761,10 +761,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Pause</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Stop</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1608,6 +1604,10 @@
         <source>&amp;Playlist</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2367,10 +2367,6 @@ media file played</source>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Replace file name with title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4304,6 +4300,10 @@ media file played</source>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace file name with title</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

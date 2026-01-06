@@ -92,6 +92,14 @@
         <translation>额外播放次数：减少</translation>
     </message>
     <message>
+        <source>Move Subtitles Up</source>
+        <translation type="vanished">上移字幕</translation>
+    </message>
+    <message>
+        <source>Move Subtitles Down</source>
+        <translation type="vanished">下移字幕</translation>
+    </message>
+    <message>
         <source>Decrease Aspect ratio</source>
         <translation>减少长宽比</translation>
     </message>
@@ -177,11 +185,15 @@
     </message>
     <message>
         <source>Volume Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>提高音量</translation>
     </message>
     <message>
         <source>Volume Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>降低音量</translation>
+    </message>
+    <message>
+        <source>Play / Pause</source>
+        <translation type="vanished">播放/暂停</translation>
     </message>
 </context>
 <context>
@@ -1658,7 +1670,7 @@
     </message>
     <message>
         <source>D&amp;isable</source>
-        <translation>关闭(%I)</translation>
+        <translation>关闭(&amp;I)</translation>
     </message>
     <message>
         <source>&amp;Minimum</source>
@@ -1727,6 +1739,10 @@
     <message>
         <source>&amp;Playlist</source>
         <translation>播放列表(&amp;P)</translation>
+    </message>
+    <message>
+        <source>&amp;Play</source>
+        <translation type="vanished">播放(&amp;P)</translation>
     </message>
 </context>
 <context>
@@ -1925,7 +1941,7 @@
     <name>PlaybackManager</name>
     <message>
         <source>Speed: %1%</source>
-        <translation>速度:%1%</translation>
+        <translation>速度：%1%</translation>
     </message>
     <message>
         <source>Volume: %1%</source>
@@ -2579,11 +2595,11 @@ media file played</source>
     </message>
     <message>
         <source>E&amp;xternal</source>
-        <translation>外部</translation>
+        <translation>外部(&amp;X)</translation>
     </message>
     <message>
         <source>Interna&amp;l</source>
-        <translation>内置</translation>
+        <translation>内部(&amp;L)</translation>
     </message>
     <message>
         <source>Browse...</source>
@@ -3543,7 +3559,7 @@ media file played</source>
     </message>
     <message>
         <source>A&amp;utodetect</source>
-        <translation>自动选择</translation>
+        <translation>自动检测(&amp;U)</translation>
     </message>
     <message>
         <source>Linux - some gpus, does not always treat certain colorspaces like BT.2020 correctly</source>
@@ -3571,7 +3587,7 @@ media file played</source>
     </message>
     <message>
         <source>Pla&amp;y</source>
-        <translation>播放</translation>
+        <translation>播放(&amp;Y)</translation>
     </message>
     <message>
         <source>times</source>
@@ -3579,7 +3595,7 @@ media file played</source>
     </message>
     <message>
         <source>Repeat fore&amp;ver</source>
-        <translation>一直重复</translation>
+        <translation>一直重复(&amp;V)</translation>
     </message>
     <message>
         <source>Always loop images (manual progression)</source>
@@ -3824,7 +3840,7 @@ media file played</source>
     </message>
     <message>
         <source>Filesi&amp;ze</source>
-        <translation>文件大小</translation>
+        <translation>文件大小(&amp;Z)</translation>
     </message>
     <message>
         <source>MB</source>
@@ -4304,7 +4320,7 @@ media file played</source>
     </message>
     <message>
         <source> ms</source>
-        <translation>毫秒</translation>
+        <translation> 毫秒</translation>
     </message>
     <message>
         <source>Remember panels state</source>
@@ -4448,11 +4464,15 @@ media file played</source>
     </message>
     <message>
         <source>Choose Log File</source>
-        <translation type="unfinished"></translation>
+        <translation>选择日志文件</translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
         <translation>图标名称见 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;源码仓库&lt;/a&gt;。</translation>
+    </message>
+    <message>
+        <source>File title</source>
+        <translation type="vanished">文件标题</translation>
     </message>
 </context>
 <context>
@@ -4487,11 +4507,11 @@ media file played</source>
     </message>
     <message>
         <source>&amp;Go!</source>
-        <translation>快速跳转</translation>
+        <translation>快速跳转(&amp;G)！</translation>
     </message>
     <message>
         <source>Thu&amp;mbnail</source>
-        <translation>预览图</translation>
+        <translation>缩略图(&amp;M)</translation>
     </message>
     <message>
         <source>&amp;Quality</source>
@@ -4499,11 +4519,11 @@ media file played</source>
     </message>
     <message>
         <source>&amp;Columns</source>
-        <translation>列</translation>
+        <translation>列(&amp;C)</translation>
     </message>
     <message>
         <source>Save Thumbnails</source>
-        <translation>保存预览图</translation>
+        <translation>保存缩略图</translation>
     </message>
     <message>
         <source>%p%</source>

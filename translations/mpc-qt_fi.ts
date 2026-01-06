@@ -2412,10 +2412,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Replace file name with title</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>History</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4294,6 +4290,10 @@ media file played</source>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace file name with title</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

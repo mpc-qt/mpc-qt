@@ -92,6 +92,14 @@
         <translation>追加再生回数 : 減らす</translation>
     </message>
     <message>
+        <source>Move Subtitles Up</source>
+        <translation type="vanished">字幕を上に移動</translation>
+    </message>
+    <message>
+        <source>Move Subtitles Down</source>
+        <translation type="vanished">字幕を下に移動</translation>
+    </message>
+    <message>
         <source>Decrease Aspect ratio</source>
         <translation>アスペクト比を下げる</translation>
     </message>
@@ -182,6 +190,10 @@
     <message>
         <source>Volume Decrease</source>
         <translation>音量を下げる</translation>
+    </message>
+    <message>
+        <source>Play / Pause</source>
+        <translation type="vanished">再生 / 一時停止</translation>
     </message>
 </context>
 <context>
@@ -1772,6 +1784,10 @@
         <source>&amp;Playlist</source>
         <translation>再生リスト(&amp;P)</translation>
     </message>
+    <message>
+        <source>&amp;Play</source>
+        <translation type="vanished">再生(&amp;P)</translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2907,11 +2923,11 @@ media file played</source>
     </message>
     <message>
         <source>Fruit</source>
-        <translation>フルーツ</translation>
+        <translation>Fruit</translation>
     </message>
     <message>
         <source>Ordered</source>
-        <translation>順序</translation>
+        <translation>Ordered</translation>
     </message>
     <message>
         <source>No</source>
@@ -2927,7 +2943,7 @@ media file played</source>
     </message>
     <message>
         <source>Temporal dithering</source>
-        <translation>時間的ディザリング</translation>
+        <translation>時間方向ディザリング</translation>
     </message>
     <message>
         <source>Period</source>
@@ -2947,7 +2963,7 @@ media file played</source>
     </message>
     <message>
         <source>Temporal interpolation</source>
-        <translation>フレーム補間</translation>
+        <translation>時間方向補間</translation>
     </message>
     <message>
         <source>Blend subtitles</source>
@@ -2991,11 +3007,11 @@ media file played</source>
     </message>
     <message>
         <source>Box</source>
-        <translation>ボックス</translation>
+        <translation>Box</translation>
     </message>
     <message>
         <source>Triangle</source>
-        <translation>三角</translation>
+        <translation>トライアングル</translation>
     </message>
     <message>
         <source>Bartlett</source>
@@ -3043,7 +3059,7 @@ media file played</source>
     </message>
     <message>
         <source>Clamp</source>
-        <translation>Clamp</translation>
+        <translation>クリップ</translation>
     </message>
     <message>
         <source>Radius</source>
@@ -3111,7 +3127,7 @@ media file played</source>
     </message>
     <message>
         <source>Bc spline</source>
-        <translation>Bc スプライン</translation>
+        <translation>Bc spline</translation>
     </message>
     <message>
         <source>Catmull rom</source>
@@ -3155,7 +3171,7 @@ media file played</source>
     </message>
     <message>
         <source>Temporal</source>
-        <translation>Temporal</translation>
+        <translation>時間方向</translation>
     </message>
     <message>
         <source>Linear</source>
@@ -3319,7 +3335,7 @@ media file played</source>
     </message>
     <message>
         <source>Juncture</source>
-        <translation>Juncture</translation>
+        <translation>接合点</translation>
     </message>
     <message>
         <source>Contrast</source>
@@ -3403,7 +3419,7 @@ media file played</source>
     </message>
     <message>
         <source>Latency hacks</source>
-        <translation>Latency hacks</translation>
+        <translation>レイテンシー ハック</translation>
     </message>
     <message>
         <source>Alsa</source>
@@ -4196,7 +4212,7 @@ media file played</source>
     </message>
     <message>
         <source>Web root</source>
-        <translation>ウェブ ルート</translation>
+        <translation>Webroot</translation>
     </message>
     <message>
         <source>Security</source>
@@ -4428,7 +4444,7 @@ media file played</source>
     </message>
     <message>
         <source> ms</source>
-        <translation>ミリ秒</translation>
+        <translation> ミリ秒</translation>
     </message>
     <message>
         <source>Remember panels state</source>
@@ -4572,11 +4588,15 @@ media file played</source>
     </message>
     <message>
         <source>Choose Log File</source>
-        <translation type="unfinished"></translation>
+        <translation>ログファイルを選択</translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
         <translation>アイコン名については、 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;ソース リポジトリ&lt;/a&gt; を参照してください。</translation>
+    </message>
+    <message>
+        <source>File title</source>
+        <translation type="vanished">ファイル タイトル</translation>
     </message>
 </context>
 <context>
