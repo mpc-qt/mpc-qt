@@ -2111,7 +2111,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation>தெளிவான</translation>
+        <translation type="vanished">தெளிவான</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -2158,8 +2158,16 @@
         <translation>&amp; பிளேலிச்ட்டை அகற்று</translation>
     </message>
     <message>
+        <source>&amp;Clear Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>&amp; நகல் பிளேலிச்ட்</translation>
+    </message>
+    <message>
+        <source>&amp;Rename Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>

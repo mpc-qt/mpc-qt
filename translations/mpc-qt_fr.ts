@@ -2059,7 +2059,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation>Nettoyer</translation>
+        <translation type="vanished">Nettoyer</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -2098,8 +2098,16 @@
         <translation>&amp;Supprimer la liste</translation>
     </message>
     <message>
+        <source>&amp;Clear Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>&amp;Dupliquer la liste</translation>
+    </message>
+    <message>
+        <source>&amp;Rename Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>

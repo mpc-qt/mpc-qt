@@ -2091,7 +2091,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation>Очистить</translation>
+        <translation type="vanished">Очистить</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -2138,8 +2138,16 @@
         <translation>&amp;Удалить список воспроизведения</translation>
     </message>
     <message>
+        <source>&amp;Clear Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>&amp;Дублировать список воспроизведения</translation>
+    </message>
+    <message>
+        <source>&amp;Rename Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>

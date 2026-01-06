@@ -2111,7 +2111,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation>Temizle</translation>
+        <translation type="vanished">Temizle</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -2158,8 +2158,16 @@
         <translation>&amp;Oynatma Listesini Kaldır</translation>
     </message>
     <message>
+        <source>&amp;Clear Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>Oyn&amp;atma Listesini Çoğalt</translation>
+    </message>
+    <message>
+        <source>&amp;Rename Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>

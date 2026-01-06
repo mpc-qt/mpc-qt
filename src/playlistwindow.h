@@ -97,6 +97,7 @@ public slots:
     void newTab();
     void closeTab();
     void duplicateTab();
+    void renameTab();
     void importTab();
     void exportTab();
 
@@ -141,6 +142,8 @@ private slots:
     void playlist_contextMenuRequested(const QPoint &p, const QUuid &playlistUuid, const QUuid &itemUuid);
 
     void on_tabWidget_tabCloseRequested(int index);
+
+    void on_tabWidget_tabBarClicked(int index);
 
     void on_tabWidget_tabBarDoubleClicked(int index);
 

@@ -2010,10 +2010,6 @@
         <translation type="unfinished">Rimuovi</translation>
     </message>
     <message>
-        <source>Clear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Copy To clipboard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2054,8 +2050,16 @@
         <translation>&amp;Rimuovi scaletta</translation>
     </message>
     <message>
+        <source>&amp;Clear Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>&amp;Duplica scaletta</translation>
+    </message>
+    <message>
+        <source>&amp;Rename Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>

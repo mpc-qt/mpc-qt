@@ -2111,7 +2111,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation>Netejar</translation>
+        <translation type="vanished">Netejar</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -2158,8 +2158,16 @@
         <translation>&amp;Eliminar llista de reproducció</translation>
     </message>
     <message>
+        <source>&amp;Clear Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>&amp;Duplicar llista de reproducció</translation>
+    </message>
+    <message>
+        <source>&amp;Rename Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>

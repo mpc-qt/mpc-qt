@@ -2123,7 +2123,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation>消去</translation>
+        <translation type="vanished">消去</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -2170,8 +2170,16 @@
         <translation>再生リストの削除(&amp;R)</translation>
     </message>
     <message>
+        <source>&amp;Clear Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>再生リストを複製(&amp;D)</translation>
+    </message>
+    <message>
+        <source>&amp;Rename Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>

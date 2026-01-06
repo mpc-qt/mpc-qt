@@ -1943,7 +1943,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Wissen</translation>
+        <translation type="obsolete">Wissen</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -1986,7 +1986,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>&amp;Clear Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Duplicate Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Rename Playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -2051,7 +2051,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Bersihkan</translation>
+        <translation type="obsolete">Bersihkan</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -2094,7 +2094,15 @@
         <translation>Hapus daftar Puta&amp;r</translation>
     </message>
     <message>
+        <source>&amp;Clear Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Duplicate Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Rename Playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

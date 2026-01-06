@@ -529,6 +529,30 @@ void PlaylistWindow::duplicateTab()
     addNewTab(remote->uuid(), remote->title());
 }
 
+void PlaylistWindow::renameTab()
+{
+    auto widget = static_cast<DrawnPlaylist *>(ui->tabWidget->currentWidget());
+    QUuid tabUuid = widget->uuid();
+    if (tabUuid.isNull())
+        return;
+    QInputDialog *qid = new QInputDialog(this);
+    qid->setAttribute(Qt::WA_DeleteOnClose);
+    qid->setWindowModality(Qt::ApplicationModal);
+    qid->setWindowTitle(tr("Enter playlist name"));
+    qid->setTextValue(ui->tabWidget->tabText(ui->tabWidget->currentIndex()).replace("&", ""));
+    connect(qid, &QInputDialog::accepted, this, [this, widget, tabUuid, qid]() {
+        int tabIndex = ui->tabWidget->indexOf(widget);
+        if (tabIndex < 0)
+            return;
+        auto pl = PlaylistCollection::getSingleton()->getPlaylist(tabUuid);
+        if (!pl)
+            return;
+        pl->setTitle(qid->textValue());
+        ui->tabWidget->setTabText(tabIndex, qid->textValue().replace("&", "+"));
+    });
+    qid->show();
+}
+
 void PlaylistWindow::importTab()
 {
     static QFileDialog::Options options = QFileDialog::Options();
@@ -927,14 +951,6 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     m->addSeparator();
 
     a = new QAction(m);
-    a->setText(tr("Clear"));
-    connect(a, &QAction::triggered,
-            this, &PlaylistWindow::playlist_removeAllRequested);
-    m->addAction(a);
-
-    m->addSeparator();
-
-    a = new QAction(m);
     a->setText(tr("Copy To clipboard"));
     connect(a, &QAction::triggered,
             this, [this,playlistUuid]() {
@@ -1061,36 +1077,30 @@ void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
         updateCurrentPlaylist();
 }
 
+void PlaylistWindow::on_tabWidget_tabBarClicked(int index)
+{
+    ui->tabWidget->setCurrentIndex(index);
+}
+
 void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
 {
-    auto widget = static_cast<DrawnPlaylist *>(ui->tabWidget->widget(index));
-    QUuid tabUuid = widget->uuid();
-    if (tabUuid.isNull())
-        return;
-    QInputDialog *qid = new QInputDialog(this);
-    qid->setAttribute(Qt::WA_DeleteOnClose);
-    qid->setWindowModality(Qt::ApplicationModal);
-    qid->setWindowTitle(tr("Enter playlist name"));
-    qid->setTextValue(ui->tabWidget->tabText(index).replace("&", ""));
-    connect(qid, &QInputDialog::accepted, this, [this, widget, tabUuid, qid]() {
-        int tabIndex = ui->tabWidget->indexOf(widget);
-        if (tabIndex < 0)
-            return;
-        auto pl = PlaylistCollection::getSingleton()->getPlaylist(tabUuid);
-        if (!pl)
-            return;
-        pl->setTitle(qid->textValue());
-        ui->tabWidget->setTabText(tabIndex, qid->textValue().replace("&", "+"));
-    });
-    qid->show();
+    Q_UNUSED(index);
+    renameTab();
 }
 
 void PlaylistWindow::on_tabWidget_customContextMenuRequested(const QPoint &pos)
 {
+    auto widget = static_cast<DrawnPlaylist *>(ui->tabWidget->currentWidget());
+    bool isQuickPlaylist = widget->uuid().isNull();
+
     QMenu *m = new QMenu(this);
     m->addAction(tr("&New Playlist"), this, SLOT(newTab()));
     m->addAction(tr("&Remove Playlist"), this, SLOT(closeTab()));
+    m->addAction(tr("&Clear Playlist"), this, SLOT(playlist_removeAllRequested()));
     m->addAction(tr("&Duplicate Playlist"), this, SLOT(duplicateTab()));
+    QAction *renameTab = m->addAction(tr("&Rename Playlist"), this, SLOT(renameTab()));
+    if (isQuickPlaylist)
+        renameTab->setEnabled(false);
     m->addAction(tr("&Import Playlist"), this, SLOT(importTab()));
     m->addAction(tr("&Export Playlist"), this, SLOT(exportTab()));
     m->exec(ui->tabWidget->mapToGlobal(pos));
