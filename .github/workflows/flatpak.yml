@@ -19,12 +19,7 @@ jobs:
           repository: 'flathub/io.github.mpc_qt.mpc-qt'
           path: flathub
       - name: Get version
-        run: |
-          if [[ "$GITHUB_REF" == *"refs/heads/release/"* ]]; then
-            echo "MPC-QT_PACKAGE_VERSION=$(echo $GITHUB_REF | sed 's,refs/heads/release/,,g')">> $GITHUB_ENV
-          else
-            echo "MPC-QT_PACKAGE_VERSION=continuous">> $GITHUB_ENV
-          fi
+        run: echo "MPC-QT_PACKAGE_VERSION=$( cat .github/actions/data/VERSION )" >> $GITHUB_ENV
       - name: Prepare Flatpak manifest with modules from Flathub manifest
         uses: mikefarah/yq@v4.50.1
         with:
@@ -37,9 +32,8 @@ jobs:
       - name: Build
         uses: flatpak/flatpak-github-actions/flatpak-builder@master
         with:
-          bundle: mpc-qt-${{env.MPC-QT_PACKAGE_VERSION}}-linux-x86_64.flatpak
+          bundle: mpc-qt-linux-x64-${{env.MPC-QT_PACKAGE_VERSION}}.flatpak
           manifest-path: flathub/io.github.mpc_qt.mpc-qt.yml
-          cache-key: flatpak-builder-${{ github.sha }}
           upload-artifact: false
       - name: Upload
         uses: actions/upload-artifact@v4

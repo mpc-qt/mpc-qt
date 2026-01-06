@@ -5,7 +5,7 @@ set -e
 
 VERSION=""
 if [ -v FORCE_VERSION ]; then
-    if [[ $FORCE_VERSION == "GithubAction" ]]; then
+    if [[ $FORCE_VERSION == "continuous" ]]; then
         VERSION=`date +'%Y.%m.%d'`
     else
         VERSION=$FORCE_VERSION
