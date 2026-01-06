@@ -78,7 +78,10 @@ else()
         if(NOT "${VERSTR}" STREQUAL "")
             string(REPLACE "v" "" VERSTR ${VERSTR})
             set(VERSTR_WIN "${VERSTR}.${VERSTR_BLD}")
-	    string(REPLACE "-master" "" VERSTR_WIN ${VERSTR_WIN})
+            string(REPLACE "-master" "" VERSTR_WIN ${VERSTR_WIN})
+        else()
+            set(VERSTR "Unspecified_version")
+            set(VERSTR_WIN "0.0.0.0")
         endif()
 
         if(NOT "${VERSTR_BLD}" STREQUAL "0")
@@ -99,6 +102,8 @@ else()
         set(VERSTR_WIN "0.0.0.0")
     endif()
 endif()
+
+message(STATUS "The version appears to be ${VERSTR}, and the Windows manifest would say this is ${VERSTR_WIN}.")
 
 configure_file(
     ${PROJECT_SOURCE_DIR}/packaging/nsis/mpc-qt.nsi.in

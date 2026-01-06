@@ -10,12 +10,10 @@ Q_DECLARE_METATYPE(QVariantMapMap)
 Q_DECLARE_METATYPE(DBusManagedObjects)
 Q_DECLARE_METATYPE(ByteArrayList)
 
-
-
 static QString dbus_ay_toString(const dbus_ay &data);
 static QString lastPart(const QString &path);
 
-
+static constexpr char logModule[] =  "devman";
 
 static const QString DBUS_SERVICE_NAME      ("org.freedesktop.UDisks2");
 static const QString DBUS_IFACE_MANAGER     ("org.freedesktop.DBus.ObjectManager");
@@ -38,7 +36,6 @@ static const QString DBUS_IFACE_ADDED   ("InterfacesAdded");
 static const QString DBUS_IFACE_REMOVED ("InterfacesRemoved");
 static const QString DBUS_INTROSPECT    ("Introspect");
 static const QString DBUS_PROP_CHANGED  ("PropertiesChanged");
-
 
 
 DeviceManagerUnix::DeviceManagerUnix(QObject *parent)
@@ -153,7 +150,7 @@ void DeviceManagerUnix::addDrive(const QString &node)
         connect(drive, &UDisks2Drive::changed,
                 this, &DeviceManagerUnix::driveChanged);
         drives_.insert(node, drive);
-        Logger::logs("devman", {"adding drive", node});
+        Logger::logs(logModule, {"adding drive", node});
         emit driveAdded(node);
     }
 }
@@ -271,7 +268,7 @@ void UDisks2Block::mount()
         if (!fs->mountPoints().isEmpty())
             mountedPath = fs->mountPoints().first();
     }
-    Logger::logs("devman", {"device mount", mountedPath});
+    Logger::logs(logModule, {"device mount", mountedPath});
 }
 
 QString UDisks2Block::toString()
@@ -432,7 +429,7 @@ void UDisks2Filesystem::mount()
 {
     QDBusMessage reply = dbus->call(DBUS_CMD_MOUNT, QVariantMap());
     if (reply.type() == QDBusMessage::ErrorMessage)
-        Logger::logs("devman", {"mount failed with message", reply.errorMessage()});
+        Logger::logs(logModule, {"mount failed with message", reply.errorMessage()});
     update();
 }
 

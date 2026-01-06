@@ -42,6 +42,8 @@ const bool Platform::isUnix =
 ;
 
 
+static constexpr char logModule[] =  "platform";
+
 DeviceManager *Platform::deviceManager()
 {
     static DeviceManagerPlatform *dm = nullptr;
@@ -126,7 +128,7 @@ bool Platform::tilingDesktopActive()
             return false;
 
     // Last resort, this will take some time (0.3s on my machine)
-    Logger::log("platform", "did not quickly determine desktop type, "
+    Logger::log(logModule, "did not quickly determine desktop type, "
                             "using pgrep and making a guess");
     for (QString &wm: tilers) {
         QProcess process;

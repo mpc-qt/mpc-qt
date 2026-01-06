@@ -12,20 +12,28 @@ jobs:
       options: --privileged
     steps:
       - name: Check out repository
-        uses: sithlord48/fancy-checkout@v1.0.0
+        uses: actions/checkout@v4
+      - name: Check out Flathub repository
+        uses: actions/checkout@v4
+        with:
+          repository: 'flathub/io.github.mpc_qt.mpc-qt'
+          path: flathub
       - name: Get version
-        run: |
-          if [[ "$GITHUB_REF" == *"refs/heads/release/"* ]]; then
-            echo "MPC-QT_PACKAGE_VERSION=$(echo $GITHUB_REF | sed 's,refs/heads/release/,,g')">> $GITHUB_ENV
-          else
-            echo "MPC-QT_PACKAGE_VERSION=continuous">> $GITHUB_ENV
-          fi
+        run: echo "MPC-QT_PACKAGE_VERSION=$( cat .github/actions/data/VERSION )" >> $GITHUB_ENV
+      - name: Prepare Flatpak manifest with modules from Flathub manifest
+        uses: mikefarah/yq@v4.50.1
+        with:
+          cmd: |
+            yq eval -i '
+              .modules[0].modules = load("flathub/io.github.mpc_qt.mpc-qt.yml").modules[0].modules
+            ' packaging/flatpak/io.github.mpc_qt.mpc-qt.yml
+      - name: Move manifest to be with potential patches
+        run: mv -f packaging/flatpak/io.github.mpc_qt.mpc-qt.yml flathub/io.github.mpc_qt.mpc-qt.yml
       - name: Build
         uses: flatpak/flatpak-github-actions/flatpak-builder@master
         with:
-          bundle: mpc-qt-${{env.MPC-QT_PACKAGE_VERSION}}-linux-x86_64.flatpak
-          manifest-path: packaging/flatpak/io.github.mpc_qt.mpc-qt.yml
-          cache-key: flatpak-builder-${{ github.sha }}
+          bundle: mpc-qt-linux-x64-${{env.MPC-QT_PACKAGE_VERSION}}.flatpak
+          manifest-path: flathub/io.github.mpc_qt.mpc-qt.yml
           upload-artifact: false
       - name: Upload
         uses: actions/upload-artifact@v4

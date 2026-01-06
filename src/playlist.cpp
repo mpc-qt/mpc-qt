@@ -4,17 +4,18 @@
 
 
 
-constexpr char keyContents[] = "contents";
-constexpr char keyCreated[] = "created";
-constexpr char keyItems[] = "items";
-constexpr char keyMetadata[] = "metadata";
-constexpr char keyNowPlaying[] = "nowplaying";
-constexpr char keyRepeat[] = "repeat";
-constexpr char keyShuffle[] = "shuffle";
-constexpr char keyTitle[] = "title";
-constexpr char keyUrl[] = "url";
-constexpr char keyUuid[] = "uuid";
-constexpr char keyOriginalPosition[] = "originalposition";
+static constexpr char logModule[] =  "playlist";
+static constexpr char keyContents[] = "contents";
+static constexpr char keyCreated[] = "created";
+static constexpr char keyItems[] = "items";
+static constexpr char keyMetadata[] = "metadata";
+static constexpr char keyNowPlaying[] = "nowplaying";
+static constexpr char keyRepeat[] = "repeat";
+static constexpr char keyShuffle[] = "shuffle";
+static constexpr char keyTitle[] = "title";
+static constexpr char keyUrl[] = "url";
+static constexpr char keyUuid[] = "uuid";
+static constexpr char keyOriginalPosition[] = "originalposition";
 
 
 

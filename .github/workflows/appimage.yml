@@ -3,6 +3,15 @@ name: AppImage maker
 on:
   [workflow_call]
 
+env:
+  DEVBUILD: continuous
+  RUNNEROS: ubuntu-22.04
+  CACHE_KEY_FILES: |
+    mpv-build/ffmpeg/RELEASE
+    mpv-build/libass/RELEASEVERSION
+    mpv-build/libplacebo/.git/packed-refs
+    mpv-build/mpv/MPV_VERSION
+
 jobs:
   appimage:
     name: Build with PPA
@@ -48,7 +57,7 @@ jobs:
           sudo apt install linguist-qt6 qt6-tools-dev qmake6 qt6-base-dev libboost-all-dev libqt6svg6-dev && break || sleep 60
         done
         for i in 1 2 3; do
-          sudo apt install devscripts equivs git libunwind-dev && break || sleep 60
+          sudo apt install devscripts equivs git libunwind-dev gdebi && break || sleep 60
         done
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -57,34 +66,71 @@ jobs:
       with:
         repository: "mpv-player/mpv-build"
         path: mpv-build
-    - name: Copy build options
+    - name: Copy build options and script
       run: |
         cp .github/actions/data/build_options/* mpv-build/
+        cp .github/actions/data/mpv-build/* mpv-build/
     - name: Get mpv dependencies
       run: |
         cd mpv-build
+        ./use-ffmpeg-release
+        ./use-libass-release
+        ./use-libplacebo-release
+        ./use-mpv-release
         sed -i '/libdisplay-info-dev/d' debian/control
         ./update
         cp debian/changelog.TEMPLATE debian/changelog
-        mk-build-deps -s sudo -i
+    - name: Check cache key inputs exist
+      id: check-cache-inputs
+      run: |
+        missing=0
+
+        while IFS= read -r file; do
+          [[ -z "$file" ]] && continue
+          if [[ ! -f "$file" ]]; then
+            echo "::warning::Missing cache input file: $file"
+            missing=1
+          fi
+        done <<< "$CACHE_KEY_FILES"
+
+        if [[ $missing -eq 0 ]]; then
+          echo "All cache input files are present."
+          echo "cacheable=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "One or more cache input files are missing; cache will be skipped."
+          echo "cacheable=false" >> "$GITHUB_OUTPUT"
+        fi
+    - name: Restore dependencies or cache them later
+      id: cache-deps
+      if: steps.check-cache-inputs.outputs.cacheable == 'true'
+      uses: actions/cache@v4
+      with:
+        path: deb
+        key: appimage-${{ env.RUNNEROS }}-${{ hashFiles(env.CACHE_KEY_FILES) }}
     - name: Build mpv package
+      if: steps.cache-deps.outputs.cache-hit != 'true'
       run: |
         cd mpv-build
+        mk-build-deps -s sudo -i
         export DEB_BUILD_OPTIONS=nostrip
         dpkg-buildpackage -uc -us -b
+        cd ..
+        mkdir deb
+        mv mpv-build/*.deb deb
     - name: Install mpv package
       run: |
-        mv mpv-build/*.deb ./
-        sudo dpkg -i *.deb
-    - name: Set version
+        mv deb/*.deb ./
+        sudo gdebi --n mpv_*.deb
+        mv ./*.deb deb
+    - name: Configure build
       run: |
         VERSION=$( cat .github/actions/data/VERSION )
-        if [[ $VERSION == "GithubAction" ]]; then
-          VERSION=$( date +'%Y.%m.%d' )
+        echo "MPC-QT_PACKAGE_VERSION=$VERSION" >> $GITHUB_ENV
+        if [[ $VERSION != $DEVBUILD ]]; then
+          cmake -DMPCQT_VERSION=$VERSION -DCMAKE_INSTALL_PREFIX=/usr -G Ninja -B build
+        else
+          cmake -DCMAKE_INSTALL_PREFIX=/usr -G Ninja -B build
         fi
-        echo "MPCQT_VERSION=$VERSION" >> $GITHUB_ENV
-    - name: cmake
-      run: cmake -DMPCQT_VERSION=$MPCQT_VERSION -G Ninja -B build
     - name: Build
       run: cmake --build build
     - name: ninja install
@@ -92,27 +138,33 @@ jobs:
     - name: Install packages
       run: sudo apt install libfuse2 libqt6svg6-dev libqt6openglwidgets6
     - name: Download linuxdeploy
-      uses: pcolby/install-linuxdeploy@v1
+      uses: pcolby/install-linuxdeploy@v1.1.0
       with:
         arch: x86_64
         dir: linuxdeploy
         install-deps: false
-        plugins: qt
+        plugins: qt@1-alpha-20250213-1
         set-env: true
-        version: 1-alpha-20240109-1
+        version: 1-alpha-20251107-1
     - name: Build AppImage
-      run: EXTRA_QT_PLUGINS="svg;" QMAKE=/usr/bin/qmake6 linuxdeploy/linuxdeploy-x86_64.AppImage --appdir AppDir -e bin/mpc-qt --custom-apprun ./packaging/appimage/AppRun -d data/io.github.mpc_qt.mpc-qt.desktop -i res/images/icon/mpc-qt.svg --plugin qt --output appimage
-    - name: Get version
       run: |
-        if [[ "$GITHUB_REF" == *"refs/heads/release/"* ]]; then
-          echo "MPC-QT_PACKAGE_VERSION=$(echo $GITHUB_REF | sed 's,refs/heads/release/,,g')">> $GITHUB_ENV
-        else
-          echo "MPC-QT_PACKAGE_VERSION=continuous">> $GITHUB_ENV
-        fi
-    - name: Rename AppImage
-      run:  mv *.AppImage mpc-qt-${{env.MPC-QT_PACKAGE_VERSION}}-linux-x86_64.AppImage
+        export EXTRA_QT_MODULES="svg;"
+        export QMAKE=/usr/bin/qmake6
+        export LDAI_OUTPUT="mpc-qt-linux-x64-${{env.MPC-QT_PACKAGE_VERSION}}.AppImage"
+        export LDAI_UPDATE_INFORMATION="gh-releases-zsync|mpc-qt|mpc-qt|latest|mpc-qt-linux-x64-*.AppImage.zsync"
+        linuxdeploy/linuxdeploy-x86_64.AppImage \
+          --appdir build/AppDir \
+          -e build/AppDir/usr/bin/mpc-qt \
+          -d build/AppDir/usr/share/applications/io.github.mpc_qt.mpc-qt.desktop \
+          --custom-apprun ./packaging/appimage/AppRun \
+          --plugin qt --output appimage
     - name: Upload AppImage
       uses: actions/upload-artifact@v4
       with:
         name: "mpc-qt-x86_64-AppImage"
         path: ./mpc-qt[-_]*.AppImage
+    - name: Upload AppImage autoupdate zsync file
+      uses: actions/upload-artifact@v4
+      with:
+        name: "mpc-qt-x86_64-AppImage-zsync"
+        path: ./mpc-qt[-_]*.AppImage.zsync

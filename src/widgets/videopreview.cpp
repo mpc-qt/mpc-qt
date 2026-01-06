@@ -1,9 +1,10 @@
 #include <QToolTip>
 #include "videopreview.h"
 
-constexpr int previewMarginX = 20;
-constexpr int labelHeight = 20;
-constexpr int videoHeight = 180;
+static constexpr char logModule[] =  "videopreview";
+static constexpr int previewMarginX = 20;
+static constexpr int labelHeight = 20;
+static constexpr int videoHeight = 180;
 
 VideoPreview::VideoPreview(QWidget *parent) : QWidget(parent)
 {

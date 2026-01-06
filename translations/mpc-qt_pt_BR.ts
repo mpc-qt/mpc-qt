@@ -37,35 +37,35 @@
     </message>
     <message>
         <source>After Playback: Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Após a reprodução: Sair</translation>
     </message>
     <message>
         <source>After Playback: Stand by</source>
-        <translation type="unfinished"></translation>
+        <translation>Após a reprodução: Aguarde</translation>
     </message>
     <message>
         <source>After Playback: Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>Após a reprodução: Hibernar</translation>
     </message>
     <message>
         <source>After Playback: Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Após a reprodução: Desligar</translation>
     </message>
     <message>
         <source>After Playback: Log Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Após a reprodução: faça logout</translation>
     </message>
     <message>
         <source>After Playback: Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Após a reprodução: Bloquear</translation>
     </message>
     <message>
         <source>After Playback: Play next file</source>
-        <translation type="unfinished"></translation>
+        <translation>Após a reprodução: Reproduza o ficheiro seguinte</translation>
     </message>
     <message>
         <source>After Playback: Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Após a reprodução: Não faça nada</translation>
     </message>
     <message>
         <source>On Top: Default</source>
@@ -2402,10 +2402,6 @@ arquivo de mídia reproduzido</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Replace file name with title</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>History</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2499,18 +2495,6 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Folder (e.g. ~/Pictures/MyIcons/mpc-qt/leet)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fallback</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Black (for white palette)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>White (for black palette)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4368,6 +4352,10 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace file name with title</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

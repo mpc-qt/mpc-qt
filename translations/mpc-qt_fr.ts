@@ -92,6 +92,14 @@
         <translation>Lectures supplémentaires&#xa0;: Décrémenter</translation>
     </message>
     <message>
+        <source>Move Subtitles Up</source>
+        <translation type="vanished">Déplacer les sous-titres vers le haut</translation>
+    </message>
+    <message>
+        <source>Move Subtitles Down</source>
+        <translation type="vanished">Déplacer les sous-titres vers le bas</translation>
+    </message>
+    <message>
         <source>Decrease Aspect ratio</source>
         <translation>Réduire le ratio d&apos;aspect</translation>
     </message>
@@ -182,6 +190,10 @@
     <message>
         <source>Volume Decrease</source>
         <translation>Diminuer le volume</translation>
+    </message>
+    <message>
+        <source>Play / Pause</source>
+        <translation type="vanished">Play / Pause</translation>
     </message>
 </context>
 <context>
@@ -1708,6 +1720,10 @@
         <source>&amp;Playlist</source>
         <translation>L&amp;iste</translation>
     </message>
+    <message>
+        <source>&amp;Play</source>
+        <translation type="vanished">&amp;Play</translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2615,15 +2631,15 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Fallback</source>
-        <translation>Fallback</translation>
+        <translation type="vanished">Fallback</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
-        <translation>Noir (pour palette blanche)</translation>
+        <translation type="vanished">Noir (pour palette blanche)</translation>
     </message>
     <message>
         <source>White (for black palette)</source>
-        <translation>Blanc (pour palette noire)</translation>
+        <translation type="vanished">Blanc (pour palette noire)</translation>
     </message>
     <message>
         <source>Widget Color</source>
@@ -4504,11 +4520,15 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Choose Log File</source>
-        <translation type="unfinished"></translation>
+        <translation>Choisir un fichier journal</translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
         <translation>Voir &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;le dépôt source&lt;/a&gt; pour les noms des icônes.</translation>
+    </message>
+    <message>
+        <source>File title</source>
+        <translation type="vanished">Titre du fichier</translation>
     </message>
 </context>
 <context>

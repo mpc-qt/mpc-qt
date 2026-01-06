@@ -128,9 +128,6 @@ static const QMap<QString,FilterKernel> filterKernels {
 
 
 QHash<QString, QStringList> SettingMap::indexedValueToText = {
-    {"interfaceIconsInbuilt", { autoIcons, \
-                                blackIconsPath, \
-                                whiteIconsPath }},
     {"videoFramebuffer", {"rgb8-rgba8", "rgb10-rgb10_a2", "rgba12-rgba12",\
                           "rgb16-rgba16", "rgb16f-rgba16f",\
                           "rgb32f-rgba32f"}},
@@ -249,6 +246,7 @@ static const QStringList internalLogos = {
     ":/images/logo/triangle-circle.svg",
     ":/images/logo/mpv-vlc.svg"
 };
+static constexpr char logModule[] =  "settings";
 
 
 
@@ -257,7 +255,7 @@ Setting &Setting::operator =(const Setting &s) = default;
 void Setting::sendToControl()
 {
     if (!widget) {
-        Logger::log("settings", "attempted to send data to null widget!");
+        Logger::log(logModule, "attempted to send data to null widget!");
         return;
     }
     classSetter[widget->metaObject()->className()](widget, value);
@@ -266,7 +264,7 @@ void Setting::sendToControl()
 void Setting::fetchFromControl()
 {
     if (!widget) {
-        Logger::log("settings", "attempted to get data from null widget!");
+        Logger::log(logModule, "attempted to get data from null widget!");
         return;
     }
     value = classFetcher[widget->metaObject()->className()](widget);
@@ -300,9 +298,9 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SettingsWindow)
 {
-    Logger::log("settings", "creating ui");
+    Logger::log(logModule, "creating ui");
     ui->setupUi(this);
-    Logger::log("settings", "finished creating ui");
+    Logger::log(logModule, "finished creating ui");
 
     actionEditor = new ActionEditor(this);
     ui->keysHost->addWidget(actionEditor);
@@ -316,22 +314,22 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     actionEditor->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     actionEditor->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 
-    Logger::log("settings", "creating logo widget");
+    Logger::log(logModule, "creating logo widget");
     logoWidget = new LogoWidget(this);
     ui->logoImageHost->layout()->addWidget(logoWidget);
 
-    Logger::log("settings", "setting up platform widgets");
+    Logger::log(logModule, "setting up platform widgets");
     setupPlatformWidgets();
-    Logger::log("settings", "setting up palette editor");
+    Logger::log(logModule, "setting up palette editor");
     setupPaletteEditor();
-    Logger::log("settings", "setting up fullscreen combo");
+    Logger::log(logModule, "setting up fullscreen combo");
     setupFullscreenCombo();
 
-    Logger::log("settings", "generating settings map");
+    Logger::log(logModule, "generating settings map");
     defaultSettings = generateSettingMap(this);
     acceptedSettings = defaultSettings;
     generateVideoPresets();
-    Logger::log("settings", "finished generating settings");
+    Logger::log(logModule, "finished generating settings");
 
     ui->pageStack->setCurrentIndex(0);
     ui->videoTabs->setCurrentIndex(0);
@@ -727,7 +725,7 @@ void SettingsWindow::sendSignals()
 
     emit logoSource(selectedLogo());
     emit iconTheme(static_cast<IconThemer::FolderMode>(WIDGET_LOOKUP(ui->interfaceIconsTheme).toInt()),
-                   WIDGET_TO_TEXT(ui->interfaceIconsInbuilt),
+                   autoIcons,
                    WIDGET_LOOKUP(ui->interfaceIconsCustomFolder).toString());
     emit highContrastWidgets(WIDGET_LOOKUP(ui->interfaceWidgetHighContast).toBool());
     emit applicationPalette(WIDGET_LOOKUP(ui->interfaceWidgetCustom).toBool()
@@ -1312,12 +1310,7 @@ void SettingsWindow::on_playerKeepHistory_checkStateChanged(Qt::CheckState state
 
 void SettingsWindow::on_interfaceIconsTheme_currentIndexChanged(int index)
 {
-    bool fallbackIcons = index == 0;
     bool customIcons = index == 1;
-
-    ui->interfaceIconsInbuiltLabel->setEnabled(fallbackIcons);
-    ui->interfaceIconsInbuilt->setEnabled(fallbackIcons);
-
     ui->interfaceIconsCustomFolder->setEnabled(customIcons);
     ui->interfaceIconsCustomBrowse->setEnabled(customIcons);
     ui->interfaceIconsCustomLabel->setEnabled(customIcons);

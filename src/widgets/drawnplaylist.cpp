@@ -8,6 +8,8 @@
 #include "helpers.h"
 #include "logger.h"
 
+static constexpr char logModule[] =  "drawnplaylist";
+
 PlayPainter::PlayPainter(QObject *parent) : QAbstractItemDelegate(parent) {}
 
 void PlayPainter::paint(QPainter *painter, const QStyleOptionViewItem &option,
@@ -131,7 +133,7 @@ DrawnPlaylist::DrawnPlaylist(QSharedPointer<PlaylistCollection> collection,
 
 DrawnPlaylist::~DrawnPlaylist()
 {
-    Logger::log("drawnplaylist", "~DrawnPlaylist");
+    Logger::log(logModule, "~DrawnPlaylist");
     worker->deleteLater();
 }
 

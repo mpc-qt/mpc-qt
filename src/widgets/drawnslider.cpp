@@ -4,7 +4,7 @@
 #include "drawnslider.h"
 #include "logger.h"
 
-
+static constexpr char logModule[] =  "drawnslider";
 
 // dr: drawrect electric floating boogaloo
 // As the doc says, QPainter draws the right and bottom edges one pixel below
@@ -338,7 +338,7 @@ void MediaSlider::resizeEvent(QResizeEvent *event)
 
 void MediaSlider::makeBackground()
 {
-    Logger::log("drawnslider", "MediaSlider::makeBackground");
+    Logger::log(logModule, "MediaSlider::makeBackground");
     qreal pr = devicePixelRatioF();
     int pw = width() * pr;
     int ph = width() * pr;
@@ -464,7 +464,7 @@ VolumeSlider::VolumeSlider(QWidget *parent) :
 
 void VolumeSlider::makeBackground()
 {
-    Logger::log("drawnslider", "VolumeSlider::makeBackground");
+    Logger::log(logModule, "VolumeSlider::makeBackground");
     qreal pr = devicePixelRatioF();
     int pw = int(drawnArea.width() * pr);
     int ph = int(drawnArea.height() * pr);

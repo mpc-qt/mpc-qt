@@ -11,9 +11,9 @@
 #include "mpvwidget.h"
 #include "ipc/json.h"
 
-
-const char serverNameJson[] = "cmdrkotori.mpc-qt";
-const char serverNameMpv[] = "cmdrkotori.mpc-qt.mpv";
+static constexpr char logModule[] =  "ipc";
+static constexpr char serverNameJson[] = "cmdrkotori.mpc-qt";
+static constexpr char serverNameMpv[] = "cmdrkotori.mpc-qt.mpv";
 
 Q_GLOBAL_STATIC_WITH_ARGS(QSet<QString>, bannedProperties, ({
     "stream-open-filename", "file-local-options", "ab-loop-a",
@@ -360,7 +360,7 @@ void MpvServer::server_newConnection(QLocalSocket *socket)
         return;
     }
 
-    Logger::log("ipc", "new mpv connection");
+    Logger::log(logModule, "new mpv connection");
     new MpvConnection(socket, playbackManager, mpvObject, this);
 }
 

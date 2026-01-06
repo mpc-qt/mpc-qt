@@ -5,7 +5,7 @@
  <project_license>GPL-2.0+</project_license>
  <name>MPC-QT</name>
  <summary>Media Player Classic reimplemented with Qt and libmpv</summary>
- <launchable type="desktop-id">data/io.github.mpc_qt.mpc-qt.desktop</launchable>
+ <launchable type="desktop-id">io.github.mpc_qt.mpc-qt.desktop</launchable>
  <content_rating type="oars-1.1" />
  <developer id="io.github.mpc-qt">
   <name>The MPC-QT developers</name>
@@ -28,16 +28,6 @@
   </ul>
  </description>
 
- <keywords>
-  <keyword>media</keyword>
-  <keyword>player</keyword>
-  <keyword>video</keyword>
-  <keyword>audio</keyword>
-  <keyword>mpv</keyword>
-  <keyword>tv</keyword>
-  <keyword>stream</keyword>
- </keywords>
-
  <screenshots>
   <screenshot type="default">
    <caption>Main window with video preview</caption>
@@ -59,6 +49,7 @@
 
  <url type="homepage">https://mpc-qt.github.io/</url>
  <url type="bugtracker">https://github.com/mpc-qt/mpc-qt/issues</url>
+ <url type="vcs-browser">https://github.com/mpc-qt/mpc-qt</url>
 
  <recommends>
   <control>keyboard</control>
