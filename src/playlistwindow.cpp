@@ -863,7 +863,15 @@ void PlaylistWindow::playlist_removeItemRequested()
     if (!qdp)
         return;
 
-    qdp->traverseSelected([qdp](QUuid itemUuid) { qdp->removeItem(itemUuid); });
+    qdp->traverseSelected([this, qdp](QUuid itemUuid) {
+        int index = qdp->currentRow();
+        if (index + 1 < qdp->count())
+            selectNext();
+        else
+            selectPrevious();
+
+        qdp->removeItem(itemUuid);
+    });
     updatePlaylistHasItems();
 }
 

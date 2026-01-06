@@ -3524,6 +3524,11 @@ void MainWindow::hideTimer_timeout()
         ui->bottomArea->hide();
 }
 
+void MainWindow::on_actionPlaylistRemoveSelected_triggered()
+{
+    emit removeSelectedPlaylistItem();
+}
+
 void MainWindow::on_actionPlaylistSearch_triggered()
 {
     if (playlistWindow_->isHidden())

@@ -1748,6 +1748,10 @@
         <source>&amp;Play Selected</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;Remove Selected</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

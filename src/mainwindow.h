@@ -165,6 +165,7 @@ signals:
     void filePrevious(bool forceFolderFallback);
     void fileNext(bool forceFolderFallback, bool replaceMpvPlaylist = true);
     void moveToRecycleBin();
+    void removeSelectedPlaylistItem();
     void showGoToWindow(double playTime, double playLength, double fps);
     void chapterSelected(int64_t id);
     void timeSelected(double time);
@@ -456,6 +457,7 @@ private slots:
     void on_actionHelpHomepage_triggered();
     void on_actionHelpAbout_triggered();
 
+    void on_actionPlaylistRemoveSelected_triggered();
     void on_actionPlaylistSearch_triggered();
     void on_actionPlaylistFinishSearching_triggered();
 

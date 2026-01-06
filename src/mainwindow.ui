@@ -1099,6 +1099,7 @@
     <addaction name="actionPlaylistCopyQueue"/>
     <addaction name="actionPlaylistPaste"/>
     <addaction name="actionPlaylistPasteQueue"/>
+    <addaction name="actionPlaylistRemoveSelected"/>
     <addaction name="separator"/>
     <addaction name="actionPlaylistShowQuickQueue"/>
     <addaction name="actionPlaylistQuickQueue"/>
@@ -1997,6 +1998,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+V</string>
+   </property>
+  </action>
+  <action name="actionPlaylistRemoveSelected">
+   <property name="text">
+    <string>&amp;Remove Selected</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Backspace</string>
    </property>
   </action>
   <action name="actionHelpAboutQt">
