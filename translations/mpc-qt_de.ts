@@ -2159,7 +2159,7 @@
     </message>
     <message>
         <source>&amp;Clear Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Playlist &amp;leeren</translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
@@ -2167,7 +2167,7 @@
     </message>
     <message>
         <source>&amp;Rename Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Playlist &amp;umbenennen</translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
@@ -3896,7 +3896,7 @@ media file played</source>
     </message>
     <message>
         <source>Filter</source>
-        <translation type="unfinished"></translation>
+        <translation>Filter</translation>
     </message>
     <message>
         <source>Colorspace</source>
@@ -4032,11 +4032,11 @@ media file played</source>
     </message>
     <message>
         <source>Log file</source>
-        <translation type="unfinished"></translation>
+        <translation>Log-Datei</translation>
     </message>
     <message>
         <source>Create log file (contents will be overwritten)</source>
-        <translation type="unfinished"></translation>
+        <translation>Log-Datei anlegen (Inhalt wird überschrieben)</translation>
     </message>
     <message>
         <source>Window update interval</source>
@@ -4080,7 +4080,7 @@ media file played</source>
     </message>
     <message>
         <source>Hue</source>
-        <translation type="unfinished"></translation>
+        <translation>Farbton</translation>
     </message>
     <message>
         <source>Saturation</source>
@@ -4216,15 +4216,15 @@ media file played</source>
     </message>
     <message>
         <source>High-contrast timeline and volume sliders</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeitleiste und Lautstärkeregler mit hohem Kontrast</translation>
     </message>
     <message>
         <source>Default After Playback action:</source>
-        <translation type="unfinished"></translation>
+        <translation>Verhalten nach dem Abspielen:</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Nichts tun</translation>
     </message>
     <message>
         <source>Repeat</source>
@@ -4236,19 +4236,19 @@ media file played</source>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Beenden</translation>
     </message>
     <message>
         <source>After Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach der Wiedergabe</translation>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Shader beinhalten Spezialeffekte, die während der Wiedergabe zu einem Video hinzugefügt werden können. Eine Liste mit Shadern aus der Community findet sich im &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;mpv Wiki&lt;/span&gt;&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>Pipewire</source>
-        <translation type="unfinished"></translation>
+        <translation>Pipewire</translation>
     </message>
     <message>
         <source>Use time tooltip:</source>
@@ -4344,79 +4344,79 @@ media file played</source>
     </message>
     <message>
         <source>Send mouse events to mpv</source>
-        <translation type="unfinished"></translation>
+        <translation>Sende Maus-Eingaben an mpv</translation>
     </message>
     <message>
         <source>Send key events to mpv</source>
-        <translation type="unfinished"></translation>
+        <translation>Sende Tastatur-Eingaben an mpv</translation>
     </message>
     <message>
         <source>Remember file position</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiedergabeposition merken</translation>
     </message>
     <message>
         <source>Use next/previous file in folder when there is only one item in the playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehe zur nächsten/vorigen Datei im Verzeichnis, wenn nur eine Datei in der Playlist steht</translation>
     </message>
     <message>
         <source>Play next file</source>
-        <translation type="unfinished"></translation>
+        <translation>Nächste Datei wiedergeben</translation>
     </message>
     <message>
         <source>Delay step</source>
-        <translation type="unfinished"></translation>
+        <translation>Verzögerung</translation>
     </message>
     <message>
         <source>Autodetect - best of VAAPI, DXVA, D3D11VA, etc.</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatische Auswahl - beste Methode von VAAPI, DXVA, D3D11VA etc.</translation>
     </message>
     <message>
         <source>Linux - works with Intel and AMD GPUs through Mesa, and with nVidia through a translation layer; may only be correct in BT.601 and BT.709</source>
-        <translation type="unfinished"></translation>
+        <translation>wird unter Linux über Mesa für Intel und AMD GPUs benutzt; funktioniert für nVidia GPUs über eine Übersetzungsschicht; ist eventuell nur in den Farbräumen BT.601 und BT.709 korrekt</translation>
     </message>
     <message>
         <source>nVidia only (faster than CUDA)</source>
-        <translation type="unfinished"></translation>
+        <translation>nur für nVidia GPUs (schneller als CUDA)</translation>
     </message>
     <message>
         <source>Show OSD timer on seek</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeige die OSD-Zeitanzeige beim Suchen</translation>
     </message>
     <message>
         <source>Normal step</source>
-        <translation type="unfinished"></translation>
+        <translation>Normaler Schritt</translation>
     </message>
     <message>
         <source>Large step</source>
-        <translation type="unfinished"></translation>
+        <translation>Großer Schritt</translation>
     </message>
     <message>
         <source>Show time tooltip:</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeige Zeit als Tooltip:</translation>
     </message>
     <message>
         <source>Change OSD font:</source>
-        <translation type="unfinished"></translation>
+        <translation>OSD Schriftart ändern:</translation>
     </message>
     <message>
         <source>Only keep history for videos</source>
-        <translation type="unfinished"></translation>
+        <translation>Nur den Verlauf für Videos merken</translation>
     </message>
     <message>
         <source>Cinema screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Kinoleinwand</translation>
     </message>
     <message>
         <source>Update interval</source>
-        <translation type="unfinished"></translation>
+        <translation>Update-Intervall</translation>
     </message>
     <message>
         <source>No delay (consumes cpu, use this for testing)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ohne Verzögerung (verbraucht CPU-Leistung, zum Testen benutzen)</translation>
     </message>
     <message>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <source>Remember panels state</source>
