@@ -1092,7 +1092,7 @@
      <addaction name="separator"/>
      <addaction name="actionPlaylistExtraZero"/>
     </widget>
-    <addaction name="actionPlaylistPlayCurrent"/>
+    <addaction name="actionPlaylistPlaySelected"/>
     <addaction name="menuPlay_Times"/>
     <addaction name="separator"/>
     <addaction name="actionPlaylistCopy"/>
@@ -1796,9 +1796,9 @@
     <string>Alt+6</string>
    </property>
   </action>
-  <action name="actionPlaylistPlayCurrent">
+  <action name="actionPlaylistPlaySelected">
    <property name="text">
-    <string>&amp;Play Current</string>
+    <string>&amp;Play Selected</string>
    </property>
    <property name="shortcut">
     <string notr="true">Return</string>

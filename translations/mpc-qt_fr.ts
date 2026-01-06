@@ -986,7 +986,7 @@
     </message>
     <message>
         <source>&amp;Play Current</source>
-        <translation>&amp;Lire en cours</translation>
+        <translation type="vanished">&amp;Lire en cours</translation>
     </message>
     <message>
         <source>Return</source>
@@ -1723,6 +1723,10 @@
     <message>
         <source>&amp;Play</source>
         <translation>&amp;Play</translation>
+    </message>
+    <message>
+        <source>&amp;Play Selected</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -957,10 +957,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Play Current</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Seek Forwards</source>
         <translation type="vanished">Seek Forwards</translation>
     </message>
@@ -1638,6 +1634,10 @@
     </message>
     <message>
         <source>&amp;Play</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Play Selected</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

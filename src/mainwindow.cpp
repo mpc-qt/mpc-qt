@@ -922,7 +922,7 @@ void MainWindow::connectPlaylistWindowToActions() const
             playlistWindow_, &PlaylistWindow::importTab);
     connect(ui->actionPlaylistExport, &QAction::triggered,
             playlistWindow_, &PlaylistWindow::exportTab);
-    connect(ui->actionPlaylistPlayCurrent, &QAction::triggered,
+    connect(ui->actionPlaylistPlaySelected, &QAction::triggered,
             playlistWindow_, &PlaylistWindow::playCurrentItem);
     connect(ui->actionPlaylistShowQuickQueue, &QAction::triggered,
             playlistWindow_, &PlaylistWindow::setQueueMode);
