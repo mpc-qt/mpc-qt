@@ -617,7 +617,7 @@ void PlaylistWindow::selectNext()
 {
     auto qdp = currentPlaylistWidget();
     int index = qdp->currentRow();
-    if (index < qdp->count())
+    if (index + 1 < qdp->count())
         qdp->setCurrentRow(index + 1);
 }
 
