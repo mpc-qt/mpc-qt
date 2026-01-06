@@ -2171,7 +2171,7 @@
     </message>
     <message>
         <source>&amp;Clear Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>再生リストを消去(&amp;C)</translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
@@ -2179,7 +2179,7 @@
     </message>
     <message>
         <source>&amp;Rename Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>再生リストの名前変更(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
