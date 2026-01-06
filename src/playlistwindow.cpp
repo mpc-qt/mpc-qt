@@ -914,6 +914,10 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
         return;
     DrawnPlaylist *listWidget = widgets[playlistUuid];
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(playlistUuid);
+    bool noItemSelected = true;
+    auto qdp = currentPlaylistWidget();
+    if (qdp)
+        noItemSelected = qdp->currentItemUuids().empty();
 
     QMenu *m = new QMenu(this);
     QAction *a;
@@ -924,6 +928,7 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
             this, [this,playlistUuid,itemUuid]() {
         emit itemDesired(playlistUuid, itemUuid, true);
     });
+    a->setDisabled(noItemSelected);
     m->addAction(a);
 
     a = new QAction(m);
@@ -946,6 +951,7 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     a->setText(tr("Remove"));
     connect(a, &QAction::triggered,
             this, &PlaylistWindow::playlist_removeItemRequested);
+    a->setDisabled(noItemSelected);
     m->addAction(a);
 
     m->addSeparator();
@@ -956,6 +962,7 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
             this, [this,playlistUuid]() {
         playlist_copySelectionToClipboard(playlistUuid);
     });
+    a->setDisabled(noItemSelected);
     m->addAction(a);
 
     a = new QAction(m);
