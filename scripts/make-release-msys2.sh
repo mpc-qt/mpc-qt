@@ -4,8 +4,9 @@
 set -e
 
 VERSION=""
+DEVBUILD="continuous"
 if [ -v FORCE_VERSION ]; then
-    if [[ $FORCE_VERSION == "continuous" ]]; then
+    if [[ $FORCE_VERSION == $DEVBUILD ]]; then
         VERSION=`date +'%Y.%m.%d'`
     else
         VERSION=$FORCE_VERSION
@@ -14,6 +15,14 @@ else
     # v23.02-74-g60b18fa -> 23.02.74
     VERSION=`git describe --tags  | sed 's/[^0-9]*\([0-9]*\)[^0-9]*\([0-9]*\)[^0-9]*\([0-9]*\).*/\1.\2.\3/'`
 fi
+
+# Make sure VERSION_WIN is in x.x.x.x format
+VERSION_WIN=$VERSION
+if [[ "$VERSION_WIN" =~ ^[0-9]+\.[0-9]+$ ]]; then
+    VERSION_WIN="${VERSION_WIN}.0"
+fi
+VERSION_WIN="${VERSION_WIN}.0"
+
 BINDIR=bin
 BUILDDIR=build
 EXECUTABLE="$BINDIR/mpc-qt.exe"
@@ -24,7 +33,7 @@ DEST="mpc-qt-$SUFFIX"
 mkdir -p translations/qt
 cp /mingw64/share/qt6/translations/qtbase_*.qm translations/qt
 
-cmake -DMPCQT_VERSION=$VERSION -DENABLE_LOCAL_MPV=ON -G Ninja -B build
+cmake -DMPCQT_VERSION=$VERSION -DMPCQT_VERSION_WIN=$VERSION_WIN -DENABLE_LOCAL_MPV=ON -G Ninja -B build
 ninja -C build
 
 if [ ! -f "$EXECUTABLE" ]; then
