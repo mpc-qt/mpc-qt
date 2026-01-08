@@ -33,7 +33,9 @@ jobs:
     - name: Set version
       run: |
         echo "FORCE_VERSION=" >> $GITHUB_ENV
-        if [ $( cat .github/actions/data/VERSION ) != $DEVBUILD ]; then
+        VERSION=$( cat .github/actions/data/VERSION )
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
+        if [ $VERSION != $DEVBUILD ]; then
             echo "FORCE_VERSION=-DMPCQT_VERSION=$( cat .github/actions/data/VERSION )" >> $GITHUB_ENV
         fi
     - name: cmake
@@ -49,12 +51,12 @@ jobs:
     - name: Upload executable
       uses: actions/upload-artifact@v4
       with:
-        name: "mpc-qt-x86_64"
+        name: "mpc-qt-linux-x64-${{ env.VERSION }}"
         path: bin/mpc-qt
     - name: Upload symbols file
       uses: actions/upload-artifact@v4
       with:
-        name: "mpc-qt-x86_64-debug_symbols"
+        name: "mpc-qt-linux-x64-debug_symbols-${{ env.VERSION }}"
         path: bin/mpc-qt.dbg
 
   tests:
