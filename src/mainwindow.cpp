@@ -188,6 +188,7 @@ QVariantMap MainWindow::state()
         { WRAP(ui->actionAudioFilterAcompressor) },
         { WRAP(ui->actionAudioFilterCrossfeed) },
         { WRAP(ui->actionPlaySubtitlesEnabled) },
+        { WRAP(ui->actionDisableVideoAspect) },
         { WRAP(ui->actionPlayVolumeMute) },
         { "volume", volumeSlider_->value() },
         { "shownStatsPage", mpvObject_->selectedStatsPage() }
@@ -223,6 +224,7 @@ void MainWindow::setState(const QVariantMap &map)
     UNWRAP(ui->actionAudioFilterAcompressor, false);
     UNWRAP(ui->actionAudioFilterCrossfeed, false);
     UNWRAP(ui->actionPlaySubtitlesEnabled, true);
+    UNWRAP(ui->actionDisableVideoAspect, false);
     UNWRAP(ui->actionPlayVolumeMute, false);
 
     ui->actionAudioFilterExtrastereo->isChecked() ? on_actionAudioFilterExtrastereo_triggered(true) : qt_noop();
