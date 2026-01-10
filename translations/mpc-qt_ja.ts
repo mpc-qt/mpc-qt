@@ -1790,11 +1790,11 @@
     </message>
     <message>
         <source>&amp;Play Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>選択項目を再生(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;Remove Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>選択項目を削除(&amp;R)</translation>
     </message>
 </context>
 <context>
