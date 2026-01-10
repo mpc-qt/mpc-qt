@@ -149,6 +149,7 @@ signals:
     void afterPlaybackShutdown();
     void afterPlaybackLogOff();
     void afterPlaybackLock();
+    void removeSelectedPlaylistItem();
 
 public slots:
     // server options

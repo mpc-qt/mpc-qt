@@ -91,6 +91,7 @@ public slots:
     void addSimplePlaylist(QStringList data);
     void addPlaylistByUuid(QUuid playlistUuid);
     void setDisplayFormatSpecifier(QString fmt);
+    void playlist_removeItemRequested();
     void removePlaylistItem(const QUuid &itemUuid);
     void dockLocationMaybeChanged();
 
@@ -135,7 +136,6 @@ private slots:
 
     void self_visibilityChanged();
     void self_dockLocationChanged(Qt::DockWidgetArea area);
-    void playlist_removeItemRequested();
     void playlist_removeAllRequested();
     void playlist_copySelectionToClipboard(const QUuid &playlistUuid);
     void playlist_hideOnFullscreenToggled(bool checked);

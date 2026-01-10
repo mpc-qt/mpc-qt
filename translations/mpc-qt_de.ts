@@ -998,7 +998,7 @@
     </message>
     <message>
         <source>&amp;Play Current</source>
-        <translation>&amp;Aktuelle Datei abspielen</translation>
+        <translation type="vanished">&amp;Aktuelle Datei abspielen</translation>
     </message>
     <message>
         <source>Return</source>
@@ -1783,6 +1783,14 @@
     <message>
         <source>&amp;Play</source>
         <translation>&amp;Abspielen</translation>
+    </message>
+    <message>
+        <source>&amp;Play Selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Selected</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

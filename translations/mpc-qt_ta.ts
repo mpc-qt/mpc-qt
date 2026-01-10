@@ -990,7 +990,7 @@
     </message>
     <message>
         <source>&amp;Play Current</source>
-        <translation>&amp; நடப்பு விளையாடுங்கள்</translation>
+        <translation type="vanished">&amp; நடப்பு விளையாடுங்கள்</translation>
     </message>
     <message>
         <source>Return</source>
@@ -1774,6 +1774,14 @@
     </message>
     <message>
         <source>&amp;Play</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Play Selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Selected</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

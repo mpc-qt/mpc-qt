@@ -986,7 +986,7 @@
     </message>
     <message>
         <source>&amp;Play Current</source>
-        <translation>&amp;Putar Ini</translation>
+        <translation type="vanished">&amp;Putar Ini</translation>
     </message>
     <message>
         <source>Return</source>
@@ -1730,6 +1730,14 @@
     </message>
     <message>
         <source>&amp;Play</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Play Selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Selected</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

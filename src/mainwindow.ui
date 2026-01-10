@@ -1092,13 +1092,14 @@
      <addaction name="separator"/>
      <addaction name="actionPlaylistExtraZero"/>
     </widget>
-    <addaction name="actionPlaylistPlayCurrent"/>
+    <addaction name="actionPlaylistPlaySelected"/>
     <addaction name="menuPlay_Times"/>
     <addaction name="separator"/>
     <addaction name="actionPlaylistCopy"/>
     <addaction name="actionPlaylistCopyQueue"/>
     <addaction name="actionPlaylistPaste"/>
     <addaction name="actionPlaylistPasteQueue"/>
+    <addaction name="actionPlaylistRemoveSelected"/>
     <addaction name="separator"/>
     <addaction name="actionPlaylistShowQuickQueue"/>
     <addaction name="actionPlaylistQuickQueue"/>
@@ -1796,9 +1797,9 @@
     <string>Alt+6</string>
    </property>
   </action>
-  <action name="actionPlaylistPlayCurrent">
+  <action name="actionPlaylistPlaySelected">
    <property name="text">
-    <string>&amp;Play Current</string>
+    <string>&amp;Play Selected</string>
    </property>
    <property name="shortcut">
     <string notr="true">Return</string>
@@ -1997,6 +1998,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+V</string>
+   </property>
+  </action>
+  <action name="actionPlaylistRemoveSelected">
+   <property name="text">
+    <string>&amp;Remove Selected</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Backspace</string>
    </property>
   </action>
   <action name="actionHelpAboutQt">

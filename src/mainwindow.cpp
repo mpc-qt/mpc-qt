@@ -922,7 +922,7 @@ void MainWindow::connectPlaylistWindowToActions() const
             playlistWindow_, &PlaylistWindow::importTab);
     connect(ui->actionPlaylistExport, &QAction::triggered,
             playlistWindow_, &PlaylistWindow::exportTab);
-    connect(ui->actionPlaylistPlayCurrent, &QAction::triggered,
+    connect(ui->actionPlaylistPlaySelected, &QAction::triggered,
             playlistWindow_, &PlaylistWindow::playCurrentItem);
     connect(ui->actionPlaylistShowQuickQueue, &QAction::triggered,
             playlistWindow_, &PlaylistWindow::setQueueMode);
@@ -3522,6 +3522,11 @@ void MainWindow::hideTimer_timeout()
     if (fullscreenMode_ &&
             !ui->bottomArea->geometry().contains(mpvw->mapFromGlobal(QCursor::pos())))
         ui->bottomArea->hide();
+}
+
+void MainWindow::on_actionPlaylistRemoveSelected_triggered()
+{
+    emit removeSelectedPlaylistItem();
 }
 
 void MainWindow::on_actionPlaylistSearch_triggered()

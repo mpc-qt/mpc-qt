@@ -942,7 +942,7 @@
     </message>
     <message>
         <source>&amp;Play Current</source>
-        <translation>&amp;Spill nåværende</translation>
+        <translation type="vanished">&amp;Spill nåværende</translation>
     </message>
     <message>
         <source>Right</source>
@@ -1590,6 +1590,14 @@
     </message>
     <message>
         <source>&amp;Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Play Selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Selected</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

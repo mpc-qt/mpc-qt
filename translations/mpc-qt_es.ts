@@ -982,7 +982,7 @@
     </message>
     <message>
         <source>&amp;Play Current</source>
-        <translation>Re&amp;producir el medio actual</translation>
+        <translation type="vanished">Re&amp;producir el medio actual</translation>
     </message>
     <message>
         <source>Return</source>
@@ -1674,6 +1674,14 @@
     </message>
     <message>
         <source>&amp;Play</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Play Selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Selected</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

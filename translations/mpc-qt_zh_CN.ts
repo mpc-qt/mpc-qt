@@ -998,7 +998,7 @@
     </message>
     <message>
         <source>&amp;Play Current</source>
-        <translation>播放选中的文件(&amp;P)</translation>
+        <translation type="vanished">播放选中的文件(&amp;P)</translation>
     </message>
     <message>
         <source>Return</source>
@@ -1743,6 +1743,14 @@
     <message>
         <source>&amp;Play</source>
         <translation>播放(&amp;P)</translation>
+    </message>
+    <message>
+        <source>&amp;Play Selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Selected</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

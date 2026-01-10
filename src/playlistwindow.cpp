@@ -617,7 +617,7 @@ void PlaylistWindow::selectNext()
 {
     auto qdp = currentPlaylistWidget();
     int index = qdp->currentRow();
-    if (index < qdp->count())
+    if (index + 1 < qdp->count())
         qdp->setCurrentRow(index + 1);
 }
 
@@ -863,7 +863,15 @@ void PlaylistWindow::playlist_removeItemRequested()
     if (!qdp)
         return;
 
-    qdp->traverseSelected([qdp](QUuid itemUuid) { qdp->removeItem(itemUuid); });
+    qdp->traverseSelected([this, qdp](QUuid itemUuid) {
+        int index = qdp->currentRow();
+        if (index + 1 < qdp->count())
+            selectNext();
+        else
+            selectPrevious();
+
+        qdp->removeItem(itemUuid);
+    });
     updatePlaylistHasItems();
 }
 
@@ -914,6 +922,10 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
         return;
     DrawnPlaylist *listWidget = widgets[playlistUuid];
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(playlistUuid);
+    bool noItemSelected = true;
+    auto qdp = currentPlaylistWidget();
+    if (qdp)
+        noItemSelected = qdp->currentItemUuids().empty();
 
     QMenu *m = new QMenu(this);
     QAction *a;
@@ -924,6 +936,7 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
             this, [this,playlistUuid,itemUuid]() {
         emit itemDesired(playlistUuid, itemUuid, true);
     });
+    a->setDisabled(noItemSelected);
     m->addAction(a);
 
     a = new QAction(m);
@@ -946,6 +959,7 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     a->setText(tr("Remove"));
     connect(a, &QAction::triggered,
             this, &PlaylistWindow::playlist_removeItemRequested);
+    a->setDisabled(noItemSelected);
     m->addAction(a);
 
     m->addSeparator();
@@ -956,6 +970,7 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
             this, [this,playlistUuid]() {
         playlist_copySelectionToClipboard(playlistUuid);
     });
+    a->setDisabled(noItemSelected);
     m->addAction(a);
 
     a = new QAction(m);
@@ -1080,6 +1095,9 @@ void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
 void PlaylistWindow::on_tabWidget_tabBarClicked(int index)
 {
     ui->tabWidget->setCurrentIndex(index);
+    auto qdp = currentPlaylistWidget();
+    if (qdp)
+        qdp->scrollToItem(qdp->nowPlayingItem(), false);
 }
 
 void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)

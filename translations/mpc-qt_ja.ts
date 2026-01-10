@@ -998,7 +998,7 @@
     </message>
     <message>
         <source>&amp;Play Current</source>
-        <translation>現在の再生(&amp;P)</translation>
+        <translation type="vanished">現在の再生(&amp;P)</translation>
     </message>
     <message>
         <source>Return</source>
@@ -1787,6 +1787,14 @@
     <message>
         <source>&amp;Play</source>
         <translation>再生(&amp;P)</translation>
+    </message>
+    <message>
+        <source>&amp;Play Selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Selected</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

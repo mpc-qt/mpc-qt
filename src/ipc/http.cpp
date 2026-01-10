@@ -493,7 +493,8 @@ void MpcHcServer::setupWmCommands()
         { 914, "After Playback: Hibernate", [&](){ emit afterPlaybackHibernate(); } },
         { 915, "After Playback: Shutdown",  [&](){ emit afterPlaybackShutdown(); } },
         { 916, "After Playback: Log Off",   [&](){ emit afterPlaybackLogOff(); } },
-        { 917, "After Playback: Lock",      [&](){ emit afterPlaybackLock(); } }
+        { 917, "After Playback: Lock",      [&](){ emit afterPlaybackLock(); } },
+        { 14116, "Remove Selected Item",      [&](){ emit removeSelectedPlaylistItem(); } }
     });
     for (auto &c : wmCommands) {
         wmCommandsById.insert(c.id, c);
