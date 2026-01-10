@@ -1746,11 +1746,11 @@
     </message>
     <message>
         <source>&amp;Play Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>播放所选(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;Remove Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>移除所选(&amp;R)</translation>
     </message>
 </context>
 <context>
