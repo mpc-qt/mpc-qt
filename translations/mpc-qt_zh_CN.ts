@@ -61,11 +61,11 @@
     </message>
     <message>
         <source>After Playback: Play next file</source>
-        <translation>播放结束后：播放下一个</translation>
+        <translation>播放结束后：播放下一个文件</translation>
     </message>
     <message>
         <source>After Playback: Do nothing</source>
-        <translation>播放结束后：等待</translation>
+        <translation>播放结束后：不进行任何操作</translation>
     </message>
     <message>
         <source>On Top: Default</source>
@@ -73,15 +73,15 @@
     </message>
     <message>
         <source>On Top: Always</source>
-        <translation>置顶：永远</translation>
+        <translation>置顶：始终</translation>
     </message>
     <message>
         <source>On Top: While Playing</source>
-        <translation>置顶：播放置顶</translation>
+        <translation>置顶：播放时置顶</translation>
     </message>
     <message>
         <source>On Top: While Playing Video</source>
-        <translation>置顶：在播放时置顶</translation>
+        <translation>置顶：播放视频时置顶</translation>
     </message>
     <message>
         <source>Extra Play Times: Increment</source>
@@ -101,19 +101,19 @@
     </message>
     <message>
         <source>Decrease Aspect ratio</source>
-        <translation>减少长宽比</translation>
+        <translation>减少宽高比</translation>
     </message>
     <message>
         <source>Increase Aspect ratio</source>
-        <translation>增加长宽比</translation>
+        <translation>增加宽高比</translation>
     </message>
     <message>
         <source>Reset Aspect ratio</source>
-        <translation>重置长宽比</translation>
+        <translation>重置宽高比</translation>
     </message>
     <message>
         <source>Disable Aspect ratio</source>
-        <translation>禁用长宽比</translation>
+        <translation>禁用宽高比</translation>
     </message>
     <message>
         <source>Decrease Pan and Scan</source>
@@ -145,7 +145,7 @@
     </message>
     <message>
         <source>4:3 Aspect ratio</source>
-        <translation>4:3 长宽比</translation>
+        <translation>4:3 宽高比</translation>
     </message>
     <message>
         <source>Move Left</source>
@@ -478,7 +478,7 @@
     </message>
     <message>
         <source>Af&amp;ter Playback</source>
-        <translation>播放完成后(&amp;T)</translation>
+        <translation>播放结束后(&amp;T)</translation>
     </message>
     <message>
         <source>&amp;Loop</source>
@@ -578,7 +578,7 @@
     </message>
     <message>
         <source>Save S&amp;ubtitle...</source>
-        <translation>保存字幕(&amp;S)...</translation>
+        <translation>保存字幕(&amp;U)…</translation>
     </message>
     <message>
         <source>Ctrl+S</source>
@@ -770,7 +770,7 @@
     </message>
     <message>
         <source>&amp;Always</source>
-        <translation>永远(&amp;A)</translation>
+        <translation>始终(&amp;A)</translation>
     </message>
     <message>
         <source>Ctrl+A</source>
@@ -782,7 +782,7 @@
     </message>
     <message>
         <source>While Playing &amp;Video</source>
-        <translation>当播放视频时(&amp;V)</translation>
+        <translation>播放视频时(&amp;V)</translation>
     </message>
     <message>
         <source>&amp;Options...</source>
@@ -842,7 +842,7 @@
     </message>
     <message>
         <source>R&amp;eset Rate</source>
-        <translation>重置播放速度(&amp;E)</translation>
+        <translation>重置速率(&amp;E)</translation>
     </message>
     <message>
         <source>Ctrl+R</source>
@@ -898,7 +898,7 @@
     </message>
     <message>
         <source>Do &amp;Nothing</source>
-        <translation>什么都不做(&amp;N)</translation>
+        <translation>不进行任何操作(&amp;N)</translation>
     </message>
     <message>
         <source>Play next in the &amp;folder</source>
@@ -1202,7 +1202,7 @@
     </message>
     <message>
         <source>About &amp;Qt...</source>
-        <translation>关于 Qt (&amp;Q)...</translation>
+        <translation>关于 Qt(&amp;Q)…</translation>
     </message>
     <message>
         <source>Save Pl&amp;ain Image...</source>
@@ -1534,7 +1534,7 @@
     </message>
     <message>
         <source>&amp;Aspect ratio</source>
-        <translation>长宽比(&amp;A)</translation>
+        <translation>宽高比(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Pan and Scan</source>
@@ -1650,7 +1650,7 @@
     </message>
     <message>
         <source>&amp;Crossfeed (for headphones)</source>
-        <translation>交叉馈送（适用于耳机）(&amp;C)</translation>
+        <translation>交叉馈送(耳机专用)(&amp;C)</translation>
     </message>
     <message>
         <source>More Files</source>
@@ -1658,7 +1658,7 @@
     </message>
     <message>
         <source>&amp;Decrease</source>
-        <translation>减低(&amp;D)</translation>
+        <translation>减少(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Increase</source>
@@ -1969,7 +1969,7 @@
     </message>
     <message>
         <source>Aspect ratio: %1</source>
-        <translation>长宽比: %1</translation>
+        <translation>宽高比：%1</translation>
     </message>
     <message>
         <source>Audio track: </source>
@@ -3307,15 +3307,15 @@ media file played</source>
     </message>
     <message>
         <source>Channel layout</source>
-        <translation>声道</translation>
+        <translation>通道布局</translation>
     </message>
     <message>
         <source>System layout (stereo fallback)</source>
-        <translation>系统设置(立体声回退)</translation>
+        <translation>系统布局（立体声回退）</translation>
     </message>
     <message>
         <source>Maximal layout (may output to unconnected channels)</source>
-        <translation>最大化布局（可能输出至未连接的通道）</translation>
+        <translation>最大布局（可能输出至未连接的通道）</translation>
     </message>
     <message>
         <source>Stereo</source>
@@ -3327,7 +3327,7 @@ media file played</source>
     </message>
     <message>
         <source>Stream silence (HDMI fixup)</source>
-        <translation>流式静默（HDMI修复）</translation>
+        <translation>流式静默（HDMI 修复）</translation>
     </message>
     <message>
         <source> seconds</source>
@@ -3724,7 +3724,7 @@ media file played</source>
     </message>
     <message>
         <source>Screen Alignment &amp;&amp; Margins</source>
-        <translation>屏幕对齐与边距(&amp;M)</translation>
+        <translation>屏幕对齐与边距</translation>
     </message>
     <message>
         <source>Position subs relative to the video frame</source>
@@ -4148,11 +4148,11 @@ media file played</source>
     </message>
     <message>
         <source>Default After Playback action:</source>
-        <translation>默认播放完成后动作:</translation>
+        <translation>默认播放结束后操作:</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation>什么都不做</translation>
+        <translation>不进行任何操作</translation>
     </message>
     <message>
         <source>Repeat</source>
@@ -4164,7 +4164,7 @@ media file played</source>
     </message>
     <message>
         <source>After Playback</source>
-        <translation>播放完成后</translation>
+        <translation>播放结束后</translation>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
