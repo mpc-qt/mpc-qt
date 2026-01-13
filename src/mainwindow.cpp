@@ -1748,7 +1748,7 @@ void MainWindow::addRecentDocumentsEntries(const QList<TrackInfo> &tracks, QMenu
         QAction *a = new QAction(QString("%1").arg(displayString),
                                  this);
         connect(a, &QAction::triggered, this, [this, track]() {
-            emit recentOpened(track, true);
+            emit recentOpened(track);
         });
         menu->addAction(a);
     }

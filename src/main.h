@@ -73,7 +73,7 @@ private slots:
     void mainwindow_instanceShouldQuit();
     void mainwindow_fullscreenHideControls(bool hide);
     void mainwindow_repeatAfter();
-    void mainwindow_recentOpened(const TrackInfo &track, bool isFromRecents = false);
+    void mainwindow_recentOpened(const TrackInfo &track);
     void mainwindow_recentClear();
     void mainwindow_takeImage(Helpers::ScreenshotRender render);
     void mainwindow_takeImageAutomatically(Helpers::ScreenshotRender render);

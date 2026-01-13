@@ -1374,7 +1374,7 @@ void Flow::mainwindow_repeatAfter()
     repeatAfter = true;
 }
 
-void Flow::mainwindow_recentOpened(const TrackInfo &track, bool isFromRecents)
+void Flow::mainwindow_recentOpened(const TrackInfo &track)
 {
     updateRecentPosition(false);
     if (repeatAfter)
@@ -1386,21 +1386,6 @@ void Flow::mainwindow_recentOpened(const TrackInfo &track, bool isFromRecents)
         playbackManager->playItem(track.list, track.item);
     else
         playbackManager->openFile(track.url);
-
-    // Navigate to a particular position if this is from the favorites menu
-    // or if this is from the recents menu and not disabled
-    if (!isFromRecents || rememberFilePosition) {
-        if (track.position > 0)
-            playbackManager->navigateToTime(track.position);
-        playbackManager->setVideoTrack(track.videoTrack, true);
-        playbackManager->setAudioTrack(track.audioTrack, true);
-        playbackManager->setSubtitleTrack(track.subtitleTrack, true);
-    }
-    else {
-        playbackManager->setVideoTrack(-1, true);
-        playbackManager->setAudioTrack(-1, true);
-        playbackManager->setSubtitleTrack(-1, true);
-    }
 }
 
 void Flow::mainwindow_recentClear()
