@@ -489,24 +489,30 @@ void PlaybackManager::setAudioTrackPreference(QString langs)
 
 void PlaybackManager::setAudioTrack(int64_t id, bool userSelected)
 {
-    if (userSelected)
+    if (userSelected) {
         audioTrackSelected = id;
+        audioTrackSelectedFor = nowPlayingItem;
+    }
     if (id > 0)
         mpvObject_->setAudioTrack(id);
 }
 
 void PlaybackManager::setSubtitleTrack(int64_t id, bool userSelected)
 {
-    if (userSelected)
+    if (userSelected) {
         subtitleTrackSelected = id;
+        subtitleTrackSelectedFor = nowPlayingItem;
+    }
     subtitleTrackActive = id;
     updateSubtitleTrack();
 }
 
 void PlaybackManager::setVideoTrack(int64_t id, bool userSelected)
 {
-    if (userSelected)
+    if (userSelected) {
         videoTrackSelected = id;
+        videoTrackSelectedFor = nowPlayingItem;
+    }
     if (id > 0)
         mpvObject_->setVideoTrack(id);
 }
@@ -690,17 +696,19 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
     mpvStartTime = -1.0;
 
     if (!isRepeating)
-        emit startingPlayingFile(what);
+        emit aboutToStartPlayingFile(what);
 
     nowPlaying_ = what;
+    nowPlayingList = playlistUuid;
+    nowPlayingItem = itemUuid;
+    if (!isRepeating)
+        emit startedPlayingFile(what);
     mpvObject_->fileOpen(what.isLocalFile() ? what.toLocalFile()
                                             : QUrl::fromPercentEncoding(what.toEncoded()),
                          replaceMpvPlaylist);
     mpvObject_->setSubFile(with.toString());
     mpvObject_->setPaused(playbackStartPaused);
     playbackStartState = playbackStartPaused ? PausedState : PlayingState;
-    nowPlayingList = playlistUuid;
-    nowPlayingItem = itemUuid;
 
     if (!isRepeating && playbackPlayTimes > 1
             && playlistWindow_->extraPlayTimes(playlistUuid, itemUuid) <= 0) {
@@ -757,9 +765,9 @@ void PlaybackManager::selectDesiredTracks()
                     "lastGoodTrack track auto selected: " + QString::number(lastGoodTrack));
         return lastGoodTrack;
     };
-    int64_t videoId = videoTrackSelected;
-    int64_t audioId = audioTrackSelected;
-    int64_t subsId = subtitleTrackSelected;
+    int64_t videoId = videoTrackSelectedFor == nowPlayingItem ? videoTrackSelected : -1;
+    int64_t audioId = audioTrackSelectedFor == nowPlayingItem ? audioTrackSelected : -1;
+    int64_t subsId = subtitleTrackSelectedFor == nowPlayingItem ? subtitleTrackSelected : -1;
 
     if (audioId < 0)
         audioId = findTrackByLangPreference(audioLangPref, audioListData);

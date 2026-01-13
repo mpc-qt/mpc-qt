@@ -86,7 +86,8 @@ private slots:
     void manager_hasNoSubtitles(bool none);
     void manager_playingNextFile();
     void manager_openingNewFile();
-    void manager_startingPlayingFile(QUrl url);
+    void manager_aboutToStartPlayingFile();
+    void manager_startedPlayingFile(QUrl url);
     void manager_stoppedPlaying();
     void mpcHcServer_fileSelected(QString fileName);
     void settingswindow_settingsData(const QVariantMap &settings);

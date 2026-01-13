@@ -91,7 +91,8 @@ signals:
     void systemShouldHibernate();
     void currentTrackInfo(TrackInfo track);
     void openingNewFile();
-    void startingPlayingFile(QUrl url);
+    void aboutToStartPlayingFile(QUrl url);
+    void startedPlayingFile(QUrl url);
     void removePlaylistItemRequested(QUuid itemUuid);
     void stoppedPlaying();
 
@@ -251,8 +252,11 @@ private:
     QStringList audioLangPref;
     QStringList subtitleLangPref;
     int64_t videoTrackSelected = -1;
+    QUuid videoTrackSelectedFor;
     int64_t audioTrackSelected = -1;
+    QUuid audioTrackSelectedFor;
     int64_t subtitleTrackSelected = -1;
+    QUuid subtitleTrackSelectedFor;
     int64_t subtitleTrackActive = 0;
     bool subtitleEnabled = true;
     bool subtitlesIgnoreEmbedded = false;

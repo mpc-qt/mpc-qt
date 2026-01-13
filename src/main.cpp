@@ -675,6 +675,10 @@ void Flow::setupManagerConnections()
     connect(playbackManager, &PlaybackManager::currentTrackInfo,
             favoritesWindow, &FavoritesWindow::addTrack);
 
+    // manager -> properties
+    connect(playbackManager, &PlaybackManager::aboutToStartPlayingFile,
+            propertiesWindow, &PropertiesWindow::setFileModifiedTime);
+
     // goto -> manager
     connect(gotoWindow, &GoToWindow::goTo,
             playbackManager, &PlaybackManager::navigateToTime);
@@ -838,8 +842,6 @@ void Flow::setupMpvObjectConnections()
             propertiesWindow, &PropertiesWindow::setMediaLength);
     connect(mpvObject, &MpvObject::videoSizeChanged,
             propertiesWindow, &PropertiesWindow::setVideoSize);
-    connect(playbackManager, &PlaybackManager::startingPlayingFile,
-            propertiesWindow, &PropertiesWindow::setFileModifiedTime);
     connect(mpvObject, &MpvObject::tracksChanged,
             propertiesWindow, &PropertiesWindow::setTracks);
     connect(mpvObject, &MpvObject::mediaTitleChanged,
@@ -906,8 +908,10 @@ void Flow::setupFlowConnections()
             this, &Flow::manager_playLengthChanged);
     connect(playbackManager, &PlaybackManager::openingNewFile,
             this, &Flow::manager_openingNewFile);
-    connect(playbackManager, &PlaybackManager::startingPlayingFile,
-            this, &Flow::manager_startingPlayingFile);
+    connect(playbackManager, &PlaybackManager::aboutToStartPlayingFile,
+            this, &Flow::manager_aboutToStartPlayingFile);
+    connect(playbackManager, &PlaybackManager::startedPlayingFile,
+            this, &Flow::manager_startedPlayingFile);
     connect(playbackManager, &PlaybackManager::stoppedPlaying,
             this, &Flow::manager_stoppedPlaying);
     connect(playbackManager, &PlaybackManager::stateChanged,
@@ -1530,15 +1534,20 @@ void Flow::manager_openingNewFile()
         mainWindow->setActionPlayLoopUse();
 }
 
-void Flow::manager_startingPlayingFile(QUrl url)
+void Flow::manager_aboutToStartPlayingFile()
 {
-    Logger::log(logModule, "manager_startingPlayingFile");
     if (firstFile) {
         firstFile = false;
         mainWindow->fixMpvwSize();
     }
-    if (rememberFilePosition) {
+    if (rememberFilePosition)
         updateRecentPosition(false);
+}
+
+void Flow::manager_startedPlayingFile(QUrl url)
+{
+    Logger::log(logModule, "manager_startedPlayingFile");
+    if (rememberFilePosition) {
         // Check if there's a position saved in recents for this file
         foreach (TrackInfo track, recentFiles) {
             if (track.url == url) {
