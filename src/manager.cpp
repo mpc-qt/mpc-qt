@@ -493,8 +493,7 @@ void PlaybackManager::setAudioTrack(int64_t id, bool userSelected)
         audioTrackSelected = id;
         audioTrackSelectedFor = nowPlayingItem;
     }
-    if (id > 0)
-        mpvObject_->setAudioTrack(id);
+    mpvObject_->setAudioTrack(id);
 }
 
 void PlaybackManager::setSubtitleTrack(int64_t id, bool userSelected)
@@ -513,8 +512,7 @@ void PlaybackManager::setVideoTrack(int64_t id, bool userSelected)
         videoTrackSelected = id;
         videoTrackSelectedFor = nowPlayingItem;
     }
-    if (id > 0)
-        mpvObject_->setVideoTrack(id);
+    mpvObject_->setVideoTrack(id);
 }
 
 void PlaybackManager::selectNextAudioTrack()
