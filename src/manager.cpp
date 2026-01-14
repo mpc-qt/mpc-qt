@@ -788,6 +788,24 @@ void PlaybackManager::updateSubtitleTrack()
     mpvObject_->setSubtitleTrack(subtitleEnabled ? subtitleTrackActive : 0);
 }
 
+void PlaybackManager::restoreAudioTrack(int64_t id)
+{
+    audioTrackSelected = id;
+    audioTrackSelectedFor = nowPlayingItem;
+}
+
+void PlaybackManager::restoreSubtitleTrack(int64_t id)
+{
+    subtitleTrackSelected = id;
+    subtitleTrackSelectedFor = nowPlayingItem;
+}
+
+void PlaybackManager::restoreVideoTrack(int64_t id)
+{
+    videoTrackSelected = id;
+    videoTrackSelectedFor = nowPlayingItem;
+}
+
 void PlaybackManager::checkAfterPlayback()
 {
     Helpers::AfterPlayback action = afterPlaybackOnce;

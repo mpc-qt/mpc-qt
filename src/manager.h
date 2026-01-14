@@ -177,6 +177,9 @@ public slots:
                              double &length, double &position, int64_t &videoTrack,
                              int64_t &audioTrack, int64_t &subtitleTrack, bool &hasVideo);
     QString nowPlayingTitle();
+    void restoreAudioTrack(int64_t id);
+    void restoreSubtitleTrack(int64_t id);
+    void restoreVideoTrack(int64_t id);
 
 private:
     enum AspectNameChanged { OnOpen, OnFirstPlay, Manually };

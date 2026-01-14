@@ -1552,9 +1552,9 @@ void Flow::manager_startedPlayingFile(QUrl url)
         foreach (TrackInfo track, recentFiles) {
             if (track.url == url) {
                 playbackManager->navigateToTime(track.position);
-                playbackManager->setVideoTrack(track.videoTrack, true);
-                playbackManager->setAudioTrack(track.audioTrack, true);
-                playbackManager->setSubtitleTrack(track.subtitleTrack, true);
+                playbackManager->restoreVideoTrack(track.videoTrack);
+                playbackManager->restoreAudioTrack(track.audioTrack);
+                playbackManager->restoreSubtitleTrack(track.subtitleTrack);
                 break;
             }
         }
