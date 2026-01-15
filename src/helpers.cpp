@@ -505,8 +505,7 @@ QString Helpers::parseFormatEx(QString fmt, QUrl sourceUrl, QString filePath,
                                Helpers::Subtitles subtitles, double timeNav,
                                double timeBegin, double timeEnd)
 {
-    QString basename = QFileInfo(sourceUrl.toDisplayString().split('/').last())
-                       .completeBaseName();
+    QString basename = QFileInfo(sourceUrl.fileName()).completeBaseName();
     QString fileName = parseFormat(fmt, basename, disabled, subtitles, timeNav, timeBegin, timeEnd);
 
     // Filesystems typically support 255 characters for filename length
