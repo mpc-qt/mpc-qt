@@ -30,6 +30,24 @@ jobs:
       - name: Move manifest to be with potential patches
         run: mv -f packaging/flatpak/io.github.mpc_qt.mpc-qt.yml flathub/io.github.mpc_qt.mpc-qt.yml
       - name: Build
+        id: build1
+        uses: flatpak/flatpak-github-actions/flatpak-builder@master
+        continue-on-error: true
+        with:
+          bundle: mpc-qt-linux-x64-${{env.MPC-QT_PACKAGE_VERSION}}.flatpak
+          manifest-path: flathub/io.github.mpc_qt.mpc-qt.yml
+          upload-artifact: false
+      - name: Build - 2
+        id: build2
+        if: steps.build1.outcome == 'failure'
+        uses: flatpak/flatpak-github-actions/flatpak-builder@master
+        continue-on-error: true
+        with:
+          bundle: mpc-qt-linux-x64-${{env.MPC-QT_PACKAGE_VERSION}}.flatpak
+          manifest-path: flathub/io.github.mpc_qt.mpc-qt.yml
+          upload-artifact: false
+      - name: Build - 3
+        if: steps.build2.outcome == 'failure'
         uses: flatpak/flatpak-github-actions/flatpak-builder@master
         with:
           bundle: mpc-qt-linux-x64-${{env.MPC-QT_PACKAGE_VERSION}}.flatpak
