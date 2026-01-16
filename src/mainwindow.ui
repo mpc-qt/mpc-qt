@@ -905,13 +905,13 @@
      <addaction name="actionPlaySubtitlesCopy"/>
      <addaction name="actionDecreaseSubtitlesDelay"/>
      <addaction name="actionIncreaseSubtitlesDelay"/>
-    </widget>
-    <widget class="QMenu" name="menuPlaySubtitlesMove">
-     <property name="title">
-      <string>&amp;Move</string>
-     </property>
-     <addaction name="actionMoveSubtitlesUp"/>
-     <addaction name="actionMoveSubtitlesDown"/>
+      <widget class="QMenu" name="menuPlaySubtitlesMove">
+       <property name="title">
+        <string>&amp;Move</string>
+       </property>
+       <addaction name="actionMoveSubtitlesUp"/>
+       <addaction name="actionMoveSubtitlesDown"/>
+      </widget>
     </widget>
     <widget class="QMenu" name="menuPlayVideo">
      <property name="title">
@@ -1020,7 +1020,6 @@
      <addaction name="actionPlayLoopUse"/>
      <addaction name="actionPlayLoopClear"/>
     </widget>
-    <addaction name="menuPlaySubtitlesMove"/>
     <addaction name="actionPlayPause"/>
     <addaction name="actionPlayStop"/>
     <addaction name="actionPlayFrameBackward"/>
