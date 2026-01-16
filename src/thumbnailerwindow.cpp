@@ -90,7 +90,7 @@ void ThumbnailerWindow::open(QUrl sourceUrl)
     QString saveFile = Helpers::parseFormatEx(thumbFormat, sourceUrl, screenshotDirectory, screenshotFormat,
                                               Helpers::NothingDisabled, Helpers::SubtitlesDisabled,
                                               0.0, 0.0, 0.0);
-    ui->mediaSource->setText(sourceUrl.toString());
+    ui->mediaSource->setText(sourceUrl.path());
     ui->saveImage->setText(saveFile);
     ui->actionProgress->setValue(0);
     show();
