@@ -2054,6 +2054,7 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state)
         mpvObject_->setLoopPoints(-1, -1);
         positionSlider_->setLoopA(-1);
         positionSlider_->setLoopB(-1);
+        ui->actionPlayLoopUse->setChecked(false);
     }
     ui->play->setChecked(state == PlaybackManager::PlayingState);
     ui->stop->setChecked(state == PlaybackManager::StoppedState);
