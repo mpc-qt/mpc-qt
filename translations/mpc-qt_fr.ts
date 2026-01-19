@@ -1726,11 +1726,11 @@
     </message>
     <message>
         <source>&amp;Play Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lire la sélection</translation>
     </message>
     <message>
         <source>&amp;Remove Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Retirer la sélection</translation>
     </message>
 </context>
 <context>
@@ -2107,7 +2107,7 @@
     </message>
     <message>
         <source>&amp;Clear Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Effacer la liste</translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
@@ -2115,7 +2115,7 @@
     </message>
     <message>
         <source>&amp;Rename Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Renommer la liste</translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
