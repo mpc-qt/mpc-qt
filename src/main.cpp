@@ -736,8 +736,6 @@ void Flow::setupSettingsConnections()
             mainWindow, &MainWindow::setVolumeMax);
     connect(settingsWindow, &SettingsWindow::subtitlesDelayStep,
             mainWindow, &MainWindow::setSubtitlesDelayStep);
-    connect(settingsWindow, &SettingsWindow::timeShorten,
-            mainWindow, &MainWindow::setTimeShortMode);
     connect(settingsWindow, &SettingsWindow::videoPreview,
             mainWindow, &MainWindow::setVideoPreview);
     connect(settingsWindow, &SettingsWindow::timeTooltip,

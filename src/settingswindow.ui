@@ -7790,16 +7790,6 @@ media file played</string>
             </widget>
            </item>
            <item row="5" column="0" colspan="2">
-            <widget class="QCheckBox" name="tweaksTimeShort">
-             <property name="text">
-              <string>Shorten the playback time indicator like mpc-hc</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="0" colspan="2">
             <widget class="QCheckBox" name="tweaksPreferWayland">
              <property name="enabled">
               <bool>false</bool>
@@ -7812,21 +7802,21 @@ media file played</string>
              </property>
             </widget>
            </item>
-           <item row="7" column="0" colspan="2">
+           <item row="6" column="0" colspan="2">
             <widget class="QCheckBox" name="tweaksMpvMouseEvents">
              <property name="text">
               <string>Send mouse events to mpv</string>
              </property>
             </widget>
            </item>
-           <item row="8" column="0" colspan="2">
+           <item row="7" column="0" colspan="2">
             <widget class="QCheckBox" name="tweaksMpvKeyEvents">
              <property name="text">
               <string>Send key events to mpv</string>
              </property>
             </widget>
            </item>
-           <item row="9" column="0" colspan="2">
+           <item row="8" column="0" colspan="2">
             <widget class="QCheckBox" name="tweaksVideoPreview">
              <property name="text">
               <string>Show video preview (restart required)</string>
@@ -7836,7 +7826,7 @@ media file played</string>
              </property>
             </widget>
            </item>
-           <item row="10" column="0" colspan="2">
+           <item row="9" column="0" colspan="2">
             <layout class="QHBoxLayout" name="tweaksTimeTooltipLayout" stretch="0,0">
              <item>
               <widget class="QCheckBox" name="tweaksTimeTooltip">
@@ -7873,14 +7863,14 @@ media file played</string>
              </item>
             </layout>
            </item>
-           <item row="11" column="0" colspan="2">
+           <item row="10" column="0" colspan="2">
             <widget class="QCheckBox" name="tweaksOsdTimerOnSeek">
              <property name="text">
               <string>Show OSD timer on seek</string>
              </property>
             </widget>
            </item>
-           <item row="12" column="0" colspan="2">
+           <item row="11" column="0" colspan="2">
             <layout class="QHBoxLayout" name="tweaksOsdFontLayout" stretch="0,1,0">
              <item>
               <widget class="QCheckBox" name="tweaksOsdFontChkBox">
@@ -7935,7 +7925,7 @@ media file played</string>
              </item>
             </layout>
            </item>
-           <item row="13" column="0" colspan="2">
+           <item row="12" column="0" colspan="2">
             <layout class="QHBoxLayout" name="tweaksMpvOptionsLayout" stretch="0,1">
              <item>
               <widget class="QCheckBox" name="tweaksMpvOptionsChkBox">
@@ -7968,7 +7958,7 @@ media file played</string>
              </item>
             </layout>
            </item>
-           <item row="14" column="0">
+           <item row="13" column="0">
             <spacer name="verticalSpacer_9">
              <property name="orientation">
               <enum>Qt::Orientation::Vertical</enum>

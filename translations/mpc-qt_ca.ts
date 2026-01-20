@@ -1342,6 +1342,18 @@ Do you want to use it for &quot;%3&quot; instead?</source>
         <translation>Obertura ràpida</translation>
     </message>
     <message>
+        <source>Remaining time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>High precision</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show percentage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No files favorited</source>
         <translation>Sense arxius preferits</translation>
     </message>
@@ -4157,7 +4169,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
-        <translation>Escurçar l&apos;indicador de la reproducció igual que mpc-hc</translation>
+        <translation type="vanished">Escurçar l&apos;indicador de la reproducció igual que mpc-hc</translation>
     </message>
     <message>
         <source>HDR Compute Peak</source>
@@ -4605,6 +4617,13 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>File title</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StatusTime</name>
+    <message>
+        <source> (%1%)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -282,30 +282,33 @@ QString Helpers::toDateFormatFixed(double time, Helpers::TimeFormat format)
 {
     if (format == ShortFormat || format == ShortHourFormat)
         time = std::round(time);
-    int t = int(time*1000 + 0.5);
-    if (t < 0)
-        t = 0;
+    QString prefix;
+    if (time < 0) {
+        time = abs(time);
+        prefix = "-";
+    }
+    int t = int(time*1000);
     int hr = t/3600000;
     int mn = t/60000 % 60;
     int se = t%60000 / 1000;
     int fr = t % 1000;
     switch (format) {
     case LongFormat:
-        return QString("%1:%2:%3.%4").arg(QString::number(hr))
+        return QString(prefix + "%1:%2:%3.%4").arg(QString::number(hr))
                 .arg(QString::number(mn),2,'0')
                 .arg(QString::number(se),2,'0')
                 .arg(QString::number(fr),3,'0');
     case ShortFormat:
-        return QString("%1:%2:%3").arg(QString::number(hr),2,'0')
+        return QString(prefix + "%1:%2:%3").arg(QString::number(hr),2,'0')
                 .arg(QString::number(mn),2,'0')
                 .arg(QString::number(se),2,'0');
     case LongHourFormat:
-        return QString("%1:%2.%3")
+        return QString(prefix + "%1:%2.%3")
                 .arg(QString::number(mn),2,'0')
                 .arg(QString::number(se),2,'0')
                 .arg(QString::number(fr),3,'0');
     case ShortHourFormat:
-        return QString("%1:%2")
+        return QString(prefix + "%1:%2")
                 .arg(QString::number(mn),2,'0')
                 .arg(QString::number(se),2,'0');
     }

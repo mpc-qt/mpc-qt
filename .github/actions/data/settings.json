@@ -415,7 +415,6 @@
     "tweaksPreferWayland": false,
     "tweaksSeekFramedrop": false,
     "tweaksShowChapterMarks": true,
-    "tweaksTimeShort": true,
     "tweaksTimeTooltip": false,
     "tweaksTimeTooltipLocation": 0,
     "tweaksVideoPreview": false,
