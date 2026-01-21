@@ -675,6 +675,10 @@ void Flow::setupManagerConnections()
     connect(playbackManager, &PlaybackManager::currentTrackInfo,
             favoritesWindow, &FavoritesWindow::addTrack);
 
+    // manager -> properties
+    connect(playbackManager, &PlaybackManager::aboutToStartPlayingFile,
+            propertiesWindow, &PropertiesWindow::setFileModifiedTime);
+
     // goto -> manager
     connect(gotoWindow, &GoToWindow::goTo,
             playbackManager, &PlaybackManager::navigateToTime);
@@ -838,8 +842,6 @@ void Flow::setupMpvObjectConnections()
             propertiesWindow, &PropertiesWindow::setMediaLength);
     connect(mpvObject, &MpvObject::videoSizeChanged,
             propertiesWindow, &PropertiesWindow::setVideoSize);
-    connect(playbackManager, &PlaybackManager::startingPlayingFile,
-            propertiesWindow, &PropertiesWindow::setFileModifiedTime);
     connect(mpvObject, &MpvObject::tracksChanged,
             propertiesWindow, &PropertiesWindow::setTracks);
     connect(mpvObject, &MpvObject::mediaTitleChanged,
@@ -906,8 +908,10 @@ void Flow::setupFlowConnections()
             this, &Flow::manager_playLengthChanged);
     connect(playbackManager, &PlaybackManager::openingNewFile,
             this, &Flow::manager_openingNewFile);
-    connect(playbackManager, &PlaybackManager::startingPlayingFile,
-            this, &Flow::manager_startingPlayingFile);
+    connect(playbackManager, &PlaybackManager::aboutToStartPlayingFile,
+            this, &Flow::manager_aboutToStartPlayingFile);
+    connect(playbackManager, &PlaybackManager::startedPlayingFile,
+            this, &Flow::manager_startedPlayingFile);
     connect(playbackManager, &PlaybackManager::stoppedPlaying,
             this, &Flow::manager_stoppedPlaying);
     connect(playbackManager, &PlaybackManager::stateChanged,
@@ -1374,7 +1378,7 @@ void Flow::mainwindow_repeatAfter()
     repeatAfter = true;
 }
 
-void Flow::mainwindow_recentOpened(const TrackInfo &track, bool isFromRecents)
+void Flow::mainwindow_recentOpened(const TrackInfo &track)
 {
     updateRecentPosition(false);
     if (repeatAfter)
@@ -1386,21 +1390,6 @@ void Flow::mainwindow_recentOpened(const TrackInfo &track, bool isFromRecents)
         playbackManager->playItem(track.list, track.item);
     else
         playbackManager->openFile(track.url);
-
-    // Navigate to a particular position if this is from the favorites menu
-    // or if this is from the recents menu and not disabled
-    if (!isFromRecents || rememberFilePosition) {
-        if (track.position > 0)
-            playbackManager->navigateToTime(track.position);
-        playbackManager->setVideoTrack(track.videoTrack, true);
-        playbackManager->setAudioTrack(track.audioTrack, true);
-        playbackManager->setSubtitleTrack(track.subtitleTrack, true);
-    }
-    else {
-        playbackManager->setVideoTrack(-1, true);
-        playbackManager->setAudioTrack(-1, true);
-        playbackManager->setSubtitleTrack(-1, true);
-    }
 }
 
 void Flow::mainwindow_recentClear()
@@ -1545,22 +1534,27 @@ void Flow::manager_openingNewFile()
         mainWindow->setActionPlayLoopUse();
 }
 
-void Flow::manager_startingPlayingFile(QUrl url)
+void Flow::manager_aboutToStartPlayingFile()
 {
-    Logger::log(logModule, "manager_startingPlayingFile");
     if (firstFile) {
         firstFile = false;
         mainWindow->fixMpvwSize();
     }
-    if (rememberFilePosition) {
+    if (rememberFilePosition)
         updateRecentPosition(false);
+}
+
+void Flow::manager_startedPlayingFile(QUrl url)
+{
+    Logger::log(logModule, "manager_startedPlayingFile");
+    if (rememberFilePosition) {
         // Check if there's a position saved in recents for this file
         foreach (TrackInfo track, recentFiles) {
             if (track.url == url) {
                 playbackManager->navigateToTime(track.position);
-                playbackManager->setVideoTrack(track.videoTrack, true);
-                playbackManager->setAudioTrack(track.audioTrack, true);
-                playbackManager->setSubtitleTrack(track.subtitleTrack, true);
+                playbackManager->restoreVideoTrack(track.videoTrack);
+                playbackManager->restoreAudioTrack(track.audioTrack);
+                playbackManager->restoreSubtitleTrack(track.subtitleTrack);
                 break;
             }
         }

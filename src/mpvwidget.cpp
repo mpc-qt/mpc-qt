@@ -578,7 +578,10 @@ void MpvObject::setLoopPoints(double first, double end)
 
 void MpvObject::setAudioTrack(int64_t id)
 {
-    setMpvPropertyVariant("aid", qlonglong(id));
+    if (id == -1)
+        setMpvPropertyVariant("aid", 1);
+    else
+        setMpvPropertyVariant("aid", qlonglong(id));
     emit audioTrackSet(id);
 }
 
@@ -590,7 +593,10 @@ void MpvObject::setSubtitleTrack(int64_t id)
 
 void MpvObject::setVideoTrack(int64_t id)
 {
-    setMpvPropertyVariant("vid", qlonglong(id));
+    if (id == -1)
+        setMpvPropertyVariant("vid", 1);
+    else
+        setMpvPropertyVariant("vid", qlonglong(id));
     emit videoTrackSet(id);
 }
 

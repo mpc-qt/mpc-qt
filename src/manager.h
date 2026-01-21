@@ -91,7 +91,8 @@ signals:
     void systemShouldHibernate();
     void currentTrackInfo(TrackInfo track);
     void openingNewFile();
-    void startingPlayingFile(QUrl url);
+    void aboutToStartPlayingFile(QUrl url);
+    void startedPlayingFile(QUrl url);
     void removePlaylistItemRequested(QUuid itemUuid);
     void stoppedPlaying();
 
@@ -176,6 +177,9 @@ public slots:
                              double &length, double &position, int64_t &videoTrack,
                              int64_t &audioTrack, int64_t &subtitleTrack, bool &hasVideo);
     QString nowPlayingTitle();
+    void restoreAudioTrack(int64_t id);
+    void restoreSubtitleTrack(int64_t id);
+    void restoreVideoTrack(int64_t id);
 
 private:
     enum AspectNameChanged { OnOpen, OnFirstPlay, Manually };
@@ -251,8 +255,11 @@ private:
     QStringList audioLangPref;
     QStringList subtitleLangPref;
     int64_t videoTrackSelected = -1;
+    QUuid videoTrackSelectedFor;
     int64_t audioTrackSelected = -1;
+    QUuid audioTrackSelectedFor;
     int64_t subtitleTrackSelected = -1;
+    QUuid subtitleTrackSelectedFor;
     int64_t subtitleTrackActive = 0;
     bool subtitleEnabled = true;
     bool subtitlesIgnoreEmbedded = false;

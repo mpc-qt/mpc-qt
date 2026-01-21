@@ -127,7 +127,7 @@ signals:
     void severalFilesOpenedForPlaylist(QUuid destination, QList<QUrl> what);
     void dvdbdOpened(QUrl what);
     void streamOpened(QUrl what);
-    void recentOpened(TrackInfo info, bool isFromRecents = false);
+    void recentOpened(TrackInfo info);
     void recentClear();
     void takeImage(Helpers::ScreenshotRender render);
     void takeImageAutomatically(Helpers::ScreenshotRender render);
