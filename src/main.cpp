@@ -284,7 +284,7 @@ void Flow::detectMode() {
         QString lockFilePath =
             Storage::fetchConfigPath() + QLatin1Char('/') + QLatin1String("mpc-qt.lock");
         std::unique_ptr<QLockFile> lockFile = std::make_unique<QLockFile>(lockFilePath);
-        lockFile->setStaleLockTime(0);
+        lockFile->setStaleLockTime(10000);
         while (!lockFile->tryLock()) {
             alreadyAServer = JsonServer::sendPayload(makePayload(), MpcQtServer::defaultSocketName());
             programMode = alreadyAServer ? EarlyQuitMode : PrimaryMode;
