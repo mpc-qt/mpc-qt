@@ -7804,6 +7804,9 @@ media file played</string>
              <property name="text">
               <string>Prefer Wayland over XWayland (restart required)</string>
              </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
            <item row="7" column="0" colspan="2">
