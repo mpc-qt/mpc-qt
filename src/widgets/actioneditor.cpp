@@ -3,6 +3,7 @@
 #include <QKeySequenceEdit>
 #include <QToolButton>
 #include <QMenu>
+#include <QMessageBox>
 #include "actioneditor.h"
 #include "logger.h"
 
@@ -127,37 +128,59 @@ Command ActionEditor::getCommand(int index) const
     return commands.value(index);
 }
 
-void ActionEditor::setCommand(int index, const Command &c)
+bool ActionEditor::setCommand(int index, const Command &c)
 {
-    if (index >= 0 && index < commands.count())
-        commands[index] = c;
+    bool replace = true;
+    auto shouldReplace = [&](const QString &shortcut,
+                            const QString &oldCommand,
+                            const QString &newCommand)
+    {
+        auto answer = QMessageBox::question(
+            this,
+            tr("Shortcut already used"),
+            QString(
+                tr("\"%1\" is already used by \"%2\".\n"
+                "Do you want to use it for \"%3\" instead?")
+            )
+                .arg(shortcut)
+                .arg(oldCommand)
+                .arg(newCommand),
+            QMessageBox::StandardButtons(QMessageBox::Yes | QMessageBox::No),
+            QMessageBox::No
+        );
+
+        return answer == QMessageBox::Yes;
+    };
 
     for (int i = 0; i < commands.count(); i++) {
         if (i == index)
             continue;
         Command &other = commands[i];
         if (!!other.mouseFullscreen && other.mouseFullscreen == c.mouseFullscreen) {
-            LogStream(logModule) << "\"" << c.action->text() << "\" conflicts with \"" << other.action->text()
-                                << "\" because of fullscreen mouse \"" << c.mouseFullscreen.toString() << "\". \""
-                                << other.action->text() << "\"'s fullscreen mouse was removed.";
-            model.setData(model.index(i, 3), "None");
-            other.mouseFullscreen = MouseState();
+            replace = replace && shouldReplace(c.mouseFullscreen.toString(), getDescriptiveName(other.action), getDescriptiveName(c.action));
+            if (replace) {
+                model.setData(model.index(i, 3), "None");
+                other.mouseFullscreen = MouseState();
+            }
         }
         if (!!other.mouseWindowed && other.mouseWindowed == c.mouseWindowed) {
-            LogStream(logModule) << "\"" << c.action->text() << "\" conflicts with \"" << other.action->text()
-                                << "\" because of windowed mouse \"" << c.mouseWindowed.toString() << "\". \""
-                                << other.action->text() << "\"'s windowed mouse was removed.";
-            model.setData(model.index(i, 2), "None");
-            other.mouseWindowed = MouseState();
+            replace = replace && shouldReplace(c.mouseWindowed.toString(), getDescriptiveName(other.action), getDescriptiveName(c.action));
+            if (replace) {
+                model.setData(model.index(i, 2), "None");
+                other.mouseWindowed = MouseState();
+            }
         }
         if (!other.keys.isEmpty() && other.keys.matches(c.keys) == QKeySequence::ExactMatch) {
-            LogStream(logModule) << "\"" << c.action->text() << "\" conflicts with \"" << other.action->text()
-                                << "\" because of key sequence \"" << c.keys.toString() << "\". \""
-                                << other.action->text() << "\"'s key sequence was removed.";
-            model.setData(model.index(i, 1), "");
-            other.keys = QKeySequence();
+            replace = replace && shouldReplace(c.keys.toString(), getDescriptiveName(other.action), getDescriptiveName(c.action));
+            if (replace) {
+                model.setData(model.index(i, 1), "");
+                other.keys = QKeySequence();
+            }
         }
     }
+    if (replace && index >= 0 && index < commands.count())
+        commands[index] = c;
+    return replace;
 }
 
 void ActionEditor::updateActions()
@@ -227,8 +250,8 @@ void ShortcutDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, 
     QKeySequence seq = keyEditor->keySequence();
     Command c = owner->getCommand(index.row());
     c.keys = seq;
-    owner->setCommand(index.row(), c);
-    model->setData(index, keyEditor->keySequence());
+    if (owner->setCommand(index.row(), c))
+        model->setData(index, keyEditor->keySequence());
 }
 
 void ShortcutDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -267,9 +290,8 @@ void ButtonDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, co
         c.mouseFullscreen = state;
     else
         c.mouseWindowed = state;
-    owner->setCommand(index.row(), c);
-
-    model->setData(index, state.toString());
+    if (owner->setCommand(index.row(), c))
+        model->setData(index, state.toString());
 }
 
 void ButtonDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const

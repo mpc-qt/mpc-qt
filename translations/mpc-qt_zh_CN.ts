@@ -144,6 +144,15 @@
         <translation>重置缩放</translation>
     </message>
     <message>
+        <source>Shortcut already used</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&quot;%1&quot; is already used by &quot;%2&quot;.
+Do you want to use it for &quot;%3&quot; instead?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>4:3 Aspect ratio</source>
         <translation>4:3 宽高比</translation>
     </message>

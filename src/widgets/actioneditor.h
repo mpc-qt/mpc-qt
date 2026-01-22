@@ -24,7 +24,7 @@ public:
 
     void setCommands(const QList<Command> &commands);
     Command getCommand(int index) const;
-    void setCommand(int index, const Command &c);
+    bool setCommand(int index, const Command &c);
     void updateActions();
 
     QVariantMap toVMap() const;
