@@ -145,12 +145,13 @@
     </message>
     <message>
         <source>Shortcut already used</source>
-        <translation type="unfinished"></translation>
+        <translation>快捷键已使用</translation>
     </message>
     <message>
         <source>&quot;%1&quot; is already used by &quot;%2&quot;.
 Do you want to use it for &quot;%3&quot; instead?</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1”已被“%2”使用。
+是否改为用于“%3”？</translation>
     </message>
     <message>
         <source>4:3 Aspect ratio</source>
@@ -275,11 +276,11 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Do not load any config files.</source>
-        <translation>不要载入任何配置文件。</translation>
+        <translation>不加载任何配置文件。</translation>
     </message>
     <message>
         <source>Do not load file history, playlists, or favorites.</source>
-        <translation>不载入文件历史，播放列表和收藏。</translation>
+        <translation>不加载文件历史、播放列表或收藏。</translation>
     </message>
     <message>
         <source>Also write logging messages to console.</source>
@@ -290,7 +291,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>GoToWindow</name>
     <message>
         <source>Go To...</source>
-        <translation>跳转到...</translation>
+        <translation>转到…</translation>
     </message>
     <message>
         <source>Time</source>
@@ -306,18 +307,18 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitely.</source>
-        <translation>请使用[hh:]mm:ss.ms格式输入时间码以跳转至指定时间点。无需显式输入分隔符。</translation>
+        <translation>请使用 [hh:]mm:ss.ms 格式输入时间码以跳转到指定时间。无需显式输入分隔符。</translation>
     </message>
 </context>
 <context>
     <name>LibraryWindow</name>
     <message>
         <source>Library</source>
-        <translation>库</translation>
+        <translation>媒体库</translation>
     </message>
     <message>
         <source>Restore</source>
-        <translation>重置顺序</translation>
+        <translation>恢复</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -419,7 +420,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>vo: 0, decoder: 0</source>
-        <translation>视频输出： 0，解码器： 0</translation>
+        <translation>视频输出：0，解码器：0</translation>
     </message>
     <message>
         <source>Bitrate</source>
@@ -463,7 +464,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>OS&amp;D</source>
-        <translation>启用 OSD 信息(&amp;D)</translation>
+        <translation>OSD 信息(&amp;D)</translation>
     </message>
     <message>
         <source>P&amp;lay</source>
@@ -519,11 +520,11 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Quick Open File...</source>
-        <translation>快速打开文件(&amp;Q)...</translation>
+        <translation>快速打开文件(&amp;Q)…</translation>
     </message>
     <message>
         <source>&amp;Open File...</source>
-        <translation>打开文件(&amp;O)...</translation>
+        <translation>打开文件(&amp;O)…</translation>
     </message>
     <message>
         <source>Ctrl+O</source>
@@ -531,7 +532,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Open &amp;DVD/BD...</source>
-        <translation>打开DVD/BD(&amp;D)...</translation>
+        <translation>打开 DVD/BD(&amp;D)…</translation>
     </message>
     <message>
         <source>Ctrl+D</source>
@@ -539,7 +540,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Open De&amp;vice...</source>
-        <translation>打开设备(&amp;V)...</translation>
+        <translation>打开设备(&amp;V)…</translation>
     </message>
     <message>
         <source>Ctrl+V</source>
@@ -547,7 +548,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Open Dir&amp;ectory...</source>
-        <translation>打开目录(&amp;E)...</translation>
+        <translation>打开目录(&amp;E)…</translation>
     </message>
     <message>
         <source>&amp;Clear list</source>
@@ -563,11 +564,11 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Save a Copy...</source>
-        <translation>保存副本(&amp;S)...</translation>
+        <translation>保存副本(&amp;S)…</translation>
     </message>
     <message>
         <source>Save &amp;Image...</source>
-        <translation>保存截图(&amp;I)...</translation>
+        <translation>保存截图(&amp;I)…</translation>
     </message>
     <message>
         <source>Alt+I</source>
@@ -579,7 +580,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
-        <translation>加载字幕(&amp;L)...</translation>
+        <translation>加载字幕(&amp;L)…</translation>
     </message>
     <message>
         <source>Ctrl+L</source>
@@ -595,11 +596,11 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Upload...</source>
-        <translation>上传(&amp;U)...</translation>
+        <translation>上传(&amp;U)…</translation>
     </message>
     <message>
         <source>&amp;Download...</source>
-        <translation>下载(&amp;D)...</translation>
+        <translation>下载(&amp;D)…</translation>
     </message>
     <message>
         <source>D</source>
@@ -607,7 +608,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Search...</source>
-        <translation>搜索(&amp;S)...</translation>
+        <translation>搜索(&amp;S)…</translation>
     </message>
     <message>
         <source>P&amp;roperties</source>
@@ -643,7 +644,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Controls</source>
-        <translation>控制按钮(&amp;C)</translation>
+        <translation>控制栏(&amp;C)</translation>
     </message>
     <message>
         <source>Ctrl+2</source>
@@ -659,7 +660,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Statistics</source>
-        <translation>状态信息(&amp;S)</translation>
+        <translation>统计信息(&amp;S)</translation>
     </message>
     <message>
         <source>Ctrl+4</source>
@@ -795,7 +796,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Options...</source>
-        <translation>选项(&amp;O)...</translation>
+        <translation>选项(&amp;O)…</translation>
     </message>
     <message>
         <source>O</source>
@@ -931,7 +932,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Go To...</source>
-        <translation>转到(&amp;G)...</translation>
+        <translation>转到(&amp;G)…</translation>
     </message>
     <message>
         <source>Ctrl+G</source>
@@ -975,7 +976,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Organize Favorites...</source>
-        <translation>管理收藏(&amp;O)...</translation>
+        <translation>管理收藏(&amp;O)…</translation>
     </message>
     <message>
         <source>&amp;Home Page</source>
@@ -983,11 +984,11 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;About This Program...</source>
-        <translation>关于此程序(&amp;A)...</translation>
+        <translation>关于此程序(&amp;A)…</translation>
     </message>
     <message>
         <source>Open &amp;Network Stream...</source>
-        <translation>打开网络串流(&amp;N)...</translation>
+        <translation>打开网络串流(&amp;N)…</translation>
     </message>
     <message>
         <source>Save I&amp;mage (Auto)</source>
@@ -1103,7 +1104,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation>新标签(&amp;N)</translation>
+        <translation>新建标签页(&amp;N)</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
@@ -1111,11 +1112,11 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation>关闭标签(&amp;L)</translation>
+        <translation>关闭标签页(&amp;L)</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>关闭标签</translation>
+        <translation>关闭标签页</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1123,7 +1124,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>分割标签(&amp;D)</translation>
+        <translation>复制标签页(&amp;D)</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
@@ -1203,7 +1204,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Paste and Q&amp;ueue</source>
-        <translation>粘贴与队列(&amp;U)</translation>
+        <translation>粘贴并排队(&amp;U)</translation>
     </message>
     <message>
         <source>Ctrl+Alt+V</source>
@@ -1215,7 +1216,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Save Pl&amp;ain Image...</source>
-        <translation>保存原画面(&amp;A)...</translation>
+        <translation>保存原画面(&amp;A)…</translation>
     </message>
     <message>
         <source>Alt+Shift+I</source>
@@ -1231,7 +1232,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Export Encode...</source>
-        <translation>导出编码...</translation>
+        <translation>导出编码…</translation>
     </message>
     <message>
         <source>F12</source>
@@ -1247,7 +1248,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Save &amp;Window Image...</source>
-        <translation>保存实画面(&amp;W)...</translation>
+        <translation>保存实画面(&amp;W)…</translation>
     </message>
     <message>
         <source>Save Window Image</source>
@@ -1283,7 +1284,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;General Statistics</source>
-        <translation>一般信息(&amp;G)</translation>
+        <translation>常规统计信息(&amp;G)</translation>
     </message>
     <message>
         <source>&amp;Frame Timings</source>
@@ -1291,7 +1292,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Cycle</source>
-        <translation>切换到下一个 OSD 信息(&amp;C)</translation>
+        <translation>循环切换(&amp;C)</translation>
     </message>
     <message>
         <source>Ctrl+J</source>
@@ -1491,7 +1492,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Show OSD Timer</source>
-        <translation>显示时间 OSD 信息(&amp;S)</translation>
+        <translation>显示 OSD 计时器(&amp;S)</translation>
     </message>
     <message>
         <source>I</source>
@@ -1603,11 +1604,11 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>v: %1 kb/s, a: %2 kb/s</source>
-        <translation>视频传输比特率： %1 kb/s，音频传输比特率： %2 kb/s</translation>
+        <translation>视频传输比特率：%1 kb/s，音频传输比特率：%2 kb/s</translation>
     </message>
     <message>
         <source>v: 0 kb/s, a: 0kb/s</source>
-        <translation>视频比特率：0 kb/s，音频比特率：0kb/s</translation>
+        <translation>视频比特率：0 kb/s，音频比特率：0 kb/s</translation>
     </message>
     <message>
         <source>(Unknown)</source>
@@ -1913,7 +1914,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>MpvObject</name>
     <message>
         <source>Subtitles delay: %1 ms</source>
-        <translation>字幕延迟: %1 毫秒</translation>
+        <translation>字幕延迟：%1 毫秒</translation>
     </message>
 </context>
 <context>
@@ -2032,15 +2033,15 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>New Tab</source>
-        <translation>新标签</translation>
+        <translation>新建标签页</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>关闭标签</translation>
+        <translation>关闭标签页</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation>分割标签</translation>
+        <translation>复制标签页</translation>
     </message>
     <message>
         <source>Import Playlist</source>
@@ -2104,7 +2105,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>保存为...</translation>
+        <translation>保存为…</translation>
     </message>
     <message>
         <source>Sort By Label</source>
@@ -2112,7 +2113,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Sort By Url</source>
-        <translation>按 Url 排序</translation>
+        <translation>按 URL 排序</translation>
     </message>
     <message>
         <source>Randomize</source>
@@ -2120,11 +2121,11 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Restore</source>
-        <translation>重置顺序</translation>
+        <translation>恢复</translation>
     </message>
     <message>
         <source>Shuffle</source>
-        <translation>拖拽</translation>
+        <translation>随机播放</translation>
     </message>
     <message>
         <source>Hide On Fullscreen</source>
@@ -2136,7 +2137,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;New Playlist</source>
-        <translation>新播放列表(&amp;N)</translation>
+        <translation>新建播放列表(&amp;N)</translation>
     </message>
     <message>
         <source>&amp;Remove Playlist</source>
@@ -2148,7 +2149,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
-        <translation>分割播放列表(&amp;D)</translation>
+        <translation>复制播放列表(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Rename Playlist</source>
@@ -2168,7 +2169,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Reshuffle</source>
-        <translation>重新随机排序</translation>
+        <translation>重新随机播放</translation>
     </message>
     <message>
         <source>Queue</source>
@@ -2211,19 +2212,19 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Type:</source>
-        <translation>格式:</translation>
+        <translation>类型：</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation>大小:</translation>
+        <translation>大小：</translation>
     </message>
     <message>
         <source>Media length:</source>
-        <translation>长度:</translation>
+        <translation>媒体长度：</translation>
     </message>
     <message>
         <source>Video size:</source>
-        <translation>视频大小:</translation>
+        <translation>视频大小：</translation>
     </message>
     <message>
         <source>Created:</source>
@@ -2239,11 +2240,11 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Author:</source>
-        <translation>作者:</translation>
+        <translation>作者：</translation>
     </message>
     <message>
         <source>Copyright:</source>
-        <translation>版权:</translation>
+        <translation>版权：</translation>
     </message>
     <message>
         <source>Rating:</source>
@@ -2251,15 +2252,15 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Location:</source>
-        <translation>位置:</translation>
+        <translation>位置：</translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation>描述:</translation>
+        <translation>描述：</translation>
     </message>
     <message>
         <source>MediaInfo</source>
-        <translation>音视频信息</translation>
+        <translation>媒体信息</translation>
     </message>
     <message>
         <source>&amp;Save</source>
@@ -2279,7 +2280,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>General</source>
-        <translation>一般</translation>
+        <translation>常规</translation>
     </message>
     <message>
         <source>Menu
@@ -2299,7 +2300,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Modified:</source>
-        <translation>修改：</translation>
+        <translation>修改日期：</translation>
     </message>
 </context>
 <context>
@@ -2628,7 +2629,7 @@ media file played</source>
     </message>
     <message>
         <source>Browse...</source>
-        <translation>浏览...</translation>
+        <translation>浏览…</translation>
     </message>
     <message>
         <source>Blank</source>
@@ -2784,7 +2785,7 @@ media file played</source>
     </message>
     <message>
         <source>General</source>
-        <translation>一般</translation>
+        <translation>常规</translation>
     </message>
     <message>
         <source>Framebuffer</source>
@@ -2868,7 +2869,7 @@ media file played</source>
     </message>
     <message>
         <source>Load</source>
-        <translation>载入</translation>
+        <translation>加载</translation>
     </message>
     <message>
         <source>Dither</source>
@@ -3428,7 +3429,7 @@ media file played</source>
     </message>
     <message>
         <source>Add shader file(s)...</source>
-        <translation>添加着色器文件...</translation>
+        <translation>添加着色器文件…</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -3480,7 +3481,7 @@ media file played</source>
     </message>
     <message>
         <source>Hide controls in fullscreen</source>
-        <translation>全屏模式下隐藏控制</translation>
+        <translation>全屏模式下隐藏控制栏</translation>
     </message>
     <message>
         <source>Never show</source>
@@ -3488,11 +3489,11 @@ media file played</source>
     </message>
     <message>
         <source>Show when moving the cursor, hide after:</source>
-        <translation>移动鼠标时显示,在指定时间后隐藏:</translation>
+        <translation>鼠标移动时显示，在指定时间后隐藏：</translation>
     </message>
     <message>
         <source>Show when hovering control, hide after:</source>
-        <translation>悬停时显示控件，在指定时间后隐藏：</translation>
+        <translation>鼠标悬停时显示，在指定时间后隐藏：</translation>
     </message>
     <message>
         <source>Framedropping</source>
@@ -3508,7 +3509,7 @@ media file played</source>
     </message>
     <message>
         <source>Decoder+Video</source>
-        <translation>解码器+视频</translation>
+        <translation>解码器 + 视频</translation>
     </message>
     <message>
         <source>None</source>
@@ -3620,7 +3621,7 @@ media file played</source>
     </message>
     <message>
         <source>Repeat fore&amp;ver</source>
-        <translation>一直重复(&amp;V)</translation>
+        <translation>无限重复(&amp;V)</translation>
     </message>
     <message>
         <source>Always loop images (manual progression)</source>
@@ -3805,7 +3806,7 @@ media file played</source>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation>…</translation>
     </message>
     <message>
         <source>Encode</source>
@@ -3941,7 +3942,7 @@ media file played</source>
     </message>
     <message>
         <source>mpv</source>
-        <translation>MPV</translation>
+        <translation>mpv</translation>
     </message>
     <message>
         <source>No (complete silence)</source>
@@ -4025,7 +4026,7 @@ media file played</source>
     </message>
     <message>
         <source>Settings management</source>
-        <translation>设置项管理</translation>
+        <translation>设置管理</translation>
     </message>
     <message>
         <source>Export keys</source>
@@ -4037,7 +4038,7 @@ media file played</source>
     </message>
     <message>
         <source>Audio open settings</source>
-        <translation>音频打开设定</translation>
+        <translation>音频打开设置</translation>
     </message>
     <message>
         <source>Paths</source>
@@ -4093,7 +4094,7 @@ media file played</source>
     </message>
     <message>
         <source>Ignore embedded subtitles</source>
-        <translation>忽略内置字幕</translation>
+        <translation>忽略嵌入式字幕</translation>
     </message>
     <message>
         <source>Web Interface</source>
@@ -4105,7 +4106,7 @@ media file played</source>
     </message>
     <message>
         <source>webroot</source>
-        <translation>网络根目录</translation>
+        <translation>webroot</translation>
     </message>
     <message>
         <source>Default page</source>
@@ -4121,7 +4122,7 @@ media file played</source>
     </message>
     <message>
         <source>&lt;a href=&quot;#&quot;&gt;Launch in web browser...&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;#&quot;&gt;启动网络浏览器...&lt;/a&gt;</translation>
+        <translation>&lt;a href=&quot;#&quot;&gt;在网络浏览器中启动…&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Local files</source>
@@ -4129,7 +4130,7 @@ media file played</source>
     </message>
     <message>
         <source>Web root</source>
-        <translation>网络根目录</translation>
+        <translation>Web 根目录</translation>
     </message>
     <message>
         <source>Security</source>
@@ -4157,7 +4158,7 @@ media file played</source>
     </message>
     <message>
         <source>Default After Playback action:</source>
-        <translation>默认播放结束后操作:</translation>
+        <translation>默认播放结束后操作：</translation>
     </message>
     <message>
         <source>Do nothing</source>
@@ -4177,7 +4178,7 @@ media file played</source>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
-        <translation>着色器包含可添加至视频渲染过程的特效。社区制作的着色器列表可查阅&lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;MPV维基&lt;/span&gt;&lt;/a&gt;。</translation>
+        <translation>着色器包含可添加至视频渲染过程的特效。社区制作的着色器列表可查阅 &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;mpv 维基&lt;/span&gt;&lt;/a&gt;。</translation>
     </message>
     <message>
         <source>Pipewire</source>
@@ -4321,11 +4322,11 @@ media file played</source>
     </message>
     <message>
         <source>Show time tooltip:</source>
-        <translation>显示时间提示：</translation>
+        <translation>显示时间工具提示：</translation>
     </message>
     <message>
         <source>Change OSD font:</source>
-        <translation>更改 OSD 字体:</translation>
+        <translation>更改 OSD 字体：</translation>
     </message>
     <message>
         <source>Only keep history for videos</source>
@@ -4425,7 +4426,7 @@ media file played</source>
     </message>
     <message>
         <source>Custom mpv options:</source>
-        <translation>自定义 MPV 设置项：</translation>
+        <translation>自定义 mpv 选项：</translation>
     </message>
     <message>
         <source>Seek to keyframe when hardware decoding is unavailable</source>
@@ -4508,7 +4509,7 @@ media file played</source>
     </message>
     <message>
         <source>&amp;Browse...</source>
-        <translation>浏览(&amp;B)...</translation>
+        <translation>浏览(&amp;B)…</translation>
     </message>
     <message>
         <source>Image</source>
