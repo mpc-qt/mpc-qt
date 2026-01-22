@@ -145,12 +145,13 @@
     </message>
     <message>
         <source>Shortcut already used</source>
-        <translation type="unfinished"></translation>
+        <translation>ショートカットは既に使用されています</translation>
     </message>
     <message>
         <source>&quot;%1&quot; is already used by &quot;%2&quot;.
 Do you want to use it for &quot;%3&quot; instead?</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; は既に &quot;%2&quot; で使用されています。
+代わりに &quot;%3&quot; で使用しますか?</translation>
     </message>
     <message>
         <source>4:3 Aspect ratio</source>
