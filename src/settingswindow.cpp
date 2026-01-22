@@ -373,11 +373,12 @@ QVariantMap SettingsWindow::settings()
     return acceptedSettings.toVMap();
 }
 
-void SettingsWindow::disableWindowManagment()
+void SettingsWindow::setWaylandOptions(bool isWayland, bool isWaylandMode)
 {
     // Wayland breaks applications
-    ui->playerLimitProportions->setDisabled(true);
-    ui->playbackAutoCenterWindow->setDisabled(true);
+    ui->playerLimitProportions->setDisabled(isWaylandMode);
+    ui->playbackAutoCenterWindow->setDisabled(isWaylandMode);
+    ui->tweaksPreferWayland->setEnabled(isWayland);
 }
 
 void SettingsWindow::setupPageTree()

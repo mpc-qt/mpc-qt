@@ -147,7 +147,8 @@ private:
     bool validCliPos = false;
     QStringList customFiles;
 
-    static bool settingsDisableWindowManagement;
+    static bool isWayland;
+    static bool isWaylandMode;
     bool firstFile = true;
     bool playlistsBackupLoaded = false;
     bool inhibitScreensaver = false;

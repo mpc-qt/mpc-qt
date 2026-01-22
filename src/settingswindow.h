@@ -61,7 +61,7 @@ public:
     ~SettingsWindow();
     QVariantMap settings();
     QVariantMap keyMap();
-    void disableWindowManagment();
+    void setWaylandOptions(bool isWayland, bool isWaylandMode);
 
 private:
     void setupPageTree();

@@ -131,7 +131,8 @@ void signalHandler(int signal) {
 
 //---------------------------------------------------------------------------
 
-bool Flow::settingsDisableWindowManagement = false;
+bool Flow::isWayland = false;
+bool Flow::isWaylandMode = false;
 
 Flow::Flow(QObject *owner) :
     QObject(owner)
@@ -311,8 +312,7 @@ void Flow::init() {
     Logger::log(logModule, "creating settings window");
     settingsWindow = new SettingsWindow();
     settingsWindow->setWindowModality(Qt::WindowModal);
-    if (settingsDisableWindowManagement)
-        settingsWindow->disableWindowManagment();
+    settingsWindow->setWaylandOptions(isWayland, isWaylandMode);
     Logger::log(logModule, "creating properties window");
     propertiesWindow = new PropertiesWindow();
     Logger::log(logModule, "creating favorites window");
@@ -433,15 +433,17 @@ void Flow::earlyPlatformOverride()
 
     // Wayland doesn't support run-time centering and it doesn't look like
     // it'll support it any time soon.  I'll remove this code when it does.
-    bool nvidiaDetected = Flow::isNvidiaGPU();
-    Storage s;
-    QVariantMap settings = s.readVMap(fileSettings);
-    if (!settings.value("tweaksPreferWayland", QVariant(false)).toBool())
-        qputenv("QT_QPA_PLATFORM", "xcb");
-    else if (!qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY"))
-        settingsDisableWindowManagement = true;
+    if (qEnvironmentVariable("XDG_SESSION_TYPE") == "wayland") {
+        isWayland = true;
+        Storage s;
+        QVariantMap settings = s.readVMap(fileSettings);
+        if (!settings.value("tweaksPreferWayland", QVariant(false)).toBool())
+            qputenv("QT_QPA_PLATFORM", "xcb");
+        else if (!qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY"))
+            isWaylandMode = true;
+    }
     // The Nvidia drivers don't work well with EGL
-    if (!nvidiaDetected)
+    if (!Flow::isNvidiaGPU())
         qputenv("QT_XCB_GL_INTEGRATION", "xcb_egl");
 }
 
