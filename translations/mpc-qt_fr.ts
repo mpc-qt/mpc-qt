@@ -1587,7 +1587,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>XWayland or X11</source>
-        <translation>XWayland ou X11</translation>
+        <translation type="vanished">XWayland ou X11</translation>
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>

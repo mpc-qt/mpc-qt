@@ -1514,10 +1514,6 @@ Do you want to use it for &quot;%3&quot; instead?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>XWayland or X11</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Input Cache Statistics</source>
         <translation type="unfinished"></translation>
     </message>

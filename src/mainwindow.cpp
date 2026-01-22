@@ -3397,15 +3397,15 @@ void MainWindow::on_actionHelpAbout_triggered()
     dateLine = "<br>" + dateLineFmt.arg(QLocale().toString(buildDate, dateFormat),
                                         QLocale().toString(buildTime, timeFormat));
 #endif
-QString displayMode = tr("(Unknown)");
-#if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
-    if (qApp->nativeInterface<QNativeInterface::QX11Application>())
-        displayMode = tr("XWayland or X11");
-#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
-    else if (qApp->nativeInterface<QNativeInterface::QWaylandApplication>())
+    QString displayMode = tr("(Unknown)");
+    if (QGuiApplication::platformName() == "wayland")
         displayMode = "Wayland";
-#endif // is qt >= 6.5
-#endif // is Linux
+    else {
+        if (qEnvironmentVariable("XDG_SESSION_TYPE") == "wayland")
+            displayMode = "XWayland";
+        else
+            displayMode = "X11";
+    }
     QMessageBox::about(this, tr("About Media Player Classic Qute Theater"),
       "<h2>" + tr("Media Player Classic Qute Theater") + "</h2>" +
       "<p>" +  tr("A clone of Media Player Classic written in Qt") +
