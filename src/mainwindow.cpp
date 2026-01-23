@@ -3529,7 +3529,7 @@ void MainWindow::position_hoverValue(double position, QString chapterInfo, doubl
 
     QString t = QString("%1%2%3").arg(Helpers::toDateFormatFixed(
                                             position,
-                                            timeShortMode ? Helpers::ShortFormat : Helpers::LongFormat),
+                                            Helpers::ShortFormat),
                                       chapterInfo.isEmpty() ? "" : " - ",
                                       chapterInfo);
     QPoint where = positionSlider_->mapTo(this, QPoint(std::round(mouseX), timeTooltipAbove ? -1 : 65));
@@ -3538,7 +3538,7 @@ void MainWindow::position_hoverValue(double position, QString chapterInfo, doubl
     else if (tooltip) {
         QString textTemplate = QString("%1%2%3").arg(Helpers::toDateFormatFixed(
                                                         0,
-                                                        timeShortMode ? Helpers::ShortFormat : Helpers::LongFormat),
+                                                        Helpers::ShortFormat),
                                                     chapterInfo.isEmpty() ? "" : " - ",
                                                     chapterInfo);
         tooltip->show(t, where, this->width(), textTemplate);

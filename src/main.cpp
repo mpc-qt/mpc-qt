@@ -553,8 +553,6 @@ void Flow::setupMainWindowConnections()
             playbackManager, &PlaybackManager::setAfterPlaybackOnce);
     connect(mainWindow, &MainWindow::afterPlaybackAlways,
             playbackManager, &PlaybackManager::setAfterPlaybackAlways);
-    connect(mainWindow, &MainWindow::timeShortModeSet,
-            playbackManager, &PlaybackManager::setTimeShortMode);
     connect(mainWindow, &MainWindow::chapterPrevious,
             playbackManager, &PlaybackManager::navigateToPrevChapter);
     connect(mainWindow, &MainWindow::chapterNext,
