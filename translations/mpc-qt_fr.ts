@@ -1588,7 +1588,7 @@ Voulez-vous l&apos;utiliser pour &quot;%3&quot; à la place&#x202f;?</translatio
     </message>
     <message>
         <source>XWayland or X11</source>
-        <translation>XWayland ou X11</translation>
+        <translation type="vanished">XWayland ou X11</translation>
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>
