@@ -2231,7 +2231,7 @@ void MainWindow::audioTrackSet(int64_t id)
 {
     if (audioTracksGroup != nullptr && id <= audioTracksGroup->actions().length()) {
         if (id <= 0)
-            id = audioTracksGroup->actions().length();
+            id = 1;
         audioTracksGroup->actions().constData()[static_cast <int> (id) -1]->setChecked(true);
     }
 }
@@ -2240,7 +2240,7 @@ void MainWindow::videoTrackSet(int64_t id)
 {
     if (videoTracksGroup != nullptr && id <= videoTracksGroup->actions().length()) {
         if (id <= 0)
-            id = videoTracksGroup->actions().length();
+            id = 1;
         videoTracksGroup->actions().constData()[static_cast <int> (id) -1]->setChecked(true);
     }
 }
@@ -2249,7 +2249,7 @@ void MainWindow::subtitleTrackSet(int64_t id)
 {
     if (subtitleTracksGroup != nullptr && id <= subtitleTracksGroup->actions().length()) {
         if (id <= 0)
-            id = subtitleTracksGroup->actions().length();
+            id = 1;
         subtitleTracksGroup->actions().constData()[static_cast <int> (id) -1]->setChecked(true);
     }
 }
