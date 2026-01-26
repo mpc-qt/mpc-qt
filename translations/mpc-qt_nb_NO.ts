@@ -1202,6 +1202,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
         <translation type="vanished">Hver gang</translation>
     </message>
     <message>
+        <source>Re&amp;move File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>View</source>
         <translation>Vis</translation>
     </message>
@@ -1363,10 +1367,6 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Playlist</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Move File to Recycle Bin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1603,6 +1603,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Remove Selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Move File to Recycle Bin</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

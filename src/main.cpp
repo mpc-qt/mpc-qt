@@ -1236,8 +1236,10 @@ bool Flow::isNvidiaGPU()
 void Flow::showVersionInfo()
 {
     QString package = "Native build";
-    if (qEnvironmentVariableIsSet("FLATPAK_ID"))
+    if (qEnvironmentVariableIsSet("FLATPAK_ID")) {
         package = "Flatpak";
+        mainWindow->setRemoveFileNotRecycle();
+    }
     else if (qEnvironmentVariableIsSet("APPIMAGE"))
         package = "AppImage";
     else if (qEnvironmentVariableIsSet("SNAP"))

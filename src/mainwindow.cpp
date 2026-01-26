@@ -345,6 +345,11 @@ void MainWindow::setActionPlayLoopUse()
     ui->actionPlayLoopUse->setChecked(true);
 }
 
+void MainWindow::setRemoveFileNotRecycle()
+{
+    ui->actionFileMoveToRecycleBin->setText(tr("Re&move File"));
+}
+
 void MainWindow::resizePlaylistToFit()
 {
     if (ui->actionViewMusicMode->isChecked() && !playlistWindow_->isFloating()) {

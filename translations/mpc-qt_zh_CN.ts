@@ -1331,6 +1331,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
         <translation type="vanished">每次播放</translation>
     </message>
     <message>
+        <source>Re&amp;move File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>View</source>
         <translation>视图</translation>
     </message>
@@ -1652,7 +1656,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Move File to Recycle Bin</source>
-        <translation>移动文件到回收站</translation>
+        <translation type="vanished">移动文件到回收站</translation>
     </message>
     <message>
         <source>Screenshot</source>
@@ -1761,6 +1765,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <message>
         <source>&amp;Remove Selected</source>
         <translation>移除所选(&amp;R)</translation>
+    </message>
+    <message>
+        <source>&amp;Move File to Recycle Bin</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
