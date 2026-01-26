@@ -49,6 +49,7 @@ public:
     void unfreezeWindow();
     void fixMpvwSize();
     void setActionPlayLoopUse();
+    void setRemoveFileNotRecycle();
 
 protected:
     void resizeEvent(QResizeEvent *event);

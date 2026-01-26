@@ -1283,6 +1283,10 @@ Voulez-vous l&apos;utiliser pour &quot;%3&quot; à la place&#x202f;?</translatio
         <translation>Journa&amp;l</translation>
     </message>
     <message>
+        <source>Re&amp;move File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>View</source>
         <translation>Affichage</translation>
     </message>
@@ -1620,7 +1624,7 @@ Voulez-vous l&apos;utiliser pour &quot;%3&quot; à la place&#x202f;?</translatio
     </message>
     <message>
         <source>Move File to Recycle Bin</source>
-        <translation>Déplacer le fichier dans la corbeille</translation>
+        <translation type="vanished">Déplacer le fichier dans la corbeille</translation>
     </message>
     <message>
         <source>Screenshot</source>
@@ -1741,6 +1745,10 @@ Voulez-vous l&apos;utiliser pour &quot;%3&quot; à la place&#x202f;?</translatio
     <message>
         <source>&amp;Remove Selected</source>
         <translation>&amp;Retirer la sélection</translation>
+    </message>
+    <message>
+        <source>&amp;Move File to Recycle Bin</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

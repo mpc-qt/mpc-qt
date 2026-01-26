@@ -1331,6 +1331,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
         <translation type="vanished">毎回</translation>
     </message>
     <message>
+        <source>Re&amp;move File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>View</source>
         <translation>表示</translation>
     </message>
@@ -1696,7 +1700,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Move File to Recycle Bin</source>
-        <translation>ファイルをごみ箱に移動する</translation>
+        <translation type="vanished">ファイルをごみ箱に移動する</translation>
     </message>
     <message>
         <source>Screenshot</source>
@@ -1805,6 +1809,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <message>
         <source>&amp;Remove Selected</source>
         <translation>選択項目を削除(&amp;R)</translation>
+    </message>
+    <message>
+        <source>&amp;Move File to Recycle Bin</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

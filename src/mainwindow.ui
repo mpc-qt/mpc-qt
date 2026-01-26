@@ -1173,10 +1173,10 @@
   </action>
   <action name="actionFileMoveToRecycleBin">
    <property name="text">
-    <string>Move File to Recycle Bin</string>
+    <string>&amp;Move File to Recycle Bin</string>
    </property>
    <property name="shortcut">
-    <string notr="true">Del</string>
+    <string notr="true">Shift+Del</string>
    </property>
   </action>
   <action name="actionFileSaveCopy">
