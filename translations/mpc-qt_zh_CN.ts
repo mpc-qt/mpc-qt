@@ -1332,7 +1332,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Re&amp;move File</source>
-        <translation type="unfinished"></translation>
+        <translation>移除文件(&amp;M)</translation>
     </message>
     <message>
         <source>View</source>
@@ -1768,7 +1768,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Move File to Recycle Bin</source>
-        <translation type="unfinished"></translation>
+        <translation>将文件移至回收站(&amp;M)</translation>
     </message>
 </context>
 <context>
