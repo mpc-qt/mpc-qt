@@ -1284,7 +1284,7 @@ Voulez-vous l&apos;utiliser pour &quot;%3&quot; à la place&#x202f;?</translatio
     </message>
     <message>
         <source>Re&amp;move File</source>
-        <translation type="unfinished"></translation>
+        <translation>S&amp;upprimer le fichier</translation>
     </message>
     <message>
         <source>View</source>
@@ -1748,7 +1748,7 @@ Voulez-vous l&apos;utiliser pour &quot;%3&quot; à la place&#x202f;?</translatio
     </message>
     <message>
         <source>&amp;Move File to Recycle Bin</source>
-        <translation type="unfinished"></translation>
+        <translation>Dé&amp;placer dans la corbeille</translation>
     </message>
 </context>
 <context>
