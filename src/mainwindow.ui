@@ -899,19 +899,20 @@
      <property name="title">
       <string>Su&amp;btitles</string>
      </property>
+     <widget class="QMenu" name="menuPlaySubtitlesMove">
+      <property name="title">
+       <string>&amp;Move</string>
+      </property>
+      <addaction name="actionMoveSubtitlesUp"/>
+      <addaction name="actionMoveSubtitlesDown"/>
+     </widget>
      <addaction name="actionPlaySubtitlesEnabled"/>
      <addaction name="actionPlaySubtitlesPrevious"/>
      <addaction name="actionPlaySubtitlesNext"/>
      <addaction name="actionPlaySubtitlesCopy"/>
      <addaction name="actionDecreaseSubtitlesDelay"/>
      <addaction name="actionIncreaseSubtitlesDelay"/>
-      <widget class="QMenu" name="menuPlaySubtitlesMove">
-       <property name="title">
-        <string>&amp;Move</string>
-       </property>
-       <addaction name="actionMoveSubtitlesUp"/>
-       <addaction name="actionMoveSubtitlesDown"/>
-      </widget>
+     <addaction name="menuPlaySubtitlesMove"/>
     </widget>
     <widget class="QMenu" name="menuPlayVideo">
      <property name="title">
