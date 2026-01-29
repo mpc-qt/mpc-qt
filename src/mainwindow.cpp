@@ -1319,6 +1319,14 @@ QList<QUrl> MainWindow::doQuickOpenFileDialog()
     return urls;
 }
 
+void MainWindow::showStepAndSubsButtons(bool show)
+{
+    ui->stepBackward->setVisible(show);
+    ui->stepForward->setVisible(show);
+    ui->verticalLine2->setVisible(show);
+    ui->subs->setVisible(show);
+}
+
 QIcon MainWindow::createIconFromSvg(const QString &svgPath, int maxSize) const
 {
     QIcon icon;
@@ -2365,6 +2373,7 @@ void MainWindow::setVideoBitrate(double bitrate)
 void MainWindow::setIsVideo(bool isVideo)
 {
     isVideo_ = isVideo;
+    showStepAndSubsButtons(isVideo);
 }
 
 void MainWindow::setVideoPreviewItem(QUrl itemUrl)
@@ -2685,10 +2694,6 @@ void MainWindow::on_actionViewMusicMode_toggled(bool checked)
             playlistWindow_->setMinimumSize(QSize(0, 0));
             playlistWindow_->setMaximumSize(QSize(65550, 65550));
         }
-        ui->stepBackward->setVisible(!checked);
-        ui->stepForward->setVisible(!checked);
-        ui->verticalLine2->setVisible(!checked);
-        ui->subs->setVisible(!checked);
         playlistWindow_->setVisible(checked);
         ui->actionViewHidePlaylist->setEnabled(!checked);
         mpvObject_->setCachedMpvOption("audio-display", checked ? "no" : "embedded-first");
