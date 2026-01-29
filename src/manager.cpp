@@ -302,6 +302,7 @@ void PlaybackManager::unpausePlayer()
 void PlaybackManager::stopPlayer()
 {
     nowPlayingItem = QUuid();
+    nowPlaying_ = QUrl();
     mpvObject_->stopPlayback();
 }
 
