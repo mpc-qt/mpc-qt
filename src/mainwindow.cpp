@@ -1008,6 +1008,7 @@ void MainWindow::setOSDPage(int page)
 void MainWindow::setUiEnabledState(bool enabled)
 {
     positionSlider_->setEnabled(enabled);
+    statusTime->setEnabled(enabled);
     if (!enabled) {
         positionSlider_->setLoopA(-1);
         positionSlider_->setLoopB(-1);

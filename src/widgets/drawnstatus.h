@@ -20,6 +20,7 @@ protected:
     void updateTimeFormat();
     void updateText();
     void paintEvent(QPaintEvent *event) override;
+    void changeEvent(QEvent *event) override;
 
 private:
     bool shortMode = false;

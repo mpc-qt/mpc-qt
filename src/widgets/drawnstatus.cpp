@@ -97,3 +97,8 @@ void StatusTime::paintEvent(QPaintEvent *event)
     p.drawText(rc, drawnText, QTextOption(Qt::AlignRight | Qt::AlignVCenter));
 }
 
+void StatusTime::changeEvent(QEvent *event)
+{
+    if (event->type() == QEvent::EnabledChange)
+        setVisible(isEnabled());
+}
