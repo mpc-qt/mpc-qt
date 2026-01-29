@@ -117,6 +117,7 @@ private:
     void showOsdTimer(bool onSeek);
     void resizePlaylistToFit();
     QList<QUrl> doQuickOpenFileDialog();
+    void showStepAndSubsButtons(bool show);
 
     QIcon createIconFromSvg(const QString &svgPath, int maxSize) const;
     QPixmap renderPixmapFromSvg(const QString &path) const;
