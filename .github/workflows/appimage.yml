@@ -62,6 +62,9 @@ jobs:
         for i in 1 2 3; do
           sudo apt install devscripts equivs git libunwind-dev gdebi && break || sleep 60
         done
+        for i in 1 2 3; do
+          sudo apt install libwayland-dev libwayland-egl-backend-dev || sleep 60
+        done
     - name: Install newer Qt version
       uses: jurplel/install-qt-action@v4
       with:
@@ -155,7 +158,8 @@ jobs:
         version: 1-alpha-20251107-1
     - name: Build AppImage
       run: |
-        export EXTRA_QT_MODULES="svg;"
+        export EXTRA_QT_MODULES="svg;waylandcompositor;"
+        export EXTRA_PLATFORM_PLUGINS="libqwayland-egl.so;libqwayland-generic.so"
         export LDAI_OUTPUT="mpc-qt-linux-x64-${{env.MPC-QT_PACKAGE_VERSION}}.AppImage"
         export LDAI_UPDATE_INFORMATION="gh-releases-zsync|mpc-qt|mpc-qt|latest|mpc-qt-linux-x64-*.AppImage.zsync"
         linuxdeploy/linuxdeploy-x86_64.AppImage \
