@@ -173,6 +173,7 @@ private:
     void setMpvOptionVariant(QString name, const QVariant &value);
     void showCursor();
     void hideCursor();
+    void clearSubFiles();
 
 private slots:
     void ctrl_mpvPropertyChanged(QString name, const QVariant &v);
