@@ -50,6 +50,8 @@ VideoPreview::~VideoPreview()
 
 void VideoPreview::openFile(const QUrl &fileUrl)
 {
+    if (fileUrl.isEmpty())
+        return;
     mpv->urlOpen(fileUrl);
     mpv->setPaused(true);
     aspectRatioSet = false;
