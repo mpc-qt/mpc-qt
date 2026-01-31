@@ -111,11 +111,7 @@ FavoritesItem::FavoritesItem(QListWidget *owner, const TrackInfo &t)
 {
     track_ = t;
     Qt::ItemFlags f = flags();
-#if QT_VERSION >= 0x050700
     f.setFlag(Qt::ItemIsEditable);
-#else
-    f |= Qt::ItemIsEditable;
-#endif
     this->setFlags(f);
 }
 
