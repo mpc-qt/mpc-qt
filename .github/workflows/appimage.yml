@@ -62,6 +62,10 @@ jobs:
         for i in 1 2 3; do
           sudo apt install devscripts equivs git libunwind-dev gdebi && break || sleep 60
         done
+    - name: Install newer Qt version
+      uses: jurplel/install-qt-action@v4
+      with:
+        cache: true
     - name: Checkout repository
       uses: actions/checkout@v4
     - name: Checkout mpv repository
@@ -152,7 +156,6 @@ jobs:
     - name: Build AppImage
       run: |
         export EXTRA_QT_MODULES="svg;"
-        export QMAKE=/usr/bin/qmake6
         export LDAI_OUTPUT="mpc-qt-linux-x64-${{env.MPC-QT_PACKAGE_VERSION}}.AppImage"
         export LDAI_UPDATE_INFORMATION="gh-releases-zsync|mpc-qt|mpc-qt|latest|mpc-qt-linux-x64-*.AppImage.zsync"
         linuxdeploy/linuxdeploy-x86_64.AppImage \
