@@ -206,12 +206,7 @@ void PropertiesWindow::setChapters(const QVariantList &chapters)
         QVariantMap node(v.toMap());
         QString fmt("%1 - %2\n");
         QString timeText = "[" + Helpers::toDateFormat(node["time"].toDouble()) + "]";
-    #if QT_VERSION >= QT_VERSION_CHECK(5, 7, 0)
         timeText.resize(25, ' ');
-    #else
-        if (timeText.length() < 25)
-            timeText += QString(25 - timeText.length(), ' ');
-    #endif
         chapterText += fmt.arg(timeText, node["title"].toString());
     }
     chapterText += '\n';
@@ -253,12 +248,7 @@ QString PropertiesWindow::sectionText(const QString &header, const QVariantMap &
     QVariantMap::const_iterator i = fields.constBegin();
     while (i != fields.constEnd()) {
         QString keyText = i.key();
-    #if QT_VERSION >= QT_VERSION_CHECK(5, 7, 0)
         keyText.resize(25, ' ');
-    #else
-        if (keyText.length() < 25)
-            keyText += QString(25 - keyText.length(), ' ');
-    #endif
         text += QString("%1 : %2\n").arg(keyText, i.value().toString());
         ++i;
     }
