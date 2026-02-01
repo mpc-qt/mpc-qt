@@ -1304,15 +1304,15 @@ Voulez-vous l&apos;utiliser pour &quot;%3&quot; à la place&#x202f;?</translatio
     </message>
     <message>
         <source>Remaining time</source>
-        <translation type="unfinished"></translation>
+        <translation>Temps restant</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation type="unfinished"></translation>
+        <translation>Haute précision</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher le pourcentage</translation>
     </message>
     <message>
         <source>No files favorited</source>
@@ -2228,7 +2228,7 @@ Voulez-vous l&apos;utiliser pour &quot;%3&quot; à la place&#x202f;?</translatio
     </message>
     <message>
         <source>Clip</source>
-        <translation>Clip</translation>
+        <translation>Informations</translation>
     </message>
     <message>
         <source>Clip:</source>
@@ -3005,7 +3005,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Quadric</source>
-        <translation>Quadric</translation>
+        <translation>Quadrique</translation>
     </message>
     <message>
         <source>Welch</source>
@@ -3045,7 +3045,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Bilinear</source>
-        <translation>Bilinear</translation>
+        <translation>Bilinéaire</translation>
     </message>
     <message>
         <source>Bicubic_fast</source>
@@ -3313,7 +3313,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Juncture</source>
-        <translation>Juncture</translation>
+        <translation>Jonction</translation>
     </message>
     <message>
         <source>Contrast</source>
@@ -3613,7 +3613,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>A&amp;utodetect</source>
-        <translation>A&amp;utodetect</translation>
+        <translation>A&amp;uto</translation>
     </message>
     <message>
         <source>Linux - requires Mesa 11 and most likely works with Intel GPUs only; may only be correct in BT.601 and BT.709</source>
@@ -3625,7 +3625,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Windows - not safe; it appears to always use BT.601 for forced RGB conversion, but actual behavior depends on the GPU drivers</source>
-        <translation>Windows - non sûr; il semble toujours utiliser BT.601 pour la conversion RGB forcée, mais le comportement réel dépend des pilotes GPU</translation>
+        <translation>Windows - non sûr&#x202f;; semble toujours utiliser BT.601 pour la conversion RGB forcée, mais le comportement réel dépend des pilotes GPU</translation>
     </message>
     <message>
         <source>Windows 8+ - usually safe but rounds 10 bit to 8 bit</source>
@@ -3814,11 +3814,11 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Exact</source>
-        <translation>Exact</translation>
+        <translation>Exacte</translation>
     </message>
     <message>
         <source>Fuzzy</source>
-        <translation>Flou</translation>
+        <translation>Floue</translation>
     </message>
     <message>
         <source>Online database</source>
@@ -3854,7 +3854,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Unchecked directories will place output files in the source directory. Streams do not have a source directory and will bring up a dialog when a field is left blank; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; will always ask where to place files. Directories will be created if necessary; this may not work across all filesystems.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Les répertoires non cochés placeront les fichiers de sortie dans le répertoire source. Les flux n’ont pas de répertoire source et afficheront une boîte de dialogue lorsqu’un champ est laissé vide; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; demandera toujours où placer les fichiers. Les répertoires seront créés si nécessaire; cela peut ne pas fonctionner sur tous les systèmes de fichiers.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Les répertoires non cochés placeront les fichiers de sortie dans le répertoire source. Les flux n’ont pas de répertoire source et afficheront une boîte de dialogue lorsqu’un champ est laissé vide&#x202f;; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; demandera toujours où placer les fichiers. Les répertoires seront créés si nécessaire&#x202f;; cela peut ne pas fonctionner sur tous les systèmes de fichiers.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Filename template</source>
@@ -4378,7 +4378,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Linux - works with Intel and AMD GPUs through Mesa, and with nVidia through a translation layer; may only be correct in BT.601 and BT.709</source>
-        <translation>Linux - fonctionne avec les GPU Intel et AMD via Mesa, et avec nVidia via une couche de traduction; peut être correct uniquement en BT.601 et BT.709</translation>
+        <translation>Linux - fonctionne avec les GPU Intel et AMD via Mesa, et avec nVidia via une couche de traduction&#x202f;; peut être correct uniquement en BT.601 et BT.709</translation>
     </message>
     <message>
         <source>nVidia only (faster than CUDA)</source>
@@ -4542,7 +4542,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>%</source>
-        <translation> %</translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>Enable background box</source>
@@ -4581,7 +4581,7 @@ fichier média lu</translation>
     <name>StatusTime</name>
     <message>
         <source> (%1%)</source>
-        <translation type="unfinished"></translation>
+        <translation> (%1 %)</translation>
     </message>
 </context>
 <context>
@@ -4600,7 +4600,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>%</source>
-        <translation> %</translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>Width</source>
