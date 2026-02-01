@@ -1303,6 +1303,18 @@ Voulez-vous l&apos;utiliser pour &quot;%3&quot; à la place&#x202f;?</translatio
         <translation>Ouverture rapide</translation>
     </message>
     <message>
+        <source>Remaining time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>High precision</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show percentage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No files favorited</source>
         <translation>Aucun fichier dans les favoris</translation>
     </message>
@@ -4110,7 +4122,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
-        <translation>Raccourcir l’indicateur de temps de lecture comme mpc-hc</translation>
+        <translation type="vanished">Raccourcir l’indicateur de temps de lecture comme mpc-hc</translation>
     </message>
     <message>
         <source>HDR Compute Peak</source>
@@ -4563,6 +4575,13 @@ fichier média lu</translation>
     <message>
         <source>File title</source>
         <translation>Titre du fichier</translation>
+    </message>
+</context>
+<context>
+    <name>StatusTime</name>
+    <message>
+        <source> (%1%)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

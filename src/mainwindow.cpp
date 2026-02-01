@@ -191,7 +191,10 @@ QVariantMap MainWindow::state()
         { WRAP(ui->actionDisableVideoAspect) },
         { WRAP(ui->actionPlayVolumeMute) },
         { "volume", volumeSlider_->value() },
-        { "shownStatsPage", mpvObject_->selectedStatsPage() }
+        { "shownStatsPage", mpvObject_->selectedStatsPage() },
+        { "timeShortMode", timeShortMode },
+        { "timeRemainingMode", timeRemainingMode },
+        { "timePercentageMode", timePercentageMode }
     };
 #undef WRAP
 }
@@ -234,6 +237,9 @@ void MainWindow::setState(const QVariantMap &map)
     setVolumeMuteState(ui->actionPlayVolumeMute->isChecked(), true);
     setVolume(map.value("volume", 100).toInt(), true);
     setOSDPage(map.value("shownStatsPage",0).toInt());
+    setTimeShortMode(map.value("timeShortMode", true).toBool());
+    setTimeRemainingMode(map.value("timeRemainingMode", false).toBool());
+    setTimePercentageMode(map.value("timePercentageMode", false).toBool());
     updateOnTop();
 
 #undef UNWRAP
@@ -426,6 +432,11 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
     if (fullscreenMode_)
         checkBottomArea(event->globalPosition());
+    if (mousePressedInsideStatustime) {
+        mousePressedInsideStatustime = false;
+        QWindow *parentWindow = this->window()->windowHandle();
+        parentWindow->startSystemMove();
+    }
 }
 
 static bool insideWidget(QPoint p, QWidget const *widget) {
@@ -440,9 +451,10 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
     QPoint pos = event->globalPosition().toPoint();
     bool isInMpvw = mpvw ? insideWidget(pos, mpvw) : false;
     bool isInBottomArea = ui->bottomArea->isVisible() ? insideWidget(pos, ui->bottomArea) : false;
+    mousePressedInsideStatustime = insideWidget(pos, statusTime);
     if (isInMpvw && mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseDown)))
         event->accept();
-    else if (isInBottomArea)  {
+    else if (isInBottomArea && !mousePressedInsideStatustime)  {
         QWindow *parentWindow = this->window()->windowHandle();
         parentWindow->startSystemMove();
     }
@@ -463,10 +475,17 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
     QPoint pos = event->globalPosition().toPoint();
     bool ok = mpvw ? insideWidget(pos, mpvw) : false;
-    if (ok && mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseUp)))
-        event->accept();
-    else
-        QMainWindow::mouseReleaseEvent(event);
+    if (mousePressedInsideStatustime && insideWidget(pos, statusTime)) {
+        if (event->button() == Qt::MouseButton::LeftButton)
+            setTimeRemainingMode(!timeRemainingMode);
+    }
+    else {
+        if (ok && mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseUp)))
+            event->accept();
+        else
+            QMainWindow::mouseReleaseEvent(event);
+    }
+    mousePressedInsideStatustime = false;
 }
 
 void MainWindow::wheelEvent(QWheelEvent *event)
@@ -572,8 +591,7 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
     QTimer::singleShot(50, this, [this]() {
         positionSlider_->update();
         volumeSlider_->update();
-        timePosition->update();
-        timeDuration->update();
+        statusTime->update();
     });
     emit fullscreenModeChanged(fullscreenMode_);
 }
@@ -814,10 +832,12 @@ void MainWindow::setupPlaylist()
 void MainWindow::setupStatus()
 {
     ui->tinyicon->setPixmap(renderPixmapFromSvg(tinyIconPath));
-    timePosition = new StatusTime();
-    ui->statusbarLayout->insertWidget(2, timePosition);
-    timeDuration = new StatusTime();
-    ui->statusbarLayout->insertWidget(4, timeDuration);
+    statusTime = new StatusTime();
+    statusTime->setCursor(Qt::PointingHandCursor);
+    statusTime->setContextMenuPolicy(Qt::CustomContextMenu);
+    ui->statusbarLayout->insertWidget(2, statusTime);
+    connect(statusTime, &StatusTime::customContextMenuRequested,
+            this, &MainWindow::statusTime_customContextMenuRequested);
 }
 
 void MainWindow::setupSizing()
@@ -988,6 +1008,7 @@ void MainWindow::setOSDPage(int page)
 void MainWindow::setUiEnabledState(bool enabled)
 {
     positionSlider_->setEnabled(enabled);
+    statusTime->setEnabled(enabled);
     if (!enabled) {
         positionSlider_->setLoopA(-1);
         positionSlider_->setLoopB(-1);
@@ -1146,14 +1167,6 @@ void MainWindow::updateBottomAreaGeometry()
         sz -= QSize(playlistWindow_->width(), 0);
     ui->bottomArea->setGeometry(0, sz.height() - bottomAreaHeight,
                                 sz.width(), bottomAreaHeight);
-}
-
-void MainWindow::updateTime()
-{
-    double length = mpvObject_->playLength();
-    double time = mpvObject_->playTime();
-    timeDuration->setTime(length, length);
-    timePosition->setTime(time, length);
 }
 
 void MainWindow::updateFramedrops()
@@ -1852,9 +1865,9 @@ void MainWindow::setInfoColors(const QColor &foreground, const QColor &backgroun
 
 void MainWindow::setTime(double time, double length)
 {
-    positionSlider_->setMaximum(length >= 0 ? length : 0);
-    positionSlider_->setValue(time >= 0 ? time : 0);
-    updateTime();
+    positionSlider_->setMaximum(length);
+    positionSlider_->setValue(time);
+    statusTime->setTime(time, length);
 }
 
 void MainWindow::setMediaTitleWithFilename(const QString& title, const QString& filename)
@@ -2303,10 +2316,20 @@ void MainWindow::setSubtitlesDelayStep(int subtitlesDelayStep)
 
 void MainWindow::setTimeShortMode(bool shortened)
 {
-    timePosition->setShortMode(shortened);
-    timeDuration->setShortMode(shortened);
+    statusTime->setShortMode(shortened);
     timeShortMode = shortened;
-    emit timeShortModeSet(timeShortMode);
+}
+
+void MainWindow::setTimeRemainingMode(bool isRemaining)
+{
+    statusTime->setRemainingMode(isRemaining);
+    timeRemainingMode = isRemaining;
+}
+
+void MainWindow::setTimePercentageMode(bool isPercentage)
+{
+    statusTime->setPercentMode(isPercentage);
+    timePercentageMode = isPercentage;
 }
 
 void MainWindow::resetPlayAfterOnce()
@@ -3451,6 +3474,48 @@ void MainWindow::mpvw_customContextMenuRequested(const QPoint &pos)
     contextMenu->popup(mpvw->mapToGlobal(pos));
 }
 
+void MainWindow::statusTime_customContextMenuRequested(const QPointF &p)
+{
+    QMenu *m = new QMenu(this);
+    QAction *a;
+
+    bool isTimeRemaingMode = timeRemainingMode;
+    a = new QAction(m);
+    a->setText(tr("Remaining time"));
+    a->setCheckable(true);
+    a->setChecked(timeRemainingMode);
+    connect(a, &QAction::triggered,
+            this, [this, isTimeRemaingMode]() {
+        setTimeRemainingMode(!isTimeRemaingMode);
+    });
+    m->addAction(a);
+    
+    bool isTimeShortMode = timeShortMode;
+    a = new QAction(m);
+    a->setText(tr("High precision"));
+    a->setCheckable(true);
+    a->setChecked(!timeShortMode);
+    connect(a, &QAction::triggered,
+            this, [this, isTimeShortMode]() {
+        setTimeShortMode(!isTimeShortMode);
+    });
+    m->addAction(a);
+
+    bool isTimePercentageMode = timePercentageMode;
+    a = new QAction(m);
+    a->setText(tr("Show percentage"));
+    a->setCheckable(true);
+    a->setChecked(timePercentageMode);
+    connect(a, &QAction::triggered,
+            this, [this, isTimePercentageMode]() {
+        setTimePercentageMode(!isTimePercentageMode);
+    });
+    m->addAction(a);
+
+    m->exec(statusTime->mapToGlobal(p).toPoint());
+    delete m;
+}
+
 void MainWindow::position_sliderMoved(int position)
 {
     emit timeSelected(position);
@@ -3465,7 +3530,7 @@ void MainWindow::position_hoverValue(double position, QString chapterInfo, doubl
 
     QString t = QString("%1%2%3").arg(Helpers::toDateFormatFixed(
                                             position,
-                                            timeShortMode ? Helpers::ShortFormat : Helpers::LongFormat),
+                                            Helpers::ShortFormat),
                                       chapterInfo.isEmpty() ? "" : " - ",
                                       chapterInfo);
     QPoint where = positionSlider_->mapTo(this, QPoint(std::round(mouseX), timeTooltipAbove ? -1 : 65));
@@ -3474,7 +3539,7 @@ void MainWindow::position_hoverValue(double position, QString chapterInfo, doubl
     else if (tooltip) {
         QString textTemplate = QString("%1%2%3").arg(Helpers::toDateFormatFixed(
                                                         0,
-                                                        timeShortMode ? Helpers::ShortFormat : Helpers::LongFormat),
+                                                        Helpers::ShortFormat),
                                                     chapterInfo.isEmpty() ? "" : " - ",
                                                     chapterInfo);
         tooltip->show(t, where, this->width(), textTemplate);

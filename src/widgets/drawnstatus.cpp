@@ -29,11 +29,23 @@ void StatusTime::setTime(double time, double duration)
 
 void StatusTime::setShortMode(bool shortened)
 {
-    if (shortMode == shortened)
-        return;
     shortMode = shortened;
     lastTextLength = 0;
     updateTimeFormat();
+    updateText();
+}
+
+void StatusTime::setRemainingMode(bool isRemaining)
+{
+    remainingMode = isRemaining;
+    lastTextLength = 0;
+    updateText();
+}
+
+void StatusTime::setPercentMode(bool isPercent)
+{
+    percentMode = isPercent;
+    lastTextLength = 0;
     updateText();
 }
 
@@ -51,7 +63,20 @@ void StatusTime::updateTimeFormat()
 
 void StatusTime::updateText()
 {
-    drawnText = Helpers::toDateFormatFixed(currentTime, timeFormat);
+    double time = currentTime;
+    if (remainingMode)
+        time = currentTime - currentDuration;
+
+    drawnText = Helpers::toDateFormatFixed(time, timeFormat);
+    drawnText.append(" / ");
+    drawnText.append(Helpers::toDateFormatFixed(currentDuration, timeFormat));
+
+    if (percentMode) {
+        double durationNotNull = currentDuration == 0 ? 1 : currentDuration;
+        drawnText.append(QString(tr(" (%1%)")).arg(QLocale().toString(currentTime / durationNotNull * 100,
+                                                                'f',
+                                                                1)));
+    }
     int drawnTextLength = drawnText.length();
     if (drawnTextLength != lastTextLength) {
         setMinimumSize(minimumSizeHint());
@@ -72,3 +97,8 @@ void StatusTime::paintEvent(QPaintEvent *event)
     p.drawText(rc, drawnText, QTextOption(Qt::AlignRight | Qt::AlignVCenter));
 }
 
+void StatusTime::changeEvent(QEvent *event)
+{
+    if (event->type() == QEvent::EnabledChange)
+        setVisible(isEnabled());
+}

@@ -160,7 +160,6 @@ public slots:
     void setAfterPlaybackOnce(Helpers::AfterPlayback mode);
     void setAfterPlaybackAlways(Helpers::AfterPlayback mode);
     void setAfterPlaybackAlwaysDefault(Helpers::AfterPlayback mode);
-    void setTimeShortMode(bool shortMode);
     void setSubtitlesPreferDefaultForced(bool forced);
     void setSubtitlesPreferExternal(bool external);
     void setSubtitlesIgnoreEmbedded(bool ignore);
@@ -273,8 +272,6 @@ private:
     bool fastSeek = true;
     bool folderFallback = false;
     bool appendToQuickPlaylist = false;
-
-    bool timeShortMode = false;
 
     PlaybackManager::AspectNameChanged showAspectOsdTriggeredBy = AspectNameChanged::OnOpen;
 

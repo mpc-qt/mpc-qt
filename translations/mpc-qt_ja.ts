@@ -1351,6 +1351,18 @@ Do you want to use it for &quot;%3&quot; instead?</source>
         <translation>クイック再生</translation>
     </message>
     <message>
+        <source>Remaining time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>High precision</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show percentage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No files favorited</source>
         <translation>お気に入りファイルがありません</translation>
     </message>
@@ -4178,7 +4190,7 @@ media file played</source>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
-        <translation>MPC-HC のように再生時間インジケーターを短くする</translation>
+        <translation type="vanished">MPC-HC のように再生時間インジケーターを短くする</translation>
     </message>
     <message>
         <source>HDR Compute Peak</source>
@@ -4631,6 +4643,13 @@ media file played</source>
     <message>
         <source>File title</source>
         <translation>ファイル タイトル</translation>
+    </message>
+</context>
+<context>
+    <name>StatusTime</name>
+    <message>
+        <source> (%1%)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

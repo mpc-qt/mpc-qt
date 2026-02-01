@@ -13,14 +13,19 @@ public:
 
     void setTime(double time, double duration);
     void setShortMode(bool shortened);
+    void setRemainingMode(bool isRemaining);
+    void setPercentMode(bool isPercent);
 
 protected:
     void updateTimeFormat();
     void updateText();
     void paintEvent(QPaintEvent *event) override;
+    void changeEvent(QEvent *event) override;
 
 private:
     bool shortMode = false;
+    bool remainingMode = false;
+    bool percentMode = false;
     Helpers::TimeFormat timeFormat = Helpers::LongFormat;
     double currentTime = 0;
     double currentDuration = 0;

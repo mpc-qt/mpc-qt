@@ -40,8 +40,8 @@
 }
 
 MpvObject::PropertyDispatchMap MpvObject::propertyDispatch = {
-    HANDLE_PROP("time-pos", self_playTimeChanged, toDouble, -1.0),
-    HANDLE_PROP("duration", self_playLengthChanged, toDouble, -1.0),
+    HANDLE_PROP("time-pos", self_playTimeChanged, toDouble, 0.0),
+    HANDLE_PROP("duration", self_playLengthChanged, toDouble, 0.0),
     HANDLE_PROP("seekable", seekableChanged, toBool, false),
     HANDLE_PROP("pause", pausedChanged, toBool, true),
     HANDLE_PROP("eof-reached", eofReachedChanged, toString, QString()),

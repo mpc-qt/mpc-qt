@@ -553,8 +553,6 @@ void Flow::setupMainWindowConnections()
             playbackManager, &PlaybackManager::setAfterPlaybackOnce);
     connect(mainWindow, &MainWindow::afterPlaybackAlways,
             playbackManager, &PlaybackManager::setAfterPlaybackAlways);
-    connect(mainWindow, &MainWindow::timeShortModeSet,
-            playbackManager, &PlaybackManager::setTimeShortMode);
     connect(mainWindow, &MainWindow::chapterPrevious,
             playbackManager, &PlaybackManager::navigateToPrevChapter);
     connect(mainWindow, &MainWindow::chapterNext,
@@ -736,8 +734,6 @@ void Flow::setupSettingsConnections()
             mainWindow, &MainWindow::setVolumeMax);
     connect(settingsWindow, &SettingsWindow::subtitlesDelayStep,
             mainWindow, &MainWindow::setSubtitlesDelayStep);
-    connect(settingsWindow, &SettingsWindow::timeShorten,
-            mainWindow, &MainWindow::setTimeShortMode);
     connect(settingsWindow, &SettingsWindow::videoPreview,
             mainWindow, &MainWindow::setVideoPreview);
     connect(settingsWindow, &SettingsWindow::timeTooltip,

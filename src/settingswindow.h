@@ -178,7 +178,6 @@ signals:
     void fastSeek(bool yes);
     void fallbackToFolder(bool yes);
     void volumeMax(int maximum);
-    void timeShorten(bool yes);
     void mpvMouseEvents(bool yes);
     void mpvKeyEvents(bool yes);
     void videoPreview(bool enable);
