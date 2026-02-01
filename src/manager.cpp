@@ -705,7 +705,8 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
     mpvObject_->fileOpen(what.isLocalFile() ? what.toLocalFile()
                                             : QUrl::fromPercentEncoding(what.toEncoded()),
                          replaceMpvPlaylist);
-    mpvObject_->setSubFile(with.toString());
+    if (!with.isEmpty())
+        mpvObject_->setSubFile(with.toString());
     mpvObject_->setPaused(playbackStartPaused);
     playbackStartState = playbackStartPaused ? PausedState : PlayingState;
 
