@@ -1352,15 +1352,15 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation type="unfinished"></translation>
+        <translation>剩余时间</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation type="unfinished"></translation>
+        <translation>高精度时间戳</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>显示百分比</translation>
     </message>
     <message>
         <source>No files favorited</source>
@@ -2785,7 +2785,7 @@ media file played</source>
     </message>
     <message>
         <source>Default track preference</source>
-        <translation>默认轨道偏好</translation>
+        <translation>默认轨道偏好设置</translation>
     </message>
     <message>
         <source>Mouse hiding</source>
@@ -3942,7 +3942,7 @@ media file played</source>
     </message>
     <message>
         <source>Prefer Wayland over XWayland (restart required)</source>
-        <translation>优先使用 Wayland 而不是 XWayland (需要重启)</translation>
+        <translation>优先使用 Wayland 而非 XWayland（需要重启）</translation>
     </message>
     <message>
         <source>Turn on logging (may produce stuttering)</source>
@@ -4434,7 +4434,7 @@ media file played</source>
     </message>
     <message>
         <source>Requires restarting the application to apply changes</source>
-        <translation>需要重新启动应用程序才能应用更改</translation>
+        <translation>需要重启应用程序才能应用更改</translation>
     </message>
     <message>
         <source>yt-dlp (web videos)</source>
@@ -4502,11 +4502,11 @@ media file played</source>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation>显示视频预览（需重新启动）</translation>
+        <translation>显示视频预览（需要重启）</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
-        <translation>使用它的理由并不多。HDMI 支持未压缩的多声道 PCM，而 mpv支持无损的 DTS-HD</translation>
+        <translation>使用它的理由并不多。HDMI 支持未压缩的多声道 PCM，而 mpv 支持无损 DTS-HD</translation>
     </message>
     <message>
         <source>Choose Log File</source>
@@ -4525,7 +4525,7 @@ media file played</source>
     <name>StatusTime</name>
     <message>
         <source> (%1%)</source>
-        <translation type="unfinished"></translation>
+        <translation> (%1%)</translation>
     </message>
 </context>
 <context>
