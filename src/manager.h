@@ -254,11 +254,11 @@ private:
     QStringList audioLangPref;
     QStringList subtitleLangPref;
     int64_t videoTrackSelected = -1;
-    QUuid videoTrackSelectedFor;
+    bool videoTrackIsUserSelected = false;
     int64_t audioTrackSelected = -1;
-    QUuid audioTrackSelectedFor;
+    bool audioTrackIsUserSelected = false;
     int64_t subtitleTrackSelected = -1;
-    QUuid subtitleTrackSelectedFor;
+    bool subtitleTrackIsUserSelected = false;
     int64_t subtitleTrackActive = 0;
     bool subtitleEnabled = true;
     bool subtitlesIgnoreEmbedded = false;
