@@ -2647,10 +2647,6 @@ archivo multimedia reproducido</translation>
         <translation>Color de la ventana</translation>
     </message>
     <message>
-        <source>HHHHHH</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Info Background</source>
         <translation>Fondo de la información</translation>
     </message>

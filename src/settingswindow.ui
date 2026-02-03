@@ -758,12 +758,12 @@ media file played</string>
                <layout class="QHBoxLayout" name="windowVideoLayout">
                 <item>
                  <widget class="QLineEdit" name="windowVideoValue">
-                  <property name="inputMask">
-                   <string>HHHHHH</string>
-                  </property>
-                  <property name="text">
-                   <string notr="true">000000</string>
-                  </property>
+                       <property name="inputMask">
+                        <string notr="true">HHHHHHHH</string>
+                       </property>
+                       <property name="text">
+                        <string notr="true">FF000000</string>
+                       </property>
                  </widget>
                 </item>
                 <item>
@@ -789,12 +789,12 @@ media file played</string>
                <layout class="QHBoxLayout" name="windowInfoBackgroundLayout">
                 <item>
                  <widget class="QLineEdit" name="windowInfoBackgroundValue">
-                  <property name="inputMask">
-                   <string>HHHHHH</string>
-                  </property>
-                  <property name="text">
-                   <string notr="true">000000</string>
-                  </property>
+                       <property name="inputMask">
+                        <string notr="true">HHHHHHHH</string>
+                       </property>
+                       <property name="text">
+                        <string notr="true">FF000000</string>
+                       </property>
                  </widget>
                 </item>
                 <item>
@@ -820,12 +820,12 @@ media file played</string>
                <layout class="QHBoxLayout" name="windowInfoForegroundLayout">
                 <item>
                  <widget class="QLineEdit" name="windowInfoForegroundValue">
-                  <property name="inputMask">
-                   <string>HHHHHH</string>
-                  </property>
-                  <property name="text">
-                   <string notr="true">FFFFFF</string>
-                  </property>
+                       <property name="inputMask">
+                        <string notr="true">HHHHHHHH</string>
+                       </property>
+                       <property name="text">
+                        <string notr="true">FFFFFFFF</string>
+                       </property>
                  </widget>
                 </item>
                 <item>
@@ -6745,10 +6745,10 @@ media file played</string>
                      <item>
                       <widget class="QLineEdit" name="subsColorValue">
                        <property name="inputMask">
-                        <string>HHHHHH</string>
+                        <string notr="true">HHHHHHHH</string>
                        </property>
                        <property name="text">
-                        <string notr="true">FFFF00</string>
+                        <string notr="true">FFFFFF00</string>
                        </property>
                       </widget>
                      </item>
@@ -6776,10 +6776,10 @@ media file played</string>
                      <item>
                       <widget class="QLineEdit" name="subsBorderColorValue">
                        <property name="inputMask">
-                        <string>HHHHHH</string>
+                        <string notr="true">HHHHHHHH</string>
                        </property>
                        <property name="text">
-                        <string notr="true">000000</string>
+                        <string notr="true">FF000000</string>
                        </property>
                       </widget>
                      </item>
@@ -6832,10 +6832,10 @@ media file played</string>
                         <bool>false</bool>
                        </property>
                        <property name="inputMask">
-                        <string>HHHHHH</string>
+                        <string notr="true">HHHHHHHH</string>
                        </property>
                        <property name="text">
-                        <string notr="true">000000</string>
+                        <string notr="true">FF000000</string>
                        </property>
                       </widget>
                      </item>

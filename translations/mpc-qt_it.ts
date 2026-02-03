@@ -2624,7 +2624,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>HHHHHH</source>
-        <translation>HHHHHH</translation>
+        <translation type="vanished">HHHHHH</translation>
     </message>
     <message>
         <source>Info Background</source>

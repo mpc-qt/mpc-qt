@@ -2508,10 +2508,6 @@ media file played</source>
         <translation>Vindusfarge</translation>
     </message>
     <message>
-        <source>HHHHHH</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Info Background</source>
         <translation>Info-bakgrunn</translation>
     </message>

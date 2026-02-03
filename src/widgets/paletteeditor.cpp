@@ -43,7 +43,7 @@ Q_GLOBAL_STATIC_WITH_ARGS(GroupLabels, groupText, ({
 static constexpr char logModule[] =  "paletteeditor";
 
 
-PaletteBox::PaletteBox(QWidget *parent) : QWidget(parent), color(0,0,0)
+PaletteBox::PaletteBox(QWidget *parent) : QWidget(parent), color(0,0,0,255)
 {
 
 }
@@ -71,7 +71,7 @@ void PaletteBox::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton) {
         event->accept();
-        QColor ret = QColorDialog::getColor(color, this);
+        QColor ret = QColorDialog::getColor(color, this, QString(), QColorDialog::ShowAlphaChannel);
         if (ret.isValid()) {
             setValue(ret);
             emit valueSelected(color);
@@ -162,7 +162,7 @@ QPalette PaletteEditor::variantToPalette(const QVariant &v)
     QPalette p = system;
     QVariantList array = v.toList();
     RoleLabels::ConstIterator it;
-    QVariant defaultValue("#000000");
+    QVariant defaultValue("#FF000000");
     int index = 0;
     for (it = roleText->constBegin(); it != roleText->constEnd(); it++) {
         QVariantList items = array.value(index++).toList();
@@ -179,9 +179,9 @@ QVariant PaletteEditor::paletteToVariant(const QPalette &p)
     RoleLabels::ConstIterator it;
     for (it = roleText->constBegin(); it != roleText->constEnd(); it++) {
         QVariantList items;
-        items.append(p.color(QPalette::Active, it->first).name());
-        items.append(p.color(QPalette::Disabled, it->first).name());
-        items.append(p.color(QPalette::Inactive, it->first).name());
+        items.append(p.color(QPalette::Active, it->first).name(QColor::HexArgb));
+        items.append(p.color(QPalette::Disabled, it->first).name(QColor::HexArgb));
+        items.append(p.color(QPalette::Inactive, it->first).name(QColor::HexArgb));
         array.append(QVariant(items));
     }
     return array;

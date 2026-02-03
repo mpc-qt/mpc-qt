@@ -2748,7 +2748,7 @@ media file played</source>
     </message>
     <message>
         <source>HHHHHH</source>
-        <translation>Hhhhhh</translation>
+        <translation type="vanished">Hhhhhh</translation>
     </message>
     <message>
         <source>Info Background</source>

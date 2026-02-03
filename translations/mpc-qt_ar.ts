@@ -2531,10 +2531,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>HHHHHH</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Info Background</source>
         <translation type="unfinished"></translation>
     </message>
