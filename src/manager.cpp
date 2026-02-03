@@ -490,29 +490,26 @@ void PlaybackManager::setAudioTrackPreference(QString langs)
 
 void PlaybackManager::setAudioTrack(int64_t id, bool userSelected)
 {
-    if (userSelected) {
-        audioTrackSelected = id;
-        audioTrackSelectedFor = nowPlayingItem;
-    }
+    audioTrackSelected = id;
+    if (userSelected)
+        audioTrackIsUserSelected = true;
     mpvObject_->setAudioTrack(id);
 }
 
 void PlaybackManager::setSubtitleTrack(int64_t id, bool userSelected)
 {
-    if (userSelected) {
-        subtitleTrackSelected = id;
-        subtitleTrackSelectedFor = nowPlayingItem;
-    }
+    subtitleTrackSelected = id;
+    if (userSelected)
+        subtitleTrackIsUserSelected = true;
     subtitleTrackActive = id;
     updateSubtitleTrack();
 }
 
 void PlaybackManager::setVideoTrack(int64_t id, bool userSelected)
 {
-    if (userSelected) {
-        videoTrackSelected = id;
-        videoTrackSelectedFor = nowPlayingItem;
-    }
+    videoTrackSelected = id;
+    if (userSelected)
+        videoTrackIsUserSelected = true;
     mpvObject_->setVideoTrack(id);
 }
 
@@ -652,7 +649,9 @@ void PlaybackManager::sendCurrentTrackInfo()
     QUrl url(playlistWindow_->getUrlOf(nowPlayingList, nowPlayingItem));
     emit currentTrackInfo({url, nowPlayingList, nowPlayingItem,
                            nowPlayingTitle_, mpvLength, mpvTime,
-                           videoTrackSelected, audioTrackSelected, subtitleTrackSelected});
+                           videoTrackIsUserSelected ? videoTrackSelected : -1,
+                           audioTrackIsUserSelected ? audioTrackSelected : -1,
+                           subtitleTrackIsUserSelected ? subtitleTrackSelected : -1});
 }
 
 void PlaybackManager::getCurrentTrackInfo(QUrl& url, QUuid& listUuid, QUuid& itemUuid, QString& title,
@@ -665,9 +664,9 @@ void PlaybackManager::getCurrentTrackInfo(QUrl& url, QUuid& listUuid, QUuid& ite
     title = nowPlayingTitle_;
     length = mpvLength;
     position = mpvTime;
-    videoTrack = videoTrackSelected;
-    audioTrack = audioTrackSelected;
-    subtitleTrack = subtitleTrackSelected;
+    videoTrack = videoTrackIsUserSelected ? videoTrackSelected : -1;
+    audioTrack = audioTrackIsUserSelected ? audioTrackSelected : -1;
+    subtitleTrack = subtitleTrackIsUserSelected ? subtitleTrackSelected : -1;
     hasVideo = !videoList.isEmpty() && !videoListData[1].isImage;
 }
 
@@ -694,6 +693,12 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
     nowPlaying_ = what;
     nowPlayingList = playlistUuid;
     nowPlayingItem = itemUuid;
+    videoTrackSelected = -1;
+    videoTrackIsUserSelected = false;
+    audioTrackSelected = -1;
+    audioTrackIsUserSelected = false;
+    subtitleTrackSelected = -1;
+    subtitleTrackIsUserSelected = false;
     if (!isRepeating)
         emit startedPlayingFile(what);
     mpvObject_->fileOpen(what.isLocalFile() ? what.toLocalFile()
@@ -759,9 +764,9 @@ void PlaybackManager::selectDesiredTracks()
                     "lastGoodTrack track auto selected: " + QString::number(lastGoodTrack));
         return lastGoodTrack;
     };
-    int64_t videoId = videoTrackSelectedFor == nowPlayingItem ? videoTrackSelected : -1;
-    int64_t audioId = audioTrackSelectedFor == nowPlayingItem ? audioTrackSelected : -1;
-    int64_t subsId = subtitleTrackSelectedFor == nowPlayingItem ? subtitleTrackSelected : -1;
+    int64_t videoId = videoTrackSelected;
+    int64_t audioId = audioTrackSelected;
+    int64_t subsId = subtitleTrackSelected;
 
     if (audioId < 0)
         audioId = findTrackByLangPreference(audioLangPref, audioListData);
@@ -785,19 +790,22 @@ void PlaybackManager::updateSubtitleTrack()
 void PlaybackManager::restoreAudioTrack(int64_t id)
 {
     audioTrackSelected = id;
-    audioTrackSelectedFor = nowPlayingItem;
+    if (id > -1)
+        audioTrackIsUserSelected = true;
 }
 
 void PlaybackManager::restoreSubtitleTrack(int64_t id)
 {
     subtitleTrackSelected = id;
-    subtitleTrackSelectedFor = nowPlayingItem;
+    if (id > -1)
+        subtitleTrackIsUserSelected = true;
 }
 
 void PlaybackManager::restoreVideoTrack(int64_t id)
 {
     videoTrackSelected = id;
-    videoTrackSelectedFor = nowPlayingItem;
+    if (id > -1)
+        videoTrackIsUserSelected = true;
 }
 
 void PlaybackManager::checkAfterPlayback()
