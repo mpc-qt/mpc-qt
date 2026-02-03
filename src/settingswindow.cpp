@@ -1196,10 +1196,10 @@ void SettingsWindow::setCustomMpvOptions()
 void SettingsWindow::colorPick_clicked(QLineEdit *colorValue)
 {
     QColor initial = QString("#%1").arg(colorValue->text());
-    QColor selected = QColorDialog::getColor(initial, this);
+    QColor selected = QColorDialog::getColor(initial, this, QString(), QColorDialog::ShowAlphaChannel);
     if (!selected.isValid())
         return;
-    QString asText = selected.name().mid(1).toUpper();
+    QString asText = selected.name(QColor::HexArgb).mid(1).toUpper();
     colorValue->setText(asText);
     colorValue->setFocus();
 }
