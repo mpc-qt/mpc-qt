@@ -14,22 +14,13 @@ env:
 
 jobs:
   appimage:
-    name: Build with PPA
+    name: Build
     runs-on: ubuntu-22.04
     steps:
-    - name: Update repositories
-      run: |
-        sudo apt update
-    - name: Install packages
-      run: |
-        sudo apt install build-essential cmake
     - name: Add repositories
       run: |
         for i in 1 2 3; do
           sudo add-apt-repository ppa:savoury1/build-tools && break || sleep 60
-        done
-        for i in 1 2 3; do
-          sudo add-apt-repository ppa:savoury1/qt-6-2 && break || sleep 60
         done
         for i in 1 2 3; do
           sudo add-apt-repository ppa:savoury1/llvm-defaults-13 && break || sleep 60
@@ -46,6 +37,11 @@ jobs:
         for i in 1 2 3; do
           sudo add-apt-repository ppa:kubuntu-ppa/backports-extra && break || sleep 60
         done
+    - name: Update repositories
+      run: |
+        for i in 1 2 3; do
+          sudo apt update && break || sleep 60
+        done
     - name: Update packages
       run: |
         for i in 1 2 3; do
@@ -57,13 +53,19 @@ jobs:
     - name: Install packages
       run: |
         for i in 1 2 3; do
-          sudo apt install linguist-qt6 qt6-tools-dev qmake6 qt6-base-dev libboost-all-dev libqt6svg6-dev && break || sleep 60
+          sudo apt install build-essential cmake && break || sleep 60
+        done
+        for i in 1 2 3; do
+          sudo apt install libboost-all-dev && break || sleep 60
         done
         for i in 1 2 3; do
           sudo apt install devscripts equivs git libunwind-dev gdebi && break || sleep 60
         done
         for i in 1 2 3; do
-          sudo apt install libwayland-dev libwayland-egl-backend-dev || sleep 60
+          sudo apt install libwayland-dev libwayland-egl-backend-dev && break || sleep 60
+        done
+        for i in 1 2 3; do
+          sudo apt install libfuse2 && break || sleep 60
         done
     - name: Install newer Qt version
       uses: jurplel/install-qt-action@v4
@@ -141,12 +143,10 @@ jobs:
         else
           cmake -DCMAKE_INSTALL_PREFIX=/usr -G Ninja -B build
         fi
-    - name: Build
+    - name: Build MPC-QT
       run: cmake --build build
-    - name: ninja install
+    - name: Install MPC-QT
       run: DESTDIR=AppDir ninja -C build install
-    - name: Install packages
-      run: sudo apt install libfuse2 libqt6svg6-dev libqt6openglwidgets6
     - name: Download linuxdeploy
       uses: pcolby/install-linuxdeploy@v1.1.0
       with:

@@ -19,7 +19,7 @@ jobs:
     - name: Install packages
       run: |
         sudo apt-get update
-        sudo apt-get -y install qt6-base-dev qt6-l10n-tools libqt6svg6-dev libgl-dev libmpv-dev xvfb x11-apps imagemagick
+        sudo apt-get -y install libgl-dev libmpv-dev xvfb x11-apps imagemagick
     - name: Install newer Qt version
       uses: jurplel/install-qt-action@v4
       with:
