@@ -1400,12 +1400,12 @@ void SettingsWindow::on_screenshotFormat_currentIndexChanged(int index)
 
 void SettingsWindow::on_jpgQuality_valueChanged(int value)
 {
-    ui->jpgQualityValue->setText(QString("%1").arg(value, 3, 10, QChar('0')));
+    ui->jpgQualityValue->setText(QString("%1").arg(value, 3, 10, QChar(0x2007)));
 }
 
 void SettingsWindow::on_jpgSmooth_valueChanged(int value)
 {
-    ui->jpgSmoothValue->setText(QString("%1").arg(value, 3, 10, QChar('0')));
+    ui->jpgSmoothValue->setText(QString("%1").arg(value, 3, 10, QChar(0x2007)));
 }
 
 void SettingsWindow::on_pngCompression_valueChanged(int value)

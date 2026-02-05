@@ -7288,7 +7288,7 @@ media file played</string>
                      <item>
                       <widget class="QLabel" name="jpgQualityValue">
                        <property name="text">
-                        <string notr="true">090</string>
+                        <string notr="true">90</string>
                        </property>
                       </widget>
                      </item>
@@ -7325,7 +7325,7 @@ media file played</string>
                      <item>
                       <widget class="QLabel" name="jpgSmoothValue">
                        <property name="text">
-                        <string notr="true">000</string>
+                        <string notr="true">0</string>
                        </property>
                       </widget>
                      </item>
