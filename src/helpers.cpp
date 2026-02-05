@@ -143,6 +143,7 @@ const QSet<QString> Helpers::audioVideoFileExtensions {
 
 const QSet<QString> Helpers::imagesFileExtensions {
     // Image formats
+    "avif",
     "bmp",
     "dds",
     "dpx",
