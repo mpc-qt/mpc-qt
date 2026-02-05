@@ -176,7 +176,7 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
                             "bottom-right", "bottom-center", "bottom-left",\
                             "center-left", "top-left", "center-center" }},
     {"subtitlesAutoloadMatch", { "exact", "fuzzy", "all" }},
-    {"screenshotFormat", {"jpg", "png"}},
+    {"screenshotFormat", {"jpg", "png", "avif"}},
     {"debugMpv", { "no", "fatal", "error", "warn", "info", "v", "debug",\
                    "trace"}}
 };
@@ -1063,6 +1063,10 @@ void SettingsWindow::sendSignals()
     emit option("screenshot-png-compression", WIDGET_LOOKUP(ui->pngCompression).toInt());
     emit option("screenshot-png-filter", WIDGET_LOOKUP(ui->pngFilter).toInt());
     emit option("screenshot-tag-colorspace", WIDGET_LOOKUP(ui->pngColorspace).toBool());
+    bool avifLossless = WIDGET_LOOKUP(ui->avifLossless).toBool();
+    emit option("screenshot-avif-opts", QString("crf=%1,usage=allintra,tune=ssim,cpu-used=%2")
+                                            .arg(avifLossless ? 0 : WIDGET_LOOKUP(ui->avifCrf).toInt())
+                                            .arg(WIDGET_LOOKUP(ui->avifSpeed).toInt()));
 
     emit fastSeek(WIDGET_LOOKUP(ui->tweaksFastSeek).toBool());
     emit option("hr-seek-framedrop", WIDGET_LOOKUP(ui->tweaksSeekFramedrop).toBool());
@@ -1412,6 +1416,22 @@ void SettingsWindow::on_pngCompression_valueChanged(int value)
 void SettingsWindow::on_pngFilter_valueChanged(int value)
 {
     ui->pngFilterValue->setText(QString::number(value));
+}
+
+void SettingsWindow::on_avifCrf_valueChanged(int value)
+{
+    ui->avifCrfValue->setText(QString("%1").arg(value, 2, 10, QChar(0x2007)));
+    ui->avifLossless->setChecked(value == 0);
+}
+
+void SettingsWindow::on_avifSpeed_valueChanged(int value)
+{
+    ui->avifSpeedValue->setText(QString("%1").arg(value));
+}
+
+void SettingsWindow::on_avifLossless_clicked(bool checked)
+{
+    ui->avifCrf->setValue(checked ? 0 : 23);
 }
 
 void SettingsWindow::on_keysReset_clicked()

@@ -4619,6 +4619,18 @@ arxiu multimèdia reproduït</translation>
         <source>File title</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>CRF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lossless</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>
