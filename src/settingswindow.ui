@@ -7247,6 +7247,11 @@ media file played</string>
                    <string notr="true">png</string>
                   </property>
                  </item>
+                 <item>
+                  <property name="text">
+                   <string notr="true">avif</string>
+                  </property>
+                 </item>
                 </widget>
                </item>
                <item>
@@ -7283,7 +7288,7 @@ media file played</string>
                      <item>
                       <widget class="QLabel" name="jpgQualityValue">
                        <property name="text">
-                        <string notr="true">090</string>
+                        <string notr="true">90</string>
                        </property>
                       </widget>
                      </item>
@@ -7320,7 +7325,7 @@ media file played</string>
                      <item>
                       <widget class="QLabel" name="jpgSmoothValue">
                        <property name="text">
-                        <string notr="true">000</string>
+                        <string notr="true">0</string>
                        </property>
                       </widget>
                      </item>
@@ -7442,6 +7447,103 @@ media file played</string>
                     <widget class="QCheckBox" name="pngColorspace">
                      <property name="text">
                       <string>Include tag</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                 <widget class="QWidget" name="avifPage">
+                  <layout class="QFormLayout" name="avifPageLayout">
+                   <item row="0" column="1">
+                    <layout class="QHBoxLayout" name="avifCrfLayout">
+                     <item>
+                      <widget class="QSlider" name="avifCrf">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="minimum">
+                        <number>0</number>
+                       </property>
+                       <property name="maximum">
+                        <number>63</number>
+                       </property>
+                       <property name="value">
+                        <number>23</number>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Orientation::Horizontal</enum>
+                       </property>
+                       <property name="invertedAppearance">
+                        <bool>true</bool>
+                       </property>
+                       <property name="tickPosition">
+                        <enum>QSlider::TickPosition::TicksBothSides</enum>
+                       </property>
+                       <property name="tickInterval">
+                        <number>4</number>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="avifCrfValue">
+                       <property name="text">
+                        <string notr="true">23</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item row="1" column="1">
+                    <layout class="QHBoxLayout" name="avifSpeedLayout">
+                     <item>
+                      <widget class="QSlider" name="avifSpeed">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="maximum">
+                        <number>8</number>
+                       </property>
+                       <property name="value">
+                        <number>8</number>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Orientation::Horizontal</enum>
+                       </property>
+                       <property name="tickPosition">
+                        <enum>QSlider::TickPosition::TicksBothSides</enum>
+                       </property>
+                       <property name="tickInterval">
+                        <number>1</number>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="avifSpeedValue">
+                       <property name="text">
+                        <string notr="true">8</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="avifCrfLabel">
+                     <property name="text">
+                      <string>CRF</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="avifSpeedLabel">
+                     <property name="text">
+                      <string>Speed</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QCheckBox" name="avifLossless">
+                     <property name="text">
+                      <string>Lossless</string>
                      </property>
                     </widget>
                    </item>

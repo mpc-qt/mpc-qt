@@ -269,6 +269,12 @@ private slots:
 
     void on_pngFilter_valueChanged(int value);
 
+    void on_avifCrf_valueChanged(int value);
+
+    void on_avifSpeed_valueChanged(int value);
+
+    void on_avifLossless_clicked(bool checked);
+
     void on_keysReset_clicked();
 
     void on_shadersAddFile_clicked();
