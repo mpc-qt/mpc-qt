@@ -144,6 +144,14 @@
         <translation>ズームをリセット</translation>
     </message>
     <message>
+        <source>Skip Backward / Previous</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skip Forward / Next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Shortcut already used</source>
         <translation>ショートカットは既に使用されています</translation>
     </message>

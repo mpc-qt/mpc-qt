@@ -110,7 +110,9 @@ QString ActionEditor::getDescriptiveName(const QAction *action)
         { "actionResetMove",               tr("Reset Move") },
         { "actionRotateClockwise",         tr("Rotate Clockwise") },
         { "actionRotateCounterclockwise",  tr("Rotate Counterclockwise") },
-        { "actionResetRotate",             tr("Reset Rotate") }
+        { "actionResetRotate",             tr("Reset Rotate") },
+        { "actionNavigateChaptersPrevious",tr("Skip Backward / Previous") },
+        { "actionNavigateChaptersNext",    tr("Skip Forward / Next") }
     };
 
     QString actionDescription;
