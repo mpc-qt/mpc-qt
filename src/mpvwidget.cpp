@@ -403,6 +403,11 @@ void MpvObject::setMouseHideTime(int msec)
         hideTimer->start();
 }
 
+void MpvObject::setIsInBottomArea(bool entered)
+{
+    isInBottomArea = entered;
+}
+
 void MpvObject::setLogoUrl(const QString &filename)
 {
     if (widget)
@@ -745,7 +750,7 @@ void MpvObject::showCursor()
 
 void MpvObject::hideCursor()
 {
-    if (!widget)
+    if (!widget || isInBottomArea)
         return;
     auto w = widget->self()->window();
     if (widget->self()->cursor() == Qt::ArrowCursor || w->isFullScreen()

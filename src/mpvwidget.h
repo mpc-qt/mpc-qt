@@ -63,6 +63,7 @@ public:
     void seek(double amount, bool exact);
     void screenshot(const QString &fileName, Helpers::ScreenshotRender render);
     void setMouseHideTime(int msec);
+    void setIsInBottomArea(bool entered);
     void setLogoUrl(const QString &filename);
     void setLogoBackground(const QColor &color);
     void setAudioFilters(const QList<QPair<QString, QString>> &filtersList);
@@ -219,6 +220,8 @@ private:
 
     bool sendMouseEvents = false;
     bool sendKeyEvents = false;
+
+    bool isInBottomArea = false;
 };
 
 class MpvWidgetInterface
