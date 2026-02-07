@@ -145,11 +145,11 @@
     </message>
     <message>
         <source>Skip Backward / Previous</source>
-        <translation type="unfinished"></translation>
+        <translation>向后跳过/上一个</translation>
     </message>
     <message>
         <source>Skip Forward / Next</source>
-        <translation type="unfinished"></translation>
+        <translation>向前跳过/下一个</translation>
     </message>
     <message>
         <source>Shortcut already used</source>
@@ -380,7 +380,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Skip Backward</source>
-        <translation>上一个</translation>
+        <translation>向后跳过/上一个</translation>
     </message>
     <message>
         <source>Speed Decrease</source>
@@ -392,7 +392,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Skip Forward</source>
-        <translation>下一个</translation>
+        <translation>向前跳过/下一个</translation>
     </message>
     <message>
         <source>Step Backward</source>
@@ -1452,7 +1452,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Libr&amp;ary</source>
-        <translation>库(&amp;A)</translation>
+        <translation>媒体库(&amp;A)</translation>
     </message>
     <message>
         <source>Ctrl+=</source>
@@ -2601,11 +2601,11 @@ media file played</source>
     </message>
     <message>
         <source>Keep history of recently opened files</source>
-        <translation>保存历史记录</translation>
+        <translation>保留最近打开文件的历史记录</translation>
     </message>
     <message>
         <source>Remember last selected playlist</source>
-        <translation>记住最后选择的播放列表</translation>
+        <translation>记住上次选择的播放列表</translation>
     </message>
     <message>
         <source>Remember last window geometry</source>
@@ -2613,7 +2613,7 @@ media file played</source>
     </message>
     <message>
         <source>Remember last Pan-n-Scan Zoom</source>
-        <translation>记得上次的全景扫描缩放</translation>
+        <translation>记住上次平移和扫描缩放</translation>
     </message>
     <message>
         <source>MIME types</source>
@@ -2665,11 +2665,11 @@ media file played</source>
     </message>
     <message>
         <source>Triangle in circle</source>
-        <translation>实心圆套三角形</translation>
+        <translation>圆内三角形</translation>
     </message>
     <message>
         <source>Multi purpose vehicle</source>
-        <translation>MPV</translation>
+        <translation>多用途汽车</translation>
     </message>
     <message>
         <source>Icons</source>
@@ -2681,7 +2681,7 @@ media file played</source>
     </message>
     <message>
         <source>Built-in fallback</source>
-        <translation>内置备用主题</translation>
+        <translation>内置后备主题</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -2689,11 +2689,11 @@ media file played</source>
     </message>
     <message>
         <source>System (Linux only)</source>
-        <translation>系统主题(仅支持 Linux)</translation>
+        <translation>系统主题（仅限 Linux）</translation>
     </message>
     <message>
         <source>Folder (e.g. ~/Pictures/MyIcons/mpc-qt/leet)</source>
-        <translation>文件夹 (如 ~/Pictures/MyIcons/mpc-qt/leet)</translation>
+        <translation>文件夹（例如 ~/Pictures/MyIcons/mpc-qt/leet）</translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
@@ -3409,7 +3409,7 @@ media file played</source>
     </message>
     <message>
         <source>Resample (may introduce latency)</source>
-        <translation>重采样(可能增加延迟)</translation>
+        <translation>重采样（可能会导致延迟）</translation>
     </message>
     <message>
         <source>Ignore channel map (for specific alsa setups)</source>
@@ -4030,7 +4030,7 @@ media file played</source>
     </message>
     <message>
         <source> lines</source>
-        <translation> · 行</translation>
+        <translation> 行</translation>
     </message>
     <message>
         <source>Keep </source>
@@ -4174,11 +4174,11 @@ media file played</source>
     </message>
     <message>
         <source>Stylesheet</source>
-        <translation>样式</translation>
+        <translation>样式表</translation>
     </message>
     <message>
         <source>Application Stylesheet</source>
-        <translation>程序样式表</translation>
+        <translation>应用程序样式表</translation>
     </message>
     <message>
         <source>High-contrast timeline and volume sliders</source>
@@ -4214,11 +4214,11 @@ media file played</source>
     </message>
     <message>
         <source>Language Override</source>
-        <translation>语言设置</translation>
+        <translation>语言覆盖</translation>
     </message>
     <message>
         <source>Locale (Autodetect)</source>
-        <translation>系统语言 (自动检测)</translation>
+        <translation>区域（自动检测）</translation>
     </message>
     <message>
         <source>Medium</source>
@@ -4362,7 +4362,7 @@ media file played</source>
     </message>
     <message>
         <source>Cinema screen</source>
-        <translation>影院模式</translation>
+        <translation>电影屏幕</translation>
     </message>
     <message>
         <source>Update interval</source>
@@ -4530,15 +4530,15 @@ media file played</source>
     </message>
     <message>
         <source>CRF</source>
-        <translation type="unfinished"></translation>
+        <translation>CRF</translation>
     </message>
     <message>
         <source>Lossless</source>
-        <translation type="unfinished"></translation>
+        <translation>无损</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>速度</translation>
     </message>
 </context>
 <context>
@@ -4572,7 +4572,7 @@ media file played</source>
     </message>
     <message>
         <source>Layout</source>
-        <translation>样式</translation>
+        <translation>布局</translation>
     </message>
     <message>
         <source>Rows</source>
