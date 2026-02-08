@@ -1120,6 +1120,7 @@ void MainWindow::checkBottomArea(QPointF mousePosition)
                 ui->bottomArea->show();
         } else if (ui->bottomArea->isVisible() && !hideTimer.isActive()) {
             startTimer = true;
+            mpvObject_->setIsInBottomArea(false);
         }
         break;
     case Helpers::ShowWhenMoving:

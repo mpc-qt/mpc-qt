@@ -758,14 +758,8 @@ void MpvObject::hideCursor()
         if (QGuiApplication::platformName().contains("wayland") && !w->isActiveWindow())
             return;
         widget->self()->setCursor(Qt::BlankCursor);
-        if (w->isFullScreen()) {
+        if (w->isFullScreen())
             w->setCursor(Qt::BlankCursor);
-            // REMOVEME: work around bug since kwin 6.2.4 on X11 where cursor stays visible in rightmost position
-            if (QCursor::pos().x() == w->geometry().right()) {
-                w->setCursor(Qt::BlankCursor);
-                Logger::log(logModule, "workaround: hiding cursor on rightmost pixels");
-            }
-        }
     }
 }
 
