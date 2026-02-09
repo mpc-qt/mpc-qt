@@ -2740,7 +2740,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Widget Color</source>
-        <translation>Araç takımı rengi</translation>
+        <translation type="vanished">Araç takımı rengi</translation>
     </message>
     <message>
         <source>Use custom theme</source>
@@ -2748,7 +2748,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Window Color</source>
-        <translation>Pencere rengi</translation>
+        <translation type="vanished">Pencere rengi</translation>
     </message>
     <message>
         <source>HHHHHH</source>
@@ -4633,6 +4633,10 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Others</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -2527,15 +2527,7 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Widget Color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Use custom theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Window Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4385,6 +4377,10 @@ media file played</source>
     </message>
     <message>
         <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Others</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

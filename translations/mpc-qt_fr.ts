@@ -2697,7 +2697,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Widget Color</source>
-        <translation>Couleur du widget</translation>
+        <translation type="vanished">Couleur du widget</translation>
     </message>
     <message>
         <source>Use custom theme</source>
@@ -2705,7 +2705,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Window Color</source>
-        <translation>Couleur de la fenêtre</translation>
+        <translation type="vanished">Couleur de la fenêtre</translation>
     </message>
     <message>
         <source>HHHHHH</source>
@@ -4594,6 +4594,10 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Others</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

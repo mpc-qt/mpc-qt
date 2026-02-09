@@ -2744,7 +2744,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Widget Color</source>
-        <translation>Color del giny</translation>
+        <translation type="vanished">Color del giny</translation>
     </message>
     <message>
         <source>Use custom theme</source>
@@ -2752,7 +2752,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Window Color</source>
-        <translation>Color de la finestra</translation>
+        <translation type="vanished">Color de la finestra</translation>
     </message>
     <message>
         <source>HHHHHH</source>
@@ -4637,6 +4637,10 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Others</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

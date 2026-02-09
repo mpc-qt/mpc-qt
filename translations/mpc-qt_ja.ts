@@ -2765,7 +2765,7 @@ media file played</source>
     </message>
     <message>
         <source>Widget Color</source>
-        <translation>ウィジェットの色</translation>
+        <translation type="vanished">ウィジェットの色</translation>
     </message>
     <message>
         <source>Use custom theme</source>
@@ -2773,7 +2773,7 @@ media file played</source>
     </message>
     <message>
         <source>Window Color</source>
-        <translation>ウィンドウの色</translation>
+        <translation type="vanished">ウィンドウの色</translation>
     </message>
     <message>
         <source>HHHHHH</source>
@@ -4663,6 +4663,10 @@ media file played</source>
     <message>
         <source>Speed</source>
         <translation>速度</translation>
+    </message>
+    <message>
+        <source>Others</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -2644,7 +2644,7 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Widget Color</source>
-        <translation>Color del control</translation>
+        <translation type="vanished">Color del control</translation>
     </message>
     <message>
         <source>Use custom theme</source>
@@ -2652,7 +2652,7 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Window Color</source>
-        <translation>Color de la ventana</translation>
+        <translation type="vanished">Color de la ventana</translation>
     </message>
     <message>
         <source>Info Background</source>
@@ -4493,6 +4493,10 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Others</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

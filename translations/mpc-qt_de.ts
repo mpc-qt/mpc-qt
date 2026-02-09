@@ -2748,7 +2748,7 @@ media file played</source>
     </message>
     <message>
         <source>Widget Color</source>
-        <translation>Widget Farbe</translation>
+        <translation type="vanished">Widget Farbe</translation>
     </message>
     <message>
         <source>Use custom theme</source>
@@ -2756,7 +2756,7 @@ media file played</source>
     </message>
     <message>
         <source>Window Color</source>
-        <translation>Fensterfarbe</translation>
+        <translation type="vanished">Fensterfarbe</translation>
     </message>
     <message>
         <source>HHHHHH</source>
@@ -4621,6 +4621,10 @@ media file played</source>
     </message>
     <message>
         <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Others</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

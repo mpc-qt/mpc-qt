@@ -2555,15 +2555,7 @@ arquivo de mídia reproduzido</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Widget Color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Use custom theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Window Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4417,6 +4409,10 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Others</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

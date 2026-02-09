@@ -2744,7 +2744,7 @@ media file played</source>
     </message>
     <message>
         <source>Widget Color</source>
-        <translation>விட்செட் நிறம்</translation>
+        <translation type="vanished">விட்செட் நிறம்</translation>
     </message>
     <message>
         <source>Use custom theme</source>
@@ -2752,7 +2752,7 @@ media file played</source>
     </message>
     <message>
         <source>Window Color</source>
-        <translation>சாளரம் நிறம்</translation>
+        <translation type="vanished">சாளரம் நிறம்</translation>
     </message>
     <message>
         <source>HHHHHH</source>
@@ -4641,6 +4641,10 @@ media file played</source>
     </message>
     <message>
         <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Others</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

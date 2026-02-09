@@ -2724,7 +2724,7 @@ media file played</source>
     </message>
     <message>
         <source>Widget Color</source>
-        <translation>Цвет виджета</translation>
+        <translation type="vanished">Цвет виджета</translation>
     </message>
     <message>
         <source>Use custom theme</source>
@@ -2732,7 +2732,7 @@ media file played</source>
     </message>
     <message>
         <source>Window Color</source>
-        <translation>Цвет фона</translation>
+        <translation type="vanished">Цвет фона</translation>
     </message>
     <message>
         <source>HHHHHH</source>
@@ -4613,6 +4613,10 @@ media file played</source>
     </message>
     <message>
         <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Others</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
