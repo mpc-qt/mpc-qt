@@ -2708,11 +2708,11 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation type="vanished">Tema</translation>
     </message>
     <message>
         <source>Built-in fallback</source>
-        <translation>Fallback integrat</translation>
+        <translation type="vanished">Fallback integrat</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -4621,7 +4621,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>Vegi &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;el repositori font&lt;/a&gt; per als noms d&apos;icones.</translation>
+        <translation type="vanished">Vegi &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;el repositori font&lt;/a&gt; per als noms d&apos;icones.</translation>
     </message>
     <message>
         <source>File title</source>
@@ -4657,6 +4657,18 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Use custom colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source</source>
+        <translation type="unfinished">Font</translation>
+    </message>
+    <message>
+        <source>Built-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

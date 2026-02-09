@@ -2704,11 +2704,11 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation type="vanished">Tema</translation>
     </message>
     <message>
         <source>Built-in fallback</source>
-        <translation>Yerleşik yedek</translation>
+        <translation type="vanished">Yerleşik yedek</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -4617,7 +4617,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>Simge adları için &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;kaynak depoya&lt;/a&gt; bakın.</translation>
+        <translation type="vanished">Simge adları için &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;kaynak depoya&lt;/a&gt; bakın.</translation>
     </message>
     <message>
         <source>File title</source>
@@ -4653,6 +4653,18 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Use custom colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source</source>
+        <translation type="unfinished">Kaynak</translation>
+    </message>
+    <message>
+        <source>Built-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

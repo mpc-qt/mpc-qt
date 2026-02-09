@@ -612,7 +612,7 @@ media file played</string>
               <item row="0" column="0">
                <widget class="QLabel" name="interfaceIconsThemeLabel">
                 <property name="text">
-                 <string>Theme</string>
+                 <string>Source</string>
                 </property>
                </widget>
               </item>
@@ -626,7 +626,7 @@ media file played</string>
                 </property>
                 <item>
                  <property name="text">
-                  <string>Built-in fallback</string>
+                  <string>Built-in</string>
                  </property>
                 </item>
                 <item>
@@ -681,7 +681,7 @@ media file played</string>
                  <bool>false</bool>
                 </property>
                 <property name="text">
-                 <string>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</string>
+                 <string>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</string>
                 </property>
                 <property name="openExternalLinks">
                  <bool>true</bool>

@@ -2677,11 +2677,11 @@ media file played</source>
     </message>
     <message>
         <source>Theme</source>
-        <translation>主题</translation>
+        <translation type="vanished">主题</translation>
     </message>
     <message>
         <source>Built-in fallback</source>
-        <translation>内置后备主题</translation>
+        <translation type="vanished">内置后备主题</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -4522,7 +4522,7 @@ media file played</source>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>图标名称见 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;源码仓库&lt;/a&gt;。</translation>
+        <translation type="vanished">图标名称见 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;源码仓库&lt;/a&gt;。</translation>
     </message>
     <message>
         <source>File title</source>
@@ -4558,6 +4558,18 @@ media file played</source>
     </message>
     <message>
         <source>Use custom colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source</source>
+        <translation type="unfinished">来源</translation>
+    </message>
+    <message>
+        <source>Built-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

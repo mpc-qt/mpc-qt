@@ -2708,11 +2708,11 @@ media file played</source>
     </message>
     <message>
         <source>Theme</source>
-        <translation>கருப்பொருள்</translation>
+        <translation type="vanished">கருப்பொருள்</translation>
     </message>
     <message>
         <source>Built-in fallback</source>
-        <translation>உள்ளமைக்கப்பட்ட குறைவடையும்</translation>
+        <translation type="vanished">உள்ளமைக்கப்பட்ட குறைவடையும்</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -4625,7 +4625,7 @@ media file played</source>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>படவுரு பெயர்களுக்கு &lt;a href = &quot;https://github.com/mpc-qt/mpc-qt/tree/mages/theme/black&quot;&gt; மூல ரெப்போ &lt;/a&gt; ஐப் பார்க்கவும்.</translation>
+        <translation type="vanished">படவுரு பெயர்களுக்கு &lt;a href = &quot;https://github.com/mpc-qt/mpc-qt/tree/mages/theme/black&quot;&gt; மூல ரெப்போ &lt;/a&gt; ஐப் பார்க்கவும்.</translation>
     </message>
     <message>
         <source>File title</source>
@@ -4661,6 +4661,18 @@ media file played</source>
     </message>
     <message>
         <source>Use custom colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source</source>
+        <translation type="unfinished">மூலம்</translation>
+    </message>
+    <message>
+        <source>Built-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -2688,11 +2688,11 @@ media file played</source>
     </message>
     <message>
         <source>Theme</source>
-        <translation>Тема</translation>
+        <translation type="vanished">Тема</translation>
     </message>
     <message>
         <source>Built-in fallback</source>
-        <translation>Встроенная</translation>
+        <translation type="vanished">Встроенная</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -4597,7 +4597,7 @@ media file played</source>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>Смотри &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;репозиторий исходного кода&lt;/a&gt; для названий значков.</translation>
+        <translation type="vanished">Смотри &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;репозиторий исходного кода&lt;/a&gt; для названий значков.</translation>
     </message>
     <message>
         <source>File title</source>
@@ -4633,6 +4633,18 @@ media file played</source>
     </message>
     <message>
         <source>Use custom colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source</source>
+        <translation type="unfinished">Источник</translation>
+    </message>
+    <message>
+        <source>Built-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -2729,11 +2729,11 @@ media file played</source>
     </message>
     <message>
         <source>Theme</source>
-        <translation>テーマ</translation>
+        <translation type="vanished">テーマ</translation>
     </message>
     <message>
         <source>Built-in fallback</source>
-        <translation>内蔵フォールバック</translation>
+        <translation type="vanished">内蔵フォールバック</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -4646,7 +4646,7 @@ media file played</source>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>アイコン名については、 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;ソース リポジトリ&lt;/a&gt; を参照してください。</translation>
+        <translation type="vanished">アイコン名については、 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;ソース リポジトリ&lt;/a&gt; を参照してください。</translation>
     </message>
     <message>
         <source>File title</source>
@@ -4682,6 +4682,18 @@ media file played</source>
     </message>
     <message>
         <source>Use custom colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source</source>
+        <translation type="unfinished">ソース</translation>
+    </message>
+    <message>
+        <source>Built-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
