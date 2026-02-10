@@ -726,7 +726,6 @@ void SettingsWindow::sendSignals()
 
     emit logoSource(selectedLogo());
     emit iconTheme(static_cast<IconThemer::FolderMode>(WIDGET_LOOKUP(ui->interfaceIconsTheme).toInt()),
-                   autoIcons,
                    WIDGET_LOOKUP(ui->interfaceIconsCustomFolder).toString());
     emit highContrastWidgets(WIDGET_LOOKUP(ui->interfaceWidgetHighContast).toBool());
     bool useCustomColors = WIDGET_LOOKUP(ui->interfaceWidgetCustom).toBool();

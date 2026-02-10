@@ -14,7 +14,6 @@
 #include <QDir>
 #include <QCollator>
 
-extern const char autoIcons[];
 extern const char blackIconsPath[];
 extern const char whiteIconsPath[];
 
@@ -90,9 +89,7 @@ public:
     void addIconData(const IconData &data);
     QIcon fetchIcon(const QString &name);
     void updateButton(const IconData &data);
-
-public slots:
-    void setIconFolders(IconThemer::FolderMode folderMode, const QString &fallbackFolder, const QString &customFolder);
+    void setIconFolders(IconThemer::FolderMode folderMode, const QString &customFolder);
 
 private:
     QList<IconData> iconDataList;

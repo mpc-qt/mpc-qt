@@ -12,7 +12,6 @@
 #include "platform/unify.h"
 
 static constexpr char logModule[] =  "helpers";
-const char autoIcons[] = "auto";
 const char blackIconsPath[] = ":/images/theme/black/";
 const char whiteIconsPath[] = ":/images/theme/white/";
 
@@ -766,20 +765,16 @@ QIcon IconThemer::fetchIcon(const QString &name)
     return icon;
 }
 
-void IconThemer::setIconFolders(FolderMode folderMode,
-                                const QString &fallbackFolder,
-                                const QString &customFolder)
+void IconThemer::setIconFolders(FolderMode folderMode, const QString &customFolder)
 {
     folderMode_ = folderMode;
-    if (fallbackFolder == autoIcons) {
+    if (folderMode == FolderMode::FallbackFolder) {
         // QGuiApplication::styleHints()->colorScheme() isn't reliable
         const QPalette defaultPalette;
         const auto text = defaultPalette.color(QPalette::WindowText);
         const auto window = defaultPalette.color(QPalette::Window);
         fallbackFolder_ = text.lightness() > window.lightness() ? whiteIconsPath : blackIconsPath;
     }
-    else
-        fallbackFolder_ = fallbackFolder;
     customFolder_ = customFolder;
     for (const IconData &data : std::as_const(iconDataList))
         updateButton(data);

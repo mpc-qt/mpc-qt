@@ -1851,9 +1851,9 @@ void MainWindow::setFavoriteTracks(QList<TrackInfo> files, QList<TrackInfo> stre
         addTracks(streams);
 }
 
-void MainWindow::setIconTheme(IconThemer::FolderMode folderMode, QString fallbackFolder, QString customFolder)
+void MainWindow::setIconTheme(IconThemer::FolderMode folderMode, const QString& customFolder)
 {
-    themer.setIconFolders(folderMode, fallbackFolder, customFolder);
+    themer.setIconFolders(folderMode, customFolder);
 }
 
 void MainWindow::setHighContrastWidgets(bool yes)
