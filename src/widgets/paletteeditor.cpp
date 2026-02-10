@@ -127,7 +127,7 @@ PaletteEditor::PaletteEditor(QWidget *parent) : QWidget(parent)
 
     button = new QPushButton(tr("Button && Window"), this);
     connect(button, &QPushButton::clicked,
-            this, &PaletteEditor::generateButton_clicked);
+            this, &PaletteEditor::generateButtonWindow_clicked);
     layout->addWidget(button, row, col++);
 
     button = new QPushButton(tr("Reset to System"), this);
