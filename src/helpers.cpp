@@ -740,8 +740,8 @@ void IconThemer::addIconData(const IconThemer::IconData &data)
 QIcon IconThemer::fetchIcon(const QString &name)
 {
     QDir customDir(customFolder_);
-    if (folderMode_ == CustomFolder && customDir.exists() && customDir.exists(name)) {
-        return QIcon(customFolder_ + name + ".svg");
+    if (folderMode_ == CustomFolder && customDir.exists() && customDir.exists(name + ".svg")) {
+        return QIcon(customDir.filePath(name + ".svg"));
     }
     QIcon icon;
     if (folderMode_ != SystemFolder) {
