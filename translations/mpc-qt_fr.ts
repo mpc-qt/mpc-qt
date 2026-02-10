@@ -145,11 +145,11 @@
     </message>
     <message>
         <source>Skip Backward / Previous</source>
-        <translation type="unfinished"></translation>
+        <translation>Sauter en arrière / Précédent</translation>
     </message>
     <message>
         <source>Skip Forward / Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Sauter en avant / Suivant</translation>
     </message>
     <message>
         <source>Shortcut already used</source>
@@ -2549,7 +2549,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Disable screensaver while playing</source>
-        <translation>Désactiver l’économiseur d’écran pendant la lecture</translation>
+        <translation>Désactiver l’écran de veille pendant la lecture</translation>
     </message>
     <message>
         <source>Title bar</source>
@@ -4586,15 +4586,15 @@ fichier média lu</translation>
     </message>
     <message>
         <source>CRF</source>
-        <translation type="unfinished"></translation>
+        <translation>CRF</translation>
     </message>
     <message>
         <source>Lossless</source>
-        <translation type="unfinished"></translation>
+        <translation>Sans perte</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Vitesse</translation>
     </message>
 </context>
 <context>
