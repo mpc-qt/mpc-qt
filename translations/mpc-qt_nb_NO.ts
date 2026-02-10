@@ -2513,11 +2513,11 @@ media file played</source>
     </message>
     <message>
         <source>Info Background</source>
-        <translation>Info-bakgrunn</translation>
+        <translation type="vanished">Info-bakgrunn</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation>Info-forgrunn</translation>
+        <translation type="vanished">Info-forgrunn</translation>
     </message>
     <message>
         <source>Control</source>
@@ -4302,6 +4302,18 @@ media file played</source>
     </message>
     <message>
         <source>Others</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar foreground</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

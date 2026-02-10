@@ -2559,14 +2559,6 @@ arquivo de mídia reproduzido</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Info Background</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Info Foreground</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Control</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4413,6 +4405,18 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Others</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar foreground</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -2792,11 +2792,11 @@ media file played</translation>
     </message>
     <message>
         <source>Info Background</source>
-        <translation>Info Background</translation>
+        <translation type="vanished">Info Background</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation>Info Foreground</translation>
+        <translation type="vanished">Info Foreground</translation>
     </message>
     <message>
         <source>Control</source>
@@ -4677,6 +4677,18 @@ media file played</translation>
     </message>
     <message>
         <source>Others</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar foreground</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

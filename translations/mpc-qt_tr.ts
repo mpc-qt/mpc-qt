@@ -2756,11 +2756,11 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Info Background</source>
-        <translation>Bilgi arka planı</translation>
+        <translation type="vanished">Bilgi arka planı</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation>Bilgi ön planı</translation>
+        <translation type="vanished">Bilgi ön planı</translation>
     </message>
     <message>
         <source>Control</source>
@@ -4637,6 +4637,18 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Others</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar foreground</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

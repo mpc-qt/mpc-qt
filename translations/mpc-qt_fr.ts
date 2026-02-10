@@ -2713,11 +2713,11 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Info Background</source>
-        <translation>Arrière-plan des infos</translation>
+        <translation type="vanished">Arrière-plan des infos</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation>Premier plan des infos</translation>
+        <translation type="vanished">Premier plan des infos</translation>
     </message>
     <message>
         <source>Control</source>
@@ -4598,6 +4598,18 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Others</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar foreground</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

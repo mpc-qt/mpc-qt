@@ -2781,11 +2781,11 @@ media file played</source>
     </message>
     <message>
         <source>Info Background</source>
-        <translation>情報欄の背景色</translation>
+        <translation type="vanished">情報欄の背景色</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation>情報欄の文字色</translation>
+        <translation type="vanished">情報欄の文字色</translation>
     </message>
     <message>
         <source>Control</source>
@@ -4666,6 +4666,18 @@ media file played</source>
     </message>
     <message>
         <source>Others</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar foreground</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

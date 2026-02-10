@@ -744,7 +744,7 @@ media file played</string>
                      <item row="0" column="0">
                       <widget class="QLabel" name="windowVideoLabel">
                        <property name="text">
-                        <string>Video</string>
+                        <string>Video background</string>
                        </property>
                       </widget>
                      </item>
@@ -775,7 +775,7 @@ media file played</string>
                      <item row="1" column="0">
                       <widget class="QLabel" name="windowInfoBackgroundLabel">
                        <property name="text">
-                        <string>Info Background</string>
+                        <string>Status bar background</string>
                        </property>
                       </widget>
                      </item>
@@ -806,7 +806,7 @@ media file played</string>
                      <item row="2" column="0">
                       <widget class="QLabel" name="windowInfoForegroundLabel">
                        <property name="text">
-                        <string>Info Foreground</string>
+                        <string>Status bar foreground</string>
                        </property>
                       </widget>
                      </item>

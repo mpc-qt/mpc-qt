@@ -2760,11 +2760,11 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Info Background</source>
-        <translation>Informació de fons</translation>
+        <translation type="vanished">Informació de fons</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation>Informació en primer pla</translation>
+        <translation type="vanished">Informació en primer pla</translation>
     </message>
     <message>
         <source>Control</source>
@@ -4641,6 +4641,18 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Others</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar foreground</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

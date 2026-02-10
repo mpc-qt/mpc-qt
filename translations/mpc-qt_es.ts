@@ -2656,11 +2656,11 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Info Background</source>
-        <translation>Fondo de la información</translation>
+        <translation type="vanished">Fondo de la información</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation>Texto de la información</translation>
+        <translation type="vanished">Texto de la información</translation>
     </message>
     <message>
         <source>Control</source>
@@ -4497,6 +4497,18 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Others</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar foreground</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
