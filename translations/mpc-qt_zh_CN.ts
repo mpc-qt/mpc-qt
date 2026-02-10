@@ -2717,7 +2717,7 @@ media file played</source>
     </message>
     <message>
         <source>Use custom theme</source>
-        <translation>使用自定义主题</translation>
+        <translation type="vanished">使用自定义主题</translation>
     </message>
     <message>
         <source>Window Color</source>
@@ -4554,6 +4554,10 @@ media file played</source>
     </message>
     <message>
         <source>Status bar foreground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use custom colors</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -2515,10 +2515,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Use custom theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Control</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4365,6 +4361,10 @@ media file played</source>
     </message>
     <message>
         <source>Status bar foreground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use custom colors</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -2619,10 +2619,6 @@ ogni file multimediale riprodotto</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Use custom theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>HHHHHH</source>
         <translation type="vanished">HHHHHH</translation>
     </message>
@@ -4449,6 +4445,10 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Status bar foreground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use custom colors</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

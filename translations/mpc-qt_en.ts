@@ -2780,7 +2780,7 @@ media file played</translation>
     </message>
     <message>
         <source>Use custom theme</source>
-        <translation>Use custom theme</translation>
+        <translation type="vanished">Use custom theme</translation>
     </message>
     <message>
         <source>Window Color</source>
@@ -4689,6 +4689,10 @@ media file played</translation>
     </message>
     <message>
         <source>Status bar foreground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use custom colors</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

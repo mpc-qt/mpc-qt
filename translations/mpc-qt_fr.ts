@@ -2701,7 +2701,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Use custom theme</source>
-        <translation>Utiliser un thème personnalisé</translation>
+        <translation type="vanished">Utiliser un thème personnalisé</translation>
     </message>
     <message>
         <source>Window Color</source>
@@ -4610,6 +4610,10 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Status bar foreground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use custom colors</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

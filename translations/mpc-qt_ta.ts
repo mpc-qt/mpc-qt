@@ -2748,7 +2748,7 @@ media file played</source>
     </message>
     <message>
         <source>Use custom theme</source>
-        <translation>தனிப்பயன் கருப்பொருளைப் பயன்படுத்தவும்</translation>
+        <translation type="vanished">தனிப்பயன் கருப்பொருளைப் பயன்படுத்தவும்</translation>
     </message>
     <message>
         <source>Window Color</source>
@@ -4657,6 +4657,10 @@ media file played</source>
     </message>
     <message>
         <source>Status bar foreground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use custom colors</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

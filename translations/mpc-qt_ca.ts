@@ -2748,7 +2748,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Use custom theme</source>
-        <translation>Utilitzar un tema personalitzat</translation>
+        <translation type="vanished">Utilitzar un tema personalitzat</translation>
     </message>
     <message>
         <source>Window Color</source>
@@ -4653,6 +4653,10 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Status bar foreground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use custom colors</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

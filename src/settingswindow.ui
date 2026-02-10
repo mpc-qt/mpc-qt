@@ -707,7 +707,7 @@ media file played</string>
               <item>
                <widget class="QCheckBox" name="interfaceWidgetCustom">
                 <property name="text">
-                 <string>Use custom theme</string>
+                 <string>Use custom colors</string>
                 </property>
                 <property name="checked">
                  <bool>false</bool>
