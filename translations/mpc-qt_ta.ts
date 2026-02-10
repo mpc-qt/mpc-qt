@@ -1990,6 +1990,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
 <context>
     <name>PaletteEditor</name>
     <message>
+        <source>Generate palette from:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Button</source>
         <translation>பொத்தான்</translation>
     </message>
@@ -2003,7 +2007,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Generate</source>
-        <translation>உருவாக்கு</translation>
+        <translation type="vanished">உருவாக்கு</translation>
     </message>
 </context>
 <context>

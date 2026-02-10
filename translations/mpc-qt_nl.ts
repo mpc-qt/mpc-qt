@@ -1834,6 +1834,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
 <context>
     <name>PaletteEditor</name>
     <message>
+        <source>Generate palette from:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Button</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1843,10 +1847,6 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Reset to System</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Generate</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

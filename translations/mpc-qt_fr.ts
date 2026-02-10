@@ -1947,6 +1947,10 @@ Voulez-vous l&apos;utiliser pour &quot;%3&quot; à la place&#x202f;?</translatio
 <context>
     <name>PaletteEditor</name>
     <message>
+        <source>Generate palette from:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Button</source>
         <translation>Bouton</translation>
     </message>
@@ -1960,7 +1964,7 @@ Voulez-vous l&apos;utiliser pour &quot;%3&quot; à la place&#x202f;?</translatio
     </message>
     <message>
         <source>Generate</source>
-        <translation>Générer</translation>
+        <translation type="vanished">Générer</translation>
     </message>
 </context>
 <context>
