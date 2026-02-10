@@ -7,6 +7,7 @@ class Tooltip : public QWidget {
     public:
         explicit Tooltip(QWidget *parent = nullptr);
         ~Tooltip();
+        void updatePalette();
         void show(const QString &text, const QPoint &where, int mainWindowWidth, const QString &textTemplate);
         void hide();
 

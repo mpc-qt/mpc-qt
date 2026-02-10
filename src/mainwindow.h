@@ -53,6 +53,7 @@ public:
 
 protected:
     void resizeEvent(QResizeEvent *event);
+    void changeEvent(QEvent *event) override;
     bool eventFilter(QObject *object, QEvent *event);
     void closeEvent(QCloseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);

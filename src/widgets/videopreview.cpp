@@ -1,4 +1,4 @@
-#include <QToolTip>
+#include <QApplication>
 #include "videopreview.h"
 
 static constexpr char logModule[] =  "videopreview";
@@ -15,11 +15,7 @@ VideoPreview::VideoPreview(QWidget *parent) : QWidget(parent)
     textLabel->setAlignment(Qt::AlignCenter);
 
     textLabel->setAutoFillBackground(true);
-    QPalette tooltipPalette = QToolTip::palette();
-    QPalette customPalette = this->palette();
-    customPalette.setColor(QPalette::Window, tooltipPalette.color(QPalette::ToolTipBase));
-    customPalette.setColor(QPalette::WindowText, tooltipPalette.color(QPalette::ToolTipText));
-    textLabel->setPalette(customPalette);
+    updatePalette();
 
     emit mpv->ctrlSetOptionVariant("vo", "libmpv");
     emit mpv->ctrlSetOptionVariant("keep-open", true);
@@ -55,6 +51,14 @@ void VideoPreview::openFile(const QUrl &fileUrl)
     mpv->urlOpen(fileUrl);
     mpv->setPaused(true);
     aspectRatioSet = false;
+}
+
+void VideoPreview::updatePalette()
+{
+    QPalette palette = QApplication::palette();
+    palette.setColor(QPalette::Window, palette.color(QPalette::ToolTipBase));
+    palette.setColor(QPalette::WindowText, palette.color(QPalette::ToolTipText));
+    textLabel->setPalette(palette);
 }
 
 void VideoPreview::show(const QString &text, double videoPosition, const QPoint &where, int mainWindowWidth)

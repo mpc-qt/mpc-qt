@@ -780,6 +780,11 @@ void IconThemer::setIconFolders(FolderMode folderMode, const QString &customFold
         updateButton(data);
 }
 
+void IconThemer::updateIcons()
+{
+    setIconFolders(folderMode_, customFolder_);
+}
+
 void IconThemer::updateButton(const IconData &data)
 {
     QString nameToUse = data.iconNormal;

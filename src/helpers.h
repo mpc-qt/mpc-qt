@@ -90,6 +90,7 @@ public:
     QIcon fetchIcon(const QString &name);
     void updateButton(const IconData &data);
     void setIconFolders(IconThemer::FolderMode folderMode, const QString &customFolder);
+    void updateIcons();
 
 private:
     QList<IconData> iconDataList;
