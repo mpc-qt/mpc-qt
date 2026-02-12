@@ -2403,7 +2403,8 @@ void MainWindow::setVideoBitrate(double bitrate)
 void MainWindow::setIsVideo(bool isVideo)
 {
     isVideo_ = isVideo;
-    showStepAndSubsButtons(isVideo);
+    if (isPlaying)
+        showStepAndSubsButtons(isVideo);
 }
 
 void MainWindow::setVideoPreviewItem(QUrl itemUrl)
