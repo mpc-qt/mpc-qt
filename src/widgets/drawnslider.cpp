@@ -148,8 +148,8 @@ void DrawnSlider::paintEvent(QPaintEvent *event)
             handleBorder = handleBorder.darker();
             markColor = markColor.darker();
         } else {
-            handleBorder = handleBorder.lighter();
-            markColor = markColor.lighter();
+            handleBorder = handleBorder.lighter(200);
+            markColor = markColor.lighter(200);
         }
     }
 
