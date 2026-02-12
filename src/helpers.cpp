@@ -12,7 +12,6 @@
 #include "platform/unify.h"
 
 static constexpr char logModule[] =  "helpers";
-const char autoIcons[] = "auto";
 const char blackIconsPath[] = ":/images/theme/black/";
 const char whiteIconsPath[] = ":/images/theme/white/";
 
@@ -745,12 +744,12 @@ QIcon IconThemer::fetchIcon(const QString &name)
     }
     QIcon icon;
     if (folderMode_ != SystemFolder) {
-        icon = QIcon(fallbackFolder_ + name + ".svg");
+        icon = QIcon(builtinFolder + name + ".svg");
     }
     else {
-        icon =  QIcon::fromTheme(name, QIcon(fallbackFolder_ + name + ".svg"));
+        icon =  QIcon::fromTheme(name, QIcon(builtinFolder + name + ".svg"));
     }
-    if (fallbackFolder_ == whiteIconsPath) {
+    if (builtinFolder == whiteIconsPath) {
         // Add a disabled mode for white icons (dark theme) as Qt doesn't provide one
         QImage image = icon.pixmap(QSize(16, 16), QIcon::Normal, QIcon::On).toImage();
         for (int x = 0; x < image.width(); x++) {
@@ -766,20 +765,16 @@ QIcon IconThemer::fetchIcon(const QString &name)
     return icon;
 }
 
-void IconThemer::setIconFolders(FolderMode folderMode,
-                                const QString &fallbackFolder,
-                                const QString &customFolder)
+void IconThemer::setIconFolders(FolderMode folderMode, const QString &customFolder)
 {
     folderMode_ = folderMode;
-    if (fallbackFolder == autoIcons) {
+    if (folderMode == FolderMode::BuiltinFolder) {
         // QGuiApplication::styleHints()->colorScheme() isn't reliable
         const QPalette defaultPalette;
         const auto text = defaultPalette.color(QPalette::WindowText);
         const auto window = defaultPalette.color(QPalette::Window);
-        fallbackFolder_ = text.lightness() > window.lightness() ? whiteIconsPath : blackIconsPath;
+        builtinFolder = text.lightness() > window.lightness() ? whiteIconsPath : blackIconsPath;
     }
-    else
-        fallbackFolder_ = fallbackFolder;
     customFolder_ = customFolder;
     for (const IconData &data : std::as_const(iconDataList))
         updateButton(data);

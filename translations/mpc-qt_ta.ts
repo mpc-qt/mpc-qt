@@ -1990,6 +1990,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
 <context>
     <name>PaletteEditor</name>
     <message>
+        <source>Generate palette from:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Button</source>
         <translation>பொத்தான்</translation>
     </message>
@@ -2003,7 +2007,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Generate</source>
-        <translation>உருவாக்கு</translation>
+        <translation type="vanished">உருவாக்கு</translation>
     </message>
 </context>
 <context>
@@ -2708,11 +2712,11 @@ media file played</source>
     </message>
     <message>
         <source>Theme</source>
-        <translation>கருப்பொருள்</translation>
+        <translation type="vanished">கருப்பொருள்</translation>
     </message>
     <message>
         <source>Built-in fallback</source>
-        <translation>உள்ளமைக்கப்பட்ட குறைவடையும்</translation>
+        <translation type="vanished">உள்ளமைக்கப்பட்ட குறைவடையும்</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -2744,15 +2748,15 @@ media file played</source>
     </message>
     <message>
         <source>Widget Color</source>
-        <translation>விட்செட் நிறம்</translation>
+        <translation type="vanished">விட்செட் நிறம்</translation>
     </message>
     <message>
         <source>Use custom theme</source>
-        <translation>தனிப்பயன் கருப்பொருளைப் பயன்படுத்தவும்</translation>
+        <translation type="vanished">தனிப்பயன் கருப்பொருளைப் பயன்படுத்தவும்</translation>
     </message>
     <message>
         <source>Window Color</source>
-        <translation>சாளரம் நிறம்</translation>
+        <translation type="vanished">சாளரம் நிறம்</translation>
     </message>
     <message>
         <source>HHHHHH</source>
@@ -2760,11 +2764,11 @@ media file played</source>
     </message>
     <message>
         <source>Info Background</source>
-        <translation>செய்தி பின்னணி</translation>
+        <translation type="vanished">செய்தி பின்னணி</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation>செய்தி முன்புறம்</translation>
+        <translation type="vanished">செய்தி முன்புறம்</translation>
     </message>
     <message>
         <source>Control</source>
@@ -4625,7 +4629,7 @@ media file played</source>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>படவுரு பெயர்களுக்கு &lt;a href = &quot;https://github.com/mpc-qt/mpc-qt/tree/mages/theme/black&quot;&gt; மூல ரெப்போ &lt;/a&gt; ஐப் பார்க்கவும்.</translation>
+        <translation type="vanished">படவுரு பெயர்களுக்கு &lt;a href = &quot;https://github.com/mpc-qt/mpc-qt/tree/mages/theme/black&quot;&gt; மூல ரெப்போ &lt;/a&gt; ஐப் பார்க்கவும்.</translation>
     </message>
     <message>
         <source>File title</source>
@@ -4641,6 +4645,38 @@ media file played</source>
     </message>
     <message>
         <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Others</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar foreground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use custom colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source</source>
+        <translation type="unfinished">மூலம்</translation>
+    </message>
+    <message>
+        <source>Built-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

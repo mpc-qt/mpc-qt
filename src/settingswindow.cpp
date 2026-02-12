@@ -434,7 +434,7 @@ void SettingsWindow::setupPaletteEditor()
 {
     paletteEditor = new PaletteEditor(this);
     paletteEditor->setObjectName("interfaceWidgetCustomPalette");
-    ui->interfaceWidgetCustomHost->layout()->addWidget(paletteEditor);
+    ui->interfaceWidgetCustomLayout->insertWidget(0, paletteEditor);
 }
 
 void SettingsWindow::setupColorPickers()
@@ -726,16 +726,20 @@ void SettingsWindow::sendSignals()
 
     emit logoSource(selectedLogo());
     emit iconTheme(static_cast<IconThemer::FolderMode>(WIDGET_LOOKUP(ui->interfaceIconsTheme).toInt()),
-                   autoIcons,
                    WIDGET_LOOKUP(ui->interfaceIconsCustomFolder).toString());
     emit highContrastWidgets(WIDGET_LOOKUP(ui->interfaceWidgetHighContast).toBool());
-    emit applicationPalette(WIDGET_LOOKUP(ui->interfaceWidgetCustom).toBool()
-                            ? paletteEditor->variantToPalette(WIDGET_LOOKUP(paletteEditor))
-                            : paletteEditor->systemPalette());
-    emit videoColor(QString("#%1").arg(WIDGET_LOOKUP(ui->windowVideoValue).toString()));
-    emit option("background-color", QString("#%1").arg(WIDGET_LOOKUP(ui->windowVideoValue).toString()));
-    emit infoStatsColors(QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoForegroundValue).toString()),
-                         QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoBackgroundValue).toString()));
+    bool useCustomColors = WIDGET_LOOKUP(ui->interfaceWidgetCustom).toBool();
+    emit applicationPalette(useCustomColors ? paletteEditor->variantToPalette(WIDGET_LOOKUP(paletteEditor))
+                                         : paletteEditor->systemPalette());
+    emit videoColor(useCustomColors ? QString("#%1").arg(WIDGET_LOOKUP(ui->windowVideoValue).toString())
+                                    : "000000");
+    emit option("background-color", useCustomColors
+                                    ? QString("#%1").arg(WIDGET_LOOKUP(ui->windowVideoValue).toString())
+                                    : "000000");
+    QString infoForegroundColor = QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoForegroundValue).toString());
+    QString infoBackgroundColor = QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoBackgroundValue).toString());
+    emit infoStatsColors(useCustomColors ? infoForegroundColor : "FFFFFF",
+                         useCustomColors ? infoBackgroundColor : "000000");
 
     emit stylesheetIsFusion(WIDGET_LOOKUP(ui->stylesheetFusion).toBool());
     emit stylesheetText(WIDGET_LOOKUP(ui->stylesheetText).toString());

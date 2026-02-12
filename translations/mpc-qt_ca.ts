@@ -1990,6 +1990,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
 <context>
     <name>PaletteEditor</name>
     <message>
+        <source>Generate palette from:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Button</source>
         <translation>Botó</translation>
     </message>
@@ -2003,7 +2007,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Generate</source>
-        <translation>Generar</translation>
+        <translation type="vanished">Generar</translation>
     </message>
 </context>
 <context>
@@ -2708,11 +2712,11 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation type="vanished">Tema</translation>
     </message>
     <message>
         <source>Built-in fallback</source>
-        <translation>Fallback integrat</translation>
+        <translation type="vanished">Fallback integrat</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -2744,15 +2748,15 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Widget Color</source>
-        <translation>Color del giny</translation>
+        <translation type="vanished">Color del giny</translation>
     </message>
     <message>
         <source>Use custom theme</source>
-        <translation>Utilitzar un tema personalitzat</translation>
+        <translation type="vanished">Utilitzar un tema personalitzat</translation>
     </message>
     <message>
         <source>Window Color</source>
-        <translation>Color de la finestra</translation>
+        <translation type="vanished">Color de la finestra</translation>
     </message>
     <message>
         <source>HHHHHH</source>
@@ -2760,11 +2764,11 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Info Background</source>
-        <translation>Informació de fons</translation>
+        <translation type="vanished">Informació de fons</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation>Informació en primer pla</translation>
+        <translation type="vanished">Informació en primer pla</translation>
     </message>
     <message>
         <source>Control</source>
@@ -4621,7 +4625,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>Vegi &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;el repositori font&lt;/a&gt; per als noms d&apos;icones.</translation>
+        <translation type="vanished">Vegi &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;el repositori font&lt;/a&gt; per als noms d&apos;icones.</translation>
     </message>
     <message>
         <source>File title</source>
@@ -4637,6 +4641,38 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Others</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar foreground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use custom colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source</source>
+        <translation type="unfinished">Font</translation>
+    </message>
+    <message>
+        <source>Built-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

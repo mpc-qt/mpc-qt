@@ -82,7 +82,7 @@ signals:
     void playlistMovedToBackup(QUuid backupUuid);
 
 public slots:
-    void setIconTheme(IconThemer::FolderMode folderMode, const QString &fallbackFolder, const QString &customFolder);
+    void setIconTheme(IconThemer::FolderMode folderMode, const QString &customFolder);
     void setHideFullscreen(bool hidden);
     void setRememberSelectedPlaylist(bool remember);
 

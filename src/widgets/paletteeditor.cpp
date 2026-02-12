@@ -109,7 +109,14 @@ PaletteEditor::PaletteEditor(QWidget *parent) : QWidget(parent)
     // Middle rows - colorboxes
     for (auto const &[colorRole, colorRoleTitle] : *roleText) {
         col = 0;
-        layout->addWidget(new QLabel(colorRoleTitle), row, col++);
+        QLabel* roleTitle = new QLabel(colorRoleTitle);
+        layout->addWidget(roleTitle, row, col++);
+        QList lightTitles = {QPalette::Light, QPalette::Midlight, QPalette::Dark,
+                             QPalette::Mid, QPalette::BrightText, QPalette::LinkVisited,
+                             QPalette::AlternateBase, QPalette::NoRole};
+        if (lightTitles.contains(colorRole))
+            roleTitle->setStyleSheet("font-weight: 100;");
+
         for (auto const &[colorGroup, colorGroupTitle] : *groupText)
             layout->addWidget(makeBox({colorGroup, colorRole}), row, col++);
         row++;
@@ -117,7 +124,7 @@ PaletteEditor::PaletteEditor(QWidget *parent) : QWidget(parent)
 
     // Final row - generate buttons
     col = 0;
-    layout->addWidget(new QLabel(tr("Generate")), row, col++);
+    layout->addWidget(new QLabel(tr("Generate palette from:")), row, col++);
 
     QPushButton *button;
     button = new QPushButton(tr("Button"), this);
@@ -127,7 +134,7 @@ PaletteEditor::PaletteEditor(QWidget *parent) : QWidget(parent)
 
     button = new QPushButton(tr("Button && Window"), this);
     connect(button, &QPushButton::clicked,
-            this, &PaletteEditor::generateButton_clicked);
+            this, &PaletteEditor::generateButtonWindow_clicked);
     layout->addWidget(button, row, col++);
 
     button = new QPushButton(tr("Reset to System"), this);

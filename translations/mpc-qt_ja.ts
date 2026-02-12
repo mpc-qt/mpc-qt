@@ -2011,6 +2011,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
 <context>
     <name>PaletteEditor</name>
     <message>
+        <source>Generate palette from:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Button</source>
         <translation>ボタン</translation>
     </message>
@@ -2024,7 +2028,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Generate</source>
-        <translation>生成</translation>
+        <translation type="vanished">生成</translation>
     </message>
 </context>
 <context>
@@ -2729,11 +2733,11 @@ media file played</source>
     </message>
     <message>
         <source>Theme</source>
-        <translation>テーマ</translation>
+        <translation type="vanished">テーマ</translation>
     </message>
     <message>
         <source>Built-in fallback</source>
-        <translation>内蔵フォールバック</translation>
+        <translation type="vanished">内蔵フォールバック</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -2765,15 +2769,15 @@ media file played</source>
     </message>
     <message>
         <source>Widget Color</source>
-        <translation>ウィジェットの色</translation>
+        <translation type="vanished">ウィジェットの色</translation>
     </message>
     <message>
         <source>Use custom theme</source>
-        <translation>カスタム テーマを使用する</translation>
+        <translation type="vanished">カスタム テーマを使用する</translation>
     </message>
     <message>
         <source>Window Color</source>
-        <translation>ウィンドウの色</translation>
+        <translation type="vanished">ウィンドウの色</translation>
     </message>
     <message>
         <source>HHHHHH</source>
@@ -2781,11 +2785,11 @@ media file played</source>
     </message>
     <message>
         <source>Info Background</source>
-        <translation>情報欄の背景色</translation>
+        <translation type="vanished">情報欄の背景色</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation>情報欄の文字色</translation>
+        <translation type="vanished">情報欄の文字色</translation>
     </message>
     <message>
         <source>Control</source>
@@ -4646,7 +4650,7 @@ media file played</source>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>アイコン名については、 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;ソース リポジトリ&lt;/a&gt; を参照してください。</translation>
+        <translation type="vanished">アイコン名については、 &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;ソース リポジトリ&lt;/a&gt; を参照してください。</translation>
     </message>
     <message>
         <source>File title</source>
@@ -4663,6 +4667,38 @@ media file played</source>
     <message>
         <source>Speed</source>
         <translation>速度</translation>
+    </message>
+    <message>
+        <source>Others</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar foreground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use custom colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source</source>
+        <translation type="unfinished">ソース</translation>
+    </message>
+    <message>
+        <source>Built-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

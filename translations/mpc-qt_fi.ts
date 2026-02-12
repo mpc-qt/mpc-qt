@@ -1854,6 +1854,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
 <context>
     <name>PaletteEditor</name>
     <message>
+        <source>Generate palette from:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Button</source>
         <translation>Painike</translation>
     </message>
@@ -1867,7 +1871,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Generate</source>
-        <translation>Luo</translation>
+        <translation type="vanished">Luo</translation>
     </message>
 </context>
 <context>
@@ -2541,14 +2545,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Built-in fallback</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2558,26 +2554,6 @@ media file played</source>
     </message>
     <message>
         <source>Folder (e.g. ~/Pictures/MyIcons/mpc-qt/leet)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Widget Color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use custom theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Window Color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Info Background</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Info Foreground</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4342,10 +4318,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>File title</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4359,6 +4331,38 @@ media file played</source>
     </message>
     <message>
         <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Others</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar foreground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use custom colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Built-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

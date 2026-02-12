@@ -1990,6 +1990,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
 <context>
     <name>PaletteEditor</name>
     <message>
+        <source>Generate palette from:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Button</source>
         <translation>Düğme</translation>
     </message>
@@ -2003,7 +2007,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Generate</source>
-        <translation>Üret</translation>
+        <translation type="vanished">Üret</translation>
     </message>
 </context>
 <context>
@@ -2704,11 +2708,11 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation type="vanished">Tema</translation>
     </message>
     <message>
         <source>Built-in fallback</source>
-        <translation>Yerleşik yedek</translation>
+        <translation type="vanished">Yerleşik yedek</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -2740,15 +2744,15 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Widget Color</source>
-        <translation>Araç takımı rengi</translation>
+        <translation type="vanished">Araç takımı rengi</translation>
     </message>
     <message>
         <source>Use custom theme</source>
-        <translation>Özel tema kullan</translation>
+        <translation type="vanished">Özel tema kullan</translation>
     </message>
     <message>
         <source>Window Color</source>
-        <translation>Pencere rengi</translation>
+        <translation type="vanished">Pencere rengi</translation>
     </message>
     <message>
         <source>HHHHHH</source>
@@ -2756,11 +2760,11 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Info Background</source>
-        <translation>Bilgi arka planı</translation>
+        <translation type="vanished">Bilgi arka planı</translation>
     </message>
     <message>
         <source>Info Foreground</source>
-        <translation>Bilgi ön planı</translation>
+        <translation type="vanished">Bilgi ön planı</translation>
     </message>
     <message>
         <source>Control</source>
@@ -4617,7 +4621,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>Simge adları için &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;kaynak depoya&lt;/a&gt; bakın.</translation>
+        <translation type="vanished">Simge adları için &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;kaynak depoya&lt;/a&gt; bakın.</translation>
     </message>
     <message>
         <source>File title</source>
@@ -4633,6 +4637,38 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Others</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar foreground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use custom colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source</source>
+        <translation type="unfinished">Kaynak</translation>
+    </message>
+    <message>
+        <source>Built-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
