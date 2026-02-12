@@ -745,13 +745,14 @@ void PlaybackManager::selectDesiredTracks()
         return -1;
     };
     auto findTrackByLangPreference = [&](const QStringList &langPref,
-                                         const QMap<int64_t,TrackData> &tracks) -> int64_t {
+                                         const QMap<int64_t,TrackData> &tracks,
+                                         bool isSubs) -> int64_t {
         int64_t lastGoodTrack = -1;
         for (const QString &lang : langPref) {
             for (auto it = tracks.constBegin();
                  it != tracks.constEnd(); it++)
                 if (it.value().lang == lang) {
-                    if (it.value().isForced || it.value().isDefault)
+                    if (isSubs && it.value().isForced)
                         lastGoodTrack = it.key();
                     else{
                         Logger::log(logModule,
@@ -769,10 +770,10 @@ void PlaybackManager::selectDesiredTracks()
     int64_t subsId = subtitleTrackSelected;
 
     if (audioId < 0)
-        audioId = findTrackByLangPreference(audioLangPref, audioListData);
+        audioId = findTrackByLangPreference(audioLangPref, audioListData, false);
     if (subsId < 0) subsId = findSubIdByPreference();
     if (subsId < 0)
-        subsId = findTrackByLangPreference(subtitleLangPref, subtitleListData);
+        subsId = findTrackByLangPreference(subtitleLangPref, subtitleListData, true);
     if (subsId < 0)
         subsId = 1;
     // Set detected tracks
