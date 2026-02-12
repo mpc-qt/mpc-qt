@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>Volume Mute</source>
-        <translation>静音</translation>
+        <translation>音量静音</translation>
     </message>
     <message>
         <source>After Playback: Exit</source>
@@ -145,11 +145,11 @@
     </message>
     <message>
         <source>Skip Backward / Previous</source>
-        <translation>向后跳过/上一个</translation>
+        <translation>上一个/向后跳过</translation>
     </message>
     <message>
         <source>Skip Forward / Next</source>
-        <translation>向前跳过/下一个</translation>
+        <translation>下一个/向前跳过</translation>
     </message>
     <message>
         <source>Shortcut already used</source>
@@ -203,11 +203,11 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Volume Increase</source>
-        <translation>提高音量</translation>
+        <translation>音量增加</translation>
     </message>
     <message>
         <source>Volume Decrease</source>
-        <translation>降低音量</translation>
+        <translation>音量减少</translation>
     </message>
     <message>
         <source>Play / Pause</source>
@@ -357,7 +357,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Save File</source>
-        <translation>保存到文件</translation>
+        <translation>保存文件</translation>
     </message>
 </context>
 <context>
@@ -380,7 +380,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Skip Backward</source>
-        <translation>向后跳过/上一个</translation>
+        <translation>上一个</translation>
     </message>
     <message>
         <source>Speed Decrease</source>
@@ -392,7 +392,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Skip Forward</source>
-        <translation>向前跳过/下一个</translation>
+        <translation>下一个</translation>
     </message>
     <message>
         <source>Step Backward</source>
@@ -444,7 +444,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>O&amp;pen Disc</source>
-        <translation>打开光盘(&amp;O)</translation>
+        <translation>打开光盘(&amp;P)</translation>
     </message>
     <message>
         <source>Recent &amp;Files</source>
@@ -860,7 +860,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>R&amp;eset Rate</source>
-        <translation>重置速率(&amp;E)</translation>
+        <translation>重置速度(&amp;E)</translation>
     </message>
     <message>
         <source>Ctrl+R</source>
@@ -1548,19 +1548,19 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Seek Forwards (normal step)</source>
-        <translation>快进(小步)</translation>
+        <translation>向前跳转（正常步长）</translation>
     </message>
     <message>
         <source>Seek Backwards (normal step)</source>
-        <translation>快退(小步)</translation>
+        <translation>向后跳转（正常步长）</translation>
     </message>
     <message>
         <source>Seek Forwards (large step)</source>
-        <translation>快进(大步)</translation>
+        <translation>向前跳转（大幅步长）</translation>
     </message>
     <message>
         <source>Seek Backwards (large step)</source>
-        <translation>快退(大步)</translation>
+        <translation>向后跳转（大幅步长）</translation>
     </message>
     <message>
         <source>Title</source>
@@ -1968,7 +1968,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>PaletteEditor</name>
     <message>
         <source>Generate palette from:</source>
-        <translation type="unfinished"></translation>
+        <translation>生成调色板来源：</translation>
     </message>
     <message>
         <source>Button</source>
@@ -2007,7 +2007,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>0: None</source>
-        <translation>0:无</translation>
+        <translation>0：无</translation>
     </message>
     <message>
         <source>Aspect ratio: %1</source>
@@ -2035,7 +2035,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Failed to move file to recycle bin: %1</source>
-        <translation>文件移至回收站失败：%1</translation>
+        <translation>无法将文件移至回收站：%1</translation>
     </message>
 </context>
 <context>
@@ -2477,7 +2477,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Playback</source>
-        <translation>回放</translation>
+        <translation>播放</translation>
     </message>
     <message>
         <source>Output</source>
@@ -2573,11 +2573,11 @@ media file played</source>
     </message>
     <message>
         <source>Disable &quot;Open Disc&quot; menu</source>
-        <translation>禁用&quot;打开光盘&quot;菜单</translation>
+        <translation>禁用“打开光盘”菜单</translation>
     </message>
     <message>
         <source>Disable screensaver while playing</source>
-        <translation>播放时禁用屏保</translation>
+        <translation>播放时禁用屏幕保护程序</translation>
     </message>
     <message>
         <source>Title bar</source>
@@ -2613,7 +2613,7 @@ media file played</source>
     </message>
     <message>
         <source>Remember last window geometry</source>
-        <translation>记住窗口大小</translation>
+        <translation>记住上次窗口大小</translation>
     </message>
     <message>
         <source>Remember last Pan-n-Scan Zoom</source>
@@ -3485,7 +3485,7 @@ media file played</source>
     </message>
     <message>
         <source>Wiki</source>
-        <translation>Wiki</translation>
+        <translation>维基</translation>
     </message>
     <message>
         <source>Active shaders</source>
@@ -4346,11 +4346,11 @@ media file played</source>
     </message>
     <message>
         <source>Normal step</source>
-        <translation>正常速度</translation>
+        <translation>正常步长</translation>
     </message>
     <message>
         <source>Large step</source>
-        <translation>快进</translation>
+        <translation>大幅步长</translation>
     </message>
     <message>
         <source>Show time tooltip:</source>
@@ -4450,7 +4450,7 @@ media file played</source>
     </message>
     <message>
         <source>yt-dlp (web videos)</source>
-        <translation>YT-DLP（网络视频）</translation>
+        <translation>yt-dlp（网络视频）</translation>
     </message>
     <message>
         <source>Max video height:</source>
@@ -4546,35 +4546,35 @@ media file played</source>
     </message>
     <message>
         <source>Others</source>
-        <translation type="unfinished"></translation>
+        <translation>其他</translation>
     </message>
     <message>
         <source>Video background</source>
-        <translation type="unfinished"></translation>
+        <translation>视频背景</translation>
     </message>
     <message>
         <source>Status bar background</source>
-        <translation type="unfinished"></translation>
+        <translation>状态栏背景</translation>
     </message>
     <message>
         <source>Status bar foreground</source>
-        <translation type="unfinished"></translation>
+        <translation>状态栏前景</translation>
     </message>
     <message>
         <source>Use custom colors</source>
-        <translation type="unfinished"></translation>
+        <translation>使用自定义颜色</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">来源</translation>
+        <translation>来源</translation>
     </message>
     <message>
         <source>Built-in</source>
-        <translation type="unfinished"></translation>
+        <translation>内置</translation>
     </message>
     <message>
         <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>图标必须使用与&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;仓库&lt;/a&gt;中相同的名称。</translation>
     </message>
 </context>
 <context>
