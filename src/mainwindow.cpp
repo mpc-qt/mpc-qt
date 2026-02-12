@@ -376,6 +376,21 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     resizePlaylistToFit();
 }
 
+void MainWindow::changeEvent(QEvent *event)
+{
+    if (event->type() == QEvent::ThemeChange || event->type() == QEvent::PaletteChange) {
+        positionSlider_->applicationPaletteChanged();
+        volumeSlider_->applicationPaletteChanged();
+        themer.updateIcons();
+        playlistWindow_->updateIcons();
+        ui->menubar->setStyle(ui->menubar->style());
+        if (tooltip)
+            tooltip->updatePalette();
+        if (videoPreview)
+            videoPreview->updatePalette();
+    }
+}
+
 bool MainWindow::eventFilter(QObject *object, QEvent *event)
 {
     bool insideMpv = mpvw ? object == mpvw : false;
@@ -390,9 +405,6 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)
         else if (event->type() == QEvent::Enter)
             mpvObject_->setIsInBottomArea(true);
     }
-
-    if (event->type() == QEvent::ApplicationPaletteChange)
-        positionSlider_->applicationPaletteChanged();
 
     if (Platform::isWindows && event->type() == QEvent::KeyPress) {
         QKeyEvent *ke = static_cast<QKeyEvent*>(event);

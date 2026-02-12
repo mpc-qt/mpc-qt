@@ -47,6 +47,8 @@ public:
     QVariantList tabsToVList(bool saveQuickPlaylist) const;
     void tabsFromVList(const QVariantList &qvl);
 
+    void updateIcons();
+
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
     void dragEnterEvent(QDragEnterEvent *event);

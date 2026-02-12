@@ -295,6 +295,11 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
     updatePlaylistHasItems();
 }
 
+void PlaylistWindow::updateIcons()
+{
+    themer.updateIcons();
+}
+
 bool PlaylistWindow::eventFilter(QObject *obj, QEvent *event)
 {
     Q_UNUSED(obj)
