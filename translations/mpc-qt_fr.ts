@@ -1948,7 +1948,7 @@ Voulez-vous l&apos;utiliser pour &quot;%3&quot; à la place&#x202f;?</translatio
     <name>PaletteEditor</name>
     <message>
         <source>Generate palette from:</source>
-        <translation type="unfinished"></translation>
+        <translation>Générer la palette d&apos;après&#xa0;:</translation>
     </message>
     <message>
         <source>Button</source>
@@ -4602,35 +4602,35 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Others</source>
-        <translation type="unfinished"></translation>
+        <translation>Autres</translation>
     </message>
     <message>
         <source>Video background</source>
-        <translation type="unfinished"></translation>
+        <translation>Arrière-plan vidéo</translation>
     </message>
     <message>
         <source>Status bar background</source>
-        <translation type="unfinished"></translation>
+        <translation>Arrière-plan de la barre d&apos;état</translation>
     </message>
     <message>
         <source>Status bar foreground</source>
-        <translation type="unfinished"></translation>
+        <translation>Avant-plan de la barre d&apos;état</translation>
     </message>
     <message>
         <source>Use custom colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser des couleurs personnalisées</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">Source</translation>
+        <translation>Source</translation>
     </message>
     <message>
         <source>Built-in</source>
-        <translation type="unfinished"></translation>
+        <translation>Intégrées</translation>
     </message>
     <message>
         <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Les icônes doivent utiliser les mêmes noms que dans le &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;dépôt&lt;/a&gt;.</translation>
     </message>
 </context>
 <context>
