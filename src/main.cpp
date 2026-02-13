@@ -180,6 +180,7 @@ Flow::~Flow()
             if (playlistsBackupLoaded)
                 storage.writeVList(filePlaylistsBackup, PlaylistCollection::getBackup()->toVList());
         }
+        Logger::setMainWindow(nullptr);
         delete mainWindow;
         mainWindow = nullptr;
     }
@@ -305,6 +306,7 @@ void Flow::init() {
     // Create our windows
     Logger::log(logModule, "creating main window");
     mainWindow = new MainWindow();
+    Logger::setMainWindow(mainWindow);
     Logger::log(logModule, "creating playback manager");
     playbackManager = new PlaybackManager(this);
     playbackManager->setMpvObject(mainWindow->mpvObject(), true);

@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <cstdlib>
+#include <QMessageBox>
 #include <unistd.h>
 #include "logger.h"
 
@@ -28,6 +29,7 @@ static bool logToConsole = false; // by default, do not log to console
 static bool loggerInstanceSetBefore = false;
 static Logger *loggerInstance = nullptr;
 static StdFileCopy realStdErr(stderr);
+QWidget* Logger::mainWindow_ = nullptr;
 
 void loggerCallback(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
@@ -40,7 +42,7 @@ void loggerCallback(QtMsgType type, const QMessageLogContext &context, const QSt
         Logger::log("qt", "info", msg);
         break;
     case QtWarningMsg:
-        Logger::log("qt", "warn", msg);
+        Logger::log("qt", "warn", msg, true);
         break;
     case QtCriticalMsg:
         Logger::log("qt", "crit", msg);
@@ -118,7 +120,7 @@ void Logger::log(QString prefix, QString message)
                               Q_ARG(QString, message));
 }
 
-void Logger::log(QString prefix, QString level, QString message)
+void Logger::log(QString prefix, QString level, QString message, bool qtWarningMsg)
 {
     Logger *log = singleton();
     if (!log)
@@ -128,6 +130,9 @@ void Logger::log(QString prefix, QString level, QString message)
                               Q_ARG(QString, prefix),
                               Q_ARG(QString, level),
                               Q_ARG(QString, message));
+
+    if (qtWarningMsg)
+        checkAmbiguousShortcut(message);
 }
 
 void Logger::logs(const QStringList &strings)
@@ -143,6 +148,23 @@ void Logger::logs(QString prefix, const QStringList &strings)
 void Logger::logs(QString prefix, QString level, const QStringList &strings)
 {
     log(prefix, level, strings.join(' '));
+}
+
+void Logger::setMainWindow(QWidget* mainWindow)
+{
+    Logger::mainWindow_ = mainWindow;
+}
+
+void Logger::checkAmbiguousShortcut(const QString &message)
+{
+    if (message.startsWith("QAction::event: Ambiguous shortcut overload: ")) {
+        QStringView shortcut = QStringView(message).mid(45);
+        QMessageBox::information(Logger::mainWindow_,
+                                    tr("Ambiguous shortcut detected"),
+                                    QString(tr("The key sequence \"%1\" is used for more than one command."\
+                                        " Use the \"Keys\" page in Options to reassign it.\n"\
+                                        "No action will be triggered.")).arg(shortcut));
+    }
 }
 
 void Logger::setLogFile(QString fileName)
