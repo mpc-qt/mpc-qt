@@ -25,11 +25,13 @@ public:
     // log: lossely based on the requirements for printing mpv messages
     static void log(QString line);
     static void log(QString prefix, QString message);
-    static void log(QString prefix, QString level, QString message);
+    static void log(QString prefix, QString level, QString message, bool qtWarningMsg = false);
     // logs: like log, but with stringlists.  Spaces are inserted between items.
     static void logs(const QStringList &strings);
     static void logs(QString prefix, const QStringList &strings);
     static void logs(QString prefix, QString level, const QStringList &strings);
+
+    static void setMainWindow(QWidget* mainWindow);
 
 signals:
     void logMessage(QString message);
@@ -46,6 +48,8 @@ public slots:
     void makeLogDescriptively(QString prefix, QString level, QString message);
 
 private:
+    static void checkAmbiguousShortcut(const QString &message);
+
     bool loggingEnabled = true; // by default, log everything until we get told not to
     bool immediateMode = false; // by default, debug messages are stored
     QElapsedTimer elapsed;
@@ -55,6 +59,7 @@ private:
     QString logFileName;
     QStringList pendingMessages;
 
+    static QWidget* mainWindow_;
 };
 
 
