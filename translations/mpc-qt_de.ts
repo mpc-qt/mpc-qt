@@ -145,20 +145,21 @@
     </message>
     <message>
         <source>Skip Backward / Previous</source>
-        <translation type="unfinished"></translation>
+        <translation>Zurück Springen / Vorheriger</translation>
     </message>
     <message>
         <source>Skip Forward / Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorwärts Springen / Nächster</translation>
     </message>
     <message>
         <source>Shortcut already used</source>
-        <translation type="unfinished"></translation>
+        <translation>Verknüpfung bereits verwendet</translation>
     </message>
     <message>
         <source>&quot;%1&quot; is already used by &quot;%2&quot;.
 Do you want to use it for &quot;%3&quot; instead?</source>
-        <translation type="unfinished"></translation>
+        <translation>„%1“ wird bereits von „%2“ verwendet.
+Möchten Sie es stattdessen für „%3“ verwenden?</translation>
     </message>
     <message>
         <source>4:3 Aspect ratio</source>
@@ -363,12 +364,13 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>Logger</name>
     <message>
         <source>Ambiguous shortcut detected</source>
-        <translation type="unfinished"></translation>
+        <translation>Mehrdeutige Verknüpfung erkannt</translation>
     </message>
     <message>
         <source>The key sequence &quot;%1&quot; is used for more than one command. Use the &quot;Keys&quot; page in Options to reassign it.
 No action will be triggered.</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Tastenfolge „%1“ wird für mehr als einen Befehl verwendet. Verwenden Sie die Seite „Tasten“ in den Optionen, um sie neu zuzuweisen.
+Es wird keine Aktion ausgelöst.</translation>
     </message>
 </context>
 <context>
@@ -1351,7 +1353,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Re&amp;move File</source>
-        <translation type="unfinished"></translation>
+        <translation>Ent&amp;ferne Datei</translation>
     </message>
     <message>
         <source>View</source>
@@ -1371,15 +1373,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation type="unfinished"></translation>
+        <translation>Verbleibende Zeit</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation type="unfinished"></translation>
+        <translation>Hohe Genauigkeit</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>Prozentsatz anzeigen</translation>
     </message>
     <message>
         <source>No files favorited</source>
@@ -1831,15 +1833,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Play Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Play ausgewählt</translation>
     </message>
     <message>
         <source>&amp;Remove Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Auswahl entfernen</translation>
     </message>
     <message>
         <source>&amp;Move File to Recycle Bin</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Verschiebe Datei in den Papierkorb</translation>
     </message>
 </context>
 <context>
@@ -2019,7 +2021,7 @@ No action will be triggered.</source>
     <name>PaletteEditor</name>
     <message>
         <source>Generate palette from:</source>
-        <translation type="unfinished"></translation>
+        <translation>Generiere Palette aus:</translation>
     </message>
     <message>
         <source>Button</source>
@@ -3368,7 +3370,7 @@ media file played</source>
     </message>
     <message>
         <source>Clip</source>
-        <translation type="unfinished">Clip</translation>
+        <translation>Ausschnitt</translation>
     </message>
     <message>
         <source>Mobius</source>
@@ -3388,7 +3390,7 @@ media file played</source>
     </message>
     <message>
         <source>Juncture</source>
-        <translation type="unfinished"></translation>
+        <translation>Verbindungspunkt</translation>
     </message>
     <message>
         <source>Contrast</source>
@@ -3408,7 +3410,7 @@ media file played</source>
     </message>
     <message>
         <source>Audio Renderer</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio-Renderer</translation>
     </message>
     <message>
         <source>Device</source>
@@ -3552,7 +3554,7 @@ media file played</source>
     </message>
     <message>
         <source>Wiki</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiki</translation>
     </message>
     <message>
         <source>Active shaders</source>
@@ -3596,7 +3598,7 @@ media file played</source>
     </message>
     <message>
         <source>Framedropping</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild überspringen</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -3905,7 +3907,7 @@ media file played</source>
     </message>
     <message>
         <source>Test</source>
-        <translation type="unfinished"></translation>
+        <translation>Test</translation>
     </message>
     <message>
         <source>Directories</source>
@@ -3917,7 +3919,7 @@ media file played</source>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Encode</source>
@@ -4045,7 +4047,7 @@ media file played</source>
     </message>
     <message>
         <source>Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehlerbehebung</translation>
     </message>
     <message>
         <source>Client</source>
@@ -4053,39 +4055,39 @@ media file played</source>
     </message>
     <message>
         <source>Event messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Ereignismeldungen</translation>
     </message>
     <message>
         <source>mpv</source>
-        <translation type="unfinished"></translation>
+        <translation>mpv</translation>
     </message>
     <message>
         <source>No (complete silence)</source>
-        <translation type="unfinished"></translation>
+        <translation>Nein (völlige Stille)</translation>
     </message>
     <message>
         <source>Fatal</source>
-        <translation type="unfinished"></translation>
+        <translation>Fatal</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Warnung</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation type="unfinished"></translation>
+        <translation>Informativ</translation>
     </message>
     <message>
         <source>Verbose</source>
-        <translation type="unfinished"></translation>
+        <translation>Ausführlich</translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehlertest</translation>
     </message>
     <message>
         <source>Trace (very noisy)</source>
@@ -4113,19 +4115,19 @@ media file played</source>
     </message>
     <message>
         <source>Every </source>
-        <translation type="unfinished"></translation>
+        <translation>Jede </translation>
     </message>
     <message>
         <source>Window history</source>
-        <translation type="unfinished"></translation>
+        <translation>Fensterverlauf</translation>
     </message>
     <message>
         <source>Trim old lines</source>
-        <translation type="unfinished">Alte Linien trimmen</translation>
+        <translation>Trimme alte Linien</translation>
     </message>
     <message>
         <source> lines</source>
-        <translation type="unfinished"></translation>
+        <translation> Linien</translation>
     </message>
     <message>
         <source>Keep </source>
@@ -4189,43 +4191,43 @@ media file played</source>
     </message>
     <message>
         <source>HDR Compute Peak</source>
-        <translation type="unfinished"></translation>
+        <translation>HDR Berechne Höchstwert</translation>
     </message>
     <message>
         <source>Target Peak</source>
-        <translation type="unfinished"></translation>
+        <translation>Höchstsollwert</translation>
     </message>
     <message>
         <source>Based on TRC</source>
-        <translation type="unfinished"></translation>
+        <translation>Basierend auf TRC</translation>
     </message>
     <message>
         <source>Downscale in linear light</source>
-        <translation type="unfinished"></translation>
+        <translation>Herunterskalieren bei linearem Licht</translation>
     </message>
     <message>
         <source>Upscale in linear light</source>
-        <translation type="unfinished"></translation>
+        <translation>Hochskalieren bei linearem Licht</translation>
     </message>
     <message>
         <source>Use additive speed step</source>
-        <translation type="unfinished"></translation>
+        <translation>Geschwindigkeitsstufe verwenden</translation>
     </message>
     <message>
         <source>Prefer external subtitles over embedded subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Bevorzugen Sie externe Untertitel gegenüber eingebetteten Untertiteln</translation>
     </message>
     <message>
         <source>Ignore embedded subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Eingebettete Untertitel ignorieren</translation>
     </message>
     <message>
         <source>Web Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Webinterface</translation>
     </message>
     <message>
         <source>Allow access from localhost only</source>
-        <translation type="unfinished"></translation>
+        <translation>Erlaube nur Zugriff von localhost</translation>
     </message>
     <message>
         <source>webroot</source>
@@ -4233,7 +4235,7 @@ media file played</source>
     </message>
     <message>
         <source>Default page</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardseite</translation>
     </message>
     <message>
         <source>index.html</source>
@@ -4249,7 +4251,7 @@ media file played</source>
     </message>
     <message>
         <source>Local files</source>
-        <translation type="unfinished"></translation>
+        <translation>Lokale Dateien</translation>
     </message>
     <message>
         <source>Web root</source>
@@ -4257,15 +4259,15 @@ media file played</source>
     </message>
     <message>
         <source>Security</source>
-        <translation type="unfinished"></translation>
+        <translation>Sicherheit</translation>
     </message>
     <message>
         <source>Enable web server</source>
-        <translation type="unfinished"></translation>
+        <translation>Webserver aktivieren</translation>
     </message>
     <message>
         <source>Serve pages from disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Seiten von der Festplatte bereitstellen</translation>
     </message>
     <message>
         <source>Stylesheet</source>
@@ -4321,7 +4323,7 @@ media file played</source>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"></translation>
+        <translation>Mittel</translation>
     </message>
     <message>
         <source>BT.470M</source>
@@ -4377,7 +4379,7 @@ media file played</source>
     </message>
     <message>
         <source>Perceptual</source>
-        <translation type="unfinished"></translation>
+        <translation>Wahrnehmungsbezogen</translation>
     </message>
     <message>
         <source>Relative</source>
