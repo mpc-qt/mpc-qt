@@ -1282,7 +1282,6 @@ void SettingsWindow::closeEvent(QCloseEvent *event)
 {
     Q_UNUSED(event)
     sendSignals();
-    setCustomMpvOptions();
     ui->keysSearchField->clear();
     ui->videoPreset->setCurrentIndex(0);
 }
