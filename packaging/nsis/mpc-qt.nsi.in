@@ -211,7 +211,7 @@ Section "Install"
   IntOp $INSTALLED_SIZE $INSTALLED_SIZE + 367
 
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
-                   "DisplayName" "MPC-QT"
+                   "DisplayName" "MPC-QT @VERSTR_WIN@"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
                    "UninstallString" "$\"$INSTDIR\Uninstall.exe$\""
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
@@ -223,13 +223,13 @@ Section "Install"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
                    "InstallLocation" "$INSTDIR"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
+                   "DisplayVersion" "@VERSTR_WIN@"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
                    "Publisher" "The MPC-QT developers"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
-                   "HelpLink" "https://github.com/mpc-qt/mpc-qt"
+                   "HelpLink" "https://mpc-qt.github.io/"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
                    "URLUpdateInfo" "https://github.com/mpc-qt/mpc-qt/releases"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
-                   "URLInfoAbout" "https://mpc-qt.github.io/"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
                    "DisplayIcon" "$INSTDIR\mpc-qt.exe"
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
