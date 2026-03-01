@@ -231,6 +231,7 @@ call :add_type "video/3gpp"                       "video" "3GPP Video"          
 call :add_type "video/3gpp2"                      "video" "3GPP Video"                 ".3gp2" ".3g2"
 :: Video game formats
 call :add_type ""                                 "audio" "AY Audio"                   ".ay"
+call :add_type "video/vnd.radgametools.bink"      "video" "Bink Video"                 ".bik"
 call :add_type ""                                 "audio" "GBS Audio"                  ".gbs"
 call :add_type ""                                 "audio" "GYM Audio"                  ".gym"
 call :add_type ""                                 "audio" "HES Audio"                  ".hes"
