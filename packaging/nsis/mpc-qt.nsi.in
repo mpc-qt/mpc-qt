@@ -49,7 +49,7 @@
 ;Constants
 
   ;mpc-qt-assoc version to check if we need to run it again
-  !define FILE_ASSOC_VERSION 1
+  !define FILE_ASSOC_VERSION 2
 
 ;--------------------------------
 ;Interface Settings
