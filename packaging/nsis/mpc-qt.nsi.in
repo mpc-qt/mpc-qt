@@ -238,8 +238,7 @@ Section "Install"
   ;Create Start Menu shortcut
   ;!insertmacro MUI_STARTMENU_WRITE_BEGIN Application
 
-  CreateDirectory "$SMPROGRAMS\MPC-QT"
-  CreateShortCut "$SMPROGRAMS\MPC-QT\MPC-QT.lnk" "$INSTDIR\mpc-qt.exe"
+  CreateShortCut "$SMPROGRAMS\MPC-QT.lnk" "$INSTDIR\mpc-qt.exe"
 
   ;!insertmacro MUI_STARTMENU_WRITE_END
 
@@ -274,10 +273,12 @@ Section "Uninstall"
 
   SetShellVarContext all
 
-  # Remove Start Menu launcher
+  # Remove Start Menu launcher (old location)
   Delete "$SMPROGRAMS\MPC-QT\MPC-QT.lnk"
-  # Try to remove the Start Menu folder - this will only happen if it is empty
+  # Try to remove the Start Menu folder - this will only happen if it is empty (old location)
   RMDir "$SMPROGRAMS\MPC-QT"
+  # Remove Start Menu launcher (new location)
+  Delete "$SMPROGRAMS\MPC-QT.lnk"
 
   DetailPrint "Removing file associations..."
   nsExec::ExecToLog /TIMEOUT=20000 '"$sysdir\cmd.exe" /c if 1==1 "$INSTDIR\mpc-qt-assoc\mpc-qt-assoc-uninstall.bat" /u'
