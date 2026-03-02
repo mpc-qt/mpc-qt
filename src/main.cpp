@@ -48,7 +48,6 @@ static constexpr char optConsoleLogEx[] = "--log-to-console";
 int main(int argc, char *argv[])
 {
     QCoreApplication::setApplicationName("MPC-QT");
-    Logger::log(logModule, "starting logging");
     #if !defined(Q_OS_WIN)
     std::signal(SIGHUP, signalHandler);
     #endif
@@ -69,6 +68,7 @@ int main(int argc, char *argv[])
     }
     Logger::setConsoleLogging(foundLoggingOpt);
     Logger::singleton();
+    Logger::log(logModule, "starting logging");
     QApplication::setWindowIcon(QIcon(":/images/icon/mpc-qt.svg"));
 
     // Qt sets the locale in the QApplication constructor, but libmpv requires
@@ -1586,11 +1586,11 @@ void Flow::mpcHcServer_fileSelected(QString fileName)
 
 void Flow::settingswindow_settingsData(const QVariantMap &settings)
 {
+    Logger::log(logModule, "settingswindow_settingsData");
     // The selected options have changed, so write them to disk
     this->settings = settings;
     writeConfig(true);
     setTranslation(true);
-    Logger::log(logModule, "settingswindow_settingsData");
 }
 
 void Flow::settingswindow_inhibitScreensaver(bool yes)
