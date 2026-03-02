@@ -211,7 +211,7 @@ Section "Install"
   IntOp $INSTALLED_SIZE $INSTALLED_SIZE + 367
 
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
-                   "DisplayName" "MPC-QT"
+                   "DisplayName" "MPC-QT @VERSTR_WIN@"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
                    "UninstallString" "$\"$INSTDIR\Uninstall.exe$\""
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
@@ -223,13 +223,13 @@ Section "Install"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
                    "InstallLocation" "$INSTDIR"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
+                   "DisplayVersion" "@VERSTR_WIN@"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
                    "Publisher" "The MPC-QT developers"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
-                   "HelpLink" "https://github.com/mpc-qt/mpc-qt"
+                   "HelpLink" "https://mpc-qt.github.io/"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
                    "URLUpdateInfo" "https://github.com/mpc-qt/mpc-qt/releases"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
-                   "URLInfoAbout" "https://mpc-qt.github.io/"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
                    "DisplayIcon" "$INSTDIR\mpc-qt.exe"
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\MPC-QT" \
@@ -238,8 +238,7 @@ Section "Install"
   ;Create Start Menu shortcut
   ;!insertmacro MUI_STARTMENU_WRITE_BEGIN Application
 
-  CreateDirectory "$SMPROGRAMS\MPC-QT"
-  CreateShortCut "$SMPROGRAMS\MPC-QT\MPC-QT.lnk" "$INSTDIR\mpc-qt.exe"
+  CreateShortCut "$SMPROGRAMS\MPC-QT.lnk" "$INSTDIR\mpc-qt.exe"
 
   ;!insertmacro MUI_STARTMENU_WRITE_END
 
@@ -274,10 +273,12 @@ Section "Uninstall"
 
   SetShellVarContext all
 
-  # Remove Start Menu launcher
+  # Remove Start Menu launcher (old location)
   Delete "$SMPROGRAMS\MPC-QT\MPC-QT.lnk"
-  # Try to remove the Start Menu folder - this will only happen if it is empty
+  # Try to remove the Start Menu folder - this will only happen if it is empty (old location)
   RMDir "$SMPROGRAMS\MPC-QT"
+  # Remove Start Menu launcher (new location)
+  Delete "$SMPROGRAMS\MPC-QT.lnk"
 
   DetailPrint "Removing file associations..."
   nsExec::ExecToLog /TIMEOUT=20000 '"$sysdir\cmd.exe" /c if 1==1 "$INSTDIR\mpc-qt-assoc\mpc-qt-assoc-uninstall.bat" /u'
