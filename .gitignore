@@ -12,7 +12,6 @@
 
 # Windows resources
 *.rc
-*.ico
 
 # QtCreator
 *.user
