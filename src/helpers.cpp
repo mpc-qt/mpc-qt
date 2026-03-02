@@ -102,6 +102,7 @@ const QSet<QString> Helpers::audioVideoFileExtensions {
     "3gp2", "3g2",
     // Video game formats
     "ay",
+    "bik",
     "gbs",
     "gym",
     "hes",
