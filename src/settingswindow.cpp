@@ -384,6 +384,7 @@ void SettingsWindow::setWaylandOptions(bool isWayland, bool isWaylandMode)
 void SettingsWindow::updateLanguage()
 {
     ui->retranslateUi(this);
+    takeKeyMap(acceptedKeyMap);
 }
 
 void SettingsWindow::setupPageTree()
@@ -1270,6 +1271,7 @@ void SettingsWindow::on_buttonBox_clicked(QAbstractButton *button)
     }
     if (buttonRole == QDialogButtonBox::ApplyRole) {
         sendSignals();
+        takeKeyMap(acceptedKeyMap);
         ui->buttonBox->button(QDialogButtonBox::Apply)->setEnabled(false);
     }
     else
@@ -1280,7 +1282,6 @@ void SettingsWindow::closeEvent(QCloseEvent *event)
 {
     Q_UNUSED(event)
     sendSignals();
-    setCustomMpvOptions();
     ui->keysSearchField->clear();
     ui->videoPreset->setCurrentIndex(0);
 }
