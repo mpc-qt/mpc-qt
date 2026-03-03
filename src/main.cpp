@@ -910,6 +910,10 @@ void Flow::setupFlowConnections()
             this, &Flow::mainwindow_fullscreenHideControls);
     connect(mainWindow, &MainWindow::repeatAfter,
             this, &Flow::mainwindow_repeatAfter);
+    connect(mainWindow, &MainWindow::windowResized,
+            this, &Flow::mainwindow_windowResized);
+    connect(mainWindow, &MainWindow::windowMaximized,
+            this, &Flow::mainwindow_windowMaximized);
 
     // manager -> this
     connect(playbackManager, &PlaybackManager::playLengthChanged,
@@ -1386,6 +1390,16 @@ void Flow::mainwindow_fullscreenHideControls(bool hide)
 void Flow::mainwindow_repeatAfter()
 {
     repeatAfter = true;
+}
+
+void Flow::mainwindow_windowResized()
+{
+    windowManager.updateAppWindowGeometryCache(mainWindow, false);
+}
+
+void Flow::mainwindow_windowMaximized()
+{
+    windowManager.updateAppWindowGeometryCache(mainWindow, true);
 }
 
 void Flow::mainwindow_recentOpened(const TrackInfo &track)
