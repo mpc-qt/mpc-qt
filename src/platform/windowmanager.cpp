@@ -46,7 +46,7 @@ void WindowManager::saveAppWindow(MainWindow *window, bool rememberWindowGeometr
     QVariantMap data = {
         { keyGeometry, geometry },
         { keyState, panels },
-        { keyMaximized, window->isMaximized() }
+        { keyMaximized, rememberWindowGeometry ? window->isMaximized() : false }
     };
     json_.insert(window->objectName(), data);
 }
