@@ -4459,6 +4459,10 @@ ogni file multimediale riprodotto</translation>
         <source>Use English for the interface</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Mono</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>

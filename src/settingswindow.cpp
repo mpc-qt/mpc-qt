@@ -160,7 +160,7 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"ccHdrCompute", {"auto", "yes", "no"}},
     {"ytdlpMaxHeight", {"240", "360", "480", "720", "1080", "1440",
                              "2160", "2880", "4320"}},
-    {"audioChannels", {"auto-safe", "auto", "stereo"}},
+    {"audioChannels", {"auto-safe", "auto", "stereo", "mono"}},
     {"audioRenderer", {"pulse", "alsa", "oss", "null"}},
     {"audioAutoloadMatch", { "exact", "fuzzy", "all" }},
     {"framedroppingMode", {"no", "vo", "decoder", "decoder+vo"}},
@@ -960,7 +960,7 @@ void SettingsWindow::sendSignals()
     int index = WIDGET_LOOKUP(ui->audioDevice).toInt();
     emit option("audio-device", audioDevices.value(index).deviceName());
     index = WIDGET_LOOKUP(ui->audioChannels).toInt();
-    emit option("audio-channels", index < 3 ? SettingMap::indexedValueToText[ui->audioChannels->objectName()][index]
+    emit option("audio-channels", index < 4 ? SettingMap::indexedValueToText[ui->audioChannels->objectName()][index]
                                          : channelSwitcher());
     bool flag = WIDGET_LOOKUP(ui->audioStreamSilence).toBool();
     emit option("stream-silence", flag);

@@ -4593,6 +4593,10 @@ media file played</source>
         <source>Use English for the interface</source>
         <translation>使用英文界面</translation>
     </message>
+    <message>
+        <source>Mono</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>

@@ -4649,6 +4649,10 @@ fichier média lu</translation>
         <source>Use English for the interface</source>
         <translation>Utiliser l&apos;anglais pour l&apos;interface</translation>
     </message>
+    <message>
+        <source>Mono</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>
