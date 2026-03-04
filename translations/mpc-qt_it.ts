@@ -2536,7 +2536,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Remember last window geometry</source>
-        <translation>Ricorda ultima geometria finestre</translation>
+        <translation type="vanished">Ricorda ultima geometria finestre</translation>
     </message>
     <message>
         <source>Remember last Pan-n-Scan Zoom</source>
@@ -4461,6 +4461,10 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Mono</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember last window size and position</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

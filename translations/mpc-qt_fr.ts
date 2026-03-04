@@ -2602,7 +2602,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Remember last window geometry</source>
-        <translation>Se souvenir de la dernière géométrie de la fenêtre</translation>
+        <translation type="vanished">Se souvenir de la dernière géométrie de la fenêtre</translation>
     </message>
     <message>
         <source>Remember last Pan-n-Scan Zoom</source>
@@ -4651,6 +4651,10 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Mono</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember last window size and position</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

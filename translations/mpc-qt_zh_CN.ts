@@ -2626,7 +2626,7 @@ media file played</source>
     </message>
     <message>
         <source>Remember last window geometry</source>
-        <translation>记住上次窗口大小</translation>
+        <translation type="vanished">记住上次窗口大小</translation>
     </message>
     <message>
         <source>Remember last Pan-n-Scan Zoom</source>
@@ -4596,6 +4596,10 @@ media file played</source>
     <message>
         <source>Mono</source>
         <translation>单声道</translation>
+    </message>
+    <message>
+        <source>Remember last window size and position</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -2648,7 +2648,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Remember last window geometry</source>
-        <translation>Recordar la geometria de l&apos;última finestra</translation>
+        <translation type="vanished">Recordar la geometria de l&apos;última finestra</translation>
     </message>
     <message>
         <source>Remember last Pan-n-Scan Zoom</source>
@@ -4689,6 +4689,10 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Mono</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember last window size and position</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
