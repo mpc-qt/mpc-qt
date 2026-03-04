@@ -4469,6 +4469,10 @@ file media yang diputar</translation>
         <source>Use English for the interface</source>
         <translation>Gunakan bahasa Inggris untuk antarmuka</translation>
     </message>
+    <message>
+        <source>Mono</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>

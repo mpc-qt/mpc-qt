@@ -5746,6 +5746,11 @@ media file played</string>
                   </item>
                   <item>
                    <property name="text">
+                    <string>Mono</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
                     <string>Audio switcher (WIP)</string>
                    </property>
                   </item>
