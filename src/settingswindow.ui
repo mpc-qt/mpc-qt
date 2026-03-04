@@ -6527,7 +6527,7 @@ media file played</string>
                       <number>10</number>
                      </property>
                      <property name="value">
-                      <number>3</number>
+                      <number>2</number>
                      </property>
                     </widget>
                    </item>
@@ -6736,14 +6736,14 @@ media file played</string>
                         <string notr="true">HHHHHHHH</string>
                        </property>
                        <property name="text">
-                        <string notr="true">FFFFFF00</string>
+                        <string notr="true">FFFFFFFF</string>
                        </property>
                       </widget>
                      </item>
                      <item>
                       <widget class="QPushButton" name="subsColorPick">
                        <property name="styleSheet">
-                        <string notr="true">background: #FFFF00;</string>
+                        <string notr="true">background: #FFFFFF;</string>
                        </property>
                        <property name="text">
                         <string/>
