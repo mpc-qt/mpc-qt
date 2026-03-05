@@ -4595,7 +4595,7 @@ media file played</source>
     </message>
     <message>
         <source>Mono</source>
-        <translation type="unfinished"></translation>
+        <translation>单声道</translation>
     </message>
 </context>
 <context>
