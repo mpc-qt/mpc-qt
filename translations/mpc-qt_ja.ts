@@ -4719,7 +4719,7 @@ media file played</source>
     </message>
     <message>
         <source>Mono</source>
-        <translation type="unfinished"></translation>
+        <translation>モノラル</translation>
     </message>
 </context>
 <context>
