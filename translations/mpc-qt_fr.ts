@@ -4651,7 +4651,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Mono</source>
-        <translation type="unfinished"></translation>
+        <translation>Mono</translation>
     </message>
 </context>
 <context>
