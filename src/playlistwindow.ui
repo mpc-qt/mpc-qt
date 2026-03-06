@@ -105,6 +105,12 @@
            <normalon>:/images/theme/black/media-queue-visible.svg</normalon>
           </iconset>
          </property>
+         <property name="iconSize">
+          <size>
+           <width>12</width>
+           <height>12</height>
+          </size>
+         </property>
         </widget>
        </item>
       </layout>
@@ -122,6 +128,12 @@
           <normalon>:/images/theme/black/tab-new.svg</normalon>
          </iconset>
         </property>
+        <property name="iconSize">
+         <size>
+          <width>12</width>
+          <height>12</height>
+         </size>
+        </property>
        </widget>
       </item>
       <item>
@@ -133,6 +145,12 @@
          <iconset>
           <normalon>:/images/theme/black/tab-close.svg</normalon>
          </iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>12</width>
+          <height>12</height>
+         </size>
         </property>
        </widget>
       </item>
@@ -146,6 +164,12 @@
           <normalon>:/images/theme/black/tab-duplicate.svg</normalon>
          </iconset>
         </property>
+        <property name="iconSize">
+         <size>
+          <width>12</width>
+          <height>12</height>
+         </size>
+        </property>
        </widget>
       </item>
       <item>
@@ -158,6 +182,12 @@
           <normalon>:/images/theme/black/document-import.svg</normalon>
          </iconset>
         </property>
+        <property name="iconSize">
+         <size>
+          <width>12</width>
+          <height>12</height>
+         </size>
+        </property>
        </widget>
       </item>
       <item>
@@ -169,6 +199,12 @@
          <iconset>
           <normalon>:/images/theme/black/document-export.svg</normalon>
          </iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>12</width>
+          <height>12</height>
+         </size>
         </property>
        </widget>
       </item>
@@ -184,6 +220,12 @@
          <iconset>
           <normalon>:/images/theme/black/view-media-queue.svg</normalon>
          </iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>12</width>
+          <height>12</height>
+         </size>
         </property>
         <property name="checkable">
          <bool>true</bool>
