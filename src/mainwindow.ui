@@ -123,11 +123,14 @@
           <item>
            <widget class="QWidget" name="controlbar" native="true">
             <layout class="QHBoxLayout" name="controlbarLayout" stretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0">
+             <property name="spacing">
+              <number>2</number>
+             </property>
              <property name="leftMargin">
               <number>6</number>
              </property>
              <property name="topMargin">
-              <number>3</number>
+              <number>0</number>
              </property>
              <property name="rightMargin">
               <number>6</number>
@@ -147,6 +150,12 @@
                 <iconset>
                  <normalon>:/images/theme/black/media-playback-start.svg</normalon>
                 </iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>12</width>
+                 <height>12</height>
+                </size>
                </property>
                <property name="checkable">
                 <bool>true</bool>
@@ -169,6 +178,12 @@
                  <normalon>:/images/theme/black/media-playback-pause.svg</normalon>
                 </iconset>
                </property>
+               <property name="iconSize">
+                <size>
+                 <width>12</width>
+                 <height>12</height>
+                </size>
+               </property>
                <property name="checkable">
                 <bool>true</bool>
                </property>
@@ -189,6 +204,12 @@
                 <iconset>
                  <normalon>:/images/theme/black/media-playback-stop.svg</normalon>
                 </iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>12</width>
+                 <height>12</height>
+                </size>
                </property>
                <property name="checkable">
                 <bool>true</bool>
@@ -219,7 +240,7 @@
                <property name="maximumSize">
                 <size>
                  <width>1</width>
-                 <height>40</height>
+                 <height>20</height>
                 </size>
                </property>
                <property name="orientation">
@@ -256,6 +277,12 @@
                  <normalon>:/images/theme/black/go-previous.svg</normalon>
                 </iconset>
                </property>
+               <property name="iconSize">
+                <size>
+                 <width>12</width>
+                 <height>12</height>
+                </size>
+               </property>
                <property name="flat">
                 <bool>true</bool>
                </property>
@@ -273,6 +300,12 @@
                 <iconset>
                  <normalon>:/images/theme/black/media-seek-backward.svg</normalon>
                 </iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>12</width>
+                 <height>12</height>
+                </size>
                </property>
                <property name="flat">
                 <bool>true</bool>
@@ -292,6 +325,12 @@
                  <normalon>:/images/theme/black/media-seek-forward.svg</normalon>
                 </iconset>
                </property>
+               <property name="iconSize">
+                <size>
+                 <width>12</width>
+                 <height>12</height>
+                </size>
+               </property>
                <property name="flat">
                 <bool>true</bool>
                </property>
@@ -309,6 +348,12 @@
                 <iconset>
                  <normalon>:/images/theme/black/go-next.svg</normalon>
                 </iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>12</width>
+                 <height>12</height>
+                </size>
                </property>
                <property name="flat">
                 <bool>true</bool>
@@ -336,7 +381,7 @@
                <property name="maximumSize">
                 <size>
                  <width>1</width>
-                 <height>40</height>
+                 <height>20</height>
                 </size>
                </property>
                <property name="orientation">
@@ -373,6 +418,12 @@
                  <normalon>:/images/theme/black/media-skip-backward.svg</normalon>
                 </iconset>
                </property>
+               <property name="iconSize">
+                <size>
+                 <width>12</width>
+                 <height>12</height>
+                </size>
+               </property>
                <property name="flat">
                 <bool>true</bool>
                </property>
@@ -396,6 +447,12 @@
                 <iconset>
                  <normalon>:/images/theme/black/media-skip-forward.svg</normalon>
                 </iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>12</width>
+                 <height>12</height>
+                </size>
                </property>
                <property name="flat">
                 <bool>true</bool>
@@ -423,7 +480,7 @@
                <property name="maximumSize">
                 <size>
                  <width>1</width>
-                 <height>40</height>
+                 <height>20</height>
                 </size>
                </property>
                <property name="orientation">
@@ -460,6 +517,12 @@
                  <normalon>:/images/theme/black/zone-in.svg</normalon>
                 </iconset>
                </property>
+               <property name="iconSize">
+                <size>
+                 <width>12</width>
+                 <height>12</height>
+                </size>
+               </property>
                <property name="flat">
                 <bool>true</bool>
                </property>
@@ -477,6 +540,12 @@
                 <iconset>
                  <normalon>:/images/theme/black/zone-out.svg</normalon>
                 </iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>12</width>
+                 <height>12</height>
+                </size>
                </property>
                <property name="flat">
                 <bool>true</bool>
@@ -509,6 +578,12 @@
                  <normalon>:/images/theme/black/view-media-subtitles.svg</normalon>
                 </iconset>
                </property>
+               <property name="iconSize">
+                <size>
+                 <width>12</width>
+                 <height>12</height>
+                </size>
+               </property>
                <property name="checkable">
                 <bool>true</bool>
                </property>
@@ -526,6 +601,12 @@
                 <iconset>
                  <normaloff>:/images/theme/black/player-volume.svg</normaloff>
                  <normalon>:/images/theme/black/player-volume-muted.svg</normalon>:/images/theme/black/player-volume.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>12</width>
+                 <height>12</height>
+                </size>
                </property>
                <property name="checkable">
                 <bool>true</bool>
