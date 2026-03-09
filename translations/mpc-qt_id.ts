@@ -4471,7 +4471,7 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Mono</source>
-        <translation type="unfinished"></translation>
+        <translation>Mono</translation>
     </message>
 </context>
 <context>
