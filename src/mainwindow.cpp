@@ -458,7 +458,7 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
     if (fullscreenMode_)
         checkBottomArea(event->globalPosition());
-    if (mousePressedInBottomArea) {
+    else if (mousePressedInBottomArea) {
         mousePressedInBottomArea = false;
         QWindow *parentWindow = this->window()->windowHandle();
         parentWindow->startSystemMove();
