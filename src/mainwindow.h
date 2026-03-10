@@ -526,7 +526,7 @@ private:
     bool timeShortMode = true;
     bool timeRemainingMode = false;
     bool timePercentageMode = false;
-    bool mousePressedInsideStatustime = false;
+    bool mousePressedInBottomArea = false;
 
     QString previousOpenDir;
     QSize noVideoSize_ = QSize(500,270);
