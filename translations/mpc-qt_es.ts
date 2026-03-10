@@ -2544,7 +2544,7 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Remember last window geometry</source>
-        <translation>Recordar la geometría de la última ventana</translation>
+        <translation type="vanished">Recordar la geometría de la última ventana</translation>
     </message>
     <message>
         <source>Remember last Pan-n-Scan Zoom</source>
@@ -4529,6 +4529,10 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Mono</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember last window size and position</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -173,6 +173,8 @@ signals:
     void chapterSelected(int64_t id);
     void timeSelected(double time);
     void fullscreenModeChanged(bool fullscreen);
+    void windowResized();
+    void windowMaximized();
     void zoomPresetChanged(int which);
     void playCurrentItemRequested();
     void favoriteCurrentTrack();

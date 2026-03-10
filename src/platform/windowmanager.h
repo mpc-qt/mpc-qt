@@ -35,6 +35,7 @@ public:
     QVariantMap json();
 
     void saveAppWindow(MainWindow *window, bool rememberWindowGeometry, bool rememberPanels);
+    void updateAppWindowGeometryCache(const MainWindow *window, bool restorePrevious);
     void saveDocks(QMainWindow *dockHost);
     void saveWindow(QWidget *window);
 
@@ -49,6 +50,8 @@ signals:
 
 private:
     QVariantMap json_;
+    QVariantMap appWindowGeometryCurrent;
+    QVariantMap appWindowGeometryPrevious;
 };
 
 #endif // WINDOWMANAGER_H

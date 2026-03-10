@@ -2670,7 +2670,7 @@ media file played</source>
     </message>
     <message>
         <source>Remember last window geometry</source>
-        <translation>終了時のウィンドウ サイズを記憶する</translation>
+        <translation type="vanished">終了時のウィンドウ サイズを記憶する</translation>
     </message>
     <message>
         <source>Remember last Pan-n-Scan Zoom</source>
@@ -4720,6 +4720,10 @@ media file played</source>
     <message>
         <source>Mono</source>
         <translation>モノラル</translation>
+    </message>
+    <message>
+        <source>Remember last window size and position</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -379,6 +379,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     updateBottomAreaGeometry();
     checkBottomArea(QCursor::pos());
     resizePlaylistToFit();
+    emit windowResized();
 }
 
 void MainWindow::changeEvent(QEvent *event)
@@ -394,6 +395,8 @@ void MainWindow::changeEvent(QEvent *event)
         if (videoPreview)
             videoPreview->updatePalette();
     }
+    else if (event->type() == QEvent::WindowStateChange && isMaximized())
+        emit windowMaximized();
 }
 
 bool MainWindow::eventFilter(QObject *object, QEvent *event)

@@ -2628,7 +2628,7 @@ media file played</source>
     </message>
     <message>
         <source>Remember last window geometry</source>
-        <translation>Помнить геометрию последнего окна</translation>
+        <translation type="vanished">Помнить геометрию последнего окна</translation>
     </message>
     <message>
         <source>Remember last Pan-n-Scan Zoom</source>
@@ -4669,6 +4669,10 @@ media file played</source>
     </message>
     <message>
         <source>Mono</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember last window size and position</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

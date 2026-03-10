@@ -4,6 +4,7 @@
 #include <QStyle>
 #include <QWidget>
 #include "helpers.h"
+#include "logger.h"
 #include "mainwindow.h"
 #include "windowmanager.h"
 
@@ -36,19 +37,26 @@ QVariantMap WindowManager::json()
 
 void WindowManager::saveAppWindow(MainWindow *window, bool rememberWindowGeometry, bool rememberPanels)
 {
-    QVariantMap geometry;
     QVariantMap panels;
-    if (rememberWindowGeometry)
-        geometry = Helpers::rectToVmap(QRect(window->geometry().topLeft(),
-                                            window->size()));
     if (rememberPanels)
         panels = window->state();
     QVariantMap data = {
-        { keyGeometry, geometry },
+        { keyGeometry, rememberWindowGeometry ? appWindowGeometryCurrent : QVariantMap() },
         { keyState, panels },
-        { keyMaximized, window->isMaximized() }
+        { keyMaximized, rememberWindowGeometry ? window->isMaximized() : false }
     };
     json_.insert(window->objectName(), data);
+}
+
+void WindowManager::updateAppWindowGeometryCache(const MainWindow *window, bool restorePrevious)
+{
+    if (restorePrevious || window->isMaximized() || window->isFullScreen())
+        appWindowGeometryCurrent = appWindowGeometryPrevious;
+    else {
+        appWindowGeometryPrevious = appWindowGeometryCurrent;
+        appWindowGeometryCurrent = Helpers::rectToVmap(QRect(window->geometry().topLeft(),
+                                            window->size()));
+    }
 }
 
 void WindowManager::saveDocks(QMainWindow *dockHost)
@@ -73,6 +81,8 @@ void WindowManager::restoreAppWindow(MainWindow *window, const CliInfo &cliInfo)
 
     // restore main window geometry and override it if requested
     QRect geometry = Helpers::vmapToRect(data[keyGeometry].toMap());
+    appWindowGeometryCurrent = data[keyGeometry].toMap();
+    appWindowGeometryPrevious = appWindowGeometryCurrent;
     QPoint desiredPlace = geometry.topLeft();
     QSize desiredSize = geometry.size();
     bool checkMainWindow = data.isEmpty() || geometry.isEmpty();

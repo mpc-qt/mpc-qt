@@ -2570,7 +2570,7 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Remember last window geometry</source>
-        <translation>Ingat geometri jendela terakhir</translation>
+        <translation type="vanished">Ingat geometri jendela terakhir</translation>
     </message>
     <message>
         <source>Remember last Pan-n-Scan Zoom</source>
@@ -4472,6 +4472,10 @@ file media yang diputar</translation>
     <message>
         <source>Mono</source>
         <translation>Mono</translation>
+    </message>
+    <message>
+        <source>Remember last window size and position</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

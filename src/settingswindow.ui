@@ -238,7 +238,7 @@
               <item>
                <widget class="QCheckBox" name="playerRememberWindowGeometry">
                 <property name="text">
-                 <string>Remember last window geometry</string>
+                 <string>Remember last window size and position</string>
                 </property>
                 <property name="checked">
                  <bool>true</bool>
