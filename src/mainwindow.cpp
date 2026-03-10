@@ -2442,7 +2442,7 @@ void MainWindow::libraryWindowClosed()
 
 void MainWindow::mpvObject_mouseReleased()
 {
-    if (!isPlaying) {
+    if (!isPlaying && !mousePressedInBottomArea) {
         emit playCurrentItemRequested();
         return;
     }
@@ -3161,7 +3161,8 @@ void MainWindow::on_actionViewOptions_triggered()
 
 void MainWindow::on_actionPlayPause_triggered()
 {
-    on_play_clicked();
+    if (!mousePressedInBottomArea)
+        on_play_clicked();
 }
 
 void MainWindow::on_actionPlayStop_triggered()
