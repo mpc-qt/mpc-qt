@@ -4599,7 +4599,7 @@ media file played</source>
     </message>
     <message>
         <source>Remember last window size and position</source>
-        <translation type="unfinished"></translation>
+        <translation>记住上次窗口的大小和位置</translation>
     </message>
 </context>
 <context>
