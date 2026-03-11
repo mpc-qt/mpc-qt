@@ -344,7 +344,8 @@ bool DrawnPlaylist::event(QEvent *e)
         goto end;
     if (e->type() == QEvent::ShortcutOverride) {
         QKeyEvent *ke = static_cast<QKeyEvent*>(e);
-        if (ke->key() == Qt::Key_PageUp || ke->key() == Qt::Key_PageDown) {
+        if (ke->key() == Qt::Key_PageUp || ke->key() == Qt::Key_PageDown
+            || ke->key() == Qt::Key_Up || ke->key() == Qt::Key_Down) {
             e->accept();
             return true;
         }
