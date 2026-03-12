@@ -4723,7 +4723,7 @@ media file played</source>
     </message>
     <message>
         <source>Remember last window size and position</source>
-        <translation type="unfinished"></translation>
+        <translation>最後のウィンドウのサイズと位置を記憶する</translation>
     </message>
 </context>
 <context>
