@@ -4655,7 +4655,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Remember last window size and position</source>
-        <translation type="unfinished"></translation>
+        <translation>Se souvenir de la taille et de la position de la fenêtre</translation>
     </message>
 </context>
 <context>
