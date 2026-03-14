@@ -3736,11 +3736,11 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Placement</source>
-        <translation>Konumlandırma</translation>
+        <translation type="vanished">Konumlandırma</translation>
     </message>
     <message>
         <source>Override default subtitle placement</source>
-        <translation>Öntanımlı altyazı konumlandırmasını geçersiz kıl</translation>
+        <translation type="vanished">Öntanımlı altyazı konumlandırmasını geçersiz kıl</translation>
     </message>
     <message>
         <source>X</source>
@@ -3748,11 +3748,11 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Sol</translation>
+        <translation type="vanished">Sol</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Sağ</translation>
+        <translation type="vanished">Sağ</translation>
     </message>
     <message>
         <source>Y</source>
@@ -3760,19 +3760,19 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Üst</translation>
+        <translation type="vanished">Üst</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Alt</translation>
+        <translation type="vanished">Alt</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>Konum</translation>
+        <translation type="vanished">Konum</translation>
     </message>
     <message>
         <source>Use margins</source>
-        <translation>Kenar boşlukları kullan</translation>
+        <translation type="vanished">Kenar boşlukları kullan</translation>
     </message>
     <message>
         <source>Force grayscale</source>
@@ -3797,11 +3797,11 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation>Evet ve yalnızca yakınlaştırma işaretleri</translation>
+        <translation type="vanished">Evet ve yalnızca yakınlaştırma işaretleri</translation>
     </message>
     <message>
         <source>Force</source>
-        <translation>Zorla</translation>
+        <translation type="vanished">Zorla</translation>
     </message>
     <message>
         <source>Font</source>

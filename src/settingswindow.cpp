@@ -482,10 +482,6 @@ void SettingsWindow::setupUnimplementedWidgets()
     ui->shadersWikiTab->setVisible(false);
     ui->shadersPresetsBox->setVisible(false);
 
-    ui->subtitlePlacementBox->setVisible(false);
-    ui->subtitlesAssOverride->setVisible(false);
-    ui->subtitlesAssOverrideLabel->setVisible(false);
-
     ui->subtitlesDatabaseBox->setVisible(false);
 
     ui->encodeTab->setEnabled(false);

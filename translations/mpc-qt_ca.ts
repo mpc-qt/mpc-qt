@@ -3748,11 +3748,11 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Placement</source>
-        <translation>Col·locació</translation>
+        <translation type="vanished">Col·locació</translation>
     </message>
     <message>
         <source>Override default subtitle placement</source>
-        <translation>Sobreescriure la ubicació per defecte dels subtítols</translation>
+        <translation type="vanished">Sobreescriure la ubicació per defecte dels subtítols</translation>
     </message>
     <message>
         <source>X</source>
@@ -3760,11 +3760,11 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Esquerra</translation>
+        <translation type="vanished">Esquerra</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Dreta</translation>
+        <translation type="vanished">Dreta</translation>
     </message>
     <message>
         <source>Y</source>
@@ -3772,19 +3772,19 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>A dalt</translation>
+        <translation type="vanished">A dalt</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>A baix</translation>
+        <translation type="vanished">A baix</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>Posició</translation>
+        <translation type="vanished">Posició</translation>
     </message>
     <message>
         <source>Use margins</source>
-        <translation>Utilitzar marges</translation>
+        <translation type="vanished">Utilitzar marges</translation>
     </message>
     <message>
         <source>Force grayscale</source>
@@ -3809,11 +3809,11 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation>Sí i només ampliar senyals</translation>
+        <translation type="vanished">Sí i només ampliar senyals</translation>
     </message>
     <message>
         <source>Force</source>
-        <translation>Forçar</translation>
+        <translation type="vanished">Forçar</translation>
     </message>
     <message>
         <source>Font</source>

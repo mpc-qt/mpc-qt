@@ -178,7 +178,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>14</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -717,8 +717,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>623</width>
-                   <height>288</height>
+                   <width>261</width>
+                   <height>173</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="interfaceWidgetCustomLayout">
@@ -6177,131 +6177,7 @@ media file played</string>
           <property name="enabled">
            <bool>true</bool>
           </property>
-          <layout class="QVBoxLayout" name="subtitlesPageLayout" stretch="0,0">
-           <item>
-            <widget class="QGroupBox" name="subtitlePlacementBox">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="title">
-              <string>Placement</string>
-             </property>
-             <layout class="QFormLayout" name="subtitlePlacementBoxLayout">
-              <item row="0" column="0" colspan="2">
-               <widget class="QCheckBox" name="subtitlesOverridePlacement">
-                <property name="text">
-                 <string>Override default subtitle placement</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="subtitlesPlacementLabel">
-                <property name="text">
-                 <string>Placement</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <layout class="QGridLayout" name="subtitlePlacementLayout" columnstretch="0,1,0,1">
-                <item row="0" column="0">
-                 <widget class="QLabel" name="subtitlePlacementXLabel">
-                  <property name="text">
-                   <string>X</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QComboBox" name="subtitlePlacementX">
-                  <property name="currentIndex">
-                   <number>1</number>
-                  </property>
-                  <item>
-                   <property name="text">
-                    <string>Left</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Center</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Right</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-                <item row="0" column="2">
-                 <widget class="QLabel" name="subtitlePlacementYLabel">
-                  <property name="text">
-                   <string>Y</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="3">
-                 <widget class="QComboBox" name="subtitlePlacementY">
-                  <property name="currentIndex">
-                   <number>2</number>
-                  </property>
-                  <item>
-                   <property name="text">
-                    <string>Top</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Center</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Bottom</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="subtitlesPositionLabel">
-                <property name="text">
-                 <string>Position</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
-               <widget class="QSpinBox" name="subtitlesPosition">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="suffix">
-                 <string>%</string>
-                </property>
-                <property name="maximum">
-                 <number>100</number>
-                </property>
-                <property name="value">
-                 <number>100</number>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="1">
-               <widget class="QCheckBox" name="subtitlesUseMargins">
-                <property name="text">
-                 <string>Use margins</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
+          <layout class="QVBoxLayout" name="subtitlesPageLayout" stretch="0">
            <item>
             <widget class="QGroupBox" name="subtitlesOptionsBox">
              <property name="title">
@@ -6321,14 +6197,28 @@ media file played</string>
                 </property>
                </widget>
               </item>
-              <item row="4" column="0">
+              <item row="1" column="0" colspan="2">
+               <widget class="QCheckBox" name="subtitlesFixTiming">
+                <property name="text">
+                 <string>Fix timing</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QCheckBox" name="subtitlesClearOnSeek">
+                <property name="text">
+                 <string>Clear on seek</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
                <widget class="QLabel" name="subtitlesDelayStepLabel">
                 <property name="text">
                  <string>Delay step</string>
                 </property>
                </widget>
               </item>
-              <item row="4" column="1">
+              <item row="3" column="1">
                <widget class="QSpinBox" name="subtitlesDelayStep">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -6351,57 +6241,6 @@ media file played</string>
                 <property name="value">
                  <number>500</number>
                 </property>
-               </widget>
-              </item>
-              <item row="1" column="0" colspan="2">
-               <widget class="QCheckBox" name="subtitlesFixTiming">
-                <property name="text">
-                 <string>Fix timing</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" colspan="2">
-               <widget class="QCheckBox" name="subtitlesClearOnSeek">
-                <property name="text">
-                 <string>Clear on seek</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0">
-               <widget class="QLabel" name="subtitlesAssOverrideLabel">
-                <property name="text">
-                 <string>ASS override</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="1">
-               <widget class="QComboBox" name="subtitlesAssOverride">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>No</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Yes</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Yes and only zoom signs</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Force</string>
-                 </property>
-                </item>
                </widget>
               </item>
              </layout>

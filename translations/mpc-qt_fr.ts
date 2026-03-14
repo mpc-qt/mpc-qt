@@ -3702,11 +3702,11 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Placement</source>
-        <translation>Placement</translation>
+        <translation type="vanished">Placement</translation>
     </message>
     <message>
         <source>Override default subtitle placement</source>
-        <translation>Remplacer le placement par défaut des sous-titres</translation>
+        <translation type="vanished">Remplacer le placement par défaut des sous-titres</translation>
     </message>
     <message>
         <source>X</source>
@@ -3714,11 +3714,11 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Gauche</translation>
+        <translation type="vanished">Gauche</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Droite</translation>
+        <translation type="vanished">Droite</translation>
     </message>
     <message>
         <source>Y</source>
@@ -3726,19 +3726,19 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Haut</translation>
+        <translation type="vanished">Haut</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Bas</translation>
+        <translation type="vanished">Bas</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>Position</translation>
+        <translation type="vanished">Position</translation>
     </message>
     <message>
         <source>Use margins</source>
-        <translation>Utiliser les marges</translation>
+        <translation type="vanished">Utiliser les marges</translation>
     </message>
     <message>
         <source>Force grayscale</source>
@@ -3763,11 +3763,11 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation>Oui et seulement les signes de zoom</translation>
+        <translation type="vanished">Oui et seulement les signes de zoom</translation>
     </message>
     <message>
         <source>Force</source>
-        <translation>Forcer</translation>
+        <translation type="vanished">Forcer</translation>
     </message>
     <message>
         <source>Font</source>

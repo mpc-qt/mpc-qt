@@ -3724,11 +3724,11 @@ media file played</source>
     </message>
     <message>
         <source>Placement</source>
-        <translation>Размещение</translation>
+        <translation type="vanished">Размещение</translation>
     </message>
     <message>
         <source>Override default subtitle placement</source>
-        <translation>Переопределить размещение субтитров по умолчанию</translation>
+        <translation type="vanished">Переопределить размещение субтитров по умолчанию</translation>
     </message>
     <message>
         <source>X</source>
@@ -3736,11 +3736,11 @@ media file played</source>
     </message>
     <message>
         <source>Left</source>
-        <translation>Влево</translation>
+        <translation type="vanished">Влево</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Вправо</translation>
+        <translation type="vanished">Вправо</translation>
     </message>
     <message>
         <source>Y</source>
@@ -3748,19 +3748,19 @@ media file played</source>
     </message>
     <message>
         <source>Top</source>
-        <translation>Сверху</translation>
+        <translation type="vanished">Сверху</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Снизу</translation>
+        <translation type="vanished">Снизу</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>Позиция</translation>
+        <translation type="vanished">Позиция</translation>
     </message>
     <message>
         <source>Use margins</source>
-        <translation>Использовать поля</translation>
+        <translation type="vanished">Использовать поля</translation>
     </message>
     <message>
         <source>Force grayscale</source>
@@ -3785,11 +3785,11 @@ media file played</source>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation>Yes and only zoom signs</translation>
+        <translation type="vanished">Yes and only zoom signs</translation>
     </message>
     <message>
         <source>Force</source>
-        <translation>Принудительно</translation>
+        <translation type="vanished">Принудительно</translation>
     </message>
     <message>
         <source>Font</source>

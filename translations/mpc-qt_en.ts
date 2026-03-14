@@ -3780,11 +3780,11 @@ media file played</translation>
     </message>
     <message>
         <source>Placement</source>
-        <translation>Placement</translation>
+        <translation type="vanished">Placement</translation>
     </message>
     <message>
         <source>Override default subtitle placement</source>
-        <translation>Override default subtitle placement</translation>
+        <translation type="vanished">Override default subtitle placement</translation>
     </message>
     <message>
         <source>X</source>
@@ -3792,11 +3792,11 @@ media file played</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Left</translation>
+        <translation type="vanished">Left</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Right</translation>
+        <translation type="vanished">Right</translation>
     </message>
     <message>
         <source>Y</source>
@@ -3804,19 +3804,19 @@ media file played</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Top</translation>
+        <translation type="vanished">Top</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Bottom</translation>
+        <translation type="vanished">Bottom</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>Position</translation>
+        <translation type="vanished">Position</translation>
     </message>
     <message>
         <source>Use margins</source>
-        <translation>Use margins</translation>
+        <translation type="vanished">Use margins</translation>
     </message>
     <message>
         <source>Force grayscale</source>
@@ -3841,11 +3841,11 @@ media file played</translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation>Yes and only zoom signs</translation>
+        <translation type="vanished">Yes and only zoom signs</translation>
     </message>
     <message>
         <source>Force</source>
-        <translation>Force</translation>
+        <translation type="vanished">Force</translation>
     </message>
     <message>
         <source>Font</source>

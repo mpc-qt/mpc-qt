@@ -3578,11 +3578,11 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Placement</source>
-        <translation>Penempatan</translation>
+        <translation type="vanished">Penempatan</translation>
     </message>
     <message>
         <source>Override default subtitle placement</source>
-        <translation>Timpa penempatan subtitle default</translation>
+        <translation type="vanished">Timpa penempatan subtitle default</translation>
     </message>
     <message>
         <source>X</source>
@@ -3590,11 +3590,11 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Kiri</translation>
+        <translation type="vanished">Kiri</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Kanan</translation>
+        <translation type="vanished">Kanan</translation>
     </message>
     <message>
         <source>Y</source>
@@ -3602,19 +3602,19 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Atas</translation>
+        <translation type="vanished">Atas</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Bawah</translation>
+        <translation type="vanished">Bawah</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>Posisi</translation>
+        <translation type="vanished">Posisi</translation>
     </message>
     <message>
         <source>Use margins</source>
-        <translation>Gunakan margin</translation>
+        <translation type="vanished">Gunakan margin</translation>
     </message>
     <message>
         <source>Force grayscale</source>
@@ -3639,11 +3639,11 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation>Ya dan hanya perbesar tanda</translation>
+        <translation type="vanished">Ya dan hanya perbesar tanda</translation>
     </message>
     <message>
         <source>Force</source>
-        <translation>Paksa</translation>
+        <translation type="vanished">Paksa</translation>
     </message>
     <message>
         <source>Font</source>

@@ -3628,11 +3628,11 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Placement</source>
-        <translation>Colocación</translation>
+        <translation type="vanished">Colocación</translation>
     </message>
     <message>
         <source>Override default subtitle placement</source>
-        <translation>Sobrescribir la ubicación por defecto de los subtítulos</translation>
+        <translation type="vanished">Sobrescribir la ubicación por defecto de los subtítulos</translation>
     </message>
     <message>
         <source>X</source>
@@ -3640,11 +3640,11 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Izquierda</translation>
+        <translation type="vanished">Izquierda</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Derecha</translation>
+        <translation type="vanished">Derecha</translation>
     </message>
     <message>
         <source>Y</source>
@@ -3652,19 +3652,19 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Arriba</translation>
+        <translation type="vanished">Arriba</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Abajo</translation>
+        <translation type="vanished">Abajo</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>Posición</translation>
+        <translation type="vanished">Posición</translation>
     </message>
     <message>
         <source>Use margins</source>
-        <translation>Usar márgenes</translation>
+        <translation type="vanished">Usar márgenes</translation>
     </message>
     <message>
         <source>Force grayscale</source>
@@ -3689,11 +3689,11 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation>Sí y hacer zum solo los signos</translation>
+        <translation type="vanished">Sí y hacer zum solo los signos</translation>
     </message>
     <message>
         <source>Force</source>
-        <translation>Forzar</translation>
+        <translation type="vanished">Forzar</translation>
     </message>
     <message>
         <source>Font</source>

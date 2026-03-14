@@ -3770,11 +3770,11 @@ media file played</source>
     </message>
     <message>
         <source>Placement</source>
-        <translation>配置</translation>
+        <translation type="vanished">配置</translation>
     </message>
     <message>
         <source>Override default subtitle placement</source>
-        <translation>既定の字幕配置を上書きする</translation>
+        <translation type="vanished">既定の字幕配置を上書きする</translation>
     </message>
     <message>
         <source>X</source>
@@ -3782,11 +3782,11 @@ media file played</source>
     </message>
     <message>
         <source>Left</source>
-        <translation>左</translation>
+        <translation type="vanished">左</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>右</translation>
+        <translation type="vanished">右</translation>
     </message>
     <message>
         <source>Y</source>
@@ -3794,19 +3794,19 @@ media file played</source>
     </message>
     <message>
         <source>Top</source>
-        <translation>上</translation>
+        <translation type="vanished">上</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>下</translation>
+        <translation type="vanished">下</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>位置</translation>
+        <translation type="vanished">位置</translation>
     </message>
     <message>
         <source>Use margins</source>
-        <translation>余白を使用する</translation>
+        <translation type="vanished">余白を使用する</translation>
     </message>
     <message>
         <source>Force grayscale</source>
@@ -3831,11 +3831,11 @@ media file played</source>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation>はい、そして記号のみを拡大</translation>
+        <translation type="vanished">はい、そして記号のみを拡大</translation>
     </message>
     <message>
         <source>Force</source>
-        <translation>強制</translation>
+        <translation type="vanished">強制</translation>
     </message>
     <message>
         <source>Font</source>

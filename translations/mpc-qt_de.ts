@@ -3754,11 +3754,11 @@ media file played</source>
     </message>
     <message>
         <source>Placement</source>
-        <translation>Platzierung</translation>
+        <translation type="vanished">Platzierung</translation>
     </message>
     <message>
         <source>Override default subtitle placement</source>
-        <translation>Überschreibe die Standardplatzierung der Untertitel</translation>
+        <translation type="vanished">Überschreibe die Standardplatzierung der Untertitel</translation>
     </message>
     <message>
         <source>X</source>
@@ -3766,11 +3766,11 @@ media file played</source>
     </message>
     <message>
         <source>Left</source>
-        <translation>Links</translation>
+        <translation type="vanished">Links</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Rechts</translation>
+        <translation type="vanished">Rechts</translation>
     </message>
     <message>
         <source>Y</source>
@@ -3778,19 +3778,19 @@ media file played</source>
     </message>
     <message>
         <source>Top</source>
-        <translation>Oben</translation>
+        <translation type="vanished">Oben</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Unten</translation>
+        <translation type="vanished">Unten</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>Position</translation>
+        <translation type="vanished">Position</translation>
     </message>
     <message>
         <source>Use margins</source>
-        <translation>Verwende Ränder</translation>
+        <translation type="vanished">Verwende Ränder</translation>
     </message>
     <message>
         <source>Force grayscale</source>
@@ -3815,11 +3815,11 @@ media file played</source>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation type="unfinished">Ja und nur Zoomzeichen</translation>
+        <translation type="obsolete">Ja und nur Zoomzeichen</translation>
     </message>
     <message>
         <source>Force</source>
-        <translation>Erzwingen</translation>
+        <translation type="vanished">Erzwingen</translation>
     </message>
     <message>
         <source>Font</source>
