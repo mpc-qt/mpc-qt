@@ -53,7 +53,7 @@
     </message>
     <message>
         <source>After Playback: Log Off</source>
-        <translation>Após a reprodução: faça logout</translation>
+        <translation>Após a reprodução: Faça Logout</translation>
     </message>
     <message>
         <source>After Playback: Lock</source>
@@ -61,7 +61,7 @@
     </message>
     <message>
         <source>After Playback: Play next file</source>
-        <translation>Após a reprodução: Reproduza o ficheiro seguinte</translation>
+        <translation>Após a reprodução: Reproduza o próximo arquivo</translation>
     </message>
     <message>
         <source>After Playback: Do nothing</source>
