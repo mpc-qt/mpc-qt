@@ -3901,7 +3901,7 @@ media file played</translation>
     </message>
     <message>
         <source>Automatically load external subtitles</source>
-        <translation>Automatically load external subtitles</translation>
+        <translation type="vanished">Automatically load external subtitles</translation>
     </message>
     <message>
         <source>Autoload paths</source>

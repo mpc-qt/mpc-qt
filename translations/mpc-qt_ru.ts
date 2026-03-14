@@ -3845,7 +3845,7 @@ media file played</source>
     </message>
     <message>
         <source>Automatically load external subtitles</source>
-        <translation>Автоматически загружать внешние субтитры</translation>
+        <translation type="vanished">Автоматически загружать внешние субтитры</translation>
     </message>
     <message>
         <source>Autoload paths</source>

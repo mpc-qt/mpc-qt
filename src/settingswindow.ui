@@ -6172,7 +6172,7 @@ media file played</string>
           <property name="enabled">
            <bool>true</bool>
           </property>
-          <layout class="QVBoxLayout" name="subtitlesPageLayout" stretch="0,0,0,0,0,0,0,0,0,0,0,1">
+          <layout class="QVBoxLayout" name="subtitlesPageLayout" stretch="0,0,0,0,0,0,0,0,0,0,1">
            <item>
             <widget class="QCheckBox" name="subtitlesPreferDefaultForced_v3">
              <property name="text">
@@ -6197,16 +6197,6 @@ media file played</string>
             <widget class="QCheckBox" name="subtitlesIgnoreEmbedded">
              <property name="text">
               <string>Ignore embedded subtitles</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="subtitlesAutoloadExternal">
-             <property name="text">
-              <string>Automatically load external subtitles</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -8484,22 +8474,6 @@ media file played</string>
     <hint type="destinationlabel">
      <x>264</x>
      <y>84</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>subtitlesAutoloadExternal</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>subtitlesAutoloadBox</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>339</x>
-     <y>168</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>340</x>
-     <y>178</y>
     </hint>
    </hints>
   </connection>

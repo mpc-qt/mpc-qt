@@ -3869,7 +3869,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Automatically load external subtitles</source>
-        <translation>Carregar subtítols externs automàticament</translation>
+        <translation type="vanished">Carregar subtítols externs automàticament</translation>
     </message>
     <message>
         <source>Autoload paths</source>

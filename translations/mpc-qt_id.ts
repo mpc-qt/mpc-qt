@@ -3695,7 +3695,7 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Automatically load external subtitles</source>
-        <translation>Muat otomatis subtitle eksternal</translation>
+        <translation type="vanished">Muat otomatis subtitle eksternal</translation>
     </message>
     <message>
         <source>Autoload paths</source>

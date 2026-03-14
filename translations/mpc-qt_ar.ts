@@ -3556,10 +3556,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Automatically load external subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Autoload paths</source>
         <translation type="unfinished"></translation>
     </message>

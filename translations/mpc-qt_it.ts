@@ -3684,10 +3684,6 @@ ogni file multimediale riprodotto</translation>
         <translation>Preferisci tracce sottotitoli forzate e/o predefinite</translation>
     </message>
     <message>
-        <source>Automatically load external subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Autoload paths</source>
         <translation>Carica automaticamente dai percorsi</translation>
     </message>

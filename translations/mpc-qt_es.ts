@@ -3749,7 +3749,7 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Automatically load external subtitles</source>
-        <translation>Cargar automáticamente subtítulos externos</translation>
+        <translation type="vanished">Cargar automáticamente subtítulos externos</translation>
     </message>
     <message>
         <source>Autoload paths</source>

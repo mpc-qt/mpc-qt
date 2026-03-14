@@ -3857,7 +3857,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Automatically load external subtitles</source>
-        <translation>Dış altyazıları kendiliğinden yükle</translation>
+        <translation type="vanished">Dış altyazıları kendiliğinden yükle</translation>
     </message>
     <message>
         <source>Autoload paths</source>

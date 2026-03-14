@@ -3891,7 +3891,7 @@ media file played</source>
     </message>
     <message>
         <source>Automatically load external subtitles</source>
-        <translation>外部字幕を自動的に読み込む</translation>
+        <translation type="vanished">外部字幕を自動的に読み込む</translation>
     </message>
     <message>
         <source>Autoload paths</source>

@@ -3803,7 +3803,7 @@ media file played</source>
     </message>
     <message>
         <source>Automatically load external subtitles</source>
-        <translation>自动加载外部字幕</translation>
+        <translation type="vanished">自动加载外部字幕</translation>
     </message>
     <message>
         <source>Autoload paths</source>

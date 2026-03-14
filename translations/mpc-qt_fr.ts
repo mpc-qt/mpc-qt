@@ -3823,7 +3823,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Automatically load external subtitles</source>
-        <translation>Charger automatiquement les sous-titres externes</translation>
+        <translation type="vanished">Charger automatiquement les sous-titres externes</translation>
     </message>
     <message>
         <source>Autoload paths</source>

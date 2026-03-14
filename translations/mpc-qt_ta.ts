@@ -3869,7 +3869,7 @@ media file played</source>
     </message>
     <message>
         <source>Automatically load external subtitles</source>
-        <translation>வெளிப்புற வசன வரிகள் தானாக ஏற்றவும்</translation>
+        <translation type="vanished">வெளிப்புற வசன வரிகள் தானாக ஏற்றவும்</translation>
     </message>
     <message>
         <source>Autoload paths</source>
