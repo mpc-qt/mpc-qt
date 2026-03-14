@@ -2528,7 +2528,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Misc</source>
-        <translation>Прочее</translation>
+        <translation type="vanished">Прочее</translation>
     </message>
     <message>
         <source>Export</source>

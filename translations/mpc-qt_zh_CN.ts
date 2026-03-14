@@ -2526,7 +2526,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Misc</source>
-        <translation>杂项</translation>
+        <translation type="vanished">杂项</translation>
     </message>
     <message>
         <source>Export</source>

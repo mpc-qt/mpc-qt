@@ -2474,7 +2474,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation>Lain-lain</translation>
+        <translation type="vanished">Lain-lain</translation>
     </message>
     <message>
         <source>Export</source>

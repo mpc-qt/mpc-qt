@@ -2436,7 +2436,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Misc</source>
-        <translation>Varie</translation>
+        <translation type="vanished">Varie</translation>
     </message>
     <message>
         <source>Export</source>

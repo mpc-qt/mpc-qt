@@ -2502,7 +2502,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation>Divers</translation>
+        <translation type="vanished">Divers</translation>
     </message>
     <message>
         <source>Export</source>

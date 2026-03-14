@@ -2580,7 +2580,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Misc</source>
-        <translation>Misc</translation>
+        <translation type="vanished">Misc</translation>
     </message>
     <message>
         <source>Export</source>

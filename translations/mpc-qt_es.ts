@@ -2444,7 +2444,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Misc</source>
-        <translation>Miscelánea</translation>
+        <translation type="vanished">Miscelánea</translation>
     </message>
     <message>
         <source>Export</source>

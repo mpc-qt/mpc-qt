@@ -2548,7 +2548,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Misc</source>
-        <translation>இதர</translation>
+        <translation type="vanished">இதர</translation>
     </message>
     <message>
         <source>Export</source>

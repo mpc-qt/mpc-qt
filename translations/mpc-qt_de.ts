@@ -2558,7 +2558,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation>Diverses</translation>
+        <translation type="vanished">Diverses</translation>
     </message>
     <message>
         <source>Export</source>
