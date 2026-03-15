@@ -25,191 +25,192 @@
     </message>
     <message>
         <source>Volume Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>வால்யூம் மியூட்</translation>
     </message>
     <message>
         <source>After Playback: Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>பின்னணிக்குப் பிறகு: வெளியேறு</translation>
     </message>
     <message>
         <source>After Playback: Stand by</source>
-        <translation type="unfinished"></translation>
+        <translation>பின்னணிக்குப் பிறகு: நிற்கவும்</translation>
     </message>
     <message>
         <source>After Playback: Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>பின்னணிக்குப் பிறகு: உறக்கநிலை</translation>
     </message>
     <message>
         <source>After Playback: Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>பிளேபேக்கிற்குப் பிறகு: பணிநிறுத்தம்</translation>
     </message>
     <message>
         <source>After Playback: Log Off</source>
-        <translation type="unfinished"></translation>
+        <translation>பின்னணிக்குப் பிறகு: வெளியேறு</translation>
     </message>
     <message>
         <source>After Playback: Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>பின்னணிக்குப் பிறகு: பூட்டு</translation>
     </message>
     <message>
         <source>After Playback: Play next file</source>
-        <translation type="unfinished"></translation>
+        <translation>பிளேபேக்கிற்குப் பிறகு: அடுத்த கோப்பை இயக்கவும்</translation>
     </message>
     <message>
         <source>After Playback: Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>பின்னணிக்குப் பிறகு: எதுவும் செய்ய வேண்டாம்</translation>
     </message>
     <message>
         <source>On Top: Default</source>
-        <translation type="unfinished"></translation>
+        <translation>மேலே: இயல்புநிலை</translation>
     </message>
     <message>
         <source>On Top: Always</source>
-        <translation type="unfinished"></translation>
+        <translation>மேலே: எப்போதும்</translation>
     </message>
     <message>
         <source>On Top: While Playing</source>
-        <translation type="unfinished"></translation>
+        <translation>மேலே: விளையாடும் போது</translation>
     </message>
     <message>
         <source>On Top: While Playing Video</source>
-        <translation type="unfinished"></translation>
+        <translation>மேலே: வீடியோவை இயக்கும் போது</translation>
     </message>
     <message>
         <source>Extra Play Times: Increment</source>
-        <translation type="unfinished"></translation>
+        <translation>கூடுதல் விளையாட்டு நேரங்கள்: அதிகரிப்பு</translation>
     </message>
     <message>
         <source>Extra Play Times: Decrement</source>
-        <translation type="unfinished"></translation>
+        <translation>கூடுதல் விளையாட்டு நேரங்கள்: குறைவு</translation>
     </message>
     <message>
         <source>Move Subtitles Up</source>
-        <translation type="unfinished"></translation>
+        <translation>வசனங்களை மேலே நகர்த்தவும்</translation>
     </message>
     <message>
         <source>Move Subtitles Down</source>
-        <translation type="unfinished"></translation>
+        <translation>வசனங்களை கீழே நகர்த்தவும்</translation>
     </message>
     <message>
         <source>Decrease Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>தோற்ற விகிதத்தைக் குறைக்கவும்</translation>
     </message>
     <message>
         <source>Increase Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>தோற்ற விகிதத்தை அதிகரிக்கவும்</translation>
     </message>
     <message>
         <source>Reset Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>தோற்ற விகிதத்தை மீட்டமைக்கவும்</translation>
     </message>
     <message>
         <source>Disable Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>தோற்ற விகிதத்தை முடக்கு</translation>
     </message>
     <message>
         <source>Decrease Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>பான் மற்றும் வருடு குறைக்கவும்</translation>
     </message>
     <message>
         <source>Increase Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>பான் மற்றும் வருடு அதிகரிக்கவும்</translation>
     </message>
     <message>
         <source>Minimum Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>குறைந்தபட்ச பான் மற்றும் வருடு</translation>
     </message>
     <message>
         <source>Maximum Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>அதிகபட்ச பான் மற்றும் வருடு</translation>
     </message>
     <message>
         <source>Decrease Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>பெரிதாக்கத்தைக் குறைக்கவும்</translation>
     </message>
     <message>
         <source>Increase Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>பெரிதாக்கு</translation>
     </message>
     <message>
         <source>Reset Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>பெரிதாக்கு மீட்டமைக்கவும்</translation>
     </message>
     <message>
         <source>Skip Backward / Previous</source>
-        <translation type="unfinished"></translation>
+        <translation>பின்னோக்கி / முந்தையதைத் தவிர்</translation>
     </message>
     <message>
         <source>Skip Forward / Next</source>
-        <translation type="unfinished"></translation>
+        <translation>முன்னோக்கி / அடுத்ததைத் தவிர்க்கவும்</translation>
     </message>
     <message>
         <source>Shortcut already used</source>
-        <translation type="unfinished"></translation>
+        <translation>சார்ட்கட் ஏற்கனவே பயன்படுத்தப்பட்டுள்ளது</translation>
     </message>
     <message>
         <source>&quot;%1&quot; is already used by &quot;%2&quot;.
 Do you want to use it for &quot;%3&quot; instead?</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; ஏற்கனவே &quot;%2&quot; ஆல் பயன்படுத்தப்பட்டது. 
+அதற்கு பதிலாக &quot;%3&quot; க்கு பயன்படுத்த விரும்புகிறீர்களா?</translation>
     </message>
     <message>
         <source>4:3 Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>4:3 தோற்ற விகிதம்</translation>
     </message>
     <message>
         <source>Move Left</source>
-        <translation type="unfinished"></translation>
+        <translation>இடதுபுறம் நகர்த்தவும்</translation>
     </message>
     <message>
         <source>Move Right</source>
-        <translation type="unfinished"></translation>
+        <translation>வலதுபுறம் நகர்த்தவும்</translation>
     </message>
     <message>
         <source>Move Up</source>
-        <translation type="unfinished"></translation>
+        <translation>மேலே நகர்த்தவும்</translation>
     </message>
     <message>
         <source>Move Down</source>
-        <translation type="unfinished"></translation>
+        <translation>கீழே நகர்த்தவும்</translation>
     </message>
     <message>
         <source>Reset Move</source>
-        <translation type="unfinished"></translation>
+        <translation>நகர்வை மீட்டமைக்கவும்</translation>
     </message>
     <message>
         <source>Rotate Clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>கடிகார திசையில் சுழற்று</translation>
     </message>
     <message>
         <source>Rotate Counterclockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>எதிரெதிர் திசையில் சுழற்று</translation>
     </message>
     <message>
         <source>Reset Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>சுழற்சியை மீட்டமைக்கவும்</translation>
     </message>
     <message>
         <source>Reset Resize</source>
-        <translation type="unfinished"></translation>
+        <translation>அளவை மீட்டமைக்கவும்</translation>
     </message>
     <message>
         <source>Volume Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>தொகுதி அதிகரிப்பு</translation>
     </message>
     <message>
         <source>Volume Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>வால்யூம் குறைவு</translation>
     </message>
     <message>
         <source>Play / Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>விளையாடு / இடைநிறுத்து</translation>
     </message>
 </context>
 <context>
     <name>ButtonWidget</name>
     <message>
         <source>B</source>
-        <translation>B</translation>
+        <translation>பி</translation>
     </message>
     <message>
         <source>K</source>
@@ -355,12 +356,13 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>Logger</name>
     <message>
         <source>Ambiguous shortcut detected</source>
-        <translation type="unfinished"></translation>
+        <translation>தெளிவற்ற குறுக்குவழி கண்டறியப்பட்டது</translation>
     </message>
     <message>
         <source>The key sequence &quot;%1&quot; is used for more than one command. Use the &quot;Keys&quot; page in Options to reassign it.
 No action will be triggered.</source>
-        <translation type="unfinished"></translation>
+        <translation>விசை வரிசை &quot;% 1&quot; ஒன்றுக்கு மேற்பட்ட கட்டளைகளுக்கு பயன்படுத்தப்படுகிறது. அதை மீண்டும் ஒதுக்க விருப்பங்களில் உள்ள &quot;விசைகள்&quot; பக்கத்தைப் பயன்படுத்தவும். 
+எந்த நடவடிக்கையும் தூண்டப்படாது.</translation>
     </message>
 </context>
 <context>
@@ -1343,7 +1345,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Re&amp;move File</source>
-        <translation type="unfinished"></translation>
+        <translation>கோப்பை மறு&amp;நகர்த்து</translation>
     </message>
     <message>
         <source>View</source>
@@ -1363,15 +1365,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation type="unfinished"></translation>
+        <translation>மீதமுள்ள நேரம்</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation type="unfinished"></translation>
+        <translation>உயர் துல்லியம்</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>சதவீதத்தைக் காட்டு</translation>
     </message>
     <message>
         <source>No files favorited</source>
@@ -1551,7 +1553,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>I</source>
-        <translation>I</translation>
+        <translation>ஐ</translation>
     </message>
     <message>
         <source>&amp;Decrease Aspect ratio</source>
@@ -1571,11 +1573,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>C</source>
-        <translation>C</translation>
+        <translation>சி</translation>
     </message>
     <message>
         <source>%1 / %2</source>
-        <translation>%1 / %2</translation>
+        <translation>% 1 / % 2</translation>
     </message>
     <message>
         <source>Seek Forwards (normal step)</source>
@@ -1683,147 +1685,147 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished"></translation>
+        <translation>(தெரியாது)</translation>
     </message>
     <message>
         <source>Running under %1</source>
-        <translation type="unfinished"></translation>
+        <translation>% 1 இன் கீழ் இயங்குகிறது</translation>
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;உள்ளீடு தற்காலிக சேமிப்பு புள்ளிவிவரங்கள்</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitles track</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;முந்தைய வசன வரிகள்</translation>
     </message>
     <message>
         <source>&amp;Next Subtitles track</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;அடுத்த வசன வரிகள்</translation>
     </message>
     <message>
         <source>&amp;Filters</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;வடிப்பான்கள்</translation>
     </message>
     <message>
         <source>&amp;Deinterlace</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp; டீன்டர்லாகிச்</translation>
     </message>
     <message>
         <source>&amp;Extra Stereo</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;கூடுதல் ச்டீரியோ</translation>
     </message>
     <message>
         <source>&amp;Compressor</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;அமுக்கி</translation>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation type="unfinished">திரைக்காட்சி</translation>
+        <translation>திரைக்காட்சி</translation>
     </message>
     <message>
         <source>&amp;Crossfeed (for headphones)</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;கிராச்ஃபீட் (எட்ஃபோன்களுக்கு)</translation>
     </message>
     <message>
         <source>More Files</source>
-        <translation type="unfinished"></translation>
+        <translation>மேலும் கோப்புகள்</translation>
     </message>
     <message>
         <source>&amp;Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;குறை</translation>
     </message>
     <message>
         <source>&amp;Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;அதிகரிக்கவும்</translation>
     </message>
     <message>
         <source>&amp;Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;மீட்டமை</translation>
     </message>
     <message>
         <source>D&amp;isable</source>
-        <translation type="unfinished"></translation>
+        <translation>முடக்கப்பட்டது</translation>
     </message>
     <message>
         <source>&amp;Minimum</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;குறைந்தபட்சம்</translation>
     </message>
     <message>
         <source>M&amp;aximum</source>
-        <translation type="unfinished"></translation>
+        <translation>எம்&amp;அக்சிமம்</translation>
     </message>
     <message>
         <source>&amp;Resize</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;மறுஅளவாக்கு</translation>
     </message>
     <message>
         <source>&amp;Decrease Width</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;அகலத்தை குறைக்கவும்</translation>
     </message>
     <message>
         <source>&amp;Increase Width</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;அகலத்தை அதிகரிக்கவும்</translation>
     </message>
     <message>
         <source>D&amp;ecrease Height</source>
-        <translation type="unfinished"></translation>
+        <translation>உயரத்தை குறைக்கவும்</translation>
     </message>
     <message>
         <source>I&amp;ncrease Height</source>
-        <translation type="unfinished"></translation>
+        <translation>உயரத்தை அதிகரிக்கவும்</translation>
     </message>
     <message>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;நகர்த்து</translation>
     </message>
     <message>
         <source>&amp;Left</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;இடது</translation>
     </message>
     <message>
         <source>&amp;Right</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;சரி</translation>
     </message>
     <message>
         <source>R&amp;eset</source>
-        <translation type="unfinished"></translation>
+        <translation>மறு&amp;அமை</translation>
     </message>
     <message>
         <source>R&amp;otate</source>
-        <translation type="unfinished"></translation>
+        <translation>R&amp;Ota இல்</translation>
     </message>
     <message>
         <source>&amp;Clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;வலஞ்சுழி</translation>
     </message>
     <message>
         <source>C&amp;ounterclockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>எதிரெதிர் திசையில்</translation>
     </message>
     <message>
         <source>&amp;Horizontal Flip</source>
-        <translation type="unfinished"></translation>
+        <translation>கிடைமட்ட திருப்பு</translation>
     </message>
     <message>
         <source>&amp;Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;பிளேலிச்ட்</translation>
     </message>
     <message>
         <source>&amp;Play</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;விளையாடு</translation>
     </message>
     <message>
         <source>&amp;Play Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;ப்ளே தேர்ந்தெடுக்கப்பட்டது</translation>
     </message>
     <message>
         <source>&amp;Remove Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;தேர்ந்தெடுக்கப்பட்டதை அகற்று</translation>
     </message>
     <message>
         <source>&amp;Move File to Recycle Bin</source>
-        <translation type="unfinished"></translation>
+        <translation>கோப்பை மறுசுழற்சி தொட்டிக்கு நகர்த்தவும்</translation>
     </message>
 </context>
 <context>
@@ -2003,7 +2005,7 @@ No action will be triggered.</source>
     <name>PaletteEditor</name>
     <message>
         <source>Generate palette from:</source>
-        <translation type="unfinished"></translation>
+        <translation>இதிலிருந்து தட்டு உருவாக்கவும்:</translation>
     </message>
     <message>
         <source>Button</source>
@@ -2066,11 +2068,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>File moved to recycle bin: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>கோப்பு மறுசுழற்சி தொட்டிக்கு நகர்த்தப்பட்டது:% 1</translation>
     </message>
     <message>
         <source>Failed to move file to recycle bin: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>மறுசுழற்சி தொட்டிக்கு கோப்பை நகர்த்துவதில் தோல்வி: % 1</translation>
     </message>
 </context>
 <context>
@@ -2212,7 +2214,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Clear Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;பிளேலிச்ட்டை அழி</translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
@@ -2220,7 +2222,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Rename Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;பிளேலிச்ட்டை மறுபெயரிடவும்</translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
@@ -2252,19 +2254,19 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8 *.txt)</source>
-        <translation type="unfinished"></translation>
+        <translation>பிளேலிச்ட் கோப்புகள் (*.m3u *.m3u8 *.txt)</translation>
     </message>
     <message>
         <source>Import Playlist File</source>
-        <translation type="unfinished"></translation>
+        <translation>பிளேலிச்ட் கோப்பை இறக்குமதி செய்யவும்</translation>
     </message>
     <message>
         <source>Export Playlist File</source>
-        <translation type="unfinished"></translation>
+        <translation>பிளேலிச்ட் கோப்பை ஏற்றுமதி செய்யவும்</translation>
     </message>
     <message>
         <source>Add Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>கோப்புறையைச் சேர்</translation>
     </message>
 </context>
 <context>
@@ -2367,7 +2369,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Modified:</source>
-        <translation type="unfinished"></translation>
+        <translation>மாற்றியமைக்கப்பட்ட:</translation>
     </message>
 </context>
 <context>
@@ -3128,7 +3130,7 @@ media file played</source>
     </message>
     <message>
         <source>Spline16</source>
-        <translation>Spline16</translation>
+        <translation>ச்ப்லைன்16</translation>
     </message>
     <message>
         <source>Spline36</source>
@@ -3288,11 +3290,11 @@ media file played</source>
     </message>
     <message>
         <source>BT.709</source>
-        <translation>BT.709</translation>
+        <translation>பிடி.709</translation>
     </message>
     <message>
         <source>BT.2020</source>
-        <translation>BT.2020</translation>
+        <translation>பிடி.2020</translation>
     </message>
     <message>
         <source>Apple</source>
@@ -3320,7 +3322,7 @@ media file played</source>
     </message>
     <message>
         <source>BT.1886</source>
-        <translation>BT.1886</translation>
+        <translation>பிடி.1886</translation>
     </message>
     <message>
         <source>sRGB</source>
@@ -4573,71 +4575,71 @@ media file played</source>
     </message>
     <message>
         <source>Custom mpv options:</source>
-        <translation type="unfinished"></translation>
+        <translation>தனிப்பயன் mpv விருப்பங்கள்:</translation>
     </message>
     <message>
         <source>Seek to keyframe when hardware decoding is unavailable</source>
-        <translation type="unfinished"></translation>
+        <translation>ஆர்டுவேர் டிகோடிங் இல்லாதபோது கீஃப்ரேமைத் தேடவும்</translation>
     </message>
     <message>
         <source>Prioritize seeking speed over accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>துல்லியத்தை விட வேகத்தைத் தேடுவதற்கு முன்னுரிமை கொடுங்கள்</translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished">நிழல்</translation>
+        <translation>நிழல்</translation>
     </message>
     <message>
         <source>Enable shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>நிழலை இயக்கு</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>Preset applied</source>
-        <translation type="unfinished"></translation>
+        <translation>முன்னமைவு பயன்படுத்தப்பட்டது</translation>
     </message>
     <message>
         <source>Position ASS subs relative to the video frame</source>
-        <translation type="unfinished"></translation>
+        <translation>வீடியோ சட்டத்துடன் தொடர்புடைய நிலை ASS துணைகள்</translation>
     </message>
     <message>
         <source>Remember Quick Playlist content</source>
-        <translation type="unfinished"></translation>
+        <translation>விரைவான பிளேலிச்ட் உள்ளடக்கத்தை நினைவில் கொள்ளுங்கள்</translation>
     </message>
     <message>
         <source>Append opened files to Quick Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>திறந்த கோப்புகளை விரைவு பிளேலிச்ட்டில் சேர்க்கவும்</translation>
     </message>
     <message>
         <source>%</source>
-        <translation type="unfinished">%</translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>Enable background box</source>
-        <translation type="unfinished"></translation>
+        <translation>பின்னணி பெட்டியை இயக்கு</translation>
     </message>
     <message>
         <source>Border and background style</source>
-        <translation type="unfinished"></translation>
+        <translation>பார்டர் மற்றும் பின்னணி பாணி</translation>
     </message>
     <message>
         <source>Translucid background box</source>
-        <translation type="unfinished"></translation>
+        <translation>வெளிப்படையான பின்னணி பெட்டி</translation>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation type="unfinished"></translation>
+        <translation>வீடியோ முன்னோட்டத்தைக் காட்டு (மறுதொடக்கம் தேவை)</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
-        <translation type="unfinished"></translation>
+        <translation>இதைப் பயன்படுத்த அதிக காரணம் இல்லை. HDMI சுருக்கப்படாத மல்டிசேனல் PCM ஐ ஆதரிக்கிறது, மற்றும் mpv இழப்பற்ற DTS-HD ஐ ஆதரிக்கிறது</translation>
     </message>
     <message>
         <source>Choose Log File</source>
-        <translation type="unfinished"></translation>
+        <translation>பதிவு கோப்பைத் தேர்ந்தெடுக்கவும்</translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
@@ -4645,70 +4647,70 @@ media file played</source>
     </message>
     <message>
         <source>File title</source>
-        <translation type="unfinished"></translation>
+        <translation>கோப்பு தலைப்பு</translation>
     </message>
     <message>
         <source>CRF</source>
-        <translation type="unfinished"></translation>
+        <translation>CRF</translation>
     </message>
     <message>
         <source>Lossless</source>
-        <translation type="unfinished"></translation>
+        <translation>இழப்பற்றது</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>வேகம்</translation>
     </message>
     <message>
         <source>Others</source>
-        <translation type="unfinished"></translation>
+        <translation>மற்றவை</translation>
     </message>
     <message>
         <source>Video background</source>
-        <translation type="unfinished"></translation>
+        <translation>வீடியோ பின்னணி</translation>
     </message>
     <message>
         <source>Status bar background</source>
-        <translation type="unfinished"></translation>
+        <translation>நிலைப் பட்டி பின்னணி</translation>
     </message>
     <message>
         <source>Status bar foreground</source>
-        <translation type="unfinished"></translation>
+        <translation>நிலைப் பட்டி முன்புறம்</translation>
     </message>
     <message>
         <source>Use custom colors</source>
-        <translation type="unfinished"></translation>
+        <translation>தனிப்பயன் வண்ணங்களைப் பயன்படுத்தவும்</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">மூலம்</translation>
+        <translation>மூலம்</translation>
     </message>
     <message>
         <source>Built-in</source>
-        <translation type="unfinished"></translation>
+        <translation>உள்ளமைக்கப்பட்ட</translation>
     </message>
     <message>
         <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;களஞ்சியத்தில் உள்ள அதே பெயர்களை ஐகான்கள் பயன்படுத்த வேண்டும்.</translation>
     </message>
     <message>
         <source>Use English for the interface</source>
-        <translation type="unfinished"></translation>
+        <translation>இடைமுகத்திற்கு ஆங்கிலத்தைப் பயன்படுத்தவும்</translation>
     </message>
     <message>
         <source>Mono</source>
-        <translation type="unfinished"></translation>
+        <translation>மோனோ</translation>
     </message>
     <message>
         <source>Remember last window size and position</source>
-        <translation type="unfinished"></translation>
+        <translation>கடைசி சாளர அளவு மற்றும் நிலையை நினைவில் கொள்ளுங்கள்</translation>
     </message>
 </context>
 <context>
     <name>StatusTime</name>
     <message>
         <source> (%1%)</source>
-        <translation type="unfinished"></translation>
+        <translation> (% 1%)</translation>
     </message>
 </context>
 <context>
@@ -4763,7 +4765,7 @@ media file played</source>
     </message>
     <message>
         <source>%p%</source>
-        <translation type="unfinished"></translation>
+        <translation>%p%</translation>
     </message>
 </context>
 </TS>
