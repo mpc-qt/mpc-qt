@@ -122,11 +122,6 @@
          <string>Default Style</string>
         </property>
        </item>
-       <item>
-        <property name="text">
-         <string>Misc</string>
-        </property>
-       </item>
       </item>
       <item>
        <property name="text">
@@ -178,7 +173,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>14</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -717,8 +712,8 @@ media file played</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>623</width>
-                   <height>288</height>
+                   <width>261</width>
+                   <height>173</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="interfaceWidgetCustomLayout">
@@ -6177,125 +6172,216 @@ media file played</string>
           <property name="enabled">
            <bool>true</bool>
           </property>
-          <layout class="QVBoxLayout" name="subtitlesPageLayout" stretch="0,0">
+          <layout class="QVBoxLayout" name="subtitlesPageLayout" stretch="0,0,0,0,0,0,0,0,0,0,1">
            <item>
-            <widget class="QGroupBox" name="subtitlePlacementBox">
-             <property name="enabled">
+            <widget class="QCheckBox" name="subtitlesPreferDefaultForced_v3">
+             <property name="text">
+              <string>Prefer forced and/or default subtitle tracks</string>
+             </property>
+             <property name="checked">
               <bool>true</bool>
              </property>
-             <property name="title">
-              <string>Placement</string>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="subtitlesPreferExternal">
+             <property name="text">
+              <string>Prefer external subtitles over embedded subtitles</string>
              </property>
-             <layout class="QFormLayout" name="subtitlePlacementBoxLayout">
-              <item row="0" column="0" colspan="2">
-               <widget class="QCheckBox" name="subtitlesOverridePlacement">
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="subtitlesIgnoreEmbedded">
+             <property name="text">
+              <string>Ignore embedded subtitles</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="subtitlesRemoveSdh">
+             <property name="text">
+              <string>Remove subtitles additions for the deaf or hard-of-hearing (SDH)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="subtitlesForceGrayscale">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Force grayscale</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="subtitlesFixTiming">
+             <property name="text">
+              <string>Fix timing</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="subtitlesClearOnSeek">
+             <property name="text">
+              <string>Clear on seek</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="delayStepLayout">
+             <item>
+              <widget class="QLabel" name="subtitlesDelayStepLabel">
+               <property name="text">
+                <string>Delay step</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="subtitlesDelayStep">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="showGroupSeparator" stdset="0">
+                <bool>true</bool>
+               </property>
+               <property name="suffix">
+                <string notr="true"> ms</string>
+               </property>
+               <property name="minimum">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <number>9999999</number>
+               </property>
+               <property name="value">
+                <number>500</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="subtitlesAutoloadBox">
+             <property name="title">
+              <string>Autoload paths</string>
+             </property>
+             <layout class="QFormLayout" name="subtitlesAutoloadBoxLayout">
+              <item row="0" column="0">
+               <widget class="QLabel" name="subtitlesAutoloadPathLabel">
                 <property name="text">
-                 <string>Override default subtitle placement</string>
+                 <string>Path</string>
                 </property>
                </widget>
               </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="subtitlesPlacementLabel">
-                <property name="text">
-                 <string>Placement</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <layout class="QGridLayout" name="subtitlePlacementLayout" columnstretch="0,1,0,1">
-                <item row="0" column="0">
-                 <widget class="QLabel" name="subtitlePlacementXLabel">
+              <item row="0" column="1">
+               <layout class="QHBoxLayout" name="subtitlesAutoloadPathLayout">
+                <item>
+                 <widget class="QLineEdit" name="subtitlesAutoloadPath">
+                  <property name="placeholderText">
+                   <string notr="true">./subtitles;./subs</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="subtitlesAutoloadReset">
                   <property name="text">
-                   <string>X</string>
+                   <string>Reset</string>
                   </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QComboBox" name="subtitlePlacementX">
-                  <property name="currentIndex">
-                   <number>1</number>
-                  </property>
-                  <item>
-                   <property name="text">
-                    <string>Left</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Center</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Right</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-                <item row="0" column="2">
-                 <widget class="QLabel" name="subtitlePlacementYLabel">
-                  <property name="text">
-                   <string>Y</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="3">
-                 <widget class="QComboBox" name="subtitlePlacementY">
-                  <property name="currentIndex">
-                   <number>2</number>
-                  </property>
-                  <item>
-                   <property name="text">
-                    <string>Top</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Center</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Bottom</string>
-                   </property>
-                  </item>
                  </widget>
                 </item>
                </layout>
               </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="subtitlesPositionLabel">
+              <item row="1" column="0">
+               <widget class="QLabel" name="subtitlesAutoloadMatchLabel">
                 <property name="text">
-                 <string>Position</string>
+                 <string>Match</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="1">
-               <widget class="QSpinBox" name="subtitlesPosition">
+              <item row="1" column="1">
+               <widget class="QComboBox" name="subtitlesAutoloadMatch">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
-                <property name="suffix">
-                 <string>%</string>
-                </property>
-                <property name="maximum">
-                 <number>100</number>
-                </property>
-                <property name="value">
-                 <number>100</number>
+                <item>
+                 <property name="text">
+                  <string>Exact</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Fuzzy</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>All</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="subtitlesDatabaseBox">
+             <property name="title">
+              <string>Online database</string>
+             </property>
+             <layout class="QGridLayout" name="subtitlesDatabaseBoxLayout" columnstretch="0,0,0">
+              <item row="1" column="0">
+               <widget class="QLabel" name="subtitlesDatabaseTextLabel">
+                <property name="text">
+                 <string>https://</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="1">
-               <widget class="QCheckBox" name="subtitlesUseMargins">
+              <item row="1" column="2">
+               <widget class="QPushButton" name="subtitlesDatabaseTest">
                 <property name="text">
-                 <string>Use margins</string>
+                 <string>Test</string>
                 </property>
-                <property name="checked">
-                 <bool>true</bool>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="subtitlesDatabaseLocation">
+                <item>
+                 <property name="text">
+                  <string notr="true">www.opensubtitles.org/isdb</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="3">
+               <widget class="QLabel" name="subtitlesDatabaseLocationLabel">
+                <property name="text">
+                 <string>Base url of the online subtitle database:</string>
                 </property>
                </widget>
               </item>
@@ -6303,109 +6389,17 @@ media file played</string>
             </widget>
            </item>
            <item>
-            <widget class="QGroupBox" name="subtitlesOptionsBox">
-             <property name="title">
-              <string>Options</string>
+            <spacer name="subsDefaultPageSpacer">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
-             <layout class="QFormLayout" name="subtitlesOptionsBoxLayout">
-              <item row="0" column="0" colspan="2">
-               <widget class="QCheckBox" name="subtitlesForceGrayscale">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Force grayscale</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="0">
-               <widget class="QLabel" name="subtitlesDelayStepLabel">
-                <property name="text">
-                 <string>Delay step</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="1">
-               <widget class="QSpinBox" name="subtitlesDelayStep">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="showGroupSeparator" stdset="0">
-                 <bool>true</bool>
-                </property>
-                <property name="suffix">
-                 <string notr="true"> ms</string>
-                </property>
-                <property name="minimum">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <number>9999999</number>
-                </property>
-                <property name="value">
-                 <number>500</number>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0" colspan="2">
-               <widget class="QCheckBox" name="subtitlesFixTiming">
-                <property name="text">
-                 <string>Fix timing</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" colspan="2">
-               <widget class="QCheckBox" name="subtitlesClearOnSeek">
-                <property name="text">
-                 <string>Clear on seek</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0">
-               <widget class="QLabel" name="subtitlesAssOverrideLabel">
-                <property name="text">
-                 <string>ASS override</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="1">
-               <widget class="QComboBox" name="subtitlesAssOverride">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>No</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Yes</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Yes and only zoom signs</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Force</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-             </layout>
-            </widget>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
            </item>
           </layout>
          </widget>
@@ -6877,172 +6871,6 @@ media file played</string>
               </item>
              </layout>
             </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="subsMiscPage">
-          <layout class="QVBoxLayout" name="subsMiscPageLayout">
-           <item>
-            <widget class="QCheckBox" name="subtitlesPreferDefaultForced_v3">
-             <property name="text">
-              <string>Prefer forced and/or default subtitle tracks</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="subtitlesPreferExternal">
-             <property name="text">
-              <string>Prefer external subtitles over embedded subtitles</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="subtitlesIgnoreEmbedded">
-             <property name="text">
-              <string>Ignore embedded subtitles</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="subtitlesAutoloadExternal">
-             <property name="text">
-              <string>Automatically load external subtitles</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="subtitlesRemoveSdh">
-             <property name="text">
-              <string>Remove subtitles additions for the deaf or hard-of-hearing (SDH)</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QGroupBox" name="subtitlesAutoloadBox">
-             <property name="title">
-              <string>Autoload paths</string>
-             </property>
-             <layout class="QFormLayout" name="subtitlesAutoloadBoxLayout">
-              <item row="0" column="0">
-               <widget class="QLabel" name="subtitlesAutoloadPathLabel">
-                <property name="text">
-                 <string>Path</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <layout class="QHBoxLayout" name="subtitlesAutoloadPathLayout">
-                <item>
-                 <widget class="QLineEdit" name="subtitlesAutoloadPath">
-                  <property name="placeholderText">
-                   <string notr="true">./subtitles;./subs</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="subtitlesAutoloadReset">
-                  <property name="text">
-                   <string>Reset</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="subtitlesAutoloadMatchLabel">
-                <property name="text">
-                 <string>Match</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QComboBox" name="subtitlesAutoloadMatch">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>Exact</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Fuzzy</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>All</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QGroupBox" name="subtitlesDatabaseBox">
-             <property name="title">
-              <string>Online database</string>
-             </property>
-             <layout class="QGridLayout" name="subtitlesDatabaseBoxLayout" columnstretch="0,0,0">
-              <item row="1" column="0">
-               <widget class="QLabel" name="subtitlesDatabaseTextLabel">
-                <property name="text">
-                 <string>https://</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="2">
-               <widget class="QPushButton" name="subtitlesDatabaseTest">
-                <property name="text">
-                 <string>Test</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QComboBox" name="subtitlesDatabaseLocation">
-                <item>
-                 <property name="text">
-                  <string notr="true">www.opensubtitles.org/isdb</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="0" column="0" colspan="3">
-               <widget class="QLabel" name="subtitlesDatabaseLocationLabel">
-                <property name="text">
-                 <string>Base url of the online subtitle database:</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <spacer name="subsMiscPageSpacer">
-             <property name="orientation">
-              <enum>Qt::Orientation::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
            </item>
           </layout>
          </widget>
@@ -8646,22 +8474,6 @@ media file played</string>
     <hint type="destinationlabel">
      <x>264</x>
      <y>84</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>subtitlesAutoloadExternal</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>subtitlesAutoloadBox</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>339</x>
-     <y>168</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>340</x>
-     <y>178</y>
     </hint>
    </hints>
   </connection>

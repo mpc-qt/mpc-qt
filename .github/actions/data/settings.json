@@ -369,7 +369,6 @@
     "subtitlePlacementX": 1,
     "subtitlePlacementY": 2,
     "subtitlesAssOverride": 0,
-    "subtitlesAutoloadExternal": true,
     "subtitlesAutoloadMatch": 0,
     "subtitlesAutoloadPath": "",
     "subtitlesClearOnSeek": false,

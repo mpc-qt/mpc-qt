@@ -2436,7 +2436,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Misc</source>
-        <translation>Varie</translation>
+        <translation type="vanished">Varie</translation>
     </message>
     <message>
         <source>Export</source>
@@ -3564,11 +3564,11 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Placement</source>
-        <translation>Posizione</translation>
+        <translation type="vanished">Posizione</translation>
     </message>
     <message>
         <source>Override default subtitle placement</source>
-        <translation>Sostituisci posizione predefinita</translation>
+        <translation type="vanished">Sostituisci posizione predefinita</translation>
     </message>
     <message>
         <source>X</source>
@@ -3576,11 +3576,11 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Sinistra</translation>
+        <translation type="vanished">Sinistra</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Destra</translation>
+        <translation type="vanished">Destra</translation>
     </message>
     <message>
         <source>Y</source>
@@ -3588,19 +3588,19 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Alto</translation>
+        <translation type="vanished">Alto</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Basso</translation>
+        <translation type="vanished">Basso</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>Posizione</translation>
+        <translation type="vanished">Posizione</translation>
     </message>
     <message>
         <source>Use margins</source>
-        <translation>Usa margini</translation>
+        <translation type="vanished">Usa margini</translation>
     </message>
     <message>
         <source>Force grayscale</source>
@@ -3625,11 +3625,11 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation>Sì e solo per i segni a schermo</translation>
+        <translation type="vanished">Sì e solo per i segni a schermo</translation>
     </message>
     <message>
         <source>Force</source>
-        <translation>Forza</translation>
+        <translation type="vanished">Forza</translation>
     </message>
     <message>
         <source>Font</source>
@@ -3682,10 +3682,6 @@ ogni file multimediale riprodotto</translation>
     <message>
         <source>Prefer forced and/or default subtitle tracks</source>
         <translation>Preferisci tracce sottotitoli forzate e/o predefinite</translation>
-    </message>
-    <message>
-        <source>Automatically load external subtitles</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Autoload paths</source>

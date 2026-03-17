@@ -2550,7 +2550,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Misc</source>
-        <translation>இதர</translation>
+        <translation type="vanished">இதர</translation>
     </message>
     <message>
         <source>Export</source>
@@ -3750,11 +3750,11 @@ media file played</source>
     </message>
     <message>
         <source>Placement</source>
-        <translation>இடவமைவு</translation>
+        <translation type="vanished">இடவமைவு</translation>
     </message>
     <message>
         <source>Override default subtitle placement</source>
-        <translation>இயல்புநிலை வசன வேலைவாய்ப்பை மேலெழுதவும்</translation>
+        <translation type="vanished">இயல்புநிலை வசன வேலைவாய்ப்பை மேலெழுதவும்</translation>
     </message>
     <message>
         <source>X</source>
@@ -3762,11 +3762,11 @@ media file played</source>
     </message>
     <message>
         <source>Left</source>
-        <translation>இடது</translation>
+        <translation type="vanished">இடது</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>வலது</translation>
+        <translation type="vanished">வலது</translation>
     </message>
     <message>
         <source>Y</source>
@@ -3774,19 +3774,19 @@ media file played</source>
     </message>
     <message>
         <source>Top</source>
-        <translation>மேலே</translation>
+        <translation type="vanished">மேலே</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>கீழே</translation>
+        <translation type="vanished">கீழே</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>நிலை</translation>
+        <translation type="vanished">நிலை</translation>
     </message>
     <message>
         <source>Use margins</source>
-        <translation>விளிம்புகளைப் பயன்படுத்துங்கள்</translation>
+        <translation type="vanished">விளிம்புகளைப் பயன்படுத்துங்கள்</translation>
     </message>
     <message>
         <source>Force grayscale</source>
@@ -3811,11 +3811,11 @@ media file played</source>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation>ஆம் மற்றும் பெரிதாக்க அறிகுறிகள் மட்டுமே</translation>
+        <translation type="vanished">ஆம் மற்றும் பெரிதாக்க அறிகுறிகள் மட்டுமே</translation>
     </message>
     <message>
         <source>Force</source>
-        <translation>ஆற்றல்</translation>
+        <translation type="vanished">ஆற்றல்</translation>
     </message>
     <message>
         <source>Font</source>
@@ -3871,7 +3871,7 @@ media file played</source>
     </message>
     <message>
         <source>Automatically load external subtitles</source>
-        <translation>வெளிப்புற வசன வரிகள் தானாக ஏற்றவும்</translation>
+        <translation type="vanished">வெளிப்புற வசன வரிகள் தானாக ஏற்றவும்</translation>
     </message>
     <message>
         <source>Autoload paths</source>

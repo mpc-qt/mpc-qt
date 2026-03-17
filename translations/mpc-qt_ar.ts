@@ -2357,10 +2357,6 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Misc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Export</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3483,43 +3479,11 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Placement</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Override default subtitle placement</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>X</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Top</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bottom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Position</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use margins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3541,14 +3505,6 @@ media file played</source>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Yes and only zoom signs</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Force</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3597,10 +3553,6 @@ media file played</source>
     </message>
     <message>
         <source>Prefer forced and/or default subtitle tracks</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Automatically load external subtitles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

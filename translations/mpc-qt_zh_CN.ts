@@ -2526,7 +2526,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Misc</source>
-        <translation>杂项</translation>
+        <translation type="vanished">杂项</translation>
     </message>
     <message>
         <source>Export</source>
@@ -3682,11 +3682,11 @@ media file played</source>
     </message>
     <message>
         <source>Placement</source>
-        <translation>位置</translation>
+        <translation type="vanished">位置</translation>
     </message>
     <message>
         <source>Override default subtitle placement</source>
-        <translation>忽略默认的字幕位置</translation>
+        <translation type="vanished">忽略默认的字幕位置</translation>
     </message>
     <message>
         <source>X</source>
@@ -3694,11 +3694,11 @@ media file played</source>
     </message>
     <message>
         <source>Left</source>
-        <translation>左</translation>
+        <translation type="vanished">左</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>右</translation>
+        <translation type="vanished">右</translation>
     </message>
     <message>
         <source>Y</source>
@@ -3706,19 +3706,19 @@ media file played</source>
     </message>
     <message>
         <source>Top</source>
-        <translation>上</translation>
+        <translation type="vanished">上</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>下</translation>
+        <translation type="vanished">下</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>播放进度</translation>
+        <translation type="vanished">播放进度</translation>
     </message>
     <message>
         <source>Use margins</source>
-        <translation>使用边距</translation>
+        <translation type="vanished">使用边距</translation>
     </message>
     <message>
         <source>Force grayscale</source>
@@ -3743,11 +3743,11 @@ media file played</source>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
-        <translation>确定且仅显示缩放标识</translation>
+        <translation type="vanished">确定且仅显示缩放标识</translation>
     </message>
     <message>
         <source>Force</source>
-        <translation>强制</translation>
+        <translation type="vanished">强制</translation>
     </message>
     <message>
         <source>Font</source>
@@ -3803,7 +3803,7 @@ media file played</source>
     </message>
     <message>
         <source>Automatically load external subtitles</source>
-        <translation>自动加载外部字幕</translation>
+        <translation type="vanished">自动加载外部字幕</translation>
     </message>
     <message>
         <source>Autoload paths</source>
