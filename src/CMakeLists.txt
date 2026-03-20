@@ -83,6 +83,8 @@ if(WIN32)
         ${CMAKE_CURRENT_SOURCE_DIR}/platform/mpc-qt.rc.in
         ${CMAKE_BINARY_DIR}/mpc-qt.rc
     )
+    # Copy icon file to build dir
+    configure_file(${CMAKE_SOURCE_DIR}/res/images/icon/mpc-qt.ico ${CMAKE_BINARY_DIR}/mpc-qt.ico COPYONLY)
 
     # Add the resource file to the target
     target_sources(mpc-qt PRIVATE ${CMAKE_BINARY_DIR}/mpc-qt.rc)
