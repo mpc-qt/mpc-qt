@@ -322,6 +322,9 @@ QDate Helpers::dateFromCFormat(const char date[])
     QStringList dates = QString(date).simplified().split(regexp);
     QStringList months = { "Jan", "Feb", "Mar", "Apr", "May", "Jun",
                            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+    if (dates.size() < 3)
+        return QDate();
+
     QDate d(dates[2].toInt(), months.indexOf(dates[0])+1, dates[1].toInt());
     return d;
 }
@@ -329,6 +332,9 @@ QDate Helpers::dateFromCFormat(const char date[])
 QTime Helpers::timeFromCFormat(const char time[])
 {
     QStringList times = QString(time).split(':');
+    if (times.size() < 3)
+        return QTime();
+
     QTime t(times[0].toInt(), times[1].toInt(), times[2].toInt());
     return t;
 }
@@ -336,6 +342,9 @@ QTime Helpers::timeFromCFormat(const char time[])
 double Helpers::fromDateFormat(QString date)
 {
     QStringList times = date.split(':');
+    if (times.size() < 3)
+        return -1;
+
     for (auto &time : std::as_const(times)) {
         if (time.toDouble() >= 60)
             return -1;
