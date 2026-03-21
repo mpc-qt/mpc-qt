@@ -137,20 +137,21 @@
     </message>
     <message>
         <source>Skip Backward / Previous</source>
-        <translation type="unfinished"></translation>
+        <translation>Geriye / Öncekine Atla</translation>
     </message>
     <message>
         <source>Skip Forward / Next</source>
-        <translation type="unfinished"></translation>
+        <translation>İleriye / Sonrakine Atla</translation>
     </message>
     <message>
         <source>Shortcut already used</source>
-        <translation type="unfinished"></translation>
+        <translation>Kısayol halihazırda kullanılıyor</translation>
     </message>
     <message>
         <source>&quot;%1&quot; is already used by &quot;%2&quot;.
 Do you want to use it for &quot;%3&quot; instead?</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1”, halihazırda “%2” tarafından kullanılıyor.
+Bunun yerine “%3” için kullanmak ister misiniz?</translation>
     </message>
     <message>
         <source>4:3 Aspect ratio</source>
@@ -306,7 +307,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitely.</source>
-        <translation>Belirli bir zamana atlamak için [ss:]dd:ss.ms biçiminde bir zaman kodu girin. Ayırıcıları ayrı ayrı girmenize gerek yoktur.</translation>
+        <translation>Belirli bir zamana atlamak için [sa:]dd:ss.ms biçiminde bir zaman kodu girin. Ayırıcıları ayrı ayrı girmenize gerek yoktur.</translation>
     </message>
 </context>
 <context>
@@ -355,12 +356,13 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>Logger</name>
     <message>
         <source>Ambiguous shortcut detected</source>
-        <translation type="unfinished"></translation>
+        <translation>Belirsiz kısayol algılandı</translation>
     </message>
     <message>
         <source>The key sequence &quot;%1&quot; is used for more than one command. Use the &quot;Keys&quot; page in Options to reassign it.
 No action will be triggered.</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1” düğme dizisi birden çok komut için kullanılıyor. Yeniden atamak için “Seçenekler” bölümündeki “Düğmeler” sayfasını kullanın.
+Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
 </context>
 <context>
@@ -1343,7 +1345,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Re&amp;move File</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosyayı &amp;Kaldır</translation>
     </message>
     <message>
         <source>View</source>
@@ -1363,15 +1365,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalan süre</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation type="unfinished"></translation>
+        <translation>Yüksek kesinlik</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>Yüzdeyi göster</translation>
     </message>
     <message>
         <source>No files favorited</source>
@@ -1683,147 +1685,147 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Bilinmeyen)</translation>
     </message>
     <message>
         <source>Running under %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 altında çalışıyor</translation>
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Giriş Önbelleği İstatistikleri</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitles track</source>
-        <translation type="unfinished"></translation>
+        <translation>Ön&amp;ceki Altyazı Parçası</translation>
     </message>
     <message>
         <source>&amp;Next Subtitles track</source>
-        <translation type="unfinished"></translation>
+        <translation>S&amp;onraki Altyazı Parçası</translation>
     </message>
     <message>
         <source>&amp;Filters</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Süzgeçler</translation>
     </message>
     <message>
         <source>&amp;Deinterlace</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ayrıştır</translation>
     </message>
     <message>
         <source>&amp;Extra Stereo</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ek Çift Kanal</translation>
     </message>
     <message>
         <source>&amp;Compressor</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kompresör</translation>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation type="unfinished">Ekran Görüntüsü</translation>
+        <translation>Ekran Görüntüsü</translation>
     </message>
     <message>
         <source>&amp;Crossfeed (for headphones)</source>
-        <translation type="unfinished"></translation>
+        <translation>Çapraz &amp;Besleme (Kulaklıklar için)</translation>
     </message>
     <message>
         <source>More Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Daha Çok Dosya</translation>
     </message>
     <message>
         <source>&amp;Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>A&amp;zalt</translation>
     </message>
     <message>
         <source>&amp;Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Artır</translation>
     </message>
     <message>
         <source>&amp;Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sıfırla</translation>
     </message>
     <message>
         <source>D&amp;isable</source>
-        <translation type="unfinished"></translation>
+        <translation>D&amp;evre Dışı Bırak</translation>
     </message>
     <message>
         <source>&amp;Minimum</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;En Az</translation>
     </message>
     <message>
         <source>M&amp;aximum</source>
-        <translation type="unfinished"></translation>
+        <translation>E&amp;n Çok</translation>
     </message>
     <message>
         <source>&amp;Resize</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Yeniden Boyutlandır</translation>
     </message>
     <message>
         <source>&amp;Decrease Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Genişliği A&amp;zalt</translation>
     </message>
     <message>
         <source>&amp;Increase Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Genişliği &amp;Artır</translation>
     </message>
     <message>
         <source>D&amp;ecrease Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Yüksekliği A&amp;zalt</translation>
     </message>
     <message>
         <source>I&amp;ncrease Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Yüksekliği &amp;Artır</translation>
     </message>
     <message>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Taşı</translation>
     </message>
     <message>
         <source>&amp;Left</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sol</translation>
     </message>
     <message>
         <source>&amp;Right</source>
-        <translation type="unfinished"></translation>
+        <translation>S&amp;ağ</translation>
     </message>
     <message>
         <source>R&amp;eset</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sıfırla</translation>
     </message>
     <message>
         <source>R&amp;otate</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Döndür</translation>
     </message>
     <message>
         <source>&amp;Clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Saat Yönünde</translation>
     </message>
     <message>
         <source>C&amp;ounterclockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>Saat Yönünün &amp;Tersine</translation>
     </message>
     <message>
         <source>&amp;Horizontal Flip</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Yatay Ters Çevir</translation>
     </message>
     <message>
         <source>&amp;Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Oynatma Listesi</translation>
     </message>
     <message>
         <source>&amp;Play</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Oynat</translation>
     </message>
     <message>
         <source>&amp;Play Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Seçiliyi &amp;Oynat</translation>
     </message>
     <message>
         <source>&amp;Remove Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Seçiliyi &amp;Kaldır</translation>
     </message>
     <message>
         <source>&amp;Move File to Recycle Bin</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosyayı Çöp Kutusuna &amp;Taşı</translation>
     </message>
 </context>
 <context>
@@ -2003,7 +2005,7 @@ No action will be triggered.</source>
     <name>PaletteEditor</name>
     <message>
         <source>Generate palette from:</source>
-        <translation type="unfinished"></translation>
+        <translation>Şuradan palet üret:</translation>
     </message>
     <message>
         <source>Button</source>
@@ -2066,11 +2068,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>File moved to recycle bin: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosya, çöpe taşındı: %1</translation>
     </message>
     <message>
         <source>Failed to move file to recycle bin: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosya çöpe taşınamadı: %1</translation>
     </message>
 </context>
 <context>
@@ -2088,7 +2090,7 @@ No action will be triggered.</source>
     <name>PlaylistWindow</name>
     <message>
         <source>P&amp;laylist</source>
-        <translation>Oynatma &amp;listesi</translation>
+        <translation>Oynatma &amp;Listesi</translation>
     </message>
     <message>
         <source>Search</source>
@@ -2212,7 +2214,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Clear Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma Listesini &amp;Temizle</translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
@@ -2220,7 +2222,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Rename Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma Listesini &amp;Yeniden Adlandır</translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
@@ -2252,19 +2254,19 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8 *.txt)</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma listesi dosyaları (*.m3u *.m3u8 *.txt)</translation>
     </message>
     <message>
         <source>Import Playlist File</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma Listesi Dosyası İçe Aktar</translation>
     </message>
     <message>
         <source>Export Playlist File</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma Listesi Dosyasını İçe Aktar</translation>
     </message>
     <message>
         <source>Add Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Klasör Ekle</translation>
     </message>
 </context>
 <context>
@@ -2367,7 +2369,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Modified:</source>
-        <translation type="unfinished"></translation>
+        <translation>Değiştirilme:</translation>
     </message>
 </context>
 <context>
@@ -3444,7 +3446,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Pulse</source>
-        <translation>Nabız</translation>
+        <translation>Pulse</translation>
     </message>
     <message>
         <source>Buffer</source>
@@ -3881,11 +3883,11 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Online database</source>
-        <translation>Çevrimiçi veritabanı</translation>
+        <translation>Çevrim içi veritabanı</translation>
     </message>
     <message>
         <source>Base url of the online subtitle database:</source>
-        <translation>Çevrimiçi altyazı veritabanının taban URL’si:</translation>
+        <translation>Çevrim içi altyazı veritabanının taban URL’si:</translation>
     </message>
     <message>
         <source>https://</source>
@@ -4481,7 +4483,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source> ms</source>
-        <translation>ms</translation>
+        <translation> ms</translation>
     </message>
     <message>
         <source>Remember panels state</source>
@@ -4565,71 +4567,71 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Custom mpv options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Özel mpv seçenekleri:</translation>
     </message>
     <message>
         <source>Seek to keyframe when hardware decoding is unavailable</source>
-        <translation type="unfinished"></translation>
+        <translation>Donanım ivmelendirmesi kullanılamıyorsa anahtar kareye git</translation>
     </message>
     <message>
         <source>Prioritize seeking speed over accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kesinlik yerine hıza öncelik tanı</translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished">Gölge</translation>
+        <translation>Gölge</translation>
     </message>
     <message>
         <source>Enable shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>Gölgeyi etkinleştir</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>Seç</translation>
     </message>
     <message>
         <source>Preset applied</source>
-        <translation type="unfinished"></translation>
+        <translation>Önayar uygulandı</translation>
     </message>
     <message>
         <source>Position ASS subs relative to the video frame</source>
-        <translation type="unfinished"></translation>
+        <translation>ASS altyazılarını video karesine göreceli olarak konumlandır</translation>
     </message>
     <message>
         <source>Remember Quick Playlist content</source>
-        <translation type="unfinished"></translation>
+        <translation>Tez Oynatma Listesi içeriğini anımsa</translation>
     </message>
     <message>
         <source>Append opened files to Quick Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Açılan dosyaları Tez Oynatma Listesi’ne iliştir</translation>
     </message>
     <message>
         <source>%</source>
-        <translation type="unfinished">%</translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>Enable background box</source>
-        <translation type="unfinished"></translation>
+        <translation>Arka plan kutusunu etkinleştir</translation>
     </message>
     <message>
         <source>Border and background style</source>
-        <translation type="unfinished"></translation>
+        <translation>Kenarlık ve arka plan biçemi</translation>
     </message>
     <message>
         <source>Translucid background box</source>
-        <translation type="unfinished"></translation>
+        <translation>Yarısaydam arka plan kutusu</translation>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation type="unfinished"></translation>
+        <translation>Video önizlemelerini göster (yeniden başlatma gerekir)</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
-        <translation type="unfinished"></translation>
+        <translation>Bunu kullanmak için pek bir neden yoktur. HDMI sıkıştırılmamış çok kanallı PCM’yi desteklerken, mpv kayıpsız DTS-HD’yi destekler.</translation>
     </message>
     <message>
         <source>Choose Log File</source>
-        <translation type="unfinished"></translation>
+        <translation>Günlük Dosyası Seç</translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
@@ -4637,70 +4639,70 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>File title</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosya başlığı</translation>
     </message>
     <message>
         <source>CRF</source>
-        <translation type="unfinished"></translation>
+        <translation>CRF</translation>
     </message>
     <message>
         <source>Lossless</source>
-        <translation type="unfinished"></translation>
+        <translation>Kayıpsız</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Hız</translation>
     </message>
     <message>
         <source>Others</source>
-        <translation type="unfinished"></translation>
+        <translation>Diğerleri</translation>
     </message>
     <message>
         <source>Video background</source>
-        <translation type="unfinished"></translation>
+        <translation>Video arka planı</translation>
     </message>
     <message>
         <source>Status bar background</source>
-        <translation type="unfinished"></translation>
+        <translation>Durum çubuğu arka planı</translation>
     </message>
     <message>
         <source>Status bar foreground</source>
-        <translation type="unfinished"></translation>
+        <translation>Durum çubuğu ön planı</translation>
     </message>
     <message>
         <source>Use custom colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Özel renkler kullan</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">Kaynak</translation>
+        <translation>Kaynak</translation>
     </message>
     <message>
         <source>Built-in</source>
-        <translation type="unfinished"></translation>
+        <translation>Yerleşik</translation>
     </message>
     <message>
         <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Simgeler, &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;depodakiyle&lt;/a&gt; aynı adı kullanmak zorundadırlar.</translation>
     </message>
     <message>
         <source>Use English for the interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu arayüz için İngilizceyi kullan</translation>
     </message>
     <message>
         <source>Mono</source>
-        <translation type="unfinished"></translation>
+        <translation>Tek Kanal</translation>
     </message>
     <message>
         <source>Remember last window size and position</source>
-        <translation type="unfinished"></translation>
+        <translation>Son pencere boyutunu ve konumunu anımsa</translation>
     </message>
 </context>
 <context>
     <name>StatusTime</name>
     <message>
         <source> (%1%)</source>
-        <translation type="unfinished"></translation>
+        <translation> (%%1)</translation>
     </message>
 </context>
 <context>
@@ -4755,7 +4757,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>%p%</source>
-        <translation type="unfinished"></translation>
+        <translation>%%p</translation>
     </message>
 </context>
 </TS>
