@@ -28,6 +28,8 @@ VideoPreview::VideoPreview(QWidget *parent) : QWidget(parent)
 
     connect(mpv, &MpvObject::aspectChanged,
             this, &VideoPreview::updateWidth);
+    connect(mpv, &MpvObject::playTimeChanged,
+            this, &VideoPreview::positionChanged);
 
     shouldBeShown = false;
     hide();
@@ -51,6 +53,10 @@ void VideoPreview::openFile(const QUrl &fileUrl)
     mpv->urlOpen(fileUrl);
     mpv->setPaused(true);
     aspectRatioSet = false;
+    currentPosition = 0;
+    lastRequestedPosition = -1;
+    lastHoverDirection = Direction::None;
+    isSeeking = false;
 }
 
 void VideoPreview::updatePalette()
@@ -64,11 +70,40 @@ void VideoPreview::updatePalette()
 void VideoPreview::show(const QString &text, double videoPosition, const QPoint &where, int mainWindowWidth)
 {
     textLabel->setText(text);
-    mpv->setTime(videoPosition);
-    mpv->setPaused(true);
+    requestedPosition = videoPosition;
+    if (!isSeeking)
+        seek();
     videoWidget->update();
     setPreviewPosition(where, mainWindowWidth);
     show();
+}
+
+void VideoPreview::seek()
+{
+    if (requestedPosition == currentPosition)
+        return;
+
+    Direction hoverDirection = Direction::None;
+    if (lastRequestedPosition != -1) {
+        if (requestedPosition < lastRequestedPosition)
+            hoverDirection = Direction::Backward;
+        else if (requestedPosition > lastRequestedPosition)
+            hoverDirection = Direction::Forward;
+    } else {
+        if (requestedPosition < currentPosition)
+            hoverDirection = Direction::Backward;
+        else if (requestedPosition > currentPosition)
+            hoverDirection = Direction::Forward;
+    }
+    if (hoverDirection == lastHoverDirection &&
+        ((hoverDirection == Direction::Forward && currentPosition > requestedPosition) ||
+        (hoverDirection == Direction::Backward && currentPosition < requestedPosition)))
+        return;
+
+    lastHoverDirection = hoverDirection;
+    lastRequestedPosition = requestedPosition;
+    isSeeking = true;
+    mpv->seek(requestedPosition - currentPosition, false);
 }
 
 void VideoPreview::setPreviewPosition(const QPoint &where, int mainWindowWidth)
@@ -98,6 +133,12 @@ void VideoPreview::updateWidth(double newAspect)
         hide();
 }
 
+void VideoPreview::positionChanged(double position)
+{
+    currentPosition = position;
+    isSeeking = false;
+}
+
 void VideoPreview::show()
 {
     if (!aspectRatioSet) {
@@ -114,4 +155,7 @@ void VideoPreview::hide() {
     shouldBeShown = false;
     videoWidget->move(-50000, -50000);
     textLabel->move(-50000, -50000);
+    lastRequestedPosition = -1;
+    lastHoverDirection = Direction::None;
+    mpv->setTime(0);
 }
