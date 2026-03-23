@@ -1253,6 +1253,9 @@ media file played</string>
               </item>
               <item row="2" column="0">
                <widget class="QLabel" name="playbackAutoFitFactorLabel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Auto fit factor</string>
                 </property>
@@ -1260,6 +1263,9 @@ media file played</string>
               </item>
               <item row="2" column="1">
                <widget class="QSpinBox" name="playbackAutoFitFactor">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -1282,6 +1288,9 @@ media file played</string>
               </item>
               <item row="4" column="0" colspan="2">
                <widget class="QLabel" name="playbackAutozoomWarn">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Autofitting in tiling window managers requires that the window be in floating mode.</string>
                 </property>
