@@ -4725,6 +4725,10 @@ media file played</source>
         <source>Remember last window size and position</source>
         <translation>最後のウィンドウのサイズと位置を記憶する</translation>
     </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>

@@ -4657,6 +4657,10 @@ fichier média lu</translation>
         <source>Remember last window size and position</source>
         <translation>Se souvenir de la taille et de la position de la fenêtre</translation>
     </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>

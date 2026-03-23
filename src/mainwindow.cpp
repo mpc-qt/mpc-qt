@@ -389,7 +389,7 @@ void MainWindow::changeEvent(QEvent *event)
         volumeSlider_->applicationPaletteChanged();
         themer.updateIcons();
         playlistWindow_->updateIcons();
-        ui->menubar->setStyle(ui->menubar->style());
+        updatePalette();
         if (tooltip)
             tooltip->updatePalette();
         if (videoPreview)
@@ -1014,6 +1014,13 @@ void MainWindow::setUiDecorationState(DecorationState state)
     }
 
     updateWindowFlags();
+}
+
+void MainWindow::updatePalette()
+{
+    QPalette palette = QApplication::palette();
+    palette.setColor(ui->menubar->backgroundRole(), palette.Window);
+    ui->menubar->setPalette(palette);
 }
 
 void MainWindow::setOSDPage(int page)

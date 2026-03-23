@@ -4705,6 +4705,10 @@ media file played</source>
         <source>Remember last window size and position</source>
         <translation>கடைசி சாளர அளவு மற்றும் நிலையை நினைவில் கொள்ளுங்கள்</translation>
     </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>

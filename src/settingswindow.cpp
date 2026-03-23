@@ -731,8 +731,13 @@ void SettingsWindow::sendSignals()
                    WIDGET_LOOKUP(ui->interfaceIconsCustomFolder).toString());
     emit highContrastWidgets(WIDGET_LOOKUP(ui->interfaceWidgetHighContast).toBool());
     bool useCustomColors = WIDGET_LOOKUP(ui->interfaceWidgetCustom).toBool();
-    emit applicationPalette(useCustomColors ? paletteEditor->variantToPalette(WIDGET_LOOKUP(paletteEditor))
-                                         : paletteEditor->systemPalette());
+    bool useDarkColors = WIDGET_LOOKUP(ui->interfaceWidgetDark).toBool();
+    if (useDarkColors)
+        emit applicationPalette(paletteEditor->darkPalette());
+    else if (useCustomColors)
+        emit applicationPalette(paletteEditor->variantToPalette(WIDGET_LOOKUP(paletteEditor)));
+    else
+        emit applicationPalette(paletteEditor->systemPalette());
     emit videoColor(useCustomColors ? QString("#%1").arg(WIDGET_LOOKUP(ui->windowVideoValue).toString())
                                     : "000000");
     emit option("background-color", useCustomColors
@@ -743,7 +748,7 @@ void SettingsWindow::sendSignals()
     emit infoStatsColors(useCustomColors ? infoForegroundColor : "FFFFFF",
                          useCustomColors ? infoBackgroundColor : "000000");
 
-    emit stylesheetIsFusion(WIDGET_LOOKUP(ui->stylesheetFusion).toBool());
+    emit stylesheetIsFusion(WIDGET_LOOKUP(ui->stylesheetFusion).toBool() || useDarkColors);
     emit stylesheetText(WIDGET_LOOKUP(ui->stylesheetText).toString());
 
     emit webserverListening(WIDGET_LOOKUP(ui->webEnableServer).toBool());

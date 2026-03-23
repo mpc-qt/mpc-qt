@@ -4731,6 +4731,10 @@ media file played</translation>
         <source>Remember last window size and position</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>

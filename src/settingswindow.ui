@@ -687,6 +687,13 @@ media file played</string>
                </widget>
               </item>
               <item>
+               <widget class="QCheckBox" name="interfaceWidgetDark">
+                <property name="text">
+                 <string>Use dark colors</string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QCheckBox" name="interfaceWidgetCustom">
                 <property name="text">
                  <string>Use custom colors</string>
