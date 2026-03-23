@@ -625,7 +625,7 @@ media file played</string>
               </item>
               <item row="1" column="0">
                <widget class="QLabel" name="interfaceIconsCustomLabel">
-                <property name="enabled">
+                <property name="visible">
                  <bool>false</bool>
                 </property>
                 <property name="text">
@@ -637,7 +637,7 @@ media file played</string>
                <layout class="QHBoxLayout" name="interfaceIconsCustomLayout">
                 <item>
                  <widget class="QLineEdit" name="interfaceIconsCustomFolder">
-                  <property name="enabled">
+                  <property name="visible">
                    <bool>false</bool>
                   </property>
                   <property name="placeholderText">
@@ -647,7 +647,7 @@ media file played</string>
                 </item>
                 <item>
                  <widget class="QPushButton" name="interfaceIconsCustomBrowse">
-                  <property name="enabled">
+                  <property name="visible">
                    <bool>false</bool>
                   </property>
                   <property name="text">
@@ -659,7 +659,7 @@ media file played</string>
               </item>
               <item row="2" column="1">
                <widget class="QLabel" name="interfaceIconsNotice">
-                <property name="enabled">
+                <property name="visible">
                  <bool>false</bool>
                 </property>
                 <property name="text">

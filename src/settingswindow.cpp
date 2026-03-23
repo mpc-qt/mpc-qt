@@ -1320,10 +1320,10 @@ void SettingsWindow::on_playerKeepHistory_toggled(bool checked)
 void SettingsWindow::on_interfaceIconsTheme_currentIndexChanged(int index)
 {
     bool customIcons = index == 1;
-    ui->interfaceIconsCustomFolder->setEnabled(customIcons);
-    ui->interfaceIconsCustomBrowse->setEnabled(customIcons);
-    ui->interfaceIconsCustomLabel->setEnabled(customIcons);
-    ui->interfaceIconsNotice->setEnabled(customIcons);
+    ui->interfaceIconsCustomFolder->setVisible(customIcons);
+    ui->interfaceIconsCustomBrowse->setVisible(customIcons);
+    ui->interfaceIconsCustomLabel->setVisible(customIcons);
+    ui->interfaceIconsNotice->setVisible(customIcons);
 }
 
 void SettingsWindow::on_interfaceWidgetCustom_toggled(bool checked)
