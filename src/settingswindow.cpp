@@ -337,8 +337,6 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->audioTabs->setCurrentIndex(0);
     ui->hwdecTabs->setCurrentIndex(0);
 
-    ui->videoPresetApplied->clear();
-
     ui->screenshotDirectoryValue->setPlaceholderText(
                 QStandardPaths::writableLocation(
                     QStandardPaths::PicturesLocation) + "/mpc_shots");
@@ -384,6 +382,7 @@ void SettingsWindow::setWaylandOptions(bool isWayland, bool isWaylandMode)
 void SettingsWindow::updateLanguage()
 {
     ui->retranslateUi(this);
+    ui->videoPresetApplied->clear();
     takeKeyMap(acceptedKeyMap);
 }
 
