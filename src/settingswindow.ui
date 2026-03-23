@@ -1331,7 +1331,7 @@ media file played</string>
               <item row="0" column="1">
                <widget class="QLineEdit" name="playbackSubtitleTracks">
                 <property name="placeholderText">
-                 <string notr="true">en</string>
+                 <string notr="true">eng,en</string>
                 </property>
                </widget>
               </item>
@@ -1345,7 +1345,7 @@ media file played</string>
               <item row="1" column="1">
                <widget class="QLineEdit" name="playbackAudioTracks">
                 <property name="placeholderText">
-                 <string notr="true">ja,en</string>
+                 <string notr="true">jpn,ja,eng,en</string>
                 </property>
                </widget>
               </item>
