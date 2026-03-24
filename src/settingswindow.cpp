@@ -478,12 +478,14 @@ void SettingsWindow::setupUnimplementedWidgets()
     ui->playerDisableOpenDisc->setVisible(false);
     ui->playerRememberPanScanZoom->setVisible(false);
 
-    ui->shadersWikiTab->setVisible(false);
+    // Remove shadersWikiTab
+    ui->shadersTabs->removeTab(1);
     ui->shadersPresetsBox->setVisible(false);
 
     ui->subtitlesDatabaseBox->setVisible(false);
 
-    ui->encodeTab->setEnabled(false);
+    // Remove encodeTab
+    ui->encodingTabs->removeTab(1);
 
     ui->tweaksShowChapterMarks->setVisible(false);
     ui->tweaksPreferWayland->setVisible(Platform::isUnix);
