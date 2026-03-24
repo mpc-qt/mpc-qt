@@ -43,6 +43,7 @@ public:
     explicit PaletteEditor(QWidget *parent = nullptr);
     QPalette palette();
     QPalette systemPalette();
+    QPalette darkPalette();
 
     // custom variant et al routines are needed for json serialisation
     QVariant variant();

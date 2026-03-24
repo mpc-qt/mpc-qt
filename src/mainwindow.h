@@ -99,6 +99,7 @@ private:
     void connectPlaylistWindowToActions() const;
     void globalizeAllActions();
     void setUiDecorationState(DecorationState state);
+    void updatePalette();
     void setOSDPage(int page);
     void setUiEnabledState(bool enabled);
     void setVolumeMuteState(bool checked, bool onInit);

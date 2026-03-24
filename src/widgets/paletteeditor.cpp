@@ -158,6 +158,71 @@ QPalette PaletteEditor::systemPalette()
     return system;
 }
 
+QPalette PaletteEditor::darkPalette()
+{
+    QPalette dark;
+
+    const QVector<QVector<QColor>> table {
+        { QColor("#fffcfcfc"), QColor("#ff686a6c"), QColor("#fffcfcfc") }, // WindowText
+        { QColor("#ff292c30"), QColor("#ff272a2e"), QColor("#ff292c30") }, // Button
+        { QColor("#ff40464c"), QColor("#ff3f454b"), QColor("#ff40464c") }, // Light
+        { QColor("#ff33383c"), QColor("#ff32363b"), QColor("#ff33383c") }, // Midlight
+        { QColor("#ff101112"), QColor("#ff0f1012"), QColor("#ff101112") }, // Dark
+        { QColor("#ff1c1e21"), QColor("#ff1a1d1f"), QColor("#ff1c1e21") }, // Mid
+        { QColor("#fffcfcfc"), QColor("#ff606263"), QColor("#fffcfcfc") }, // Text
+        { QColor("#ffffffff"), QColor("#ffffffff"), QColor("#ffffffff") }, // BrightText
+        { QColor("#fffcfcfc"), QColor("#ff6d6f72"), QColor("#fffcfcfc") }, // ButtonText
+        { QColor("#ff141618"), QColor("#ff131517"), QColor("#ff141618") }, // Base
+        { QColor("#ff202326"), QColor("#ff1f2124"), QColor("#ff202326") }, // Window
+        { QColor("#ff0b0c0d"), QColor("#ff0b0c0d"), QColor("#ff0b0c0d") }, // Shadow
+        { QColor("#ff1c84b6"), QColor("#ff1f2124"), QColor("#ff11394d") }, // Highlight
+        { QColor("#ff000000"), QColor("#ff686a6c"), QColor("#fffcfcfc") }, // HighlightedText
+        { QColor("#ff20b4fb"), QColor("#ff174a63"), QColor("#ff20b4fb") }, // Link
+        { QColor("#ff9b59b6"), QColor("#ff402b4c"), QColor("#ff9b59b6") }, // LinkVisited
+        { QColor("#ff1d1f22"), QColor("#ff1c1e20"), QColor("#ff1d1f22") }, // AlternateBase
+        { QColor("#ff000000"), QColor("#ff000000"), QColor("#ff000000") }, // NoRole
+        { QColor("#ff292c30"), QColor("#ff292c30"), QColor("#ff292c30") }, // ToolTipBase
+        { QColor("#fffcfcfc"), QColor("#fffcfcfc"), QColor("#fffcfcfc") }  // ToolTipText
+    };
+
+    const QVector<QPalette::ColorRole> roles {
+        QPalette::WindowText,
+        QPalette::Button,
+        QPalette::Light,
+        QPalette::Midlight,
+        QPalette::Dark,
+        QPalette::Mid,
+        QPalette::Text,
+        QPalette::BrightText,
+        QPalette::ButtonText,
+        QPalette::Base,
+        QPalette::Window,
+        QPalette::Shadow,
+        QPalette::Highlight,
+        QPalette::HighlightedText,
+        QPalette::Link,
+        QPalette::LinkVisited,
+        QPalette::AlternateBase,
+        QPalette::NoRole,
+        QPalette::ToolTipBase,
+        QPalette::ToolTipText
+    };
+
+    const QVector<QPalette::ColorGroup> groups {
+        QPalette::Active,
+        QPalette::Disabled,
+        QPalette::Inactive
+    };
+
+    for (int r = 0; r < roles.size(); ++r) {
+        for (int g = 0; g < groups.size(); ++g) {
+            dark.setColor(groups[g], roles[r], table[r][g]);
+        }
+    }
+
+    return dark;
+}
+
 QVariant PaletteEditor::variant()
 {
     QVariant v = paletteToVariant(selected);

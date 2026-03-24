@@ -4697,6 +4697,10 @@ yeni bir &amp;oynatıcı aç</translation>
         <source>Remember last window size and position</source>
         <translation>Son pencere boyutunu ve konumunu anımsa</translation>
     </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>
