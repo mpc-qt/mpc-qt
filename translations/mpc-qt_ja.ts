@@ -4727,7 +4727,7 @@ media file played</source>
     </message>
     <message>
         <source>Use dark colors</source>
-        <translation type="unfinished"></translation>
+        <translation>ダークカラーを使用</translation>
     </message>
 </context>
 <context>
