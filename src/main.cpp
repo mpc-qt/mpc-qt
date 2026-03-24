@@ -1684,7 +1684,7 @@ void Flow::settingswindow_stylesheetIsFusion(bool yes)
         originalApplicationStyle = QApplication::style()->name();
     }
 
-    bool wasFusion = QApplication::style()->name() == "Fusion";
+    bool wasFusion = QApplication::style()->name() == "fusion";
     if (!yes && wasFusion)
         QApplication::setStyle(originalApplicationStyle);
     if (yes && !wasFusion)
