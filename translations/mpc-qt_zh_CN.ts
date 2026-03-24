@@ -4603,7 +4603,7 @@ media file played</source>
     </message>
     <message>
         <source>Use dark colors</source>
-        <translation type="unfinished"></translation>
+        <translation>使用深色</translation>
     </message>
 </context>
 <context>
