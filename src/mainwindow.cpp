@@ -1905,8 +1905,6 @@ void MainWindow::setMediaTitleWithFilename(const QString& title, const QString& 
     currentFileName = filename;
     QString newTitle = title;
     QString windowTitle(textWindowTitle);
-    if (freestanding_)
-        windowTitle.append(tr(" [Freestanding]"));
 
     switch(titlebarFormat_) {
         case PrefixFullPath:
@@ -1923,7 +1921,10 @@ void MainWindow::setMediaTitleWithFilename(const QString& title, const QString& 
             break;
     }
     if (!newTitle.isEmpty())
-        windowTitle.prepend(" - ").prepend(newTitle);
+        windowTitle = newTitle;
+
+    if (freestanding_)
+        windowTitle.append(tr(" [Freestanding]"));
 
     setWindowTitle(windowTitle);
     ui->infoTitle->setText(!newTitle.isEmpty() ? newTitle : "-");
