@@ -4659,7 +4659,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Use dark colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser des couleurs sombres</translation>
     </message>
 </context>
 <context>
