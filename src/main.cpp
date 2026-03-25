@@ -434,7 +434,7 @@ void Flow::earlyPlatformOverride()
         isWayland = true;
         Storage s;
         QVariantMap settings = s.readVMap(fileSettings);
-        if (!settings.value("tweaksPreferWayland", QVariant(false)).toBool())
+        if (!settings.value("tweaksPreferWayland", QVariant(true)).toBool())
             qputenv("QT_QPA_PLATFORM", "xcb");
         else if (!qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY"))
             isWaylandMode = true;
