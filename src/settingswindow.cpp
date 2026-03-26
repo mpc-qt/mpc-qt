@@ -337,8 +337,6 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->audioTabs->setCurrentIndex(0);
     ui->hwdecTabs->setCurrentIndex(0);
 
-    ui->videoPresetApplied->clear();
-
     ui->screenshotDirectoryValue->setPlaceholderText(
                 QStandardPaths::writableLocation(
                     QStandardPaths::PicturesLocation) + "/mpc_shots");
@@ -384,6 +382,7 @@ void SettingsWindow::setWaylandOptions(bool isWayland, bool isWaylandMode)
 void SettingsWindow::updateLanguage()
 {
     ui->retranslateUi(this);
+    ui->videoPresetApplied->clear();
     takeKeyMap(acceptedKeyMap);
 }
 
@@ -479,12 +478,14 @@ void SettingsWindow::setupUnimplementedWidgets()
     ui->playerDisableOpenDisc->setVisible(false);
     ui->playerRememberPanScanZoom->setVisible(false);
 
-    ui->shadersWikiTab->setVisible(false);
+    // Remove shadersWikiTab
+    ui->shadersTabs->removeTab(1);
     ui->shadersPresetsBox->setVisible(false);
 
     ui->subtitlesDatabaseBox->setVisible(false);
 
-    ui->encodeTab->setEnabled(false);
+    // Remove encodeTab
+    ui->encodingTabs->removeTab(1);
 
     ui->tweaksShowChapterMarks->setVisible(false);
     ui->tweaksPreferWayland->setVisible(Platform::isUnix);
@@ -1320,10 +1321,10 @@ void SettingsWindow::on_playerKeepHistory_toggled(bool checked)
 void SettingsWindow::on_interfaceIconsTheme_currentIndexChanged(int index)
 {
     bool customIcons = index == 1;
-    ui->interfaceIconsCustomFolder->setEnabled(customIcons);
-    ui->interfaceIconsCustomBrowse->setEnabled(customIcons);
-    ui->interfaceIconsCustomLabel->setEnabled(customIcons);
-    ui->interfaceIconsNotice->setEnabled(customIcons);
+    ui->interfaceIconsCustomFolder->setVisible(customIcons);
+    ui->interfaceIconsCustomBrowse->setVisible(customIcons);
+    ui->interfaceIconsCustomLabel->setVisible(customIcons);
+    ui->interfaceIconsNotice->setVisible(customIcons);
 }
 
 void SettingsWindow::on_interfaceWidgetCustom_toggled(bool checked)
