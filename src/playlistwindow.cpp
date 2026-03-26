@@ -1088,6 +1088,7 @@ void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
     collection->takePlaylist(copy->uuid()); // detach 'copy' from collection
     backup->addPlaylist(copy);
     emit playlistMovedToBackup(copy->uuid());
+    emit closingPlaylist(qdp->uuid());
 
     if (qdp->uuid().isNull()) {
         qdp->removeAll();
