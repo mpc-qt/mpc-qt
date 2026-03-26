@@ -990,8 +990,13 @@ void PlaybackManager::mpvw_pausedChanged(bool yes)
     emit stateChanged(playbackState_);
 }
 
-void PlaybackManager::mpvw_playbackIdling()
+void PlaybackManager::mpvw_playbackIdling(bool yes)
 {
+    // Received when the player has no more files to play and is in an idle state
+    if (!yes)
+        return;
+
+    Logger::log(logModule, "idling");
     if (nowPlayingItem.isNull()) {
         nowPlaying_.clear();
         playbackState_ = StoppedState;
