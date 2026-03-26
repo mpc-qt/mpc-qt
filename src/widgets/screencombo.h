@@ -10,6 +10,7 @@ public:
     explicit ScreenCombo(QWidget *parent);
     QString currentScreenName();
     void setCurrentScreenName(QString name);
+    void showPopup() override;
 
 private slots:
     void qApp_screensChanged();

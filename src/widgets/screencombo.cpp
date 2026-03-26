@@ -1,3 +1,4 @@
+#include <QAbstractItemView>
 #include <QApplication>
 #include <QScreen>
 #include "platform/unify.h"
@@ -11,6 +12,7 @@ ScreenCombo::ScreenCombo(QWidget *parent) : QComboBox(parent)
     populateItems();
     connect(qApp, &QApplication::screenAdded, this, &ScreenCombo::qApp_screensChanged);
     connect(qApp, &QApplication::screenRemoved, this, &ScreenCombo::qApp_screensChanged);
+    setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLengthWithIcon);
 }
 
 QString ScreenCombo::currentScreenName()
@@ -30,6 +32,18 @@ void ScreenCombo::setCurrentScreenName(QString name)
         }
     }
     setCurrentIndex(0);
+}
+
+void ScreenCombo::showPopup()
+{
+    int width = this->width();
+
+    QFontMetrics fm(font());
+    for (int i = 0; i < count(); ++i) {
+        width = std::max(width, fm.horizontalAdvance(itemText(i)) + 20);
+    }
+    view()->setFixedWidth(width);
+    QComboBox::showPopup();
 }
 
 void ScreenCombo::qApp_screensChanged()
