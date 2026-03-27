@@ -134,7 +134,7 @@ signals:
     void pausedChanged(bool yes);
     void eofReachedChanged(QString eof);
     void playbackFinished();
-    void playbackIdling();
+    void playbackIdling(bool yes);
     void mediaTitleChanged(QString title);
     void metaDataChanged(QVariantMap metadata);
     void chapterTitleChanged(QString title);

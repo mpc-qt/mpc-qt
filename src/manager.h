@@ -204,7 +204,7 @@ private slots:
     void mpvw_playbackLoading();
     void mpvw_playbackStarted();
     void mpvw_pausedChanged(bool yes);
-    void mpvw_playbackIdling();
+    void mpvw_playbackIdling(bool yes);
     void mpvw_playbackFinished();
     void mpvw_eofReachedChanged(QString eof);
     void mpvw_mediaTitleChanged(QString title);

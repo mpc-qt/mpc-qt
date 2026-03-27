@@ -45,6 +45,7 @@ MpvObject::PropertyDispatchMap MpvObject::propertyDispatch = {
     HANDLE_PROP("seekable", seekableChanged, toBool, false),
     HANDLE_PROP("pause", pausedChanged, toBool, true),
     HANDLE_PROP("eof-reached", eofReachedChanged, toString, QString()),
+    HANDLE_PROP("idle-active", playbackIdling, toBool, false),
     HANDLE_PROP("media-title", mediaTitleChanged, toString, QString()),
     HANDLE_PROP("chapter", self_chapterChanged, toDouble, 0.0),
     HANDLE_PROP("chapter-metadata/title", chapterTitleChanged, toString, QString()),
@@ -151,6 +152,7 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
         { "time-pos", 0, MPV_FORMAT_DOUBLE },
         { "pause", 0, MPV_FORMAT_FLAG },
         { "eof-reached", 0, MPV_FORMAT_FLAG },
+        { "idle-active", 0, MPV_FORMAT_FLAG },
         { "video-params/aspect", 0, MPV_FORMAT_DOUBLE },
         { "video-params/aspect-name", 0, MPV_FORMAT_STRING },
         { "media-title", 0, MPV_FORMAT_STRING },
@@ -820,13 +822,6 @@ void MpvObject::ctrl_unhandledMpvEvent(int eventLevel)
         if (debugMessages)
             Logger::log(logModule, "end file");
         emit playbackFinished();
-        break;
-    }
-    // Received when the player has no more files to play and is in an idle state
-    case MPV_EVENT_IDLE: {
-        if (debugMessages)
-            Logger::log(logModule, "idling");
-        emit playbackIdling();
         break;
     }
     case MPV_EVENT_SHUTDOWN: {
