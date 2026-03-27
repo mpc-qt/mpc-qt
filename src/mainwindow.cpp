@@ -2275,8 +2275,9 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesPrevious);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesNext);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesCopy);
-    ui->menuPlaySubtitles->addAction(ui->actionDecreaseSubtitlesDelay);
-    ui->menuPlaySubtitles->addAction(ui->actionIncreaseSubtitlesDelay);
+    ui->menuPlaySubtitles->addMenu(ui->menuPlaySubtitlesDelay);
+    ui->menuPlaySubtitlesDelay->addAction(ui->actionDecreaseSubtitlesDelay);
+    ui->menuPlaySubtitlesDelay->addAction(ui->actionIncreaseSubtitlesDelay);
     ui->menuPlaySubtitles->addMenu(ui->menuPlaySubtitlesMove);
     ui->menuPlaySubtitlesMove->addAction(ui->actionMoveSubtitlesUp);
     ui->menuPlaySubtitlesMove->addAction(ui->actionMoveSubtitlesDown);

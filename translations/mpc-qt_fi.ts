@@ -1689,6 +1689,10 @@ No action will be triggered.</source>
         <source>&amp;Move File to Recycle Bin</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

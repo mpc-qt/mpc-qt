@@ -1827,6 +1827,10 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
         <source>&amp;Move File to Recycle Bin</source>
         <translation>Dosyayı Çöp Kutusuna &amp;Taşı</translation>
     </message>
+    <message>
+        <source>Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
