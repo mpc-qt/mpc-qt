@@ -384,6 +384,12 @@ void PlaybackManager::moveToRecycleBin()
         stopPlayer();
 }
 
+void PlaybackManager::closingPlaylist(QUuid playlist)
+{
+    if (playlist == nowPlayingList)
+        stopPlayer();
+}
+
 void PlaybackManager::repeatThisFile()
 {
     startPlayWithUuid(nowPlaying_, nowPlayingList, nowPlayingItem,

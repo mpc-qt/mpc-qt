@@ -83,6 +83,7 @@ signals:
     void hideFullscreenChanged(bool checked);
     void playlistsBackupRequested();
     void playlistMovedToBackup(QUuid backupUuid);
+    void closingPlaylist(QUuid playlist);
 
 public slots:
     void setIconTheme(IconThemer::FolderMode folderMode, const QString &customFolder);

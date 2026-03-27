@@ -129,6 +129,7 @@ public slots:
     bool playNext(bool forceFolderFallback, bool replaceMpvPlaylist = true);
     void playPrev(bool forceFolderFallback);
     void moveToRecycleBin();
+    void closingPlaylist(QUuid playlist);
     void repeatThisFile();
     void deltaExtraPlaytimes(int delta);
     void navigateToChapter(int64_t chapter);
