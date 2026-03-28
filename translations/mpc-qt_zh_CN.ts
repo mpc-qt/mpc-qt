@@ -1803,6 +1803,10 @@ No action will be triggered.</source>
         <source>&amp;Move File to Recycle Bin</source>
         <translation>将文件移至回收站(&amp;M)</translation>
     </message>
+    <message>
+        <source>Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

@@ -1783,6 +1783,10 @@ Tidak ada tindakan yang akan dipicu.</translation>
         <source>&amp;Move File to Recycle Bin</source>
         <translation>Pindahkan File ke Recycle Bin</translation>
     </message>
+    <message>
+        <source>Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

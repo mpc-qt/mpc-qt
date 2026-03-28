@@ -1783,6 +1783,10 @@ Aucune action ne sera déclenchée.</translation>
         <source>&amp;Move File to Recycle Bin</source>
         <translation>Dé&amp;placer dans la corbeille</translation>
     </message>
+    <message>
+        <source>Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
