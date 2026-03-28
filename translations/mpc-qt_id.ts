@@ -263,6 +263,10 @@ Apakah Anda ingin menggunakannya untuk &quot;%3&quot;?</translation>
         <translation>Posisi jendela utama.</translation>
     </message>
     <message>
+        <source>Append the file(s) to the current playlist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>URLs to open, optionally.</source>
         <translation>Tautan untuk membuka, opsional.</translation>
     </message>

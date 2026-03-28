@@ -263,6 +263,10 @@ Bunun yerine “%3” için kullanmak ister misiniz?</translation>
         <translation>Ana pencere konumu.</translation>
     </message>
     <message>
+        <source>Append the file(s) to the current playlist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>URLs to open, optionally.</source>
         <translation>Açılacak URL, isteğe bağlı.</translation>
     </message>

@@ -39,6 +39,7 @@ static constexpr char keyCommand[] = "command";
 static constexpr char keyDirectory[] = "directory";
 static constexpr char keyFiles[] = "files";
 static constexpr char keyStreams[] = "streams";
+static constexpr char keyAppend[] = "append";
 
 static constexpr char optConsoleLog[] = "log-to-console";
 static constexpr char optConsoleLogEx[] = "--log-to-console";
@@ -240,6 +241,7 @@ void Flow::parseArgs()
     QCommandLineOption sizeOpt("size", tr("Main window size."), "w,h");
     QCommandLineOption posOpt("pos", tr("Main window position."), "x,y");
     QCommandLineOption loggingOpt(optConsoleLog, tr("Also write logging messages to console."));
+    QCommandLineOption addToPlaylistOpt("add-to-playlist", tr("Append the file(s) to the current playlist."));
 
     parser.addOption(freestandingOpt);
     parser.addOption(noConfigOpt);
@@ -247,6 +249,7 @@ void Flow::parseArgs()
     parser.addOption(sizeOpt);
     parser.addOption(posOpt);
     parser.addOption(loggingOpt);
+    parser.addOption(addToPlaylistOpt);
     parser.addPositionalArgument("urls", tr("URLs to open, optionally."), "[urls...]");
 
     parser.process(QCoreApplication::arguments());
@@ -256,6 +259,7 @@ void Flow::parseArgs()
     cliNoFiles = parser.isSet(noFilesOpt);
     validCliSize = parser.isSet(sizeOpt) && Helpers::sizeFromString(cliSize, parser.value(sizeOpt));
     validCliPos = parser.isSet(posOpt) && Helpers::pointFromString(cliPos, parser.value(posOpt));
+    addToPlaylist = parser.isSet(addToPlaylistOpt);
     customFiles = parser.positionalArguments();
 }
 
@@ -1286,7 +1290,8 @@ QByteArray Flow::makePayload() const
     QVariantMap map({
         {keyCommand, QVariant("playFiles")},
         {keyDirectory, QVariant(QDir::currentPath())},
-        {keyFiles, QVariant(customFiles)}
+        {keyFiles, QVariant(customFiles)},
+        {keyAppend, QVariant(addToPlaylist)}
     });
     return QJsonDocument::fromVariant(map).toJson(QJsonDocument::Compact);
 }

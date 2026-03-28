@@ -271,6 +271,10 @@ Möchten Sie es stattdessen für „%3“ verwenden?</translation>
         <translation>Hauptfenster Position.</translation>
     </message>
     <message>
+        <source>Append the file(s) to the current playlist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>URLs to open, optionally.</source>
         <translation>URLs öffnen (optional).</translation>
     </message>
