@@ -160,6 +160,7 @@ signals:
     void subtitlesEnabled(bool enabled, bool onInit);
     void nextSubtitleSelected();
     void previousSubtitleSelected();
+    void deinterlaceSelected(PlaybackManager::Deinterlace deinterlaceMode);
     void volumeChanged(int64_t volume, bool onInit = false);
     void volumeMuteChanged(bool muted, bool onInit);
     void afterPlaybackOnce(Helpers::AfterPlayback action);
@@ -420,7 +421,9 @@ private slots:
     void on_actionAudioFilterAcompressor_triggered(bool checked);
     void on_actionAudioFilterCrossfeed_triggered(bool checked);
 
-    void on_actionVideoFilterDeinterlace_triggered(bool checked);
+    void on_actionVideoFiltersDeinterlaceYes_triggered();
+    void on_actionVideoFiltersDeinterlaceAuto_triggered();
+    void on_actionVideoFiltersDeinterlaceNo_triggered();
 
     void on_actionPlayAudioTrackNext_triggered();
     void on_actionPlayAudioTrackPrevious_triggered();

@@ -1831,6 +1831,18 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
         <source>Delay</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Yes</source>
+        <translation type="unfinished">Evet</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished">Kendiliğinden</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation type="unfinished">Hayır</translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

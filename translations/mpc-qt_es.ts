@@ -1729,6 +1729,18 @@ No action will be triggered.</source>
         <source>Delay</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Yes</source>
+        <translation type="unfinished">Sí</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished">Automático</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation type="unfinished">Ninguno</translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

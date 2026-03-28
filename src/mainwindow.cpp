@@ -759,6 +759,11 @@ void MainWindow::setupActionGroups()
     ag->addAction(ui->actionPlayAfterOnceShutdown);
     ag->addAction(ui->actionPlayAfterOnceStandby);
     ag->addAction(ui->actionPlayAfterAlwaysNext);
+
+    ag = new QActionGroup(this);
+    ag->addAction(ui->actionVideoFiltersDeinterlaceYes);
+    ag->addAction(ui->actionVideoFiltersDeinterlaceAuto);
+    ag->addAction(ui->actionVideoFiltersDeinterlaceNo);
 }
 
 void MainWindow::setupPositionSlider()
@@ -2204,7 +2209,10 @@ void MainWindow::setVideoTracks(QList<Track> tracks)
     }
     ui->menuPlayVideo->addSeparator();
     ui->menuPlayVideo->addMenu(ui->menuPlayVideoFilters);
-    ui->menuPlayVideoFilters->addAction(ui->actionVideoFilterDeinterlace);
+    ui->menuPlayVideoFilters->addMenu(ui->menuPlayVideoFiltersDeinterlace);
+    ui->menuPlayVideoFiltersDeinterlace->addAction(ui->actionVideoFiltersDeinterlaceYes);
+    ui->menuPlayVideoFiltersDeinterlace->addAction(ui->actionVideoFiltersDeinterlaceAuto);
+    ui->menuPlayVideoFiltersDeinterlace->addAction(ui->actionVideoFiltersDeinterlaceNo);
     ui->menuPlayVideo->addMenu(ui->menuPlayVideoAspect);
     ui->menuPlayVideoAspect->addAction(ui->actionVideoAspectName);
     ui->menuPlayVideoAspect->addSeparator();
@@ -3246,13 +3254,19 @@ void MainWindow::on_actionAudioFilterCrossfeed_triggered(bool checked)
     emit audioFilter("bs2b", "profile=cmoy", checked);
 }
 
-void MainWindow::on_actionVideoFilterDeinterlace_triggered(bool checked)
+void MainWindow::on_actionVideoFiltersDeinterlaceYes_triggered()
 {
-    // Deinterlacing doesn't work with hardware acceleration
-    if (checked)
-        mpvObject_->setCachedMpvOption("hwdec", "no");
+    emit deinterlaceSelected(PlaybackManager::Deinterlace::Yes);
+}
 
-    emit videoFilter("yadif", "mode=1", checked);
+void MainWindow::on_actionVideoFiltersDeinterlaceAuto_triggered()
+{
+    emit deinterlaceSelected(PlaybackManager::Deinterlace::Auto);
+}
+
+void MainWindow::on_actionVideoFiltersDeinterlaceNo_triggered()
+{
+    emit deinterlaceSelected(PlaybackManager::Deinterlace::No);
 }
 
 void MainWindow::on_actionPlayAudioTrackNext_triggered()

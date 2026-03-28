@@ -176,6 +176,7 @@ signals:
     void encodeAudioBitrate(int kilobits);
 
     void chapterMarks(bool yes);
+    void hwdecBackend(QString backend);
     void fastSeek(bool yes);
     void fallbackToFolder(bool yes);
     void volumeMax(int maximum);
