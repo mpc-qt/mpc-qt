@@ -1392,6 +1392,14 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
         <translation> [Bekleyen]</translation>
     </message>
     <message>
+        <source>Loading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buffering (%1%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>&amp;Tez Oynatma Listesine Ekle</translation>
     </message>
@@ -1457,7 +1465,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Buffering</source>
-        <translation>Arabelleğe alınıyor</translation>
+        <translation type="vanished">Arabelleğe alınıyor</translation>
     </message>
     <message>
         <source>Unknown</source>

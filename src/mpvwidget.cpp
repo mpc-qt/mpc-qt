@@ -68,7 +68,9 @@ MpvObject::PropertyDispatchMap MpvObject::propertyDispatch = {
     HANDLE_PROP("file-size", fileSizeChanged, toLongLong, 0ll),
     HANDLE_PROP("path", filePathChanged, toString, QString()),
     HANDLE_PROP("sub-text", subTextChanged, toString, QString()),
-    HANDLE_PROP("hwdec-current", hwdecCurrentChanged, toString, QString())
+    HANDLE_PROP("hwdec-current", hwdecCurrentChanged, toString, QString()),
+    HANDLE_PROP("paused-for-cache", pausedForCacheChanged, toString, QString()),
+    HANDLE_PROP("cache-buffering-state", bufferStateChanged, toLongLong, 0ll)
 };
 
 MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
@@ -171,6 +173,7 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
         { "audio-bitrate", 0, MPV_FORMAT_DOUBLE },
         { "video-bitrate", 0, MPV_FORMAT_DOUBLE },
         { "paused-for-cache", 0, MPV_FORMAT_FLAG },
+        { "cache-buffering-state", 0, MPV_FORMAT_INT64 },
         { "metadata", 0, MPV_FORMAT_NODE },
         { "audio-device-list", 0, MPV_FORMAT_NODE },
         { "filename", 0, MPV_FORMAT_STRING },

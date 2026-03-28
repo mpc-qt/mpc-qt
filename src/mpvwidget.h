@@ -157,6 +157,8 @@ signals:
     void filePathChanged(QString path);
     void subTextChanged(QString subText);
     void hwdecCurrentChanged(QString hwdecCurrent);
+    void pausedForCacheChanged(QString paused);
+    void bufferStateChanged(int64_t percentage);
     void playlistChanged(QVariantList playlist);
 
     void audioTrackSet(int64_t id);

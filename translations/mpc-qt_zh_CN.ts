@@ -1400,6 +1400,14 @@ No action will be triggered.</source>
         <translation> [独立]</translation>
     </message>
     <message>
+        <source>Loading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buffering (%1%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>快速添加到播放列表(&amp;Q)</translation>
     </message>
@@ -1461,7 +1469,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Buffering</source>
-        <translation>正在缓冲</translation>
+        <translation type="vanished">正在缓冲</translation>
     </message>
     <message>
         <source>Unknown</source>

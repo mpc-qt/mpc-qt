@@ -1400,6 +1400,14 @@ Es wird keine Aktion ausgelöst.</translation>
         <translation> [Freistehend]</translation>
     </message>
     <message>
+        <source>Loading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buffering (%1%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>Schnelles &amp;Hinzufügen zur Wiedergabeliste</translation>
     </message>
@@ -1465,7 +1473,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Buffering</source>
-        <translation>Puffern</translation>
+        <translation type="vanished">Puffern</translation>
     </message>
     <message>
         <source>Unknown</source>

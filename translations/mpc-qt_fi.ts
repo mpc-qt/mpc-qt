@@ -1306,6 +1306,14 @@ No action will be triggered.</source>
         <translation> [Vapaa paikka]</translation>
     </message>
     <message>
+        <source>Loading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buffering (%1%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>&amp;Lisää Nopeasti Soittolistaan</translation>
     </message>
@@ -1367,7 +1375,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Buffering</source>
-        <translation>Puskuroi</translation>
+        <translation type="vanished">Puskuroi</translation>
     </message>
     <message>
         <source>Unknown</source>
