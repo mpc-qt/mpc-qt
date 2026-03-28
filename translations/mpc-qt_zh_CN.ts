@@ -1805,7 +1805,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>延迟</translation>
     </message>
     <message>
         <source>Yes</source>
