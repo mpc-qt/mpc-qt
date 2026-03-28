@@ -58,11 +58,10 @@ QString TrackData::formatted(const QString &nowPlayingTitle)
     QString output;
     output.append(QString("%1: ").arg(trackId));
     if (!lang.isEmpty()) {
-#if QT_VERSION < QT_VERSION_CHECK(6,3,0)
-        QString langName = QLocale::languageToString(QLocale(lang).language());
-#else
-        QString langName = QLocale::languageToString(QLocale::codeToLanguage(lang, QLocale::AnyLanguageCode));
-#endif
+        QLocale locale = QLocale(lang);
+        QString langName = QLocale::languageToString(locale.language());
+        if (locale.script() != QLocale(locale.language()).script())
+            langName.append(QString(" (%1)").arg(QLocale::scriptToString(locale.script())));
         output.append(QString("%1 ").arg(langName));
         output.append(QString("[%1] ").arg(lang));
     }
