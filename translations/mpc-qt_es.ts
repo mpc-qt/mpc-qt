@@ -262,6 +262,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
         <translation>Posición de la ventana principal.</translation>
     </message>
     <message>
+        <source>Append the file(s) to the current playlist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>URLs to open, optionally.</source>
         <translation>Los URL a abrir, opcionalmente.</translation>
     </message>

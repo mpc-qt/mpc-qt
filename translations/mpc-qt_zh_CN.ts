@@ -271,6 +271,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
         <translation>主窗口位置。</translation>
     </message>
     <message>
+        <source>Append the file(s) to the current playlist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>URLs to open, optionally.</source>
         <translation>要打开的URL，可选。</translation>
     </message>

@@ -150,6 +150,7 @@ private:
     QPoint cliPos;
     bool validCliSize = false;
     bool validCliPos = false;
+    bool addToPlaylist = false;
     QStringList customFiles;
 
     static bool isWayland;

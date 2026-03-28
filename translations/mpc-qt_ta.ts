@@ -263,6 +263,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
         <translation>முதன்மை சாளர நிலை.</translation>
     </message>
     <message>
+        <source>Append the file(s) to the current playlist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>URLs to open, optionally.</source>
         <translation>முகவரி கள் திறக்க, விருப்பமாக.</translation>
     </message>
