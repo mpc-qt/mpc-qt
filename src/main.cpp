@@ -579,6 +579,8 @@ void Flow::setupMainWindowConnections()
             playbackManager, &PlaybackManager::navigateToTime);
     connect(mainWindow, &MainWindow::favoriteCurrentTrack,
             playbackManager, &PlaybackManager::sendCurrentTrackInfo);
+    connect(mainWindow, &MainWindow::deinterlaceSelected,
+            playbackManager, &PlaybackManager::setDeinterlaceMode);
 
     // playlistwindow -> mainwindow
     connect(mainWindow->playlistWindow(), &PlaylistWindow::viewActionChanged,
@@ -693,6 +695,10 @@ void Flow::setupManagerConnections()
     connect(playbackManager, &PlaybackManager::aboutToStartPlayingFile,
             propertiesWindow, &PropertiesWindow::setFileModifiedTime);
 
+    // manager -> settings
+    connect(playbackManager, &PlaybackManager::videoFilter,
+            settingsWindow, &SettingsWindow::setVideoFilter);
+
     // goto -> manager
     connect(gotoWindow, &GoToWindow::goTo,
             playbackManager, &PlaybackManager::navigateToTime);
@@ -788,6 +794,8 @@ void Flow::setupSettingsConnections()
             playbackManager, &PlaybackManager::setPlaybackForever);
     connect(settingsWindow, &SettingsWindow::playbackPlayTimes,
             playbackManager, &PlaybackManager::setPlaybackPlayTimes);
+    connect(settingsWindow, &SettingsWindow::hwdecBackend,
+            playbackManager, &PlaybackManager::setHwdecBackend);
     connect(settingsWindow, &SettingsWindow::fastSeek,
             playbackManager, &PlaybackManager::setFastSeek);
     connect(settingsWindow, &SettingsWindow::fallbackToFolder,

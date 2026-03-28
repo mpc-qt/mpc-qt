@@ -1002,7 +1002,15 @@
       <property name="title">
        <string>&amp;Filters</string>
       </property>
-      <addaction name="actionVideoFilterDeinterlace"/>
+      <widget class="QMenu" name="menuPlayVideoFiltersDeinterlace">
+       <property name="title">
+        <string>&amp;Deinterlace</string>
+       </property>
+       <addaction name="actionVideoFiltersDeinterlaceYes"/>
+       <addaction name="actionVideoFiltersDeinterlaceAuto"/>
+       <addaction name="actionVideoFiltersDeinterlaceNo"/>
+      </widget>
+      <addaction name="menuPlayVideoFiltersDeinterlace"/>
      </widget>
      <widget class="QMenu" name="menuPlayVideoAspect">
       <property name="title">
@@ -2356,14 +2364,6 @@
     <string>&amp;Down</string>
    </property>
   </action>
-  <action name="actionVideoFilterDeinterlace">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>&amp;Deinterlace</string>
-   </property>
-  </action>
   <action name="actionVideoAspectName">
    <property name="enabled">
     <bool>false</bool>
@@ -2588,6 +2588,33 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionVideoFiltersDeinterlaceYes">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Yes</string>
+   </property>
+  </action>
+  <action name="actionVideoFiltersDeinterlaceAuto">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Auto</string>
+   </property>
+  </action>
+  <action name="actionVideoFiltersDeinterlaceNo">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>No</string>
    </property>
   </action>
  </widget>

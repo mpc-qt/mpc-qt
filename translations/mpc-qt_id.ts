@@ -1787,6 +1787,18 @@ Tidak ada tindakan yang akan dipicu.</translation>
         <source>Delay</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Yes</source>
+        <translation type="unfinished">Ya</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished">Otomatis</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation type="unfinished">Tidak</translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

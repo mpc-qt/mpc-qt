@@ -936,6 +936,7 @@ void SettingsWindow::sendSignals()
         if (WIDGET_LOOKUP(ui->hwdecBackendCrystalHd).toBool())
             backend = "crystalhd";
         emit option("hwdec", backend);
+        emit hwdecBackend(backend);
         if (WIDGET_LOOKUP(ui->hwdecAll).toBool()) {
             emit option("hwdec-codecs", "all");
         } else {
@@ -955,6 +956,7 @@ void SettingsWindow::sendSignals()
     } else {
         emit option("hwdec", "no");
         emit option("hwdec-codecs", "");
+        emit hwdecBackend("no");
     }
 
     emit playlistFormat(WIDGET_PLACEHOLD_LOOKUP(ui->playlistFormat));
@@ -1194,7 +1196,7 @@ void SettingsWindow::setFilter(QList<QPair<QString, QString>> &filtersList, QStr
         else
             filtersList.erase(it);
     }
-    else
+    else if (add)
         filtersList.append(QPair<QString, QString>(filter, options));
 }
 

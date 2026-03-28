@@ -50,6 +50,7 @@ public:
     enum PlaybackState { StoppedState, PausedState, PlayingState,
                          BufferingState, WaitingState };
     enum PlaybackType { None, File, Disc, Stream, Device };
+    enum class Deinterlace { Yes, Auto, No };
 
     explicit PlaybackManager(QObject *parent = nullptr);
     void setMpvObject(MpvObject *mpvObject, bool makeConnections = false);
@@ -95,6 +96,7 @@ signals:
     void startedPlayingFile(QUrl url);
     void removePlaylistItemRequested(QUuid itemUuid);
     void stoppedPlaying();
+    void videoFilter(QString filter, QString options, bool add);
 
     void fpsChanged(double fps);
     void avsyncChanged(double sync);
@@ -180,6 +182,8 @@ public slots:
     void restoreAudioTrack(int64_t id);
     void restoreSubtitleTrack(int64_t id);
     void restoreVideoTrack(int64_t id);
+    void setDeinterlaceMode(PlaybackManager::Deinterlace deinterlaceMode);
+    void setHwdecBackend(QString backend);
 
 private:
     enum AspectNameChanged { OnOpen, OnFirstPlay, Manually };
@@ -196,6 +200,7 @@ private:
     bool playNextFile(bool replaceMpvPlaylist = true, int delta = 1);
     void playPrevFile();
     void playHalt();
+    void setDeinterlace(bool enable);
 
 private slots:
     void mpvw_playTimeChanged(double time);
@@ -221,6 +226,7 @@ private slots:
     void mpvw_videoBitrateChanged(double bitrate);
     void mpvw_aspectNameChanged(QString newAspectName);
     void mpvw_hwdecCurrentChanged(QString newHwdecCurrent);
+    void mpvw_interlacedChanged(bool interlaced);
 
 private:
     MpvObject *mpvObject_ = nullptr;
@@ -266,6 +272,9 @@ private:
     bool subtitlesPreferDefaultForced = false;
     bool subtitlesPreferExternal = false;
     int numChapters = 0;
+    QString hwdecBackend;
+    PlaybackManager::Deinterlace deinterlaceMode_ = Deinterlace::Auto;
+    bool deinterlaceEnabled = false;
 
     int playbackPlayTimes = 1;
     bool playbackStartPaused = false;

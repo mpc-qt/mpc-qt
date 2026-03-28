@@ -1831,6 +1831,18 @@ No action will be triggered.</source>
         <source>Delay</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Yes</source>
+        <translation type="unfinished">ஆம்</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished">தானி</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation type="unfinished">இல்லை</translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
