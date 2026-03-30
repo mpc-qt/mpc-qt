@@ -3,6 +3,7 @@
 
 #include <QLayout>
 #include <QMainWindow>
+#include <QApplication>
 #include <QGuiApplication>
 #include <QThread>
 #include <QTimer>
@@ -1128,8 +1129,10 @@ void MpvGlWidget::mouseMoveEvent(QMouseEvent *event)
 
         if (e == 0) {
             setCursor(Qt::ArrowCursor);
-            if (!windowDragging && event->buttons().testAnyFlag(Qt::LeftButton)
-                && event->position() != mousePressPosition) {
+            if (!windowDragging
+                && event->buttons().testAnyFlag(Qt::LeftButton)
+                && (event->position() - mousePressPosition).manhattanLength()
+                    > QApplication::startDragDistance()) {
                 QWindow *parentWindow = this->window()->windowHandle();
                 parentWindow->startSystemMove();
                 windowDragging = true;

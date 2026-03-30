@@ -533,6 +533,7 @@ private:
     bool timeRemainingMode = false;
     bool timePercentageMode = false;
     bool mousePressedInBottomArea = false;
+    QPoint mousePressPosition;
 
     QString previousOpenDir;
     QSize noVideoSize_ = QSize(500,270);
