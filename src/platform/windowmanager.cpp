@@ -161,7 +161,9 @@ FullscreenMemory WindowManager::makeFullscreen(QWidget *who, QString preferredSc
 void WindowManager::restoreFullscreen(QWidget *who, const FullscreenMemory &fm)
 {
     who->showNormal();
-    who->setGeometry(fm.normalGeometry);
+    QMetaObject::invokeMethod(who, [who, fm]() {
+        who->setGeometry(fm.normalGeometry);
+    }, Qt::SingleShotConnection);
 
     QScreen *target = Helpers::findScreenByName(fm.originalScreen);
     if (target) {
