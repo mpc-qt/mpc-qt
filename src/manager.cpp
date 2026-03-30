@@ -764,8 +764,8 @@ void PlaybackManager::selectDesiredTracks()
                     if (isSubs && it.value().isForced)
                         lastGoodTrack = it.key();
                     else{
-                        Logger::log(logModule,
-                                    "lang track auto selected: " + QString::number(it.key()));
+                        Logger::log(logModule, QString(isSubs ? "subs" : "audio") +
+                                    " lang track auto selected: " + QString::number(it.key()));
                         return it.key();
                     }
                 }
@@ -774,9 +774,13 @@ void PlaybackManager::selectDesiredTracks()
                     "lastGoodTrack track auto selected: " + QString::number(lastGoodTrack));
         return lastGoodTrack;
     };
-    int64_t videoId = videoTrackSelected;
-    int64_t audioId = audioTrackSelected;
-    int64_t subsId = subtitleTrackSelected;
+    int64_t videoId = videoTrackIsUserSelected ? videoTrackSelected : -1;
+    int64_t audioId = audioTrackIsUserSelected ? audioTrackSelected : -1;
+    int64_t subsId = subtitleTrackIsUserSelected ? subtitleTrackSelected : -1;
+
+    Logger::log(logModule, "videoId: " + QString::number(videoId));
+    Logger::log(logModule, "audioId: " + QString::number(audioId));
+    Logger::log(logModule, "subsId: " + QString::number(subsId));
 
     if (audioId < 0)
         audioId = findTrackByLangPreference(audioLangPref, audioListData, false);
