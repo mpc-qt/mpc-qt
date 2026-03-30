@@ -458,7 +458,9 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
     if (fullscreenMode_)
         checkBottomArea(event->globalPosition());
-    else if (mousePressedInBottomArea) {
+    else if (mousePressedInBottomArea &&
+             (event->globalPosition().toPoint() - mousePressPosition).manhattanLength()
+             > QApplication::startDragDistance()) {
         mousePressedInBottomArea = false;
         QWindow *parentWindow = this->window()->windowHandle();
         parentWindow->startSystemMove();
@@ -474,9 +476,10 @@ static bool insideWidget(QPoint p, QWidget const *widget) {
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
-    QPoint pos = event->globalPosition().toPoint();
-    bool isInMpvw = mpvw ? insideWidget(pos, mpvw) : false;
-    mousePressedInBottomArea = ui->bottomArea->isVisible() ? insideWidget(pos, ui->bottomArea) : false;
+    mousePressPosition = event->globalPosition().toPoint();
+    bool isInMpvw = mpvw ? insideWidget(mousePressPosition, mpvw) : false;
+    mousePressedInBottomArea = ui->bottomArea->isVisible() ?
+        insideWidget(mousePressPosition, ui->bottomArea) : false;
     if (isInMpvw && mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseDown)))
         event->accept();
     else
