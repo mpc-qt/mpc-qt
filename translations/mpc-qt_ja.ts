@@ -272,7 +272,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Append the file(s) to the current playlist.</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルを現在の再生リストに追加します。</translation>
     </message>
     <message>
         <source>URLs to open, optionally.</source>
@@ -1857,15 +1857,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished">はい</translation>
+        <translation>はい</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">自動</translation>
+        <translation>自動</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished">No</translation>
+        <translation>いいえ</translation>
     </message>
 </context>
 <context>
