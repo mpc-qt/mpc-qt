@@ -409,7 +409,7 @@
     "tweaksOpenNextFile": true,
     "tweaksOsdFont": "Segoe UI",
     "tweaksOsdFontChkBox": false,
-    "tweaksOsdSize": 55,
+    "tweaksOsdSize": 30,
     "tweaksOsdTimerOnSeek": false,
     "tweaksPreferWayland": false,
     "tweaksSeekFramedrop": false,
