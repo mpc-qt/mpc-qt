@@ -1091,7 +1091,7 @@ void SettingsWindow::sendSignals()
                      WIDGET_LOOKUP(ui->tweaksTimeTooltipLocation).toInt() == 0);
     emit osdTimerOnSeek(WIDGET_LOOKUP(ui->tweaksOsdTimerOnSeek).toBool());
     emit option("osd-font", WIDGET_LOOKUP(ui->tweaksOsdFontChkBox).toBool() ? WIDGET_LOOKUP(ui->tweaksOsdFont).toString() : "");
-    emit option("osd-font-size", WIDGET_LOOKUP(ui->tweaksOsdFontChkBox).toBool() ? WIDGET_LOOKUP(ui->tweaksOsdSize).toInt() : 55);
+    emit option("osd-font-size", WIDGET_LOOKUP(ui->tweaksOsdFontChkBox).toBool() ? WIDGET_LOOKUP(ui->tweaksOsdSize).toInt() : 30);
     emit option("brightness", WIDGET_LOOKUP(ui->miscBrightness).toInt());
     emit option("contrast", WIDGET_LOOKUP(ui->miscContrast).toInt());
     emit option("gamma", WIDGET_LOOKUP(ui->miscGamma).toInt());
