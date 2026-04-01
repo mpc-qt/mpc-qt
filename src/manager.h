@@ -92,6 +92,7 @@ signals:
     void systemShouldHibernate();
     void currentTrackInfo(TrackInfo track);
     void openingNewFile();
+    void windowShouldBeRaised(bool yes);
     void aboutToStartPlayingFile(QUrl url);
     void startedPlayingFile(QUrl url);
     void removePlaylistItemRequested(QUuid itemUuid);

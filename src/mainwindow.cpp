@@ -1817,6 +1817,15 @@ void MainWindow::addRecentDocumentsEntries(const QList<TrackInfo> &tracks, QMenu
     }
 }
 
+void MainWindow::raiseWindow()
+{
+    if (freestanding_)
+        return;
+    activateWindow();
+    raise();
+    this->window()->windowHandle()->requestActivate(); // Enough on Wayland
+}
+
 void MainWindow::setControlsInFullscreen(bool hide, int showWhen, int showWhenDuration,
                                          bool setControlsInFullscreen = true)
 {
@@ -2440,6 +2449,8 @@ void MainWindow::setIsVideo(bool isVideo)
     isVideo_ = isVideo;
     if (isPlaying)
         showStepAndSubsButtons(isVideo);
+    if (isVideo && windowShouldBeRaised)
+        raiseWindow();
 }
 
 void MainWindow::setVideoPreviewItem(QUrl itemUrl)
@@ -2448,6 +2459,11 @@ void MainWindow::setVideoPreviewItem(QUrl itemUrl)
     isVideo_ = false;
     if (videoPreview)
         videoPreview->openFile(itemUrl);
+}
+
+void MainWindow::setWindowShouldBeRaised(bool yes)
+{
+    windowShouldBeRaised = yes;
 }
 
 void MainWindow::logWindowClosed()

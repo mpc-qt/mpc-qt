@@ -200,6 +200,7 @@ void PlaybackManager::openSeveralFiles(QList<QUrl> what, bool important)
     if (playAfterAdd && !playlistItem.item.isNull()) {
         QUrl urlToPlay = playlistWindow_->getUrlOf(playlistItem.list, playlistItem.item);
         startPlayWithUuid(urlToPlay, playlistItem.list, playlistItem.item, false);
+        emit windowShouldBeRaised(true);
     }
 }
 
@@ -692,6 +693,7 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
                                         bool replaceMpvPlaylist)
 {
     Logger::log(logModule, "startPlayWithUuid");
+    emit windowShouldBeRaised(false);
     if (playbackState_ == WaitingState || what.isEmpty())
         return;
     emit stateChanged(playbackState_ = WaitingState);
