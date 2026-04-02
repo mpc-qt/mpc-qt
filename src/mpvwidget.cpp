@@ -537,6 +537,11 @@ int64_t MpvObject::chapter()
     return chapter_;
 }
 
+void MpvObject::changeChapter(int diff)
+{
+    emit ctrlCommand(QStringList({"add", "chapter", QString::number(diff)}));
+}
+
 bool MpvObject::setChapter(int64_t chapter)
 {
     // As this requires knowledge of mpv's return value, it cannot be
