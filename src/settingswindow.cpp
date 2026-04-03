@@ -4,6 +4,7 @@
 #include <QFileInfo>
 #include <QFileDialog>
 #include <QColorDialog>
+#include <QStyleHints>
 #include <QToolTip>
 #include "logger.h"
 #include "platform/unify.h"
@@ -733,10 +734,11 @@ void SettingsWindow::sendSignals()
     emit highContrastWidgets(WIDGET_LOOKUP(ui->interfaceWidgetHighContast).toBool());
     bool useCustomColors = WIDGET_LOOKUP(ui->interfaceWidgetCustom).toBool();
     bool useDarkColors = WIDGET_LOOKUP(ui->interfaceWidgetDark).toBool();
-    if (useDarkColors)
-        emit applicationPalette(paletteEditor->darkPalette());
-    else if (useCustomColors)
+    if (useCustomColors)
         emit applicationPalette(paletteEditor->variantToPalette(WIDGET_LOOKUP(paletteEditor)));
+    // REMOVEME: Apply a dark palette manually because Qt doesn't propagate it
+    else if (useDarkColors || QGuiApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark)
+        emit applicationPalette(paletteEditor->darkPalette());
     else
         emit applicationPalette(paletteEditor->systemPalette());
     emit videoColor(useCustomColors ? QString("#%1").arg(WIDGET_LOOKUP(ui->windowVideoValue).toString())
