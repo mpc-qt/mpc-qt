@@ -86,6 +86,7 @@ public:
     void setVideoFlip(bool flip);
 
     int64_t chapter();
+    void changeChapter(int diff);
     bool setChapter(int64_t chapter);
     QString mediaTitle();
     void setMute(bool yes);

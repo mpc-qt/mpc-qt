@@ -328,9 +328,8 @@ void PlaybackManager::navigateToNextChapter()
 
 void PlaybackManager::navigateToPrevChapter()
 {
-    int64_t chapter = mpvObject_->chapter();
-    if (chapter > 0)
-        navigateToChapter(std::max(int64_t(0), chapter - 1));
+    if (mpvTime > 5)
+        changeChapter(-1);
     else
         playPrev(false);
 }
@@ -400,6 +399,11 @@ void PlaybackManager::repeatThisFile()
 void PlaybackManager::deltaExtraPlaytimes(int delta)
 {
     playlistWindow_->deltaExtraPlayTimes(nowPlayingList, nowPlayingItem, delta);
+}
+
+void PlaybackManager::changeChapter(int64_t diff)
+{
+    mpvObject_->changeChapter(diff);
 }
 
 void PlaybackManager::navigateToChapter(int64_t chapter)
