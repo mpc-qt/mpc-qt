@@ -5,15 +5,15 @@
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>커맨드</translation>
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished"></translation>
+        <translation>키</translation>
     </message>
     <message>
         <source>Mouse Window</source>
-        <translation type="unfinished"></translation>
+        <translation>마우스 윈도우</translation>
     </message>
     <message>
         <source>Mouse Fullscr</source>
@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>Mouse Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>마우스 전체화면</translation>
     </message>
     <message>
         <source>Volume Up</source>
@@ -33,206 +33,207 @@
     </message>
     <message>
         <source>Volume Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>음소거</translation>
     </message>
     <message>
         <source>After Playback: Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>재생 종료 후: 종료</translation>
     </message>
     <message>
         <source>After Playback: Stand by</source>
-        <translation type="unfinished"></translation>
+        <translation>재생 종료 후: 스탠바이</translation>
     </message>
     <message>
         <source>After Playback: Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>재생 종료 후: 최대절전</translation>
     </message>
     <message>
         <source>After Playback: Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>재생 종료 후: 시스템 종료</translation>
     </message>
     <message>
         <source>After Playback: Log Off</source>
-        <translation type="unfinished"></translation>
+        <translation>재생 종료 후: 로그오프</translation>
     </message>
     <message>
         <source>After Playback: Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>재생 종료 후: 잠금</translation>
     </message>
     <message>
         <source>After Playback: Play next file</source>
-        <translation type="unfinished"></translation>
+        <translation>재생 종료 후: 다음 파일 재생생</translation>
     </message>
     <message>
         <source>After Playback: Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>재생 종료 후: 아무 것도 안함</translation>
     </message>
     <message>
         <source>On Top: Default</source>
-        <translation type="unfinished"></translation>
+        <translation>위에 표시: 기본</translation>
     </message>
     <message>
         <source>On Top: Always</source>
-        <translation type="unfinished"></translation>
+        <translation>위에 표시: 항상</translation>
     </message>
     <message>
         <source>On Top: While Playing</source>
-        <translation type="unfinished"></translation>
+        <translation>위에 표시: 재생하는 동안</translation>
     </message>
     <message>
         <source>On Top: While Playing Video</source>
-        <translation type="unfinished"></translation>
+        <translation>위에 표시: 영상을 재생하는 동안</translation>
     </message>
     <message>
         <source>Extra Play Times: Increment</source>
-        <translation type="unfinished"></translation>
+        <translation>추가 조회수: 늘리기</translation>
     </message>
     <message>
         <source>Extra Play Times: Decrement</source>
-        <translation type="unfinished"></translation>
+        <translation>추가 조회수: 줄이기</translation>
     </message>
     <message>
         <source>Move Subtitles Up</source>
-        <translation type="unfinished"></translation>
+        <translation>자막을 위로 이동</translation>
     </message>
     <message>
         <source>Move Subtitles Down</source>
-        <translation type="unfinished"></translation>
+        <translation>자막을 아래로 이동</translation>
     </message>
     <message>
         <source>Decrease Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>화면비 줄이기</translation>
     </message>
     <message>
         <source>Increase Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>화면비 늘리기</translation>
     </message>
     <message>
         <source>Reset Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>화면비 초기화</translation>
     </message>
     <message>
         <source>Disable Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>화면비 비활성화</translation>
     </message>
     <message>
         <source>Decrease Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>팬&amp;스캔 줄이기</translation>
     </message>
     <message>
         <source>Increase Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>팬&amp;스캔 늘리기</translation>
     </message>
     <message>
         <source>Minimum Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>최소 팬&amp;스캔</translation>
     </message>
     <message>
         <source>Maximum Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>최대 팬&amp;스캔</translation>
     </message>
     <message>
         <source>Decrease Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>확대 줄이기</translation>
     </message>
     <message>
         <source>Increase Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>확대 늘리기</translation>
     </message>
     <message>
         <source>Reset Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>확대 초기화</translation>
     </message>
     <message>
         <source>Skip Backward / Previous</source>
-        <translation type="unfinished"></translation>
+        <translation>되감기 / 이전</translation>
     </message>
     <message>
         <source>Skip Forward / Next</source>
-        <translation type="unfinished"></translation>
+        <translation>빨리 감기 / 다음</translation>
     </message>
     <message>
         <source>Shortcut already used</source>
-        <translation type="unfinished"></translation>
+        <translation>이 바로 가기는 이미 사용 중입니다</translation>
     </message>
     <message>
         <source>&quot;%1&quot; is already used by &quot;%2&quot;.
 Do you want to use it for &quot;%3&quot; instead?</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1”은 이미 “%2”에서 사용 중입니다.
+대신 “%3”을 사용하시겠습니까?</translation>
     </message>
     <message>
         <source>4:3 Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>4:3 화면비</translation>
     </message>
     <message>
         <source>Move Left</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽으로 이동</translation>
     </message>
     <message>
         <source>Move Right</source>
-        <translation type="unfinished"></translation>
+        <translation>오른쪽으로 이동</translation>
     </message>
     <message>
         <source>Move Up</source>
-        <translation type="unfinished"></translation>
+        <translation>위로 이동</translation>
     </message>
     <message>
         <source>Move Down</source>
-        <translation type="unfinished"></translation>
+        <translation>아래로 이동</translation>
     </message>
     <message>
         <source>Reset Move</source>
-        <translation type="unfinished"></translation>
+        <translation>이동 초기화</translation>
     </message>
     <message>
         <source>Rotate Clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>시계 방향으로 회전</translation>
     </message>
     <message>
         <source>Rotate Counterclockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>반시계 방향으로 회전</translation>
     </message>
     <message>
         <source>Reset Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>회전 초기화</translation>
     </message>
     <message>
         <source>Reset Resize</source>
-        <translation type="unfinished"></translation>
+        <translation>크기 조정 초기화</translation>
     </message>
     <message>
         <source>Volume Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>볼륨 늘리기</translation>
     </message>
     <message>
         <source>Volume Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>볼륨 줄이기</translation>
     </message>
     <message>
         <source>Play / Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>재생 / 일시 정지</translation>
     </message>
 </context>
 <context>
     <name>ButtonWidget</name>
     <message>
         <source>B</source>
-        <translation type="unfinished"></translation>
+        <translation>B</translation>
     </message>
     <message>
         <source>K</source>
-        <translation type="unfinished"></translation>
+        <translation>K</translation>
     </message>
     <message>
         <source>↑↓</source>
-        <translation type="unfinished"></translation>
+        <translation>↑↓</translation>
     </message>
 </context>
 <context>
     <name>FavoritesWindow</name>
     <message>
         <source>Organize Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>즐겨찾기 관리</translation>
     </message>
     <message>
         <source>&amp;Update</source>
@@ -240,38 +241,38 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Files</source>
-        <translation type="unfinished"></translation>
+        <translation>파일(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;Streams</source>
-        <translation type="unfinished"></translation>
+        <translation>스트림(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>삭제(&amp;R)</translation>
     </message>
 </context>
 <context>
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Start a new process without saving data.</source>
-        <translation type="unfinished"></translation>
+        <translation>데이터를 저장하지 않고 새로운 프로세스를 시작합니다.</translation>
     </message>
     <message>
         <source>Main window size.</source>
-        <translation type="unfinished"></translation>
+        <translation>메인 창 크기.</translation>
     </message>
     <message>
         <source>Main window position.</source>
-        <translation type="unfinished"></translation>
+        <translation>메인 창 위치.</translation>
     </message>
     <message>
         <source>Append the file(s) to the current playlist.</source>
-        <translation type="unfinished"></translation>
+        <translation>파일(들)을 현재 재생 목록에 추가합니다.</translation>
     </message>
     <message>
         <source>URLs to open, optionally.</source>
