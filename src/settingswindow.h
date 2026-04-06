@@ -311,6 +311,10 @@ private slots:
 
     void on_ditherTemporal_toggled(bool checked);
 
+    void on_hwdecCodecsMode_currentIndexChanged(int index);
+
+    void on_hwdecEnable_toggled(bool checked);
+
     void on_audioSpdif_toggled(bool checked);
 
     void on_subsBackgroundBoxEnabled_toggled(bool checked);

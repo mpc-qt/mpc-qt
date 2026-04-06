@@ -5357,14 +5357,29 @@ media file played</string>
               </attribute>
               <layout class="QVBoxLayout" name="verticalLayout_3">
                <item>
-                <widget class="QCheckBox" name="hwdecAll">
-                 <property name="text">
-                  <string>All</string>
-                 </property>
+                <widget class="QComboBox" name="hwdecCodecsMode">
+                 <item>
+                  <property name="text">
+                   <string>Auto</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>All</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Custom</string>
+                  </property>
+                 </item>
                 </widget>
                </item>
                <item>
                 <widget class="QWidget" name="hwdecCodecs" native="true">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <layout class="QVBoxLayout" name="verticalLayout_2">
                   <property name="leftMargin">
                    <number>0</number>
@@ -5433,6 +5448,16 @@ media file played</string>
                    </widget>
                   </item>
                   <item>
+                   <widget class="QCheckBox" name="hwdecHevc">
+                    <property name="text">
+                     <string notr="true">High Efficency Video Coding</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
                    <widget class="QCheckBox" name="hwdecVc1">
                     <property name="text">
                      <string notr="true">SMPTE VC-1</string>
@@ -5453,9 +5478,9 @@ media file played</string>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QCheckBox" name="hwdecHevc">
+                   <widget class="QCheckBox" name="hwdecVp8">
                     <property name="text">
-                     <string notr="true">High Efficency Video Coding</string>
+                     <string>VP8</string>
                     </property>
                     <property name="checked">
                      <bool>true</bool>
@@ -5465,7 +5490,17 @@ media file played</string>
                   <item>
                    <widget class="QCheckBox" name="hwdecVp9">
                     <property name="text">
-                     <string notr="true">Google VP9</string>
+                     <string notr="true">VP9</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="hwdecAv1">
+                    <property name="text">
+                     <string>AV1</string>
                     </property>
                     <property name="checked">
                      <bool>true</bool>
@@ -8474,22 +8509,6 @@ media file played</string>
     <hint type="destinationlabel">
      <x>258</x>
      <y>60</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>hwdecAll</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>hwdecCodecs</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>264</x>
-     <y>72</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>264</x>
-     <y>84</y>
     </hint>
    </hints>
   </connection>
