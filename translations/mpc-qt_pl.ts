@@ -25,11 +25,23 @@
     </message>
     <message>
         <source>Volume Up</source>
-        <translation>Zwiększ głośność</translation>
+        <translation type="vanished">Zwiększ głośność</translation>
     </message>
     <message>
         <source>Volume Down</source>
-        <translation>Zmniejsz głośność</translation>
+        <translation type="vanished">Zmniejsz głośność</translation>
+    </message>
+    <message>
+        <source>Play / Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume Increase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume Decrease</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Volume Mute</source>
@@ -92,6 +104,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Move Subtitles Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move Subtitles Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>4:3 Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Decrease Aspect ratio</source>
         <translation type="unfinished"></translation>
     </message>
@@ -134,6 +158,59 @@
     <message>
         <source>Reset Zoom</source>
         <translation>Zresetuj powiększenie</translation>
+    </message>
+    <message>
+        <source>Reset Resize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset Move</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate Clockwise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate Counterclockwise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset Rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skip Backward / Previous</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skip Forward / Next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shortcut already used</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&quot;%1&quot; is already used by &quot;%2&quot;.
+Do you want to use it for &quot;%3&quot; instead?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -191,6 +268,10 @@
     <message>
         <source>Main window position.</source>
         <translation>Pozycja okna głównego.</translation>
+    </message>
+    <message>
+        <source>Append the file(s) to the current playlist.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>URLs to open, optionally.</source>
@@ -280,6 +361,18 @@
     <message>
         <source>Save File</source>
         <translation>Zapisz plik</translation>
+    </message>
+</context>
+<context>
+    <name>Logger</name>
+    <message>
+        <source>Ambiguous shortcut detected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The key sequence &quot;%1&quot; is used for more than one command. Use the &quot;Keys&quot; page in Options to reassign it.
+No action will be triggered.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -438,10 +531,6 @@
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -937,10 +1026,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Play Current</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Return</source>
         <translation type="vanished">Return</translation>
     </message>
@@ -1046,7 +1131,7 @@
     </message>
     <message>
         <source>Close Tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zamknij zakładkę</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1261,6 +1346,10 @@
         <translation type="vanished">Every time</translation>
     </message>
     <message>
+        <source>Re&amp;move File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1311,6 +1400,18 @@
     <message>
         <source>Open Subtitle</source>
         <translation>Otwórz napisy</translation>
+    </message>
+    <message>
+        <source>Remaining time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>High precision</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show percentage</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Development Build</source>
@@ -1410,7 +1511,7 @@
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Napisy</translation>
     </message>
     <message>
         <source>Mute</source>
@@ -1593,10 +1694,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>XWayland or X11</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Input Cache Statistics</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1626,7 +1723,7 @@
     </message>
     <message>
         <source>Move File to Recycle Bin</source>
-        <translation>Przenieś plik do kosza</translation>
+        <translation type="vanished">Przenieś plik do kosza</translation>
     </message>
     <message>
         <source>Screenshot</source>
@@ -1674,6 +1771,94 @@
     </message>
     <message>
         <source>M&amp;aximum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Move</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Resize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>R&amp;otate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Move File to Recycle Bin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Play</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Play Selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Decrease Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Increase Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D&amp;ecrease Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I&amp;ncrease Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>R&amp;eset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Clockwise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>C&amp;ounterclockwise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Horizontal Flip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1853,6 +2038,10 @@
 <context>
     <name>PaletteEditor</name>
     <message>
+        <source>Generate palette from:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Button</source>
         <translation>Przycisk</translation>
     </message>
@@ -1866,7 +2055,7 @@
     </message>
     <message>
         <source>Generate</source>
-        <translation>Generuj</translation>
+        <translation type="vanished">Generuj</translation>
     </message>
 </context>
 <context>
@@ -2011,7 +2200,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation>Wyczyść</translation>
+        <translation type="vanished">Wyczyść</translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -2058,7 +2247,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>&amp;Clear Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Duplicate Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Rename Playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2385,7 +2582,7 @@
     </message>
     <message>
         <source>Misc</source>
-        <translation>Pozostałe</translation>
+        <translation type="vanished">Pozostałe</translation>
     </message>
     <message>
         <source>Export</source>
@@ -2467,7 +2664,7 @@ media file played</source>
     </message>
     <message>
         <source>Replace file name with title</source>
-        <translation>Zamień nazwę pliku tytułem</translation>
+        <translation type="vanished">Zamień nazwę pliku tytułem</translation>
     </message>
     <message>
         <source>History</source>
@@ -2483,7 +2680,7 @@ media file played</source>
     </message>
     <message>
         <source>Remember last window geometry</source>
-        <translation>Pamiętaj geometrię ostatniego okna</translation>
+        <translation type="vanished">Pamiętaj geometrię ostatniego okna</translation>
     </message>
     <message>
         <source>Remember last Pan-n-Scan Zoom</source>
@@ -2558,14 +2755,6 @@ media file played</source>
         <translation>Ikony</translation>
     </message>
     <message>
-        <source>Theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Built-in fallback</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2579,43 +2768,11 @@ media file played</source>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
-        <translation>Zobacz nazwy ikon na &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;repozytorium źródłowym&lt;/a&gt;.</translation>
-    </message>
-    <message>
-        <source>Fallback</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Black (for white palette)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>White (for black palette)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Widget Color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use custom theme</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">Zobacz nazwy ikon na &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;repozytorium źródłowym&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>Window Color</source>
-        <translation>Kolor okna</translation>
-    </message>
-    <message>
-        <source>HHHHHH</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Info Background</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Info Foreground</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">Kolor okna</translation>
     </message>
     <message>
         <source>Control</source>
@@ -2759,7 +2916,7 @@ media file played</source>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wyłączony</translation>
     </message>
     <message>
         <source>Presets</source>
@@ -2887,7 +3044,7 @@ media file played</source>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Okno</translation>
     </message>
     <message>
         <source>Box</source>
@@ -3199,7 +3356,7 @@ media file played</source>
     </message>
     <message>
         <source>Clip</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Klip</translation>
     </message>
     <message>
         <source>Mobius</source>
@@ -3335,7 +3492,7 @@ media file played</source>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nazwa</translation>
     </message>
     <message>
         <source>Port</source>
@@ -3363,7 +3520,7 @@ media file played</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Usuń</translation>
     </message>
     <message>
         <source>Add to shaders</source>
@@ -3375,7 +3532,7 @@ media file played</source>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zapisz</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -3582,43 +3739,11 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Placement</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Override default subtitle placement</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>X</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Top</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bottom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Position</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use margins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3643,14 +3768,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Yes and only zoom signs</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Force</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3664,10 +3781,6 @@ media file played</source>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Border style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3700,10 +3813,6 @@ media file played</source>
     </message>
     <message>
         <source>Prefer forced and/or default subtitle tracks</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Automatically load external subtitles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3748,7 +3857,7 @@ media file played</source>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zrzut ekranu</translation>
     </message>
     <message>
         <source>...</source>
@@ -3820,7 +3929,7 @@ media file played</source>
     </message>
     <message>
         <source>Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bitrate</translation>
     </message>
     <message>
         <source>kBits</source>
@@ -3939,10 +4048,6 @@ media file played</source>
         <translation>Stwórz plik logów (treść będzie nadpisana)</translation>
     </message>
     <message>
-        <source>~/mpc-qt-log.txt</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Window update interval</source>
         <translation type="vanished">Window update interval</translation>
     </message>
@@ -4028,7 +4133,7 @@ media file played</source>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
-        <translation>Skróć wskaźnik czasu odtwarzania jak w mpc-hc</translation>
+        <translation type="vanished">Skróć wskaźnik czasu odtwarzania jak w mpc-hc</translation>
     </message>
     <message>
         <source>HDR Compute Peak</source>
@@ -4169,10 +4274,6 @@ media file played</source>
     <message>
         <source>Language Override</source>
         <translation>Nadpisanie języka</translation>
-    </message>
-    <message>
-        <source>Locale (Autodetect)</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Medium</source>
@@ -4343,6 +4444,10 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Choose Log File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Allows dark theme support on Windows</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4356,7 +4461,7 @@ media file played</source>
     </message>
     <message>
         <source>Show video preview</source>
-        <translation>Pokaż podgląd wideo</translation>
+        <translation type="vanished">Pokaż podgląd wideo</translation>
     </message>
     <message>
         <source>100%</source>
@@ -4396,7 +4501,7 @@ media file played</source>
     </message>
     <message>
         <source>Requires restarting the application to apply changes</source>
-        <translation>Wprowadzenie zmian wymaga restartu aplikacji</translation>
+        <translation type="vanished">Wprowadzenie zmian wymaga restartu aplikacji</translation>
     </message>
     <message>
         <source>yt-dlp (web videos)</source>
@@ -4420,7 +4525,7 @@ media file played</source>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Cień</translation>
     </message>
     <message>
         <source>Enable shadow</source>
@@ -4436,6 +4541,109 @@ media file played</source>
     </message>
     <message>
         <source>Position ASS subs relative to the video frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember Quick Playlist content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember last window size and position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use English for the interface</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Append opened files to Quick Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Built-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use custom colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Others</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status bar foreground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mono</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Border and background style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable background box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translucid background box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CRF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lossless</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StatusTime</name>
+    <message>
+        <source> (%1%)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4487,6 +4695,10 @@ media file played</source>
     </message>
     <message>
         <source>Save Thumbnails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%p%</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

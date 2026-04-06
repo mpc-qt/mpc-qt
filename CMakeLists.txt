@@ -41,9 +41,6 @@ else()
 endif()
 # These two SET CMAKE_AUTOMOC and CMAKE_AUTOUIC can be replaced with Qt 6.3 by
 # qt_standard_project_setup()
-# Starting with Qt 6.7,
-# qt_standard_project_setup(I18N_TRANSLATED_LANGUAGES ar ca de en es fi fr id it ja nb_NO nl pt_BR ru ta tr zh_CN)
-# can be used instead so that the TS_FILES don't need to be listed below
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 
@@ -122,25 +119,7 @@ if (Boost_FOUND)
     target_include_directories(mpc-qt PRIVATE ${Boost_INCLUDE_DIRS})
 endif()
 
-set(TS_FILES
-    translations/mpc-qt_ar.ts
-    translations/mpc-qt_ca.ts
-    translations/mpc-qt_de.ts
-    translations/mpc-qt_en.ts
-    translations/mpc-qt_es.ts
-    translations/mpc-qt_fi.ts
-    translations/mpc-qt_fr.ts
-    translations/mpc-qt_id.ts
-    translations/mpc-qt_it.ts
-    translations/mpc-qt_ja.ts
-    translations/mpc-qt_nb_NO.ts
-    translations/mpc-qt_nl.ts
-    translations/mpc-qt_pt_BR.ts
-    translations/mpc-qt_ru.ts
-    translations/mpc-qt_ta.ts
-    translations/mpc-qt_tr.ts
-    translations/mpc-qt_zh_CN.ts
-)
+file(GLOB TS_FILES "${PROJECT_SOURCE_DIR}/translations/*.ts")
 
 if(Qt6_VERSION VERSION_GREATER_EQUAL 6.7.0)
     # Starting with Qt 6.7, this can be used to exclude some files from lupdate
