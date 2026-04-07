@@ -4701,6 +4701,14 @@ media file played</source>
         <source>Use dark colors</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>AV1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>VP8</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>
@@ -4725,7 +4733,7 @@ media file played</source>
     </message>
     <message>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%</translation>
     </message>
     <message>
         <source>Width</source>

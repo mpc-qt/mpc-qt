@@ -939,9 +939,10 @@ void SettingsWindow::sendSignals()
             backend = "crystalhd";
         emit option("hwdec", backend);
         emit hwdecBackend(backend);
-        if (WIDGET_LOOKUP(ui->hwdecAll).toBool()) {
+        int index = WIDGET_LOOKUP(ui->hwdecCodecsMode).toInt();
+        if (index == 1)
             emit option("hwdec-codecs", "all");
-        } else {
+        else if (index == 2) {
             QStringList codecs;
             if (WIDGET_LOOKUP(ui->hwdecMJpeg).toBool()) codecs << "mjpeg";
             if (WIDGET_LOOKUP(ui->hwdecMpeg1Video).toBool()) codecs << "mpeg1video";
@@ -952,7 +953,9 @@ void SettingsWindow::sendSignals()
             if (WIDGET_LOOKUP(ui->hwdecVc1).toBool()) codecs << "vc1";
             if (WIDGET_LOOKUP(ui->hwdecWmv3).toBool()) codecs << "wmv3";
             if (WIDGET_LOOKUP(ui->hwdecHevc).toBool()) codecs << "hevc";
+            if (WIDGET_LOOKUP(ui->hwdecVp8).toBool()) codecs << "vp8";
             if (WIDGET_LOOKUP(ui->hwdecVp9).toBool()) codecs << "vp9";
+            if (WIDGET_LOOKUP(ui->hwdecAv1).toBool()) codecs << "av1";
             emit option("hwdec-codecs", codecs.join(','));
         }
     } else {
@@ -1587,6 +1590,17 @@ void SettingsWindow::on_ditherTemporal_toggled(bool checked)
 {
     ui->ditherTemporalPeriod->setEnabled(checked);
     ui->ditherTemporalPeriodLabel->setEnabled(checked);
+}
+
+void SettingsWindow::on_hwdecCodecsMode_currentIndexChanged(int index)
+{
+    ui->hwdecCodecs->setEnabled(index == 2);
+}
+
+void SettingsWindow::on_hwdecEnable_toggled(bool checked)
+{
+    if (checked)
+        on_hwdecCodecsMode_currentIndexChanged(ui->hwdecCodecsMode->currentIndex());
 }
 
 void SettingsWindow::on_audioSpdif_toggled(bool checked)

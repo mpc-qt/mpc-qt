@@ -111,7 +111,7 @@
     "fullscreenShowWhen": 2,
     "fullscreenShowWhenDuration": 0,
     "fullscreenWindowedAtEnd": false,
-    "hwdecAll": false,
+    "hwdecCodecsMode": 0,
     "hwdecBackendAuto": true,
     "hwdecBackendCrystalHd": false,
     "hwdecBackendCuda": false,

@@ -4681,6 +4681,14 @@ fichier média lu</translation>
         <source>Use dark colors</source>
         <translation>Utiliser des couleurs sombres</translation>
     </message>
+    <message>
+        <source>AV1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>VP8</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>
