@@ -4751,11 +4751,11 @@ media file played</source>
     </message>
     <message>
         <source>AV1</source>
-        <translation type="unfinished"></translation>
+        <translation>AV1</translation>
     </message>
     <message>
         <source>VP8</source>
-        <translation type="unfinished"></translation>
+        <translation>VP8</translation>
     </message>
 </context>
 <context>
