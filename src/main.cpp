@@ -11,7 +11,7 @@
 #include <QStyleFactory>
 #include <QLockFile>
 #include <QThread>
-#ifdef Boost_FOUND
+#ifdef HAVE_BOOST
 #include <boost/stacktrace.hpp>
 #endif
 #include "logger.h"
@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
 void signalHandler(int signal) {
     if (signal == SIGSEGV || SIGABRT) {
         std::ostringstream stacktrace;
-#ifdef Boost_FOUND
+#ifdef HAVE_BOOST
         stacktrace << boost::stacktrace::stacktrace();
         Logger::log(logModule, "Stack trace:");
         Logger::log(logModule, QString::fromStdString(stacktrace.str()));

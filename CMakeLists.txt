@@ -117,6 +117,7 @@ add_subdirectory(src)
 target_include_directories(mpc-qt PRIVATE ${CMAKE_BINARY_DIR})
 if (Boost_FOUND)
     target_include_directories(mpc-qt PRIVATE ${Boost_INCLUDE_DIRS})
+    target_compile_definitions(mpc-qt PRIVATE HAVE_BOOST)
 endif()
 
 file(GLOB TS_FILES "${PROJECT_SOURCE_DIR}/translations/*.ts")
