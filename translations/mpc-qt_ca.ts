@@ -4719,14 +4719,6 @@ arxiu multimèdia reproduït</translation>
         <source>Use dark colors</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>AV1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>VP8</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>StatusTime</name>

@@ -5480,7 +5480,7 @@ media file played</string>
                   <item>
                    <widget class="QCheckBox" name="hwdecVp8">
                     <property name="text">
-                     <string>VP8</string>
+                     <string notr="true">VP8</string>
                     </property>
                     <property name="checked">
                      <bool>true</bool>
@@ -5500,7 +5500,7 @@ media file played</string>
                   <item>
                    <widget class="QCheckBox" name="hwdecAv1">
                     <property name="text">
-                     <string>AV1</string>
+                     <string notr="true">AV1</string>
                     </property>
                     <property name="checked">
                      <bool>true</bool>
