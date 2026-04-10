@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
 }
 
 void signalHandler(int signal) {
-    if (signal == SIGSEGV || SIGABRT) {
+    if (signal == SIGSEGV || signal == SIGTERM || signal == SIGABRT) {
         std::ostringstream stacktrace;
 #ifdef HAVE_BOOST
         stacktrace << boost::stacktrace::stacktrace();
