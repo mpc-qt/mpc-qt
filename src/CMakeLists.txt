@@ -30,6 +30,7 @@ set(SOURCES
     storage.cpp storage.h
     thumbnailerwindow.cpp thumbnailerwindow.h thumbnailerwindow.ui
     widgets/actioneditor.cpp widgets/actioneditor.h
+    widgets/plainslider.cpp widgets/plainslider.h
     widgets/drawncollection.cpp widgets/drawncollection.h
     widgets/drawnplaylist.cpp widgets/drawnplaylist.h
     widgets/drawnslider.cpp widgets/drawnslider.h
@@ -42,6 +43,10 @@ set(SOURCES
 )
 
 qt_add_executable(mpc-qt WIN32 MACOSX_BUNDLE ${SOURCES})
+
+target_include_directories(mpc-qt PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/widgets
+)
 
 if(Qt6_VERSION VERSION_GREATER_EQUAL 6.7.0)
     # Starting with Qt 6.7, this can be used to exclude some files from lupdate

@@ -6186,7 +6186,7 @@ media file played</string>
              </property>
              <layout class="QGridLayout" name="audioBalanceBoxLayout" columnstretch="1,1">
               <item row="0" column="0" colspan="2">
-               <widget class="QScrollBar" name="audioBalance">
+               <widget class="PlainSlider" name="audioBalance">
                 <property name="cursor">
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
@@ -8258,7 +8258,10 @@ media file played</string>
                  </widget>
                 </item>
                 <item row="0" column="2">
-                 <widget class="QScrollBar" name="miscBrightness">
+                 <widget class="PlainSlider" name="miscBrightness">
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
                   <property name="minimum">
                    <number>-100</number>
                   </property>
@@ -8291,7 +8294,10 @@ media file played</string>
                  </widget>
                 </item>
                 <item row="1" column="2">
-                 <widget class="QScrollBar" name="miscContrast">
+                 <widget class="PlainSlider" name="miscContrast">
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
                   <property name="minimum">
                    <number>-100</number>
                   </property>
@@ -8324,7 +8330,10 @@ media file played</string>
                  </widget>
                 </item>
                 <item row="2" column="2">
-                 <widget class="QScrollBar" name="miscGamma">
+                 <widget class="PlainSlider" name="miscGamma">
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
                   <property name="minimum">
                    <number>-100</number>
                   </property>
@@ -8357,7 +8366,10 @@ media file played</string>
                  </widget>
                 </item>
                 <item row="3" column="2">
-                 <widget class="QScrollBar" name="miscHue">
+                 <widget class="PlainSlider" name="miscHue">
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
                   <property name="minimum">
                    <number>-100</number>
                   </property>
@@ -8393,7 +8405,10 @@ media file played</string>
                  </widget>
                 </item>
                 <item row="4" column="2">
-                 <widget class="QScrollBar" name="miscSaturation">
+                 <widget class="PlainSlider" name="miscSaturation">
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
                   <property name="minimum">
                    <number>-100</number>
                   </property>
@@ -8494,6 +8509,13 @@ media file played</string>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PlainSlider</class>
+   <extends>QSlider</extends>
+   <header>widgets/plainslider.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>
