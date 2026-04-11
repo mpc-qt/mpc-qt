@@ -4627,11 +4627,11 @@ media file played</source>
     </message>
     <message>
         <source>AV1</source>
-        <translation>AV1</translation>
+        <translation type="vanished">AV1</translation>
     </message>
     <message>
         <source>VP8</source>
-        <translation>VP8</translation>
+        <translation type="vanished">VP8</translation>
     </message>
 </context>
 <context>
