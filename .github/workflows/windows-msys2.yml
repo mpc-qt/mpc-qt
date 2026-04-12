@@ -39,9 +39,9 @@ jobs:
     - name: Avoid line ending issues on Windows
       run: git config --global core.autocrlf input
     - name: Download mpc-qt source
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6.0.2
     - name: Download yt-dlp
-      uses: robinraju/release-downloader@v1
+      uses: robinraju/release-downloader@v1.13
       with:
         repository: "yt-dlp/yt-dlp"
         latest: true
@@ -56,14 +56,14 @@ jobs:
         set +e
         bash scripts/make-release-msys2.sh
     - name: Upload
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: "mpc-qt-win-x64-${{ env.FORCE_VERSION }}"
         path: mpc-qt-*/
     - name: Rename installer
       run: mv build/mpc-qt-win-x64-installer.exe build/mpc-qt-win-x64-${{ env.FORCE_VERSION }}-installer.exe
     - name: Upload
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: "mpc-qt-win-installer"
         path: build/mpc-qt-win-x64-*-installer.exe

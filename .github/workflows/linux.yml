@@ -26,7 +26,7 @@ jobs:
       uses: jurplel/install-qt-action@v4
       with:
         cache: true
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6.0.2
       with:
         fetch-depth: 1000
         fetch-tags: true
@@ -49,12 +49,12 @@ jobs:
         objcopy --strip-debug mpc-qt
         objcopy --add-gnu-debuglink=mpc-qt.dbg mpc-qt
     - name: Upload executable
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: "mpc-qt-linux-x64-${{ env.VERSION }}"
         path: bin/mpc-qt
     - name: Upload symbols file
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: "mpc-qt-linux-x64-debug_symbols-${{ env.VERSION }}"
         path: bin/mpc-qt.dbg
