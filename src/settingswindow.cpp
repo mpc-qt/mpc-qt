@@ -960,7 +960,6 @@ void SettingsWindow::sendSignals()
         }
     } else {
         emit option("hwdec", "no");
-        emit option("hwdec-codecs", "");
         emit hwdecBackend("no");
     }
 
