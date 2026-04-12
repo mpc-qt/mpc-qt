@@ -73,6 +73,9 @@ jobs:
         cache: true
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 1000
+        fetch-tags: true
     - name: Checkout mpv repository
       uses: actions/checkout@v4
       with:
