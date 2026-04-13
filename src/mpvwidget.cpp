@@ -1492,13 +1492,13 @@ void MpvController::handleMpvEvent(mpv_event *event)
             return (prop->format != MPV_FORMAT_INT64 || prop->data == nullptr) ?
                         dflt : *static_cast<int64_t*>(prop->data);
         };
-        auto asString = [&](QString dflt = QString()) {
+        auto asString = [&](const QString& dflt = QString()) {
             return (!(prop->format == MPV_FORMAT_STRING ||
                       prop->format == MPV_FORMAT_OSD_STRING) ||
                     prop->data == nullptr) ?
                         dflt : QString(*static_cast<char**>(prop->data));
         };
-        auto asNode = [&](QVariant dflt = QVariant()) {
+        auto asNode = [&](const QVariant& dflt = QVariant()) {
             return (prop->format != MPV_FORMAT_NODE || prop->data == nullptr) ?
                         dflt : mpv::qt::node_to_variant(
                             static_cast<mpv_node*>(prop->data));
