@@ -49,8 +49,10 @@ void loggerCallback(QtMsgType type, const QMessageLogContext &context, const QSt
         break;
     case QtFatalMsg:
         Logger::log("qt", "fatal", msg);
-        QMetaObject::invokeMethod(Logger::singleton(), "fatalMessage",
-                                  Qt::BlockingQueuedConnection);
+        auto logger = Logger::singleton();
+        QMetaObject::invokeMethod(logger, [logger]() {
+            logger->fatalMessage();
+        }, Qt::BlockingQueuedConnection);
         std::abort();
     }
 }
@@ -104,9 +106,9 @@ void Logger::log(QString line)
     Logger *log = singleton();
     if (!log)
         return;
-    QMetaObject::invokeMethod(log, "makeLog",
-                              Qt::QueuedConnection,
-                              Q_ARG(QString, line));
+    QMetaObject::invokeMethod(log, [log, line]() {
+        log->makeLog(line);
+    }, Qt::QueuedConnection);
 }
 
 void Logger::log(QString prefix, QString message)
@@ -114,10 +116,9 @@ void Logger::log(QString prefix, QString message)
     Logger *log = singleton();
     if (!log)
         return;
-    QMetaObject::invokeMethod(log, "makeLogPrefixed",
-                              Qt::QueuedConnection,
-                              Q_ARG(QString, prefix),
-                              Q_ARG(QString, message));
+    QMetaObject::invokeMethod(log, [log, prefix, message]() {
+        log->makeLogPrefixed(prefix, message);
+    }, Qt::QueuedConnection);
 }
 
 void Logger::log(QString prefix, QString level, QString message, bool qtWarningMsg)
@@ -125,11 +126,9 @@ void Logger::log(QString prefix, QString level, QString message, bool qtWarningM
     Logger *log = singleton();
     if (!log)
         return;
-    QMetaObject::invokeMethod(log, "makeLogDescriptively",
-                              Qt::QueuedConnection,
-                              Q_ARG(QString, prefix),
-                              Q_ARG(QString, level),
-                              Q_ARG(QString, message));
+    QMetaObject::invokeMethod(log, [log, prefix, level, message]() {
+        log->makeLogDescriptively(prefix, level, message);
+    }, Qt::QueuedConnection);
 
     if (qtWarningMsg)
         checkAmbiguousShortcut(message);

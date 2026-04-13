@@ -497,7 +497,10 @@ void MpvThumbnailDrawer::alwaysUpdate()
 
 void MpvThumbnailDrawer::render_update(void *ctx)
 {
-    QMetaObject::invokeMethod(static_cast<MpvThumbnailDrawer*>(ctx), "alwaysUpdate");
+    auto drawer = static_cast<MpvThumbnailDrawer*>(ctx);
+    QMetaObject::invokeMethod(drawer, [drawer]() {
+        drawer->alwaysUpdate();
+    });
 }
 
 void MpvThumbnailDrawer::initMpv()
