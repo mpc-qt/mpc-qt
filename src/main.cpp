@@ -647,6 +647,8 @@ void Flow::setupMainWindowConnections()
             mainWindow, &MainWindow::setVideoPreviewItem);
     connect(playbackManager, &PlaybackManager::isVideo,
             mainWindow, &MainWindow::setIsVideo);
+    connect(playbackManager, &PlaybackManager::windowShouldBeRaised,
+            mainWindow, &MainWindow::setWindowShouldBeRaised);
 
     // manager -> playlistwindow
     connect(playbackManager, &PlaybackManager::removePlaylistItemRequested,

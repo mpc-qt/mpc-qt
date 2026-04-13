@@ -305,6 +305,7 @@ public slots:
     void setVideoBitrate(double bitrate);
     void setIsVideo(bool isVideo);
     void setVideoPreviewItem(QUrl itemUrl);
+    void setWindowShouldBeRaised(bool yes);
     void logWindowClosed();
     void libraryWindowClosed();
     void mpvObject_mouseReleased();
@@ -482,6 +483,7 @@ private slots:
     void playlistWindow_playlistAddItem(const QUuid &playlistUuid);
     void hideTimer_timeout();
     void addRecentDocumentsEntries(const QList<TrackInfo> &tracks, QMenu *menu, int start, int end);
+    void raiseWindow();
 
     void on_actionFileLoadSubtitle_triggered();
 
@@ -553,6 +555,7 @@ private:
     bool zoomCenter = true;
     OnTopMode onTopMode = OnTopDefault;
     bool showOnTop = false;
+    bool windowShouldBeRaised = false;
     int mouseHideTimeWindowed = 1000;
     int mouseHideTimeFullscreen = 1000;
     int64_t displayDrops = 0;
