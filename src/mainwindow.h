@@ -123,6 +123,8 @@ private:
     void showStepAndSubsButtons(bool show);
     void addRecentDocumentsEntries(const QList<TrackInfo> &tracks, QMenu *menu, int start, int end);
     void raiseWindow();
+    void createAlwaysOnTopWindow();
+    void showAlwaysOnTopWindow(bool show);
 
     QIcon createIconFromSvg(const QString &svgPath, int maxSize) const;
     QPixmap renderPixmapFromSvg(const QString &path) const;
@@ -500,6 +502,7 @@ private:
     QMainWindow *mpvHost_ = nullptr;
     MpvObject *mpvObject_ = nullptr;
     QWidget *mpvw = nullptr;
+    QWidget *alwaysOnTopWindow = nullptr;
     //MpvGlCbWidget *mpvw = nullptr;
     MediaSlider *positionSlider_ = nullptr;
     VolumeSlider *volumeSlider_ = nullptr;
