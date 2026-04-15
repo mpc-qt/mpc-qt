@@ -116,13 +116,18 @@ void signalHandler(int signal) {
         if (signal == SIGSEGV)
             Logger::log(logModule, "Segmentation fault!");
         Logger::log(logModule, "Please report this error.");
-        QMetaObject::invokeMethod(Logger::singleton(), "flushMessages", Qt::BlockingQueuedConnection);
+        auto logger = Logger::singleton();
+        QMetaObject::invokeMethod(logger, [logger]() {
+            logger->flushMessages();
+        }, Qt::BlockingQueuedConnection);
         if (signal == SIGSEGV) {
             std::signal(SIGSEGV, SIG_DFL);
             std::raise(SIGSEGV);
         }
     }
-    QMetaObject::invokeMethod(qApp, "exit", Qt::QueuedConnection);
+    QMetaObject::invokeMethod(qApp, []() {
+        QApplication::exit();
+    }, Qt::QueuedConnection);
 }
 
 //---------------------------------------------------------------------------
@@ -1807,7 +1812,9 @@ void Flow::updateRecents(QUrl url, QUuid listUuid, QUuid itemUuid, QString title
 void Flow::endProgram()
 {
     Logger::log(logModule, "endProgram");
-    QMetaObject::invokeMethod(qApp, "exit", Qt::QueuedConnection);
+    QMetaObject::invokeMethod(qApp, []() {
+        QApplication::exit();
+    }, Qt::QueuedConnection);
 }
 
 void Flow::importPlaylist(QString fname)
