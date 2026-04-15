@@ -1390,6 +1390,14 @@ No action will be triggered.</source>
         <translation> [Свободное положение]</translation>
     </message>
     <message>
+        <source>Loading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buffering (%1%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>&amp;Добавить в список воспроизведения</translation>
     </message>
@@ -1455,7 +1463,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Buffering</source>
-        <translation>Буферизация</translation>
+        <translation type="vanished">Буферизация</translation>
     </message>
     <message>
         <source>Unknown</source>

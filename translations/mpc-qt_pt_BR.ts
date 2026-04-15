@@ -1266,6 +1266,10 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Loading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Remaining time</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1287,6 +1291,10 @@ No action will be triggered.</source>
     </message>
     <message>
         <source> [Freestanding]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buffering (%1%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1351,10 +1359,6 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Playing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Buffering</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

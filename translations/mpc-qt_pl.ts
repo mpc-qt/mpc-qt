@@ -1378,6 +1378,14 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Loading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buffering (%1%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1455,7 +1463,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Buffering</source>
-        <translation>Buforowanie</translation>
+        <translation type="vanished">Buforowanie</translation>
     </message>
     <message>
         <source>Unknown</source>

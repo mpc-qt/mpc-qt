@@ -48,7 +48,7 @@ class PlaybackManager : public QObject
     Q_OBJECT
 public:
     enum PlaybackState { StoppedState, PausedState, PlayingState,
-                         BufferingState, WaitingState };
+                         LoadingState, BufferingState, WaitingState };
     enum PlaybackType { None, File, Disc, Stream, Device };
     enum class Deinterlace { Yes, Auto, No };
 
@@ -66,7 +66,7 @@ signals:
     void titleChangedWithFilename(QString title, QString filename);
     void videoSizeChanged(QSize size);
     void playbackSpeedChanged(double speed);
-    void stateChanged(PlaybackManager::PlaybackState state);
+    void stateChanged(PlaybackManager::PlaybackState state, int bufferFillState = 0);
     void fileClosed();
     void typeChanged(PlaybackManager::PlaybackType type);
     // Transmit a map of chapter index to time,description pairs
@@ -209,6 +209,8 @@ private slots:
     void mpvw_playLengthChanged(double length);
     void mpvw_seekableChanged(bool yes);
     void mpvw_playbackLoading();
+    void mpvw_pausedForCache(QString paused);
+    void mpvw_bufferFillStateChanged(int64_t percentage);
     void mpvw_playbackStarted();
     void mpvw_pausedChanged(bool yes);
     void mpvw_playbackIdling(bool yes);

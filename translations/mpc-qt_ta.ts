@@ -1392,6 +1392,14 @@ No action will be triggered.</source>
         <translation> [ஃப்ரீச்டாண்டிங்]</translation>
     </message>
     <message>
+        <source>Loading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buffering (%1%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>&amp; பிளேலிச்ட்டில் விரைவாக சேர்க்கவும்</translation>
     </message>
@@ -1457,7 +1465,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Buffering</source>
-        <translation>இடையக</translation>
+        <translation type="vanished">இடையக</translation>
     </message>
     <message>
         <source>Unknown</source>

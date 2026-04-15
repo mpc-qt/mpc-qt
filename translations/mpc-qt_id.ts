@@ -1384,6 +1384,14 @@ Tidak ada tindakan yang akan dipicu.</translation>
         <translation> ·[Berdiri sendiri]</translation>
     </message>
     <message>
+        <source>Loading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buffering (%1%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>Tambah Cepat ke Daftar Putar</translation>
     </message>
@@ -1449,7 +1457,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Buffering</source>
-        <translation>Penyangga</translation>
+        <translation type="vanished">Penyangga</translation>
     </message>
     <message>
         <source>Unknown</source>

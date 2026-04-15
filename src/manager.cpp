@@ -111,6 +111,10 @@ void PlaybackManager::setMpvObject(MpvObject *mpvObject, bool makeConnections)
                 this, &PlaybackManager::mpvw_seekableChanged);
         connect(mpvObject, &MpvObject::playbackLoading,
                 this, &PlaybackManager::mpvw_playbackLoading);
+        connect(mpvObject, &MpvObject::pausedForCacheChanged,
+                this, &PlaybackManager::mpvw_pausedForCache);
+        connect(mpvObject, &MpvObject::bufferStateChanged,
+                this, &PlaybackManager::mpvw_bufferFillStateChanged);
         connect(mpvObject, &MpvObject::playbackStarted,
                 this, &PlaybackManager::mpvw_playbackStarted);
         connect(mpvObject, &MpvObject::pausedChanged,
@@ -1014,8 +1018,24 @@ void PlaybackManager::mpvw_seekableChanged(bool yes)
 
 void PlaybackManager::mpvw_playbackLoading()
 {
-    playbackState_ = BufferingState;
+    playbackState_ = LoadingState;
     emit stateChanged(playbackState_);
+}
+
+void PlaybackManager::mpvw_pausedForCache(QString paused)
+{
+    if (paused == strTrue)
+        playbackState_ = BufferingState;
+    else if (paused == strFalse)
+        playbackState_ = PlayingState;
+    else
+        playbackState_ = StoppedState;
+    emit stateChanged(playbackState_);
+}
+
+void PlaybackManager::mpvw_bufferFillStateChanged(int64_t percentage)
+{
+    emit stateChanged(playbackState_, percentage);
 }
 
 void PlaybackManager::mpvw_playbackStarted()
@@ -1049,7 +1069,7 @@ void PlaybackManager::mpvw_playbackIdling(bool yes)
 }
 
 void PlaybackManager::mpvw_playbackFinished() {
-    if (playbackState_ == BufferingState) {
+    if (playbackState_ == LoadingState) {
         playbackState_ = StoppedState;
         emit stateChanged(playbackState_);
         mpvw_eofReachedChanged(strTrue);

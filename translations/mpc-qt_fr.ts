@@ -1352,6 +1352,14 @@ Aucune action ne sera déclenchée.</translation>
         <translation> [Indépendant]</translation>
     </message>
     <message>
+        <source>Loading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buffering (%1%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>Ajout &amp;rapide à la playlist</translation>
     </message>
@@ -1413,7 +1421,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Buffering</source>
-        <translation>Préchargement</translation>
+        <translation type="vanished">Préchargement</translation>
     </message>
     <message>
         <source>Unknown</source>
