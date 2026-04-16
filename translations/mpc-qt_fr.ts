@@ -1353,11 +1353,11 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Loading</source>
-        <translation type="unfinished"></translation>
+        <translation>Chargement</translation>
     </message>
     <message>
         <source>Buffering (%1%)</source>
-        <translation type="unfinished"></translation>
+        <translation>Mise en mémoire tampon (%1 %)</translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
