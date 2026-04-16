@@ -1401,11 +1401,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Loading</source>
-        <translation type="unfinished"></translation>
+        <translation>正在加载</translation>
     </message>
     <message>
         <source>Buffering (%1%)</source>
-        <translation type="unfinished"></translation>
+        <translation>正在缓冲（%1%）</translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
