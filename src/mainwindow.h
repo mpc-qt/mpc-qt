@@ -55,6 +55,7 @@ public:
 protected:
     void resizeEvent(QResizeEvent *event);
     void changeEvent(QEvent *event) override;
+    void moveEvent(QMoveEvent *event) override;
     bool eventFilter(QObject *object, QEvent *event);
     void closeEvent(QCloseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
@@ -177,6 +178,7 @@ signals:
     void fullscreenModeChanged(bool fullscreen);
     void windowResized();
     void windowMaximized();
+    void windowMoved();
     void zoomPresetChanged(int which);
     void playCurrentItemRequested();
     void favoriteCurrentTrack();
