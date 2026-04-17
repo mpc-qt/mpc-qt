@@ -399,6 +399,12 @@ void MainWindow::changeEvent(QEvent *event)
         emit windowMaximized();
 }
 
+void MainWindow::moveEvent(QMoveEvent *event)
+{
+    Q_UNUSED(event)
+    emit windowMoved();
+}
+
 bool MainWindow::eventFilter(QObject *object, QEvent *event)
 {
     bool insideMpv = mpvw ? object == mpvw : false;

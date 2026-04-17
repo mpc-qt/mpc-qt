@@ -937,6 +937,8 @@ void Flow::setupFlowConnections()
             this, &Flow::mainwindow_windowResized);
     connect(mainWindow, &MainWindow::windowMaximized,
             this, &Flow::mainwindow_windowMaximized);
+    connect(mainWindow, &MainWindow::windowMoved,
+            this, &Flow::mainwindow_windowMoved);
 
     // manager -> this
     connect(playbackManager, &PlaybackManager::playLengthChanged,
@@ -1424,6 +1426,11 @@ void Flow::mainwindow_windowResized()
 void Flow::mainwindow_windowMaximized()
 {
     windowManager.updateAppWindowGeometryCache(mainWindow, true);
+}
+
+void Flow::mainwindow_windowMoved()
+{
+    windowManager.updateAppWindowGeometryCache(mainWindow, false);
 }
 
 void Flow::mainwindow_recentOpened(const TrackInfo &track)

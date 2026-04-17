@@ -76,6 +76,7 @@ private slots:
     void mainwindow_repeatAfter();
     void mainwindow_windowResized();
     void mainwindow_windowMaximized();
+    void mainwindow_windowMoved();
     void mainwindow_recentOpened(const TrackInfo &track);
     void mainwindow_recentClear();
     void mainwindow_takeImage(Helpers::ScreenshotRender render);
