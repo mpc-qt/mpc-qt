@@ -47,7 +47,7 @@ const QSet<QString> Helpers::audioVideoFileExtensions {
     "vob", "vro",
     "evob", "evo",
     "mpeg4", "m4v", "mp4", "mp4v", "mpg4",
-    "m4a",
+    "m4a", "m4b",
     "aac",
     "h264", "avc", "x264", "264",
     "hevc", "h265", "x265", "265",
