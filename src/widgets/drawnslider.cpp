@@ -341,7 +341,7 @@ void MediaSlider::makeBackground()
     Logger::log(logModule, "MediaSlider::makeBackground");
     qreal pr = devicePixelRatioF();
     int pw = width() * pr;
-    int ph = width() * pr;
+    int ph = height() * pr;
     backgroundPic = QImage(pw, ph, QImage::Format_RGBA8888);
     backgroundPic.fill(Qt::transparent);
     QPainter p(&backgroundPic);
