@@ -264,7 +264,7 @@ Bunun yerine “%3” için kullanmak ister misiniz?</translation>
     </message>
     <message>
         <source>Append the file(s) to the current playlist.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosyaları geçerli oynatma listesine iliştirin.</translation>
     </message>
     <message>
         <source>URLs to open, optionally.</source>
@@ -1393,11 +1393,11 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Loading</source>
-        <translation type="unfinished"></translation>
+        <translation>Yükleniyor</translation>
     </message>
     <message>
         <source>Buffering (%1%)</source>
-        <translation type="unfinished"></translation>
+        <translation>Arabelleğe alınıyor (%%1)</translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
@@ -1841,19 +1841,19 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Gecikme</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished">Evet</translation>
+        <translation>Evet</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">Kendiliğinden</translation>
+        <translation>Otomatik</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished">Hayır</translation>
+        <translation>Hayır</translation>
     </message>
 </context>
 <context>
@@ -4727,7 +4727,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Use dark colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Koyu renkleri kullan</translation>
     </message>
 </context>
 <context>
