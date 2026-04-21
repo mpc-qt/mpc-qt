@@ -5,11 +5,11 @@
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Příkaz</translation>
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Klávesa</translation>
     </message>
     <message>
         <source>Mouse Window</source>
@@ -33,11 +33,11 @@
     </message>
     <message>
         <source>Volume Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Ztlumit hlasitost</translation>
     </message>
     <message>
         <source>After Playback: Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Po přehrání: Ukončit</translation>
     </message>
     <message>
         <source>After Playback: Stand by</source>
@@ -45,43 +45,43 @@
     </message>
     <message>
         <source>After Playback: Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>Po přehrání: Hibernovat</translation>
     </message>
     <message>
         <source>After Playback: Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Po přehrání: Vypnout</translation>
     </message>
     <message>
         <source>After Playback: Log Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Po přehrání: Odhlásit</translation>
     </message>
     <message>
         <source>After Playback: Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Po přehrání: Zamknout</translation>
     </message>
     <message>
         <source>After Playback: Play next file</source>
-        <translation type="unfinished"></translation>
+        <translation>Po přehrání: Přehrát další soubor</translation>
     </message>
     <message>
         <source>After Playback: Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Po přehrání: Nedělat nic</translation>
     </message>
     <message>
         <source>On Top: Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Navrchu: Výchozí</translation>
     </message>
     <message>
         <source>On Top: Always</source>
-        <translation type="unfinished"></translation>
+        <translation>Navrchu: Vždy</translation>
     </message>
     <message>
         <source>On Top: While Playing</source>
-        <translation type="unfinished"></translation>
+        <translation>Navrchu: Při přehrávání</translation>
     </message>
     <message>
         <source>On Top: While Playing Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Navrchu: Při přehrávání videa</translation>
     </message>
     <message>
         <source>Extra Play Times: Increment</source>
@@ -93,27 +93,27 @@
     </message>
     <message>
         <source>Move Subtitles Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Posunout titulky nahoru</translation>
     </message>
     <message>
         <source>Move Subtitles Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Posunout titulky dolů</translation>
     </message>
     <message>
         <source>Decrease Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmenšit poměr stran</translation>
     </message>
     <message>
         <source>Increase Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvětšit poměr stran</translation>
     </message>
     <message>
         <source>Reset Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Vynulovat poměr stran</translation>
     </message>
     <message>
         <source>Disable Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Zakázat poměr stran</translation>
     </message>
     <message>
         <source>Decrease Pan and Scan</source>
@@ -145,15 +145,15 @@
     </message>
     <message>
         <source>Skip Backward / Previous</source>
-        <translation type="unfinished"></translation>
+        <translation>Přeskočit dozadu / Předchozí</translation>
     </message>
     <message>
         <source>Skip Forward / Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Přeskočit dopředu / Další</translation>
     </message>
     <message>
         <source>Shortcut already used</source>
-        <translation type="unfinished"></translation>
+        <translation>Zkratka již použita</translation>
     </message>
     <message>
         <source>&quot;%1&quot; is already used by &quot;%2&quot;.
@@ -162,23 +162,23 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>4:3 Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>4:3 poměr stran</translation>
     </message>
     <message>
         <source>Move Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Posunout vlevo</translation>
     </message>
     <message>
         <source>Move Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Posunout vpravo</translation>
     </message>
     <message>
         <source>Move Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Posunout nahoru</translation>
     </message>
     <message>
         <source>Move Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Posunout dolů</translation>
     </message>
     <message>
         <source>Reset Move</source>
@@ -186,11 +186,11 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Rotate Clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>Otočit ve směru</translation>
     </message>
     <message>
         <source>Rotate Counterclockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>Otočit protisměru</translation>
     </message>
     <message>
         <source>Reset Rotate</source>
@@ -202,15 +202,15 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Volume Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvýšit hlasitost</translation>
     </message>
     <message>
         <source>Volume Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>Snížit hlasitost</translation>
     </message>
     <message>
         <source>Play / Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Přehrát / Pozastavit</translation>
     </message>
 </context>
 <context>
@@ -240,7 +240,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Files</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Soubory</translation>
     </message>
     <message>
         <source>&amp;Streams</source>
@@ -248,26 +248,26 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Odstranit</translation>
     </message>
 </context>
 <context>
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Start a new process without saving data.</source>
-        <translation type="unfinished"></translation>
+        <translation>Začít nový proces bez uložení dat.</translation>
     </message>
     <message>
         <source>Main window size.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hlavní velikost okna.</translation>
     </message>
     <message>
         <source>Main window position.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hlavní pozice okna.</translation>
     </message>
     <message>
         <source>Append the file(s) to the current playlist.</source>
@@ -279,15 +279,15 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Save Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložit obrázek</translation>
     </message>
     <message>
         <source>Playing Media</source>
-        <translation type="unfinished"></translation>
+        <translation>Přehrávání média</translation>
     </message>
     <message>
         <source>Do not load any config files.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nenačítat žádné soubory konfigurací.</translation>
     </message>
     <message>
         <source>Do not load file history, playlists, or favorites.</source>
@@ -302,19 +302,19 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>GoToWindow</name>
     <message>
         <source>Go To...</source>
-        <translation type="unfinished"></translation>
+        <translation>Jít na...</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Čas</translation>
     </message>
     <message>
         <source>Go!</source>
-        <translation type="unfinished"></translation>
+        <translation>Jdi!</translation>
     </message>
     <message>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Snímek</translation>
     </message>
     <message>
         <source>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitely.</source>
@@ -325,19 +325,19 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>LibraryWindow</name>
     <message>
         <source>Library</source>
-        <translation type="unfinished"></translation>
+        <translation>Knihovna</translation>
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Obnovit</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstranit</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Zavřít</translation>
     </message>
 </context>
 <context>
@@ -348,19 +348,19 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Zkopírovat</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložit</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyčistit</translation>
     </message>
     <message>
         <source>Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložit soubor</translation>
     </message>
 </context>
 <context>
@@ -379,59 +379,59 @@ No action will be triggered.</source>
     <name>MainWindow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished"></translation>
+        <translation>Přehrát</translation>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Pozastavit</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastavit</translation>
     </message>
     <message>
         <source>Skip Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>Přeskočit zpátky</translation>
     </message>
     <message>
         <source>Speed Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>Zpomalení rychlosti</translation>
     </message>
     <message>
         <source>Speed Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>Zrychlení</translation>
     </message>
     <message>
         <source>Skip Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Preskočit dopředu</translation>
     </message>
     <message>
         <source>Step Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>Krok zpět</translation>
     </message>
     <message>
         <source>Step Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Krok dopředu</translation>
     </message>
     <message>
         <source>Set Loop Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavit začátek opakování</translation>
     </message>
     <message>
         <source>Set Loop End</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavit konec opakování</translation>
     </message>
     <message>
         <source>Chapter</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapitola</translation>
     </message>
     <message>
         <source>Frame rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Snímkovací frekvence</translation>
     </message>
     <message>
         <source>Sync Offset</source>
@@ -451,11 +451,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastaveno</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Soubor</translation>
     </message>
     <message>
         <source>O&amp;pen Disc</source>
@@ -471,15 +471,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zobrazit</translation>
     </message>
     <message>
         <source>&amp;Presets</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Přednastavení</translation>
     </message>
     <message>
         <source>&amp;Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Přiblížení</translation>
     </message>
     <message>
         <source>On &amp;Top</source>
@@ -491,15 +491,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>P&amp;lay</source>
-        <translation type="unfinished"></translation>
+        <translation>P&amp;řehrát</translation>
     </message>
     <message>
         <source>&amp;Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Audio</translation>
     </message>
     <message>
         <source>Su&amp;btitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Ti&amp;tulky</translation>
     </message>
     <message>
         <source>&amp;Video Stream</source>
@@ -507,7 +507,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>V&amp;olume</source>
-        <translation type="unfinished"></translation>
+        <translation>H&amp;lasitost</translation>
     </message>
     <message>
         <source>Af&amp;ter Playback</source>
@@ -515,23 +515,23 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Loop</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Opakovat</translation>
     </message>
     <message>
         <source>&amp;Navigate</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Navigovat</translation>
     </message>
     <message>
         <source>&amp;Chapters</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kapitoly</translation>
     </message>
     <message>
         <source>Favo&amp;rites</source>
-        <translation type="unfinished"></translation>
+        <translation>Oblí&amp;bené</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pomoc</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
@@ -551,15 +551,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+O</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+O</translation>
     </message>
     <message>
         <source>Open &amp;DVD/BD...</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít &amp;DVD/BD...</translation>
     </message>
     <message>
         <source>Ctrl+D</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <source>Open De&amp;vice...</source>
@@ -567,7 +567,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+V</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+V</translation>
     </message>
     <message>
         <source>Open Dir&amp;ectory...</source>
@@ -575,15 +575,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Clear list</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Vyčistit seznam</translation>
     </message>
     <message>
         <source>&amp;Close File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zavřít soubor</translation>
     </message>
     <message>
         <source>Ctrl+W</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+W</translation>
     </message>
     <message>
         <source>&amp;Save a Copy...</source>
@@ -591,11 +591,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Save &amp;Image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložit &amp;Obrázek...</translation>
     </message>
     <message>
         <source>Alt+I</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+I</translation>
     </message>
     <message>
         <source>Save &amp;Thumbnails</source>
@@ -603,11 +603,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Načíst titulky...</translation>
     </message>
     <message>
         <source>Ctrl+L</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+L</translation>
     </message>
     <message>
         <source>Save S&amp;ubtitle...</source>
@@ -615,7 +615,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+S</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+S</translation>
     </message>
     <message>
         <source>&amp;Upload...</source>
@@ -627,15 +627,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>D</source>
-        <translation type="unfinished"></translation>
+        <translation>D</translation>
     </message>
     <message>
         <source>&amp;Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Vyhledávání...</translation>
     </message>
     <message>
         <source>P&amp;roperties</source>
-        <translation type="unfinished"></translation>
+        <translation>V&amp;lastnosti</translation>
     </message>
     <message>
         <source>Shift+F10</source>
@@ -643,11 +643,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation type="unfinished"></translation>
+        <translation>U&amp;končit</translation>
     </message>
     <message>
         <source>Alt+X</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+X</translation>
     </message>
     <message>
         <source>Hide &amp;Menu</source>
@@ -655,7 +655,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+0</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+0</translation>
     </message>
     <message>
         <source>See&amp;k Bar</source>
@@ -667,15 +667,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Controls</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ovládání</translation>
     </message>
     <message>
         <source>Ctrl+2</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+2</translation>
     </message>
     <message>
         <source>&amp;Information</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Informace</translation>
     </message>
     <message>
         <source>Ctrl+3</source>
@@ -711,7 +711,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+7</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+7</translation>
     </message>
     <message>
         <source>Captu&amp;re</source>
@@ -1127,7 +1127,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nová záložka</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
@@ -1147,7 +1147,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Duplikovat záložku</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
@@ -1211,7 +1211,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Vložit</translation>
     </message>
     <message>
         <source>Ctrl+Shift+V</source>
@@ -1359,7 +1359,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit</translation>
     </message>
     <message>
         <source>Hide &amp;Borders</source>
@@ -1371,23 +1371,23 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Quick Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Rychle otevřít</translation>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation type="unfinished"></translation>
+        <translation>Zbývající čas</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation type="unfinished"></translation>
+        <translation>Vysoká přesnost</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukázat procenta</translation>
     </message>
     <message>
         <source>No files favorited</source>
-        <translation type="unfinished"></translation>
+        <translation>Žádné oblíbené soubory</translation>
     </message>
     <message>
         <source>No streams favorited</source>
@@ -1399,7 +1399,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Loading</source>
-        <translation type="unfinished"></translation>
+        <translation>Načítání</translation>
     </message>
     <message>
         <source>Buffering (%1%)</source>
@@ -1411,7 +1411,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Quick Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Rychle otevřít soubor</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -1463,11 +1463,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Paused</source>
-        <translation type="unfinished"></translation>
+        <translation>Pozastaveno</translation>
     </message>
     <message>
         <source>Playing</source>
-        <translation type="unfinished"></translation>
+        <translation>Přehrávání</translation>
     </message>
     <message>
         <source>Buffering</source>
@@ -1475,7 +1475,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>Neznámo</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
@@ -1499,7 +1499,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Controls in Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Ovládání v celé obrazovce</translation>
     </message>
     <message>
         <source>i</source>
@@ -1527,11 +1527,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Titulky</translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Ztlumit</translation>
     </message>
     <message>
         <source>&amp;Add to Favorites</source>
@@ -1643,11 +1643,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Music Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Režim hudby</translation>
     </message>
     <message>
         <source>M</source>
-        <translation type="unfinished"></translation>
+        <translation>M</translation>
     </message>
     <message>
         <source>&amp;Previous Audio Track</source>
@@ -1703,7 +1703,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Neznámý)</translation>
     </message>
     <message>
         <source>Running under %1</source>
@@ -1747,7 +1747,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Snímek obrazovky</translation>
     </message>
     <message>
         <source>&amp;Crossfeed (for headphones)</source>
@@ -1767,7 +1767,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>More Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Více souborů</translation>
     </message>
     <message>
         <source>&amp;Decrease</source>
@@ -1875,7 +1875,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished">Yes</translation>
+        <translation>Ano</translation>
     </message>
     <message>
         <source>Auto</source>
@@ -1890,35 +1890,35 @@ No action will be triggered.</source>
     <name>MouseState</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Žádné</translation>
     </message>
     <message>
         <source>Wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>Kolečko</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Vlevo</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Vpravo</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished"></translation>
+        <translation>Prostřední</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Zpět</translation>
     </message>
     <message>
         <source>Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Dopředu</translation>
     </message>
     <message>
         <source>Task</source>
-        <translation type="unfinished"></translation>
+        <translation>Úkol</translation>
     </message>
     <message>
         <source>XButton4</source>
@@ -2044,7 +2044,7 @@ No action will be triggered.</source>
     <name>OpenFileDialog</name>
     <message>
         <source>Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít soubor</translation>
     </message>
     <message>
         <source>Fi&amp;le</source>
@@ -2056,18 +2056,18 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"></translation>
+        <translation>Vybrat soubor</translation>
     </message>
 </context>
 <context>
     <name>PaletteEditor</name>
     <message>
         <source>Generate palette from:</source>
-        <translation type="unfinished"></translation>
+        <translation>Vytvořit paletu z:</translation>
     </message>
     <message>
         <source>Button</source>
-        <translation type="unfinished"></translation>
+        <translation>Tlačítko</translation>
     </message>
     <message>
         <source>Button &amp;&amp; Window</source>
@@ -2118,11 +2118,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Subtitles: on</source>
-        <translation type="unfinished"></translation>
+        <translation>Titulky: zapnuto</translation>
     </message>
     <message>
         <source>Subtitles: off</source>
-        <translation type="unfinished"></translation>
+        <translation>Titulky: vypnuto</translation>
     </message>
     <message>
         <source>File moved to recycle bin: %1</source>
@@ -2141,7 +2141,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Rychlý playlist</translation>
     </message>
 </context>
 <context>
@@ -2152,7 +2152,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyhledávání</translation>
     </message>
     <message>
         <source>Visible Items to Quick Queue</source>
@@ -2160,15 +2160,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>New Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Nová záložka</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Zavřít záložku</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Duplikovat záložku</translation>
     </message>
     <message>
         <source>Import Playlist</source>
@@ -2212,15 +2212,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Přidat</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstranit</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -2228,19 +2228,19 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Copy To clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Zkopírovat do schránky</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložit jako...</translation>
     </message>
     <message>
         <source>Sort By Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Seřadit dle štítku</translation>
     </message>
     <message>
         <source>Sort By Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Seřadit dle Url</translation>
     </message>
     <message>
         <source>Randomize</source>
@@ -2248,11 +2248,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Obnovit</translation>
     </message>
     <message>
         <source>Shuffle</source>
-        <translation type="unfinished"></translation>
+        <translation>Promíchat</translation>
     </message>
     <message>
         <source>Hide On Fullscreen</source>
@@ -2292,7 +2292,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation>Opakovat</translation>
     </message>
     <message>
         <source>Reshuffle</source>
@@ -2300,11 +2300,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Fronta</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Název</translation>
     </message>
     <message>
         <source>Quick playlist</source>
@@ -2324,14 +2324,14 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Add Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Přidat složku</translation>
     </message>
 </context>
 <context>
     <name>PropertiesWindow</name>
     <message>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Vlastnosti</translation>
     </message>
     <message>
         <source>Details</source>
@@ -2339,19 +2339,19 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Druh:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Velikost:</translation>
     </message>
     <message>
         <source>Media length:</source>
-        <translation type="unfinished"></translation>
+        <translation>Délka média:</translation>
     </message>
     <message>
         <source>Video size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozlišení videa:</translation>
     </message>
     <message>
         <source>Created:</source>
@@ -2367,27 +2367,27 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Author:</source>
-        <translation type="unfinished"></translation>
+        <translation>Autor:</translation>
     </message>
     <message>
         <source>Copyright:</source>
-        <translation type="unfinished"></translation>
+        <translation>Autorské právo:</translation>
     </message>
     <message>
         <source>Rating:</source>
-        <translation type="unfinished"></translation>
+        <translation>Hodnocení:</translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation type="unfinished"></translation>
+        <translation>Poloha:</translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Popisek:</translation>
     </message>
     <message>
         <source>MediaInfo</source>
-        <translation type="unfinished"></translation>
+        <translation>MediaInfo</translation>
     </message>
     <message>
         <source>&amp;Save</source>
@@ -2395,19 +2395,19 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio</translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Titulky</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Obecné</translation>
     </message>
     <message>
         <source>Menu
@@ -2425,7 +2425,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Modified:</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifikováno:</translation>
     </message>
 </context>
 <context>
@@ -2444,11 +2444,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Button</source>
-        <translation type="unfinished"></translation>
+        <translation>Tlačítko</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Světlé</translation>
     </message>
     <message>
         <source>Midlight</source>
@@ -2456,7 +2456,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>Tmavé</translation>
     </message>
     <message>
         <source>Mid</source>
@@ -2464,7 +2464,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Text</translation>
     </message>
     <message>
         <source>Bright text</source>
@@ -2472,35 +2472,35 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Button text</source>
-        <translation type="unfinished"></translation>
+        <translation>Text tlačítka</translation>
     </message>
     <message>
         <source>Base</source>
-        <translation type="unfinished"></translation>
+        <translation>Základ</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Okno</translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>Stín</translation>
     </message>
     <message>
         <source>Highlight</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvýraznění</translation>
     </message>
     <message>
         <source>Highlighted text</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvýrazněný text</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Odkaz</translation>
     </message>
     <message>
         <source>Link (visited)</source>
-        <translation type="unfinished"></translation>
+        <translation>Odkaz (navštíven)</translation>
     </message>
     <message>
         <source>Base (alternate)</source>
@@ -2520,37 +2520,37 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Active</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivní</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepovolený</translation>
     </message>
     <message>
         <source>Inactive</source>
-        <translation type="unfinished"></translation>
+        <translation>Neaktivní</translation>
     </message>
 </context>
 <context>
     <name>ScreenCombo</name>
     <message>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>Současný</translation>
     </message>
 </context>
 <context>
     <name>SettingsWindow</name>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Možnosti</translation>
     </message>
     <message>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
         <source>Player</source>
-        <translation type="unfinished"></translation>
+        <translation>Přehrávač</translation>
     </message>
     <message>
         <source>Formats</source>
@@ -2558,35 +2558,35 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Keys</source>
-        <translation type="unfinished"></translation>
+        <translation>Klávesy</translation>
     </message>
     <message>
         <source>Logo</source>
-        <translation type="unfinished"></translation>
+        <translation>Logo</translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozhrání</translation>
     </message>
     <message>
         <source>Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>Přehrávání</translation>
     </message>
     <message>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Výstup</translation>
     </message>
     <message>
         <source>Shaders</source>
-        <translation type="unfinished"></translation>
+        <translation>Shadery</translation>
     </message>
     <message>
         <source>Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Celá obrazovka</translation>
     </message>
     <message>
         <source>Sync</source>
-        <translation type="unfinished"></translation>
+        <translation>Synchronizace</translation>
     </message>
     <message>
         <source>Hw. Decoding</source>
@@ -2598,11 +2598,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Titulky</translation>
     </message>
     <message>
         <source>Default Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Výchozí styl</translation>
     </message>
     <message>
         <source>Misc</source>
@@ -2610,7 +2610,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Výstup</translation>
     </message>
     <message>
         <source>Encoding</source>
@@ -2668,7 +2668,7 @@ media file played</source>
     </message>
     <message>
         <source>Disable screensaver while playing</source>
-        <translation type="unfinished"></translation>
+        <translation>Zakázat spořič obrazovky při přehrávání</translation>
     </message>
     <message>
         <source>Title bar</source>
@@ -2692,11 +2692,11 @@ media file played</source>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>Historie</translation>
     </message>
     <message>
         <source>Keep history of recently opened files</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachovat historii nedávno otevřených souborů</translation>
     </message>
     <message>
         <source>Remember last selected playlist</source>
@@ -2720,15 +2720,15 @@ media file played</source>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Vše</translation>
     </message>
     <message>
         <source>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</source>
@@ -2752,11 +2752,11 @@ media file played</source>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Procházet...</translation>
     </message>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"></translation>
+        <translation>Prázdné</translation>
     </message>
     <message>
         <source>Color film stock</source>
@@ -2776,7 +2776,7 @@ media file played</source>
     </message>
     <message>
         <source>Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikony</translation>
     </message>
     <message>
         <source>Theme</source>
@@ -2788,11 +2788,11 @@ media file played</source>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Vlastní</translation>
     </message>
     <message>
         <source>System (Linux only)</source>
-        <translation type="unfinished"></translation>
+        <translation>Systém (pouze Linux)</translation>
     </message>
     <message>
         <source>Folder (e.g. ~/Pictures/MyIcons/mpc-qt/leet)</source>
@@ -2844,15 +2844,15 @@ media file played</source>
     </message>
     <message>
         <source>Volume step</source>
-        <translation type="unfinished"></translation>
+        <translation>Kroky hlasitosti</translation>
     </message>
     <message>
         <source>Speed step</source>
-        <translation type="unfinished"></translation>
+        <translation>Kroky rychlosti</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky</translation>
     </message>
     <message>
         <source>Time step</source>
@@ -2864,15 +2864,15 @@ media file played</source>
     </message>
     <message>
         <source>Center window when zooming</source>
-        <translation type="unfinished"></translation>
+        <translation>Vystředit okno při zoomování</translation>
     </message>
     <message>
         <source>Auto zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatický zoom</translation>
     </message>
     <message>
         <source>Autofit</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky přizpůsobit</translation>
     </message>
     <message>
         <source>Autofit (Larger Only)</source>
@@ -2908,11 +2908,11 @@ media file played</source>
     </message>
     <message>
         <source>Mouse hiding</source>
-        <translation type="unfinished"></translation>
+        <translation>Schovávání myši</translation>
     </message>
     <message>
         <source>Windowed</source>
-        <translation type="unfinished"></translation>
+        <translation>V okně</translation>
     </message>
     <message>
         <source>Video Renderer</source>
@@ -2920,11 +2920,11 @@ media file played</source>
     </message>
     <message>
         <source>Dumb mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Jednoduchý režim</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Obecné</translation>
     </message>
     <message>
         <source>Framebuffer</source>
@@ -2932,19 +2932,19 @@ media file played</source>
     </message>
     <message>
         <source>8 bits</source>
-        <translation type="unfinished"></translation>
+        <translation>8 bitů</translation>
     </message>
     <message>
         <source>10 bits</source>
-        <translation type="unfinished"></translation>
+        <translation>10 bitů</translation>
     </message>
     <message>
         <source>12 bits</source>
-        <translation type="unfinished"></translation>
+        <translation>12 bitů</translation>
     </message>
     <message>
         <source>16 bits</source>
-        <translation type="unfinished"></translation>
+        <translation>16 bitů</translation>
     </message>
     <message>
         <source>16 bits float</source>
@@ -2956,27 +2956,27 @@ media file played</source>
     </message>
     <message>
         <source>Alpha channel</source>
-        <translation type="unfinished"></translation>
+        <translation>Alfa kanál</translation>
     </message>
     <message>
         <source>Alpha</source>
-        <translation type="unfinished"></translation>
+        <translation>Alfa</translation>
     </message>
     <message>
         <source>Blend on black</source>
-        <translation type="unfinished"></translation>
+        <translation>Prolnout na černé</translation>
     </message>
     <message>
         <source>Use</source>
-        <translation type="unfinished"></translation>
+        <translation>Použít</translation>
     </message>
     <message>
         <source>Ignore</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignorovat</translation>
     </message>
     <message>
         <source>Sharpen</source>
-        <translation type="unfinished"></translation>
+        <translation>Zostřit</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -2984,7 +2984,7 @@ media file played</source>
     </message>
     <message>
         <source>Presets</source>
-        <translation type="unfinished"></translation>
+        <translation>Přednastavení</translation>
     </message>
     <message>
         <source>Plain</source>
@@ -2992,55 +2992,55 @@ media file played</source>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished"></translation>
+        <translation>Nízké</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"></translation>
+        <translation>Vysoké</translation>
     </message>
     <message>
         <source>Highest</source>
-        <translation type="unfinished"></translation>
+        <translation>Nejvyšší</translation>
     </message>
     <message>
         <source>Placebo</source>
-        <translation type="unfinished"></translation>
+        <translation>Placebo</translation>
     </message>
     <message>
         <source>Load</source>
-        <translation type="unfinished"></translation>
+        <translation>Načíst</translation>
     </message>
     <message>
         <source>Dither</source>
-        <translation type="unfinished"></translation>
+        <translation>Dither</translation>
     </message>
     <message>
         <source>Dithering</source>
-        <translation type="unfinished"></translation>
+        <translation>Ditherování</translation>
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished"></translation>
+        <translation>Hloubka</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Typ</translation>
     </message>
     <message>
         <source>Fruit</source>
-        <translation type="unfinished"></translation>
+        <translation>Ovoce</translation>
     </message>
     <message>
         <source>Ordered</source>
-        <translation type="unfinished"></translation>
+        <translation>Objednáno</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Velikost</translation>
     </message>
     <message>
         <source>Often, LCDs perform dithering on their own, which conflicts with OpenGL&apos;s output and can lead to ugly output.  In which case you should lower the dither depth.</source>
@@ -3060,7 +3060,7 @@ media file played</source>
     </message>
     <message>
         <source>Scaling</source>
-        <translation type="unfinished"></translation>
+        <translation>Škálování</translation>
     </message>
     <message>
         <source>Correct downscaling</source>
@@ -3080,7 +3080,7 @@ media file played</source>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Vystředit</translation>
     </message>
     <message>
         <source>Slope</source>
@@ -3088,15 +3088,15 @@ media file played</source>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished"></translation>
+        <translation>Škálovat</translation>
     </message>
     <message>
         <source>Scaler</source>
-        <translation type="unfinished"></translation>
+        <translation>Škálovač</translation>
     </message>
     <message>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation>2</translation>
     </message>
     <message>
         <source>Anti-ring</source>
@@ -3104,19 +3104,19 @@ media file played</source>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozmazání</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Okno</translation>
     </message>
     <message>
         <source>Box</source>
-        <translation type="unfinished"></translation>
+        <translation>Box</translation>
     </message>
     <message>
         <source>Triangle</source>
-        <translation type="unfinished"></translation>
+        <translation>Trojúhelník</translation>
     </message>
     <message>
         <source>Bartlett</source>
@@ -3172,11 +3172,11 @@ media file played</source>
     </message>
     <message>
         <source>Bilinear</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilineární</translation>
     </message>
     <message>
         <source>Bicubic_fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Bikubické_rychlé</translation>
     </message>
     <message>
         <source>Oversample</source>
@@ -3260,7 +3260,7 @@ media file played</source>
     </message>
     <message>
         <source>Nearest</source>
-        <translation type="unfinished"></translation>
+        <translation>Nejbližší</translation>
     </message>
     <message>
         <source>Downscale</source>
@@ -3272,7 +3272,7 @@ media file played</source>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Barva</translation>
     </message>
     <message>
         <source>Temporal</source>
@@ -3288,15 +3288,15 @@ media file played</source>
     </message>
     <message>
         <source>State</source>
-        <translation type="unfinished"></translation>
+        <translation>Stav</translation>
     </message>
     <message>
         <source>Enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivováno</translation>
     </message>
     <message>
         <source>Iterations</source>
-        <translation type="unfinished"></translation>
+        <translation>Iterace</translation>
     </message>
     <message>
         <source>Threshold</source>
@@ -3308,11 +3308,11 @@ media file played</source>
     </message>
     <message>
         <source>Grain</source>
-        <translation type="unfinished"></translation>
+        <translation>Šum</translation>
     </message>
     <message>
         <source>Color Correction</source>
-        <translation type="unfinished"></translation>
+        <translation>Barevná korekce</translation>
     </message>
     <message>
         <source>Gamma</source>
@@ -3324,7 +3324,7 @@ media file played</source>
     </message>
     <message>
         <source>Autodetect</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatická detekce</translation>
     </message>
     <message>
         <source>Target Prim</source>
@@ -3352,11 +3352,11 @@ media file played</source>
     </message>
     <message>
         <source>Apple</source>
-        <translation type="unfinished"></translation>
+        <translation>Apple</translation>
     </message>
     <message>
         <source>Adobe</source>
-        <translation type="unfinished"></translation>
+        <translation>Adobe</translation>
     </message>
     <message>
         <source>ProPhoto</source>
@@ -3444,7 +3444,7 @@ media file played</source>
     </message>
     <message>
         <source>Contrast</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrast</translation>
     </message>
     <message>
         <source>HDR Desaturate</source>
@@ -3452,11 +3452,11 @@ media file played</source>
     </message>
     <message>
         <source>ICC Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>ICC Profil</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Procházet</translation>
     </message>
     <message>
         <source>Audio Renderer</source>
@@ -3464,7 +3464,7 @@ media file played</source>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Zařízení</translation>
     </message>
     <message>
         <source>Channel layout</source>
@@ -3528,7 +3528,7 @@ media file played</source>
     </message>
     <message>
         <source>Alsa</source>
-        <translation type="unfinished"></translation>
+        <translation>Alsa</translation>
     </message>
     <message>
         <source>Resample (may introduce latency)</source>
@@ -3552,31 +3552,31 @@ media file played</source>
     </message>
     <message>
         <source>Jack</source>
-        <translation type="unfinished"></translation>
+        <translation>Jack</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Jméno</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Port</translation>
     </message>
     <message>
         <source>Auto connect</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky připojit</translation>
     </message>
     <message>
         <source>Start jackd at startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Při startu spustit jackd</translation>
     </message>
     <message>
         <source>Startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>Filesystem</source>
-        <translation type="unfinished"></translation>
+        <translation>Souborový systém</translation>
     </message>
     <message>
         <source>Add shader file(s)...</source>
@@ -3584,7 +3584,7 @@ media file played</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstranit</translation>
     </message>
     <message>
         <source>Add to shaders</source>
@@ -3596,15 +3596,15 @@ media file played</source>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložit</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Smazat</translation>
     </message>
     <message>
         <source>Wiki</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiki</translation>
     </message>
     <message>
         <source>Active shaders</source>
@@ -3616,11 +3616,11 @@ media file played</source>
     </message>
     <message>
         <source>Launch files in fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Spustit soubory v celé obrazovce</translation>
     </message>
     <message>
         <source>Exit fullscreen at the end of playback</source>
-        <translation type="unfinished"></translation>
+        <translation>Opustit celou obrazovku na konci přehrávání</translation>
     </message>
     <message>
         <source>Hiding</source>
@@ -3632,11 +3632,11 @@ media file played</source>
     </message>
     <message>
         <source>Hide controls in fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Schovat ovládání v režimu celé obrazovky</translation>
     </message>
     <message>
         <source>Never show</source>
-        <translation type="unfinished"></translation>
+        <translation>Nezobrazovat</translation>
     </message>
     <message>
         <source>Show when moving the cursor, hide after:</source>
@@ -3652,7 +3652,7 @@ media file played</source>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Režim</translation>
     </message>
     <message>
         <source>Decoder</source>
@@ -3668,7 +3668,7 @@ media file played</source>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Výchozí</translation>
     </message>
     <message>
         <source>Non reference</source>
@@ -3844,11 +3844,11 @@ media file played</source>
     </message>
     <message>
         <source>Force grayscale</source>
-        <translation type="unfinished"></translation>
+        <translation>Vnutit černobílou</translation>
     </message>
     <message>
         <source>Fix timing</source>
-        <translation type="unfinished"></translation>
+        <translation>Opravit časování</translation>
     </message>
     <message>
         <source>Clear on seek</source>
@@ -3861,7 +3861,7 @@ media file played</source>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Ano</translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
@@ -3873,19 +3873,19 @@ media file played</source>
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Písmo</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Styl</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>Tučné</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
+        <translation>Kurzíva</translation>
     </message>
     <message>
         <source>Border style</source>
@@ -3909,7 +3909,7 @@ media file played</source>
     </message>
     <message>
         <source>Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Barvy</translation>
     </message>
     <message>
         <source>Border color</source>
@@ -3933,7 +3933,7 @@ media file played</source>
     </message>
     <message>
         <source>Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Cesta</translation>
     </message>
     <message>
         <source>Match</source>
@@ -3941,7 +3941,7 @@ media file played</source>
     </message>
     <message>
         <source>Exact</source>
-        <translation type="unfinished"></translation>
+        <translation>Přesně</translation>
     </message>
     <message>
         <source>Fuzzy</source>
@@ -3957,11 +3957,11 @@ media file played</source>
     </message>
     <message>
         <source>https://</source>
-        <translation type="unfinished"></translation>
+        <translation>https://</translation>
     </message>
     <message>
         <source>Test</source>
-        <translation type="unfinished"></translation>
+        <translation>Test</translation>
     </message>
     <message>
         <source>Directories</source>
@@ -3969,11 +3969,11 @@ media file played</source>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Snímek obrazovky</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Encode</source>
@@ -3985,7 +3985,7 @@ media file played</source>
     </message>
     <message>
         <source>Filename template</source>
-        <translation type="unfinished"></translation>
+        <translation>Šablona názvu souboru</translation>
     </message>
     <message>
         <source>qrc:/text/encodeFormat.html</source>
@@ -3993,15 +3993,15 @@ media file played</source>
     </message>
     <message>
         <source>Save with high bit depth</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložit ve vysoké bitové hloubce</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Kvalita</translation>
     </message>
     <message>
         <source>Smooth</source>
-        <translation type="unfinished"></translation>
+        <translation>Plynulé</translation>
     </message>
     <message>
         <source>Source Chroma</source>
@@ -4009,15 +4009,15 @@ media file played</source>
     </message>
     <message>
         <source>Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>Komprese</translation>
     </message>
     <message>
         <source>Filter</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtr</translation>
     </message>
     <message>
         <source>Colorspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Barevný prostor</translation>
     </message>
     <message>
         <source>Include tag</source>
@@ -4029,7 +4029,7 @@ media file played</source>
     </message>
     <message>
         <source>Hardsub</source>
-        <translation type="unfinished"></translation>
+        <translation>Vpálené titulky</translation>
     </message>
     <message>
         <source>Filesi&amp;ze</source>
@@ -4037,15 +4037,15 @@ media file played</source>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation>MB</translation>
     </message>
     <message>
         <source>Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitový tok</translation>
     </message>
     <message>
         <source>kBits</source>
-        <translation type="unfinished"></translation>
+        <translation>kBity</translation>
     </message>
     <message>
         <source>crf</source>
@@ -4097,7 +4097,7 @@ media file played</source>
     </message>
     <message>
         <source>Prefer Wayland over XWayland (restart required)</source>
-        <translation type="unfinished"></translation>
+        <translation>Preferovat Wayland místo XWaylandu (vyžaduje restart)</translation>
     </message>
     <message>
         <source>Turn on logging (may produce stuttering)</source>
@@ -4109,7 +4109,7 @@ media file played</source>
     </message>
     <message>
         <source>Client</source>
-        <translation type="unfinished"></translation>
+        <translation>Klient</translation>
     </message>
     <message>
         <source>Event messages</source>
@@ -4117,11 +4117,11 @@ media file played</source>
     </message>
     <message>
         <source>mpv</source>
-        <translation type="unfinished"></translation>
+        <translation>mpv</translation>
     </message>
     <message>
         <source>No (complete silence)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne (úplné ticho)</translation>
     </message>
     <message>
         <source>Fatal</source>
@@ -4129,11 +4129,11 @@ media file played</source>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Varování</translation>
     </message>
     <message>
         <source>Informational</source>
@@ -4197,11 +4197,11 @@ media file played</source>
     </message>
     <message>
         <source>Color controls</source>
-        <translation type="unfinished"></translation>
+        <translation>Ovládání barev</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>Jas</translation>
     </message>
     <message>
         <source>Hue</source>
@@ -4221,7 +4221,7 @@ media file played</source>
     </message>
     <message>
         <source>Open Logo Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít obrázek loga</translation>
     </message>
     <message>
         <source>Audio open settings</source>
@@ -4229,7 +4229,7 @@ media file played</source>
     </message>
     <message>
         <source>Paths</source>
-        <translation type="unfinished"></translation>
+        <translation>Cesty</translation>
     </message>
     <message>
         <source>Dela&amp;yed</source>
@@ -4285,11 +4285,11 @@ media file played</source>
     </message>
     <message>
         <source>Web Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Webové rozhrání</translation>
     </message>
     <message>
         <source>Allow access from localhost only</source>
-        <translation type="unfinished"></translation>
+        <translation>Povolit přístup jen z localhostu</translation>
     </message>
     <message>
         <source>webroot</source>
@@ -4297,15 +4297,15 @@ media file played</source>
     </message>
     <message>
         <source>Default page</source>
-        <translation type="unfinished"></translation>
+        <translation>Výchozí stránka</translation>
     </message>
     <message>
         <source>index.html</source>
-        <translation type="unfinished"></translation>
+        <translation>index.html</translation>
     </message>
     <message>
         <source>TCP/IP</source>
-        <translation type="unfinished"></translation>
+        <translation>TCP/IP</translation>
     </message>
     <message>
         <source>&lt;a href=&quot;#&quot;&gt;Launch in web browser...&lt;/a&gt;</source>
@@ -4313,7 +4313,7 @@ media file played</source>
     </message>
     <message>
         <source>Local files</source>
-        <translation type="unfinished"></translation>
+        <translation>Místní soubory</translation>
     </message>
     <message>
         <source>Web root</source>
@@ -4321,11 +4321,11 @@ media file played</source>
     </message>
     <message>
         <source>Security</source>
-        <translation type="unfinished"></translation>
+        <translation>Bezpečnost</translation>
     </message>
     <message>
         <source>Enable web server</source>
-        <translation type="unfinished"></translation>
+        <translation>Povolit webový server</translation>
     </message>
     <message>
         <source>Serve pages from disk</source>
@@ -4341,11 +4341,11 @@ media file played</source>
     </message>
     <message>
         <source>Stylesheet</source>
-        <translation type="unfinished"></translation>
+        <translation>Šablona stylů</translation>
     </message>
     <message>
         <source>Application Stylesheet</source>
-        <translation type="unfinished"></translation>
+        <translation>Šablona stylů aplikace</translation>
     </message>
     <message>
         <source>High-contrast timeline and volume sliders</source>
@@ -4357,11 +4357,11 @@ media file played</source>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Nedělat nic</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation>Opakovat</translation>
     </message>
     <message>
         <source>Play next in the folder</source>
@@ -4369,11 +4369,11 @@ media file played</source>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukončit</translation>
     </message>
     <message>
         <source>After Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>Po přehrání</translation>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
@@ -4381,7 +4381,7 @@ media file played</source>
     </message>
     <message>
         <source>Pipewire</source>
-        <translation type="unfinished"></translation>
+        <translation>Pipewire</translation>
     </message>
     <message>
         <source>Use time tooltip:</source>
@@ -4397,7 +4397,7 @@ media file played</source>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"></translation>
+        <translation>Střední</translation>
     </message>
     <message>
         <source>BT.470M</source>
@@ -4457,11 +4457,11 @@ media file played</source>
     </message>
     <message>
         <source>Relative</source>
-        <translation type="unfinished"></translation>
+        <translation>Relativní</translation>
     </message>
     <message>
         <source>Absolute</source>
-        <translation type="unfinished"></translation>
+        <translation>Absolutní</translation>
     </message>
     <message>
         <source>Desaturate</source>
@@ -4469,7 +4469,7 @@ media file played</source>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Ztmavit</translation>
     </message>
     <message>
         <source>Warn</source>
@@ -4509,7 +4509,7 @@ media file played</source>
     </message>
     <message>
         <source>nVidia only (faster than CUDA)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pouze nVidia (rychlejší než CUDA)</translation>
     </message>
     <message>
         <source>Show OSD timer on seek</source>
@@ -4557,23 +4557,23 @@ media file played</source>
     </message>
     <message>
         <source>Open ICC Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít ICC profil</translation>
     </message>
     <message>
         <source>ICC profile files (*.icc *.icm)</source>
-        <translation type="unfinished"></translation>
+        <translation>Soubory ICC profilů (*.icc *.icm)</translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Povolit podporu tmavého vzhledu ve Windows</translation>
     </message>
     <message>
         <source>Audio balance</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyrovnání hlasitosti</translation>
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyhledávání...</translation>
     </message>
     <message>
         <source>Show video preview</source>
@@ -4581,39 +4581,39 @@ media file played</source>
     </message>
     <message>
         <source>100%</source>
-        <translation type="unfinished"></translation>
+        <translation>100 %</translation>
     </message>
     <message>
         <source>25%</source>
-        <translation type="unfinished"></translation>
+        <translation>25 %</translation>
     </message>
     <message>
         <source>50%</source>
-        <translation type="unfinished"></translation>
+        <translation>50 %</translation>
     </message>
     <message>
         <source>75%</source>
-        <translation type="unfinished"></translation>
+        <translation>75 %</translation>
     </message>
     <message>
         <source>150%</source>
-        <translation type="unfinished"></translation>
+        <translation>150 %</translation>
     </message>
     <message>
         <source>200%</source>
-        <translation type="unfinished"></translation>
+        <translation>200 %</translation>
     </message>
     <message>
         <source>300%</source>
-        <translation type="unfinished"></translation>
+        <translation>300 %</translation>
     </message>
     <message>
         <source>400%</source>
-        <translation type="unfinished"></translation>
+        <translation>400 %</translation>
     </message>
     <message>
         <source>Remove subtitles additions for the deaf or hard-of-hearing (SDH)</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstranit titulkové dodatky pro neslyšící a nedoslýchavé (SDH)</translation>
     </message>
     <message>
         <source>Requires restarting the application to apply changes</source>
@@ -4621,15 +4621,15 @@ media file played</source>
     </message>
     <message>
         <source>yt-dlp (web videos)</source>
-        <translation type="unfinished"></translation>
+        <translation>yt-dlp (webová videa)</translation>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximální výška videa:</translation>
     </message>
     <message>
         <source>Custom mpv options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Vlastní nastavení mpv:</translation>
     </message>
     <message>
         <source>Seek to keyframe when hardware decoding is unavailable</source>
@@ -4641,19 +4641,19 @@ media file played</source>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>Stín</translation>
     </message>
     <message>
         <source>Enable shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>Povolit stín</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvolit</translation>
     </message>
     <message>
         <source>Preset applied</source>
-        <translation type="unfinished"></translation>
+        <translation>Přednastavení aplikováno</translation>
     </message>
     <message>
         <source>Position ASS subs relative to the video frame</source>
@@ -4669,7 +4669,7 @@ media file played</source>
     </message>
     <message>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>Enable background box</source>
@@ -4697,7 +4697,7 @@ media file played</source>
     </message>
     <message>
         <source>File title</source>
-        <translation type="unfinished"></translation>
+        <translation>Název souboru</translation>
     </message>
     <message>
         <source>CRF</source>
@@ -4705,19 +4705,19 @@ media file played</source>
     </message>
     <message>
         <source>Lossless</source>
-        <translation type="unfinished"></translation>
+        <translation>Bezztrátové</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Rychlost</translation>
     </message>
     <message>
         <source>Others</source>
-        <translation type="unfinished"></translation>
+        <translation>Ostatní</translation>
     </message>
     <message>
         <source>Video background</source>
-        <translation type="unfinished"></translation>
+        <translation>Pozadí videa</translation>
     </message>
     <message>
         <source>Status bar background</source>
@@ -4733,7 +4733,7 @@ media file played</source>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">Source</translation>
+        <translation>Zdroj</translation>
     </message>
     <message>
         <source>Built-in</source>
@@ -4753,11 +4753,11 @@ media file played</source>
     </message>
     <message>
         <source>Remember last window size and position</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapamatovat poslední velikost a pozici okna</translation>
     </message>
     <message>
         <source>Use dark colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Použít tmavé barvy</translation>
     </message>
 </context>
 <context>
@@ -4771,27 +4771,27 @@ media file played</source>
     <name>ThumbnailerWindow</name>
     <message>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Zdroj</translation>
     </message>
     <message>
         <source>&amp;Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Procházet...</translation>
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrázek</translation>
     </message>
     <message>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Šířka</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozložení</translation>
     </message>
     <message>
         <source>Rows</source>
@@ -4799,7 +4799,7 @@ media file played</source>
     </message>
     <message>
         <source>&amp;Go!</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Jdi!</translation>
     </message>
     <message>
         <source>Thu&amp;mbnail</source>
@@ -4815,7 +4815,7 @@ media file played</source>
     </message>
     <message>
         <source>Save Thumbnails</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložit miniatury</translation>
     </message>
     <message>
         <source>%p%</source>
