@@ -507,6 +507,7 @@ private:
     Tooltip *tooltip = nullptr;
     StatusTime *statusTime = nullptr;
     PlaylistWindow *playlistWindow_ = nullptr;
+    QMenu moreRecentsMenu;
     QMenu *contextMenu = nullptr;
     QMenu *trayMenu = nullptr;
     QTimer hideTimer;

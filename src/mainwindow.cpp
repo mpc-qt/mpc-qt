@@ -1793,10 +1793,11 @@ void MainWindow::setRecentDocuments(const QList<TrackInfo> &tracks)
     if (tracks.count() > 20) {
         LogStream(logModule) << "tracks.count(): " << tracks.count();
         Logger::log(logModule, "setRecentDocuments > 20");
-        QMenu *moreRecentsMenu = new QMenu(tr("More Files"));
-        addRecentDocumentsEntries(tracks, moreRecentsMenu, 20, 50);
+        moreRecentsMenu.clear();
+        moreRecentsMenu.setTitle(tr("More Files"));
+        addRecentDocumentsEntries(tracks, &moreRecentsMenu, 20, 50);
         ui->menuFileRecent->addSeparator();
-        ui->menuFileRecent->addMenu(moreRecentsMenu);
+        ui->menuFileRecent->addMenu(&moreRecentsMenu);
         Logger::log(logModule, "setRecentDocuments > 20 done");
     }
 
@@ -1815,7 +1816,7 @@ void MainWindow::addRecentDocumentsEntries(const QList<TrackInfo> &tracks, QMenu
             displayString = track.title;
         displayString.truncate(100);
         QAction *a = new QAction(QString("%1").arg(displayString),
-                                 this);
+                                 menu);
         connect(a, &QAction::triggered, this, [this, track]() {
             emit recentOpened(track);
         });
