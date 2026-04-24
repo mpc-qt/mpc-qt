@@ -3588,7 +3588,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Launch files in fullscreen</source>
-        <translation>Llençar arxius a pantalla completa</translation>
+        <translation>Llança arxius a pantalla completa</translation>
     </message>
     <message>
         <source>Exit fullscreen at the end of playback</source>
