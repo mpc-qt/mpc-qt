@@ -5,7 +5,18 @@
 #include <QMimeData>
 #include <QInputDialog>
 #include <QFileDialog>
+#include <QFile>
+#include <QFileInfo>
+#include <QHBoxLayout>
 #include <QMenu>
+#include <QMessageBox>
+#include <QPlainTextEdit>
+#include <QPushButton>
+#include <QRegularExpression>
+#include <QTextBrowser>
+#include <QTextDocument>
+#include <QUrlQuery>
+#include <QVBoxLayout>
 #include "logger.h"
 #include "playlistwindow.h"
 #include "ui_playlistwindow.h"
@@ -29,6 +40,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     setWindowTitle(tr("Playlist"));
     addNewTab(QUuid(), tr("Quick Playlist"));
     addQuickQueue();
+    ensureChapterPreviewTab();
     ui->searchHost->setVisible(false);
     ui->searchField->installEventFilter(this);
 
@@ -256,7 +268,9 @@ QVariantList PlaylistWindow::tabsToVList(bool saveQuickPlaylist) const
 {
     QVariantList qvl;
     for (int i = 0; i < ui->tabWidget->count(); i++) {
-        auto widget = static_cast<DrawnPlaylist *>(ui->tabWidget->widget(i));
+        auto widget = qobject_cast<DrawnPlaylist *>(ui->tabWidget->widget(i));
+        if (!widget)
+            continue;
         if (!saveQuickPlaylist && widget->uuid().isNull())
             widget->removeAll();
         qvl.append(widget->toVMap());
@@ -270,6 +284,14 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
 {
     ui->tabWidget->clear();
     widgets.clear();
+    chapterPreviewTabWidget = nullptr;
+    chapterPreviewBrowser = nullptr;
+    chapterPreviewEditor = nullptr;
+    chapterModeButton = nullptr;
+    chapterSaveButton = nullptr;
+    chapterInsertTimeButton = nullptr;
+    chapterMarkdownPath.clear();
+    chapterEditMode = false;
     for (const QVariant &v : qvl) {
         QVariantMap qvm = v.toMap();
         if (qvm.contains(keyCurrentPlaylist)) {
@@ -292,6 +314,7 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
     }
     if (widgets.count() < 1)
         addNewTab(QUuid(), tr("Quick Playlist"));
+    ensureChapterPreviewTab();
     updatePlaylistHasItems();
 }
 
@@ -303,6 +326,12 @@ void PlaylistWindow::updateIcons()
 void PlaylistWindow::updateLanguage()
 {
     ui->retranslateUi(this);
+    if (chapterPreviewTabWidget) {
+        int idx = ui->tabWidget->indexOf(chapterPreviewTabWidget);
+        if (idx >= 0)
+            ui->tabWidget->setTabText(idx, tr("视频章节预览"));
+        setChapterEditorMode(chapterEditMode);
+    }
 }
 
 bool PlaylistWindow::eventFilter(QObject *obj, QEvent *event)
@@ -385,14 +414,16 @@ void PlaylistWindow::connectSignalsToSlots()
 
 DrawnPlaylist *PlaylistWindow::currentPlaylistWidget()
 {
-    return static_cast<DrawnPlaylist *>(ui->tabWidget->currentWidget());
+    return qobject_cast<DrawnPlaylist *>(ui->tabWidget->currentWidget());
 }
 
 void PlaylistWindow::updateCurrentPlaylist()
 {
     auto qdp = currentPlaylistWidget();
-    if (!qdp)
+    if (!qdp) {
+        emit currentPlaylistHasItems(false);
         return;
+    }
     currentPlaylist = qdp->uuid();
     setTabOrder(ui->tabWidget->focusProxy(), qdp);
     setTabOrder(qdp, ui->searchField);
@@ -424,8 +455,148 @@ void PlaylistWindow::addNewTab(QUuid playlist, QString title)
     connect(qdp, &DrawnPlaylist::contextMenuRequested,
             this, &PlaylistWindow::playlist_contextMenuRequested);
     widgets.insert(playlist, qdp);
-    ui->tabWidget->addTab(qdp, title);
+    int chapterTabIndex = ui->tabWidget->indexOf(chapterPreviewTabWidget);
+    if (chapterTabIndex < 0)
+        ui->tabWidget->addTab(qdp, title);
+    else
+        ui->tabWidget->insertTab(chapterTabIndex, qdp, title);
     ui->tabWidget->setCurrentWidget(qdp);
+}
+
+bool PlaylistWindow::isChapterPreviewTab(int index) const
+{
+    return chapterPreviewTabWidget && ui->tabWidget->widget(index) == chapterPreviewTabWidget;
+}
+
+void PlaylistWindow::ensureChapterPreviewTab()
+{
+    if (chapterPreviewTabWidget)
+        return;
+
+    chapterPreviewTabWidget = new QWidget(ui->tabWidget);
+    auto *layout = new QVBoxLayout(chapterPreviewTabWidget);
+    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setSpacing(4);
+
+    auto *actionsLayout = new QHBoxLayout();
+    chapterModeButton = new QPushButton(tr("编辑模式"), chapterPreviewTabWidget);
+    chapterModeButton->setCheckable(true);
+    connect(chapterModeButton, &QPushButton::clicked,
+            this, &PlaylistWindow::toggleChapterEditMode);
+    actionsLayout->addWidget(chapterModeButton);
+
+    chapterInsertTimeButton = new QPushButton(tr("插入时间标签"), chapterPreviewTabWidget);
+    connect(chapterInsertTimeButton, &QPushButton::clicked,
+            this, &PlaylistWindow::insertChapterTimeTag);
+    actionsLayout->addWidget(chapterInsertTimeButton);
+
+    chapterSaveButton = new QPushButton(tr("保存"), chapterPreviewTabWidget);
+    connect(chapterSaveButton, &QPushButton::clicked,
+            this, &PlaylistWindow::saveChapterMarkdown);
+    actionsLayout->addWidget(chapterSaveButton);
+    actionsLayout->addStretch();
+    layout->addLayout(actionsLayout);
+
+    chapterPreviewBrowser = new QTextBrowser(chapterPreviewTabWidget);
+    chapterPreviewBrowser->setOpenLinks(false);
+    chapterPreviewBrowser->setOpenExternalLinks(false);
+    connect(chapterPreviewBrowser, &QTextBrowser::anchorClicked,
+            this, &PlaylistWindow::chapterPreviewAnchorClicked);
+    layout->addWidget(chapterPreviewBrowser);
+
+    chapterPreviewEditor = new QPlainTextEdit(chapterPreviewTabWidget);
+    chapterPreviewEditor->setVisible(false);
+    layout->addWidget(chapterPreviewEditor);
+
+    ui->tabWidget->addTab(chapterPreviewTabWidget, tr("视频章节预览"));
+    setChapterPreviewHtml(tr("<p>No chapter markdown found for the current video.</p>"));
+    setChapterEditorMode(false);
+}
+
+void PlaylistWindow::setChapterPreviewHtml(const QString &html)
+{
+    if (chapterPreviewBrowser)
+        chapterPreviewBrowser->setHtml(html);
+}
+
+void PlaylistWindow::setChapterEditorMode(bool editing)
+{
+    chapterEditMode = editing;
+    if (!chapterModeButton || !chapterPreviewBrowser || !chapterPreviewEditor
+            || !chapterSaveButton || !chapterInsertTimeButton)
+        return;
+
+    chapterModeButton->setChecked(editing);
+    chapterModeButton->setText(editing ? tr("观看模式") : tr("编辑模式"));
+    chapterPreviewBrowser->setVisible(!editing);
+    chapterPreviewEditor->setVisible(editing);
+    chapterSaveButton->setVisible(editing);
+    chapterInsertTimeButton->setVisible(editing);
+}
+
+QString PlaylistWindow::buildChapterPreviewHtml(const QString &markdown)
+{
+    static const QRegularExpression timeMarker(
+        QStringLiteral("<time\\s+datetime=(?:\"|')(\\d{1,2}:\\d{2}:\\d{2})(?:\"|')>(.*?)</time>"),
+        QRegularExpression::CaseInsensitiveOption | QRegularExpression::DotMatchesEverythingOption);
+
+    QString converted = markdown;
+    converted.replace(timeMarker,
+                      QStringLiteral("[\\2](chapter://jump?time=\\1) <small>[\\1]</small>"));
+
+    QTextDocument doc;
+    doc.setMarkdown(converted);
+    return doc.toHtml();
+}
+
+bool PlaylistWindow::validateChapterMarkdown(const QString &markdown, QString &error) const
+{
+    static const QRegularExpression timeMarker(
+        QStringLiteral("<time\\s+datetime=(?:\"|')(\\d{1,2}:\\d{2}:\\d{2})(?:\"|')>(.*?)</time>"),
+        QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatchIterator it = timeMarker.globalMatch(markdown);
+    QString stripped = markdown;
+    while (it.hasNext()) {
+        auto match = it.next();
+        bool ok = false;
+        parseChapterTimeToSeconds(match.captured(1), &ok);
+        if (!ok) {
+            error = tr("时间标签格式错误：%1").arg(match.captured(1));
+            return false;
+        }
+        stripped.replace(match.captured(0), QString());
+    }
+
+    if (stripped.contains("<time", Qt::CaseInsensitive)
+            || stripped.contains("</time>", Qt::CaseInsensitive)) {
+        error = tr("检测到未闭合或格式错误的 <time> 标签。");
+        return false;
+    }
+    return true;
+}
+
+double PlaylistWindow::parseChapterTimeToSeconds(const QString &timeText, bool *ok) const
+{
+    const QStringList parts = timeText.split(':');
+    if (parts.size() != 3) {
+        if (ok)
+            *ok = false;
+        return 0.0;
+    }
+    bool hourOk = false;
+    bool minuteOk = false;
+    bool secondOk = false;
+    int hour = parts[0].toInt(&hourOk);
+    int minute = parts[1].toInt(&minuteOk);
+    int second = parts[2].toInt(&secondOk);
+    bool valid = hourOk && minuteOk && secondOk
+            && hour >= 0 && minute >= 0 && minute < 60
+            && second >= 0 && second < 60;
+    if (ok)
+        *ok = valid;
+    if (!valid)
+        return 0.0;
+    return hour * 3600.0 + minute * 60.0 + second;
 }
 
 void PlaylistWindow::addQuickQueue()
@@ -497,7 +668,8 @@ void PlaylistWindow::addPlaylistByUuid(QUuid playlistUuid)
 void PlaylistWindow::setDisplayFormatSpecifier(QString fmt)
 {
     displayParser.takeFormatString(fmt);
-    ui->tabWidget->currentWidget()->update();
+    if (ui->tabWidget->currentWidget())
+        ui->tabWidget->currentWidget()->update();
 }
 
 void PlaylistWindow::dockLocationMaybeChanged()
@@ -533,13 +705,17 @@ void PlaylistWindow::closeTab()
 void PlaylistWindow::duplicateTab()
 {
     auto origin = currentPlaylistWidget();
+    if (!origin)
+        return;
     auto remote = PlaylistCollection::getSingleton()->clonePlaylist(origin->uuid());
     addNewTab(remote->uuid(), remote->title());
 }
 
 void PlaylistWindow::renameTab()
 {
-    auto widget = static_cast<DrawnPlaylist *>(ui->tabWidget->currentWidget());
+    auto widget = qobject_cast<DrawnPlaylist *>(ui->tabWidget->currentWidget());
+    if (!widget)
+        return;
     QUuid tabUuid = widget->uuid();
     if (tabUuid.isNull())
         return;
@@ -576,33 +752,46 @@ void PlaylistWindow::importTab()
 
 void PlaylistWindow::exportTab()
 {
-    auto playlistUuid = currentPlaylistWidget()->uuid();
+    auto current = currentPlaylistWidget();
+    if (!current)
+        return;
+    auto playlistUuid = current->uuid();
     savePlaylist(playlistUuid);
 }
 
 void PlaylistWindow::copy()
 {
-    clipboard->fromSelected(currentPlaylistWidget());
+    auto current = currentPlaylistWidget();
+    if (current)
+        clipboard->fromSelected(current);
 }
 
 void PlaylistWindow::copyQueue()
 {
-    clipboard->fromQueue(currentPlaylistWidget());
+    auto current = currentPlaylistWidget();
+    if (current)
+        clipboard->fromQueue(current);
 }
 
 void PlaylistWindow::paste()
 {
-    clipboard->appendToPlaylist(currentPlaylistWidget());
+    auto current = currentPlaylistWidget();
+    if (current)
+        clipboard->appendToPlaylist(current);
 }
 
 void PlaylistWindow::pasteQueue()
 {
-    clipboard->appendAndQuickQueue(currentPlaylistWidget());
+    auto current = currentPlaylistWidget();
+    if (current)
+        clipboard->appendAndQuickQueue(current);
 }
 
 void PlaylistWindow::playCurrentItem()
 {
     auto qdp = currentPlaylistWidget();
+    if (!qdp)
+        return;
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
     auto itemUuid = qdp->currentItemUuid();
     if (itemUuid.isNull())
@@ -613,6 +802,8 @@ void PlaylistWindow::playCurrentItem()
 bool PlaylistWindow::playActiveItem()
 {
     auto qdp = currentPlaylistWidget();
+    if (!qdp)
+        return false;
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
     auto itemUuid = qdp->nowPlayingItem();
     if (itemUuid.isNull())
@@ -624,6 +815,8 @@ bool PlaylistWindow::playActiveItem()
 void PlaylistWindow::selectNext()
 {
     auto qdp = currentPlaylistWidget();
+    if (!qdp)
+        return;
     int index = qdp->currentRow();
     if (index + 1 < qdp->count())
         qdp->setCurrentRow(index + 1);
@@ -632,6 +825,8 @@ void PlaylistWindow::selectNext()
 void PlaylistWindow::selectPrevious()
 {
     auto qdp = currentPlaylistWidget();
+    if (!qdp)
+        return;
     int index = qdp->currentRow();
     if (index > 0)
         qdp->setCurrentRow(index - 1);
@@ -640,6 +835,8 @@ void PlaylistWindow::selectPrevious()
 void PlaylistWindow::incExtraPlayTimes()
 {
     auto qdp = currentPlaylistWidget();
+    if (!qdp)
+        return;
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
     auto incrementer = [pl](QUuid itemUuid) {
         auto item = pl->getItem(itemUuid);
@@ -653,6 +850,8 @@ void PlaylistWindow::incExtraPlayTimes()
 void PlaylistWindow::decExtraPlayTimes()
 {
     auto qdp = currentPlaylistWidget();
+    if (!qdp)
+        return;
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
     auto decrementer = [pl](QUuid itemUuid) {
         auto item = pl->getItem(itemUuid);
@@ -666,6 +865,8 @@ void PlaylistWindow::decExtraPlayTimes()
 void PlaylistWindow::zeroExtraPlayTimes()
 {
     auto qdp = currentPlaylistWidget();
+    if (!qdp)
+        return;
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
     auto zeroer = [pl](QUuid itemUuid) {
         auto item = pl->getItem(itemUuid);
@@ -679,6 +880,8 @@ void PlaylistWindow::zeroExtraPlayTimes()
 void PlaylistWindow::activateNext()
 {
     auto qdp = currentPlaylistWidget();
+    if (!qdp)
+        return;
     auto now = qdp->nowPlayingItem();
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
     auto next = pl->itemAfter(now);
@@ -689,6 +892,8 @@ void PlaylistWindow::activateNext()
 void PlaylistWindow::activatePrevious()
 {
     auto qdp = currentPlaylistWidget();
+    if (!qdp)
+        return;
     auto now = qdp->nowPlayingItem();
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
     auto prev = pl->itemBefore(now);
@@ -702,6 +907,8 @@ void PlaylistWindow::quickQueue()
         return;
 
     auto qdp = currentPlaylistWidget();
+    if (!qdp)
+        return;
     auto itemUuids = qdp->currentItemUuids();
     if (itemUuids.isEmpty())
         return;
@@ -719,15 +926,18 @@ void PlaylistWindow::visibleToQueue()
 {
     if (ui->showQueue->isChecked())
         return;
+    auto current = currentPlaylistWidget();
+    if (!current)
+        return;
 
     QList<QUuid> added;
     QList<int> removed;
     PlaylistCollection::queuePlaylist()->\
-            toggleFromPlaylist(currentPlaylistWidget()->uuid(), added, removed);
+            toggleFromPlaylist(current->uuid(), added, removed);
     queueWidget->removeItems(removed);
     queueWidget->addItems(added);
     queueWidget->viewport()->update();
-    currentPlaylistWidget()->viewport()->update();
+    current->viewport()->update();
 }
 
 void PlaylistWindow::setQueueMode(bool yes)
@@ -757,8 +967,11 @@ void PlaylistWindow::finishSearch()
         setPlaylistFilters(QString());
     }
 
-    if (ui->searchField->hasFocus())
-        currentPlaylistWidget()->setFocus();
+    if (ui->searchField->hasFocus()) {
+        auto current = currentPlaylistWidget();
+        if (current)
+            current->setFocus();
+    }
 
     ui->searchHost->setVisible(false);
 }
@@ -1075,8 +1288,10 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
 
 void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
 {
+    if (isChapterPreviewTab(index))
+        return;
     int current = ui->tabWidget->currentIndex();
-    auto qdp = static_cast<DrawnPlaylist *>(ui->tabWidget->widget(index));
+    auto qdp = qobject_cast<DrawnPlaylist *>(ui->tabWidget->widget(index));
     if (!qdp)
         return;
 
@@ -1111,13 +1326,16 @@ void PlaylistWindow::on_tabWidget_tabBarClicked(int index)
 
 void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
 {
-    Q_UNUSED(index);
+    if (isChapterPreviewTab(index))
+        return;
     renameTab();
 }
 
 void PlaylistWindow::on_tabWidget_customContextMenuRequested(const QPoint &pos)
 {
-    auto widget = static_cast<DrawnPlaylist *>(ui->tabWidget->currentWidget());
+    auto widget = qobject_cast<DrawnPlaylist *>(ui->tabWidget->currentWidget());
+    if (!widget)
+        return;
     bool isQuickPlaylist = widget->uuid().isNull();
 
     QMenu *m = new QMenu(this);
@@ -1141,11 +1359,134 @@ void PlaylistWindow::on_searchField_textEdited(const QString &arg1)
 
 void PlaylistWindow::on_tabWidget_currentChanged(int index)
 {
-    Q_UNUSED(index)
+    if (isChapterPreviewTab(index))
+        ui->searchHost->setVisible(false);
     updateCurrentPlaylist();
 }
 
 void PlaylistWindow::on_searchField_returnPressed()
 {
     playCurrentItem();
+}
+
+void PlaylistWindow::toggleChapterEditMode()
+{
+    ensureChapterPreviewTab();
+    const bool toEdit = !chapterEditMode;
+    if (toEdit && chapterPreviewEditor)
+        chapterPreviewEditor->setFocus();
+    if (!toEdit && chapterPreviewEditor)
+        setChapterPreviewHtml(buildChapterPreviewHtml(chapterPreviewEditor->toPlainText()));
+    setChapterEditorMode(toEdit);
+}
+
+void PlaylistWindow::saveChapterMarkdown()
+{
+    ensureChapterPreviewTab();
+    if (chapterMarkdownPath.isEmpty()) {
+        QMessageBox::warning(this, tr("无法保存"),
+                             tr("当前视频不是本地文件，无法保存章节 Markdown。"));
+        return;
+    }
+    if (!chapterPreviewEditor)
+        return;
+
+    const QString markdown = chapterPreviewEditor->toPlainText();
+    QString error;
+    if (!validateChapterMarkdown(markdown, error)) {
+        QMessageBox::warning(this, tr("Markdown 校验失败"), error);
+        return;
+    }
+
+    QFile file(chapterMarkdownPath);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)) {
+        QMessageBox::warning(this, tr("保存失败"),
+                             tr("无法写入文件：%1").arg(chapterMarkdownPath));
+        return;
+    }
+    file.write(markdown.toUtf8());
+    file.close();
+    setChapterPreviewHtml(buildChapterPreviewHtml(markdown));
+    QMessageBox::information(this, tr("保存成功"), tr("章节 Markdown 已保存。"));
+}
+
+void PlaylistWindow::insertChapterTimeTag()
+{
+    ensureChapterPreviewTab();
+    if (!chapterPreviewEditor)
+        return;
+
+    bool ok = false;
+    QString timeText = QInputDialog::getText(
+                this, tr("插入时间点"), tr("请输入时间 (HH:MM:SS)："),
+                QLineEdit::Normal, QStringLiteral("00:00:00"), &ok);
+    if (!ok)
+        return;
+
+    QString label = QInputDialog::getText(
+                this, tr("标签内容"), tr("请输入标签内容："),
+                QLineEdit::Normal, tr("你好"), &ok);
+    if (!ok)
+        return;
+
+    bool valid = false;
+    parseChapterTimeToSeconds(timeText, &valid);
+    if (!valid) {
+        QMessageBox::warning(this, tr("格式错误"),
+                             tr("时间格式必须是 HH:MM:SS 且分秒范围正确。"));
+        return;
+    }
+    chapterPreviewEditor->insertPlainText(
+                QStringLiteral("<time datetime=\"%1\">%2</time>\n")
+                .arg(timeText, label.toHtmlEscaped()));
+}
+
+void PlaylistWindow::updateChapterPreviewForItem(QUrl itemUrl, QUuid playlistUuid,
+                                                 QUuid itemUuid, bool clickedInPlaylist)
+{
+    Q_UNUSED(playlistUuid)
+    Q_UNUSED(itemUuid)
+    Q_UNUSED(clickedInPlaylist)
+    ensureChapterPreviewTab();
+
+    if (!itemUrl.isLocalFile()) {
+        chapterMarkdownPath.clear();
+        if (chapterPreviewEditor)
+            chapterPreviewEditor->clear();
+        setChapterPreviewHtml(tr("<p>Chapter preview only supports local video files.</p>"));
+        return;
+    }
+
+    const QFileInfo videoInfo(itemUrl.toLocalFile());
+    chapterMarkdownPath = videoInfo.dir().filePath(videoInfo.completeBaseName() + ".md");
+    QFile markdownFile(chapterMarkdownPath);
+    if (!markdownFile.exists()) {
+        if (chapterPreviewEditor)
+            chapterPreviewEditor->clear();
+        setChapterPreviewHtml(tr("<p>No chapter markdown found for the current video.</p>"));
+        return;
+    }
+    if (!markdownFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        if (chapterPreviewEditor)
+            chapterPreviewEditor->clear();
+        setChapterPreviewHtml(tr("<p>Unable to read chapter markdown file.</p>"));
+        return;
+    }
+    const QString markdown = QString::fromUtf8(markdownFile.readAll());
+    if (chapterPreviewEditor)
+        chapterPreviewEditor->setPlainText(markdown);
+    setChapterPreviewHtml(buildChapterPreviewHtml(markdown));
+}
+
+void PlaylistWindow::chapterPreviewAnchorClicked(const QUrl &link)
+{
+    if (link.scheme() != "chapter")
+        return;
+    const QUrlQuery query(link);
+    const QString timeText = query.queryItemValue("time");
+    bool ok = false;
+    const double seconds = parseChapterTimeToSeconds(timeText, &ok);
+    if (!ok)
+        return;
+    emit chapterTimeRequested(seconds);
 }

@@ -168,6 +168,10 @@ void PlaybackManager::setPlaylistWindow(PlaylistWindow *playlistWindow)
             this, &PlaybackManager::playItem);
     connect(this, &PlaybackManager::nowPlayingChanged,
             playlistWindow, &PlaylistWindow::changePlaylistSelection);
+    connect(this, &PlaybackManager::nowPlayingChanged,
+            playlistWindow, &PlaylistWindow::updateChapterPreviewForItem);
+    connect(playlistWindow, &PlaylistWindow::chapterTimeRequested,
+            this, &PlaybackManager::navigateToTime);
 }
 
 QUrl PlaybackManager::nowPlaying()
