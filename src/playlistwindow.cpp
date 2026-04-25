@@ -1,4 +1,5 @@
 #include <QAction>
+#include <algorithm>
 #include <QClipboard>
 #include <QDragEnterEvent>
 #include <QGuiApplication>
@@ -10,11 +11,14 @@
 #include <QHBoxLayout>
 #include <QMenu>
 #include <QMessageBox>
+#include <QListWidget>
 #include <QPlainTextEdit>
 #include <QPushButton>
 #include <QRegularExpression>
+#include <QSet>
 #include <QTextBrowser>
 #include <QTextDocument>
+#include <QTreeWidget>
 #include <QUrlQuery>
 #include <QVBoxLayout>
 #include "logger.h"
@@ -41,6 +45,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     addNewTab(QUuid(), tr("Quick Playlist"));
     addQuickQueue();
     ensureChapterPreviewTab();
+    ensureChapterTopicsTab();
     ui->searchHost->setVisible(false);
     ui->searchField->installEventFilter(this);
 
@@ -69,6 +74,7 @@ void PlaylistWindow::clearPlaylist(QUuid what)
     if (widgets.contains(what))
         widgets[what]->removeAll();
     updatePlaylistHasItems();
+    refreshChapterTopicsForCurrentPlaylist();
 }
 
 PlaylistItem PlaylistWindow::addToPlaylist(const QUuid &playlist, const QList<QUrl> &what)
@@ -85,6 +91,7 @@ PlaylistItem PlaylistWindow::addToPlaylist(const QUuid &playlist, const QList<QU
         }
     }
     updatePlaylistHasItems();
+    refreshChapterTopicsForCurrentPlaylist();
     return firstPlaylistItem;
 }
 
@@ -290,8 +297,12 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
     chapterModeButton = nullptr;
     chapterSaveButton = nullptr;
     chapterInsertTimeButton = nullptr;
+    chapterTopicsTabWidget = nullptr;
+    chapterTopicTree = nullptr;
+    chapterTopicCards = nullptr;
     chapterMarkdownPath.clear();
     chapterEditMode = false;
+    topicCardsByPath.clear();
     for (const QVariant &v : qvl) {
         QVariantMap qvm = v.toMap();
         if (qvm.contains(keyCurrentPlaylist)) {
@@ -315,6 +326,7 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
     if (widgets.count() < 1)
         addNewTab(QUuid(), tr("Quick Playlist"));
     ensureChapterPreviewTab();
+    ensureChapterTopicsTab();
     updatePlaylistHasItems();
 }
 
@@ -331,6 +343,11 @@ void PlaylistWindow::updateLanguage()
         if (idx >= 0)
             ui->tabWidget->setTabText(idx, tr("视频章节预览"));
         setChapterEditorMode(chapterEditMode);
+    }
+    if (chapterTopicsTabWidget) {
+        int idx = ui->tabWidget->indexOf(chapterTopicsTabWidget);
+        if (idx >= 0)
+            ui->tabWidget->setTabText(idx, tr("章节话题索引"));
     }
 }
 
@@ -428,6 +445,7 @@ void PlaylistWindow::updateCurrentPlaylist()
     setTabOrder(ui->tabWidget->focusProxy(), qdp);
     setTabOrder(qdp, ui->searchField);
     updatePlaylistHasItems();
+    refreshChapterTopicsForCurrentPlaylist();
 }
 
 void PlaylistWindow::updatePlaylistHasItems()
@@ -455,17 +473,28 @@ void PlaylistWindow::addNewTab(QUuid playlist, QString title)
     connect(qdp, &DrawnPlaylist::contextMenuRequested,
             this, &PlaylistWindow::playlist_contextMenuRequested);
     widgets.insert(playlist, qdp);
+    int insertIndex = ui->tabWidget->count();
     int chapterTabIndex = ui->tabWidget->indexOf(chapterPreviewTabWidget);
-    if (chapterTabIndex < 0)
+    if (chapterTabIndex >= 0)
+        insertIndex = std::min(insertIndex, chapterTabIndex);
+    int topicsTabIndex = ui->tabWidget->indexOf(chapterTopicsTabWidget);
+    if (topicsTabIndex >= 0)
+        insertIndex = std::min(insertIndex, topicsTabIndex);
+    if (insertIndex >= ui->tabWidget->count())
         ui->tabWidget->addTab(qdp, title);
     else
-        ui->tabWidget->insertTab(chapterTabIndex, qdp, title);
+        ui->tabWidget->insertTab(insertIndex, qdp, title);
     ui->tabWidget->setCurrentWidget(qdp);
 }
 
 bool PlaylistWindow::isChapterPreviewTab(int index) const
 {
     return chapterPreviewTabWidget && ui->tabWidget->widget(index) == chapterPreviewTabWidget;
+}
+
+bool PlaylistWindow::isChapterTopicsTab(int index) const
+{
+    return chapterTopicsTabWidget && ui->tabWidget->widget(index) == chapterTopicsTabWidget;
 }
 
 void PlaylistWindow::ensureChapterPreviewTab()
@@ -511,6 +540,33 @@ void PlaylistWindow::ensureChapterPreviewTab()
     ui->tabWidget->addTab(chapterPreviewTabWidget, tr("视频章节预览"));
     setChapterPreviewHtml(tr("<p>No chapter markdown found for the current video.</p>"));
     setChapterEditorMode(false);
+}
+
+void PlaylistWindow::ensureChapterTopicsTab()
+{
+    if (chapterTopicsTabWidget)
+        return;
+
+    chapterTopicsTabWidget = new QWidget(ui->tabWidget);
+    auto *layout = new QVBoxLayout(chapterTopicsTabWidget);
+    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setSpacing(4);
+
+    chapterTopicTree = new QTreeWidget(chapterTopicsTabWidget);
+    chapterTopicTree->setHeaderHidden(true);
+    connect(chapterTopicTree, &QTreeWidget::itemSelectionChanged,
+            this, &PlaylistWindow::chapterTopicSelectionChanged);
+    layout->addWidget(chapterTopicTree, 2);
+
+    chapterTopicCards = new QListWidget(chapterTopicsTabWidget);
+    connect(chapterTopicCards, &QListWidget::itemActivated,
+            this, &PlaylistWindow::chapterTopicCardActivated);
+    connect(chapterTopicCards, &QListWidget::itemClicked,
+            this, &PlaylistWindow::chapterTopicCardActivated);
+    layout->addWidget(chapterTopicCards, 3);
+
+    ui->tabWidget->addTab(chapterTopicsTabWidget, tr("章节话题索引"));
+    refreshChapterTopicsForCurrentPlaylist();
 }
 
 void PlaylistWindow::setChapterPreviewHtml(const QString &html)
@@ -573,6 +629,97 @@ bool PlaylistWindow::validateChapterMarkdown(const QString &markdown, QString &e
         return false;
     }
     return true;
+}
+
+void PlaylistWindow::loadChapterMarkdownFromPath(const QString &markdownPath)
+{
+    ensureChapterPreviewTab();
+    chapterMarkdownPath = markdownPath;
+
+    QFile markdownFile(markdownPath);
+    if (!markdownFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        if (chapterPreviewEditor)
+            chapterPreviewEditor->clear();
+        setChapterPreviewHtml(tr("<p>Unable to read chapter markdown file.</p>"));
+        return;
+    }
+    const QString markdown = QString::fromUtf8(markdownFile.readAll());
+    if (chapterPreviewEditor)
+        chapterPreviewEditor->setPlainText(markdown);
+    setChapterPreviewHtml(buildChapterPreviewHtml(markdown));
+}
+
+void PlaylistWindow::refreshChapterTopicsForCurrentPlaylist()
+{
+    ensureChapterTopicsTab();
+    topicCardsByPath.clear();
+    if (!chapterTopicTree || !chapterTopicCards)
+        return;
+
+    chapterTopicTree->clear();
+    chapterTopicCards->clear();
+
+    auto pl = PlaylistCollection::getSingleton()->getPlaylist(currentPlaylist);
+    if (!pl)
+        return;
+
+    static const QRegularExpression topicRegex(
+        QStringLiteral("#([\\w\\x{4e00}-\\x{9fa5}-]+(?:/[\\w\\x{4e00}-\\x{9fa5}-]+)*)"));
+    static const QRegularExpression cardRegex(
+        QStringLiteral("<time\\s+datetime=(?:\"|')(\\d{1,2}:\\d{2}:\\d{2})(?:\"|')>(.*?)</time>"),
+        QRegularExpression::CaseInsensitiveOption);
+
+    QSet<QString> topicPaths;
+    pl->iterateItems([&](QSharedPointer<Item> item) {
+        if (!item || !item->url().isLocalFile())
+            return;
+        QFileInfo videoInfo(item->url().toLocalFile());
+        const QString markdownPath = videoInfo.dir().filePath(videoInfo.completeBaseName() + ".md");
+        QFile markdownFile(markdownPath);
+        if (!markdownFile.exists() || !markdownFile.open(QIODevice::ReadOnly | QIODevice::Text))
+            return;
+        const QString markdown = QString::fromUtf8(markdownFile.readAll());
+        const QStringList lines = markdown.split('\n');
+        for (const QString &line : lines) {
+            QStringList topicsInLine;
+            auto topicIt = topicRegex.globalMatch(line);
+            while (topicIt.hasNext()) {
+                const QString topicPath = topicIt.next().captured(1);
+                topicsInLine.append(topicPath);
+                topicPaths.insert(topicPath);
+            }
+            if (topicsInLine.isEmpty())
+                continue;
+            auto cardIt = cardRegex.globalMatch(line);
+            while (cardIt.hasNext()) {
+                auto card = cardIt.next();
+                const QString time = card.captured(1);
+                const QString label = card.captured(2).trimmed();
+                if (label.isEmpty())
+                    continue;
+                for (const QString &topic : topicsInLine)
+                    topicCardsByPath[topic].append({label, time, markdownPath});
+            }
+        }
+    });
+
+    QHash<QString, QTreeWidgetItem*> nodes;
+    for (const QString &fullPath : topicPaths) {
+        QStringList parts = fullPath.split('/', Qt::SkipEmptyParts);
+        QString currentPath;
+        QTreeWidgetItem *parent = nullptr;
+        for (const QString &part : parts) {
+            currentPath = currentPath.isEmpty() ? part : (currentPath + "/" + part);
+            if (!nodes.contains(currentPath)) {
+                QTreeWidgetItem *node = parent ? new QTreeWidgetItem(parent) : new QTreeWidgetItem(chapterTopicTree);
+                node->setText(0, part);
+                node->setData(0, Qt::UserRole, currentPath);
+                nodes.insert(currentPath, node);
+            }
+            parent = nodes[currentPath];
+        }
+    }
+    chapterTopicTree->expandAll();
 }
 
 double PlaylistWindow::parseChapterTimeToSeconds(const QString &timeText, bool *ok) const
@@ -1326,7 +1473,7 @@ void PlaylistWindow::on_tabWidget_tabBarClicked(int index)
 
 void PlaylistWindow::on_tabWidget_tabBarDoubleClicked(int index)
 {
-    if (isChapterPreviewTab(index))
+    if (isChapterPreviewTab(index) || isChapterTopicsTab(index))
         return;
     renameTab();
 }
@@ -1359,7 +1506,7 @@ void PlaylistWindow::on_searchField_textEdited(const QString &arg1)
 
 void PlaylistWindow::on_tabWidget_currentChanged(int index)
 {
-    if (isChapterPreviewTab(index))
+    if (isChapterPreviewTab(index) || isChapterTopicsTab(index))
         ui->searchHost->setVisible(false);
     updateCurrentPlaylist();
 }
@@ -1407,6 +1554,7 @@ void PlaylistWindow::saveChapterMarkdown()
     file.write(markdown.toUtf8());
     file.close();
     setChapterPreviewHtml(buildChapterPreviewHtml(markdown));
+    refreshChapterTopicsForCurrentPlaylist();
     QMessageBox::information(this, tr("保存成功"), tr("章节 Markdown 已保存。"));
 }
 
@@ -1441,6 +1589,48 @@ void PlaylistWindow::insertChapterTimeTag()
                 .arg(timeText, label.toHtmlEscaped()));
 }
 
+void PlaylistWindow::chapterTopicSelectionChanged()
+{
+    if (!chapterTopicTree || !chapterTopicCards)
+        return;
+    chapterTopicCards->clear();
+    auto selected = chapterTopicTree->selectedItems();
+    if (selected.isEmpty())
+        return;
+    const QString topicPath = selected.first()->data(0, Qt::UserRole).toString();
+    const auto cards = topicCardsByPath.value(topicPath);
+    for (const TopicCard &card : cards) {
+        QFileInfo markdownInfo(card.markdownPath);
+        auto *item = new QListWidgetItem(
+                    QStringLiteral("%1 [%2] - %3")
+                    .arg(card.label, card.time, markdownInfo.fileName()),
+                    chapterTopicCards);
+        item->setData(Qt::UserRole, card.markdownPath);
+        item->setData(Qt::UserRole + 1, card.label);
+        item->setData(Qt::UserRole + 2, card.time);
+    }
+}
+
+void PlaylistWindow::chapterTopicCardActivated(QListWidgetItem *item)
+{
+    if (!item)
+        return;
+    const QString markdownPath = item->data(Qt::UserRole).toString();
+    const QString label = item->data(Qt::UserRole + 1).toString();
+    const QString time = item->data(Qt::UserRole + 2).toString();
+    if (markdownPath.isEmpty())
+        return;
+
+    loadChapterMarkdownFromPath(markdownPath);
+    if (chapterPreviewTabWidget)
+        ui->tabWidget->setCurrentWidget(chapterPreviewTabWidget);
+    setChapterEditorMode(false);
+    if (chapterPreviewBrowser) {
+        if (!chapterPreviewBrowser->find(label))
+            chapterPreviewBrowser->find(time);
+    }
+}
+
 void PlaylistWindow::updateChapterPreviewForItem(QUrl itemUrl, QUuid playlistUuid,
                                                  QUuid itemUuid, bool clickedInPlaylist)
 {
@@ -1454,6 +1644,7 @@ void PlaylistWindow::updateChapterPreviewForItem(QUrl itemUrl, QUuid playlistUui
         if (chapterPreviewEditor)
             chapterPreviewEditor->clear();
         setChapterPreviewHtml(tr("<p>Chapter preview only supports local video files.</p>"));
+        refreshChapterTopicsForCurrentPlaylist();
         return;
     }
 
@@ -1464,18 +1655,11 @@ void PlaylistWindow::updateChapterPreviewForItem(QUrl itemUrl, QUuid playlistUui
         if (chapterPreviewEditor)
             chapterPreviewEditor->clear();
         setChapterPreviewHtml(tr("<p>No chapter markdown found for the current video.</p>"));
+        refreshChapterTopicsForCurrentPlaylist();
         return;
     }
-    if (!markdownFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        if (chapterPreviewEditor)
-            chapterPreviewEditor->clear();
-        setChapterPreviewHtml(tr("<p>Unable to read chapter markdown file.</p>"));
-        return;
-    }
-    const QString markdown = QString::fromUtf8(markdownFile.readAll());
-    if (chapterPreviewEditor)
-        chapterPreviewEditor->setPlainText(markdown);
-    setChapterPreviewHtml(buildChapterPreviewHtml(markdown));
+    loadChapterMarkdownFromPath(chapterMarkdownPath);
+    refreshChapterTopicsForCurrentPlaylist();
 }
 
 void PlaylistWindow::chapterPreviewAnchorClicked(const QUrl &link)

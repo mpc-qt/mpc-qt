@@ -16,6 +16,10 @@ class PlaylistSelection;
 class QTextBrowser;
 class QPlainTextEdit;
 class QPushButton;
+class QListWidget;
+class QListWidgetItem;
+class QTreeWidget;
+class QTreeWidgetItem;
 class QThread;
 class PlaylistSearcher;
 class PlaylistWindow : public QDockWidget
@@ -167,10 +171,16 @@ private slots:
     void toggleChapterEditMode();
     void saveChapterMarkdown();
     void insertChapterTimeTag();
+    void chapterTopicSelectionChanged();
+    void chapterTopicCardActivated(QListWidgetItem *item);
 
 private:
     bool isChapterPreviewTab(int index) const;
+    bool isChapterTopicsTab(int index) const;
     void ensureChapterPreviewTab();
+    void ensureChapterTopicsTab();
+    void refreshChapterTopicsForCurrentPlaylist();
+    void loadChapterMarkdownFromPath(const QString &markdownPath);
     void setChapterPreviewHtml(const QString &html);
     QString buildChapterPreviewHtml(const QString &markdown);
     bool validateChapterMarkdown(const QString &markdown, QString &error) const;
@@ -194,8 +204,18 @@ private:
     QPushButton *chapterModeButton = nullptr;
     QPushButton *chapterSaveButton = nullptr;
     QPushButton *chapterInsertTimeButton = nullptr;
+    QWidget *chapterTopicsTabWidget = nullptr;
+    QTreeWidget *chapterTopicTree = nullptr;
+    QListWidget *chapterTopicCards = nullptr;
     QString chapterMarkdownPath;
     bool chapterEditMode = false;
+
+    struct TopicCard {
+        QString label;
+        QString time;
+        QString markdownPath;
+    };
+    QHash<QString, QList<TopicCard>> topicCardsByPath;
 };
 
 #endif // PLAYLISTWINDOW_H
