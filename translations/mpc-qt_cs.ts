@@ -447,7 +447,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bitový tok</translation>
     </message>
     <message>
         <source>Stopped</source>
@@ -735,7 +735,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">1</translation>
     </message>
     <message>
         <source>&amp;Compact</source>
@@ -743,7 +743,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">2</translation>
     </message>
     <message>
         <source>&amp;Normal</source>
@@ -1139,7 +1139,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zavřít záložku</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1671,7 +1671,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>25%</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">25 %</translation>
     </message>
     <message>
         <source>&amp;75%</source>
@@ -2188,7 +2188,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Rychlý playlist</translation>
     </message>
     <message>
         <source>New Playlist</source>
@@ -2980,7 +2980,7 @@ media file played</source>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nepovolený</translation>
     </message>
     <message>
         <source>Presets</source>
@@ -3664,7 +3664,7 @@ media file played</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Žádné</translation>
     </message>
     <message>
         <source>Default</source>
