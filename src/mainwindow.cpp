@@ -1793,10 +1793,11 @@ void MainWindow::setRecentDocuments(const QList<TrackInfo> &tracks)
     if (tracks.count() > 20) {
         LogStream(logModule) << "tracks.count(): " << tracks.count();
         Logger::log(logModule, "setRecentDocuments > 20");
-        QMenu *moreRecentsMenu = new QMenu(tr("More Files"));
-        addRecentDocumentsEntries(tracks, moreRecentsMenu, 20, 50);
+        moreRecentsMenu.clear();
+        moreRecentsMenu.setTitle(tr("More Files"));
+        addRecentDocumentsEntries(tracks, &moreRecentsMenu, 20, 50);
         ui->menuFileRecent->addSeparator();
-        ui->menuFileRecent->addMenu(moreRecentsMenu);
+        ui->menuFileRecent->addMenu(&moreRecentsMenu);
         Logger::log(logModule, "setRecentDocuments > 20 done");
     }
 
@@ -1815,7 +1816,7 @@ void MainWindow::addRecentDocumentsEntries(const QList<TrackInfo> &tracks, QMenu
             displayString = track.title;
         displayString.truncate(100);
         QAction *a = new QAction(QString("%1").arg(displayString),
-                                 this);
+                                 menu);
         connect(a, &QAction::triggered, this, [this, track]() {
             emit recentOpened(track);
         });
@@ -2190,7 +2191,10 @@ void MainWindow::setAudioTracks(QList<Track> tracks)
 {
     ui->menuPlayAudio->clear();
     ui->menuPlayAudio->setEnabled(false);
-    audioTracksGroup = nullptr;
+    if (audioTracksGroup) {
+        audioTracksGroup->deleteLater();
+        audioTracksGroup = nullptr;
+    }
     hasAudio = !tracks.isEmpty();
     ui->actionPlayAudioTrackPrevious->setEnabled(hasAudio);
     ui->actionPlayAudioTrackNext->setEnabled(hasAudio);
@@ -2199,10 +2203,11 @@ void MainWindow::setAudioTracks(QList<Track> tracks)
     ui->menuPlayAudio->setEnabled(true);
     audioTracksGroup = new QActionGroup(this);
     for (const Track &track : tracks) {
-        QAction *action = new QAction(this);
+        QAction *action = new QAction(ui->menuPlayAudio);
         action->setText(track.title);
         action->setCheckable(true);
         action->setActionGroup(audioTracksGroup);
+        action->setData(QVariant::fromValue(track.id));
         int64_t index = track.id;
         connect(action, &QAction::triggered, this, [this,index] {
             emit audioTrackSelected(index, true);
@@ -2223,17 +2228,21 @@ void MainWindow::setVideoTracks(QList<Track> tracks)
 {
     ui->menuPlayVideo->clear();
     ui->menuPlayVideo->setEnabled(false);
-    videoTracksGroup = nullptr;
+    if (videoTracksGroup) {
+        videoTracksGroup->deleteLater();
+        videoTracksGroup = nullptr;
+    }
     hasVideo = !tracks.isEmpty();
     if (!hasVideo)
         return;
     ui->menuPlayVideo->setEnabled(true);
     videoTracksGroup = new QActionGroup(this);
     for (const Track &track : tracks) {
-        QAction *action = new QAction(this);
+        QAction *action = new QAction(ui->menuPlayVideo);
         action->setText(track.title);
         action->setCheckable(true);
         action->setActionGroup(videoTracksGroup);
+        action->setData(QVariant::fromValue(track.id));
         int64_t index = track.id;
         connect(action, &QAction::triggered, this, [this,index]() {
             emit videoTrackSelected(index, true);
@@ -2280,8 +2289,6 @@ void MainWindow::setVideoTracks(QList<Track> tracks)
     ui->menuPlayVideoRotate->addAction(ui->actionRotateCounterclockwise);
     ui->menuPlayVideoRotate->addAction(ui->actionFlipHorizontal);
     ui->menuPlayVideoRotate->addAction(ui->actionResetRotate);
-
-
     videoTracksGroup->actions().constFirst()->setChecked(true);
     updateOnTop();
 }
@@ -2290,7 +2297,10 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
 {
     ui->menuPlaySubtitles->clear();
     ui->menuPlaySubtitles->setEnabled(false);
-    subtitleTracksGroup = nullptr;
+    if (subtitleTracksGroup) {
+        subtitleTracksGroup->deleteLater();
+        subtitleTracksGroup = nullptr;
+    }
     hasSubs = !tracks.isEmpty();
     ui->actionPlaySubtitlesEnabled->setEnabled(hasSubs);
     ui->subs->setEnabled(hasSubs);
@@ -2301,10 +2311,11 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
     ui->menuPlaySubtitles->setEnabled(true);
     subtitleTracksGroup = new QActionGroup(this);
     for (const Track &track : tracks) {
-        QAction *action = new QAction(this);
+        QAction *action = new QAction(ui->menuPlaySubtitles);
         action->setText(track.title);
         action->setCheckable(true);
         action->setActionGroup(subtitleTracksGroup);
+        action->setData(QVariant::fromValue(track.id));
         int64_t index = track.id;
         connect(action, &QAction::triggered, this, [this,index]() {
             emit subtitleTrackSelected(index, true);
@@ -2327,28 +2338,34 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
 
 void MainWindow::audioTrackSet(int64_t id)
 {
-    if (audioTracksGroup != nullptr && id <= audioTracksGroup->actions().length()) {
-        if (id <= 0)
-            id = 1;
-        audioTracksGroup->actions().constData()[static_cast <int> (id) -1]->setChecked(true);
+    const auto actions = ui->menuPlayAudio->actions();
+    for (QAction *action : actions) {
+        if (action->data().toLongLong() == id) {
+            action->setChecked(true);
+            return;
+        }
     }
 }
 
 void MainWindow::videoTrackSet(int64_t id)
 {
-    if (videoTracksGroup != nullptr && id <= videoTracksGroup->actions().length()) {
-        if (id <= 0)
-            id = 1;
-        videoTracksGroup->actions().constData()[static_cast <int> (id) -1]->setChecked(true);
+    const auto actions = ui->menuPlayVideo->actions();
+    for (QAction *action : actions) {
+        if (action->data().toLongLong() == id) {
+            action->setChecked(true);
+            return;
+        }
     }
 }
 
 void MainWindow::subtitleTrackSet(int64_t id)
 {
-    if (subtitleTracksGroup != nullptr && id <= subtitleTracksGroup->actions().length()) {
-        if (id <= 0)
-            id = 1;
-        subtitleTracksGroup->actions().constData()[static_cast <int> (id) -1]->setChecked(true);
+    const auto actions = ui->menuPlaySubtitles->actions();
+    for (QAction *action : actions) {
+        if (action->data().toLongLong() == id) {
+            action->setChecked(true);
+            return;
+        }
     }
 }
 
