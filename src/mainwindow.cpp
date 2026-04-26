@@ -1383,6 +1383,15 @@ void MainWindow::showStepAndSubsButtons(bool show)
     ui->subs->setVisible(show);
 }
 
+void MainWindow::raiseWindow()
+{
+    if (freestanding_)
+        return;
+    activateWindow();
+    raise();
+    this->window()->windowHandle()->requestActivate(); // Enough on Wayland
+}
+
 QIcon MainWindow::createIconFromSvg(const QString &svgPath, int maxSize) const
 {
     QIcon icon;
@@ -1822,15 +1831,6 @@ void MainWindow::addRecentDocumentsEntries(const QList<TrackInfo> &tracks, QMenu
         });
         menu->addAction(a);
     }
-}
-
-void MainWindow::raiseWindow()
-{
-    if (freestanding_)
-        return;
-    activateWindow();
-    raise();
-    this->window()->windowHandle()->requestActivate(); // Enough on Wayland
 }
 
 void MainWindow::setControlsInFullscreen(bool hide, int showWhen, int showWhenDuration,
