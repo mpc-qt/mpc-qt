@@ -82,6 +82,10 @@ MainWindow::~MainWindow()
 {
     Logger::log(logModule, "~MainWindow");
     mpvObject_->setWidgetType(Helpers::NullWidget);
+    if (alwaysOnTopWindow) {
+        delete alwaysOnTopWindow;
+        alwaysOnTopWindow = nullptr;
+    }
     delete ui;
     ui = nullptr;
 }
@@ -604,10 +608,13 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
         return;
     fullscreenMode_ = fullscreenMode;
 
-    if (fullscreenMode)
+    if (fullscreenMode) {
+        showAlwaysOnTopWindow(true);
         fullscreenMemory = WindowManager::makeFullscreen(this, fullscreenName);
+    }
     else {
         WindowManager::restoreFullscreen(this, fullscreenMemory);
+        showAlwaysOnTopWindow(false);
         if (videoPreview)
             videoPreview->hide();
         if (tooltip)
@@ -1383,6 +1390,38 @@ void MainWindow::showStepAndSubsButtons(bool show)
     ui->subs->setVisible(show);
 }
 
+void MainWindow::raiseWindow()
+{
+    if (freestanding_)
+        return;
+    activateWindow();
+    raise();
+    this->window()->windowHandle()->requestActivate(); // Enough on Wayland
+}
+
+void MainWindow::createAlwaysOnTopWindow()
+{
+    alwaysOnTopWindow = new QWidget();
+    alwaysOnTopWindow->setGeometry(0, 0, 1, 1);
+    alwaysOnTopWindow->setWindowFlag(Qt::WindowStaysOnTopHint);
+    alwaysOnTopWindow->setWindowFlag(Qt::Tool);
+    alwaysOnTopWindow->setWindowFlag(Qt::WindowDoesNotAcceptFocus);
+    alwaysOnTopWindow->setWindowFlag(Qt::FramelessWindowHint);
+    alwaysOnTopWindow->setAttribute(Qt::WA_TranslucentBackground);
+    alwaysOnTopWindow->setAttribute(Qt::WA_QuitOnClose, false);
+}
+
+// Work around black screen during fullscreen transitions bug on Windows
+void MainWindow::showAlwaysOnTopWindow(bool show)
+{
+    if (!Platform::isWindows)
+        return;
+    if (!alwaysOnTopWindow)
+        createAlwaysOnTopWindow();
+    if (alwaysOnTopWindow)
+        alwaysOnTopWindow->setVisible(show);
+}
+
 QIcon MainWindow::createIconFromSvg(const QString &svgPath, int maxSize) const
 {
     QIcon icon;
@@ -1822,15 +1861,6 @@ void MainWindow::addRecentDocumentsEntries(const QList<TrackInfo> &tracks, QMenu
         });
         menu->addAction(a);
     }
-}
-
-void MainWindow::raiseWindow()
-{
-    if (freestanding_)
-        return;
-    activateWindow();
-    raise();
-    this->window()->windowHandle()->requestActivate(); // Enough on Wayland
 }
 
 void MainWindow::setControlsInFullscreen(bool hide, int showWhen, int showWhenDuration,
