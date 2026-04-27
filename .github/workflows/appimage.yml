@@ -72,12 +72,12 @@ jobs:
       with:
         cache: true
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6.0.2
       with:
         fetch-depth: 1000
         fetch-tags: true
     - name: Checkout mpv repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6.0.2
       with:
         repository: "mpv-player/mpv-build"
         path: mpv-build
@@ -118,7 +118,7 @@ jobs:
     - name: Restore dependencies or cache them later
       id: cache-deps
       if: steps.check-cache-inputs.outputs.cacheable == 'true'
-      uses: actions/cache@v4
+      uses: actions/cache@v5.0.4
       with:
         path: deb
         key: appimage-${{ env.RUNNEROS }}-${{ hashFiles(env.CACHE_KEY_FILES) }}
@@ -172,12 +172,12 @@ jobs:
           --custom-apprun ./packaging/appimage/AppRun \
           --plugin qt --output appimage
     - name: Upload AppImage
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: "mpc-qt-x86_64-AppImage"
         path: ./mpc-qt[-_]*.AppImage
     - name: Upload AppImage autoupdate zsync file
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: "mpc-qt-x86_64-AppImage-zsync"
         path: ./mpc-qt[-_]*.AppImage.zsync
