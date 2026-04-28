@@ -482,8 +482,8 @@ void MpvThumbnailDrawer::paintGL()
 void MpvThumbnailDrawer::resizeGL(int w, int h)
 {
     qreal r = devicePixelRatioF();
-    glWidth = int(w * r);
-    glHeight = int(h * r);
+    glWidth = qRound(w * r);
+    glHeight = qRound(h * r);
 }
 
 void MpvThumbnailDrawer::alwaysUpdate()
