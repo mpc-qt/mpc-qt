@@ -48,6 +48,7 @@
  </screenshots>
 
  <url type="homepage">https://mpc-qt.github.io/</url>
+ <url type="help">https://github.com/mpc-qt/mpc-qt/wiki</url>
  <url type="bugtracker">https://github.com/mpc-qt/mpc-qt/issues</url>
  <url type="vcs-browser">https://github.com/mpc-qt/mpc-qt</url>
 
