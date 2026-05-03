@@ -333,8 +333,12 @@ void PlaybackManager::navigateToNextChapter()
 
 void PlaybackManager::navigateToPrevChapter()
 {
-    if (mpvTime > 5)
-        changeChapter(-1);
+    if (mpvTime > 5) {
+        if (mpvObject_->chapter() > 0)
+            changeChapter(-1);
+        else
+            navigateToTime(0);
+    }
     else
         playPrev(false);
 }
