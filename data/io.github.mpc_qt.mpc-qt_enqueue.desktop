@@ -8,7 +8,6 @@ Exec=mpc-qt --add-to-playlist %U
 TryExec=mpc-qt
 Icon=mpc-qt
 StartupNotify=false
-StartupWMClass=io.github.mpc_qt.mpc-qt
 NoDisplay=true
 Terminal=false
 Categories=Qt;AudioVideo;Audio;Video;Player;TV;
