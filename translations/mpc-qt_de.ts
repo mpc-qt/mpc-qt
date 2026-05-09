@@ -363,6 +363,10 @@ Möchten Sie es stattdessen für „%3“ verwenden?</translation>
         <source>Save File</source>
         <translation>Datei speichern</translation>
     </message>
+    <message>
+        <source>Log files (*.log)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Logger</name>
@@ -4516,6 +4520,10 @@ media file played</source>
     <message>
         <source>ICC profile files (*.icc *.icm)</source>
         <translation>ICC Profildateien (*.icc *.icm)</translation>
+    </message>
+    <message>
+        <source>Log files (*.log)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>

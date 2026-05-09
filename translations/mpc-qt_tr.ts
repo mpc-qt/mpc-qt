@@ -355,6 +355,10 @@ Bunun yerine “%3” için kullanmak ister misiniz?</translation>
         <source>Save File</source>
         <translation>Dosyayı Kaydet</translation>
     </message>
+    <message>
+        <source>Log files (*.log)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Logger</name>
@@ -4524,6 +4528,10 @@ yeni bir &amp;oynatıcı aç</translation>
     <message>
         <source>ICC profile files (*.icc *.icm)</source>
         <translation>ICC profili dosyaları (*.icc *.icm)</translation>
+    </message>
+    <message>
+        <source>Log files (*.log)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
