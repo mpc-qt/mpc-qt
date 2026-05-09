@@ -325,7 +325,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>LibraryWindow</name>
     <message>
         <source>Library</source>
-        <translation>Biblioteka</translation>
+        <translation type="vanished">Biblioteka</translation>
     </message>
     <message>
         <source>Restore</source>
@@ -338,6 +338,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <message>
         <source>Close</source>
         <translation>Zamknij</translation>
+    </message>
+    <message>
+        <source>Playlists Backup</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1474,10 +1478,6 @@ No action will be triggered.</source>
         <translation type="vanished">&lt;unknown&gt;</translation>
     </message>
     <message>
-        <source>Libr&amp;ary</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ctrl+=</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1867,6 +1867,10 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pl&amp;aylists Backup</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
