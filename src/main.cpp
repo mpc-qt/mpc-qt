@@ -449,7 +449,7 @@ void Flow::earlyPlatformOverride()
             isWaylandMode = true;
     }
     // The Nvidia drivers don't work well with EGL
-    if (!Flow::isNvidiaGPU())
+    if (!isWaylandMode && !Flow::isNvidiaGPU())
         qputenv("QT_XCB_GL_INTEGRATION", "xcb_egl");
 }
 
