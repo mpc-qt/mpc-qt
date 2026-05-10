@@ -2554,7 +2554,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Libr&amp;ary</string>
+    <string>Pl&amp;aylists Backup</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+=</string>

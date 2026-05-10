@@ -326,7 +326,7 @@ Möchten Sie es stattdessen für „%3“ verwenden?</translation>
     <name>LibraryWindow</name>
     <message>
         <source>Library</source>
-        <translation>Bibliothek</translation>
+        <translation type="vanished">Bibliothek</translation>
     </message>
     <message>
         <source>Restore</source>
@@ -339,6 +339,10 @@ Möchten Sie es stattdessen für „%3“ verwenden?</translation>
     <message>
         <source>Close</source>
         <translation>Schließen</translation>
+    </message>
+    <message>
+        <source>Playlists Backup</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1489,7 +1493,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Libr&amp;ary</source>
-        <translation>&amp;Bibliothek</translation>
+        <translation type="vanished">&amp;Bibliothek</translation>
     </message>
     <message>
         <source>Ctrl+=</source>
@@ -1874,6 +1878,10 @@ Es wird keine Aktion ausgelöst.</translation>
     <message>
         <source>No</source>
         <translation type="unfinished">Nein</translation>
+    </message>
+    <message>
+        <source>Pl&amp;aylists Backup</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Library</string>
+   <string>Playlists Backup</string>
   </property>
   <layout class="QGridLayout" name="gridLayout" rowstretch="1,0">
    <item row="0" column="0">

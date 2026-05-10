@@ -318,7 +318,7 @@ Apakah Anda ingin menggunakannya untuk &quot;%3&quot;?</translation>
     <name>LibraryWindow</name>
     <message>
         <source>Library</source>
-        <translation>Pustaka</translation>
+        <translation type="vanished">Pustaka</translation>
     </message>
     <message>
         <source>Restore</source>
@@ -331,6 +331,10 @@ Apakah Anda ingin menggunakannya untuk &quot;%3&quot;?</translation>
     <message>
         <source>Close</source>
         <translation>Tutup</translation>
+    </message>
+    <message>
+        <source>Playlists Backup</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1473,7 +1477,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Libr&amp;ary</source>
-        <translation>Pust&amp;aka</translation>
+        <translation type="vanished">Pust&amp;aka</translation>
     </message>
     <message>
         <source>Ctrl+=</source>
@@ -1814,6 +1818,10 @@ Tidak ada tindakan yang akan dipicu.</translation>
     <message>
         <source>No</source>
         <translation type="unfinished">Tidak</translation>
+    </message>
+    <message>
+        <source>Pl&amp;aylists Backup</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

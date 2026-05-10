@@ -326,7 +326,7 @@ Voulez-vous l&apos;utiliser pour &quot;%3&quot; à la place&#x202f;?</translatio
     <name>LibraryWindow</name>
     <message>
         <source>Library</source>
-        <translation>Bibliothèque</translation>
+        <translation type="vanished">Bibliothèque</translation>
     </message>
     <message>
         <source>Restore</source>
@@ -339,6 +339,10 @@ Voulez-vous l&apos;utiliser pour &quot;%3&quot; à la place&#x202f;?</translatio
     <message>
         <source>Close</source>
         <translation>Fermer</translation>
+    </message>
+    <message>
+        <source>Playlists Backup</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1433,7 +1437,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Libr&amp;ary</source>
-        <translation>Bibliothè&amp;que</translation>
+        <translation type="vanished">Bibliothè&amp;que</translation>
     </message>
     <message>
         <source>Ctrl+=</source>
@@ -1814,6 +1818,10 @@ Aucune action ne sera déclenchée.</translation>
     <message>
         <source>No</source>
         <translation>Non</translation>
+    </message>
+    <message>
+        <source>Pl&amp;aylists Backup</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -318,7 +318,7 @@ Bunun yerine “%3” için kullanmak ister misiniz?</translation>
     <name>LibraryWindow</name>
     <message>
         <source>Library</source>
-        <translation>Kitaplık</translation>
+        <translation type="vanished">Kitaplık</translation>
     </message>
     <message>
         <source>Restore</source>
@@ -331,6 +331,10 @@ Bunun yerine “%3” için kullanmak ister misiniz?</translation>
     <message>
         <source>Close</source>
         <translation>Kapat</translation>
+    </message>
+    <message>
+        <source>Playlists Backup</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1481,7 +1485,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Libr&amp;ary</source>
-        <translation>K&amp;itaplık</translation>
+        <translation type="vanished">K&amp;itaplık</translation>
     </message>
     <message>
         <source>Ctrl+=</source>
@@ -1858,6 +1862,10 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     <message>
         <source>No</source>
         <translation>Hayır</translation>
+    </message>
+    <message>
+        <source>Pl&amp;aylists Backup</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -326,7 +326,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>LibraryWindow</name>
     <message>
         <source>Library</source>
-        <translation>ライブラリ</translation>
+        <translation type="vanished">ライブラリ</translation>
     </message>
     <message>
         <source>Restore</source>
@@ -339,6 +339,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <message>
         <source>Close</source>
         <translation>閉じる</translation>
+    </message>
+    <message>
+        <source>Playlists Backup</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1489,7 +1493,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Libr&amp;ary</source>
-        <translation>ライブラリ(&amp;A)</translation>
+        <translation type="vanished">ライブラリ(&amp;A)</translation>
     </message>
     <message>
         <source>Ctrl+=</source>
@@ -1878,6 +1882,10 @@ No action will be triggered.</source>
     <message>
         <source>No</source>
         <translation>いいえ</translation>
+    </message>
+    <message>
+        <source>Pl&amp;aylists Backup</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
