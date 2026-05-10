@@ -342,7 +342,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Playlists Backup</source>
-        <translation type="unfinished"></translation>
+        <translation>再生リストのバックアップ</translation>
     </message>
 </context>
 <context>
@@ -369,7 +369,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
+        <translation>ログファイル (*.log)</translation>
     </message>
 </context>
 <context>
@@ -1885,7 +1885,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Pl&amp;aylists Backup</source>
-        <translation type="unfinished"></translation>
+        <translation>再生リストのバックアップ(&amp;A)</translation>
     </message>
 </context>
 <context>
@@ -4571,7 +4571,7 @@ media file played</source>
     </message>
     <message>
         <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
+        <translation>ログファイル (*.log)</translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
