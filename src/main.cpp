@@ -1490,14 +1490,22 @@ void Flow::mainwindow_takeImage(Helpers::ScreenshotRender render)
         lastScreenshotDir = QFileInfo(QUrl::fromLocalFile(picFile).toLocalFile()).path();
 
     // Copy the temp file to the desired location, then delete it
-    QFile tf(tempFile);
-    if (!picFile.isEmpty()) {
-        QFile pf(picFile);
-        if (pf.exists())
-            pf.remove();
-        tf.copy(picFile);
-    }
-    tf.remove();
+    QMetaObject::invokeMethod(this, [tempFile, picFile]() {
+        QFile tf(tempFile);
+        if (!picFile.isEmpty()) {
+            QFile pf(picFile);
+            if (pf.exists())
+                pf.remove();
+            constexpr int maxWaitMs = 60000;
+            int waited = 0;
+            while (tf.size() == 0 && waited < maxWaitMs) {
+                QThread::msleep(10);
+                waited += 10;
+            }
+            tf.copy(picFile);
+        }
+        tf.remove();
+    }, Qt::QueuedConnection);
 }
 
 void Flow::mainwindow_takeImageAutomatically(Helpers::ScreenshotRender render)
