@@ -355,6 +355,10 @@ Apakah Anda ingin menggunakannya untuk &quot;%3&quot;?</translation>
         <source>Save File</source>
         <translation>Simpan Berkas</translation>
     </message>
+    <message>
+        <source>Log files (*.log)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Logger</name>
@@ -4316,6 +4320,10 @@ file media yang diputar</translation>
     <message>
         <source>ICC profile files (*.icc *.icm)</source>
         <translation>File profil ICC (*.icc *.icm)</translation>
+    </message>
+    <message>
+        <source>Log files (*.log)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>

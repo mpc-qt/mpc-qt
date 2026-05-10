@@ -363,6 +363,10 @@ Voulez-vous l&apos;utiliser pour &quot;%3&quot; à la place&#x202f;?</translatio
         <source>Save File</source>
         <translation>Enregistrer le fichier</translation>
     </message>
+    <message>
+        <source>Log files (*.log)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Logger</name>
@@ -4488,6 +4492,10 @@ fichier média lu</translation>
     <message>
         <source>ICC profile files (*.icc *.icm)</source>
         <translation>Fichiers de profil ICC (*.icc *.icm)</translation>
+    </message>
+    <message>
+        <source>Log files (*.log)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>

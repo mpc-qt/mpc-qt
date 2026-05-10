@@ -1785,7 +1785,7 @@ void SettingsWindow::on_logFilePathBrowse_clicked()
 #endif
     QString file = ui->logFilePathValue->text().isEmpty() ? ui->logFilePathValue->placeholderText() :
                                                             ui->logFilePathValue->text();
-    file = QFileDialog::getSaveFileName(this, tr("Choose Log File"), file, "*.log *.txt", nullptr, options);
+    file = QFileDialog::getSaveFileName(this, tr("Choose Log File"), file, tr("Log files (*.log)"), nullptr, options);
     if (file.isEmpty())
         return;
     ui->logFilePathValue->setText(file);

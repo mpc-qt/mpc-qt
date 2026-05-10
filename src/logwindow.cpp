@@ -69,7 +69,7 @@ void LogWindow::on_save_clicked()
 #endif
     QString textToSave = ui->messages->document()->toPlainText();
     static QString lastLog;
-    QString file = QFileDialog::getSaveFileName(this, tr("Save File"), lastLog, "Text files (*.txt)",
+    QString file = QFileDialog::getSaveFileName(this, tr("Save File"), lastLog, tr("Log files (*.log)"),
                                                 nullptr, options);
     if (file.isEmpty())
         return;

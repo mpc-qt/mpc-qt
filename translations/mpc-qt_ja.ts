@@ -363,6 +363,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
         <source>Save File</source>
         <translation>ファイルの保存</translation>
     </message>
+    <message>
+        <source>Log files (*.log)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Logger</name>
@@ -4556,6 +4560,10 @@ media file played</source>
     <message>
         <source>ICC profile files (*.icc *.icm)</source>
         <translation>ICC プロファイル (*.icc *.icm)</translation>
+    </message>
+    <message>
+        <source>Log files (*.log)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>

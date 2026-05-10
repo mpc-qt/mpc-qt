@@ -354,6 +354,10 @@ Do you want to use it for &quot;%3&quot; instead?</source>
         <source>Save File</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Log files (*.log)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Logger</name>
@@ -4189,6 +4193,10 @@ media file played</source>
     </message>
     <message>
         <source>ICC profile files (*.icc *.icm)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Log files (*.log)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
