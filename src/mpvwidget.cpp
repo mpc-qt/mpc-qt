@@ -43,7 +43,6 @@
 MpvObject::PropertyDispatchMap MpvObject::propertyDispatch = {
     HANDLE_PROP("time-pos", self_playTimeChanged, toDouble, 0.0),
     HANDLE_PROP("duration", self_playLengthChanged, toDouble, 0.0),
-    HANDLE_PROP("seekable", seekableChanged, toBool, false),
     HANDLE_PROP("pause", pausedChanged, toBool, true),
     HANDLE_PROP("eof-reached", eofReachedChanged, toString, QString()),
     HANDLE_PROP("idle-active", playbackIdling, toBool, false),
@@ -181,7 +180,6 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
         { "file-format", 0, MPV_FORMAT_STRING },
         { "file-size", 0, MPV_FORMAT_STRING },
         { "path", 0, MPV_FORMAT_STRING },
-        { "seekable", 0, MPV_FORMAT_FLAG },
         { "sub-text", 0, MPV_FORMAT_STRING },
         { "hwdec-current", 0, MPV_FORMAT_STRING }
     };
@@ -347,7 +345,6 @@ void MpvObject::urlOpen(QUrl url)
 void MpvObject::fileOpen(QString filename, bool replaceMpvPlaylist)
 {
     clearSubFiles();
-    //setStartTime(0.0);
     if (replaceMpvPlaylist)
         emit ctrlCommand(QStringList({"loadfile", filename}));
     else
@@ -579,14 +576,14 @@ void MpvObject::setSpeed(double speed)
     setMpvPropertyVariant("speed", speed);
 }
 
+void MpvObject::setStartTime(double position)
+{
+    setMpvPropertyVariant("start", QString::number(position));
+}
+
 void MpvObject::setTime(double position)
 {
     setMpvPropertyVariant("time-pos", position);
-}
-
-void MpvObject::setTimeSync(double position)
-{
-    ctrl->command(QVariantList() << "seek" << position << "absolute");
 }
 
 void MpvObject::setLoopPoints(double first, double end)
