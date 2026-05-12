@@ -1,8 +1,8 @@
 // A simple(?) set of sliders related to controlling multimedia players.
 #include <QPainter>
 #include <cmath>
-#include "drawnslider.h"
 #include "logger.h"
+#include "drawnslider.h"
 
 static constexpr char logModule[] =  "drawnslider";
 
@@ -38,7 +38,10 @@ void DrawnSlider::setValue(double v)
 
 void DrawnSlider::setMaximum(double v)
 {
-    vMaximum = v;
+    if (vMaximum != v) {
+        vMaximum = v;
+        redrawBackground = true;
+    }
     if (vValue > v)
         setValue(v);
     else
@@ -47,7 +50,10 @@ void DrawnSlider::setMaximum(double v)
 
 void DrawnSlider::setMinimum(double v)
 {
-    vMinimum = v;
+    if (vMinimum != v) {
+        vMinimum = v;
+        redrawBackground = true;
+    }
     if (vValue < v)
         setValue(v);
     else
@@ -73,12 +79,14 @@ void DrawnSlider::setHighContrast(bool enabled)
 {
     highContrast = enabled;
     redrawHandle = true;
+    redrawBackground = true;
     update();
 }
 
 void DrawnSlider::applicationPaletteChanged()
 {
     redrawHandle = true;
+    redrawBackground = true;
     update();
 }
 
@@ -123,37 +131,41 @@ double DrawnSlider::xToValue(double x)
 void DrawnSlider::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
-    QPalette pal;
-    pal = parentWidget()->palette();
-    if (highContrast) {
-        grooveBorder = pal.color(QPalette::Normal, QPalette::Text);
-        grooveFill   = pal.color(QPalette::Normal, QPalette::Window);
-        handleBorder = pal.color(QPalette::Normal, QPalette::Text);
-        handleFill   = pal.color(QPalette::Normal, QPalette::Window);
-        bgColor      = pal.color(QPalette::Normal, QPalette::Window);
-        loopColor    = pal.color(QPalette::Normal, QPalette::Highlight);
-        markColor    = pal.color(QPalette::Normal, QPalette::Text);
-    } else {
-        grooveBorder = pal.color(QPalette::Normal, QPalette::Shadow);
-        grooveFill   = pal.color(QPalette::Normal, QPalette::Base);
-        handleBorder = pal.color(QPalette::Normal, QPalette::Button);
-        handleFill   = pal.color(QPalette::Normal, QPalette::Button);
-        bgColor      = pal.color(QPalette::Normal, QPalette::Window);
-        loopColor    = pal.color(QPalette::Normal, QPalette::Highlight);
-        markColor    = pal.color(QPalette::Normal, QPalette::Button);
-
-        // is this a light theme?
-        if (pal.color(QPalette::Normal, QPalette::Button).value() >
-                pal.color(QPalette::Normal, QPalette::Text).value()) {
-            handleBorder = handleBorder.darker();
-            markColor = markColor.darker();
+    if (redrawBackground || redrawHandle) {
+        QPalette pal = parentWidget()->palette();
+        if (highContrast) {
+            grooveBorder = pal.color(QPalette::Normal, QPalette::Text);
+            grooveFill   = pal.color(QPalette::Normal, QPalette::Window);
+            handleBorder = pal.color(QPalette::Normal, QPalette::Text);
+            handleFill   = pal.color(QPalette::Normal, QPalette::Window);
+            bgColor      = pal.color(QPalette::Normal, QPalette::Window);
+            loopColor    = pal.color(QPalette::Normal, QPalette::Highlight);
+            markColor    = pal.color(QPalette::Normal, QPalette::Text);
         } else {
-            handleBorder = handleBorder.lighter(200);
-            markColor = markColor.lighter(200);
+            grooveBorder = pal.color(QPalette::Normal, QPalette::Shadow);
+            grooveFill   = pal.color(QPalette::Normal, QPalette::Base);
+            handleBorder = pal.color(QPalette::Normal, QPalette::Button);
+            handleFill   = pal.color(QPalette::Normal, QPalette::Button);
+            bgColor      = pal.color(QPalette::Normal, QPalette::Window);
+            loopColor    = pal.color(QPalette::Normal, QPalette::Highlight);
+            markColor    = pal.color(QPalette::Normal, QPalette::Button);
+
+            // is this a light theme?
+            if (pal.color(QPalette::Normal, QPalette::Button).value() >
+                    pal.color(QPalette::Normal, QPalette::Text).value()) {
+                handleBorder = handleBorder.darker();
+                markColor = markColor.darker();
+            } else {
+                handleBorder = handleBorder.lighter(200);
+                markColor = markColor.lighter(200);
+            }
         }
     }
 
-    makeBackground();
+    if (redrawBackground) {
+        makeBackground();
+        redrawBackground = false;
+    }
     if (redrawHandle) {
         makeHandle();
         redrawHandle = false;
@@ -259,6 +271,14 @@ height  |         +          ----    hH
     sliderArea = grooveArea;
     sliderArea.adjust(0, 0, -(handleWidth&1), 0);
     redrawHandle = true;
+    redrawBackground = true;
+}
+
+void DrawnSlider::changeEvent(QEvent *event)
+{
+    if (event->type() == QEvent::EnabledChange)
+        redrawBackground = true;
+    QWidget::changeEvent(event);
 }
 
 void DrawnSlider::mousePressEvent(QMouseEvent *ev)
@@ -304,11 +324,13 @@ void MediaSlider::clearTicks()
     vLoopA = vLoopB = -1;
     loopArea = { -1, -1, 0, 0 };
     redrawHandle = true;
+    redrawBackground = true;
 }
 
 void MediaSlider::setTick(double value, QString text)
 {
     ticks.insert(value, text);
+    redrawBackground = true;
 }
 
 void MediaSlider::setLoopA(double a)
@@ -338,7 +360,6 @@ void MediaSlider::resizeEvent(QResizeEvent *event)
 
 void MediaSlider::makeBackground()
 {
-    Logger::log(logModule, "MediaSlider::makeBackground");
     qreal pr = devicePixelRatioF();
     int pw = width() * pr;
     int ph = height() * pr;
@@ -449,7 +470,7 @@ void MediaSlider::updateLoopArea()
     double left = valueToX(vLoopA);
     double right = valueToX(vLoopB);
     loopArea = {left, grooveArea.top() + 1, right - left, grooveArea.height() - 2};
-    makeBackground();
+    redrawBackground = true;
     update();
 }
 
@@ -476,7 +497,6 @@ VolumeSlider::VolumeSlider(QWidget *parent) :
 
 void VolumeSlider::makeBackground()
 {
-    Logger::log(logModule, "VolumeSlider::makeBackground");
     qreal pr = devicePixelRatioF();
     int pw = int(drawnArea.width() * pr);
     int ph = int(drawnArea.height() * pr);
