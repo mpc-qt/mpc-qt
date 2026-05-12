@@ -2742,7 +2742,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Fallback</source>
-        <translation>Fallback</translation>
+        <translation>Valeur par défaut</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
@@ -4715,27 +4715,27 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Replay Gain</source>
-        <translation type="unfinished"></translation>
+        <translation>ReplayGain</translation>
     </message>
     <message>
         <source>Track</source>
-        <translation type="unfinished"></translation>
+        <translation>Piste</translation>
     </message>
     <message>
         <source>Album</source>
-        <translation type="unfinished"></translation>
+        <translation>Album</translation>
     </message>
     <message>
         <source>Pre-amp</source>
-        <translation type="unfinished"></translation>
+        <translation>Préampli</translation>
     </message>
     <message>
         <source> dB</source>
-        <translation type="unfinished"></translation>
+        <translation> dB</translation>
     </message>
     <message>
         <source>Prevent clipping</source>
-        <translation type="unfinished"></translation>
+        <translation>Éviter l&apos;écrêtage</translation>
     </message>
     <message>
         <source>Search settings…</source>
