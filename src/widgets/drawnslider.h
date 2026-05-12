@@ -44,6 +44,9 @@ protected:
 
     void paintEvent(QPaintEvent *event) override;
     void resizeEvent(QResizeEvent *event) override;
+    void mousePressEvent(QMouseEvent *ev) override;
+    void mouseReleaseEvent(QMouseEvent *ev) override;
+    void mouseMoveEvent(QMouseEvent *ev) override;
 
     bool highContrast = false;
     bool redrawHandle = true;
@@ -59,9 +62,6 @@ protected:
     int handleWidth, handleHeight, marginX, marginY, paddingHeight;
 
 private:
-    void mousePressEvent(QMouseEvent *ev) override;
-    void mouseReleaseEvent(QMouseEvent *ev) override;
-    void mouseMoveEvent(QMouseEvent *ev) override;
 
     bool isDragging = false;
     double xPosition = 0.0;
@@ -87,6 +87,7 @@ signals:
     void hoverBegin();
     void hoverEnd();
     void hoverValue(double position, QString chapterInfo, double x);
+    void middleClicked(double chapterTime);
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
@@ -94,6 +95,7 @@ protected:
     void makeHandle() override;
     void enterEvent(QEnterEvent *event) override;
     void leaveEvent(QEvent *event) override;
+    void mousePressEvent(QMouseEvent *ev) override;
     void handleHover(double x) override;
 
     void updateLoopArea();

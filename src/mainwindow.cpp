@@ -792,6 +792,8 @@ void MainWindow::setupPositionSlider()
             this, &MainWindow::position_hoverValue);
     connect(positionSlider_, &MediaSlider::hoverEnd,
             this, &MainWindow::position_hoverEnd);
+    connect(positionSlider_, &MediaSlider::middleClicked,
+            this, [this](double t) { emit timeSelected(t); });
 }
 
 void MainWindow::setupVolumeSlider()
