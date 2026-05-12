@@ -31,6 +31,7 @@ void StatusTime::setShortMode(bool shortened)
 {
     shortMode = shortened;
     lastTextLength = 0;
+    lastDrawnText.clear();
     updateTimeFormat();
     updateText();
 }
@@ -39,6 +40,7 @@ void StatusTime::setRemainingMode(bool isRemaining)
 {
     remainingMode = isRemaining;
     lastTextLength = 0;
+    lastDrawnText.clear();
     updateText();
 }
 
@@ -46,6 +48,7 @@ void StatusTime::setPercentMode(bool isPercent)
 {
     percentMode = isPercent;
     lastTextLength = 0;
+    lastDrawnText.clear();
     updateText();
 }
 
@@ -77,6 +80,9 @@ void StatusTime::updateText()
                                                                 'f',
                                                                 1)));
     }
+    if (drawnText == lastDrawnText)
+        return;
+    lastDrawnText = drawnText;
     int drawnTextLength = drawnText.length();
     if (drawnTextLength != lastTextLength) {
         setMinimumSize(minimumSizeHint());
