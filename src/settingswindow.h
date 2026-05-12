@@ -77,6 +77,8 @@ private:
     void updateLogoWidget();
     QString selectedLogo() const;
     QString channelSwitcher();
+    void buildPageSearchIndex();
+    int pageIndexForTreeItem(const QModelIndex &index) const;
 
 signals:
     void settingsData(const QVariantMap &s);
@@ -367,6 +369,8 @@ private slots:
 
     void on_logFilePathBrowse_clicked();
 
+    void on_optionsSearchField_textChanged(const QString &text);
+
 private:
     Ui::SettingsWindow *ui = nullptr;
     ActionEditor *actionEditor = nullptr;
@@ -381,6 +385,7 @@ private:
     QList<AudioDevice> audioDevices;
     QList<QPair<QString, QString>> audioFiltersList;
     QList<QPair<QString, QString>> videoFiltersList;
+    QMap<int, QString> pageSearchTerms;
 };
 
 #endif // SETTINGSWINDOW_H

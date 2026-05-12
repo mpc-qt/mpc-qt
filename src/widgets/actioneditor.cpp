@@ -26,6 +26,19 @@ ActionEditor::ActionEditor(QWidget *parent) :
     setEditTriggers(QAbstractItemView::AllEditTriggers);
 }
 
+QString ActionEditor::searchableText() const
+{
+    QStringList parts;
+    for (int i = 0; i < model.rowCount(); ++i) {
+        for (int j = 0; j < model.columnCount(); ++j) {
+            QStandardItem *cell = model.item(i, j);
+            if (cell)
+                parts << cell->text();
+        }
+    }
+    return parts.join(QChar(' '));
+}
+
 void ActionEditor::filterActions(const QString &text)
 {
     if (text.isEmpty()) {

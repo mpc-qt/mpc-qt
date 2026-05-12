@@ -30,6 +30,8 @@ public:
     QVariantMap toVMap() const;
     void fromVMap(const QVariantMap &map);
 
+    QString searchableText() const;
+
 private:
     QString getDescriptiveName(const QAction *action);
 

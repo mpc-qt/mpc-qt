@@ -4769,6 +4769,10 @@ yeni bir &amp;oynatıcı aç</translation>
         <source>Prevent clipping</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Search settings…</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>

@@ -4737,6 +4737,10 @@ fichier média lu</translation>
         <source>Prevent clipping</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Search settings…</source>
+        <translation>Rechercher dans les paramètres…</translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>
