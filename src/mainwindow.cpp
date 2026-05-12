@@ -2241,7 +2241,7 @@ void MainWindow::setAudioTracks(QList<Track> tracks)
         int64_t index = track.id;
         connect(action, &QAction::triggered, this, [this,index] {
             emit audioTrackSelected(index, true);
-            setVolumeMuteState(false, false);
+            setVolumeMuteState(false, true);
         });
         ui->menuPlayAudio->addAction(action);
     }
@@ -2351,7 +2351,7 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
         connect(action, &QAction::triggered, this, [this,index]() {
             emit subtitleTrackSelected(index, true);
             if (index > 0)
-                setSubtitlesEnabled(true, false);
+                setSubtitlesEnabled(true, true);
         });
         ui->menuPlaySubtitles->addAction(action);
     }
@@ -3362,13 +3362,13 @@ void MainWindow::on_actionVideoFiltersDeinterlaceNo_triggered()
 void MainWindow::on_actionPlayAudioTrackNext_triggered()
 {
     emit nextAudioTrackSelected();
-    setVolumeMuteState(false, false);
+    setVolumeMuteState(false, true);
 }
 
 void MainWindow::on_actionPlayAudioTrackPrevious_triggered()
 {
     emit previousAudioTrackSelected();
-    setVolumeMuteState(false, false);
+    setVolumeMuteState(false, true);
 }
 
 void MainWindow::on_actionPlaySubtitlesEnabled_triggered(bool checked)
@@ -3379,13 +3379,13 @@ void MainWindow::on_actionPlaySubtitlesEnabled_triggered(bool checked)
 void MainWindow::on_actionPlaySubtitlesNext_triggered()
 {
     emit nextSubtitleSelected();
-    setSubtitlesEnabled(true, false);
+    setSubtitlesEnabled(true, true);
 }
 
 void MainWindow::on_actionPlaySubtitlesPrevious_triggered()
 {
     emit previousSubtitleSelected();
-    setSubtitlesEnabled(true, false);
+    setSubtitlesEnabled(true, true);
 }
 
 void MainWindow::on_actionPlaySubtitlesCopy_triggered()
