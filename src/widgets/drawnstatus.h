@@ -30,6 +30,7 @@ private:
     double currentTime = 0;
     double currentDuration = 0;
     QString drawnText;
+    QString lastDrawnText;
     int lastTextLength = 0;
 };
 
