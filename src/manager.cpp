@@ -107,8 +107,6 @@ void PlaybackManager::setMpvObject(MpvObject *mpvObject, bool makeConnections)
                 this, &PlaybackManager::mpvw_playTimeChanged);
         connect(mpvObject, &MpvObject::playLengthChanged,
                 this, &PlaybackManager::mpvw_playLengthChanged);
-        connect(mpvObject, &MpvObject::seekableChanged,
-                this, &PlaybackManager::mpvw_seekableChanged);
         connect(mpvObject, &MpvObject::playbackLoading,
                 this, &PlaybackManager::mpvw_playbackLoading);
         connect(mpvObject, &MpvObject::pausedForCacheChanged,
@@ -227,7 +225,6 @@ void PlaybackManager::playDiscFiles(QUrl where)
         emit stateChanged(playbackState_);
         mpvObject_->stopPlayback();
     }
-    mpvStartTime = -1.0;
     mpvObject_->discFilesOpen(where.toLocalFile());
     mpvObject_->setPaused(false);
     playbackStartState = PlayingState;
@@ -434,7 +431,7 @@ void PlaybackManager::navigateToChapter(int64_t chapter)
 void PlaybackManager::navigateToTime(double time)
 {
     if (playbackState_ == WaitingState || playbackState_ == StoppedState)
-        mpvStartTime = time;
+        mpvObject_->setStartTime(time);
     else
         mpvObject_->setTime(time);
 }
@@ -705,8 +702,6 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
     if (playbackState_ == WaitingState || what.isEmpty())
         return;
     emit stateChanged(playbackState_ = WaitingState);
-
-    mpvStartTime = -1.0;
 
     if (!isRepeating)
         emit aboutToStartPlayingFile(what);
@@ -1010,14 +1005,6 @@ void PlaybackManager::mpvw_playLengthChanged(double length)
 {
     mpvLength = length;
     emit playLengthChanged();
-}
-
-void PlaybackManager::mpvw_seekableChanged(bool yes)
-{
-    if (yes && mpvStartTime > 0) {
-        mpvObject_->setTimeSync(mpvStartTime);
-        mpvStartTime = -1;
-    }
 }
 
 void PlaybackManager::mpvw_playbackLoading()

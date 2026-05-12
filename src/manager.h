@@ -207,7 +207,6 @@ private:
 private slots:
     void mpvw_playTimeChanged(double time);
     void mpvw_playLengthChanged(double length);
-    void mpvw_seekableChanged(bool yes);
     void mpvw_playbackLoading();
     void mpvw_pausedForCache(QString paused);
     void mpvw_bufferFillStateChanged(int64_t percentage);
@@ -241,7 +240,6 @@ private:
     QString nowPlayingTitle_;
     int64_t currentMpvPlaylistItemId = 0;
 
-    double mpvStartTime = -1.0;
     double mpvTime = 0.0;
     double mpvLength = 0.0;
     double mpvSpeed = 1.0;
