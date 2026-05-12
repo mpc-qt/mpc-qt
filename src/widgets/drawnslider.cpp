@@ -432,6 +432,18 @@ void MediaSlider::handleHover(double x)
     emit hoverValue(valueOfX, valueToTickText(valueOfX), x);
 }
 
+void MediaSlider::mousePressEvent(QMouseEvent *ev)
+{
+    if (ev->button() == Qt::MiddleButton && !ticks.isEmpty()) {
+        double clickTime = xToValue(ev->position().x());
+        auto it = ticks.upperBound(clickTime);
+        if (it != ticks.constEnd())
+            emit middleClicked(it.key());
+        return;
+    }
+    DrawnSlider::mousePressEvent(ev);
+}
+
 void MediaSlider::updateLoopArea()
 {
     double left = valueToX(vLoopA);
