@@ -2758,7 +2758,7 @@ media file played</source>
     </message>
     <message>
         <source>Fallback</source>
-        <translation type="vanished">备用方案</translation>
+        <translation>备用方案</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
@@ -4656,6 +4656,30 @@ media file played</source>
     <message>
         <source>VP8</source>
         <translation type="vanished">VP8</translation>
+    </message>
+    <message>
+        <source>Replay Gain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Album</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pre-amp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> dB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prevent clipping</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

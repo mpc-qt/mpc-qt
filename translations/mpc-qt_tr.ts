@@ -2786,7 +2786,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Fallback</source>
-        <translation type="vanished">Yedek</translation>
+        <translation>Yedek</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
@@ -4744,6 +4744,30 @@ yeni bir &amp;oynatıcı aç</translation>
     <message>
         <source>Use dark colors</source>
         <translation>Koyu renkleri kullan</translation>
+    </message>
+    <message>
+        <source>Replay Gain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Album</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pre-amp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> dB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prevent clipping</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
