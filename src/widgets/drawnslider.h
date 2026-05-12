@@ -44,12 +44,14 @@ protected:
 
     void paintEvent(QPaintEvent *event) override;
     void resizeEvent(QResizeEvent *event) override;
+    void changeEvent(QEvent *event) override;
     void mousePressEvent(QMouseEvent *ev) override;
     void mouseReleaseEvent(QMouseEvent *ev) override;
     void mouseMoveEvent(QMouseEvent *ev) override;
 
     bool highContrast = false;
     bool redrawHandle = true;
+    bool redrawBackground = true;
     QImage backgroundPic;
     QImage handlePics[16];
 
