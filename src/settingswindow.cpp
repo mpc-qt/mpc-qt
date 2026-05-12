@@ -164,6 +164,7 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"audioChannels", {"auto-safe", "auto", "stereo", "mono"}},
     {"audioRenderer", {"pulse", "alsa", "oss", "null"}},
     {"audioAutoloadMatch", { "exact", "fuzzy", "all" }},
+    {"replayGainMode", {"no", "track", "album"}},
     {"framedroppingMode", {"no", "vo", "decoder", "decoder+vo"}},
     {"framedroppingDecoderMode", {"none", "default", "nonref", "bidir",\
                                   "nonkey", "all"}},
@@ -991,6 +992,11 @@ void SettingsWindow::sendSignals()
     bool audioAutoload = WIDGET_LOOKUP(ui->audioAutoloadExternal).toBool();
     emit option("audio-file-auto", audioAutoload ? WIDGET_TO_TEXT(ui->audioAutoloadMatch) : "no");
     emit option("audio-file-paths", WIDGET_PLACEHOLD_LOOKUP(ui->audioAutoloadPath).split(';'));
+
+    emit option("replaygain", WIDGET_TO_TEXT(ui->replayGainMode));
+    emit option("replaygain-preamp", WIDGET_LOOKUP(ui->replayGainPreamp).toDouble());
+    emit option("replaygain-fallback", WIDGET_LOOKUP(ui->replayGainFallback).toDouble());
+    emit option("replaygain-clip", WIDGET_LOOKUP(ui->replayGainClip).toBool());
 
     emit option("sub-gray", WIDGET_LOOKUP(ui->subtitlesForceGrayscale).toBool());
     emit option("sub-font", WIDGET_LOOKUP(ui->fontComboBox).toString());

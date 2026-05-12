@@ -2768,7 +2768,7 @@ media file played</source>
     </message>
     <message>
         <source>Fallback</source>
-        <translation type="vanished">Резервная тема</translation>
+        <translation>Резервная тема</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
@@ -4721,6 +4721,30 @@ media file played</source>
     </message>
     <message>
         <source>Use dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replay Gain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Album</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pre-amp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> dB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prevent clipping</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
