@@ -2758,7 +2758,7 @@ media file played</source>
     </message>
     <message>
         <source>Fallback</source>
-        <translation>备用方案</translation>
+        <translation>回退</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
@@ -4659,27 +4659,27 @@ media file played</source>
     </message>
     <message>
         <source>Replay Gain</source>
-        <translation type="unfinished"></translation>
+        <translation>回放增益</translation>
     </message>
     <message>
         <source>Track</source>
-        <translation type="unfinished"></translation>
+        <translation>轨道</translation>
     </message>
     <message>
         <source>Album</source>
-        <translation type="unfinished"></translation>
+        <translation>专辑</translation>
     </message>
     <message>
         <source>Pre-amp</source>
-        <translation type="unfinished"></translation>
+        <translation>前置放大器</translation>
     </message>
     <message>
         <source> dB</source>
-        <translation type="unfinished"></translation>
+        <translation> 分贝</translation>
     </message>
     <message>
         <source>Prevent clipping</source>
-        <translation type="unfinished"></translation>
+        <translation>防止削波</translation>
     </message>
     <message>
         <source>Search settings…</source>
