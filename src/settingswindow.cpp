@@ -6,6 +6,7 @@
 #include <QColorDialog>
 #include <QStyleHints>
 #include <QToolTip>
+#include <QToolButton>
 #include "logger.h"
 #include "platform/unify.h"
 #include "settingswindow.h"
@@ -353,6 +354,13 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     setupColorPickers();
     setupUnimplementedWidgets();
     ui->pageStack->installEventFilter(this);
+
+    buildPageSearchIndex();
+
+    int headerHeight = std::max(ui->pageLabel->sizeHint().height(),
+                                ui->optionsSearchField->sizeHint().height());
+    ui->pageLabel->setFixedHeight(headerHeight);
+    ui->optionsSearchField->setFixedHeight(headerHeight);
 }
 
 SettingsWindow::~SettingsWindow()
@@ -386,6 +394,7 @@ void SettingsWindow::updateLanguage()
     ui->retranslateUi(this);
     ui->videoPresetApplied->clear();
     takeKeyMap(acceptedKeyMap);
+    buildPageSearchIndex();
 }
 
 void SettingsWindow::setupPageTree()
@@ -615,6 +624,7 @@ void SettingsWindow::takeActions(const QList<QAction *> actions)
     }
     actionEditor->setCommands(commandList);
     defaultKeyMap = actionEditor->toVMap();
+    buildPageSearchIndex();
 }
 
 void SettingsWindow::takeSettings(QVariantMap payload)
@@ -632,6 +642,7 @@ void SettingsWindow::takeKeyMap(const QVariantMap &payload)
     actionEditor->fromVMap(payload);
     actionEditor->updateActions();
     acceptedKeyMap = actionEditor->toVMap();
+    buildPageSearchIndex();
 }
 
 void SettingsWindow::setMouseMapDefaults(const QVariantMap &payload)
@@ -1253,18 +1264,92 @@ QList<MpvOption> SettingsWindow::parseMpvOptions(const QString &optionsInline) c
     return mpvOptions;
 }
 
+int SettingsWindow::pageIndexForTreeItem(const QModelIndex &index) const
+{
+    static const int parentIndex[] = { 0, 6, 13, 14, 16, 18, 19, 20 };
+    if (!index.isValid())
+        return -1;
+    if (!index.parent().isValid())
+        return parentIndex[index.row()];
+    return parentIndex[index.parent().row()] + index.row() + 1;
+}
+
+void SettingsWindow::buildPageSearchIndex()
+{
+    pageSearchTerms.clear();
+    for (int i = 0; i < ui->pageStack->count(); ++i) {
+        QWidget *page = ui->pageStack->widget(i);
+        if (!page)
+            continue;
+        QStringList terms;
+        for (auto *w : page->findChildren<QLabel*>())       terms << w->text();
+        for (auto *w : page->findChildren<QCheckBox*>())    terms << w->text();
+        for (auto *w : page->findChildren<QRadioButton*>()) terms << w->text();
+        for (auto *w : page->findChildren<QGroupBox*>())    terms << w->title();
+        for (auto *w : page->findChildren<QPushButton*>())  terms << w->text();
+        for (auto *w : page->findChildren<QToolButton*>())  terms << w->text();
+        for (auto *tabs : page->findChildren<QTabWidget*>())
+            for (int t = 0; t < tabs->count(); ++t)
+                terms << tabs->tabText(t);
+        for (auto *combo : page->findChildren<QComboBox*>())
+            for (int k = 0; k < combo->count(); ++k)
+                terms << combo->itemText(k);
+        for (auto *list : page->findChildren<QListWidget*>())
+            for (int k = 0; k < list->count(); ++k)
+                terms << list->item(k)->text();
+        if (page == ui->keysPage && actionEditor)
+            terms << actionEditor->searchableText();
+        pageSearchTerms[i] = terms.join(QChar(' '));
+    }
+}
+
+void SettingsWindow::on_optionsSearchField_textChanged(const QString &text)
+{
+    const QString needle = text.trimmed();
+    QTreeWidget *tree = ui->pageTree;
+
+    if (needle.isEmpty()) {
+        for (int i = 0; i < tree->topLevelItemCount(); ++i) {
+            QTreeWidgetItem *top = tree->topLevelItem(i);
+            top->setHidden(false);
+            for (int j = 0; j < top->childCount(); ++j)
+                top->child(j)->setHidden(false);
+        }
+        return;
+    }
+
+    for (int i = 0; i < tree->topLevelItemCount(); ++i) {
+        QTreeWidgetItem *top = tree->topLevelItem(i);
+        bool anyChildVisible = false;
+
+        for (int j = 0; j < top->childCount(); ++j) {
+            QTreeWidgetItem *child = top->child(j);
+            QModelIndex childIndex = tree->indexFromItem(child);
+            int pageIdx = pageIndexForTreeItem(childIndex);
+            bool match = child->text(0).contains(needle, Qt::CaseInsensitive)
+                      || pageSearchTerms.value(pageIdx).contains(needle, Qt::CaseInsensitive);
+            child->setHidden(!match);
+            anyChildVisible |= match;
+        }
+
+        QModelIndex topIndex = tree->indexFromItem(top);
+        int parentPageIdx = pageIndexForTreeItem(topIndex);
+        bool parentMatch = top->text(0).contains(needle, Qt::CaseInsensitive)
+                        || pageSearchTerms.value(parentPageIdx).contains(needle, Qt::CaseInsensitive);
+
+        top->setHidden(!(parentMatch || anyChildVisible));
+        if (anyChildVisible)
+            top->setExpanded(true);
+    }
+}
+
 void SettingsWindow::on_pageTree_itemSelectionChanged()
 {
     QModelIndex modelIndex = ui->pageTree->currentIndex();
     if (!modelIndex.isValid())
         return;
 
-    static int parentIndex[] = { 0, 6, 13, 14, 16, 18, 19, 20 };
-    int index = 0;
-    if (!modelIndex.parent().isValid())
-        index = parentIndex[modelIndex.row()];
-    else
-        index = parentIndex[modelIndex.parent().row()] + modelIndex.row() + 1;
+    int index = pageIndexForTreeItem(modelIndex);
     ui->pageStack->setCurrentIndex(index);
     ui->pageLabel->setText(QString("<big><b>%1</b></big>").
                            arg(modelIndex.data().toString()));
@@ -1296,6 +1381,7 @@ void SettingsWindow::closeEvent(QCloseEvent *event)
     Q_UNUSED(event)
     sendSignals();
     ui->keysSearchField->clear();
+    ui->optionsSearchField->clear();
     ui->videoPreset->setCurrentIndex(0);
 }
 

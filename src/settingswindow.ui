@@ -28,21 +28,49 @@
      <property name="orientation">
       <enum>Qt::Orientation::Horizontal</enum>
      </property>
-     <widget class="QTreeWidget" name="pageTree">
-      <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
-      </property>
-      <property name="horizontalScrollBarPolicy">
-       <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
-      </property>
-      <property name="headerHidden">
-       <bool>true</bool>
-      </property>
-      <column>
-       <property name="text">
-        <string>1</string>
+     <property name="handleWidth">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="leftPaneContainer" native="true">
+      <layout class="QVBoxLayout" name="leftPaneLayout" stretch="0,1">
+       <property name="leftMargin">
+        <number>0</number>
        </property>
-      </column>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>8</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLineEdit" name="optionsSearchField">
+         <property name="placeholderText">
+          <string>Search settings…</string>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTreeWidget" name="pageTree">
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="headerHidden">
+          <bool>true</bool>
+         </property>
+         <column>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </column>
       <item>
        <property name="text">
         <string>Player</string>
@@ -148,6 +176,9 @@
         <string>Miscellaneous</string>
        </property>
       </item>
+        </widget>
+       </item>
+      </layout>
      </widget>
      <widget class="QWidget" name="stackHost" native="true">
       <property name="sizePolicy">
@@ -157,10 +188,24 @@
        </sizepolicy>
       </property>
       <layout class="QVBoxLayout" name="stackHostLayout" stretch="0,0">
+       <property name="topMargin">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QLabel" name="pageLabel">
+         <property name="styleSheet">
+          <string notr="true">QLabel#pageLabel {
+    background-color: palette(midlight);
+    border-bottom: 1px solid palette(mid);
+    padding-left: 12px;
+    padding-right: 12px;
+}</string>
+         </property>
          <property name="text">
           <string>&lt;big&gt;&lt;b&gt;Player</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
