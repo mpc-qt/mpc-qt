@@ -4807,7 +4807,7 @@ media file played</source>
     </message>
     <message>
         <source>Search settings…</source>
-        <translation type="unfinished"></translation>
+        <translation>検索設定…</translation>
     </message>
 </context>
 <context>
