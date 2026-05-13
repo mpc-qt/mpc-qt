@@ -4683,7 +4683,7 @@ media file played</source>
     </message>
     <message>
         <source>Search settings…</source>
-        <translation type="unfinished"></translation>
+        <translation>搜索设置…</translation>
     </message>
 </context>
 <context>
