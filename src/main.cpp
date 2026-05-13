@@ -1610,11 +1610,12 @@ void Flow::manager_aboutToStartPlayingFile()
 void Flow::manager_startedPlayingFile(QUrl url)
 {
     Logger::log(logModule, "manager_startedPlayingFile");
+    double position = 0;
     if (rememberFilePosition) {
         // Check if there's a position saved in recents for this file
         foreach (TrackInfo track, recentFiles) {
             if (track.url == url) {
-                playbackManager->navigateToTime(track.position);
+                position = track.position;
                 playbackManager->restoreVideoTrack(track.videoTrack);
                 playbackManager->restoreAudioTrack(track.audioTrack);
                 playbackManager->restoreSubtitleTrack(track.subtitleTrack);
@@ -1622,6 +1623,7 @@ void Flow::manager_startedPlayingFile(QUrl url)
             }
         }
     }
+    playbackManager->navigateToTime(position);
 }
 void Flow::manager_stoppedPlaying()
 {
