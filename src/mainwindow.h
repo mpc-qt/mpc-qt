@@ -125,6 +125,7 @@ private:
     void raiseWindow();
     void createAlwaysOnTopWindow();
     void showAlwaysOnTopWindow(bool show);
+    void armAbLoop();
 
     QIcon createIconFromSvg(const QString &svgPath, int maxSize) const;
     QPixmap renderPixmapFromSvg(const QString &path) const;
