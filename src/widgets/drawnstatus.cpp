@@ -1,5 +1,7 @@
 #include <QPainter>
+#include <QMouseEvent>
 #include "helpers.h"
+#include "tooltip.h"
 #include "drawnstatus.h"
 
 static constexpr char logModule[] =  "drawnstatus";
@@ -8,6 +10,7 @@ StatusTime::StatusTime(QWidget *parent) : QWidget(parent)
 {
     setTime(0, 0);
     setMinimumSize(minimumSizeHint());
+    setAttribute(Qt::WA_Hover);
 }
 
 QSize StatusTime::minimumSizeHint() const
@@ -80,6 +83,10 @@ void StatusTime::updateText()
                                                                 'f',
                                                                 1)));
     }
+
+    if (hovered)
+        updateHoverTooltip();
+
     if (drawnText == lastDrawnText)
         return;
     lastDrawnText = drawnText;
@@ -89,6 +96,62 @@ void StatusTime::updateText()
         lastTextLength = drawnTextLength;
     }
     update();
+}
+
+void StatusTime::ensureHoverTooltip()
+{
+    if (hoverTooltip)
+        return;
+    QWidget *top = window();
+    if (!top || top == this)
+        return;
+    hoverTooltip = new Tooltip(top);
+}
+
+void StatusTime::updatePalette()
+{
+    if (hoverTooltip)
+        hoverTooltip->updatePalette();
+}
+
+void StatusTime::updateHoverTooltip()
+{
+    if (!hoverTooltip)
+        return;
+    QWidget *top = window();
+    if (!top)
+        return;
+    QString label = remainingMode ? tr("Played") : tr("Remaining");
+    double hoverTime = remainingMode ? currentTime : currentTime - currentDuration;
+    QString text = QString("%1: %2").arg(label,
+                                         Helpers::toDateFormatFixed(hoverTime, timeFormat));
+    QString textTemplate = QString("%1: %2").arg(label,
+                                                 Helpers::toDateFormatFixed(currentDuration, timeFormat));
+    QPoint topLeft = mapTo(top, QPoint(0, 0));
+    QPoint where(topLeft.x() + width() / 2, topLeft.y() - 2);
+    hoverTooltip->show(text, where, top->width(), textTemplate);
+}
+
+bool StatusTime::event(QEvent *event)
+{
+    switch (event->type()) {
+    case QEvent::HoverEnter:
+        hovered = true;
+        ensureHoverTooltip();
+        updateHoverTooltip();
+        break;
+    case QEvent::HoverLeave:
+        hovered = false;
+        if (hoverTooltip)
+            hoverTooltip->hide();
+        break;
+    case QEvent::ToolTip:
+        event->accept();
+        return true;
+    default:
+        break;
+    }
+    return QWidget::event(event);
 }
 
 void StatusTime::paintEvent(QPaintEvent *event)
@@ -107,4 +170,11 @@ void StatusTime::changeEvent(QEvent *event)
 {
     if (event->type() == QEvent::EnabledChange)
         setVisible(isEnabled());
+}
+
+void StatusTime::mouseDoubleClickEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton)
+        emit doubleClicked();
+    QWidget::mouseDoubleClickEvent(event);
 }
