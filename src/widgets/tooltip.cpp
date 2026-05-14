@@ -2,7 +2,7 @@
 #include "tooltip.h"
 
 static constexpr char logModule[] =  "tooltip";
-static constexpr int windowSidesMargin = 20;
+static constexpr int windowSidesMargin = 5;
 static constexpr int insidePadding = 10;
 
 Tooltip::Tooltip(QWidget *parent) : QWidget(parent)
@@ -25,7 +25,10 @@ Tooltip::~Tooltip()
 
 void Tooltip::updatePalette()
 {
-    QPalette palette = QApplication::palette();
+    const QPalette palette = QApplication::palette();
+    const auto text = palette.color(QPalette::WindowText);
+    const auto window = palette.color(QPalette::Window);
+    const bool darkPalette = text.lightness() > window.lightness();
     QString css = QString(
         "background-color: %1;"
         "color: %2;"
@@ -34,7 +37,7 @@ void Tooltip::updatePalette()
     )
     .arg(palette.color(QPalette::ToolTipBase).name(),
         palette.color(QPalette::ToolTipText).name(),
-        palette.color(QPalette::Mid).name());
+        palette.color(darkPalette ? QPalette::Light : QPalette::Mid).name());
 
     textLabel->setStyleSheet(css);
 }
