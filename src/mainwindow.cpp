@@ -398,6 +398,8 @@ void MainWindow::changeEvent(QEvent *event)
             tooltip->updatePalette();
         if (videoPreview)
             videoPreview->updatePalette();
+        if (statusTime)
+            statusTime->updatePalette();
     }
     else if (event->type() == QEvent::WindowStateChange && isMaximized())
         emit windowMaximized();
@@ -509,11 +511,7 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
     QPoint pos = event->globalPosition().toPoint();
     bool ok = mpvw ? insideWidget(pos, mpvw) : false;
-    if (mousePressedInBottomArea && insideWidget(pos, statusTime)) {
-        if (event->button() == Qt::MouseButton::LeftButton)
-            setTimeRemainingMode(!timeRemainingMode);
-    }
-    else {
+    if (!(mousePressedInBottomArea && insideWidget(pos, statusTime))) {
         if (ok && mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseUp)))
             event->accept();
         else
@@ -882,6 +880,8 @@ void MainWindow::setupStatus()
     ui->statusbarLayout->insertWidget(2, statusTime);
     connect(statusTime, &StatusTime::customContextMenuRequested,
             this, &MainWindow::statusTime_customContextMenuRequested);
+    connect(statusTime, &StatusTime::doubleClicked,
+            ui->actionNavigateGoto, &QAction::trigger);
 }
 
 void MainWindow::setupSizing()

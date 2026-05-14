@@ -4780,6 +4780,14 @@ yeni bir &amp;oynatıcı aç</translation>
         <source> (%1%)</source>
         <translation> (%%1)</translation>
     </message>
+    <message>
+        <source>Played</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remaining</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

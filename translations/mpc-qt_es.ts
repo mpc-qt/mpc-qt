@@ -4610,6 +4610,14 @@ archivo multimedia reproducido</translation>
         <source> (%1%)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Played</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remaining</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>

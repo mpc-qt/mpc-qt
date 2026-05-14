@@ -4748,6 +4748,14 @@ fichier média lu</translation>
         <source> (%1%)</source>
         <translation> (%1 %)</translation>
     </message>
+    <message>
+        <source>Played</source>
+        <translation>Lu</translation>
+    </message>
+    <message>
+        <source>Remaining</source>
+        <translation>Restant</translation>
+    </message>
 </context>
 <context>
     <name>ThumbnailerWindow</name>
