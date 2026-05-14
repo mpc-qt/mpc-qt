@@ -4694,11 +4694,11 @@ media file played</source>
     </message>
     <message>
         <source>Played</source>
-        <translation type="unfinished"></translation>
+        <translation>已播放</translation>
     </message>
     <message>
         <source>Remaining</source>
-        <translation type="unfinished"></translation>
+        <translation>还剩</translation>
     </message>
 </context>
 <context>
