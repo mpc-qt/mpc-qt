@@ -3420,16 +3420,14 @@ void MainWindow::on_actionPlayLoopStart_triggered()
 {
     positionSlider_->setLoopA(mpvObject_->playTime());
     if (ui->actionPlayLoopUse->isChecked())
-        mpvObject_->setLoopPoints(positionSlider_->loopA(),
-                                  positionSlider_->loopB());
+        armAbLoop();
 }
 
 void MainWindow::on_actionPlayLoopEnd_triggered()
 {
     positionSlider_->setLoopB(mpvObject_->playTime());
     if (ui->actionPlayLoopUse->isChecked())
-        mpvObject_->setLoopPoints(positionSlider_->loopA(),
-                                  positionSlider_->loopB());
+        armAbLoop();
 }
 
 void MainWindow::on_actionPlayLoopUse_toggled(bool checked)
@@ -3441,11 +3439,22 @@ void MainWindow::on_actionPlayLoopUse_toggled(bool checked)
         if (positionSlider_->loopB() < 0 )
             positionSlider_->setLoopB(mpvObject_->playLength());
 
-        mpvObject_->setLoopPoints(positionSlider_->loopA(),
-                                  positionSlider_->loopB());
+        armAbLoop();
     }
     else
         mpvObject_->setLoopPoints(-1, -1);
+}
+
+void MainWindow::armAbLoop()
+{
+    double a = positionSlider_->loopA();
+    double b = positionSlider_->loopB();
+    mpvObject_->setLoopPoints(a, b);
+    if (a < 0 || b < 0)
+        return;
+    double loopEnd = std::max(a, b);
+    if (mpvObject_->playTime() > loopEnd)
+        mpvObject_->setTime(std::min(a, b));
 }
 
 void MainWindow::on_actionPlayLoopClear_triggered()
