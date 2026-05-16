@@ -605,7 +605,7 @@ void Flow::setupMainWindowConnections()
 
     // propertieswindow -> mainwindow
     connect(propertiesWindow, &PropertiesWindow::artistAndTitleChanged,
-            mainWindow, &MainWindow::setMediaTitleWithFilename);
+            mainWindow, &MainWindow::setMediaTitle);
 
     // mainwindow -> playlistwindow
     connect(mainWindow, &MainWindow::playCurrentItemRequested,
@@ -618,8 +618,8 @@ void Flow::setupMainWindowConnections()
     // manager -> mainwindow
     connect(playbackManager, &PlaybackManager::timeChanged,
             mainWindow, &MainWindow::setTime);
-    connect(playbackManager, &PlaybackManager::titleChangedWithFilename,
-            mainWindow, &MainWindow::setMediaTitleWithFilename);
+    connect(playbackManager, &PlaybackManager::titleChanged,
+            mainWindow, &MainWindow::setMediaTitle);
     connect(playbackManager, &PlaybackManager::videoSizeChanged,
             mainWindow, &MainWindow::setVideoSize);
     connect(playbackManager, &PlaybackManager::stateChanged,

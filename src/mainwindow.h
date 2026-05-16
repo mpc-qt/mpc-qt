@@ -259,7 +259,7 @@ public slots:
     void setHighContrastWidgets(bool yes);
     void setInfoColors(const QColor &foreground, const QColor &background);
     void setTime(double time, double length);
-    void setMediaTitleWithFilename(const QString& title, const QString& filename);
+    void setMediaTitle(const QString &title);
     void setChapterTitle(QString title);
     void setAspectName(QString aspectName);
     void setVideoSize(QSize size);
@@ -578,7 +578,6 @@ private:
     int currentAngle = 0;
     bool flipped = false;
     QUrl currentFile;
-    QString currentFileName;
     QString currentFileTitle;
 
     IconThemer themer;
