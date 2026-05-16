@@ -2499,10 +2499,6 @@ arquivo de mídia reproduzido</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Don&apos;t prefi&amp;x anything</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>History</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4457,6 +4453,10 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Search settings…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A&amp;pplication name only</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

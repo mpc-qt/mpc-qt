@@ -2544,7 +2544,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
-        <translation>Non usare alcun prefi&amp;sso</translation>
+        <translation type="vanished">Non usare alcun prefi&amp;sso</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
@@ -4529,6 +4529,10 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Search settings…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A&amp;pplication name only</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

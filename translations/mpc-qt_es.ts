@@ -2556,7 +2556,7 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
-        <translation>No añadir prefijos a nada</translation>
+        <translation type="vanished">No añadir prefijos a nada</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
@@ -4601,6 +4601,10 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Search settings…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A&amp;pplication name only</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

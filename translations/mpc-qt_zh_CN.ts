@@ -2646,7 +2646,7 @@ media file played</source>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
-        <translation>不要添加任何前缀(&amp;X)</translation>
+        <translation type="vanished">不要添加任何前缀(&amp;X)</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
@@ -4684,6 +4684,10 @@ media file played</source>
     <message>
         <source>Search settings…</source>
         <translation>搜索设置…</translation>
+    </message>
+    <message>
+        <source>A&amp;pplication name only</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

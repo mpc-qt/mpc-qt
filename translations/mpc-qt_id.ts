@@ -2594,7 +2594,7 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
-        <translation>Jangan tambahkan awalan apa pun</translation>
+        <translation type="vanished">Jangan tambahkan awalan apa pun</translation>
     </message>
     <message>
         <source>History</source>
@@ -4555,6 +4555,10 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Search settings…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A&amp;pplication name only</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
