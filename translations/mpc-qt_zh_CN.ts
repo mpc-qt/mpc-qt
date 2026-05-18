@@ -4687,7 +4687,7 @@ media file played</source>
     </message>
     <message>
         <source>A&amp;pplication name only</source>
-        <translation type="unfinished"></translation>
+        <translation>仅应用程序名称(&amp;P)</translation>
     </message>
 </context>
 <context>
