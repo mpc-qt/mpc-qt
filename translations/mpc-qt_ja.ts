@@ -4811,7 +4811,7 @@ media file played</source>
     </message>
     <message>
         <source>A&amp;pplication name only</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーション名のみ(&amp;P)</translation>
     </message>
 </context>
 <context>
