@@ -2648,7 +2648,7 @@ media file played</source>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
-        <translation>Ничего не д&amp;елать</translation>
+        <translation type="vanished">Ничего не д&amp;елать</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
@@ -4749,6 +4749,10 @@ media file played</source>
     </message>
     <message>
         <source>Search settings…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A&amp;pplication name only</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

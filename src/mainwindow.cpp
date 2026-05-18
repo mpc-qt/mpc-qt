@@ -1788,7 +1788,7 @@ void MainWindow::httpAfterPlaybackLock()
 void MainWindow::setFreestanding(bool freestanding)
 {
     freestanding_ = freestanding;
-    setMediaTitleWithFilename(QString(), QString());
+    setMediaTitle(QString());
 }
 
 void MainWindow::setNoVideoSize(const QSize &size)
@@ -1808,7 +1808,7 @@ void MainWindow::setTrayIcon(bool enabled)
 void MainWindow::setTitleBarFormat(Helpers::TitlePrefix titlebarFormat)
 {
     titlebarFormat_ = titlebarFormat;
-    setMediaTitleWithFilename(currentFileTitle, currentFileName);
+    setMediaTitle(currentFileTitle);
 }
 
 void MainWindow::setWindowedMouseMap(const MouseStateMap &map)
@@ -1955,20 +1955,20 @@ void MainWindow::setTime(double time, double length)
     statusTime->setTime(time, length);
 }
 
-void MainWindow::setMediaTitleWithFilename(const QString& title, const QString& filename)
+void MainWindow::setMediaTitle(const QString &title)
 {
     currentFileTitle = title;
-    currentFileName = filename;
     QString newTitle = title;
     QString windowTitle(textWindowTitle);
 
     switch(titlebarFormat_) {
         case PrefixFullPath:
-            newTitle = currentFile.toString();
+            if (currentFile.isLocalFile())
+                newTitle = currentFile.path();
             break;
         case PrefixFileName:
-            if (!filename.isEmpty())
-                newTitle = filename;
+            if (currentFile.isLocalFile())
+                newTitle = currentFile.fileName();
             break;
         case PrefixFileTitle:
             break;

@@ -2622,7 +2622,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
-        <translation>Ne rien préfi&amp;xer</translation>
+        <translation type="vanished">Ne rien préfi&amp;xer</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
@@ -4740,6 +4740,10 @@ fichier média lu</translation>
     <message>
         <source>Search settings…</source>
         <translation>Rechercher dans les paramètres…</translation>
+    </message>
+    <message>
+        <source>A&amp;pplication name only</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

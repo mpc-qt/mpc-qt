@@ -195,8 +195,7 @@ void PropertiesWindow::setMetaData(QVariantMap data)
 
     generalData.insert(data);
     if (data.contains("artist") && data.contains("title"))
-        emit artistAndTitleChanged(data["artist"].toString() + " - " + data["title"].toString(),
-                                   this->filename);
+        emit artistAndTitleChanged(data["artist"].toString() + " - " + data["title"].toString());
     updateLastTab();
 }
 

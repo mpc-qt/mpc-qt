@@ -2700,7 +2700,7 @@ media file played</translation>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
-        <translation>Don&apos;t prefi&amp;x anything</translation>
+        <translation type="vanished">Don&apos;t prefi&amp;x anything</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
@@ -4805,6 +4805,10 @@ media file played</translation>
     </message>
     <message>
         <source>Search settings…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A&amp;pplication name only</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

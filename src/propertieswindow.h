@@ -20,7 +20,7 @@ public:
     void updateLanguage();
 
 signals:
-    void artistAndTitleChanged(QString artistAndTitle, QString filename);
+    void artistAndTitleChanged(QString artistAndTitle);
 
 public slots:
     void setFileName(const QString &filename);

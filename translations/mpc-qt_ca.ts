@@ -2668,7 +2668,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
-        <translation>No afegir prefi&amp;xos a res</translation>
+        <translation type="vanished">No afegir prefi&amp;xos a res</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
@@ -4769,6 +4769,10 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Search settings…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A&amp;pplication name only</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

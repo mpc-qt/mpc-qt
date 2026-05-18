@@ -2670,7 +2670,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
-        <translation>Hiçbir şeye ö&amp;nek koyma</translation>
+        <translation type="vanished">Hiçbir şeye ö&amp;nek koyma</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
@@ -4771,6 +4771,10 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Search settings…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A&amp;pplication name only</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -63,7 +63,6 @@ signals:
     void timeChanged(double time, double length);
     void playLengthChanged();
     void titleChanged(QString title);
-    void titleChangedWithFilename(QString title, QString filename);
     void videoSizeChanged(QSize size);
     void playbackSpeedChanged(double speed);
     void stateChanged(PlaybackManager::PlaybackState state, int bufferFillState = 0);

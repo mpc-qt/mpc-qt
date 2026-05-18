@@ -2670,7 +2670,7 @@ media file played</source>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
-        <translation>ப்ரீஃபி &amp; ஃச் எதையும் வேண்டாம்</translation>
+        <translation type="vanished">ப்ரீஃபி &amp; ஃச் எதையும் வேண்டாம்</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
@@ -4779,6 +4779,10 @@ media file played</source>
     </message>
     <message>
         <source>Search settings…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A&amp;pplication name only</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
