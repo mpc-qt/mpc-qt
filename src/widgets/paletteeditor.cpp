@@ -111,8 +111,7 @@ PaletteEditor::PaletteEditor(QWidget *parent) : QWidget(parent)
         col = 0;
         QLabel* roleTitle = new QLabel(colorRoleTitle);
         layout->addWidget(roleTitle, row, col++);
-        QList lightTitles = {QPalette::Light, QPalette::Midlight, QPalette::Dark,
-                             QPalette::Mid, QPalette::BrightText, QPalette::LinkVisited,
+        QList lightTitles = {QPalette::Dark, QPalette::BrightText, QPalette::LinkVisited,
                              QPalette::AlternateBase, QPalette::NoRole};
         if (lightTitles.contains(colorRole))
             roleTitle->setStyleSheet("font-weight: 100;");
