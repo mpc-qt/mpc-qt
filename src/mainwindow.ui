@@ -124,7 +124,7 @@
            <widget class="QWidget" name="controlbar" native="true">
             <layout class="QHBoxLayout" name="controlbarLayout">
              <property name="spacing">
-              <number>2</number>
+              <number>0</number>
              </property>
              <property name="leftMargin">
               <number>6</number>

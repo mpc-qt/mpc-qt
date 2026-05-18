@@ -118,6 +118,9 @@
     </item>
     <item>
      <layout class="QHBoxLayout" name="tabButtonLayout">
+      <property name="spacing">
+       <number>2</number>
+      </property>
       <item>
        <widget class="QPushButton" name="newTab">
         <property name="toolTip">
