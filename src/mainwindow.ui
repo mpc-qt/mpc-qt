@@ -122,9 +122,9 @@
           </item>
           <item>
            <widget class="QWidget" name="controlbar" native="true">
-            <layout class="QHBoxLayout" name="controlbarLayout" stretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0">
+            <layout class="QHBoxLayout" name="controlbarLayout">
              <property name="spacing">
-              <number>2</number>
+              <number>0</number>
              </property>
              <property name="leftMargin">
               <number>6</number>
@@ -433,12 +433,6 @@
               <widget class="QPushButton" name="stepForward">
                <property name="enabled">
                 <bool>false</bool>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>31</width>
-                 <height>40</height>
-                </size>
                </property>
                <property name="toolTip">
                 <string>Step Forward</string>
