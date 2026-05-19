@@ -100,6 +100,10 @@
         <translation>Bewege Untertitel runter</translation>
     </message>
     <message>
+        <source>16:9 Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Decrease Aspect ratio</source>
         <translation>Seitenverhältnis ändern (höher)</translation>
     </message>

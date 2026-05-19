@@ -104,6 +104,7 @@ QString ActionEditor::getDescriptiveName(const QAction *action)
         { "actionMoveSubtitlesUp",         tr("Move Subtitles Up") },
         { "actionMoveSubtitlesDown",       tr("Move Subtitles Down") },
         { "action43VideoAspect",           tr("4:3 Aspect ratio") },
+        { "action169VideoAspect",          tr("16:9 Aspect ratio") },
         { "actionDecreaseVideoAspect",     tr("Decrease Aspect ratio") },
         { "actionIncreaseVideoAspect",     tr("Increase Aspect ratio") },
         { "actionResetVideoAspect",        tr("Reset Aspect ratio") },

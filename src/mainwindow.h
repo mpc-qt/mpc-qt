@@ -376,6 +376,7 @@ private slots:
     void on_actionViewZoomDisable_triggered();
 
     void on_action43VideoAspect_triggered();
+    void on_action169VideoAspect_triggered();
     void on_actionDecreaseVideoAspect_triggered();
     void on_actionIncreaseVideoAspect_triggered();
     void on_actionResetVideoAspect_triggered();

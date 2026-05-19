@@ -92,6 +92,10 @@
         <translation>வசனங்களை கீழே நகர்த்தவும்</translation>
     </message>
     <message>
+        <source>16:9 Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Decrease Aspect ratio</source>
         <translation>தோற்ற விகிதத்தைக் குறைக்கவும்</translation>
     </message>
