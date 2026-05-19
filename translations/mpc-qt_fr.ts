@@ -4747,7 +4747,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>A&amp;pplication name only</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom de l&apos;a&amp;pplication</translation>
     </message>
 </context>
 <context>
