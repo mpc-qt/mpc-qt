@@ -473,6 +473,7 @@ void Flow::setTranslation(bool updateTranslations)
 
     if (updateTranslations) {
         mainWindow->updateLanguage();
+        mainWindow->setPlaybackState(playbackManager->playbackState(), 0);
         mainWindow->playlistWindow()->updateLanguage();
         settingsWindow->updateLanguage();
         propertiesWindow->updateLanguage();
