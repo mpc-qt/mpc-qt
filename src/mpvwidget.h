@@ -284,7 +284,6 @@ private slots:
     void maybeUpdate();
     void self_frameSwapped();
     void self_playbackStarted();
-    void self_playbackFinished();
 
 private:
     static constexpr char logModule[] = "glwidget";

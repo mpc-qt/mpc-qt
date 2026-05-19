@@ -1113,6 +1113,8 @@ void PlaybackManager::mpvw_tracksChanged(QVariantList tracks)
     audioListData.clear();
     subtitleList.clear();
     subtitleListData.clear();
+    if (tracks.empty())
+        return;
     Track track;
 
     for (QVariant const &trackItem : tracks) {

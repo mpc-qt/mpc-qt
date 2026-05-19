@@ -345,10 +345,12 @@ void MpvObject::urlOpen(QUrl url)
 void MpvObject::fileOpen(QString filename, bool replaceMpvPlaylist)
 {
     clearSubFiles();
+    setMpvPropertyVariant("vid", "no");
     if (replaceMpvPlaylist)
         emit ctrlCommand(QStringList({"loadfile", filename}));
     else
         emit ctrlCommand(QStringList({"loadfile", filename, "append-play"}));
+    setMpvPropertyVariant("vid", "auto");
     setMouseHideTime(hideTimer->interval());
 }
 
@@ -364,6 +366,7 @@ void MpvObject::discFilesOpen(QString path) {
 void MpvObject::stopPlayback()
 {
     emit ctrlCommand("stop");
+    setDrawLogo(true);
 }
 
 void MpvObject::stepBackward()
@@ -985,8 +988,6 @@ MpvGlWidget::MpvGlWidget(MpvObject *object, QWidget *parent) :
             this, &MpvGlWidget::self_frameSwapped);
     connect(mpvObject, &MpvObject::playbackStarted,
             this, &MpvGlWidget::self_playbackStarted);
-    connect(mpvObject, &MpvObject::playbackFinished,
-            this, &MpvGlWidget::self_playbackFinished);
     setContextMenuPolicy(Qt::CustomContextMenu);
 }
 
@@ -1088,7 +1089,7 @@ void MpvGlWidget::paintGL()
     if (mpvObject->clientDebuggingMessages())
         Logger::log(logModule, "paintGL");
     if (drawLogo || !render) {
-        if (logo)
+        if (logo && drawLogo)
             logo->paintGL(this);
         return;
     }
@@ -1214,12 +1215,6 @@ void MpvGlWidget::self_frameSwapped()
 void MpvGlWidget::self_playbackStarted()
 {
     drawLogo = false;
-}
-
-void MpvGlWidget::self_playbackFinished()
-{
-    drawLogo = true;
-    update();
 }
 
 
