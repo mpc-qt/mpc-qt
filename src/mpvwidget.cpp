@@ -345,10 +345,12 @@ void MpvObject::urlOpen(QUrl url)
 void MpvObject::fileOpen(QString filename, bool replaceMpvPlaylist)
 {
     clearSubFiles();
+    setMpvPropertyVariant("vid", "no");
     if (replaceMpvPlaylist)
         emit ctrlCommand(QStringList({"loadfile", filename}));
     else
         emit ctrlCommand(QStringList({"loadfile", filename, "append-play"}));
+    setMpvPropertyVariant("vid", "auto");
     setMouseHideTime(hideTimer->interval());
 }
 
