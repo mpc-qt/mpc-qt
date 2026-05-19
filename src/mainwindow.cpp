@@ -3223,18 +3223,16 @@ void MainWindow::on_actionRotateCounterclockwise_triggered()
     mpvObject_->setVideoRotate(currentAngle);
 }
 
-void MainWindow::on_actionFlipHorizontal_triggered()
+void MainWindow::on_actionFlipHorizontal_toggled(bool checked)
 {
-    flipped = !flipped;
-    mpvObject_->setVideoFlip(flipped);
+    emit videoFilter("hflip", "", checked);
 }
 
 void MainWindow::on_actionResetRotate_triggered()
 {
     currentAngle = 0;
-    flipped = false;
     mpvObject_->setVideoRotate(0);
-    mpvObject_->setVideoFlip(false);
+    ui->actionFlipHorizontal->setChecked(false);
 }
 
 void MainWindow::on_actionViewOntopAlways_toggled(bool checked)
