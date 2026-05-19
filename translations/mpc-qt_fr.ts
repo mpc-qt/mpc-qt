@@ -2102,7 +2102,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Fermer l’onglet</translation>
+        <translation type="vanished">Fermer l’onglet</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>

@@ -2146,7 +2146,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>தாவலை மூடு</translation>
+        <translation type="vanished">தாவலை மூடு</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>

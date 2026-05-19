@@ -2004,7 +2004,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Sulje Välilehti</translation>
+        <translation type="vanished">Sulje Välilehti</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>

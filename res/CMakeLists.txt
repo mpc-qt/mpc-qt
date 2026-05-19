@@ -22,7 +22,6 @@ set(res_resource_files
     images/theme/black/media-skip-forward.svg
     images/theme/black/player-volume-muted.svg
     images/theme/black/player-volume.svg
-    images/theme/black/tab-close.svg
     images/theme/black/tab-duplicate.svg
     images/theme/black/tab-new.svg
     images/theme/black/view-media-queue.svg
@@ -44,7 +43,6 @@ set(res_resource_files
     images/theme/white/media-skip-forward.svg
     images/theme/white/player-volume-muted.svg
     images/theme/white/player-volume.svg
-    images/theme/white/tab-close.svg
     images/theme/white/tab-duplicate.svg
     images/theme/white/tab-new.svg
     images/theme/white/video-x-generic-16.svg

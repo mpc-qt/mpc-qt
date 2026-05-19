@@ -2028,7 +2028,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Chiudi scheda</translation>
+        <translation type="vanished">Chiudi scheda</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>

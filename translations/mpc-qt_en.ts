@@ -2176,7 +2176,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Close Tab</translation>
+        <translation type="vanished">Close Tab</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>

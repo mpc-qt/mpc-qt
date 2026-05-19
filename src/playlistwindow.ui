@@ -140,24 +140,6 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="closeTab">
-        <property name="toolTip">
-         <string>Close Tab</string>
-        </property>
-        <property name="icon">
-         <iconset>
-          <normalon>:/images/theme/black/tab-close.svg</normalon>
-         </iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>12</width>
-          <height>12</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QPushButton" name="duplicateTab">
         <property name="toolTip">
          <string>Duplicate Tab</string>

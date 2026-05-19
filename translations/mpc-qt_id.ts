@@ -2094,7 +2094,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Tutup Tab</translation>
+        <translation type="vanished">Tutup Tab</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>
