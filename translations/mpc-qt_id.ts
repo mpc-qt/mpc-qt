@@ -268,7 +268,7 @@ Apakah Anda ingin menggunakannya untuk &quot;%3&quot;?</translation>
     </message>
     <message>
         <source>Append the file(s) to the current playlist.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambahkan file ke daftar putar saat ini.</translation>
     </message>
     <message>
         <source>URLs to open, optionally.</source>
@@ -338,7 +338,7 @@ Apakah Anda ingin menggunakannya untuk &quot;%3&quot;?</translation>
     </message>
     <message>
         <source>Playlists Backup</source>
-        <translation type="unfinished"></translation>
+        <translation>Cadangan Daftar Putar</translation>
     </message>
 </context>
 <context>
@@ -365,7 +365,7 @@ Apakah Anda ingin menggunakannya untuk &quot;%3&quot;?</translation>
     </message>
     <message>
         <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas log (*.log)</translation>
     </message>
 </context>
 <context>
@@ -1397,11 +1397,11 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Loading</source>
-        <translation type="unfinished"></translation>
+        <translation>Memuat</translation>
     </message>
     <message>
         <source>Buffering (%1%)</source>
-        <translation type="unfinished"></translation>
+        <translation>Membuffer (%1%)</translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
@@ -1809,23 +1809,23 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Tunda</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished">Ya</translation>
+        <translation>Ya</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">Otomatis</translation>
+        <translation>Otomatis</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished">Tidak</translation>
+        <translation>Tidak</translation>
     </message>
     <message>
         <source>Pl&amp;aylists Backup</source>
-        <translation type="unfinished"></translation>
+        <translation>Cadangan Daftar Putar</translation>
     </message>
 </context>
 <context>
@@ -4335,7 +4335,7 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas log (*.log)</translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
@@ -4523,47 +4523,47 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Remember last window size and position</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingat ukuran dan posisi jendela terakhir</translation>
     </message>
     <message>
         <source>Use dark colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Gunakan warna gelap</translation>
     </message>
     <message>
         <source>Replay Gain</source>
-        <translation type="unfinished"></translation>
+        <translation>Replay Gain</translation>
     </message>
     <message>
         <source>Track</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagu</translation>
     </message>
     <message>
         <source>Album</source>
-        <translation type="unfinished"></translation>
+        <translation>Album</translation>
     </message>
     <message>
         <source>Pre-amp</source>
-        <translation type="unfinished"></translation>
+        <translation>Pra-penguat</translation>
     </message>
     <message>
         <source> dB</source>
-        <translation type="unfinished"></translation>
+        <translation> dB</translation>
     </message>
     <message>
         <source>Fallback</source>
-        <translation type="unfinished"></translation>
+        <translation>Cadangan</translation>
     </message>
     <message>
         <source>Prevent clipping</source>
-        <translation type="unfinished"></translation>
+        <translation>Cegah clipping</translation>
     </message>
     <message>
         <source>Search settings…</source>
-        <translation type="unfinished"></translation>
+        <translation>Cari pengaturan…</translation>
     </message>
     <message>
         <source>A&amp;pplication name only</source>
-        <translation type="unfinished"></translation>
+        <translation>Hanya nama aplikasi</translation>
     </message>
 </context>
 <context>
@@ -4574,11 +4574,11 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Played</source>
-        <translation type="unfinished"></translation>
+        <translation>Diputar</translation>
     </message>
     <message>
         <source>Remaining</source>
-        <translation type="unfinished"></translation>
+        <translation>Tersisa</translation>
     </message>
 </context>
 <context>
