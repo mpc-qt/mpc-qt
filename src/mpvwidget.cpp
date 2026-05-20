@@ -526,15 +526,6 @@ void MpvObject::setVideoRotate(int angle)
     setMpvPropertyVariant("video-rotate", angle);
 }
 
-void MpvObject::setVideoFlip(bool flip)
-{
-    if (flip) {
-        setMpvOptionVariant("vf", "hflip");
-    } else {
-        setMpvOptionVariant("vf", "");
-    }
-}
-
 int64_t MpvObject::chapter()
 {
     return chapter_;

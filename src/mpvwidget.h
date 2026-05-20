@@ -83,7 +83,6 @@ public:
     void setVideoPanX(double value);
     void setVideoPanY(double value);
     void setVideoRotate(int angle);
-    void setVideoFlip(bool flip);
 
     int64_t chapter();
     void changeChapter(int diff);
