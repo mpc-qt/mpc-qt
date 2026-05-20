@@ -101,7 +101,7 @@
     </message>
     <message>
         <source>16:9 Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>16:9 アスペクト比</translation>
     </message>
     <message>
         <source>Decrease Aspect ratio</source>
