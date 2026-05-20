@@ -1976,6 +1976,8 @@ void MainWindow::setMediaTitle(const QString &title)
             newTitle.clear();
             break;
     }
+    if (title.isEmpty())
+        newTitle = QString();
     if (!newTitle.isEmpty())
         windowTitle = newTitle;
 
