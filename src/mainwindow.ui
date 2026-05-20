@@ -1012,6 +1012,7 @@
       </property>
       <addaction name="actionVideoAspectName"/>
       <addaction name="action43VideoAspect"/>
+      <addaction name="action169VideoAspect"/>
       <addaction name="actionDecreaseVideoAspect"/>
       <addaction name="actionIncreaseVideoAspect"/>
       <addaction name="actionResetVideoAspect"/>
@@ -2369,6 +2370,11 @@
   <action name="action43VideoAspect">
    <property name="text">
     <string notr="true">4:3</string>
+   </property>
+  </action>
+  <action name="action169VideoAspect">
+   <property name="text">
+    <string notr="true">16:9</string>
    </property>
   </action>
   <action name="actionDecreaseVideoAspect">

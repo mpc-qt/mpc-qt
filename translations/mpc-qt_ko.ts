@@ -100,6 +100,10 @@
         <translation>자막을 아래로 이동</translation>
     </message>
     <message>
+        <source>16:9 Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Decrease Aspect ratio</source>
         <translation>화면비 줄이기</translation>
     </message>

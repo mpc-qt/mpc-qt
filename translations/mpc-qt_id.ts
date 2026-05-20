@@ -92,6 +92,10 @@
         <translation>Pindahkan Subtitle ke Bawah</translation>
     </message>
     <message>
+        <source>16:9 Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Decrease Aspect ratio</source>
         <translation>Kurangi Rasio Aspek</translation>
     </message>

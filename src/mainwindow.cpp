@@ -2292,6 +2292,7 @@ void MainWindow::setVideoTracks(QList<Track> tracks)
     ui->menuPlayVideoAspect->addAction(ui->actionVideoAspectName);
     ui->menuPlayVideoAspect->addSeparator();
     ui->menuPlayVideoAspect->addAction(ui->action43VideoAspect);
+    ui->menuPlayVideoAspect->addAction(ui->action169VideoAspect);
     ui->menuPlayVideoAspect->addAction(ui->actionDecreaseVideoAspect);
     ui->menuPlayVideoAspect->addAction(ui->actionIncreaseVideoAspect);
     ui->menuPlayVideoAspect->addAction(ui->actionResetVideoAspect);
@@ -3046,6 +3047,13 @@ void MainWindow::on_action43VideoAspect_triggered()
     mpvObject_->disableVideoAspect(false);
     ui->actionDisableVideoAspect->setChecked(false);
     mpvObject_->setVideoAspectPreset(1.3333);
+}
+
+void MainWindow::on_action169VideoAspect_triggered()
+{
+    mpvObject_->disableVideoAspect(false);
+    ui->actionDisableVideoAspect->setChecked(false);
+    mpvObject_->setVideoAspectPreset(16.0/9);
 }
 
 void MainWindow::on_actionDecreaseVideoAspect_triggered()

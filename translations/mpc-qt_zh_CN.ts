@@ -100,6 +100,10 @@
         <translation>下移字幕</translation>
     </message>
     <message>
+        <source>16:9 Aspect ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Decrease Aspect ratio</source>
         <translation>减少宽高比</translation>
     </message>
