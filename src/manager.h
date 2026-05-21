@@ -104,6 +104,7 @@ signals:
     void decoderFramedropsChanged(int64_t count);
     void audioBitrateChanged(double bitrate);
     void videoBitrateChanged(double bitrate);
+    void hwdecCurrentChanged(QString hwdecCurrent, bool fastHardwareDecoding);
 
 public slots:
     // load functions
