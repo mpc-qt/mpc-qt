@@ -437,6 +437,8 @@ private slots:
 
     void on_actionPlayAudioTrackNext_triggered();
     void on_actionPlayAudioTrackPrevious_triggered();
+    void on_actionDecreaseAudioDelay_triggered();
+    void on_actionIncreaseAudioDelay_triggered();
     
     void on_actionPlaySubtitlesEnabled_triggered(bool checked);
     void on_actionPlaySubtitlesNext_triggered();
@@ -556,6 +558,7 @@ private:
     bool isVideo_ = false;
     QString subtitleText;
     int subtitlesDelayStep = 100;
+    int audioDelayStep = 10;
     int volumeStep = 10;
     bool frozenWindow = true;
     double sizeFactor_ = 1;

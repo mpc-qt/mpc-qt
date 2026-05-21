@@ -100,6 +100,22 @@
         <translation>字幕を下に移動</translation>
     </message>
     <message>
+        <source>Decrease Subtitles Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase Subtitles Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decrease Audio Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase Audio Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>16:9 Aspect ratio</source>
         <translation>16:9 アスペクト比</translation>
     </message>
@@ -1903,6 +1919,14 @@ No action will be triggered.</source>
         <source>Pl&amp;aylists Backup</source>
         <translation>再生リストのバックアップ(&amp;A)</translation>
     </message>
+    <message>
+        <source>Decrease Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2056,6 +2080,10 @@ No action will be triggered.</source>
     <message>
         <source>Subtitles delay: %1 ms</source>
         <translation>字幕の遅延 : %1 ミリ秒</translation>
+    </message>
+    <message>
+        <source>Audio delay: %1 ms</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

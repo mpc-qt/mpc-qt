@@ -100,6 +100,22 @@
         <translation>Posunout titulky dolů</translation>
     </message>
     <message>
+        <source>Decrease Subtitles Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase Subtitles Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decrease Audio Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase Audio Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>16:9 Aspect ratio</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1909,6 +1925,14 @@ No action will be triggered.</source>
         <source>Pl&amp;aylists Backup</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Decrease Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2061,6 +2085,10 @@ No action will be triggered.</source>
     <name>MpvObject</name>
     <message>
         <source>Subtitles delay: %1 ms</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio delay: %1 ms</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

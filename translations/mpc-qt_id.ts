@@ -92,6 +92,22 @@
         <translation>Pindahkan Subtitle ke Bawah</translation>
     </message>
     <message>
+        <source>Decrease Subtitles Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase Subtitles Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decrease Audio Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase Audio Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>16:9 Aspect ratio</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1839,6 +1855,14 @@ Tidak ada tindakan yang akan dipicu.</translation>
         <source>Pl&amp;aylists Backup</source>
         <translation>Cadangan Daftar Putar</translation>
     </message>
+    <message>
+        <source>Decrease Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -1992,6 +2016,10 @@ Tidak ada tindakan yang akan dipicu.</translation>
     <message>
         <source>Subtitles delay: %1 ms</source>
         <translation>Penundaan subtitle: %1 md</translation>
+    </message>
+    <message>
+        <source>Audio delay: %1 ms</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

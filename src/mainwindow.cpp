@@ -2268,9 +2268,7 @@ void MainWindow::setAudioTracks(QList<Track> tracks)
     }
     ui->menuPlayAudio->addSeparator();
     ui->menuPlayAudio->addMenu(ui->menuPlayAudioFilters);
-    ui->menuPlayAudioFilters->addAction(ui->actionAudioFilterExtrastereo);
-    ui->menuPlayAudioFilters->addAction(ui->actionAudioFilterAcompressor);
-    ui->menuPlayAudioFilters->addAction(ui->actionAudioFilterCrossfeed);
+    ui->menuPlayAudio->addMenu(ui->menuPlayAudioDelay);
     ui->menuPlayAudio->addAction(ui->actionPlayAudioTrackPrevious);
     ui->menuPlayAudio->addAction(ui->actionPlayAudioTrackNext);
     audioTracksGroup->actions().constFirst()->setChecked(true);
@@ -2304,44 +2302,12 @@ void MainWindow::setVideoTracks(QList<Track> tracks)
     ui->menuPlayVideo->addSeparator();
     ui->menuPlayVideo->addMenu(ui->menuPlayVideoFilters);
     ui->menuPlayVideoFilters->addMenu(ui->menuPlayVideoFiltersDeinterlace);
-    ui->menuPlayVideoFiltersDeinterlace->addAction(ui->actionVideoFiltersDeinterlaceYes);
-    ui->menuPlayVideoFiltersDeinterlace->addAction(ui->actionVideoFiltersDeinterlaceAuto);
-    ui->menuPlayVideoFiltersDeinterlace->addAction(ui->actionVideoFiltersDeinterlaceNo);
     ui->menuPlayVideo->addMenu(ui->menuPlayVideoAspect);
-    ui->menuPlayVideoAspect->addAction(ui->actionVideoAspectName);
-    ui->menuPlayVideoAspect->addSeparator();
-    ui->menuPlayVideoAspect->addAction(ui->action43VideoAspect);
-    ui->menuPlayVideoAspect->addAction(ui->action169VideoAspect);
-    ui->menuPlayVideoAspect->addAction(ui->actionDecreaseVideoAspect);
-    ui->menuPlayVideoAspect->addAction(ui->actionIncreaseVideoAspect);
-    ui->menuPlayVideoAspect->addAction(ui->actionResetVideoAspect);
-    ui->menuPlayVideoAspect->addAction(ui->actionDisableVideoAspect);
     ui->menuPlayVideo->addMenu(ui->menuPlayVideoPanScan);
-    ui->menuPlayVideoPanScan->addAction(ui->actionDecreasePanScan);
-    ui->menuPlayVideoPanScan->addAction(ui->actionIncreasePanScan);
-    ui->menuPlayVideoPanScan->addAction(ui->actionMinPanScan);
-    ui->menuPlayVideoPanScan->addAction(ui->actionMaxPanScan);
     ui->menuPlayVideo->addMenu(ui->menuPlayVideoZoom);
-    ui->menuPlayVideoZoom->addAction(ui->actionDecreaseZoom);
-    ui->menuPlayVideoZoom->addAction(ui->actionIncreaseZoom);
-    ui->menuPlayVideoZoom->addAction(ui->actionResetZoom);
     ui->menuPlayVideo->addMenu(ui->menuPlayVideoResize);
-    ui->menuPlayVideoResize->addAction(ui->actionDecreaseWidth);
-    ui->menuPlayVideoResize->addAction(ui->actionIncreaseWidth);
-    ui->menuPlayVideoResize->addAction(ui->actionDecreaseHeight);
-    ui->menuPlayVideoResize->addAction(ui->actionIncreaseHeight);
-    ui->menuPlayVideoResize->addAction(ui->actionResetWidthHeight);
     ui->menuPlayVideo->addMenu(ui->menuPlayVideoMove);
-    ui->menuPlayVideoMove->addAction(ui->actionMoveLeft);
-    ui->menuPlayVideoMove->addAction(ui->actionMoveRight);
-    ui->menuPlayVideoMove->addAction(ui->actionMoveUp);
-    ui->menuPlayVideoMove->addAction(ui->actionMoveDown);
-    ui->menuPlayVideoMove->addAction(ui->actionResetMove);
     ui->menuPlayVideo->addMenu(ui->menuPlayVideoRotate);
-    ui->menuPlayVideoRotate->addAction(ui->actionRotateClockwise);
-    ui->menuPlayVideoRotate->addAction(ui->actionRotateCounterclockwise);
-    ui->menuPlayVideoRotate->addAction(ui->actionFlipHorizontal);
-    ui->menuPlayVideoRotate->addAction(ui->actionResetRotate);
     videoTracksGroup->actions().constFirst()->setChecked(true);
     updateOnTop();
 }
@@ -2383,11 +2349,7 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesNext);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesCopy);
     ui->menuPlaySubtitles->addMenu(ui->menuPlaySubtitlesDelay);
-    ui->menuPlaySubtitlesDelay->addAction(ui->actionDecreaseSubtitlesDelay);
-    ui->menuPlaySubtitlesDelay->addAction(ui->actionIncreaseSubtitlesDelay);
     ui->menuPlaySubtitles->addMenu(ui->menuPlaySubtitlesMove);
-    ui->menuPlaySubtitlesMove->addAction(ui->actionMoveSubtitlesUp);
-    ui->menuPlaySubtitlesMove->addAction(ui->actionMoveSubtitlesDown);
     subtitleTracksGroup->actions().constFirst()->setChecked(true);
 }
 
@@ -3429,6 +3391,16 @@ void MainWindow::on_actionDecreaseSubtitlesDelay_triggered()
 void MainWindow::on_actionIncreaseSubtitlesDelay_triggered()
 {
     mpvObject_->setSubtitlesDelay(subtitlesDelayStep);
+}
+
+void MainWindow::on_actionDecreaseAudioDelay_triggered()
+{
+    mpvObject_->setAudioDelay(-audioDelayStep);
+}
+
+void MainWindow::on_actionIncreaseAudioDelay_triggered()
+{
+    mpvObject_->setAudioDelay(audioDelayStep);
 }
 
 void MainWindow::on_actionMoveSubtitlesUp_triggered()

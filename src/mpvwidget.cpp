@@ -477,6 +477,13 @@ void MpvObject::moveSubtitlesVertically(int diff)
     emit ctrlCommand(QVariantList({"add", "sub-margin-y", diff}));
 }
 
+void MpvObject::setAudioDelay(int audioDelayStep)
+{
+    double newAudioDelay = getMpvPropertyVariant("audio-delay").toDouble() + (double) audioDelayStep / 1000;
+    setMpvPropertyVariant("audio-delay", QString::number(newAudioDelay, 'f', 3));
+    showMessage(tr("Audio delay: %1 ms").arg(std::round(newAudioDelay * 1000)));
+}
+
 void MpvObject::setVideoAspect(double aspectDiff)
 {
     setMpvPropertyVariant("video-aspect-override", aspect + aspectDiff);

@@ -959,7 +959,15 @@
       <addaction name="actionAudioFilterAcompressor"/>
       <addaction name="actionAudioFilterCrossfeed"/>
      </widget>
+     <widget class="QMenu" name="menuPlayAudioDelay">
+      <property name="title">
+       <string>Delay</string>
+      </property>
+      <addaction name="actionDecreaseAudioDelay"/>
+      <addaction name="actionIncreaseAudioDelay"/>
+     </widget>
      <addaction name="menuPlayAudioFilters"/>
+     <addaction name="menuPlayAudioDelay"/>
      <addaction name="actionPlayAudioTrackPrevious"/>
      <addaction name="actionPlayAudioTrackNext"/>
     </widget>
@@ -1011,6 +1019,7 @@
        <string>&amp;Aspect ratio</string>
       </property>
       <addaction name="actionVideoAspectName"/>
+      <addaction name="separator"/>
       <addaction name="action43VideoAspect"/>
       <addaction name="action169VideoAspect"/>
       <addaction name="actionDecreaseVideoAspect"/>
@@ -2285,6 +2294,16 @@
    </property>
    <property name="text">
     <string>&amp;Crossfeed (for headphones)</string>
+   </property>
+  </action>
+  <action name="actionDecreaseAudioDelay">
+   <property name="text">
+    <string>Decrease Delay</string>
+   </property>
+  </action>
+  <action name="actionIncreaseAudioDelay">
+   <property name="text">
+    <string>Increase Delay</string>
    </property>
   </action>
   <action name="actionPlayAudioTrackPrevious">
