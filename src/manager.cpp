@@ -1206,6 +1206,7 @@ void PlaybackManager::mpvw_hwdecCurrentChanged(QString newHwdecCurrent)
     fastHardwareDecoding = !(newHwdecCurrent.isEmpty() ||
                              newHwdecCurrent == "no" ||
                              newHwdecCurrent.contains("copy"));
+    emit hwdecCurrentChanged(newHwdecCurrent, fastHardwareDecoding);
 }
 
 void PlaybackManager::mpvw_interlacedChanged(bool interlaced)

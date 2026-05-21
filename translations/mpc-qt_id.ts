@@ -1372,6 +1372,18 @@ Tidak ada tindakan yang akan dipicu.</translation>
         <translation>Buka Cepat</translation>
     </message>
     <message>
+        <source>Software Decoding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hardware Decoding: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hardware Decoding: %1 (slow)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Remaining time</source>
         <translation>Sisa waktu</translation>
     </message>

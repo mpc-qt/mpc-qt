@@ -287,6 +287,7 @@ public slots:
     void setAudioTracks(QList<Track> tracks);
     void setVideoTracks(QList<Track> tracks);
     void setSubtitleTracks(QList<Track> tracks);
+    void setHwdecTooltip(const QString &tooltip, bool fastHardwareDecoding);
     void audioTrackSet(int64_t id);
     void videoTrackSet(int64_t id);
     void subtitleTrackSet(int64_t id);

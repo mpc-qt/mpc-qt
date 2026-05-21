@@ -647,6 +647,8 @@ void Flow::setupMainWindowConnections()
             mainWindow, &MainWindow::setAudioBitrate);
     connect(playbackManager, &PlaybackManager::videoBitrateChanged,
             mainWindow, &MainWindow::setVideoBitrate);
+    connect(playbackManager, &PlaybackManager::hwdecCurrentChanged,
+            mainWindow, &MainWindow::setHwdecTooltip);
     connect(playbackManager, &PlaybackManager::afterPlaybackReset,
             mainWindow, &MainWindow::resetPlayAfterOnce);
     connect(playbackManager, &PlaybackManager::nowPlayingChanged,

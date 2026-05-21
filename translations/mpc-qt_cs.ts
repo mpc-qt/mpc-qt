@@ -1386,6 +1386,18 @@ No action will be triggered.</source>
         <translation>Rychle otevřít</translation>
     </message>
     <message>
+        <source>Software Decoding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hardware Decoding: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hardware Decoding: %1 (slow)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Remaining time</source>
         <translation>Zbývající čas</translation>
     </message>

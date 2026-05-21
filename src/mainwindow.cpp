@@ -2116,6 +2116,23 @@ void MainWindow::setTimeTooltip(bool shown, bool above)
     timeTooltipAbove = above;
 }
 
+void MainWindow::setHwdecTooltip(const QString &hwdecCurrent, bool fastHardwareDecoding)
+{
+    if (hwdecCurrent.isEmpty()) {
+        ui->status->setToolTip(QString());
+        return;
+    }
+    QString tooltipText;
+    if (hwdecCurrent == "no")
+        tooltipText = tr("Software Decoding");
+    else if (fastHardwareDecoding)
+        tooltipText = tr("Hardware Decoding: %1").arg(hwdecCurrent);
+    else
+        tooltipText = tr("Hardware Decoding: %1 (slow)").arg(hwdecCurrent);
+
+    ui->status->setToolTip(tooltipText);
+}
+
 void MainWindow::setOsdTimerOnSeek(bool enabled)
 {
     osdTimerOnSeek = enabled;

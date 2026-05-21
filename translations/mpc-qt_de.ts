@@ -1388,6 +1388,18 @@ Es wird keine Aktion ausgelöst.</translation>
         <translation>Schnelles Öffnen</translation>
     </message>
     <message>
+        <source>Software Decoding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hardware Decoding: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hardware Decoding: %1 (slow)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Remaining time</source>
         <translation>Verbleibende Zeit</translation>
     </message>
