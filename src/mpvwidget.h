@@ -73,6 +73,7 @@ public:
     void addSubFile(QString filename);
     void setSubtitlesDelay(int subDelayStep);
     void moveSubtitlesVertically(int diff);
+    void setAudioDelay(int audioDelayStep);
     void setVideoAspect(double aspectDiff);
     void setVideoAspectPreset(double aspect);
     void disableVideoAspect(bool yes);

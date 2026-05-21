@@ -2254,6 +2254,7 @@ void MainWindow::setAudioTracks(QList<Track> tracks)
     ui->menuPlayAudioFilters->addAction(ui->actionAudioFilterExtrastereo);
     ui->menuPlayAudioFilters->addAction(ui->actionAudioFilterAcompressor);
     ui->menuPlayAudioFilters->addAction(ui->actionAudioFilterCrossfeed);
+    ui->menuPlayAudio->addMenu(ui->menuPlayAudioDelay);
     ui->menuPlayAudio->addAction(ui->actionPlayAudioTrackPrevious);
     ui->menuPlayAudio->addAction(ui->actionPlayAudioTrackNext);
     audioTracksGroup->actions().constFirst()->setChecked(true);
@@ -3412,6 +3413,16 @@ void MainWindow::on_actionDecreaseSubtitlesDelay_triggered()
 void MainWindow::on_actionIncreaseSubtitlesDelay_triggered()
 {
     mpvObject_->setSubtitlesDelay(subtitlesDelayStep);
+}
+
+void MainWindow::on_actionDecreaseAudioDelay_triggered()
+{
+    mpvObject_->setAudioDelay(-audioDelayStep);
+}
+
+void MainWindow::on_actionIncreaseAudioDelay_triggered()
+{
+    mpvObject_->setAudioDelay(audioDelayStep);
 }
 
 void MainWindow::on_actionMoveSubtitlesUp_triggered()
