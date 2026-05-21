@@ -101,19 +101,19 @@
     </message>
     <message>
         <source>Decrease Subtitles Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Diminuer le délai des sous-titres</translation>
     </message>
     <message>
         <source>Increase Subtitles Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Augmenter le délai des sous-titres</translation>
     </message>
     <message>
         <source>Decrease Audio Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Diminuer le délai audio</translation>
     </message>
     <message>
         <source>Increase Audio Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Augmenter le délai audio</translation>
     </message>
     <message>
         <source>16:9 Aspect ratio</source>
@@ -1357,15 +1357,15 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Software Decoding</source>
-        <translation type="unfinished"></translation>
+        <translation>Décodage logiciel</translation>
     </message>
     <message>
         <source>Hardware Decoding: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Décodage matériel&#xa0;: %1</translation>
     </message>
     <message>
         <source>Hardware Decoding: %1 (slow)</source>
-        <translation type="unfinished"></translation>
+        <translation>Décodage matériel&#xa0;: %1 (lent)</translation>
     </message>
     <message>
         <source>Remaining time</source>
@@ -1857,11 +1857,11 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Decrease Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Diminuer le délai</translation>
     </message>
     <message>
         <source>Increase Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Augmenter le délai</translation>
     </message>
 </context>
 <context>
@@ -2019,7 +2019,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Audio delay: %1 ms</source>
-        <translation type="unfinished"></translation>
+        <translation>Délai audio&#xa0;: %1 ms</translation>
     </message>
 </context>
 <context>
