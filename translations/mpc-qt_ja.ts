@@ -101,19 +101,19 @@
     </message>
     <message>
         <source>Decrease Subtitles Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>字幕の遅延を減らす</translation>
     </message>
     <message>
         <source>Increase Subtitles Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>字幕の遅延を増やす</translation>
     </message>
     <message>
         <source>Decrease Audio Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>音声の遅延を減らす</translation>
     </message>
     <message>
         <source>Increase Audio Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>音声の遅延を増やす</translation>
     </message>
     <message>
         <source>16:9 Aspect ratio</source>
@@ -1405,15 +1405,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Software Decoding</source>
-        <translation type="unfinished"></translation>
+        <translation>ソフトウェアデコード</translation>
     </message>
     <message>
         <source>Hardware Decoding: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ハードウェアデコード : %1</translation>
     </message>
     <message>
         <source>Hardware Decoding: %1 (slow)</source>
-        <translation type="unfinished"></translation>
+        <translation>ハードウェアデコード : %1 (低速)</translation>
     </message>
     <message>
         <source>Remaining time</source>
@@ -1921,11 +1921,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Decrease Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>遅延を減らす</translation>
     </message>
     <message>
         <source>Increase Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>遅延を増やす</translation>
     </message>
 </context>
 <context>
@@ -2083,7 +2083,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Audio delay: %1 ms</source>
-        <translation type="unfinished"></translation>
+        <translation>音声遅延 : %1 ミリ秒</translation>
     </message>
 </context>
 <context>
