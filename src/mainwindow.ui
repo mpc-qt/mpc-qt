@@ -1019,6 +1019,7 @@
        <string>&amp;Aspect ratio</string>
       </property>
       <addaction name="actionVideoAspectName"/>
+      <addaction name="separator"/>
       <addaction name="action43VideoAspect"/>
       <addaction name="action169VideoAspect"/>
       <addaction name="actionDecreaseVideoAspect"/>
