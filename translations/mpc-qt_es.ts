@@ -2036,7 +2036,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Cerrar la pestaña</translation>
+        <translation type="vanished">Cerrar la pestaña</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>

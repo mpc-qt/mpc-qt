@@ -2170,7 +2170,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>タブを閉じる</translation>
+        <translation type="vanished">タブを閉じる</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>

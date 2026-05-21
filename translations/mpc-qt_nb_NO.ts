@@ -1947,10 +1947,6 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Close Tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Duplicate Tab</source>
         <translation type="unfinished"></translation>
     </message>

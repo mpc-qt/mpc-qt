@@ -347,7 +347,6 @@ void PlaylistWindow::setupIconThemer()
 {
     QVector<IconThemer::IconData> data {
         { ui->newTab, "tab-new", {} },
-        { ui->closeTab, "tab-close", {} },
         { ui->duplicateTab, "tab-duplicate", {} },
         { ui->importList, "document-import", {} },
         { ui->exportList, "document-export", {} },
@@ -369,8 +368,6 @@ void PlaylistWindow::connectSignalsToSlots()
 
     connect(ui->newTab, &QPushButton::clicked,
             this, &PlaylistWindow::newTab);
-    connect(ui->closeTab, &QPushButton::clicked,
-            this, &PlaylistWindow::closeTab);
     connect(ui->duplicateTab, &QPushButton::clicked,
             this, &PlaylistWindow::duplicateTab);
     connect(ui->importList, &QPushButton::clicked,

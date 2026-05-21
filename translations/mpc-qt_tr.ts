@@ -2150,7 +2150,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Sekmeyi Kapat</translation>
+        <translation type="vanished">Sekmeyi Kapat</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>

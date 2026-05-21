@@ -2166,7 +2166,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Tab schließen</translation>
+        <translation type="vanished">Tab schließen</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>

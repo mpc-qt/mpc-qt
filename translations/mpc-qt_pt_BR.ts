@@ -1992,7 +1992,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Fechar Aba</translation>
+        <translation type="vanished">Fechar Aba</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>

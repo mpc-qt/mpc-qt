@@ -2160,7 +2160,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Zamknij zakładkę</translation>
+        <translation type="vanished">Zamknij zakładkę</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>

@@ -2126,7 +2126,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>关闭标签页</translation>
+        <translation type="vanished">关闭标签页</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>

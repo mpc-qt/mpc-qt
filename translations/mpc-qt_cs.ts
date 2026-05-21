@@ -2176,7 +2176,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Zavřít záložku</translation>
+        <translation type="vanished">Zavřít záložku</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>

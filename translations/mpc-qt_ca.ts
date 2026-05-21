@@ -2148,7 +2148,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Tancar pestanya</translation>
+        <translation type="vanished">Tancar pestanya</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>
