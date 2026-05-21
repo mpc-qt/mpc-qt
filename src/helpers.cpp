@@ -608,14 +608,6 @@ QList<QUrl> Helpers::filterUrls(const QList<QUrl> &urls) {
                 filtered.append(QUrl::fromLocalFile(info.filePath()));
         }
     }
-
-    QCollator collator;
-    collator.setCaseSensitivity(Qt::CaseInsensitive);
-    collator.setNumericMode(true);
-
-    using namespace std::placeholders;
-    std::sort(filtered.begin(), filtered.end(), std::bind(&Helpers::compareUrls, _1, _2, collator));
-
     return filtered;
 }
 
