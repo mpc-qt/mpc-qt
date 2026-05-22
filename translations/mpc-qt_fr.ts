@@ -1369,15 +1369,15 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation>Temps restant</translation>
+        <translation type="vanished">Temps restant</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation>Haute précision</translation>
+        <translation type="vanished">Haute précision</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation>Afficher le pourcentage</translation>
+        <translation type="vanished">Afficher le pourcentage</translation>
     </message>
     <message>
         <source>No files favorited</source>
@@ -4795,6 +4795,18 @@ fichier média lu</translation>
     <message>
         <source> (%1%)</source>
         <translation> (%1 %)</translation>
+    </message>
+    <message>
+        <source>Remaining time</source>
+        <translation type="unfinished">Temps restant</translation>
+    </message>
+    <message>
+        <source>High precision</source>
+        <translation type="unfinished">Haute précision</translation>
+    </message>
+    <message>
+        <source>Show percentage</source>
+        <translation type="unfinished">Afficher le pourcentage</translation>
     </message>
     <message>
         <source>Played</source>

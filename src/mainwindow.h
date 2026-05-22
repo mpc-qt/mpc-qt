@@ -297,9 +297,6 @@ public slots:
     void setVolumeMax(int level);
     void setSubtitlesEnabled(bool enabled, bool onInit = false);
     void setSubtitlesDelayStep(int subtitlesDelayStep);
-    void setTimeShortMode(bool shortened);
-    void setTimeRemainingMode(bool isRemaining);
-    void setTimePercentageMode(bool isPercentage);
     void resetPlayAfterOnce();
     void setPlayAfterAlways(Helpers::AfterPlayback action);
     void setPlayAfterAlwaysDefault(Helpers::AfterPlayback action);
@@ -484,7 +481,6 @@ private slots:
     void on_actionPlaylistFinishSearching_triggered();
 
     void mpvw_customContextMenuRequested(const QPoint &pos);
-    void statusTime_customContextMenuRequested(const QPointF &p);
     void position_sliderMoved(int position);
     void position_hoverValue(double value, QString text, double mouseX);
     void position_hoverEnd();
@@ -542,9 +538,6 @@ private:
     bool timeTooltipShown = true;
     bool timeTooltipAbove = true;
     bool osdTimerOnSeek = false;
-    bool timeShortMode = true;
-    bool timeRemainingMode = false;
-    bool timePercentageMode = false;
     bool mousePressedInBottomArea = false;
     QPoint mousePressPosition;
 

@@ -1401,15 +1401,15 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation>Sisa waktu</translation>
+        <translation type="vanished">Sisa waktu</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation>Presisi tinggi</translation>
+        <translation type="vanished">Presisi tinggi</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation>Tampilkan persentase</translation>
+        <translation type="vanished">Tampilkan persentase</translation>
     </message>
     <message>
         <source>No files favorited</source>
@@ -4611,6 +4611,18 @@ file media yang diputar</translation>
     <message>
         <source> (%1%)</source>
         <translation> (%1%)</translation>
+    </message>
+    <message>
+        <source>Remaining time</source>
+        <translation type="unfinished">Sisa waktu</translation>
+    </message>
+    <message>
+        <source>High precision</source>
+        <translation type="unfinished">Presisi tinggi</translation>
+    </message>
+    <message>
+        <source>Show percentage</source>
+        <translation type="unfinished">Tampilkan persentase</translation>
     </message>
     <message>
         <source>Played</source>

@@ -1417,15 +1417,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation>剩余时间</translation>
+        <translation type="vanished">剩余时间</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation>高精度时间戳</translation>
+        <translation type="vanished">高精度时间戳</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation>显示百分比</translation>
+        <translation type="vanished">显示百分比</translation>
     </message>
     <message>
         <source>No files favorited</source>
@@ -4739,6 +4739,18 @@ media file played</source>
     <message>
         <source> (%1%)</source>
         <translation> (%1%)</translation>
+    </message>
+    <message>
+        <source>Remaining time</source>
+        <translation type="unfinished">剩余时间</translation>
+    </message>
+    <message>
+        <source>High precision</source>
+        <translation type="unfinished">高精度时间戳</translation>
+    </message>
+    <message>
+        <source>Show percentage</source>
+        <translation type="unfinished">显示百分比</translation>
     </message>
     <message>
         <source>Played</source>
