@@ -7,7 +7,7 @@
 
 static constexpr char logModule[] =  "drawnstatus";
 
-StatusTime::StatusTime(QWidget *parent) : QWidget(parent)
+StatusTime::StatusTime(QWidget *parent) : QLabel(parent)
 {
     setTime(0, 0);
     setMinimumSize(minimumSizeHint());

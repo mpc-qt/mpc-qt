@@ -763,7 +763,10 @@
           </item>
           <item>
            <widget class="QWidget" name="statusbar" native="true">
-            <layout class="QHBoxLayout" name="statusbarLayout" stretch="0,1">
+            <property name="contextMenuPolicy">
+             <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
+            </property>
+            <layout class="QHBoxLayout" name="statusbarLayout" stretch="0,1,0">
              <property name="leftMargin">
               <number>6</number>
              </property>
@@ -783,6 +786,19 @@
               <widget class="QLabel" name="status">
                <property name="text">
                 <string>Stopped</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="StatusTime" name="statusTime">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="contextMenuPolicy">
+                <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
+               </property>
+               <property name="text">
+                <string notr="true">00:00:00 / 00:00:00</string>
                </property>
               </widget>
              </item>
@@ -2640,6 +2656,13 @@
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>StatusTime</class>
+   <extends>QLabel</extends>
+   <header>widgets/drawnstatus.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

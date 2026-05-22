@@ -1,12 +1,12 @@
 #ifndef QDRAWNSTATUS_H
 #define QDRAWNSTATUS_H
 
-#include <QWidget>
+#include <QLabel>
 #include "helpers.h"
 
 class Tooltip;
 
-class StatusTime : public QWidget
+class StatusTime : public QLabel
 {
     Q_OBJECT
 public:

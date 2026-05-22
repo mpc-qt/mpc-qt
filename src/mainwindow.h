@@ -8,7 +8,6 @@
 #include <QSystemTrayIcon>
 #include "helpers.h"
 #include "widgets/drawnslider.h"
-#include "widgets/drawnstatus.h"
 #include "widgets/tooltip.h"
 #include "widgets/videopreview.h"
 #include "manager.h"
@@ -509,7 +508,6 @@ private:
     VolumeSlider *volumeSlider_ = nullptr;
     VideoPreview *videoPreview = nullptr;
     Tooltip *tooltip = nullptr;
-    StatusTime *statusTime = nullptr;
     PlaylistWindow *playlistWindow_ = nullptr;
     QMenu moreRecentsMenu;
     QMenu *contextMenu = nullptr;
