@@ -31,7 +31,6 @@ protected:
     void updateTimeFormat();
     void updateText();
     void paintEvent(QPaintEvent *event) override;
-    void changeEvent(QEvent *event) override;
     void mouseDoubleClickEvent(QMouseEvent *event) override;
     bool event(QEvent *event) override;
 

@@ -12,6 +12,7 @@ StatusTime::StatusTime(QWidget *parent) : QLabel(parent)
     setTime(0, 0);
     setMinimumSize(minimumSizeHint());
     setAttribute(Qt::WA_Hover);
+    setVisible(false);
 }
 
 QSize StatusTime::minimumSizeHint() const
@@ -23,6 +24,7 @@ QSize StatusTime::minimumSizeHint() const
 void StatusTime::setTime(double time, double duration)
 {
     if (currentDuration != duration) {
+        setVisible(duration != 0);
         currentDuration = duration;
         updateTimeFormat();
     } else if (currentTime == time)
@@ -209,12 +211,6 @@ void StatusTime::paintEvent(QPaintEvent *event)
     p.fillRect(rc, bgColor);
     p.setPen(txColor);
     p.drawText(rc, drawnText, QTextOption(Qt::AlignRight | Qt::AlignVCenter));
-}
-
-void StatusTime::changeEvent(QEvent *event)
-{
-    if (event->type() == QEvent::EnabledChange)
-        setVisible(isEnabled());
 }
 
 void StatusTime::mouseDoubleClickEvent(QMouseEvent *event)
