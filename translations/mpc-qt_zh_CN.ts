@@ -101,19 +101,19 @@
     </message>
     <message>
         <source>Decrease Subtitles Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>减少字幕延迟</translation>
     </message>
     <message>
         <source>Increase Subtitles Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>增加字幕延迟</translation>
     </message>
     <message>
         <source>Decrease Audio Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>减少音频延迟</translation>
     </message>
     <message>
         <source>Increase Audio Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>增加音频延迟</translation>
     </message>
     <message>
         <source>16:9 Aspect ratio</source>
@@ -1405,15 +1405,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Software Decoding</source>
-        <translation type="unfinished"></translation>
+        <translation>软件解码</translation>
     </message>
     <message>
         <source>Hardware Decoding: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>硬件解码：%1</translation>
     </message>
     <message>
         <source>Hardware Decoding: %1 (slow)</source>
-        <translation type="unfinished"></translation>
+        <translation>硬件解码：%1（慢）</translation>
     </message>
     <message>
         <source>Remaining time</source>
@@ -1877,11 +1877,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Decrease Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>减少延迟</translation>
     </message>
     <message>
         <source>Increase Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>增加延迟</translation>
     </message>
 </context>
 <context>
@@ -2039,7 +2039,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Audio delay: %1 ms</source>
-        <translation type="unfinished"></translation>
+        <translation>音频延迟：%1 毫秒</translation>
     </message>
 </context>
 <context>
