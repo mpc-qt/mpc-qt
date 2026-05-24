@@ -2,6 +2,49 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ta">
 <context>
+    <name>About</name>
+    <message>
+        <source>Development Build</source>
+        <translation type="unfinished">வளர்ச்சி உருவாக்கம்</translation>
+    </message>
+    <message>
+        <source>Version %1</source>
+        <translation type="unfinished">பதிப்பு %1</translation>
+    </message>
+    <message>
+        <source>Built on %1 at %2</source>
+        <translation type="unfinished">%1 இல் %2 இல் கட்டப்பட்டது</translation>
+    </message>
+    <message>
+        <source>(Unknown)</source>
+        <translation type="unfinished">(தெரியாது)</translation>
+    </message>
+    <message>
+        <source>About Media Player Classic Qute Theater</source>
+        <translation type="unfinished">மீடியா பிளேயர் கிளாசிக் கியூட் தியேட்டர் பற்றி</translation>
+    </message>
+    <message>
+        <source>Media Player Classic Qute Theater</source>
+        <translation type="unfinished">மீடியா பிளேயர் கிளாசிக் கியூட் தியேட்டர்</translation>
+    </message>
+    <message>
+        <source>A clone of Media Player Classic written in Qt</source>
+        <translation type="unfinished">கியுடி இல் எழுதப்பட்ட மீடியா பிளேயர் கிளாசிக் ஒரு நகலி</translation>
+    </message>
+    <message>
+        <source>Based on Qt %1 and %2</source>
+        <translation type="unfinished">கியுடி %1 மற்றும் %2 ஐ அடிப்படையாகக் கொண்டது</translation>
+    </message>
+    <message>
+        <source>Running on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Running under %1</source>
+        <translation type="obsolete">% 1 இன் கீழ் இயங்குகிறது</translation>
+    </message>
+</context>
+<context>
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
@@ -1465,27 +1508,27 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Development Build</source>
-        <translation>வளர்ச்சி உருவாக்கம்</translation>
+        <translation type="vanished">வளர்ச்சி உருவாக்கம்</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation>பதிப்பு %1</translation>
+        <translation type="vanished">பதிப்பு %1</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation>மீடியா பிளேயர் கிளாசிக் கியூட் தியேட்டர் பற்றி</translation>
+        <translation type="vanished">மீடியா பிளேயர் கிளாசிக் கியூட் தியேட்டர் பற்றி</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation>கியுடி இல் எழுதப்பட்ட மீடியா பிளேயர் கிளாசிக் ஒரு நகலி</translation>
+        <translation type="vanished">கியுடி இல் எழுதப்பட்ட மீடியா பிளேயர் கிளாசிக் ஒரு நகலி</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation>கியுடி %1 மற்றும் %2 ஐ அடிப்படையாகக் கொண்டது</translation>
+        <translation type="vanished">கியுடி %1 மற்றும் %2 ஐ அடிப்படையாகக் கொண்டது</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation>%1 இல் %2 இல் கட்டப்பட்டது</translation>
+        <translation type="vanished">%1 இல் %2 இல் கட்டப்பட்டது</translation>
     </message>
     <message>
         <source>Alt+Q</source>
@@ -1737,11 +1780,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation>(தெரியாது)</translation>
+        <translation type="vanished">(தெரியாது)</translation>
     </message>
     <message>
         <source>Running under %1</source>
-        <translation>% 1 இன் கீழ் இயங்குகிறது</translation>
+        <translation type="vanished">% 1 இன் கீழ் இயங்குகிறது</translation>
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>

@@ -2,8 +2,8 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QTcpSocket>
+#include "about.h"
 #include "helpers.h"
-#include "version.h"
 #include "ipc/http.h"
 #include "platform/devicemanager.h"
 #include "platform/unify.h"
@@ -639,7 +639,7 @@ void MpcHcServer::setupHttp()
     http.route("/info.html", [this](HttpRequest &req, HttpResponse &res) {
         (void)req;
         QString str("&laquo; %1 &bull; %2 &bull; %3/%4 &bull; %5 &raquo;");
-        QString version("MPC-QT v" MPCQT_VERSION_STR);
+        QString version("MPC-QT v" + About::version());
         QString time(Helpers::toDateFormatFixed(fileTime, Helpers::ShortFormat));
         QString duration(Helpers::toDateFormatFixed(fileDuration, Helpers::ShortFormat));
         QString size(Helpers::fileSizeToStringShort(fileSize));
@@ -682,7 +682,7 @@ void MpcHcServer::setupHttp()
         QString playbackRate = QString::number(this->playbackRate);
         QString size = Helpers::fileSizeToStringShort(fileSize);
         QString reloadTime = "0";
-        QString version = MPCQT_VERSION_STR;
+        QString version = About::version();
 
         QList<QPair<QString,QString>> variables = {
             { "file", file },

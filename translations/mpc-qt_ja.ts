@@ -2,6 +2,49 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ja">
 <context>
+    <name>About</name>
+    <message>
+        <source>Development Build</source>
+        <translation type="unfinished">開発ビルド</translation>
+    </message>
+    <message>
+        <source>Version %1</source>
+        <translation type="unfinished">バージョン %1</translation>
+    </message>
+    <message>
+        <source>Built on %1 at %2</source>
+        <translation type="unfinished">Built on %1 at %2</translation>
+    </message>
+    <message>
+        <source>(Unknown)</source>
+        <translation type="unfinished">(不明)</translation>
+    </message>
+    <message>
+        <source>About Media Player Classic Qute Theater</source>
+        <translation type="unfinished">Media Player Classic Qute Theater について</translation>
+    </message>
+    <message>
+        <source>Media Player Classic Qute Theater</source>
+        <translation type="unfinished">Media Player Classic Qute Theater</translation>
+    </message>
+    <message>
+        <source>A clone of Media Player Classic written in Qt</source>
+        <translation type="unfinished">Qt で書かれた Media Player Classic のクローン</translation>
+    </message>
+    <message>
+        <source>Based on Qt %1 and %2</source>
+        <translation type="unfinished">Qt %1 および %2 に基づく</translation>
+    </message>
+    <message>
+        <source>Running on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Running under %1</source>
+        <translation type="obsolete">%1 で実行中</translation>
+    </message>
+</context>
+<context>
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
@@ -1473,27 +1516,27 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Development Build</source>
-        <translation>開発ビルド</translation>
+        <translation type="vanished">開発ビルド</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation>バージョン %1</translation>
+        <translation type="vanished">バージョン %1</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation>Media Player Classic Qute Theater について</translation>
+        <translation type="vanished">Media Player Classic Qute Theater について</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation>Qt で書かれた Media Player Classic のクローン</translation>
+        <translation type="vanished">Qt で書かれた Media Player Classic のクローン</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation>Qt %1 および %2 に基づく</translation>
+        <translation type="vanished">Qt %1 および %2 に基づく</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation>Built on %1 at %2</translation>
+        <translation type="vanished">Built on %1 at %2</translation>
     </message>
     <message>
         <source>Alt+Q</source>
@@ -1745,11 +1788,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation>(不明)</translation>
+        <translation type="vanished">(不明)</translation>
     </message>
     <message>
         <source>Running under %1</source>
-        <translation>%1 で実行中</translation>
+        <translation type="vanished">%1 で実行中</translation>
     </message>
     <message>
         <source>XWayland or X11</source>

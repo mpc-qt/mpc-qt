@@ -2,6 +2,49 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en">
 <context>
+    <name>About</name>
+    <message>
+        <source>Development Build</source>
+        <translation type="unfinished">Development Build</translation>
+    </message>
+    <message>
+        <source>Version %1</source>
+        <translation type="unfinished">Version %1</translation>
+    </message>
+    <message>
+        <source>Built on %1 at %2</source>
+        <translation type="unfinished">Built on %1 at %2</translation>
+    </message>
+    <message>
+        <source>(Unknown)</source>
+        <translation type="unfinished">(Unknown)</translation>
+    </message>
+    <message>
+        <source>About Media Player Classic Qute Theater</source>
+        <translation type="unfinished">About Media Player Classic Qute Theater</translation>
+    </message>
+    <message>
+        <source>Media Player Classic Qute Theater</source>
+        <translation type="unfinished">Media Player Classic Qute Theater</translation>
+    </message>
+    <message>
+        <source>A clone of Media Player Classic written in Qt</source>
+        <translation type="unfinished">A clone of Media Player Classic written in Qt</translation>
+    </message>
+    <message>
+        <source>Based on Qt %1 and %2</source>
+        <translation type="unfinished">Based on Qt %1 and %2</translation>
+    </message>
+    <message>
+        <source>Running on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Running under %1</source>
+        <translation type="obsolete">Running under %1</translation>
+    </message>
+</context>
+<context>
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
@@ -1459,27 +1502,27 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Development Build</source>
-        <translation>Development Build</translation>
+        <translation type="vanished">Development Build</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation>Version %1</translation>
+        <translation type="vanished">Version %1</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation>About Media Player Classic Qute Theater</translation>
+        <translation type="vanished">About Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation>A clone of Media Player Classic written in Qt</translation>
+        <translation type="vanished">A clone of Media Player Classic written in Qt</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation>Based on Qt %1 and %2</translation>
+        <translation type="vanished">Based on Qt %1 and %2</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation>Built on %1 at %2</translation>
+        <translation type="vanished">Built on %1 at %2</translation>
     </message>
     <message>
         <source>Alt+Q</source>
@@ -1731,11 +1774,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation>(Unknown)</translation>
+        <translation type="vanished">(Unknown)</translation>
     </message>
     <message>
         <source>Running under %1</source>
-        <translation>Running under %1</translation>
+        <translation type="vanished">Running under %1</translation>
     </message>
     <message>
         <source>XWayland or X11</source>

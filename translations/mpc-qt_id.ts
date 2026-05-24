@@ -2,6 +2,49 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="id">
 <context>
+    <name>About</name>
+    <message>
+        <source>Development Build</source>
+        <translation type="unfinished">Versi untuk Pengembang</translation>
+    </message>
+    <message>
+        <source>Version %1</source>
+        <translation type="unfinished">Versi &amp;1</translation>
+    </message>
+    <message>
+        <source>Built on %1 at %2</source>
+        <translation type="unfinished">Dibangun dari %1 pada %2</translation>
+    </message>
+    <message>
+        <source>(Unknown)</source>
+        <translation type="unfinished">(Tidak Diketahui)</translation>
+    </message>
+    <message>
+        <source>About Media Player Classic Qute Theater</source>
+        <translation type="unfinished">Tentang Media Player Classic Qute Theater</translation>
+    </message>
+    <message>
+        <source>Media Player Classic Qute Theater</source>
+        <translation type="unfinished">Media Player Classic Qute Theater</translation>
+    </message>
+    <message>
+        <source>A clone of Media Player Classic written in Qt</source>
+        <translation type="unfinished">Sebuah klon dari Media Player Classic menggunakan Qt</translation>
+    </message>
+    <message>
+        <source>Based on Qt %1 and %2</source>
+        <translation type="unfinished">Dibuat dengan Qt %1 dan %2</translation>
+    </message>
+    <message>
+        <source>Running on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Running under %1</source>
+        <translation type="obsolete">Berjalan di bawah %1</translation>
+    </message>
+</context>
+<context>
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
@@ -1457,27 +1500,27 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Development Build</source>
-        <translation>Versi untuk Pengembang</translation>
+        <translation type="vanished">Versi untuk Pengembang</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation>Versi &amp;1</translation>
+        <translation type="vanished">Versi &amp;1</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation>Tentang Media Player Classic Qute Theater</translation>
+        <translation type="vanished">Tentang Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation>Sebuah klon dari Media Player Classic menggunakan Qt</translation>
+        <translation type="vanished">Sebuah klon dari Media Player Classic menggunakan Qt</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation>Dibuat dengan Qt %1 dan %2</translation>
+        <translation type="vanished">Dibuat dengan Qt %1 dan %2</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation>Dibangun dari %1 pada %2</translation>
+        <translation type="vanished">Dibangun dari %1 pada %2</translation>
     </message>
     <message>
         <source>Alt+Q</source>
@@ -1693,11 +1736,11 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation>(Tidak Diketahui)</translation>
+        <translation type="vanished">(Tidak Diketahui)</translation>
     </message>
     <message>
         <source>Running under %1</source>
-        <translation>Berjalan di bawah %1</translation>
+        <translation type="vanished">Berjalan di bawah %1</translation>
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>

@@ -14,6 +14,7 @@
 #ifdef HAVE_BOOST
 #include <boost/stacktrace.hpp>
 #endif
+#include "about.h"
 #include "logger.h"
 #include "main.h"
 #include "qprocess.h"
@@ -23,7 +24,6 @@
 #include "settingswindow.h"
 #include "mpvwidget.h"
 #include "propertieswindow.h"
-#include "version.h"
 #include "ipc/mpris.h"
 #include "platform/devicemanager.h"
 #include "platform/unify.h"
@@ -83,10 +83,7 @@ int main(int argc, char *argv[])
     qRegisterMetaType<uint64_t>("uint64_t");
     qRegisterMetaType<uint16_t>("uint16_t");
 
-#ifndef MPCQT_VERSION_STR
-#define MPCQT_VERSION_STR MainWindow::tr("Development Build")
-#endif
-    QCoreApplication::setApplicationVersion(MPCQT_VERSION_STR);
+    QCoreApplication::setApplicationVersion(About::version());
 
     // Spin up the application
     Flow f;
@@ -1273,25 +1270,16 @@ bool Flow::isNvidiaGPU()
 
 void Flow::showVersionInfo()
 {
-    QString package = "Native build";
-    if (qEnvironmentVariableIsSet("FLATPAK_ID")) {
-        package = "Flatpak";
-        mainWindow->setRemoveFileNotRecycle();
-    }
-    else if (qEnvironmentVariableIsSet("APPIMAGE"))
-        package = "AppImage";
-    else if (qEnvironmentVariableIsSet("SNAP"))
-        package = "Snap";
-
     static constexpr char spaces[] = "               ";
     QString logMessages = "Version information:\n";
     logMessages += (QString) spaces + "OS: " + QSysInfo::productType() + " " + QSysInfo::productVersion() + "\n";
     logMessages += (QString) spaces + "Qt: " + (QString) QT_VERSION_STR + "\n";
     logMessages += (QString) spaces + mainWindow->mpvObject()->mpvVersion() + "\n";
     logMessages += (QString) spaces + "ffmpeg " + mainWindow->mpvObject()->ffmpegVersion() + "\n";
-    logMessages += (QString) spaces + "mpc-qt: " + (QString) MPCQT_VERSION_STR;
-    logMessages += " " + (QString) __DATE__ + " " + __TIME__  + "\n";
-    logMessages += (QString) spaces + "Package: " + package;
+    logMessages += (QString) spaces + "mpc-qt: " + About::version();
+    logMessages += " " + About::buildTime();
+    QString packageType = About::packageType();
+    logMessages += packageType.isEmpty() ? "" : "\n" + (QString) spaces + "Package: " + packageType;
     LogStream(logModule) << logMessages;
 }
 

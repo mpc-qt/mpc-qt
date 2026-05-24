@@ -2,6 +2,45 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="fi">
 <context>
+    <name>About</name>
+    <message>
+        <source>Development Build</source>
+        <translation type="unfinished">Kehittäjäversio</translation>
+    </message>
+    <message>
+        <source>Version %1</source>
+        <translation type="unfinished">Versio %1</translation>
+    </message>
+    <message>
+        <source>Built on %1 at %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(Unknown)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About Media Player Classic Qute Theater</source>
+        <translation type="unfinished">Tietoja Media Player Classic Qute Theaterista</translation>
+    </message>
+    <message>
+        <source>Media Player Classic Qute Theater</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A clone of Media Player Classic written in Qt</source>
+        <translation type="unfinished">Media Player Classicin klooni, joka on kirjoitettu Qt:llä</translation>
+    </message>
+    <message>
+        <source>Based on Qt %1 and %2</source>
+        <translation type="unfinished">Perustuu Qt %1 ja %2</translation>
+    </message>
+    <message>
+        <source>Running on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
@@ -1363,27 +1402,23 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Development Build</source>
-        <translation>Kehittäjäversio</translation>
+        <translation type="vanished">Kehittäjäversio</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation>Versio %1</translation>
+        <translation type="vanished">Versio %1</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation>Tietoja Media Player Classic Qute Theaterista</translation>
+        <translation type="vanished">Tietoja Media Player Classic Qute Theaterista</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation>Media Player Classicin klooni, joka on kirjoitettu Qt:llä</translation>
+        <translation type="vanished">Media Player Classicin klooni, joka on kirjoitettu Qt:llä</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation>Perustuu Qt %1 ja %2</translation>
-    </message>
-    <message>
-        <source>Built on %1 at %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">Perustuu Qt %1 ja %2</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
@@ -1579,14 +1614,6 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>v: 0 kb/s, a: 0kb/s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>(Unknown)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Running under %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
