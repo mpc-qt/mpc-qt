@@ -172,11 +172,9 @@ void StatusTime::updateHoverTooltip()
     double hoverTime = remainingMode_ ? currentTime : currentTime - currentDuration;
     QString text = QString("%1: %2").arg(label,
                                          Helpers::toDateFormatFixed(hoverTime, timeFormat));
-    QString textTemplate = QString("%1: %2").arg(label,
-                                                 Helpers::toDateFormatFixed(currentDuration, timeFormat));
     QPoint topLeft = mapTo(top, QPoint(0, 0));
     QPoint where(topLeft.x() + width() / 2, topLeft.y() - 2);
-    hoverTooltip->show(text, where, top->width(), textTemplate);
+    hoverTooltip->show(text, where, top->width(), text);
 }
 
 bool StatusTime::event(QEvent *event)
