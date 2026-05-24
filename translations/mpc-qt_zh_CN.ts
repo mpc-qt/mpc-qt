@@ -4742,15 +4742,15 @@ media file played</source>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation type="unfinished">剩余时间</translation>
+        <translation>剩余时间</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation type="unfinished">高精度时间戳</translation>
+        <translation>高精度</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation type="unfinished">显示百分比</translation>
+        <translation>显示百分比</translation>
     </message>
     <message>
         <source>Played</source>
