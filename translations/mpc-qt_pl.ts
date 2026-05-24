@@ -1450,18 +1450,6 @@ No action will be triggered.</source>
         <translation>Otwórz napisy</translation>
     </message>
     <message>
-        <source>Remaining time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>High precision</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show percentage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Development Build</source>
         <translation>Build deweloperski</translation>
     </message>
@@ -4740,6 +4728,18 @@ media file played</source>
     <name>StatusTime</name>
     <message>
         <source> (%1%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remaining time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>High precision</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show percentage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

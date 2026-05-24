@@ -1417,15 +1417,15 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation>Verbleibende Zeit</translation>
+        <translation type="vanished">Verbleibende Zeit</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation>Hohe Genauigkeit</translation>
+        <translation type="vanished">Hohe Genauigkeit</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation>Prozentsatz anzeigen</translation>
+        <translation type="vanished">Prozentsatz anzeigen</translation>
     </message>
     <message>
         <source>No files favorited</source>
@@ -4807,6 +4807,18 @@ media file played</source>
     <message>
         <source> (%1%)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remaining time</source>
+        <translation type="unfinished">Verbleibende Zeit</translation>
+    </message>
+    <message>
+        <source>High precision</source>
+        <translation type="unfinished">Hohe Genauigkeit</translation>
+    </message>
+    <message>
+        <source>Show percentage</source>
+        <translation type="unfinished">Prozentsatz anzeigen</translation>
     </message>
     <message>
         <source>Played</source>

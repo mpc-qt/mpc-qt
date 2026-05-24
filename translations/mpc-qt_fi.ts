@@ -1318,18 +1318,6 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Remaining time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>High precision</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show percentage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>No files favorited</source>
         <translation>Ei Suosikkitiedostoja</translation>
     </message>
@@ -4462,6 +4450,18 @@ media file played</source>
     <name>StatusTime</name>
     <message>
         <source> (%1%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remaining time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>High precision</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show percentage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

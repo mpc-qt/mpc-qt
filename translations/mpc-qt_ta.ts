@@ -1409,15 +1409,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation>மீதமுள்ள நேரம்</translation>
+        <translation type="vanished">மீதமுள்ள நேரம்</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation>உயர் துல்லியம்</translation>
+        <translation type="vanished">உயர் துல்லியம்</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation>சதவீதத்தைக் காட்டு</translation>
+        <translation type="vanished">சதவீதத்தைக் காட்டு</translation>
     </message>
     <message>
         <source>No files favorited</source>
@@ -4835,6 +4835,18 @@ media file played</source>
     <message>
         <source> (%1%)</source>
         <translation> (% 1%)</translation>
+    </message>
+    <message>
+        <source>Remaining time</source>
+        <translation type="unfinished">மீதமுள்ள நேரம்</translation>
+    </message>
+    <message>
+        <source>High precision</source>
+        <translation type="unfinished">உயர் துல்லியம்</translation>
+    </message>
+    <message>
+        <source>Show percentage</source>
+        <translation type="unfinished">சதவீதத்தைக் காட்டு</translation>
     </message>
     <message>
         <source>Played</source>

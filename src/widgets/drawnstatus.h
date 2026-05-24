@@ -1,12 +1,12 @@
 #ifndef QDRAWNSTATUS_H
 #define QDRAWNSTATUS_H
 
-#include <QWidget>
+#include <QLabel>
 #include "helpers.h"
 
 class Tooltip;
 
-class StatusTime : public QWidget
+class StatusTime : public QLabel
 {
     Q_OBJECT
 public:
@@ -18,6 +18,11 @@ public:
     void setRemainingMode(bool isRemaining);
     void setPercentMode(bool isPercent);
     void updatePalette();
+    void showContextMenu(const QPointF &p);
+
+    bool shortMode() const { return shortMode_; };
+    bool remainingMode() const { return remainingMode_; };
+    bool percentMode() const { return percentMode_; };
 
 signals:
     void doubleClicked();
@@ -26,7 +31,6 @@ protected:
     void updateTimeFormat();
     void updateText();
     void paintEvent(QPaintEvent *event) override;
-    void changeEvent(QEvent *event) override;
     void mouseDoubleClickEvent(QMouseEvent *event) override;
     bool event(QEvent *event) override;
 
@@ -34,9 +38,9 @@ private:
     void ensureHoverTooltip();
     void updateHoverTooltip();
 
-    bool shortMode = false;
-    bool remainingMode = false;
-    bool percentMode = false;
+    bool shortMode_ = false;
+    bool remainingMode_ = false;
+    bool percentMode_ = false;
     bool hovered = false;
     Helpers::TimeFormat timeFormat = Helpers::LongFormat;
     double currentTime = 0;

@@ -1417,15 +1417,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation>残り時間</translation>
+        <translation type="vanished">残り時間</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation>高精度</translation>
+        <translation type="vanished">高精度</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation>パーセンテージを表示</translation>
+        <translation type="vanished">パーセンテージを表示</translation>
     </message>
     <message>
         <source>No files favorited</source>
@@ -4863,6 +4863,18 @@ media file played</source>
     <message>
         <source> (%1%)</source>
         <translation> (%1%)</translation>
+    </message>
+    <message>
+        <source>Remaining time</source>
+        <translation type="unfinished">残り時間</translation>
+    </message>
+    <message>
+        <source>High precision</source>
+        <translation type="unfinished">高精度</translation>
+    </message>
+    <message>
+        <source>Show percentage</source>
+        <translation type="unfinished">パーセンテージを表示</translation>
     </message>
     <message>
         <source>Played</source>

@@ -1409,15 +1409,15 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation>Kalan süre</translation>
+        <translation type="vanished">Kalan süre</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation>Yüksek kesinlik</translation>
+        <translation type="vanished">Yüksek kesinlik</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation>Yüzdeyi göster</translation>
+        <translation type="vanished">Yüzdeyi göster</translation>
     </message>
     <message>
         <source>No files favorited</source>
@@ -4827,6 +4827,18 @@ yeni bir &amp;oynatıcı aç</translation>
     <message>
         <source> (%1%)</source>
         <translation> (%%1)</translation>
+    </message>
+    <message>
+        <source>Remaining time</source>
+        <translation type="unfinished">Kalan süre</translation>
+    </message>
+    <message>
+        <source>High precision</source>
+        <translation type="unfinished">Yüksek kesinlik</translation>
+    </message>
+    <message>
+        <source>Show percentage</source>
+        <translation type="unfinished">Yüzdeyi göster</translation>
     </message>
     <message>
         <source>Played</source>

@@ -196,9 +196,9 @@ QVariantMap MainWindow::state()
         { WRAP(ui->actionPlayVolumeMute) },
         { "volume", volumeSlider_->value() },
         { "shownStatsPage", mpvObject_->selectedStatsPage() },
-        { "timeShortMode", timeShortMode },
-        { "timeRemainingMode", timeRemainingMode },
-        { "timePercentageMode", timePercentageMode }
+        { "timeShortMode", ui->statusTime->shortMode() },
+        { "timeRemainingMode", ui->statusTime->remainingMode() },
+        { "timePercentageMode", ui->statusTime->percentMode() }
     };
 #undef WRAP
 }
@@ -241,9 +241,9 @@ void MainWindow::setState(const QVariantMap &map)
     setVolumeMuteState(ui->actionPlayVolumeMute->isChecked(), true);
     setVolume(map.value("volume", 100).toInt(), true);
     setOSDPage(map.value("shownStatsPage",0).toInt());
-    setTimeShortMode(map.value("timeShortMode", true).toBool());
-    setTimeRemainingMode(map.value("timeRemainingMode", false).toBool());
-    setTimePercentageMode(map.value("timePercentageMode", false).toBool());
+    ui->statusTime->setShortMode(map.value("timeShortMode", true).toBool());
+    ui->statusTime->setRemainingMode(map.value("timeRemainingMode", false).toBool());
+    ui->statusTime->setPercentMode(map.value("timePercentageMode", false).toBool());
     updateOnTop();
 
 #undef UNWRAP
@@ -398,8 +398,7 @@ void MainWindow::changeEvent(QEvent *event)
             tooltip->updatePalette();
         if (videoPreview)
             videoPreview->updatePalette();
-        if (statusTime)
-            statusTime->updatePalette();
+        ui->statusTime->updatePalette();
     }
     else if (event->type() == QEvent::WindowStateChange && isMaximized())
         emit windowMaximized();
@@ -511,7 +510,7 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
     QPoint pos = event->globalPosition().toPoint();
     bool ok = mpvw ? insideWidget(pos, mpvw) : false;
-    if (!(mousePressedInBottomArea && insideWidget(pos, statusTime))) {
+    if (!(mousePressedInBottomArea && insideWidget(pos, ui->statusTime))) {
         if (ok && mouseStateEvent(MouseState::fromMouseEvent(event, MouseState::MouseUp)))
             event->accept();
         else
@@ -626,7 +625,7 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
     QTimer::singleShot(50, this, [this]() {
         positionSlider_->update();
         volumeSlider_->update();
-        statusTime->update();
+        ui->statusTime->update();
     });
     emit fullscreenModeChanged(fullscreenMode_);
 }
@@ -874,13 +873,9 @@ void MainWindow::setupPlaylist()
 void MainWindow::setupStatus()
 {
     ui->tinyicon->setPixmap(renderPixmapFromSvg(tinyIconPath));
-    statusTime = new StatusTime();
-    statusTime->setCursor(Qt::PointingHandCursor);
-    statusTime->setContextMenuPolicy(Qt::CustomContextMenu);
-    ui->statusbarLayout->insertWidget(2, statusTime);
-    connect(statusTime, &StatusTime::customContextMenuRequested,
-            this, &MainWindow::statusTime_customContextMenuRequested);
-    connect(statusTime, &StatusTime::doubleClicked,
+    connect(ui->statusTime, &StatusTime::customContextMenuRequested,
+            ui->statusTime, &StatusTime::showContextMenu);
+    connect(ui->statusTime, &StatusTime::doubleClicked,
             ui->actionNavigateGoto, &QAction::trigger);
 }
 
@@ -1059,7 +1054,6 @@ void MainWindow::setOSDPage(int page)
 void MainWindow::setUiEnabledState(bool enabled)
 {
     positionSlider_->setEnabled(enabled);
-    statusTime->setEnabled(enabled);
     if (!enabled) {
         positionSlider_->setLoopA(-1);
         positionSlider_->setLoopB(-1);
@@ -1952,7 +1946,7 @@ void MainWindow::setTime(double time, double length)
 {
     positionSlider_->setMaximum(length);
     positionSlider_->setValue(time);
-    statusTime->setTime(time, length);
+    ui->statusTime->setTime(time, length);
 }
 
 void MainWindow::setMediaTitle(const QString &title)
@@ -2418,24 +2412,6 @@ void MainWindow::setSubtitlesEnabled(bool enabled, bool onInit)
 void MainWindow::setSubtitlesDelayStep(int subtitlesDelayStep)
 {
     this->subtitlesDelayStep = subtitlesDelayStep;
-}
-
-void MainWindow::setTimeShortMode(bool shortened)
-{
-    statusTime->setShortMode(shortened);
-    timeShortMode = shortened;
-}
-
-void MainWindow::setTimeRemainingMode(bool isRemaining)
-{
-    statusTime->setRemainingMode(isRemaining);
-    timeRemainingMode = isRemaining;
-}
-
-void MainWindow::setTimePercentageMode(bool isPercentage)
-{
-    statusTime->setPercentMode(isPercentage);
-    timePercentageMode = isPercentage;
 }
 
 void MainWindow::resetPlayAfterOnce()
@@ -3621,48 +3597,6 @@ void MainWindow::mpvw_customContextMenuRequested(const QPoint &pos)
     if (mpvw == nullptr)
         return;
     contextMenu->popup(mpvw->mapToGlobal(pos));
-}
-
-void MainWindow::statusTime_customContextMenuRequested(const QPointF &p)
-{
-    QMenu *m = new QMenu(this);
-    QAction *a;
-
-    bool isTimeRemaingMode = timeRemainingMode;
-    a = new QAction(m);
-    a->setText(tr("Remaining time"));
-    a->setCheckable(true);
-    a->setChecked(timeRemainingMode);
-    connect(a, &QAction::triggered,
-            this, [this, isTimeRemaingMode]() {
-        setTimeRemainingMode(!isTimeRemaingMode);
-    });
-    m->addAction(a);
-    
-    bool isTimeShortMode = timeShortMode;
-    a = new QAction(m);
-    a->setText(tr("High precision"));
-    a->setCheckable(true);
-    a->setChecked(!timeShortMode);
-    connect(a, &QAction::triggered,
-            this, [this, isTimeShortMode]() {
-        setTimeShortMode(!isTimeShortMode);
-    });
-    m->addAction(a);
-
-    bool isTimePercentageMode = timePercentageMode;
-    a = new QAction(m);
-    a->setText(tr("Show percentage"));
-    a->setCheckable(true);
-    a->setChecked(timePercentageMode);
-    connect(a, &QAction::triggered,
-            this, [this, isTimePercentageMode]() {
-        setTimePercentageMode(!isTimePercentageMode);
-    });
-    m->addAction(a);
-
-    m->exec(statusTime->mapToGlobal(p).toPoint());
-    delete m;
 }
 
 void MainWindow::position_sliderMoved(int position)

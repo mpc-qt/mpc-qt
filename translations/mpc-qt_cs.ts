@@ -1415,15 +1415,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation>Zbývající čas</translation>
+        <translation type="vanished">Zbývající čas</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation>Vysoká přesnost</translation>
+        <translation type="vanished">Vysoká přesnost</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation>Ukázat procenta</translation>
+        <translation type="vanished">Ukázat procenta</translation>
     </message>
     <message>
         <source>No files favorited</source>
@@ -4849,6 +4849,18 @@ media file played</source>
     <message>
         <source> (%1%)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remaining time</source>
+        <translation type="unfinished">Zbývající čas</translation>
+    </message>
+    <message>
+        <source>High precision</source>
+        <translation type="unfinished">Vysoká přesnost</translation>
+    </message>
+    <message>
+        <source>Show percentage</source>
+        <translation type="unfinished">Ukázat procenta</translation>
     </message>
     <message>
         <source>Played</source>
