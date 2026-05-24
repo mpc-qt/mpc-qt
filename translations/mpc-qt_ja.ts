@@ -4866,15 +4866,15 @@ media file played</source>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation type="unfinished">残り時間</translation>
+        <translation>残り時間</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation type="unfinished">高精度</translation>
+        <translation>高精度</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation type="unfinished">パーセンテージを表示</translation>
+        <translation>パーセンテージを表示</translation>
     </message>
     <message>
         <source>Played</source>
