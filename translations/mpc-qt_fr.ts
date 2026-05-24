@@ -4789,6 +4789,10 @@ fichier média lu</translation>
         <source>A&amp;pplication name only</source>
         <translation>Nom de l&apos;a&amp;pplication</translation>
     </message>
+    <message>
+        <source>Loop back to first/last file in folder if needed</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>

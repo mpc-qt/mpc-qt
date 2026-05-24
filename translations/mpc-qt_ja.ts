@@ -4857,6 +4857,10 @@ media file played</source>
         <source>A&amp;pplication name only</source>
         <translation>アプリケーション名のみ(&amp;P)</translation>
     </message>
+    <message>
+        <source>Loop back to first/last file in folder if needed</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>

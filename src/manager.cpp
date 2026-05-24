@@ -661,6 +661,11 @@ void PlaybackManager::setFolderFallback(bool yes)
     folderFallback = yes;
 }
 
+void PlaybackManager::setLoopFolder(bool yes)
+{
+    loopFolder = yes;
+}
+
 void PlaybackManager::sendCurrentTrackInfo()
 {
     QUrl url(playlistWindow_->getUrlOf(nowPlayingList, nowPlayingItem));
@@ -959,8 +964,12 @@ bool PlaybackManager::playNextFileUrl(QUrl url, int delta, bool replaceMpvPlayli
         return false;
     do {
         index += delta;
-        if (index < 0 || index >= files.count())
-            return false;
+        if (index < 0 || index >= files.count()) {
+            if (!loopFolder)
+                return false;
+            else
+                index = (index % files.count() + files.count()) % files.count();
+        }
         nextFile = dir.filePath(files.value(index));
         url = QUrl::fromLocalFile(nextFile);
     } while (!Helpers::urlSurvivesFilter(url, true));

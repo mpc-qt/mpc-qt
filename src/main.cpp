@@ -814,6 +814,8 @@ void Flow::setupSettingsConnections()
             playbackManager, &PlaybackManager::setFastSeek);
     connect(settingsWindow, &SettingsWindow::fallbackToFolder,
             playbackManager, &PlaybackManager::setFolderFallback);
+    connect(settingsWindow, &SettingsWindow::loopFolder,
+            playbackManager, &PlaybackManager::setLoopFolder);
     connect(settingsWindow, &SettingsWindow::subsPreferDefaultForced,
             playbackManager, &PlaybackManager::setSubtitlesPreferDefaultForced);
     connect(settingsWindow, &SettingsWindow::subsPreferExternal,

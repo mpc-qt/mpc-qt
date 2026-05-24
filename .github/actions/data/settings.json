@@ -407,6 +407,7 @@
     "tweaksMpvKeyEvents": false,
     "tweaksMpvMouseEvents": false,
     "tweaksOpenNextFile": true,
+    "tweaksLoopFolder": false,
     "tweaksOsdFont": "Segoe UI",
     "tweaksOsdFontChkBox": false,
     "tweaksOsdSize": 30,
