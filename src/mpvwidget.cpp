@@ -379,11 +379,15 @@ void MpvObject::stepForward()
     emit ctrlCommand("frame_step");
 }
 
-void MpvObject::seek(double amount, bool exact)
+void MpvObject::seek(double amount, bool exact, bool keyframes, bool absolute)
 {
     QVariantList payload({"seek", amount});
+    if (absolute)
+        payload.append("absolute");
     if (exact)
         payload.append("exact");
+    if (keyframes)
+        payload.append("keyframes");
     emit ctrlCommand(payload);
 }
 

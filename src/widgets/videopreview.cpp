@@ -65,7 +65,7 @@ void VideoPreview::updatePalette()
 void VideoPreview::show(const QString &text, double videoPosition, const QPoint &where, int mainWindowWidth)
 {
     textLabel->setText(text);
-    mpv->setTime(videoPosition);
+    mpv->seek(videoPosition, false, true, true);
     mpv->setPaused(true);
     videoWidget->update();
     setPreviewPosition(where, mainWindowWidth);
