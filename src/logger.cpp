@@ -199,7 +199,7 @@ void Logger::setLoggingEnabled(bool enabled)
         makeLogPrefixed(logModule, "enabling logging");
         if (!immediateMode)
             flushTimer->start();
-    } else if (!enabled && loggingEnabled) {
+    } else if (!enabled && loggingEnabled && !logToConsole) {
         makeLogPrefixed(logModule, "disabling logging");
         flushMessages();
         flushTimer->stop();
