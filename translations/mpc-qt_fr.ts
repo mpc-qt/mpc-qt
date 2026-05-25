@@ -4798,15 +4798,15 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation type="unfinished">Temps restant</translation>
+        <translation>Temps restant</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation type="unfinished">Haute précision</translation>
+        <translation>Haute précision</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation type="unfinished">Afficher le pourcentage</translation>
+        <translation>Afficher le pourcentage</translation>
     </message>
     <message>
         <source>Played: %1</source>
