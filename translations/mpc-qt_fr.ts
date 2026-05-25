@@ -4809,12 +4809,20 @@ fichier média lu</translation>
         <translation type="unfinished">Afficher le pourcentage</translation>
     </message>
     <message>
+        <source>Played: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remaining: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Played</source>
-        <translation>Lu</translation>
+        <translation type="vanished">Lu</translation>
     </message>
     <message>
         <source>Remaining</source>
-        <translation>Restant</translation>
+        <translation type="vanished">Restant</translation>
     </message>
 </context>
 <context>
