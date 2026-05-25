@@ -2104,7 +2104,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>Tallenna Nimellä...</translation>
+        <translation type="vanished">Tallenna Nimellä...</translation>
     </message>
     <message>
         <source>Sort By Label</source>

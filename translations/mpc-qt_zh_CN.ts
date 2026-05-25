@@ -2234,7 +2234,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>保存为…</translation>
+        <translation type="vanished">保存为…</translation>
     </message>
     <message>
         <source>Sort By Label</source>

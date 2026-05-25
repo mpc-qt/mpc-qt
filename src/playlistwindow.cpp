@@ -978,14 +978,6 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     a->setDisabled(noItemSelected);
     m->addAction(a);
 
-    a = new QAction(m);
-    a->setText(tr("Save As..."));
-    connect(a, &QAction::triggered,
-            this, [this,playlistUuid]() {
-        savePlaylist(playlistUuid);
-    });
-    m->addAction(a);
-
     m->addSeparator();
 
     a = new QAction(m);

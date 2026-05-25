@@ -2214,7 +2214,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>Enregistrer sous...</translation>
+        <translation type="vanished">Enregistrer sous...</translation>
     </message>
     <message>
         <source>Sort By Label</source>

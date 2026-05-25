@@ -2194,7 +2194,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>Simpan Sebagai...</translation>
+        <translation type="vanished">Simpan Sebagai...</translation>
     </message>
     <message>
         <source>Sort By Label</source>

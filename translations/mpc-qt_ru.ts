@@ -2224,7 +2224,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>Сохранить как...</translation>
+        <translation type="vanished">Сохранить как...</translation>
     </message>
     <message>
         <source>Sort By Label</source>

@@ -2284,7 +2284,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>Uložit jako...</translation>
+        <translation type="vanished">Uložit jako...</translation>
     </message>
     <message>
         <source>Sort By Label</source>

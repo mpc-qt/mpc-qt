@@ -2258,7 +2258,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>சேமி ...</translation>
+        <translation type="vanished">சேமி ...</translation>
     </message>
     <message>
         <source>Sort By Label</source>

@@ -2256,7 +2256,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>Zapisz jako...</translation>
+        <translation type="vanished">Zapisz jako...</translation>
     </message>
     <message>
         <source>Sort By Label</source>
