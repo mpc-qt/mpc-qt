@@ -1223,11 +1223,8 @@ media file played</string>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
-                <property name="currentText">
-                 <string>100%</string>
-                </property>
                 <property name="currentIndex">
-                 <number>3</number>
+                 <number>9</number>
                 </property>
                 <item>
                  <property name="text">
@@ -1327,7 +1324,7 @@ media file played</string>
                  <number>100</number>
                 </property>
                 <property name="value">
-                 <number>75</number>
+                 <number>100</number>
                 </property>
                </widget>
               </item>
