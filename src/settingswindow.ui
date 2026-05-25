@@ -71,111 +71,111 @@
            <string>1</string>
           </property>
          </column>
-      <item>
-       <property name="text">
-        <string>Player</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Keys</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Logo</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Interface</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Stylesheet</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Web Interface</string>
-        </property>
-       </item>
-      </item>
-      <item>
-       <property name="text">
-        <string>Playback</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Output</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Shaders</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Fullscreen</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Sync</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Hw. Decoding</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Playlist</string>
-        </property>
-       </item>
-      </item>
-      <item>
-       <property name="text">
-        <string>Audio</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Subtitles</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Default Style</string>
-        </property>
-       </item>
-      </item>
-      <item>
-       <property name="text">
-        <string>Export</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Encoding</string>
-        </property>
-       </item>
-      </item>
-      <item>
-       <property name="text">
-        <string>Tweaks</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Logging</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Miscellaneous</string>
-       </property>
-      </item>
+         <item>
+          <property name="text">
+           <string>Player</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>Keys</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Logo</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Interface</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Stylesheet</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Web Interface</string>
+           </property>
+          </item>
+         </item>
+         <item>
+          <property name="text">
+           <string>Playback</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>Output</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Shaders</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Fullscreen</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Sync</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Hw. Decoding</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Playlist</string>
+           </property>
+          </item>
+         </item>
+         <item>
+          <property name="text">
+           <string>Audio</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Subtitles</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>Default Style</string>
+           </property>
+          </item>
+         </item>
+         <item>
+          <property name="text">
+           <string>Export</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>Encoding</string>
+           </property>
+          </item>
+         </item>
+         <item>
+          <property name="text">
+           <string>Tweaks</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Logging</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Miscellaneous</string>
+          </property>
+         </item>
         </widget>
        </item>
       </layout>
@@ -205,7 +205,7 @@
           <string>&lt;big&gt;&lt;b&gt;Player</string>
          </property>
          <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
          </property>
         </widget>
        </item>
@@ -218,7 +218,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>14</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
