@@ -21,23 +21,23 @@
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation type="unfinished">关于 Media Player Classic Qute Theater</translation>
+        <translation>关于 Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished">Media Player Classic Qute Theater</translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation type="unfinished">使用 Qt 编写的 Media Player Classic 克隆</translation>
+        <translation>使用 Qt 编写的 Media Player Classic 克隆</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation type="unfinished">基于 Qt %1 和 %2</translation>
+        <translation>基于 Qt %1 和 %2</translation>
     </message>
     <message>
         <source>Running on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>运行于 %1</translation>
     </message>
     <message>
         <source>Running under %1</source>
@@ -4778,7 +4778,7 @@ media file played</source>
     </message>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
-        <translation type="unfinished"></translation>
+        <translation>如果需要，循环返回到文件夹中的第一个/最后一个文件</translation>
     </message>
 </context>
 <context>
@@ -4801,11 +4801,11 @@ media file played</source>
     </message>
     <message>
         <source>Played: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>已播放：%1</translation>
     </message>
     <message>
         <source>Remaining: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>剩余：%1</translation>
     </message>
     <message>
         <source>Played</source>
