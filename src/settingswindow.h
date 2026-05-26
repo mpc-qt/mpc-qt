@@ -181,6 +181,7 @@ signals:
     void hwdecBackend(QString backend);
     void fastSeek(bool yes);
     void fallbackToFolder(bool yes);
+    void loopFolder(bool yes);
     void volumeMax(int maximum);
     void mpvMouseEvents(bool yes);
     void mpvKeyEvents(bool yes);

@@ -174,6 +174,7 @@ public slots:
     void setPlaybackForever(bool yes);
     void setFastSeek(bool yes);
     void setFolderFallback(bool yes);
+    void setLoopFolder(bool yes);
 
     // misc functions
     void sendCurrentTrackInfo();
@@ -283,6 +284,7 @@ private:
     bool playbackForever = false;
     bool fastSeek = true;
     bool folderFallback = false;
+    bool loopFolder = false;
     bool appendToQuickPlaylist = false;
 
     PlaybackManager::AspectNameChanged showAspectOsdTriggeredBy = AspectNameChanged::OnOpen;

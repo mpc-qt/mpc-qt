@@ -4670,6 +4670,10 @@ archivo multimedia reproducido</translation>
         <source>A&amp;pplication name only</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Loop back to first/last file in folder if needed</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>
