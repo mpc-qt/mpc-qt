@@ -5,39 +5,39 @@
     <name>About</name>
     <message>
         <source>Development Build</source>
-        <translation type="unfinished">開発ビルド</translation>
+        <translation>開発ビルド</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished">バージョン %1</translation>
+        <translation>バージョン %1</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation type="unfinished">Built on %1 at %2</translation>
+        <translation>ビルド %1 / %2</translation>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished">(不明)</translation>
+        <translation>(不明)</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation type="unfinished">Media Player Classic Qute Theater について</translation>
+        <translation>Media Player Classic Qute Theater について</translation>
     </message>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished">Media Player Classic Qute Theater</translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation type="unfinished">Qt で書かれた Media Player Classic のクローン</translation>
+        <translation>Qt ベースの Media Player Classic クローン</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation type="unfinished">Qt %1 および %2 に基づく</translation>
+        <translation>Qt %1 および %2 ベース</translation>
     </message>
     <message>
         <source>Running on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>1% で実行中</translation>
     </message>
     <message>
         <source>Running under %1</source>
@@ -4902,7 +4902,7 @@ media file played</source>
     </message>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
-        <translation type="unfinished"></translation>
+        <translation>必要に応じて、フォルダー内の最初または最後のファイルに戻る</translation>
     </message>
 </context>
 <context>
@@ -4925,11 +4925,11 @@ media file played</source>
     </message>
     <message>
         <source>Played: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>再生 : %1</translation>
     </message>
     <message>
         <source>Remaining: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>残り : 1%</translation>
     </message>
     <message>
         <source>Played</source>
