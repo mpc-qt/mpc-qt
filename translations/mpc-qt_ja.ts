@@ -4877,12 +4877,20 @@ media file played</source>
         <translation>パーセンテージを表示</translation>
     </message>
     <message>
+        <source>Played: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remaining: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Played</source>
-        <translation>再生</translation>
+        <translation type="vanished">再生</translation>
     </message>
     <message>
         <source>Remaining</source>
-        <translation>残り時間</translation>
+        <translation type="vanished">残り時間</translation>
     </message>
 </context>
 <context>

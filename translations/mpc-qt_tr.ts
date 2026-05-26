@@ -4841,11 +4841,11 @@ yeni bir &amp;oynatıcı aç</translation>
         <translation type="unfinished">Yüzdeyi göster</translation>
     </message>
     <message>
-        <source>Played</source>
+        <source>Played: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Remaining</source>
+        <source>Remaining: %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

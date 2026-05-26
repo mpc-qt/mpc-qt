@@ -4753,12 +4753,20 @@ media file played</source>
         <translation>显示百分比</translation>
     </message>
     <message>
+        <source>Played: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remaining: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Played</source>
-        <translation>已播放</translation>
+        <translation type="vanished">已播放</translation>
     </message>
     <message>
         <source>Remaining</source>
-        <translation>还剩</translation>
+        <translation type="vanished">还剩</translation>
     </message>
 </context>
 <context>

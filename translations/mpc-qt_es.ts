@@ -4659,11 +4659,11 @@ archivo multimedia reproducido</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Played</source>
+        <source>Played: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Remaining</source>
+        <source>Remaining: %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -4625,12 +4625,20 @@ file media yang diputar</translation>
         <translation type="unfinished">Tampilkan persentase</translation>
     </message>
     <message>
+        <source>Played: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remaining: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Played</source>
-        <translation>Diputar</translation>
+        <translation type="vanished">Diputar</translation>
     </message>
     <message>
         <source>Remaining</source>
-        <translation>Tersisa</translation>
+        <translation type="vanished">Tersisa</translation>
     </message>
 </context>
 <context>
