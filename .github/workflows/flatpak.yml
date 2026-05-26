@@ -3,6 +3,9 @@ name: Flatpak maker
 on:
   [workflow_call]
 
+env:
+  DEVBUILD: continuous
+
 jobs:
   flatpak:
     name: Build
@@ -13,13 +16,24 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v6.0.2
+        with:
+            fetch-depth: 1000
+            fetch-tags: true
       - name: Check out Flathub repository
         uses: actions/checkout@v6.0.2
         with:
-          repository: 'flathub/io.github.mpc_qt.mpc-qt'
-          path: flathub
+            repository: 'flathub/io.github.mpc_qt.mpc-qt'
+            path: flathub
       - name: Get version
-        run: echo "MPC-QT_PACKAGE_VERSION=$( cat .github/actions/data/VERSION )" >> $GITHUB_ENV
+        run: |
+            git config --global --add safe.directory "$GITHUB_WORKSPACE"
+            VERSION=$( cat .github/actions/data/VERSION )
+            if [ $VERSION == $DEVBUILD ]; then
+                MPCQT_VERSION=$( git describe --tags )
+            else
+                MPCQT_VERSION=$VERSION
+            fi
+            echo "MPCQT_VERSION=$MPCQT_VERSION" >> $GITHUB_ENV
       - name: Prepare Flatpak manifest with modules from Flathub manifest
         uses: mikefarah/yq@v4.50.1
         with:
@@ -34,7 +48,7 @@ jobs:
         uses: flatpak/flatpak-github-actions/flatpak-builder@master
         continue-on-error: true
         with:
-          bundle: mpc-qt-linux-x64-${{env.MPC-QT_PACKAGE_VERSION}}.flatpak
+          bundle: mpc-qt-linux-x64-${{env.MPCQT_VERSION}}.flatpak
           manifest-path: flathub/io.github.mpc_qt.mpc-qt.yml
           upload-artifact: false
       - name: Build - 2
@@ -43,14 +57,14 @@ jobs:
         uses: flatpak/flatpak-github-actions/flatpak-builder@master
         continue-on-error: true
         with:
-          bundle: mpc-qt-linux-x64-${{env.MPC-QT_PACKAGE_VERSION}}.flatpak
+          bundle: mpc-qt-linux-x64-${{env.MPCQT_VERSION}}.flatpak
           manifest-path: flathub/io.github.mpc_qt.mpc-qt.yml
           upload-artifact: false
       - name: Build - 3
         if: steps.build2.outcome == 'failure'
         uses: flatpak/flatpak-github-actions/flatpak-builder@master
         with:
-          bundle: mpc-qt-linux-x64-${{env.MPC-QT_PACKAGE_VERSION}}.flatpak
+          bundle: mpc-qt-linux-x64-${{env.MPCQT_VERSION}}.flatpak
           manifest-path: flathub/io.github.mpc_qt.mpc-qt.yml
           upload-artifact: false
       - name: Upload
