@@ -60,7 +60,7 @@ public:
     void stopPlayback();
     void stepBackward();
     void stepForward();
-    void seek(double amount, bool exact);
+    void seek(double amount, bool exact, bool keyframes = false, bool absolute = false);
     void screenshot(const QString &fileName, Helpers::ScreenshotRender render);
     void setMouseHideTime(int msec);
     void setIsInBottomArea(bool entered);
