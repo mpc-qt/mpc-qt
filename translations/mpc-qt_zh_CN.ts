@@ -5,19 +5,19 @@
     <name>About</name>
     <message>
         <source>Development Build</source>
-        <translation type="unfinished">开发构建</translation>
+        <translation>开发版本</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished">版本 %1</translation>
+        <translation>版本 %1</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation type="unfinished">于 %1 %2 构建</translation>
+        <translation>构建于 %1 %2</translation>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished">（未知）</translation>
+        <translation>（未知）</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
