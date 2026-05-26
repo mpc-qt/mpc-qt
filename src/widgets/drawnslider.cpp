@@ -457,9 +457,11 @@ void MediaSlider::mousePressEvent(QMouseEvent *ev)
 {
     if (ev->button() == Qt::MiddleButton && !ticks.isEmpty()) {
         double clickTime = xToValue(ev->position().x());
-        auto it = ticks.upperBound(clickTime);
-        if (it != ticks.constEnd())
-            emit middleClicked(it.key());
+        auto it = ticks.lowerBound(clickTime);
+        if (it == ticks.constEnd() || std::round(it.key()) > std::round(clickTime)) {
+            --it;
+        }
+        emit middleClicked(it.key());
         return;
     }
     DrawnSlider::mousePressEvent(ev);
