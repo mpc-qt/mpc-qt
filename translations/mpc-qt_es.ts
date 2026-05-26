@@ -2163,7 +2163,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>Guardar como...</translation>
+        <translation type="vanished">Guardar como...</translation>
     </message>
     <message>
         <source>Sort By Label</source>

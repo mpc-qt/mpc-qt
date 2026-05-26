@@ -2301,7 +2301,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>Farklı Kaydet…</translation>
+        <translation type="vanished">Farklı Kaydet…</translation>
     </message>
     <message>
         <source>Sort By Label</source>

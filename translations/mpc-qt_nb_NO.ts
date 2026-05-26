@@ -2051,7 +2051,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>Lagre som …</translation>
+        <translation type="vanished">Lagre som …</translation>
     </message>
     <message>
         <source>Sort By Label</source>

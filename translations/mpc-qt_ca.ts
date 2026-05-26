@@ -2275,7 +2275,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>Desar com a...</translation>
+        <translation type="vanished">Desar com a...</translation>
     </message>
     <message>
         <source>Sort By Label</source>

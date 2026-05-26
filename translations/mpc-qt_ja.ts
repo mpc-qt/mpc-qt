@@ -2321,7 +2321,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>名前を付けて保存...</translation>
+        <translation type="vanished">名前を付けて保存...</translation>
     </message>
     <message>
         <source>Sort By Label</source>

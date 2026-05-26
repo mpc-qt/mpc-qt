@@ -2309,7 +2309,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>Speichern als...</translation>
+        <translation type="vanished">Speichern als...</translation>
     </message>
     <message>
         <source>Sort By Label</source>
