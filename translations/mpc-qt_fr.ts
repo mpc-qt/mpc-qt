@@ -5,39 +5,39 @@
     <name>About</name>
     <message>
         <source>Development Build</source>
-        <translation type="unfinished">Version de développement</translation>
+        <translation>Version de développement</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished">Version %1</translation>
+        <translation>Version %1</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation type="unfinished">Construit le %1 à %2</translation>
+        <translation>Date de compilation&#xa0;: %1 à %2</translation>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished">(inconnu)</translation>
+        <translation>(inconnu)</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation type="unfinished">À propos de Media Player Classic Qute Theater</translation>
+        <translation>À propos de Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished">Media Player Classic Qute Theater</translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation type="unfinished">Un clone de Media Player Classic écrit en Qt</translation>
+        <translation>Un clone de Media Player Classic écrit en Qt</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation type="unfinished">Basé sur Qt %1 et %2</translation>
+        <translation>Basé sur Qt %1 et %2</translation>
     </message>
     <message>
         <source>Running on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fonctionne sous %1</translation>
     </message>
     <message>
         <source>Running under %1</source>
@@ -4834,7 +4834,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
-        <translation type="unfinished"></translation>
+        <translation>Retourner au premier/dernier fichier du dossier si nécessaire</translation>
     </message>
 </context>
 <context>
@@ -4857,11 +4857,11 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Played: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Lu&#xa0;: %1</translation>
     </message>
     <message>
         <source>Remaining: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Restant&#xa0;: %1</translation>
     </message>
     <message>
         <source>Played</source>
