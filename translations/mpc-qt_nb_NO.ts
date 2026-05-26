@@ -2,6 +2,45 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="nb_NO">
 <context>
+    <name>About</name>
+    <message>
+        <source>Development Build</source>
+        <translation type="unfinished">Utviklingsbygg</translation>
+    </message>
+    <message>
+        <source>Version %1</source>
+        <translation type="unfinished">Versjon %1</translation>
+    </message>
+    <message>
+        <source>Built on %1 at %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(Unknown)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About Media Player Classic Qute Theater</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Media Player Classic Qute Theater</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A clone of Media Player Classic written in Qt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Based on Qt %1 and %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Running on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
@@ -1331,27 +1370,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Development Build</source>
-        <translation>Utviklingsbygg</translation>
+        <translation type="vanished">Utviklingsbygg</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation>Versjon %1</translation>
-    </message>
-    <message>
-        <source>About Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>A clone of Media Player Classic written in Qt</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Based on Qt %1 and %2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Built on %1 at %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">Versjon %1</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
@@ -1643,14 +1666,6 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>More Files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>(Unknown)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Running under %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

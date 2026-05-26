@@ -2,6 +2,49 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="tr">
 <context>
+    <name>About</name>
+    <message>
+        <source>Development Build</source>
+        <translation type="unfinished">Geliştirme Yapısı</translation>
+    </message>
+    <message>
+        <source>Version %1</source>
+        <translation type="unfinished">Sürüm %1</translation>
+    </message>
+    <message>
+        <source>Built on %1 at %2</source>
+        <translation type="unfinished">%1 üzerine %2 tarihinde yapıldı</translation>
+    </message>
+    <message>
+        <source>(Unknown)</source>
+        <translation type="unfinished">(Bilinmeyen)</translation>
+    </message>
+    <message>
+        <source>About Media Player Classic Qute Theater</source>
+        <translation type="unfinished">Media Player Classic Qute Theater Hakkında</translation>
+    </message>
+    <message>
+        <source>Media Player Classic Qute Theater</source>
+        <translation type="unfinished">Media Player Classic Qute Theater</translation>
+    </message>
+    <message>
+        <source>A clone of Media Player Classic written in Qt</source>
+        <translation type="unfinished">Media Player Classic’in Qt ile yazılmış bir klonu</translation>
+    </message>
+    <message>
+        <source>Based on Qt %1 and %2</source>
+        <translation type="unfinished">Qt %1 ve %2 tabanlı</translation>
+    </message>
+    <message>
+        <source>Running on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Running under %1</source>
+        <translation type="obsolete">%1 altında çalışıyor</translation>
+    </message>
+</context>
+<context>
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
@@ -1465,27 +1508,27 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Development Build</source>
-        <translation>Geliştirme Yapısı</translation>
+        <translation type="vanished">Geliştirme Yapısı</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation>Sürüm %1</translation>
+        <translation type="vanished">Sürüm %1</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation>Media Player Classic Qute Theater Hakkında</translation>
+        <translation type="vanished">Media Player Classic Qute Theater Hakkında</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation>Media Player Classic’in Qt ile yazılmış bir klonu</translation>
+        <translation type="vanished">Media Player Classic’in Qt ile yazılmış bir klonu</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation>Qt %1 ve %2 tabanlı</translation>
+        <translation type="vanished">Qt %1 ve %2 tabanlı</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation>%1 üzerine %2 tarihinde yapıldı</translation>
+        <translation type="vanished">%1 üzerine %2 tarihinde yapıldı</translation>
     </message>
     <message>
         <source>Alt+Q</source>
@@ -1737,11 +1780,11 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation>(Bilinmeyen)</translation>
+        <translation type="vanished">(Bilinmeyen)</translation>
     </message>
     <message>
         <source>Running under %1</source>
-        <translation>%1 altında çalışıyor</translation>
+        <translation type="vanished">%1 altında çalışıyor</translation>
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>

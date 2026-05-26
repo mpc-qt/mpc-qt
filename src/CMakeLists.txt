@@ -6,6 +6,7 @@ configure_file(
 )
 
 set(SOURCES
+    about.cpp about.h
     favoriteswindow.cpp favoriteswindow.h favoriteswindow.ui
     gotowindow.cpp gotowindow.h gotowindow.ui
     helpers.cpp helpers.h

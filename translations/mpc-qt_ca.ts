@@ -2,6 +2,45 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ca">
 <context>
+    <name>About</name>
+    <message>
+        <source>Development Build</source>
+        <translation type="unfinished">Compilació de desenvolupament</translation>
+    </message>
+    <message>
+        <source>Version %1</source>
+        <translation type="unfinished">Versió %1</translation>
+    </message>
+    <message>
+        <source>Built on %1 at %2</source>
+        <translation type="unfinished">Compilat el %1 a les %2</translation>
+    </message>
+    <message>
+        <source>(Unknown)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About Media Player Classic Qute Theater</source>
+        <translation type="unfinished">Sobre el Media Player Classic Qute Theater</translation>
+    </message>
+    <message>
+        <source>Media Player Classic Qute Theater</source>
+        <translation type="unfinished">Media Player Classic Qute Theater</translation>
+    </message>
+    <message>
+        <source>A clone of Media Player Classic written in Qt</source>
+        <translation type="unfinished">Un clon del Media Player Classic escrit en Qt</translation>
+    </message>
+    <message>
+        <source>Based on Qt %1 and %2</source>
+        <translation type="unfinished">Basant en Qt %1 i %2</translation>
+    </message>
+    <message>
+        <source>Running on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
@@ -1451,27 +1490,27 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Development Build</source>
-        <translation>Compilació de desenvolupament</translation>
+        <translation type="vanished">Compilació de desenvolupament</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation>Versió %1</translation>
+        <translation type="vanished">Versió %1</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation>Sobre el Media Player Classic Qute Theater</translation>
+        <translation type="vanished">Sobre el Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation>Un clon del Media Player Classic escrit en Qt</translation>
+        <translation type="vanished">Un clon del Media Player Classic escrit en Qt</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation>Basant en Qt %1 i %2</translation>
+        <translation type="vanished">Basant en Qt %1 i %2</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation>Compilat el %1 a les %2</translation>
+        <translation type="vanished">Compilat el %1 a les %2</translation>
     </message>
     <message>
         <source>Alt+Q</source>
@@ -1719,14 +1758,6 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>v: 0 kb/s, a: 0kb/s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>(Unknown)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Running under %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

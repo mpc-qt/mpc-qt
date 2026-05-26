@@ -2,6 +2,45 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru">
 <context>
+    <name>About</name>
+    <message>
+        <source>Development Build</source>
+        <translation type="unfinished">Версия для разработчиков</translation>
+    </message>
+    <message>
+        <source>Version %1</source>
+        <translation type="unfinished">Версия %1</translation>
+    </message>
+    <message>
+        <source>Built on %1 at %2</source>
+        <translation type="unfinished">Скомпилировано %1 в %2</translation>
+    </message>
+    <message>
+        <source>(Unknown)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About Media Player Classic Qute Theater</source>
+        <translation type="unfinished">О Media Player Classic Qute Theater</translation>
+    </message>
+    <message>
+        <source>Media Player Classic Qute Theater</source>
+        <translation type="unfinished">Media Player Classic Qute Theater</translation>
+    </message>
+    <message>
+        <source>A clone of Media Player Classic written in Qt</source>
+        <translation type="unfinished">Клон Media Player Classic, написанный на Qt</translation>
+    </message>
+    <message>
+        <source>Based on Qt %1 and %2</source>
+        <translation type="unfinished">Используется Qt %1 и %2</translation>
+    </message>
+    <message>
+        <source>Running on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
@@ -1451,27 +1490,27 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Development Build</source>
-        <translation>Версия для разработчиков</translation>
+        <translation type="vanished">Версия для разработчиков</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation>Версия %1</translation>
+        <translation type="vanished">Версия %1</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation>О Media Player Classic Qute Theater</translation>
+        <translation type="vanished">О Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation>Клон Media Player Classic, написанный на Qt</translation>
+        <translation type="vanished">Клон Media Player Classic, написанный на Qt</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation>Используется Qt %1 и %2</translation>
+        <translation type="vanished">Используется Qt %1 и %2</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation>Скомпилировано %1 в %2</translation>
+        <translation type="vanished">Скомпилировано %1 в %2</translation>
     </message>
     <message>
         <source>Alt+Q</source>
@@ -1700,14 +1739,6 @@ No action will be triggered.</source>
     <message>
         <source>v: 0 kb/s, a: 0kb/s</source>
         <translation>v: 0 кбит/с, a: 0 кбит/с</translation>
-    </message>
-    <message>
-        <source>(Unknown)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Running under %1</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>
