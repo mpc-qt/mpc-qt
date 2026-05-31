@@ -9,35 +9,35 @@
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished">Versi &amp;1</translation>
+        <translation>Versi %1</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation type="unfinished">Dibangun dari %1 pada %2</translation>
+        <translation>Dibangun pada %1 pukul %2</translation>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished">(Tidak Diketahui)</translation>
+        <translation>(Tidak diketahui)</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation type="unfinished">Tentang Media Player Classic Qute Theater</translation>
+        <translation>Tentang Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished">Media Player Classic Qute Theater</translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation type="unfinished">Sebuah klon dari Media Player Classic menggunakan Qt</translation>
+        <translation>Kloning Media Player Classic yang ditulis dalam Qt</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation type="unfinished">Dibuat dengan Qt %1 dan %2</translation>
+        <translation>Berdasarkan Qt %1 dan %2</translation>
     </message>
     <message>
         <source>Running on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Berjalan di %1</translation>
     </message>
     <message>
         <source>Running under %1</source>
@@ -136,23 +136,23 @@
     </message>
     <message>
         <source>Decrease Subtitles Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Kurangi Delay Subtitle</translation>
     </message>
     <message>
         <source>Increase Subtitles Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambahkan Delay Subtitle</translation>
     </message>
     <message>
         <source>Decrease Audio Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Kurangi Delay Audio</translation>
     </message>
     <message>
         <source>Increase Audio Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambahkan Delay Audio</translation>
     </message>
     <message>
         <source>16:9 Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Rasio aspek 16:9</translation>
     </message>
     <message>
         <source>Decrease Aspect ratio</source>
@@ -1432,15 +1432,15 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Software Decoding</source>
-        <translation type="unfinished"></translation>
+        <translation>Dekoding Perangkat Lunak</translation>
     </message>
     <message>
         <source>Hardware Decoding: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Dekoding Perangkat Keras: %1</translation>
     </message>
     <message>
         <source>Hardware Decoding: %1 (slow)</source>
-        <translation type="unfinished"></translation>
+        <translation>Dekoding Perangkat Keras: %1 (lambat)</translation>
     </message>
     <message>
         <source>Remaining time</source>
@@ -1900,11 +1900,11 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Decrease Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Kurangi Delay</translation>
     </message>
     <message>
         <source>Increase Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambahkan Delay</translation>
     </message>
 </context>
 <context>
@@ -2062,7 +2062,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Audio delay: %1 ms</source>
-        <translation type="unfinished"></translation>
+        <translation>Delay audio: %1 ms</translation>
     </message>
 </context>
 <context>
@@ -4650,7 +4650,7 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ulangi ke file pertama/terakhir di folder jika perlu</translation>
     </message>
 </context>
 <context>
@@ -4661,23 +4661,23 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation type="unfinished">Sisa waktu</translation>
+        <translation>Waktu tersisa</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation type="unfinished">Presisi tinggi</translation>
+        <translation>Presisi tinggi</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation type="unfinished">Tampilkan persentase</translation>
+        <translation>Tampilkan persentase</translation>
     </message>
     <message>
         <source>Played: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Dimainkan: %1</translation>
     </message>
     <message>
         <source>Remaining: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Tersisa: %1</translation>
     </message>
     <message>
         <source>Played</source>
