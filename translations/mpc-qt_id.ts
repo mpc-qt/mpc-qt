@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <source>Development Build</source>
-        <translation type="unfinished">Versi untuk Pengembang</translation>
+        <translation>Versi untuk Pengembang</translation>
     </message>
     <message>
         <source>Version %1</source>
