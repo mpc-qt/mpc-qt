@@ -432,16 +432,18 @@ void MpvObject::setLogoBackground(const QColor &color)
         widget->setLogoBackground(color);
 }
 
-void MpvObject::setAudioFilters(const QList<QPair<QString, QString>> &filtersList)
+void MpvObject::setAudioFilters(const QList<QPair<QString, QString>> &filtersList, bool clearFilters)
 {
-    emit ctrlCommand("no-osd af clear");
+    if (clearFilters)
+        emit ctrlCommand("no-osd af clear");
     if (!filtersList.empty())
         emit ctrlCommand("no-osd af set \"" + formatFiltersList(filtersList) + "\"");
 }
 
-void MpvObject::setVideoFilters(const QList<QPair<QString, QString>> &filtersList)
+void MpvObject::setVideoFilters(const QList<QPair<QString, QString>> &filtersList, bool clearFilters)
 {
-    emit ctrlCommand("no-osd vf clear");
+    if (clearFilters)
+        emit ctrlCommand("no-osd vf clear");
     if (!filtersList.empty())
         emit ctrlCommand("no-osd vf set \"" + formatFiltersList(filtersList) + "\"");
 }

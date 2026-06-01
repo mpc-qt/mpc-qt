@@ -196,8 +196,8 @@ signals:
     void logDelay(int msecs);
     void logHistory(int lines);
 
-    void audioFilters(const QList<QPair<QString, QString>> &audioFiltersList);
-    void videoFilters(const QList<QPair<QString, QString>> &videoFiltersList);
+    void audioFilters(const QList<QPair<QString, QString>> &audioFiltersList, bool clearFilters);
+    void videoFilters(const QList<QPair<QString, QString>> &videoFiltersList, bool clearFilters);
 
 public slots:
     void takeActions(const QList<QAction*> actions);
@@ -218,7 +218,7 @@ public slots:
     void setHidePanels(bool hidden);
 
 private slots:
-    void setFilter(QList<QPair<QString, QString>> &filtersList, QString filter, QString options, bool add);
+    bool setFilter(QList<QPair<QString, QString>> &filtersList, QString filter, QString options, bool add);
     void setCustomMpvOptions();
     void colorPick_clicked(QLineEdit *colorValue);
     void colorPick_changed(const QLineEdit *colorValue, QPushButton *colorPick);
