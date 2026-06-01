@@ -23,7 +23,7 @@ VideoPreview::VideoPreview(QWidget *parent) : QWidget(parent)
     emit mpv->ctrlSetOptionVariant("hr-seek", "no");
     emit mpv->ctrlSetOptionVariant("audio", "no");
     emit mpv->ctrlSetOptionVariant("audio-display", "no");
-    emit mpv->ctrlSetOptionVariant("ytdl-format", QString("bestvideo[height>=?%1]").arg(videoHeight));
+    emit mpv->ctrlSetOptionVariant("ytdl-format", QString("bestvideo[height>=?%1]/best[height>=?%1]/bestvideo/best").arg(videoHeight));
     emit mpv->ctrlSetOptionVariant("ytdl-raw-options", "format-sort=[+size,+br,+res,+fps]");
     emit mpv->ctrlSetOptionVariant("clipboard-backends", "clr");
 
