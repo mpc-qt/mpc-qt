@@ -342,15 +342,17 @@ void MpvObject::urlOpen(QUrl url)
                                : QUrl::fromPercentEncoding(url.toEncoded()));
 }
 
-void MpvObject::fileOpen(QString filename, bool replaceMpvPlaylist)
+void MpvObject::fileOpen(QString filename, bool replaceMpvPlaylist, bool previousWasVideo)
 {
     clearSubFiles();
-    setMpvPropertyVariant("vid", "no");
-    if (replaceMpvPlaylist)
+    if (replaceMpvPlaylist || previousWasVideo) {
+        setMpvPropertyVariant("vid", "no"); // clear last frame of previous video file
         emit ctrlCommand(QStringList({"loadfile", filename}));
-    else
+        setMpvPropertyVariant("vid", "auto");
+    }
+    else { // gapless playback
         emit ctrlCommand(QStringList({"loadfile", filename, "append-play"}));
-    setMpvPropertyVariant("vid", "auto");
+    }
     setMouseHideTime(hideTimer->interval());
 }
 
@@ -432,16 +434,20 @@ void MpvObject::setLogoBackground(const QColor &color)
         widget->setLogoBackground(color);
 }
 
-void MpvObject::setAudioFilters(const QList<QPair<QString, QString>> &filtersList)
+void MpvObject::setAudioFilters(const QList<QPair<QString, QString>> &filtersList, bool clearFilters)
 {
-    emit ctrlCommand("no-osd af clear");
-    emit ctrlCommand("no-osd af set \"" + formatFiltersList(filtersList) + "\"");
+    if (clearFilters)
+        emit ctrlCommand("no-osd af clear");
+    if (!filtersList.empty())
+        emit ctrlCommand("no-osd af set \"" + formatFiltersList(filtersList) + "\"");
 }
 
-void MpvObject::setVideoFilters(const QList<QPair<QString, QString>> &filtersList)
+void MpvObject::setVideoFilters(const QList<QPair<QString, QString>> &filtersList, bool clearFilters)
 {
-    emit ctrlCommand("no-osd vf clear");
-    emit ctrlCommand("no-osd vf set \"" + formatFiltersList(filtersList) + "\"");
+    if (clearFilters)
+        emit ctrlCommand("no-osd vf clear");
+    if (!filtersList.empty())
+        emit ctrlCommand("no-osd vf set \"" + formatFiltersList(filtersList) + "\"");
 }
 
 QString MpvObject::formatFiltersList(const QList<QPair<QString, QString>> &filtersList)

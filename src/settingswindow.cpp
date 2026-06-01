@@ -1193,17 +1193,17 @@ void SettingsWindow::setHidePanels(bool hidden)
 
 void SettingsWindow::setAudioFilter(QString filter, QString options, bool add)
 {
-    setFilter(audioFiltersList, filter, options, add);
-    emit audioFilters(audioFiltersList);
+    bool clearFilters = setFilter(audioFiltersList, filter, options, add);
+    emit audioFilters(audioFiltersList, clearFilters);
 }
 
 void SettingsWindow::setVideoFilter(QString filter, QString options, bool add)
 {
-    setFilter(videoFiltersList, filter, options, add);
-    emit videoFilters(videoFiltersList);
+    bool clearFilters = setFilter(videoFiltersList, filter, options, add);
+    emit videoFilters(videoFiltersList, clearFilters);
 }
 
-void SettingsWindow::setFilter(QList<QPair<QString, QString>> &filtersList, QString filter, QString options, bool add)
+bool SettingsWindow::setFilter(QList<QPair<QString, QString>> &filtersList, QString filter, QString options, bool add)
 {
     auto it = std::find_if(filtersList.begin(),
                                      filtersList.end(),
@@ -1211,7 +1211,8 @@ void SettingsWindow::setFilter(QList<QPair<QString, QString>> &filtersList, QStr
         return pair.first == filter;
     });
 
-    if (it != filtersList.end()) { // Filter found
+    bool filterFound = it != filtersList.end();
+    if (filterFound) {
         int i = std::distance(filtersList.begin(), it);
         if (add)
             filtersList.replace(i, QPair<QString, QString>(filter, options));
@@ -1220,6 +1221,8 @@ void SettingsWindow::setFilter(QList<QPair<QString, QString>> &filtersList, QStr
     }
     else if (add)
         filtersList.append(QPair<QString, QString>(filter, options));
+
+    return filterFound;
 }
 
 void SettingsWindow::setCustomMpvOptions()

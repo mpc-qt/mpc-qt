@@ -55,7 +55,7 @@ public:
     int selectedStatsPage();
 
     void urlOpen(QUrl url);
-    void fileOpen(QString filename, bool replaceMpvPlaylist = true);
+    void fileOpen(QString filename, bool replaceMpvPlaylist = true, bool previousWasVideo = false);
     void discFilesOpen(QString path);
     void stopPlayback();
     void stepBackward();
@@ -66,8 +66,8 @@ public:
     void setIsInBottomArea(bool entered);
     void setLogoUrl(const QString &filename);
     void setLogoBackground(const QColor &color);
-    void setAudioFilters(const QList<QPair<QString, QString>> &filtersList);
-    void setVideoFilters(const QList<QPair<QString, QString>> &filtersList);
+    void setAudioFilters(const QList<QPair<QString, QString>> &filtersList, bool clearFilters);
+    void setVideoFilters(const QList<QPair<QString, QString>> &filtersList, bool clearFilters);
     QString formatFiltersList(const QList<QPair<QString, QString>> &filtersList);
     void setSubFile(QString filename);
     void addSubFile(QString filename);
