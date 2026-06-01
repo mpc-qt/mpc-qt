@@ -13,11 +13,11 @@
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Rakennettu %1 klo %2</translation>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Tuntematon)</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>Running on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Toimii %1:llä</translation>
     </message>
 </context>
 <context>
@@ -60,31 +60,31 @@
     </message>
     <message>
         <source>Volume Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Mykistä</translation>
     </message>
     <message>
         <source>After Playback: Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Toiston lopuksi: Poistu</translation>
     </message>
     <message>
         <source>After Playback: Stand by</source>
-        <translation type="unfinished"></translation>
+        <translation>Toiston jälkeen: Valmiustila</translation>
     </message>
     <message>
         <source>After Playback: Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>Toiston jälkeen: Horrostila</translation>
     </message>
     <message>
         <source>After Playback: Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Toiston jälkeen: Sammuta</translation>
     </message>
     <message>
         <source>After Playback: Log Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Toiston jälkeen: Kirjaudu ulos</translation>
     </message>
     <message>
         <source>After Playback: Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Toiston jälkeen: Lukitse</translation>
     </message>
     <message>
         <source>After Playback: Play next file</source>
