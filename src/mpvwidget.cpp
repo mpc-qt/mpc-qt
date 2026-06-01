@@ -342,15 +342,17 @@ void MpvObject::urlOpen(QUrl url)
                                : QUrl::fromPercentEncoding(url.toEncoded()));
 }
 
-void MpvObject::fileOpen(QString filename, bool replaceMpvPlaylist)
+void MpvObject::fileOpen(QString filename, bool replaceMpvPlaylist, bool previousWasVideo)
 {
     clearSubFiles();
-    setMpvPropertyVariant("vid", "no");
-    if (replaceMpvPlaylist)
+    if (replaceMpvPlaylist || previousWasVideo) {
+        setMpvPropertyVariant("vid", "no"); // clear last frame of previous video file
         emit ctrlCommand(QStringList({"loadfile", filename}));
-    else
+        setMpvPropertyVariant("vid", "auto");
+    }
+    else { // gapless playback
         emit ctrlCommand(QStringList({"loadfile", filename, "append-play"}));
-    setMpvPropertyVariant("vid", "auto");
+    }
     setMouseHideTime(hideTimer->interval());
 }
 
