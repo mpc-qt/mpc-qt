@@ -5,39 +5,39 @@
     <name>About</name>
     <message>
         <source>Development Build</source>
-        <translation type="unfinished">Entwicklerversion</translation>
+        <translation>Entwicklerversion</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished">Version %1</translation>
+        <translation>Version %1</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation type="unfinished">Gebaut auf %1 um %2</translation>
+        <translation>Gebaut auf %1 um %2</translation>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished">(unbekannt)</translation>
+        <translation>(unbekannt)</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation type="unfinished">Über Media Player Classic Qute Theater</translation>
+        <translation>Über Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished">Media Player Classic Qute Theater</translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation type="unfinished">Ein Klon von Media Player Classic, geschrieben in Qt</translation>
+        <translation>Ein Klon von Media Player Classic, geschrieben in Qt</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation type="unfinished">Basierend auf Qt %1 und %2</translation>
+        <translation>Basierend auf Qt %1 und %2</translation>
     </message>
     <message>
         <source>Running on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Läuft unter %1</translation>
     </message>
     <message>
         <source>Running under %1</source>
@@ -1488,7 +1488,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Buffering (%1%)</source>
-        <translation type="unfinished"></translation>
+        <translation>Puffern (%1%)</translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
@@ -1944,15 +1944,15 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished">Ja</translation>
+        <translation>Ja</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">Auto</translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished">Nein</translation>
+        <translation>Nein</translation>
     </message>
     <message>
         <source>Pl&amp;aylists Backup</source>
@@ -2881,7 +2881,7 @@ media file played</source>
     </message>
     <message>
         <source>Fallback</source>
-        <translation type="unfinished">Ausweichlösung</translation>
+        <translation>Ausweichlösung</translation>
     </message>
     <message>
         <source>Black (for white palette)</source>
@@ -3281,23 +3281,23 @@ media file played</source>
     </message>
     <message>
         <source>Ewa lanczos</source>
-        <translation>Ewa Lanczos</translation>
+        <translation>EWA Lanczos</translation>
     </message>
     <message>
         <source>Ewa hanning</source>
-        <translation>Ewa Hanning</translation>
+        <translation>EWA Hanning</translation>
     </message>
     <message>
         <source>Ewa ginseng</source>
-        <translation>Ewa Ginseng</translation>
+        <translation>EWA Ginseng</translation>
     </message>
     <message>
         <source>Ewa lanczos sharp</source>
-        <translation>Ewa Lanczos scharf</translation>
+        <translation>EWA Lanczos scharf</translation>
     </message>
     <message>
         <source>Ewa lanczos soft</source>
-        <translation>Ewa Lanczos weich</translation>
+        <translation>EWA Lanczos weich</translation>
     </message>
     <message>
         <source>Haasnsoft</source>
@@ -3309,11 +3309,11 @@ media file played</source>
     </message>
     <message>
         <source>Bc spline</source>
-        <translation type="unfinished"></translation>
+        <translation>BC-Spline</translation>
     </message>
     <message>
         <source>Catmull rom</source>
-        <translation type="unfinished"></translation>
+        <translation>Catmull-Rom</translation>
     </message>
     <message>
         <source>Mitchell</source>
@@ -3321,19 +3321,19 @@ media file played</source>
     </message>
     <message>
         <source>Robidoux</source>
-        <translation type="unfinished"></translation>
+        <translation>Robidoux</translation>
     </message>
     <message>
         <source>Robidoux sharp</source>
-        <translation type="unfinished"></translation>
+        <translation>Robidoux Sharp</translation>
     </message>
     <message>
         <source>Ewa robidoux</source>
-        <translation type="unfinished"></translation>
+        <translation>EWA Robidoux</translation>
     </message>
     <message>
         <source>Ewa robidoux sharp</source>
-        <translation type="unfinished"></translation>
+        <translation>EWA Robidoux Sharp</translation>
     </message>
     <message>
         <source>Nearest</source>
@@ -3633,7 +3633,7 @@ media file played</source>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Name</translation>
+        <translation>Name</translation>
     </message>
     <message>
         <source>Port</source>
@@ -3741,7 +3741,7 @@ media file played</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">Keine</translation>
+        <translation>Keine</translation>
     </message>
     <message>
         <source>Default</source>
@@ -4062,7 +4062,7 @@ media file played</source>
     </message>
     <message>
         <source>qrc:/text/encodeFormat.html</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/text/encodeFormat.html</translation>
     </message>
     <message>
         <source>Save with high bit depth</source>
@@ -4074,7 +4074,7 @@ media file played</source>
     </message>
     <message>
         <source>Smooth</source>
-        <translation type="unfinished">Weichzeichnen</translation>
+        <translation>Weichzeichnen</translation>
     </message>
     <message>
         <source>Source Chroma</source>
@@ -4126,11 +4126,11 @@ media file played</source>
     </message>
     <message>
         <source>qmin</source>
-        <translation type="unfinished"></translation>
+        <translation>qmin</translation>
     </message>
     <message>
         <source>qmax</source>
-        <translation type="unfinished"></translation>
+        <translation>qmax</translation>
     </message>
     <message>
         <source>Don&apos;t encode the audio</source>
@@ -4218,7 +4218,7 @@ media file played</source>
     </message>
     <message>
         <source>Trace (very noisy)</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle Schritte verfolgen (sehr viele bzw. verrauschte Daten)</translation>
     </message>
     <message>
         <source>Log file</source>
@@ -4358,7 +4358,7 @@ media file played</source>
     </message>
     <message>
         <source>webroot</source>
-        <translation type="unfinished"></translation>
+        <translation>Wurzelverzeichnis der Webseite</translation>
     </message>
     <message>
         <source>Default page</source>
@@ -4382,7 +4382,7 @@ media file played</source>
     </message>
     <message>
         <source>Web root</source>
-        <translation type="unfinished"></translation>
+        <translation>Webseite</translation>
     </message>
     <message>
         <source>Security</source>
@@ -4418,7 +4418,7 @@ media file played</source>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished">Wiederholen</translation>
+        <translation>Wiederholen</translation>
     </message>
     <message>
         <source>Play next in the folder</source>
@@ -4690,7 +4690,7 @@ media file played</source>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished">Schatten</translation>
+        <translation>Schatten</translation>
     </message>
     <message>
         <source>Enable shadow</source>
@@ -4754,19 +4754,19 @@ media file played</source>
     </message>
     <message>
         <source>CRF</source>
-        <translation type="unfinished"></translation>
+        <translation>CRF</translation>
     </message>
     <message>
         <source>Lossless</source>
-        <translation type="unfinished"></translation>
+        <translation>Verlustfrei</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Geschwindigkeit</translation>
     </message>
     <message>
         <source>Others</source>
-        <translation type="unfinished"></translation>
+        <translation>Andere</translation>
     </message>
     <message>
         <source>Video background</source>
@@ -4802,7 +4802,7 @@ media file played</source>
     </message>
     <message>
         <source>Mono</source>
-        <translation type="unfinished"></translation>
+        <translation>Mono</translation>
     </message>
     <message>
         <source>Remember last window size and position</source>
@@ -4814,27 +4814,27 @@ media file played</source>
     </message>
     <message>
         <source>Replay Gain</source>
-        <translation type="unfinished"></translation>
+        <translation>Verstärkung</translation>
     </message>
     <message>
         <source>Track</source>
-        <translation type="unfinished"></translation>
+        <translation>Track</translation>
     </message>
     <message>
         <source>Album</source>
-        <translation type="unfinished"></translation>
+        <translation>Album</translation>
     </message>
     <message>
         <source>Pre-amp</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorverstärker</translation>
     </message>
     <message>
         <source> dB</source>
-        <translation type="unfinished"></translation>
+        <translation> dB</translation>
     </message>
     <message>
         <source>Prevent clipping</source>
-        <translation type="unfinished"></translation>
+        <translation>Clipping verhindern</translation>
     </message>
     <message>
         <source>Search settings…</source>
@@ -4842,38 +4842,38 @@ media file played</source>
     </message>
     <message>
         <source>A&amp;pplication name only</source>
-        <translation type="unfinished"></translation>
+        <translation>Nur A&amp;nwendungsname</translation>
     </message>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
-        <translation type="unfinished"></translation>
+        <translation>Springe zurück zur ersten/letzten Datei im Verzeichnis, wenn nötig</translation>
     </message>
 </context>
 <context>
     <name>StatusTime</name>
     <message>
         <source> (%1%)</source>
-        <translation type="unfinished"></translation>
+        <translation> (%1%)</translation>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation type="unfinished">Verbleibende Zeit</translation>
+        <translation>Verbleibende Zeit</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation type="unfinished">Hohe Genauigkeit</translation>
+        <translation>Hohe Genauigkeit</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation type="unfinished">Prozentsatz anzeigen</translation>
+        <translation>Prozentsatz anzeigen</translation>
     </message>
     <message>
         <source>Played: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Abgespielt: %1</translation>
     </message>
     <message>
         <source>Remaining: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Restdauer: %1</translation>
     </message>
 </context>
 <context>
@@ -4884,7 +4884,7 @@ media file played</source>
     </message>
     <message>
         <source>&amp;Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Durchsuchen…</translation>
     </message>
     <message>
         <source>Image</source>
@@ -4892,7 +4892,7 @@ media file played</source>
     </message>
     <message>
         <source>%</source>
-        <translation type="unfinished">%</translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>Width</source>
@@ -4908,7 +4908,7 @@ media file played</source>
     </message>
     <message>
         <source>&amp;Go!</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Los!</translation>
     </message>
     <message>
         <source>Thu&amp;mbnail</source>
@@ -4920,7 +4920,7 @@ media file played</source>
     </message>
     <message>
         <source>&amp;Columns</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Spalten</translation>
     </message>
     <message>
         <source>Save Thumbnails</source>
@@ -4928,7 +4928,7 @@ media file played</source>
     </message>
     <message>
         <source>%p%</source>
-        <translation type="unfinished"></translation>
+        <translation>%p%</translation>
     </message>
 </context>
 </TS>
