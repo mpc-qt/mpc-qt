@@ -1210,7 +1210,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Close Tab</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1226,7 +1226,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Importar Playlist</translation>
     </message>
     <message>
         <source>Ctrl+Shift+O</source>
@@ -1598,7 +1598,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Legendas</translation>
     </message>
     <message>
         <source>Mute</source>
@@ -1981,11 +1981,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Left</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Right</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -2154,7 +2154,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Button</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Botão</translation>
     </message>
     <message>
         <source>Button &amp;&amp; Window</source>
@@ -2228,7 +2228,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Quick Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Playlist Rápida</translation>
     </message>
 </context>
 <context>
@@ -2307,7 +2307,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Remover</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -2335,7 +2335,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Restaurar</translation>
     </message>
     <message>
         <source>Shuffle</source>
@@ -2635,7 +2635,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">1</translation>
     </message>
     <message>
         <source>Player</source>
@@ -2811,11 +2811,11 @@ ficheiro de média reproduzido</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Video</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Áudio</translation>
     </message>
     <message>
         <source>All</source>
@@ -2943,7 +2943,7 @@ ficheiro de média reproduzido</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Auto</translation>
     </message>
     <message>
         <source>Time step</source>
@@ -3015,7 +3015,7 @@ ficheiro de média reproduzido</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Geral</translation>
     </message>
     <message>
         <source>Framebuffer</source>
@@ -3071,7 +3071,7 @@ ficheiro de média reproduzido</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Desativado</translation>
     </message>
     <message>
         <source>Presets</source>
@@ -3127,7 +3127,7 @@ ficheiro de média reproduzido</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">No</translation>
     </message>
     <message>
         <source>Size</source>
@@ -3187,7 +3187,7 @@ ficheiro de média reproduzido</translation>
     </message>
     <message>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">2</translation>
     </message>
     <message>
         <source>Anti-ring</source>
@@ -3199,7 +3199,7 @@ ficheiro de média reproduzido</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Janela</translation>
     </message>
     <message>
         <source>Box</source>
@@ -3511,7 +3511,7 @@ ficheiro de média reproduzido</translation>
     </message>
     <message>
         <source>Clip</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Clipe</translation>
     </message>
     <message>
         <source>Mobius</source>
@@ -3647,7 +3647,7 @@ ficheiro de média reproduzido</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nome</translation>
     </message>
     <message>
         <source>Port</source>
@@ -3675,7 +3675,7 @@ ficheiro de média reproduzido</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Remover</translation>
     </message>
     <message>
         <source>Add to shaders</source>
@@ -3687,7 +3687,7 @@ ficheiro de média reproduzido</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gravar</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -3952,7 +3952,7 @@ ficheiro de média reproduzido</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yes</translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
@@ -4132,7 +4132,7 @@ ficheiro de média reproduzido</translation>
     </message>
     <message>
         <source>Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bitrate</translation>
     </message>
     <message>
         <source>kBits</source>
@@ -4452,7 +4452,7 @@ ficheiro de média reproduzido</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Repetir</translation>
     </message>
     <message>
         <source>Play next in the folder</source>
@@ -4736,7 +4736,7 @@ ficheiro de média reproduzido</translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sombra</translation>
     </message>
     <message>
         <source>Enable shadow</source>
@@ -4922,7 +4922,7 @@ ficheiro de média reproduzido</translation>
     <name>ThumbnailerWindow</name>
     <message>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Source</translation>
     </message>
     <message>
         <source>&amp;Browse...</source>
