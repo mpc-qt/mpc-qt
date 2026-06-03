@@ -6899,6 +6899,9 @@ media file played</string>
                      <property name="text">
                       <string>Position ASS subs relative to the video frame</string>
                      </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
                     </widget>
                    </item>
                   </layout>
