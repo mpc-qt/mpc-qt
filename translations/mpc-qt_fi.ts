@@ -4054,7 +4054,7 @@ toistetulle mediatiedostolle</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Toista</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -4246,7 +4246,7 @@ toistetulle mediatiedostolle</translation>
     </message>
     <message>
         <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lokitiedostot (*.log)</translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
@@ -4270,7 +4270,7 @@ toistetulle mediatiedostolle</translation>
     </message>
     <message>
         <source>25%</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">25%</translation>
     </message>
     <message>
         <source>50%</source>
