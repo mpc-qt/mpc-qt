@@ -7015,7 +7015,7 @@ media file played</string>
                         <string notr="true">HHHHHHHH</string>
                        </property>
                        <property name="text">
-                        <string notr="true">FF000000</string>
+                        <string notr="true">AF000000</string>
                        </property>
                       </widget>
                      </item>
