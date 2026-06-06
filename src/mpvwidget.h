@@ -289,7 +289,7 @@ private:
     static constexpr char logModule[] = "glwidget";
     mpv_render_context *render = nullptr;
     LogoDrawer *logo = nullptr;
-    bool drawLogo = true;
+    bool drawLogo = false;
     int glWidth = 0;
     int glHeight = 0;
     bool windowDragging = false;
