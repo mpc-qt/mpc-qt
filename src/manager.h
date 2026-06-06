@@ -58,6 +58,7 @@ public:
     QUrl nowPlaying();
     PlaybackState playbackState();
     bool eofReached();
+    void drawLogo();
 
 signals:
     void timeChanged(double time, double length);
