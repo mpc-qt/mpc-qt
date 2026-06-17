@@ -175,6 +175,8 @@ void PlaybackManager::setPlaylistWindow(PlaylistWindow *playlistWindow)
             this, &PlaybackManager::playItem);
     connect(this, &PlaybackManager::nowPlayingChanged,
             playlistWindow, &PlaylistWindow::changePlaylistSelection);
+    connect(playlistWindow, &PlaylistWindow::nowPlayingListChanged,
+            this, &PlaybackManager::setNowPlayingList);
 }
 
 QUrl PlaybackManager::nowPlaying()
@@ -266,6 +268,14 @@ void PlaybackManager::playItem(QUuid playlist, QUuid item, bool clickedInPlaylis
 {
     auto url = playlistWindow_->getUrlOf(playlist, item);
     startPlayWithUuid(url, playlist, item, false, QUrl(), clickedInPlaylist);
+}
+
+void PlaybackManager::setNowPlayingList(QUuid newPlaylistUuid)
+{
+    if (nowPlayingList != newPlaylistUuid) {
+        nowPlayingList = newPlaylistUuid;
+        emit nowPlayingChanged(nowPlaying_, nowPlayingList, nowPlayingItem, false);
+    }
 }
 
 void PlaybackManager::playDevice(QUrl device)

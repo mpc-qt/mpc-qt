@@ -351,9 +351,20 @@ void Playlist::addItems(const QUuid &where,
                         const QList<QSharedPointer<Item>> &itemsToAdd)
 {
     QWriteLocker locker(&listLock);
-
     int indexWhere = items.indexOf(itemsByUuid[where]);
-    if (indexWhere < 0)
+    addItemsLocked(indexWhere, itemsToAdd);
+}
+
+void Playlist::addItems(int indexWhere,
+                        const QList<QSharedPointer<Item> > &itemsToAdd)
+{
+    QWriteLocker locker(&listLock);
+    addItemsLocked(indexWhere, itemsToAdd);
+}
+
+void Playlist::addItemsLocked(int indexWhere, const QList<QSharedPointer<Item>> &itemsToAdd)
+{
+    if (indexWhere < 0 || indexWhere > items.size())
         indexWhere = items.size();
     for (int i = 0; i < itemsToAdd.count(); ++i) {
         QSharedPointer<Item> item = itemsToAdd.at(i);

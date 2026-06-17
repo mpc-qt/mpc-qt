@@ -289,6 +289,10 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
                 this, &PlaylistWindow::itemDoubleClicked);
         connect(qdp, &DrawnPlaylist::contextMenuRequested,
                 this, &PlaylistWindow::playlist_contextMenuRequested);
+        connect(qdp, &DrawnPlaylist::playlistNeedsRefresh,
+                this, &PlaylistWindow::refreshPlaylist);
+        connect(qdp, &DrawnPlaylist::nowPlayingListChanged,
+                this, &PlaylistWindow::nowPlayingListChanged);
         auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
         if (pl->uuid().isNull())
             pl->setTitle(tr("Quick Playlist"));
@@ -340,6 +344,12 @@ bool PlaylistWindow::eventFilter(QObject *obj, QEvent *event)
         if (index >= 0)
             ui->tabWidget->setCurrentIndex(index);
         e->acceptProposedAction();
+        return true;
+    } else if (obj == ui->tabWidget->tabBar() && event->type() == QEvent::Drop) {
+        auto *e = static_cast<QDropEvent *>(event);
+        currentPlaylistWidget()->handlePlaylistDrop(e->mimeData(), -1);
+        e->setDropAction(Qt::CopyAction);
+        e->accept();
         return true;
     }
     return QDockWidget::eventFilter(obj, event);
@@ -442,6 +452,10 @@ void PlaylistWindow::addNewTab(QUuid playlist, QString title)
     connect(qdp, &DrawnPlaylist::itemDesiredByDoubleClick, this, &PlaylistWindow::itemDoubleClicked);
     connect(qdp, &DrawnPlaylist::contextMenuRequested,
             this, &PlaylistWindow::playlist_contextMenuRequested);
+    connect(qdp, &DrawnPlaylist::playlistNeedsRefresh,
+            this, &PlaylistWindow::refreshPlaylist);
+    connect(qdp, &DrawnPlaylist::nowPlayingListChanged,
+            this, &PlaylistWindow::nowPlayingListChanged);
     widgets.insert(playlist, qdp);
     ui->tabWidget->addTab(qdp, title);
     ui->tabWidget->setCurrentWidget(qdp);
@@ -876,13 +890,14 @@ void PlaylistWindow::reshufflePlaylist(const QUuid &playlistUuid)
     refreshPlaylist(playlistUuid);
 }
 
-void PlaylistWindow::refreshPlaylist(const QUuid &playlistUuid)
+void PlaylistWindow::refreshPlaylist(const QUuid &playlistUuid, bool setCurrentItem)
 {
     Logger::log(logModule, "refreshPlaylist start");
     auto qdp = widgets.value(playlistUuid, nullptr);
     if (qdp) {
         qdp->repopulateItems();
-        qdp->setCurrentItem(widgets[playlistUuid]->playlist()->nowPlaying());
+        if (setCurrentItem)
+            qdp->setCurrentItem(widgets[playlistUuid]->playlist()->nowPlaying());
     }
     Logger::log(logModule, "refreshPlaylist done");
 }

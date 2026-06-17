@@ -86,6 +86,7 @@ signals:
     void playlistsBackupRequested();
     void playlistMovedToBackup(QUuid backupUuid);
     void closingPlaylist(QUuid playlist);
+    void nowPlayingListChanged(QUuid newPlaylistUuid);
 
 public slots:
     void setIconTheme(IconThemer::FolderMode folderMode, const QString &customFolder);
@@ -138,7 +139,7 @@ private slots:
     void sortPlaylistByLabel(const QUuid &playlistUuid);
     void sortPlaylistByUrl(const QUuid &playlistUuid);
     void shufflePlaylist(const QUuid &playlistUuid, bool shuffle);
-    void refreshPlaylist(const QUuid &playlistUuid);
+    void refreshPlaylist(const QUuid &playlistUuid, bool setCurrentItem = true);
     void restorePlaylist(const QUuid &playlistUuid);
 
     void self_visibilityChanged();
