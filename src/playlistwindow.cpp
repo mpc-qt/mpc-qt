@@ -34,6 +34,8 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     addQuickQueue();
     ui->searchHost->setVisible(false);
     ui->searchField->installEventFilter(this);
+    ui->tabWidget->tabBar()->setAcceptDrops(true);
+    ui->tabWidget->tabBar()->installEventFilter(this);
 
     setupIconThemer();
     connectSignalsToSlots();
@@ -328,6 +330,17 @@ bool PlaylistWindow::eventFilter(QObject *obj, QEvent *event)
                 selectNext();
             return true;
         }
+    } else if (obj == ui->tabWidget->tabBar() && event->type() == QEvent::DragEnter) {
+        auto *e = static_cast<QDragEnterEvent *>(event);
+        e->acceptProposedAction();
+        return true;
+    } else if (obj == ui->tabWidget->tabBar() && event->type() == QEvent::DragMove) {
+        auto *e = static_cast<QDragMoveEvent *>(event);
+        int index = ui->tabWidget->tabBar()->tabAt(e->position().toPoint());
+        if (index >= 0)
+            ui->tabWidget->setCurrentIndex(index);
+        e->acceptProposedAction();
+        return true;
     }
     return QDockWidget::eventFilter(obj, event);
 }
