@@ -3552,7 +3552,7 @@ void MainWindow::position_sliderMoved(int position)
     emit timeSelected(position);
 }
 
-void MainWindow::position_hoverValue(double position, QString chapterInfo, double mouseX)
+void MainWindow::position_hoverValue(double position, QString chapterInfo, double mouseX, bool isDragging)
 {
     setCursor(Qt::PointingHandCursor);
 
@@ -3565,7 +3565,7 @@ void MainWindow::position_hoverValue(double position, QString chapterInfo, doubl
                                       chapterInfo.isEmpty() ? "" : " - ",
                                       chapterInfo);
     QPoint where = positionSlider_->mapTo(this, QPoint(std::round(mouseX), timeTooltipAbove ? -1 : 65));
-    if (videoPreview && isVideo_)
+    if (videoPreview && isVideo_ && !isDragging)
         videoPreview->show(t, position, where, this->width());
     else if (tooltip) {
         QString textTemplate = QString("%1%2%3").arg(Helpers::toDateFormatFixed(
