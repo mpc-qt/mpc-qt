@@ -449,8 +449,8 @@ void MediaSlider::leaveEvent(QEvent *event)
 void MediaSlider::handleHover(double x)
 {
     double valueOfX = xToValue(x);
-
-    emit hoverValue(valueOfX, valueToTickText(valueOfX), x);
+    emit hoverEnd();
+    emit hoverValue(valueOfX, valueToTickText(valueOfX), x, isDragging);
 }
 
 void MediaSlider::mousePressEvent(QMouseEvent *ev)
@@ -463,6 +463,9 @@ void MediaSlider::mousePressEvent(QMouseEvent *ev)
         }
         emit middleClicked(it.key());
         return;
+    } else if (ev->button() == Qt::LeftButton) {
+        isDragging = true;
+        handleHover(ev->position().x());
     }
     DrawnSlider::mousePressEvent(ev);
 }

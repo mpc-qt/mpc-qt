@@ -50,6 +50,7 @@ protected:
     void mouseMoveEvent(QMouseEvent *ev) override;
 
     bool highContrast = false;
+    bool isDragging = false;
     bool redrawHandle = true;
     bool redrawBackground = true;
     QImage backgroundPic;
@@ -65,7 +66,6 @@ protected:
 
 private:
 
-    bool isDragging = false;
     double xPosition = 0.0;
 
     double vValue = 0.0;
@@ -88,7 +88,7 @@ public:
 signals:
     void hoverBegin();
     void hoverEnd();
-    void hoverValue(double position, QString chapterInfo, double x);
+    void hoverValue(double position, QString chapterInfo, double x, bool isDragging);
     void middleClicked(double chapterTime);
 
 protected:
