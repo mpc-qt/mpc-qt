@@ -217,6 +217,8 @@ void MpcQtServer::ipc_playFiles(const QVariantMap &map)
     }
     if (!files.empty()) {
         playbackManager->openSeveralFiles(files, important);
+    } else {
+        playbackManager->drawLogo();
     }
 }
 

@@ -178,6 +178,12 @@ bool PlaybackManager::eofReached()
     return eofReached_;
 }
 
+void PlaybackManager::drawLogo()
+{
+    if (playbackState_ == PlaybackManager::StoppedState)
+        mpvObject_->setDrawLogo(true);
+}
+
 PlaybackManager::PlaybackState PlaybackManager::playbackState()
 {
     return playbackState_;

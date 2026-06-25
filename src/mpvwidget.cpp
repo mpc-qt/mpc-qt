@@ -336,6 +336,20 @@ int MpvObject::selectedStatsPage()
     return shownStatsPage;
 }
 
+static QString normalizeWindowsPath(QString filename)
+{
+#ifdef Q_OS_WINDOWS
+    filename = QDir::toNativeSeparators(filename);
+    if (filename.size() >= 260 && !filename.startsWith(u"\\\\?\\")) {
+        if (filename.startsWith(u"\\\\"))
+            filename = u"\\\\?\\UNC\\" + filename.mid(2);
+        else
+            filename.prepend(u"\\\\?\\");
+    }
+#endif
+    return filename;
+}
+
 void MpvObject::urlOpen(QUrl url)
 {
     fileOpen(url.isLocalFile() ? url.toLocalFile()
@@ -345,6 +359,7 @@ void MpvObject::urlOpen(QUrl url)
 void MpvObject::fileOpen(QString filename, bool replaceMpvPlaylist, bool previousWasVideo)
 {
     clearSubFiles();
+    filename = normalizeWindowsPath(filename);
     if (replaceMpvPlaylist || previousWasVideo) {
         setMpvPropertyVariant("vid", "no"); // clear last frame of previous video file
         emit ctrlCommand(QStringList({"loadfile", filename}));
