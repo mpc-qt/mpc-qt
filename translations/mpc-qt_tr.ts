@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <source>Development Build</source>
-        <translation type="unfinished">Geliştirme Yapısı</translation>
+        <translation>Geliştirici Sürümü</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -17,27 +17,27 @@
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished">(Bilinmeyen)</translation>
+        <translation>(Bilinmeyen)</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation type="unfinished">Media Player Classic Qute Theater Hakkında</translation>
+        <translation>Media Player Classic Qute Theater Hakkında</translation>
     </message>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished">Media Player Classic Qute Theater</translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation type="unfinished">Media Player Classic’in Qt ile yazılmış bir klonu</translation>
+        <translation>Media Player Classic’in Qt ile yazılmış bir klonu</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation type="unfinished">Qt %1 ve %2 tabanlı</translation>
+        <translation>Qt %1 ve %2 tabanlı</translation>
     </message>
     <message>
         <source>Running on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 üzerinde çalışıyor</translation>
     </message>
     <message>
         <source>Running under %1</source>
@@ -52,11 +52,11 @@
     </message>
     <message>
         <source>Key</source>
-        <translation>Düğme</translation>
+        <translation>Anahtar</translation>
     </message>
     <message>
         <source>Mouse Window</source>
-        <translation>Fare (Pencere)</translation>
+        <translation type="unfinished">Fare (Pencere)</translation>
     </message>
     <message>
         <source>Mouse Fullscr</source>
@@ -64,7 +64,7 @@
     </message>
     <message>
         <source>Mouse Fullscreen</source>
-        <translation>Fare (Tam Ekran)</translation>
+        <translation type="unfinished">Fare (Tam Ekran)</translation>
     </message>
     <message>
         <source>Volume Mute</source>
@@ -96,15 +96,15 @@
     </message>
     <message>
         <source>After Playback: Play next file</source>
-        <translation>Oynatma Sonrası: Sonraki Dosyayı Oynat</translation>
+        <translation>Oynatma Sonrası: Sonraki dosyayı oynat</translation>
     </message>
     <message>
         <source>After Playback: Do nothing</source>
-        <translation>Oynatma Sonrası: Bir Şey Yapma</translation>
+        <translation>Oynatma Sonrası: Bir şey yapma</translation>
     </message>
     <message>
         <source>On Top: Default</source>
-        <translation>En Üstte: Öntanımlı</translation>
+        <translation>En Üstte: Varsayılan</translation>
     </message>
     <message>
         <source>On Top: Always</source>
@@ -116,7 +116,7 @@
     </message>
     <message>
         <source>On Top: While Playing Video</source>
-        <translation>En Üstte: Video Oynatırken</translation>
+        <translation>En Üstte: Video Oynatılırken</translation>
     </message>
     <message>
         <source>Extra Play Times: Increment</source>
@@ -136,27 +136,27 @@
     </message>
     <message>
         <source>Decrease Subtitles Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Altyazıların Gecikmesini Azalt</translation>
     </message>
     <message>
         <source>Increase Subtitles Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Altyazıların Gecikmesini Arttır</translation>
     </message>
     <message>
         <source>Decrease Audio Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses Gecikmesini Azalt</translation>
     </message>
     <message>
         <source>Increase Audio Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses Gecikmesini Arttır</translation>
     </message>
     <message>
         <source>16:9 Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">16:9 En-Boy Oranı</translation>
     </message>
     <message>
         <source>Decrease Aspect ratio</source>
-        <translation>En–Boy Oranını Azalt</translation>
+        <translation type="unfinished">En–Boy Oranını Azalt</translation>
     </message>
     <message>
         <source>Increase Aspect ratio</source>
@@ -164,11 +164,11 @@
     </message>
     <message>
         <source>Reset Aspect ratio</source>
-        <translation>En–Boy Oranını Sıfırla</translation>
+        <translation type="unfinished">En–Boy Oranını Sıfırla</translation>
     </message>
     <message>
         <source>Disable Aspect ratio</source>
-        <translation>En–Boy Oranını Devre Dışı Bırak</translation>
+        <translation type="unfinished">En–Boy Oranını Devre Dışı Bırak</translation>
     </message>
     <message>
         <source>Decrease Pan and Scan</source>
