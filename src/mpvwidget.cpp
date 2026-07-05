@@ -452,7 +452,7 @@ void MpvObject::setLogoBackground(const QColor &color)
 void MpvObject::setAudioFilters(const QList<QPair<QString, QString>> &filtersList, bool clearFilters)
 {
     if (clearFilters)
-        emit ctrlCommand("no-osd af clear");
+        emit ctrlCommand("no-osd af clr ''");
     if (!filtersList.empty())
         emit ctrlCommand("no-osd af set \"" + formatFiltersList(filtersList) + "\"");
 }
@@ -460,7 +460,7 @@ void MpvObject::setAudioFilters(const QList<QPair<QString, QString>> &filtersLis
 void MpvObject::setVideoFilters(const QList<QPair<QString, QString>> &filtersList, bool clearFilters)
 {
     if (clearFilters)
-        emit ctrlCommand("no-osd vf clear");
+        emit ctrlCommand("no-osd vf clr ''");
     if (!filtersList.empty())
         emit ctrlCommand("no-osd vf set \"" + formatFiltersList(filtersList) + "\"");
 }
