@@ -336,9 +336,12 @@ int MpvObject::selectedStatsPage()
     return shownStatsPage;
 }
 
-static QString normalizeWindowsPath(QString filename)
+static QString normalizeWindowsPath(QString filename, bool isLocalFile)
 {
 #ifdef Q_OS_WINDOWS
+    if (!isLocalFile)
+        return filename;
+
     filename = QDir::toNativeSeparators(filename);
     if (filename.size() >= 260 && !filename.startsWith(u"\\\\?\\")) {
         if (filename.startsWith(u"\\\\"))
@@ -353,13 +356,13 @@ static QString normalizeWindowsPath(QString filename)
 void MpvObject::urlOpen(QUrl url)
 {
     fileOpen(url.isLocalFile() ? url.toLocalFile()
-                               : QUrl::fromPercentEncoding(url.toEncoded()));
+                               : QUrl::fromPercentEncoding(url.toEncoded()), url.isLocalFile());
 }
 
-void MpvObject::fileOpen(QString filename, bool replaceMpvPlaylist, bool previousWasVideo)
+void MpvObject::fileOpen(QString filename, bool isLocalFile, bool replaceMpvPlaylist, bool previousWasVideo)
 {
     clearSubFiles();
-    filename = normalizeWindowsPath(filename);
+    filename = normalizeWindowsPath(filename, isLocalFile);
     if (replaceMpvPlaylist || previousWasVideo) {
         setMpvPropertyVariant("vid", "no"); // clear last frame of previous video file
         emit ctrlCommand(QStringList({"loadfile", filename}));
@@ -374,9 +377,9 @@ void MpvObject::fileOpen(QString filename, bool replaceMpvPlaylist, bool previou
 void MpvObject::discFilesOpen(QString path) {
     QStringList entryList = QDir(path).entryList();
     if (entryList.contains("VIDEO_TS") || entryList.contains("AUDIO_TS")) {
-        fileOpen(path + "/VIDEO_TS/VIDEO_TS.IFO");
+        fileOpen(path + "/VIDEO_TS/VIDEO_TS.IFO", true);
     } else if (entryList.contains("BDMV") || entryList.contains("AACS")) {
-        fileOpen("bluray://" + path);
+        fileOpen("bluray://" + path, true);
     }
 }
 
