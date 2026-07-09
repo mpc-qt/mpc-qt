@@ -732,6 +732,7 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
         emit startedPlayingFile(what);
     mpvObject_->fileOpen(what.isLocalFile() ? what.toLocalFile()
                                             : QUrl::fromPercentEncoding(what.toEncoded()),
+                         what.isLocalFile(),
                          replaceMpvPlaylist,
                          !videoList.isEmpty() && !videoListData[1].isImage);
     if (!with.isEmpty())
