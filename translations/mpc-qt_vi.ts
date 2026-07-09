@@ -5,39 +5,39 @@
     <name>About</name>
     <message>
         <source>Development Build</source>
-        <translation type="unfinished">Development Build</translation>
+        <translation>Bản Dựng Phát Triển</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished">Version %1</translation>
+        <translation>Phiên bản %1</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation type="unfinished">Built on %1 at %2</translation>
+        <translation>Được xây dựng trên %1 tại %2</translation>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished">(Unknown)</translation>
+        <translation>(Không rõ)</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation type="unfinished">About Media Player Classic Qute Theater</translation>
+        <translation>Giới thiệu về Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished">Media Player Classic Qute Theater</translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation type="unfinished">A clone of Media Player Classic written in Qt</translation>
+        <translation>Một bản sao của Media Player Classic được viết bằng Qt</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation type="unfinished">Based on Qt %1 and %2</translation>
+        <translation>Dựa trên Qt %1 và %2</translation>
     </message>
     <message>
         <source>Running on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Đang chạy trên %1</translation>
     </message>
     <message>
         <source>Running under %1</source>
@@ -48,11 +48,11 @@
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Lệnh</translation>
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Khóa</translation>
     </message>
     <message>
         <source>Mouse Window</source>
@@ -76,107 +76,107 @@
     </message>
     <message>
         <source>Volume Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Tắt Âm Lượng</translation>
     </message>
     <message>
         <source>After Playback: Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Sau Khi Phát Lại: Thoát</translation>
     </message>
     <message>
         <source>After Playback: Stand by</source>
-        <translation type="unfinished"></translation>
+        <translation>Sau Khi Phát Lại: Ngủ tạm thời</translation>
     </message>
     <message>
         <source>After Playback: Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>Sau Khi Phát Lại: Ngủ đông</translation>
     </message>
     <message>
         <source>After Playback: Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Sau Khi Phát Lại: Tắt Máy</translation>
     </message>
     <message>
         <source>After Playback: Log Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Sau Khi Phát Lại: Đăng Xuất</translation>
     </message>
     <message>
         <source>After Playback: Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Sau Khi Phát Lại: Khóa Màn Hình</translation>
     </message>
     <message>
         <source>After Playback: Play next file</source>
-        <translation type="unfinished"></translation>
+        <translation>Sau Khi Phát Lại: Phát tệp kế tiếp</translation>
     </message>
     <message>
         <source>After Playback: Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Sau Khi Phát Lại: Không làm gì</translation>
     </message>
     <message>
         <source>On Top: Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Trên Cùng: Mặc định</translation>
     </message>
     <message>
         <source>On Top: Always</source>
-        <translation type="unfinished"></translation>
+        <translation>Trên Cùng: Luôn luôn</translation>
     </message>
     <message>
         <source>On Top: While Playing</source>
-        <translation type="unfinished"></translation>
+        <translation>Trên Cùng: Trong Khi Phát</translation>
     </message>
     <message>
         <source>On Top: While Playing Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Trên Cùng: Trong Khi Phát Video</translation>
     </message>
     <message>
         <source>Extra Play Times: Increment</source>
-        <translation type="unfinished"></translation>
+        <translation>Thời Gian Phát Thêm: Tăng thêm</translation>
     </message>
     <message>
         <source>Extra Play Times: Decrement</source>
-        <translation type="unfinished"></translation>
+        <translation>Thời Gian Phát Thêm: Giảm bớt</translation>
     </message>
     <message>
         <source>Move Subtitles Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Di Chuyển Phụ Đề Lên</translation>
     </message>
     <message>
         <source>Move Subtitles Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Di Chuyển Phụ Đề Xuống</translation>
     </message>
     <message>
         <source>Decrease Subtitles Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Giảm Độ Trễ Phụ Đề</translation>
     </message>
     <message>
         <source>Increase Subtitles Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Tăng Độ Trễ Phụ Đề</translation>
     </message>
     <message>
         <source>Decrease Audio Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Giảm Độ Trễ Âm Thanh</translation>
     </message>
     <message>
         <source>Increase Audio Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Tăng Độ Trễ Âm Thanh</translation>
     </message>
     <message>
         <source>16:9 Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Tỷ lệ khung hình 16:9</translation>
     </message>
     <message>
         <source>Decrease Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Giảm Tỉ Lệ Khung Hình</translation>
     </message>
     <message>
         <source>Increase Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Tăng Tỉ Lệ Khung Hình</translation>
     </message>
     <message>
         <source>Reset Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Đặt Lại Tỉ Lệ Khung Hình</translation>
     </message>
     <message>
         <source>Disable Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Tắt Tỉ Lệ Khung Hình</translation>
     </message>
     <message>
         <source>Decrease Pan and Scan</source>
@@ -188,23 +188,23 @@
     </message>
     <message>
         <source>Minimum Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>Quét và Xoay tối thiểu</translation>
     </message>
     <message>
         <source>Maximum Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>Quét và Xoay tối đa</translation>
     </message>
     <message>
         <source>Decrease Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Giảm Phóng To</translation>
     </message>
     <message>
         <source>Increase Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Tăng Phóng To</translation>
     </message>
     <message>
         <source>Reset Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Đặt Lại Thu Phóng</translation>
     </message>
     <message>
         <source>Skip Backward / Previous</source>
@@ -280,15 +280,15 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>ButtonWidget</name>
     <message>
         <source>B</source>
-        <translation type="unfinished"></translation>
+        <translation>B</translation>
     </message>
     <message>
         <source>K</source>
-        <translation type="unfinished"></translation>
+        <translation>K</translation>
     </message>
     <message>
         <source>↑↓</source>
-        <translation type="unfinished"></translation>
+        <translation>↑↓</translation>
     </message>
 </context>
 <context>
@@ -303,7 +303,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Tập tin</translation>
     </message>
     <message>
         <source>&amp;Streams</source>
@@ -311,7 +311,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa</translation>
     </message>
 </context>
 <context>
@@ -369,7 +369,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Thời gian</translation>
     </message>
     <message>
         <source>Go!</source>
@@ -392,15 +392,15 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Khôi phục</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Đóng</translation>
     </message>
     <message>
         <source>Playlists Backup</source>
@@ -415,11 +415,11 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Sao chép</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Lưu</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -427,7 +427,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>Lưu Tập Tin</translation>
     </message>
     <message>
         <source>Log files (*.log)</source>
@@ -454,15 +454,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished"></translation>
+        <translation>Phát</translation>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Tạm dừng</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Dừng</translation>
     </message>
     <message>
         <source>Skip Backward</source>
@@ -522,11 +522,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="unfinished"></translation>
+        <translation>Đã dừng</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>Tập tin</translation>
     </message>
     <message>
         <source>O&amp;pen Disc</source>
@@ -534,7 +534,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Recent &amp;Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Tập Tin Gần Đây</translation>
     </message>
     <message>
         <source>Subtitle Data&amp;base</source>
@@ -542,7 +542,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>Xem</translation>
     </message>
     <message>
         <source>&amp;Presets</source>
@@ -550,7 +550,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Thu phóng</translation>
     </message>
     <message>
         <source>On &amp;Top</source>
@@ -558,19 +558,19 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>OS&amp;D</source>
-        <translation type="unfinished"></translation>
+        <translation>OS&amp;D</translation>
     </message>
     <message>
         <source>P&amp;lay</source>
-        <translation type="unfinished"></translation>
+        <translation>Phát</translation>
     </message>
     <message>
         <source>&amp;Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Âm thanh</translation>
     </message>
     <message>
         <source>Su&amp;btitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Phụ đề</translation>
     </message>
     <message>
         <source>&amp;Video Stream</source>
@@ -602,7 +602,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Trợ giúp</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
@@ -622,7 +622,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+O</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+O</translation>
     </message>
     <message>
         <source>Open &amp;DVD/BD...</source>
@@ -630,7 +630,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+D</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <source>Open De&amp;vice...</source>
@@ -638,7 +638,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+V</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+V</translation>
     </message>
     <message>
         <source>Open Dir&amp;ectory...</source>
@@ -654,7 +654,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+W</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+W</translation>
     </message>
     <message>
         <source>&amp;Save a Copy...</source>
@@ -666,7 +666,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Alt+I</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+I</translation>
     </message>
     <message>
         <source>Save &amp;Thumbnails</source>
@@ -678,7 +678,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+L</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+L</translation>
     </message>
     <message>
         <source>Save S&amp;ubtitle...</source>
@@ -686,7 +686,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+S</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+S</translation>
     </message>
     <message>
         <source>&amp;Upload...</source>
@@ -1750,7 +1750,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>15&amp;0%</source>
-        <translation type="unfinished"></translation>
+        <translation>15&amp;0%</translation>
     </message>
     <message>
         <source>&amp;400%</source>
@@ -1946,15 +1946,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished">Yes</translation>
+        <translation>Đúng</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">Auto</translation>
+        <translation>Tự động</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished">No</translation>
+        <translation>Không</translation>
     </message>
     <message>
         <source>Pl&amp;aylists Backup</source>
@@ -2135,11 +2135,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Fi&amp;le</source>
-        <translation type="unfinished"></translation>
+        <translation>Tập tin</translation>
     </message>
     <message>
         <source>&amp;Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Phụ đề</translation>
     </message>
     <message>
         <source>Select File</source>
@@ -2494,7 +2494,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Tổng quan</translation>
     </message>
     <message>
         <source>Menu
@@ -2504,26 +2504,27 @@ No action will be triggered.</source>
     <message>
         <source>File has no data for this section.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Tệp không có dữ liệu cho phần này.
+</translation>
     </message>
     <message>
         <source>Text documents (*.txt);;All files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tài liệu văn bản (*.txt);;Toàn bộ tệp (*.*)</translation>
     </message>
     <message>
         <source>Modified:</source>
-        <translation type="unfinished"></translation>
+        <translation>Đã chỉnh sửa:</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>All Media (*.%1);;All Files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Toàn Bộ Phương Tiện (*.%1);;Toàn Bộ Tệp (*.*)</translation>
     </message>
     <message>
         <source>All Subtitles (*.%1);;All Files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Toàn Bộ Phụ Đề (*.%1);;Toàn Bộ Tệp (*.*)</translation>
     </message>
     <message>
         <source>Window text</source>
@@ -2531,59 +2532,59 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Button</source>
-        <translation type="unfinished"></translation>
+        <translation>Nút bấm</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Sáng</translation>
     </message>
     <message>
         <source>Midlight</source>
-        <translation type="unfinished"></translation>
+        <translation>Sáng trung bình</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>Tối</translation>
     </message>
     <message>
         <source>Mid</source>
-        <translation type="unfinished"></translation>
+        <translation>Trung bình</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Văn bản</translation>
     </message>
     <message>
         <source>Bright text</source>
-        <translation type="unfinished"></translation>
+        <translation>Văn bản sáng màu</translation>
     </message>
     <message>
         <source>Button text</source>
-        <translation type="unfinished"></translation>
+        <translation>Văn bản trên nút</translation>
     </message>
     <message>
         <source>Base</source>
-        <translation type="unfinished"></translation>
+        <translation>Cơ Sở</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Cửa sổ</translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>Đổ bóng</translation>
     </message>
     <message>
         <source>Highlight</source>
-        <translation type="unfinished"></translation>
+        <translation>Tô Sáng</translation>
     </message>
     <message>
         <source>Highlighted text</source>
-        <translation type="unfinished"></translation>
+        <translation>Văn bản nổi bật</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Liên kết</translation>
     </message>
     <message>
         <source>Link (visited)</source>
@@ -3059,7 +3060,7 @@ media file played</source>
     </message>
     <message>
         <source>Ignore</source>
-        <translation type="unfinished"></translation>
+        <translation>Bỏ qua</translation>
     </message>
     <message>
         <source>Sharpen</source>
@@ -3663,7 +3664,7 @@ media file played</source>
     </message>
     <message>
         <source>Filesystem</source>
-        <translation type="unfinished"></translation>
+        <translation>Hệ thống tệp</translation>
     </message>
     <message>
         <source>Add shader file(s)...</source>
@@ -4120,7 +4121,7 @@ media file played</source>
     </message>
     <message>
         <source>Filesi&amp;ze</source>
-        <translation type="unfinished"></translation>
+        <translation>Kích thước tệp</translation>
     </message>
     <message>
         <source>MB</source>
@@ -4196,7 +4197,7 @@ media file played</source>
     </message>
     <message>
         <source>Client</source>
-        <translation type="unfinished"></translation>
+        <translation>Máy khách</translation>
     </message>
     <message>
         <source>Event messages</source>
@@ -4548,7 +4549,7 @@ media file played</source>
     </message>
     <message>
         <source>Absolute</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuyệt đối</translation>
     </message>
     <message>
         <source>Desaturate</source>
@@ -4824,7 +4825,7 @@ media file played</source>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">Source</translation>
+        <translation>Nguồn</translation>
     </message>
     <message>
         <source>Built-in</source>
@@ -4954,19 +4955,19 @@ media file played</source>
     </message>
     <message>
         <source>&amp;Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Chất lượng</translation>
     </message>
     <message>
         <source>&amp;Columns</source>
-        <translation type="unfinished"></translation>
+        <translation>Cột</translation>
     </message>
     <message>
         <source>Save Thumbnails</source>
-        <translation type="unfinished"></translation>
+        <translation>Lưu hình thu nhỏ</translation>
     </message>
     <message>
         <source>%p%</source>
-        <translation type="unfinished"></translation>
+        <translation>%p%</translation>
     </message>
 </context>
 </TS>
