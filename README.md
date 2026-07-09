@@ -3,6 +3,7 @@
 Media Player Classic reimplemented with Qt and libmpv.
 
 ![screenshot]
+
 More screenshots: https://mpc-qt.github.io/gallery
 
 [MPC-HC][mpc-hc] (Media Player Classic Home Cinema) is considered by many to
@@ -212,7 +213,7 @@ Yes! You just need to change two SVP settings:
 - the path to the player to point to `/usr/bin/mpc-qt`
 
 [homepage]:https://mpc-qt.github.io/
-[screenshot]:https://raw.githubusercontent.com/mpc-qt/mpc-qt-screenshots/refs/heads/master/Screenshot_20250602_151626.png
+[screenshot]:https://raw.githubusercontent.com/mpc-qt/mpc-qt-screenshots/refs/heads/master/Screenshot_20260701_203013.png
 [mpc-hc]:https://mpc-hc.org/
 [libmpv]:https://github.com/mpv-player/mpv
 [release page]:https://github.com/mpc-qt/mpc-qt/releases/latest
