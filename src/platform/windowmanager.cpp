@@ -1,6 +1,7 @@
 #include <QDockWidget>
 #include <QMainWindow>
 #include <QMetaMethod>
+#include <QGuiApplication>
 #include <QStyle>
 #include <QWidget>
 #include "helpers.h"
