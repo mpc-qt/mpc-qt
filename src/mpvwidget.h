@@ -55,7 +55,7 @@ public:
     int selectedStatsPage();
 
     void urlOpen(QUrl url);
-    void fileOpen(QString filename, bool replaceMpvPlaylist = true, bool previousWasVideo = false);
+    void fileOpen(QString filename, bool isLocalFile, bool replaceMpvPlaylist = true, bool previousWasVideo = false);
     void discFilesOpen(QString path);
     void stopPlayback();
     void stepBackward();
