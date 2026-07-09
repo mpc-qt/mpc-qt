@@ -24,26 +24,29 @@
    <li>Configurable shortcuts and mouse buttons</li>
    <li>Multimedia keys support (Mpris)</li>
    <li>Web interface</li>
-   <li>Thumbnails maker</li>w
+   <li>Thumbnails maker</li>
   </ul>
  </description>
 
  <screenshots>
   <screenshot type="default">
-   <caption>Main window with video preview</caption>
-   <image>https://mpc-qt.github.io/images/Screenshot_main_screen_20250602_151626.png</image>
+   <caption>Main window with dark colors</caption>
+   <image>https://mpc-qt.github.io/images/Screenshot_main_screen_dark_20260701_203013.png</image>
+  </screenshot>
+   <caption>Main window with light colors</caption>
+   <image>https://mpc-qt.github.io/images/Screenshot_main_screen_light_20260701_202013.png</image>
   </screenshot>
   <screenshot>
    <caption>Playlist and context menu</caption>
-   <image>https://mpc-qt.github.io/images/Screenshot_context_menu_20250604_105236.png</image>
+   <image>https://mpc-qt.github.io/images/Screenshot_context_menu_20260701_165226.png</image>
   </screenshot>
   <screenshot>
    <caption>Keys editor</caption>
-   <image>https://mpc-qt.github.io/images/Screenshot_keys_editor_20250613_065949.png</image>
+   <image>https://mpc-qt.github.io/images/Screenshot_keys_editor_20260705_122703.png</image>
   </screenshot>
   <screenshot>
    <caption>Video output settings</caption>
-   <image>https://mpc-qt.github.io/images/Screenshot_options_20250602_153020.png</image>
+   <image>https://mpc-qt.github.io/images/Screenshot_options_20260705_113033.png</image>
   </screenshot>
  </screenshots>
 
@@ -59,6 +62,21 @@
  </recommends>
 
  <releases>
+
+  <release version="26.07" date="2026-07-09">
+    <url type="details">https://github.com/mpc-qt/mpc-qt/releases/tag/v26.07</url>
+    <description>
+      <p>Release description</p>
+        <ul>
+          <li>Improved performances for: opening a video, changing video, showing the seek bar and the video preview.</li>
+          <li>The control buttons are smaller to leave more space for the content.</li>
+          <li>The options are simplified and we've added a search box to filter them.</li>
+          <li>The Wayland mode is now enabled by default for new installations and is improved.</li>
+          <li>Dark mode now works on GNOME-based desktops.</li>
+          <li>Many other features, improvements and bug fixes.</li>
+        </ul>
+    </description>
+  </release>
 
   <release version="26.01" date="2026-01-08">
     <url type="details">https://github.com/mpc-qt/mpc-qt/releases/tag/v26.01</url>
