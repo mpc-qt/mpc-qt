@@ -746,10 +746,14 @@ void SettingsWindow::sendSignals()
     emit highContrastWidgets(WIDGET_LOOKUP(ui->interfaceWidgetHighContast).toBool());
     bool useCustomColors = WIDGET_LOOKUP(ui->interfaceWidgetCustom).toBool();
     bool useDarkColors = WIDGET_LOOKUP(ui->interfaceWidgetDark).toBool();
+    // REMOVEME: Apply a dark palette manually because Qt doesn't propagate it
+    bool darkColorScheme = false;
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+    darkColorScheme = QGuiApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark;
+#endif
     if (useCustomColors)
         emit applicationPalette(paletteEditor->variantToPalette(WIDGET_LOOKUP(paletteEditor)));
-    // REMOVEME: Apply a dark palette manually because Qt doesn't propagate it
-    else if (useDarkColors || QGuiApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark)
+    else if (useDarkColors || darkColorScheme)
         emit applicationPalette(paletteEditor->darkPalette());
     else
         emit applicationPalette(paletteEditor->systemPalette());
