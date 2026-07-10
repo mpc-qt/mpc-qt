@@ -336,7 +336,7 @@ int MpvObject::selectedStatsPage()
     return shownStatsPage;
 }
 
-static QString normalizeWindowsPath(QString filename, bool isLocalFile)
+static QString normalizeWindowsPath(QString filename, [[maybe_unused]] bool isLocalFile)
 {
 #ifdef Q_OS_WINDOWS
     if (!isLocalFile)
