@@ -2452,6 +2452,14 @@ No action will be triggered.</source>
         <translation>Texto de ayuda emergente</translation>
     </message>
     <message>
+        <source>Placeholder text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Active</source>
         <translation>Activo</translation>
     </message>
