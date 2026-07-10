@@ -2598,6 +2598,14 @@ Es wird keine Aktion ausgelöst.</translation>
         <translation>Tooltip Text</translation>
     </message>
     <message>
+        <source>Placeholder text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Active</source>
         <translation>Aktiv</translation>
     </message>

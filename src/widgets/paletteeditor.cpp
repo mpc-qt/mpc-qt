@@ -30,7 +30,9 @@ Q_GLOBAL_STATIC_WITH_ARGS(RoleLabels, roleText, ({
     { QPalette::AlternateBase, QObject::tr("Base (alternate)") },
     { QPalette::NoRole, QObject::tr("No role") },
     { QPalette::ToolTipBase, QObject::tr("Tooltip base") },
-    { QPalette::ToolTipText, QObject::tr("Tooltip text") }
+    { QPalette::ToolTipText, QObject::tr("Tooltip text") },
+    { QPalette::PlaceholderText, QObject::tr("Placeholder text") },
+    { QPalette::Accent, QObject::tr("Accent") }
 }));
 
 using GroupLabels = QList<QPair<QPalette::ColorGroup, QString>>;
@@ -181,7 +183,8 @@ QPalette PaletteEditor::darkPalette()
         { QColor("#ff1d1f22"), QColor("#ff1c1e20"), QColor("#ff1d1f22") }, // AlternateBase
         { QColor("#ff000000"), QColor("#ff000000"), QColor("#ff000000") }, // NoRole
         { QColor("#ff292c30"), QColor("#ff292c30"), QColor("#ff292c30") }, // ToolTipBase
-        { QColor("#fffcfcfc"), QColor("#fffcfcfc"), QColor("#fffcfcfc") }  // ToolTipText
+        { QColor("#fffcfcfc"), QColor("#fffcfcfc"), QColor("#fffcfcfc") }, // ToolTipText
+        { QColor("#ffa1a9b1"), QColor("#ff42464a"), QColor("#ffa1a9b1") } // PlaceholderText
     };
 
     const QVector<QPalette::ColorRole> roles {
@@ -204,7 +207,8 @@ QPalette PaletteEditor::darkPalette()
         QPalette::AlternateBase,
         QPalette::NoRole,
         QPalette::ToolTipBase,
-        QPalette::ToolTipText
+        QPalette::ToolTipText,
+        QPalette::PlaceholderText
     };
 
     const QVector<QPalette::ColorGroup> groups {

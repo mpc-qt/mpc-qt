@@ -318,7 +318,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Start a new process without saving data.</source>
@@ -423,7 +423,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Clear</translation>
     </message>
     <message>
         <source>Save File</source>
@@ -450,7 +450,7 @@ No action will be triggered.</source>
     <name>MainWindow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Play</source>
@@ -1210,7 +1210,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Close Tab</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1981,11 +1981,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Left</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Right</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -2154,7 +2154,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Button</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nút bấm</translation>
     </message>
     <message>
         <source>Button &amp;&amp; Window</source>
@@ -2307,7 +2307,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Xóa</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -2335,7 +2335,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Khôi phục</translation>
     </message>
     <message>
         <source>Shuffle</source>
@@ -2604,6 +2604,14 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Tooltip text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Placeholder text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2940,7 +2948,7 @@ media file played</source>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tự động</translation>
     </message>
     <message>
         <source>Time step</source>
@@ -3012,7 +3020,7 @@ media file played</source>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tổng quan</translation>
     </message>
     <message>
         <source>Framebuffer</source>
@@ -3124,7 +3132,7 @@ media file played</source>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Không</translation>
     </message>
     <message>
         <source>Size</source>
@@ -3196,7 +3204,7 @@ media file played</source>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Cửa sổ</translation>
     </message>
     <message>
         <source>Box</source>
@@ -3672,7 +3680,7 @@ media file played</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Xóa</translation>
     </message>
     <message>
         <source>Add to shaders</source>
@@ -3684,7 +3692,7 @@ media file played</source>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lưu</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -3949,7 +3957,7 @@ media file played</source>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Đúng</translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
@@ -4733,7 +4741,7 @@ media file played</source>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Đổ bóng</translation>
     </message>
     <message>
         <source>Enable shadow</source>
@@ -4919,7 +4927,7 @@ media file played</source>
     <name>ThumbnailerWindow</name>
     <message>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nguồn</translation>
     </message>
     <message>
         <source>&amp;Browse...</source>

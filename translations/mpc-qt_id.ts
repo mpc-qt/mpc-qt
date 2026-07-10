@@ -2518,6 +2518,14 @@ Tidak ada tindakan yang akan dipicu.</translation>
         <translation>Teks tooltip</translation>
     </message>
     <message>
+        <source>Placeholder text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Active</source>
         <translation>Aktif</translation>
     </message>
