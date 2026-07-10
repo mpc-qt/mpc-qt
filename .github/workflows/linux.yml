@@ -21,15 +21,23 @@ jobs:
         cmake \
         libboost-all-dev \
         libgl-dev \
-        libmpv-dev
-    - name: Install newer Qt version
-      uses: jurplel/install-qt-action@v4
-      with:
-        cache: true
+        libmpv-dev \
+        linguist-qt6 \
+        qt6-tools-dev \
+        qt6-base-dev \
+        libqt6svg6-dev \
     - uses: actions/checkout@v6.0.2
       with:
         fetch-depth: 1000
         fetch-tags: true
+    - name: Test build with an older Qt version
+      run: |
+        cmake -G Ninja -B old_build
+        cmake --build old_build
+    - name: Install newer Qt version
+      uses: jurplel/install-qt-action@v4
+      with:
+        cache: true
     - name: Set version
       run: |
         echo "FORCE_VERSION=" >> $GITHUB_ENV
