@@ -45,6 +45,9 @@ public:
     QPalette systemPalette();
     QPalette darkPalette();
 
+    bool isEnabled() const;
+    void setEnabled(bool enabled);
+
     // custom variant et al routines are needed for json serialisation
     QVariant variant();
     QPalette variantToPalette(const QVariant &v);
@@ -68,6 +71,7 @@ private:
     QPalette system;
     QPalette selected;
     BoxMap boxes;
+    bool editorEnabled = false;
 };
 
 #endif // PALETTEEDITOR_H

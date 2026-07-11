@@ -1436,6 +1436,7 @@ void SettingsWindow::on_interfaceIconsTheme_currentIndexChanged(int index)
 void SettingsWindow::on_interfaceWidgetCustom_toggled(bool checked)
 {
     ui->interfaceWidgetCustomScrollArea->setEnabled(checked);
+    paletteEditor->setEnabled(checked);
 }
 
 void SettingsWindow::on_interfaceIconsCustomBrowse_clicked()

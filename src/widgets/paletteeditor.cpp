@@ -70,7 +70,12 @@ void PaletteBox::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
     QPainter p(this);
-    p.fillRect(QRect(0,0,width(),height()), QBrush(color));
+    QColor fillColor = color;
+    if (auto const *editor = static_cast<PaletteEditor *>(parentWidget())) {
+        if (!editor->isEnabled())
+            fillColor = fillColor.darker(180);
+    }
+    p.fillRect(QRect(0,0,width(),height()), QBrush(fillColor));
 }
 
 void PaletteBox::mousePressEvent(QMouseEvent *event)
@@ -228,6 +233,16 @@ QPalette PaletteEditor::darkPalette()
     }
 
     return dark;
+}
+
+bool PaletteEditor::isEnabled() const
+{
+    return editorEnabled;
+}
+
+void PaletteEditor::setEnabled(bool enabled)
+{
+    editorEnabled = enabled;
 }
 
 QVariant PaletteEditor::variant()
