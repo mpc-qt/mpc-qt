@@ -2543,11 +2543,11 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Placeholder text</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte par défaut</translation>
     </message>
     <message>
         <source>Accent</source>
-        <translation type="unfinished"></translation>
+        <translation>Accentuation</translation>
     </message>
     <message>
         <source>Active</source>
