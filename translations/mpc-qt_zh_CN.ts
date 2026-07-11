@@ -2567,11 +2567,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Placeholder text</source>
-        <translation type="unfinished"></translation>
+        <translation>占位符文本</translation>
     </message>
     <message>
         <source>Accent</source>
-        <translation type="unfinished"></translation>
+        <translation>强调色</translation>
     </message>
     <message>
         <source>Active</source>
