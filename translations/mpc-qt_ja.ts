@@ -2611,11 +2611,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Placeholder text</source>
-        <translation type="unfinished"></translation>
+        <translation>プレースホルダー テキスト</translation>
     </message>
     <message>
         <source>Accent</source>
-        <translation type="unfinished"></translation>
+        <translation>アクセント</translation>
     </message>
     <message>
         <source>Active</source>
