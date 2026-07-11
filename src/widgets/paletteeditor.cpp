@@ -30,9 +30,13 @@ Q_GLOBAL_STATIC_WITH_ARGS(RoleLabels, roleText, ({
     { QPalette::AlternateBase, QObject::tr("Base (alternate)") },
     { QPalette::NoRole, QObject::tr("No role") },
     { QPalette::ToolTipBase, QObject::tr("Tooltip base") },
+#if QT_VERSION >= QT_VERSION_CHECK(6,6,0)
     { QPalette::ToolTipText, QObject::tr("Tooltip text") },
     { QPalette::PlaceholderText, QObject::tr("Placeholder text") },
     { QPalette::Accent, QObject::tr("Accent") }
+#else
+    { QPalette::ToolTipText, QObject::tr("Tooltip text") }
+#endif
 }));
 
 using GroupLabels = QList<QPair<QPalette::ColorGroup, QString>>;
