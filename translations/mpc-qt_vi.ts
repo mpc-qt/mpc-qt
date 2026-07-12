@@ -212,7 +212,7 @@
     </message>
     <message>
         <source>Skip Forward / Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Chuyển tiếp / Tiếp theo</translation>
     </message>
     <message>
         <source>Shortcut already used</source>
@@ -273,7 +273,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Play / Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Phát / Tạm dừng</translation>
     </message>
 </context>
 <context>
@@ -295,7 +295,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>FavoritesWindow</name>
     <message>
         <source>Organize Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Sắp Xếp Mục Yêu Thích</translation>
     </message>
     <message>
         <source>&amp;Update</source>
@@ -354,7 +354,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Do not load file history, playlists, or favorites.</source>
-        <translation type="unfinished"></translation>
+        <translation>Không tải lịch sử tập tin, danh sách phát hoặc mục yêu thích.</translation>
     </message>
     <message>
         <source>Also write logging messages to console.</source>
@@ -582,7 +582,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Af&amp;ter Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>Sau Khi Phát Lại</translation>
     </message>
     <message>
         <source>&amp;Loop</source>
@@ -590,7 +590,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Navigate</source>
-        <translation type="unfinished"></translation>
+        <translation>Điều hướng</translation>
     </message>
     <message>
         <source>&amp;Chapters</source>
@@ -626,7 +626,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Open &amp;DVD/BD...</source>
-        <translation type="unfinished"></translation>
+        <translation>Mở &amp;DVD/BD...</translation>
     </message>
     <message>
         <source>Ctrl+D</source>
@@ -702,7 +702,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Tìm kiếm...</translation>
     </message>
     <message>
         <source>P&amp;roperties</source>
@@ -898,7 +898,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Tạm dừng</translation>
     </message>
     <message>
         <source>Space</source>
@@ -906,7 +906,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Dừng</translation>
     </message>
     <message>
         <source>.</source>
@@ -1018,7 +1018,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Kế tiếp</translation>
     </message>
     <message>
         <source>PgDown</source>
@@ -1070,15 +1070,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Organize Favorites...</source>
-        <translation type="unfinished"></translation>
+        <translation>Sắp Xếp Mục Yêu Thích...</translation>
     </message>
     <message>
         <source>&amp;Home Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Trang Chủ</translation>
     </message>
     <message>
         <source>&amp;About This Program...</source>
-        <translation type="unfinished"></translation>
+        <translation>Giới thiệu về chương trình này...</translation>
     </message>
     <message>
         <source>Open &amp;Network Stream...</source>
@@ -1174,7 +1174,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Search Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Tìm Kiếm Danh Sách Phát</translation>
     </message>
     <message>
         <source>Ctrl+F</source>
@@ -1190,7 +1190,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Finish Searching</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoàn Tất Tìm Kiếm</translation>
     </message>
     <message>
         <source>Esc</source>
@@ -1306,7 +1306,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>About &amp;Qt...</source>
-        <translation type="unfinished"></translation>
+        <translation>Giới thiệu về &amp;Qt...</translation>
     </message>
     <message>
         <source>Save Pl&amp;ain Image...</source>
@@ -1370,7 +1370,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation>Lặp lại</translation>
     </message>
     <message>
         <source>&amp;Application Messages</source>
@@ -1458,7 +1458,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>No files favorited</source>
-        <translation type="unfinished"></translation>
+        <translation>Chưa có tệp nào được đánh dấu yêu thích</translation>
     </message>
     <message>
         <source>No streams favorited</source>
@@ -1534,7 +1534,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Paused</source>
-        <translation type="unfinished"></translation>
+        <translation>Đã tạm dừng</translation>
     </message>
     <message>
         <source>Playing</source>
@@ -1586,7 +1586,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Next File</source>
-        <translation type="unfinished"></translation>
+        <translation>Tệp Kế Tiếp</translation>
     </message>
     <message>
         <source>Ctrl+PgDown</source>
@@ -1594,7 +1594,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Play next &amp;file</source>
-        <translation type="unfinished"></translation>
+        <translation>Phát tệp kế tiếp</translation>
     </message>
     <message>
         <source>Subtitles</source>
@@ -1606,7 +1606,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm vào Yêu Thích</translation>
     </message>
     <message>
         <source>&amp;Decrease Delay</source>
@@ -2173,11 +2173,11 @@ No action will be triggered.</source>
     <name>PlaybackManager</name>
     <message>
         <source>Speed: %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>Tốc độ: %1%</translation>
     </message>
     <message>
         <source>Volume: %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>Âm lượng: %1%</translation>
     </message>
     <message>
         <source>Mute: on</source>
@@ -2193,7 +2193,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Aspect ratio: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Tỷ lệ khung hình: %1</translation>
     </message>
     <message>
         <source>Audio track: </source>
@@ -2205,15 +2205,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Subtitles: on</source>
-        <translation type="unfinished"></translation>
+        <translation>Phụ đề: bật</translation>
     </message>
     <message>
         <source>Subtitles: off</source>
-        <translation type="unfinished"></translation>
+        <translation>Phụ đề: tắt</translation>
     </message>
     <message>
         <source>File moved to recycle bin: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Tệp đã được đưa vào thùng rác: %1</translation>
     </message>
     <message>
         <source>Failed to move file to recycle bin: %1</source>
@@ -2239,7 +2239,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Tìm kiếm</translation>
     </message>
     <message>
         <source>Visible Items to Quick Queue</source>
@@ -2379,7 +2379,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation>Lặp lại</translation>
     </message>
     <message>
         <source>Reshuffle</source>
@@ -2418,27 +2418,27 @@ No action will be triggered.</source>
     <name>PropertiesWindow</name>
     <message>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Thuộc tính</translation>
     </message>
     <message>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Chi tiết</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Loại:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kích thước:</translation>
     </message>
     <message>
         <source>Media length:</source>
-        <translation type="unfinished"></translation>
+        <translation>Độ dài phương tiện:</translation>
     </message>
     <message>
         <source>Video size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kích thước video:</translation>
     </message>
     <message>
         <source>Created:</source>
@@ -2454,23 +2454,23 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Author:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tác giả:</translation>
     </message>
     <message>
         <source>Copyright:</source>
-        <translation type="unfinished"></translation>
+        <translation>Bản quyền:</translation>
     </message>
     <message>
         <source>Rating:</source>
-        <translation type="unfinished"></translation>
+        <translation>Xếp hạng:</translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation type="unfinished"></translation>
+        <translation>Vị trí:</translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Mô tả:</translation>
     </message>
     <message>
         <source>MediaInfo</source>
@@ -2478,7 +2478,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Lưu</translation>
     </message>
     <message>
         <source>Video</source>
@@ -2486,11 +2486,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Âm thanh</translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Phụ đề</translation>
     </message>
     <message>
         <source>General</source>
@@ -2513,7 +2513,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Modified:</source>
-        <translation>Đã chỉnh sửa:</translation>
+        <translation>Đã sửa đổi:</translation>
     </message>
 </context>
 <context>
@@ -2646,7 +2646,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Player</source>
-        <translation type="unfinished"></translation>
+        <translation>Trình phát</translation>
     </message>
     <message>
         <source>Formats</source>
@@ -2726,7 +2726,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&lt;big&gt;&lt;b&gt;Player</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;big&gt;&lt;b&gt;Trình phát</translation>
     </message>
     <message>
         <source>Open options</source>
@@ -2735,12 +2735,14 @@ No action will be triggered.</source>
     <message>
         <source>Use the same player for
 each &amp;media file</source>
-        <translation type="unfinished"></translation>
+        <translation>Sử dụng cùng một trình phát cho
+mỗi tệp phương tiện</translation>
     </message>
     <message>
         <source>Open a new &amp;player for each
 media file played</source>
-        <translation type="unfinished"></translation>
+        <translation>Mở một trình phát mới cho mỗi
+tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Other</source>
@@ -2756,7 +2758,7 @@ media file played</source>
     </message>
     <message>
         <source>Limit window proportions on resize</source>
-        <translation type="unfinished"></translation>
+        <translation>Giới hạn tỷ lệ cửa sổ khi thay đổi kích thước</translation>
     </message>
     <message>
         <source>Disable &quot;Open Disc&quot; menu</source>
@@ -2792,7 +2794,7 @@ media file played</source>
     </message>
     <message>
         <source>Keep history of recently opened files</source>
-        <translation type="unfinished"></translation>
+        <translation>Lưu giữ lịch sử các tệp đã mở gần đây</translation>
     </message>
     <message>
         <source>Remember last selected playlist</source>
@@ -2828,7 +2830,7 @@ media file played</source>
     </message>
     <message>
         <source>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; có sẵn tại %1</translation>
     </message>
     <message>
         <source>MPRIS</source>
@@ -2848,7 +2850,7 @@ media file played</source>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Duyệt...</translation>
     </message>
     <message>
         <source>Blank</source>
@@ -3140,7 +3142,7 @@ media file played</source>
     </message>
     <message>
         <source>Often, LCDs perform dithering on their own, which conflicts with OpenGL&apos;s output and can lead to ugly output.  In which case you should lower the dither depth.</source>
-        <translation type="unfinished"></translation>
+        <translation>Thông thường, bản thân màn hình LCD đã tự thực hiện quá trình hòa sắc (dithering) rồi, điều này gây xung đột với dữ liệu xuất ra từ OpenGL và có thể khiến hình ảnh trông rất xấu.  Trong trường hợp đó, bạn nên giảm độ sâu hòa sắc (dither depth) xuống.</translation>
     </message>
     <message>
         <source>Temporal dithering</source>
@@ -3408,7 +3410,7 @@ media file played</source>
     </message>
     <message>
         <source>Color Correction</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiệu Chỉnh Màu Sắc</translation>
     </message>
     <message>
         <source>Gamma</source>
@@ -3552,7 +3554,7 @@ media file played</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Duyệt</translation>
     </message>
     <message>
         <source>Audio Renderer</source>
@@ -3592,7 +3594,7 @@ media file played</source>
     </message>
     <message>
         <source>Pitch correction</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiệu chỉnh cao độ</translation>
     </message>
     <message>
         <source>Exclusive mode</source>
@@ -3792,11 +3794,11 @@ media file played</source>
     </message>
     <message>
         <source>Drop or repeat video frames</source>
-        <translation type="unfinished"></translation>
+        <translation>Bỏ qua hoặc lặp lại khung hình video</translation>
     </message>
     <message>
         <source>Drop or repeat audio data</source>
-        <translation type="unfinished"></translation>
+        <translation>Bỏ qua hoặc lặp lại dữ liệu âm thanh</translation>
     </message>
     <message>
         <source>Audio drop size</source>
@@ -3812,7 +3814,7 @@ media file played</source>
     </message>
     <message>
         <source>Hardware decoding may produce a smoother, more efficient overall experience and reduce strain on your cpu. However, some of the listed codecs (depending upon your installed hardware and software) may not be available, may be broken, and may produce incorrect output. A safe and always correct rule of thumb with respect to image quality is to prefer software decoding if your cpu can handle it.</source>
-        <translation type="unfinished"></translation>
+        <translation>Giải mã phần cứng có thể mang lại trải nghiệm tổng thể mượt mà và hiệu quả hơn, đồng thời giảm tải cho cpu. Tuy nhiên, một số codec được liệt kê (tùy thuộc vào phần cứng và phần mềm bạn đã cài đặt) có thể không khả dụng, bị lỗi hoặc tạo ra kết quả không chính xác. Một nguyên tắc an toàn và luôn đúng về chất lượng hình ảnh là nên ưu tiên giải mã phần mềm nếu cpu của bạn có thể xử lý được.</translation>
     </message>
     <message>
         <source>Use hardware-accelerated decoding</source>
@@ -3844,7 +3846,7 @@ media file played</source>
     </message>
     <message>
         <source>Linux - some gpus, does not always treat certain colorspaces like BT.2020 correctly</source>
-        <translation type="unfinished"></translation>
+        <translation>Linux - một số GPU không phải lúc nào cũng xử lý chính xác các không gian màu nhất định như BT.2020</translation>
     </message>
     <message>
         <source>Windows - not safe; it appears to always use BT.601 for forced RGB conversion, but actual behavior depends on the GPU drivers</source>
@@ -3884,7 +3886,7 @@ media file played</source>
     </message>
     <message>
         <source>Repeat fore&amp;ver</source>
-        <translation type="unfinished"></translation>
+        <translation>Lặp lại mãi mãi</translation>
     </message>
     <message>
         <source>Always loop images (manual progression)</source>
@@ -4053,7 +4055,7 @@ media file played</source>
     </message>
     <message>
         <source>https://</source>
-        <translation type="unfinished"></translation>
+        <translation>https://</translation>
     </message>
     <message>
         <source>Test</source>
@@ -4077,7 +4079,7 @@ media file played</source>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Unchecked directories will place output files in the source directory. Streams do not have a source directory and will bring up a dialog when a field is left blank; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; will always ask where to place files. Directories will be created if necessary; this may not work across all filesystems.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Các thư mục không được chọn sẽ đặt các tệp đầu ra trong thư mục nguồn. Luồng dữ liệu không có thư mục nguồn và sẽ hiển thị hộp thoại khi một trường bị bỏ trống; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; sẽ luôn hỏi vị trí lưu trữ tập tin. Các thư mục sẽ được tạo nếu cần thiết; tuy nhiên, tính năng này có thể không hoạt động trên tất cả các hệ thống tập tin.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Filename template</source>
@@ -4113,7 +4115,7 @@ media file played</source>
     </message>
     <message>
         <source>Colorspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Không gian màu</translation>
     </message>
     <message>
         <source>Include tag</source>
@@ -4405,7 +4407,7 @@ media file played</source>
     </message>
     <message>
         <source>&lt;a href=&quot;#&quot;&gt;Launch in web browser...&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;a href=&quot;#&quot;&gt;Mở trong trình duyệt web...&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Local files</source>
@@ -4457,7 +4459,7 @@ media file played</source>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation>Lặp lại</translation>
     </message>
     <message>
         <source>Play next in the folder</source>
@@ -4473,7 +4475,7 @@ media file played</source>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Shader chứa các hiệu ứng đặc biệt có thể được thêm vào quá trình kết xuất video. Danh sách các shader do cộng đồng tạo ra có thể được tìm thấy trên &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;mpv wiki&lt;/span&gt;&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>Pipewire</source>
@@ -4485,7 +4487,7 @@ media file played</source>
     </message>
     <message>
         <source>Language Override</source>
-        <translation type="unfinished"></translation>
+        <translation>Ghi Đè Ngôn Ngữ</translation>
     </message>
     <message>
         <source>Locale (Autodetect)</source>
@@ -4585,11 +4587,11 @@ media file played</source>
     </message>
     <message>
         <source>Use next/previous file in folder when there is only one item in the playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Dùng tệp kế tiếp/trước đó trong thư mục khi chỉ có một mục trong danh sách phát</translation>
     </message>
     <message>
         <source>Play next file</source>
-        <translation type="unfinished"></translation>
+        <translation>Phát tệp kế tiếp</translation>
     </message>
     <message>
         <source>Delay step</source>
@@ -4601,7 +4603,7 @@ media file played</source>
     </message>
     <message>
         <source>Linux - works with Intel and AMD GPUs through Mesa, and with nVidia through a translation layer; may only be correct in BT.601 and BT.709</source>
-        <translation type="unfinished"></translation>
+        <translation>Linux - hoạt động với GPU Intel và AMD thông qua Mesa, và với nVidia thông qua một lớp chuyển đổi; có thể chỉ chính xác ở chuẩn BT.601 và BT.709</translation>
     </message>
     <message>
         <source>nVidia only (faster than CUDA)</source>
@@ -4637,7 +4639,7 @@ media file played</source>
     </message>
     <message>
         <source>Update interval</source>
-        <translation type="unfinished"></translation>
+        <translation>Khoảng thời gian cập nhật</translation>
     </message>
     <message>
         <source>No delay (consumes cpu, use this for testing)</source>
@@ -4673,7 +4675,7 @@ media file played</source>
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Tìm kiếm...</translation>
     </message>
     <message>
         <source>Show video preview</source>
@@ -4841,11 +4843,11 @@ media file played</source>
     </message>
     <message>
         <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Các biểu tượng phải sử dụng cùng tên như trong &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;kho lưu trữ&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>Use English for the interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Sử dụng tiếng Anh cho giao diện</translation>
     </message>
     <message>
         <source>Mono</source>
@@ -4885,7 +4887,7 @@ media file played</source>
     </message>
     <message>
         <source>Search settings…</source>
-        <translation type="unfinished"></translation>
+        <translation>Cài đặt tìm kiếm…</translation>
     </message>
     <message>
         <source>A&amp;pplication name only</source>
@@ -4931,7 +4933,7 @@ media file played</source>
     </message>
     <message>
         <source>&amp;Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Duyệt...</translation>
     </message>
     <message>
         <source>Image</source>
