@@ -1598,7 +1598,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Phụ đề</translation>
     </message>
     <message>
         <source>Mute</source>
@@ -2694,7 +2694,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Phụ đề</translation>
     </message>
     <message>
         <source>Default Style</source>
@@ -2822,7 +2822,7 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Âm thanh</translation>
     </message>
     <message>
         <source>All</source>
