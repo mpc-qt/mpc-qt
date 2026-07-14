@@ -95,7 +95,7 @@ void ThumbnailerWindow::open(QUrl sourceUrl)
     QString saveFile = Helpers::parseFormatEx(thumbFormat, sourceUrl, screenshotDirectory, screenshotFormat,
                                               Helpers::NothingDisabled, Helpers::SubtitlesDisabled,
                                               0.0, 0.0, 0.0);
-    ui->mediaSource->setText(sourceUrl.path());
+    ui->mediaSource->setText(sourceUrl.toLocalFile());
     ui->saveImage->setText(saveFile);
     ui->actionProgress->setValue(0);
     show();
@@ -107,7 +107,7 @@ void ThumbnailerWindow::begin()
     setEnabled(false);
 
     MpvThumbnailer::Params p;
-    p.sourceUrl = ui->mediaSource->text();
+    p.sourceUrl = QUrl::fromLocalFile(ui->mediaSource->text());
     p.imageFile = ui->saveImage->text();
     p.jpegQuality = ui->imageQuality->value();
     p.imageWidth = ui->imageWidth->value();
