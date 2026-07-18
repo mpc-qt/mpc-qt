@@ -1598,7 +1598,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished">Phụ đề</translation>
+        <translation>Phụ đề</translation>
     </message>
     <message>
         <source>Mute</source>
@@ -2694,7 +2694,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished">Phụ đề</translation>
+        <translation>Phụ đề</translation>
     </message>
     <message>
         <source>Default Style</source>
@@ -2822,7 +2822,7 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">Âm thanh</translation>
+        <translation>Âm thanh</translation>
     </message>
     <message>
         <source>All</source>
@@ -4663,15 +4663,15 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tệp nhật ký (*.log)</translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Cho phép hỗ trợ chủ đề tối trên Windows</translation>
     </message>
     <message>
         <source>Audio balance</source>
-        <translation type="unfinished"></translation>
+        <translation>Cân bằng âm thanh</translation>
     </message>
     <message>
         <source>Search...</source>
@@ -4683,39 +4683,39 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>100%</source>
-        <translation type="unfinished"></translation>
+        <translation>100%</translation>
     </message>
     <message>
         <source>25%</source>
-        <translation type="unfinished"></translation>
+        <translation>25%</translation>
     </message>
     <message>
         <source>50%</source>
-        <translation type="unfinished"></translation>
+        <translation>50%</translation>
     </message>
     <message>
         <source>75%</source>
-        <translation type="unfinished"></translation>
+        <translation>75%</translation>
     </message>
     <message>
         <source>150%</source>
-        <translation type="unfinished"></translation>
+        <translation>150%</translation>
     </message>
     <message>
         <source>200%</source>
-        <translation type="unfinished"></translation>
+        <translation>200%</translation>
     </message>
     <message>
         <source>300%</source>
-        <translation type="unfinished"></translation>
+        <translation>300%</translation>
     </message>
     <message>
         <source>400%</source>
-        <translation type="unfinished"></translation>
+        <translation>400%</translation>
     </message>
     <message>
         <source>Remove subtitles additions for the deaf or hard-of-hearing (SDH)</source>
-        <translation type="unfinished"></translation>
+        <translation>Loại bỏ phụ đề dành cho người khiếm thính hoặc khó nghe (SDH)</translation>
     </message>
     <message>
         <source>Requires restarting the application to apply changes</source>
@@ -4727,11 +4727,11 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiều cao video tối đa:</translation>
     </message>
     <message>
         <source>Custom mpv options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Các tùy chọn mpv tùy chỉnh:</translation>
     </message>
     <message>
         <source>Seek to keyframe when hardware decoding is unavailable</source>
@@ -4747,15 +4747,15 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Enable shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>Bật bóng đổ</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>Lựa chọn</translation>
     </message>
     <message>
         <source>Preset applied</source>
-        <translation type="unfinished"></translation>
+        <translation>Đã áp dụng cài đặt sẵn</translation>
     </message>
     <message>
         <source>Position ASS subs relative to the video frame</source>
@@ -4763,47 +4763,47 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Remember Quick Playlist content</source>
-        <translation type="unfinished"></translation>
+        <translation>Nhớ nội dung Danh sách phát nhanh</translation>
     </message>
     <message>
         <source>Append opened files to Quick Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm các tệp đã mở vào Danh sách phát nhanh</translation>
     </message>
     <message>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>Enable background box</source>
-        <translation type="unfinished"></translation>
+        <translation>Bật hộp nền</translation>
     </message>
     <message>
         <source>Border and background style</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiểu viền và nền</translation>
     </message>
     <message>
         <source>Translucid background box</source>
-        <translation type="unfinished"></translation>
+        <translation>Hộp nền trong suốt</translation>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiển thị bản xem trước video (cần khởi động lại)</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
-        <translation type="unfinished"></translation>
+        <translation>Không có nhiều lý do để sử dụng cái này. HDMI hỗ trợ PCM đa kênh không nén, và mpv hỗ trợ DTS-HD không mất dữ liệu</translation>
     </message>
     <message>
         <source>Choose Log File</source>
-        <translation type="unfinished"></translation>
+        <translation>Chọn Tệp Nhật Ký</translation>
     </message>
     <message>
         <source>File title</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiêu đề tệp</translation>
     </message>
     <message>
         <source>CRF</source>
-        <translation type="unfinished"></translation>
+        <translation>CRF</translation>
     </message>
     <message>
         <source>Lossless</source>
@@ -4811,27 +4811,27 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Tốc độ</translation>
     </message>
     <message>
         <source>Others</source>
-        <translation type="unfinished"></translation>
+        <translation>Khác</translation>
     </message>
     <message>
         <source>Video background</source>
-        <translation type="unfinished"></translation>
+        <translation>Nền video</translation>
     </message>
     <message>
         <source>Status bar background</source>
-        <translation type="unfinished"></translation>
+        <translation>Nền thanh trạng thái</translation>
     </message>
     <message>
         <source>Status bar foreground</source>
-        <translation type="unfinished"></translation>
+        <translation>Bề mặt thanh trạng thái</translation>
     </message>
     <message>
         <source>Use custom colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Sử dụng màu sắc tùy chỉnh</translation>
     </message>
     <message>
         <source>Source</source>
@@ -4839,7 +4839,7 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Built-in</source>
-        <translation type="unfinished"></translation>
+        <translation>Tích hợp sẵn</translation>
     </message>
     <message>
         <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
@@ -4855,11 +4855,11 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Remember last window size and position</source>
-        <translation type="unfinished"></translation>
+        <translation>Ghi nhớ kích thước và vị trí cửa sổ lần cuối</translation>
     </message>
     <message>
         <source>Use dark colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Sử dụng màu tối</translation>
     </message>
     <message>
         <source>Replay Gain</source>
@@ -4879,7 +4879,7 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source> dB</source>
-        <translation type="unfinished"></translation>
+        <translation> dB</translation>
     </message>
     <message>
         <source>Prevent clipping</source>
@@ -4891,22 +4891,22 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>A&amp;pplication name only</source>
-        <translation type="unfinished"></translation>
+        <translation>Chỉ tên ứng dụng</translation>
     </message>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
-        <translation type="unfinished"></translation>
+        <translation>Nếu cần, hãy quay lại tệp đầu tiên/cuối cùng trong thư mục</translation>
     </message>
 </context>
 <context>
     <name>StatusTime</name>
     <message>
         <source> (%1%)</source>
-        <translation type="unfinished"></translation>
+        <translation> (%1%)</translation>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation type="unfinished"></translation>
+        <translation>Thời gian còn lại</translation>
     </message>
     <message>
         <source>High precision</source>
@@ -4914,15 +4914,15 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiển thị phần trăm</translation>
     </message>
     <message>
         <source>Played: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Đã phát: %1</translation>
     </message>
     <message>
         <source>Remaining: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Còn lại: %1</translation>
     </message>
 </context>
 <context>
@@ -4937,11 +4937,11 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Hình ảnh</translation>
     </message>
     <message>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>Width</source>
@@ -4949,7 +4949,7 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Bố cục</translation>
     </message>
     <message>
         <source>Rows</source>
