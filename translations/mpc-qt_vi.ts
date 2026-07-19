@@ -431,7 +431,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tệp nhật ký (*.log)</translation>
     </message>
 </context>
 <context>
@@ -1742,7 +1742,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>25%</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">25%</translation>
     </message>
     <message>
         <source>&amp;75%</source>
