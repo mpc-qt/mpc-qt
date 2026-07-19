@@ -1261,13 +1261,10 @@ QList<MpvOption> SettingsWindow::parseMpvOptions(const QString &optionsInline) c
     const QStringList options = optionsInline.split(' ', Qt::SkipEmptyParts);
     for (const QString &option : options) {
         int equalPos = option.indexOf('=');
-        if (equalPos > 0) {
-            QString name = option.left(equalPos).trimmed();
-            QString value = option.mid(equalPos + 1).trimmed();
-            mpvOptions.append(MpvOption{name, value});
-        } else {
-            mpvOptions.append(MpvOption{option.trimmed(), QString()});
-        }
+        QString name = equalPos > 0 ? option.left(equalPos) : option;
+        QString value = equalPos > 0 ? option.mid(equalPos + 1) : QString();
+        name = name.startsWith("--") ? name.sliced(2) : name;
+        mpvOptions.append(MpvOption{name, value});
     }
     return mpvOptions;
 }
