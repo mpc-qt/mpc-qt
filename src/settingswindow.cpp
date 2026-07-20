@@ -1128,7 +1128,7 @@ void SettingsWindow::sendSignals()
 
 void SettingsWindow::sendAcceptedSettings()
 {
-    emit settingsData(acceptedSettings.toVMap());
+    emit settingsData(acceptedSettings.toVMap(), true);
     emit keyMapData(acceptedKeyMap);
 }
 
@@ -1185,14 +1185,14 @@ void SettingsWindow::setZoomPreset(int which)
     ui->playbackAutoZoom->setChecked(autoZoom);
     ui->playbackAutoZoomMethod->setCurrentIndex(zoomMethod);
 
-    emit settingsData(acceptedSettings.toVMap());
+    emit settingsData(acceptedSettings.toVMap(), false);
 }
 
 void SettingsWindow::setHidePanels(bool hidden)
 {
     ui->fullscreenHidePanels->setChecked(hidden);
     WIDGET_LOOKUP(ui->fullscreenHidePanels).setValue(hidden);
-    emit settingsData(acceptedSettings.toVMap());
+    emit settingsData(acceptedSettings.toVMap(), false);
 }
 
 void SettingsWindow::setAudioFilter(QString filter, QString options, bool add)

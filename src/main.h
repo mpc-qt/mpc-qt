@@ -94,7 +94,7 @@ private slots:
     void manager_startedPlayingFile(QUrl url);
     void manager_stoppedPlaying();
     void mpcHcServer_fileSelected(QString fileName);
-    void settingswindow_settingsData(const QVariantMap &settings);
+    void settingswindow_settingsData(const QVariantMap &settings, bool updateTranslation);
     void settingswindow_inhibitScreensaver(bool yes);
     void settingswindow_rememberHistory(bool yes, bool onlyVideos);
     void settingswindow_rememberFilePosition(bool yes);

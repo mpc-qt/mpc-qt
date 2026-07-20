@@ -81,7 +81,7 @@ private:
     int pageIndexForTreeItem(const QModelIndex &index) const;
 
 signals:
-    void settingsData(const QVariantMap &s);
+    void settingsData(const QVariantMap &s, bool updateTranslation);
     void keyMapData(const QVariantMap &s);
     void mouseWindowedMap(const MouseStateMap &map);
     void mouseFullscreenMap(const MouseStateMap &map);

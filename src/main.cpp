@@ -1634,13 +1634,14 @@ void Flow::mpcHcServer_fileSelected(QString fileName)
     playbackManager->openSeveralFiles(urls, true);
 }
 
-void Flow::settingswindow_settingsData(const QVariantMap &settings)
+void Flow::settingswindow_settingsData(const QVariantMap &settings, bool updateTranslation)
 {
     Logger::log(logModule, "settingswindow_settingsData");
     // The selected options have changed, so write them to disk
     this->settings = settings;
     writeConfig(true);
-    setTranslation(true);
+    if (updateTranslation)
+        setTranslation(true);
 }
 
 void Flow::settingswindow_inhibitScreensaver(bool yes)
