@@ -2148,13 +2148,17 @@ void MainWindow::setFullscreenHidePanels(bool hidden)
     }
 }
 
+void MainWindow::checkExitFullscreenOnEnd()
+{
+    if (fullscreenExitOnEnd && fullscreenMode_)
+        ui->actionViewFullscreen->setChecked(false);
+}
+
 void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, int64_t bufferFillState)
 {
     // Update the fullscreen state
     if (state == PlaybackManager::StoppedState) {
-        if (fullscreenExitOnEnd && fullscreenMode_ == true) {
-            ui->actionViewFullscreen->setChecked(false);
-        }
+        checkExitFullscreenOnEnd();
     } else if (state == PlaybackManager::PlayingState) {
         if (fullscreenOnPlay && fullscreenMode_ == false) {
             ui->actionViewFullscreen->setChecked(true);

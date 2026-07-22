@@ -279,6 +279,7 @@ public slots:
     void setTimeTooltip(bool show, bool above);
     void setOsdTimerOnSeek(bool enabled);
     void setFullscreenHidePanels(bool hidden);
+    void checkExitFullscreenOnEnd();
     void setPlaybackState(PlaybackManager::PlaybackState state, int64_t bufferFillState);
     void setPlaybackType(PlaybackManager::PlaybackType type);
     void disableChaptersMenus();

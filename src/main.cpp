@@ -620,6 +620,8 @@ void Flow::setupMainWindowConnections()
             mainWindow, &MainWindow::setMediaTitle);
     connect(playbackManager, &PlaybackManager::videoSizeChanged,
             mainWindow, &MainWindow::setVideoSize);
+    connect(playbackManager, &PlaybackManager::noMoreFilesToPlay,
+            mainWindow, &MainWindow::checkExitFullscreenOnEnd);
     connect(playbackManager, &PlaybackManager::stateChanged,
             mainWindow, &MainWindow::setPlaybackState);
     connect(playbackManager, &PlaybackManager::typeChanged,

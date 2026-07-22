@@ -97,6 +97,7 @@ signals:
     void startedPlayingFile(QUrl url);
     void removePlaylistItemRequested(QUuid itemUuid);
     void stoppedPlaying();
+    void noMoreFilesToPlay();
     void videoFilter(QString filter, QString options, bool add);
 
     void fpsChanged(double fps);

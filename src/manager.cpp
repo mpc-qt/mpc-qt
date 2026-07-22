@@ -933,6 +933,7 @@ bool PlaybackManager::playNextTrack(bool replaceMpvPlaylist)
                           false, QUrl(), false, replaceMpvPlaylist);
         return true;
     }
+    emit noMoreFilesToPlay();
     return false;
 }
 
@@ -992,7 +993,10 @@ bool PlaybackManager::playNextFileUrl(QUrl url, int delta, bool replaceMpvPlayli
 bool PlaybackManager::playNextFile(bool replaceMpvPlaylist, int delta)
 {
     QUrl url = playlistWindow_->getUrlOfFirst(nowPlayingList);
-    return playNextFileUrl(url, delta, replaceMpvPlaylist);
+    bool success = playNextFileUrl(url, delta, replaceMpvPlaylist);
+    if (!success && delta == 1)
+        emit noMoreFilesToPlay();
+    return success;
 }
 
 void PlaybackManager::playPrevFile()
