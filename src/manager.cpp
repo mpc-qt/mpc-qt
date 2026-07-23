@@ -42,6 +42,11 @@ TrackData TrackData::fromMap(const QVariantMap &map)
         td.lang = map["lang"].toString();
     if (map.contains("title"))
         td.title = map["title"].toString();
+    else if (map.contains("metadata")) {
+        QVariantMap metadata = map["metadata"].toMap();
+        if (metadata.contains("name"))
+            td.title = metadata["name"].toString();
+    }
     if (map.contains("forced"))
         td.isForced = map["forced"].toBool();
     if (map.contains("external"))
