@@ -1101,7 +1101,7 @@ void PlaybackManager::mpvw_eofReachedChanged(QString eof) {
     }
     eofReached_ = true;
 
-    emit stoppedPlaying();
+    emit stoppedPlayingAtEof();
 
     int extraTimes = playlistWindow_->extraPlayTimes(nowPlayingList, nowPlayingItem);
     playlistWindow_->setExtraPlayTimes(nowPlayingList, nowPlayingItem, extraTimes - 1);
