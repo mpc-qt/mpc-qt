@@ -2185,8 +2185,12 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, int64_t 
     case PlaybackManager::WaitingState:
         ui->status->setText(tr("Unknown"));
         break;
+    case PlaybackManager::ErrorState:
+        ui->status->setText(tr("Error"));
+        break;
     }
-    isPlaying = state != PlaybackManager::StoppedState;
+    isPlaying = state != PlaybackManager::StoppedState &&
+                state != PlaybackManager::ErrorState;
     isPaused = state == PlaybackManager::PausedState;
     setUiEnabledState(state != PlaybackManager::StoppedState);
     if (isPaused) {

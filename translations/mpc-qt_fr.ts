@@ -1443,6 +1443,10 @@ Aucune action ne sera déclenchée.</translation>
         <translation>Mise en mémoire tampon (%1 %)</translation>
     </message>
     <message>
+        <source>Error</source>
+        <translation type="unfinished">Erreur</translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>Ajout &amp;rapide à la playlist</translation>
     </message>

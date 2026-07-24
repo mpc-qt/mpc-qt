@@ -47,8 +47,15 @@ class PlaybackManager : public QObject
 {
     Q_OBJECT
 public:
-    enum PlaybackState { StoppedState, PausedState, PlayingState,
-                         LoadingState, BufferingState, WaitingState };
+    enum PlaybackState {
+        StoppedState,
+        PausedState,
+        PlayingState,
+        LoadingState,
+        BufferingState,
+        WaitingState,
+        ErrorState
+    };
     enum PlaybackType { None, File, Disc, Stream, Device };
     enum class Deinterlace { Yes, Auto, No };
 
@@ -216,7 +223,7 @@ private slots:
     void mpvw_playbackStarted();
     void mpvw_pausedChanged(bool yes);
     void mpvw_playbackIdling(bool yes);
-    void mpvw_playbackFinished();
+    void mpvw_playbackError();
     void mpvw_eofReachedChanged(QString eof);
     void mpvw_mediaTitleChanged(QString title);
     void mpvw_chaptersChanged(QVariantList chapters);

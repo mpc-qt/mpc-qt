@@ -660,6 +660,10 @@ void MpcHcServer::setupHttp()
         QString state;
         QString stateString;
         switch(playbackState) {
+        case PlaybackManager::ErrorState:
+            state = QString::number(-2);
+            stateString = "Error";
+            break;
         case PlaybackManager::StoppedState:
             state = QString::number(-1);
             stateString = "N/A";

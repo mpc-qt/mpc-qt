@@ -219,7 +219,8 @@ QString MprisPlayerServer::playbackStatus()
 {
     if (playbackState == PlaybackManager::PausedState)
         return "Paused";
-    if (playbackState != PlaybackManager::StoppedState)
+    if (playbackState != PlaybackManager::StoppedState &&
+        playbackState != PlaybackManager::ErrorState)
         return "Playing";
     return "Stopped";
 }
@@ -424,7 +425,8 @@ void MprisPlayerServer::instance_setPlaylistHasItems(bool playlistHasItems)
 
 bool MprisPlayerServer::maybeChangeCanPlay()
 {
-    bool canPlay = playlistHasItems_ || playbackState != PlaybackManager::StoppedState;
+    bool canPlay = playlistHasItems_ || (playbackState != PlaybackManager::StoppedState &&
+                                         playbackState != PlaybackManager::ErrorState);
     if (canPlay_ != canPlay) {
         canPlay_ = canPlay;
         return true;

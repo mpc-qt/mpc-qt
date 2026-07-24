@@ -1379,6 +1379,10 @@ Mitään toimintoa ei suoriteta.</translation>
         <translation>Puskuroidaan (%1%)</translation>
     </message>
     <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>&amp;Lisää Nopeasti Soittolistaan</translation>
     </message>

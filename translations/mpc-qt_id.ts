@@ -1475,6 +1475,10 @@ Tidak ada tindakan yang akan dipicu.</translation>
         <translation>Membuffer (%1%)</translation>
     </message>
     <message>
+        <source>Error</source>
+        <translation type="unfinished">Kesalahan</translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>Tambah Cepat ke Daftar Putar</translation>
     </message>

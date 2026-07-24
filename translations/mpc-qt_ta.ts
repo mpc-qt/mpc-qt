@@ -1483,6 +1483,10 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Error</source>
+        <translation type="unfinished">பிழை</translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>&amp; பிளேலிச்ட்டில் விரைவாக சேர்க்கவும்</translation>
     </message>
