@@ -620,6 +620,8 @@ void Flow::setupMainWindowConnections()
             mainWindow, &MainWindow::setMediaTitle);
     connect(playbackManager, &PlaybackManager::videoSizeChanged,
             mainWindow, &MainWindow::setVideoSize);
+    connect(playbackManager, &PlaybackManager::noMoreFilesToPlay,
+            mainWindow, &MainWindow::checkExitFullscreenOnEnd);
     connect(playbackManager, &PlaybackManager::stateChanged,
             mainWindow, &MainWindow::setPlaybackState);
     connect(playbackManager, &PlaybackManager::typeChanged,
@@ -951,8 +953,8 @@ void Flow::setupFlowConnections()
             this, &Flow::manager_aboutToStartPlayingFile);
     connect(playbackManager, &PlaybackManager::startedPlayingFile,
             this, &Flow::manager_startedPlayingFile);
-    connect(playbackManager, &PlaybackManager::stoppedPlaying,
-            this, &Flow::manager_stoppedPlaying);
+    connect(playbackManager, &PlaybackManager::stoppedPlayingAtEof,
+            this, &Flow::manager_stoppedPlayingAtEof);
     connect(playbackManager, &PlaybackManager::stateChanged,
             this, &Flow::manager_stateChanged);
     connect(playbackManager, &PlaybackManager::fileClosed,
@@ -1620,7 +1622,7 @@ void Flow::manager_startedPlayingFile(QUrl url)
     }
     playbackManager->navigateToTime(position);
 }
-void Flow::manager_stoppedPlaying()
+void Flow::manager_stoppedPlayingAtEof()
 {
     // Reset the position on stop
     updateRecentPosition(true);
