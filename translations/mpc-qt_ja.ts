@@ -1491,6 +1491,10 @@ No action will be triggered.</source>
         <translation>バッファリング (%1%)</translation>
     </message>
     <message>
+        <source>Error</source>
+        <translation type="unfinished">エラー</translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>再生リストへクイック追加(&amp;Q)</translation>
     </message>

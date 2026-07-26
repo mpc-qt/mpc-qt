@@ -109,6 +109,8 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
             this, &MpvObject::ctrl_hookEvent, Qt::QueuedConnection);
     connect(ctrl, &MpvController::unhandledMpvEvent,
             this, &MpvObject::ctrl_unhandledMpvEvent, Qt::QueuedConnection);
+    connect(ctrl, &MpvController::playbackError,
+            this, &MpvObject::ctrl_playbackError, Qt::QueuedConnection);
     connect(ctrl, &MpvController::videoSizeChanged,
             this, &MpvObject::ctrl_videoSizeChanged, Qt::QueuedConnection);
 
@@ -830,6 +832,13 @@ void MpvObject::ctrl_hookEvent(QString name, uint64_t selfId, uint64_t mpvId)
         emit playlistChanged(playlist);
     }
     emit ctrlContinueHook(mpvId);
+}
+
+void MpvObject::ctrl_playbackError(int mpvError)
+{
+    Q_UNUSED(mpvError)
+    Logger::log(logModule, QString("playback error, reason: %1").arg(mpv_error_string(mpvError)));
+    emit playbackError();
 }
 
 void MpvObject::ctrl_unhandledMpvEvent(int eventLevel)
@@ -1606,6 +1615,13 @@ void MpvController::handleMpvEvent(mpv_event *event)
         emit hookEvent(msg->name, event->reply_userdata, msg->id);
         break;
     }
+    case MPV_EVENT_END_FILE: {
+        auto const *endFile = static_cast<mpv_event_end_file *>(event->data);
+        if (endFile->reason == MPV_END_FILE_REASON_ERROR)
+            emit playbackError(endFile->error);
+        break;
+    }
+
     default:
         emit unhandledMpvEvent(event->event_id);
     }

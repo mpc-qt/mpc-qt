@@ -129,6 +129,7 @@ signals:
 
     void playTimeChanged(double time);
     void playLengthChanged(double length);
+    void playbackError();
     void playbackLoading();
     void playbackStarted();
     void pausedChanged(bool yes);
@@ -182,6 +183,7 @@ private:
 private slots:
     void ctrl_mpvPropertyChanged(QString name, const QVariant &v);
     void ctrl_hookEvent(QString name, uint64_t selfId, uint64_t mpvId);
+    void ctrl_playbackError(int mpvError);
     void ctrl_unhandledMpvEvent(int eventLevel);
     void ctrl_videoSizeChanged(QSize size);
     void self_playTimeChanged(double playTime);
@@ -373,6 +375,7 @@ signals:
     void clientMessage(uint64_t id, QStringList args);
     void videoSizeChanged(QSize size);
     void hookEvent(QString hookName, uint64_t selfId, uint64_t mpvId);
+    void playbackError(int mpvError);
     void unhandledMpvEvent(int eventNumber);
 
 public slots:

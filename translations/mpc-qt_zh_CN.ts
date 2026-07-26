@@ -1491,6 +1491,10 @@ No action will be triggered.</source>
         <translation>正在缓冲（%1%）</translation>
     </message>
     <message>
+        <source>Error</source>
+        <translation type="unfinished">错误</translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>快速添加到播放列表(&amp;Q)</translation>
     </message>

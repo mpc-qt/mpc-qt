@@ -1483,6 +1483,10 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
         <translation>Arabelleğe alınıyor (%%1)</translation>
     </message>
     <message>
+        <source>Error</source>
+        <translation type="unfinished">Hata</translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>&amp;Tez Oynatma Listesine Ekle</translation>
     </message>
