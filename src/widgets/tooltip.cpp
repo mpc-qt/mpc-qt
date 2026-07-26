@@ -35,9 +35,9 @@ void Tooltip::updatePalette()
         "border: 1px solid %3;"
         "border-radius: 4px;"
     )
-    .arg(palette.color(QPalette::ToolTipBase).name(),
-        palette.color(QPalette::ToolTipText).name(),
-        palette.color(darkPalette ? QPalette::Light : QPalette::Mid).name());
+    .arg(palette.color(QPalette::ToolTipBase).name(QColor::HexArgb),
+        palette.color(QPalette::ToolTipText).name(QColor::HexArgb),
+        palette.color(darkPalette ? QPalette::Light : QPalette::Mid).name(QColor::HexArgb));
 
     textLabel->setStyleSheet(css);
 }
