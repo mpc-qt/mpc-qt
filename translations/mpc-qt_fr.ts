@@ -4282,7 +4282,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>Limiter le volume à 100 % comme mpc-hc</translation>
+        <translation type="vanished">Limiter le volume à 100 % comme mpc-hc</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
@@ -4847,6 +4847,10 @@ fichier média lu</translation>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
         <translation>Retourner au premier/dernier fichier du dossier si nécessaire</translation>
+    </message>
+    <message>
+        <source>Increase maximum volume to:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

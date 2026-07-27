@@ -4306,7 +4306,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>Limitar el volum al 100% igual que mpc-hc</translation>
+        <translation type="vanished">Limitar el volum al 100% igual que mpc-hc</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
@@ -4855,6 +4855,10 @@ arxiu multimèdia reproduït</translation>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
         <translation>Torna al primer/últim fitxer de la carpeta si cal</translation>
+    </message>
+    <message>
+        <source>Increase maximum volume to:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

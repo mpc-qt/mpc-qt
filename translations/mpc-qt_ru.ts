@@ -4276,7 +4276,7 @@ media file played</source>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>Ограничить громкость до 100%</translation>
+        <translation type="vanished">Ограничить громкость до 100%</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
@@ -4832,6 +4832,10 @@ media file played</source>
     </message>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase maximum volume to:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

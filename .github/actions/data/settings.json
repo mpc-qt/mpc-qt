@@ -418,7 +418,7 @@
     "tweaksTimeTooltip": false,
     "tweaksTimeTooltipLocation": 0,
     "tweaksVideoPreview": false,
-    "tweaksVolumeLimit": true,
+    "tweaksMaxVolume": false,
     "videoAlphaMode": 0,
     "videoDumbMode": false,
     "videoFramebuffer": 0,

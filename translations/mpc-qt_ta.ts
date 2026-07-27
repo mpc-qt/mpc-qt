@@ -4330,7 +4330,7 @@ media file played</source>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>MPC-HC போன்ற அளவை 100% ஆக கட்டுப்படுத்தவும்</translation>
+        <translation type="vanished">MPC-HC போன்ற அளவை 100% ஆக கட்டுப்படுத்தவும்</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
@@ -4886,6 +4886,10 @@ media file played</source>
     </message>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase maximum volume to:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
