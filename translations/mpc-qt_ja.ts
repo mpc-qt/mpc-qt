@@ -4350,7 +4350,7 @@ media file played</source>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>MPC-HC のように音量を 100% に制限する</translation>
+        <translation type="vanished">MPC-HC のように音量を 100% に制限する</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
@@ -4915,6 +4915,10 @@ media file played</source>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
         <translation>必要に応じて、フォルダー内の最初または最後のファイルに戻る</translation>
+    </message>
+    <message>
+        <source>Increase maximum volume to:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

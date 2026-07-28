@@ -3961,10 +3961,6 @@ toistetulle mediatiedostolle</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Limit volume to 100% like mpc-hc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>HDR Compute Peak</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4490,6 +4486,10 @@ toistetulle mediatiedostolle</translation>
     </message>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase maximum volume to:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

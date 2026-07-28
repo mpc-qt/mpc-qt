@@ -777,7 +777,7 @@ void SettingsWindow::sendSignals()
     emit webserverRoot(WIDGET_PLACEHOLD_LOOKUP(ui->webRoot));
     emit webserverDefaultPage(WIDGET_PLACEHOLD_LOOKUP(ui->webDefaultPage));
 
-    int volmax = WIDGET_LOOKUP(ui->tweaksVolumeLimit).toBool() ? 100 : 130;
+    int volmax = WIDGET_LOOKUP(ui->tweaksMaxVolume).toBool() ? WIDGET_LOOKUP(ui->tweaksMaxVolumeValue).toInt() : 100;
     emit volumeMax(volmax);
     emit volumeStep(WIDGET_LOOKUP(ui->playbackVolumeStep).toInt());
     {
@@ -1743,6 +1743,11 @@ void SettingsWindow::on_screenshotDirectoryBrowse_clicked()
         return;
 
     ui->screenshotDirectoryValue->setText(dir);
+}
+
+void SettingsWindow::on_tweaksMaxVolume_toggled(bool checked)
+{
+    ui->tweaksMaxVolumeValue->setEnabled(checked);
 }
 
 // REMOVEME: Disable auto zoom in Wayland mode as window centering isn't possible yet

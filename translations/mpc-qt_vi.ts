@@ -4346,10 +4346,6 @@ tệp phương tiện đã được phát</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Limit volume to 100% like mpc-hc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
         <translation type="vanished">Shorten the playback time indicator like mpc-hc</translation>
     </message>
@@ -4900,6 +4896,10 @@ tệp phương tiện đã được phát</translation>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
         <translation>Nếu cần, hãy quay lại tệp đầu tiên/cuối cùng trong thư mục</translation>
+    </message>
+    <message>
+        <source>Increase maximum volume to:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

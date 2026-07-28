@@ -4318,7 +4318,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>mpc-hc gibi ses düzeyini %100 olarak sınırla</translation>
+        <translation type="vanished">mpc-hc gibi ses düzeyini %100 olarak sınırla</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
@@ -4878,6 +4878,10 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase maximum volume to:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -4130,7 +4130,7 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>Batasi volume hingga 100% seperti mpc-hc</translation>
+        <translation type="vanished">Batasi volume hingga 100% seperti mpc-hc</translation>
     </message>
     <message>
         <source>HDR Compute Peak</source>
@@ -4663,6 +4663,10 @@ file media yang diputar</translation>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
         <translation>Ulangi ke file pertama/terakhir di folder jika perlu</translation>
+    </message>
+    <message>
+        <source>Increase maximum volume to:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
