@@ -893,6 +893,12 @@ void MainWindow::setupBottomArea()
     foreach(QWidget *w, bottomWidgets)
         w->setMouseTracking(true);
     ui->bottomArea->setMouseTracking(true);
+    subsMenu = new QMenu();
+    muteMenu = new QMenu();
+    connect(ui->subs, &QPushButton::customContextMenuRequested,
+            this, &MainWindow::showSubsMenu);
+    connect(ui->mute, &QPushButton::customContextMenuRequested,
+            this, &MainWindow::showMuteMenu);
 }
 
 void MainWindow::setupIconThemer()
@@ -1363,6 +1369,16 @@ void MainWindow::showOsdTimer(bool onSeek)
                                                   Helpers::toDateFormatFixed(length,
                                                          Helpers::ShortFormat)));
     }
+}
+
+void MainWindow::showSubsMenu()
+{
+    subsMenu->exec(QCursor::pos());
+}
+
+void MainWindow::showMuteMenu()
+{
+    muteMenu->exec(QCursor::pos());
 }
 
 QList<QUrl> MainWindow::doQuickOpenFileDialog()
@@ -2245,7 +2261,9 @@ void MainWindow::setChapters(QList<Chapter> chapters)
 void MainWindow::setAudioTracks(QList<Track> tracks)
 {
     ui->menuPlayAudio->clear();
+    muteMenu->clear();
     ui->menuPlayAudio->setEnabled(false);
+    muteMenu->setEnabled(false);
     if (audioTracksGroup) {
         audioTracksGroup->deleteLater();
         audioTracksGroup = nullptr;
@@ -2256,6 +2274,7 @@ void MainWindow::setAudioTracks(QList<Track> tracks)
     if (!hasAudio)
         return;
     ui->menuPlayAudio->setEnabled(true);
+    muteMenu->setEnabled(true);
     audioTracksGroup = new QActionGroup(this);
     for (const Track &track : tracks) {
         QAction *action = new QAction(ui->menuPlayAudio);
@@ -2269,6 +2288,7 @@ void MainWindow::setAudioTracks(QList<Track> tracks)
             setVolumeMuteState(false, true);
         });
         ui->menuPlayAudio->addAction(action);
+        muteMenu->addAction(action);
     }
     ui->menuPlayAudio->addSeparator();
     ui->menuPlayAudio->addMenu(ui->menuPlayAudioFilters);
@@ -2319,7 +2339,9 @@ void MainWindow::setVideoTracks(QList<Track> tracks)
 void MainWindow::setSubtitleTracks(QList<Track > tracks)
 {
     ui->menuPlaySubtitles->clear();
+    subsMenu->clear();
     ui->menuPlaySubtitles->setEnabled(false);
+    subsMenu->setEnabled(false);
     if (subtitleTracksGroup) {
         subtitleTracksGroup->deleteLater();
         subtitleTracksGroup = nullptr;
@@ -2332,6 +2354,7 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
     if (!hasSubs)
         return;
     ui->menuPlaySubtitles->setEnabled(true);
+    subsMenu->setEnabled(true);
     subtitleTracksGroup = new QActionGroup(this);
     for (const Track &track : tracks) {
         QAction *action = new QAction(ui->menuPlaySubtitles);
@@ -2346,6 +2369,7 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
                 setSubtitlesEnabled(true, true);
         });
         ui->menuPlaySubtitles->addAction(action);
+        subsMenu->addAction(action);
     }
     ui->menuPlaySubtitles->addSeparator();
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesEnabled);
@@ -3253,6 +3277,7 @@ void MainWindow::on_actionPlayStop_triggered()
     isPlaying = false;
     updateSize();
     ui->play->setFocus();
+    muteMenu->clear();
 }
 
 void MainWindow::on_actionPlayFrameBackward_triggered()

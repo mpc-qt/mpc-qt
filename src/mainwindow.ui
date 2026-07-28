@@ -564,6 +564,9 @@
                <property name="enabled">
                 <bool>false</bool>
                </property>
+               <property name="contextMenuPolicy">
+                <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
+               </property>
                <property name="toolTip">
                 <string>Subtitles</string>
                </property>
@@ -588,6 +591,9 @@
              </item>
              <item>
               <widget class="QPushButton" name="mute">
+               <property name="contextMenuPolicy">
+                <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
+               </property>
                <property name="toolTip">
                 <string>Mute</string>
                </property>
