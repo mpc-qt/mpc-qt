@@ -10,17 +10,19 @@ class VideoPreview : public QWidget {
         ~VideoPreview();
         void openFile(const QUrl &fileUrl);
         void updatePalette();
-        void show(const QString &text, double videoPosition, const QPoint &where, int mainWindowWidth);
+        void show(const QString &text, double videoPosition, const QPoint &where, int mainWindowWidth, int previewHeight);
         void hide();
         
     private:
         void setPreviewPosition(const QPoint &where, int mainWindowWidth);
         void show();
         void updateWidth(double newAspect);
+        void setYtdlFormat();
 
         QLabel *textLabel;
         MpvObject *mpv = nullptr;
         MpvGlWidget *videoWidget = nullptr;
+        double aspectRatio = 0;
         bool aspectRatioSet = false;
         bool shouldBeShown = false;
         QPoint previewBottomLeft;

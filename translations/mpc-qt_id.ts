@@ -4550,7 +4550,7 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation>Tampilkan pratinjau video (perlu mulai ulang)</translation>
+        <translation type="vanished">Tampilkan pratinjau video (perlu mulai ulang)</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
@@ -4666,6 +4666,10 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Increase maximum volume to:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required), set its height to (% of screen):</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

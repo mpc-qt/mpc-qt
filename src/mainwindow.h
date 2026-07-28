@@ -275,7 +275,7 @@ public slots:
     void setMouseHideTimeWindowed(int msec);
     void setBottomAreaBehavior(Helpers::ControlHiding method);
     void setBottomAreaHideTime(int milliseconds);
-    void setVideoPreview(bool enable);
+    void setVideoPreview(bool enable, int heightPercent);
     void setTimeTooltip(bool show, bool above);
     void setOsdTimerOnSeek(bool enabled);
     void setFullscreenHidePanels(bool hidden);
@@ -575,6 +575,7 @@ private:
     int currentAngle = 0;
     QUrl currentFile;
     QString currentFileTitle;
+    int previewHeightPercent = 0;
 
     IconThemer themer;
     QList<QAction *> menuFavoritesTail;

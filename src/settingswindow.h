@@ -185,7 +185,7 @@ signals:
     void volumeMax(int maximum);
     void mpvMouseEvents(bool yes);
     void mpvKeyEvents(bool yes);
-    void videoPreview(bool enable);
+    void videoPreview(bool enable, int heightPercent);
     void timeTooltip(bool yes, bool above);
     void osdTimerOnSeek(bool yes);
 

@@ -4547,10 +4547,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Show video preview (restart required)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Replay Gain</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4592,6 +4588,10 @@ media file played</source>
     </message>
     <message>
         <source>Increase maximum volume to:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required), set its height to (% of screen):</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

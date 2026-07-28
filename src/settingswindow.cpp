@@ -1112,7 +1112,7 @@ void SettingsWindow::sendSignals()
     emit loopFolder(WIDGET_LOOKUP(ui->tweaksLoopFolder).toBool());
     emit mpvMouseEvents(WIDGET_LOOKUP(ui->tweaksMpvMouseEvents).toBool());
     emit mpvKeyEvents(WIDGET_LOOKUP(ui->tweaksMpvKeyEvents).toBool());
-    emit videoPreview(WIDGET_LOOKUP(ui->tweaksVideoPreview).toBool());
+    emit videoPreview(WIDGET_LOOKUP(ui->tweaksVideoPreview).toBool(), WIDGET_LOOKUP(ui->tweaksVideoPreviewHeight).toInt());
     emit timeTooltip(WIDGET_LOOKUP(ui->tweaksTimeTooltip).toBool(),
                      WIDGET_LOOKUP(ui->tweaksTimeTooltipLocation).toInt() == 0);
     emit osdTimerOnSeek(WIDGET_LOOKUP(ui->tweaksOsdTimerOnSeek).toBool());
