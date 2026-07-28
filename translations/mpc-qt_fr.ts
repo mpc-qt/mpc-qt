@@ -1444,7 +1444,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Erreur</translation>
+        <translation>Erreur</translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
@@ -4710,7 +4710,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>%</source>
-        <translation>%</translation>
+        <translation> %</translation>
     </message>
     <message>
         <source>Enable background box</source>
@@ -4850,7 +4850,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Increase maximum volume to:</source>
-        <translation type="unfinished"></translation>
+        <translation>Augmenter le volume maximum à&#xa0;:</translation>
     </message>
 </context>
 <context>
