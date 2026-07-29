@@ -32,6 +32,7 @@ else()
 endif()
 
 find_package(Qt6 REQUIRED COMPONENTS Gui LinguistTools Network OpenGLWidgets Svg Widgets)
+message(STATUS "Qt version: ${Qt6Core_VERSION}")
 find_package(PkgConfig REQUIRED)
 find_package(Boost CONFIG QUIET)
 if (Boost_FOUND)
