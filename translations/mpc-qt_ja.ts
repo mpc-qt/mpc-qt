@@ -1492,7 +1492,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">エラー</translation>
+        <translation>エラー</translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
@@ -4918,7 +4918,7 @@ media file played</source>
     </message>
     <message>
         <source>Increase maximum volume to:</source>
-        <translation type="unfinished"></translation>
+        <translation>最大音量を上げる :</translation>
     </message>
 </context>
 <context>
