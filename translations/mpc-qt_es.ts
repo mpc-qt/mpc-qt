@@ -2016,6 +2016,10 @@ No action will be triggered.</source>
         <source>Reset to System</source>
         <translation>Reiniciar a los valores predefinidos</translation>
     </message>
+    <message>
+        <source>Dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PlaybackManager</name>

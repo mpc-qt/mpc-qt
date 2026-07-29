@@ -2127,6 +2127,14 @@ No s&apos;activarà cap acció.</translation>
         <translation>Restablir als valors del sistema</translation>
     </message>
     <message>
+        <source>Dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="obsolete">Utilitzar colors foscos</translation>
+    </message>
+    <message>
         <source>Generate</source>
         <translation type="vanished">Generar</translation>
     </message>

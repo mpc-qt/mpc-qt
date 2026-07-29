@@ -2171,6 +2171,14 @@ No action will be triggered.</source>
         <translation>既定へリセット</translation>
     </message>
     <message>
+        <source>Dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="obsolete">ダークカラーを使用</translation>
+    </message>
+    <message>
         <source>Generate</source>
         <translation type="vanished">生成</translation>
     </message>

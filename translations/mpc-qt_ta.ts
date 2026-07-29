@@ -2151,6 +2151,10 @@ No action will be triggered.</source>
         <translation>கணினிக்கு மீட்டமை</translation>
     </message>
     <message>
+        <source>Dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Generate</source>
         <translation type="vanished">உருவாக்கு</translation>
     </message>

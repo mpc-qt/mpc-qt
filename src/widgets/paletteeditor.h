@@ -5,6 +5,8 @@
 #include <QWidget>
 #include <QVariant>
 
+class QPushButton;
+
 class PaletteBox : public QWidget
 {
     Q_OBJECT
@@ -47,6 +49,7 @@ public:
 
     bool isEnabled() const;
     void setEnabled(bool enabled);
+    void setUseDarkColors(bool enabled);
 
     // custom variant et al routines are needed for json serialisation
     QVariant variant();
@@ -70,8 +73,10 @@ private slots:
 private:
     QPalette system;
     QPalette selected;
+    QPushButton *resetButton;
     BoxMap boxes;
     bool editorEnabled = false;
+    bool useDarkColors = false;
 };
 
 #endif // PALETTEEDITOR_H

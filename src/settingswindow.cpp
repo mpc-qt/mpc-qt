@@ -1436,6 +1436,11 @@ void SettingsWindow::on_interfaceWidgetCustom_toggled(bool checked)
     paletteEditor->setEnabled(checked);
 }
 
+void SettingsWindow::on_interfaceWidgetDark_toggled(bool checked)
+{
+    paletteEditor->setUseDarkColors(checked);
+}
+
 void SettingsWindow::on_interfaceIconsCustomBrowse_clicked()
 {
     static QFileDialog::Options options = QFileDialog::Options();

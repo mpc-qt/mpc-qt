@@ -2105,6 +2105,10 @@ No action will be triggered.</source>
         <translation>Сбросить на системные</translation>
     </message>
     <message>
+        <source>Dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Generate</source>
         <translation type="vanished">Сгенерировать</translation>
     </message>

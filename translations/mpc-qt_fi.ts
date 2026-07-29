@@ -1983,6 +1983,10 @@ Mitään toimintoa ei suoriteta.</translation>
         <translation>Palauta Järjestelmään</translation>
     </message>
     <message>
+        <source>Dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Generate</source>
         <translation type="vanished">Luo</translation>
     </message>

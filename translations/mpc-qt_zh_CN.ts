@@ -2127,6 +2127,14 @@ No action will be triggered.</source>
         <translation>重置为系统默认值</translation>
     </message>
     <message>
+        <source>Dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="obsolete">使用深色</translation>
+    </message>
+    <message>
         <source>Generate</source>
         <translation type="vanished">生成</translation>
     </message>
