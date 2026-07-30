@@ -2128,7 +2128,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Dark colors</source>
-        <translation type="unfinished"></translation>
+        <translation>深色</translation>
     </message>
     <message>
         <source>Use dark colors</source>
@@ -4806,7 +4806,7 @@ media file played</source>
     </message>
     <message>
         <source>Show video preview (restart required), set its height to (% of screen):</source>
-        <translation type="unfinished"></translation>
+        <translation>显示视频预览（需要重启），将其高度设置为（屏幕的百分比）：</translation>
     </message>
     <message>
         <source>Minimize to tray</source>
