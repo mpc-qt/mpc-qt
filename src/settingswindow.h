@@ -88,6 +88,8 @@ signals:
 
     void appendToQuickPlaylist(bool yes);
     void trayIcon(bool yes);
+    void closeToTray(bool yes);
+    void minimizeToTray(bool yes);
     void showOsd(bool yes);
     void limitProportions(bool yes);
     void disableOpenDiscMenu(bool yes);
@@ -235,6 +237,8 @@ private slots:
     bool eventFilter(QObject *obj, QEvent *event) override;
 
     void on_playerOpenNew_toggled(bool checked);
+
+    void on_playerTrayIcon_toggled(bool checked);
 
     void on_playerAppendToQuickPlaylist_toggled(bool checked);
 

@@ -719,6 +719,8 @@ void SettingsWindow::sendSignals()
 
     emit appendToQuickPlaylist(WIDGET_LOOKUP(ui->playerAppendToQuickPlaylist).toBool());
     emit trayIcon(WIDGET_LOOKUP(ui->playerTrayIcon).toBool());
+    emit closeToTray(WIDGET_LOOKUP(ui->playerCloseToTray).toBool());
+    emit minimizeToTray(WIDGET_LOOKUP(ui->playerMinimizeToTray).toBool());
     emit showOsd(WIDGET_LOOKUP(ui->playerOSD).toBool());
     emit limitProportions(WIDGET_LOOKUP(ui->playerLimitProportions).toBool());
     emit disableOpenDiscMenu(WIDGET_LOOKUP(ui->playerDisableOpenDisc).toBool());
@@ -1401,8 +1403,19 @@ void SettingsWindow::keyPressEvent(QKeyEvent *event)
 void SettingsWindow::on_playerOpenNew_toggled(bool checked)
 {
     ui->playerAppendToQuickPlaylist->setEnabled(!checked);
-    if (checked)
+    if (checked) {
         ui->playerAppendToQuickPlaylist->setChecked(false);
+        ui->playerCloseToTray->setChecked(false);
+        ui->playerMinimizeToTray->setChecked(false);
+    }
+}
+
+void SettingsWindow::on_playerTrayIcon_toggled(bool checked)
+{
+    if (!checked) {
+        ui->playerCloseToTray->setChecked(false);
+        ui->playerMinimizeToTray->setChecked(false);
+    }
 }
 
 void SettingsWindow::on_playerAppendToQuickPlaylist_toggled(bool checked)

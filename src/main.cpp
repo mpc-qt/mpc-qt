@@ -731,6 +731,10 @@ void Flow::setupSettingsConnections()
     // settings -> mainwindow
     connect(settingsWindow, &SettingsWindow::trayIcon,
             mainWindow, &MainWindow::setTrayIcon);
+    connect(settingsWindow, &SettingsWindow::closeToTray,
+            mainWindow, &MainWindow::setCloseToTray);
+    connect(settingsWindow, &SettingsWindow::minimizeToTray,
+            mainWindow, &MainWindow::setMinimizeToTray);
     connect(settingsWindow, &SettingsWindow::titleBarFormat,
             mainWindow, &MainWindow::setTitleBarFormat);
     connect(settingsWindow, &SettingsWindow::mouseWindowedMap,

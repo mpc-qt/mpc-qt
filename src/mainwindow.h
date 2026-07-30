@@ -250,6 +250,8 @@ public slots:
     void setFullscreenMode(bool fullscreenMode);
     void setNoVideoSize(const QSize &sz);
     void setTrayIcon(bool enabled);
+    void setCloseToTray(bool enabled);
+    void setMinimizeToTray(bool enabled);
     void setTitleBarFormat(Helpers::TitlePrefix titlebarFormat);
     void setWindowedMouseMap(const MouseStateMap &map);
     void setFullscreenMouseMap(const MouseStateMap &map);
@@ -491,6 +493,7 @@ private slots:
     void playlistWindow_windowDocked();
     void playlistWindow_playlistAddItem(const QUuid &playlistUuid);
     void hideTimer_timeout();
+    void trayIcon_activated(QSystemTrayIcon::ActivationReason reason);
 
     void on_actionFileLoadSubtitle_triggered();
 
@@ -525,6 +528,10 @@ private:
     QMenu *muteMenu = nullptr;
 
     bool freestanding_ = false;
+    bool closeToTray = false;
+    bool minimizeToTray = false;
+    bool isHiddenToTray = false;
+    bool reallyClose = false;
     Helpers::TitlePrefix titlebarFormat_ = Helpers::PrefixFileName;
     bool mainwindowIsClosing = false; // Prevents toggleViewAction from affecting saved setting for actionViewHidePlaylist
     DecorationState decorationState_ = AllDecorations;
