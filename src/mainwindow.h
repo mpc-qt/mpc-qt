@@ -117,6 +117,8 @@ private:
     void updateMouseHideTime();
     void updateDiscList();
     void showOsdTimer(bool onSeek);
+    void showSubsMenu();
+    void showMuteMenu();
     void resizePlaylistToFit();
     QList<QUrl> doQuickOpenFileDialog();
     void showStepAndSubsButtons(bool show);
@@ -519,6 +521,8 @@ private:
     QActionGroup* videoTracksGroup = nullptr;
     QActionGroup* subtitleTracksGroup = nullptr;
     QAction * escShortcutActionBackup = nullptr;
+    QMenu *subsMenu = nullptr;
+    QMenu *muteMenu = nullptr;
 
     bool freestanding_ = false;
     Helpers::TitlePrefix titlebarFormat_ = Helpers::PrefixFileName;
