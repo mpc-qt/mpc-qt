@@ -2107,6 +2107,14 @@ Aucune action ne sera déclenchée.</translation>
         <translation>Réinitialiser au système</translation>
     </message>
     <message>
+        <source>Dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="obsolete">Utiliser des couleurs sombres</translation>
+    </message>
+    <message>
         <source>Generate</source>
         <translation type="vanished">Générer</translation>
     </message>

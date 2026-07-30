@@ -2167,6 +2167,14 @@ Es wird keine Aktion ausgelöst.</translation>
         <translation>Auf Systemeinstellungen zurücksetzen</translation>
     </message>
     <message>
+        <source>Dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="obsolete">Dunkle Farben nutzen</translation>
+    </message>
+    <message>
         <source>Generate</source>
         <translation type="vanished">Erstellen</translation>
     </message>

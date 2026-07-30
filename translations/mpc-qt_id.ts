@@ -2106,6 +2106,14 @@ Tidak ada tindakan yang akan dipicu.</translation>
         <source>Reset to System</source>
         <translation>Atur Ulang ke Sistem</translation>
     </message>
+    <message>
+        <source>Dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="obsolete">Gunakan warna gelap</translation>
+    </message>
 </context>
 <context>
     <name>PlaybackManager</name>

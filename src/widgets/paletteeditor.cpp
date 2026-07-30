@@ -147,10 +147,10 @@ PaletteEditor::PaletteEditor(QWidget *parent) : QWidget(parent)
             this, &PaletteEditor::generateButtonWindow_clicked);
     layout->addWidget(button, row, col++);
 
-    button = new QPushButton(tr("Reset to System"), this);
-    connect(button, &QPushButton::clicked,
+    resetButton = new QPushButton(tr("Reset to System"), this);
+    connect(resetButton, &QPushButton::clicked,
             this, &PaletteEditor::resetPalette);
-    layout->addWidget(button, row, col++);
+    layout->addWidget(resetButton, row, col++);
 
     setLayout(layout);
 
@@ -245,6 +245,12 @@ void PaletteEditor::setEnabled(bool enabled)
     editorEnabled = enabled;
 }
 
+void PaletteEditor::setUseDarkColors(bool enabled)
+{
+    useDarkColors = enabled;
+    resetButton->setText(enabled ? tr("Dark colors") : tr("Reset to System"));
+}
+
 QVariant PaletteEditor::variant()
 {
     QVariant v = paletteToVariant(selected);
@@ -296,7 +302,7 @@ void PaletteEditor::setVariant(const QVariant &value)
 
 void PaletteEditor::resetPalette()
 {
-    setPalette(system);
+    setPalette(useDarkColors ? darkPalette() : system);
 }
 
 void PaletteEditor::colorField_valueSelected(PaletteEditor::ColorPair entry, QColor color)

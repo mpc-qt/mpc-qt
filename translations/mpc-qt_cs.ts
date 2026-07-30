@@ -2145,6 +2145,14 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="obsolete">Použít tmavé barvy</translation>
+    </message>
+    <message>
         <source>Generate</source>
         <translation type="vanished">Generate</translation>
     </message>

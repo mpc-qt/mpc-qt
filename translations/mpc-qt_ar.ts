@@ -1932,6 +1932,10 @@ No action will be triggered.</source>
         <source>Reset to System</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PlaybackManager</name>
