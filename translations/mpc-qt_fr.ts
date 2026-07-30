@@ -4726,7 +4726,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation>Afficher l&apos;aperçu vidéo (redémarrage requis)</translation>
+        <translation type="vanished">Afficher l&apos;aperçu vidéo (redémarrage requis)</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
@@ -4851,6 +4851,10 @@ fichier média lu</translation>
     <message>
         <source>Increase maximum volume to:</source>
         <translation>Augmenter le volume maximum à&#xa0;:</translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required), set its height to (% of screen):</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

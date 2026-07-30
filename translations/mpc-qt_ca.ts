@@ -4742,7 +4742,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation>Mostrar la previsualització de vídeo (requereix reiniciar)</translation>
+        <translation type="vanished">Mostrar la previsualització de vídeo (requereix reiniciar)</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
@@ -4858,6 +4858,10 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Increase maximum volume to:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required), set its height to (% of screen):</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

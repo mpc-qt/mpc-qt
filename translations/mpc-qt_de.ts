@@ -4746,7 +4746,7 @@ media file played</source>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation>Video-Vorschau anzeigen (erfordert Neustart)</translation>
+        <translation type="vanished">Video-Vorschau anzeigen (erfordert Neustart)</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
@@ -4862,6 +4862,10 @@ media file played</source>
     </message>
     <message>
         <source>Increase maximum volume to:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required), set its height to (% of screen):</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

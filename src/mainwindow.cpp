@@ -2088,7 +2088,7 @@ void MainWindow::setBottomAreaHideTime(int milliseconds)
     hideTimer.setInterval(milliseconds);
 }
 
-void MainWindow::setVideoPreview(bool enable)
+void MainWindow::setVideoPreview(bool enable, int heightPercent)
 {
     if (!videoPreview && enable) {
         videoPreview = new VideoPreview(this);
@@ -2098,6 +2098,7 @@ void MainWindow::setVideoPreview(bool enable)
         videoPreview->deleteLater();
         videoPreview = nullptr;
     }
+    previewHeightPercent = heightPercent;
 }
 
 void MainWindow::setTimeTooltip(bool shown, bool above)
@@ -3573,8 +3574,13 @@ void MainWindow::position_hoverValue(double position, QString chapterInfo, doubl
                                       chapterInfo.isEmpty() ? "" : " - ",
                                       chapterInfo);
     QPoint where = positionSlider_->mapTo(this, QPoint(std::round(mouseX), timeTooltipAbove ? -1 : 65));
-    if (videoPreview && isVideo_ && !isDragging)
-        videoPreview->show(t, position, where, this->width());
+    if (videoPreview && isVideo_ && !isDragging) {
+        auto screen = this->screen();
+        if (!screen)
+            return;
+        int previewHeight = screen->geometry().height() * previewHeightPercent / 100;
+        videoPreview->show(t, position, where, this->width(), previewHeight);
+    }
     else if (tooltip) {
         QString textTemplate = QString("%1%2%3").arg(Helpers::toDateFormatFixed(
                                                         0,

@@ -4,7 +4,6 @@
 static constexpr char logModule[] =  "videopreview";
 static constexpr int previewMarginX = 20;
 static constexpr int labelHeight = 20;
-static constexpr int videoHeight = 180;
 
 VideoPreview::VideoPreview(QWidget *parent) : QWidget(parent)
 {
@@ -23,7 +22,7 @@ VideoPreview::VideoPreview(QWidget *parent) : QWidget(parent)
     emit mpv->ctrlSetOptionVariant("hr-seek", "no");
     emit mpv->ctrlSetOptionVariant("audio", "no");
     emit mpv->ctrlSetOptionVariant("audio-display", "no");
-    emit mpv->ctrlSetOptionVariant("ytdl-format", QString("bestvideo[height>=?%1]/best[height>=?%1]/bestvideo/best").arg(videoHeight));
+    setYtdlFormat();
     emit mpv->ctrlSetOptionVariant("ytdl-raw-options", "js-runtimes=quickjs,"\
                                                     "remote-components=ejs:github,"\
                                                     "format-sort=[+size,+br,+res,+fps]");
@@ -54,6 +53,7 @@ void VideoPreview::openFile(const QUrl &fileUrl)
     mpv->urlOpen(fileUrl);
     mpv->setPaused(true);
     aspectRatioSet = false;
+    aspectRatio = 0;
 }
 
 void VideoPreview::updatePalette()
@@ -64,9 +64,15 @@ void VideoPreview::updatePalette()
     textLabel->setPalette(palette);
 }
 
-void VideoPreview::show(const QString &text, double videoPosition, const QPoint &where, int mainWindowWidth)
+void VideoPreview::show(const QString &text, double videoPosition, const QPoint &where,
+                        int mainWindowWidth, int previewHeight)
 {
     textLabel->setText(text);
+    if (previewHeight != videoWidget->height()) {
+        videoWidget->setFixedHeight(previewHeight);
+        updateWidth(aspectRatio);
+        setYtdlFormat();
+    }
     mpv->seek(videoPosition, false, true, true);
     mpv->setPaused(true);
     videoWidget->update();
@@ -91,14 +97,21 @@ void VideoPreview::updateWidth(double newAspect)
         aspectRatioSet = false;
         return;
     }
-    int newWidth = int(videoHeight * newAspect);
-    videoWidget->setFixedSize(newWidth, videoHeight);
+    aspectRatio = newAspect;
+    int newWidth = int(videoWidget->height() * newAspect);
+    videoWidget->setFixedWidth(newWidth);
     textLabel->setFixedSize(newWidth, labelHeight);
     aspectRatioSet = true;
     if (shouldBeShown)
         show();
     else
         hide();
+}
+
+void VideoPreview::setYtdlFormat()
+{
+    emit mpv->ctrlSetOptionVariant("ytdl-format",
+        QString("bestvideo[height>=?%1]/best[height>=?%1]/bestvideo/best").arg(videoWidget->height()));
 }
 
 void VideoPreview::show()

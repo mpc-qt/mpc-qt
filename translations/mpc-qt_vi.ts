@@ -4787,7 +4787,7 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation>Hiển thị bản xem trước video (cần khởi động lại)</translation>
+        <translation type="vanished">Hiển thị bản xem trước video (cần khởi động lại)</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
@@ -4899,6 +4899,10 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Increase maximum volume to:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required), set its height to (% of screen):</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

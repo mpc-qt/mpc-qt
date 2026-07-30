@@ -7905,7 +7905,46 @@ media file played</string>
              </property>
             </widget>
            </item>
-           <item row="9" column="0" colspan="2">
+           <item row="7" column="0">
+            <layout class="QHBoxLayout" name="tweaksMaxVolumeLayout">
+             <item>
+              <widget class="QCheckBox" name="tweaksMaxVolume">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="text">
+                <string>Increase maximum volume to:</string>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="tweaksMaxVolumeValue">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="suffix">
+                <string>%</string>
+               </property>
+               <property name="minimum">
+                <number>110</number>
+               </property>
+               <property name="maximum">
+                <number>2000</number>
+               </property>
+               <property name="singleStep">
+                <number>10</number>
+               </property>
+               <property name="value">
+                <number>130</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="8" column="0" colspan="2">
             <widget class="QCheckBox" name="tweaksPreferWayland">
              <property name="enabled">
               <bool>false</bool>
@@ -7918,29 +7957,46 @@ media file played</string>
              </property>
             </widget>
            </item>
-           <item row="10" column="0" colspan="2">
+           <item row="9" column="0" colspan="2">
             <widget class="QCheckBox" name="tweaksMpvMouseEvents">
              <property name="text">
               <string>Send mouse events to mpv</string>
              </property>
             </widget>
            </item>
-           <item row="11" column="0" colspan="2">
+           <item row="10" column="0" colspan="2">
             <widget class="QCheckBox" name="tweaksMpvKeyEvents">
              <property name="text">
               <string>Send key events to mpv</string>
              </property>
             </widget>
            </item>
-           <item row="12" column="0" colspan="2">
-            <widget class="QCheckBox" name="tweaksVideoPreview">
-             <property name="text">
-              <string>Show video preview (restart required)</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
+           <item row="12" column="0">
+            <layout class="QHBoxLayout" name="tweaksVideoPreviewLayout">
+             <item>
+              <widget class="QCheckBox" name="tweaksVideoPreview">
+               <property name="text">
+                <string>Show video preview (restart required), set its height to (% of screen):</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="tweaksVideoPreviewHeight">
+               <property name="minimum">
+                <number>5</number>
+               </property>
+               <property name="maximum">
+                <number>80</number>
+               </property>
+               <property name="value">
+                <number>20</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item row="13" column="0" colspan="2">
             <layout class="QHBoxLayout" name="tweaksTimeTooltipLayout" stretch="0,0">
@@ -8086,45 +8142,6 @@ media file played</string>
               </size>
              </property>
             </spacer>
-           </item>
-           <item row="7" column="0">
-            <layout class="QHBoxLayout" name="tweaksMaxVolumeLayout">
-             <item>
-              <widget class="QCheckBox" name="tweaksMaxVolume">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
-               <property name="text">
-                <string>Increase maximum volume to:</string>
-               </property>
-               <property name="checked">
-                <bool>false</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QSpinBox" name="tweaksMaxVolumeValue">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-               <property name="suffix">
-                <string>%</string>
-               </property>
-               <property name="minimum">
-                <number>110</number>
-               </property>
-               <property name="maximum">
-                <number>2000</number>
-               </property>
-               <property name="singleStep">
-                <number>10</number>
-               </property>
-               <property name="value">
-                <number>130</number>
-               </property>
-              </widget>
-             </item>
-            </layout>
            </item>
           </layout>
          </widget>
