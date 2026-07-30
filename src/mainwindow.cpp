@@ -402,8 +402,14 @@ void MainWindow::changeEvent(QEvent *event)
             videoPreview->updatePalette();
         ui->statusTime->updatePalette();
     }
-    else if (event->type() == QEvent::WindowStateChange && isMaximized())
-        emit windowMaximized();
+    else if (event->type() == QEvent::WindowStateChange) {
+        if (isMaximized())
+            emit windowMaximized();
+        else if (isMinimized() && minimizeToTray) {
+            isHiddenToTray = true;
+            hide();
+        }
+    }
 }
 
 void MainWindow::moveEvent(QMoveEvent *event)
@@ -459,6 +465,12 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     Logger::log(logModule, "closeEvent");
+    if (closeToTray && !isHiddenToTray && !reallyClose) {
+        hide();
+        isHiddenToTray = true;
+        event->ignore();
+        return;
+    }
     bool showPlaylist = ui->actionViewHidePlaylist->isChecked();
     playlistWindow_->close();
     ui->actionViewHidePlaylist->setChecked(showPlaylist);
@@ -733,6 +745,8 @@ void MainWindow::setupTrayIcon()
     Logger::log(logModule, "rendering trayIcon sizes");
     trayIcon->setIcon(createIconFromSvg(mpcQtIconPath, 64));
     Logger::log(logModule, "rendering trayIcon sizes done");
+    connect(trayIcon, &QSystemTrayIcon::activated,
+            this, &MainWindow::trayIcon_activated);
 }
 
 void MainWindow::setupActionGroups()
@@ -1817,6 +1831,16 @@ void MainWindow::setTrayIcon(bool enabled)
         trayIcon->hide();
 }
 
+void MainWindow::setCloseToTray(bool enabled)
+{
+    closeToTray = enabled;
+}
+
+void MainWindow::setMinimizeToTray(bool enabled)
+{
+    minimizeToTray = enabled;
+}
+
 void MainWindow::setTitleBarFormat(Helpers::TitlePrefix titlebarFormat)
 {
     titlebarFormat_ = titlebarFormat;
@@ -1992,6 +2016,8 @@ void MainWindow::setMediaTitle(const QString &title)
         newTitle = QString();
     if (!newTitle.isEmpty())
         windowTitle = newTitle;
+    if (trayIcon)
+        trayIcon->setToolTip(windowTitle);
 
     if (freestanding_)
         windowTitle.append(tr(" [Freestanding]"));
@@ -2709,6 +2735,7 @@ void MainWindow::on_actionFileClose_triggered()
 
 void MainWindow::on_actionFileExit_triggered()
 {
+    reallyClose = true;
     close();
 }
 
@@ -3670,6 +3697,17 @@ void MainWindow::hideTimer_timeout()
     if (fullscreenMode_ &&
             !ui->bottomArea->geometry().contains(mpvw->mapFromGlobal(QCursor::pos())))
         ui->bottomArea->hide();
+}
+
+void MainWindow::trayIcon_activated(QSystemTrayIcon::ActivationReason reason)
+{
+    if (reason == QSystemTrayIcon::Trigger || reason == QSystemTrayIcon::DoubleClick) {
+        isHiddenToTray ? show() : hide();
+        isHiddenToTray = !isHiddenToTray;
+    } else if (reason == QSystemTrayIcon::MiddleClick) {
+        reallyClose = true;
+        close();
+    }
 }
 
 void MainWindow::on_actionPlaylistRemoveSelected_triggered()
