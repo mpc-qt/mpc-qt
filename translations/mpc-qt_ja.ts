@@ -2172,7 +2172,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Dark colors</source>
-        <translation type="unfinished"></translation>
+        <translation>ダークカラー</translation>
     </message>
     <message>
         <source>Use dark colors</source>
@@ -4930,7 +4930,7 @@ media file played</source>
     </message>
     <message>
         <source>Show video preview (restart required), set its height to (% of screen):</source>
-        <translation type="unfinished"></translation>
+        <translation>動画のプレビューを表示 (再起動が必要)、高さの設定 (画面の ％) :</translation>
     </message>
     <message>
         <source>Minimize to tray</source>
