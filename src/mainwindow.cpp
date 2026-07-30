@@ -2016,6 +2016,8 @@ void MainWindow::setMediaTitle(const QString &title)
         newTitle = QString();
     if (!newTitle.isEmpty())
         windowTitle = newTitle;
+    if (trayIcon)
+        trayIcon->setToolTip(windowTitle);
 
     if (freestanding_)
         windowTitle.append(tr(" [Freestanding]"));
