@@ -2108,7 +2108,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Dark colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleurs sombres</translation>
     </message>
     <message>
         <source>Use dark colors</source>
@@ -4862,7 +4862,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Show video preview (restart required), set its height to (% of screen):</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher l&apos;aperçu vidéo (redémarrage requis), définir sa hauteur à (% de l&apos;écran)&#xa0;:</translation>
     </message>
     <message>
         <source>Minimize to tray</source>
