@@ -4934,11 +4934,11 @@ media file played</source>
     </message>
     <message>
         <source>Minimize to tray</source>
-        <translation type="unfinished"></translation>
+        <translation>トレイに最小化</translation>
     </message>
     <message>
         <source>Close to tray</source>
-        <translation type="unfinished"></translation>
+        <translation>閉じるでトレイへ</translation>
     </message>
 </context>
 <context>
