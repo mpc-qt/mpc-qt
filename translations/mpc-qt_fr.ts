@@ -4866,11 +4866,11 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Minimize to tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Réduire dans la zone de notification</translation>
     </message>
     <message>
         <source>Close to tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Fermer dans la zone de notification</translation>
     </message>
 </context>
 <context>
