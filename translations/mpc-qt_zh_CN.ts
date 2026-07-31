@@ -4810,11 +4810,11 @@ media file played</source>
     </message>
     <message>
         <source>Minimize to tray</source>
-        <translation type="unfinished"></translation>
+        <translation>最小化到托盘</translation>
     </message>
     <message>
         <source>Close to tray</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭到托盘</translation>
     </message>
 </context>
 <context>
