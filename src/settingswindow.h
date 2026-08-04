@@ -238,8 +238,6 @@ private slots:
 
     void on_playerOpenNew_toggled(bool checked);
 
-    void on_playerTrayIcon_toggled(bool checked);
-
     void on_playerAppendToQuickPlaylist_toggled(bool checked);
 
     void on_playerKeepHistory_toggled(bool checked);
