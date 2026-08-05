@@ -192,15 +192,15 @@
     </message>
     <message>
         <source>Decrease Zoom</source>
-        <translation>Snížit přiblížení</translation>
+        <translation>Oddálit</translation>
     </message>
     <message>
         <source>Increase Zoom</source>
-        <translation>Zvýšit přiblížení</translation>
+        <translation>Přiblížit</translation>
     </message>
     <message>
         <source>Reset Zoom</source>
-        <translation>Resetovat přiblížení</translation>
+        <translation>Resetovat přiblížení/oddálení</translation>
     </message>
     <message>
         <source>Skip Backward / Previous</source>
@@ -408,7 +408,7 @@ Chcete ji přiřadit namísto k &quot;%3&quot;?</translation>
     <name>LogWindow</name>
     <message>
         <source>Log Messages</source>
-        <translation>Záznamové zprávy</translation>
+        <translation>Zprávy logu</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -435,7 +435,7 @@ Chcete ji přiřadit namísto k &quot;%3&quot;?</translation>
     <name>Logger</name>
     <message>
         <source>Ambiguous shortcut detected</source>
-        <translation>Byla zjištěna nejednoznačná zkratka</translation>
+        <translation>Zjištěna nejednoznačná zkratka</translation>
     </message>
     <message>
         <source>The key sequence &quot;%1&quot; is used for more than one command. Use the &quot;Keys&quot; page in Options to reassign it.
@@ -464,15 +464,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Skip Backward</source>
-        <translation>Přeskočit zpátky</translation>
+        <translation>Přeskočit zpět</translation>
     </message>
     <message>
         <source>Speed Decrease</source>
-        <translation>Zpomalení rychlosti</translation>
+        <translation>Snížení rychlosti</translation>
     </message>
     <message>
         <source>Speed Increase</source>
-        <translation>Zrychlení</translation>
+        <translation>Zvýšení rychlosti</translation>
     </message>
     <message>
         <source>Skip Forward</source>
@@ -544,19 +544,19 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Presets</source>
-        <translation>&amp;Přednastavení</translation>
+        <translation>Př&amp;ednastavení</translation>
     </message>
     <message>
         <source>&amp;Zoom</source>
-        <translation>Při&amp;blížení</translation>
+        <translation>Při&amp;blížení/Oddálení</translation>
     </message>
     <message>
         <source>On &amp;Top</source>
-        <translation>&amp;V popředí</translation>
+        <translation>&amp;Navrchu</translation>
     </message>
     <message>
         <source>OS&amp;D</source>
-        <translation type="unfinished"></translation>
+        <translation>OS&amp;D</translation>
     </message>
     <message>
         <source>P&amp;lay</source>
@@ -608,7 +608,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Extra Play Times</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Další počet přehrání</translation>
     </message>
     <message>
         <source>&amp;Quick Open File...</source>
@@ -688,11 +688,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Upload...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nahrát...</translation>
     </message>
     <message>
         <source>&amp;Download...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Stáhnout...</translation>
     </message>
     <message>
         <source>D</source>
@@ -720,7 +720,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Hide &amp;Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Schovat menu</translation>
     </message>
     <message>
         <source>Ctrl+0</source>
@@ -728,7 +728,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>See&amp;k Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Posuvník pozice</translation>
     </message>
     <message>
         <source>Ctrl+1</source>
@@ -752,7 +752,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>S&amp;tatistiky</translation>
     </message>
     <message>
         <source>Ctrl+4</source>
@@ -760,7 +760,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>S&amp;tatus</source>
-        <translation type="unfinished"></translation>
+        <translation>Sta&amp;v</translation>
     </message>
     <message>
         <source>Ctrl+5</source>
@@ -776,7 +776,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Play&amp;list</source>
-        <translation type="unfinished"></translation>
+        <translation>P&amp;laylist</translation>
     </message>
     <message>
         <source>Ctrl+7</source>
@@ -824,7 +824,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>F&amp;ullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Celá obrazovka</translation>
     </message>
     <message>
         <source>Alt+Return</source>
@@ -888,7 +888,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Options...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Možnosti...</translation>
     </message>
     <message>
         <source>O</source>
@@ -1172,7 +1172,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Search Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Vy&amp;hledávat v playlistu</translation>
     </message>
     <message>
         <source>Ctrl+F</source>
@@ -1180,7 +1180,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Quick Queue Toggle</source>
-        <translation type="unfinished"></translation>
+        <translation>Př&amp;epínač rychlé fronty</translation>
     </message>
     <message>
         <source>Q</source>
@@ -1188,7 +1188,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Finish Searching</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ukončit vyhledávání</translation>
     </message>
     <message>
         <source>Esc</source>
@@ -1196,7 +1196,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation>&amp;Nová záložka</translation>
+        <translation>&amp;Nová karta</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
@@ -1204,11 +1204,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zavřít kartu</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation type="unfinished">Zavřít záložku</translation>
+        <translation>Zavřít kartu</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1216,7 +1216,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>&amp;Duplikovat záložku</translation>
+        <translation>Dup&amp;likovat kartu</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
@@ -1224,7 +1224,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Importovat playlist</translation>
     </message>
     <message>
         <source>Ctrl+Shift+O</source>
@@ -1232,7 +1232,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>E&amp;xport Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>E&amp;xportovat playlist</translation>
     </message>
     <message>
         <source>Ctrl+Shift+S</source>
@@ -1240,7 +1240,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Queue &amp;Visible</source>
-        <translation type="unfinished"></translation>
+        <translation>Viditelná &amp;fronta</translation>
     </message>
     <message>
         <source>Ctrl+Shift+Q</source>
@@ -1272,7 +1272,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Copy Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kopírovat výběr</translation>
     </message>
     <message>
         <source>Ctrl+Shift+C</source>
@@ -1288,7 +1288,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>C&amp;opy Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kopírovat frontu</translation>
     </message>
     <message>
         <source>Ctrl+Alt+C</source>
@@ -1296,7 +1296,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Paste and Q&amp;ueue</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Vložit a zařadit do fronty</translation>
     </message>
     <message>
         <source>Ctrl+Alt+V</source>
@@ -1332,7 +1332,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>S&amp;how Quick Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Zo&amp;brazit rychlou frontu</translation>
     </message>
     <message>
         <source>Ctrl+`</source>
@@ -1396,7 +1396,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Escape Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Op&amp;ustit celou obrazovku</translation>
     </message>
     <message>
         <source>Enable &amp;Subtitles</source>
@@ -1412,7 +1412,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Lo&amp;g</source>
-        <translation type="unfinished"></translation>
+        <translation>Lo&amp;g</translation>
     </message>
     <message>
         <source>Once</source>
@@ -1556,7 +1556,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Controls in Fullscreen</source>
-        <translation>Ovládání v celé obrazovce</translation>
+        <translation>Ovládání v režimu celé obrazovky</translation>
     </message>
     <message>
         <source>i</source>
@@ -1912,11 +1912,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Play Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Přehrát vybrané</translation>
     </message>
     <message>
         <source>&amp;Remove Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Odstranit vybrané</translation>
     </message>
     <message>
         <source>&amp;Move File to Recycle Bin</source>
@@ -1940,7 +1940,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Pl&amp;aylists Backup</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Záloha playlistů</translation>
     </message>
     <message>
         <source>Decrease Delay</source>
@@ -2237,7 +2237,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>New Tab</source>
-        <translation>Nová záložka</translation>
+        <translation>Nová karta</translation>
     </message>
     <message>
         <source>Close Tab</source>
@@ -2245,7 +2245,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation>Duplikovat záložku</translation>
+        <translation>Duplikovat kartu</translation>
     </message>
     <message>
         <source>Import Playlist</source>
@@ -2253,7 +2253,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Export Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Exportovat playlist</translation>
     </message>
     <message>
         <source>Show Queue</source>
@@ -2269,7 +2269,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>New Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Nový playlist</translation>
     </message>
     <message>
         <source>Enter Playlist Name</source>
@@ -2365,7 +2365,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Export Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>E&amp;xportovat playlist</translation>
     </message>
     <message>
         <source>Repeat</source>
@@ -2397,7 +2397,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Export Playlist File</source>
-        <translation type="unfinished"></translation>
+        <translation>Exportovat playlistový soubor</translation>
     </message>
     <message>
         <source>Add Folder</source>
@@ -2695,7 +2695,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Export</source>
-        <translation>Výstup</translation>
+        <translation>Export</translation>
     </message>
     <message>
         <source>Encoding</source>
@@ -2707,7 +2707,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Logging</source>
-        <translation type="unfinished"></translation>
+        <translation>Logování</translation>
     </message>
     <message>
         <source>Miscellaneous</source>
@@ -2789,7 +2789,7 @@ media file played</source>
     </message>
     <message>
         <source>Remember last Pan-n-Scan Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapamatovat poslední přiblížení/oddálení posunu a ořezu</translation>
     </message>
     <message>
         <source>MIME types</source>
@@ -2945,11 +2945,11 @@ media file played</source>
     </message>
     <message>
         <source>Center window when zooming</source>
-        <translation>Vystředit okno při zoomování</translation>
+        <translation>Vycentrovat okno při přibližování/oddalování</translation>
     </message>
     <message>
         <source>Auto zoom</source>
-        <translation>Automatický zoom</translation>
+        <translation>Automatické přiblížení/oddálení</translation>
     </message>
     <message>
         <source>Autofit</source>
@@ -4182,7 +4182,7 @@ media file played</source>
     </message>
     <message>
         <source>Turn on logging (may produce stuttering)</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapnout logování (může způsobit trhání)</translation>
     </message>
     <message>
         <source>Debugging</source>
@@ -4234,11 +4234,11 @@ media file played</source>
     </message>
     <message>
         <source>Log file</source>
-        <translation type="unfinished"></translation>
+        <translation>Soubor logu</translation>
     </message>
     <message>
         <source>Create log file (contents will be overwritten)</source>
-        <translation type="unfinished"></translation>
+        <translation>Vytvořit soubor logu (obsah bude přepsán)</translation>
     </message>
     <message>
         <source>~/mpc-qt-log.txt</source>
@@ -4770,7 +4770,7 @@ media file played</source>
     </message>
     <message>
         <source>Choose Log File</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvolit soubor logu</translation>
     </message>
     <message>
         <source>File title</source>
