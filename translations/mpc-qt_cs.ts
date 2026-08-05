@@ -2361,7 +2361,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Importovat playlist</translation>
     </message>
     <message>
         <source>&amp;Export Playlist</source>
