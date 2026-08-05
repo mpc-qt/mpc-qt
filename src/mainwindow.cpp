@@ -1347,6 +1347,10 @@ void MainWindow::updateMouseHideTime()
                                  : mouseHideTimeWindowed);
 }
 
+void MainWindow::disableMouseHideTime()
+{
+    mpvObject_->setMouseHideTime(0);
+}
 
 void MainWindow::updateDiscList()
 {
@@ -3605,7 +3609,9 @@ void MainWindow::mpvw_customContextMenuRequested(const QPoint &pos)
 {
     if (mpvw == nullptr)
         return;
-    contextMenu->popup(mpvw->mapToGlobal(pos));
+    disableMouseHideTime();
+    contextMenu->exec(mpvw->mapToGlobal(pos));
+    updateMouseHideTime();
 }
 
 void MainWindow::position_sliderMoved(int position)
