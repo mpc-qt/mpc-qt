@@ -450,6 +450,9 @@ media file played</string>
               </item>
               <item>
                <widget class="QCheckBox" name="playerMinimizeToTray">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Minimize to tray</string>
                 </property>
@@ -457,6 +460,9 @@ media file played</string>
               </item>
               <item>
                <widget class="QCheckBox" name="playerCloseToTray">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Close to tray</string>
                 </property>
@@ -8782,6 +8788,22 @@ media file played</string>
    <sender>playerTrayIcon</sender>
    <signal>toggled(bool)</signal>
    <receiver>playerCloseToTray</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>718</x>
+     <y>84</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>718</x>
+     <y>112</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>playerTrayIcon</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>playerMinimizeToTray</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
