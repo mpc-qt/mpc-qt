@@ -1379,6 +1379,10 @@ Mitään toimintoa ei suoriteta.</translation>
         <translation>Puskuroidaan (%1%)</translation>
     </message>
     <message>
+        <source>Seeking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
