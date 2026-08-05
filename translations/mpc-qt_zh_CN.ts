@@ -1491,6 +1491,10 @@ No action will be triggered.</source>
         <translation>正在缓冲（%1%）</translation>
     </message>
     <message>
+        <source>Seeking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error</source>
         <translation>错误</translation>
     </message>
