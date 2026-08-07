@@ -2145,6 +2145,9 @@ media file played</string>
                            </item>
                            <item row="1" column="0">
                             <widget class="QLabel" name="sigmoidizedCenterLabel">
+                             <property name="enabled">
+                              <bool>false</bool>
+                             </property>
                              <property name="text">
                               <string>Center</string>
                              </property>
@@ -2152,6 +2155,9 @@ media file played</string>
                            </item>
                            <item row="1" column="1">
                             <widget class="QDoubleSpinBox" name="sigmoidizedCenter">
+                             <property name="enabled">
+                              <bool>false</bool>
+                             </property>
                              <property name="sizePolicy">
                               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                                <horstretch>0</horstretch>
@@ -2171,6 +2177,9 @@ media file played</string>
                            </item>
                            <item row="2" column="0">
                             <widget class="QLabel" name="sigmoidizedSlopeLabel">
+                             <property name="enabled">
+                              <bool>false</bool>
+                             </property>
                              <property name="text">
                               <string>Slope</string>
                              </property>
@@ -2178,6 +2187,9 @@ media file played</string>
                            </item>
                            <item row="2" column="1">
                             <widget class="QDoubleSpinBox" name="sigmoidizedSlope">
+                             <property name="enabled">
+                              <bool>false</bool>
+                             </property>
                              <property name="sizePolicy">
                               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                                <horstretch>0</horstretch>
@@ -4016,6 +4028,9 @@ media file played</string>
                   </item>
                   <item row="1" column="0">
                    <widget class="QLabel" name="debandIterationsLabel">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
                     <property name="text">
                      <string>Iterations</string>
                     </property>
@@ -4023,6 +4038,9 @@ media file played</string>
                   </item>
                   <item row="1" column="1">
                    <widget class="QSpinBox" name="debandIterations">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
                     <property name="minimum">
                      <number>1</number>
                     </property>
@@ -4033,6 +4051,9 @@ media file played</string>
                   </item>
                   <item row="2" column="0">
                    <widget class="QLabel" name="debandThresholdLabel">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
                     <property name="text">
                      <string>Threshold</string>
                     </property>
@@ -4040,6 +4061,9 @@ media file played</string>
                   </item>
                   <item row="2" column="1">
                    <widget class="QDoubleSpinBox" name="debandThreshold">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
                     <property name="decimals">
                      <number>6</number>
                     </property>
@@ -4053,6 +4077,9 @@ media file played</string>
                   </item>
                   <item row="3" column="0">
                    <widget class="QLabel" name="debandRangeLabel">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
                     <property name="text">
                      <string>Range</string>
                     </property>
@@ -4060,6 +4087,9 @@ media file played</string>
                   </item>
                   <item row="3" column="1">
                    <widget class="QDoubleSpinBox" name="debandRange">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
                     <property name="decimals">
                      <number>6</number>
                     </property>
@@ -4076,6 +4106,9 @@ media file played</string>
                   </item>
                   <item row="4" column="0">
                    <widget class="QLabel" name="debandGrainLabel">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
                     <property name="text">
                      <string>Grain</string>
                     </property>
@@ -4083,6 +4116,9 @@ media file played</string>
                   </item>
                   <item row="4" column="1">
                    <widget class="QDoubleSpinBox" name="debandGrain">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
                     <property name="decimals">
                      <number>6</number>
                     </property>
@@ -5800,6 +5836,12 @@ media file played</string>
           <layout class="QGridLayout" name="audioPageLayout">
            <item row="0" column="0" colspan="2">
             <widget class="QGroupBox" name="audioBox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>1</verstretch>
+              </sizepolicy>
+             </property>
              <property name="title">
               <string>Audio Renderer</string>
              </property>
@@ -5898,6 +5940,9 @@ media file played</string>
                   </item>
                   <item row="0" column="1">
                    <widget class="QDoubleSpinBox" name="audioWaitTime">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
                     <property name="suffix">
                      <string> seconds</string>
                     </property>
@@ -6186,6 +6231,9 @@ media file played</string>
               </item>
               <item row="1" column="0">
                <widget class="QLabel" name="audioAutoloadPathLabel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Paths</string>
                 </property>
@@ -6195,6 +6243,9 @@ media file played</string>
                <layout class="QHBoxLayout" name="audioAutoloadPathLayout">
                 <item>
                  <widget class="QLineEdit" name="audioAutoloadPath">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="placeholderText">
                    <string notr="true">./audio</string>
                   </property>
@@ -6202,6 +6253,9 @@ media file played</string>
                 </item>
                 <item>
                  <widget class="QPushButton" name="audioAutoloadPathReset">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="text">
                    <string>Reset</string>
                   </property>
@@ -6211,6 +6265,9 @@ media file played</string>
               </item>
               <item row="2" column="0">
                <widget class="QLabel" name="audioAutoloadMatchLabel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Match</string>
                 </property>
@@ -6218,6 +6275,9 @@ media file played</string>
               </item>
               <item row="2" column="1">
                <widget class="QComboBox" name="audioAutoloadMatch">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="currentIndex">
                  <number>0</number>
                 </property>
@@ -6300,6 +6360,9 @@ media file played</string>
               </item>
               <item row="1" column="0">
                <widget class="QLabel" name="replayGainPreampLabel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Pre-amp</string>
                 </property>
@@ -6307,6 +6370,9 @@ media file played</string>
               </item>
               <item row="1" column="1">
                <widget class="QDoubleSpinBox" name="replayGainPreamp">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="suffix">
                  <string> dB</string>
                 </property>
@@ -6326,6 +6392,9 @@ media file played</string>
               </item>
               <item row="2" column="0">
                <widget class="QLabel" name="replayGainFallbackLabel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Fallback</string>
                 </property>
@@ -6333,6 +6402,9 @@ media file played</string>
               </item>
               <item row="2" column="1">
                <widget class="QDoubleSpinBox" name="replayGainFallback">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="suffix">
                  <string> dB</string>
                 </property>
@@ -6352,6 +6424,9 @@ media file played</string>
               </item>
               <item row="3" column="0" colspan="2">
                <widget class="QCheckBox" name="replayGainClip">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Prevent clipping</string>
                 </property>
@@ -6362,19 +6437,6 @@ media file played</string>
               </item>
              </layout>
             </widget>
-           </item>
-           <item row="0" column="0">
-            <spacer name="verticalSpacer_3">
-             <property name="orientation">
-              <enum>Qt::Orientation::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-            </spacer>
            </item>
           </layout>
          </widget>
@@ -8005,6 +8067,9 @@ media file played</string>
              </item>
              <item>
               <widget class="QSpinBox" name="tweaksVideoPreviewHeight">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
                <property name="minimum">
                 <number>5</number>
                </property>
@@ -8813,6 +8878,38 @@ media file played</string>
     <hint type="destinationlabel">
      <x>718</x>
      <y>112</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tweaksVideoPreview</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>tweaksVideoPreviewHeight</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>443</x>
+     <y>397</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>682</x>
+     <y>398</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>audioStreamSilence</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>audioWaitTime</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>343</x>
+     <y>204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>544</x>
+     <y>205</y>
     </hint>
    </hints>
   </connection>
