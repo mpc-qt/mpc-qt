@@ -115,6 +115,7 @@ private:
     void updateOnTop();
     void updateWindowFlags();
     void updateMouseHideTime();
+    void disableMouseHideTime();
     void updateDiscList();
     void showOsdTimer(bool onSeek);
     void showSubsMenu();
