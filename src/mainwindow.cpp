@@ -890,7 +890,10 @@ void MainWindow::setupStatus()
 {
     ui->tinyicon->setPixmap(renderPixmapFromSvg(tinyIconPath));
     connect(ui->statusTime, &StatusTime::customContextMenuRequested,
-            ui->statusTime, &StatusTime::showContextMenu);
+            ui->statusTime, [this](const QPointF &p) {
+                ui->statusTime->showContextMenu(p);
+                mousePressedInBottomArea = false;
+            });
     connect(ui->statusTime, &StatusTime::doubleClicked,
             ui->actionNavigateGoto, &QAction::trigger);
 }
@@ -1388,11 +1391,13 @@ void MainWindow::showOsdTimer(bool onSeek)
 void MainWindow::showSubsMenu()
 {
     subsMenu->exec(QCursor::pos());
+    mousePressedInBottomArea = false;
 }
 
 void MainWindow::showMuteMenu()
 {
     muteMenu->exec(QCursor::pos());
+    mousePressedInBottomArea = false;
 }
 
 QList<QUrl> MainWindow::doQuickOpenFileDialog()
