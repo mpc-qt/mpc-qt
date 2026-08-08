@@ -672,6 +672,10 @@ void MpcHcServer::setupHttp()
             state = QString::number(1);
             stateString = "Paused";
             break;
+        case PlaybackManager::SeekingState:
+            state = QString::number(3);
+            stateString = "Seeking";
+            break;
         default:
             state = QString::number(2);
             stateString = "Playing";
