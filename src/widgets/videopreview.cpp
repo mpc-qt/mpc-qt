@@ -26,6 +26,7 @@ VideoPreview::VideoPreview(QWidget *parent) : QWidget(parent)
         "bestvideo/best");
     setYtdlRawOptions();
     emit mpv->ctrlSetOptionVariant("clipboard-backends", "clr");
+    mpv->setPaused(true);
 
     connect(mpv, &MpvObject::aspectChanged,
             this, &VideoPreview::updateWidth);
@@ -50,7 +51,6 @@ void VideoPreview::openFile(const QUrl &fileUrl)
     if (fileUrl.isEmpty())
         return;
     mpv->urlOpen(fileUrl);
-    mpv->setPaused(true);
     aspectRatioSet = false;
     aspectRatio = 0;
 }
@@ -73,7 +73,6 @@ void VideoPreview::show(const QString &text, double videoPosition, const QPoint 
         setYtdlRawOptions();
     }
     mpv->seek(videoPosition, false, true, true);
-    mpv->setPaused(true);
     videoWidget->update();
     setPreviewPosition(where, mainWindowWidth);
     show();
