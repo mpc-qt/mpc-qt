@@ -230,7 +230,7 @@ Chcete ji přiřadit namísto k &quot;%3&quot;?</translation>
     </message>
     <message>
         <source>Move Right</source>
-        <translation>Posunout vpravo</translation>
+        <translation>Posunout doprava</translation>
     </message>
     <message>
         <source>Move Up</source>
@@ -464,15 +464,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Skip Backward</source>
-        <translation>Přeskočit zpět</translation>
+        <translation>Přeskočit dozadu</translation>
     </message>
     <message>
         <source>Speed Decrease</source>
-        <translation>Snížení rychlosti</translation>
+        <translation>Snížit rychlost</translation>
     </message>
     <message>
         <source>Speed Increase</source>
-        <translation>Zvýšení rychlosti</translation>
+        <translation>Zvýšit rychlost</translation>
     </message>
     <message>
         <source>Skip Forward</source>
@@ -480,7 +480,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Step Backward</source>
-        <translation>Krok zpět</translation>
+        <translation>Krok dozadu</translation>
     </message>
     <message>
         <source>Step Forward</source>
@@ -1400,7 +1400,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Enable &amp;Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Povolit &amp;titulky</translation>
     </message>
     <message>
         <source>&amp;Next Subtitle</source>
@@ -1476,7 +1476,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source> [Freestanding]</source>
-        <translation type="unfinished"></translation>
+        <translation> [Samostatné]</translation>
     </message>
     <message>
         <source>Loading</source>
@@ -1488,7 +1488,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Chyba</translation>
+        <translation>Chyba</translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
@@ -1552,7 +1552,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Copy Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kopírovat titulky</translation>
     </message>
     <message>
         <source>Controls in Fullscreen</source>
@@ -1596,11 +1596,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Decrease Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Snížit zpoždění</translation>
     </message>
     <message>
         <source>&amp;Increase Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zvýšit zpoždění</translation>
     </message>
     <message>
         <source>&amp;Video</source>
@@ -1624,11 +1624,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Show OSD Timer</source>
-        <translation>&amp;Ukázat časovač OSD</translation>
+        <translation>&amp;Zobrazit časovač OSD</translation>
     </message>
     <message>
         <source>I</source>
-        <translation type="unfinished"></translation>
+        <translation>I</translation>
     </message>
     <message>
         <source>&amp;Decrease Aspect ratio</source>
@@ -1648,31 +1648,31 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>C</source>
-        <translation type="unfinished"></translation>
+        <translation>C</translation>
     </message>
     <message>
         <source>%1 / %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2</translation>
     </message>
     <message>
         <source>Seek Forwards (normal step)</source>
-        <translation type="unfinished"></translation>
+        <translation>Přeskočit vpřed (normální krok)</translation>
     </message>
     <message>
         <source>Seek Backwards (normal step)</source>
-        <translation type="unfinished"></translation>
+        <translation>Přeskočit zpět (normální krok)</translation>
     </message>
     <message>
         <source>Seek Forwards (large step)</source>
-        <translation type="unfinished"></translation>
+        <translation>Přeskočit vpřed (velký krok)</translation>
     </message>
     <message>
         <source>Seek Backwards (large step)</source>
-        <translation type="unfinished"></translation>
+        <translation>Přeskočit zpět (velký krok)</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Název</translation>
     </message>
     <message>
         <source>&amp;Aspect ratio</source>
@@ -1748,15 +1748,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>vo: %1, decoder: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>vv: %1, dekódér: %2</translation>
     </message>
     <message>
         <source>v: %1 kb/s, a: %2 kb/s</source>
-        <translation type="unfinished"></translation>
+        <translation>v: %1 kb/s, z: %2 kb/s</translation>
     </message>
     <message>
         <source>v: 0 kb/s, a: 0kb/s</source>
-        <translation type="unfinished"></translation>
+        <translation>v: 0 kb/s, z: 0kb/s</translation>
     </message>
     <message>
         <source>(Unknown)</source>
@@ -1772,11 +1772,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Previous Subtitles track</source>
-        <translation type="unfinished"></translation>
+        <translation>Př&amp;edchozí titulková stopa</translation>
     </message>
     <message>
         <source>&amp;Next Subtitles track</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Další titulková stopa</translation>
     </message>
     <message>
         <source>&amp;Filters</source>
@@ -1836,7 +1836,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>D&amp;isable</source>
-        <translation type="unfinished"></translation>
+        <translation>Z&amp;akázat</translation>
     </message>
     <message>
         <source>&amp;Minimum</source>
@@ -1880,11 +1880,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Do&amp;prava</translation>
     </message>
     <message>
         <source>R&amp;eset</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Obnovit</translation>
     </message>
     <message>
         <source>R&amp;otate</source>
@@ -1963,11 +1963,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Left</source>
-        <translation>Doleva</translation>
+        <translation>Levé</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Vpravo</translation>
+        <translation>Pravé</translation>
     </message>
     <message>
         <source>Middle</source>
