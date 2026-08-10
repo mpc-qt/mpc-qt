@@ -1557,7 +1557,7 @@ media file played</string>
               <item>
                <widget class="QLabel" name="ytdlpLabel">
                 <property name="text">
-                 <string>Max video height:</string>
+                 <string>Maximum video resolution:</string>
                 </property>
                </widget>
               </item>

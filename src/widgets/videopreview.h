@@ -17,7 +17,7 @@ class VideoPreview : public QWidget {
         void setPreviewPosition(const QPoint &where, int mainWindowWidth);
         void show();
         void updateWidth(double newAspect);
-        void setYtdlFormat();
+        void setYtdlRawOptions();
 
         QLabel *textLabel;
         MpvObject *mpv = nullptr;
