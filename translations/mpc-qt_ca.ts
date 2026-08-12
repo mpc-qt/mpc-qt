@@ -4690,7 +4690,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation>Altura de vídeo màxima:</translation>
+        <translation type="vanished">Altura de vídeo màxima:</translation>
     </message>
     <message>
         <source>Custom mpv options:</source>
@@ -4878,6 +4878,10 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Close to tray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maximum video resolution:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

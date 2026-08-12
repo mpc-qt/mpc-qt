@@ -4618,7 +4618,7 @@ media file played</source>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation>最大视频高度：</translation>
+        <translation type="vanished">最大视频高度：</translation>
     </message>
     <message>
         <source>Custom mpv options:</source>
@@ -4815,6 +4815,10 @@ media file played</source>
     <message>
         <source>Close to tray</source>
         <translation>关闭到托盘</translation>
+    </message>
+    <message>
+        <source>Maximum video resolution:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

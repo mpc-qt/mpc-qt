@@ -4674,7 +4674,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation>Hauteur maximale des vidéos&#xa0;:</translation>
+        <translation type="vanished">Hauteur maximale des vidéos&#xa0;:</translation>
     </message>
     <message>
         <source>Custom mpv options:</source>
@@ -4871,6 +4871,10 @@ fichier média lu</translation>
     <message>
         <source>Close to tray</source>
         <translation>Fermer dans la zone de notification</translation>
+    </message>
+    <message>
+        <source>Maximum video resolution:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
