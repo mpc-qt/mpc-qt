@@ -166,7 +166,7 @@ public slots:
     void setNowPlaying(QUrl nowPlaying);
     void setMediaTitle(QString title);
     void setPlaybackRate(double rate);
-    void setPlaybackState(PlaybackManager::PlaybackState state);
+    void setPlaybackState(PlaybackManager::PlaybackState state, bool isPlaybackPaused);
     void setVolume(int64_t volume);
     void setVolumeMuted(bool muted);
 
@@ -195,6 +195,7 @@ private:
     QUrl nowPlaying;
     double playbackRate;
     PlaybackManager::PlaybackState playbackState;
+    bool isPlaybackPaused_ = false;
     int64_t volume;
     bool volumeMuted;
 };

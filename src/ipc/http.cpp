@@ -415,9 +415,10 @@ void MpcHcServer::setPlaybackRate(double rate)
     playbackRate = rate;
 }
 
-void MpcHcServer::setPlaybackState(PlaybackManager::PlaybackState state)
+void MpcHcServer::setPlaybackState(PlaybackManager::PlaybackState state, bool isPlaybackPaused)
 {
     playbackState = state;
+    isPlaybackPaused_ = isPlaybackPaused;
 }
 
 void MpcHcServer::setVolume(int64_t volume)
@@ -668,14 +669,14 @@ void MpcHcServer::setupHttp()
             state = QString::number(-1);
             stateString = "N/A";
             break;
-        case PlaybackManager::PausedState:
-            state = QString::number(1);
-            stateString = "Paused";
-            break;
         default:
             state = QString::number(2);
             stateString = "Playing";
             break;
+        }
+        if (isPlaybackPaused_) {
+            state = QString::number(1);
+            stateString = "Paused";
         }
         QString position = QString::number(int64_t(fileTime*1000));
         QString positionString = Helpers::toDateFormatFixed(fileTime, Helpers::ShortFormat);

@@ -470,7 +470,7 @@ void Flow::setTranslation(bool updateTranslations)
 
     if (updateTranslations) {
         mainWindow->updateLanguage();
-        mainWindow->setPlaybackState(playbackManager->playbackState(), 0);
+        mainWindow->setPlaybackState(playbackManager->playbackState(), playbackManager->isPaused(), 0);
         mainWindow->playlistWindow()->updateLanguage();
         settingsWindow->updateLanguage();
         propertiesWindow->updateLanguage();
@@ -1538,7 +1538,7 @@ void Flow::mainwindow_optionsOpenRequested()
     settingsWindow->raise();
 }
 
-void Flow::manager_stateChanged(PlaybackManager::PlaybackState state)
+void Flow::manager_stateChanged(PlaybackManager::PlaybackState state, bool isPlaybackPaused)
 {
     // Do nothing if we don't have to
     if (!manipulateScreensaver)
@@ -1547,7 +1547,7 @@ void Flow::manager_stateChanged(PlaybackManager::PlaybackState state)
     // If inhibiting the screensaver is switched off, or we just entered the
     // stopped or paused state, unihibit the screensaver
     if (!inhibitScreensaver || state == PlaybackManager::StoppedState
-                            || state == PlaybackManager::PausedState) {
+                            || isPlaybackPaused) {
         screenSaver->uninhibitSaver();
         return;
     }
@@ -1654,7 +1654,7 @@ void Flow::settingswindow_inhibitScreensaver(bool yes)
     // playback state (2022-03: which optionally re/uninhibits the
     // screensaver)
     this->inhibitScreensaver = yes;
-    manager_stateChanged(playbackManager->playbackState());
+    manager_stateChanged(playbackManager->playbackState(), playbackManager->isPaused());
 }
 
 void Flow::settingswindow_rememberHistory(bool yes, bool onlyVideos)

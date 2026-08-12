@@ -108,9 +108,9 @@ void MprisInstance::manager_timeChanged(double time, double length)
     player->instance_timeChange(time, length);
 }
 
-void MprisInstance::manager_stateChanged(PlaybackManager::PlaybackState state)
+void MprisInstance::manager_stateChanged(PlaybackManager::PlaybackState state, bool isPlaybackPaused)
 {
-    player->instance_setPlaybackState(state);
+    player->instance_setPlaybackState(state, isPlaybackPaused);
 }
 
 void MprisInstance::manager_nowPlayingChanged(QUrl itemUrl, QUuid listUuid, QUuid itemUuid)
@@ -217,7 +217,7 @@ MprisInstance *MprisPlayerServer::instance()
 
 QString MprisPlayerServer::playbackStatus()
 {
-    if (playbackState == PlaybackManager::PausedState)
+    if (isPlaybackPaused_)
         return "Paused";
     if (playbackState != PlaybackManager::StoppedState &&
         playbackState != PlaybackManager::ErrorState)
@@ -354,18 +354,19 @@ void MprisPlayerServer::instance_setNowPlayingUrl(const QUrl &nowPlayingUrl)
     }
 }
 
-void MprisPlayerServer::instance_setPlaybackState(PlaybackManager::PlaybackState state)
+void MprisPlayerServer::instance_setPlaybackState(PlaybackManager::PlaybackState state, bool isPlaybackPaused)
 {
-    if (playbackState == state)
+    if (playbackState == state && isPlaybackPaused == isPlaybackPaused_)
         return;
     playbackState = state;
+    isPlaybackPaused_ = isPlaybackPaused;
     QVariantMap propertyMap;
     propertyMap.insert("PlaybackStatus", playbackStatus());
 
     if (maybeChangeCanPlay())
         propertyMap.insert("CanPlay", canPlay_);
 
-    bool canPause = state == PlaybackManager::PlayingState || PlaybackManager::PausedState;
+    bool canPause = state == PlaybackManager::PlayingState || isPlaybackPaused_;
     if (canPause_ != canPause) {
         canPause_ = canPause;
         canSeek_ = canPause; //FIXME: not every stream is seekable

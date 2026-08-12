@@ -195,6 +195,11 @@ PlaybackManager::PlaybackState PlaybackManager::playbackState()
     return playbackState_;
 }
 
+bool PlaybackManager::isPaused()
+{
+    return isPlaybackPaused;
+}
+
 void PlaybackManager::openSeveralFiles(QList<QUrl> what, bool important)
 {
     if (!nowPlayingItem.isNull())
@@ -235,12 +240,12 @@ void PlaybackManager::playDiscFiles(QUrl where)
 {
     if (playbackState_ != StoppedState) {
         playbackState_ = StoppedState;
-        emit stateChanged(playbackState_);
+        emit stateChanged(playbackState_, isPlaybackPaused);
         mpvObject_->stopPlayback();
     }
     mpvObject_->discFilesOpen(where.toLocalFile());
     mpvObject_->setPaused(false);
-    playbackStartState = PlayingState;
+    playbackStartPaused = false;
     nowPlayingItem = QUuid();
     nowPlayingList = QUuid();
     emit nowPlayingChanged(where, QUuid(), QUuid());
@@ -289,27 +294,23 @@ void PlaybackManager::startPlayer()
 
 void PlaybackManager::playPausePlayer()
 {
-    switch (playbackState_) {
-    case PausedState:
+    if (isPlaybackPaused)
         unpausePlayer();
-        break;
-    case StoppedState:
+    else if (playbackState_ == StoppedState)
         startPlayer();
-        break;
-    default:
+    else
         pausePlayer();
-    }
 }
 
 void PlaybackManager::pausePlayer()
 {
-    if (playbackState_ == PlayingState)
+    if (!isPlaybackPaused)
         mpvObject_->setPaused(true);
 }
 
 void PlaybackManager::unpausePlayer()
 {
-    if (playbackState_ == PausedState) {
+    if (isPlaybackPaused) {
         if (eofReached_)
             navigateToTime(0);
         mpvObject_->setPaused(false);
@@ -722,7 +723,7 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
     emit windowShouldBeRaised(false);
     if (playbackState_ == WaitingState || what.isEmpty())
         return;
-    emit stateChanged(playbackState_ = WaitingState);
+    emit stateChanged(playbackState_ = WaitingState, isPlaybackPaused);
 
     if (!isRepeating)
         emit aboutToStartPlayingFile(what);
@@ -748,7 +749,6 @@ void PlaybackManager::startPlayWithUuid(QUrl what, QUuid playlistUuid,
     if (!with.isEmpty())
         mpvObject_->setSubFile(with.toString());
     mpvObject_->setPaused(playbackStartPaused);
-    playbackStartState = playbackStartPaused ? PausedState : PlayingState;
 
     if (!isRepeating && playbackPlayTimes > 1
             && playlistWindow_->extraPlayTimes(playlistUuid, itemUuid) <= 0) {
@@ -1041,7 +1041,7 @@ void PlaybackManager::mpvw_playLengthChanged(double length)
 void PlaybackManager::mpvw_playbackLoading()
 {
     playbackState_ = LoadingState;
-    emit stateChanged(playbackState_);
+    emit stateChanged(playbackState_, isPlaybackPaused);
 }
 
 void PlaybackManager::mpvw_pausedForCache(QString paused)
@@ -1052,18 +1052,18 @@ void PlaybackManager::mpvw_pausedForCache(QString paused)
         playbackState_ = PlayingState;
     else
         playbackState_ = StoppedState;
-    emit stateChanged(playbackState_);
+    emit stateChanged(playbackState_, isPlaybackPaused);
 }
 
 void PlaybackManager::mpvw_bufferFillStateChanged(int64_t percentage)
 {
-    emit stateChanged(playbackState_, percentage);
+    emit stateChanged(playbackState_, isPlaybackPaused, percentage);
 }
 
 void PlaybackManager::mpvw_playbackStarted()
 {
-    playbackState_ = playbackStartState;
-    emit stateChanged(playbackState_);
+    playbackState_ = PlayingState;
+    emit stateChanged(playbackState_, isPlaybackPaused);
 }
 
 void PlaybackManager::mpvw_pausedChanged(bool yes)
@@ -1071,8 +1071,8 @@ void PlaybackManager::mpvw_pausedChanged(bool yes)
     if (playbackState_ == StoppedState)
         return;
 
-    playbackState_ = yes ? PausedState : PlayingState;
-    emit stateChanged(playbackState_);
+    isPlaybackPaused = yes;
+    emit stateChanged(playbackState_, isPlaybackPaused, isPlaybackPaused);
 }
 
 void PlaybackManager::mpvw_playbackIdling(bool yes)
@@ -1085,7 +1085,7 @@ void PlaybackManager::mpvw_playbackIdling(bool yes)
     if (nowPlayingItem.isNull()) {
         nowPlaying_.clear();
         playbackState_ = StoppedState;
-        emit stateChanged(playbackState_);
+        emit stateChanged(playbackState_, isPlaybackPaused);
         return;
     }
 }
@@ -1093,7 +1093,7 @@ void PlaybackManager::mpvw_playbackIdling(bool yes)
 void PlaybackManager::mpvw_playbackError()
 {
     playbackState_ = ErrorState;
-    emit stateChanged(playbackState_);
+    emit stateChanged(playbackState_, isPlaybackPaused);
     checkAfterPlayback();
 }
 
