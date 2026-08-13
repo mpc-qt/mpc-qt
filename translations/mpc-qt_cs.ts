@@ -1308,7 +1308,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Save Pl&amp;ain Image...</source>
-        <translation>Uložit č&amp;istý snímek...</translation>
+        <translation>Uložit &amp;prostý snímek...</translation>
     </message>
     <message>
         <source>Alt+Shift+I</source>
@@ -1316,7 +1316,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Save Plain Ima&amp;ge (Auto)</source>
-        <translation>Uložit čis&amp;tý snímek (automaticky)</translation>
+        <translation>Uložit pros&amp;tý snímek (automaticky)</translation>
     </message>
     <message>
         <source>Shift+F5</source>
@@ -2504,22 +2504,22 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Modified:</source>
-        <translation>Změněno:</translation>
+        <translation>Upraveno:</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>All Media (*.%1);;All Files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Všechna média (*.%1);;Všechny soubory (*.*)</translation>
     </message>
     <message>
         <source>All Subtitles (*.%1);;All Files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Všechny titulky (*.%1);;Všechny soubory (*.*)</translation>
     </message>
     <message>
         <source>Window text</source>
-        <translation type="unfinished"></translation>
+        <translation>Text okna</translation>
     </message>
     <message>
         <source>Button</source>
@@ -2531,7 +2531,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Midlight</source>
-        <translation type="unfinished"></translation>
+        <translation>Polosvětlé</translation>
     </message>
     <message>
         <source>Dark</source>
@@ -2539,7 +2539,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Mid</source>
-        <translation type="unfinished"></translation>
+        <translation>Střední</translation>
     </message>
     <message>
         <source>Text</source>
@@ -2547,7 +2547,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Bright text</source>
-        <translation type="unfinished"></translation>
+        <translation>Světlý text</translation>
     </message>
     <message>
         <source>Button text</source>
@@ -2583,27 +2583,27 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Base (alternate)</source>
-        <translation type="unfinished"></translation>
+        <translation>Základ (alternativní)</translation>
     </message>
     <message>
         <source>No role</source>
-        <translation type="unfinished"></translation>
+        <translation>Žádná role</translation>
     </message>
     <message>
         <source>Tooltip base</source>
-        <translation type="unfinished"></translation>
+        <translation>Základ nápovědy</translation>
     </message>
     <message>
         <source>Tooltip text</source>
-        <translation type="unfinished"></translation>
+        <translation>Text nápovědy</translation>
     </message>
     <message>
         <source>Placeholder text</source>
-        <translation type="unfinished"></translation>
+        <translation>Zástupný text</translation>
     </message>
     <message>
         <source>Accent</source>
-        <translation type="unfinished"></translation>
+        <translation>Akcent</translation>
     </message>
     <message>
         <source>Active</source>
@@ -2721,25 +2721,27 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Open options</source>
-        <translation type="unfinished"></translation>
+        <translation>Možnosti otevření</translation>
     </message>
     <message>
         <source>Use the same player for
 each &amp;media file</source>
-        <translation type="unfinished"></translation>
+        <translation>Použít stejný přehrávač pro
+každý &amp;mediální soubor</translation>
     </message>
     <message>
         <source>Open a new &amp;player for each
 media file played</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít nový &amp;přehrávač pro každý
+přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Ostatní</translation>
     </message>
     <message>
         <source>Tray icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikona systémového panelu</translation>
     </message>
     <message>
         <source>Show OSD</source>
@@ -2759,15 +2761,15 @@ media file played</source>
     </message>
     <message>
         <source>Title bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Lišta s názvem</translation>
     </message>
     <message>
         <source>Disp&amp;lay full path</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zobrazit celou cestu</translation>
     </message>
     <message>
         <source>File &amp;name only</source>
-        <translation type="unfinished"></translation>
+        <translation>Pouze &amp;název souboru</translation>
     </message>
     <message>
         <source>Replace file name with title</source>
@@ -2783,7 +2785,7 @@ media file played</source>
     </message>
     <message>
         <source>Remember last selected playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapamatovat poslední vybraný playlist</translation>
     </message>
     <message>
         <source>Remember last window geometry</source>
@@ -2815,11 +2817,11 @@ media file played</source>
     </message>
     <message>
         <source>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; dostupný na %1</translation>
     </message>
     <message>
         <source>MPRIS</source>
-        <translation type="unfinished"></translation>
+        <translation>MPRIS</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -2827,11 +2829,11 @@ media file played</source>
     </message>
     <message>
         <source>E&amp;xternal</source>
-        <translation type="unfinished"></translation>
+        <translation>E&amp;xterní</translation>
     </message>
     <message>
         <source>Interna&amp;l</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Interní</translation>
     </message>
     <message>
         <source>Browse...</source>
@@ -2851,11 +2853,11 @@ media file played</source>
     </message>
     <message>
         <source>Triangle in circle</source>
-        <translation type="unfinished"></translation>
+        <translation>Trojúhelník v kruhu</translation>
     </message>
     <message>
         <source>Multi purpose vehicle</source>
-        <translation type="unfinished"></translation>
+        <translation>Víceúčelové vozidlo</translation>
     </message>
     <message>
         <source>Icons</source>
@@ -2875,7 +2877,7 @@ media file played</source>
     </message>
     <message>
         <source>System (Linux only)</source>
-        <translation>Systém (pouze Linux)</translation>
+        <translation>Systémový (pouze pro Linux)</translation>
     </message>
     <message>
         <source>Folder (e.g. ~/Pictures/MyIcons/mpc-qt/leet)</source>
@@ -2979,7 +2981,7 @@ media file played</source>
     </message>
     <message>
         <source>Use Qt&apos;s inbuilt fusion style</source>
-        <translation type="unfinished"></translation>
+        <translation>Použít vestavěný fúzní styl Qt</translation>
     </message>
     <message>
         <source>Balance</source>
@@ -2999,7 +3001,7 @@ media file played</source>
     </message>
     <message>
         <source>Video Renderer</source>
-        <translation type="unfinished"></translation>
+        <translation>Renderer videa</translation>
     </message>
     <message>
         <source>Dumb mode</source>
@@ -3011,7 +3013,7 @@ media file played</source>
     </message>
     <message>
         <source>Framebuffer</source>
-        <translation type="unfinished"></translation>
+        <translation>Framebuffer</translation>
     </message>
     <message>
         <source>8 bits</source>
@@ -3031,11 +3033,11 @@ media file played</source>
     </message>
     <message>
         <source>16 bits float</source>
-        <translation type="unfinished"></translation>
+        <translation>16 bitů float</translation>
     </message>
     <message>
         <source>32 bits float</source>
-        <translation type="unfinished"></translation>
+        <translation>32 bitů float</translation>
     </message>
     <message>
         <source>Alpha channel</source>
@@ -3059,11 +3061,11 @@ media file played</source>
     </message>
     <message>
         <source>Sharpen</source>
-        <translation>Zostřit</translation>
+        <translation>Vyostřit</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished">Nepovolený</translation>
+        <translation>Vypnuto</translation>
     </message>
     <message>
         <source>Presets</source>
@@ -3071,7 +3073,7 @@ media file played</source>
     </message>
     <message>
         <source>Plain</source>
-        <translation type="unfinished"></translation>
+        <translation>Prostý</translation>
     </message>
     <message>
         <source>Low</source>
@@ -3099,7 +3101,7 @@ media file played</source>
     </message>
     <message>
         <source>Dithering</source>
-        <translation>Ditherování</translation>
+        <translation>Dithering</translation>
     </message>
     <message>
         <source>Depth</source>
@@ -3111,11 +3113,11 @@ media file played</source>
     </message>
     <message>
         <source>Fruit</source>
-        <translation>Ovoce</translation>
+        <translation>Fruit</translation>
     </message>
     <message>
         <source>Ordered</source>
-        <translation>Objednáno</translation>
+        <translation>Seřazený</translation>
     </message>
     <message>
         <source>No</source>
@@ -3131,15 +3133,15 @@ media file played</source>
     </message>
     <message>
         <source>Temporal dithering</source>
-        <translation type="unfinished"></translation>
+        <translation>Časový dithering</translation>
     </message>
     <message>
         <source>Period</source>
-        <translation type="unfinished"></translation>
+        <translation>Doba</translation>
     </message>
     <message>
         <source>This can lead to flicker on LCD displays, since these  have a high reaction time.</source>
-        <translation type="unfinished"></translation>
+        <translation>Toto může vést k blikání na LCD displejích, protože mají dlouhou odezvu.</translation>
     </message>
     <message>
         <source>Scaling</source>
@@ -3147,15 +3149,15 @@ media file played</source>
     </message>
     <message>
         <source>Correct downscaling</source>
-        <translation type="unfinished"></translation>
+        <translation>Správné zmenšení</translation>
     </message>
     <message>
         <source>Temporal interpolation</source>
-        <translation type="unfinished"></translation>
+        <translation>Časová interpolace</translation>
     </message>
     <message>
         <source>Blend subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Prolnout titulky</translation>
     </message>
     <message>
         <source>Sigmoidized upscaling</source>
@@ -3347,7 +3349,7 @@ media file played</source>
     </message>
     <message>
         <source>Downscale</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmenšit</translation>
     </message>
     <message>
         <source>Unset</source>
@@ -4344,11 +4346,11 @@ media file played</source>
     </message>
     <message>
         <source>Downscale in linear light</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmenšit v lineárním prostoru</translation>
     </message>
     <message>
         <source>Upscale in linear light</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvětšit v lineárním prostoru</translation>
     </message>
     <message>
         <source>Use additive speed step</source>
@@ -4368,11 +4370,11 @@ media file played</source>
     </message>
     <message>
         <source>Allow access from localhost only</source>
-        <translation>Povolit přístup jen z localhostu</translation>
+        <translation>Povolit přístup pouze z localhostu</translation>
     </message>
     <message>
         <source>webroot</source>
-        <translation type="unfinished"></translation>
+        <translation>webroot</translation>
     </message>
     <message>
         <source>Default page</source>
@@ -4396,11 +4398,11 @@ media file played</source>
     </message>
     <message>
         <source>Web root</source>
-        <translation type="unfinished"></translation>
+        <translation>Kořen webu</translation>
     </message>
     <message>
         <source>Security</source>
-        <translation>Bezpečnost</translation>
+        <translation>Zabezpečení</translation>
     </message>
     <message>
         <source>Enable web server</source>
@@ -4408,7 +4410,7 @@ media file played</source>
     </message>
     <message>
         <source>Serve pages from disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Sloužit stránky z disku</translation>
     </message>
     <message>
         <source>Back color</source>
@@ -4428,7 +4430,7 @@ media file played</source>
     </message>
     <message>
         <source>High-contrast timeline and volume sliders</source>
-        <translation type="unfinished"></translation>
+        <translation>Vysoce kontrastní posuvník časové osy a hlasitosti</translation>
     </message>
     <message>
         <source>Default After Playback action:</source>
@@ -4468,7 +4470,7 @@ media file played</source>
     </message>
     <message>
         <source>Language Override</source>
-        <translation type="unfinished"></translation>
+        <translation>Přepsání jazyka</translation>
     </message>
     <message>
         <source>Locale (Autodetect)</source>
@@ -4564,7 +4566,7 @@ media file played</source>
     </message>
     <message>
         <source>Remember file position</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapamatovat pozici soubory</translation>
     </message>
     <message>
         <source>Use next/previous file in folder when there is only one item in the playlist</source>
@@ -4612,11 +4614,11 @@ media file played</source>
     </message>
     <message>
         <source>Only keep history for videos</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachovat pouze historii pro videa</translation>
     </message>
     <message>
         <source>Cinema screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Kino obrazovka</translation>
     </message>
     <message>
         <source>Update interval</source>
@@ -4632,7 +4634,7 @@ media file played</source>
     </message>
     <message>
         <source>Remember panels state</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapamatovat stav panelů</translation>
     </message>
     <message>
         <source>Open ICC Profile</source>
@@ -4712,7 +4714,7 @@ media file played</source>
     </message>
     <message>
         <source>Custom mpv options:</source>
-        <translation>Vlastní nastavení mpv:</translation>
+        <translation>Vlastní možnosti mpv:</translation>
     </message>
     <message>
         <source>Seek to keyframe when hardware decoding is unavailable</source>
@@ -4732,7 +4734,7 @@ media file played</source>
     </message>
     <message>
         <source>Select</source>
-        <translation>Zvolit</translation>
+        <translation>Vybrat</translation>
     </message>
     <message>
         <source>Preset applied</source>
@@ -4744,11 +4746,11 @@ media file played</source>
     </message>
     <message>
         <source>Remember Quick Playlist content</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapamatovat obsah rychlého playlistu</translation>
     </message>
     <message>
         <source>Append opened files to Quick Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Přidat otevřené soubory do rychlého playlistu</translation>
     </message>
     <message>
         <source>%</source>
@@ -4776,7 +4778,7 @@ media file played</source>
     </message>
     <message>
         <source>File title</source>
-        <translation>Název souboru</translation>
+        <translation>Nadpis souboru</translation>
     </message>
     <message>
         <source>CRF</source>
@@ -4800,15 +4802,15 @@ media file played</source>
     </message>
     <message>
         <source>Status bar background</source>
-        <translation type="unfinished"></translation>
+        <translation>Pozadí stavového řádku</translation>
     </message>
     <message>
         <source>Status bar foreground</source>
-        <translation type="unfinished"></translation>
+        <translation>Popředí stavového řádku</translation>
     </message>
     <message>
         <source>Use custom colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Použít vlastní barvy</translation>
     </message>
     <message>
         <source>Source</source>
@@ -4816,7 +4818,7 @@ media file played</source>
     </message>
     <message>
         <source>Built-in</source>
-        <translation type="unfinished"></translation>
+        <translation>Vestavěný</translation>
     </message>
     <message>
         <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
@@ -4824,7 +4826,7 @@ media file played</source>
     </message>
     <message>
         <source>Use English for the interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Použít angličtinu pro uživatelské rozhraní</translation>
     </message>
     <message>
         <source>Mono</source>
@@ -4864,11 +4866,11 @@ media file played</source>
     </message>
     <message>
         <source>Search settings…</source>
-        <translation type="unfinished"></translation>
+        <translation>Hledat v nastavení…</translation>
     </message>
     <message>
         <source>A&amp;pplication name only</source>
-        <translation type="unfinished"></translation>
+        <translation>Pouze název a&amp;plikace</translation>
     </message>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
