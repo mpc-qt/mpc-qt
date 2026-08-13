@@ -2235,7 +2235,7 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, bool isP
         ui->status->setText(tr("Buffering (%1%)").arg(bufferFillState));
         break;
     case PlaybackManager::WaitingState:
-        ui->status->setText(tr("Unknown"));
+        ui->status->setText(tr("Loading"));
         break;
     case PlaybackManager::ErrorState:
         ui->status->setText(tr("Error"));
