@@ -1051,7 +1051,7 @@ void PlaybackManager::mpvw_pausedForCache(QString paused)
     else if (paused == strFalse)
         playbackState_ = PlayingState;
     else
-        playbackState_ = StoppedState;
+        return;
     emit stateChanged(playbackState_, isPlaybackPaused);
 }
 
