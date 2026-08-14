@@ -1955,7 +1955,7 @@ No action will be triggered.</source>
     <name>MouseState</name>
     <message>
         <source>None</source>
-        <translation>Žádný</translation>
+        <translation>Žádná</translation>
     </message>
     <message>
         <source>Wheel</source>
@@ -3749,7 +3749,7 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">Žádné</translation>
+        <translation>Žádný</translation>
     </message>
     <message>
         <source>Default</source>
