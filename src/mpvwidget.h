@@ -169,7 +169,6 @@ signals:
 
     void mouseMoved(int x, int y);
     void mousePress(int x, int y, int btn);
-    void mouseReleased();
     void keyPress(int key);
     void keyRelease(int key);
 

@@ -2577,14 +2577,6 @@ void MainWindow::libraryWindowClosed()
     ui->actionViewHideLibrary->setChecked(false);
 }
 
-void MainWindow::mpvObject_mouseReleased()
-{
-    if (!isPlaying && !mousePressedInBottomArea) {
-        emit playCurrentItemRequested();
-        return;
-    }
-}
-
 void MainWindow::setPlaylistVisibleState(bool yes) {
     Logger::log(logModule, "setPlaylistVisibleState");
     if (fullscreenMode_ || !ui || mainwindowIsClosing)
