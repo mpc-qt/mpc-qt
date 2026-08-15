@@ -4874,7 +4874,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Maximum video resolution:</source>
-        <translation type="unfinished"></translation>
+        <translation>Résolution maximale des vidéos&#xa0;:</translation>
     </message>
 </context>
 <context>
