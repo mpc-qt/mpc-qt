@@ -4942,7 +4942,7 @@ media file played</source>
     </message>
     <message>
         <source>Maximum video resolution:</source>
-        <translation type="unfinished"></translation>
+        <translation>最大ビデオ解像度 :</translation>
     </message>
 </context>
 <context>
