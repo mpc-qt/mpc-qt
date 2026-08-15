@@ -2681,7 +2681,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Playlist</translation>
     </message>
     <message>
         <source>Subtitles</source>
