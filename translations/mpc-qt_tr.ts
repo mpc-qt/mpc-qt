@@ -4714,7 +4714,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation>En çok video yüksekliği:</translation>
+        <translation type="vanished">En çok video yüksekliği:</translation>
     </message>
     <message>
         <source>Custom mpv options:</source>
@@ -4902,6 +4902,10 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Close to tray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maximum video resolution:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

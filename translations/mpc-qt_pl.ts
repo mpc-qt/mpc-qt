@@ -4603,10 +4603,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Max video height:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Custom mpv options:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4784,6 +4780,10 @@ media file played</source>
     </message>
     <message>
         <source>Close to tray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maximum video resolution:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

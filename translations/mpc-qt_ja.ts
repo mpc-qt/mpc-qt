@@ -4742,7 +4742,7 @@ media file played</source>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation>ビデオの最大高さ :</translation>
+        <translation type="vanished">ビデオの最大高さ :</translation>
     </message>
     <message>
         <source>Custom mpv options:</source>
@@ -4939,6 +4939,10 @@ media file played</source>
     <message>
         <source>Close to tray</source>
         <translation>閉じるでトレイへ</translation>
+    </message>
+    <message>
+        <source>Maximum video resolution:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

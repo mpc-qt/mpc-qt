@@ -4735,7 +4735,7 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Max video height:</source>
-        <translation>Chiều cao video tối đa:</translation>
+        <translation type="vanished">Chiều cao video tối đa:</translation>
     </message>
     <message>
         <source>Custom mpv options:</source>
@@ -4919,6 +4919,10 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Close to tray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maximum video resolution:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
