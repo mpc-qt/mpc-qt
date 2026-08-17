@@ -4818,7 +4818,7 @@ media file played</source>
     </message>
     <message>
         <source>Maximum video resolution:</source>
-        <translation type="unfinished"></translation>
+        <translation>最大视频分辨率：</translation>
     </message>
 </context>
 <context>
