@@ -9,11 +9,11 @@
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished">Sürüm %1</translation>
+        <translation>Sürüm %1</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation type="unfinished">%1 üzerine %2 tarihinde yapıldı</translation>
+        <translation>%1 üzerine %2 tarihinde yapıldı</translation>
     </message>
     <message>
         <source>(Unknown)</source>
@@ -56,7 +56,7 @@
     </message>
     <message>
         <source>Mouse Window</source>
-        <translation type="unfinished">Fare (Pencere)</translation>
+        <translation>Fare (Pencerede)</translation>
     </message>
     <message>
         <source>Mouse Fullscr</source>
@@ -64,7 +64,7 @@
     </message>
     <message>
         <source>Mouse Fullscreen</source>
-        <translation type="unfinished">Fare (Tam Ekran)</translation>
+        <translation>Fare (Tam Ekran)</translation>
     </message>
     <message>
         <source>Volume Mute</source>
@@ -152,11 +152,11 @@
     </message>
     <message>
         <source>16:9 Aspect ratio</source>
-        <translation type="unfinished">16:9 En-Boy Oranı</translation>
+        <translation>16:9 En–Boy Oranı</translation>
     </message>
     <message>
         <source>Decrease Aspect ratio</source>
-        <translation type="unfinished">En–Boy Oranını Azalt</translation>
+        <translation>En–Boy Oranını Azalt</translation>
     </message>
     <message>
         <source>Increase Aspect ratio</source>
@@ -164,11 +164,11 @@
     </message>
     <message>
         <source>Reset Aspect ratio</source>
-        <translation type="unfinished">En–Boy Oranını Sıfırla</translation>
+        <translation>En–Boy Oranını Sıfırla</translation>
     </message>
     <message>
         <source>Disable Aspect ratio</source>
-        <translation type="unfinished">En–Boy Oranını Devre Dışı Bırak</translation>
+        <translation>En–Boy Oranını Devre Dışı Bırak</translation>
     </message>
     <message>
         <source>Decrease Pan and Scan</source>
@@ -397,7 +397,7 @@ Bunun yerine “%3” için kullanmak ister misiniz?</translation>
     </message>
     <message>
         <source>Playlists Backup</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatma Listesi Yedeği</translation>
     </message>
 </context>
 <context>
@@ -424,7 +424,7 @@ Bunun yerine “%3” için kullanmak ister misiniz?</translation>
     </message>
     <message>
         <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
+        <translation>Günlük dosyaları (*.log)</translation>
     </message>
 </context>
 <context>
@@ -1440,15 +1440,15 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Software Decoding</source>
-        <translation type="unfinished"></translation>
+        <translation>Yazılım ile Kod Çözme</translation>
     </message>
     <message>
         <source>Hardware Decoding: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Donanım ile Kod Çözme: %1</translation>
     </message>
     <message>
         <source>Hardware Decoding: %1 (slow)</source>
-        <translation type="unfinished"></translation>
+        <translation>Donanım ile Kod Çözme: %1 (Yavaş)</translation>
     </message>
     <message>
         <source>Remaining time</source>
@@ -1484,7 +1484,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Hata</translation>
+        <translation>Hata</translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
@@ -1944,15 +1944,15 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Pl&amp;aylists Backup</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Oynatma Listesi Yedeği</translation>
     </message>
     <message>
         <source>Decrease Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Gecikmeyi Azalt</translation>
     </message>
     <message>
         <source>Increase Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Gecikmeyi Artır</translation>
     </message>
 </context>
 <context>
@@ -2110,7 +2110,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Audio delay: %1 ms</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses gecikmesi: %1 ms</translation>
     </message>
 </context>
 <context>
@@ -2152,7 +2152,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Dark colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Koyu renkler</translation>
     </message>
     <message>
         <source>Use dark colors</source>
@@ -2603,11 +2603,11 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Placeholder text</source>
-        <translation type="unfinished"></translation>
+        <translation>Yer tutucu metin</translation>
     </message>
     <message>
         <source>Accent</source>
-        <translation type="unfinished"></translation>
+        <translation>Vurgu</translation>
     </message>
     <message>
         <source>Active</source>
@@ -4646,7 +4646,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
+        <translation>Günlük dosyaları (*.log)</translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
@@ -4854,59 +4854,59 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Replay Gain</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses Düzeyi Dengeleme</translation>
     </message>
     <message>
         <source>Track</source>
-        <translation type="unfinished"></translation>
+        <translation>Parça</translation>
     </message>
     <message>
         <source>Album</source>
-        <translation type="unfinished"></translation>
+        <translation>Albüm</translation>
     </message>
     <message>
         <source>Pre-amp</source>
-        <translation type="unfinished"></translation>
+        <translation>Ön Yükselteç</translation>
     </message>
     <message>
         <source> dB</source>
-        <translation type="unfinished"></translation>
+        <translation> dB</translation>
     </message>
     <message>
         <source>Prevent clipping</source>
-        <translation type="unfinished"></translation>
+        <translation>Kırpılmayı önle</translation>
     </message>
     <message>
         <source>Search settings…</source>
-        <translation type="unfinished"></translation>
+        <translation>Ayarlarda ara…</translation>
     </message>
     <message>
         <source>A&amp;pplication name only</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Yalnızca uygulama adı</translation>
     </message>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerekirse klasördeki ilk/son dosyaya geri dön</translation>
     </message>
     <message>
         <source>Increase maximum volume to:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sesi en çok şu kadar aç:</translation>
     </message>
     <message>
         <source>Show video preview (restart required), set its height to (% of screen):</source>
-        <translation type="unfinished"></translation>
+        <translation>Video önizlemesini göster (yeniden başlatma gerekir), yüksekliğini (ekran yüzdesine) ayarla:</translation>
     </message>
     <message>
         <source>Minimize to tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistem tepsisine küçült</translation>
     </message>
     <message>
         <source>Close to tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistem tepsisine kapat</translation>
     </message>
     <message>
         <source>Maximum video resolution:</source>
-        <translation type="unfinished"></translation>
+        <translation>En büyük video çözünürlüğü:</translation>
     </message>
 </context>
 <context>
@@ -4917,23 +4917,23 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Remaining time</source>
-        <translation type="unfinished">Kalan süre</translation>
+        <translation>Kalan süre</translation>
     </message>
     <message>
         <source>High precision</source>
-        <translation type="unfinished">Yüksek kesinlik</translation>
+        <translation>Yüksek kesinlik</translation>
     </message>
     <message>
         <source>Show percentage</source>
-        <translation type="unfinished">Yüzdeyi göster</translation>
+        <translation>Yüzdeyi göster</translation>
     </message>
     <message>
         <source>Played: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynatılan: %1</translation>
     </message>
     <message>
         <source>Remaining: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalan: %1</translation>
     </message>
 </context>
 <context>
