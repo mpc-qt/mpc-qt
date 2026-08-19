@@ -66,16 +66,6 @@ MainWindow::MainWindow(QWidget *parent) :
     setUiEnabledState(false);
     setDiscState(false);
 
-    // Sync with X11
-    if (Platform::isUnix) {
-        setAttribute(Qt::WA_DontShowOnScreen, true);
-        show();
-        QApplication::processEvents(QEventLoop::AllEvents |
-                            QEventLoop::WaitForMoreEvents,
-                            50);
-        hide();
-        setAttribute(Qt::WA_DontShowOnScreen, false);
-    }
     setRemoveFileNotRecycle();
 }
 
