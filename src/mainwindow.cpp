@@ -346,7 +346,7 @@ void MainWindow::unfreezeWindow()
 void MainWindow::fixMpvwSize()
 {
     QSize size = mpvw->size();
-    mpvw->resize(noVideoSize_);
+    mpvw->resize(size.width() + 1, size.height() + 1);
     mpvw->resize(size);
 }
 
