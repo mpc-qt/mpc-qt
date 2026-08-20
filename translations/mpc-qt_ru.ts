@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ru">
+<TS version="2.1" language="ru_RU">
 <context>
     <name>About</name>
     <message>
@@ -2297,12 +2297,12 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Playlist files</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы списков воспроизведения</translation>
     </message>
     <message>
         <source>%1 already exists.
 Do you want to replace it?</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 уже существует. Заменить его?</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
