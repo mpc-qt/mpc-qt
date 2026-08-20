@@ -70,6 +70,8 @@ namespace Helpers {
     QString normalizedSuffix(const QFileInfo &fileInfo);
     QRect vmapToRect(const QVariantMap &m);
     QVariantMap rectToVmap(const QRect &r);
+    QSize vmapToSize(const QVariantMap &m);
+    QVariantMap sizeToVmap(const QSize &s);
     bool sizeFromString(QSize &size, const QString &text);
     bool pointFromString(QPoint &point, const QString &text);
     QRect availableGeometryFromPoint(const QPoint &point);
