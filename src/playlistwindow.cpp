@@ -6,6 +6,9 @@
 #include <QInputDialog>
 #include <QFileDialog>
 #include <QMenu>
+#include <QRegularExpression>
+#include <QFileInfo>
+#include <QMessageBox>
 #include "logger.h"
 #include "playlistwindow.h"
 #include "ui_playlistwindow.h"
@@ -763,15 +766,62 @@ void PlaylistWindow::finishSearch()
 void PlaylistWindow::savePlaylist(const QUuid &playlistUuid)
 {
     static QFileDialog::Options options = QFileDialog::Options();
+    options = QFileDialog::DontConfirmOverwrite;
+
 #ifdef Q_OS_MAC
-    options = QFileDialog::DontUseNativeDialog;
+    options |= QFileDialog::DontUseNativeDialog;
 #endif
-    QString file;
-    file = QFileDialog::getSaveFileName(this, tr("Export Playlist File"), QString(),
-                                        tr("Playlist files (*.m3u *.m3u8)"), nullptr, options);
+
+    QString file, selectedFilter;
+    QStringList filters, namefilters;
+
+    namefilters << "*.m3u" << "*.m3u8";
+    filters << tr("Playlist files") + QStringLiteral(" (%1)").arg(namefilters.join(QChar::Space));
+    selectedFilter = filters.at(0);
+
+    file = QFileDialog::getSaveFileName(this, tr("Export Playlist File"), QString(), filters.join(";;"), &selectedFilter, options);
+    
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(playlistUuid);
+
+    if(file.isEmpty())
+        return;
+
+    //append selected extension
+     // QDir::match - Returns true if the fileName matches any of the wildcard (glob) patterns in the list of filters; otherwise returns false
+    if ( !(QDir::match(namefilters, file.section(QLatin1Char('/'), -1))) )
+    {
+         // Attempts to match the regular expression against the given subject string
+         QRegularExpressionMatch match = QRegularExpression(QStringLiteral(R"(\.[a-zA-Z0-9]+)")).match(selectedFilter);
+
+         // for to inspect the results of the match
+         if (!match.hasMatch())
+                return;
+
+         // The captured() function will return the string captured by the n-th capturing group
+         QString ext = match.captured(0);
+         file.append(ext);
+    }
+
     if (!file.isEmpty() && pl)
+    {
+	QFileInfo info(file);
+
+        // Returns true if the file system entry this QFileInfo refers to exists; otherwise returns false
+        if(info.exists())
+        {
+            QMessageBox msgBox(this);
+            msgBox.setIcon(QMessageBox::Warning);
+            msgBox.setWindowTitle(tr("Export Playlist File"));
+            msgBox.setText(tr("%1 already exists.\nDo you want to replace it?").arg(info.fileName()));
+            msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+
+            if (msgBox.exec() != QMessageBox::Ok)
+            {
+                return;
+            }
+        }
         emit exportPlaylist(file, pl->toStringList());
+    }
 }
 
 void PlaylistWindow::sortPlaylistByLabel(const QUuid &playlistUuid)
