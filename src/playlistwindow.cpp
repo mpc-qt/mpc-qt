@@ -805,6 +805,9 @@ void PlaylistWindow::savePlaylist(const QUuid &playlistUuid)
     if (!file.isEmpty() && pl)
     {
 	QFileInfo info(file);
+	// File extensions have been converted to lowercase for display in the file dialog during import and export
+        file = info.absolutePath() + "/" + info.completeBaseName() + "." + info.suffix().toLower();
+        info.setFile(file);
 
         // Returns true if the file system entry this QFileInfo refers to exists; otherwise returns false
         if(info.exists())
