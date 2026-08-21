@@ -52,9 +52,12 @@
  </screenshots>
 
  <url type="homepage">https://mpc-qt.github.io/</url>
+ <url type="faq">https://github.com/mpc-qt/mpc-qt/wiki/Questions-and-answers</url>
  <url type="help">https://github.com/mpc-qt/mpc-qt/wiki</url>
  <url type="bugtracker">https://github.com/mpc-qt/mpc-qt/issues</url>
+ <url type="translate">https://github.com/mpc-qt/mpc-qt/wiki/Translating</url>
  <url type="vcs-browser">https://github.com/mpc-qt/mpc-qt</url>
+ <url type="contribute">https://github.com/mpc-qt/mpc-qt/wiki/Contributing</url>
 
  <recommends>
   <control>keyboard</control>
