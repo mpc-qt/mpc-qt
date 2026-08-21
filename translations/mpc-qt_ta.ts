@@ -2281,7 +2281,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
-        <translation>பிளேலிச்ட் கோப்புகள் ( *.m3u *.m3u8)</translation>
+        <translation type="vanished">பிளேலிச்ட் கோப்புகள் ( *.m3u *.m3u8)</translation>
     </message>
     <message>
         <source>Export File</source>
@@ -2338,6 +2338,15 @@ No action will be triggered.</source>
     <message>
         <source>Enter playlist name</source>
         <translation>பிளேலிச்ட் பெயரை உள்ளிடவும்</translation>
+    </message>
+    <message>
+        <source>Playlist files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 already exists.
+Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>

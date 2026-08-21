@@ -2297,7 +2297,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
-        <translation>Playlist-Dateien (*.m3u *.m3u8)</translation>
+        <translation type="vanished">Playlist-Dateien (*.m3u *.m3u8)</translation>
     </message>
     <message>
         <source>Open</source>
@@ -2350,6 +2350,15 @@ Es wird keine Aktion ausgelöst.</translation>
     <message>
         <source>Enter playlist name</source>
         <translation>Playlist-Name eingeben</translation>
+    </message>
+    <message>
+        <source>Playlist files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 already exists.
+Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>

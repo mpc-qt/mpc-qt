@@ -2143,7 +2143,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
-        <translation>Archivos de lista de reproducción (*.m3u *.m3u8)</translation>
+        <translation type="vanished">Archivos de lista de reproducción (*.m3u *.m3u8)</translation>
     </message>
     <message>
         <source>Export File</source>
@@ -2200,6 +2200,15 @@ No action will be triggered.</source>
     <message>
         <source>Enter playlist name</source>
         <translation>Introduzca el nombre de la lista de reproducción</translation>
+    </message>
+    <message>
+        <source>Playlist files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 already exists.
+Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
