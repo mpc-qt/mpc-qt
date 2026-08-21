@@ -1467,6 +1467,10 @@ No action will be triggered.</source>
         <translation>Буферизация (%1%)</translation>
     </message>
     <message>
+        <source>Seeking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
