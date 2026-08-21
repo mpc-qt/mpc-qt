@@ -2206,7 +2206,7 @@ void MainWindow::checkExitFullscreenOnEnd()
         ui->actionViewFullscreen->setChecked(false);
 }
 
-void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, int64_t bufferFillState)
+void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, bool isPlaybackPaused, int64_t bufferFillState)
 {
     // Update the fullscreen state
     if (state == PlaybackManager::StoppedState) {
@@ -2222,11 +2222,11 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, int64_t 
     case PlaybackManager::StoppedState:
         ui->status->setText(tr("Stopped"));
         break;
-    case PlaybackManager::PausedState:
-        ui->status->setText(tr("Paused"));
-        break;
     case PlaybackManager::PlayingState:
-        ui->status->setText(tr("Playing"));
+        if (isPlaybackPaused)
+            ui->status->setText(tr("Paused"));
+        else
+            ui->status->setText(tr("Playing"));
         break;
     case PlaybackManager::LoadingState:
         ui->status->setText(tr("Loading"));
@@ -2235,7 +2235,7 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, int64_t 
         ui->status->setText(tr("Buffering (%1%)").arg(bufferFillState));
         break;
     case PlaybackManager::WaitingState:
-        ui->status->setText(tr("Unknown"));
+        ui->status->setText(tr("Loading"));
         break;
     case PlaybackManager::ErrorState:
         ui->status->setText(tr("Error"));
@@ -2243,14 +2243,9 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, int64_t 
     }
     isPlaying = state != PlaybackManager::StoppedState &&
                 state != PlaybackManager::ErrorState;
-    isPaused = state == PlaybackManager::PausedState;
+    isPaused = isPlaybackPaused;
     setUiEnabledState(state != PlaybackManager::StoppedState);
-    if (isPaused) {
-        ui->actionPlayPause->setText(tr("&Play"));
-        ui->pause->setChecked(true);
-    }
-    else
-        ui->actionPlayPause->setText(tr("&Pause"));
+    ui->actionPlayPause->setText(isPaused ? tr("&Pause") : tr("&Play"));
 
     if (state == PlaybackManager::WaitingState) {
         mpvObject_->setLoopPoints(-1, -1);
@@ -2258,7 +2253,8 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, int64_t 
         positionSlider_->setLoopB(-1);
         ui->actionPlayLoopUse->setChecked(false);
     }
-    ui->play->setChecked(state == PlaybackManager::PlayingState);
+    ui->play->setChecked(state == PlaybackManager::PlayingState && !isPlaybackPaused);
+    ui->pause->setChecked(isPaused && state != PlaybackManager::StoppedState);
     ui->stop->setChecked(state == PlaybackManager::StoppedState);
     updateOnTop();
 }
@@ -2575,14 +2571,6 @@ void MainWindow::logWindowClosed()
 void MainWindow::libraryWindowClosed()
 {
     ui->actionViewHideLibrary->setChecked(false);
-}
-
-void MainWindow::mpvObject_mouseReleased()
-{
-    if (!isPlaying && !mousePressedInBottomArea) {
-        emit playCurrentItemRequested();
-        return;
-    }
 }
 
 void MainWindow::setPlaylistVisibleState(bool yes) {

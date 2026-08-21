@@ -276,16 +276,12 @@ void MpcQtServer::ipc_repeat()
 
 void MpcQtServer::ipc_togglePlayback()
 {
-    switch (playbackManager->playbackState()) {
-    case PlaybackManager::StoppedState:
+    if (playbackManager->playbackState() == PlaybackManager::StoppedState)
         ipc_start();
-        break;
-    case PlaybackManager::PausedState:
+    else if (playbackManager->isPaused())
         playbackManager->unpausePlayer();
-        break;
-    default:
+    else
         playbackManager->pausePlayer();
-    }
 }
 
 void MpcQtServer::ipc_deltaExtraPlaytimes(const QVariantMap &map)

@@ -285,7 +285,7 @@ public slots:
     void setOsdTimerOnSeek(bool enabled);
     void setFullscreenHidePanels(bool hidden);
     void checkExitFullscreenOnEnd();
-    void setPlaybackState(PlaybackManager::PlaybackState state, int64_t bufferFillState);
+    void setPlaybackState(PlaybackManager::PlaybackState state, bool isPlaybackPaused, int64_t bufferFillState);
     void setPlaybackType(PlaybackManager::PlaybackType type);
     void disableChaptersMenus();
     void setChapters(QList<Chapter> chapters);
@@ -318,7 +318,6 @@ public slots:
     void setWindowShouldBeRaised(bool yes);
     void logWindowClosed();
     void libraryWindowClosed();
-    void mpvObject_mouseReleased();
 
 private slots:
     void on_actionFileOpenQuick_triggered();

@@ -50,7 +50,7 @@ public slots:
     void mainwindow_fullscreenModeChanged(bool yes);
     void mainwindow_volumeChanged(int level);
     void manager_timeChanged(double time, double length);
-    void manager_stateChanged(PlaybackManager::PlaybackState state);
+    void manager_stateChanged(PlaybackManager::PlaybackState state, bool isPlaybackPaused);
     void manager_nowPlayingChanged(QUrl itemUrl, QUuid listUuid, QUuid itemUuid);
     void mpvObject_mediaTitleChanged(const QString &mediaTitle);
     void mpvObject_metaDataChanged(const QVariantMap &metadata);
@@ -171,7 +171,7 @@ public slots:
 
 private slots:
     void instance_setNowPlayingUrl(const QUrl &nowPlayingUrl);
-    void instance_setPlaybackState(PlaybackManager::PlaybackState state);
+    void instance_setPlaybackState(PlaybackManager::PlaybackState state, bool isPlaybackPaused);
     void instance_setMediaTitle(const QString &mediaTitle);
     void instance_setMetadata(const QVariantMap &metadata);
     void instance_setVolume(double volume);
@@ -183,6 +183,7 @@ private:
     bool maybeChangeMetadata();
 
     PlaybackManager::PlaybackState playbackState = PlaybackManager::StoppedState;
+    bool isPlaybackPaused_ = false;
     QString mpvMediaTitle;
     QVariantMap mpvMetadata;
     QVariantMap metadata_;

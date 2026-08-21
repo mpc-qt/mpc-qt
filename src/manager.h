@@ -49,7 +49,6 @@ class PlaybackManager : public QObject
 public:
     enum PlaybackState {
         StoppedState,
-        PausedState,
         PlayingState,
         LoadingState,
         BufferingState,
@@ -64,6 +63,7 @@ public:
     void setPlaylistWindow(PlaylistWindow *playlistWindow);
     QUrl nowPlaying();
     PlaybackState playbackState();
+    bool isPaused();
     bool eofReached();
     void drawLogo();
 
@@ -73,7 +73,7 @@ signals:
     void titleChanged(QString title);
     void videoSizeChanged(QSize size);
     void playbackSpeedChanged(double speed);
-    void stateChanged(PlaybackManager::PlaybackState state, int bufferFillState = 0);
+    void stateChanged(PlaybackManager::PlaybackState state, bool paused, int bufferFillState = 0);
     void fileClosed();
     void typeChanged(PlaybackManager::PlaybackType type);
     // Transmit a map of chapter index to time,description pairs
@@ -260,7 +260,7 @@ private:
     double stepTimeNormal = 5.0;
     double stepTimeLarge = 20.0;
     PlaybackState playbackState_ = StoppedState;
-    PlaybackState playbackStartState = PlayingState;
+    bool isPlaybackPaused = false;
 
     QList<Track> videoList;
     QList<Track> audioList;
