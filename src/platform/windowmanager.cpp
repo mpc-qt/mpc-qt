@@ -10,6 +10,7 @@
 #include "windowmanager.h"
 
 static constexpr char logModule[] =  "windowmanager";
+static constexpr char keyChromeSize[] = "chromeSize";
 static constexpr char keyGeometry[] = "geometry";
 static constexpr char keyMaximized[] = "maximized";
 static constexpr char keyQtState[] = "qtState";
@@ -42,6 +43,7 @@ void WindowManager::saveAppWindow(MainWindow *window, bool rememberWindowGeometr
     if (rememberPanels)
         panels = window->state();
     QVariantMap data = {
+        { keyChromeSize, !rememberWindowGeometry ? Helpers::sizeToVmap(window->chromeSize()) : QVariantMap() },
         { keyGeometry, rememberWindowGeometry ? appWindowGeometryCurrent : QVariantMap() },
         { keyState, panels },
         { keyMaximized, rememberWindowGeometry ? window->isMaximized() : false }
@@ -81,6 +83,7 @@ void WindowManager::restoreAppWindow(MainWindow *window, const CliInfo &cliInfo)
     QVariantMap data = json_[window->objectName()].toMap();
 
     // restore main window geometry and override it if requested
+    QSize chromeSize = Helpers::vmapToSize(data[keyChromeSize].toMap());
     QRect geometry = Helpers::vmapToRect(data[keyGeometry].toMap());
     appWindowGeometryCurrent = data[keyGeometry].toMap();
     appWindowGeometryPrevious = appWindowGeometryCurrent;
@@ -89,7 +92,7 @@ void WindowManager::restoreAppWindow(MainWindow *window, const CliInfo &cliInfo)
     bool checkMainWindow = data.isEmpty() || geometry.isEmpty();
 
     if (checkMainWindow)
-        desiredSize = window->desirableSize(true);
+        desiredSize = chromeSize.isNull() ? window->size() : window->noVideoSize() + chromeSize;
     if (cliInfo.validCliSize)
         desiredSize = cliInfo.cliSize;
 
