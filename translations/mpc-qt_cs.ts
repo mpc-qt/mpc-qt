@@ -768,7 +768,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Su&amp;bresync</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Resynchronizace titulků</translation>
     </message>
     <message>
         <source>Ctrl+6</source>
@@ -784,7 +784,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Captu&amp;re</source>
-        <translation type="unfinished"></translation>
+        <translation>Zach&amp;ytit</translation>
     </message>
     <message>
         <source>Ctrl+8</source>
@@ -792,7 +792,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Na&amp;vigation</source>
-        <translation type="unfinished"></translation>
+        <translation>N&amp;avigace</translation>
     </message>
     <message>
         <source>Ctrl+9</source>
@@ -1432,11 +1432,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Hide &amp;Borders</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Skrýt ohraničení</translation>
     </message>
     <message>
         <source>Sho&amp;w Caption and Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit popisek a nabíd&amp;ku</translation>
     </message>
     <message>
         <source>Quick Open</source>
@@ -2273,7 +2273,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Enter Playlist Name</source>
-        <translation>Zadejte jméno playlistu</translation>
+        <translation>Zadejte název playlistu</translation>
     </message>
     <message>
         <source>Import File</source>
@@ -2313,11 +2313,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Sort By Label</source>
-        <translation>Seřadit dle štítku</translation>
+        <translation>Seřadit podle štítku</translation>
     </message>
     <message>
         <source>Sort By Url</source>
-        <translation>Seřadit dle Url</translation>
+        <translation>Seřadit podle Url</translation>
     </message>
     <message>
         <source>Randomize</source>
@@ -2653,7 +2653,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Interface</source>
-        <translation>Rozhrání</translation>
+        <translation>Rozhraní</translation>
     </message>
     <message>
         <source>Playback</source>
@@ -4086,7 +4086,7 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Smooth</source>
-        <translation>Plynulé</translation>
+        <translation>Vyhlazení</translation>
     </message>
     <message>
         <source>Source Chroma</source>
@@ -4566,7 +4566,7 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Remember file position</source>
-        <translation>Zapamatovat pozici soubory</translation>
+        <translation>Zapamatovat pozici souborů</translation>
     </message>
     <message>
         <source>Use next/previous file in folder when there is only one item in the playlist</source>
