@@ -660,6 +660,19 @@ QVariantMap Helpers::rectToVmap(const QRect &r) {
     };
 }
 
+QSize Helpers::vmapToSize(const QVariantMap &m)
+{
+    return QSize(m["w"].toInt(), m["h"].toInt());
+}
+
+QVariantMap Helpers::sizeToVmap(const QSize &s)
+{
+    return QVariantMap {
+        { "w", s.width() },
+        { "h", s.height() }
+    };
+}
+
 template <class T>
 bool pairFromString(T &result, const QString &text)
 {

@@ -45,6 +45,8 @@ public:
     void setScreensaverAbilities(QSet<ScreenSaver::Ability> ab);
     QSize desirableSize(bool first_run = false);
     QPoint desirablePosition(QSize &size, bool first_run = false) const;
+    QSize chromeSize() const;
+    QSize noVideoSize() const;
     void unfreezeWindow();
     void fixMpvwSize();
     void setActionPlayLoopUse();
@@ -73,7 +75,6 @@ private:
 
     DecorationState decorationState() const;
     bool fullscreenMode() const;
-    QSize noVideoSize() const;
     double sizeFactor() const;
 
     void setDiscState(bool playingADisc);

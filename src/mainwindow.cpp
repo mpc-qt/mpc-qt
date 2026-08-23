@@ -337,6 +337,16 @@ QPoint MainWindow::desirablePosition(QSize &size, bool first_run) const
                                size, available).topLeft() + clientOffset;
 }
 
+QSize MainWindow::chromeSize() const
+{
+    return size() - (mpvw ? mpvw->size() : noVideoSize_);
+}
+
+QSize MainWindow::noVideoSize() const
+{
+    return noVideoSize_;
+}
+
 void MainWindow::unfreezeWindow()
 {
     frozenWindow = false;
@@ -601,11 +611,6 @@ MainWindow::DecorationState MainWindow::decorationState() const
 bool MainWindow::fullscreenMode() const
 {
     return fullscreenMode_;
-}
-
-QSize MainWindow::noVideoSize() const
-{
-    return noVideoSize_;
 }
 
 double MainWindow::sizeFactor() const
