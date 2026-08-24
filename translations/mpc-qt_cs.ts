@@ -1032,7 +1032,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Title Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Hlavní nabídka</translation>
     </message>
     <message>
         <source>Alt+T</source>
@@ -1040,7 +1040,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Root Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Kořenová nabídka</translation>
     </message>
     <message>
         <source>Alt+R</source>
@@ -1048,19 +1048,19 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Subtitle Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Nabídka titulků</translation>
     </message>
     <message>
         <source>&amp;Audio Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Nabídka zvuku</translation>
     </message>
     <message>
         <source>Angle &amp;Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Nabídka úhlů</translation>
     </message>
     <message>
         <source>Chapt&amp;er Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Nabídka kapitol</translation>
     </message>
     <message>
         <source>&amp;Add to Favorites...</source>
@@ -1424,7 +1424,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Re&amp;move File</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstranit soubor</translation>
     </message>
     <message>
         <source>View</source>
@@ -1492,7 +1492,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Rychlé přidání do playlistu</translation>
     </message>
     <message>
         <source>&amp;Quick Open File</source>
