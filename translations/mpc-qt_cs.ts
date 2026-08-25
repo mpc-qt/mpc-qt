@@ -3141,7 +3141,7 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>This can lead to flicker on LCD displays, since these  have a high reaction time.</source>
-        <translation>Toto může vést k blikání na LCD displejích, protože mají dlouhou odezvu.</translation>
+        <translation>Může vést k blikání na LCD displejích, protože mají dlouhou odezvu.</translation>
     </message>
     <message>
         <source>Scaling</source>
@@ -3233,7 +3233,7 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Gaussian</source>
-        <translation>Gaussovský</translation>
+        <translation>Gaussovské</translation>
     </message>
     <message>
         <source>Sinc</source>
@@ -3501,7 +3501,7 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>HDR Tone mapping</source>
-        <translation>HDR tonální korekce</translation>
+        <translation>Tonální korekce HDR</translation>
     </message>
     <message>
         <source>Clip</source>
@@ -4066,7 +4066,7 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Unchecked directories will place output files in the source directory. Streams do not have a source directory and will bring up a dialog when a field is left blank; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; will always ask where to place files. Directories will be created if necessary; this may not work across all filesystems.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Nezaškrtnuté adresáře budou vkládat soubory do zdrojového adresáře. Streamy nemají zdrojový adresář a zobrazí dialog, pokud je políčko necháno prázdné; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; se vždy zeptá, kam umístit soubory. Adresáře budou vytvořeny, pokud je to nutné; toto nemusí fungovat ve všech souborových systémech.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Nezaškrtnuté adresáře budou vkládat soubory do zdrojového adresáře. Streamy nemají zdrojový adresář a zobrazí dialog, pokud je políčko necháno prázdné; &lt;span style=&quot; font-weight:600;&quot;&gt;Alt+I&lt;/span&gt; se vždy zeptá, kam umístit soubory. Adresáře budou vytvořeny, pokud je to nutné; nemusí fungovat ve všech souborových systémech.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Filename template</source>
@@ -4410,7 +4410,7 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Serve pages from disk</source>
-        <translation>Sloužit stránky z disku</translation>
+        <translation>Zobrazovat stránky z disku</translation>
     </message>
     <message>
         <source>Back color</source>
