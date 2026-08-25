@@ -3,6 +3,7 @@
 #include <QMetaMethod>
 #include <QGuiApplication>
 #include <QStyle>
+#include <QTimer>
 #include <QWidget>
 #include "helpers.h"
 #include "logger.h"
@@ -101,6 +102,19 @@ void WindowManager::restoreAppWindow(MainWindow *window, const CliInfo &cliInfo)
     if (cliInfo.validCliPos)
         desiredPlace = cliInfo.cliPos;
 
+    // On X11/XWayland the first child paints and the window-manager
+    // decorations can arrive asynchronously, which may show the menu bar
+    // shortly after the rest of the window.  Map the window transparent
+    // and reveal it once the first complete frame is ready.  Systems without
+    // compositing ignore the opacity value.
+    QVariantMap savedState = data[keyState].toMap();
+    bool delayedReveal = QGuiApplication::platformName() == "xcb"
+            && !data.value(keyMaximized, false).toBool()
+            && !savedState.value("actionViewFullscreen", false).toBool();
+
+    if (delayedReveal)
+        window->setWindowOpacity(0.0);
+
     window->setGeometry(QRect(desiredPlace, desiredSize));
 
     if (data.value(keyMaximized, false).toBool())
@@ -109,6 +123,13 @@ void WindowManager::restoreAppWindow(MainWindow *window, const CliInfo &cliInfo)
         window->show();
     window->raise();
     window->setState(data[keyState].toMap());
+
+    if (delayedReveal) {
+        QTimer::singleShot(50, window, [window]() {
+            window->setWindowOpacity(1.0);
+            window->update();
+        });
+    }
 }
 
 void WindowManager::restoreDocks(QMainWindow *dockHost, QList<QDockWidget *> dockWidgets)
