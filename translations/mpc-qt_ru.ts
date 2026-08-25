@@ -5,15 +5,15 @@
     <name>About</name>
     <message>
         <source>Development Build</source>
-        <translation type="unfinished">Разрабатываемая версия</translation>
+        <translation>Разрабатываемая версия</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished">Версия %1</translation>
+        <translation>Версия %1</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation type="unfinished">Скомпилировано %1 в %2</translation>
+        <translation>Скомпилировано %1 в %2</translation>
     </message>
     <message>
         <source>(Unknown)</source>
@@ -21,19 +21,19 @@
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation type="unfinished">О Media Player Classic Qute Theater</translation>
+        <translation>О Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished">Media Player Classic Qute Theater</translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation type="unfinished">Клон Media Player Classic, написанный на Qt</translation>
+        <translation>Клон Media Player Classic, написанный на Qt</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation type="unfinished">Используется Qt %1 и %2</translation>
+        <translation>Используется Qt %1 и %2</translation>
     </message>
     <message>
         <source>Running on %1</source>
@@ -164,7 +164,7 @@
     </message>
     <message>
         <source>Disable Aspect ratio</source>
-        <translation type="unfinished">Отключить соотношение сторон</translation>
+        <translation>Отключить соотношение сторон</translation>
     </message>
     <message>
         <source>Decrease Pan and Scan</source>
@@ -1748,7 +1748,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Input Cache Statistics</source>
-        <translation type="unfinished">Статистика входного &amp;кэша</translation>
+        <translation>Статистика входного &amp;кэша</translation>
     </message>
     <message>
         <source>&amp;Previous Subtitles track</source>
@@ -1776,7 +1776,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation type="unfinished">Снимок экрана</translation>
+        <translation>Снимок экрана</translation>
     </message>
     <message>
         <source>&amp;Crossfeed (for headphones)</source>
@@ -2297,12 +2297,12 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Playlist files</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы списков воспроизведения</translation>
     </message>
     <message>
         <source>File &quot;%1&quot; already exists.
 Do you want to replace it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Файл &quot;%1&quot; уже существует. Заменить его?</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
@@ -4847,7 +4847,7 @@ media file played</source>
     </message>
     <message>
         <source>Show video preview (restart required), set its height to (% of screen):</source>
-        <translation type="unfinished">Показывать предпросмотр видео (требуется перезапуск), высота в процентах от экрана:</translation>
+        <translation>Показывать предпросмотр видео (требуется перезапуск), высота в процентах от экрана:</translation>
     </message>
     <message>
         <source>Minimize to tray</source>
