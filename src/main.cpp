@@ -1598,10 +1598,6 @@ void Flow::manager_openingNewFile()
 
 void Flow::manager_aboutToStartPlayingFile()
 {
-    if (firstFile) {
-        firstFile = false;
-        mainWindow->fixMpvwSize();
-    }
     if (rememberFilePosition)
         updateRecentPosition(false);
 }

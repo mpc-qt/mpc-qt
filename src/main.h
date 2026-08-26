@@ -156,7 +156,6 @@ private:
 
     static bool isWayland;
     static bool isWaylandMode;
-    bool firstFile = true;
     bool playlistsBackupLoaded = false;
     bool inhibitScreensaver = false;
     bool manipulateScreensaver = false;
