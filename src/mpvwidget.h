@@ -71,6 +71,7 @@ public:
     QString formatFiltersList(const QList<QPair<QString, QString>> &filtersList);
     void setSubFile(QString filename);
     void addSubFile(QString filename);
+    void reloadSubFile();
     void setSubtitlesDelay(int subDelayStep);
     void moveSubtitlesVertically(int diff);
     void setAudioDelay(int audioDelayStep);

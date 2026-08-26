@@ -1015,6 +1015,7 @@
      <addaction name="actionPlaySubtitlesPrevious"/>
      <addaction name="actionPlaySubtitlesNext"/>
      <addaction name="actionPlaySubtitlesCopy"/>
+     <addaction name="actionPlaySubtitlesReloadFile"/>
      <addaction name="menuPlaySubtitlesDelay"/>
      <addaction name="menuPlaySubtitlesMove"/>
     </widget>
@@ -2632,6 +2633,11 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionPlaySubtitlesReloadFile">
+   <property name="text">
+    <string>&amp;Reload Subtitles File</string>
    </property>
   </action>
   <action name="actionVideoFiltersDeinterlaceYes">

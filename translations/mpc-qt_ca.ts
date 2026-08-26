@@ -1930,6 +1930,10 @@ No s&apos;activarà cap acció.</translation>
         <source>Increase Delay</source>
         <translation>Incrementar retard</translation>
     </message>
+    <message>
+        <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

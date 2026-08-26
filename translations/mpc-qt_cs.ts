@@ -1950,6 +1950,10 @@ No action will be triggered.</source>
         <source>Increase Delay</source>
         <translation>Zvýšit zpoždění</translation>
     </message>
+    <message>
+        <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

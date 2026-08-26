@@ -1910,6 +1910,10 @@ Tidak ada tindakan yang akan dipicu.</translation>
         <source>Increase Delay</source>
         <translation>Tambahkan Delay</translation>
     </message>
+    <message>
+        <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

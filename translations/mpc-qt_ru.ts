@@ -1910,6 +1910,10 @@ No action will be triggered.</source>
         <source>Increase Delay</source>
         <translation>Увеличить задержку</translation>
     </message>
+    <message>
+        <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

@@ -1954,6 +1954,10 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
         <source>Increase Delay</source>
         <translation>Gecikmeyi Artır</translation>
     </message>
+    <message>
+        <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
