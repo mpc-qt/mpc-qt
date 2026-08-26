@@ -1102,9 +1102,9 @@ void MainWindow::setUiEnabledState(bool enabled)
 
     ui->pause->setChecked(false);
 
-    ui->actionFileOpenDevice->setEnabled(false);
+    ui->actionFileOpenDevice->setVisible(enabled && false);
     ui->actionFileClose->setEnabled(enabled);
-    ui->actionFileSaveCopy->setEnabled(enabled && false);
+    ui->actionFileSaveCopy->setVisible(enabled && false);
     ui->menuFileScreenshot->setEnabled(enabled);
     ui->actionFileSaveImage->setEnabled(enabled);
     ui->actionFileSaveImageAuto->setEnabled(enabled);
@@ -1113,9 +1113,11 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionFileSaveWindowImage->setEnabled(enabled);
     ui->actionFileSaveWindowImageAuto->setEnabled(enabled);
     ui->actionFileSaveThumbnails->setEnabled(enabled);
-    ui->actionFileExportEncode->setEnabled(enabled && false);
+    ui->actionFileExportEncode->setVisible(enabled && false);
     ui->actionFileLoadSubtitle->setEnabled(enabled);
-    ui->actionFileSaveSubtitle->setEnabled(enabled && false);
+    ui->actionFileSaveSubtitle->setVisible(enabled && false);
+    ui->menuFileSubtitleDatabase->setEnabled(enabled);
+    ui->actionFileSubtitleDatabaseUpload->setEnabled(enabled && false);
     ui->actionFileSubtitleDatabaseDownload->setEnabled(enabled && false);
     ui->actionPlayStop->setEnabled(enabled);
     ui->actionPlayFrameBackward->setEnabled(enabled);
@@ -1131,9 +1133,6 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionNavigateGoto->setEnabled(enabled);
     ui->actionFavoritesAdd->setEnabled(enabled);
 
-    ui->menuFileSubtitleDatabase->setEnabled(enabled);
-    ui->actionFileSubtitleDatabaseUpload->setEnabled(false);
-    ui->actionFileSubtitleDatabaseDownload->setEnabled(false);
     ui->menuPlayLoop->setEnabled(enabled);
     if (!enabled) {
         ui->menuPlayAudio->setEnabled(false);
