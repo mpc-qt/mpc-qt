@@ -588,6 +588,7 @@ private:
     QUrl currentFile;
     QString currentFileTitle;
     int previewHeightPercent = 0;
+    bool firstMpvwPaint = true;
 
     IconThemer themer;
     QList<QAction *> menuFavoritesTail;
