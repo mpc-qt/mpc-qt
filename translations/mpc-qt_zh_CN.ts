@@ -1492,7 +1492,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Seeking</source>
-        <translation type="unfinished"></translation>
+        <translation>正在跳转</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1512,7 +1512,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Enter Network Stream</source>
-        <translation>输入串流地址</translation>
+        <translation>输入网络串流</translation>
     </message>
     <message>
         <source>Network Stream</source>
@@ -1936,7 +1936,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Reload Subtitles File</source>
-        <translation type="unfinished"></translation>
+        <translation>重新加载字幕文件(&amp;R)</translation>
     </message>
 </context>
 <context>
@@ -2329,12 +2329,13 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Playlist files</source>
-        <translation type="unfinished"></translation>
+        <translation>播放列表文件</translation>
     </message>
     <message>
         <source>File &quot;%1&quot; already exists.
 Do you want to replace it?</source>
-        <translation type="unfinished"></translation>
+        <translation>文件“%1”已存在。
+是否要将其替换？</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
@@ -2604,15 +2605,15 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Active</source>
-        <translation>激活</translation>
+        <translation>活动</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation>禁用</translation>
+        <translation>已禁用</translation>
     </message>
     <message>
         <source>Inactive</source>
-        <translation>不活动</translation>
+        <translation>非活动</translation>
     </message>
 </context>
 <context>
@@ -3026,7 +3027,7 @@ media file played</source>
     </message>
     <message>
         <source>Alpha channel</source>
-        <translation>透明通道</translation>
+        <translation>Alpha 通道</translation>
     </message>
     <message>
         <source>Alpha</source>
@@ -3050,7 +3051,7 @@ media file played</source>
     </message>
     <message>
         <source>Disabled</source>
-        <translation>禁用</translation>
+        <translation>已禁用</translation>
     </message>
     <message>
         <source>Presets</source>
@@ -3090,15 +3091,15 @@ media file played</source>
     </message>
     <message>
         <source>Depth</source>
-        <translation>抖动深度</translation>
+        <translation>深度</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation>抖动类型</translation>
+        <translation>类型</translation>
     </message>
     <message>
         <source>Fruit</source>
-        <translation>扩散抖动</translation>
+        <translation>Fruit 抖动</translation>
     </message>
     <message>
         <source>Ordered</source>
@@ -3106,15 +3107,15 @@ media file played</source>
     </message>
     <message>
         <source>No</source>
-        <translation>禁用</translation>
+        <translation>无抖动</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>抖动大小</translation>
+        <translation>大小</translation>
     </message>
     <message>
         <source>Often, LCDs perform dithering on their own, which conflicts with OpenGL&apos;s output and can lead to ugly output.  In which case you should lower the dither depth.</source>
-        <translation>LCD 屏幕往往会自行进行抖动处理，这会与 OpenGL 的输出冲突，造成严重的质量下降。这种情况下应该降低抖动深度。</translation>
+        <translation>通常，LCD 会自行执行抖动处理，这会与 OpenGL 的输出产生冲突，从而导致输出效果不佳。在这种情况下，您应该降低抖动深度。</translation>
     </message>
     <message>
         <source>Temporal dithering</source>
@@ -3126,7 +3127,7 @@ media file played</source>
     </message>
     <message>
         <source>This can lead to flicker on LCD displays, since these  have a high reaction time.</source>
-        <translation>这可能会导致响应时间较长的 LCD 显示器出现闪烁。</translation>
+        <translation>这可能会导致 LCD 显示器闪烁，因为这些显示器的响应时间较长。</translation>
     </message>
     <message>
         <source>Scaling</source>
@@ -3362,7 +3363,7 @@ media file played</source>
     </message>
     <message>
         <source>Enabled</source>
-        <translation>启用</translation>
+        <translation>已启用</translation>
     </message>
     <message>
         <source>Iterations</source>
@@ -3750,7 +3751,7 @@ media file played</source>
     </message>
     <message>
         <source>Resample audio to match video (may drop frames)</source>
-        <translation>重采样音频以匹配视频(可能掉帧)</translation>
+        <translation>重采样音频以匹配视频（可能丢帧）</translation>
     </message>
     <message>
         <source>Drop or repeat video frames</source>
@@ -3758,7 +3759,7 @@ media file played</source>
     </message>
     <message>
         <source>Drop or repeat audio data</source>
-        <translation>丢弃或重复音频</translation>
+        <translation>丢弃或重复音频数据</translation>
     </message>
     <message>
         <source>Audio drop size</source>
@@ -3790,7 +3791,7 @@ media file played</source>
     </message>
     <message>
         <source>Hover over each backend to display a description.</source>
-        <translation>将鼠标悬停在每个项目上可显示描述。</translation>
+        <translation>将鼠标悬停在每个后端上可显示描述。</translation>
     </message>
     <message>
         <source>A&amp;utodetect</source>
@@ -3798,19 +3799,19 @@ media file played</source>
     </message>
     <message>
         <source>Linux - some gpus, does not always treat certain colorspaces like BT.2020 correctly</source>
-        <translation>Linux - 部分 GPU，可能无法正常处理 BT.2020 等色域</translation>
+        <translation>Linux - 支持部分 GPU，处理 BT.2020 等特定色彩空间时并不总是正确</translation>
     </message>
     <message>
         <source>Windows - not safe; it appears to always use BT.601 for forced RGB conversion, but actual behavior depends on the GPU drivers</source>
-        <translation>Windows - 不安全，似乎总是强制使用 BT.601进行 RGB 转换，但具体行为取决于 GPU 驱动</translation>
+        <translation>Windows - 不安全；对于强制 RGB 转换似乎总是使用 BT.601，但实际行为取决于 GPU 驱动程序</translation>
     </message>
     <message>
         <source>Windows 8+ - usually safe but rounds 10 bit to 8 bit</source>
-        <translation>Windows 8+ - 通常安全，但会将 10 bit 转换为 8 bit</translation>
+        <translation>Windows 8+ - 通常安全，但会将 10 bit 降级为 8 bit</translation>
     </message>
     <message>
         <source>nVidia only (likely 10x0+ only) - safe</source>
-        <translation>仅适用于 nVidia (1000系之后) - 安全</translation>
+        <translation>仅支持 nVidia（可能仅限 10x0+）- 安全</translation>
     </message>
     <message>
         <source>PCI-E decoder card - safe</source>
@@ -3890,16 +3891,16 @@ media file played</source>
     </message>
     <message>
         <source>Fix timing</source>
-        <translation>调整时间</translation>
+        <translation>修正时间轴</translation>
     </message>
     <message>
         <source>Clear on seek</source>
-        <translation>清除定位</translation>
+        <translation>跳转时清除</translation>
     </message>
     <message>
         <source>ASS override</source>
         <extracomment>Might cause issues</extracomment>
-        <translation>ASS 格式覆盖</translation>
+        <translation>ASS 样式覆盖</translation>
     </message>
     <message>
         <source>Yes</source>
@@ -4403,7 +4404,7 @@ media file played</source>
     </message>
     <message>
         <source>Medium</source>
-        <translation>中等</translation>
+        <translation>中</translation>
     </message>
     <message>
         <source>BT.470M</source>
@@ -4503,19 +4504,19 @@ media file played</source>
     </message>
     <message>
         <source>Delay step</source>
-        <translation>延迟加速</translation>
+        <translation>延迟步长</translation>
     </message>
     <message>
         <source>Autodetect - best of VAAPI, DXVA, D3D11VA, etc.</source>
-        <translation>自动选择 - 优先使用VAAPI,DXVA,D3D11VA等。</translation>
+        <translation>自动检测 - VAAPI、DXVA、D3D11VA 等的最佳选择</translation>
     </message>
     <message>
         <source>Linux - works with Intel and AMD GPUs through Mesa, and with nVidia through a translation layer; may only be correct in BT.601 and BT.709</source>
-        <translation>Linux - 通过Mesa支持英特尔和AMD显卡，通过转换层支持nVidia显卡；仅在BT.601和BT.709标准下可能正确显示</translation>
+        <translation>Linux - 通过 Mesa 可支持 Intel 和 AMD GPU，通过转换层可支持 nVidia；可能仅在 BT.601 和 BT.709 下正确处理</translation>
     </message>
     <message>
         <source>nVidia only (faster than CUDA)</source>
-        <translation>只适用于 nVidia (快于NUDA)</translation>
+        <translation>仅支持 nVidia（比 CUDA 更快）</translation>
     </message>
     <message>
         <source>Show OSD timer on seek</source>
@@ -4643,11 +4644,11 @@ media file played</source>
     </message>
     <message>
         <source>Seek to keyframe when hardware decoding is unavailable</source>
-        <translation>当硬件解码不可用时尝试使用关键帧</translation>
+        <translation>当硬件解码不可用时跳转到关键帧</translation>
     </message>
     <message>
         <source>Prioritize seeking speed over accuracy</source>
-        <translation>优先追求速度而非准确性</translation>
+        <translation>优先考虑跳转速度而非准确度</translation>
     </message>
     <message>
         <source>Shadow</source>
