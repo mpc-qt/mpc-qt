@@ -1488,7 +1488,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Seeking</source>
-        <translation type="unfinished"></translation>
+        <translation>Přesouvání</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1660,19 +1660,19 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Seek Forwards (normal step)</source>
-        <translation>Přeskočit vpřed (normální krok)</translation>
+        <translation>Posun vpřed (normální krok)</translation>
     </message>
     <message>
         <source>Seek Backwards (normal step)</source>
-        <translation>Přeskočit zpět (normální krok)</translation>
+        <translation>Posun vzad (normální krok)</translation>
     </message>
     <message>
         <source>Seek Forwards (large step)</source>
-        <translation>Přeskočit vpřed (velký krok)</translation>
+        <translation>Posun vpřed (velký krok)</translation>
     </message>
     <message>
         <source>Seek Backwards (large step)</source>
-        <translation>Přeskočit zpět (velký krok)</translation>
+        <translation>Posun vzad (velký krok)</translation>
     </message>
     <message>
         <source>Title</source>
@@ -1956,7 +1956,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Reload Subtitles File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Znovu načíst soubor s titulky</translation>
     </message>
 </context>
 <context>
@@ -2349,12 +2349,13 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Playlist files</source>
-        <translation type="unfinished"></translation>
+        <translation>Playlistové soubory</translation>
     </message>
     <message>
         <source>File &quot;%1&quot; already exists.
 Do you want to replace it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Soubor &quot;%1&quot; již existuje.
+Chcete ho nahradit?</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
@@ -3954,7 +3955,7 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Clear on seek</source>
-        <translation>Skrýt při posunu</translation>
+        <translation>Vyčistit při přesunu</translation>
     </message>
     <message>
         <source>ASS override</source>
@@ -4175,11 +4176,11 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Drop frames before the seek target in the decoder</source>
-        <translation>Zahodit snímky před cílem přeskočení v dekóderu</translation>
+        <translation>Zahodit snímky před cílovou pozicí v dekóderu</translation>
     </message>
     <message>
         <source>Show chapter marks in seek bar</source>
-        <translation>Zobrazit značky kapitol v posuvníku</translation>
+        <translation>Zobrazit značky kapitol v časovém pruhu</translation>
     </message>
     <message>
         <source>Play next file in folder when there is only one item in the playlist</source>
@@ -4187,11 +4188,11 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Above seekbar</source>
-        <translation>Nad posuvníkem</translation>
+        <translation>Nad časovým pruhem</translation>
     </message>
     <message>
         <source>Below seekbar</source>
-        <translation>Pod posuvníkem</translation>
+        <translation>Pod časovým pruhem</translation>
     </message>
     <message>
         <source>OSD font:</source>
@@ -4611,7 +4612,7 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Show OSD timer on seek</source>
-        <translation>Zobrazit časovač OSD při přeskočení</translation>
+        <translation>Zobrazit OSD časovač při přesunu</translation>
     </message>
     <message>
         <source>Normal step</source>
@@ -4735,11 +4736,11 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Seek to keyframe when hardware decoding is unavailable</source>
-        <translation>Posunout ke klíčovému snímku, když není k dispozici hardwarové dekódování</translation>
+        <translation>Přejít na klíčový snímek při nedostupnosti hardwarového dekódování</translation>
     </message>
     <message>
         <source>Prioritize seeking speed over accuracy</source>
-        <translation>Upřednostnit rychlost přeskakování na úkor přesnosti</translation>
+        <translation>Upřednostnit rychlost přetočení před přesností</translation>
     </message>
     <message>
         <source>Shadow</source>
