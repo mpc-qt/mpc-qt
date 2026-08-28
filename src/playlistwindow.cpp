@@ -6,6 +6,8 @@
 #include <QInputDialog>
 #include <QFileDialog>
 #include <QMenu>
+#include <QFileInfo>
+#include <QMessageBox>
 #include "logger.h"
 #include "playlistwindow.h"
 #include "ui_playlistwindow.h"
@@ -763,14 +765,42 @@ void PlaylistWindow::finishSearch()
 void PlaylistWindow::savePlaylist(const QUuid &playlistUuid)
 {
     static QFileDialog::Options options = QFileDialog::Options();
+
 #ifdef Q_OS_MAC
     options = QFileDialog::DontUseNativeDialog;
 #endif
-    QString file;
-    file = QFileDialog::getSaveFileName(this, tr("Export Playlist File"), QString(),
-                                        tr("Playlist files (*.m3u *.m3u8)"), nullptr, options);
+
+    QString file = tr("Playlist") + ".m3u";
+    bool confirmOverwrite = false;
+
+    while (true) {
+        file = QFileDialog::getSaveFileName(this, tr("Export Playlist File"), file,
+                                            tr("Playlist files") + " (*.m3u *.m3u8)", nullptr, options);
+        if(file.isEmpty())
+            return;
+
+        if (!file.endsWith(".m3u")) {
+            file.append(".m3u");
+            confirmOverwrite = true;
+        }
+
+        QFileInfo info(file);
+        if (confirmOverwrite && info.exists()) {
+            QMessageBox msgBox(this);
+            msgBox.setIcon(QMessageBox::Warning);
+            msgBox.setWindowTitle(tr("Export Playlist File"));
+            msgBox.setText(tr("File \"%1\" already exists.\nDo you want to replace it?").arg(info.fileName()));
+            msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+
+            if (msgBox.exec() != QMessageBox::Ok) {
+                confirmOverwrite = false;
+                continue;
+            }
+        }
+        break;
+    }
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(playlistUuid);
-    if (!file.isEmpty() && pl)
+    if (pl)
         emit exportPlaylist(file, pl->toStringList());
 }
 
