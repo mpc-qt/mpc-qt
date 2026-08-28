@@ -1786,6 +1786,10 @@ Mitään toimintoa ei suoriteta.</translation>
         <source>Increase Delay</source>
         <translation>Lisää viivettä</translation>
     </message>
+    <message>
+        <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

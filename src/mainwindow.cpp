@@ -2408,6 +2408,7 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesPrevious);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesNext);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesCopy);
+    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesReloadFile);
     ui->menuPlaySubtitles->addMenu(ui->menuPlaySubtitlesDelay);
     ui->menuPlaySubtitles->addMenu(ui->menuPlaySubtitlesMove);
     subtitleTracksGroup->actions().constFirst()->setChecked(true);
@@ -3417,6 +3418,11 @@ void MainWindow::on_actionPlaySubtitlesCopy_triggered()
 {
     QClipboard *clippy = QApplication::clipboard();
     clippy->setText(subtitleText);
+}
+
+void MainWindow::on_actionPlaySubtitlesReloadFile_triggered()
+{
+    mpvObject_->reloadSubFile();
 }
 
 void MainWindow::on_actionDecreaseSubtitlesDelay_triggered()

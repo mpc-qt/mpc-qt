@@ -490,6 +490,11 @@ void MpvObject::addSubFile(QString filename)
     emit ctrlCommand(QStringList({"sub-add", filename}));
 }
 
+void MpvObject::reloadSubFile()
+{
+    emit ctrlCommand("sub-reload");
+}
+
 void MpvObject::clearSubFiles()
 {
     emit ctrlSetOptionVariant("sub-files-clr", "");

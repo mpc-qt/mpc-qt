@@ -1974,6 +1974,10 @@ No action will be triggered.</source>
         <source>Increase Delay</source>
         <translation>遅延を増やす</translation>
     </message>
+    <message>
+        <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>

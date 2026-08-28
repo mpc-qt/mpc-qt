@@ -1970,6 +1970,10 @@ Es wird keine Aktion ausgelöst.</translation>
         <source>Increase Delay</source>
         <translation>Verzögerung erhöhen</translation>
     </message>
+    <message>
+        <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
