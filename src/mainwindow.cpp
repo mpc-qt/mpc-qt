@@ -2233,6 +2233,9 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, bool isP
     case PlaybackManager::BufferingState:
         ui->status->setText(tr("Buffering (%1%)").arg(bufferFillState));
         break;
+    case PlaybackManager::SeekingState:
+        ui->status->setText(tr("Seeking"));
+        break;
     case PlaybackManager::WaitingState:
         ui->status->setText(tr("Loading"));
         break;
@@ -2252,7 +2255,11 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, bool isP
         positionSlider_->setLoopB(-1);
         ui->actionPlayLoopUse->setChecked(false);
     }
-    ui->play->setChecked(state == PlaybackManager::PlayingState && !isPlaybackPaused);
+    ui->play->setChecked(state != PlaybackManager::StoppedState &&
+                         state != PlaybackManager::ErrorState &&
+                         !isPlaybackPaused);
+    if (ui->play->isChecked())
+        ui->play->setFocus();
     ui->pause->setChecked(isPaused && state != PlaybackManager::StoppedState);
     ui->stop->setChecked(state == PlaybackManager::StoppedState);
     updateOnTop();

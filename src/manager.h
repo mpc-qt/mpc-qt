@@ -52,6 +52,7 @@ public:
         PlayingState,
         LoadingState,
         BufferingState,
+        SeekingState,
         WaitingState,
         ErrorState
     };
@@ -221,6 +222,7 @@ private slots:
     void mpvw_pausedForCache(QString paused);
     void mpvw_bufferFillStateChanged(int64_t percentage);
     void mpvw_playbackStarted();
+    void mpvw_playbackSeeking();
     void mpvw_pausedChanged(bool yes);
     void mpvw_playbackIdling(bool yes);
     void mpvw_playbackError();

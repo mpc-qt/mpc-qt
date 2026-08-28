@@ -1491,6 +1491,10 @@ Es wird keine Aktion ausgelöst.</translation>
         <translation>Puffern (%1%)</translation>
     </message>
     <message>
+        <source>Seeking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error</source>
         <translation type="unfinished">Fehler</translation>
     </message>

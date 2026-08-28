@@ -867,6 +867,18 @@ void MpvObject::ctrl_unhandledMpvEvent(int eventLevel)
         emit playbackFinished();
         break;
     }
+    case MPV_EVENT_SEEK: {
+        if (debugMessages)
+            Logger::log(logModule, "seek");
+        emit playbackSeeking();
+        break;
+    }
+    case MPV_EVENT_PLAYBACK_RESTART: {
+        if (debugMessages)
+            Logger::log(logModule, "playback restart");
+        emit playbackRestart();
+        break;
+    }
     case MPV_EVENT_SHUTDOWN: {
         if (debugMessages)
             Logger::log(logModule, "event shutdown");

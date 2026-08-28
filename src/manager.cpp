@@ -122,6 +122,10 @@ void PlaybackManager::setMpvObject(MpvObject *mpvObject, bool makeConnections)
                 this, &PlaybackManager::mpvw_playbackStarted);
         connect(mpvObject, &MpvObject::pausedChanged,
                 this, &PlaybackManager::mpvw_pausedChanged);
+        connect(mpvObject, &MpvObject::playbackSeeking,
+                this, &PlaybackManager::mpvw_playbackSeeking);
+        connect(mpvObject, &MpvObject::playbackRestart,
+                this, &PlaybackManager::mpvw_playbackStarted);
         connect(mpvObject, &MpvObject::playbackIdling,
                 this, &PlaybackManager::mpvw_playbackIdling);
         connect(mpvObject, &MpvObject::playbackError,
@@ -1063,6 +1067,12 @@ void PlaybackManager::mpvw_bufferFillStateChanged(int64_t percentage)
 void PlaybackManager::mpvw_playbackStarted()
 {
     playbackState_ = PlayingState;
+    emit stateChanged(playbackState_, isPlaybackPaused);
+}
+
+void PlaybackManager::mpvw_playbackSeeking()
+{
+    playbackState_ = PlaybackState::SeekingState;
     emit stateChanged(playbackState_, isPlaybackPaused);
 }
 
