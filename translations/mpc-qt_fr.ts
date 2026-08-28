@@ -1444,7 +1444,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Seeking</source>
-        <translation type="unfinished"></translation>
+        <translation>Recherche</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1916,7 +1916,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>&amp;Reload Subtitles File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Recharger le fichier de sous-titres</translation>
     </message>
 </context>
 <context>
@@ -2301,12 +2301,13 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Playlist files</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichiers de liste</translation>
     </message>
     <message>
         <source>File &quot;%1&quot; already exists.
 Do you want to replace it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Le fichier &quot;%1&quot; existe déjà.
+Voulez-vous le remplacer&#x202f;?</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
