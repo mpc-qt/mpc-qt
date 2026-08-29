@@ -3099,15 +3099,15 @@ media file played</source>
     </message>
     <message>
         <source>Fruit</source>
-        <translation>Fruit 抖动</translation>
+        <translation>Fruit</translation>
     </message>
     <message>
         <source>Ordered</source>
-        <translation>有序抖动</translation>
+        <translation>有序</translation>
     </message>
     <message>
         <source>No</source>
-        <translation>无抖动</translation>
+        <translation>否</translation>
     </message>
     <message>
         <source>Size</source>
@@ -3191,7 +3191,7 @@ media file played</source>
     </message>
     <message>
         <source>Bartlett</source>
-        <translation>平滑处理窗口</translation>
+        <translation>Bartlett</translation>
     </message>
     <message>
         <source>Hanning</source>
@@ -3215,7 +3215,7 @@ media file played</source>
     </message>
     <message>
         <source>Blackman</source>
-        <translation>Blackman平滑</translation>
+        <translation>Blackman</translation>
     </message>
     <message>
         <source>Gaussian</source>
@@ -3267,7 +3267,7 @@ media file played</source>
     </message>
     <message>
         <source>Lanczos</source>
-        <translation>Lanczos 重采样</translation>
+        <translation>Lanczos</translation>
     </message>
     <message>
         <source>Ginseng</source>
@@ -3275,7 +3275,7 @@ media file played</source>
     </message>
     <message>
         <source>Ewa lanczos</source>
-        <translation>Ewa lanczos 重采样</translation>
+        <translation>Ewa lanczos</translation>
     </message>
     <message>
         <source>Ewa hanning</source>
@@ -3287,7 +3287,7 @@ media file played</source>
     </message>
     <message>
         <source>Ewa lanczos sharp</source>
-        <translation>ewa_lanczos 锐利版</translation>
+        <translation>Ewa lanczos 锐利版</translation>
     </message>
     <message>
         <source>Ewa lanczos soft</source>
@@ -3359,7 +3359,7 @@ media file played</source>
     </message>
     <message>
         <source>State</source>
-        <translation>开始</translation>
+        <translation>状态</translation>
     </message>
     <message>
         <source>Enabled</source>
@@ -3435,7 +3435,7 @@ media file played</source>
     </message>
     <message>
         <source>Target TRC</source>
-        <translation>目标传输函数</translation>
+        <translation>目标 TRC</translation>
     </message>
     <message>
         <source>BT.1886</source>
@@ -4276,7 +4276,7 @@ media file played</source>
     </message>
     <message>
         <source>HDR Compute Peak</source>
-        <translation>HDR计算峰值</translation>
+        <translation>HDR 计算峰值</translation>
     </message>
     <message>
         <source>Target Peak</source>
@@ -4284,7 +4284,7 @@ media file played</source>
     </message>
     <message>
         <source>Based on TRC</source>
-        <translation>基于TRC</translation>
+        <translation>基于 TRC</translation>
     </message>
     <message>
         <source>Downscale in linear light</source>
