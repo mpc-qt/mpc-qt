@@ -1,6 +1,6 @@
 app-id: io.github.mpc_qt.mpc-qt
 runtime: org.kde.Platform
-runtime-version: '6.10'
+runtime-version: '6.11'
 sdk: org.kde.Sdk
 command: mpc-qt
 rename-icon: mpc-qt
@@ -29,8 +29,9 @@ finish-args:
   - --filesystem=xdg-videos
   - --filesystem=xdg-run/gamescope-0:ro
   - --filesystem=xdg-run/pipewire-0:ro
-  - --talk-name=org.freedesktop.ScreenSaver
   - --own-name=org.mpris.MediaPlayer2.MpcQt
+  - --system-talk-name=org.freedesktop.login1
+  - --talk-name=org.freedesktop.ScreenSaver
   - --system-talk-name=org.freedesktop.UDisks2
 # Access to home folder is needed for external subtitles and for downloaded mouse cursor
   - --filesystem=home:ro
