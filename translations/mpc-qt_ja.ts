@@ -1492,7 +1492,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Seeking</source>
-        <translation type="unfinished"></translation>
+        <translation>シーク中</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1980,7 +1980,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Reload Subtitles File</source>
-        <translation type="unfinished"></translation>
+        <translation>字幕ファイルを再読み込み(&amp;R)</translation>
     </message>
 </context>
 <context>
@@ -2373,12 +2373,13 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Playlist files</source>
-        <translation type="unfinished"></translation>
+        <translation>再生リスト ファイル</translation>
     </message>
     <message>
         <source>File &quot;%1&quot; already exists.
 Do you want to replace it?</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル &quot;%1&quot; は既に存在します。
+置き換えますか?</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
