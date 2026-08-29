@@ -470,11 +470,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Speed Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>Giảm Tốc Độ</translation>
     </message>
     <message>
         <source>Speed Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>Tăng Tốc Độ</translation>
     </message>
     <message>
         <source>Skip Forward</source>
@@ -762,7 +762,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>S&amp;tatus</source>
-        <translation type="unfinished"></translation>
+        <translation>Trạng &amp;thái</translation>
     </message>
     <message>
         <source>Ctrl+5</source>
@@ -814,7 +814,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation>2</translation>
     </message>
     <message>
         <source>&amp;Normal</source>
@@ -822,7 +822,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>3</source>
-        <translation type="unfinished"></translation>
+        <translation>3</translation>
     </message>
     <message>
         <source>F&amp;ullscreen</source>
@@ -894,7 +894,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>O</source>
-        <translation type="unfinished"></translation>
+        <translation>O</translation>
     </message>
     <message>
         <source>&amp;Pause</source>
@@ -966,7 +966,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>9</source>
-        <translation type="unfinished"></translation>
+        <translation>9</translation>
     </message>
     <message>
         <source>&amp;Mute</source>
@@ -1254,7 +1254,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>E</source>
-        <translation type="unfinished"></translation>
+        <translation>E</translation>
     </message>
     <message>
         <source>&amp;Decrement</source>
@@ -1430,7 +1430,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>Xem</translation>
     </message>
     <message>
         <source>Hide &amp;Borders</source>
@@ -1650,7 +1650,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>I</source>
-        <translation type="unfinished"></translation>
+        <translation>I</translation>
     </message>
     <message>
         <source>&amp;Decrease Aspect ratio</source>
@@ -1670,11 +1670,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>C</source>
-        <translation type="unfinished"></translation>
+        <translation>C</translation>
     </message>
     <message>
         <source>%1 / %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2</translation>
     </message>
     <message>
         <source>Seek Forwards (normal step)</source>
@@ -1750,7 +1750,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>25%</source>
-        <translation type="unfinished">25%</translation>
+        <translation>25%</translation>
     </message>
     <message>
         <source>&amp;75%</source>
