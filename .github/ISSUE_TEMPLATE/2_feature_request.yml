@@ -1,0 +1,14 @@
+name: Request a new Feature
+description: Create a request for a new feature
+type: Feature
+body:
+- type: textarea
+  id: description
+  attributes:
+      label: Description
+      description: >
+          Before requesting a new feature, make sure it hasn't been
+          [requested yet](https://github.com/mpc-qt/mpc-qt/issues?q=is%3Aissue%20state%3Aopen%20type%3AFeature),
+          and isn't already supported by [MPC-QT development builds](https://mpc-qt.github.io/downloads#dev-builds).
+  validations:
+      required: true

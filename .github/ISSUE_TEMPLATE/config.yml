@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: MPC-QT Discussions
+    url: https://github.com/mpc-qt/mpc-qt/discussions
+    about: If you have questions or want to discuss things use our GitHub Discussions
