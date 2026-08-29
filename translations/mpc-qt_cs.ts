@@ -204,11 +204,11 @@
     </message>
     <message>
         <source>Skip Backward / Previous</source>
-        <translation>Přeskočit dozadu / Předchozí</translation>
+        <translation>Přeskočit vzad / Předchozí</translation>
     </message>
     <message>
         <source>Skip Forward / Next</source>
-        <translation>Přeskočit dopředu / Další</translation>
+        <translation>Přeskočit vpřed / Další</translation>
     </message>
     <message>
         <source>Shortcut already used</source>
@@ -464,7 +464,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Skip Backward</source>
-        <translation>Přeskočit dozadu</translation>
+        <translation>Přeskočit vzad</translation>
     </message>
     <message>
         <source>Speed Decrease</source>
@@ -476,15 +476,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Skip Forward</source>
-        <translation>Preskočit dopředu</translation>
+        <translation>Přeskočit vpřed</translation>
     </message>
     <message>
         <source>Step Backward</source>
-        <translation>Krok dozadu</translation>
+        <translation>Krok vzad</translation>
     </message>
     <message>
         <source>Step Forward</source>
-        <translation>Krok dopředu</translation>
+        <translation>Krok vpřed</translation>
     </message>
     <message>
         <source>Set Loop Start</source>
@@ -912,7 +912,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>F&amp;rame Step Forward</source>
-        <translation>Krok o snímek dopř&amp;edu</translation>
+        <translation>Krok o snímek vpř&amp;ed</translation>
     </message>
     <message>
         <source>Ctrl+Right</source>
@@ -920,7 +920,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Fra&amp;me Step Backward</source>
-        <translation>Krok o snímek doz&amp;adu</translation>
+        <translation>Krok o snímek vz&amp;ad</translation>
     </message>
     <message>
         <source>Ctrl+Left</source>
@@ -1987,7 +1987,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Forward</source>
-        <translation>Dopředu</translation>
+        <translation>Vpřed</translation>
     </message>
     <message>
         <source>Task</source>
