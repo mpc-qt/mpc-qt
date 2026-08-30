@@ -180,11 +180,11 @@ void DrawnSlider::paintEvent(QPaintEvent *event)
     p.setOpacity(isEnabled() ? 1.0 : 0.333);
 
     if (minimum() != maximum()) {
-        double px;
         double x = isDragging ? xPosition : valueToX(value());
         x -= handleWidth/2.0;
-        int index = int(modf(x, &px) * 16.0)&15;
-        p.drawImage(QPointF(px, (height() - handleHeight)/2.0)*pr, handlePics[index]);
+        double xpr = x * pr;
+        int index = int((xpr - floor(xpr)) * 16.0) & 15;
+        p.drawImage(int(xpr), int((height() - handleHeight)/2.0*pr), handlePics[index]);
     }
 }
 
