@@ -345,7 +345,6 @@ void MainWindow::unfreezeWindow()
 // REMOVEME: work around bug on Wayland where video doesn't fit window
 void MainWindow::fixMpvwSize()
 {
-    firstMpvwPaint = false;
     if (QGuiApplication::platformName() != "wayland")
         return;
     QSize size = mpvw->size();
@@ -427,7 +426,8 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)
     if ((insideMpv || object == playlistWindow_) && event->type() == QEvent::MouseMove) {
         this->mouseMoveEvent(static_cast<QMouseEvent*>(event));
     } else if (insideMpv && firstMpvwPaint && event->type() == QEvent::Paint && mpvw->isVisible()) {
-        fixMpvwSize();
+        firstMpvwPaint = false;
+        QTimer::singleShot(0, this, &MainWindow::fixMpvwSize);
     }
     if (object == ui->bottomArea) {
         if (event->type() == QEvent::Leave) {
