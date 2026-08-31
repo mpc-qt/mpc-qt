@@ -269,7 +269,8 @@ height  |         +          ----    hH
     drawnArea = grooveArea;
     grooveArea.adjust(marginX, marginY, -marginX, -marginY);
     sliderArea = grooveArea;
-    sliderArea.adjust(0, 0, -(handleWidth&1), 0);
+    double offset = handleWidth / 2.0 - marginX;
+    sliderArea.adjust(offset, 0, -offset, 0);
     redrawHandle = true;
     redrawBackground = true;
 }
@@ -361,8 +362,8 @@ void MediaSlider::resizeEvent(QResizeEvent *event)
 void MediaSlider::makeBackground()
 {
     qreal pr = devicePixelRatioF();
-    int pw = width() * pr;
-    int ph = height() * pr;
+    int pw = round(width() * pr);
+    int ph = round(height() * pr);
     backgroundPic = QImage(pw, ph, QImage::Format_RGBA8888);
     backgroundPic.fill(Qt::transparent);
     QPainter p(&backgroundPic);
