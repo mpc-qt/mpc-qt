@@ -10,7 +10,7 @@ static constexpr char logModule[] =  "manager";
 static constexpr char strTrue[] =  "true";
 static constexpr char strFalse[] =  "false";
 
-Q_GLOBAL_STATIC_WITH_ARGS(QRegularExpression, wordSplitter, ("\\W+"));
+Q_GLOBAL_STATIC_WITH_ARGS(QRegularExpression, wordSplitter, ("[^\\w-]+"));
 
 
 TrackData TrackData::fromMap(const QVariantMap &map)
