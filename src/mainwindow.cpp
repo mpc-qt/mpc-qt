@@ -2756,21 +2756,24 @@ void MainWindow::on_actionViewHideMenu_triggered()
 
 void MainWindow::on_actionViewHideSeekbar_toggled(bool checked)
 {
-    if (checked && ui->seekbar->isHidden())
+    if (checked && ui->seekbar->isHidden()) {
         ui->seekbar->show();
-    else if (!checked && ui->seekbar->isVisible())
+        ui->controlbar->layout()->update();
+        ui->seekbar->update();
+    } else if (!checked && ui->seekbar->isVisible()) {
         ui->seekbar->hide();
-    ui->controlSection->adjustSize();
+    }
     updateSize();
 }
 
 void MainWindow::on_actionViewHideControls_toggled(bool checked)
 {
-    if (checked && ui->controlbar->isHidden())
+    if (checked && ui->controlbar->isHidden()) {
         ui->controlbar->show();
-    else if (!checked && ui->controlbar->isVisible())
+        ui->controlbar->layout()->update();
+    } else if (!checked && ui->controlbar->isVisible()) {
         ui->controlbar->hide();
-    ui->controlSection->adjustSize();
+    }
     updateSize();
 }
 
