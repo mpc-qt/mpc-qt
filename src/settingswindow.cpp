@@ -1416,6 +1416,12 @@ void SettingsWindow::on_playerAppendToQuickPlaylist_toggled(bool checked)
         ui->playerRememberQuickPlaylist->setChecked(false);
 }
 
+void SettingsWindow::on_playerTrayIcon_toggled(bool checked)
+{
+    ui->playerMinimizeToTray->setEnabled(QGuiApplication::platformName() == "wayland" ? false : checked);
+    ui->playerCloseToTray->setEnabled(checked);
+}
+
 void SettingsWindow::on_playerKeepHistory_toggled(bool checked)
 {
     bool playerKeepHistoryEnabled = checked;
