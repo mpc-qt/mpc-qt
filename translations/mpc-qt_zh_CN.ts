@@ -4858,6 +4858,10 @@ media file played</source>
         <translation>显示百分比</translation>
     </message>
     <message>
+        <source>Show tooltip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Played: %1</source>
         <translation>已播放：%1</translation>
     </message>

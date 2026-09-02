@@ -4925,6 +4925,10 @@ media file played</source>
         <translation>Prozentsatz anzeigen</translation>
     </message>
     <message>
+        <source>Show tooltip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Played: %1</source>
         <translation>Abgespielt: %1</translation>
     </message>

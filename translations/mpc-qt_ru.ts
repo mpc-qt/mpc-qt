@@ -4889,6 +4889,10 @@ media file played</source>
         <translation>Показать процент</translation>
     </message>
     <message>
+        <source>Show tooltip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Played: %1</source>
         <translation>Воспроизводится: %1</translation>
     </message>

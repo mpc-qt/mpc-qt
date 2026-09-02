@@ -4949,6 +4949,10 @@ media file played</source>
         <translation type="unfinished">சதவீதத்தைக் காட்டு</translation>
     </message>
     <message>
+        <source>Show tooltip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Played: %1</source>
         <translation type="unfinished"></translation>
     </message>

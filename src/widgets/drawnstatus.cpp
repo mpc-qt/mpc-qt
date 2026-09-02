@@ -58,6 +58,11 @@ void StatusTime::setPercentMode(bool isPercent)
     updateText();
 }
 
+void StatusTime::setShowTooltip(bool yes)
+{
+    showHoverTooltip = yes;
+}
+
 void StatusTime::updateTimeFormat()
 {
     Helpers::TimeFormat format;
@@ -155,6 +160,18 @@ void StatusTime::showContextMenu(const QPointF &p)
     });
     m->addAction(a);
 
+    m->addSeparator();
+
+    a = new QAction(m);
+    a->setText(tr("Show tooltip"));
+    a->setCheckable(true);
+    a->setChecked(showHoverTooltip);
+    connect(a, &QAction::triggered,
+            this, [this]() {
+        showHoverTooltip = !showHoverTooltip;
+    });
+    m->addAction(a);
+
     m->exec(mapToGlobal(p).toPoint());
     if (hoverTooltip)
         hoverTooltip->hide();
@@ -163,7 +180,7 @@ void StatusTime::showContextMenu(const QPointF &p)
 
 void StatusTime::updateHoverTooltip()
 {
-    if (!hoverTooltip)
+    if (!hoverTooltip || !showHoverTooltip)
         return;
     QWidget *top = window();
     if (!top)

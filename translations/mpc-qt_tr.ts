@@ -4945,6 +4945,10 @@ yeni bir &amp;oynatıcı aç</translation>
         <translation>Yüzdeyi göster</translation>
     </message>
     <message>
+        <source>Show tooltip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Played: %1</source>
         <translation>Oynatılan: %1</translation>
     </message>

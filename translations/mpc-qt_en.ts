@@ -4963,6 +4963,10 @@ media file played</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Show tooltip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Played: %1</source>
         <translation type="unfinished"></translation>
     </message>

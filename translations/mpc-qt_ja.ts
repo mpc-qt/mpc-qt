@@ -4982,6 +4982,10 @@ media file played</source>
         <translation>パーセンテージを表示</translation>
     </message>
     <message>
+        <source>Show tooltip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Played: %1</source>
         <translation>再生 : %1</translation>
     </message>
