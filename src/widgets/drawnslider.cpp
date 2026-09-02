@@ -180,11 +180,11 @@ void DrawnSlider::paintEvent(QPaintEvent *event)
     p.setOpacity(isEnabled() ? 1.0 : 0.333);
 
     if (minimum() != maximum()) {
-        double px;
         double x = isDragging ? xPosition : valueToX(value());
         x -= handleWidth/2.0;
-        int index = int(modf(x, &px) * 16.0)&15;
-        p.drawImage(QPointF(px, (height() - handleHeight)/2.0)*pr, handlePics[index]);
+        double xpr = x * pr;
+        int index = int((xpr - floor(xpr)) * 16.0) & 15;
+        p.drawImage(int(xpr), int((height() - handleHeight)/2.0*pr), handlePics[index]);
     }
 }
 
@@ -269,7 +269,8 @@ height  |         +          ----    hH
     drawnArea = grooveArea;
     grooveArea.adjust(marginX, marginY, -marginX, -marginY);
     sliderArea = grooveArea;
-    sliderArea.adjust(0, 0, -(handleWidth&1), 0);
+    double offset = handleWidth / 2.0 - marginX;
+    sliderArea.adjust(offset, 0, -offset, 0);
     redrawHandle = true;
     redrawBackground = true;
 }
@@ -361,8 +362,8 @@ void MediaSlider::resizeEvent(QResizeEvent *event)
 void MediaSlider::makeBackground()
 {
     qreal pr = devicePixelRatioF();
-    int pw = width() * pr;
-    int ph = height() * pr;
+    int pw = round(width() * pr);
+    int ph = round(height() * pr);
     backgroundPic = QImage(pw, ph, QImage::Format_RGBA8888);
     backgroundPic.fill(Qt::transparent);
     QPainter p(&backgroundPic);
@@ -414,8 +415,8 @@ void MediaSlider::makeBackground()
 void MediaSlider::makeHandle()
 {
     qreal pr = devicePixelRatioF();
-    int pw = handleWidth * pr;
-    int ph = handleHeight * pr;
+    int pw = round(handleWidth * pr);
+    int ph = round(handleHeight * pr);
 
     for (int i = 0; i < 16; i++) {
         QImage handlePic(pw+1, ph, QImage::Format_ARGB32_Premultiplied);
@@ -503,8 +504,8 @@ VolumeSlider::VolumeSlider(QWidget *parent) :
 void VolumeSlider::makeBackground()
 {
     qreal pr = devicePixelRatioF();
-    int pw = int(drawnArea.width() * pr);
-    int ph = int(drawnArea.height() * pr);
+    int pw = round(drawnArea.width() * pr);
+    int ph = round(drawnArea.height() * pr);
     backgroundPic = QImage(pw, ph, QImage::Format_RGBA8888);
     backgroundPic.fill(Qt::transparent);
     QPainter p(&backgroundPic);
@@ -525,8 +526,8 @@ void VolumeSlider::makeBackground()
 void VolumeSlider::makeHandle()
 {
     qreal pr = devicePixelRatioF();
-    int pw = handleWidth * pr;
-    int ph = handleHeight * pr;
+    int pw = round(handleWidth * pr);
+    int ph = round(handleHeight * pr);
     for (int i = 0; i < 16; i++) {
         QImage handlePic(pw+1, ph, QImage::Format_ARGB32);
         handlePic.fill(0);
