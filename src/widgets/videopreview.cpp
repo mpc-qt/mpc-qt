@@ -105,7 +105,8 @@ void VideoPreview::updateWidth(double newAspect)
         return;
     }
     aspectRatio = newAspect;
-    int newWidth = int(videoWidget->height() * newAspect);
+    double dpr = devicePixelRatioF();
+    int newWidth = floor(round(videoWidget->height() * dpr) * newAspect) / dpr;
     videoWidget->setFixedWidth(newWidth);
     textLabel->setFixedSize(newWidth, labelHeight);
     videoWidget->move(0, shadowMargin);
