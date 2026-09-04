@@ -19,9 +19,10 @@ class VideoPreview : public QWidget {
         void updateWidth(double newAspect);
         void setYtdlRawOptions();
 
-        QLabel *textLabel;
+        QLabel *textLabel = nullptr;
         MpvObject *mpv = nullptr;
         MpvGlWidget *videoWidget = nullptr;
+        QWidget *videoContainer = nullptr;
         double aspectRatio = 0;
         bool aspectRatioSet = false;
         bool shouldBeShown = false;

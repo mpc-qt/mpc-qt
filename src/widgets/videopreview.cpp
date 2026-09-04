@@ -1,16 +1,25 @@
 #include <QApplication>
+#include <QGraphicsDropShadowEffect>
 #include "videopreview.h"
 
 static constexpr char logModule[] =  "videopreview";
 static constexpr int previewMarginX = 20;
 static constexpr int labelHeight = 20;
+static constexpr int shadowMargin = 8;
 
 VideoPreview::VideoPreview(QWidget *parent) : QWidget(parent)
 {
     mpv = new MpvObject(this);
-    videoWidget = new MpvGlWidget(mpv, parent);
+    videoContainer = new QWidget(parent);
+    auto *shadow = new QGraphicsDropShadowEffect(videoContainer);
+    shadow->setBlurRadius(40);
+    shadow->setOffset(0);
+    shadow->setColor(QColor(0, 0, 0));
+    videoContainer->setGraphicsEffect(shadow);
+
+    videoWidget = new MpvGlWidget(mpv, videoContainer);
     mpv->setWidgetType(Helpers::CustomWidget, videoWidget);
-    textLabel = new QLabel(parent);
+    textLabel = new QLabel(videoContainer);
     textLabel->setAlignment(Qt::AlignCenter);
 
     textLabel->setAutoFillBackground(true);
@@ -80,7 +89,7 @@ void VideoPreview::show(const QString &text, double videoPosition, const QPoint 
 
 void VideoPreview::setPreviewPosition(const QPoint &where, int mainWindowWidth)
 {
-    int tooltipWidth = videoWidget->width();
+    int tooltipWidth = videoContainer->width();
     int xPos = where.x() - std::round(tooltipWidth / 2);
     if (xPos + tooltipWidth + previewMarginX > mainWindowWidth)
         xPos = mainWindowWidth - tooltipWidth - previewMarginX;
@@ -99,6 +108,10 @@ void VideoPreview::updateWidth(double newAspect)
     int newWidth = int(videoWidget->height() * newAspect);
     videoWidget->setFixedWidth(newWidth);
     textLabel->setFixedSize(newWidth, labelHeight);
+    videoWidget->move(0, shadowMargin);
+    textLabel->move(0, shadowMargin + videoWidget->height());
+    videoContainer->setFixedSize(newWidth + shadowMargin * 2,
+                                 videoWidget->height() + labelHeight + shadowMargin * 2);
     aspectRatioSet = true;
     if (shouldBeShown)
         show();
@@ -119,14 +132,11 @@ void VideoPreview::show()
         shouldBeShown = true;
         return;
     }
-    videoWidget->move(previewBottomLeft.x(),
-                      previewBottomLeft.y() - videoWidget->height() - textLabel->height());
-    textLabel->move(previewBottomLeft.x(),
-                    previewBottomLeft.y() - textLabel->height());
+    videoContainer->move(previewBottomLeft.x(),
+                         previewBottomLeft.y() - videoContainer->height());
 }
 
 void VideoPreview::hide() {
     shouldBeShown = false;
-    videoWidget->move(-50000, -50000);
-    textLabel->move(-50000, -50000);
+    videoContainer->move(-50000, -50000);
 }
