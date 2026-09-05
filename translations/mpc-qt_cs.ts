@@ -4935,7 +4935,7 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Show tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit nápovědu</translation>
     </message>
     <message>
         <source>Played: %1</source>
