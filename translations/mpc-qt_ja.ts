@@ -4983,7 +4983,7 @@ media file played</source>
     </message>
     <message>
         <source>Show tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>ツールチップを表示</translation>
     </message>
     <message>
         <source>Played: %1</source>
