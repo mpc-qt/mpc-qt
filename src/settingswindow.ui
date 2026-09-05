@@ -8850,38 +8850,6 @@ media file played</string>
    </hints>
   </connection>
   <connection>
-   <sender>playerTrayIcon</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>playerCloseToTray</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>718</x>
-     <y>84</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>718</x>
-     <y>112</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>playerTrayIcon</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>playerMinimizeToTray</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>718</x>
-     <y>84</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>718</x>
-     <y>112</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>tweaksVideoPreview</sender>
    <signal>toggled(bool)</signal>
    <receiver>tweaksVideoPreviewHeight</receiver>
