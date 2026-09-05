@@ -5,7 +5,7 @@ body:
 - type: textarea
   id: description
   attributes:
-      label: Description
+      label: Description of the feature
       description: >
           Before requesting a new feature, make sure it hasn't been
           [requested yet](https://github.com/mpc-qt/mpc-qt/issues?q=is%3Aissue%20state%3Aopen%20type%3AFeature),

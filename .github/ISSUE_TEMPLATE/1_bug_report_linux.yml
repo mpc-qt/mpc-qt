@@ -4,9 +4,9 @@ labels: ["linux"]
 type: Bug
 body:
 - type: textarea
-  id: description
+  id: information
   attributes:
-      label: Description of the issue
+      label: Information
       description: >
           If possible, try an [MPC-QT development build](https://mpc-qt.github.io/downloads#dev-builds)
           to make sure the issue hasn't been fixed yet.
@@ -15,19 +15,19 @@ body:
           Please provide the following information if applicable, remove unneeded lines:
       value: |
           - MPC-QT version: (shown in the menu Help > About This Program)
-          - Source of MPC-QT: AppImage / Flatpak / distribution package
-          - Window Manager and Version: e.g. Cinnamon, GNOME, KDE...
+          - Source of MPC-QT: AppImage / Flatpak / distribution package (remove non applicable)
+          - Window Manager and Version: e.g. Cinnamon, GNOME, KDE... (remove non applicable)
           - Linux distribution and version: 
-          - GPU Make: AMD / Intel / Nvidia
+          - GPU Make: AMD / Intel / Nvidia (remove non applicable)
           - Latest known working version: 
           - Issue started after the following happened: 
-
-          # Description of the issue
-
-          (remove this line and describe your issue here)
-      render: text
   validations:
       required: true
-
-
-
+- type: textarea
+  id: description
+  attributes:
+      label: Description of the issue
+      description: |
+          Describe your issue here
+  validations:
+      required: true

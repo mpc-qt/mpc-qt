@@ -4,9 +4,9 @@ labels: ["windows"]
 type: Bug
 body:
 - type: textarea
-  id: description
+  id: information
   attributes:
-      label: Description of the issue
+      label: Information
       description: >
           If possible, try an [MPC-QT development build](https://mpc-qt.github.io/downloads#dev-builds)
           to make sure the issue hasn't been fixed yet.
@@ -15,17 +15,17 @@ body:
           Please provide the following information if applicable, remove unneeded lines:
       value: |
           - MPC-QT version: (shown in the menu Help > About This Program)
-          - Window Version: Windows 10 / Windows 11...
-          - GPU Make: AMD / Intel / Nvidia
+          - Windows Version: Windows 10 / Windows 11... (remove non applicable)
+          - GPU Make: AMD / Intel / Nvidia (remove non applicable)
           - Latest known working version: 
           - Issue started after the following happened: 
-
-          # Description of the issue
-
-          (remove this line and describe your issue here)
-      render: text
   validations:
       required: true
-
-
-
+- type: textarea
+  id: description
+  attributes:
+      label: Description of the issue
+      description: |
+          Describe your issue here
+  validations:
+      required: true
