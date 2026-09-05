@@ -17,12 +17,14 @@ public:
     void setShortMode(bool shortened);
     void setRemainingMode(bool isRemaining);
     void setPercentMode(bool isPercent);
+    void setShowTooltip(bool yes);
     void updatePalette();
     void showContextMenu(const QPointF &p);
 
     bool shortMode() const { return shortMode_; };
     bool remainingMode() const { return remainingMode_; };
     bool percentMode() const { return percentMode_; };
+    bool showTooltip() const { return showHoverTooltip; };
 
 signals:
     void doubleClicked();
@@ -41,6 +43,7 @@ private:
     bool shortMode_ = false;
     bool remainingMode_ = false;
     bool percentMode_ = false;
+    bool showHoverTooltip = true;
     bool hovered = false;
     Helpers::TimeFormat timeFormat = Helpers::LongFormat;
     double currentTime = 0;

@@ -4921,6 +4921,10 @@ arxiu multimèdia reproduït</translation>
         <translation>Mostrar el percentatge</translation>
     </message>
     <message>
+        <source>Show tooltip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Played: %1</source>
         <translation>Reproduït: %1</translation>
     </message>

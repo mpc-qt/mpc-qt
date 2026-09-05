@@ -189,7 +189,8 @@ QVariantMap MainWindow::state()
         { "shownStatsPage", mpvObject_->selectedStatsPage() },
         { "timeShortMode", ui->statusTime->shortMode() },
         { "timeRemainingMode", ui->statusTime->remainingMode() },
-        { "timePercentageMode", ui->statusTime->percentMode() }
+        { "timePercentageMode", ui->statusTime->percentMode() },
+        { "timeHoverTooltip", ui->statusTime->showTooltip() }
     };
 #undef WRAP
 }
@@ -235,6 +236,7 @@ void MainWindow::setState(const QVariantMap &map)
     ui->statusTime->setShortMode(map.value("timeShortMode", true).toBool());
     ui->statusTime->setRemainingMode(map.value("timeRemainingMode", false).toBool());
     ui->statusTime->setPercentMode(map.value("timePercentageMode", false).toBool());
+    ui->statusTime->setShowTooltip(map.value("timeHoverTooltip", true).toBool());
     updateOnTop();
 
 #undef UNWRAP

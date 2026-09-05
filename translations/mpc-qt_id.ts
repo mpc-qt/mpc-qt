@@ -4729,6 +4729,10 @@ file media yang diputar</translation>
         <translation>Tampilkan persentase</translation>
     </message>
     <message>
+        <source>Show tooltip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Played: %1</source>
         <translation>Dimainkan: %1</translation>
     </message>

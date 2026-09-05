@@ -4962,6 +4962,10 @@ tệp phương tiện đã được phát</translation>
         <translation>Hiển thị phần trăm</translation>
     </message>
     <message>
+        <source>Show tooltip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Played: %1</source>
         <translation>Đã phát: %1</translation>
     </message>

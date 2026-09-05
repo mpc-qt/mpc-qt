@@ -4934,6 +4934,10 @@ přehrávaný mediální soubor</translation>
         <translation>Zobrazit procenta</translation>
     </message>
     <message>
+        <source>Show tooltip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Played: %1</source>
         <translation>Přehráno: %1</translation>
     </message>

@@ -58,6 +58,11 @@ void StatusTime::setPercentMode(bool isPercent)
     updateText();
 }
 
+void StatusTime::setShowTooltip(bool yes)
+{
+    showHoverTooltip = yes;
+}
+
 void StatusTime::updateTimeFormat()
 {
     Helpers::TimeFormat format;
@@ -122,36 +127,45 @@ void StatusTime::showContextMenu(const QPointF &p)
     QMenu *m = new QMenu(window());
     QAction *a;
 
-    bool isTimeRemaingMode = remainingMode_;
     a = new QAction(m);
     a->setText(tr("Remaining time"));
     a->setCheckable(true);
     a->setChecked(remainingMode_);
     connect(a, &QAction::triggered,
-            this, [this, isTimeRemaingMode]() {
-        setRemainingMode(!isTimeRemaingMode);
+            this, [this]() {
+        setRemainingMode(!remainingMode_);
     });
     m->addAction(a);
 
-    bool isTimeShortMode = shortMode_;
     a = new QAction(m);
     a->setText(tr("High precision"));
     a->setCheckable(true);
     a->setChecked(!shortMode_);
     connect(a, &QAction::triggered,
-            this, [this, isTimeShortMode]() {
-        setShortMode(!isTimeShortMode);
+            this, [this]() {
+        setShortMode(!shortMode_);
     });
     m->addAction(a);
 
-    bool isTimePercentageMode = percentMode_;
     a = new QAction(m);
     a->setText(tr("Show percentage"));
     a->setCheckable(true);
     a->setChecked(percentMode_);
     connect(a, &QAction::triggered,
-            this, [this, isTimePercentageMode]() {
-        setPercentMode(!isTimePercentageMode);
+            this, [this]() {
+        setPercentMode(!percentMode_);
+    });
+    m->addAction(a);
+
+    m->addSeparator();
+
+    a = new QAction(m);
+    a->setText(tr("Show tooltip"));
+    a->setCheckable(true);
+    a->setChecked(showHoverTooltip);
+    connect(a, &QAction::triggered,
+            this, [this]() {
+        showHoverTooltip = !showHoverTooltip;
     });
     m->addAction(a);
 
@@ -163,7 +177,7 @@ void StatusTime::showContextMenu(const QPointF &p)
 
 void StatusTime::updateHoverTooltip()
 {
-    if (!hoverTooltip)
+    if (!hoverTooltip || !showHoverTooltip)
         return;
     QWidget *top = window();
     if (!top)
