@@ -13,6 +13,13 @@
 #include "ui_settingswindow.h"
 #include "widgets/screencombo.h"
 
+static const QString dialogueDownmixOptions =
+    "[pan=stereo|"
+    "FL=0.50*FL+0.85*FC+0.20*LFE+0.35*BL+0.35*SL|"
+    "FR=0.50*FR+0.85*FC+0.20*LFE+0.35*BR+0.35*SR,"
+    "acompressor=threshold=0.125:ratio=3:attack=20:release=250:makeup=1.5,"
+    "alimiter=limit=0.95:level=0]";
+
 // No designated initializers until c++2a, so use factory method instead
 struct FilterWindow {
     //QString name;
@@ -990,8 +997,10 @@ void SettingsWindow::sendSignals()
     int index = WIDGET_LOOKUP(ui->audioDevice).toInt();
     emit option("audio-device", audioDevices.value(index).deviceName());
     index = WIDGET_LOOKUP(ui->audioChannels).toInt();
-    emit option("audio-channels", index < 4 ? SettingMap::indexedValueToText[ui->audioChannels->objectName()][index]
-                                         : channelSwitcher());
+    QString audioChannels = index < 4 ? SettingMap::indexedValueToText[ui->audioChannels->objectName()][index]
+                                      : channelSwitcher();
+    emit option("audio-channels", dialogueDownmixActive ? QVariant("stereo") : QVariant(audioChannels));
+    emit option("ad-lavc-downmix", "no");
     bool flag = WIDGET_LOOKUP(ui->audioStreamSilence).toBool();
     emit option("stream-silence", flag);
     emit option("audio-wait-open", flag ? WIDGET_LOOKUP(ui->audioWaitTime).toDouble() : 0.0);
@@ -1205,6 +1214,18 @@ void SettingsWindow::setAudioFilter(QString filter, QString options, bool add)
 {
     bool clearFilters = setFilter(audioFiltersList, filter, options, add);
     emit audioFilters(audioFiltersList, clearFilters);
+}
+
+void SettingsWindow::setDialogueDownmix(bool enabled)
+{
+    dialogueDownmixActive = enabled;
+    setAudioFilter("lavfi", dialogueDownmixOptions, enabled);
+
+    int index = WIDGET_LOOKUP(ui->audioChannels).toInt();
+    QString audioChannels = index < 4 ? SettingMap::indexedValueToText[ui->audioChannels->objectName()][index]
+                                      : channelSwitcher();
+    emit option("audio-channels", enabled ? QVariant("stereo") : QVariant(audioChannels));
+    emit option("ad-lavc-downmix", "no");
 }
 
 void SettingsWindow::setVideoFilter(QString filter, QString options, bool add)

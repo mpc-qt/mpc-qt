@@ -725,6 +725,8 @@ void Flow::setupSettingsConnections()
             settingsWindow, &SettingsWindow::setZoomPreset);
     connect(mainWindow, &MainWindow::audioFilter,
             settingsWindow, &SettingsWindow::setAudioFilter);
+    connect(mainWindow, &MainWindow::dialogueDownmix,
+            settingsWindow, &SettingsWindow::setDialogueDownmix);
     connect(mainWindow, &MainWindow::videoFilter,
             settingsWindow, &SettingsWindow::setVideoFilter);
 

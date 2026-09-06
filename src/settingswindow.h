@@ -208,6 +208,7 @@ public slots:
     void setMouseMapDefaults(const QVariantMap &payload);
     void setAudioDevices(const QList<AudioDevice> &devices);
     void setAudioFilter(QString filter, QString options, bool add);
+    void setDialogueDownmix(bool enabled);
     void setVideoFilter(QString filter, QString options, bool add);
     void sendSignals();
     void sendAcceptedSettings();
@@ -401,6 +402,7 @@ private:
     QVariantMap defaultKeyMap;
     QList<AudioDevice> audioDevices;
     QList<QPair<QString, QString>> audioFiltersList;
+    bool dialogueDownmixActive = false;
     QList<QPair<QString, QString>> videoFiltersList;
     QMap<int, QString> pageSearchTerms;
 };

@@ -980,6 +980,7 @@
       <addaction name="actionAudioFilterExtrastereo"/>
       <addaction name="actionAudioFilterAcompressor"/>
       <addaction name="actionAudioFilterCrossfeed"/>
+      <addaction name="actionAudioFilterDialogueDownmix"/>
      </widget>
      <widget class="QMenu" name="menuPlayAudioDelay">
       <property name="title">
@@ -2317,6 +2318,14 @@
    </property>
    <property name="text">
     <string>&amp;Crossfeed (for headphones)</string>
+   </property>
+  </action>
+  <action name="actionAudioFilterDialogueDownmix">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Dialogue Clarity</string>
    </property>
   </action>
   <action name="actionDecreaseAudioDelay">
