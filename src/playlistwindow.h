@@ -43,6 +43,7 @@ public:
     void setExtraPlayTimes(QUuid list, QUuid item, int amount);
     void deltaExtraPlayTimes(QUuid list, QUuid item, int delta);
     void reshufflePlaylist(const QUuid &playlistUuid);
+    void clearWidgetFocus();
 
     QVariantList tabsToVList(bool saveQuickPlaylist) const;
     void tabsFromVList(const QVariantList &qvl);
@@ -67,6 +68,7 @@ private:
     void setPlaylistFilters(QString filterText);
     void addNewTab(QUuid playlist, QString title);
     void addQuickQueue();
+    void itemDoubleClicked(QUuid playlistUuid, QUuid itemUuid, bool clickedInPlaylist);
 
 signals:
     void windowDocked();
