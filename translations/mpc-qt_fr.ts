@@ -4915,7 +4915,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Show tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher l&apos;infobulle</translation>
     </message>
     <message>
         <source>Played: %1</source>
