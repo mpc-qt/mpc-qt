@@ -125,6 +125,7 @@ signals:
     void volumeStep(int amount);
     void speedStep(double amount);
     void speedStepAdditive(bool isAdditive);
+    void holdSpeed(double speed);
     void stepTimeNormal(int msec);
     void stepTimeLarge(int msec);
     void zoomPreset(int which, double fitFactor);

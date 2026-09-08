@@ -19,6 +19,7 @@
 #include <QDesktopServices>
 #include <QMessageBox>
 #include <QScreen>
+#include <QGuiApplication>
 #include <QStyle>
 #include <QSvgRenderer>
 #include <QPainter>
@@ -51,6 +52,12 @@ MainWindow::MainWindow(QWidget *parent) :
     setupSizing();
     setupBottomArea();
     setupHideTimer();
+    holdSpeedTimer.setSingleShot(true);
+    holdSpeedTimer.setInterval(150);
+    connect(&holdSpeedTimer, &QTimer::timeout, this, [this]() {
+        if (QGuiApplication::mouseButtons() & Qt::LeftButton)
+            beginHoldSpeed();
+    });
     setupIconThemer();
 
     if (mpvw)
@@ -415,16 +422,53 @@ void MainWindow::changeEvent(QEvent *event)
         }
     }
 }
-
 void MainWindow::moveEvent(QMoveEvent *event)
 {
     Q_UNUSED(event)
     emit windowMoved();
 }
 
+void MainWindow::beginHoldSpeed()
+{
+    if (holdSpeedActive || !isPlaying || isPaused)
+        return;
+    holdSpeedActive = true;
+    if (mpvw)
+        mpvw->grabMouse();
+    emit holdSpeedStart();
+}
+
+void MainWindow::finishHoldSpeed()
+{
+    holdSpeedTimer.stop();
+    if (mpvw && QWidget::mouseGrabber() == mpvw)
+        mpvw->releaseMouse();
+    if (!holdSpeedActive)
+        return;
+    holdSpeedActive = false;
+    emit holdSpeedEnd();
+}
+
 bool MainWindow::eventFilter(QObject *object, QEvent *event)
 {
     bool insideMpv = mpvw ? object == mpvw : false;
+    if (insideMpv && event->type() == QEvent::MouseButtonPress) {
+        auto *mouseEvent = static_cast<QMouseEvent *>(event);
+        if (mouseEvent->button() == Qt::LeftButton
+            && mouseEvent->modifiers() == Qt::NoModifier) {
+            holdSpeedTimer.start();
+        }
+    } else if (insideMpv && event->type() == QEvent::MouseButtonRelease) {
+        auto *mouseEvent = static_cast<QMouseEvent *>(event);
+        if (mouseEvent->button() == Qt::LeftButton) {
+            holdSpeedTimer.stop();
+            if (holdSpeedActive) {
+                finishHoldSpeed();
+                event->accept();
+                return true;
+            }
+        }
+    }
     if ((insideMpv || object == playlistWindow_) && event->type() == QEvent::MouseMove) {
         this->mouseMoveEvent(static_cast<QMouseEvent*>(event));
     } else if (insideMpv && firstMpvwPaint && event->type() == QEvent::Paint && mpvw->isVisible()) {
@@ -864,6 +908,7 @@ void MainWindow::setupMpvWidget(Helpers::MpvWidgetType widgetType)
                 this, &MainWindow::mpvw_customContextMenuRequested);
         // CHECKME: mouse tracking could be set by mpvObject's setWidgetType func
         mpvw->setMouseTracking(true);
+        mpvw->installEventFilter(this);
     }
 
     if (embeddedBottomArea)
@@ -2248,6 +2293,8 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, bool isP
     isPlaying = state != PlaybackManager::StoppedState &&
                 state != PlaybackManager::ErrorState;
     isPaused = isPlaybackPaused;
+    if (!isPlaying || isPaused)
+        finishHoldSpeed();
     setUiEnabledState(state != PlaybackManager::StoppedState);
     ui->actionPlayPause->setText(isPaused ? tr("&Pause") : tr("&Play"));
 
@@ -3310,6 +3357,7 @@ void MainWindow::on_actionPlayPause_triggered()
 
 void MainWindow::on_actionPlayStop_triggered()
 {
+    finishHoldSpeed();
     emit stopped();
     isPlaying = false;
     updateSize();
