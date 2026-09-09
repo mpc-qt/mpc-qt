@@ -17,11 +17,11 @@
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished">(Unknown)</translation>
+        <translation>(Ukendt)</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation type="unfinished">About Media Player Classic Qute Theater</translation>
+        <translation>Om Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Media Player Classic Qute Theater</source>
@@ -29,15 +29,15 @@
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation type="unfinished">A clone of Media Player Classic written in Qt</translation>
+        <translation>En klon af Media Player Classic skrevet i Qt</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation type="unfinished">Based on Qt %1 and %2</translation>
+        <translation>Baseret på Qt %1 og %2</translation>
     </message>
     <message>
         <source>Running on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kører på %1</translation>
     </message>
     <message>
         <source>Running under %1</source>
@@ -48,11 +48,11 @@
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Kommando</translation>
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Tast</translation>
     </message>
     <message>
         <source>Mouse Window</source>
