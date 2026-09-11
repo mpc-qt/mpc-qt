@@ -818,6 +818,7 @@ void MainWindow::setupVolumeSlider()
     volumeSlider_->setMinimum(0);
     volumeSlider_->setMaximum(130);
     volumeSlider_->setValue(100);
+    volumeSlider_->setToolTip("100%");
     ui->controlbar->layout()->addWidget(volumeSlider_);
     connect(volumeSlider_, &VolumeSlider::sliderMoved,
             this, &MainWindow::volume_sliderMoved);
@@ -2463,13 +2464,16 @@ void MainWindow::setSubtitleText(QString subText)
 void MainWindow::setVolume(int level, bool onInit)
 {
     volumeSlider_->setValue(level);
+    volumeSlider_->setToolTip(QString("%1%").arg(level));
     emit volumeChanged(level, onInit);
 }
 
 void MainWindow::setVolumeDouble(double level)
 {
-    volumeSlider_->setValue(level*100);
-    emit volumeChanged(static_cast<int64_t>(level*100));
+    int vol = static_cast<int>(level * 100);
+    volumeSlider_->setValue(vol);
+    volumeSlider_->setToolTip(QString("%1%").arg(vol));
+    emit volumeChanged(static_cast<int64_t>(vol));
 }
 
 void MainWindow::setVolumeMax(int level)
@@ -3689,6 +3693,7 @@ void MainWindow::on_play_clicked()
 
 void MainWindow::volume_sliderMoved(double position)
 {
+    volumeSlider_->setToolTip(QString("%1%").arg(int(position)));
     emit volumeChanged(int(position));
 }
 
