@@ -508,6 +508,7 @@ static bool insideWidget(QPoint p, QWidget const *widget) {
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
+    playlistWindow_->clearWidgetFocus();
     mousePressPosition = event->globalPosition().toPoint();
     bool isInMpvw = mpvw ? insideWidget(mousePressPosition, mpvw) : false;
     mousePressedInBottomArea = ui->bottomArea->isVisible() ?
@@ -2260,8 +2261,6 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, bool isP
     ui->play->setChecked(state != PlaybackManager::StoppedState &&
                          state != PlaybackManager::ErrorState &&
                          !isPlaybackPaused);
-    if (ui->play->isChecked())
-        ui->play->setFocus();
     ui->pause->setChecked(isPaused && state != PlaybackManager::StoppedState);
     ui->stop->setChecked(state == PlaybackManager::StoppedState);
     updateOnTop();

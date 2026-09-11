@@ -283,7 +283,7 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
         qdp->setDisplayParser(&displayParser);
         qdp->fromVMap(qvm);
         connect(qdp, &DrawnPlaylist::itemDesiredByDoubleClick,
-                this, &PlaylistWindow::itemDesired);
+                this, &PlaylistWindow::itemDoubleClicked);
         connect(qdp, &DrawnPlaylist::contextMenuRequested,
                 this, &PlaylistWindow::playlist_contextMenuRequested);
         auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
@@ -305,6 +305,12 @@ void PlaylistWindow::updateIcons()
 void PlaylistWindow::updateLanguage()
 {
     ui->retranslateUi(this);
+}
+
+void PlaylistWindow::clearWidgetFocus()
+{
+    if (currentPlaylistWidget()->hasFocus())
+        currentPlaylistWidget()->clearFocus();
 }
 
 bool PlaylistWindow::eventFilter(QObject *obj, QEvent *event)
@@ -419,7 +425,7 @@ void PlaylistWindow::addNewTab(QUuid playlist, QString title)
     auto qdp = new DrawnPlaylist(PlaylistCollection::getSingleton());
     qdp->setDisplayParser(&displayParser);
     qdp->setUuid(playlist);
-    connect(qdp, &DrawnPlaylist::itemDesiredByDoubleClick, this, &PlaylistWindow::itemDesired);
+    connect(qdp, &DrawnPlaylist::itemDesiredByDoubleClick, this, &PlaylistWindow::itemDoubleClicked);
     connect(qdp, &DrawnPlaylist::contextMenuRequested,
             this, &PlaylistWindow::playlist_contextMenuRequested);
     widgets.insert(playlist, qdp);
@@ -433,8 +439,14 @@ void PlaylistWindow::addQuickQueue()
     queueWidget->setDisplayParser(&displayParser);
     queueWidget->setUuid(QUuid());
     connect(queueWidget, &DrawnQueue::itemDesiredByDoubleClick,
-            this, &PlaylistWindow::itemDesired);
+            this, &PlaylistWindow::itemDoubleClicked);
     ui->quickPage->layout()->addWidget(queueWidget);
+}
+
+void PlaylistWindow::itemDoubleClicked(QUuid playlistUuid, QUuid itemUuid, bool clickedInPlaylist)
+{
+    clearWidgetFocus();
+    itemDesired(playlistUuid, itemUuid, clickedInPlaylist);
 }
 
 void PlaylistWindow::setIconTheme(IconThemer::FolderMode folderMode, const QString &customFolder)
