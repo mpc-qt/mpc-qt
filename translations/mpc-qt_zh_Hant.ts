@@ -470,11 +470,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Speed Decrease</source>
-        <translation>放慢播放速度</translation>
+        <translation>減速</translation>
     </message>
     <message>
         <source>Speed Increase</source>
-        <translation>加快播放速度</translation>
+        <translation>加速</translation>
     </message>
     <message>
         <source>Skip Forward</source>
@@ -482,19 +482,19 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Step Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>步退</translation>
     </message>
     <message>
         <source>Step Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>步進</translation>
     </message>
     <message>
         <source>Set Loop Start</source>
-        <translation type="unfinished"></translation>
+        <translation>設定區段循環播放起點</translation>
     </message>
     <message>
         <source>Set Loop End</source>
-        <translation type="unfinished"></translation>
+        <translation>設定區段循環播放終點</translation>
     </message>
     <message>
         <source>Chapter</source>
@@ -502,15 +502,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Frame rate</source>
-        <translation type="unfinished"></translation>
+        <translation>影格速率</translation>
     </message>
     <message>
         <source>Sync Offset</source>
-        <translation type="unfinished"></translation>
+        <translation>同步偏移</translation>
     </message>
     <message>
         <source>Framedrops</source>
-        <translation type="unfinished"></translation>
+        <translation>畫面掉幀</translation>
     </message>
     <message>
         <source>vo: 0, decoder: 0</source>
@@ -518,11 +518,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation>位元率</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="unfinished"></translation>
+        <translation>已停止</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -530,15 +530,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>O&amp;pen Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>開啟光碟(&amp;P)</translation>
     </message>
     <message>
         <source>Recent &amp;Files</source>
-        <translation type="unfinished"></translation>
+        <translation>開啟最近的檔案(&amp;F)</translation>
     </message>
     <message>
         <source>Subtitle Data&amp;base</source>
-        <translation type="unfinished"></translation>
+        <translation>字幕資料庫</translation>
     </message>
     <message>
         <source>&amp;View</source>
@@ -546,23 +546,23 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Presets</source>
-        <translation type="unfinished"></translation>
+        <translation>預設檢視模式(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>縮放(&amp;Z)</translation>
     </message>
     <message>
         <source>On &amp;Top</source>
-        <translation type="unfinished"></translation>
+        <translation>視窗置於最上層(&amp;T)</translation>
     </message>
     <message>
         <source>OS&amp;D</source>
-        <translation type="unfinished"></translation>
+        <translation>螢幕顯示(OSD)(&amp;D)</translation>
     </message>
     <message>
         <source>P&amp;lay</source>
-        <translation type="unfinished"></translation>
+        <translation>播放(&amp;L)</translation>
     </message>
     <message>
         <source>&amp;Audio</source>
@@ -570,7 +570,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Su&amp;btitles</source>
-        <translation>字幕(&amp;b)</translation>
+        <translation>字幕(&amp;B)</translation>
     </message>
     <message>
         <source>&amp;Video Stream</source>
@@ -578,15 +578,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>V&amp;olume</source>
-        <translation type="unfinished"></translation>
+        <translation>音量(&amp;V)</translation>
     </message>
     <message>
         <source>Af&amp;ter Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>播放完後(&amp;T)</translation>
     </message>
     <message>
         <source>&amp;Loop</source>
-        <translation type="unfinished"></translation>
+        <translation>區段循環播放(&amp;L)</translation>
     </message>
     <message>
         <source>&amp;Navigate</source>
@@ -598,7 +598,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Favo&amp;rites</source>
-        <translation>我的最愛(&amp;r)</translation>
+        <translation>我的最愛(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -614,35 +614,35 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Quick Open File...</source>
-        <translation type="unfinished"></translation>
+        <translation>快速開啟檔案(&amp;Q)...</translation>
     </message>
     <message>
         <source>&amp;Open File...</source>
-        <translation type="unfinished"></translation>
+        <translation>開啟檔案(&amp;O)...</translation>
     </message>
     <message>
         <source>Ctrl+O</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+O</translation>
     </message>
     <message>
         <source>Open &amp;DVD/BD...</source>
-        <translation type="unfinished"></translation>
+        <translation>開啟 DVD/BD (&amp;D)...</translation>
     </message>
     <message>
         <source>Ctrl+D</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <source>Open De&amp;vice...</source>
-        <translation type="unfinished"></translation>
+        <translation>開啟裝置(&amp;V)...</translation>
     </message>
     <message>
         <source>Ctrl+V</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+V</translation>
     </message>
     <message>
         <source>Open Dir&amp;ectory...</source>
-        <translation type="unfinished"></translation>
+        <translation>開啟資料夾(&amp;E)...</translation>
     </message>
     <message>
         <source>&amp;Clear list</source>
@@ -654,7 +654,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+W</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+W</translation>
     </message>
     <message>
         <source>&amp;Save a Copy...</source>
@@ -666,7 +666,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Alt+I</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+I</translation>
     </message>
     <message>
         <source>Save &amp;Thumbnails</source>
@@ -678,7 +678,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+L</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+L</translation>
     </message>
     <message>
         <source>Save S&amp;ubtitle...</source>
@@ -686,7 +686,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+S</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+S</translation>
     </message>
     <message>
         <source>&amp;Upload...</source>
@@ -706,7 +706,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>P&amp;roperties</source>
-        <translation type="unfinished"></translation>
+        <translation>檔案屬性(&amp;P)</translation>
     </message>
     <message>
         <source>Shift+F10</source>
@@ -714,11 +714,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation type="unfinished"></translation>
+        <translation>離開(&amp;X)</translation>
     </message>
     <message>
         <source>Alt+X</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+X</translation>
     </message>
     <message>
         <source>Hide &amp;Menu</source>
@@ -726,7 +726,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+0</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+0</translation>
     </message>
     <message>
         <source>See&amp;k Bar</source>
@@ -734,7 +734,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+1</translation>
     </message>
     <message>
         <source>&amp;Controls</source>
@@ -742,7 +742,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+2</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+2</translation>
     </message>
     <message>
         <source>&amp;Information</source>
@@ -750,7 +750,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+3</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+3</translation>
     </message>
     <message>
         <source>&amp;Statistics</source>
@@ -758,7 +758,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+4</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+4</translation>
     </message>
     <message>
         <source>S&amp;tatus</source>
@@ -766,7 +766,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+5</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+5</translation>
     </message>
     <message>
         <source>Su&amp;bresync</source>
@@ -774,7 +774,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+6</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+6</translation>
     </message>
     <message>
         <source>Play&amp;list</source>
@@ -782,7 +782,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+7</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+7</translation>
     </message>
     <message>
         <source>Captu&amp;re</source>
@@ -790,7 +790,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+8</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+8</translation>
     </message>
     <message>
         <source>Na&amp;vigation</source>
@@ -798,35 +798,35 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+9</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+9</translation>
     </message>
     <message>
         <source>&amp;Minimal</source>
-        <translation type="unfinished"></translation>
+        <translation>極簡(&amp;M)</translation>
     </message>
     <message>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
         <source>&amp;Compact</source>
-        <translation type="unfinished"></translation>
+        <translation>簡潔(&amp;C)</translation>
     </message>
     <message>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation>2</translation>
     </message>
     <message>
         <source>&amp;Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>正常(&amp;N)</translation>
     </message>
     <message>
         <source>3</source>
-        <translation type="unfinished"></translation>
+        <translation>3</translation>
     </message>
     <message>
         <source>F&amp;ullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>全螢幕(&amp;U)</translation>
     </message>
     <message>
         <source>Alt+Return</source>
@@ -834,15 +834,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Alt+1</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+1</translation>
     </message>
     <message>
         <source>Alt+2</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+2</translation>
     </message>
     <message>
         <source>Alt+3</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+3</translation>
     </message>
     <message>
         <source>Auto &amp;Fit</source>
@@ -850,7 +850,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Alt+4</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+4</translation>
     </message>
     <message>
         <source>Auto Fit (&amp;Larger Only)</source>
@@ -858,7 +858,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Alt+5</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+5</translation>
     </message>
     <message>
         <source>&amp;Disable snapping</source>
@@ -866,7 +866,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Alt+0</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+0</translation>
     </message>
     <message>
         <source>&amp;Default</source>
@@ -878,7 +878,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+A</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+A</translation>
     </message>
     <message>
         <source>While &amp;Playing</source>
@@ -1030,7 +1030,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+G</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+G</translation>
     </message>
     <message>
         <source>&amp;Title Menu</source>
@@ -1038,7 +1038,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Alt+T</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+T</translation>
     </message>
     <message>
         <source>&amp;Root Menu</source>
@@ -1046,7 +1046,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Alt+R</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+R</translation>
     </message>
     <message>
         <source>&amp;Subtitle Menu</source>
@@ -1074,11 +1074,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Home Page</source>
-        <translation type="unfinished"></translation>
+        <translation>官方網站(&amp;H)</translation>
     </message>
     <message>
         <source>&amp;About This Program...</source>
-        <translation type="unfinished"></translation>
+        <translation>關於此程式(&amp;A)...</translation>
     </message>
     <message>
         <source>Open &amp;Network Stream...</source>
@@ -1098,7 +1098,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Alt+6</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+6</translation>
     </message>
     <message>
         <source>&amp;Play Current</source>
@@ -1286,7 +1286,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+Shift+V</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+V</translation>
     </message>
     <message>
         <source>C&amp;opy Queue</source>
@@ -1294,7 +1294,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+Alt+C</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Alt+C</translation>
     </message>
     <message>
         <source>Paste and Q&amp;ueue</source>
@@ -1302,11 +1302,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+Alt+V</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Alt+V</translation>
     </message>
     <message>
         <source>About &amp;Qt...</source>
-        <translation type="unfinished"></translation>
+        <translation>關於 Qt(&amp;Q)...</translation>
     </message>
     <message>
         <source>Save Pl&amp;ain Image...</source>
@@ -1314,7 +1314,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Alt+Shift+I</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+Shift+I</translation>
     </message>
     <message>
         <source>Save Plain Ima&amp;ge (Auto)</source>
@@ -1338,7 +1338,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+`</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+`</translation>
     </message>
     <message>
         <source>Save &amp;Window Image...</source>
@@ -1350,7 +1350,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+Alt+I</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Alt+I</translation>
     </message>
     <message>
         <source>Save Window Image (Auto)</source>
@@ -1390,7 +1390,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+J</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+J</translation>
     </message>
     <message>
         <source>&amp;No Messages</source>
@@ -1542,11 +1542,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Paused</source>
-        <translation type="unfinished"></translation>
+        <translation>已暫停</translation>
     </message>
     <message>
         <source>Playing</source>
-        <translation type="unfinished"></translation>
+        <translation>播放中</translation>
     </message>
     <message>
         <source>Buffering</source>
