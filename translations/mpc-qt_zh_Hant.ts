@@ -318,7 +318,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Start a new process without saving data.</source>
@@ -423,7 +423,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Clear</translation>
     </message>
     <message>
         <source>Save File</source>
@@ -1210,7 +1210,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Close Tab</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1993,11 +1993,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Left</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Right</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -2666,7 +2666,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">1</translation>
     </message>
     <message>
         <source>Player</source>
@@ -2972,7 +2972,7 @@ media file played</source>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Auto</translation>
     </message>
     <message>
         <source>Time step</source>
@@ -3156,7 +3156,7 @@ media file played</source>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">No</translation>
     </message>
     <message>
         <source>Size</source>
@@ -3216,7 +3216,7 @@ media file played</source>
     </message>
     <message>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">2</translation>
     </message>
     <message>
         <source>Anti-ring</source>
@@ -3981,7 +3981,7 @@ media file played</source>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yes</translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
@@ -4161,7 +4161,7 @@ media file played</source>
     </message>
     <message>
         <source>Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">位元率</translation>
     </message>
     <message>
         <source>kBits</source>
@@ -4249,7 +4249,7 @@ media file played</source>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Error</translation>
     </message>
     <message>
         <source>Warning</source>
@@ -4975,7 +4975,7 @@ media file played</source>
     <name>ThumbnailerWindow</name>
     <message>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Source</translation>
     </message>
     <message>
         <source>&amp;Browse...</source>
