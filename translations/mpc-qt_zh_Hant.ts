@@ -450,35 +450,35 @@ No action will be triggered.</source>
     <name>MainWindow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished"></translation>
+        <translation>播放</translation>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>暫停</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>停止</translation>
     </message>
     <message>
         <source>Skip Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>上一個媒體</translation>
     </message>
     <message>
         <source>Speed Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>放慢播放速度</translation>
     </message>
     <message>
         <source>Speed Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>加快播放速度</translation>
     </message>
     <message>
         <source>Skip Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>下一個媒體</translation>
     </message>
     <message>
         <source>Step Backward</source>
@@ -498,7 +498,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Chapter</source>
-        <translation type="unfinished"></translation>
+        <translation>章節</translation>
     </message>
     <message>
         <source>Frame rate</source>
@@ -526,7 +526,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>檔案(&amp;F)</translation>
     </message>
     <message>
         <source>O&amp;pen Disc</source>
@@ -542,7 +542,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>檢視(&amp;V)</translation>
     </message>
     <message>
         <source>&amp;Presets</source>
@@ -566,11 +566,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>音訊(&amp;A)</translation>
     </message>
     <message>
         <source>Su&amp;btitles</source>
-        <translation type="unfinished"></translation>
+        <translation>字幕(&amp;b)</translation>
     </message>
     <message>
         <source>&amp;Video Stream</source>
@@ -590,19 +590,19 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Navigate</source>
-        <translation type="unfinished"></translation>
+        <translation>瀏覽(&amp;N)</translation>
     </message>
     <message>
         <source>&amp;Chapters</source>
-        <translation type="unfinished"></translation>
+        <translation>章節(&amp;C)</translation>
     </message>
     <message>
         <source>Favo&amp;rites</source>
-        <translation type="unfinished"></translation>
+        <translation>我的最愛(&amp;r)</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>幫助(&amp;H)</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
@@ -778,7 +778,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Play&amp;list</source>
-        <translation type="unfinished"></translation>
+        <translation>播放清單(&amp;l)</translation>
     </message>
     <message>
         <source>Ctrl+7</source>
@@ -1626,7 +1626,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Video</source>
-        <translation type="unfinished"></translation>
+        <translation>視訊(&amp;V)</translation>
     </message>
     <message>
         <source>&amp;Decrease Aspect</source>
