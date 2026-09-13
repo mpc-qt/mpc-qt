@@ -2287,7 +2287,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">播放清單</translation>
     </message>
     <message>
         <source>Quick Playlist</source>
@@ -2323,7 +2323,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">移除</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -2351,7 +2351,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">還原</translation>
     </message>
     <message>
         <source>Shuffle</source>
@@ -2396,7 +2396,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">匯入播放清單(&amp;I)</translation>
     </message>
     <message>
         <source>&amp;Export Playlist</source>
@@ -2840,11 +2840,11 @@ media file played</source>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">視訊</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">音訊</translation>
     </message>
     <message>
         <source>All</source>
@@ -3540,7 +3540,7 @@ media file played</source>
     </message>
     <message>
         <source>Clip</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">片段資訊</translation>
     </message>
     <message>
         <source>Mobius</source>
@@ -3704,7 +3704,7 @@ media file played</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">移除</translation>
     </message>
     <message>
         <source>Add to shaders</source>
@@ -3716,7 +3716,7 @@ media file played</source>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">儲存</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -4089,7 +4089,7 @@ media file played</source>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">畫面擷圖</translation>
     </message>
     <message>
         <source>...</source>
@@ -4685,7 +4685,7 @@ media file played</source>
     </message>
     <message>
         <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">紀錄檔 (*.log)</translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
@@ -4709,7 +4709,7 @@ media file played</source>
     </message>
     <message>
         <source>25%</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">25%</translation>
     </message>
     <message>
         <source>50%</source>
