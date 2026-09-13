@@ -43,6 +43,7 @@ void GoToWindow::init(double currentTime, double maxTime, double fps)
     auto const* validatorFrame = new QRegularExpressionValidator(regexFrame, this);
     ui->goToFrame->setValidator(validatorFrame);
     ui->goToFrame->setText(QString::number(currentTime * fps, 'f', 0));
+    ui->goToFrame->installEventFilter(this);
 
     setFixedSize(size());
     show();
@@ -102,17 +103,22 @@ bool GoToWindow::eventFilter(QObject *obj, QEvent *event)
                     ui->goToTime->cursorBackward(false);
                 return true;
             }
-        }
-        else if (key == Qt::Key_Delete)
+        } else if (key == Qt::Key_Delete) {
             return true;
-        else if (key >= Qt::Key_0 && key <= Qt::Key_9) {
+        } else if (key >= Qt::Key_0 && key <= Qt::Key_9) {
             if (ui->goToTime->text()[cursorPos].isDigit())
                 ui->goToTime->cursorForward(true);
             else {
                 ui->goToTime->cursorForward(false);
                 return true;
             }
+        } else if (key == Qt::Key_Return) {
+            on_goToTimeButton_clicked();
         }
+    } else if (obj == ui->goToFrame && event->type() == QEvent::KeyPress) {
+        auto key = static_cast<QKeyEvent*>(event)->key();
+        if (key == Qt::Key_Return)
+            on_goToFrameButton_clicked();
     }
     return false;
 }
