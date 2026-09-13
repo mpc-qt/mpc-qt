@@ -5,15 +5,15 @@
     <name>About</name>
     <message>
         <source>Development Build</source>
-        <translation type="unfinished">Development Build</translation>
+        <translation>開發版本 (Development Build)</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished">Version %1</translation>
+        <translation>版本 %1</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation type="unfinished">Built on %1 at %2</translation>
+        <translation>建置於 %1 %2</translation>
     </message>
     <message>
         <source>(Unknown)</source>
@@ -21,23 +21,23 @@
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation type="unfinished">About Media Player Classic Qute Theater</translation>
+        <translation>關於 Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished">Media Player Classic Qute Theater</translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation type="unfinished">A clone of Media Player Classic written in Qt</translation>
+        <translation>使用 Qt 開發的 Media Player Classic 重製版</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation type="unfinished">Based on Qt %1 and %2</translation>
+        <translation>使用 Qt %1 及 %2</translation>
     </message>
     <message>
         <source>Running on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>執行環境: %1</translation>
     </message>
     <message>
         <source>Running under %1</source>
@@ -295,7 +295,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>FavoritesWindow</name>
     <message>
         <source>Organize Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>管理我的最愛</translation>
     </message>
     <message>
         <source>&amp;Update</source>
@@ -303,15 +303,15 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Files</source>
-        <translation type="unfinished"></translation>
+        <translation>檔案(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;Streams</source>
-        <translation type="unfinished"></translation>
+        <translation>網路串流(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>移除(&amp;R)</translation>
     </message>
 </context>
 <context>
@@ -365,23 +365,23 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>GoToWindow</name>
     <message>
         <source>Go To...</source>
-        <translation type="unfinished"></translation>
+        <translation>前往...</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>時間</translation>
     </message>
     <message>
         <source>Go!</source>
-        <translation type="unfinished"></translation>
+        <translation>跳轉</translation>
     </message>
     <message>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>影格</translation>
     </message>
     <message>
         <source>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitely.</source>
-        <translation type="unfinished"></translation>
+        <translation>輸入 [hh:]mm:ss.ms 時間格式以跳轉至指定時間 (不需輸入分隔符號)。</translation>
     </message>
 </context>
 <context>
@@ -392,46 +392,46 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>還原</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>移除</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>關閉</translation>
     </message>
     <message>
         <source>Playlists Backup</source>
-        <translation type="unfinished"></translation>
+        <translation>播放清單備份</translation>
     </message>
 </context>
 <context>
     <name>LogWindow</name>
     <message>
         <source>Log Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>偵錯紀錄</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>複製</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>儲存</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Clear</translation>
+        <translation>清除</translation>
     </message>
     <message>
         <source>Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>儲存檔案</translation>
     </message>
     <message>
         <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
+        <translation>紀錄檔 (*.log)</translation>
     </message>
 </context>
 <context>
@@ -538,7 +538,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Subtitle Data&amp;base</source>
-        <translation>字幕資料庫</translation>
+        <translation>使用線上字幕資料庫(&amp;B)</translation>
     </message>
     <message>
         <source>&amp;View</source>
@@ -590,7 +590,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Navigate</source>
-        <translation>瀏覽(&amp;N)</translation>
+        <translation>跳轉(&amp;N)</translation>
     </message>
     <message>
         <source>&amp;Chapters</source>
@@ -646,11 +646,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Clear list</source>
-        <translation type="unfinished"></translation>
+        <translation>清除「最近的檔案」清單(&amp;C)</translation>
     </message>
     <message>
         <source>&amp;Close File</source>
-        <translation type="unfinished"></translation>
+        <translation>關閉檔案(&amp;C)</translation>
     </message>
     <message>
         <source>Ctrl+W</source>
@@ -670,11 +670,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Save &amp;Thumbnails</source>
-        <translation type="unfinished"></translation>
+        <translation>儲存縮圖(&amp;T)</translation>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
-        <translation type="unfinished"></translation>
+        <translation>載入本機字幕檔(&amp;L)</translation>
     </message>
     <message>
         <source>Ctrl+L</source>
@@ -690,23 +690,23 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Upload...</source>
-        <translation type="unfinished"></translation>
+        <translation>上傳(&amp;U)...</translation>
     </message>
     <message>
         <source>&amp;Download...</source>
-        <translation type="unfinished"></translation>
+        <translation>下載(&amp;D)...</translation>
     </message>
     <message>
         <source>D</source>
-        <translation type="unfinished"></translation>
+        <translation>D</translation>
     </message>
     <message>
         <source>&amp;Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>搜尋(&amp;S)...</translation>
     </message>
     <message>
         <source>P&amp;roperties</source>
-        <translation>檔案屬性(&amp;P)</translation>
+        <translation>媒體屬性(&amp;P)</translation>
     </message>
     <message>
         <source>Shift+F10</source>
@@ -722,7 +722,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Hide &amp;Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>隱藏選單列(&amp;M)</translation>
     </message>
     <message>
         <source>Ctrl+0</source>
@@ -730,7 +730,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>See&amp;k Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>進度條(&amp;K)</translation>
     </message>
     <message>
         <source>Ctrl+1</source>
@@ -738,7 +738,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Controls</source>
-        <translation type="unfinished"></translation>
+        <translation>控制項(&amp;C)</translation>
     </message>
     <message>
         <source>Ctrl+2</source>
@@ -746,7 +746,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Information</source>
-        <translation type="unfinished"></translation>
+        <translation>資訊列(&amp;I)</translation>
     </message>
     <message>
         <source>Ctrl+3</source>
@@ -754,7 +754,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>統計列(&amp;S)</translation>
     </message>
     <message>
         <source>Ctrl+4</source>
@@ -762,7 +762,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>S&amp;tatus</source>
-        <translation type="unfinished"></translation>
+        <translation>狀態列(&amp;T)</translation>
     </message>
     <message>
         <source>Ctrl+5</source>
@@ -778,7 +778,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Play&amp;list</source>
-        <translation>播放清單(&amp;l)</translation>
+        <translation>播放清單(&amp;L)</translation>
     </message>
     <message>
         <source>Ctrl+7</source>
@@ -870,11 +870,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Default</source>
-        <translation type="unfinished"></translation>
+        <translation>預設(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Always</source>
-        <translation type="unfinished"></translation>
+        <translation>永遠(&amp;A)</translation>
     </message>
     <message>
         <source>Ctrl+A</source>
@@ -882,23 +882,23 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>While &amp;Playing</source>
-        <translation type="unfinished"></translation>
+        <translation>播放時(&amp;P)</translation>
     </message>
     <message>
         <source>While Playing &amp;Video</source>
-        <translation type="unfinished"></translation>
+        <translation>播放視訊時(&amp;V)</translation>
     </message>
     <message>
         <source>&amp;Options...</source>
-        <translation type="unfinished"></translation>
+        <translation>設定 MPC-QT(&amp;O)</translation>
     </message>
     <message>
         <source>O</source>
-        <translation type="unfinished"></translation>
+        <translation>O</translation>
     </message>
     <message>
         <source>&amp;Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>暫停(&amp;P)</translation>
     </message>
     <message>
         <source>Space</source>
@@ -906,15 +906,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>停止(&amp;S)</translation>
     </message>
     <message>
         <source>.</source>
-        <translation type="unfinished"></translation>
+        <translation>.</translation>
     </message>
     <message>
         <source>F&amp;rame Step Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>單格前進(&amp;F)</translation>
     </message>
     <message>
         <source>Ctrl+Right</source>
@@ -922,7 +922,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Fra&amp;me Step Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>單格後退(&amp;M)</translation>
     </message>
     <message>
         <source>Ctrl+Left</source>
@@ -930,7 +930,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Decrease Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>減速(&amp;D)</translation>
     </message>
     <message>
         <source>Ctrl+Down</source>
@@ -938,7 +938,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Increase Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>加速(&amp;I)</translation>
     </message>
     <message>
         <source>Ctrl+Up</source>
@@ -946,11 +946,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>R&amp;eset Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>重設播放速率(&amp;E)</translation>
     </message>
     <message>
         <source>Ctrl+R</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+R</translation>
     </message>
     <message>
         <source>&amp;Up</source>
@@ -970,11 +970,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>靜音(&amp;M)</translation>
     </message>
     <message>
         <source>Ctrl+M</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+M</translation>
     </message>
     <message>
         <source>&amp;Exit</source>
@@ -1026,7 +1026,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Go To...</source>
-        <translation type="unfinished"></translation>
+        <translation>前往(&amp;G)...</translation>
     </message>
     <message>
         <source>Ctrl+G</source>
@@ -1070,7 +1070,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Organize Favorites...</source>
-        <translation type="unfinished"></translation>
+        <translation>管理我的最愛(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Home Page</source>
@@ -1082,7 +1082,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Open &amp;Network Stream...</source>
-        <translation type="unfinished"></translation>
+        <translation>開啟網路串流(&amp;N)...</translation>
     </message>
     <message>
         <source>Save I&amp;mage (Auto)</source>
@@ -1174,11 +1174,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Search Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>在播放清單中搜尋(&amp;S)</translation>
     </message>
     <message>
         <source>Ctrl+F</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+F</translation>
     </message>
     <message>
         <source>&amp;Quick Queue Toggle</source>
@@ -1186,11 +1186,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Q</translation>
     </message>
     <message>
         <source>&amp;Finish Searching</source>
-        <translation type="unfinished"></translation>
+        <translation>結束搜尋(&amp;F)</translation>
     </message>
     <message>
         <source>Esc</source>
@@ -1198,15 +1198,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>新增播放清單(&amp;N)</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+T</translation>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>關閉播放清單(&amp;C)</translation>
     </message>
     <message>
         <source>Close Tab</source>
@@ -1214,31 +1214,31 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+W</translation>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>建立播放清單複本(&amp;D)</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+D</translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>匯入播放清單(&amp;I)</translation>
     </message>
     <message>
         <source>Ctrl+Shift+O</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+O</translation>
     </message>
     <message>
         <source>E&amp;xport Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>匯出播放清單(&amp;X)</translation>
     </message>
     <message>
         <source>Ctrl+Shift+S</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+S</translation>
     </message>
     <message>
         <source>Queue &amp;Visible</source>
@@ -1246,7 +1246,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+Shift+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+Q</translation>
     </message>
     <message>
         <source>&amp;Increment</source>
@@ -1262,7 +1262,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Shift+E</source>
-        <translation type="unfinished"></translation>
+        <translation>Shift+E</translation>
     </message>
     <message>
         <source>&amp;Clear Play Times</source>
@@ -1270,19 +1270,19 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+E</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+E</translation>
     </message>
     <message>
         <source>&amp;Copy Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>複製選取的項目(&amp;C)</translation>
     </message>
     <message>
         <source>Ctrl+Shift+C</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+C</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>貼上</translation>
     </message>
     <message>
         <source>Ctrl+Shift+V</source>
@@ -1374,11 +1374,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Application Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>程式資訊(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;General Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>統計資料(&amp;G)</translation>
     </message>
     <message>
         <source>&amp;Frame Timings</source>
@@ -1386,7 +1386,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Cycle</source>
-        <translation type="unfinished"></translation>
+        <translation>循環切換顯示內容(&amp;C)</translation>
     </message>
     <message>
         <source>Ctrl+J</source>
@@ -1394,7 +1394,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;No Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>不顯示(&amp;N)</translation>
     </message>
     <message>
         <source>&amp;Escape Fullscreen</source>
@@ -1414,7 +1414,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Lo&amp;g</source>
-        <translation type="unfinished"></translation>
+        <translation>偵錯紀錄(&amp;G)</translation>
     </message>
     <message>
         <source>Once</source>
@@ -1430,15 +1430,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>檢視</translation>
     </message>
     <message>
         <source>Hide &amp;Borders</source>
-        <translation type="unfinished"></translation>
+        <translation>隱藏系統標題列(&amp;B)</translation>
     </message>
     <message>
         <source>Sho&amp;w Caption and Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>顯示系統標題列與選單列(&amp;W)</translation>
     </message>
     <message>
         <source>Quick Open</source>
@@ -1446,23 +1446,23 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Software Decoding</source>
-        <translation type="unfinished"></translation>
+        <translation>軟體解碼</translation>
     </message>
     <message>
         <source>Hardware Decoding: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>硬體解碼: %1</translation>
     </message>
     <message>
         <source>Hardware Decoding: %1 (slow)</source>
-        <translation type="unfinished"></translation>
+        <translation>硬體解碼: %1 (慢速)</translation>
     </message>
     <message>
         <source>No files favorited</source>
-        <translation type="unfinished"></translation>
+        <translation>無最愛的檔案</translation>
     </message>
     <message>
         <source>No streams favorited</source>
-        <translation type="unfinished"></translation>
+        <translation>無最愛的網路串流</translation>
     </message>
     <message>
         <source> [Freestanding]</source>
@@ -1498,11 +1498,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Enter Network Stream</source>
-        <translation type="unfinished"></translation>
+        <translation>輸入網路串流</translation>
     </message>
     <message>
         <source>Network Stream</source>
-        <translation type="unfinished"></translation>
+        <translation>網路串流</translation>
     </message>
     <message>
         <source>Open Subtitle</source>
@@ -1538,7 +1538,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <source>Paused</source>
@@ -1566,11 +1566,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+=</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+=</translation>
     </message>
     <message>
         <source>Ctrl+-</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+-</translation>
     </message>
     <message>
         <source>&amp;Copy Subtitle</source>
@@ -1578,7 +1578,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Controls in Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>在全螢幕中顯示控制列</translation>
     </message>
     <message>
         <source>i</source>
@@ -1606,15 +1606,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>字幕</translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>靜音</translation>
     </message>
     <message>
         <source>&amp;Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>加到我的最愛(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Decrease Delay</source>
@@ -1694,7 +1694,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>標題</translation>
     </message>
     <message>
         <source>&amp;Aspect ratio</source>
@@ -1722,11 +1722,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Music Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>音樂模式</translation>
     </message>
     <message>
         <source>M</source>
-        <translation type="unfinished"></translation>
+        <translation>M</translation>
     </message>
     <message>
         <source>&amp;Previous Audio Track</source>
@@ -1738,35 +1738,35 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;50%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;50%</translation>
     </message>
     <message>
         <source>&amp;100%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;100%</translation>
     </message>
     <message>
         <source>&amp;200%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;200%</translation>
     </message>
     <message>
         <source>25%</source>
-        <translation type="unfinished"></translation>
+        <translation>25%</translation>
     </message>
     <message>
         <source>&amp;75%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;75%</translation>
     </message>
     <message>
         <source>15&amp;0%</source>
-        <translation type="unfinished"></translation>
+        <translation>15&amp;0%</translation>
     </message>
     <message>
         <source>&amp;400%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;400%</translation>
     </message>
     <message>
         <source>&amp;300%</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;300%</translation>
     </message>
     <message>
         <source>vo: %1, decoder: %2</source>
@@ -1826,7 +1826,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>畫面擷圖</translation>
     </message>
     <message>
         <source>&amp;Crossfeed (for headphones)</source>
@@ -1850,11 +1850,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>降低音量(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>提高音量(&amp;I)</translation>
     </message>
     <message>
         <source>&amp;Reset</source>
@@ -1930,7 +1930,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>播放清單(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;Play</source>
@@ -1938,15 +1938,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Play Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>播放選取的項目(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;Remove Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>移除選取的項目(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Move File to Recycle Bin</source>
-        <translation type="unfinished"></translation>
+        <translation>將檔案移至垃圾桶(&amp;M)</translation>
     </message>
     <message>
         <source>Delay</source>
@@ -1966,7 +1966,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Pl&amp;aylists Backup</source>
-        <translation type="unfinished"></translation>
+        <translation>播放清單備份(&amp;A)</translation>
     </message>
     <message>
         <source>Decrease Delay</source>
@@ -2143,19 +2143,19 @@ No action will be triggered.</source>
     <name>OpenFileDialog</name>
     <message>
         <source>Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>開啟檔案</translation>
     </message>
     <message>
         <source>Fi&amp;le</source>
-        <translation type="unfinished"></translation>
+        <translation>檔案(&amp;L)</translation>
     </message>
     <message>
         <source>&amp;Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>字幕(&amp;S)</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"></translation>
+        <translation>選擇檔案</translation>
     </message>
 </context>
 <context>
@@ -2189,19 +2189,19 @@ No action will be triggered.</source>
     <name>PlaybackManager</name>
     <message>
         <source>Speed: %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>播放速率: %1%</translation>
     </message>
     <message>
         <source>Volume: %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>音量: %1%</translation>
     </message>
     <message>
         <source>Mute: on</source>
-        <translation type="unfinished"></translation>
+        <translation>靜音: 開啟</translation>
     </message>
     <message>
         <source>Mute: off</source>
-        <translation type="unfinished"></translation>
+        <translation>靜音: 關閉</translation>
     </message>
     <message>
         <source>0: None</source>
@@ -2221,11 +2221,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Subtitles: on</source>
-        <translation type="unfinished"></translation>
+        <translation>字幕: 開啟</translation>
     </message>
     <message>
         <source>Subtitles: off</source>
-        <translation type="unfinished"></translation>
+        <translation>字幕: 關閉</translation>
     </message>
     <message>
         <source>File moved to recycle bin: %1</source>
@@ -2443,27 +2443,27 @@ Do you want to replace it?</source>
     <name>PropertiesWindow</name>
     <message>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>媒體屬性</translation>
     </message>
     <message>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>詳細資訊</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>檔案類型:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>檔案大小:</translation>
     </message>
     <message>
         <source>Media length:</source>
-        <translation type="unfinished"></translation>
+        <translation>媒體時長:</translation>
     </message>
     <message>
         <source>Video size:</source>
-        <translation type="unfinished"></translation>
+        <translation>視訊尺寸:</translation>
     </message>
     <message>
         <source>Created:</source>
@@ -2471,51 +2471,51 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Clip</source>
-        <translation type="unfinished"></translation>
+        <translation>片段資訊</translation>
     </message>
     <message>
         <source>Clip:</source>
-        <translation type="unfinished"></translation>
+        <translation>片名:</translation>
     </message>
     <message>
         <source>Author:</source>
-        <translation type="unfinished"></translation>
+        <translation>作者:</translation>
     </message>
     <message>
         <source>Copyright:</source>
-        <translation type="unfinished"></translation>
+        <translation>著作權:</translation>
     </message>
     <message>
         <source>Rating:</source>
-        <translation type="unfinished"></translation>
+        <translation>評級:</translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation type="unfinished"></translation>
+        <translation>檔案位置:</translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>描述:</translation>
     </message>
     <message>
         <source>MediaInfo</source>
-        <translation type="unfinished"></translation>
+        <translation>媒體資訊</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>儲存(&amp;S)</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>視訊</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>音訊</translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>字幕</translation>
     </message>
     <message>
         <source>General</source>
@@ -2533,11 +2533,11 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Text documents (*.txt);;All files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>純文字檔案 (*.txt);;所有檔案 (*.*)</translation>
     </message>
     <message>
         <source>Modified:</source>
-        <translation type="unfinished"></translation>
+        <translation>編輯時間:</translation>
     </message>
 </context>
 <context>
@@ -2662,7 +2662,7 @@ Do you want to replace it?</source>
     <name>SettingsWindow</name>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>設定 MPC-QT</translation>
     </message>
     <message>
         <source>1</source>
@@ -2670,7 +2670,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Player</source>
-        <translation type="unfinished"></translation>
+        <translation>播放器</translation>
     </message>
     <message>
         <source>Formats</source>
@@ -2678,51 +2678,51 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Keys</source>
-        <translation type="unfinished"></translation>
+        <translation>鍵盤與滑鼠</translation>
     </message>
     <message>
         <source>Logo</source>
-        <translation type="unfinished"></translation>
+        <translation>Logo</translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>介面</translation>
     </message>
     <message>
         <source>Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>播放</translation>
     </message>
     <message>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>輸出</translation>
     </message>
     <message>
         <source>Shaders</source>
-        <translation type="unfinished"></translation>
+        <translation>著色器</translation>
     </message>
     <message>
         <source>Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>全螢幕</translation>
     </message>
     <message>
         <source>Sync</source>
-        <translation type="unfinished"></translation>
+        <translation>同步</translation>
     </message>
     <message>
         <source>Hw. Decoding</source>
-        <translation type="unfinished"></translation>
+        <translation>硬體解碼</translation>
     </message>
     <message>
         <source>Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>播放清單</translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>字幕</translation>
     </message>
     <message>
         <source>Default Style</source>
-        <translation type="unfinished"></translation>
+        <translation>預設樣式</translation>
     </message>
     <message>
         <source>Misc</source>
@@ -2730,23 +2730,23 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>匯出</translation>
     </message>
     <message>
         <source>Encoding</source>
-        <translation type="unfinished"></translation>
+        <translation>編碼</translation>
     </message>
     <message>
         <source>Tweaks</source>
-        <translation type="unfinished"></translation>
+        <translation>進階設定</translation>
     </message>
     <message>
         <source>Logging</source>
-        <translation type="unfinished"></translation>
+        <translation>偵錯紀錄</translation>
     </message>
     <message>
         <source>Miscellaneous</source>
-        <translation type="unfinished"></translation>
+        <translation>雜項</translation>
     </message>
     <message>
         <source>&lt;big&gt;&lt;b&gt;Player</source>
@@ -4221,7 +4221,7 @@ media file played</source>
     </message>
     <message>
         <source>Turn on logging (may produce stuttering)</source>
-        <translation type="unfinished"></translation>
+        <translation>開啟偵錯紀錄 (可能導致 stuttering)</translation>
     </message>
     <message>
         <source>Debugging</source>
