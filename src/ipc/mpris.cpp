@@ -435,32 +435,28 @@ bool MprisPlayerServer::maybeChangeCanPlay()
     return false;
 }
 
-bool MprisPlayerServer::maybeChangeMetadata()
+QVariantMap MprisPlayerServer::buildMetadata() const
 {
-    // arbitrary bitfield used to detect any changes
-    int infoLevel = (!mpvMetadata.isEmpty()     ? 1<<0 : 0)
-                  + (!mpvMediaTitle.isEmpty()   ? 1<<1 : 0)
-                  + (playbackDuration_ >= 0     ? 1<<2 : 0)
-                  + (nowPlayingUrl_.isValid()   ? 1<<3 : 0);
+    QVariantMap map;
+    if (!nowPlayingUrl_.isValid() && mpvMediaTitle.isEmpty()
+            && mpvMetadata.isEmpty())
+        return map;
 
-    if (infoLevel == metadataInfoLevel)
-        return false;
-    metadataInfoLevel = infoLevel;
-
-    metadata_.clear();
-    if (infoLevel == 0)
-        return true;
-
-    if (mpvMediaTitle.isEmpty())
-        mpvMediaTitle = nowPlayingUrl_.fileName();
+    const QString title = mpvMediaTitle.isEmpty() ? nowPlayingUrl_.fileName()
+                                                  : mpvMediaTitle;
     if (!mpvMetadata.contains("title"))
-        metadata_.insert("xesam:title", mpvMediaTitle);
+        map.insert("xesam:title", title);
     else if (!mpvMetadata.contains("mediaTitle"))
-        metadata_.insert("xesam:mediaTitle", mpvMediaTitle);
+        map.insert("xesam:mediaTitle", title);
 
-    metadata_.insert("mpris:trackid", "/no/text");
-    metadata_.insert("mpris:length", qlonglong(playbackDuration_ * 1000000));
-    metadata_.insert("xesam:url", nowPlayingUrl_.toString());
+    map.insert("mpris:trackid", "/no/text");
+    // mpris:length is optional, so leaving it out while the duration is still
+    // unknown says more to a client than publishing a zero it would have to
+    // treat as a sentinel.
+    if (playbackDuration_ > 0)
+        map.insert("mpris:length", qlonglong(playbackDuration_ * 1000000));
+    if (nowPlayingUrl_.isValid())
+        map.insert("xesam:url", nowPlayingUrl_.toString());
 
     auto trackMangle = [](QString &key, QVariant &value) -> bool {
         key = "track";
@@ -507,7 +503,20 @@ bool MprisPlayerServer::maybeChangeMetadata()
         QString key = it.key();
         QVariant value = it.value();
         if (sanitiser(key, value))
-            metadata_.insert("xesam:" + key, value);
+            map.insert("xesam:" + key, value);
     }
+    return map;
+}
+
+bool MprisPlayerServer::maybeChangeMetadata()
+{
+    // Comparing the rebuilt map against the published one detects a changed
+    // value, not merely a value that appeared or vanished, which is what
+    // switching between two files produces.
+    QVariantMap map = buildMetadata();
+    if (map == metadata_)
+        return false;
+
+    metadata_ = std::move(map);
     return true;
 }
