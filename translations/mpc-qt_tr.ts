@@ -1427,6 +1427,10 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
         <translation>Görünüm</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Hide &amp;Borders</source>
         <translation>Kenarlı&amp;kları Gizle</translation>
     </message>

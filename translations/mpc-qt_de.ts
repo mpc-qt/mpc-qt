@@ -1435,6 +1435,10 @@ Es wird keine Aktion ausgelöst.</translation>
         <translation>Ansicht</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Hide &amp;Borders</source>
         <translation>&amp;Ränder verbergen</translation>
     </message>

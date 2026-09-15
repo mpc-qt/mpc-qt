@@ -1451,6 +1451,10 @@ No action will be triggered.</source>
         <translation>Нет избранных файлов</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No streams favorited</source>
         <translation>Нет избранных потоков</translation>
     </message>

@@ -1461,6 +1461,10 @@ No action will be triggered.</source>
         <translation>無最愛的檔案</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No streams favorited</source>
         <translation>無最愛的網路串流</translation>
     </message>

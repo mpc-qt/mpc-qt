@@ -1363,6 +1363,10 @@ Mitään toimintoa ei suoriteta.</translation>
         <translation>Ei suosikkitiedostoja</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No streams favorited</source>
         <translation>Ei suosikkistriimejä</translation>
     </message>

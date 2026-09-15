@@ -1435,6 +1435,10 @@ No action will be triggered.</source>
         <translation>表示</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Hide &amp;Borders</source>
         <translation>境界線を隠す(&amp;B)</translation>
     </message>

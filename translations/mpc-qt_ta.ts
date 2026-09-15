@@ -1427,6 +1427,10 @@ No action will be triggered.</source>
         <translation>பார்வை</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Hide &amp;Borders</source>
         <translation>மறை &amp; எல்லைகள்</translation>
     </message>

@@ -910,6 +910,8 @@ void Flow::setupMpvObjectConnections()
             mainWindow, &MainWindow::setChapterTitle);
     connect(mpvObject, &MpvObject::aspectNameChanged,
             mainWindow, &MainWindow::setAspectName);
+    connect(mpvObject, &MpvObject::volumeChanged,
+            mainWindow, &MainWindow::mpvVolumeChanged);
 
     // settingswindow -> log
     auto logger = Logger::singleton();
