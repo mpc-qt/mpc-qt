@@ -1460,7 +1460,7 @@ void SettingsWindow::on_interfaceIconsCustomBrowse_clicked()
 {
     static QFileDialog::Options options = QFileDialog::Options();
 #ifdef Q_OS_MAC
-    options.setFlag(QFileDialog::DontUseNativeDialog)
+    options.setFlag(QFileDialog::DontUseNativeDialog);
 #endif
     QString dir = ui->interfaceIconsCustomFolder->text();
     dir = QFileDialog::getExistingDirectory(this, "", dir, options);
@@ -1791,7 +1791,7 @@ void SettingsWindow::on_screenshotDirectoryBrowse_clicked()
 {
     static QFileDialog::Options options = QFileDialog::Options();
 #ifdef Q_OS_MAC
-    options.setFlag(QFileDialog::DontUseNativeDialog)
+    options.setFlag(QFileDialog::DontUseNativeDialog);
 #endif
     QString dir = ui->screenshotDirectoryValue->text().isEmpty() ?
                                     ui->screenshotDirectoryValue->placeholderText() :
