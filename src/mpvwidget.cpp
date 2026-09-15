@@ -60,6 +60,7 @@ MpvObject::PropertyDispatchMap MpvObject::propertyDispatch = {
     HANDLE_PROP("video-frame-info/interlaced", interlacedChanged, toBool, false),
     HANDLE_PROP("video-params/aspect", self_aspectChanged, toDouble, 0.0),
     HANDLE_PROP("video-params/aspect-name", aspectNameChanged, toString, QString()),
+    HANDLE_PROP("volume", volumeChanged, toLongLong, 0ll),
     HANDLE_PROP("metadata", self_metadata, toMap, QVariantMap()),
     HANDLE_PROP("audio-device-list", self_audioDeviceList, toList, QVariantList()),
     HANDLE_PROP("filename", fileNameChanged, toString, QString()),
@@ -183,7 +184,8 @@ MpvObject::MpvObject(QObject *owner, const QString &clientName) : QObject(owner)
         { "file-size", 0, MPV_FORMAT_STRING },
         { "path", 0, MPV_FORMAT_STRING },
         { "sub-text", 0, MPV_FORMAT_STRING },
-        { "hwdec-current", 0, MPV_FORMAT_STRING }
+        { "hwdec-current", 0, MPV_FORMAT_STRING },
+        { "volume", 0, MPV_FORMAT_INT64 }
     };
     QSet<QString> throttled = {
         "time-pos", "avsync", "estimated-vf-fps", "frame-drop-count",

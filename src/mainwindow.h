@@ -319,6 +319,7 @@ public slots:
     void setWindowShouldBeRaised(bool yes);
     void logWindowClosed();
     void libraryWindowClosed();
+    void mpvVolumeChanged(int64_t level);
 
 private slots:
     void on_actionFileOpenQuick_triggered();

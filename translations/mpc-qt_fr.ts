@@ -1387,6 +1387,10 @@ Aucune action ne sera déclenchée.</translation>
         <translation>Affichage</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Hide &amp;Borders</source>
         <translation>Masquer les &amp;bords</translation>
     </message>

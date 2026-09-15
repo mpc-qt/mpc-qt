@@ -1421,6 +1421,10 @@ No action will be triggered.</source>
         <translation>No hay archivos favoritos</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No streams favorited</source>
         <translation>No hay flujos favoritos</translation>
     </message>

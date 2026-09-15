@@ -154,6 +154,7 @@ signals:
     void interlacedChanged(bool yes);
     void aspectChanged(double newAspect);
     void aspectNameChanged(QString newAspectName);
+    void volumeChanged(int64_t volume);
     void fileNameChanged(QString filename);
     void fileFormatChanged(QString format);
     void fileSizeChanged(int64_t size);

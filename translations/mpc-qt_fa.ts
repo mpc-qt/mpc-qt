@@ -1463,6 +1463,10 @@ No action will be triggered.</source>
         <translation>هیچ پرونده‌ای نشان نشده است</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No streams favorited</source>
         <translation>هیچ جریانی نشان نشده است</translation>
     </message>
