@@ -69,6 +69,8 @@ protected:
 
 private:
     bool mouseStateEvent(const MouseState &state);
+    void beginHoldSpeed();
+    void finishHoldSpeed();
 
     MediaSlider *positionSlider();
     VolumeSlider *volumeSlider();
@@ -160,6 +162,8 @@ signals:
     void speedDown();
     void speedUp();
     void speedReset();
+    void holdSpeedStart();
+    void holdSpeedEnd();
     void relativeSeek(bool forwards, bool isLarge);
     void audioTrackSelected(int64_t id, bool userSelected);
     void subtitleTrackSelected(int64_t id, bool userSelected);
@@ -522,6 +526,7 @@ private:
     QMenu *contextMenu = nullptr;
     QMenu *trayMenu = nullptr;
     QTimer hideTimer;
+    QTimer holdSpeedTimer;
     QSystemTrayIcon *trayIcon = nullptr;
     QActionGroup* audioTracksGroup = nullptr;
     QActionGroup* videoTracksGroup = nullptr;
@@ -552,6 +557,7 @@ private:
     bool timeTooltipAbove = true;
     bool osdTimerOnSeek = false;
     bool mousePressedInBottomArea = false;
+    bool holdSpeedActive = false;
     QPoint mousePressPosition;
 
     QString previousOpenDir;

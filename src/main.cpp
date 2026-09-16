@@ -551,6 +551,10 @@ void Flow::setupMainWindowConnections()
             playbackManager, &PlaybackManager::speedUp);
     connect(mainWindow, &MainWindow::speedReset,
             playbackManager, &PlaybackManager::speedReset);
+    connect(mainWindow, &MainWindow::holdSpeedStart,
+            playbackManager, &PlaybackManager::startHoldSpeed);
+    connect(mainWindow, &MainWindow::holdSpeedEnd,
+            playbackManager, &PlaybackManager::endHoldSpeed);
     connect(mainWindow, &MainWindow::relativeSeek,
             playbackManager, &PlaybackManager::relativeSeek);
     connect(mainWindow, &MainWindow::audioTrackSelected,
@@ -806,6 +810,8 @@ void Flow::setupSettingsConnections()
             playbackManager, &PlaybackManager::setSpeedStep);
     connect(settingsWindow, &SettingsWindow::speedStepAdditive,
             playbackManager, &PlaybackManager::setSpeedStepAdditive);
+    connect(settingsWindow, &SettingsWindow::holdSpeed,
+            playbackManager, &PlaybackManager::setHoldSpeed);
     connect(settingsWindow, &SettingsWindow::stepTimeNormal,
             playbackManager, &PlaybackManager::setStepTimeNormal);
     connect(settingsWindow, &SettingsWindow::stepTimeLarge,

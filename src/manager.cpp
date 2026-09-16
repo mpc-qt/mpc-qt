@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <QRegularExpression>
 #include <QFile>
 #include <QFileInfo>
@@ -477,6 +478,23 @@ void PlaybackManager::speedReset()
     setPlaybackSpeed(1.0);
 }
 
+void PlaybackManager::startHoldSpeed()
+{
+    if (holdSpeedActive)
+        return;
+    speedBeforeHold = mpvSpeed;
+    holdSpeedActive = true;
+    setPlaybackSpeed(holdSpeed);
+}
+
+void PlaybackManager::endHoldSpeed()
+{
+    if (!holdSpeedActive)
+        return;
+    holdSpeedActive = false;
+    setPlaybackSpeed(speedBeforeHold);
+}
+
 void PlaybackManager::relativeSeek(bool forwards, bool isLarge)
 {
     mpvObject_->seek((forwards ? 1.0 : -1.0) *
@@ -504,6 +522,11 @@ void PlaybackManager::setSpeedStep(double step)
 void PlaybackManager::setSpeedStepAdditive(bool isAdditive)
 {
     speedStepAdditive = isAdditive;
+}
+
+void PlaybackManager::setHoldSpeed(double speed)
+{
+    holdSpeed = std::clamp(speed, 1.0, 100.0);
 }
 
 void PlaybackManager::setStepTimeNormal(int normalMsec)

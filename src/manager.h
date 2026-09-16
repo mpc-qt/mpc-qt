@@ -151,6 +151,8 @@ public slots:
     void speedUp();
     void speedDown();
     void speedReset();
+    void startHoldSpeed();
+    void endHoldSpeed();
     void relativeSeek(bool forwards, bool isLarge);
 
     // output functions
@@ -158,6 +160,7 @@ public slots:
     void setAppendToQuickPlaylist(bool isAppend);
     void setSpeedStep(double step);
     void setSpeedStepAdditive(bool isAdditive);
+    void setHoldSpeed(double speed);
     void setStepTimeNormal(int normalMsec);
     void setStepTimeLarge(int largeMsec);
     void setSubtitleTrackPreference(QString langs);
@@ -257,6 +260,9 @@ private:
     double mpvSpeed = 1.0;
     double speedStep = 1.25;
     bool speedStepAdditive = true;
+    double holdSpeed = 2.5;
+    double speedBeforeHold = 1.0;
+    bool holdSpeedActive = false;
     bool eofReached_ = false;
     bool fastHardwareDecoding = false;
     double stepTimeNormal = 5.0;

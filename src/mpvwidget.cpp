@@ -1182,6 +1182,7 @@ void MpvGlWidget::mouseMoveEvent(QMouseEvent *event)
         if (e == 0) {
             setCursor(Qt::ArrowCursor);
             if (!windowDragging
+                && QWidget::mouseGrabber() != this
                 && event->buttons().testAnyFlag(Qt::LeftButton)
                 && (event->position() - mousePressPosition).manhattanLength()
                     > QApplication::startDragDistance()) {
