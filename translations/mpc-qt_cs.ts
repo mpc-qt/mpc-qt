@@ -1432,7 +1432,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>%1%</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 %</translation>
     </message>
     <message>
         <source>Hide &amp;Borders</source>
