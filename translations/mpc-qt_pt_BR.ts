@@ -2859,7 +2859,7 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Não</translation>
     </message>
     <message>
         <source>Size</source>
@@ -3652,7 +3652,7 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sim</translation>
     </message>
     <message>
         <source>Font</source>
@@ -3744,7 +3744,7 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Captura de tela</translation>
     </message>
     <message>
         <source>...</source>
@@ -3900,7 +3900,7 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Erro</translation>
     </message>
     <message>
         <source>Warning</source>
@@ -4312,7 +4312,7 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Arquivos de log (*.log)</translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
