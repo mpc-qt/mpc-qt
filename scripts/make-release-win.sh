@@ -8,7 +8,7 @@ SUFFIX="win-x64-$VERSION"
 DEST="mpc-qt-$SUFFIX"
 
 mkdir -p translations/qt
-cp /mingw64/share/qt6/translations/qtbase_*.qm translations/qt
+cp /ucrt64/share/qt6/translations/qtbase_*.qm translations/qt
 
 cmake --build build --target clean
 rm -r build/*
@@ -84,12 +84,12 @@ done)<<<"$dirs"
 done)<<<"$dlls"
 
 # The libicu dlls change name very often, copy with a glob
-cp /mingw64/bin/libicudt*.dll "$DEST"
-cp /mingw64/bin/libicuin*.dll "$DEST"
-cp /mingw64/bin/libicuuc*.dll "$DEST"
+cp /ucrt64/bin/libicudt*.dll "$DEST"
+cp /ucrt64/bin/libicuin*.dll "$DEST"
+cp /ucrt64/bin/libicuuc*.dll "$DEST"
 
 (while read -r plugin; do
-        cp "/mingw64/share/qt6/plugins/$plugin" "$DEST/$plugin"
+        cp "/ucrt64/share/qt6/plugins/$plugin" "$DEST/$plugin"
 done)<<<"$plugins"
 
 (while read -r doc; do
