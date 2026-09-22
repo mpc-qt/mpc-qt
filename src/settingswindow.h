@@ -125,6 +125,8 @@ signals:
     void volumeStep(int amount);
     void speedStep(double amount);
     void speedStepAdditive(bool isAdditive);
+    void holdSpeed(double speed);
+    void holdSpeedEnabled(bool enabled);
     void stepTimeNormal(int msec);
     void stepTimeLarge(int msec);
     void zoomPreset(int which, double fitFactor);
@@ -305,6 +307,8 @@ private slots:
     void on_fullscreenShowWhen_currentIndexChanged(int index);;
 
     void on_audioBalance_valueChanged(int value);
+
+    void on_playbackHoldSpeedEnable_toggled(bool checked);
 
     void on_playbackAutoZoom_toggled(bool checked);
 
