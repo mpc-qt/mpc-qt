@@ -26,14 +26,14 @@ VERSION_WIN="${VERSION_WIN}.0"
 BINDIR=bin
 BUILDDIR=build
 EXECUTABLE="$BINDIR/mpc-qt.exe"
-MINGW_BINDIR="/mingw64/bin"
+MINGW_BINDIR="/ucrt64/bin"
 SUFFIX="win-x64"
 DEST="mpc-qt-$SUFFIX"
 
 mkdir -p translations/qt
-cp /mingw64/share/qt6/translations/qtbase_*.qm translations/qt
+cp /ucrt64/share/qt6/translations/qtbase_*.qm translations/qt
 
-cmake -DMPCQT_VERSION=$VERSION -DMPCQT_VERSION_WIN=$VERSION_WIN -DENABLE_LOCAL_MPV=ON -G Ninja -B build
+cmake -DMPCQT_VERSION=$VERSION -DMPCQT_VERSION_WIN=$VERSION_WIN -G Ninja -B build
 ninja -C build
 
 if [ ! -f "$EXECUTABLE" ]; then
@@ -53,7 +53,7 @@ echo Copying documents
 cp DOCS/ipc.md  "$DEST/doc"
 
 echo Copying plugins
-PLUGDIR=/mingw64/share/qt6/plugins
+PLUGDIR=/ucrt64/share/qt6/plugins
 cp "$PLUGDIR/iconengines/qsvgicon.dll"          "$DEST/iconengines"
 cp "$PLUGDIR/imageformats/qjpeg.dll"            "$DEST/imageformats"
 cp "$PLUGDIR/imageformats/qsvg.dll"             "$DEST/imageformats"
@@ -68,7 +68,7 @@ cp "$PLUGDIR/styles/qmodernwindowsstyle.dll"    "$DEST/styles"
 echo Finding dependencies and copying them
 ldd "$EXECUTABLE" | awk '/=>/ {print $3}' | while read -r dll; do
   if [[ -n "$dll" && -f "$dll" ]]; then
-    # Check if the DLL is in /mingw64/bin before copying
+    # Check if the DLL is in /ucrt64/bin before copying
     if [[ "$dll" == "$MINGW_BINDIR"* ]]; then
       echo "Copying $dll to $DEST"
       cp -u "$dll" "$DEST"
@@ -85,7 +85,7 @@ for dll in "${DLLS[@]}"; do
   echo "Checking dependencies for $dll"
   ldd "$MINGW_BINDIR/$dll" | awk '/=>/ {print $3}' | while read -r dep; do
     if [[ -n "$dep" && -f "$dep" ]]; then
-      # Check if the DLL is in /mingw64/bin before copying
+      # Check if the DLL is in /ucrt64/bin before copying
       if [[ "$dep" == "$MINGW_BINDIR"* ]]; then
         echo "Copying $dep to $DEST"
         cp -u "$dep" "$DEST"

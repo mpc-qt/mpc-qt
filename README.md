@@ -175,21 +175,22 @@ While this program is meant for Unix, it is possible to compile it on Windows
 with MSYS2.  MSVC is not supported due to the nature of the build process, but
 may work in theory if you throw enough stubbornness at it.
 
-From a fresh installation of MSYS2, run the following from an MSYS2 MINGW64
+From a fresh installation of MSYS2, run the following from an MSYS2 UCRT64
 prompt.  First, update the packages
 
 >pacman -Syu
 
-Restart MSYS2 MINGW64 when prompted to do so and re-run pacman.
+Restart MSYS2 UCRT64 when prompted to do so and re-run pacman.
 
 >pacman -Syu
 
 At this stage packages required for building can be installed (Copy and paste
 this as one line).
 
->pacman -S base-devel mingw-w64-x86_64-cmake git mingw-w64-x86_64-toolchain
->mingw-w64-x86_64-qt6 mingw-w64-x86_64-qt-creator
->mingw-w64-x86_64-imagemagick mingw-w64-x86_64-boost
+>pacman -S git base-devel wget p7zip mingw-w64-ucrt-x86_64-cmake mingw-w64-ucrt-x86_64-ninja
+>mingw-w64-ucrt-x86_64-toolchain mingw-w64-ucrt-x86_64-qt6 mingw-w64-ucrt-x86_64-qt-creator
+>mingw-w64-ucrt-x86_64-imagemagick mingw-w64-ucrt-x86_64-boost mingw-w64-ucrt-x86_64-mpv
+>mingw-w64-ucrt-x86_64-nsis mingw-w64-ucrt-x86_64-vulkan-loader
 
 MPC-QT can be compiled with a libmpv linked to MSYS2's ffmpeg libraries, or by
 using the prebuilt library released on sourceforge.  To use the prebuilt
