@@ -383,6 +383,17 @@ void MainWindow::resizePlaylistToFit()
     }
 }
 
+bool MainWindow::event(QEvent *event)
+{
+#if QT_VERSION >= QT_VERSION_CHECK(6,6,0)
+    if (event->type() == QEvent::DevicePixelRatioChange && mpvw) {
+        Logger::log(logModule, "DevicePixelRatioChange");
+        fixMpvwSize();
+    }
+#endif
+    return QMainWindow::event(event);
+}
+
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
     Q_UNUSED(event)
@@ -427,9 +438,6 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)
     bool insideMpv = mpvw ? object == mpvw : false;
     if ((insideMpv || object == playlistWindow_) && event->type() == QEvent::MouseMove) {
         this->mouseMoveEvent(static_cast<QMouseEvent*>(event));
-    } else if (insideMpv && firstMpvwPaint && event->type() == QEvent::Paint && mpvw->isVisible()) {
-        firstMpvwPaint = false;
-        QTimer::singleShot(0, this, &MainWindow::fixMpvwSize);
     }
     if (object == ui->bottomArea) {
         if (event->type() == QEvent::Leave) {
