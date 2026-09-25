@@ -512,7 +512,7 @@ void MpcHcServer::setupHttp()
 
     http.route("/favicon.ico", [](HttpRequest &req, HttpResponse &res) {
         (void)req;
-        res.serveFile(":/images/icon/mpc-qt.svg");
+        res.serveFile(":/images/icon/io.github.mpc_qt.mpc-qt.svg");
     });
 
     http.route("/browser.html", [this](HttpRequest &req, HttpResponse &res) {
