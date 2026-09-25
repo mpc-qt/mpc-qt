@@ -1,5 +1,6 @@
 #include <QAction>
 #include <QClipboard>
+#include <QDesktopServices>
 #include <QDragEnterEvent>
 #include <QGuiApplication>
 #include <QMimeData>
@@ -922,6 +923,16 @@ void PlaylistWindow::playlist_removeItemRequested()
     updatePlaylistHasItems();
 }
 
+void PlaylistWindow::playlist_openItemFolderRequested()
+{
+    auto qdp = currentPlaylistWidget();
+    if (!qdp)
+        return;
+
+    auto url = getUrlOf(qdp->uuid(), qdp->currentItemUuid());
+    QDesktopServices::openUrl(url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
+}
+
 void PlaylistWindow::removePlaylistItem(const QUuid &itemUuid)
 {
     auto qdp = currentPlaylistWidget();
@@ -1018,6 +1029,14 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
         playlist_copySelectionToClipboard(playlistUuid);
     });
     a->setDisabled(noItemSelected);
+    m->addAction(a);
+
+    a = new QAction(m);
+    a->setText(tr("Open Containing Folder"));
+    connect(a, &QAction::triggered,
+            this, &PlaylistWindow::playlist_openItemFolderRequested);
+    auto url = getUrlOf(qdp->uuid(), qdp->currentItemUuid());
+    a->setDisabled(noItemSelected || !url.isLocalFile() || qdp->currentItemUuids().size() > 1);
     m->addAction(a);
 
     m->addSeparator();
