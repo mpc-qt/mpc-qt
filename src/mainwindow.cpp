@@ -27,7 +27,7 @@ using namespace Helpers;
 static constexpr char logModule[] =  "mainwindow";
 static constexpr char SKIPACTION[] = "Skip";
 static constexpr char textWindowTitle[] = "Media Player Classic Qute Theater";
-static constexpr char mpcQtIconPath[] = ":/images/icon/mpc-qt.svg";
+static constexpr char mpcQtIconPath[] = ":/images/icon/io.github.mpc_qt.mpc-qt.svg";
 static constexpr char tinyIconPath[] = ":/images/icon/tinyicon.svg";
 
 
@@ -745,9 +745,8 @@ void MainWindow::setupTrayIcon()
     trayIcon = new QSystemTrayIcon(this);
     trayIcon->setContextMenu(trayMenu);
     trayIcon->setToolTip(textWindowTitle);
-    Logger::log(logModule, "rendering trayIcon sizes");
-    trayIcon->setIcon(createIconFromSvg(mpcQtIconPath, 64));
-    Logger::log(logModule, "rendering trayIcon sizes done");
+    const QIcon bundledIcon{QLatin1String(mpcQtIconPath)};
+    trayIcon->setIcon(QIcon::fromTheme(QGuiApplication::desktopFileName(), bundledIcon));
     connect(trayIcon, &QSystemTrayIcon::activated,
             this, &MainWindow::trayIcon_activated);
 }
@@ -1461,22 +1460,6 @@ void MainWindow::showAlwaysOnTopWindow(bool show)
         createAlwaysOnTopWindow();
     if (alwaysOnTopWindow)
         alwaysOnTopWindow->setVisible(show);
-}
-
-QIcon MainWindow::createIconFromSvg(const QString &svgPath, int maxSize) const
-{
-    QIcon icon;
-    QSvgRenderer svgRenderer(svgPath);
-
-    // Render the SVG at multiple sizes and add to the QIcon
-    for (int size = 16; size <= maxSize; ++size) {
-        QPixmap pixmap(QSize(size, size));
-        pixmap.fill(Qt::transparent); // Ensure transparency
-        QPainter painter(&pixmap);
-        svgRenderer.render(&painter);
-        icon.addPixmap(pixmap);
-    }
-    return icon;
 }
 
 QPixmap MainWindow::renderPixmapFromSvg(const QString &path) const
