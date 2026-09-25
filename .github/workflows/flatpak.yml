@@ -13,6 +13,10 @@ jobs:
     container:
       image: ghcr.io/flathub-infra/flatpak-github-actions:kde-6.10
       options: --privileged
+    env:
+      SRC_REPO: "https://github.com/${{ github.event.pull_request.head.repo.full_name || github.repository }}.git"
+      SRC_BRANCH: ${{ github.head_ref || github.ref_name }}
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v6.0.2
@@ -39,7 +43,12 @@ jobs:
         with:
           cmd: |
             yq eval -i '
-              .modules[0].modules = load("flathub/io.github.mpc_qt.mpc-qt.yml").modules[0].modules
+              # Load modules from Flathub
+              .modules[0].modules = load("flathub/io.github.mpc_qt.mpc-qt.yml").modules[0].modules |
+
+              # Use the repository and branch of PR or push
+              ( .modules[] | select(.name == "mpc-qt") ).sources[] |= select(.type == "git") .url = strenv(SRC_REPO) |
+              ( .modules[] | select(.name == "mpc-qt") ).sources[] |= select(.type == "git") .branch = strenv(SRC_BRANCH)
             ' packaging/flatpak/io.github.mpc_qt.mpc-qt.yml
       - name: Move manifest to be with potential patches
         run: mv -f packaging/flatpak/io.github.mpc_qt.mpc-qt.yml flathub/io.github.mpc_qt.mpc-qt.yml
