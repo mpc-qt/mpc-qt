@@ -1420,7 +1420,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>%1%</source>
-        <translation type="unfinished"></translation>
+        <translation>%1%</translation>
     </message>
     <message>
         <source>Hide &amp;Borders</source>
@@ -1480,11 +1480,11 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Seeking</source>
-        <translation type="unfinished"></translation>
+        <translation>Mencari</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Kesalahan</translation>
+        <translation>Kesalahan</translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
@@ -1920,7 +1920,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>&amp;Reload Subtitles File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Muat Ulang File Subtitle</translation>
     </message>
 </context>
 <context>
@@ -2120,7 +2120,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Dark colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Warna gelap</translation>
     </message>
     <message>
         <source>Use dark colors</source>
@@ -2289,12 +2289,13 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Playlist files</source>
-        <translation type="unfinished"></translation>
+        <translation>File playlist</translation>
     </message>
     <message>
         <source>File &quot;%1&quot; already exists.
 Do you want to replace it?</source>
-        <translation type="unfinished"></translation>
+        <translation>File &quot;%1&quot; sudah ada.
+Apakah Anda ingin menggantinya?</translation>
     </message>
     <message>
         <source>Open Containing Folder</source>
@@ -2556,11 +2557,11 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Placeholder text</source>
-        <translation type="unfinished"></translation>
+        <translation>Teks placeholder</translation>
     </message>
     <message>
         <source>Accent</source>
-        <translation type="unfinished"></translation>
+        <translation>Aksen</translation>
     </message>
     <message>
         <source>Active</source>
@@ -4699,23 +4700,23 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Increase maximum volume to:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tingkatkan volume maksimum hingga:</translation>
     </message>
     <message>
         <source>Show video preview (restart required), set its height to (% of screen):</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan pratinjau video (perlu memulai ulang), atur tingginya menjadi (% dari layar):</translation>
     </message>
     <message>
         <source>Minimize to tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimalkan ke baki sistem</translation>
     </message>
     <message>
         <source>Close to tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Tutup ke baki sistem</translation>
     </message>
     <message>
         <source>Maximum video resolution:</source>
-        <translation type="unfinished"></translation>
+        <translation>Resolusi video maksimum:</translation>
     </message>
 </context>
 <context>
@@ -4738,7 +4739,7 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Show tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan tooltip</translation>
     </message>
     <message>
         <source>Played: %1</source>
