@@ -79,7 +79,6 @@ jobs:
 
   flatpak:
     name: Flatpak
-    if: ${{ github.ref_name == 'master' }}
     needs: tests
     uses: ./.github/workflows/flatpak.yml
 
