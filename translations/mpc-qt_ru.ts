@@ -2317,6 +2317,10 @@ Do you want to replace it?</source>
         <translation>Файл &quot;%1&quot; уже существует. Заменить его?</translation>
     </message>
     <message>
+        <source>Open Containing Folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;New Playlist</source>
         <translation>&amp;Создать список воспроизведения</translation>
     </message>

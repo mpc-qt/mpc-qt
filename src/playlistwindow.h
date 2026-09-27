@@ -98,6 +98,7 @@ public slots:
     void addPlaylistByUuid(QUuid playlistUuid);
     void setDisplayFormatSpecifier(QString fmt);
     void playlist_removeItemRequested();
+    void playlist_openItemFolderRequested();
     void removePlaylistItem(const QUuid &itemUuid);
     void dockLocationMaybeChanged();
 
