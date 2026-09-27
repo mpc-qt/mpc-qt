@@ -2387,7 +2387,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Open Containing Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルの場所を開く</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
