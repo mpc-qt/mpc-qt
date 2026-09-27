@@ -2343,7 +2343,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Open Containing Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>打开所在文件夹</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
