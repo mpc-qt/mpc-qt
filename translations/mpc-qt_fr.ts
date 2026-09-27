@@ -2315,7 +2315,7 @@ Voulez-vous le remplacer&#x202f;?</translation>
     </message>
     <message>
         <source>Open Containing Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvrir le dossier contenant</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
