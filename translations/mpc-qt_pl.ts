@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Nieznany)</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>Running on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Działa na %1</translation>
     </message>
 </context>
 <context>
@@ -52,7 +52,7 @@
     </message>
     <message>
         <source>Mouse Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Okno Myszy</translation>
     </message>
     <message>
         <source>Mouse Fullscr</source>
@@ -60,7 +60,7 @@
     </message>
     <message>
         <source>Mouse Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Tryb pełnoekranowy myszy</translation>
     </message>
     <message>
         <source>Volume Up</source>
@@ -72,7 +72,7 @@
     </message>
     <message>
         <source>Play / Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Odtwarzaj / Wstrzymaj</translation>
     </message>
     <message>
         <source>Volume Increase</source>
@@ -136,11 +136,11 @@
     </message>
     <message>
         <source>Extra Play Times: Increment</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodatkowy czas odtwarzania: zwiększony</translation>
     </message>
     <message>
         <source>Extra Play Times: Decrement</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodatkowy czas odtwarzania: zmniejszony</translation>
     </message>
     <message>
         <source>Move Subtitles Up</source>
@@ -152,19 +152,19 @@
     </message>
     <message>
         <source>Decrease Subtitles Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmniejsz opóźnienie wyświetlania napisów</translation>
     </message>
     <message>
         <source>Increase Subtitles Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Zwiększ opóźnienie wyświetlania napisów</translation>
     </message>
     <message>
         <source>Decrease Audio Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmniejsz opóźnienie dźwięku</translation>
     </message>
     <message>
         <source>Increase Audio Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Zwiększ opóźnienie dźwięku</translation>
     </message>
     <message>
         <source>4:3 Aspect ratio</source>
@@ -172,7 +172,7 @@
     </message>
     <message>
         <source>16:9 Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Proporcje obrazu 16:9</translation>
     </message>
     <message>
         <source>Decrease Aspect ratio</source>
@@ -192,19 +192,19 @@
     </message>
     <message>
         <source>Decrease Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>Odpasuj obraz panoramiczny</translation>
     </message>
     <message>
         <source>Increase Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>Dopasuj obraz panoramiczny</translation>
     </message>
     <message>
         <source>Minimum Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimalne rozciągnięcie</translation>
     </message>
     <message>
         <source>Maximum Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>Maksymalne rozciągnięcie</translation>
     </message>
     <message>
         <source>Decrease Zoom</source>
@@ -220,7 +220,7 @@
     </message>
     <message>
         <source>Reset Resize</source>
-        <translation type="unfinished"></translation>
+        <translation>Resetuj rozmiar</translation>
     </message>
     <message>
         <source>Move Left</source>
@@ -240,7 +240,7 @@
     </message>
     <message>
         <source>Reset Move</source>
-        <translation type="unfinished"></translation>
+        <translation>Zresetuj położenia</translation>
     </message>
     <message>
         <source>Rotate Clockwise</source>
@@ -269,29 +269,30 @@
     <message>
         <source>&quot;%1&quot; is already used by &quot;%2&quot;.
 Do you want to use it for &quot;%3&quot; instead?</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; jest już używane przez &quot;%2&quot;.
+Czy chcesz użyć go zamiast tego dla &quot;%3&quot;?</translation>
     </message>
 </context>
 <context>
     <name>ButtonWidget</name>
     <message>
         <source>B</source>
-        <translation type="unfinished"></translation>
+        <translation>B</translation>
     </message>
     <message>
         <source>K</source>
-        <translation type="unfinished"></translation>
+        <translation>K</translation>
     </message>
     <message>
         <source>↑↓</source>
-        <translation type="unfinished"></translation>
+        <translation>↑↓</translation>
     </message>
 </context>
 <context>
     <name>FavoritesWindow</name>
     <message>
         <source>Organize Favorites</source>
-        <translation>Organizuj ulubione</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Update</source>
@@ -314,7 +315,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Start a new process without saving data.</source>
@@ -330,7 +331,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Append the file(s) to the current playlist.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj plik(i) do bieżącej listy odtwarzania.</translation>
     </message>
     <message>
         <source>URLs to open, optionally.</source>
@@ -400,7 +401,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Playlists Backup</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopia zapasowa list odtwarzania</translation>
     </message>
 </context>
 <context>
@@ -427,7 +428,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pliki dziennika (*.log)</translation>
     </message>
 </context>
 <context>
@@ -439,14 +440,15 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <message>
         <source>The key sequence &quot;%1&quot; is used for more than one command. Use the &quot;Keys&quot; page in Options to reassign it.
 No action will be triggered.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sekwencja klawiszy &quot;%1&quot; jest używana w więcej niż jednym poleceniu. Aby przypisać jej inną funkcję, skorzystaj ze strony &quot;Klawisze&quot; w opcjach.
+Nie zostanie wykonana żadna czynność.</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Play</source>
@@ -514,7 +516,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Bitrate</source>
-        <translation>Bitrate</translation>
+        <translation>Przepustowość</translation>
     </message>
     <message>
         <source>Stopped</source>
@@ -610,7 +612,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Open File...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Otwórz plik...</translation>
     </message>
     <message>
         <source>Ctrl+O</source>
