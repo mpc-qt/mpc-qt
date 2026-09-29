@@ -2363,7 +2363,7 @@ Chcete ho nahradit?</translation>
     </message>
     <message>
         <source>Open Containing Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít umístění souboru</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
