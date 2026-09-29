@@ -292,7 +292,7 @@ Czy chcesz użyć go zamiast tego dla &quot;%3&quot;?</translation>
     <name>FavoritesWindow</name>
     <message>
         <source>Organize Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Uporządkuj ulubione</translation>
     </message>
     <message>
         <source>&amp;Update</source>
@@ -300,15 +300,15 @@ Czy chcesz użyć go zamiast tego dla &quot;%3&quot;?</translation>
     </message>
     <message>
         <source>&amp;Files</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pliki</translation>
     </message>
     <message>
         <source>&amp;Streams</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Strumienie</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Usuń</translation>
     </message>
 </context>
 <context>
@@ -512,7 +512,7 @@ Nie zostanie wykonana żadna czynność.</translation>
     </message>
     <message>
         <source>vo: 0, decoder: 0</source>
-        <translation type="unfinished"></translation>
+        <translation>vo: 0, dekoder: 0</translation>
     </message>
     <message>
         <source>Bitrate</source>
@@ -524,39 +524,39 @@ Nie zostanie wykonana żadna czynność.</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Plik</translation>
     </message>
     <message>
         <source>O&amp;pen Disc</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Odtwórz dysk</translation>
     </message>
     <message>
         <source>Recent &amp;Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Ostatnie &amp;Pliki</translation>
     </message>
     <message>
         <source>Subtitle Data&amp;base</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Baza danych napisów</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Widok</translation>
     </message>
     <message>
         <source>&amp;Presets</source>
-        <translation type="unfinished"></translation>
+        <translation>$Presety</translation>
     </message>
     <message>
         <source>&amp;Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Powiększenie</translation>
     </message>
     <message>
         <source>On &amp;Top</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Na wierzch</translation>
     </message>
     <message>
         <source>OS&amp;D</source>
-        <translation type="unfinished"></translation>
+        <translation>OS&amp;D</translation>
     </message>
     <message>
         <source>P&amp;lay</source>
