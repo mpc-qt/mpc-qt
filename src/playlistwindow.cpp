@@ -34,6 +34,8 @@ PlaylistWindow::PlaylistWindow(QWidget *parent) :
     addQuickQueue();
     ui->searchHost->setVisible(false);
     ui->searchField->installEventFilter(this);
+    ui->tabWidget->tabBar()->setAcceptDrops(true);
+    ui->tabWidget->tabBar()->installEventFilter(this);
 
     setupIconThemer();
     connectSignalsToSlots();
@@ -287,6 +289,10 @@ void PlaylistWindow::tabsFromVList(const QVariantList &qvl)
                 this, &PlaylistWindow::itemDoubleClicked);
         connect(qdp, &DrawnPlaylist::contextMenuRequested,
                 this, &PlaylistWindow::playlist_contextMenuRequested);
+        connect(qdp, &DrawnPlaylist::playlistNeedsRefresh,
+                this, &PlaylistWindow::refreshPlaylist);
+        connect(qdp, &DrawnPlaylist::nowPlayingListChanged,
+                this, &PlaylistWindow::nowPlayingListChanged);
         auto pl = PlaylistCollection::getSingleton()->getPlaylist(qdp->uuid());
         if (pl->uuid().isNull())
             pl->setTitle(tr("Quick Playlist"));
@@ -328,6 +334,23 @@ bool PlaylistWindow::eventFilter(QObject *obj, QEvent *event)
                 selectNext();
             return true;
         }
+    } else if (obj == ui->tabWidget->tabBar() && event->type() == QEvent::DragEnter) {
+        auto *e = static_cast<QDragEnterEvent *>(event);
+        e->acceptProposedAction();
+        return true;
+    } else if (obj == ui->tabWidget->tabBar() && event->type() == QEvent::DragMove) {
+        auto *e = static_cast<QDragMoveEvent *>(event);
+        int index = ui->tabWidget->tabBar()->tabAt(e->position().toPoint());
+        if (index >= 0)
+            ui->tabWidget->setCurrentIndex(index);
+        e->acceptProposedAction();
+        return true;
+    } else if (obj == ui->tabWidget->tabBar() && event->type() == QEvent::Drop) {
+        auto *e = static_cast<QDropEvent *>(event);
+        currentPlaylistWidget()->handlePlaylistDrop(e->mimeData(), -1);
+        e->setDropAction(Qt::CopyAction);
+        e->accept();
+        return true;
     }
     return QDockWidget::eventFilter(obj, event);
 }
@@ -429,6 +452,10 @@ void PlaylistWindow::addNewTab(QUuid playlist, QString title)
     connect(qdp, &DrawnPlaylist::itemDesiredByDoubleClick, this, &PlaylistWindow::itemDoubleClicked);
     connect(qdp, &DrawnPlaylist::contextMenuRequested,
             this, &PlaylistWindow::playlist_contextMenuRequested);
+    connect(qdp, &DrawnPlaylist::playlistNeedsRefresh,
+            this, &PlaylistWindow::refreshPlaylist);
+    connect(qdp, &DrawnPlaylist::nowPlayingListChanged,
+            this, &PlaylistWindow::nowPlayingListChanged);
     widgets.insert(playlist, qdp);
     ui->tabWidget->addTab(qdp, title);
     ui->tabWidget->setCurrentWidget(qdp);
@@ -863,13 +890,14 @@ void PlaylistWindow::reshufflePlaylist(const QUuid &playlistUuid)
     refreshPlaylist(playlistUuid);
 }
 
-void PlaylistWindow::refreshPlaylist(const QUuid &playlistUuid)
+void PlaylistWindow::refreshPlaylist(const QUuid &playlistUuid, bool setCurrentItem)
 {
     Logger::log(logModule, "refreshPlaylist start");
     auto qdp = widgets.value(playlistUuid, nullptr);
     if (qdp) {
         qdp->repopulateItems();
-        qdp->setCurrentItem(widgets[playlistUuid]->playlist()->nowPlaying());
+        if (setCurrentItem)
+            qdp->setCurrentItem(widgets[playlistUuid]->playlist()->nowPlaying());
     }
     Logger::log(logModule, "refreshPlaylist done");
 }

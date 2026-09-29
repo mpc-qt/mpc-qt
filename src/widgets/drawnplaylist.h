@@ -61,6 +61,7 @@ public:
     template<class T>
     void sort(std::function<T(QSharedPointer<Item>)> converter,
               std::function<bool(const T &a, const T &b)> lessThan);
+    void handlePlaylistDrop(const QMimeData *mimeData, int insertPosition = -1);
 
     PlaylistItem importUrl(QUrl url);
     void currentToQueue();
@@ -80,6 +81,8 @@ public:
 
 protected:
     bool event(QEvent *e) override;
+    void dropEvent(QDropEvent *event) override;
+    QMimeData *mimeData(const QList<QListWidgetItem *> &items) const override;
 
 private:
     QSharedPointer<PlaylistCollection> collection_;
@@ -99,6 +102,8 @@ signals:
     void menuOpenItem(QUuid playlistUuid, QUuid itemUuid);
 
     void contextMenuRequested(QPoint p, QUuid playlistUuid, QUuid itemUuid);
+    void playlistNeedsRefresh(QUuid playlistUuid, bool setCurrentItem);
+    void nowPlayingListChanged(QUuid newPlaylistUuid);
 
 private slots:
     void model_rowsMoved(const QModelIndex & parent, int start, int end,

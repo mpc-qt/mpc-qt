@@ -127,6 +127,7 @@ public slots:
     void playDevice(QUrl device);   // I don't have a device to test this
 
     void loadSubtitle(QUrl with);
+    void setNowPlayingList(QUuid newPlaylistUuid);
 
     // control functions
     void playPlayer();
