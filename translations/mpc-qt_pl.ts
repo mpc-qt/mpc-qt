@@ -4567,7 +4567,7 @@ media file played</source>
     </message>
     <message>
         <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pliki dziennika (*.log)</translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
@@ -4811,6 +4811,10 @@ media file played</source>
     </message>
     <message>
         <source>Maximum video resolution:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mpv options file:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

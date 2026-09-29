@@ -4483,6 +4483,10 @@ media file played</source>
         <source>Maximum video resolution:</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>mpv options file:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>

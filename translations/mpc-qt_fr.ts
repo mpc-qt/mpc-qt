@@ -4902,6 +4902,10 @@ fichier média lu</translation>
         <source>Maximum video resolution:</source>
         <translation>Résolution maximale des vidéos&#xa0;:</translation>
     </message>
+    <message>
+        <source>mpv options file:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>

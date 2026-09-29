@@ -350,6 +350,10 @@ private slots:
 
     void on_tweaksOsdFontChkBox_toggled(bool checked);
 
+    void on_tweaksMpvOptionsFileChkBox_toggled(bool checked);
+
+    void on_tweaksMpvOptionsFileBrowse_clicked();
+
     void on_tweaksMpvOptionsChkBox_toggled(bool checked);
 
     void on_loggingEnabled_toggled(bool checked);
