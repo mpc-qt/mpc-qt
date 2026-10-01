@@ -346,6 +346,8 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui->encodeDirectoryValue->setPlaceholderText(
                 QStandardPaths::writableLocation(
                     QStandardPaths::PicturesLocation) + "/mpc_encodes");
+    ui->tweaksMpvOptionsFilePath->setPlaceholderText(
+                QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/mpv/mpv.conf");              
     ui->logFilePathValue->setPlaceholderText(
                 QStandardPaths::writableLocation(
                     QStandardPaths::DocumentsLocation) + "/mpc-qt.log");
@@ -1237,12 +1239,33 @@ bool SettingsWindow::setFilter(QList<QPair<QString, QString>> &filtersList, QStr
 
 void SettingsWindow::setCustomMpvOptions()
 {
-    if (WIDGET_LOOKUP(ui->tweaksMpvOptionsChkBox).toBool()) {
-        QList<MpvOption> mpvOptions = parseMpvOptions(WIDGET_LOOKUP(ui->tweaksMpvOptionsText).toString());
+    auto loadCustomMpvOptions = [&](QString options) {
+        QList<MpvOption> mpvOptions = parseMpvOptions(options);
         for (const auto &mpvOption : mpvOptions) {
             emit optionUncached(mpvOption.name, mpvOption.value);
         }
+    };
+
+    QString filePath = ui->tweaksMpvOptionsFilePath->text().isEmpty() ?
+        ui->tweaksMpvOptionsFilePath->placeholderText() : ui->tweaksMpvOptionsFilePath->text();
+    if (ui->tweaksMpvOptionsFileChkBox->isChecked() && !filePath.isEmpty()) {
+        QFile mpvFile(filePath);
+        if (mpvFile.open(QIODevice::ReadOnly)) {
+            QTextStream stream(&mpvFile);
+            QString line;
+            while (stream.readLineInto(&line)) {
+                if (line.startsWith('#'))
+                    continue;
+                if (line.startsWith('['))
+                    break;
+                loadCustomMpvOptions(line);
+            }
+            mpvFile.close();
+        }
     }
+
+    if (ui->tweaksMpvOptionsChkBox->isChecked())
+        loadCustomMpvOptions(ui->tweaksMpvOptionsText->text());
 }
 
 void SettingsWindow::colorPick_clicked(QLineEdit *colorValue)
@@ -1824,6 +1847,28 @@ void SettingsWindow::on_tweaksOsdFontChkBox_toggled(bool checked)
 {
     ui->tweaksOsdFont->setEnabled(checked);
     ui->tweaksOsdSize->setEnabled(checked);
+}
+
+void SettingsWindow::on_tweaksMpvOptionsFileChkBox_toggled(bool checked)
+{
+    ui->tweaksMpvOptionsFilePath->setEnabled(checked);
+    ui->tweaksMpvOptionsFileBrowse->setEnabled(checked);
+}
+
+void SettingsWindow::on_tweaksMpvOptionsFileBrowse_clicked()
+{
+    static QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options.setFlag(QFileDialog::DontUseNativeDialog);
+#endif
+    QString file = ui->tweaksMpvOptionsFilePath->text().isEmpty() ?
+                                    ui->tweaksMpvOptionsFilePath->placeholderText() :
+                                    ui->tweaksMpvOptionsFilePath->text();
+    file = QFileDialog::getOpenFileName(this, "", file, "", nullptr, options);
+    if (file.isEmpty())
+        return;
+
+    ui->tweaksMpvOptionsFilePath->setText(file);
 }
 
 void SettingsWindow::on_tweaksMpvOptionsChkBox_toggled(bool checked)

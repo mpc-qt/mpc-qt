@@ -4718,6 +4718,10 @@ file media yang diputar</translation>
         <source>Maximum video resolution:</source>
         <translation>Resolusi video maksimum:</translation>
     </message>
+    <message>
+        <source>mpv options file:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>

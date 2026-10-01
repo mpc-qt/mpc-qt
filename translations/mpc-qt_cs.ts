@@ -4922,6 +4922,10 @@ přehrávaný mediální soubor</translation>
         <source>Maximum video resolution:</source>
         <translation>Maximální rozlišení videa:</translation>
     </message>
+    <message>
+        <source>mpv options file:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>

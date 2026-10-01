@@ -4933,6 +4933,10 @@ yeni bir &amp;oynatıcı aç</translation>
         <source>Maximum video resolution:</source>
         <translation>En büyük video çözünürlüğü:</translation>
     </message>
+    <message>
+        <source>mpv options file:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>
