@@ -4852,7 +4852,7 @@ media file played</source>
     </message>
     <message>
         <source>mpv options file:</source>
-        <translation type="unfinished"></translation>
+        <translation>mpv 选项文件：</translation>
     </message>
 </context>
 <context>
