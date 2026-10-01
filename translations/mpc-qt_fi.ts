@@ -1975,6 +1975,10 @@ Mitään toimintoa ei suoriteta.</translation>
         <source>Select File</source>
         <translation>Valitse Tiedosto</translation>
     </message>
+    <message>
+        <source>Browse...</source>
+        <translation type="unfinished">Selaa...</translation>
+    </message>
 </context>
 <context>
     <name>PaletteEditor</name>
@@ -3286,7 +3290,7 @@ toistetulle mediatiedostolle</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Selaa</translation>
+        <translation type="vanished">Selaa</translation>
     </message>
     <message>
         <source>Audio Renderer</source>
@@ -3747,7 +3751,7 @@ toistetulle mediatiedostolle</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Encode</source>

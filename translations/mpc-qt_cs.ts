@@ -2139,6 +2139,10 @@ No action will be triggered.</source>
         <source>Select File</source>
         <translation>Vybrat soubor</translation>
     </message>
+    <message>
+        <source>Browse...</source>
+        <translation type="unfinished">Procházet...</translation>
+    </message>
 </context>
 <context>
     <name>PaletteEditor</name>
@@ -3567,7 +3571,7 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Procházet</translation>
+        <translation type="vanished">Procházet</translation>
     </message>
     <message>
         <source>Audio Renderer</source>
@@ -4084,7 +4088,7 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Encode</source>

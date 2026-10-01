@@ -2161,6 +2161,10 @@ No action will be triggered.</source>
         <source>Select File</source>
         <translation>選擇檔案</translation>
     </message>
+    <message>
+        <source>Browse...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PaletteEditor</name>
@@ -3583,10 +3587,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Browse</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Audio Renderer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4098,10 +4098,6 @@ media file played</source>
     <message>
         <source>Screenshot</source>
         <translation type="unfinished">畫面擷圖</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Encode</source>

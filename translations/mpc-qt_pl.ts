@@ -2131,6 +2131,10 @@ Nie zostanie wykonana żadna czynność.</translation>
         <source>Select File</source>
         <translation>Wybierz plik</translation>
     </message>
+    <message>
+        <source>Browse...</source>
+        <translation type="unfinished">Przeglądaj...</translation>
+    </message>
 </context>
 <context>
     <name>PaletteEditor</name>
@@ -3509,10 +3513,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Browse</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Audio Renderer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3976,10 +3976,6 @@ media file played</source>
     <message>
         <source>Screenshot</source>
         <translation type="unfinished">Zrzut ekranu</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Encode</source>

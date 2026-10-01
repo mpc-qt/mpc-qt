@@ -1034,7 +1034,7 @@ media file played</string>
                    <item>
                     <widget class="QPushButton" name="webRootBrowse">
                      <property name="text">
-                      <string>Browse</string>
+                      <string>Browse...</string>
                      </property>
                     </widget>
                    </item>
@@ -4679,7 +4679,7 @@ media file played</string>
                        <bool>false</bool>
                       </property>
                       <property name="text">
-                       <string>Browse</string>
+                       <string>Browse...</string>
                       </property>
                      </widget>
                     </item>
@@ -7189,7 +7189,7 @@ media file played</string>
                 <item>
                  <widget class="QPushButton" name="screenshotDirectoryBrowse">
                   <property name="text">
-                   <string>...</string>
+                   <string>Browse...</string>
                   </property>
                  </widget>
                 </item>
@@ -7236,7 +7236,7 @@ media file played</string>
                    <bool>false</bool>
                   </property>
                   <property name="text">
-                   <string>...</string>
+                   <string>Browse...</string>
                   </property>
                  </widget>
                 </item>
@@ -8405,7 +8405,7 @@ media file played</string>
                 <item>
                  <widget class="QPushButton" name="logFilePathBrowse">
                   <property name="text">
-                   <string>...</string>
+                   <string>Browse...</string>
                   </property>
                  </widget>
                 </item>

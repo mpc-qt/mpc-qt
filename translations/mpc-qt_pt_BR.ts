@@ -1955,6 +1955,10 @@ Nenhuma ação será executada.</translation>
         <source>Select File</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Browse...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PaletteEditor</name>
@@ -3282,10 +3286,6 @@ arquivo de mídia reproduzido</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Browse</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Audio Renderer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3749,10 +3749,6 @@ arquivo de mídia reproduzido</translation>
     <message>
         <source>Screenshot</source>
         <translation type="unfinished">Captura de tela</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Encode</source>

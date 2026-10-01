@@ -2143,6 +2143,10 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
         <source>Select File</source>
         <translation>Dosya Seç</translation>
     </message>
+    <message>
+        <source>Browse...</source>
+        <translation type="unfinished">Göz At…</translation>
+    </message>
 </context>
 <context>
     <name>PaletteEditor</name>
@@ -3562,7 +3566,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Göz At</translation>
+        <translation type="vanished">Göz At</translation>
     </message>
     <message>
         <source>Audio Renderer</source>
@@ -4079,7 +4083,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>…</translation>
+        <translation type="vanished">…</translation>
     </message>
     <message>
         <source>Encode</source>

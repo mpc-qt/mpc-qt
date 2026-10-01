@@ -2163,6 +2163,10 @@ No action will be triggered.</source>
         <source>Select File</source>
         <translation>ファイルの選択</translation>
     </message>
+    <message>
+        <source>Browse...</source>
+        <translation type="unfinished">参照...</translation>
+    </message>
 </context>
 <context>
     <name>PaletteEditor</name>
@@ -3595,7 +3599,7 @@ media file played</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation>参照</translation>
+        <translation type="vanished">参照</translation>
     </message>
     <message>
         <source>Audio Renderer</source>
@@ -4112,7 +4116,7 @@ media file played</source>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Encode</source>
