@@ -4908,7 +4908,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>mpv options file:</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier d&apos;options mpv&#xa0;:</translation>
     </message>
 </context>
 <context>
