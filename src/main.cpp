@@ -4,6 +4,7 @@
 #include <QApplication>
 #include <QFileDialog>
 #include <QDir>
+#include <QIcon>
 #include <QStandardPaths>
 #include <QJsonDocument>
 #include <QTimer>
@@ -34,6 +35,7 @@
 static constexpr char logModule[] =  "main";
 
 static constexpr char desktopFile[] = "io.github.mpc_qt.mpc-qt";
+static constexpr char mpcQtIconPath[] = ":/images/icon/io.github.mpc_qt.mpc-qt.svg";
 
 static constexpr char keyCommand[] = "command";
 static constexpr char keyDirectory[] = "directory";
@@ -70,7 +72,12 @@ int main(int argc, char *argv[])
     Logger::setConsoleLogging(foundLoggingOpt);
     Logger::singleton();
     Logger::log(logModule, "starting logging");
-    QApplication::setWindowIcon(QIcon(":/images/icon/mpc-qt.svg"));
+    const QIcon bundledIcon{QLatin1String(mpcQtIconPath)};
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
+    QApplication::setWindowIcon(QIcon::fromTheme(QLatin1String(desktopFile), bundledIcon));
+#else
+    QApplication::setWindowIcon(bundledIcon);
+#endif
 
     // Qt sets the locale in the QApplication constructor, but libmpv requires
     // the LC_NUMERIC category to be set to "C", so change it back.

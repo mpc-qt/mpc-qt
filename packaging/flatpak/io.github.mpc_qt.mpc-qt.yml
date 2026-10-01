@@ -3,7 +3,6 @@ runtime: org.kde.Platform
 runtime-version: '6.11'
 sdk: org.kde.Sdk
 command: mpc-qt
-rename-icon: mpc-qt
 build-options:
   strip: false
   no-debuginfo: true

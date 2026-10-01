@@ -3,7 +3,7 @@ set(res_resource_files
     http/index.html
     http/info.html
     http/variables.html
-    images/icon/mpc-qt.svg
+    images/icon/io.github.mpc_qt.mpc-qt.svg
     images/icon/tinyicon.svg
     images/logo/cinema-screen.svg
     images/logo/mpv-vlc.svg
