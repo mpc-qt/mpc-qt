@@ -4727,6 +4727,14 @@ archivo multimedia reproducido</translation>
         <source>mpv options file:</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Hold-to-speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>x</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>
