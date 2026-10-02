@@ -482,11 +482,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Step Backward</source>
-        <translation>步退</translation>
+        <translation>向後跳轉</translation>
     </message>
     <message>
         <source>Step Forward</source>
-        <translation>步進</translation>
+        <translation>向前跳轉</translation>
     </message>
     <message>
         <source>Set Loop Start</source>
@@ -890,7 +890,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Options...</source>
-        <translation>設定 MPC-QT(&amp;O)</translation>
+        <translation type="unfinished">設定 MPC-QT(&amp;O)</translation>
     </message>
     <message>
         <source>O</source>
@@ -914,7 +914,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>F&amp;rame Step Forward</source>
-        <translation>單格前進(&amp;F)</translation>
+        <translation>向前跳轉 (一幀)(&amp;F)</translation>
     </message>
     <message>
         <source>Ctrl+Right</source>
@@ -922,7 +922,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Fra&amp;me Step Backward</source>
-        <translation>單格後退(&amp;M)</translation>
+        <translation>向後跳轉 (一幀)(&amp;M)</translation>
     </message>
     <message>
         <source>Ctrl+Left</source>
@@ -1442,7 +1442,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Quick Open</source>
-        <translation type="unfinished"></translation>
+        <translation>快速開啟檔案</translation>
     </message>
     <message>
         <source>Software Decoding</source>
@@ -1682,19 +1682,19 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Seek Forwards (normal step)</source>
-        <translation type="unfinished"></translation>
+        <translation>向前跳轉 (一般)</translation>
     </message>
     <message>
         <source>Seek Backwards (normal step)</source>
-        <translation type="unfinished"></translation>
+        <translation>向後跳轉 (一般)</translation>
     </message>
     <message>
         <source>Seek Forwards (large step)</source>
-        <translation type="unfinished"></translation>
+        <translation>向前跳轉 (長程)</translation>
     </message>
     <message>
         <source>Seek Backwards (large step)</source>
-        <translation type="unfinished"></translation>
+        <translation>向後跳轉 (長程)</translation>
     </message>
     <message>
         <source>Title</source>
@@ -1938,7 +1938,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Play</source>
-        <translation type="unfinished"></translation>
+        <translation>播放(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;Play Selected</source>
@@ -2163,7 +2163,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>瀏覽...</translation>
     </message>
 </context>
 <context>
@@ -2556,11 +2556,11 @@ Do you want to replace it?</source>
     <name>QObject</name>
     <message>
         <source>All Media (*.%1);;All Files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>媒體檔案 (*.%1);;所有檔案 (*.*)</translation>
     </message>
     <message>
         <source>All Subtitles (*.%1);;All Files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>字幕檔案 (*.%1);;所有檔案 (*.*)</translation>
     </message>
     <message>
         <source>Window text</source>
@@ -2667,14 +2667,14 @@ Do you want to replace it?</source>
     <name>ScreenCombo</name>
     <message>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>目前顯示器</translation>
     </message>
 </context>
 <context>
     <name>SettingsWindow</name>
     <message>
         <source>Options</source>
-        <translation>設定 MPC-QT</translation>
+        <translation>選項</translation>
     </message>
     <message>
         <source>1</source>
@@ -2694,7 +2694,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Logo</source>
-        <translation>Logo</translation>
+        <translation>預設畫面</translation>
     </message>
     <message>
         <source>Interface</source>
@@ -2714,7 +2714,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Fullscreen</source>
-        <translation>全螢幕</translation>
+        <translation>全螢幕模式</translation>
     </message>
     <message>
         <source>Sync</source>
@@ -2762,29 +2762,29 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>&lt;big&gt;&lt;b&gt;Player</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;big&gt;&lt;b&gt;播放器</translation>
     </message>
     <message>
         <source>Open options</source>
-        <translation type="unfinished"></translation>
+        <translation>開啟選項</translation>
     </message>
     <message>
         <source>Use the same player for
 each &amp;media file</source>
-        <translation type="unfinished"></translation>
+        <translation>在單一播放器實體中開啟所有媒體檔案</translation>
     </message>
     <message>
         <source>Open a new &amp;player for each
 media file played</source>
-        <translation type="unfinished"></translation>
+        <translation>在新的播放器實體開啟媒體檔案</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <translation>其他選項</translation>
     </message>
     <message>
         <source>Tray icon</source>
-        <translation type="unfinished"></translation>
+        <translation>系統匣圖示</translation>
     </message>
     <message>
         <source>Show OSD</source>
@@ -2800,19 +2800,19 @@ media file played</source>
     </message>
     <message>
         <source>Disable screensaver while playing</source>
-        <translation type="unfinished"></translation>
+        <translation>播放時停用螢幕保護程式</translation>
     </message>
     <message>
         <source>Title bar</source>
-        <translation type="unfinished"></translation>
+        <translation>標題列</translation>
     </message>
     <message>
         <source>Disp&amp;lay full path</source>
-        <translation type="unfinished"></translation>
+        <translation>顯示檔案完整路徑</translation>
     </message>
     <message>
         <source>File &amp;name only</source>
-        <translation type="unfinished"></translation>
+        <translation>顯示檔案名稱</translation>
     </message>
     <message>
         <source>Don&apos;t prefi&amp;x anything</source>
@@ -2824,15 +2824,15 @@ media file played</source>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>歷史紀錄</translation>
     </message>
     <message>
         <source>Keep history of recently opened files</source>
-        <translation type="unfinished"></translation>
+        <translation>保留最近開啟檔案的紀錄</translation>
     </message>
     <message>
         <source>Remember last selected playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>記住上次使用的播放清單</translation>
     </message>
     <message>
         <source>Remember last window geometry</source>
@@ -2860,35 +2860,35 @@ media file played</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>全部</translation>
     </message>
     <message>
         <source>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; 位於 %1</translation>
     </message>
     <message>
         <source>MPRIS</source>
-        <translation type="unfinished"></translation>
+        <translation>MPRIS</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>重設</translation>
     </message>
     <message>
         <source>E&amp;xternal</source>
-        <translation type="unfinished"></translation>
+        <translation>自訂圖示</translation>
     </message>
     <message>
         <source>Interna&amp;l</source>
-        <translation type="unfinished"></translation>
+        <translation>內建圖示</translation>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>瀏覽...</translation>
     </message>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"></translation>
+        <translation>無圖示</translation>
     </message>
     <message>
         <source>Color film stock</source>
@@ -2900,15 +2900,15 @@ media file played</source>
     </message>
     <message>
         <source>Triangle in circle</source>
-        <translation type="unfinished"></translation>
+        <translation>「播放按鈕」圖示</translation>
     </message>
     <message>
         <source>Multi purpose vehicle</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">「多功能休旅車 (Multi-Purpose Vehicle, MPV)」圖示</translation>
     </message>
     <message>
         <source>Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>圖示</translation>
     </message>
     <message>
         <source>Theme</source>
@@ -2920,15 +2920,15 @@ media file played</source>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>自訂</translation>
     </message>
     <message>
         <source>System (Linux only)</source>
-        <translation type="unfinished"></translation>
+        <translation>系統 (僅 Linux)</translation>
     </message>
     <message>
         <source>Folder (e.g. ~/Pictures/MyIcons/mpc-qt/leet)</source>
-        <translation type="unfinished"></translation>
+        <translation>資料夾 (如 ~/Pictures/MyIcons/mpc-qt/leet)</translation>
     </message>
     <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
@@ -2972,19 +2972,19 @@ media file played</source>
     </message>
     <message>
         <source>Control</source>
-        <translation type="unfinished"></translation>
+        <translation>控制</translation>
     </message>
     <message>
         <source>Volume step</source>
-        <translation type="unfinished"></translation>
+        <translation>音量調整幅度</translation>
     </message>
     <message>
         <source>Speed step</source>
-        <translation type="unfinished"></translation>
+        <translation>速度調整幅度</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">Auto</translation>
+        <translation>自動</translation>
     </message>
     <message>
         <source>Time step</source>
@@ -2996,11 +2996,11 @@ media file played</source>
     </message>
     <message>
         <source>Center window when zooming</source>
-        <translation type="unfinished"></translation>
+        <translation>縮放時置中視窗</translation>
     </message>
     <message>
         <source>Auto zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>自動縮放</translation>
     </message>
     <message>
         <source>Autofit</source>
@@ -3028,7 +3028,7 @@ media file played</source>
     </message>
     <message>
         <source>Use Qt&apos;s inbuilt fusion style</source>
-        <translation type="unfinished"></translation>
+        <translation>使用 Qt 內建的 Fusion 樣式</translation>
     </message>
     <message>
         <source>Balance</source>
@@ -3036,23 +3036,23 @@ media file played</source>
     </message>
     <message>
         <source>Default track preference</source>
-        <translation type="unfinished"></translation>
+        <translation>預設軌道偏好</translation>
     </message>
     <message>
         <source>Mouse hiding</source>
-        <translation type="unfinished"></translation>
+        <translation>隱藏滑鼠游標</translation>
     </message>
     <message>
         <source>Windowed</source>
-        <translation type="unfinished"></translation>
+        <translation>視窗模式</translation>
     </message>
     <message>
         <source>Video Renderer</source>
-        <translation type="unfinished"></translation>
+        <translation>視訊渲染器</translation>
     </message>
     <message>
         <source>Dumb mode</source>
-        <translation type="unfinished"></translation>
+        <translation>傻瓜模式</translation>
     </message>
     <message>
         <source>General</source>
@@ -3240,7 +3240,7 @@ media file played</source>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>視窗</translation>
     </message>
     <message>
         <source>Box</source>
@@ -3688,7 +3688,7 @@ media file played</source>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"></translation>
+        <translation>監聽連接埠</translation>
     </message>
     <message>
         <source>Auto connect</source>
@@ -3740,39 +3740,39 @@ media file played</source>
     </message>
     <message>
         <source>Fullscreen monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>全螢幕顯示器</translation>
     </message>
     <message>
         <source>Launch files in fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>在全螢幕模式開啟檔案</translation>
     </message>
     <message>
         <source>Exit fullscreen at the end of playback</source>
-        <translation type="unfinished"></translation>
+        <translation>結束播放後離開全螢幕模式</translation>
     </message>
     <message>
         <source>Hiding</source>
-        <translation type="unfinished"></translation>
+        <translation>隱藏</translation>
     </message>
     <message>
         <source>Hide docked panels</source>
-        <translation type="unfinished"></translation>
+        <translation>全螢幕模式時，隱藏固定面板</translation>
     </message>
     <message>
         <source>Hide controls in fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>全螢幕模式時，引從控制面板</translation>
     </message>
     <message>
         <source>Never show</source>
-        <translation type="unfinished"></translation>
+        <translation>永不顯示</translation>
     </message>
     <message>
         <source>Show when moving the cursor, hide after:</source>
-        <translation type="unfinished"></translation>
+        <translation>移動滑鼠游標時顯示，在指定時間後隱藏：</translation>
     </message>
     <message>
         <source>Show when hovering control, hide after:</source>
-        <translation type="unfinished"></translation>
+        <translation>游標懸停於控制面板時顯示，在指定時間後隱藏：</translation>
     </message>
     <message>
         <source>Framedropping</source>
@@ -3844,23 +3844,23 @@ media file played</source>
     </message>
     <message>
         <source>Hardware decoding may produce a smoother, more efficient overall experience and reduce strain on your cpu. However, some of the listed codecs (depending upon your installed hardware and software) may not be available, may be broken, and may produce incorrect output. A safe and always correct rule of thumb with respect to image quality is to prefer software decoding if your cpu can handle it.</source>
-        <translation type="unfinished"></translation>
+        <translation>硬體解碼可帶來更流暢、高效的整體體驗，並降低 CPU 負載。然而，視您的軟硬體而定，部分列出的編解碼器可能無法使用、故障或輸出錯誤。若追求影像品質，最穩妥的作法是：若您的 CPU 效能足夠，建議優先使用軟體解碼。</translation>
     </message>
     <message>
         <source>Use hardware-accelerated decoding</source>
-        <translation type="unfinished"></translation>
+        <translation>啟用硬體加速解碼 (hardware-accelerated decoding)</translation>
     </message>
     <message>
         <source>Codecs to allow hardware decoding</source>
-        <translation type="unfinished"></translation>
+        <translation>允許硬體解碼的編解碼器</translation>
     </message>
     <message>
         <source>Hardware decoding backend</source>
-        <translation type="unfinished"></translation>
+        <translation>硬體解碼後端 (backend)</translation>
     </message>
     <message>
         <source>Hover over each backend to display a description.</source>
-        <translation type="unfinished"></translation>
+        <translation>將滑鼠游標懸停在後端選項上方以顯示描述。</translation>
     </message>
     <message>
         <source>Autodetect - best of VAAPI, DXVA, D3D11VA</source>
@@ -3868,7 +3868,7 @@ media file played</source>
     </message>
     <message>
         <source>A&amp;utodetect</source>
-        <translation type="unfinished"></translation>
+        <translation>自動選擇</translation>
     </message>
     <message>
         <source>Linux - requires Mesa 11 and most likely works with Intel GPUs only; may only be correct in BT.601 and BT.709</source>
@@ -3876,15 +3876,15 @@ media file played</source>
     </message>
     <message>
         <source>Linux - some gpus, does not always treat certain colorspaces like BT.2020 correctly</source>
-        <translation type="unfinished"></translation>
+        <translation>Linux - 部分 GPU；不一定能正確處理某些色彩空間 (如 BT.2020)</translation>
     </message>
     <message>
         <source>Windows - not safe; it appears to always use BT.601 for forced RGB conversion, but actual behavior depends on the GPU drivers</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows - 不安全；強制 RGB 轉換時似乎一律採用 BT.601，實際行為則視 GPU 驅動程式而定。</translation>
     </message>
     <message>
         <source>Windows 8+ - usually safe but rounds 10 bit to 8 bit</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows 8+：通常安全，但會將 10 bit 轉換為 8 bit</translation>
     </message>
     <message>
         <source>Raspberry PI - hardware overlay renderer</source>
@@ -3896,11 +3896,11 @@ media file played</source>
     </message>
     <message>
         <source>nVidia only (likely 10x0+ only) - safe</source>
-        <translation type="unfinished"></translation>
+        <translation>僅 NVIDIA (可能僅 10x0+) - 安全</translation>
     </message>
     <message>
         <source>PCI-E decoder card - safe</source>
-        <translation type="unfinished"></translation>
+        <translation>PCI-E 解碼卡 (decoder card) - 安全</translation>
     </message>
     <message>
         <source>Playback progression</source>
@@ -4037,7 +4037,7 @@ media file played</source>
     </message>
     <message>
         <source>Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>色彩</translation>
     </message>
     <message>
         <source>Border color</source>
@@ -4397,7 +4397,7 @@ media file played</source>
     </message>
     <message>
         <source>Use additive speed step</source>
-        <translation type="unfinished"></translation>
+        <translation>使用累加速度調整</translation>
     </message>
     <message>
         <source>Prefer external subtitles over embedded subtitles</source>
@@ -4409,51 +4409,51 @@ media file played</source>
     </message>
     <message>
         <source>Web Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>網頁介面</translation>
     </message>
     <message>
         <source>Allow access from localhost only</source>
-        <translation type="unfinished"></translation>
+        <translation>僅允許本機存取</translation>
     </message>
     <message>
         <source>webroot</source>
-        <translation type="unfinished"></translation>
+        <translation>webroot</translation>
     </message>
     <message>
         <source>Default page</source>
-        <translation type="unfinished"></translation>
+        <translation>預設網頁</translation>
     </message>
     <message>
         <source>index.html</source>
-        <translation type="unfinished"></translation>
+        <translation>index.html</translation>
     </message>
     <message>
         <source>TCP/IP</source>
-        <translation type="unfinished"></translation>
+        <translation>TCP/IP</translation>
     </message>
     <message>
         <source>&lt;a href=&quot;#&quot;&gt;Launch in web browser...&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;a href=&quot;#&quot;&gt;在網頁瀏覽器中開啟...&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Local files</source>
-        <translation type="unfinished"></translation>
+        <translation>本機檔案</translation>
     </message>
     <message>
         <source>Web root</source>
-        <translation type="unfinished"></translation>
+        <translation>根目錄</translation>
     </message>
     <message>
         <source>Security</source>
-        <translation type="unfinished"></translation>
+        <translation>安全</translation>
     </message>
     <message>
         <source>Enable web server</source>
-        <translation type="unfinished"></translation>
+        <translation>啟用網頁伺服器</translation>
     </message>
     <message>
         <source>Serve pages from disk</source>
-        <translation type="unfinished"></translation>
+        <translation>顯示本機網頁檔案</translation>
     </message>
     <message>
         <source>Back color</source>
@@ -4465,27 +4465,27 @@ media file played</source>
     </message>
     <message>
         <source>Stylesheet</source>
-        <translation type="unfinished"></translation>
+        <translation>樣式表</translation>
     </message>
     <message>
         <source>Application Stylesheet</source>
-        <translation type="unfinished"></translation>
+        <translation>應用程式樣式表</translation>
     </message>
     <message>
         <source>High-contrast timeline and volume sliders</source>
-        <translation type="unfinished"></translation>
+        <translation>播放進度條與音量調整滑桿：使用高對比度色彩</translation>
     </message>
     <message>
         <source>Default After Playback action:</source>
-        <translation type="unfinished"></translation>
+        <translation>播放完後的預設動作：</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>不做任何事</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation>重複</translation>
     </message>
     <message>
         <source>Play next in the folder</source>
@@ -4493,11 +4493,11 @@ media file played</source>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>離開</translation>
     </message>
     <message>
         <source>After Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>播放完後</translation>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
@@ -4513,7 +4513,7 @@ media file played</source>
     </message>
     <message>
         <source>Language Override</source>
-        <translation type="unfinished"></translation>
+        <translation>強制指定語言</translation>
     </message>
     <message>
         <source>Locale (Autodetect)</source>
@@ -4617,7 +4617,7 @@ media file played</source>
     </message>
     <message>
         <source>Play next file</source>
-        <translation type="unfinished"></translation>
+        <translation>播放下一個檔案</translation>
     </message>
     <message>
         <source>Delay step</source>
@@ -4625,15 +4625,15 @@ media file played</source>
     </message>
     <message>
         <source>Autodetect - best of VAAPI, DXVA, D3D11VA, etc.</source>
-        <translation type="unfinished"></translation>
+        <translation>自動選擇 - 在 VAAPI, DXVA, D3D11VA 等後端中自動選擇最佳的選項。</translation>
     </message>
     <message>
         <source>Linux - works with Intel and AMD GPUs through Mesa, and with nVidia through a translation layer; may only be correct in BT.601 and BT.709</source>
-        <translation type="unfinished"></translation>
+        <translation>Linux - 透過 Mesa 支援 Intel 與 AMD GPU，並透過轉譯層支援 NVIDIA；可能僅支援 BT.601 與 BT.709 色彩空間。</translation>
     </message>
     <message>
         <source>nVidia only (faster than CUDA)</source>
-        <translation type="unfinished"></translation>
+        <translation>僅 NVIDIA (較 CUDA 快)</translation>
     </message>
     <message>
         <source>Show OSD timer on seek</source>
@@ -4641,11 +4641,11 @@ media file played</source>
     </message>
     <message>
         <source>Normal step</source>
-        <translation type="unfinished"></translation>
+        <translation>跳轉幅度 (一般)</translation>
     </message>
     <message>
         <source>Large step</source>
-        <translation type="unfinished"></translation>
+        <translation>跳轉幅度 (長程)</translation>
     </message>
     <message>
         <source>Show time tooltip:</source>
@@ -4657,11 +4657,11 @@ media file played</source>
     </message>
     <message>
         <source>Only keep history for videos</source>
-        <translation type="unfinished"></translation>
+        <translation>只保留影片檔案的開啟紀錄</translation>
     </message>
     <message>
         <source>Cinema screen</source>
-        <translation type="unfinished"></translation>
+        <translation>「電影銀幕」圖示</translation>
     </message>
     <message>
         <source>Update interval</source>
@@ -4677,7 +4677,7 @@ media file played</source>
     </message>
     <message>
         <source>Remember panels state</source>
-        <translation type="unfinished"></translation>
+        <translation>記住面板狀態</translation>
     </message>
     <message>
         <source>Open ICC Profile</source>
@@ -4701,7 +4701,7 @@ media file played</source>
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>搜尋...</translation>
     </message>
     <message>
         <source>Show video preview</source>
@@ -4749,7 +4749,7 @@ media file played</source>
     </message>
     <message>
         <source>yt-dlp (web videos)</source>
-        <translation type="unfinished"></translation>
+        <translation>yt-dlp (網路影片)</translation>
     </message>
     <message>
         <source>Max video height:</source>
@@ -4825,7 +4825,7 @@ media file played</source>
     </message>
     <message>
         <source>File title</source>
-        <translation type="unfinished"></translation>
+        <translation>顯示媒體標題</translation>
     </message>
     <message>
         <source>CRF</source>
@@ -4857,23 +4857,23 @@ media file played</source>
     </message>
     <message>
         <source>Use custom colors</source>
-        <translation type="unfinished"></translation>
+        <translation>自訂色彩</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">Source</translation>
+        <translation>來源</translation>
     </message>
     <message>
         <source>Built-in</source>
-        <translation type="unfinished"></translation>
+        <translation>內建</translation>
     </message>
     <message>
         <source>Icons have to use the same names as in the &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;repository&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>圖示檔案必須與&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;內建圖示&lt;/a&gt;具有相同檔案名稱</translation>
     </message>
     <message>
         <source>Use English for the interface</source>
-        <translation type="unfinished"></translation>
+        <translation>使用英文作為介面語言</translation>
     </message>
     <message>
         <source>Mono</source>
@@ -4881,11 +4881,11 @@ media file played</source>
     </message>
     <message>
         <source>Remember last window size and position</source>
-        <translation type="unfinished"></translation>
+        <translation>記住上次的視窗大小及位置</translation>
     </message>
     <message>
         <source>Use dark colors</source>
-        <translation type="unfinished"></translation>
+        <translation>深色模式</translation>
     </message>
     <message>
         <source>Replay Gain</source>
@@ -4913,11 +4913,11 @@ media file played</source>
     </message>
     <message>
         <source>Search settings…</source>
-        <translation type="unfinished"></translation>
+        <translation>搜尋設定選項…</translation>
     </message>
     <message>
         <source>A&amp;pplication name only</source>
-        <translation type="unfinished"></translation>
+        <translation>顯示應用程式名稱</translation>
     </message>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
@@ -4933,15 +4933,15 @@ media file played</source>
     </message>
     <message>
         <source>Minimize to tray</source>
-        <translation type="unfinished"></translation>
+        <translation>按下「最小化視窗」時，最小化至系統匣</translation>
     </message>
     <message>
         <source>Close to tray</source>
-        <translation type="unfinished"></translation>
+        <translation>按下「關閉視窗」時，關閉至系統匣</translation>
     </message>
     <message>
         <source>Maximum video resolution:</source>
-        <translation type="unfinished"></translation>
+        <translation>最大影片解析度：</translation>
     </message>
     <message>
         <source>mpv options file:</source>
