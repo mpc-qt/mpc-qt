@@ -728,7 +728,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Ctrl+0</source>
-        <translation>Strg+0</translation>
+        <translation type="vanished">Strg+0</translation>
     </message>
     <message>
         <source>See&amp;k Bar</source>
@@ -736,7 +736,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Ctrl+1</source>
-        <translation>Strg+1</translation>
+        <translation type="vanished">Strg+1</translation>
     </message>
     <message>
         <source>&amp;Controls</source>
@@ -744,7 +744,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Ctrl+2</source>
-        <translation>Strg+2</translation>
+        <translation type="vanished">Strg+2</translation>
     </message>
     <message>
         <source>&amp;Information</source>
@@ -752,7 +752,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Ctrl+3</source>
-        <translation>Strg+3</translation>
+        <translation type="vanished">Strg+3</translation>
     </message>
     <message>
         <source>&amp;Statistics</source>
@@ -760,7 +760,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Ctrl+4</source>
-        <translation>Strg+4</translation>
+        <translation type="vanished">Strg+4</translation>
     </message>
     <message>
         <source>S&amp;tatus</source>
@@ -768,7 +768,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Ctrl+5</source>
-        <translation>Strg+5</translation>
+        <translation type="vanished">Strg+5</translation>
     </message>
     <message>
         <source>Su&amp;bresync</source>
@@ -776,7 +776,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Ctrl+6</source>
-        <translation>Strg+6</translation>
+        <translation type="vanished">Strg+6</translation>
     </message>
     <message>
         <source>Play&amp;list</source>
@@ -784,7 +784,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Ctrl+7</source>
-        <translation>Strg+7</translation>
+        <translation type="vanished">Strg+7</translation>
     </message>
     <message>
         <source>Captu&amp;re</source>
@@ -792,7 +792,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Ctrl+8</source>
-        <translation>Strg+8</translation>
+        <translation type="vanished">Strg+8</translation>
     </message>
     <message>
         <source>Na&amp;vigation</source>
@@ -800,7 +800,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Ctrl+9</source>
-        <translation>Strg+9</translation>
+        <translation type="vanished">Strg+9</translation>
     </message>
     <message>
         <source>&amp;Minimal</source>
@@ -808,7 +808,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>1</source>
-        <translation>1</translation>
+        <translation type="vanished">1</translation>
     </message>
     <message>
         <source>&amp;Compact</source>
@@ -816,7 +816,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>2</source>
-        <translation>2</translation>
+        <translation type="vanished">2</translation>
     </message>
     <message>
         <source>&amp;Normal</source>
@@ -824,7 +824,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>3</source>
-        <translation>3</translation>
+        <translation type="vanished">3</translation>
     </message>
     <message>
         <source>F&amp;ullscreen</source>
@@ -836,15 +836,15 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Alt+1</source>
-        <translation>Alt+1</translation>
+        <translation type="vanished">Alt+1</translation>
     </message>
     <message>
         <source>Alt+2</source>
-        <translation>Alt+2</translation>
+        <translation type="vanished">Alt+2</translation>
     </message>
     <message>
         <source>Alt+3</source>
-        <translation>Alt+3</translation>
+        <translation type="vanished">Alt+3</translation>
     </message>
     <message>
         <source>Auto &amp;Fit</source>
@@ -852,7 +852,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Alt+4</source>
-        <translation>Alt+4</translation>
+        <translation type="vanished">Alt+4</translation>
     </message>
     <message>
         <source>Auto Fit (&amp;Larger Only)</source>
@@ -860,7 +860,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Alt+5</source>
-        <translation>Alt+5</translation>
+        <translation type="vanished">Alt+5</translation>
     </message>
     <message>
         <source>&amp;Disable snapping</source>
@@ -868,7 +868,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Alt+0</source>
-        <translation>Alt+0</translation>
+        <translation type="vanished">Alt+0</translation>
     </message>
     <message>
         <source>&amp;Default</source>

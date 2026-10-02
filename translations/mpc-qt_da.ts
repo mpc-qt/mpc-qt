@@ -725,15 +725,7 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>See&amp;k Bar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -741,15 +733,7 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -757,15 +741,7 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>S&amp;tatus</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -773,15 +749,7 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+6</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Play&amp;list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -789,15 +757,7 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+8</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Na&amp;vigation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+9</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -805,23 +765,11 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Compact</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Normal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -833,23 +781,7 @@ No action will be triggered.</source>
         <translation type="vanished">Alt+Return</translation>
     </message>
     <message>
-        <source>Alt+1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Auto &amp;Fit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -857,15 +789,7 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Alt+5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Disable snapping</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

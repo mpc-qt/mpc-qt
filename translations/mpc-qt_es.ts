@@ -713,55 +713,27 @@ No action will be triggered.</source>
         <translation>Ocultar el &amp;menú</translation>
     </message>
     <message>
-        <source>Ctrl+0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>See&amp;k Bar</source>
         <translation>Barra de búsqueda</translation>
-    </message>
-    <message>
-        <source>Ctrl+1</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Controls</source>
         <translation>&amp;Controles</translation>
     </message>
     <message>
-        <source>Ctrl+2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Information</source>
         <translation>&amp;Información</translation>
-    </message>
-    <message>
-        <source>Ctrl+3</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Statistics</source>
         <translation>E&amp;stadísticas</translation>
     </message>
     <message>
-        <source>Ctrl+4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>S&amp;tatus</source>
         <translation>Es&amp;tado</translation>
     </message>
     <message>
-        <source>Ctrl+5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Su&amp;bresync</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -769,48 +741,24 @@ No action will be triggered.</source>
         <translation>&amp;Lista de reproducción</translation>
     </message>
     <message>
-        <source>Ctrl+7</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Captu&amp;re</source>
         <translation>Captu&amp;rar</translation>
-    </message>
-    <message>
-        <source>Ctrl+8</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Na&amp;vigation</source>
         <translation>Na&amp;vegación</translation>
     </message>
     <message>
-        <source>Ctrl+9</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Minimal</source>
         <translation>&amp;Mínimo</translation>
-    </message>
-    <message>
-        <source>1</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Compact</source>
         <translation>&amp;Compacto</translation>
     </message>
     <message>
-        <source>2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Normal</source>
         <translation>&amp;Normal</translation>
-    </message>
-    <message>
-        <source>3</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>F&amp;ullscreen</source>
@@ -821,40 +769,16 @@ No action will be triggered.</source>
         <translation type="vanished">Alt+Entrar</translation>
     </message>
     <message>
-        <source>Alt+1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Auto &amp;Fit</source>
         <translation>Autoajustar</translation>
-    </message>
-    <message>
-        <source>Alt+4</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto Fit (&amp;Larger Only)</source>
         <translation>Autoajustar (solo si es mayor)</translation>
     </message>
     <message>
-        <source>Alt+5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Disable snapping</source>
         <translation>&amp;Desactivar la adherencia</translation>
-    </message>
-    <message>
-        <source>Alt+0</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Default</source>
