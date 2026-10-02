@@ -2099,6 +2099,10 @@ Tidak ada tindakan yang akan dipicu.</translation>
         <source>Select File</source>
         <translation>Pilih File</translation>
     </message>
+    <message>
+        <source>Browse...</source>
+        <translation type="unfinished">Jelajahi...</translation>
+    </message>
 </context>
 <context>
     <name>PaletteEditor</name>
@@ -3415,7 +3419,7 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Jelajahi</translation>
+        <translation type="vanished">Jelajahi</translation>
     </message>
     <message>
         <source>Audio Renderer</source>
@@ -3916,7 +3920,7 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Encode</source>

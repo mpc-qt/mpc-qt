@@ -2161,6 +2161,10 @@ No action will be triggered.</source>
         <source>Select File</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Browse...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PaletteEditor</name>
@@ -3587,10 +3591,6 @@ ficheiro de média reproduzido</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Browse</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Audio Renderer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4101,10 +4101,6 @@ ficheiro de média reproduzido</translation>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

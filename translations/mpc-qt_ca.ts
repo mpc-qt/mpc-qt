@@ -2119,6 +2119,10 @@ No s&apos;activarà cap acció.</translation>
         <source>Select File</source>
         <translation>Seleccionar fitxer</translation>
     </message>
+    <message>
+        <source>Browse...</source>
+        <translation type="unfinished">Explorar...</translation>
+    </message>
 </context>
 <context>
     <name>PaletteEditor</name>
@@ -3550,7 +3554,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Explorar</translation>
+        <translation type="vanished">Explorar</translation>
     </message>
     <message>
         <source>Audio Renderer</source>
@@ -4067,7 +4071,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Encode</source>

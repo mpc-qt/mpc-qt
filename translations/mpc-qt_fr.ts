@@ -2099,6 +2099,10 @@ Aucune action ne sera déclenchée.</translation>
         <source>Select File</source>
         <translation>Sélectionner un fichier</translation>
     </message>
+    <message>
+        <source>Browse...</source>
+        <translation type="unfinished">Parcourir...</translation>
+    </message>
 </context>
 <context>
     <name>PaletteEditor</name>
@@ -3527,7 +3531,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Parcourir</translation>
+        <translation type="vanished">Parcourir</translation>
     </message>
     <message>
         <source>Audio Renderer</source>
@@ -4044,7 +4048,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Encode</source>

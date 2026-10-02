@@ -2009,6 +2009,10 @@ No action will be triggered.</source>
         <source>Select File</source>
         <translation>Seleccionar un archivo</translation>
     </message>
+    <message>
+        <source>Browse...</source>
+        <translation type="unfinished">Explorar...</translation>
+    </message>
 </context>
 <context>
     <name>PaletteEditor</name>
@@ -3416,7 +3420,7 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Explorar</translation>
+        <translation type="vanished">Explorar</translation>
     </message>
     <message>
         <source>Audio Renderer</source>
@@ -3930,10 +3934,6 @@ archivo multimedia reproducido</translation>
     <message>
         <source>Screenshot</source>
         <translation>Captura de pantalla</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Encode</source>

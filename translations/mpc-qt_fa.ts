@@ -2163,6 +2163,10 @@ No action will be triggered.</source>
         <source>Select File</source>
         <translation>انتخاب پرونده</translation>
     </message>
+    <message>
+        <source>Browse...</source>
+        <translation type="unfinished">مرور...</translation>
+    </message>
 </context>
 <context>
     <name>PaletteEditor</name>
@@ -3591,7 +3595,7 @@ media file played</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation>مرور</translation>
+        <translation type="vanished">مرور</translation>
     </message>
     <message>
         <source>Audio Renderer</source>
@@ -4108,7 +4112,7 @@ media file played</source>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Encode</source>

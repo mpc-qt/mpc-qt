@@ -2159,6 +2159,10 @@ Es wird keine Aktion ausgelöst.</translation>
         <source>Select File</source>
         <translation>Datei auswählen</translation>
     </message>
+    <message>
+        <source>Browse...</source>
+        <translation type="unfinished">Durchsuchen...</translation>
+    </message>
 </context>
 <context>
     <name>PaletteEditor</name>
@@ -3578,7 +3582,7 @@ media file played</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Durchsuchen</translation>
+        <translation type="vanished">Durchsuchen</translation>
     </message>
     <message>
         <source>Audio Renderer</source>
@@ -4091,7 +4095,7 @@ media file played</source>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Encode</source>
