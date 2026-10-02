@@ -4514,6 +4514,14 @@ media file played</source>
         <source>mpv options file:</source>
         <translation>ملف خيارات mpv:</translation>
     </message>
+    <message>
+        <source>Hold-to-speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>x</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>
