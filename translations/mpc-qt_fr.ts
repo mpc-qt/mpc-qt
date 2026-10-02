@@ -2101,7 +2101,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished">Parcourir...</translation>
+        <translation>Parcourir...</translation>
     </message>
 </context>
 <context>
