@@ -2141,7 +2141,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished">Procházet...</translation>
+        <translation>Procházet...</translation>
     </message>
 </context>
 <context>
@@ -4928,7 +4928,7 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>mpv options file:</source>
-        <translation type="unfinished"></translation>
+        <translation>Soubor s možnostmi mpv:</translation>
     </message>
 </context>
 <context>
