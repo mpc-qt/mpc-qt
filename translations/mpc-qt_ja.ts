@@ -2165,7 +2165,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished">参照...</translation>
+        <translation>参照...</translation>
     </message>
 </context>
 <context>
@@ -4976,7 +4976,7 @@ media file played</source>
     </message>
     <message>
         <source>mpv options file:</source>
-        <translation type="unfinished"></translation>
+        <translation>mpv オプションファイル :</translation>
     </message>
 </context>
 <context>
