@@ -207,11 +207,7 @@ folder into `mpv-dev/include/mpv`.  If you do this, compile with the
 Congratulations, you have now built MPC-QT!
 
 ## Questions and answers
-See also the [Wiki Q&A] and the other pages of the wiki.
-### Is MPC-QT compatible with SVP (SmoothVideo Project)?
-Yes! You just need to change two SVP settings:
-- the path to mpv's JSON IPC to point to `/tmp/cmdrkotori.mpc-qt.mpv`
-- the path to the player to point to `/usr/bin/mpc-qt`
+See the [Wiki Q&A] and the other pages of the wiki.
 
 [homepage]:https://mpc-qt.github.io/
 [screenshot]:https://raw.githubusercontent.com/mpc-qt/mpc-qt-screenshots/refs/heads/master/Screenshot_20260701_203013.png
