@@ -1686,7 +1686,7 @@ void SettingsWindow::on_playbackAutoZoom_toggled(bool checked)
     ui->playbackAutoZoomMethod->setEnabled(checked);
     ui->playbackAutoFitFactorLabel->setEnabled(checked);
     ui->playbackAutoFitFactor->setEnabled(checked);
-    ui->playbackAutoCenterWindow->setEnabled(checked);
+    ui->playbackAutoCenterWindow->setEnabled(checked && QGuiApplication::platformName() != "wayland");
     ui->playbackAutozoomWarn->setEnabled(checked);
 }
 
