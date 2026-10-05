@@ -3775,7 +3775,7 @@ media file played</source>
     </message>
     <message>
         <source>Audio drop size</source>
-        <translation>音频丢弃大小</translation>
+        <translation type="vanished">音频丢弃大小</translation>
     </message>
     <message>
         <source>Max audio change</source>
@@ -4853,6 +4853,18 @@ media file played</source>
     <message>
         <source>mpv options file:</source>
         <translation>mpv 选项文件：</translation>
+    </message>
+    <message>
+        <source>Resample audio to match video (audio may become desynchronized)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time video frames to audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video (recommended)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

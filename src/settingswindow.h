@@ -324,6 +324,10 @@ private slots:
 
     void on_ditherTemporal_toggled(bool checked);
 
+    void on_framedroppingMode_currentIndexChanged(int index);
+
+    void on_syncMode_currentIndexChanged(int index);
+
     void on_hwdecCodecsMode_currentIndexChanged(int index);
 
     void on_hwdecEnable_toggled(bool checked);

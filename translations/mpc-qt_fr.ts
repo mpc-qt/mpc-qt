@@ -3779,7 +3779,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Audio drop size</source>
-        <translation>Taille de la perte audio</translation>
+        <translation type="vanished">Taille de la perte audio</translation>
     </message>
     <message>
         <source>Max audio change</source>
@@ -4909,6 +4909,18 @@ fichier média lu</translation>
     <message>
         <source>mpv options file:</source>
         <translation>Fichier d&apos;options mpv&#xa0;:</translation>
+    </message>
+    <message>
+        <source>Resample audio to match video (audio may become desynchronized)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time video frames to audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video (recommended)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

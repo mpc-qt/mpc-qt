@@ -3711,10 +3711,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Decoder+Video</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3752,10 +3748,6 @@ media file played</source>
     </message>
     <message>
         <source>Drop or repeat audio data</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Audio drop size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4869,6 +4861,22 @@ media file played</source>
     </message>
     <message>
         <source>mpv options file:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resample audio to match video (audio may become desynchronized)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time video frames to audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decoder+Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video (recommended)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -5228,7 +5228,7 @@ media file played</string>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Video</string>
+                  <string>Video (recommended)</string>
                  </property>
                 </item>
                 <item>
@@ -5245,6 +5245,9 @@ media file played</string>
               </item>
               <item row="1" column="0">
                <widget class="QLabel" name="framedroppingDecoderModeLabel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Decoder</string>
                 </property>
@@ -5252,6 +5255,9 @@ media file played</string>
               </item>
               <item row="1" column="1">
                <widget class="QComboBox" name="framedroppingDecoderMode">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="currentIndex">
                  <number>1</number>
                 </property>
@@ -5299,18 +5305,11 @@ media file played</string>
               <property name="fieldGrowthPolicy">
                <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
               </property>
-              <item row="0" column="0">
-               <widget class="QLabel" name="syncModeLabel">
-                <property name="text">
-                 <string>Mode</string>
-                </property>
-               </widget>
-              </item>
               <item row="0" column="1">
                <widget class="QComboBox" name="syncMode">
                 <item>
                  <property name="text">
-                  <string>Audio</string>
+                  <string>Time video frames to audio</string>
                  </property>
                 </item>
                 <item>
@@ -5325,6 +5324,11 @@ media file played</string>
                 </item>
                 <item>
                  <property name="text">
+                  <string>Resample audio to match video (audio may become desynchronized)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
                   <string>Drop or repeat video frames</string>
                  </property>
                 </item>
@@ -5335,69 +5339,77 @@ media file played</string>
                 </item>
                </widget>
               </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="syncAudioDropSizeLabel">
+              <item row="0" column="0">
+               <widget class="QLabel" name="syncModeLabel">
                 <property name="text">
-                 <string>Audio drop size</string>
+                 <string>Mode</string>
                 </property>
                </widget>
               </item>
               <item row="2" column="0">
                <widget class="QLabel" name="syncMaxAudioChangeLabel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Max audio change</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="0">
+              <item row="2" column="1">
+               <widget class="QDoubleSpinBox" name="syncMaxAudioChange">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="suffix">
+                 <string>%</string>
+                </property>
+                <property name="decimals">
+                 <number>3</number>
+                </property>
+                <property name="maximum">
+                 <double>1.000000000000000</double>
+                </property>
+                <property name="singleStep">
+                 <double>0.005000000000000</double>
+                </property>
+                <property name="value">
+                 <double>0.125000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
                <widget class="QLabel" name="syncMaxVideoChangeLabel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Max video change</string>
                 </property>
                </widget>
               </item>
               <item row="1" column="1">
-               <widget class="QDoubleSpinBox" name="syncAudioDropSize">
-                <property name="alignment">
-                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
-                </property>
-                <property name="decimals">
-                 <number>6</number>
-                </property>
-                <property name="maximum">
-                 <double>1.000000000000000</double>
-                </property>
-                <property name="value">
-                 <double>0.020000000000000</double>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
-               <widget class="QDoubleSpinBox" name="syncMaxAudioChange">
-                <property name="alignment">
-                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
-                </property>
-                <property name="decimals">
-                 <number>6</number>
-                </property>
-                <property name="maximum">
-                 <double>1.000000000000000</double>
-                </property>
-                <property name="value">
-                 <double>0.120000000000000</double>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="1">
                <widget class="QDoubleSpinBox" name="syncMaxVideoChange">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="suffix">
+                 <string>%</string>
+                </property>
                 <property name="decimals">
-                 <number>6</number>
+                 <number>2</number>
                 </property>
                 <property name="maximum">
-                 <double>1.000000000000000</double>
+                 <double>100.000000000000000</double>
+                </property>
+                <property name="singleStep">
+                 <double>0.500000000000000</double>
                 </property>
                 <property name="value">
                  <double>1.000000000000000</double>
