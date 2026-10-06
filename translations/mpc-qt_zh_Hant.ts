@@ -2109,7 +2109,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Control</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">控制</translation>
     </message>
     <message>
         <source>Alt</source>
@@ -2416,7 +2416,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">重複</translation>
     </message>
     <message>
         <source>Reshuffle</source>
@@ -2604,7 +2604,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">視窗</translation>
     </message>
     <message>
         <source>Shadow</source>
