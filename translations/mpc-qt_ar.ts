@@ -3483,7 +3483,7 @@ media file played</source>
     </message>
     <message>
         <source>Audio drop size</source>
-        <translation>حجم إسقاط الصوت</translation>
+        <translation type="vanished">حجم إسقاط الصوت</translation>
     </message>
     <message>
         <source>Max audio change</source>
@@ -4513,6 +4513,18 @@ media file played</source>
     <message>
         <source>mpv options file:</source>
         <translation>ملف خيارات mpv:</translation>
+    </message>
+    <message>
+        <source>Resample audio to match video (audio may become desynchronized)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time video frames to audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video (recommended)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

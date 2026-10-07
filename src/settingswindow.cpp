@@ -170,8 +170,8 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"framedroppingDecoderMode", {"none", "default", "nonref", "bidir",\
                                   "nonkey", "all"}},
     {"syncMode", {"audio", "display-resample", "display-resample-vdrop",\
-                  "display-resample-desync", "display-adrop",\
-                  "display-vdrop"}},
+                  "display-resample-desync", "display-vdrop",\
+                  "display-adrop"}},
     {"subtitlePlacementX", {"left", "center", "right"}},
     {"subtitlePlacementY", {"top", "center", "bottom"}},
     {"subtitlesAssOverride", {"no", "yes", "force", "signfs"}},
@@ -941,8 +941,7 @@ void SettingsWindow::sendSignals()
         WIDGET_LOOKUP(ui->fullscreenShowWhen).toInt(), WIDGET_LOOKUP(ui->fullscreenShowWhenDuration).toInt());
     emit hidePanels(WIDGET_LOOKUP(ui->fullscreenHidePanels).toBool());
     emit option("framedrop", WIDGET_TO_TEXT(ui->framedroppingMode));
-    emit option("vf-lavc-framedrop", WIDGET_TO_TEXT(ui->framedroppingDecoderMode));
-    emit option("video-sync-adrop-size", WIDGET_LOOKUP(ui->syncAudioDropSize).toDouble());
+    emit option("vd-lavc-framedrop", WIDGET_TO_TEXT(ui->framedroppingDecoderMode));
     emit option("video-sync-max-audio-change", WIDGET_LOOKUP(ui->syncMaxAudioChange).toDouble());
     emit option("video-sync-max-video-change", WIDGET_LOOKUP(ui->syncMaxVideoChange).toDouble());
     if (WIDGET_LOOKUP(ui->hwdecEnable).toBool()) {
@@ -1750,6 +1749,22 @@ void SettingsWindow::on_ditherTemporal_toggled(bool checked)
 {
     ui->ditherTemporalPeriod->setEnabled(checked);
     ui->ditherTemporalPeriodLabel->setEnabled(checked);
+}
+
+void SettingsWindow::on_framedroppingMode_currentIndexChanged(int index)
+{
+    bool decoderFramedropping = index == 2 || index == 3;
+    ui->framedroppingDecoderModeLabel->setEnabled(decoderFramedropping);
+    ui->framedroppingDecoderMode->setEnabled(decoderFramedropping);
+}
+
+void SettingsWindow::on_syncMode_currentIndexChanged(int index)
+{
+    bool syncModeDisplay = index != 0;
+    ui->syncMaxAudioChangeLabel->setEnabled(syncModeDisplay);
+    ui->syncMaxAudioChange->setEnabled(syncModeDisplay);
+    ui->syncMaxVideoChangeLabel->setEnabled(syncModeDisplay);
+    ui->syncMaxVideoChange->setEnabled(syncModeDisplay);
 }
 
 void SettingsWindow::on_hwdecCodecsMode_currentIndexChanged(int index)

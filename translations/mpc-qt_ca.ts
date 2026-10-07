@@ -3802,7 +3802,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Audio drop size</source>
-        <translation>Mida pèrdua d&apos;àudio</translation>
+        <translation type="vanished">Mida pèrdua d&apos;àudio</translation>
     </message>
     <message>
         <source>Max audio change</source>
@@ -4915,6 +4915,18 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>mpv options file:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resample audio to match video (audio may become desynchronized)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time video frames to audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video (recommended)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
