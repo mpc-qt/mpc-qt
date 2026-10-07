@@ -4932,15 +4932,15 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Resample audio to match video (audio may become desynchronized)</source>
-        <translation type="unfinished"></translation>
+        <translation>Převzorkovat zvuk tak, aby odpovídal videu (zvuk může být desynchronizovaný)</translation>
     </message>
     <message>
         <source>Time video frames to audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Načasovat snímky videa podle zvuku</translation>
     </message>
     <message>
         <source>Video (recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation>Video (doporučeno)</translation>
     </message>
 </context>
 <context>
