@@ -3623,7 +3623,7 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Decoder+Video</source>
-        <translation>Dekoder+Video</translation>
+        <translation type="vanished">Dekoder+Video</translation>
     </message>
     <message>
         <source>None</source>
@@ -4735,7 +4735,11 @@ file media yang diputar</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Video (recommended)</source>
+        <source>Video Output (recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decoder + Video Output</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

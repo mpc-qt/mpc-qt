@@ -4429,11 +4429,11 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Decoder+Video</source>
+        <source>Video Output (recommended)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Video (recommended)</source>
+        <source>Decoder + Video Output</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

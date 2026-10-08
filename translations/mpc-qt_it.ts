@@ -3560,7 +3560,7 @@ ogni file multimediale riprodotto</translation>
     </message>
     <message>
         <source>Decoder+Video</source>
-        <translation>Decodificatore+Video</translation>
+        <translation type="vanished">Decodificatore+Video</translation>
     </message>
     <message>
         <source>None</source>
@@ -4656,7 +4656,11 @@ ogni file multimediale riprodotto</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Video (recommended)</source>
+        <source>Video Output (recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decoder + Video Output</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

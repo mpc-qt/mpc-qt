@@ -3796,7 +3796,7 @@ media file played</translation>
     </message>
     <message>
         <source>Decoder+Video</source>
-        <translation>Decoder+Video</translation>
+        <translation type="vanished">Decoder+Video</translation>
     </message>
     <message>
         <source>None</source>
@@ -4968,7 +4968,11 @@ media file played</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Video (recommended)</source>
+        <source>Video Output (recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decoder + Video Output</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

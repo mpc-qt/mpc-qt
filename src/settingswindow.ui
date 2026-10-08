@@ -5231,7 +5231,7 @@ media file played</string>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Video (recommended)</string>
+                  <string>Video Output (recommended)</string>
                  </property>
                 </item>
                 <item>
@@ -5241,7 +5241,7 @@ media file played</string>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Decoder+Video</string>
+                  <string>Decoder + Video Output</string>
                  </property>
                 </item>
                </widget>
