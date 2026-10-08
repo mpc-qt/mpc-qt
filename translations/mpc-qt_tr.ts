@@ -3770,7 +3770,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Decoder+Video</source>
-        <translation>Kod çözücü+Video</translation>
+        <translation type="vanished">Kod çözücü+Video</translation>
     </message>
     <message>
         <source>None</source>
@@ -4950,7 +4950,11 @@ yeni bir &amp;oynatıcı aç</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Video (recommended)</source>
+        <source>Video Output (recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decoder + Video Output</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

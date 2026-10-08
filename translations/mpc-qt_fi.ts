@@ -3494,7 +3494,7 @@ toistetulle mediatiedostolle</translation>
     </message>
     <message>
         <source>Decoder+Video</source>
-        <translation>Dekooderi+Video</translation>
+        <translation type="vanished">Dekooderi+Video</translation>
     </message>
     <message>
         <source>None</source>
@@ -4546,7 +4546,11 @@ toistetulle mediatiedostolle</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Video (recommended)</source>
+        <source>Video Output (recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decoder + Video Output</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -3775,7 +3775,7 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Decoder+Video</source>
-        <translation>Dekodér+Video</translation>
+        <translation type="vanished">Dekodér+Video</translation>
     </message>
     <message>
         <source>None</source>
@@ -4940,7 +4940,15 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Video (recommended)</source>
-        <translation>Video (doporučeno)</translation>
+        <translation type="vanished">Video (doporučeno)</translation>
+    </message>
+    <message>
+        <source>Video Output (recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decoder + Video Output</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -3795,7 +3795,7 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Decoder+Video</source>
-        <translation>Bộ giải mã+Video</translation>
+        <translation type="vanished">Bộ giải mã+Video</translation>
     </message>
     <message>
         <source>None</source>
@@ -4955,7 +4955,11 @@ tệp phương tiện đã được phát</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Video (recommended)</source>
+        <source>Video Output (recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decoder + Video Output</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -3731,7 +3731,7 @@ media file played</source>
     </message>
     <message>
         <source>Decoder+Video</source>
-        <translation>解码器 + 视频</translation>
+        <translation type="vanished">解码器 + 视频</translation>
     </message>
     <message>
         <source>None</source>
@@ -4863,7 +4863,11 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Video (recommended)</source>
+        <source>Video Output (recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decoder + Video Output</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

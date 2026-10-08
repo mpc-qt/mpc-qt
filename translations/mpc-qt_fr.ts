@@ -3735,7 +3735,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Decoder+Video</source>
-        <translation>Décodeur+Vidéo</translation>
+        <translation type="vanished">Décodeur+Vidéo</translation>
     </message>
     <message>
         <source>None</source>
@@ -4919,7 +4919,11 @@ fichier média lu</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Video (recommended)</source>
+        <source>Video Output (recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decoder + Video Output</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

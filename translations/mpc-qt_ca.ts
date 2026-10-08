@@ -3758,7 +3758,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Decoder+Video</source>
-        <translation>Descodificador+Vídeo</translation>
+        <translation type="vanished">Descodificador+Vídeo</translation>
     </message>
     <message>
         <source>None</source>
@@ -4926,7 +4926,11 @@ arxiu multimèdia reproduït</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Video (recommended)</source>
+        <source>Video Output (recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decoder + Video Output</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
