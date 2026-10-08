@@ -674,6 +674,8 @@ void MainWindow::setupMenu()
 
     ui->infoStats->setVisible(false);
 
+    ui->menuViewOntop->setDisabled(QGuiApplication::platformName() == "wayland");
+
     connect(Platform::deviceManager(), &DeviceManager::deviceListChanged,
             this, [this]() { updateDiscList(); });
 }
@@ -1310,6 +1312,8 @@ void MainWindow::updateInfostats()
 
 void MainWindow::updateOnTop()
 {
+    if (QGuiApplication::platformName() == "wayland")
+        return;
     switch (onTopMode) {
     case AlwaysOnTop:
         showOnTop = true;
