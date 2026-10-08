@@ -3763,7 +3763,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Resample audio to match video</source>
-        <translation>Resampler l’audio pour correspondre à la vidéo</translation>
+        <translation>Rééchantillonner l&apos;audio pour suivre la vidéo</translation>
     </message>
     <message>
         <source>Resample audio to match video (may drop frames)</source>
@@ -4912,11 +4912,11 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Resample audio to match video (audio may become desynchronized)</source>
-        <translation type="unfinished"></translation>
+        <translation>Rééchantillonner l&apos;audio pour suivre la vidéo (l&apos;audio peut devenir désynchronisé)</translation>
     </message>
     <message>
         <source>Time video frames to audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Synchroniser les images vidéo selon l&apos;audio</translation>
     </message>
     <message>
         <source>Video Output (recommended)</source>
