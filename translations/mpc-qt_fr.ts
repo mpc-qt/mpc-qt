@@ -4920,11 +4920,11 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Video Output (recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation>Sortie vidéo (recommandé)</translation>
     </message>
     <message>
         <source>Decoder + Video Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Décodeur + Sortie vidéo</translation>
     </message>
 </context>
 <context>
