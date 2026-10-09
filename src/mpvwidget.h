@@ -111,8 +111,8 @@ public:
     QSize videoSize();
     bool clientDebuggingMessages();
 
-    void setCachedMpvOption(const QString &option, const QVariant &value);
-    void setUncachedMpvOption(const QString &option, const QVariant &value);
+    void setCachedMpvProperty(const QString &property, const QVariant &value);
+    void setUncachedMpvProperty(const QString &property, const QVariant &value);
     QVariant blockingMpvCommand(const QVariant &params);
     QVariant blockingSetMpvPropertyVariant(QString name, const QVariant &value);
     QVariant blockingSetMpvOptionVariant(QString name, const QVariant &value);

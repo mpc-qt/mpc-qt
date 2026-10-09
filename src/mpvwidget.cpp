@@ -484,7 +484,7 @@ QString MpvObject::formatFiltersList(const QList<QPair<QString, QString>> &filte
 
 void MpvObject::setSubFile(QString filename)
 {
-    emit ctrlSetOptionVariant("sub-files", filename);
+    emit ctrlSetPropertyVariant("sub-files", filename);
 }
 
 void MpvObject::addSubFile(QString filename)
@@ -499,7 +499,7 @@ void MpvObject::reloadSubFile()
 
 void MpvObject::clearSubFiles()
 {
-    emit ctrlSetOptionVariant("sub-files-clr", "");
+    emit ctrlCommand("no-osd change-list sub-files clr ''");
 }
 
 void MpvObject::setSubtitlesDelay(int subDelayStep)
@@ -710,17 +710,17 @@ bool MpvObject::clientDebuggingMessages()
     return debugMessages;
 }
 
-void MpvObject::setCachedMpvOption(const QString &option, const QVariant &value)
+void MpvObject::setCachedMpvProperty(const QString &property, const QVariant &value)
 {
-    if (cachedState.contains(option) && cachedState.value(option) == value)
+    if (cachedState.contains(property) && cachedState.value(property) == value)
         return;
-    cachedState.insert(option, value);
-    setMpvOptionVariant(option, value);
+    cachedState.insert(property, value);
+    setMpvPropertyVariant(property, value);
 }
 
-void MpvObject::setUncachedMpvOption(const QString &option, const QVariant &value)
+void MpvObject::setUncachedMpvProperty(const QString &property, const QVariant &value)
 {
-    setMpvOptionVariant(option, value);
+    setMpvPropertyVariant(property, value);
 }
 
 QVariant MpvObject::blockingMpvCommand(const QVariant &params)
@@ -742,6 +742,7 @@ QVariant MpvObject::blockingSetMpvPropertyVariant(QString name, const QVariant &
                                   : QVariant::fromValue(MpvErrorCode(v));
 }
 
+// REMOVEME: blockingSetMpvPropertyVariant should be used instead
 QVariant MpvObject::blockingSetMpvOptionVariant(QString name, const QVariant &value)
 {
     int v;
@@ -761,7 +762,6 @@ QVariant MpvObject::getMpvPropertyVariant(QString name)
     return v;
 }
 
-
 void MpvObject::setMpvPropertyVariant(QString name, const QVariant &value)
 {
     if (debugMessages)
@@ -769,6 +769,7 @@ void MpvObject::setMpvPropertyVariant(QString name, const QVariant &value)
     emit ctrlSetPropertyVariant(name, value);
 }
 
+// REMOVEME: setMpvPropertyVariant should be used instead
 void MpvObject::setMpvOptionVariant(QString name, const QVariant &value)
 {
     if (debugMessages)
@@ -1312,7 +1313,7 @@ void MpvController::create(const OptionList &earlyOptions)
     // Certain things like encoding options and input server need to be
     // set _before_ mpv initialize.
     for (const MpvOption &option : earlyOptions)
-        setOptionVariant(option.name, option.value);
+        setPropertyVariant(option.name, option.value);
 
     if (mpv_initialize(mpv) < 0)
         throw std::runtime_error("could not initialize mpv context");
@@ -1418,8 +1419,10 @@ void MpvController::showStatsPage(int page)
     shownStatsPage = page;
 }
 
+// REMOVEME: setPropertyVariant should be used instead
 int MpvController::setOptionVariant(QString name, const QVariant &value)
 {
+    Logger::log(logModule, "warn: setOptionVariant shouldn't be used");
     return mpv::qt::set_option_variant(mpv, name, value);
 }
 
@@ -1444,7 +1447,7 @@ QVariant MpvController::command(const QVariant &params)
 
 int MpvController::setPropertyVariant(const QString &name, const QVariant &value)
 {
-    return mpv::qt::set_property_variant(mpv, name, value);
+    return mpv::qt::set_property(mpv, name, value);
 }
 
 QVariant MpvController::getPropertyVariant(const QString &name)
