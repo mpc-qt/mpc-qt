@@ -668,7 +668,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
-        <translation>Muat Takarir(&amp;L)..</translation>
+        <translation type="vanished">Muat Takarir(&amp;L)..</translation>
     </message>
     <message>
         <source>Ctrl+L</source>
@@ -1921,6 +1921,10 @@ Tidak ada tindakan yang akan dipicu.</translation>
     <message>
         <source>&amp;Reload Subtitles File</source>
         <translation>&amp;Muat Ulang File Subtitle</translation>
+    </message>
+    <message>
+        <source>&amp;Load Subtitles File...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

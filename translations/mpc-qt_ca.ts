@@ -664,7 +664,7 @@ No s&apos;activarà cap acció.</translation>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
-        <translation>&amp;Carregar un subtítol...</translation>
+        <translation type="vanished">&amp;Carregar un subtítol...</translation>
     </message>
     <message>
         <source>Ctrl+L</source>
@@ -1940,6 +1940,10 @@ No s&apos;activarà cap acció.</translation>
     </message>
     <message>
         <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Load Subtitles File...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -676,7 +676,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
-        <translation>U&amp;ntertiteldatei öffnen…</translation>
+        <translation type="vanished">U&amp;ntertiteldatei öffnen…</translation>
     </message>
     <message>
         <source>Ctrl+L</source>
@@ -1980,6 +1980,10 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Load Subtitles File...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

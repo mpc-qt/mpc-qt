@@ -672,7 +672,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
-        <translation>&amp;Charger les sous-titres...</translation>
+        <translation type="vanished">&amp;Charger les sous-titres...</translation>
     </message>
     <message>
         <source>Ctrl+L</source>
@@ -1921,6 +1921,10 @@ Aucune action ne sera déclenchée.</translation>
     <message>
         <source>&amp;Reload Subtitles File</source>
         <translation>&amp;Recharger le fichier de sous-titres</translation>
+    </message>
+    <message>
+        <source>&amp;Load Subtitles File...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

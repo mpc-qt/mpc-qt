@@ -1315,7 +1315,7 @@
   </action>
   <action name="actionFileLoadSubtitle">
    <property name="text">
-    <string>&amp;Load Subtitle...</string>
+    <string>&amp;Load Subtitles File...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+L</string>

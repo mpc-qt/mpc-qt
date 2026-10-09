@@ -676,7 +676,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
-        <translation>字幕の読み込み(&amp;L)...</translation>
+        <translation type="vanished">字幕の読み込み(&amp;L)...</translation>
     </message>
     <message>
         <source>Ctrl+L</source>
@@ -1985,6 +1985,10 @@ No action will be triggered.</source>
     <message>
         <source>&amp;Reload Subtitles File</source>
         <translation>字幕ファイルを再読み込み(&amp;R)</translation>
+    </message>
+    <message>
+        <source>&amp;Load Subtitles File...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
