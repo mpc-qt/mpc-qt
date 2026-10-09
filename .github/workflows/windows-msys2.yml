@@ -29,16 +29,13 @@ jobs:
           mingw-w64-ucrt-x86_64-cmake
           mingw-w64-ucrt-x86_64-ninja
           mingw-w64-ucrt-x86_64-toolchain
-          mingw-w64-ucrt-x86_64-libgfortran
           mingw-w64-ucrt-x86_64-qt6
           mingw-w64-ucrt-x86_64-qt-creator
           mingw-w64-ucrt-x86_64-imagemagick
           mingw-w64-ucrt-x86_64-boost
           mingw-w64-ucrt-x86_64-mpv
+          mingw-w64-ucrt-x86_64-nsis
           mingw-w64-ucrt-x86_64-vulkan-loader
-    - name: Install last working version of nsis package
-      run: |
-        pacman -U --noconfirm https://mirror.msys2.org/mingw/ucrt64/mingw-w64-ucrt-x86_64-nsis-3.12-1-any.pkg.tar.zst
     - name: Avoid line ending issues on Windows
       run: git config --global core.autocrlf input
     - name: Download mpc-qt source
