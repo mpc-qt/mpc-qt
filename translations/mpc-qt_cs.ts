@@ -1756,7 +1756,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>vo: %1, decoder: %2</source>
-        <translation>vv: %1, dekódér: %2</translation>
+        <translation>vv: %1, dekodér: %2</translation>
     </message>
     <message>
         <source>v: %1 kb/s, a: %2 kb/s</source>
@@ -4944,11 +4944,11 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Video Output (recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation>Video výstup (doporučeno)</translation>
     </message>
     <message>
         <source>Decoder + Video Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Dekodér + video výstup</translation>
     </message>
 </context>
 <context>
