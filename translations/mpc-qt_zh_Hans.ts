@@ -676,7 +676,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
-        <translation>加载字幕(&amp;L)…</translation>
+        <translation type="vanished">加载字幕(&amp;L)…</translation>
     </message>
     <message>
         <source>Ctrl+L</source>
@@ -1941,6 +1941,10 @@ No action will be triggered.</source>
     <message>
         <source>&amp;Reload Subtitles File</source>
         <translation>重新加载字幕文件(&amp;R)</translation>
+    </message>
+    <message>
+        <source>&amp;Load Subtitles File...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

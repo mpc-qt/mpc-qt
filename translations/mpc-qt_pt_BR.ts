@@ -667,10 +667,6 @@ Nenhuma ação será executada.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Load Subtitle...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ctrl+L</source>
         <translation>Ctrl+L</translation>
     </message>
@@ -1776,6 +1772,10 @@ Nenhuma ação será executada.</translation>
     </message>
     <message>
         <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Load Subtitles File...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

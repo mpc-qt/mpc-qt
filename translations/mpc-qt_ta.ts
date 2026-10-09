@@ -668,7 +668,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
-        <translation>&amp; வசனத்தை ஏற்றவும் ...</translation>
+        <translation type="vanished">&amp; வசனத்தை ஏற்றவும் ...</translation>
     </message>
     <message>
         <source>Ctrl+L</source>
@@ -1964,6 +1964,10 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Load Subtitles File...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
