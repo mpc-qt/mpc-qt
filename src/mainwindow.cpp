@@ -2879,7 +2879,7 @@ void MainWindow::on_actionViewMusicMode_toggled(bool checked)
         }
         playlistWindow_->setVisible(checked);
         ui->actionViewHidePlaylist->setEnabled(!checked);
-        mpvObject_->setCachedMpvOption("audio-display", checked ? "no" : "embedded-first");
+        mpvObject_->setCachedMpvProperty("audio-display", checked ? "no" : "embedded-first");
         resizePlaylistToFit();
     }
 }

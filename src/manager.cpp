@@ -1031,7 +1031,7 @@ void PlaybackManager::playPrevFile()
 void PlaybackManager::setDeinterlace(bool enable)
 {
     // Deinterlacing doesn't work with hardware acceleration
-    mpvObject_->setCachedMpvOption("hwdec", enable ? "no" : hwdecBackend);
+    mpvObject_->setCachedMpvProperty("hwdec", enable ? "no" : hwdecBackend);
     emit videoFilter("yadif", "mode=1", enable);
     deinterlaceEnabled = enable;
 }
