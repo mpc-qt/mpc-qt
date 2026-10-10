@@ -111,7 +111,7 @@ void VideoPreview::updateWidth(double newAspect)
     textLabel->setFixedSize(newWidth, labelHeight);
     videoWidget->move(0, shadowMargin);
     textLabel->move(0, shadowMargin + videoWidget->height());
-    videoContainer->setFixedSize(newWidth + shadowMargin * 2,
+    videoContainer->setFixedSize(newWidth,
                                  videoWidget->height() + labelHeight + shadowMargin * 2);
     aspectRatioSet = true;
     if (shouldBeShown)
