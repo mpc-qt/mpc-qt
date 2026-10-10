@@ -155,7 +155,7 @@ void MpvThumbnailer::execute(const MpvThumbnailer::Params &p)
     emit mpv->ctrlSetPropertyVariant("ao-null-untimed", "yes");
     emit mpv->ctrlSetPropertyVariant("audio", "no");
     emit mpv->ctrlSetPropertyVariant("untimed", "yes");
-    emit mpv->ctrlSetPropertyVariant("fps", 200);
+    emit mpv->ctrlSetPropertyVariant("container-fps-override", 200);
     mpv->urlOpen(p.sourceUrl);
     mpv->setPaused(true);
     emit progress(0);

@@ -3083,15 +3083,15 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Blend on black</source>
-        <translation>Prolnout na černé</translation>
+        <translation type="vanished">Prolnout na černé</translation>
     </message>
     <message>
         <source>Use</source>
-        <translation>Použít</translation>
+        <translation type="vanished">Použít</translation>
     </message>
     <message>
         <source>Ignore</source>
-        <translation>Ignorovat</translation>
+        <translation type="vanished">Ignorovat</translation>
     </message>
     <message>
         <source>Sharpen</source>
@@ -3659,15 +3659,15 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Oss</source>
-        <translation>Oss</translation>
+        <translation type="vanished">Oss</translation>
     </message>
     <message>
         <source>Mixer device</source>
-        <translation>Zařízení směšovače</translation>
+        <translation type="vanished">Zařízení směšovače</translation>
     </message>
     <message>
         <source>Mixer channel</source>
-        <translation>Kanál směšovače</translation>
+        <translation type="vanished">Kanál směšovače</translation>
     </message>
     <message>
         <source>Jack</source>
@@ -4120,7 +4120,7 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Smooth</source>
-        <translation>Vyhlazení</translation>
+        <translation type="vanished">Vyhlazení</translation>
     </message>
     <message>
         <source>Source Chroma</source>
@@ -4832,7 +4832,7 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Video background</source>
-        <translation>Pozadí videa</translation>
+        <translation type="vanished">Pozadí videa</translation>
     </message>
     <message>
         <source>Status bar background</source>
@@ -4953,6 +4953,18 @@ přehrávaný mediální soubor</translation>
     <message>
         <source>Decoder + Video Output</source>
         <translation>Dekodér + video výstup</translation>
+    </message>
+    <message>
+        <source>Logo background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blend on color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checkerboard pattern</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

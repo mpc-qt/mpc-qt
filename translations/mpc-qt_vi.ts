@@ -3098,16 +3098,8 @@ tệp phương tiện đã được phát</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Blend on black</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ignore</source>
-        <translation>Bỏ qua</translation>
+        <translation type="vanished">Bỏ qua</translation>
     </message>
     <message>
         <source>Sharpen</source>
@@ -3674,18 +3666,6 @@ tệp phương tiện đã được phát</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Oss</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mixer device</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mixer channel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Jack</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4127,10 +4107,6 @@ tệp phương tiện đã được phát</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Smooth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Source Chroma</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4344,10 +4320,6 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Export keys</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open Logo Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4679,6 +4651,10 @@ tệp phương tiện đã được phát</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Open Logo Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open ICC Profile</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4844,7 +4820,7 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Video background</source>
-        <translation>Nền video</translation>
+        <translation type="vanished">Nền video</translation>
     </message>
     <message>
         <source>Status bar background</source>
@@ -4960,6 +4936,18 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>Decoder + Video Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Logo background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blend on color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checkerboard pattern</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

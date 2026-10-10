@@ -3086,15 +3086,15 @@ media file played</source>
     </message>
     <message>
         <source>Blend on black</source>
-        <translation>கருப்பு நிறத்தில் கலக்கவும்</translation>
+        <translation type="vanished">கருப்பு நிறத்தில் கலக்கவும்</translation>
     </message>
     <message>
         <source>Use</source>
-        <translation>பயன்படுத்தவும்</translation>
+        <translation type="vanished">பயன்படுத்தவும்</translation>
     </message>
     <message>
         <source>Ignore</source>
-        <translation>புறக்கணிக்கவும்</translation>
+        <translation type="vanished">புறக்கணிக்கவும்</translation>
     </message>
     <message>
         <source>Sharpen</source>
@@ -3662,15 +3662,15 @@ media file played</source>
     </message>
     <message>
         <source>Oss</source>
-        <translation>ஒஎச்எச்</translation>
+        <translation type="vanished">ஒஎச்எச்</translation>
     </message>
     <message>
         <source>Mixer device</source>
-        <translation>மிக்சர் சாதனம்</translation>
+        <translation type="vanished">மிக்சர் சாதனம்</translation>
     </message>
     <message>
         <source>Mixer channel</source>
-        <translation>மிக்சர் சேனல்</translation>
+        <translation type="vanished">மிக்சர் சேனல்</translation>
     </message>
     <message>
         <source>Jack</source>
@@ -4123,7 +4123,7 @@ media file played</source>
     </message>
     <message>
         <source>Smooth</source>
-        <translation>மென்மையான</translation>
+        <translation type="vanished">மென்மையான</translation>
     </message>
     <message>
         <source>Source Chroma</source>
@@ -4847,7 +4847,7 @@ media file played</source>
     </message>
     <message>
         <source>Video background</source>
-        <translation>வீடியோ பின்னணி</translation>
+        <translation type="vanished">வீடியோ பின்னணி</translation>
     </message>
     <message>
         <source>Status bar background</source>
@@ -4963,6 +4963,18 @@ media file played</source>
     </message>
     <message>
         <source>Decoder + Video Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Logo background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blend on color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checkerboard pattern</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

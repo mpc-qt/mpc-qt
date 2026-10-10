@@ -218,7 +218,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>13</number>
          </property>
          <widget class="QWidget" name="playerPage">
           <layout class="QGridLayout" name="playerPageLayout">
@@ -798,7 +798,7 @@ media file played</string>
                      <item row="0" column="0">
                       <widget class="QLabel" name="windowVideoLabel">
                        <property name="text">
-                        <string>Video background</string>
+                        <string>Logo background</string>
                        </property>
                       </widget>
                      </item>
@@ -1724,39 +1724,45 @@ media file played</string>
                    </layout>
                   </item>
                   <item row="1" column="0">
-                   <widget class="QLabel" name="videoAlphaModeLabel">
+                   <widget class="QLabel" name="videoBackgroundLabel">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
                     <property name="text">
                      <string>Alpha</string>
                     </property>
                    </widget>
                   </item>
                   <item row="1" column="1">
-                   <widget class="QComboBox" name="videoAlphaMode">
+                   <widget class="QComboBox" name="videoBackground">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
                     <item>
                      <property name="text">
-                      <string>Blend on black</string>
+                      <string>Blend on color</string>
                      </property>
                     </item>
                     <item>
                      <property name="text">
-                      <string>Use</string>
+                      <string>Checkerboard pattern</string>
                      </property>
                     </item>
                     <item>
                      <property name="text">
-                      <string>Ignore</string>
+                      <string>None</string>
                      </property>
                     </item>
                    </widget>
                   </item>
-                  <item row="2" column="0">
+                  <item row="3" column="0">
                    <widget class="QLabel" name="videoSharpenLabel">
                     <property name="text">
                      <string>Sharpen</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="1">
+                  <item row="3" column="1">
                    <widget class="QDoubleSpinBox" name="videoSharpen">
                     <property name="specialValueText">
                      <string>Disabled</string>
@@ -1769,14 +1775,14 @@ media file played</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="3" column="0">
+                  <item row="4" column="0">
                    <widget class="QLabel" name="videoPresetLabel">
                     <property name="text">
                      <string>Presets</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="3" column="1">
+                  <item row="4" column="1">
                    <layout class="QHBoxLayout" name="videoPresetLayout" stretch="1,0,2">
                     <item>
                      <widget class="QComboBox" name="videoPreset">
@@ -1842,6 +1848,46 @@ media file played</string>
                        </size>
                       </property>
                      </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="videoBackgroundColorLabel">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="text">
+                     <string>Color</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <layout class="QHBoxLayout" name="videoBackgroundColorLayout">
+                    <item>
+                     <widget class="QLineEdit" name="videoBackgroundColorValue">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
+                      <property name="inputMask">
+                       <string notr="true">HHHHHHHH</string>
+                      </property>
+                      <property name="text">
+                       <string notr="true">FF000000</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="videoBackgroundColorPick">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">background: #000000;</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
                     </item>
                    </layout>
                   </item>
@@ -5926,7 +5972,7 @@ media file played</string>
               <item>
                <widget class="QTabWidget" name="audioTabs">
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>4</number>
                 </property>
                 <widget class="QWidget" name="allTab">
                  <attribute name="title">
@@ -6123,44 +6169,6 @@ media file played</string>
                      </size>
                     </property>
                    </spacer>
-                  </item>
-                 </layout>
-                </widget>
-                <widget class="QWidget" name="ossPage">
-                 <attribute name="title">
-                  <string>Oss</string>
-                 </attribute>
-                 <layout class="QFormLayout" name="ossPageLayout">
-                  <property name="fieldGrowthPolicy">
-                   <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
-                  </property>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="ossMixerDeviceLabel">
-                    <property name="text">
-                     <string>Mixer device</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QLineEdit" name="ossMixerDevice">
-                    <property name="text">
-                     <string notr="true">/dev/mixer</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="ossMixerChannelLabel">
-                    <property name="text">
-                     <string>Mixer channel</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QLineEdit" name="ossMixerChannel">
-                    <property name="text">
-                     <string notr="true">pcm</string>
-                    </property>
-                   </widget>
                   </item>
                  </layout>
                 </widget>
@@ -7372,6 +7380,13 @@ media file played</string>
                  </property>
                  <widget class="QWidget" name="jpgPage">
                   <layout class="QFormLayout" name="jpgPageLayout">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="jpgQualityLabel">
+                     <property name="text">
+                      <string>Quality</string>
+                     </property>
+                    </widget>
+                   </item>
                    <item row="0" column="1">
                     <layout class="QHBoxLayout" name="jpgQualityLayout">
                      <item>
@@ -7405,7 +7420,7 @@ media file played</string>
                      </item>
                     </layout>
                    </item>
-                   <item row="2" column="0">
+                   <item row="1" column="0">
                     <widget class="QLabel" name="jpgSourceChromaLabel">
                      <property name="text">
                       <string>Source Chroma</string>
@@ -7413,50 +7428,6 @@ media file played</string>
                     </widget>
                    </item>
                    <item row="1" column="1">
-                    <layout class="QHBoxLayout" name="jpgSmoothLayout">
-                     <item>
-                      <widget class="QSlider" name="jpgSmooth">
-                       <property name="cursor">
-                        <cursorShape>PointingHandCursor</cursorShape>
-                       </property>
-                       <property name="maximum">
-                        <number>100</number>
-                       </property>
-                       <property name="orientation">
-                        <enum>Qt::Orientation::Horizontal</enum>
-                       </property>
-                       <property name="tickPosition">
-                        <enum>QSlider::TickPosition::TicksBothSides</enum>
-                       </property>
-                       <property name="tickInterval">
-                        <number>5</number>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="jpgSmoothValue">
-                       <property name="text">
-                        <string notr="true">0</string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="jpgQualityLabel">
-                     <property name="text">
-                      <string>Quality</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="jpgSmoothLabel">
-                     <property name="text">
-                      <string>Smooth</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="1">
                     <widget class="QCheckBox" name="jpgSourceChroma">
                      <property name="text">
                       <string>Yes</string>

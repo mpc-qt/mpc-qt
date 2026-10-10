@@ -2860,15 +2860,15 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Blend on black</source>
-        <translation>Mezcla en negro</translation>
+        <translation type="vanished">Mezcla en negro</translation>
     </message>
     <message>
         <source>Use</source>
-        <translation>Usar</translation>
+        <translation type="vanished">Usar</translation>
     </message>
     <message>
         <source>Ignore</source>
-        <translation>Ignorar</translation>
+        <translation type="vanished">Ignorar</translation>
     </message>
     <message>
         <source>Sharpen</source>
@@ -3431,16 +3431,12 @@ archivo multimedia reproducido</translation>
         <translation>Ignorar el mapa de canales (para configuraciones de alsa específicas)</translation>
     </message>
     <message>
-        <source>Oss</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Mixer device</source>
-        <translation>Dispositivo mezclador</translation>
+        <translation type="vanished">Dispositivo mezclador</translation>
     </message>
     <message>
         <source>Mixer channel</source>
-        <translation>Canal del mezclador</translation>
+        <translation type="vanished">Canal del mezclador</translation>
     </message>
     <message>
         <source>Jack</source>
@@ -3885,7 +3881,7 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Smooth</source>
-        <translation>Suavizar</translation>
+        <translation type="vanished">Suavizar</translation>
     </message>
     <message>
         <source>Source Chroma</source>
@@ -4086,6 +4082,22 @@ archivo multimedia reproducido</translation>
     <message>
         <source>Open Logo Image</source>
         <translation>Abrir imagen de logo</translation>
+    </message>
+    <message>
+        <source>Open ICC Profile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ICC profile files (*.icc *.icm)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose Log File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Log files (*.log)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio open settings</source>
@@ -4396,18 +4408,6 @@ archivo multimedia reproducido</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open ICC Profile</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ICC profile files (*.icc *.icm)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Allows dark theme support on Windows</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4520,10 +4520,6 @@ archivo multimedia reproducido</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Choose Log File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>See &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;source repo&lt;/a&gt; for icon names.</source>
         <translation type="vanished">Vea &lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/tree/master/res/images/theme/black&quot;&gt;el repositorio fuente&lt;/a&gt; para los nombres de iconos.</translation>
     </message>
@@ -4545,10 +4541,6 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Others</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Video background</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4665,6 +4657,18 @@ archivo multimedia reproducido</translation>
     </message>
     <message>
         <source>Decoder + Video Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Logo background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blend on color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checkerboard pattern</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
