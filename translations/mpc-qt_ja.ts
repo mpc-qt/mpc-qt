@@ -4960,7 +4960,7 @@ media file played</source>
     </message>
     <message>
         <source>Show video preview (restart required), set its height to (% of screen):</source>
-        <translation>動画のプレビューを表示 (再起動が必要)、高さの設定 (画面の ％) :</translation>
+        <translation>ビデオのプレビューを表示 (再起動が必要)、高さの設定 (画面の ％) :</translation>
     </message>
     <message>
         <source>Minimize to tray</source>
@@ -4980,19 +4980,19 @@ media file played</source>
     </message>
     <message>
         <source>Resample audio to match video (audio may become desynchronized)</source>
-        <translation type="unfinished"></translation>
+        <translation>ビデオに合わせてオーディオをリサンプリングする (オーディオの同期がずれる可能性があります)</translation>
     </message>
     <message>
         <source>Time video frames to audio</source>
-        <translation type="unfinished"></translation>
+        <translation>ビデオのフレームをオーディオに合わせる</translation>
     </message>
     <message>
         <source>Video Output (recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation>ビデオ出力 (推奨)</translation>
     </message>
     <message>
         <source>Decoder + Video Output</source>
-        <translation type="unfinished"></translation>
+        <translation>デコーダー + ビデオ出力</translation>
     </message>
 </context>
 <context>
