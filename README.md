@@ -95,8 +95,8 @@ users, there could even be packages in your distro that help with this (e.g.
 
 You need the Qt6 SDK installed and a recent edition of libmpv.  On Ubuntu you
 can usually install the required libraries and tools with the
-`build-essential`, `cmake`, `qt6-base-dev`, `qt6-l10n-tools`, `libqt6svg6-dev`,
-`libmpv-dev` and `boost` packages.  A recent edition of [libmpv] means either from git
+`build-essential`, `cmake`, `qt6-base-dev`, `qt6-l10n-tools`, `libqt6svg6-dev` and
+`libmpv-dev` packages, and optionally `libboost-stacktrace-dev`.  A recent edition of [libmpv] means either from git
 head or at least version 0.37.0.
 
 ### I don't know git, how do I do this?

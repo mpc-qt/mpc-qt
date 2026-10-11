@@ -19,7 +19,7 @@ jobs:
         sudo apt-get -y install \
         build-essential \
         cmake \
-        libboost-all-dev \
+        libboost-stacktrace-dev \
         libgl-dev \
         libmpv-dev \
         linguist-qt6 \
