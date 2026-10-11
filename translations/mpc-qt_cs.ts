@@ -672,7 +672,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
-        <translation>Načíst &amp;titulky...</translation>
+        <translation type="vanished">Načíst &amp;titulky...</translation>
     </message>
     <message>
         <source>Ctrl+L</source>
@@ -1961,6 +1961,10 @@ No action will be triggered.</source>
     <message>
         <source>&amp;Reload Subtitles File</source>
         <translation>&amp;Znovu načíst soubor s titulky</translation>
+    </message>
+    <message>
+        <source>&amp;Load Subtitles File...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
