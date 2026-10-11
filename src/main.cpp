@@ -864,9 +864,9 @@ void Flow::setupMpvObjectConnections()
     connect(settingsWindow, &SettingsWindow::logoSource,
             mpvObject, &MpvObject::setLogoUrl);
     connect(settingsWindow, &SettingsWindow::option,
-            mpvObject, &MpvObject::setCachedMpvOption);
+            mpvObject, &MpvObject::setCachedMpvProperty);
     connect(settingsWindow, &SettingsWindow::optionUncached,
-            mpvObject, &MpvObject::setUncachedMpvOption);
+            mpvObject, &MpvObject::setUncachedMpvProperty);
     connect(settingsWindow, &SettingsWindow::audioFilters,
             mpvObject, &MpvObject::setAudioFilters);
     connect(settingsWindow, &SettingsWindow::videoFilters,

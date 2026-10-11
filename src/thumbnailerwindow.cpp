@@ -142,20 +142,20 @@ void MpvThumbnailer::execute(const MpvThumbnailer::Params &p)
     pendingPts.clear();
     processedPts.clear();
 
-    emit mpv->ctrlSetOptionVariant("profile", "gpu-hq");
-    emit mpv->ctrlSetOptionVariant("blend-subtitles", "video");
-    emit mpv->ctrlSetOptionVariant("sub-visibility", "no");
-    emit mpv->ctrlSetOptionVariant("osd-align-x", "right");
-    emit mpv->ctrlSetOptionVariant("osd-align-y", "bottom");
-    emit mpv->ctrlSetOptionVariant("osd-duration", "3000");
-    emit mpv->ctrlSetOptionVariant("osd-color", "#80FFFFFF");
-    emit mpv->ctrlSetOptionVariant("osd-border-color", "#80000000");
-    emit mpv->ctrlSetOptionVariant("osd-bold", "yes");
-    emit mpv->ctrlSetOptionVariant("ao", "null");
-    emit mpv->ctrlSetOptionVariant("ao-null-untimed", "yes");
-    emit mpv->ctrlSetOptionVariant("audio", "no");
-    emit mpv->ctrlSetOptionVariant("untimed", "yes");
-    emit mpv->ctrlSetOptionVariant("fps", 200);
+    emit mpv->ctrlSetPropertyVariant("profile", "gpu-hq");
+    emit mpv->ctrlSetPropertyVariant("blend-subtitles", "video");
+    emit mpv->ctrlSetPropertyVariant("sub-visibility", "no");
+    emit mpv->ctrlSetPropertyVariant("osd-align-x", "right");
+    emit mpv->ctrlSetPropertyVariant("osd-align-y", "bottom");
+    emit mpv->ctrlSetPropertyVariant("osd-duration", "3000");
+    emit mpv->ctrlSetPropertyVariant("osd-color", "#80FFFFFF");
+    emit mpv->ctrlSetPropertyVariant("osd-border-color", "#80000000");
+    emit mpv->ctrlSetPropertyVariant("osd-bold", "yes");
+    emit mpv->ctrlSetPropertyVariant("ao", "null");
+    emit mpv->ctrlSetPropertyVariant("ao-null-untimed", "yes");
+    emit mpv->ctrlSetPropertyVariant("audio", "no");
+    emit mpv->ctrlSetPropertyVariant("untimed", "yes");
+    emit mpv->ctrlSetPropertyVariant("fps", 200);
     mpv->urlOpen(p.sourceUrl);
     mpv->setPaused(true);
     emit progress(0);
@@ -325,8 +325,8 @@ void MpvThumbnailer::mpv_videoSizeChanged(QSize video)
 
     // Set a consistent size for the osd message
     double factor = safeDiv(mpvVideoSize.height(), h);
-    emit mpv->ctrlSetOptionVariant("osd-font-size", int(osdFontSize * factor));
-    emit mpv->ctrlSetOptionVariant("osd-border-size", int(osdFontShadow * factor));
+    emit mpv->ctrlSetPropertyVariant("osd-font-size", int(osdFontSize * factor));
+    emit mpv->ctrlSetPropertyVariant("osd-border-size", int(osdFontShadow * factor));
 
     if (thumbState == StaleState) {
         // video size was not valid at first navigation,

@@ -484,7 +484,7 @@ QString MpvObject::formatFiltersList(const QList<QPair<QString, QString>> &filte
 
 void MpvObject::setSubFile(QString filename)
 {
-    emit ctrlSetOptionVariant("sub-files", filename);
+    emit ctrlSetPropertyVariant("sub-files", filename);
 }
 
 void MpvObject::addSubFile(QString filename)
@@ -499,7 +499,7 @@ void MpvObject::reloadSubFile()
 
 void MpvObject::clearSubFiles()
 {
-    emit ctrlSetOptionVariant("sub-files-clr", "");
+    emit ctrlCommand("no-osd change-list sub-files clr ''");
 }
 
 void MpvObject::setSubtitlesDelay(int subDelayStep)
@@ -710,17 +710,17 @@ bool MpvObject::clientDebuggingMessages()
     return debugMessages;
 }
 
-void MpvObject::setCachedMpvOption(const QString &option, const QVariant &value)
+void MpvObject::setCachedMpvProperty(const QString &property, const QVariant &value)
 {
-    if (cachedState.contains(option) && cachedState.value(option) == value)
+    if (cachedState.contains(property) && cachedState.value(property) == value)
         return;
-    cachedState.insert(option, value);
-    setMpvOptionVariant(option, value);
+    cachedState.insert(property, value);
+    setMpvPropertyVariant(property, value);
 }
 
-void MpvObject::setUncachedMpvOption(const QString &option, const QVariant &value)
+void MpvObject::setUncachedMpvProperty(const QString &property, const QVariant &value)
 {
-    setMpvOptionVariant(option, value);
+    setMpvPropertyVariant(property, value);
 }
 
 QVariant MpvObject::blockingMpvCommand(const QVariant &params)
@@ -742,6 +742,7 @@ QVariant MpvObject::blockingSetMpvPropertyVariant(QString name, const QVariant &
                                   : QVariant::fromValue(MpvErrorCode(v));
 }
 
+// REMOVEME: blockingSetMpvPropertyVariant should be used instead
 QVariant MpvObject::blockingSetMpvOptionVariant(QString name, const QVariant &value)
 {
     int v;
@@ -761,7 +762,6 @@ QVariant MpvObject::getMpvPropertyVariant(QString name)
     return v;
 }
 
-
 void MpvObject::setMpvPropertyVariant(QString name, const QVariant &value)
 {
     if (debugMessages)
@@ -769,6 +769,7 @@ void MpvObject::setMpvPropertyVariant(QString name, const QVariant &value)
     emit ctrlSetPropertyVariant(name, value);
 }
 
+// REMOVEME: setMpvPropertyVariant should be used instead
 void MpvObject::setMpvOptionVariant(QString name, const QVariant &value)
 {
     if (debugMessages)
@@ -1312,7 +1313,7 @@ void MpvController::create(const OptionList &earlyOptions)
     // Certain things like encoding options and input server need to be
     // set _before_ mpv initialize.
     for (const MpvOption &option : earlyOptions)
-        setOptionVariant(option.name, option.value);
+        setPropertyVariant(option.name, option.value);
 
     if (mpv_initialize(mpv) < 0)
         throw std::runtime_error("could not initialize mpv context");
@@ -1418,25 +1419,64 @@ void MpvController::showStatsPage(int page)
     shownStatsPage = page;
 }
 
+static QString getMpvErrorMessage(int errorCode) {
+    QString errorMessage;
+    switch (errorCode) {
+        case MPV_ERROR_INVALID_PARAMETER:
+            errorMessage = "MPV_ERROR_INVALID_PARAMETER";
+            break;
+        case MPV_ERROR_PROPERTY_NOT_FOUND:
+            errorMessage = "MPV_ERROR_PROPERTY_NOT_FOUND";
+            break;
+        case MPV_ERROR_PROPERTY_FORMAT:
+            errorMessage = "MPV_ERROR_PROPERTY_FORMAT";
+            break;
+        case MPV_ERROR_PROPERTY_UNAVAILABLE:
+            errorMessage = "MPV_ERROR_PROPERTY_UNAVAILABLE";
+            break;
+        case MPV_ERROR_PROPERTY_ERROR:
+            errorMessage = "MPV_ERROR_PROPERTY_ERROR";
+            break;
+        case MPV_ERROR_COMMAND:
+            errorMessage = "MPV_ERROR_COMMAND";
+            break;
+        default:
+            errorMessage = QString::number(errorCode);
+    }
+    return errorMessage;
+}
+
+// REMOVEME: setPropertyVariant should be used instead
 int MpvController::setOptionVariant(QString name, const QVariant &value)
 {
-    return mpv::qt::set_option_variant(mpv, name, value);
+    Logger::log(logModule, "warn: setOptionVariant shouldn't be used");
+    int errorCode = mpv::qt::set_option_variant(mpv, name, value);
+    if (errorCode < 0)
+        Logger::log(logModule,
+                    "warn: setOptionVariant: " + name + " = " + value.toString() + " -> " + getMpvErrorMessage(errorCode));
+    return errorCode;
 }
 
 QVariant MpvController::command(const QVariant &params)
 {
     if (params.canConvert<QString>() && params.metaType().id() != QMetaType::QStringList) {
         int value = mpv_command_string(mpv, params.toString().toUtf8().data());
-        if (value < 0)
+        if (value < 0) {
+            Logger::log(logModule,
+                        "warn: command: " + params.toString() + " -> " + getMpvErrorMessage(value));
             return QVariant::fromValue(MpvErrorCode(value));
+        }
         return QVariant();
     }
 
     mpv::qt::node_builder node(params);
     mpv_node res;
     int value = mpv_command_node(mpv, node.node(), &res);
-    if (value < 0)
+    if (value < 0) {
+        Logger::log(logModule,
+                    "warn: command: " + params.toString() + " -> " + getMpvErrorMessage(value));
         return QVariant::fromValue(MpvErrorCode(value));
+    }
     mpv::qt::node_autofree f(&res);
     QVariant v = mpv::qt::node_to_variant(&res);
     return v;
@@ -1444,15 +1484,22 @@ QVariant MpvController::command(const QVariant &params)
 
 int MpvController::setPropertyVariant(const QString &name, const QVariant &value)
 {
-    return mpv::qt::set_property_variant(mpv, name, value);
+    int errorCode = mpv::qt::set_property(mpv, name, value);
+    if (errorCode < 0)
+        Logger::log(logModule,
+                    "warn: setPropertyVariant: " + name + " = " + value.toString() + " -> " + getMpvErrorMessage(errorCode));
+    return errorCode;
 }
 
 QVariant MpvController::getPropertyVariant(const QString &name)
 {
     mpv_node node;
     int r = mpv_get_property(mpv, name.toUtf8().data(), MPV_FORMAT_NODE, &node);
-    if (r < 0)
+    if (r < 0) {
+        Logger::log(logModule,
+                    "warn: getPropertyVariant: " + name + " -> " + getMpvErrorMessage(r));
         return QVariant::fromValue<MpvErrorCode>(MpvErrorCode(r));
+    }
     QVariant v = mpv::qt::node_to_variant(&node);
     mpv_free_node_contents(&node);
     return v;
@@ -1460,14 +1507,21 @@ QVariant MpvController::getPropertyVariant(const QString &name)
 
 int MpvController::setPropertyString(const QString &name, const QString &value)
 {
-    return mpv_set_property_string(mpv, name.toUtf8().data(), value.toUtf8().data());
+    int errorCode = mpv_set_property_string(mpv, name.toUtf8().data(), value.toUtf8().data());
+    if (errorCode < 0)
+        Logger::log(logModule,
+                    "warn: setPropertyString: " + name + " = " + value + " -> " + getMpvErrorMessage(errorCode));
+    return errorCode;
 }
 
 QString MpvController::getPropertyString(const QString &name)
 {
     char *c = mpv_get_property_string(mpv, name.toUtf8().data());
-    if (!c)
+    if (!c) {
+        Logger::log(logModule,
+                    "warn: getPropertyString: " + name + " -> mpv returned an error");
         return QString();
+    }
     QByteArray b(c);
     mpv_free(c);
     return QString::fromUtf8(b);
@@ -1476,8 +1530,11 @@ QString MpvController::getPropertyString(const QString &name)
 void MpvController::commandAsync(const QVariant &params, MpvCallback *callback)
 {
     mpv::qt::node_builder node(params);
-    mpv_command_node_async(mpv, reinterpret_cast<uint64_t>(callback),
+    int errorCode = mpv_command_node_async(mpv, reinterpret_cast<uint64_t>(callback),
                            node.node());
+    if (errorCode < 0)
+        Logger::log(logModule,
+                    "warn: commandAsync: " + params.toString() + " -> " + getMpvErrorMessage(errorCode));
 }
 
 void MpvController::setPropertyVariantAsync(const QString &name,
@@ -1485,15 +1542,21 @@ void MpvController::setPropertyVariantAsync(const QString &name,
                                             MpvCallback *callback)
 {
     mpv::qt::node_builder node(value);
-    mpv_set_property_async(mpv, reinterpret_cast<uint64_t>(callback),
+    int errorCode = mpv_set_property_async(mpv, reinterpret_cast<uint64_t>(callback),
                            name.toUtf8().data(), MPV_FORMAT_NODE, node.node());
+    if (errorCode < 0)
+        Logger::log(logModule,
+                    "warn: setPropertyVariantAsync: "  + name + " = " + value.toString() + " -> " + getMpvErrorMessage(errorCode));
 }
 
 void MpvController::getPropertyVariantAsync(const QString &name,
                                             MpvCallback *callback)
 {
-    mpv_get_property_async(mpv, reinterpret_cast<uint64_t>(callback),
+    int errorCode = mpv_get_property_async(mpv, reinterpret_cast<uint64_t>(callback),
                            name.toUtf8().data(), MPV_FORMAT_NODE);
+    if (errorCode < 0)
+        Logger::log(logModule,
+                    "warn: getPropertyVariantAsync: "  + name + " -> " + getMpvErrorMessage(errorCode));
 }
 
 void MpvController::parseMpvEvents()

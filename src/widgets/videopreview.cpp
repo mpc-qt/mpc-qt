@@ -25,16 +25,16 @@ VideoPreview::VideoPreview(QWidget *parent) : QWidget(parent)
     textLabel->setAutoFillBackground(true);
     updatePalette();
 
-    emit mpv->ctrlSetOptionVariant("vo", "libmpv");
-    emit mpv->ctrlSetOptionVariant("keep-open", true);
-    emit mpv->ctrlSetOptionVariant("sub-visibility", "no");
-    emit mpv->ctrlSetOptionVariant("hr-seek", "no");
-    emit mpv->ctrlSetOptionVariant("audio", "no");
-    emit mpv->ctrlSetOptionVariant("audio-display", "no");
-    emit mpv->ctrlSetOptionVariant("ytdl-format",
+    emit mpv->ctrlSetPropertyVariant("vo", "libmpv");
+    emit mpv->ctrlSetPropertyVariant("keep-open", true);
+    emit mpv->ctrlSetPropertyVariant("sub-visibility", "no");
+    emit mpv->ctrlSetPropertyVariant("hr-seek", "no");
+    emit mpv->ctrlSetPropertyVariant("audio", "no");
+    emit mpv->ctrlSetPropertyVariant("audio-display", "no");
+    emit mpv->ctrlSetPropertyVariant("ytdl-format",
         "bestvideo/best");
     setYtdlRawOptions();
-    emit mpv->ctrlSetOptionVariant("clipboard-backends", "clr");
+    emit mpv->ctrlSetPropertyVariant("clipboard-backends", "clr");
     mpv->setPaused(true);
 
     connect(mpv, &MpvObject::aspectChanged,
@@ -122,7 +122,7 @@ void VideoPreview::updateWidth(double newAspect)
 
 void VideoPreview::setYtdlRawOptions()
 {
-    emit mpv->ctrlSetOptionVariant("ytdl-raw-options", QString("js-runtimes=quickjs,"\
+    emit mpv->ctrlSetPropertyVariant("ytdl-raw-options", QString("js-runtimes=quickjs,"\
                                                     "remote-components=ejs:github,"\
                                                     "format-sort=[res:%1,+size,+br,+fps]").arg(videoWidget->height()));
 }
