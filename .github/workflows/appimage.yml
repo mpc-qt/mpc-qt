@@ -74,7 +74,7 @@ jobs:
         echo "ADD_HOOKS=self-updater.hook:get-yt-dlp.hook" >> $GITHUB_ENV
         echo "UPINFO=gh-releases-zsync|mpc-qt|mpc-qt|latest|mpc-qt-linux-x64-*.AppImage.zsync" >> $GITHUB_ENV
         echo "OUTPATH=./" >> $GITHUB_ENV
-        echo "OUTNAME=mpc-qt-x86_64.AppImage" >> $GITHUB_ENV
+        echo "OUTNAME=mpc-qt-linux-x64-${{env.MPC-QT_PACKAGE_VERSION}}.AppImage" >> $GITHUB_ENV
         SHARUN="https://raw.githubusercontent.com/pkgforge-dev/Anylinux-AppImages/refs/heads/main/useful-tools/quick-sharun.sh"
         wget -c "$SHARUN" -O ./quick-sharun
         chmod +x ./quick-sharun
