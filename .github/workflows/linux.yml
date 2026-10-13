@@ -16,10 +16,10 @@ jobs:
     - name: Install packages
       run: |
         sudo apt-get update
-        sudo apt-get -y install \
+        sudo apt-get -y --no-install-recommends install \
         build-essential \
         cmake \
-        libboost-all-dev \
+        libboost-stacktrace-dev \
         libgl-dev \
         libmpv-dev \
         linguist-qt6 \
