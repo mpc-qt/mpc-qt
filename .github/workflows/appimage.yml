@@ -5,140 +5,44 @@ on:
 
 env:
   DEVBUILD: continuous
-  RUNNEROS: ubuntu-22.04
-  CACHE_KEY_FILES: |
-    mpv-build/ffmpeg/RELEASE
-    mpv-build/libass/RELEASEVERSION
-    mpv-build/libplacebo/.git/packed-refs
-    mpv-build/mpv/MPV_VERSION
 
 jobs:
   appimage:
     name: Build
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
+    container: ghcr.io/pkgforge-dev/archlinux:latest
+
     steps:
-    - name: Add repositories
-      run: |
-        for i in 1 2 3; do
-          sudo add-apt-repository ppa:savoury1/build-tools && break || sleep 60
-        done
-        for i in 1 2 3; do
-          sudo add-apt-repository ppa:savoury1/llvm-defaults-13 && break || sleep 60
-        done
-        for i in 1 2 3; do
-          sudo add-apt-repository ppa:savoury1/graphics && break || sleep 60
-        done
-        for i in 1 2 3; do
-          sudo add-apt-repository ppa:savoury1/display && break || sleep 60
-        done
-        for i in 1 2 3; do
-          sudo add-apt-repository ppa:savoury1/multimedia && break || sleep 60
-        done
-        for i in 1 2 3; do
-          sudo add-apt-repository ppa:kubuntu-ppa/backports-extra && break || sleep 60
-        done
-    - name: Update repositories
-      run: |
-        for i in 1 2 3; do
-          sudo apt update && break || sleep 60
-        done
-    - name: Update packages
-      run: |
-        for i in 1 2 3; do
-          sudo apt upgrade && break || sleep 60
-        done
-        for i in 1 2 3; do
-          sudo apt dist-upgrade && break || sleep 60
-        done
     - name: Install packages
       run: |
-        for i in 1 2 3; do
-          sudo apt install build-essential cmake && break || sleep 60
-        done
-        for i in 1 2 3; do
-          sudo apt install libboost-all-dev && break || sleep 60
-        done
-        for i in 1 2 3; do
-          sudo apt install devscripts equivs git libunwind-dev gdebi && break || sleep 60
-        done
-        for i in 1 2 3; do
-          sudo apt install libwayland-dev libwayland-egl-backend-dev && break || sleep 60
-        done
-        for i in 1 2 3; do
-          sudo apt install libfuse2 && break || sleep 60
-        done
-    - name: Install newer Qt version
-      uses: jurplel/install-qt-action@v4
-      with:
-        cache: true
+        pacman -Syu --noconfirm \
+            base-devel \
+            cmake \
+            ninja \
+            git  \
+            boost \
+            mpv \
+            pipewire-audio \
+            pipewire-jack \
+            qt6-svg \
+            qt6-tools \
+            udisks2 \
+            vulkan-headers \
+            qt6ct \
+            kvantum \
+            lxqt-qtplugin \
+            libva-intel-driver \
+            wget \
+            patchelf \
+            xorg-server-xvfb \
     - name: Checkout repository
       uses: actions/checkout@v6.0.2
       with:
         fetch-depth: 1000
         fetch-tags: true
-    - name: Checkout mpv repository
-      uses: actions/checkout@v6.0.2
-      with:
-        repository: "mpv-player/mpv-build"
-        path: mpv-build
-    - name: Copy build options and script
-      run: |
-        cp .github/actions/data/build_options/* mpv-build/
-        cp .github/actions/data/mpv-build/* mpv-build/
-    - name: Get mpv dependencies
-      run: |
-        cd mpv-build
-        ./use-ffmpeg-release
-        ./use-libass-release
-        ./use-libplacebo-release
-        ./use-mpv-release
-        sed -i '/libdisplay-info-dev/d' debian/control
-        ./update
-        cp debian/changelog.TEMPLATE debian/changelog
-    - name: Check cache key inputs exist
-      id: check-cache-inputs
-      run: |
-        missing=0
-
-        while IFS= read -r file; do
-          [[ -z "$file" ]] && continue
-          if [[ ! -f "$file" ]]; then
-            echo "::warning::Missing cache input file: $file"
-            missing=1
-          fi
-        done <<< "$CACHE_KEY_FILES"
-
-        if [[ $missing -eq 0 ]]; then
-          echo "All cache input files are present."
-          echo "cacheable=true" >> "$GITHUB_OUTPUT"
-        else
-          echo "One or more cache input files are missing; cache will be skipped."
-          echo "cacheable=false" >> "$GITHUB_OUTPUT"
-        fi
-    - name: Restore dependencies or cache them later
-      id: cache-deps
-      if: steps.check-cache-inputs.outputs.cacheable == 'true'
-      uses: actions/cache@v5.0.4
-      with:
-        path: deb
-        key: appimage-${{ env.RUNNEROS }}-${{ hashFiles(env.CACHE_KEY_FILES) }}
-    - name: Build mpv package
-      if: steps.cache-deps.outputs.cache-hit != 'true'
-      run: |
-        cd mpv-build
-        mk-build-deps -s sudo -i
-        export DEB_BUILD_OPTIONS=nostrip
-        dpkg-buildpackage -uc -us -b
-        cd ..
-        mkdir deb
-        mv mpv-build/*.deb deb
-    - name: Install mpv package
-      run: |
-        mv deb/*.deb ./
-        sudo gdebi --n mpv_*.deb
-        mv ./*.deb deb
     - name: Configure build
       run: |
+        git config --global --add safe.directory /__w/mpc-qt/mpc-qt
         VERSION=$( cat .github/actions/data/VERSION )
         echo "MPC-QT_PACKAGE_VERSION=$VERSION" >> $GITHUB_ENV
         if [[ $VERSION != $DEVBUILD ]]; then
@@ -149,28 +53,35 @@ jobs:
     - name: Build MPC-QT
       run: cmake --build build
     - name: Install MPC-QT
-      run: DESTDIR=AppDir ninja -C build install
-    - name: Download linuxdeploy
-      uses: pcolby/install-linuxdeploy@v1.1.0
-      with:
-        arch: x86_64
-        dir: linuxdeploy
-        install-deps: false
-        plugins: qt@1-alpha-20250213-1
-        set-env: true
-        version: 1-alpha-20251107-1
+      run: sudo cmake --install build
+    - name: Install debloated packages
+      run: |
+        EXTRA_PACKAGES="https://raw.githubusercontent.com/pkgforge-dev/Anylinux-AppImages/refs/heads/main/useful-tools/get-debloated-pkgs.sh"
+        wget "$EXTRA_PACKAGES" -O ./get-debloated-pkgs.sh
+        chmod +x ./get-debloated-pkgs.sh
+        ./get-debloated-pkgs.sh --add-common --prefer-nano \
+            glycin-mini \
+            qt6-base-mini \
+            libxml2-mini \
+            opus-mini \
+            sdl2_image-mini \
+            icu-mini \
+            intel-media-driver-mini
+    - name: Setup Sharun (Anylinux tool)
+      run: |
+        echo "ICON=/usr/share/icons/hicolor/scalable/apps/io.github.mpc_qt.mpc-qt.svg" >> $GITHUB_ENV
+        echo "DESKTOP=/usr/share/applications/io.github.mpc_qt.mpc-qt.desktop" >> $GITHUB_ENV
+        echo "ADD_HOOKS=self-updater.hook:get-yt-dlp.hook" >> $GITHUB_ENV
+        echo "UPINFO=gh-releases-zsync|mpc-qt|mpc-qt|latest|mpc-qt-linux-x64-*.AppImage.zsync" >> $GITHUB_ENV
+        echo "OUTPATH=./" >> $GITHUB_ENV
+        echo "OUTNAME=mpc-qt-x86_64.AppImage" >> $GITHUB_ENV
+        SHARUN="https://raw.githubusercontent.com/pkgforge-dev/Anylinux-AppImages/refs/heads/main/useful-tools/quick-sharun.sh"
+        wget -c "$SHARUN" -O ./quick-sharun
+        chmod +x ./quick-sharun
     - name: Build AppImage
       run: |
-        export EXTRA_QT_MODULES="svg;waylandcompositor;"
-        export EXTRA_PLATFORM_PLUGINS="libqwayland-egl.so;libqwayland-generic.so"
-        export LDAI_OUTPUT="mpc-qt-linux-x64-${{env.MPC-QT_PACKAGE_VERSION}}.AppImage"
-        export LDAI_UPDATE_INFORMATION="gh-releases-zsync|mpc-qt|mpc-qt|latest|mpc-qt-linux-x64-*.AppImage.zsync"
-        linuxdeploy/linuxdeploy-x86_64.AppImage \
-          --appdir build/AppDir \
-          -e build/AppDir/usr/bin/mpc-qt \
-          -d build/AppDir/usr/share/applications/io.github.mpc_qt.mpc-qt.desktop \
-          --custom-apprun ./packaging/appimage/AppRun \
-          --plugin qt --output appimage
+        ./quick-sharun /usr/bin/mpc-qt
+        ./quick-sharun --make-appimage
     - name: Upload AppImage
       uses: actions/upload-artifact@v7
       with:
