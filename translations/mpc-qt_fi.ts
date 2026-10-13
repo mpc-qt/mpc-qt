@@ -652,7 +652,7 @@ Mitään toimintoa ei suoriteta.</translation>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
-        <translation>&amp;Lataa tekstitys...</translation>
+        <translation type="vanished">&amp;Lataa tekstitys...</translation>
     </message>
     <message>
         <source>Ctrl+L</source>
@@ -1796,6 +1796,10 @@ Mitään toimintoa ei suoriteta.</translation>
     </message>
     <message>
         <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Load Subtitles File...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

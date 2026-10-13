@@ -2714,15 +2714,13 @@ void MainWindow::on_actionFileSaveWindowImageAuto_triggered()
 void MainWindow::on_actionFileLoadSubtitle_triggered()
 {
     QUrl url;
-    static QUrl lastUrl;
     static QFileDialog::Options options;
 #ifdef Q_OS_MAC
     options = QFileDialog::DontUseNativeDialog;
 #endif
-    url = QFileDialog::getOpenFileUrl(this, tr("Open Subtitle"), lastUrl, "", nullptr, options);
+    url = QFileDialog::getOpenFileUrl(this, tr("Open Subtitle"), currentFile, "", nullptr, options);
     if (url.isEmpty())
         return;
-    lastUrl = url;
     emit subtitlesLoaded(url);
 }
 
