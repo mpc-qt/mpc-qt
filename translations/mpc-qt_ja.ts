@@ -1988,7 +1988,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Load Subtitles File...</source>
-        <translation type="unfinished"></translation>
+        <translation>字幕ファイルを読み込む(&amp;L)...</translation>
     </message>
 </context>
 <context>
