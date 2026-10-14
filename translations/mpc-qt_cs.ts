@@ -1964,7 +1964,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Load Subtitles File...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Načíst soubor s titulky...</translation>
     </message>
 </context>
 <context>
