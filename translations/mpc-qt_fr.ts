@@ -1924,7 +1924,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>&amp;Load Subtitles File...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Charger un fichier de sous-titres...</translation>
     </message>
 </context>
 <context>
