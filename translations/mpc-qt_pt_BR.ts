@@ -1780,7 +1780,7 @@ Nenhuma ação será executada.</translation>
     </message>
     <message>
         <source>&amp;Load Subtitles File...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Carregar arquivo de legenda...</translation>
     </message>
 </context>
 <context>
