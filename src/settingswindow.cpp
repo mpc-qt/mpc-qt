@@ -858,46 +858,54 @@ void SettingsWindow::sendSignals()
         emit option("sigmoid-upscaling", false);
     }
 
-    QString scaler;
-    FilterKernel filter;
-    auto fetchFilter = [&](QString prefix, bool temporal = false) {
-        scaler = WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleScaler);
-        filter = filterKernels.value(scaler);
+    auto fetchAndApplyFilter = [&](QString prefix, bool temporal = false) {
+        QString scaler = WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleScaler);
+        FilterKernel filter = filterKernels.value(scaler);
         filter.cutoff_(temporal ? 0.0 : 0.01);
         filter.clamp_(temporal ? 1.0 : 0.0);
-        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam1Set).toBool())    filter.param1_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam1Value).toDouble());
-        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam2Set).toBool())    filter.param2_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam2Value).toDouble());
-        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleRadiusSet).toBool())    filter.radius_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleRadiusValue).toDouble());
-        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleAntiRingSet).toBool())  filter.antiring_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleAntiRingValue).toDouble());
-        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleBlurSet).toBool())      filter.blur_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleBlurValue).toDouble());
-        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleWindowSet).toBool())    filter.window_(WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleWindowValue));
-        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleWindowParamSet).toBool())   filter.window.param_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleWindowValue).toDouble());
-        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleClampSet).toBool())     filter.clamp_(WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleClampValue).toDouble());
-    };
-    auto applyFilter = [&](QString prefix) {
         emit option(prefix + "scale", scaler);
-        emit option(prefix + "scale-param1", filter.params[0]);
-        emit option(prefix + "scale-param2", filter.params[1]);
-        emit option(prefix + "scale-radius", filter.radius);
-        emit option(prefix + "scale-antiring", filter.antiring);
-        emit option(prefix + "scale-blur", filter.blur);
-        emit option(prefix + "scale-window", filter.windowName);
-        emit option(prefix + "scale-wparam", filter.window.params[0]);
-        emit option(prefix + "scale-clamp", filter.clamp);
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam1Set).toBool()) {
+            filter.param1_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam1Value).toDouble());
+            emit option(prefix + "scale-param1", filter.params[0]);
+        }
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam2Set).toBool()) {
+            filter.param2_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam2Value).toDouble());
+            emit option(prefix + "scale-param2", filter.params[1]);
+        }
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleRadiusSet).toBool()){
+            filter.radius_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleRadiusValue).toDouble());
+            emit option(prefix + "scale-radius", filter.radius);
+        }
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleAntiRingSet).toBool()) {
+            filter.antiring_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleAntiRingValue).toDouble());
+            emit option(prefix + "scale-antiring", filter.antiring);
+        }
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleBlurSet).toBool()) {
+            filter.blur_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleBlurValue).toDouble());
+            emit option(prefix + "scale-blur", filter.blur);
+        }
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleWindowSet).toBool()) {
+            filter.window_(WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleWindowValue));
+            emit option(prefix + "scale-window", filter.windowName);
+        }
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleWindowParamSet).toBool()) {
+            filter.window.param_(WIDGET_LOOKUP_PREFIX(prefix, ui->dscaleWindowParamValue).toDouble());
+            emit option(prefix + "scale-wparam", filter.window.params[0]);
+        }
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleClampSet).toBool()) {
+            filter.clamp_(WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleClampValue).toDouble());
+            emit option(prefix + "scale-clamp", filter.clamp);
+        }
     };
 
-    fetchFilter("");
-    applyFilter("");
+    fetchAndApplyFilter("");
 
     if (OFFSET_LOOKUP(acceptedSettings, ui->dscaleScaler) != 0)
-        fetchFilter("d");
-    applyFilter("d");
+        fetchAndApplyFilter("d");
 
-    fetchFilter("c");
-    applyFilter("c");
+    fetchAndApplyFilter("c");
 
-    fetchFilter("t", true);
-    applyFilter("t");
+    fetchAndApplyFilter("t", true);
 
     if (WIDGET_LOOKUP(ui->debandEnabled).toBool()) {
         emit option("deband", true);
