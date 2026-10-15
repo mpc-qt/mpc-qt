@@ -2296,6 +2296,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="scaleParam1Value">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -2320,6 +2323,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="scaleRadiusValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -2357,6 +2363,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="scaleParam2Value">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -2388,6 +2397,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="scaleAntiRingValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -2422,6 +2434,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="scaleBlurValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -2453,6 +2468,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QComboBox" name="scaleWindowValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <item>
                            <property name="text">
                             <string>Box</string>
@@ -2533,6 +2551,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="scaleWindowParamValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -2553,6 +2574,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="scaleClampValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -2905,6 +2929,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="dscaleParam1Value">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -2936,6 +2963,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="dscaleRadiusValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -2973,6 +3003,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="dscaleParam2Value">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3004,6 +3037,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="dscaleAntiRingValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3038,6 +3074,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="dscaleBlurValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3065,6 +3104,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="dscaleClampValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3096,6 +3138,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QComboBox" name="dscaleWindowValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <item>
                            <property name="text">
                             <string>Box</string>
@@ -3176,6 +3221,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="dscaleWindowParamValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3365,6 +3413,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="cscaleParam1Value">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3396,6 +3447,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="cscaleRadiusValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3433,6 +3487,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="cscaleParam2Value">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3464,6 +3521,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="cscaleAntiRingValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3495,6 +3555,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="cscaleBlurValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3522,6 +3585,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="cscaleClampValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3553,6 +3619,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QComboBox" name="cscaleWindowValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <item>
                            <property name="text">
                             <string>Box</string>
@@ -3633,6 +3702,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="cscaleWindowParamValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3772,6 +3844,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="tscaleParam1Value">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3803,6 +3878,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="tscaleRadiusValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3840,6 +3918,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="tscaleParam2Value">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3871,6 +3952,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="tscaleAntiRingValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3902,6 +3986,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="tscaleBlurValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3929,6 +4016,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="tscaleClampValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -3954,6 +4044,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QComboBox" name="tscaleWindowValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <item>
                            <property name="text">
                             <string>Box</string>
@@ -4034,6 +4127,9 @@ media file played</string>
                         </item>
                         <item>
                          <widget class="QDoubleSpinBox" name="tscaleWindowParamValue">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
                           <property name="decimals">
                            <number>6</number>
                           </property>
@@ -8843,12 +8939,12 @@ media file played</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>710</x>
-     <y>278</y>
+     <x>328</x>
+     <y>64</y>
     </hint>
     <hint type="destinationlabel">
-     <x>537</x>
-     <y>291</y>
+     <x>328</x>
+     <y>64</y>
     </hint>
    </hints>
   </connection>
@@ -8859,12 +8955,12 @@ media file played</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>537</x>
-     <y>100</y>
+     <x>328</x>
+     <y>64</y>
     </hint>
     <hint type="destinationlabel">
-     <x>537</x>
-     <y>149</y>
+     <x>328</x>
+     <y>64</y>
     </hint>
    </hints>
   </connection>
@@ -8875,12 +8971,12 @@ media file played</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>443</x>
-     <y>397</y>
+     <x>328</x>
+     <y>64</y>
     </hint>
     <hint type="destinationlabel">
-     <x>682</x>
-     <y>398</y>
+     <x>328</x>
+     <y>64</y>
     </hint>
    </hints>
   </connection>
@@ -8891,12 +8987,524 @@ media file played</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>343</x>
-     <y>204</y>
+     <x>289</x>
+     <y>189</y>
     </hint>
     <hint type="destinationlabel">
-     <x>544</x>
-     <y>205</y>
+     <x>333</x>
+     <y>189</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scaleParam1Set</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>scaleParam1Value</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>328</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>385</x>
+     <y>243</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scaleParam2Set</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>scaleParam2Value</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>332</x>
+     <y>302</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>383</x>
+     <y>296</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scaleBlurSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>scaleBlurValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>323</x>
+     <y>359</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>356</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scaleWindowSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>scaleWindowValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>326</x>
+     <y>413</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>387</x>
+     <y>419</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scaleRadiusSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>scaleRadiusValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>629</x>
+     <y>246</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>670</x>
+     <y>244</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scaleAntiRingSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>scaleAntiRingValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>626</x>
+     <y>303</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>678</x>
+     <y>306</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scaleClampSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>scaleClampValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>626</x>
+     <y>358</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>685</x>
+     <y>356</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scaleWindowParamSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>scaleWindowParamValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>570</x>
+     <y>416</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>415</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dscaleParam1Set</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dscaleParam1Value</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>329</x>
+     <y>238</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>382</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dscaleParam2Set</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dscaleParam2Value</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>330</x>
+     <y>302</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>390</x>
+     <y>305</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dscaleBlurSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dscaleBlurValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>330</x>
+     <y>354</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>368</x>
+     <y>354</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dscaleWindowSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dscaleWindowValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>326</x>
+     <y>414</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>376</x>
+     <y>416</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dscaleRadiusSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dscaleRadiusValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>631</x>
+     <y>247</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>685</x>
+     <y>244</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dscaleAntiRingSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dscaleAntiRingValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>627</x>
+     <y>300</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>674</x>
+     <y>300</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dscaleClampSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dscaleClampValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>621</x>
+     <y>356</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>654</x>
+     <y>356</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dscaleWindowParamSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dscaleWindowParamValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>574</x>
+     <y>413</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>612</x>
+     <y>412</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cscaleParam1Set</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>cscaleParam1Value</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>328</x>
+     <y>244</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>368</x>
+     <y>251</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cscaleParam2Set</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>cscaleParam2Value</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>331</x>
+     <y>301</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>372</x>
+     <y>301</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cscaleBlurSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>cscaleBlurValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>330</x>
+     <y>349</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>373</x>
+     <y>351</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cscaleWindowSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>cscaleWindowValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>329</x>
+     <y>414</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>364</x>
+     <y>411</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cscaleRadiusSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>cscaleRadiusValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>624</x>
+     <y>243</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>661</x>
+     <y>248</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cscaleAntiRingSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>cscaleAntiRingValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>629</x>
+     <y>296</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>676</x>
+     <y>298</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cscaleClampSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>cscaleClampValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>633</x>
+     <y>354</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>667</x>
+     <y>356</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cscaleWindowParamSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>cscaleWindowParamValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>573</x>
+     <y>414</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>611</x>
+     <y>412</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tscaleParam1Set</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>tscaleParam1Value</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>330</x>
+     <y>243</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>360</x>
+     <y>250</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tscaleParam2Set</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>tscaleParam2Value</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>334</x>
+     <y>300</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>370</x>
+     <y>302</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tscaleBlurSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>tscaleBlurValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>321</x>
+     <y>357</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>374</x>
+     <y>358</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tscaleWindowSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>tscaleWindowValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>332</x>
+     <y>417</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>394</x>
+     <y>412</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tscaleRadiusSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>tscaleRadiusValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>620</x>
+     <y>243</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>657</x>
+     <y>250</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tscaleAntiRingSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>tscaleAntiRingValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>629</x>
+     <y>299</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>678</x>
+     <y>303</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tscaleClampSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>tscaleClampValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>633</x>
+     <y>351</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>682</x>
+     <y>352</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tscaleWindowParamSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>tscaleWindowParamValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>569</x>
+     <y>417</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>611</x>
+     <y>414</y>
     </hint>
    </hints>
   </connection>
