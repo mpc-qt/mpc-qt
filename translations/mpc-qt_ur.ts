@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished">ورژن%1$s</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
@@ -48,7 +48,7 @@
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished">کی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mouse Window</source>
@@ -268,7 +268,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>ButtonWidget</name>
     <message>
         <source>B</source>
-        <translation type="unfinished">B</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>K</source>
@@ -291,7 +291,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Files</source>
-        <translation type="unfinished">فائلز</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Streams</source>
@@ -299,7 +299,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">خارج کیجیے</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -357,7 +357,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished">Time</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Go!</source>
@@ -376,15 +376,15 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>LibraryWindow</name>
     <message>
         <source>Restore</source>
-        <translation type="unfinished">مصر</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">خارج کیجیے</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">بند کریں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Playlists Backup</source>
@@ -399,15 +399,15 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">کاپی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">محفوظ کریں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">صاف کریں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save File</source>
@@ -438,15 +438,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished">چلائیں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished">توقف</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">رکو</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Skip Backward</source>
@@ -550,11 +550,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Audio</source>
-        <translation type="unfinished">آواز</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Su&amp;btitles</source>
-        <translation type="unfinished">سنٹیٹلز</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Video Stream</source>
@@ -562,7 +562,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>V&amp;olume</source>
-        <translation type="unfinished">والیوم</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Af&amp;ter Playback</source>
@@ -582,7 +582,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Favo&amp;rites</source>
-        <translation type="unfinished">پسندیدہ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -674,7 +674,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>D</source>
-        <translation type="unfinished">D</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Search...</source>
@@ -682,7 +682,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>P&amp;roperties</source>
-        <translation type="unfinished">پر خصوصیات</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shift+F10</source>
@@ -710,15 +710,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Information</source>
-        <translation type="unfinished">معلومات</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Statistics</source>
-        <translation type="unfinished">Statistics</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>S&amp;tatus</source>
-        <translation type="unfinished">Status</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Su&amp;bresync</source>
@@ -726,7 +726,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Play&amp;list</source>
-        <translation type="unfinished">پلے لسٹ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Captu&amp;re</source>
@@ -734,7 +734,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Na&amp;vigation</source>
-        <translation type="unfinished">Navigation</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Minimal</source>
@@ -746,7 +746,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Normal</source>
-        <translation type="unfinished">Normal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>F&amp;ullscreen</source>
@@ -770,11 +770,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Default</source>
-        <translation type="unfinished">Default</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Always</source>
-        <translation type="unfinished">ہمیشہ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+A</source>
@@ -798,7 +798,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Pause</source>
-        <translation type="unfinished">توقف</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Space</source>
@@ -890,7 +890,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Shut&amp;down</source>
-        <translation type="unfinished">بندھ کریں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Log &amp;Off</source>
@@ -910,7 +910,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Previous</source>
-        <translation type="unfinished">پچھلا</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PgUp</source>
@@ -1090,7 +1090,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation type="unfinished">نیا ٹیب</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
@@ -1146,7 +1146,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>E</source>
-        <translation type="unfinished">E</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Decrement</source>
@@ -1174,7 +1174,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished">پیسٹ کریں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl+Shift+V</source>
@@ -1262,7 +1262,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Repeat</source>
-        <translation type="unfinished">دوہرائیں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Application Messages</source>
@@ -1370,7 +1370,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Loading</source>
-        <translation type="unfinished">لوڈ ہو رہا ہے …</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Buffering (%1%)</source>
@@ -1382,7 +1382,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">خرابی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
@@ -1402,7 +1402,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Network Stream</source>
-        <translation type="unfinished">نیٹ ورک سٹریم</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open Subtitle</source>
@@ -1418,7 +1418,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Paused</source>
-        <translation type="unfinished">Paused</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Playing</source>
@@ -1426,7 +1426,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">نامعلوم</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
@@ -1474,15 +1474,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished">سنٹیٹلز</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation type="unfinished">خاموش</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Add to Favorites</source>
-        <translation type="unfinished">پسندیدہ میں شامل کریں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Decrease Delay</source>
@@ -1494,7 +1494,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Video</source>
-        <translation type="unfinished">ویڈیو</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Decrease Aspect</source>
@@ -1518,11 +1518,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>I</source>
-        <translation type="unfinished">I</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>C</source>
-        <translation type="unfinished">C</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 / %2</source>
@@ -1546,7 +1546,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished">عنوان</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Aspect ratio</source>
@@ -1562,7 +1562,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>M</source>
-        <translation type="unfinished">دہ لاکھ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Previous Audio Track</source>
@@ -1630,7 +1630,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Filters</source>
-        <translation type="unfinished">Filters</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Deinterlace</source>
@@ -1658,15 +1658,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Resize</source>
-        <translation type="unfinished">سائز تبدیل کریں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>R&amp;otate</source>
-        <translation type="unfinished">گھومیں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Playlist</source>
-        <translation type="unfinished">پلے لسٹ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Move File to Recycle Bin</source>
@@ -1678,11 +1678,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Increase</source>
-        <translation type="unfinished">بڑھانا</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Decrease</source>
-        <translation type="unfinished">كم كرنا</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Play Selected</source>
@@ -1698,19 +1698,19 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Reset</source>
-        <translation type="unfinished">ری سیٹ کریں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>D&amp;isable</source>
-        <translation type="unfinished">منسوخ کریں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Minimum</source>
-        <translation type="unfinished">Minimum</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>M&amp;aximum</source>
-        <translation type="unfinished">Maximum</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Decrease Width</source>
@@ -1734,11 +1734,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Right</source>
-        <translation type="unfinished">دایاں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>R&amp;eset</source>
-        <translation type="unfinished">ری سیٹ کریں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Clockwise</source>
@@ -1754,15 +1754,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished">جی ہاں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">خود كار</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished">نہیں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pl&amp;aylists Backup</source>
@@ -1789,7 +1789,7 @@ No action will be triggered.</source>
     <name>MouseState</name>
     <message>
         <source>None</source>
-        <translation type="unfinished">کچھ نہیں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wheel</source>
@@ -1797,23 +1797,23 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished">بایاں</translation>
+        <translation type="unfinished">Left</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished">دایاں</translation>
+        <translation type="unfinished">Right</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">درمیانی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">پیچھے</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Forward</source>
-        <translation type="unfinished">آگے</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Task</source>
@@ -1921,11 +1921,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished">نیچے</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished">اوپر</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Twice</source>
@@ -1947,7 +1947,7 @@ No action will be triggered.</source>
     <name>OpenFileDialog</name>
     <message>
         <source>Open File</source>
-        <translation type="unfinished">فائل کھولیں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fi&amp;le</source>
@@ -1955,7 +1955,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Subtitles</source>
-        <translation type="unfinished">سنٹیٹلز</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select File</source>
@@ -2017,7 +2017,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Audio track: </source>
-        <translation type="unfinished">آڈیو ٹریک </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Subtitles track: </source>
@@ -2055,11 +2055,11 @@ No action will be triggered.</source>
     <name>PlaylistWindow</name>
     <message>
         <source>P&amp;laylist</source>
-        <translation type="unfinished">پلے لسٹ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">ڈھونڈیں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Visible Items to Quick Queue</source>
@@ -2067,7 +2067,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>New Tab</source>
-        <translation type="unfinished">نیا ٹیب</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duplicate Tab</source>
@@ -2087,7 +2087,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Playlist</source>
-        <translation type="unfinished">پلے لسٹ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quick Playlist</source>
@@ -2095,7 +2095,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>New Playlist</source>
-        <translation type="unfinished">نئی پلے لسٹ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enter Playlist Name</source>
@@ -2103,15 +2103,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished">کھولیں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">جمع کریں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">خارج کیجیے</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy To clipboard</source>
@@ -2135,11 +2135,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished">مصر</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shuffle</source>
-        <translation type="unfinished">شفل</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide On Fullscreen</source>
@@ -2172,11 +2172,11 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Add Folder</source>
-        <translation type="unfinished">Add folder</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
-        <translation type="unfinished">نئی پلے لسٹ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Remove Playlist</source>
@@ -2204,7 +2204,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished">دوہرائیں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Reshuffle</source>
@@ -2212,11 +2212,11 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Queue</source>
-        <translation type="unfinished">قطار</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">نام</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quick playlist</source>
@@ -2227,11 +2227,11 @@ Do you want to replace it?</source>
     <name>PropertiesWindow</name>
     <message>
         <source>Properties</source>
-        <translation type="unfinished">پر خصوصیات</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Details</source>
-        <translation type="unfinished">Details</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Type:</source>
@@ -2267,15 +2267,15 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Rating:</source>
-        <translation type="unfinished">درجہ بندی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation type="unfinished">Location</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished">Description</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MediaInfo</source>
@@ -2287,19 +2287,19 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">ویڈیو</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">آواز</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished">سنٹیٹلز</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished">عمومی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Menu
@@ -2317,7 +2317,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Modified:</source>
-        <translation type="unfinished">Modified</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2340,7 +2340,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished">Light</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Midlight</source>
@@ -2348,7 +2348,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished">اندھیرا</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mid</source>
@@ -2356,7 +2356,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">Text</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bright text</source>
@@ -2372,11 +2372,11 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished">ونڈوز</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished">سایہ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Highlight</source>
@@ -2388,7 +2388,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished">لنک</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Link (visited)</source>
@@ -2420,29 +2420,29 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Active</source>
-        <translation type="unfinished">Active</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished">غیر فعال</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Inactive</source>
-        <translation type="unfinished">غیر فعال</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ScreenCombo</name>
     <message>
         <source>Current</source>
-        <translation type="unfinished">Current</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SettingsWindow</name>
     <message>
         <source>Options</source>
-        <translation type="unfinished">Options</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1</source>
@@ -2450,7 +2450,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Player</source>
-        <translation type="unfinished">پلیئر</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Keys</source>
@@ -2458,11 +2458,11 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Logo</source>
-        <translation type="unfinished">لوگو</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation type="unfinished">انٹرفیس</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Playback</source>
@@ -2478,11 +2478,11 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Fullscreen</source>
-        <translation type="unfinished">پوری اسکرین</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sync</source>
-        <translation type="unfinished">تواقت</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hw. Decoding</source>
@@ -2490,11 +2490,11 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Playlist</source>
-        <translation type="unfinished">پلے لسٹ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished">سنٹیٹلز</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default Style</source>
@@ -2502,7 +2502,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished">Export</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Encoding</source>
@@ -2510,7 +2510,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Tweaks</source>
-        <translation type="unfinished">رنگ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Logging</source>
@@ -2540,7 +2540,7 @@ media file played</source>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished">Other</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tray icon</source>
@@ -2576,7 +2576,7 @@ media file played</source>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished">تاریخ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Keep history of recently opened files</source>
@@ -2592,15 +2592,15 @@ media file played</source>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">ویڈیو</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">آواز</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">تمام</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;a href=&quot;https://github.com/mpc-qt/mpc-qt/blob/master/DOCS/ipc.md&quot;&gt;JSON IPC&lt;/a&gt; available at %1</source>
@@ -2612,7 +2612,7 @@ media file played</source>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished">ری سیٹ کریں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>E&amp;xternal</source>
@@ -2628,7 +2628,7 @@ media file played</source>
     </message>
     <message>
         <source>Blank</source>
-        <translation type="unfinished">خالی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Color film stock</source>
@@ -2652,7 +2652,7 @@ media file played</source>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished">كسٹم</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>System (Linux only)</source>
@@ -2676,7 +2676,7 @@ media file played</source>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">خود كار</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time step</source>
@@ -2748,7 +2748,7 @@ media file played</source>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished">عمومی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Framebuffer</source>
@@ -2792,7 +2792,7 @@ media file played</source>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished">غیر فعال</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Presets</source>
@@ -2800,15 +2800,15 @@ media file played</source>
     </message>
     <message>
         <source>Plain</source>
-        <translation type="unfinished">سادہ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished">Low</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished">High</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Highest</source>
@@ -2836,7 +2836,7 @@ media file played</source>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished">قسم</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fruit</source>
@@ -2848,11 +2848,11 @@ media file played</source>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished">نہیں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">حجم</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Often, LCDs perform dithering on their own, which conflicts with OpenGL&apos;s output and can lead to ugly output.  In which case you should lower the dither depth.</source>
@@ -2864,7 +2864,7 @@ media file played</source>
     </message>
     <message>
         <source>Period</source>
-        <translation type="unfinished">میعاد</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>This can lead to flicker on LCD displays, since these  have a high reaction time.</source>
@@ -2892,11 +2892,11 @@ media file played</source>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished">Center</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Slope</source>
-        <translation type="unfinished">Slope</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scale</source>
@@ -2908,7 +2908,7 @@ media file played</source>
     </message>
     <message>
         <source>2</source>
-        <translation type="unfinished">2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Anti-ring</source>
@@ -2920,7 +2920,7 @@ media file played</source>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished">ونڈوز</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Box</source>
@@ -3084,7 +3084,7 @@ media file played</source>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished">Color</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Temporal</source>
@@ -3104,7 +3104,7 @@ media file played</source>
     </message>
     <message>
         <source>Enabled</source>
-        <translation type="unfinished">فعال</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Iterations</source>
@@ -3272,7 +3272,7 @@ media file played</source>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished">ڈیوائس</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Channel layout</source>
@@ -3300,7 +3300,7 @@ media file played</source>
     </message>
     <message>
         <source> seconds</source>
-        <translation type="unfinished"> seconds</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pitch correction</source>
@@ -3352,11 +3352,11 @@ media file played</source>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">نام</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished">پورٹ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto connect</source>
@@ -3380,7 +3380,7 @@ media file played</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">خارج کیجیے</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add to shaders</source>
@@ -3392,11 +3392,11 @@ media file played</source>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">محفوظ کریں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">حذف کریں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wiki</source>
@@ -3456,11 +3456,11 @@ media file played</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">کچھ نہیں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Default</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Non reference</source>
@@ -3617,19 +3617,19 @@ media file played</source>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished">جی ہاں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished">لکھائی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished">انداز</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished">Bold</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Italic</source>
@@ -3653,7 +3653,7 @@ media file played</source>
     </message>
     <message>
         <source>Colors</source>
-        <translation type="unfinished">رنگ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Border color</source>
@@ -3673,11 +3673,11 @@ media file played</source>
     </message>
     <message>
         <source>Path</source>
-        <translation type="unfinished">Path</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Match</source>
-        <translation type="unfinished">ملائے؟</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Exact</source>
@@ -3701,7 +3701,7 @@ media file played</source>
     </message>
     <message>
         <source>Test</source>
-        <translation type="unfinished">Test</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Directories</source>
@@ -3745,7 +3745,7 @@ media file played</source>
     </message>
     <message>
         <source>Filter</source>
-        <translation type="unfinished">فلٹر</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Colorspace</source>
@@ -3833,7 +3833,7 @@ media file played</source>
     </message>
     <message>
         <source>Debugging</source>
-        <translation type="unfinished">Debugging</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Client</source>
@@ -3857,15 +3857,15 @@ media file played</source>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">خرابی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished">انتباہ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation type="unfinished">معلومات</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Verbose</source>
@@ -3873,7 +3873,7 @@ media file played</source>
     </message>
     <message>
         <source>Debug</source>
-        <translation type="unfinished">ڈیبگ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trace (very noisy)</source>
@@ -3901,7 +3901,7 @@ media file played</source>
     </message>
     <message>
         <source>Every </source>
-        <translation type="unfinished">ہر ایك </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Window history</source>
@@ -3925,7 +3925,7 @@ media file played</source>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished">چمک</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hue</source>
@@ -4033,7 +4033,7 @@ media file played</source>
     </message>
     <message>
         <source>Security</source>
-        <translation type="unfinished">تحفظ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable web server</source>
@@ -4045,7 +4045,7 @@ media file played</source>
     </message>
     <message>
         <source>Stylesheet</source>
-        <translation type="unfinished">اسٹائل شیٹ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Application Stylesheet</source>
@@ -4065,7 +4065,7 @@ media file played</source>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished">دوہرائیں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Play next in the folder</source>
@@ -4073,7 +4073,7 @@ media file played</source>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished">Exit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>After Playback</source>
@@ -4097,7 +4097,7 @@ media file played</source>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished">Medium</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>BT.470M</source>
@@ -4157,11 +4157,11 @@ media file played</source>
     </message>
     <message>
         <source>Relative</source>
-        <translation type="unfinished">متعلقہ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Absolute</source>
-        <translation type="unfinished">خالص</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Desaturate</source>
@@ -4333,7 +4333,7 @@ media file played</source>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">Source</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Built-in</source>
@@ -4353,7 +4353,7 @@ media file played</source>
     </message>
     <message>
         <source>Others</source>
-        <translation type="unfinished">Others</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Status bar background</source>
@@ -4369,7 +4369,7 @@ media file played</source>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">منتخب کریں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Preset applied</source>
@@ -4401,7 +4401,7 @@ media file played</source>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished">سایہ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable shadow</source>
@@ -4413,7 +4413,7 @@ media file played</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished">Speed</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Lossless</source>
@@ -4433,11 +4433,11 @@ media file played</source>
     </message>
     <message>
         <source>Track</source>
-        <translation type="unfinished">Track</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Album</source>
-        <translation type="unfinished">البم</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pre-amp</source>
@@ -4575,7 +4575,7 @@ media file played</source>
     <name>ThumbnailerWindow</name>
     <message>
         <source>Source</source>
-        <translation type="unfinished">Source</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Browse...</source>
@@ -4583,7 +4583,7 @@ media file played</source>
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished">امیجیز</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%</source>
@@ -4591,15 +4591,15 @@ media file played</source>
     </message>
     <message>
         <source>Width</source>
-        <translation type="unfinished">Width</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished">لے آؤٹ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rows</source>
-        <translation type="unfinished">سطریں</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Go!</source>
