@@ -4956,15 +4956,15 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Logo background</source>
-        <translation type="unfinished"></translation>
+        <translation>Pozadí loga</translation>
     </message>
     <message>
         <source>Blend on color</source>
-        <translation type="unfinished"></translation>
+        <translation>Prolnout s barvou</translation>
     </message>
     <message>
         <source>Checkerboard pattern</source>
-        <translation type="unfinished"></translation>
+        <translation>Šachovnicový vzor</translation>
     </message>
 </context>
 <context>
