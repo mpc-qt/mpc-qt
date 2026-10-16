@@ -133,7 +133,7 @@ QHash<QString, QStringList> SettingMap::indexedValueToText = {
     {"videoFramebuffer", {"rgb8-rgba8", "rgb10-rgb10_a2", "rgba12-rgba12",\
                           "rgb16-rgba16", "rgb16f-rgba16f",\
                           "rgb32f-rgba32f"}},
-    {"videoAlphaMode", {"blend", "yes", "no"}},
+    {"videoBackground", {"color", "tiles", "none"}},
     {"ditherType", {"fruit", "ordered", "no"}},
     {"scaleScaler", {SCALER_SCALERS}},
     {"scaleWindowValue", {SCALER_WINDOWS}},
@@ -462,6 +462,7 @@ void SettingsWindow::setupColorPickers()
         { ui->windowVideoValue, ui->windowVideoPick },
         { ui->windowInfoBackgroundValue, ui->windowInfoBackgroundPick },
         { ui->windowInfoForegroundValue, ui->windowInfoForegroundPick },
+        { ui->videoBackgroundColorValue, ui->videoBackgroundColorPick },
         { ui->subsColorValue, ui->subsColorPick },
         { ui->subsBorderColorValue, ui->subsBorderColorPick },
         { ui->subsShadowColorValue, ui->subsShadowColorPick }
@@ -763,9 +764,6 @@ void SettingsWindow::sendSignals()
         emit applicationPalette(paletteEditor->systemPalette());
     emit videoColor(useCustomColors ? QString("#%1").arg(WIDGET_LOOKUP(ui->windowVideoValue).toString())
                                     : "000000");
-    emit option("background-color", useCustomColors
-                                    ? QString("#%1").arg(WIDGET_LOOKUP(ui->windowVideoValue).toString())
-                                    : "000000");
     QString infoForegroundColor = QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoForegroundValue).toString());
     QString infoBackgroundColor = QString("#%1").arg(WIDGET_LOOKUP(ui->windowInfoBackgroundValue).toString());
     emit infoStatsColors(useCustomColors ? infoForegroundColor : "FFFFFF",
@@ -832,7 +830,10 @@ void SettingsWindow::sendSignals()
     emit option("video-sync", WIDGET_TO_TEXT(ui->syncMode));
     emit option("gpu-dumb-mode", WIDGET_LOOKUP(ui->videoDumbMode));
     emit option("fbo-format", WIDGET_TO_TEXT(ui->videoFramebuffer).split('-').value(WIDGET_LOOKUP(ui->videoUseAlpha).toBool()));
-    emit option("alpha", WIDGET_TO_TEXT(ui->videoAlphaMode));
+    emit option("background", WIDGET_TO_TEXT(ui->videoBackground));
+    if (WIDGET_TO_TEXT(ui->videoBackground) == "color")
+        emit option("background-color", QString("#%1").arg(WIDGET_LOOKUP(ui->videoBackgroundColorValue).toString()));
+
     emit option("sharpen", WIDGET_LOOKUP(ui->videoSharpen).toString());
 
     if (WIDGET_LOOKUP(ui->ditherDithering).toBool()) {
@@ -857,46 +858,54 @@ void SettingsWindow::sendSignals()
         emit option("sigmoid-upscaling", false);
     }
 
-    QString scaler;
-    FilterKernel filter;
-    auto fetchFilter = [&](QString prefix, bool temporal = false) {
-        scaler = WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleScaler);
-        filter = filterKernels.value(scaler);
+    auto fetchAndApplyFilter = [&](QString prefix, bool temporal = false) {
+        QString scaler = WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleScaler);
+        FilterKernel filter = filterKernels.value(scaler);
         filter.cutoff_(temporal ? 0.0 : 0.01);
         filter.clamp_(temporal ? 1.0 : 0.0);
-        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam1Set).toBool())    filter.param1_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam1Value).toDouble());
-        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam2Set).toBool())    filter.param2_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam2Value).toDouble());
-        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleRadiusSet).toBool())    filter.radius_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleRadiusValue).toDouble());
-        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleAntiRingSet).toBool())  filter.antiring_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleAntiRingValue).toDouble());
-        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleBlurSet).toBool())      filter.blur_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleBlurValue).toDouble());
-        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleWindowSet).toBool())    filter.window_(WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleWindowValue));
-        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleWindowParamSet).toBool())   filter.window.param_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleWindowValue).toDouble());
-        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleClampSet).toBool())     filter.clamp_(WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleClampValue).toDouble());
-    };
-    auto applyFilter = [&](QString prefix) {
         emit option(prefix + "scale", scaler);
-        emit option(prefix + "scale-param1", filter.params[0]);
-        emit option(prefix + "scale-param2", filter.params[1]);
-        emit option(prefix + "scale-radius", filter.radius);
-        emit option(prefix + "scale-antiring", filter.antiring);
-        emit option(prefix + "scale-blur", filter.blur);
-        emit option(prefix + "scale-window", filter.windowName);
-        emit option(prefix + "scale-wparam", filter.window.params[0]);
-        emit option(prefix + "scale-clamp", filter.clamp);
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam1Set).toBool()) {
+            filter.param1_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam1Value).toDouble());
+            emit option(prefix + "scale-param1", filter.params[0]);
+        }
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam2Set).toBool()) {
+            filter.param2_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleParam2Value).toDouble());
+            emit option(prefix + "scale-param2", filter.params[1]);
+        }
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleRadiusSet).toBool()){
+            filter.radius_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleRadiusValue).toDouble());
+            emit option(prefix + "scale-radius", filter.radius);
+        }
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleAntiRingSet).toBool()) {
+            filter.antiring_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleAntiRingValue).toDouble());
+            emit option(prefix + "scale-antiring", filter.antiring);
+        }
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleBlurSet).toBool()) {
+            filter.blur_(WIDGET_LOOKUP_PREFIX(prefix, ui->scaleBlurValue).toDouble());
+            emit option(prefix + "scale-blur", filter.blur);
+        }
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleWindowSet).toBool()) {
+            filter.window_(WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleWindowValue));
+            emit option(prefix + "scale-window", filter.windowName);
+        }
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleWindowParamSet).toBool()) {
+            filter.window.param_(WIDGET_LOOKUP_PREFIX(prefix, ui->dscaleWindowParamValue).toDouble());
+            emit option(prefix + "scale-wparam", filter.window.params[0]);
+        }
+        if (WIDGET_LOOKUP_PREFIX(prefix, ui->scaleClampSet).toBool()) {
+            filter.clamp_(WIDGET_TO_TEXT_PREFIX(prefix, ui->scaleClampValue).toDouble());
+            emit option(prefix + "scale-clamp", filter.clamp);
+        }
     };
 
-    fetchFilter("");
-    applyFilter("");
+    fetchAndApplyFilter("");
 
     if (OFFSET_LOOKUP(acceptedSettings, ui->dscaleScaler) != 0)
-        fetchFilter("d");
-    applyFilter("d");
+        fetchAndApplyFilter("d");
 
-    fetchFilter("c");
-    applyFilter("c");
+    fetchAndApplyFilter("c");
 
-    fetchFilter("t", true);
-    applyFilter("t");
+    fetchAndApplyFilter("t", true);
 
     if (WIDGET_LOOKUP(ui->debandEnabled).toBool()) {
         emit option("deband", true);
@@ -994,7 +1003,7 @@ void SettingsWindow::sendSignals()
     emit option("audio-channels", index < 4 ? SettingMap::indexedValueToText[ui->audioChannels->objectName()][index]
                                          : channelSwitcher());
     bool flag = WIDGET_LOOKUP(ui->audioStreamSilence).toBool();
-    emit option("stream-silence", flag);
+    emit option("audio-stream-silence", flag);
     emit option("audio-wait-open", flag ? WIDGET_LOOKUP(ui->audioWaitTime).toDouble() : 0.0);
     emit option("audio-pitch-correction", WIDGET_LOOKUP(ui->audioPitchCorrection).toBool());
     emit option("audio-exclusive", WIDGET_LOOKUP(ui->audioExclusiveMode).toBool());
@@ -1005,8 +1014,6 @@ void SettingsWindow::sendSignals()
     emit option("pulse-latency-hacks", WIDGET_LOOKUP(ui->pulseLatency).toBool());
     emit option("alsa-resample", WIDGET_LOOKUP(ui->alsaResample).toBool());
     emit option("alsa-ignore-chmap", WIDGET_LOOKUP(ui->alsaIgnoreChannelMap).toBool());
-    emit option("oss-mixer-channel", WIDGET_LOOKUP(ui->ossMixerChannel).toString());
-    emit option("oss-mixer-device", WIDGET_LOOKUP(ui->ossMixerDevice).toString());
     emit option("jack-autostart", WIDGET_LOOKUP(ui->jackAutostart).toBool());
     emit option("jack-connect", WIDGET_LOOKUP(ui->jackConnect).toBool());
     emit option("jack-name", WIDGET_LOOKUP(ui->jackName).toString());
@@ -1103,7 +1110,6 @@ void SettingsWindow::sendSignals()
     emit screenshotFormat(WIDGET_TO_TEXT(ui->screenshotFormat));
     emit option("screenshot-format", WIDGET_TO_TEXT(ui->screenshotFormat));
     emit option("screenshot-jpeg-quality", WIDGET_LOOKUP(ui->jpgQuality).toInt());
-    emit option("screenshot-jpeg-smooth", WIDGET_LOOKUP(ui->jpgSmooth).toInt());
     emit option("screenshot-jpeg-source-chroma", WIDGET_LOOKUP(ui->jpgSourceChroma).toBool());
     emit option("screenshot-png-compression", WIDGET_LOOKUP(ui->pngCompression).toInt());
     emit option("screenshot-png-filter", WIDGET_LOOKUP(ui->pngFilter).toInt());
@@ -1551,6 +1557,24 @@ void SettingsWindow::on_logoInternal_currentIndexChanged(int index)
     updateLogoWidget();
 }
 
+void SettingsWindow::on_videoUseAlpha_toggled(bool checked)
+{
+    ui->videoBackgroundLabel->setEnabled(checked);
+    ui->videoBackground->setEnabled(checked);
+    bool blendOnColor = ui->videoBackground->currentIndex() == 0;
+    ui->videoBackgroundColorLabel->setEnabled(checked && blendOnColor);
+    ui->videoBackgroundColorValue->setEnabled(checked && blendOnColor);
+    ui->videoBackgroundColorPick->setEnabled(checked && blendOnColor);
+}
+
+void SettingsWindow::on_videoBackground_currentIndexChanged(int index)
+{
+    bool blendOnColor = index == 0;
+    ui->videoBackgroundColorLabel->setEnabled(blendOnColor);
+    ui->videoBackgroundColorValue->setEnabled(blendOnColor);
+    ui->videoBackgroundColorPick->setEnabled(blendOnColor);
+}
+
 void SettingsWindow::on_videoPreset_currentIndexChanged(int index)
 {
     if (index > 0) {
@@ -1578,11 +1602,6 @@ void SettingsWindow::on_screenshotFormat_currentIndexChanged(int index)
 void SettingsWindow::on_jpgQuality_valueChanged(int value)
 {
     ui->jpgQualityValue->setText(QString("%1").arg(value, 3, 10, QChar(0x2007)));
-}
-
-void SettingsWindow::on_jpgSmooth_valueChanged(int value)
-{
-    ui->jpgSmoothValue->setText(QString("%1").arg(value, 3, 10, QChar(0x2007)));
 }
 
 void SettingsWindow::on_pngCompression_valueChanged(int value)

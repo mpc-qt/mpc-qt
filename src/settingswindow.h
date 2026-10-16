@@ -266,6 +266,10 @@ private slots:
 
     void on_logoInternal_currentIndexChanged(int index);
 
+    void on_videoUseAlpha_toggled(bool checked);
+
+    void on_videoBackground_currentIndexChanged(int index);
+
     void on_videoPreset_currentIndexChanged(int index);
 
     void on_ccHdrCompute_currentIndexChanged(int index);
@@ -273,8 +277,6 @@ private slots:
     void on_screenshotFormat_currentIndexChanged(int index);
 
     void on_jpgQuality_valueChanged(int value);
-
-    void on_jpgSmooth_valueChanged(int value);
 
     void on_pngCompression_valueChanged(int value);
 

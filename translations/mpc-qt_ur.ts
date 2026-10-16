@@ -2787,18 +2787,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Blend on black</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ignore</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Sharpen</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3359,18 +3347,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Oss</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mixer device</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mixer channel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Jack</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3760,10 +3736,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Smooth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Source Chroma</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3969,10 +3941,6 @@ media file played</source>
     </message>
     <message>
         <source>Export keys</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open Logo Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4288,22 +4256,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open ICC Profile</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ICC profile files (*.icc *.icm)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Choose Log File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Allows dark theme support on Windows</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4401,10 +4353,6 @@ media file played</source>
     </message>
     <message>
         <source>Others</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Video background</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4557,6 +4505,38 @@ media file played</source>
     </message>
     <message>
         <source>Decoder + Video Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Logo background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blend on color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checkerboard pattern</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Logo Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open ICC Profile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ICC profile files (*.icc *.icm)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose Log File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Log files (*.log)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

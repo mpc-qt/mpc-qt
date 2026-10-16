@@ -2814,15 +2814,15 @@ toistetulle mediatiedostolle</translation>
     </message>
     <message>
         <source>Blend on black</source>
-        <translation>Sekoita mustaan</translation>
+        <translation type="vanished">Sekoita mustaan</translation>
     </message>
     <message>
         <source>Use</source>
-        <translation>Käytä</translation>
+        <translation type="vanished">Käytä</translation>
     </message>
     <message>
         <source>Ignore</source>
-        <translation>Ohita</translation>
+        <translation type="vanished">Ohita</translation>
     </message>
     <message>
         <source>Sharpen</source>
@@ -3378,15 +3378,15 @@ toistetulle mediatiedostolle</translation>
     </message>
     <message>
         <source>Oss</source>
-        <translation>Oss</translation>
+        <translation type="vanished">Oss</translation>
     </message>
     <message>
         <source>Mixer device</source>
-        <translation>Mikserilaite</translation>
+        <translation type="vanished">Mikserilaite</translation>
     </message>
     <message>
         <source>Mixer channel</source>
-        <translation>Mikserikanava</translation>
+        <translation type="vanished">Mikserikanava</translation>
     </message>
     <message>
         <source>Jack</source>
@@ -3783,7 +3783,7 @@ toistetulle mediatiedostolle</translation>
     </message>
     <message>
         <source>Smooth</source>
-        <translation>Tasainen</translation>
+        <translation type="vanished">Tasainen</translation>
     </message>
     <message>
         <source>Source Chroma</source>
@@ -3971,10 +3971,6 @@ toistetulle mediatiedostolle</translation>
     </message>
     <message>
         <source>Export keys</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open Logo Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4282,6 +4278,10 @@ toistetulle mediatiedostolle</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Open Logo Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open ICC Profile</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4292,6 +4292,10 @@ toistetulle mediatiedostolle</translation>
     <message>
         <source>Log files (*.log)</source>
         <translation type="unfinished">Lokitiedostot (*.log)</translation>
+    </message>
+    <message>
+        <source>Choose Log File</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
@@ -4410,10 +4414,6 @@ toistetulle mediatiedostolle</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Choose Log File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>File title</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4431,10 +4431,6 @@ toistetulle mediatiedostolle</translation>
     </message>
     <message>
         <source>Others</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Video background</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4555,6 +4551,18 @@ toistetulle mediatiedostolle</translation>
     </message>
     <message>
         <source>Decoder + Video Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Logo background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blend on color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checkerboard pattern</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

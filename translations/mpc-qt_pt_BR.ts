@@ -2799,15 +2799,15 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Blend on black</source>
-        <translation>Mesclar sobre preto</translation>
+        <translation type="vanished">Mesclar sobre preto</translation>
     </message>
     <message>
         <source>Use</source>
-        <translation>Usar</translation>
+        <translation type="vanished">Usar</translation>
     </message>
     <message>
         <source>Ignore</source>
-        <translation>Ignorar</translation>
+        <translation type="vanished">Ignorar</translation>
     </message>
     <message>
         <source>Sharpen</source>
@@ -3371,15 +3371,15 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Oss</source>
-        <translation>Oss</translation>
+        <translation type="vanished">Oss</translation>
     </message>
     <message>
         <source>Mixer device</source>
-        <translation>Dispositivo do mixer</translation>
+        <translation type="vanished">Dispositivo do mixer</translation>
     </message>
     <message>
         <source>Mixer channel</source>
-        <translation>Canal do mixer</translation>
+        <translation type="vanished">Canal do mixer</translation>
     </message>
     <message>
         <source>Jack</source>
@@ -3772,7 +3772,7 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Smooth</source>
-        <translation>Suave</translation>
+        <translation type="vanished">Suave</translation>
     </message>
     <message>
         <source>Source Chroma</source>
@@ -4452,7 +4452,7 @@ arquivo de mídia reproduzido</translation>
     </message>
     <message>
         <source>Video background</source>
-        <translation>Fundo do vídeo</translation>
+        <translation type="vanished">Fundo do vídeo</translation>
     </message>
     <message>
         <source>Status bar background</source>
@@ -4573,6 +4573,18 @@ arquivo de mídia reproduzido</translation>
     <message>
         <source>Decoder + Video Output</source>
         <translation>Decodificador + saída de vídeo</translation>
+    </message>
+    <message>
+        <source>Logo background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blend on color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checkerboard pattern</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
