@@ -3055,7 +3055,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Sharpen</source>
-        <translation>Affiner</translation>
+        <translation>Renforcer la netteté</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -4932,15 +4932,15 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Logo background</source>
-        <translation type="unfinished"></translation>
+        <translation>Arrière-plan du logo</translation>
     </message>
     <message>
         <source>Blend on color</source>
-        <translation type="unfinished"></translation>
+        <translation>Fusionner avec la couleur</translation>
     </message>
     <message>
         <source>Checkerboard pattern</source>
-        <translation type="unfinished"></translation>
+        <translation>Damier</translation>
     </message>
 </context>
 <context>
