@@ -5000,15 +5000,15 @@ media file played</source>
     </message>
     <message>
         <source>Logo background</source>
-        <translation type="unfinished"></translation>
+        <translation>ロゴの背景</translation>
     </message>
     <message>
         <source>Blend on color</source>
-        <translation type="unfinished"></translation>
+        <translation>色にブレンド</translation>
     </message>
     <message>
         <source>Checkerboard pattern</source>
-        <translation type="unfinished"></translation>
+        <translation>チェッカーボード柄</translation>
     </message>
 </context>
 <context>
