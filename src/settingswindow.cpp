@@ -799,7 +799,7 @@ void SettingsWindow::sendSignals()
     emit option("ytdl-format", QString("bestvideo+bestaudio/best"));
     QStringList subtitleLangPref = WIDGET_PLACEHOLD_LOOKUP(ui->playbackSubtitleTracks).split(QRegularExpression("[^\\w-]+"), Qt::SkipEmptyParts);
     emit option("ytdl-raw-options",
-        QString("format-sort=res:%1,js-runtimes=quickjs,remote-components=ejs:github,write-auto-subs=,sub-langs=[%2,.*-orig]")
+        QString("format-sort=res:%1,yes-playlist=,js-runtimes=quickjs,remote-components=ejs:github,write-auto-subs=,sub-langs=[%2,.*-orig]")
         .arg(WIDGET_TO_TEXT(ui->ytdlpMaxHeight))
         .arg(subtitleLangPref.join(",")));
 

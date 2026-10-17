@@ -38,7 +38,7 @@ public:
     QUrl getUrlOf(QUuid list, QUuid item);
     QUrl getUrlOfFirst(QUuid list);
     void setMetadata(QUuid list, QUuid item, const QVariantMap &map);
-    void replaceItem(QUuid list, QUuid item, const QList<QUrl> &urls);
+    QUuid replaceItem(QUuid list, QUuid item, const QList<QUrl> &urls, QString itemWanted);
     int extraPlayTimes(QUuid list, QUuid item);
     void setExtraPlayTimes(QUuid list, QUuid item, int amount);
     void deltaExtraPlayTimes(QUuid list, QUuid item, int delta);

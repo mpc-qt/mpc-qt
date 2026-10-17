@@ -200,16 +200,16 @@ void PlaylistWindow::setMetadata(QUuid list, QUuid item, const QVariantMap &map)
 
 }
 
-void PlaylistWindow::replaceItem(QUuid list, QUuid item, const QList<QUrl> &urls)
+QUuid PlaylistWindow::replaceItem(QUuid list, QUuid item, const QList<QUrl> &urls, QString itemWanted)
 {
     auto pl = PlaylistCollection::getSingleton()->getPlaylist(list);
     if (!pl)
-        return;
+        return QUuid();
 
     QList<QUrl> filtered = Helpers::filterUrls(urls);
     if (filtered.isEmpty()) {
         // FIXME: remove the item that cannot played
-        return;
+        return QUuid();
     }
 
     QList<QUuid> addedItems = pl->replaceItem(item, filtered);
@@ -222,6 +222,8 @@ void PlaylistWindow::replaceItem(QUuid list, QUuid item, const QList<QUrl> &urls
         qdp->viewport()->update();
 
     updatePlaylistHasItems();
+    auto currentIndex = filtered.indexOf(itemWanted);
+    return currentIndex <= 0 ? item : addedItems.value(currentIndex - 1);
 }
 
 int PlaylistWindow::extraPlayTimes(QUuid list, QUuid item)
