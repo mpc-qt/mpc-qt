@@ -395,6 +395,14 @@ Voleu utilitzar-lo en comptes per &quot;%3&quot;?</translation>
         <source>Playlists Backup</source>
         <translation>Còpia de seguretat de les llistes de reproducció</translation>
     </message>
+    <message>
+        <source>Remove All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove all playlists backups?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LogWindow</name>

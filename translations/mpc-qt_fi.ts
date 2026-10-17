@@ -383,6 +383,14 @@ Haluatko käyttää sitä sen sijaan komennolle &quot;%3&quot;?</translation>
         <source>Playlists Backup</source>
         <translation>Soittolistojen varmuuskopio</translation>
     </message>
+    <message>
+        <source>Remove All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove all playlists backups?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LogWindow</name>

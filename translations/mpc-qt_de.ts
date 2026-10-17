@@ -407,6 +407,14 @@ Möchten Sie es stattdessen für „%3“ verwenden?</translation>
         <source>Playlists Backup</source>
         <translation>Playlist-Backup</translation>
     </message>
+    <message>
+        <source>Remove All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove all playlists backups?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LogWindow</name>

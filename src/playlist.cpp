@@ -860,6 +860,12 @@ void PlaylistCollection::removePlaylist(const QSharedPointer<Playlist> &p)
     removePlaylist(p->uuid());
 }
 
+void PlaylistCollection::removeAllPlaylists()
+{
+    playlists.clear();
+    playlistsByUuid.clear();
+}
+
 QSharedPointer<Playlist> PlaylistCollection::playlistAt(int col) const
 {
     return (col < playlists.count()) ? playlists.at(col) : QSharedPointer<Playlist>();

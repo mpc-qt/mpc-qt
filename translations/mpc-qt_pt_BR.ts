@@ -403,6 +403,14 @@ Você quer usá-lo para &quot;%3&quot; em vez disso?</translation>
         <source>Playlists Backup</source>
         <translation>Backup das listas de reprodução</translation>
     </message>
+    <message>
+        <source>Remove All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove all playlists backups?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LogWindow</name>

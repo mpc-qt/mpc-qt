@@ -399,6 +399,14 @@ Apakah Anda ingin menggunakannya untuk &quot;%3&quot;?</translation>
         <source>Playlists Backup</source>
         <translation>Cadangan Daftar Putar</translation>
     </message>
+    <message>
+        <source>Remove All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove all playlists backups?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LogWindow</name>

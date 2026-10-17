@@ -1,4 +1,5 @@
 #include <QCloseEvent>
+#include <QMessageBox>
 #include "playlist.h"
 #include "widgets/drawncollection.h"
 #include "widgets/drawnplaylist.h"
@@ -73,3 +74,21 @@ void LibraryWindow::on_removePlaylist_clicked()
     backupCollection->removePlaylist(collectionItem->uuid());
     delete collectionWidget->takeItem(currentRow);
 }
+
+void LibraryWindow::on_removeAllPlaylists_clicked()
+{
+    auto answer = QMessageBox::question(
+        this,
+        tr("Remove All"),
+        tr("Remove all playlists backups?"),
+        QMessageBox::StandardButtons(QMessageBox::Yes | QMessageBox::No),
+        QMessageBox::No
+    );
+
+    if (answer == QMessageBox::Yes) {
+        auto backupCollection = PlaylistCollection::getBackup();
+        backupCollection->removeAllPlaylists();
+        collectionWidget->clear();
+    }
+}
+
