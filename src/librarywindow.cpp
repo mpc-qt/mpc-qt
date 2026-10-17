@@ -39,6 +39,10 @@ void LibraryWindow::updateLanguage()
 
 void LibraryWindow::refreshLibrary()
 {
+    auto backupCollection = PlaylistCollection::getBackup();
+    while (backupCollection->count() > 100) {
+        backupCollection->removePlaylist(backupCollection->playlistAt(backupCollection->count() - 1));
+    }
     collectionWidget->repopulatePlaylists();
 }
 

@@ -876,6 +876,11 @@ QSharedPointer<Playlist> PlaylistCollection::getPlaylist(const QUuid &playlistUu
     return playlistsByUuid.value(playlistUuid);
 }
 
+int PlaylistCollection::count() const
+{
+    return playlists.count();
+}
+
 void PlaylistCollection::addPlaylist(const QSharedPointer<Playlist> &playlist)
 {
     if (!playlist)
