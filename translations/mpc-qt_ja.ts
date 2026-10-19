@@ -409,11 +409,11 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Remove All</source>
-        <translation type="unfinished"></translation>
+        <translation>すべて削除</translation>
     </message>
     <message>
         <source>Remove all playlists backups?</source>
-        <translation type="unfinished"></translation>
+        <translation>すべてのプレイリストのバックアップを削除しますか?</translation>
     </message>
 </context>
 <context>
