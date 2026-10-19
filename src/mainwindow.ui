@@ -1224,8 +1224,10 @@
     <addaction name="actionPlaylistFinishSearching"/>
     <addaction name="separator"/>
     <addaction name="actionPlaylistNewTab"/>
-    <addaction name="actionPlaylistCloseTab"/>
     <addaction name="actionPlaylistDuplicateTab"/>
+    <addaction name="separator"/>
+    <addaction name="actionPlaylistCloseTab"/>
+    <addaction name="separator"/>
     <addaction name="actionPlaylistImport"/>
     <addaction name="actionPlaylistExport"/>
    </widget>
