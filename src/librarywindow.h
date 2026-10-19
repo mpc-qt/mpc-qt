@@ -36,6 +36,7 @@ private slots:
     void on_restorePlaylist_clicked();
 
     void on_removePlaylist_clicked();
+    void on_removeAllPlaylists_clicked();
 
 private:
     Ui::LibraryWindow *ui;

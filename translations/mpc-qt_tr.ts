@@ -399,6 +399,14 @@ Bunun yerine “%3” için kullanmak ister misiniz?</translation>
         <source>Playlists Backup</source>
         <translation>Oynatma Listesi Yedeği</translation>
     </message>
+    <message>
+        <source>Remove All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove all playlists backups?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LogWindow</name>

@@ -403,6 +403,14 @@ Chcete ji přiřadit namísto k &quot;%3&quot;?</translation>
         <source>Playlists Backup</source>
         <translation>Záloha playlistů</translation>
     </message>
+    <message>
+        <source>Remove All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove all playlists backups?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LogWindow</name>

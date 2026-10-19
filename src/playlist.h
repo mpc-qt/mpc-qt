@@ -199,8 +199,10 @@ public:
     QSharedPointer<Playlist> takePlaylist(const QUuid &playlistUuid);
     void removePlaylist(const QUuid &playlistUuid);
     void removePlaylist(const QSharedPointer<Playlist> &p);
+    void removeAllPlaylists();
     QSharedPointer<Playlist> playlistAt(int col) const;
     QSharedPointer<Playlist> getPlaylist(const QUuid &playlistUuid) const;
+    int count() const;
 
     void addPlaylist(const QSharedPointer<Playlist> &playlist);
     void fromVList(const QVariantList &data);
