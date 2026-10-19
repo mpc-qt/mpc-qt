@@ -477,6 +477,17 @@ void PlaylistWindow::itemDoubleClicked(QUuid playlistUuid, QUuid itemUuid, bool 
     itemDesired(playlistUuid, itemUuid, clickedInPlaylist);
 }
 
+void PlaylistWindow::backupPlaylist(const DrawnPlaylist &qdp, QSharedPointer<PlaylistCollection> collection)
+{
+    emit playlistsBackupRequested();
+    auto backup = PlaylistCollection::getBackup();
+    auto copy = collection->clonePlaylist(qdp.uuid());
+    copy->setCreated(qdp.playlist()->created());
+    collection->takePlaylist(copy->uuid()); // detach 'copy' from collection
+    backup->addPlaylist(copy);
+    emit playlistMovedToBackup(copy->uuid());
+}
+
 void PlaylistWindow::setIconTheme(IconThemer::FolderMode folderMode, const QString &customFolder)
 {
     themer.setIconFolders(folderMode, customFolder);
@@ -977,6 +988,10 @@ void PlaylistWindow::playlist_removeAllRequested()
     if (!qdp)
         return;
 
+    auto collection = PlaylistCollection::getSingleton();
+    backupPlaylist(*qdp, collection);
+    emit closingPlaylist(qdp->uuid());
+
     qdp->removeAll();
     updatePlaylistHasItems();
 }
@@ -1159,13 +1174,7 @@ void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
         return;
 
     auto collection = PlaylistCollection::getSingleton();
-    emit playlistsBackupRequested();
-    auto backup = PlaylistCollection::getBackup();
-    auto copy = collection->clonePlaylist(qdp->uuid());
-    copy->setCreated(qdp->playlist()->created());
-    collection->takePlaylist(copy->uuid()); // detach 'copy' from collection
-    backup->addPlaylist(copy);
-    emit playlistMovedToBackup(copy->uuid());
+    backupPlaylist(*qdp, collection);
     emit closingPlaylist(qdp->uuid());
 
     if (qdp->uuid().isNull()) {

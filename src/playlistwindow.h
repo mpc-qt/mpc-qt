@@ -69,6 +69,7 @@ private:
     void addNewTab(QUuid playlist, QString title);
     void addQuickQueue();
     void itemDoubleClicked(QUuid playlistUuid, QUuid itemUuid, bool clickedInPlaylist);
+    void backupPlaylist(const DrawnPlaylist &qdp, QSharedPointer<PlaylistCollection> collection);
 
 signals:
     void windowDocked();
