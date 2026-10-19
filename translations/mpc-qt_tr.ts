@@ -374,7 +374,7 @@ Bunun yerine “%3” için kullanmak ister misiniz?</translation>
     </message>
     <message>
         <source>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitely.</source>
-        <translation>Belirli bir zamana atlamak için [sa:]dd:ss.ms biçiminde bir zaman kodu girin. Ayırıcıları ayrı ayrı girmenize gerek yoktur.</translation>
+        <translation>Belirli bir zamana atlamak için [sa:]dd:ss.ms biçiminde bir zaman kodu girin. Ayırıcıları ayrı girmenize gerek yoktur.</translation>
     </message>
 </context>
 <context>
@@ -397,15 +397,15 @@ Bunun yerine “%3” için kullanmak ister misiniz?</translation>
     </message>
     <message>
         <source>Playlists Backup</source>
-        <translation>Oynatma Listesi Yedeği</translation>
+        <translation>Çalma Listelerini Yedekleme</translation>
     </message>
     <message>
         <source>Remove All</source>
-        <translation type="unfinished"></translation>
+        <translation>Hepsini Sil</translation>
     </message>
     <message>
         <source>Remove all playlists backups?</source>
-        <translation type="unfinished"></translation>
+        <translation>Tüm çalma listesi yedekleri silinsin mi?</translation>
     </message>
 </context>
 <context>
@@ -804,7 +804,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>&amp;Minimal</source>
-        <translation>&amp;Minimal</translation>
+        <translation>&amp;Sade</translation>
     </message>
     <message>
         <source>1</source>
@@ -1436,7 +1436,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>%1%</source>
-        <translation type="unfinished"></translation>
+        <translation>%1%</translation>
     </message>
     <message>
         <source>Hide &amp;Borders</source>
@@ -1452,15 +1452,15 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Software Decoding</source>
-        <translation>Yazılım ile Kod Çözme</translation>
+        <translation>Yazılımsal Kod Çözme</translation>
     </message>
     <message>
         <source>Hardware Decoding: %1</source>
-        <translation>Donanım ile Kod Çözme: %1</translation>
+        <translation>Donanımsal Kod Çözme: %1</translation>
     </message>
     <message>
         <source>Hardware Decoding: %1 (slow)</source>
-        <translation>Donanım ile Kod Çözme: %1 (Yavaş)</translation>
+        <translation>Donanımsal Kod Çözme: %1 (yavaş)</translation>
     </message>
     <message>
         <source>Remaining time</source>
@@ -1496,7 +1496,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Seeking</source>
-        <translation type="unfinished"></translation>
+        <translation>Sarılıyor</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1960,7 +1960,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Pl&amp;aylists Backup</source>
-        <translation>&amp;Oynatma Listesi Yedeği</translation>
+        <translation>Çalma Listelerini Yedekle</translation>
     </message>
     <message>
         <source>Decrease Delay</source>
@@ -1972,11 +1972,11 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>&amp;Reload Subtitles File</source>
-        <translation type="unfinished"></translation>
+        <translation>Altyazı Dosyasını &amp;Yeniden Yükle</translation>
     </message>
     <message>
         <source>&amp;Load Subtitles File...</source>
-        <translation type="unfinished"></translation>
+        <translation>Altyazı Dosyası &amp;Yükle...</translation>
     </message>
 </context>
 <context>
@@ -2157,7 +2157,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished">Göz At…</translation>
+        <translation>Göz At…</translation>
     </message>
 </context>
 <context>
@@ -2373,16 +2373,17 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Playlist files</source>
-        <translation type="unfinished"></translation>
+        <translation>Çalma Listesi Dosyaları</translation>
     </message>
     <message>
         <source>File &quot;%1&quot; already exists.
 Do you want to replace it?</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; dosyası zaten var.
+Değiştirmek istiyor musunuz?</translation>
     </message>
     <message>
         <source>Open Containing Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Bulunduğu Klasörü Aç</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
@@ -3222,7 +3223,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Anti-ring</source>
-        <translation>Anti-ring</translation>
+        <translation>Halka önleme</translation>
     </message>
     <message>
         <source>Blur</source>
@@ -4895,7 +4896,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Replay Gain</source>
-        <translation>Ses Düzeyi Dengeleme</translation>
+        <translation>Yeniden Oynatma Kazancı</translation>
     </message>
     <message>
         <source>Track</source>
@@ -4907,7 +4908,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Pre-amp</source>
-        <translation>Ön Yükselteç</translation>
+        <translation>Ön Yükseltici</translation>
     </message>
     <message>
         <source> dB</source>
@@ -4915,7 +4916,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Prevent clipping</source>
-        <translation>Kırpılmayı önle</translation>
+        <translation>Kırpılmayı Önle</translation>
     </message>
     <message>
         <source>Search settings…</source>
@@ -4923,7 +4924,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>A&amp;pplication name only</source>
-        <translation>&amp;Yalnızca uygulama adı</translation>
+        <translation>Yalnızca uygulama adı</translation>
     </message>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
@@ -4951,42 +4952,42 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>mpv options file:</source>
-        <translation type="unfinished"></translation>
+        <translation>mpv ayar dosyası:</translation>
     </message>
     <message>
         <source>Resample audio to match video (audio may become desynchronized)</source>
-        <translation type="unfinished"></translation>
+        <translation>Sesi videoyla eşleşecek şekilde yeniden örnekle (ses senkronizasyonu bozulabilir)</translation>
     </message>
     <message>
         <source>Time video frames to audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Video karelerini sese göre zamanla</translation>
     </message>
     <message>
         <source>Video Output (recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation>Video Çıkışı (önerilen)</translation>
     </message>
     <message>
         <source>Decoder + Video Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Kod Çözücü + Video Çıkışı</translation>
     </message>
     <message>
         <source>Logo background</source>
-        <translation type="unfinished"></translation>
+        <translation>Logo arka planı</translation>
     </message>
     <message>
         <source>Blend on color</source>
-        <translation type="unfinished"></translation>
+        <translation>Renk üzerine harmanla</translation>
     </message>
     <message>
         <source>Checkerboard pattern</source>
-        <translation type="unfinished"></translation>
+        <translation>Dama tahtası deseni</translation>
     </message>
 </context>
 <context>
     <name>StatusTime</name>
     <message>
         <source> (%1%)</source>
-        <translation> (%%1)</translation>
+        <translation> (%1%)</translation>
     </message>
     <message>
         <source>Remaining time</source>
@@ -5002,7 +5003,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Show tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>İpucunu göster</translation>
     </message>
     <message>
         <source>Played: %1</source>
