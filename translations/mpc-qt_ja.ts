@@ -1208,7 +1208,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation>新しいタブ(&amp;N)</translation>
+        <translation type="vanished">新しいタブ(&amp;N)</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
@@ -1216,11 +1216,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation>タブを閉じる(&amp;L)</translation>
+        <translation type="vanished">タブを閉じる(&amp;L)</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>タブを閉じる</translation>
+        <translation type="vanished">タブを閉じる</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1228,7 +1228,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>タブを複製(&amp;D)</translation>
+        <translation type="vanished">タブを複製(&amp;D)</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
@@ -1998,6 +1998,22 @@ No action will be triggered.</source>
         <source>&amp;Load Subtitles File...</source>
         <translation>字幕ファイルを読み込む(&amp;L)...</translation>
     </message>
+    <message>
+        <source>&amp;New Playlist</source>
+        <translation type="unfinished">新しい再生リスト(&amp;N)</translation>
+    </message>
+    <message>
+        <source>C&amp;lose Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Duplicate Playlist</source>
+        <translation type="unfinished">再生リストを複製(&amp;D)</translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2289,7 +2305,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>New Tab</source>
-        <translation>新しいタブ</translation>
+        <translation type="vanished">新しいタブ</translation>
     </message>
     <message>
         <source>Close Tab</source>
@@ -2297,7 +2313,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation>タブを複製</translation>
+        <translation type="vanished">タブを複製</translation>
     </message>
     <message>
         <source>Import Playlist</source>
@@ -2468,6 +2484,10 @@ Do you want to replace it?</source>
     <message>
         <source>Add Folder</source>
         <translation>フォルダーの追加</translation>
+    </message>
+    <message>
+        <source>Duplicate Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

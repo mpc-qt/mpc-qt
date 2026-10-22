@@ -1204,7 +1204,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation>&amp;Nová karta</translation>
+        <translation type="vanished">&amp;Nová karta</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
@@ -1212,11 +1212,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation>&amp;Zavřít kartu</translation>
+        <translation type="vanished">&amp;Zavřít kartu</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Zavřít kartu</translation>
+        <translation type="vanished">Zavřít kartu</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1224,7 +1224,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>Dup&amp;likovat kartu</translation>
+        <translation type="vanished">Dup&amp;likovat kartu</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
@@ -1974,6 +1974,22 @@ No action will be triggered.</source>
         <source>&amp;Load Subtitles File...</source>
         <translation>&amp;Načíst soubor s titulky...</translation>
     </message>
+    <message>
+        <source>&amp;New Playlist</source>
+        <translation type="unfinished">&amp;Nový playlist</translation>
+    </message>
+    <message>
+        <source>C&amp;lose Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Duplicate Playlist</source>
+        <translation type="unfinished">&amp;Duplikovat playlist</translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2265,7 +2281,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>New Tab</source>
-        <translation>Nová karta</translation>
+        <translation type="vanished">Nová karta</translation>
     </message>
     <message>
         <source>Close Tab</source>
@@ -2273,7 +2289,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation>Duplikovat kartu</translation>
+        <translation type="vanished">Duplikovat kartu</translation>
     </message>
     <message>
         <source>Import Playlist</source>
@@ -2444,6 +2460,10 @@ Chcete ho nahradit?</translation>
     <message>
         <source>Add Folder</source>
         <translation>Přidat složku</translation>
+    </message>
+    <message>
+        <source>Duplicate Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

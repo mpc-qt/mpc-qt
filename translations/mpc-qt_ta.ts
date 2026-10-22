@@ -1200,7 +1200,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation>புதிய தாவல்</translation>
+        <translation type="vanished">புதிய தாவல்</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
@@ -1208,11 +1208,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation>சி &amp; இழக்க தாவல்</translation>
+        <translation type="vanished">சி &amp; இழக்க தாவல்</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>தாவலை மூடு</translation>
+        <translation type="vanished">தாவலை மூடு</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1220,7 +1220,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>&amp; நகல் தாவல்</translation>
+        <translation type="vanished">&amp; நகல் தாவல்</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
@@ -1978,6 +1978,22 @@ No action will be triggered.</source>
         <source>&amp;Load Subtitles File...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;New Playlist</source>
+        <translation type="unfinished">புதிய பிளேலிச்ட்</translation>
+    </message>
+    <message>
+        <source>C&amp;lose Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Duplicate Playlist</source>
+        <translation type="unfinished">&amp; நகல் பிளேலிச்ட்</translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2265,7 +2281,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>New Tab</source>
-        <translation>புதிய தாவல்</translation>
+        <translation type="vanished">புதிய தாவல்</translation>
     </message>
     <message>
         <source>Close Tab</source>
@@ -2273,7 +2289,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation>நகல் தாவல்</translation>
+        <translation type="vanished">நகல் தாவல்</translation>
     </message>
     <message>
         <source>Import Playlist</source>
@@ -2443,6 +2459,10 @@ Do you want to replace it?</source>
     <message>
         <source>Add Folder</source>
         <translation>கோப்புறையைச் சேர்</translation>
+    </message>
+    <message>
+        <source>Duplicate Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

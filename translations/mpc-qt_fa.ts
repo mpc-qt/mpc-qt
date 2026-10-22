@@ -1208,7 +1208,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation>&amp;زبانهٔ جدید</translation>
+        <translation type="vanished">&amp;زبانهٔ جدید</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
@@ -1216,11 +1216,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation>&amp;بستن زبانه</translation>
+        <translation type="vanished">&amp;بستن زبانه</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>بستن زبانه</translation>
+        <translation type="vanished">بستن زبانه</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1228,7 +1228,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>&amp;تکثیر زبانه</translation>
+        <translation type="vanished">&amp;تکثیر زبانه</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
@@ -1998,6 +1998,22 @@ No action will be triggered.</source>
         <source>&amp;Load Subtitles File...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;New Playlist</source>
+        <translation type="unfinished">&amp;فهرست پخش جدید</translation>
+    </message>
+    <message>
+        <source>C&amp;lose Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Duplicate Playlist</source>
+        <translation type="unfinished">&amp;تکثیر فهرست پخش</translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2285,7 +2301,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>New Tab</source>
-        <translation>زبانهٔ جدید</translation>
+        <translation type="vanished">زبانهٔ جدید</translation>
     </message>
     <message>
         <source>Close Tab</source>
@@ -2293,7 +2309,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation>تکثیر زبانه</translation>
+        <translation type="vanished">تکثیر زبانه</translation>
     </message>
     <message>
         <source>Import Playlist</source>
@@ -2464,6 +2480,10 @@ Do you want to replace it?</source>
     <message>
         <source>Add Folder</source>
         <translation>افزودن پوشه</translation>
+    </message>
+    <message>
+        <source>Duplicate Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

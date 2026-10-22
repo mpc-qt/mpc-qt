@@ -1192,7 +1192,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation>Tab Baru (&amp;N)</translation>
+        <translation type="vanished">Tab Baru (&amp;N)</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
@@ -1200,11 +1200,11 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation>Tutup tab (&amp;L)</translation>
+        <translation type="vanished">Tutup tab (&amp;L)</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Tutup Tab</translation>
+        <translation type="vanished">Tutup Tab</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1212,7 +1212,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>&amp;Duplikasi Tab</translation>
+        <translation type="vanished">&amp;Duplikasi Tab</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
@@ -1934,6 +1934,22 @@ Tidak ada tindakan yang akan dipicu.</translation>
         <source>&amp;Load Subtitles File...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;New Playlist</source>
+        <translation type="unfinished">Daftar Putar Baru</translation>
+    </message>
+    <message>
+        <source>C&amp;lose Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Duplicate Playlist</source>
+        <translation type="unfinished">Duplikasi Daftar Putar</translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2217,7 +2233,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>New Tab</source>
-        <translation>Tab Baru</translation>
+        <translation type="vanished">Tab Baru</translation>
     </message>
     <message>
         <source>Close Tab</source>
@@ -2225,7 +2241,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation>Duplikasi Tab</translation>
+        <translation type="vanished">Duplikasi Tab</translation>
     </message>
     <message>
         <source>Import Playlist</source>
@@ -2380,6 +2396,10 @@ Apakah Anda ingin menggantinya?</translation>
     <message>
         <source>Add Folder</source>
         <translation>Tambah Folder</translation>
+    </message>
+    <message>
+        <source>Duplicate Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -2012,7 +2012,7 @@
   </action>
   <action name="actionPlaylistNewTab">
    <property name="text">
-    <string>&amp;New Tab</string>
+    <string>&amp;New Playlist</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+T</string>
@@ -2020,10 +2020,10 @@
   </action>
   <action name="actionPlaylistCloseTab">
    <property name="text">
-    <string>C&amp;lose Tab</string>
+    <string>C&amp;lose Playlist</string>
    </property>
    <property name="toolTip">
-    <string>Close Tab</string>
+    <string>Close Playlist</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+W</string>
@@ -2031,7 +2031,7 @@
   </action>
   <action name="actionPlaylistDuplicateTab">
    <property name="text">
-    <string>&amp;Duplicate Tab</string>
+    <string>&amp;Duplicate Playlist</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+D</string>

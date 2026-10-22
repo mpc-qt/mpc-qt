@@ -1196,7 +1196,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation>&amp;Новая вкладка</translation>
+        <translation type="vanished">&amp;Новая вкладка</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
@@ -1204,11 +1204,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation>З&amp;акрыть вкладку</translation>
+        <translation type="vanished">З&amp;акрыть вкладку</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Закрыть вкладку</translation>
+        <translation type="vanished">Закрыть вкладку</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1216,7 +1216,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>&amp;Дублировать вкладку</translation>
+        <translation type="vanished">&amp;Дублировать вкладку</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
@@ -1934,6 +1934,22 @@ No action will be triggered.</source>
         <source>&amp;Load Subtitles File...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;New Playlist</source>
+        <translation type="unfinished">&amp;Создать список воспроизведения</translation>
+    </message>
+    <message>
+        <source>C&amp;lose Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Duplicate Playlist</source>
+        <translation type="unfinished">&amp;Дублировать список воспроизведения</translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2221,7 +2237,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>New Tab</source>
-        <translation>Новая вкладка</translation>
+        <translation type="vanished">Новая вкладка</translation>
     </message>
     <message>
         <source>Close Tab</source>
@@ -2229,7 +2245,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation>Дублировать вкладку</translation>
+        <translation type="vanished">Дублировать вкладку</translation>
     </message>
     <message>
         <source>Import Playlist</source>
@@ -2399,6 +2415,10 @@ Do you want to replace it?</source>
     <message>
         <source>Add Folder</source>
         <translation>Добавить папку</translation>
+    </message>
+    <message>
+        <source>Duplicate Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

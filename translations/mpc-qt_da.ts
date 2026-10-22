@@ -1125,27 +1125,15 @@ No action will be triggered.</source>
         <translation type="vanished">Esc</translation>
     </message>
     <message>
-        <source>&amp;New Tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ctrl+Shift+T</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>C&amp;lose Tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Close Tab</source>
-        <translation type="unfinished">Close Tab</translation>
+        <translation type="obsolete">Close Tab</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Duplicate Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1916,6 +1904,22 @@ No action will be triggered.</source>
         <source>&amp;Load Subtitles File...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;New Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>C&amp;lose Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Duplicate Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2202,16 +2206,8 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New Tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Close Tab</source>
         <translation type="vanished">Close Tab</translation>
-    </message>
-    <message>
-        <source>Duplicate Tab</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Import Playlist</source>
@@ -2380,6 +2376,10 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Add Folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duplicate Playlist</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
