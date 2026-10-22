@@ -2014,6 +2014,10 @@ No action will be triggered.</source>
         <source>&amp;Duplicate Playlist</source>
         <translation type="unfinished">&amp;تکثیر فهرست پخش</translation>
     </message>
+    <message>
+        <source>Res&amp;tore Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2432,6 +2436,10 @@ Do you want to replace it?</source>
     <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>&amp;تکثیر فهرست پخش</translation>
+    </message>
+    <message>
+        <source>&amp;Restore Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Rename Playlist</source>

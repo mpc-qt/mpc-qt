@@ -580,6 +580,11 @@ void PlaylistWindow::closeTab()
     updateCurrentPlaylist();
 }
 
+void PlaylistWindow::restorePlaylist()
+{
+    playlist_restoreRequested();
+}
+
 void PlaylistWindow::duplicateTab()
 {
     auto origin = currentPlaylistWidget();
@@ -913,7 +918,7 @@ void PlaylistWindow::refreshPlaylist(const QUuid &playlistUuid, bool setCurrentI
     Logger::log(logModule, "refreshPlaylist done");
 }
 
-void PlaylistWindow::restorePlaylist(const QUuid &playlistUuid)
+void PlaylistWindow::restoreOriginalPlaylistOrder(const QUuid &playlistUuid)
 {
     auto qdp = widgets.value(playlistUuid, nullptr);
     if (!qdp)
@@ -994,6 +999,12 @@ void PlaylistWindow::playlist_removeAllRequested()
 
     qdp->removeAll();
     updatePlaylistHasItems();
+}
+
+void PlaylistWindow::playlist_restoreRequested()
+{
+    emit playlistsBackupRequested();
+    emit restoreLastPlaylistBackupRequested();
 }
 
 void PlaylistWindow::playlist_copySelectionToClipboard(const QUuid &playlistUuid)
@@ -1110,7 +1121,7 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     a->setText(tr("Restore"));
     connect(a, &QAction::triggered,
             this, [this,playlistUuid]() {
-        restorePlaylist(playlistUuid);
+        restoreOriginalPlaylistOrder(playlistUuid);
     });
     if (pl && pl->shuffle())
         a->setDisabled(true);
@@ -1215,6 +1226,7 @@ void PlaylistWindow::on_tabWidget_customContextMenuRequested(const QPoint &pos)
     m->addSeparator();
     m->addAction(tr("&Remove Playlist"), this, SLOT(closeTab()));
     m->addAction(tr("&Clear Playlist"), this, SLOT(playlist_removeAllRequested()));
+    m->addAction(tr("&Restore Playlist"), this, &PlaylistWindow::playlist_restoreRequested);
     m->addSeparator();
     QAction *renameTab = m->addAction(tr("&Rename Playlist"), this, SLOT(renameTab()));
     if (isQuickPlaylist)

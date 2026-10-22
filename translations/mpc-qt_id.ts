@@ -1950,6 +1950,10 @@ Tidak ada tindakan yang akan dipicu.</translation>
         <source>&amp;Duplicate Playlist</source>
         <translation type="unfinished">Duplikasi Daftar Putar</translation>
     </message>
+    <message>
+        <source>Res&amp;tore Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2348,6 +2352,10 @@ Apakah Anda ingin menggantinya?</translation>
     <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>Duplikasi Daftar Putar</translation>
+    </message>
+    <message>
+        <source>&amp;Restore Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Rename Playlist</source>

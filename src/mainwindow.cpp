@@ -1021,6 +1021,8 @@ void MainWindow::connectPlaylistWindowToActions() const
             playlistWindow_, &PlaylistWindow::newTab);
     connect(ui->actionPlaylistCloseTab, &QAction::triggered,
             playlistWindow_, &PlaylistWindow::closeTab);
+    connect(ui->actionPlaylistRestore, &QAction::triggered,
+            playlistWindow_, &PlaylistWindow::restorePlaylist);
     connect(ui->actionPlaylistDuplicateTab, &QAction::triggered,
             playlistWindow_, &PlaylistWindow::duplicateTab);
     connect(ui->actionPlaylistImport, &QAction::triggered,

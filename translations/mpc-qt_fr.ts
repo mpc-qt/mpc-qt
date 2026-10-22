@@ -1950,6 +1950,10 @@ Aucune action ne sera déclenchée.</translation>
         <source>&amp;Duplicate Playlist</source>
         <translation type="unfinished">&amp;Dupliquer la liste</translation>
     </message>
+    <message>
+        <source>Res&amp;tore Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2364,6 +2368,10 @@ Voulez-vous le remplacer&#x202f;?</translation>
     <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>&amp;Dupliquer la liste</translation>
+    </message>
+    <message>
+        <source>&amp;Restore Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Rename Playlist</source>

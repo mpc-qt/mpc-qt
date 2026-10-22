@@ -1994,6 +1994,10 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
         <source>&amp;Duplicate Playlist</source>
         <translation type="unfinished">Oyn&amp;atma Listesini Çoğalt</translation>
     </message>
+    <message>
+        <source>Res&amp;tore Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2415,6 +2419,10 @@ Do you want to replace it?</source>
     <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>Oyn&amp;atma Listesini Çoğalt</translation>
+    </message>
+    <message>
+        <source>&amp;Restore Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Rename Playlist</source>

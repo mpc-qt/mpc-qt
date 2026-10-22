@@ -1227,6 +1227,7 @@
     <addaction name="actionPlaylistDuplicateTab"/>
     <addaction name="separator"/>
     <addaction name="actionPlaylistCloseTab"/>
+    <addaction name="actionPlaylistRestore"/>
     <addaction name="separator"/>
     <addaction name="actionPlaylistImport"/>
     <addaction name="actionPlaylistExport"/>
@@ -2667,6 +2668,11 @@
    </property>
    <property name="text">
     <string>No</string>
+   </property>
+  </action>
+  <action name="actionPlaylistRestore">
+   <property name="text">
+    <string>Res&amp;tore Playlist</string>
    </property>
   </action>
  </widget>
