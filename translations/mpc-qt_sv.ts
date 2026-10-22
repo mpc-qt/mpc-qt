@@ -5,39 +5,39 @@
     <name>About</name>
     <message>
         <source>Development Build</source>
-        <translation type="unfinished">Development Build</translation>
+        <translation>Utvecklingsversion</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished">Version %1</translation>
+        <translation>Version %1</translation>
     </message>
     <message>
         <source>Built on %1 at %2</source>
-        <translation type="unfinished">Built on %1 at %2</translation>
+        <translation>Byggd den %1 vid %2</translation>
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished">(Unknown)</translation>
+        <translation>(Okänd)</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation type="unfinished">About Media Player Classic Qute Theater</translation>
+        <translation>Om Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished">Media Player Classic Qute Theater</translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation type="unfinished">A clone of Media Player Classic written in Qt</translation>
+        <translation>En klon av Media Player Classic skriven i Qt</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation type="unfinished">Based on Qt %1 and %2</translation>
+        <translation>Baserad på Qt %1 och %2</translation>
     </message>
     <message>
         <source>Running on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Körs på %1</translation>
     </message>
     <message>
         <source>Running under %1</source>
@@ -48,15 +48,15 @@
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Kommando</translation>
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangent</translation>
     </message>
     <message>
         <source>Mouse Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Mus i fönsterläge</translation>
     </message>
     <message>
         <source>Mouse Fullscr</source>
@@ -64,7 +64,7 @@
     </message>
     <message>
         <source>Mouse Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Mus i fullskärmsläge</translation>
     </message>
     <message>
         <source>Volume Up</source>
@@ -76,55 +76,55 @@
     </message>
     <message>
         <source>Volume Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Tysta ljudet</translation>
     </message>
     <message>
         <source>After Playback: Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Efter uppspelning: avsluta</translation>
     </message>
     <message>
         <source>After Playback: Stand by</source>
-        <translation type="unfinished"></translation>
+        <translation>Efter uppspelning: viloläge</translation>
     </message>
     <message>
         <source>After Playback: Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>Efter uppspelning: dvala</translation>
     </message>
     <message>
         <source>After Playback: Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Efter uppspelning: stäng av</translation>
     </message>
     <message>
         <source>After Playback: Log Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Efter uppspelning: logga ut</translation>
     </message>
     <message>
         <source>After Playback: Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Efter uppspelning: lås</translation>
     </message>
     <message>
         <source>After Playback: Play next file</source>
-        <translation type="unfinished"></translation>
+        <translation>Efter uppspelning: spela nästa fil</translation>
     </message>
     <message>
         <source>After Playback: Do nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Efter uppspelning: gör ingenting</translation>
     </message>
     <message>
         <source>On Top: Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Överst: standardvärde</translation>
     </message>
     <message>
         <source>On Top: Always</source>
-        <translation type="unfinished"></translation>
+        <translation>Överst: alltid</translation>
     </message>
     <message>
         <source>On Top: While Playing</source>
-        <translation type="unfinished"></translation>
+        <translation>Överst: under uppspelning</translation>
     </message>
     <message>
         <source>On Top: While Playing Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Överst: under videouppspelning</translation>
     </message>
     <message>
         <source>Extra Play Times: Increment</source>
@@ -136,47 +136,47 @@
     </message>
     <message>
         <source>Move Subtitles Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Flytta undertexter uppåt</translation>
     </message>
     <message>
         <source>Move Subtitles Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Flytta undertexter nedåt</translation>
     </message>
     <message>
         <source>Decrease Subtitles Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Minska fördröjning på undertexter</translation>
     </message>
     <message>
         <source>Increase Subtitles Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Öka fördröjning på undertexter</translation>
     </message>
     <message>
         <source>Decrease Audio Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Minska ljudfördröjning</translation>
     </message>
     <message>
         <source>Increase Audio Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Öka ljudfördröjning</translation>
     </message>
     <message>
         <source>16:9 Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildförhållande 16:9</translation>
     </message>
     <message>
         <source>Decrease Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Minska bildförhållande</translation>
     </message>
     <message>
         <source>Increase Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Öka bildförhållande</translation>
     </message>
     <message>
         <source>Reset Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Återställ bildförhållande</translation>
     </message>
     <message>
         <source>Disable Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignorera bildförhållande</translation>
     </message>
     <message>
         <source>Decrease Pan and Scan</source>
@@ -196,84 +196,85 @@
     </message>
     <message>
         <source>Decrease Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Zooma ut</translation>
     </message>
     <message>
         <source>Increase Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Zooma in</translation>
     </message>
     <message>
         <source>Reset Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Återställ zoom</translation>
     </message>
     <message>
         <source>Skip Backward / Previous</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoppa bakåt / föregående</translation>
     </message>
     <message>
         <source>Skip Forward / Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoppa framåt / nästa</translation>
     </message>
     <message>
         <source>Shortcut already used</source>
-        <translation type="unfinished"></translation>
+        <translation>Snabbtangenten används redan</translation>
     </message>
     <message>
         <source>&quot;%1&quot; is already used by &quot;%2&quot;.
 Do you want to use it for &quot;%3&quot; instead?</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; används redan av &quot;%2&quot;
+Vill du använda den till &quot;%3&quot; istället?</translation>
     </message>
     <message>
         <source>4:3 Aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildförhållande 4:3</translation>
     </message>
     <message>
         <source>Move Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Flytta till vänster</translation>
     </message>
     <message>
         <source>Move Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Flytta till höger</translation>
     </message>
     <message>
         <source>Move Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Flytta uppåt</translation>
     </message>
     <message>
         <source>Move Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Flytta nedåt</translation>
     </message>
     <message>
         <source>Reset Move</source>
-        <translation type="unfinished"></translation>
+        <translation>Återställ position</translation>
     </message>
     <message>
         <source>Rotate Clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotera medurs</translation>
     </message>
     <message>
         <source>Rotate Counterclockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotera moturs</translation>
     </message>
     <message>
         <source>Reset Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Återställ rotation</translation>
     </message>
     <message>
         <source>Reset Resize</source>
-        <translation type="unfinished"></translation>
+        <translation>Återställ storlek</translation>
     </message>
     <message>
         <source>Volume Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>Höj volymen</translation>
     </message>
     <message>
         <source>Volume Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>Sänk volymen</translation>
     </message>
     <message>
         <source>Play / Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Spela upp / pausa</translation>
     </message>
 </context>
 <context>
@@ -295,7 +296,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>FavoritesWindow</name>
     <message>
         <source>Organize Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordna favoriter</translation>
     </message>
     <message>
         <source>&amp;Update</source>
@@ -303,38 +304,38 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>&amp;Files</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Filer</translation>
     </message>
     <message>
         <source>&amp;Streams</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Strömmar</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bo&amp;rt</translation>
     </message>
 </context>
 <context>
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished">Media Player Classic Qute Theater</translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Start a new process without saving data.</source>
-        <translation type="unfinished"></translation>
+        <translation>Starta en ny process utan att spara data.</translation>
     </message>
     <message>
         <source>Main window size.</source>
-        <translation type="unfinished"></translation>
+        <translation>Huvudfönstrets storlek.</translation>
     </message>
     <message>
         <source>Main window position.</source>
-        <translation type="unfinished"></translation>
+        <translation>Huvudfönstrets position.</translation>
     </message>
     <message>
         <source>Append the file(s) to the current playlist.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till filen/filerna i den nuvarande spellistan.</translation>
     </message>
     <message>
         <source>URLs to open, optionally.</source>
@@ -342,7 +343,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Save Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Spara bild</translation>
     </message>
     <message>
         <source>Playing Media</source>
@@ -365,23 +366,23 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>GoToWindow</name>
     <message>
         <source>Go To...</source>
-        <translation type="unfinished"></translation>
+        <translation>Gå till...</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Tid</translation>
     </message>
     <message>
         <source>Go!</source>
-        <translation type="unfinished"></translation>
+        <translation>Gå!</translation>
     </message>
     <message>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildruta</translation>
     </message>
     <message>
         <source>Enter a timecode using the format [hh:]mm:ss.ms to jump to a specified time. You do not need to enter the separators explicitely.</source>
-        <translation type="unfinished"></translation>
+        <translation>Skriv in en tidsstämpel i formatet [hh:]mm:ss.ms för att hoppa till den specifierade tidspunkten. Du behöver inte skriva in separatorerna.</translation>
     </message>
 </context>
 <context>
@@ -392,54 +393,54 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Återställ</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Stäng</translation>
     </message>
     <message>
         <source>Playlists Backup</source>
-        <translation type="unfinished"></translation>
+        <translation>Säkerhetskopior av spellistor</translation>
     </message>
     <message>
         <source>Remove All</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort alla</translation>
     </message>
     <message>
         <source>Remove all playlists backups?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort alla säkerhetskopior av spellistor?</translation>
     </message>
 </context>
 <context>
     <name>LogWindow</name>
     <message>
         <source>Log Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Loggmeddelanden</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiera</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Spara</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Clear</translation>
+        <translation>Töm</translation>
     </message>
     <message>
         <source>Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>Spara fil</translation>
     </message>
     <message>
         <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
+        <translation>Loggfiler (*.log)</translation>
     </message>
 </context>
 <context>
@@ -458,67 +459,67 @@ No action will be triggered.</source>
     <name>MainWindow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation>Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished"></translation>
+        <translation>Spela upp</translation>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Pausa</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Stoppa</translation>
     </message>
     <message>
         <source>Skip Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoppa bakåt</translation>
     </message>
     <message>
         <source>Speed Decrease</source>
-        <translation type="unfinished"></translation>
+        <translation>Sänk hastigheten</translation>
     </message>
     <message>
         <source>Speed Increase</source>
-        <translation type="unfinished"></translation>
+        <translation>Öka hastigheten</translation>
     </message>
     <message>
         <source>Skip Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoppa framåt</translation>
     </message>
     <message>
         <source>Step Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>Steg bakåt</translation>
     </message>
     <message>
         <source>Step Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Steg framåt</translation>
     </message>
     <message>
         <source>Set Loop Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Sätt slingans start</translation>
     </message>
     <message>
         <source>Set Loop End</source>
-        <translation type="unfinished"></translation>
+        <translation>Sätt slingans slut</translation>
     </message>
     <message>
         <source>Chapter</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapitel</translation>
     </message>
     <message>
         <source>Frame rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildfrekvens</translation>
     </message>
     <message>
         <source>Sync Offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Synkförskjutning</translation>
     </message>
     <message>
         <source>Framedrops</source>
-        <translation type="unfinished"></translation>
+        <translation>Tappade bildrutor</translation>
     </message>
     <message>
         <source>vo: 0, decoder: 0</source>
@@ -526,43 +527,43 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation>Bithastighet</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="unfinished"></translation>
+        <translation>Stoppad</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Arkiv</translation>
     </message>
     <message>
         <source>O&amp;pen Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Ö&amp;ppna skiva</translation>
     </message>
     <message>
         <source>Recent &amp;Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Senast öppnade &amp;filer</translation>
     </message>
     <message>
         <source>Subtitle Data&amp;base</source>
-        <translation type="unfinished"></translation>
+        <translation>Data&amp;bas för undertexter</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Visa</translation>
     </message>
     <message>
         <source>&amp;Presets</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Förinställningar</translation>
     </message>
     <message>
         <source>&amp;Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zooma</translation>
     </message>
     <message>
         <source>On &amp;Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Behåll övers&amp;t</translation>
     </message>
     <message>
         <source>OS&amp;D</source>
@@ -570,15 +571,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>P&amp;lay</source>
-        <translation type="unfinished"></translation>
+        <translation>Spe&amp;la upp</translation>
     </message>
     <message>
         <source>&amp;Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Ljud</translation>
     </message>
     <message>
         <source>Su&amp;btitles</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Undertexter</translation>
     </message>
     <message>
         <source>&amp;Video Stream</source>
@@ -586,31 +587,31 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>V&amp;olume</source>
-        <translation type="unfinished"></translation>
+        <translation>V&amp;olym</translation>
     </message>
     <message>
         <source>Af&amp;ter Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>Ef&amp;ter uppspelning</translation>
     </message>
     <message>
         <source>&amp;Loop</source>
-        <translation type="unfinished"></translation>
+        <translation>S&amp;linga</translation>
     </message>
     <message>
         <source>&amp;Navigate</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Navigera</translation>
     </message>
     <message>
         <source>&amp;Chapters</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kapitel</translation>
     </message>
     <message>
         <source>Favo&amp;rites</source>
-        <translation type="unfinished"></translation>
+        <translation>Favo&amp;riter</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hjälp</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
@@ -622,63 +623,63 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Quick Open File...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Snabböppna fil...</translation>
     </message>
     <message>
         <source>&amp;Open File...</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna &amp;fil...</translation>
     </message>
     <message>
         <source>Ctrl+O</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+O</translation>
     </message>
     <message>
         <source>Open &amp;DVD/BD...</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna &amp;DVD/BD...</translation>
     </message>
     <message>
         <source>Ctrl+D</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <source>Open De&amp;vice...</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna &amp;enhet...</translation>
     </message>
     <message>
         <source>Ctrl+V</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+V</translation>
     </message>
     <message>
         <source>Open Dir&amp;ectory...</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna &amp;katalog...</translation>
     </message>
     <message>
         <source>&amp;Clear list</source>
-        <translation type="unfinished"></translation>
+        <translation>Rensa lista</translation>
     </message>
     <message>
         <source>&amp;Close File</source>
-        <translation type="unfinished"></translation>
+        <translation>Stäng fil</translation>
     </message>
     <message>
         <source>Ctrl+W</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+W</translation>
     </message>
     <message>
         <source>&amp;Save a Copy...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Spara en kopia...</translation>
     </message>
     <message>
         <source>Save &amp;Image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Spara b&amp;ild...</translation>
     </message>
     <message>
         <source>Alt+I</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+I</translation>
     </message>
     <message>
         <source>Save &amp;Thumbnails</source>
-        <translation type="unfinished"></translation>
+        <translation>Spara &amp;tumnagelbilder</translation>
     </message>
     <message>
         <source>&amp;Load Subtitle...</source>
@@ -686,35 +687,35 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Ctrl+L</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+L</translation>
     </message>
     <message>
         <source>Save S&amp;ubtitle...</source>
-        <translation type="unfinished"></translation>
+        <translation>Spara &amp;undertext...</translation>
     </message>
     <message>
         <source>Ctrl+S</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+S</translation>
     </message>
     <message>
         <source>&amp;Upload...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ladda &amp;upp...</translation>
     </message>
     <message>
         <source>&amp;Download...</source>
-        <translation type="unfinished"></translation>
+        <translation>La&amp;dda ner...</translation>
     </message>
     <message>
         <source>D</source>
-        <translation type="unfinished"></translation>
+        <translation>D</translation>
     </message>
     <message>
         <source>&amp;Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sök...</translation>
     </message>
     <message>
         <source>P&amp;roperties</source>
-        <translation type="unfinished"></translation>
+        <translation>Egenskape&amp;r</translation>
     </message>
     <message>
         <source>Shift+F10</source>
@@ -722,15 +723,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation type="unfinished"></translation>
+        <translation>Avsluta</translation>
     </message>
     <message>
         <source>Alt+X</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+X</translation>
     </message>
     <message>
         <source>Hide &amp;Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Dölj &amp;meny</translation>
     </message>
     <message>
         <source>Ctrl+0</source>
@@ -746,7 +747,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Controls</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kontroller</translation>
     </message>
     <message>
         <source>Ctrl+2</source>
@@ -754,7 +755,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Information</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Information</translation>
     </message>
     <message>
         <source>Ctrl+3</source>
@@ -762,7 +763,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Statistik</translation>
     </message>
     <message>
         <source>Ctrl+4</source>
@@ -770,7 +771,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>S&amp;tatus</source>
-        <translation type="unfinished"></translation>
+        <translation>S&amp;tatus</translation>
     </message>
     <message>
         <source>Ctrl+5</source>
@@ -786,7 +787,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Play&amp;list</source>
-        <translation type="unfinished"></translation>
+        <translation>Spel&amp;lista</translation>
     </message>
     <message>
         <source>Ctrl+7</source>
@@ -802,7 +803,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Na&amp;vigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Na&amp;vigering</translation>
     </message>
     <message>
         <source>Ctrl+9</source>
@@ -810,7 +811,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Minimal</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Minimal</translation>
     </message>
     <message>
         <source>1</source>
@@ -818,7 +819,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Compact</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kompakt</translation>
     </message>
     <message>
         <source>2</source>
@@ -826,7 +827,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Normal</translation>
     </message>
     <message>
         <source>3</source>
@@ -834,7 +835,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>F&amp;ullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>F&amp;ullskärm</translation>
     </message>
     <message>
         <source>Alt+Return</source>
@@ -854,7 +855,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Auto &amp;Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Passa automatiskt</translation>
     </message>
     <message>
         <source>Alt+4</source>
@@ -862,7 +863,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Auto Fit (&amp;Larger Only)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pass automatiskt (&amp;endast större)</translation>
     </message>
     <message>
         <source>Alt+5</source>
@@ -870,7 +871,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Disable snapping</source>
-        <translation type="unfinished"></translation>
+        <translation>Stäng av &amp;fästning</translation>
     </message>
     <message>
         <source>Alt+0</source>
@@ -878,35 +879,35 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Standar&amp;d</translation>
     </message>
     <message>
         <source>&amp;Always</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Alltid</translation>
     </message>
     <message>
         <source>Ctrl+A</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+A</translation>
     </message>
     <message>
         <source>While &amp;Playing</source>
-        <translation type="unfinished"></translation>
+        <translation>Under upps&amp;pelning</translation>
     </message>
     <message>
         <source>While Playing &amp;Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Under &amp;videouppspelning</translation>
     </message>
     <message>
         <source>&amp;Options...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Alternativ...</translation>
     </message>
     <message>
         <source>O</source>
-        <translation type="unfinished"></translation>
+        <translation>O</translation>
     </message>
     <message>
         <source>&amp;Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pausa</translation>
     </message>
     <message>
         <source>Space</source>
@@ -914,15 +915,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Stoppa</translation>
     </message>
     <message>
         <source>.</source>
-        <translation type="unfinished"></translation>
+        <translation>.</translation>
     </message>
     <message>
         <source>F&amp;rame Step Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildruta &amp;framåt</translation>
     </message>
     <message>
         <source>Ctrl+Right</source>
@@ -930,7 +931,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Fra&amp;me Step Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildruta &amp;bakåt</translation>
     </message>
     <message>
         <source>Ctrl+Left</source>
@@ -938,7 +939,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Decrease Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Sänk hastighet</translation>
     </message>
     <message>
         <source>Ctrl+Down</source>
@@ -946,7 +947,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Increase Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Öka hastighet</translation>
     </message>
     <message>
         <source>Ctrl+Up</source>
@@ -954,15 +955,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>R&amp;eset Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Återställ hastighet</translation>
     </message>
     <message>
         <source>Ctrl+R</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+R</translation>
     </message>
     <message>
         <source>&amp;Up</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Upp</translation>
     </message>
     <message>
         <source>0</source>
@@ -970,27 +971,27 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Down</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ned</translation>
     </message>
     <message>
         <source>9</source>
-        <translation type="unfinished"></translation>
+        <translation>9</translation>
     </message>
     <message>
         <source>&amp;Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tysta</translation>
     </message>
     <message>
         <source>Ctrl+M</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+M</translation>
     </message>
     <message>
         <source>&amp;Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Av&amp;sluta</translation>
     </message>
     <message>
         <source>&amp;Stand by</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Viloläge</translation>
     </message>
     <message>
         <source>&amp;Hibernate</source>
@@ -998,19 +999,19 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Shut&amp;down</source>
-        <translation type="unfinished"></translation>
+        <translation>Stäng &amp;av</translation>
     </message>
     <message>
         <source>Log &amp;Off</source>
-        <translation type="unfinished"></translation>
+        <translation>L&amp;ogga ut</translation>
     </message>
     <message>
         <source>&amp;Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lås</translation>
     </message>
     <message>
         <source>Do &amp;Nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Gör I&amp;ngenting</translation>
     </message>
     <message>
         <source>Play next in the &amp;folder</source>
@@ -1018,7 +1019,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Previous</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Föregående</translation>
     </message>
     <message>
         <source>PgUp</source>
@@ -1026,7 +1027,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nästa</translation>
     </message>
     <message>
         <source>PgDown</source>
@@ -1034,43 +1035,43 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Go To...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Gå till...</translation>
     </message>
     <message>
         <source>Ctrl+G</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+G</translation>
     </message>
     <message>
         <source>&amp;Title Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Titelmeny</translation>
     </message>
     <message>
         <source>Alt+T</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+T</translation>
     </message>
     <message>
         <source>&amp;Root Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Rotmeny</translation>
     </message>
     <message>
         <source>Alt+R</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+R</translation>
     </message>
     <message>
         <source>&amp;Subtitle Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Undertextmeny</translation>
     </message>
     <message>
         <source>&amp;Audio Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ljudmeny</translation>
     </message>
     <message>
         <source>Angle &amp;Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Vinkel&amp;meny</translation>
     </message>
     <message>
         <source>Chapt&amp;er Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kapitelmeny</translation>
     </message>
     <message>
         <source>&amp;Add to Favorites...</source>
@@ -1078,23 +1079,23 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Organize Favorites...</source>
-        <translation type="unfinished"></translation>
+        <translation>Arrangera fav&amp;oriter...</translation>
     </message>
     <message>
         <source>&amp;Home Page</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Startsida</translation>
     </message>
     <message>
         <source>&amp;About This Program...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Om programmet...</translation>
     </message>
     <message>
         <source>Open &amp;Network Stream...</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna &amp;nätverksström...</translation>
     </message>
     <message>
         <source>Save I&amp;mage (Auto)</source>
-        <translation type="unfinished"></translation>
+        <translation>Spara bild (auto)</translation>
     </message>
     <message>
         <source>F5</source>
@@ -1102,7 +1103,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Auto Fit (&amp;Smaller Only)</source>
-        <translation type="unfinished"></translation>
+        <translation>Passa automatiskt (enda&amp;st mindre)</translation>
     </message>
     <message>
         <source>Alt+6</source>
@@ -1182,11 +1183,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Search Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sök i spellista</translation>
     </message>
     <message>
         <source>Ctrl+F</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+F</translation>
     </message>
     <message>
         <source>&amp;Quick Queue Toggle</source>
@@ -1198,7 +1199,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Finish Searching</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Avsluta sökning</translation>
     </message>
     <message>
         <source>Esc</source>
@@ -1206,55 +1207,55 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ny flik</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Skift+T</translation>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Stäng f&amp;lik</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation type="unfinished">Close Tab</translation>
+        <translation>Stäng flik</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Skift+W</translation>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Duplicera flik</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Skift+D</translation>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Importera spellista</translation>
     </message>
     <message>
         <source>Ctrl+Shift+O</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Skift+O</translation>
     </message>
     <message>
         <source>E&amp;xport Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>E&amp;xportera spellista</translation>
     </message>
     <message>
         <source>Ctrl+Shift+S</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Skift+S</translation>
     </message>
     <message>
         <source>Queue &amp;Visible</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Visa kö</translation>
     </message>
     <message>
         <source>Ctrl+Shift+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Skift+Q</translation>
     </message>
     <message>
         <source>&amp;Increment</source>
@@ -1494,7 +1495,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Error</translation>
+        <translation>Fel</translation>
     </message>
     <message>
         <source>&amp;Quick Add To Playlist</source>
@@ -1966,15 +1967,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished">Yes</translation>
+        <translation>Ja</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">Auto</translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished">No</translation>
+        <translation>Nej</translation>
     </message>
     <message>
         <source>Pl&amp;aylists Backup</source>
@@ -2009,11 +2010,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished">Left</translation>
+        <translation>Vänster</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished">Right</translation>
+        <translation>Höger</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -2175,7 +2176,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished">Browse...</translation>
+        <translation>Bläddra...</translation>
     </message>
 </context>
 <context>
@@ -2686,11 +2687,11 @@ Do you want to replace it?</source>
     <name>SettingsWindow</name>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternativ</translation>
     </message>
     <message>
         <source>1</source>
-        <translation type="unfinished">1</translation>
+        <translation>1</translation>
     </message>
     <message>
         <source>Player</source>
@@ -2778,7 +2779,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Open options</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna alternativ</translation>
     </message>
     <message>
         <source>Use the same player for
@@ -2896,7 +2897,7 @@ media file played</source>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished">Browse...</translation>
+        <translation>Bläddra...</translation>
     </message>
     <message>
         <source>Blank</source>
@@ -2996,7 +2997,7 @@ media file played</source>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">Auto</translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>Time step</source>
@@ -3016,7 +3017,7 @@ media file played</source>
     </message>
     <message>
         <source>Autofit</source>
-        <translation type="unfinished"></translation>
+        <translation>Passa automatiskt</translation>
     </message>
     <message>
         <source>Autofit (Larger Only)</source>
@@ -3180,7 +3181,7 @@ media file played</source>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished">No</translation>
+        <translation>Nej</translation>
     </message>
     <message>
         <source>Size</source>
@@ -3240,7 +3241,7 @@ media file played</source>
     </message>
     <message>
         <source>2</source>
-        <translation type="unfinished">2</translation>
+        <translation>2</translation>
     </message>
     <message>
         <source>Anti-ring</source>
@@ -4005,7 +4006,7 @@ media file played</source>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished">Yes</translation>
+        <translation>Ja</translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
@@ -4273,7 +4274,7 @@ media file played</source>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Error</translation>
+        <translation>Fel</translation>
     </message>
     <message>
         <source>Warning</source>
@@ -4777,7 +4778,7 @@ media file played</source>
     </message>
     <message>
         <source>Custom mpv options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Egna inställningar för mpv:</translation>
     </message>
     <message>
         <source>Seek to keyframe when hardware decoding is unavailable</source>
@@ -4877,7 +4878,7 @@ media file played</source>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">Source</translation>
+        <translation>Källa</translation>
     </message>
     <message>
         <source>Built-in</source>
@@ -4961,7 +4962,7 @@ media file played</source>
     </message>
     <message>
         <source>mpv options file:</source>
-        <translation type="unfinished"></translation>
+        <translation>inställningsfil för mpv:</translation>
     </message>
     <message>
         <source>Resample audio to match video (audio may become desynchronized)</source>
@@ -5027,7 +5028,7 @@ media file played</source>
     <name>ThumbnailerWindow</name>
     <message>
         <source>Source</source>
-        <translation type="unfinished">Source</translation>
+        <translation>Källa</translation>
     </message>
     <message>
         <source>&amp;Browse...</source>
