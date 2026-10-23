@@ -2344,7 +2344,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ta bort</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -2372,7 +2372,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Återställ</translation>
     </message>
     <message>
         <source>Shuffle</source>
@@ -2421,7 +2421,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Importera spellista</translation>
     </message>
     <message>
         <source>&amp;Export Playlist</source>
@@ -3729,7 +3729,7 @@ media file played</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ta bort</translation>
     </message>
     <message>
         <source>Add to shaders</source>
@@ -3741,7 +3741,7 @@ media file played</source>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Spara</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -4186,7 +4186,7 @@ media file played</source>
     </message>
     <message>
         <source>Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bithastighet</translation>
     </message>
     <message>
         <source>kBits</source>
@@ -4710,7 +4710,7 @@ media file played</source>
     </message>
     <message>
         <source>Log files (*.log)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Loggfiler (*.log)</translation>
     </message>
     <message>
         <source>Allows dark theme support on Windows</source>
