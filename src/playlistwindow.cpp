@@ -1223,18 +1223,18 @@ void PlaylistWindow::on_tabWidget_customContextMenuRequested(const QPoint &pos)
     bool isQuickPlaylist = widget->uuid().isNull();
 
     QMenu *m = new QMenu(this);
-    m->addAction(tr("&New Playlist"), this, SLOT(newTab()));
-    m->addAction(tr("&Duplicate Playlist"), this, SLOT(duplicateTab()));
+    m->addAction(tr("&New Playlist"), this, &PlaylistWindow::newTab);
+    m->addAction(tr("&Duplicate Playlist"), this, &PlaylistWindow::duplicateTab);
     m->addSeparator();
-    m->addAction(tr("&Remove Playlist"), this, SLOT(closeTab()));
-    m->addAction(tr("&Clear Playlist"), this, SLOT(playlist_removeAllRequested()));
+    m->addAction(tr("&Remove Playlist"), this, &PlaylistWindow::closeTab);
+    m->addAction(tr("&Clear Playlist"), this, &PlaylistWindow::playlist_removeAllRequested);
     m->addAction(tr("&Restore Playlist"), this, &PlaylistWindow::playlist_restoreRequested);
     m->addSeparator();
-    QAction *renameTab = m->addAction(tr("&Rename Playlist"), this, SLOT(renameTab()));
+    QAction *renameTab = m->addAction(tr("&Rename Playlist"), this, &PlaylistWindow::renameTab);
     if (isQuickPlaylist)
         renameTab->setEnabled(false);
-    m->addAction(tr("&Import Playlist"), this, SLOT(importTab()));
-    m->addAction(tr("&Export Playlist"), this, SLOT(exportTab()));
+    m->addAction(tr("&Import Playlist"), this, &PlaylistWindow::importTab);
+    m->addAction(tr("&Export Playlist"), this, &PlaylistWindow::exportTab);
     m->exec(ui->tabWidget->mapToGlobal(pos));
     delete m;
 }

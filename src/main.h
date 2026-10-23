@@ -1,7 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 #include <QHash>
-#include <QMetaMethod>
 #include <QTranslator>
 #include "ipc/http.h"
 #include "ipc/json.h"

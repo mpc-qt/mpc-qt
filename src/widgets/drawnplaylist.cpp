@@ -118,8 +118,8 @@ DrawnPlaylist::DrawnPlaylist(QSharedPointer<PlaylistCollection> collection,
     setItemDelegate(new PlayPainter(this));
 
     connect(worker, &QThread::finished, searcher, &QObject::deleteLater);
-    connect(model(), SIGNAL(rowsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)),
-            this, SLOT(model_rowsMoved(QModelIndex,int,int,QModelIndex,int)));
+    connect(model(), &QAbstractItemModel::rowsAboutToBeMoved,
+            this, &DrawnPlaylist::model_rowsMoved);
     connect(this, &DrawnPlaylist::searcher_filterPlaylist,
             searcher, &PlaylistSearcher::filterPlaylist,
             Qt::QueuedConnection);
@@ -128,10 +128,10 @@ DrawnPlaylist::DrawnPlaylist(QSharedPointer<PlaylistCollection> collection,
             Qt::QueuedConnection);
     connect(this, &DrawnPlaylist::currentItemChanged,
             this, &DrawnPlaylist::self_currentItemChanged);
-    connect(this, SIGNAL(itemDoubleClicked(QListWidgetItem*)),
-            this, SLOT(self_itemDoubleClicked(QListWidgetItem*)));
-    connect(this, SIGNAL(customContextMenuRequested(QPoint)),
-            this, SLOT(self_customContextMenuRequested(QPoint)));
+    connect(this, &DrawnPlaylist::itemDoubleClicked,
+            this, &DrawnPlaylist::self_itemDoubleClicked);
+    connect(this, &DrawnPlaylist::customContextMenuRequested,
+            this, &DrawnPlaylist::self_customContextMenuRequested);
     setContextMenuPolicy(Qt::CustomContextMenu);
 }
 
