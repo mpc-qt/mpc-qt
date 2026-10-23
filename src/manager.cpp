@@ -1279,9 +1279,12 @@ void PlaybackManager::mpvw_playlistChanged(const QVariantList &playlist)
     // replace current item with the content we got from the archive or playlist file, and trigger its playback
     QList<QUrl> urls;
     bool currentItemFound = false;
+    QString currentMpvPlaylistItemPath;
+    // FIXME: also use i.toMap()["title"]
     for (auto const& i : playlist) {
         if (i.toMap()["current"].toBool()) {
             currentItemFound = true;
+            currentMpvPlaylistItemPath = i.toMap()["filename"].toString();
             if (i.toMap()["id"].toInt() != currentMpvPlaylistItemId)
                 currentMpvPlaylistItemId = i.toMap()["id"].toInt();
             else
@@ -1295,6 +1298,6 @@ void PlaybackManager::mpvw_playlistChanged(const QVariantList &playlist)
     }
     if (!currentItemFound)
         return;
-    playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, urls);
-    playItem(nowPlayingList, nowPlayingItem);
+    QUuid nextItem = playlistWindow_->replaceItem(nowPlayingList, nowPlayingItem, urls, currentMpvPlaylistItemPath);
+    playItem(nowPlayingList, nextItem);
 }
