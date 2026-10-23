@@ -1976,23 +1976,23 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;New Playlist</source>
-        <translation type="unfinished">&amp;Nový playlist</translation>
+        <translation>&amp;Nový playlist</translation>
     </message>
     <message>
         <source>C&amp;lose Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zavřít playlist</translation>
     </message>
     <message>
         <source>Close Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Zavřít playlist</translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
-        <translation type="unfinished">&amp;Duplikovat playlist</translation>
+        <translation>Dup&amp;likovat playlist</translation>
     </message>
     <message>
         <source>Res&amp;tore Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Obnovi&amp;t playlist</translation>
     </message>
 </context>
 <context>
@@ -2419,7 +2419,7 @@ Chcete ho nahradit?</translation>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>O&amp;bnovit playlist</translation>
     </message>
     <message>
         <source>&amp;Rename Playlist</source>
@@ -2471,7 +2471,7 @@ Chcete ho nahradit?</translation>
     </message>
     <message>
         <source>Duplicate Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Duplikovat playlist</translation>
     </message>
 </context>
 <context>
