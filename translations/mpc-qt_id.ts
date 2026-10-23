@@ -401,11 +401,11 @@ Apakah Anda ingin menggunakannya untuk &quot;%3&quot;?</translation>
     </message>
     <message>
         <source>Remove All</source>
-        <translation type="unfinished"></translation>
+        <translation>Hapus Semua</translation>
     </message>
     <message>
         <source>Remove all playlists backups?</source>
-        <translation type="unfinished"></translation>
+        <translation>Hapus semua cadangan daftar putar?</translation>
     </message>
 </context>
 <context>
@@ -1932,7 +1932,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>&amp;Load Subtitles File...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Muat File Subtitel...</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
@@ -2133,7 +2133,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished">Jelajahi...</translation>
+        <translation>Telusuri...</translation>
     </message>
 </context>
 <context>
@@ -2335,7 +2335,7 @@ Apakah Anda ingin menggantinya?</translation>
     </message>
     <message>
         <source>Open Containing Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Buka Folder Lokasi File</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
@@ -4764,35 +4764,35 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>mpv options file:</source>
-        <translation type="unfinished"></translation>
+        <translation>File opsi mpv:</translation>
     </message>
     <message>
         <source>Resample audio to match video (audio may become desynchronized)</source>
-        <translation type="unfinished"></translation>
+        <translation>Sesuaikan laju sampel audio agar cocok dengan video (audio mungkin menjadi tidak sinkron)</translation>
     </message>
     <message>
         <source>Time video frames to audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Sesuaikan waktu bingkai video dengan audio</translation>
     </message>
     <message>
         <source>Video Output (recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation>Output Video (disarankan)</translation>
     </message>
     <message>
         <source>Decoder + Video Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Dekoder + Keluaran Video</translation>
     </message>
     <message>
         <source>Logo background</source>
-        <translation type="unfinished"></translation>
+        <translation>Latar belakang logo</translation>
     </message>
     <message>
         <source>Blend on color</source>
-        <translation type="unfinished"></translation>
+        <translation>Padukan dengan warna</translation>
     </message>
     <message>
         <source>Checkerboard pattern</source>
-        <translation type="unfinished"></translation>
+        <translation>Pola papan catur</translation>
     </message>
 </context>
 <context>
