@@ -69,6 +69,7 @@ private:
     void addNewTab(QUuid playlist, QString title);
     void addQuickQueue();
     void itemDoubleClicked(QUuid playlistUuid, QUuid itemUuid, bool clickedInPlaylist);
+    void backupPlaylist(const DrawnPlaylist &qdp, QSharedPointer<PlaylistCollection> collection);
 
 signals:
     void windowDocked();
@@ -86,6 +87,7 @@ signals:
     void playlistsBackupRequested();
     void playlistMovedToBackup(QUuid backupUuid);
     void closingPlaylist(QUuid playlist);
+    void restoreLastPlaylistBackupRequested();
     void nowPlayingListChanged(QUuid newPlaylistUuid);
 
 public slots:
@@ -105,6 +107,7 @@ public slots:
 
     void newTab();
     void closeTab();
+    void restorePlaylist();
     void duplicateTab();
     void renameTab();
     void importTab();
@@ -140,11 +143,12 @@ private slots:
     void sortPlaylistByUrl(const QUuid &playlistUuid);
     void shufflePlaylist(const QUuid &playlistUuid, bool shuffle);
     void refreshPlaylist(const QUuid &playlistUuid, bool setCurrentItem = true);
-    void restorePlaylist(const QUuid &playlistUuid);
+    void restoreOriginalPlaylistOrder(const QUuid &playlistUuid);
 
     void self_visibilityChanged();
     void self_dockLocationChanged(Qt::DockWidgetArea area);
     void playlist_removeAllRequested();
+    void playlist_restoreRequested();
     void playlist_copySelectionToClipboard(const QUuid &playlistUuid);
     void playlist_hideOnFullscreenToggled(bool checked);
     void playlist_contextMenuRequested(const QPoint &p, const QUuid &playlistUuid, const QUuid &itemUuid);

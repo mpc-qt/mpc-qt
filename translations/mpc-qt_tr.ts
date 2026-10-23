@@ -1200,7 +1200,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation>&amp;Yeni Sekme</translation>
+        <translation type="vanished">&amp;Yeni Sekme</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
@@ -1208,11 +1208,11 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation>Sekmeyi &amp;Kapat</translation>
+        <translation type="vanished">Sekmeyi &amp;Kapat</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Sekmeyi Kapat</translation>
+        <translation type="vanished">Sekmeyi Kapat</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1220,7 +1220,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>Sekmeyi Ç&amp;oğalt</translation>
+        <translation type="vanished">Sekmeyi Ç&amp;oğalt</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
@@ -1978,6 +1978,26 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
         <source>&amp;Load Subtitles File...</source>
         <translation>Altyazı Dosyası &amp;Yükle...</translation>
     </message>
+    <message>
+        <source>&amp;New Playlist</source>
+        <translation type="unfinished">&amp;Yeni Oynatma Listesi</translation>
+    </message>
+    <message>
+        <source>C&amp;lose Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Duplicate Playlist</source>
+        <translation type="unfinished">Oyn&amp;atma Listesini Çoğalt</translation>
+    </message>
+    <message>
+        <source>Res&amp;tore Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2269,7 +2289,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>New Tab</source>
-        <translation>Yeni Sekme</translation>
+        <translation type="vanished">Yeni Sekme</translation>
     </message>
     <message>
         <source>Close Tab</source>
@@ -2277,7 +2297,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation>Sekmeyi Çoğalt</translation>
+        <translation type="vanished">Sekmeyi Çoğalt</translation>
     </message>
     <message>
         <source>Import Playlist</source>
@@ -2402,6 +2422,10 @@ Değiştirmek istiyor musunuz?</translation>
         <translation>Oyn&amp;atma Listesini Çoğalt</translation>
     </message>
     <message>
+        <source>&amp;Restore Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Rename Playlist</source>
         <translation>Oynatma Listesini &amp;Yeniden Adlandır</translation>
     </message>
@@ -2448,6 +2472,10 @@ Değiştirmek istiyor musunuz?</translation>
     <message>
         <source>Add Folder</source>
         <translation>Klasör Ekle</translation>
+    </message>
+    <message>
+        <source>Duplicate Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

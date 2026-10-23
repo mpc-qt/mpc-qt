@@ -477,6 +477,17 @@ void PlaylistWindow::itemDoubleClicked(QUuid playlistUuid, QUuid itemUuid, bool 
     itemDesired(playlistUuid, itemUuid, clickedInPlaylist);
 }
 
+void PlaylistWindow::backupPlaylist(const DrawnPlaylist &qdp, QSharedPointer<PlaylistCollection> collection)
+{
+    emit playlistsBackupRequested();
+    auto backup = PlaylistCollection::getBackup();
+    auto copy = collection->clonePlaylist(qdp.uuid());
+    copy->setCreated(qdp.playlist()->created());
+    collection->takePlaylist(copy->uuid()); // detach 'copy' from collection
+    backup->addPlaylist(copy);
+    emit playlistMovedToBackup(copy->uuid());
+}
+
 void PlaylistWindow::setIconTheme(IconThemer::FolderMode folderMode, const QString &customFolder)
 {
     themer.setIconFolders(folderMode, customFolder);
@@ -567,6 +578,11 @@ void PlaylistWindow::closeTab()
     int index = ui->tabWidget->currentIndex();
     on_tabWidget_tabCloseRequested(index);
     updateCurrentPlaylist();
+}
+
+void PlaylistWindow::restorePlaylist()
+{
+    playlist_restoreRequested();
 }
 
 void PlaylistWindow::duplicateTab()
@@ -902,7 +918,7 @@ void PlaylistWindow::refreshPlaylist(const QUuid &playlistUuid, bool setCurrentI
     Logger::log(logModule, "refreshPlaylist done");
 }
 
-void PlaylistWindow::restorePlaylist(const QUuid &playlistUuid)
+void PlaylistWindow::restoreOriginalPlaylistOrder(const QUuid &playlistUuid)
 {
     auto qdp = widgets.value(playlistUuid, nullptr);
     if (!qdp)
@@ -977,8 +993,18 @@ void PlaylistWindow::playlist_removeAllRequested()
     if (!qdp)
         return;
 
+    auto collection = PlaylistCollection::getSingleton();
+    backupPlaylist(*qdp, collection);
+    emit closingPlaylist(qdp->uuid());
+
     qdp->removeAll();
     updatePlaylistHasItems();
+}
+
+void PlaylistWindow::playlist_restoreRequested()
+{
+    emit playlistsBackupRequested();
+    emit restoreLastPlaylistBackupRequested();
 }
 
 void PlaylistWindow::playlist_copySelectionToClipboard(const QUuid &playlistUuid)
@@ -1041,6 +1067,8 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     });
     m->addAction(a);
 
+    m->addSeparator();
+
     a = new QAction(m);
     a->setText(tr("Remove"));
     connect(a, &QAction::triggered,
@@ -1093,7 +1121,7 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     a->setText(tr("Restore"));
     connect(a, &QAction::triggered,
             this, [this,playlistUuid]() {
-        restorePlaylist(playlistUuid);
+        restoreOriginalPlaylistOrder(playlistUuid);
     });
     if (pl && pl->shuffle())
         a->setDisabled(true);
@@ -1159,13 +1187,7 @@ void PlaylistWindow::on_tabWidget_tabCloseRequested(int index)
         return;
 
     auto collection = PlaylistCollection::getSingleton();
-    emit playlistsBackupRequested();
-    auto backup = PlaylistCollection::getBackup();
-    auto copy = collection->clonePlaylist(qdp->uuid());
-    copy->setCreated(qdp->playlist()->created());
-    collection->takePlaylist(copy->uuid()); // detach 'copy' from collection
-    backup->addPlaylist(copy);
-    emit playlistMovedToBackup(copy->uuid());
+    backupPlaylist(*qdp, collection);
     emit closingPlaylist(qdp->uuid());
 
     if (qdp->uuid().isNull()) {
@@ -1200,9 +1222,12 @@ void PlaylistWindow::on_tabWidget_customContextMenuRequested(const QPoint &pos)
 
     QMenu *m = new QMenu(this);
     m->addAction(tr("&New Playlist"), this, SLOT(newTab()));
+    m->addAction(tr("&Duplicate Playlist"), this, SLOT(duplicateTab()));
+    m->addSeparator();
     m->addAction(tr("&Remove Playlist"), this, SLOT(closeTab()));
     m->addAction(tr("&Clear Playlist"), this, SLOT(playlist_removeAllRequested()));
-    m->addAction(tr("&Duplicate Playlist"), this, SLOT(duplicateTab()));
+    m->addAction(tr("&Restore Playlist"), this, &PlaylistWindow::playlist_restoreRequested);
+    m->addSeparator();
     QAction *renameTab = m->addAction(tr("&Rename Playlist"), this, SLOT(renameTab()));
     if (isQuickPlaylist)
         renameTab->setEnabled(false);

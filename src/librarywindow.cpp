@@ -37,13 +37,34 @@ void LibraryWindow::updateLanguage()
     ui->retranslateUi(this);
 }
 
+void LibraryWindow::restorePlaylist(CollectionItem &collectionItem, int row)
+{
+    auto playlistCollection = PlaylistCollection::getSingleton();
+    auto backupCollection = PlaylistCollection::getBackup();
+
+    auto playlistTaken = backupCollection->takePlaylist(collectionItem.uuid());
+    playlistCollection->addPlaylist(playlistTaken);
+
+    emit playlistRestored(playlistTaken->uuid());
+    delete collectionWidget->takeItem(row);
+}
+
 void LibraryWindow::refreshLibrary()
 {
     auto backupCollection = PlaylistCollection::getBackup();
     while (backupCollection->count() > 100) {
-        backupCollection->removePlaylist(backupCollection->playlistAt(backupCollection->count() - 1));
+        backupCollection->removePlaylist(backupCollection->playlistAt(0));
     }
     collectionWidget->repopulatePlaylists();
+}
+
+void LibraryWindow::restoreLastPlaylist()
+{
+    int playlistsBackups = collectionWidget->count();
+    if (playlistsBackups < 1)
+        return;
+    auto collectionItem = static_cast<CollectionItem*>(collectionWidget->item(collectionWidget->count() - 1));
+    restorePlaylist(*collectionItem, playlistsBackups - 1);
 }
 
 void LibraryWindow::closeEvent(QCloseEvent *event)
@@ -58,14 +79,7 @@ void LibraryWindow::on_restorePlaylist_clicked()
     if (currentRow == -1)
         return;
     auto collectionItem = static_cast<CollectionItem*>(collectionWidget->currentItem());
-    auto playlistCollection = PlaylistCollection::getSingleton();
-    auto backupCollection = PlaylistCollection::getBackup();
-
-    auto playlistTaken = backupCollection->takePlaylist(collectionItem->uuid());
-    playlistCollection->addPlaylist(playlistTaken);
-
-    emit playlistRestored(playlistTaken->uuid());
-    delete collectionWidget->takeItem(currentRow);
+    restorePlaylist(*collectionItem, currentRow);
 }
 
 void LibraryWindow::on_removePlaylist_clicked()

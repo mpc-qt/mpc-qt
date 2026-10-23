@@ -603,6 +603,10 @@ void Flow::setupMainWindowConnections()
     connect(mainWindow, &MainWindow::deinterlaceSelected,
             playbackManager, &PlaybackManager::setDeinterlaceMode);
 
+    // playlistwindow -> library
+    connect(mainWindow->playlistWindow(), &PlaylistWindow::restoreLastPlaylistBackupRequested,
+            libraryWindow, &LibraryWindow::restoreLastPlaylist);
+
     // playlistwindow -> mainwindow
     connect(mainWindow->playlistWindow(), &PlaylistWindow::viewActionChanged,
             mainWindow, &MainWindow::setPlaylistVisibleState);

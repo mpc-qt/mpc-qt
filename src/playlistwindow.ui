@@ -124,7 +124,7 @@
       <item>
        <widget class="QPushButton" name="newTab">
         <property name="toolTip">
-         <string>New Tab</string>
+         <string>New Playlist</string>
         </property>
         <property name="icon">
          <iconset>
@@ -142,7 +142,7 @@
       <item>
        <widget class="QPushButton" name="duplicateTab">
         <property name="toolTip">
-         <string>Duplicate Tab</string>
+         <string>Duplicate Playlist</string>
         </property>
         <property name="icon">
          <iconset>

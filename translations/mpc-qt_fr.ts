@@ -1176,7 +1176,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation>&amp;Nouvel onglet</translation>
+        <translation type="vanished">&amp;Nouvel onglet</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
@@ -1184,11 +1184,11 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation>Fermer l’&amp;onglet</translation>
+        <translation type="vanished">Fermer l’&amp;onglet</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Fermer l’onglet</translation>
+        <translation type="vanished">Fermer l’onglet</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1196,7 +1196,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>&amp;Dupliquer l’onglet</translation>
+        <translation type="vanished">&amp;Dupliquer l’onglet</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
@@ -1934,6 +1934,26 @@ Aucune action ne sera déclenchée.</translation>
         <source>&amp;Load Subtitles File...</source>
         <translation>&amp;Charger un fichier de sous-titres...</translation>
     </message>
+    <message>
+        <source>&amp;New Playlist</source>
+        <translation type="unfinished">&amp;Nouvelle liste</translation>
+    </message>
+    <message>
+        <source>C&amp;lose Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Duplicate Playlist</source>
+        <translation type="unfinished">&amp;Dupliquer la liste</translation>
+    </message>
+    <message>
+        <source>Res&amp;tore Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2225,7 +2245,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>New Tab</source>
-        <translation>Nouvel onglet</translation>
+        <translation type="vanished">Nouvel onglet</translation>
     </message>
     <message>
         <source>Close Tab</source>
@@ -2233,7 +2253,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation>Dupliquer l’onglet</translation>
+        <translation type="vanished">Dupliquer l’onglet</translation>
     </message>
     <message>
         <source>Import Playlist</source>
@@ -2350,6 +2370,10 @@ Voulez-vous le remplacer&#x202f;?</translation>
         <translation>&amp;Dupliquer la liste</translation>
     </message>
     <message>
+        <source>&amp;Restore Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Rename Playlist</source>
         <translation>&amp;Renommer la liste</translation>
     </message>
@@ -2400,6 +2424,10 @@ Voulez-vous le remplacer&#x202f;?</translation>
     <message>
         <source>Add Folder</source>
         <translation>Ajouter un dossier</translation>
+    </message>
+    <message>
+        <source>Duplicate Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

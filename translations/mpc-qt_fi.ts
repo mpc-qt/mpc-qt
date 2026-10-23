@@ -1120,7 +1120,7 @@ Mitään toimintoa ei suoriteta.</translation>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation>&amp;Uusi Välilehti</translation>
+        <translation type="vanished">&amp;Uusi Välilehti</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
@@ -1128,11 +1128,11 @@ Mitään toimintoa ei suoriteta.</translation>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation>&amp;Sulje Välilehti</translation>
+        <translation type="vanished">&amp;Sulje Välilehti</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Sulje välilehti</translation>
+        <translation type="vanished">Sulje välilehti</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1140,7 +1140,7 @@ Mitään toimintoa ei suoriteta.</translation>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>&amp;Kopioi Välilehti</translation>
+        <translation type="vanished">&amp;Kopioi Välilehti</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
@@ -1810,6 +1810,26 @@ Mitään toimintoa ei suoriteta.</translation>
         <source>&amp;Load Subtitles File...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;New Playlist</source>
+        <translation type="unfinished">&amp;Uusi Soittolista</translation>
+    </message>
+    <message>
+        <source>C&amp;lose Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Duplicate Playlist</source>
+        <translation type="unfinished">&amp;Kopioi Soittolista</translation>
+    </message>
+    <message>
+        <source>Res&amp;tore Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2097,7 +2117,7 @@ Mitään toimintoa ei suoriteta.</translation>
     </message>
     <message>
         <source>New Tab</source>
-        <translation>Uusi välilehti</translation>
+        <translation type="vanished">Uusi välilehti</translation>
     </message>
     <message>
         <source>Close Tab</source>
@@ -2105,7 +2125,7 @@ Mitään toimintoa ei suoriteta.</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation>Kopioi Välilehti</translation>
+        <translation type="vanished">Kopioi Välilehti</translation>
     </message>
     <message>
         <source>Import Playlist</source>
@@ -2229,6 +2249,10 @@ Do you want to replace it?</source>
         <translation>&amp;Kopioi Soittolista</translation>
     </message>
     <message>
+        <source>&amp;Restore Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Rename Playlist</source>
         <translation>Nimeä soittolista uudellee&amp;n</translation>
     </message>
@@ -2275,6 +2299,10 @@ Do you want to replace it?</source>
     <message>
         <source>Add Folder</source>
         <translation>Lisää kansio</translation>
+    </message>
+    <message>
+        <source>Duplicate Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

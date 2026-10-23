@@ -1096,7 +1096,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation>تبويب &amp;جديد</translation>
+        <translation type="vanished">تبويب &amp;جديد</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
@@ -1104,11 +1104,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation>إغ&amp;لاق التبويب</translation>
+        <translation type="vanished">إغ&amp;لاق التبويب</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>إغلاق التبويب</translation>
+        <translation type="vanished">إغلاق التبويب</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1116,7 +1116,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>م&amp;ضاعفة التبويب</translation>
+        <translation type="vanished">م&amp;ضاعفة التبويب</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
@@ -1762,6 +1762,26 @@ No action will be triggered.</source>
         <source>&amp;Load Subtitles File...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;New Playlist</source>
+        <translation type="unfinished">قائمة تشغيل &amp;جديدة</translation>
+    </message>
+    <message>
+        <source>C&amp;lose Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Duplicate Playlist</source>
+        <translation type="unfinished">م&amp;ضاعفة قائمة التشغيل</translation>
+    </message>
+    <message>
+        <source>Res&amp;tore Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2041,11 +2061,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>New Tab</source>
-        <translation>تبويب جديد</translation>
+        <translation type="vanished">تبويب جديد</translation>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation>مضاعفة التبويب</translation>
+        <translation type="vanished">مضاعفة التبويب</translation>
     </message>
     <message>
         <source>Import Playlist</source>
@@ -2146,6 +2166,10 @@ Do you want to replace it?</source>
         <translation>م&amp;ضاعفة قائمة التشغيل</translation>
     </message>
     <message>
+        <source>&amp;Restore Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Rename Playlist</source>
         <translation>إع&amp;ادة تسمية قائمة التشغيل</translation>
     </message>
@@ -2192,6 +2216,10 @@ Do you want to replace it?</source>
     <message>
         <source>Add Folder</source>
         <translation>إضافة مجلد</translation>
+    </message>
+    <message>
+        <source>Duplicate Playlist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

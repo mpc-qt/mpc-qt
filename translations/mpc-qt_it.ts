@@ -1178,7 +1178,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation>&amp;Nuova scheda</translation>
+        <translation type="vanished">&amp;Nuova scheda</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
@@ -1186,11 +1186,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation>C&amp;hiudi scheda</translation>
+        <translation type="vanished">C&amp;hiudi scheda</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Chiudi scheda</translation>
+        <translation type="vanished">Chiudi scheda</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1198,7 +1198,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>&amp;Duplica scheda</translation>
+        <translation type="vanished">&amp;Duplica scheda</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
@@ -1828,6 +1828,26 @@ No action will be triggered.</source>
         <source>&amp;Load Subtitles File...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;New Playlist</source>
+        <translation type="unfinished">&amp;Nuova scaletta</translation>
+    </message>
+    <message>
+        <source>C&amp;lose Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Duplicate Playlist</source>
+        <translation type="unfinished">&amp;Duplica scaletta</translation>
+    </message>
+    <message>
+        <source>Res&amp;tore Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2111,7 +2131,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>New Tab</source>
-        <translation>Nuova scheda</translation>
+        <translation type="vanished">Nuova scheda</translation>
     </message>
     <message>
         <source>Close Tab</source>
@@ -2119,7 +2139,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Duplicate Tab</source>
-        <translation>Duplica scheda</translation>
+        <translation type="vanished">Duplica scheda</translation>
     </message>
     <message>
         <source>Import Playlist</source>
@@ -2231,6 +2251,10 @@ Do you want to replace it?</source>
         <translation>&amp;Duplica scaletta</translation>
     </message>
     <message>
+        <source>&amp;Restore Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Rename Playlist</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2276,6 +2300,10 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Add Folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duplicate Playlist</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
