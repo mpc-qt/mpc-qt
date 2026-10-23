@@ -2000,23 +2000,23 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;New Playlist</source>
-        <translation type="unfinished">新しい再生リスト(&amp;N)</translation>
+        <translation>新しい再生リスト(&amp;N)</translation>
     </message>
     <message>
         <source>C&amp;lose Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>再生リストを閉じる(&amp;L)</translation>
     </message>
     <message>
         <source>Close Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>再生リストを閉じる</translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
-        <translation type="unfinished">再生リストを複製(&amp;D)</translation>
+        <translation>再生リストを複製(&amp;D)</translation>
     </message>
     <message>
         <source>Res&amp;tore Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>再生リストを復元(&amp;T)</translation>
     </message>
 </context>
 <context>
@@ -2443,7 +2443,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>再生リストを復元(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Rename Playlist</source>
@@ -2495,7 +2495,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Duplicate Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>再生リストを複製</translation>
     </message>
 </context>
 <context>
