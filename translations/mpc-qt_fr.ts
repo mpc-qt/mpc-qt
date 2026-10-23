@@ -409,11 +409,11 @@ Voulez-vous l&apos;utiliser pour &quot;%3&quot; à la place&#x202f;?</translatio
     </message>
     <message>
         <source>Remove All</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer tout</translation>
     </message>
     <message>
         <source>Remove all playlists backups?</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer toutes les sauvegardes de listes de lecture&#x202f;?</translation>
     </message>
 </context>
 <context>
@@ -1936,23 +1936,23 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
-        <translation type="unfinished">&amp;Nouvelle liste</translation>
+        <translation>&amp;Nouvelle liste</translation>
     </message>
     <message>
         <source>C&amp;lose Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Fer&amp;mer la liste</translation>
     </message>
     <message>
         <source>Close Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Fermer la liste</translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
-        <translation type="unfinished">&amp;Dupliquer la liste</translation>
+        <translation>&amp;Dupliquer la liste</translation>
     </message>
     <message>
         <source>Res&amp;tore Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurer la liste</translation>
     </message>
 </context>
 <context>
@@ -2371,7 +2371,7 @@ Voulez-vous le remplacer&#x202f;?</translation>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Restaurer la liste</translation>
     </message>
     <message>
         <source>&amp;Rename Playlist</source>
@@ -2427,7 +2427,7 @@ Voulez-vous le remplacer&#x202f;?</translation>
     </message>
     <message>
         <source>Duplicate Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Dupliquer la liste</translation>
     </message>
 </context>
 <context>
