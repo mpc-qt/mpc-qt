@@ -1428,7 +1428,7 @@ Nie zostanie wykonana żadna czynność.</translation>
     </message>
     <message>
         <source>Quick Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Szybkie otwarcie</translation>
     </message>
     <message>
         <source>No files favorited</source>
