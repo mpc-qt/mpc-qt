@@ -1,6 +1,5 @@
 #include <QDockWidget>
 #include <QMainWindow>
-#include <QMetaMethod>
 #include <QGuiApplication>
 #include <QStyle>
 #include <QTimer>
@@ -143,11 +142,9 @@ void WindowManager::restoreDocks(QMainWindow *dockHost, QList<QDockWidget *> doc
     dockHost->restoreState(QByteArray::fromBase64(encoded));
     for (auto widget : dockWidgets) {
         dockHost->restoreDockWidget(widget);
-        const QMetaObject *dockMetaObject = widget->metaObject();
-        int index = dockMetaObject->indexOfSlot("dockLocationMaybeChanged(void)");
-        if (index == -1)
-            continue;
-        dockMetaObject->method(index).invoke(widget);
+        if (auto customDock = qobject_cast<PlaylistWindow*>(widget)) {
+            customDock->dockLocationMaybeChanged();
+        }
     }
 }
 
