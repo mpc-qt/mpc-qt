@@ -168,19 +168,19 @@
     </message>
     <message>
         <source>Decrease Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>Уменьшить панорамирование и масштабирование</translation>
     </message>
     <message>
         <source>Increase Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>Увеличить панорамирование и масштабирование</translation>
     </message>
     <message>
         <source>Minimum Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>Минимальное панорамирование и масштабирование</translation>
     </message>
     <message>
         <source>Maximum Pan and Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимальное панорамирование и масштабирование</translation>
     </message>
     <message>
         <source>Decrease Zoom</source>
@@ -397,11 +397,11 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Remove All</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить все</translation>
     </message>
     <message>
         <source>Remove all playlists backups?</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить все резервные копии списков воспроизведения?</translation>
     </message>
 </context>
 <context>
@@ -1460,7 +1460,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>%1%</source>
-        <translation type="unfinished"></translation>
+        <translation>%1%</translation>
     </message>
     <message>
         <source>No streams favorited</source>
@@ -1480,7 +1480,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Seeking</source>
-        <translation type="unfinished"></translation>
+        <translation>Перемотка</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1784,11 +1784,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Extra Stereo</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Дополнительное стерео</translation>
     </message>
     <message>
         <source>&amp;Compressor</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Компрессор</translation>
     </message>
     <message>
         <source>Screenshot</source>
@@ -1796,7 +1796,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Crossfeed (for headphones)</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Кроссфид (для наушников)</translation>
     </message>
     <message>
         <source>More Files</source>
@@ -1928,31 +1928,31 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Reload Subtitles File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Перезагрузить файл субтитров</translation>
     </message>
     <message>
         <source>&amp;Load Subtitles File...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Загрузить файл субтитров...</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
-        <translation type="unfinished">&amp;Создать список воспроизведения</translation>
+        <translation>&amp;Создать список воспроизведения</translation>
     </message>
     <message>
         <source>C&amp;lose Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Закрыть список воспроизведения</translation>
     </message>
     <message>
         <source>Close Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыть список воспроизведения</translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
-        <translation type="unfinished">&amp;Дублировать список воспроизведения</translation>
+        <translation>&amp;Дублировать список воспроизведения</translation>
     </message>
     <message>
         <source>Res&amp;tore Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Восстановить список воспроизведения</translation>
     </message>
 </context>
 <context>
@@ -2133,7 +2133,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished">Обзор...</translation>
+        <translation>Обзор...</translation>
     </message>
 </context>
 <context>
@@ -2354,7 +2354,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Open Containing Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть содержащую папку</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
@@ -2374,7 +2374,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Восстановить список воспроизведения</translation>
     </message>
     <message>
         <source>&amp;Rename Playlist</source>
@@ -2426,7 +2426,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Duplicate Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Дублировать список воспроизведения</translation>
     </message>
 </context>
 <context>
@@ -2624,11 +2624,11 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Placeholder text</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст-заполнитель</translation>
     </message>
     <message>
         <source>Accent</source>
-        <translation type="unfinished"></translation>
+        <translation>Акцент</translation>
     </message>
     <message>
         <source>Active</source>
@@ -3902,7 +3902,7 @@ media file played</source>
     </message>
     <message>
         <source>Always loop images (manual progression)</source>
-        <translation type="unfinished">Всегда цикл изображения (ручная прогрессия)</translation>
+        <translation>Всегда циклически показывать изображения (ручная смена)</translation>
     </message>
     <message>
         <source>Display Format</source>
@@ -4651,7 +4651,7 @@ media file played</source>
     </message>
     <message>
         <source> ms</source>
-        <translation>мс</translation>
+        <translation> мс</translation>
     </message>
     <message>
         <source>Remember panels state</source>
@@ -4867,7 +4867,7 @@ media file played</source>
     </message>
     <message>
         <source>Replay Gain</source>
-        <translation type="unfinished"></translation>
+        <translation>Усиление при повторе</translation>
     </message>
     <message>
         <source>Track</source>
@@ -4911,47 +4911,47 @@ media file played</source>
     </message>
     <message>
         <source>Minimize to tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Сворачивать в трей</translation>
     </message>
     <message>
         <source>Close to tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрывать в трей</translation>
     </message>
     <message>
         <source>Maximum video resolution:</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимальное разрешение видео:</translation>
     </message>
     <message>
         <source>mpv options file:</source>
-        <translation type="unfinished"></translation>
+        <translation>Файл параметров mpv:</translation>
     </message>
     <message>
         <source>Resample audio to match video (audio may become desynchronized)</source>
-        <translation type="unfinished"></translation>
+        <translation>Передискретизировать звук под видео (звук может рассинхронизироваться)</translation>
     </message>
     <message>
         <source>Time video frames to audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Синхронизировать кадры видео по звуку</translation>
     </message>
     <message>
         <source>Video Output (recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation>Видеовыход (рекомендуется)</translation>
     </message>
     <message>
         <source>Decoder + Video Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Декодер + видеовыход</translation>
     </message>
     <message>
         <source>Logo background</source>
-        <translation type="unfinished"></translation>
+        <translation>Фон логотипа</translation>
     </message>
     <message>
         <source>Blend on color</source>
-        <translation type="unfinished"></translation>
+        <translation>Наложение на цвет</translation>
     </message>
     <message>
         <source>Checkerboard pattern</source>
-        <translation type="unfinished"></translation>
+        <translation>Шахматный узор</translation>
     </message>
 </context>
 <context>
@@ -4974,7 +4974,7 @@ media file played</source>
     </message>
     <message>
         <source>Show tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать подсказку</translation>
     </message>
     <message>
         <source>Played: %1</source>
