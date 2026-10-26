@@ -2398,7 +2398,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>&amp;Import Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Importuj listę odtwarzania</translation>
     </message>
     <message>
         <source>&amp;Export Playlist</source>
@@ -2922,7 +2922,7 @@ media file played</source>
     </message>
     <message>
         <source>Control</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Control</translation>
     </message>
     <message>
         <source>Volume step</source>
@@ -3875,7 +3875,7 @@ media file played</source>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tak</translation>
     </message>
     <message>
         <source>Font</source>
