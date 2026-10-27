@@ -1207,7 +1207,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;New Tab</source>
-        <translation>&amp;Ny flik</translation>
+        <translation type="vanished">&amp;Ny flik</translation>
     </message>
     <message>
         <source>Ctrl+Shift+T</source>
@@ -1215,11 +1215,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>C&amp;lose Tab</source>
-        <translation>Stäng f&amp;lik</translation>
+        <translation type="vanished">Stäng f&amp;lik</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation>Stäng flik</translation>
+        <translation type="vanished">Stäng flik</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1227,7 +1227,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>&amp;Duplicera flik</translation>
+        <translation type="vanished">&amp;Duplicera flik</translation>
     </message>
     <message>
         <source>Ctrl+Shift+D</source>
@@ -1997,6 +1997,26 @@ No action will be triggered.</source>
         <source>&amp;Load Subtitles File...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;New Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>C&amp;lose Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Duplicate Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Res&amp;tore Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2283,16 +2303,8 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New Tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Close Tab</source>
         <translation type="vanished">Close Tab</translation>
-    </message>
-    <message>
-        <source>Duplicate Tab</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Import Playlist</source>
@@ -2416,6 +2428,10 @@ Do you want to replace it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>&amp;Restore Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Rename Playlist</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2461,6 +2477,10 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Add Folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duplicate Playlist</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
