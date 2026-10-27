@@ -59,11 +59,18 @@
  <url type="vcs-browser">https://github.com/mpc-qt/mpc-qt</url>
  <url type="contribute">https://github.com/mpc-qt/mpc-qt/wiki/Contributing</url>
 
+ <requires>
+  <display_length compare="ge">768</display_length>
+ </requires>
+
  <recommends>
   <control>keyboard</control>
   <control>pointing</control>
-  <control>touch</control>
  </recommends>
+
+ <supports>
+  <control>touch</control>
+ </supports>
 
  <releases>
 
