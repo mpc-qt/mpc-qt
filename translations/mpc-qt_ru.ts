@@ -2537,11 +2537,11 @@ Do you want to replace it?</source>
     <name>QObject</name>
     <message>
         <source>All Media (*.%1);;All Files (*.*)</source>
-        <translation>Все мультимедиа (*.%1);; Все файлы (*.*)</translation>
+        <translation>Все мультимедиа (*.%1);;Все файлы (*.*)</translation>
     </message>
     <message>
         <source>All Subtitles (*.%1);;All Files (*.*)</source>
-        <translation>Все субтитры (*.%1);; Все файлы (*.*)</translation>
+        <translation>Все субтитры (*.%1);;Все файлы (*.*)</translation>
     </message>
     <message>
         <source>Window text</source>
