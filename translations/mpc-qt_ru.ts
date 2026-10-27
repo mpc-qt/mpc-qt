@@ -528,7 +528,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>O&amp;pen Disc</source>
-        <translation>О&amp;ткрыть диск</translation>
+        <translation>Открыть &amp;диск</translation>
     </message>
     <message>
         <source>Recent &amp;Files</source>
