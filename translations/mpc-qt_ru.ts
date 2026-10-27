@@ -512,7 +512,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>vo: 0, decoder: 0</source>
-        <translation>vo: 0, декодер: 0</translation>
+        <translation>вывод видео: 0, декодер: 0</translation>
     </message>
     <message>
         <source>Bitrate</source>
@@ -1480,7 +1480,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Seeking</source>
-        <translation>Перемотка</translation>
+        <translation>Поиск</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1752,7 +1752,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>vo: %1, decoder: %2</source>
-        <translation>vo: %1, декодер: %2</translation>
+        <translation>вывод видео: %1, декодер: %2</translation>
     </message>
     <message>
         <source>v: %1 kb/s, a: %2 kb/s</source>
@@ -1784,11 +1784,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Extra Stereo</source>
-        <translation>&amp;Дополнительное стерео</translation>
+        <translation>&amp;Расширенное стерео</translation>
     </message>
     <message>
         <source>&amp;Compressor</source>
-        <translation>&amp;Компрессор</translation>
+        <translation>&amp;Компрессор диапазона</translation>
     </message>
     <message>
         <source>Screenshot</source>
@@ -1796,7 +1796,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Crossfeed (for headphones)</source>
-        <translation>&amp;Кроссфид (для наушников)</translation>
+        <translation>Кроссфид (для &amp;наушников)</translation>
     </message>
     <message>
         <source>More Files</source>
@@ -1928,11 +1928,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Reload Subtitles File</source>
-        <translation>&amp;Перезагрузить файл субтитров</translation>
+        <translation>Перезагрузить файл суб&amp;титров</translation>
     </message>
     <message>
         <source>&amp;Load Subtitles File...</source>
-        <translation>&amp;Загрузить файл субтитров...</translation>
+        <translation>Загрузить файл суб&amp;титров...</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
@@ -1952,7 +1952,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Res&amp;tore Playlist</source>
-        <translation>&amp;Восстановить список воспроизведения</translation>
+        <translation>Восстановить список восп&amp;роизведения</translation>
     </message>
 </context>
 <context>
@@ -2350,7 +2350,8 @@ No action will be triggered.</source>
     <message>
         <source>File &quot;%1&quot; already exists.
 Do you want to replace it?</source>
-        <translation>Файл &quot;%1&quot; уже существует. Заменить его?</translation>
+        <translation>Файл &quot;%1&quot; уже существует.
+Заменить его?</translation>
     </message>
     <message>
         <source>Open Containing Folder</source>
@@ -2374,7 +2375,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>
-        <translation>&amp;Восстановить список воспроизведения</translation>
+        <translation>Восстановить список восп&amp;роизведения</translation>
     </message>
     <message>
         <source>&amp;Rename Playlist</source>
@@ -2540,7 +2541,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>All Subtitles (*.%1);;All Files (*.*)</source>
-        <translation>Все субтитры (*.%1);; Все файлы (*. *)</translation>
+        <translation>Все субтитры (*.%1);; Все файлы (*.*)</translation>
     </message>
     <message>
         <source>Window text</source>
@@ -2694,7 +2695,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Fullscreen</source>
-        <translation>В полном экране</translation>
+        <translation>Полный экран</translation>
     </message>
     <message>
         <source>Sync</source>
@@ -2766,7 +2767,7 @@ media file played</source>
     </message>
     <message>
         <source>Tray icon</source>
-        <translation>Значок в системном лотке</translation>
+        <translation>Значок в области уведомлений</translation>
     </message>
     <message>
         <source>Show OSD</source>
@@ -2902,7 +2903,7 @@ media file played</source>
     </message>
     <message>
         <source>Custom</source>
-        <translation>Другие</translation>
+        <translation>Выбрать</translation>
     </message>
     <message>
         <source>System (Linux only)</source>
@@ -3642,7 +3643,7 @@ media file played</source>
     </message>
     <message>
         <source>Resample (may introduce latency)</source>
-        <translation>Перекодировать (может привести к задержке)</translation>
+        <translation>Передискретизировать (может привести к задержке)</translation>
     </message>
     <message>
         <source>Ignore channel map (for specific alsa setups)</source>
@@ -3722,7 +3723,7 @@ media file played</source>
     </message>
     <message>
         <source>Fullscreen monitor</source>
-        <translation>В полном экране</translation>
+        <translation>Монитор для полного экрана</translation>
     </message>
     <message>
         <source>Launch files in fullscreen</source>
@@ -3758,7 +3759,7 @@ media file played</source>
     </message>
     <message>
         <source>Framedropping</source>
-        <translation>Программное выпадение кадров</translation>
+        <translation>Пропуск кадров</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -3798,11 +3799,11 @@ media file played</source>
     </message>
     <message>
         <source>Resample audio to match video</source>
-        <translation>Перекодировать звук, чтобы соответствовать видео</translation>
+        <translation>Передискретизировать аудио, чтобы соответствовать видео</translation>
     </message>
     <message>
         <source>Resample audio to match video (may drop frames)</source>
-        <translation>Перекодировать звук, чтобы соответствовать видео (может пропускать кадры)</translation>
+        <translation>Передискретизировать аудио, чтобы соответствовать видео (возможен пропуск кадров)</translation>
     </message>
     <message>
         <source>Drop or repeat video frames</source>
@@ -3810,7 +3811,7 @@ media file played</source>
     </message>
     <message>
         <source>Drop or repeat audio data</source>
-        <translation>Удалять или повторять данные аудио</translation>
+        <translation>Пропускать или повторять аудиоданные</translation>
     </message>
     <message>
         <source>Audio drop size</source>
@@ -4179,7 +4180,7 @@ media file played</source>
     </message>
     <message>
         <source>Drop frames before the seek target in the decoder</source>
-        <translation>Пропуск кадров при поиске</translation>
+        <translation>Разрешить декодеру пропускать кадры до выбранной при поиске позиции</translation>
     </message>
     <message>
         <source>Show chapter marks in seek bar</source>
@@ -4379,7 +4380,7 @@ media file played</source>
     </message>
     <message>
         <source>Prefer external subtitles over embedded subtitles</source>
-        <translation>Предпочитайте внешние субтитры встроенным</translation>
+        <translation>Предпочитать внешние субтитры встроенным</translation>
     </message>
     <message>
         <source>Ignore embedded subtitles</source>
@@ -4475,7 +4476,7 @@ media file played</source>
     </message>
     <message>
         <source>Shaders contain special effects which can be added to the video rendering process. A list of community-made shaders can be found on &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</source>
-        <translation>Шейдеры содержат специальные эффекты, которые могут быть добавлены в процесс рендеринга видео. Список шейдеров, созданных сообществом, можно найти на сайте &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;the mpv wiki&lt;/span&gt;&lt;/a&gt;.</translation>
+        <translation>Шейдеры содержат специальные эффекты, которые могут быть добавлены в процесс рендеринга видео. Список шейдеров, созданных сообществом, можно найти в &lt;a href=&quot;https://github.com/mpv-player/mpv/wiki/User-Scripts#user-shaders&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;вики mpv&lt;/span&gt;&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>Pipewire</source>
@@ -4867,7 +4868,7 @@ media file played</source>
     </message>
     <message>
         <source>Replay Gain</source>
-        <translation>Усиление при повторе</translation>
+        <translation>Выравнивание громкости</translation>
     </message>
     <message>
         <source>Track</source>
@@ -4891,7 +4892,7 @@ media file played</source>
     </message>
     <message>
         <source>Search settings…</source>
-        <translation>Поиск настроек...</translation>
+        <translation>Поиск настроек…</translation>
     </message>
     <message>
         <source>A&amp;pplication name only</source>
@@ -4911,11 +4912,11 @@ media file played</source>
     </message>
     <message>
         <source>Minimize to tray</source>
-        <translation>Сворачивать в трей</translation>
+        <translation>Сворачивать в область уведомлений</translation>
     </message>
     <message>
         <source>Close to tray</source>
-        <translation>Закрывать в трей</translation>
+        <translation>Сворачивать в область уведомлений при закрытии</translation>
     </message>
     <message>
         <source>Maximum video resolution:</source>
@@ -4927,19 +4928,19 @@ media file played</source>
     </message>
     <message>
         <source>Resample audio to match video (audio may become desynchronized)</source>
-        <translation>Передискретизировать звук под видео (звук может рассинхронизироваться)</translation>
+        <translation>Передискретизировать аудио, чтобы соответствовать видео (возможна потеря синхронизации аудио)</translation>
     </message>
     <message>
         <source>Time video frames to audio</source>
-        <translation>Синхронизировать кадры видео по звуку</translation>
+        <translation>Синхронизировать видеокадры с аудио</translation>
     </message>
     <message>
         <source>Video Output (recommended)</source>
-        <translation>Видеовыход (рекомендуется)</translation>
+        <translation>Вывод видео (рекомендуется)</translation>
     </message>
     <message>
         <source>Decoder + Video Output</source>
-        <translation>Декодер + видеовыход</translation>
+        <translation>Декодер + вывод видео</translation>
     </message>
     <message>
         <source>Logo background</source>
@@ -4947,7 +4948,7 @@ media file played</source>
     </message>
     <message>
         <source>Blend on color</source>
-        <translation>Наложение на цвет</translation>
+        <translation>Смешивание по цвету</translation>
     </message>
     <message>
         <source>Checkerboard pattern</source>
