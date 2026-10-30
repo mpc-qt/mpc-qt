@@ -10,6 +10,7 @@ class ScreenSaver;
 namespace Platform {
     extern const bool isWindows;
     extern const bool isUnix;
+    extern const bool isMacOS;
 
     DeviceManager *deviceManager();
     ScreenSaver *screenSaver();

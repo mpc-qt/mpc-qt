@@ -41,6 +41,14 @@ const bool Platform::isUnix =
 #endif
 ;
 
+const bool Platform::isMacOS =
+#if defined(Q_OS_MACOS)
+    true
+#else
+    false
+#endif
+;
+
 
 static constexpr char logModule[] =  "platform";
 
