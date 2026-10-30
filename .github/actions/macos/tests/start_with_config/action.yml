@@ -1,0 +1,30 @@
+name: Start-Stop
+description: 'Test starting with config and log'
+
+runs:
+  using: "composite"
+
+  steps:
+  - name: Copy settings file
+    run:  mkdir -p "$CONFIGDIR" && cp ./.github/actions/data/settings.json "$CONFIGDIR/settings.json"
+    shell: bash
+  - name: Run mpc-qt
+    uses: ./.github/actions/macos/commands/run_mpc-qt
+  - name: Take a screenshot
+    uses: ./.github/actions/macos/commands/screenshot
+    with:
+      number: "1"
+      description: "config"
+  - name: Kill mpc-qt
+    uses: ./.github/actions/macos/commands/kill_mpc-qt
+  - name: ls $CONFIGDIR
+    run:  ls "$CONFIGDIR"
+    shell: bash
+  - name: cat log
+    run:  |
+      echo "::group::mpc-qt.log"
+      cat mpc-qt.log
+      echo "::endgroup::"
+    shell: bash
+  - name: Check if mpc-qt stopped correctly
+    uses: ./.github/actions/commands/check_stop

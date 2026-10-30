@@ -1,0 +1,31 @@
+name: macOS CI Tests
+
+on:
+  [workflow_call]
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: macos-15
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v6.0.2
+    - name: Download mpc-qt build
+      uses: actions/download-artifact@v8.0.1
+      with:
+        path: mpc-qt
+        merge-multiple: true
+    - name: Unzip the app
+      run: ditto -x -k mpc-qt/mpc-qt-macos-arm64.zip mpc-qt
+    - name: Set CONFIGDIR environment variable
+      run: echo "CONFIGDIR=$HOME/Library/Preferences/mpc-qt" >> $GITHUB_ENV
+    - name: Start with config
+      uses: ./.github/actions/macos/tests/start_with_config
+    - name: Start with config and video
+      uses: ./.github/actions/macos/tests/start_with_config_video
+    - name: Start without config
+      uses: ./.github/actions/macos/tests/start
+    - name: Upload screenshots
+      if: ${{ !cancelled() }}
+      uses: ./.github/actions/commands/upload_screenshots
