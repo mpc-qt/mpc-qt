@@ -1446,9 +1446,7 @@ void MainWindow::showMuteMenu()
 QList<QUrl> MainWindow::doQuickOpenFileDialog()
 {
     static QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     QList<QUrl> urls;
     static QString filter;
     if (filter.isEmpty())
@@ -2643,9 +2641,7 @@ void MainWindow::on_actionFileOpen_triggered()
 void MainWindow::on_actionFileOpenDvdbd_triggered()
 {
     static QFileDialog::Options options = QFileDialog::ShowDirsOnly;
-#ifdef Q_OS_MAC
-    options |= QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     QUrl dir;
     static QUrl lastDir;
     dir = QFileDialog::getExistingDirectoryUrl(this, tr("Open Directory"),
@@ -2659,9 +2655,7 @@ void MainWindow::on_actionFileOpenDvdbd_triggered()
 void MainWindow::on_actionFileOpenDirectory_triggered()
 {
     static QFileDialog::Options options = QFileDialog::ShowDirsOnly;
-#ifdef Q_OS_MAC
-    options |= QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     QUrl url;
     static QUrl lastDir;
     url = QFileDialog::getExistingDirectoryUrl(this, tr("Open Directory"),
@@ -2739,9 +2733,7 @@ void MainWindow::on_actionFileLoadSubtitle_triggered()
 {
     QUrl url;
     static QFileDialog::Options options;
-#ifdef Q_OS_MAC
-    options = QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     url = QFileDialog::getOpenFileUrl(this, tr("Open Subtitle"), currentFile, "", nullptr, options);
     if (url.isEmpty())
         return;

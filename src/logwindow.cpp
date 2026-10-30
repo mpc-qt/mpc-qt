@@ -4,6 +4,7 @@
 #include <QTextDocument>
 #include "logger.h"
 #include "logwindow.h"
+#include "platform/unify.h"
 #include "ui_logwindow.h"
 
 static constexpr char logModule[] =  "logwindow";
@@ -64,9 +65,7 @@ void LogWindow::on_copy_clicked()
 void LogWindow::on_save_clicked()
 {
     static QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     QString textToSave = ui->messages->document()->toPlainText();
     static QString lastLog;
     QString file = QFileDialog::getSaveFileName(this, tr("Save File"), lastLog, tr("Log files (*.log)"),
