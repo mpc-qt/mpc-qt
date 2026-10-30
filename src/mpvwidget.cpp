@@ -782,8 +782,8 @@ void MpvObject::showCursor()
     if (!widget)
         return;
     auto w = widget->self()->window();
-    if (w->cursor() == Qt::BlankCursor || w->isFullScreen()
-                                       || w->isMaximized()) {
+    if (w->cursor() == Qt::BlankCursor || widget->self()->cursor() == Qt::BlankCursor
+            || w->isFullScreen() || w->isMaximized()) {
         widget->self()->setCursor(Qt::ArrowCursor);
         w->setCursor(Qt::ArrowCursor);
     }
