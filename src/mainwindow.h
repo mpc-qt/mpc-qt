@@ -52,6 +52,7 @@ public:
     void setActionPlayLoopUse();
     void setRemoveFileNotRecycle();
     void updateLanguage();
+    bool fullscreenMode() const;
 
 protected:
     bool event(QEvent *event) override;
@@ -75,7 +76,6 @@ private:
     VolumeSlider *volumeSlider();
 
     DecorationState decorationState() const;
-    bool fullscreenMode() const;
     double sizeFactor() const;
 
     void setDiscState(bool playingADisc);
