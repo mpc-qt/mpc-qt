@@ -4,6 +4,7 @@
 #include <QFileInfo>
 #include <QFileDialog>
 #include <QColorDialog>
+#include <QFontDatabase>
 #include <QStyleHints>
 #include <QToolTip>
 #include <QToolButton>
@@ -437,6 +438,14 @@ void SettingsWindow::setupPlatformWidgets()
     }
     if (!Platform::tiledDesktopsExist()) {
         ui->playbackAutozoomWarn->setVisible(false);
+    }
+
+    // The font box would start on the first family in alphabetical order,
+    // Academy Engraved LET.  Calibri is MPC-HC's default, and Arial comes
+    // with macOS.
+    if (Platform::isMacOS) {
+        QString subsFont = QFontDatabase::hasFamily("Calibri") ? "Calibri" : "Arial";
+        ui->fontComboBox->setCurrentFont(QFont(subsFont));
     }
 
     ui->stylesheetFusion->setChecked(Platform::isWindows);
