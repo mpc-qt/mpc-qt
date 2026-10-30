@@ -1,0 +1,38 @@
+name: macOS CI
+
+on:
+  push:
+  pull_request:
+
+env:
+  DEVBUILD: continuous
+
+jobs:
+  build:
+    name: Build
+    runs-on: macos-15
+    env:
+      MACOSX_DEPLOYMENT_TARGET: "15.0"
+
+    steps:
+    - name: Install packages
+      run: brew install qtbase qtsvg qttools mpv ninja
+    - uses: actions/checkout@v6.0.2
+      with:
+        fetch-depth: 1000
+        fetch-tags: true
+    - name: Set version
+      run: echo "VERSION=$( cat .github/actions/data/VERSION )" >> $GITHUB_ENV
+    - name: Build
+      run: FORCE_VERSION=$VERSION bash scripts/make-release-macos.sh
+    - name: Upload
+      uses: actions/upload-artifact@v7
+      with:
+        name: "mpc-qt-macos-arm64-${{ env.VERSION }}"
+        path: mpc-qt-macos-arm64.zip
+        if-no-files-found: error
+
+  tests:
+    name: macOS
+    needs: build
+    uses: ./.github/workflows/macos_tests.yml

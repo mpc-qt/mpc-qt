@@ -3,6 +3,7 @@
 #include "openfiledialog.h"
 #include "ui_openfiledialog.h"
 #include "logger.h"
+#include "platform/unify.h"
 
 static constexpr char logModule[] =  "openfile";
 
@@ -34,9 +35,7 @@ void OpenFileDialog::on_fileBrowse_clicked()
 {
     static QString filter;
     static QFileDialog::Options options;
-#ifdef Q_OS_MAC
-    options = QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     if (filter.isEmpty())
         filter = Helpers::fileOpenFilter();
     QUrl url = QFileDialog::getOpenFileUrl(this, tr("Select File"), QUrl(), filter,
@@ -49,9 +48,7 @@ void OpenFileDialog::on_subsBrowse_clicked()
 {
     static QString subsFilter;
     static QFileDialog::Options options;
-#ifdef Q_OS_MAC
-    options = QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     if (subsFilter.isEmpty())
         subsFilter = Helpers::subsOpenFilter();
     QUrl url = QFileDialog::getOpenFileUrl(this, tr("Select File"), QUrl(), subsFilter,

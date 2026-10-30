@@ -3,9 +3,11 @@
 #include <cstring>
 #include <QApplication>
 #include <QFileDialog>
+#include <QFileOpenEvent>
 #include <QDir>
 #include <QIcon>
 #include <QStandardPaths>
+#include <QSurfaceFormat>
 #include <QJsonDocument>
 #include <QTimer>
 #include <QCommandLineParser>
@@ -73,11 +75,10 @@ int main(int argc, char *argv[])
     Logger::singleton();
     Logger::log(logModule, "starting logging");
     const QIcon bundledIcon{QLatin1String(mpcQtIconPath)};
-#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
-    QApplication::setWindowIcon(QIcon::fromTheme(QLatin1String(desktopFile), bundledIcon));
-#else
-    QApplication::setWindowIcon(bundledIcon);
-#endif
+    if (Platform::isUnix)
+        QApplication::setWindowIcon(QIcon::fromTheme(QLatin1String(desktopFile), bundledIcon));
+    else
+        QApplication::setWindowIcon(bundledIcon);
 
     // Qt sets the locale in the QApplication constructor, but libmpv requires
     // the LC_NUMERIC category to be set to "C", so change it back.
@@ -381,6 +382,15 @@ void Flow::init() {
     setupMpvObjectConnections();
     setupFlowConnections();
 
+    // Finder hands over files with open events instead of the command line
+    if (Platform::isMacOS) {
+        fileOpenTimer.setSingleShot(true);
+        fileOpenTimer.setInterval(0);
+        connect(&fileOpenTimer, &QTimer::timeout,
+                this, &Flow::fileOpenTimer_timeout);
+        qApp->installEventFilter(this);
+    }
+
     // Setup more ipc and wire them up if we're in the primary mode
     if (programMode == PrimaryMode) {
         setupMpris();
@@ -443,6 +453,15 @@ bool Flow::earlyQuit()
 
 void Flow::earlyPlatformOverride()
 {
+    // macOS hands out a legacy OpenGL 2.1 context unless a core profile is
+    // requested, and mpv needs 3.0 or later for VideoToolbox interop.
+    if (Platform::isMacOS) {
+        QSurfaceFormat format = QSurfaceFormat::defaultFormat();
+        format.setVersion(3, 2);
+        format.setProfile(QSurfaceFormat::CoreProfile);
+        QSurfaceFormat::setDefaultFormat(format);
+    }
+
     if (!Platform::isUnix)
         return;
 
@@ -1406,6 +1425,30 @@ void Flow::restoreWindows_v2(const QVariantMap &geometryMap)
 void Flow::self_windowsRestored()
 {
     server->fakePayload(makePayload());
+    windowsAreRestored = true;
+    if (!fileOpenUrls.isEmpty())
+        fileOpenTimer.start();
+}
+
+bool Flow::eventFilter(QObject *watched, QEvent *event)
+{
+    if (event->type() != QEvent::FileOpen)
+        return QObject::eventFilter(watched, event);
+
+    // Selecting several files in Finder sends one event per file, so collect
+    // them and open them together on the next pass of the event loop.
+    fileOpenUrls << static_cast<QFileOpenEvent*>(event)->url();
+    fileOpenTimer.start();
+    return true;
+}
+
+void Flow::fileOpenTimer_timeout()
+{
+    if (!windowsAreRestored)
+        return;
+    Logger::log(logModule, QString("opening %1 file(s) from open events").arg(fileOpenUrls.count()));
+    playbackManager->openSeveralFiles(fileOpenUrls, true);
+    fileOpenUrls.clear();
 }
 
 void Flow::loadPlaylistsBackup()
@@ -1475,9 +1518,7 @@ void Flow::mainwindow_recentClear()
 void Flow::mainwindow_takeImage(Helpers::ScreenshotRender render)
 {
     static auto options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     // Take a screenshot and save it to a temporary file
     QString fmt("%1/mpc-qt_%2.%3");
     QString tempDir = QStandardPaths::writableLocation(QStandardPaths::TempLocation);

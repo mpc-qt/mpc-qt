@@ -1,0 +1,45 @@
+name: Start
+description: 'Test starting and writing JSON files'
+
+runs:
+  using: "composite"
+
+  steps:
+  - name: Remove MPC-QT settings
+    uses: ./.github/actions/commands/remove_settings
+  - name: Run mpc-qt
+    uses: ./.github/actions/macos/commands/run_mpc-qt
+  - name: Take a screenshot
+    uses: ./.github/actions/macos/commands/screenshot
+    with:
+      number: "3"
+      description: "no_config"
+  - name: Kill mpc-qt
+    uses: ./.github/actions/macos/commands/kill_mpc-qt
+  - name: ls $CONFIGDIR
+    run: ls "$CONFIGDIR"
+    shell: bash
+  - name: Check that mpc-qt wrote favorites.json
+    uses: ./.github/actions/commands/check_if_file_exists
+    with:
+      filename: "favorites.json"
+  - name: Check that mpc-qt wrote geometry_v2.json
+    uses: ./.github/actions/commands/check_if_file_exists
+    with:
+      filename: "geometry_v2.json"
+  - name: Check that mpc-qt wrote keys_v2.json
+    uses: ./.github/actions/commands/check_if_file_exists
+    with:
+      filename: "keys_v2.json"
+  - name: Check that mpc-qt wrote playlists.json
+    uses: ./.github/actions/commands/check_if_file_exists
+    with:
+      filename: "playlists.json"
+  - name: Check that mpc-qt wrote recent.json
+    uses: ./.github/actions/commands/check_if_file_exists
+    with:
+      filename: "recent.json"
+  - name: Check that mpc-qt wrote settings.json
+    uses: ./.github/actions/commands/check_if_file_exists
+    with:
+      filename: "settings.json"

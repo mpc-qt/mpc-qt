@@ -14,6 +14,7 @@
 #include "ui_playlistwindow.h"
 #include "widgets/drawnplaylist.h"
 #include "playlist.h"
+#include "platform/unify.h"
 
 static constexpr char logModule[] =  "playlistwindow";
 static constexpr char keyCurrentPlaylist[] = "currentPlaylist";
@@ -621,9 +622,7 @@ void PlaylistWindow::renameTab()
 void PlaylistWindow::importTab()
 {
     static QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     QString file;
     file = QFileDialog::getOpenFileName(this, tr("Import Playlist File"), QString(),
                                         tr("Playlist files (*.m3u *.m3u8 *.txt)"), nullptr, options);
@@ -824,9 +823,7 @@ void PlaylistWindow::savePlaylist(const QUuid &playlistUuid)
 {
     static QFileDialog::Options options = QFileDialog::Options();
 
-#ifdef Q_OS_MAC
-    options = QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
 
     QString file = tr("Playlist") + ".m3u";
     bool confirmOverwrite = false;

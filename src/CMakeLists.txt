@@ -65,13 +65,38 @@ if(UNIX)
     target_sources(mpc-qt PUBLIC
         ipc/mpris.cpp ipc/mpris.h
         platform/devicemanager_unix.cpp platform/devicemanager_unix.h
-        platform/screensaver_unix.cpp platform/screensaver_unix.h
     )
     find_package(Qt6 REQUIRED COMPONENTS DBus)
     target_link_libraries(mpc-qt PRIVATE Qt::DBus)
     if (Boost_FOUND)
         add_compile_definitions(BOOST_STACKTRACE_USE_ADDR2LINE)
     endif()
+endif()
+
+if(UNIX AND NOT APPLE)
+    target_sources(mpc-qt PUBLIC
+        platform/screensaver_unix.cpp platform/screensaver_unix.h
+    )
+endif()
+
+if(APPLE)
+    set(MACOS_ICON ${CMAKE_SOURCE_DIR}/packaging/macos/mpc-qt.icns)
+    set_source_files_properties(${MACOS_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
+    target_sources(mpc-qt PUBLIC
+        platform/fullscreen_mac.mm platform/fullscreen_mac.h
+        platform/screensaver_mac.cpp platform/screensaver_mac.h
+        ${MACOS_ICON}
+    )
+    target_link_libraries(mpc-qt PRIVATE "-framework AppKit" "-framework CoreFoundation" "-framework IOKit")
+
+    set_target_properties(mpc-qt PROPERTIES
+        MACOSX_BUNDLE_INFO_PLIST ${CMAKE_SOURCE_DIR}/packaging/macos/Info.plist.in
+        MACOSX_BUNDLE_GUI_IDENTIFIER io.github.mpc_qt.mpc-qt
+        MACOSX_BUNDLE_BUNDLE_NAME MPC-QT
+        MACOSX_BUNDLE_ICON_FILE mpc-qt.icns
+        MACOSX_BUNDLE_SHORT_VERSION_STRING ${VERSTR_WIN}
+        MACOSX_BUNDLE_BUNDLE_VERSION ${VERSTR_WIN}
+    )
 endif()
 
 if(WIN32)
