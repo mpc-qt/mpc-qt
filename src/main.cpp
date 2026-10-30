@@ -3,6 +3,7 @@
 #include <cstring>
 #include <QApplication>
 #include <QFileDialog>
+#include <QFileOpenEvent>
 #include <QDir>
 #include <QIcon>
 #include <QStandardPaths>
@@ -380,6 +381,15 @@ void Flow::init() {
     setupSettingsConnections();
     setupMpvObjectConnections();
     setupFlowConnections();
+
+    // Finder hands over files with open events instead of the command line
+    if (Platform::isMacOS) {
+        fileOpenTimer.setSingleShot(true);
+        fileOpenTimer.setInterval(0);
+        connect(&fileOpenTimer, &QTimer::timeout,
+                this, &Flow::fileOpenTimer_timeout);
+        qApp->installEventFilter(this);
+    }
 
     // Setup more ipc and wire them up if we're in the primary mode
     if (programMode == PrimaryMode) {
@@ -1406,6 +1416,30 @@ void Flow::restoreWindows_v2(const QVariantMap &geometryMap)
 void Flow::self_windowsRestored()
 {
     server->fakePayload(makePayload());
+    windowsAreRestored = true;
+    if (!fileOpenUrls.isEmpty())
+        fileOpenTimer.start();
+}
+
+bool Flow::eventFilter(QObject *watched, QEvent *event)
+{
+    if (event->type() != QEvent::FileOpen)
+        return QObject::eventFilter(watched, event);
+
+    // Selecting several files in Finder sends one event per file, so collect
+    // them and open them together on the next pass of the event loop.
+    fileOpenUrls << static_cast<QFileOpenEvent*>(event)->url();
+    fileOpenTimer.start();
+    return true;
+}
+
+void Flow::fileOpenTimer_timeout()
+{
+    if (!windowsAreRestored)
+        return;
+    Logger::log(logModule, QString("opening %1 file(s) from open events").arg(fileOpenUrls.count()));
+    playbackManager->openSeveralFiles(fileOpenUrls, true);
+    fileOpenUrls.clear();
 }
 
 void Flow::loadPlaylistsBackup()
