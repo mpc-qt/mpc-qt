@@ -30,6 +30,7 @@ jobs:
             vulkan-headers \
             qt6ct \
             kvantum \
+            breeze \
             lxqt-qtplugin \
             libva-intel-driver \
             wget \
