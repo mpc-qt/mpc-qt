@@ -65,13 +65,25 @@ if(UNIX)
     target_sources(mpc-qt PUBLIC
         ipc/mpris.cpp ipc/mpris.h
         platform/devicemanager_unix.cpp platform/devicemanager_unix.h
-        platform/screensaver_unix.cpp platform/screensaver_unix.h
     )
     find_package(Qt6 REQUIRED COMPONENTS DBus)
     target_link_libraries(mpc-qt PRIVATE Qt::DBus)
     if (Boost_FOUND)
         add_compile_definitions(BOOST_STACKTRACE_USE_ADDR2LINE)
     endif()
+endif()
+
+if(UNIX AND NOT APPLE)
+    target_sources(mpc-qt PUBLIC
+        platform/screensaver_unix.cpp platform/screensaver_unix.h
+    )
+endif()
+
+if(APPLE)
+    target_sources(mpc-qt PUBLIC
+        platform/screensaver_mac.cpp platform/screensaver_mac.h
+    )
+    target_link_libraries(mpc-qt PRIVATE "-framework CoreFoundation" "-framework IOKit")
 endif()
 
 if(WIN32)

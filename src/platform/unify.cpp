@@ -8,6 +8,9 @@
 #if defined(Q_OS_WIN)
 #include "devicemanager_win.h"
 #include "screensaver_win.h"
+#elif defined(Q_OS_MACOS)
+#include "devicemanager_unix.h"
+#include "screensaver_mac.h"
 #else
 #include "devicemanager_unix.h"
 #include "screensaver_unix.h"
@@ -18,6 +21,9 @@
 #if defined(Q_OS_WIN)
     #define ScreenSaverPlatform     ScreenSaverWin
     #define DeviceManagerPlatform   DeviceManagerWin
+#elif defined(Q_OS_MACOS)
+    #define ScreenSaverPlatform     ScreenSaverMac
+    #define DeviceManagerPlatform   DeviceManagerUnix
 #else
     #define ScreenSaverPlatform     ScreenSaverUnix
     #define DeviceManagerPlatform   DeviceManagerUnix
