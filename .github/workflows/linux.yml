@@ -10,7 +10,7 @@ env:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
 
     steps:
     - name: Install packages
@@ -30,14 +30,6 @@ jobs:
       with:
         fetch-depth: 1000
         fetch-tags: true
-    - name: Test build with an older Qt version
-      run: |
-        cmake -G Ninja -B old_build
-        cmake --build old_build
-    - name: Install newer Qt version
-      uses: jurplel/install-qt-action@v4
-      with:
-        cache: true
     - name: Set version
       run: |
         echo "FORCE_VERSION=" >> $GITHUB_ENV
@@ -66,6 +58,10 @@ jobs:
       with:
         name: "mpc-qt-linux-x64-debug_symbols-${{ env.VERSION }}"
         path: bin/mpc-qt.dbg
+
+  build_old:
+    name: Linux Old Qt
+    uses: ./.github/workflows/linux_old.yml
 
   tests:
     name: Linux
