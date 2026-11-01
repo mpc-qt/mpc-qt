@@ -28,6 +28,7 @@ jobs:
         libmpv2 \
         xvfb \
         x11-apps \
+        socat \
         imagemagick
     - name: Start Xvfb
       uses: ./.github/actions/linux/commands/start_xvfb
