@@ -31,6 +31,10 @@ jobs:
         imagemagick
     - name: Start Xvfb
       uses: ./.github/actions/linux/commands/start_xvfb
+    - name: Configure ALSA null device
+      run: |
+        echo 'pcm.!default { type null }' > ~/.asoundrc
+        echo 'ctl.!default { type null }' >> ~/.asoundrc
     - name: Set CONFIGDIR environment variable
       run: echo "CONFIGDIR=$HOME/.config/mpc-qt" >> $GITHUB_ENV
     - name: Start with config
