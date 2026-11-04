@@ -708,6 +708,8 @@ bool Helpers::pointFromString(QPoint &point, const QString &text)
 QRect Helpers::availableGeometryFromPoint(const QPoint &point)
 {
     QScreen *screen = QGuiApplication::screenAt(point);
+    if (!screen)
+        screen = QGuiApplication::primaryScreen();
     return screen->availableGeometry();
 }
 
