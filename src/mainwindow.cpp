@@ -648,6 +648,8 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
     else {
         WindowManager::restoreFullscreen(this, fullscreenMemory);
         showAlwaysOnTopWindow(false);
+        if (Platform::isMacOS)
+            updateWindowFlags();
         if (videoPreview)
             videoPreview->hide();
         if (tooltip)
@@ -1284,7 +1286,7 @@ void MainWindow::updateSize(bool first_run)
     if (frozenWindow)
         return;
 
-    if (!first_run && (isMaximized() || isFullScreen()))
+    if (!first_run && (isMaximized() || isFullScreen() || fullscreenMode_))
         return;
 
     if (zoomMode == FitToWindow)
@@ -1345,6 +1347,9 @@ void MainWindow::updateOnTop()
 void MainWindow::updateWindowFlags()
 {
     if (frozenWindow)
+        return;
+    // Applying flags would put the title bar back on the full screen window.
+    if (Platform::isMacOS && fullscreenMode_)
         return;
 
     Qt::WindowFlags flags = windowFlags();

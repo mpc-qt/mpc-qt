@@ -83,10 +83,11 @@ if(APPLE)
     set(MACOS_ICON ${CMAKE_SOURCE_DIR}/packaging/macos/mpc-qt.icns)
     set_source_files_properties(${MACOS_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
     target_sources(mpc-qt PUBLIC
+        platform/fullscreen_mac.mm platform/fullscreen_mac.h
         platform/screensaver_mac.cpp platform/screensaver_mac.h
         ${MACOS_ICON}
     )
-    target_link_libraries(mpc-qt PRIVATE "-framework CoreFoundation" "-framework IOKit")
+    target_link_libraries(mpc-qt PRIVATE "-framework AppKit" "-framework CoreFoundation" "-framework IOKit")
 
     set_target_properties(mpc-qt PROPERTIES
         MACOSX_BUNDLE_INFO_PLIST ${CMAKE_SOURCE_DIR}/packaging/macos/Info.plist.in

@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.19 FATAL_ERROR)
 
 project(mpc-qt CXX)
+if(APPLE)
+    enable_language(OBJCXX)
+endif()
 # set(CMAKE_VERBOSE_MAKEFILE ON)
 
 set(CMAKE_CXX_STANDARD 17)
