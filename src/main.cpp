@@ -75,11 +75,10 @@ int main(int argc, char *argv[])
     Logger::singleton();
     Logger::log(logModule, "starting logging");
     const QIcon bundledIcon{QLatin1String(mpcQtIconPath)};
-#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
-    QApplication::setWindowIcon(QIcon::fromTheme(QLatin1String(desktopFile), bundledIcon));
-#else
-    QApplication::setWindowIcon(bundledIcon);
-#endif
+    if (Platform::isUnix)
+        QApplication::setWindowIcon(QIcon::fromTheme(QLatin1String(desktopFile), bundledIcon));
+    else
+        QApplication::setWindowIcon(bundledIcon);
 
     // Qt sets the locale in the QApplication constructor, but libmpv requires
     // the LC_NUMERIC category to be set to "C", so change it back.
@@ -1519,9 +1518,7 @@ void Flow::mainwindow_recentClear()
 void Flow::mainwindow_takeImage(Helpers::ScreenshotRender render)
 {
     static auto options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     // Take a screenshot and save it to a temporary file
     QString fmt("%1/mpc-qt_%2.%3");
     QString tempDir = QStandardPaths::writableLocation(QStandardPaths::TempLocation);

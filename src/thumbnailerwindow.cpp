@@ -6,6 +6,7 @@
 #include <QTimer>
 #include "helpers.h"
 #include "logger.h"
+#include "platform/unify.h"
 #include "thumbnailerwindow.h"
 #include "ui_thumbnailerwindow.h"
 
@@ -66,9 +67,7 @@ void ThumbnailerWindow::setScreenshotFormat(QString format)
 void ThumbnailerWindow::on_saveImageBrowse_clicked()
 {
     static QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     QString filename = QFileDialog::getSaveFileName(this, "Save Thumbnails",
                                                     ui->saveImage->text(),
                                                     saveDialogFilter,
