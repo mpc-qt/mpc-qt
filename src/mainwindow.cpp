@@ -507,6 +507,17 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
     }
 }
 
+// A pointer on the right or bottom screen edge can map one pixel past a full
+// screen widget (macOS does this), which would count as having left it.
+static QPoint pointInWidget(QPointF globalPos, QWidget const *widget) {
+    QPoint p = widget->mapFromGlobal(globalPos).toPoint();
+    if (p.x() == widget->width())
+        p.rx()--;
+    if (p.y() == widget->height())
+        p.ry()--;
+    return p;
+}
+
 static bool insideWidget(QPoint p, QWidget const *widget) {
     if (widget == nullptr)
         return false;
@@ -1193,8 +1204,7 @@ void MainWindow::checkBottomArea(QPointF mousePosition)
     case Helpers::ShowWhenHovering:
         if (mpvw == nullptr)
             break;
-        relMousePosition = mpvw->mapFromGlobal(mousePosition);
-        if (ui->bottomArea->geometry().contains(relMousePosition.toPoint())) {
+        if (ui->bottomArea->geometry().contains(pointInWidget(mousePosition, mpvw))) {
             if (ui->bottomArea->isHidden())
                 ui->bottomArea->show();
         } else if (ui->bottomArea->isVisible() && !hideTimer.isActive()) {
@@ -3711,7 +3721,7 @@ void MainWindow::hideTimer_timeout()
     if (mpvw == nullptr)
         return;
     if (fullscreenMode_ &&
-            !ui->bottomArea->geometry().contains(mpvw->mapFromGlobal(QCursor::pos())))
+            !ui->bottomArea->geometry().contains(pointInWidget(QCursor::pos(), mpvw)))
         ui->bottomArea->hide();
 }
 
