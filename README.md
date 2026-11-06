@@ -17,6 +17,7 @@ DirectShow.
 * [Contributing and translation](#contributing-code-and-translations)
 * [Compiling](#compiling)
 * [Compiling on Windows](#compiling-on-windows)
+* [Compiling on macOS](#compiling-on-macos)
 * [Questions and answers](#questions-and-answers)
 
 ## Releases
@@ -24,7 +25,7 @@ DirectShow.
 [Packages are available] for various systems.  
 There are release builds for Windows and Linux users on the [release page]; these use time-based
 versioning (e.g. 17.07 corresponds to July 2017).  
-There are [development builds] for Windows and Linux (AppImage, Flatpak and native build).  
+There are [development builds] for Windows, Linux (AppImage, Flatpak and native build) and macOS (app bundle).  
 
 Note that unimplemented features in the options dialog are hidden and (where
 this is not possible) disabled.  This is to preserve the familiar options layout
@@ -206,6 +207,10 @@ folder into `mpv-dev/include/mpv`.  If you do this, compile with the
 
 Congratulations, you have now built MPC-QT!
 
+## Compiling on macOS
+
+[![macOS CI]][macOS CI link]
+
 ## Questions and answers
 See the [Wiki Q&A] and the other pages of the wiki.
 
@@ -224,6 +229,8 @@ See the [Wiki Q&A] and the other pages of the wiki.
 [C/C++ CI link]:https://github.com/mpc-qt/mpc-qt/actions/workflows/linux.yml
 [Msys2 CI]:https://github.com/mpc-qt/mpc-qt/actions/workflows/windows-msys2.yml/badge.svg
 [Msys2 CI link]:https://github.com/mpc-qt/mpc-qt/actions/workflows/windows-msys2.yml
+[macOS CI]:https://github.com/mpc-qt/mpc-qt/actions/workflows/macos.yml/badge.svg
+[macOS CI link]:https://github.com/mpc-qt/mpc-qt/actions/workflows/macos.yml
 [aur]:https://aur.archlinux.org/packages/mpc-qt-git/
 [ports]:https://www.freshports.org/multimedia/mpc-qt
 [mpv-build repo]:https://github.com/mpv-player/mpv-build
