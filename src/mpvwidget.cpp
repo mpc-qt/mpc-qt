@@ -11,6 +11,7 @@
 #include <QMouseEvent>
 #include <QMetaObject>
 #include <QDir>
+#include <QScreen>
 #include <QWindow>
 #include <cmath>
 #include <stdexcept>
@@ -782,8 +783,8 @@ void MpvObject::showCursor()
     if (!widget)
         return;
     auto w = widget->self()->window();
-    if (w->cursor() == Qt::BlankCursor || w->isFullScreen()
-                                       || w->isMaximized()) {
+    if (w->cursor() == Qt::BlankCursor || widget->self()->cursor() == Qt::BlankCursor
+            || w->isFullScreen() || w->isMaximized()) {
         widget->self()->setCursor(Qt::ArrowCursor);
         w->setCursor(Qt::ArrowCursor);
     }
@@ -1174,7 +1175,9 @@ void MpvGlWidget::mouseMoveEvent(QMouseEvent *event)
                                pos.y()*devicePixelRatioF());
     event->accept();
     int e = 0;
-    if (!window()->isFullScreen() && !window()->isMaximized()) {
+    bool fillsScreen = window()->isFullScreen() || window()->isMaximized()
+            || window()->geometry() == window()->screen()->geometry();
+    if (!fillsScreen) {
         if (pos.x() < 10) { e |= Qt::LeftEdge; }
         if (pos.x() > width() - 10) { e |= Qt::RightEdge; }
         if (pos.y() < 10) { e |= Qt::TopEdge; }

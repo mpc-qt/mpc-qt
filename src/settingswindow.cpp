@@ -4,6 +4,7 @@
 #include <QFileInfo>
 #include <QFileDialog>
 #include <QColorDialog>
+#include <QFontDatabase>
 #include <QStyleHints>
 #include <QToolTip>
 #include <QToolButton>
@@ -437,6 +438,14 @@ void SettingsWindow::setupPlatformWidgets()
     }
     if (!Platform::tiledDesktopsExist()) {
         ui->playbackAutozoomWarn->setVisible(false);
+    }
+
+    // The font box would start on the first family in alphabetical order,
+    // Academy Engraved LET.  Calibri is MPC-HC's default, and Arial comes
+    // with macOS.
+    if (Platform::isMacOS) {
+        QString subsFont = QFontDatabase::hasFamily("Calibri") ? "Calibri" : "Arial";
+        ui->fontComboBox->setCurrentFont(QFont(subsFont));
     }
 
     ui->stylesheetFusion->setChecked(Platform::isWindows);
@@ -1487,9 +1496,7 @@ void SettingsWindow::on_interfaceWidgetDark_toggled(bool checked)
 void SettingsWindow::on_interfaceIconsCustomBrowse_clicked()
 {
     static QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options.setFlag(QFileDialog::DontUseNativeDialog);
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     QString dir = ui->interfaceIconsCustomFolder->text();
     dir = QFileDialog::getExistingDirectory(this, "", dir, options);
     if (dir.isEmpty())
@@ -1531,9 +1538,7 @@ void SettingsWindow::on_debandEnabled_toggled(bool checked)
 void SettingsWindow::on_logoExternalBrowse_clicked()
 {
     static QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     QString file = ui->logoExternalLocation->text();
     file = QFileDialog::getOpenFileName(this, tr("Open Logo Image"), file, "", nullptr, options);
     if (file.isEmpty())
@@ -1639,9 +1644,7 @@ void SettingsWindow::on_keysReset_clicked()
 void SettingsWindow::on_shadersAddFile_clicked()
 {
     static QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     QStringList files = QFileDialog::getOpenFileNames(this, "", "", "", nullptr, options);
     if (files.isEmpty())
         return;
@@ -1727,9 +1730,7 @@ void SettingsWindow::on_ccICCAutodetect_toggled(bool checked)
 void SettingsWindow::on_ccICCBrowse_clicked()
 {
     static QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     QString file = WIDGET_LOOKUP(ui->ccICCLocation).toString();
     file = QFileDialog::getOpenFileName(this, tr("Open ICC Profile"),
                                         file, tr("ICC profile files (*.icc *.icm)"),
@@ -1847,9 +1848,7 @@ void SettingsWindow::on_screenshotDirectorySet_toggled(bool checked)
 void SettingsWindow::on_screenshotDirectoryBrowse_clicked()
 {
     static QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options.setFlag(QFileDialog::DontUseNativeDialog);
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     QString dir = ui->screenshotDirectoryValue->text().isEmpty() ?
                                     ui->screenshotDirectoryValue->placeholderText() :
                                     ui->screenshotDirectoryValue->text();
@@ -1892,9 +1891,7 @@ void SettingsWindow::on_tweaksMpvOptionsFileChkBox_toggled(bool checked)
 void SettingsWindow::on_tweaksMpvOptionsFileBrowse_clicked()
 {
     static QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options.setFlag(QFileDialog::DontUseNativeDialog);
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     QString file = ui->tweaksMpvOptionsFilePath->text().isEmpty() ?
                                     ui->tweaksMpvOptionsFilePath->placeholderText() :
                                     ui->tweaksMpvOptionsFilePath->text();
@@ -2008,9 +2005,7 @@ void SettingsWindow::on_webPortLink_linkActivated(const QString &link)
 void SettingsWindow::on_webRootBrowse_clicked()
 {
     static QFileDialog::Options options = QFileDialog::ShowDirsOnly;
-#ifdef Q_OS_MAC
-    options |= QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     QString path = QFileDialog::getExistingDirectory(this, "", "", options);
     if (path.isEmpty())
         return;
@@ -2020,9 +2015,7 @@ void SettingsWindow::on_webRootBrowse_clicked()
 void SettingsWindow::on_logFilePathBrowse_clicked()
 {
     static QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options |= QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     QString file = ui->logFilePathValue->text().isEmpty() ? ui->logFilePathValue->placeholderText() :
                                                             ui->logFilePathValue->text();
     file = QFileDialog::getSaveFileName(this, tr("Choose Log File"), file, tr("Log files (*.log)"), nullptr, options);

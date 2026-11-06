@@ -507,6 +507,17 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
     }
 }
 
+// A pointer on the right or bottom screen edge can map one pixel past a full
+// screen widget (macOS does this), which would count as having left it.
+static QPoint pointInWidget(QPointF globalPos, QWidget const *widget) {
+    QPoint p = widget->mapFromGlobal(globalPos).toPoint();
+    if (p.x() == widget->width())
+        p.rx()--;
+    if (p.y() == widget->height())
+        p.ry()--;
+    return p;
+}
+
 static bool insideWidget(QPoint p, QWidget const *widget) {
     if (widget == nullptr)
         return false;
@@ -637,6 +648,8 @@ void MainWindow::setFullscreenMode(bool fullscreenMode)
     else {
         WindowManager::restoreFullscreen(this, fullscreenMemory);
         showAlwaysOnTopWindow(false);
+        if (Platform::isMacOS)
+            updateWindowFlags();
         if (videoPreview)
             videoPreview->hide();
         if (tooltip)
@@ -675,6 +688,15 @@ void MainWindow::setupMenu()
     ui->infoStats->setVisible(false);
 
     ui->menuViewOntop->setDisabled(QGuiApplication::platformName() == "wayland");
+
+    // Command-Q quits on a Mac.  Qt maps Ctrl to Command there, so Quick Open
+    // gives up its Ctrl+Q to Exit.
+    if (Platform::isMacOS) {
+        const QKeySequence quit(QKeySequence::Quit);
+        if (ui->actionFileOpenQuick->shortcut() == quit)
+            ui->actionFileOpenQuick->setShortcut(QKeySequence());
+        ui->actionFileExit->setShortcut(quit);
+    }
 
     connect(Platform::deviceManager(), &DeviceManager::deviceListChanged,
             this, [this]() { updateDiscList(); });
@@ -1193,8 +1215,7 @@ void MainWindow::checkBottomArea(QPointF mousePosition)
     case Helpers::ShowWhenHovering:
         if (mpvw == nullptr)
             break;
-        relMousePosition = mpvw->mapFromGlobal(mousePosition);
-        if (ui->bottomArea->geometry().contains(relMousePosition.toPoint())) {
+        if (ui->bottomArea->geometry().contains(pointInWidget(mousePosition, mpvw))) {
             if (ui->bottomArea->isHidden())
                 ui->bottomArea->show();
         } else if (ui->bottomArea->isVisible() && !hideTimer.isActive()) {
@@ -1274,7 +1295,7 @@ void MainWindow::updateSize(bool first_run)
     if (frozenWindow)
         return;
 
-    if (!first_run && (isMaximized() || isFullScreen()))
+    if (!first_run && (isMaximized() || isFullScreen() || fullscreenMode_))
         return;
 
     if (zoomMode == FitToWindow)
@@ -1335,6 +1356,9 @@ void MainWindow::updateOnTop()
 void MainWindow::updateWindowFlags()
 {
     if (frozenWindow)
+        return;
+    // Applying flags would put the title bar back on the full screen window.
+    if (Platform::isMacOS && fullscreenMode_)
         return;
 
     Qt::WindowFlags flags = windowFlags();
@@ -1424,9 +1448,7 @@ void MainWindow::showMuteMenu()
 QList<QUrl> MainWindow::doQuickOpenFileDialog()
 {
     static QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     QList<QUrl> urls;
     static QString filter;
     if (filter.isEmpty())
@@ -2621,9 +2643,7 @@ void MainWindow::on_actionFileOpen_triggered()
 void MainWindow::on_actionFileOpenDvdbd_triggered()
 {
     static QFileDialog::Options options = QFileDialog::ShowDirsOnly;
-#ifdef Q_OS_MAC
-    options |= QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     QUrl dir;
     static QUrl lastDir;
     dir = QFileDialog::getExistingDirectoryUrl(this, tr("Open Directory"),
@@ -2637,9 +2657,7 @@ void MainWindow::on_actionFileOpenDvdbd_triggered()
 void MainWindow::on_actionFileOpenDirectory_triggered()
 {
     static QFileDialog::Options options = QFileDialog::ShowDirsOnly;
-#ifdef Q_OS_MAC
-    options |= QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     QUrl url;
     static QUrl lastDir;
     url = QFileDialog::getExistingDirectoryUrl(this, tr("Open Directory"),
@@ -2717,9 +2735,7 @@ void MainWindow::on_actionFileLoadSubtitle_triggered()
 {
     QUrl url;
     static QFileDialog::Options options;
-#ifdef Q_OS_MAC
-    options = QFileDialog::DontUseNativeDialog;
-#endif
+    options.setFlag(QFileDialog::DontUseNativeDialog, Platform::isMacOS);
     url = QFileDialog::getOpenFileUrl(this, tr("Open Subtitle"), currentFile, "", nullptr, options);
     if (url.isEmpty())
         return;
@@ -3711,7 +3727,7 @@ void MainWindow::hideTimer_timeout()
     if (mpvw == nullptr)
         return;
     if (fullscreenMode_ &&
-            !ui->bottomArea->geometry().contains(mpvw->mapFromGlobal(QCursor::pos())))
+            !ui->bottomArea->geometry().contains(pointInWidget(QCursor::pos(), mpvw)))
         ui->bottomArea->hide();
 }
 

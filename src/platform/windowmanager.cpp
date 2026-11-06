@@ -8,6 +8,9 @@
 #include "logger.h"
 #include "mainwindow.h"
 #include "windowmanager.h"
+#ifdef Q_OS_MACOS
+#include "fullscreen_mac.h"
+#endif
 
 static constexpr char logModule[] =  "windowmanager";
 static constexpr char keyChromeSize[] = "chromeSize";
@@ -53,7 +56,8 @@ void WindowManager::saveAppWindow(MainWindow *window, bool rememberWindowGeometr
 
 void WindowManager::updateAppWindowGeometryCache(const MainWindow *window, bool restorePrevious)
 {
-    if (restorePrevious || window->isMaximized() || window->isFullScreen())
+    if (restorePrevious || window->isMaximized() || window->isFullScreen()
+            || window->fullscreenMode())
         appWindowGeometryCurrent = appWindowGeometryPrevious;
     else {
         appWindowGeometryPrevious = appWindowGeometryCurrent;
@@ -176,12 +180,19 @@ FullscreenMemory WindowManager::makeFullscreen(QWidget *who, QString preferredSc
         who->setScreen(target);
         who->setGeometry(target->geometry());
     }
+#ifdef Q_OS_MACOS
+    MacFullscreen::enter(who);
+#else
     who->showFullScreen();
+#endif
     return fm;
 }
 
 void WindowManager::restoreFullscreen(QWidget *who, const FullscreenMemory &fm)
 {
+#ifdef Q_OS_MACOS
+    MacFullscreen::leave(who);
+#endif
     who->showNormal();
     if (QGuiApplication::platformName() != "wayland")
         who->setGeometry(fm.normalGeometry);

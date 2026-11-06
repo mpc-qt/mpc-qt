@@ -1890,6 +1890,9 @@
    <property name="text">
     <string>&amp;About This Program...</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::AboutRole</enum>
+   </property>
   </action>
   <action name="actionFileOpenNetworkStream">
    <property name="text">
@@ -2129,6 +2132,9 @@
   <action name="actionHelpAboutQt">
    <property name="text">
     <string>About &amp;Qt...</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::AboutQtRole</enum>
    </property>
   </action>
   <action name="actionViewZoom025">
