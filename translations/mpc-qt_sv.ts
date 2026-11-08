@@ -128,11 +128,11 @@
     </message>
     <message>
         <source>Extra Play Times: Increment</source>
-        <translation type="unfinished"></translation>
+        <translation>Öka uppspelningar</translation>
     </message>
     <message>
         <source>Extra Play Times: Decrement</source>
-        <translation type="unfinished"></translation>
+        <translation>Minska uppspelningar</translation>
     </message>
     <message>
         <source>Move Subtitles Up</source>
