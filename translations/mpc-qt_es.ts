@@ -2138,7 +2138,7 @@ No action will be triggered.</source>
         <translation type="vanished">Vaciar</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>Copiar al portapapeles</translation>
     </message>
     <message>

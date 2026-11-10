@@ -2332,7 +2332,7 @@ No s&apos;activarà cap acció.</translation>
         <translation type="vanished">Netejar</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>Copiar al porta-retalls</translation>
     </message>
     <message>

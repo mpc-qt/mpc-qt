@@ -2184,7 +2184,7 @@ Mitään toimintoa ei suoriteta.</translation>
         <translation type="vanished">Tyhjennä</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>Kopioi Leikepöydälle</translation>
     </message>
     <message>

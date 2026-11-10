@@ -2292,7 +2292,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
         <translation type="obsolete">Bersihkan</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>Salin ke Clipboard</translation>
     </message>
     <message>

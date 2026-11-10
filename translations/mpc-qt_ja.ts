@@ -2376,7 +2376,7 @@ No action will be triggered.</source>
         <translation type="vanished">消去</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>クリップボードへコピー</translation>
     </message>
     <message>

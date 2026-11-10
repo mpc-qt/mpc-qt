@@ -2324,7 +2324,7 @@ Nie zostanie wykonana żadna czynność.</translation>
         <translation type="vanished">Wyczyść</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>Kopiuj do schowka</translation>
     </message>
     <message>

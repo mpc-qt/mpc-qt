@@ -2370,8 +2370,8 @@ No action will be triggered.</source>
         <translation type="vanished">Clear</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
-        <translation>Copy To clipboard</translation>
+        <source>Copy to Clipboard</source>
+        <translation>Copy to Clipboard</translation>
     </message>
     <message>
         <source>Save As...</source>

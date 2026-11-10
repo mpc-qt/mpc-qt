@@ -1119,7 +1119,7 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     m->addAction(a);
 
     a = new QAction(m);
-    a->setText(tr("Copy To clipboard"));
+    a->setText(tr("Copy to Clipboard"));
     connect(a, &QAction::triggered,
             this, [this,playlistUuid]() {
         playlist_copySelectionToClipboard(playlistUuid, false);

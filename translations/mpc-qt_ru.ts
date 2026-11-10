@@ -2308,7 +2308,7 @@ No action will be triggered.</source>
         <translation type="vanished">Очистить</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>Копировать в буфер обмена</translation>
     </message>
     <message>

@@ -2108,7 +2108,7 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>نسخ إلى الحافظة</translation>
     </message>
     <message>

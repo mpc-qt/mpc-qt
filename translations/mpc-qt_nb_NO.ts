@@ -2046,7 +2046,7 @@ No action will be triggered.</source>
         <translation type="vanished">Tøm</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>Kopier til utklippstavle</translation>
     </message>
     <message>

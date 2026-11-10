@@ -2144,7 +2144,7 @@ Nenhuma ação será executada.</translation>
         <translation type="obsolete">Limpar</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>Copiar p/ Área de Transferência</translation>
     </message>
     <message>

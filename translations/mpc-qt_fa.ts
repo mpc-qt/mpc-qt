@@ -2372,7 +2372,7 @@ No action will be triggered.</source>
         <translation type="vanished">Clear</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>رونوشت به حافظهٔ موقت</translation>
     </message>
     <message>

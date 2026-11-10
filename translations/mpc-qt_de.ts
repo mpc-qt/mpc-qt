@@ -2364,7 +2364,7 @@ Es wird keine Aktion ausgelöst.</translation>
         <translation type="vanished">Leeren</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>In die Zwischenablage kopieren</translation>
     </message>
     <message>

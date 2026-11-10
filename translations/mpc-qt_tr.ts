@@ -2356,7 +2356,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
         <translation type="vanished">Temizle</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>Panoya Kopyala</translation>
     </message>
     <message>

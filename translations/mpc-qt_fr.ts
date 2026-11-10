@@ -2312,7 +2312,7 @@ Aucune action ne sera déclenchée.</translation>
         <translation type="vanished">Nettoyer</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>Copier dans le presse-papiers</translation>
     </message>
     <message>

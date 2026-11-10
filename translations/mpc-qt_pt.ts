@@ -2350,7 +2350,7 @@ No action will be triggered.</source>
         <translation type="vanished">Clear</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>Copiar p/ Área de Transferência</translation>
     </message>
     <message>
