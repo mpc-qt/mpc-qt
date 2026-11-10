@@ -2183,6 +2183,10 @@ Do you want to replace it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Copy Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open Containing Folder</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2201,6 +2205,10 @@ Do you want to replace it?</source>
     <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>&amp;Duplicar la lista de reproducción</translation>
+    </message>
+    <message>
+        <source>Copy Location</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>

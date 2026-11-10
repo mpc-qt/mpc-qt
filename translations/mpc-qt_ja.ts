@@ -2422,6 +2422,10 @@ Do you want to replace it?</source>
 置き換えますか?</translation>
     </message>
     <message>
+        <source>Copy Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open Containing Folder</source>
         <translation>ファイルの場所を開く</translation>
     </message>
@@ -2440,6 +2444,10 @@ Do you want to replace it?</source>
     <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>再生リストを複製(&amp;D)</translation>
+    </message>
+    <message>
+        <source>Copy Location</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>

@@ -2006,10 +2006,6 @@ No action will be triggered.</source>
         <translation type="obsolete">Wissen</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Sort By Label</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2043,6 +2039,10 @@ Do you want to replace it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Copy Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open Containing Folder</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2060,6 +2060,14 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy Location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy To clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

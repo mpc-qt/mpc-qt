@@ -1006,7 +1006,23 @@ void PlaylistWindow::playlist_restoreRequested()
     emit restoreLastPlaylistBackupRequested();
 }
 
-void PlaylistWindow::playlist_copySelectionToClipboard(const QUuid &playlistUuid)
+void PlaylistWindow::playlist_copyNameToClipboard(const QUuid &playlistUuid)
+{
+    auto qdp = widgets.value(playlistUuid, nullptr);
+    if (!qdp)
+        return;
+    auto pl = qdp->playlist();
+    QList<QString> names;
+    qdp->traverseSelected([&pl, &names, this](QUuid itemUuid) {
+        auto i = pl->getItem(itemUuid);
+        names << displayParser.parseMetadata(i->metadata(),
+                                             i->toDisplayString(),
+                                             Helpers::VideoFile);
+    });
+    QGuiApplication::clipboard()->setText(names.join("\n"));
+}
+
+void PlaylistWindow::playlist_copySelectionToClipboard(const QUuid &playlistUuid, bool urlAsText)
 {
     auto qdp = widgets.value(playlistUuid, nullptr);
     if (!qdp)
@@ -1016,9 +1032,16 @@ void PlaylistWindow::playlist_copySelectionToClipboard(const QUuid &playlistUuid
     qdp->traverseSelected([&pl,&urls](QUuid itemUuid) {
         urls.append(pl->getItem(itemUuid)->url());
     });
-    QMimeData *mimeData = new QMimeData();
-    mimeData->setUrls(urls);
-    QGuiApplication::clipboard()->setMimeData(mimeData);
+    if (urlAsText) {
+        QList<QString> urlsAsString;
+        for (const auto &url : urls)
+            urlsAsString << url.toString();
+        QGuiApplication::clipboard()->setText(urlsAsString.join("\n"));
+    } else {
+        QMimeData *mimeData = new QMimeData();
+        mimeData->setUrls(urls);
+        QGuiApplication::clipboard()->setMimeData(mimeData);
+    }
 }
 
 void PlaylistWindow::playlist_hideOnFullscreenToggled(bool checked)
@@ -1078,10 +1101,28 @@ void PlaylistWindow::playlist_contextMenuRequested(const QPoint &p, const QUuid 
     m->addSeparator();
 
     a = new QAction(m);
+    a->setText(tr("Copy Name"));
+    connect(a, &QAction::triggered,
+            this, [this,playlistUuid]() {
+        playlist_copyNameToClipboard(playlistUuid);
+    });
+    a->setDisabled(noItemSelected);
+    m->addAction(a);
+
+    a = new QAction(m);
+    a->setText(tr("Copy Location"));
+    connect(a, &QAction::triggered,
+            this, [this,playlistUuid]() {
+        playlist_copySelectionToClipboard(playlistUuid, true);
+    });
+    a->setDisabled(noItemSelected);
+    m->addAction(a);
+
+    a = new QAction(m);
     a->setText(tr("Copy To clipboard"));
     connect(a, &QAction::triggered,
             this, [this,playlistUuid]() {
-        playlist_copySelectionToClipboard(playlistUuid);
+        playlist_copySelectionToClipboard(playlistUuid, false);
     });
     a->setDisabled(noItemSelected);
     m->addAction(a);

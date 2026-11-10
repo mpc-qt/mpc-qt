@@ -2418,6 +2418,10 @@ Do you want to replace it?</source>
 آیا می‌خواهید آن را جایگزین کنید؟</translation>
     </message>
     <message>
+        <source>Copy Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open Containing Folder</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2436,6 +2440,10 @@ Do you want to replace it?</source>
     <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>&amp;تکثیر فهرست پخش</translation>
+    </message>
+    <message>
+        <source>Copy Location</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>

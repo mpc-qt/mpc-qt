@@ -2334,6 +2334,10 @@ Do you want to replace it?</source>
 Apakah Anda ingin menggantinya?</translation>
     </message>
     <message>
+        <source>Copy Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open Containing Folder</source>
         <translation>Buka Folder Lokasi File</translation>
     </message>
@@ -2352,6 +2356,10 @@ Apakah Anda ingin menggantinya?</translation>
     <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>Duplikasi Daftar Putar</translation>
+    </message>
+    <message>
+        <source>Copy Location</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>

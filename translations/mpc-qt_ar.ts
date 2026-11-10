@@ -2104,6 +2104,10 @@ No action will be triggered.</source>
         <translation>إزالة</translation>
     </message>
     <message>
+        <source>Copy Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Copy To clipboard</source>
         <translation>نسخ إلى الحافظة</translation>
     </message>
@@ -2144,6 +2148,10 @@ No action will be triggered.</source>
 Do you want to replace it?</source>
         <translation>الملف &quot;%1&quot; موجود بالفعل.
 هل تريد استبداله؟</translation>
+    </message>
+    <message>
+        <source>Copy Location</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open Containing Folder</source>
