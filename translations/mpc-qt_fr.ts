@@ -2312,7 +2312,7 @@ Aucune action ne sera déclenchée.</translation>
         <translation type="vanished">Nettoyer</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>Copier dans le presse-papiers</translation>
     </message>
     <message>
@@ -2350,6 +2350,10 @@ Do you want to replace it?</source>
 Voulez-vous le remplacer&#x202f;?</translation>
     </message>
     <message>
+        <source>Copy Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open Containing Folder</source>
         <translation>Ouvrir le dossier contenant</translation>
     </message>
@@ -2368,6 +2372,10 @@ Voulez-vous le remplacer&#x202f;?</translation>
     <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>&amp;Dupliquer la liste</translation>
+    </message>
+    <message>
+        <source>Copy Location</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>

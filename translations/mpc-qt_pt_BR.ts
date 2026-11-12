@@ -2144,7 +2144,7 @@ Nenhuma ação será executada.</translation>
         <translation type="obsolete">Limpar</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>Copiar p/ Área de Transferência</translation>
     </message>
     <message>
@@ -2190,6 +2190,10 @@ Do you want to replace it?</source>
 Deseja substituí-lo?</translation>
     </message>
     <message>
+        <source>Copy Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open Containing Folder</source>
         <translation>Abrir pasta de origem</translation>
     </message>
@@ -2208,6 +2212,10 @@ Deseja substituí-lo?</translation>
     <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>&amp;Duplicar Playlist</translation>
+    </message>
+    <message>
+        <source>Copy Location</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>

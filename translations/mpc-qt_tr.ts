@@ -2356,7 +2356,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
         <translation type="vanished">Temizle</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>Panoya Kopyala</translation>
     </message>
     <message>
@@ -2402,6 +2402,10 @@ Do you want to replace it?</source>
 Değiştirmek istiyor musunuz?</translation>
     </message>
     <message>
+        <source>Copy Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open Containing Folder</source>
         <translation>Bulunduğu Klasörü Aç</translation>
     </message>
@@ -2420,6 +2424,10 @@ Değiştirmek istiyor musunuz?</translation>
     <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>Oyn&amp;atma Listesini Çoğalt</translation>
+    </message>
+    <message>
+        <source>Copy Location</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>

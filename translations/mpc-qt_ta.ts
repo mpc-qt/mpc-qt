@@ -2352,7 +2352,7 @@ No action will be triggered.</source>
         <translation type="vanished">தெளிவான</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>இடைநிலைப்பலகைக்கு நகலெடுக்கவும்</translation>
     </message>
     <message>
@@ -2397,6 +2397,10 @@ Do you want to replace it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Copy Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open Containing Folder</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2415,6 +2419,10 @@ Do you want to replace it?</source>
     <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>&amp; நகல் பிளேலிச்ட்</translation>
+    </message>
+    <message>
+        <source>Copy Location</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>
