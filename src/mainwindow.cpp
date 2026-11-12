@@ -2628,7 +2628,7 @@ void MainWindow::on_actionFileOpenQuick_triggered()
     QList<QUrl> urls = doQuickOpenFileDialog();
     if (urls.isEmpty())
         return;
-    emit severalFilesOpened(urls, true);
+    emit severalFilesOpened(urls, !ui->actionViewHidePlaylist->isChecked());
 }
 
 void MainWindow::on_actionFileOpen_triggered()
