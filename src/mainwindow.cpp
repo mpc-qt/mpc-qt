@@ -2287,7 +2287,7 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, bool isP
     ui->play->setChecked(state != PlaybackManager::StoppedState &&
                          state != PlaybackManager::ErrorState &&
                          !isPlaybackPaused);
-    ui->pause->setChecked(isPaused && state != PlaybackManager::StoppedState);
+    ui->pause->setChecked((isPaused || state == PlaybackManager::ErrorState) && state != PlaybackManager::StoppedState);
     ui->stop->setChecked(state == PlaybackManager::StoppedState);
     updateOnTop();
 }
