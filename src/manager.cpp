@@ -336,6 +336,7 @@ void PlaybackManager::stopPlayer()
     nowPlayingItem = QUuid();
     nowPlaying_ = QUrl();
     mpvObject_->stopPlayback();
+    emit stateChanged(playbackState_ = StoppedState, false);
 }
 
 void PlaybackManager::stepBackward()
