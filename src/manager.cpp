@@ -1092,7 +1092,7 @@ void PlaybackManager::mpvw_pausedChanged(bool yes)
         return;
 
     isPlaybackPaused = yes;
-    emit stateChanged(playbackState_, isPlaybackPaused, isPlaybackPaused);
+    emit stateChanged(playbackState_, isPlaybackPaused);
 }
 
 void PlaybackManager::mpvw_playbackIdling(bool yes)
