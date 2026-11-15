@@ -805,22 +805,22 @@ media file played</string>
                      <item row="0" column="1">
                       <layout class="QHBoxLayout" name="windowVideoLayout">
                        <item>
-                        <widget class="QLineEdit" name="windowVideoValue">
-                         <property name="inputMask">
-                          <string notr="true">HHHHHHHH</string>
-                         </property>
-                         <property name="text">
-                          <string notr="true">FF000000</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
                         <widget class="QPushButton" name="windowVideoPick">
                          <property name="styleSheet">
                           <string notr="true">background: #000000;</string>
                          </property>
                          <property name="text">
                           <string/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLineEdit" name="windowVideoValue">
+                         <property name="inputMask">
+                          <string notr="true">HHHHHHHH</string>
+                         </property>
+                         <property name="text">
+                          <string notr="true">FF000000</string>
                          </property>
                         </widget>
                        </item>
@@ -836,22 +836,22 @@ media file played</string>
                      <item row="1" column="1">
                       <layout class="QHBoxLayout" name="windowInfoBackgroundLayout">
                        <item>
-                        <widget class="QLineEdit" name="windowInfoBackgroundValue">
-                         <property name="inputMask">
-                          <string notr="true">HHHHHHHH</string>
-                         </property>
-                         <property name="text">
-                          <string notr="true">FF000000</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
                         <widget class="QPushButton" name="windowInfoBackgroundPick">
                          <property name="styleSheet">
                           <string notr="true">background: #000000;</string>
                          </property>
                          <property name="text">
                           <string/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLineEdit" name="windowInfoBackgroundValue">
+                         <property name="inputMask">
+                          <string notr="true">HHHHHHHH</string>
+                         </property>
+                         <property name="text">
+                          <string notr="true">FF000000</string>
                          </property>
                         </widget>
                        </item>
@@ -867,22 +867,22 @@ media file played</string>
                      <item row="2" column="1">
                       <layout class="QHBoxLayout" name="windowInfoForegroundLayout">
                        <item>
-                        <widget class="QLineEdit" name="windowInfoForegroundValue">
-                         <property name="inputMask">
-                          <string notr="true">HHHHHHHH</string>
-                         </property>
-                         <property name="text">
-                          <string notr="true">FFFFFFFF</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
                         <widget class="QPushButton" name="windowInfoForegroundPick">
                          <property name="styleSheet">
                           <string notr="true">background: #FFFFFF;</string>
                          </property>
                          <property name="text">
                           <string/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLineEdit" name="windowInfoForegroundValue">
+                         <property name="inputMask">
+                          <string notr="true">HHHHHHHH</string>
+                         </property>
+                         <property name="text">
+                          <string notr="true">FFFFFFFF</string>
                          </property>
                         </widget>
                        </item>
@@ -1864,19 +1864,6 @@ media file played</string>
                   <item row="2" column="1">
                    <layout class="QHBoxLayout" name="videoBackgroundColorLayout">
                     <item>
-                     <widget class="QLineEdit" name="videoBackgroundColorValue">
-                      <property name="enabled">
-                       <bool>false</bool>
-                      </property>
-                      <property name="inputMask">
-                       <string notr="true">HHHHHHHH</string>
-                      </property>
-                      <property name="text">
-                       <string notr="true">FF000000</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
                      <widget class="QPushButton" name="videoBackgroundColorPick">
                       <property name="enabled">
                        <bool>false</bool>
@@ -1886,6 +1873,19 @@ media file played</string>
                       </property>
                       <property name="text">
                        <string/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="videoBackgroundColorValue">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
+                      <property name="inputMask">
+                       <string notr="true">HHHHHHHH</string>
+                      </property>
+                      <property name="text">
+                       <string notr="true">FF000000</string>
                       </property>
                      </widget>
                     </item>
@@ -7124,22 +7124,22 @@ media file played</string>
                    <item row="0" column="1">
                     <layout class="QHBoxLayout" name="subsColorLayout">
                      <item>
-                      <widget class="QLineEdit" name="subsColorValue">
-                       <property name="inputMask">
-                        <string notr="true">HHHHHHHH</string>
-                       </property>
-                       <property name="text">
-                        <string notr="true">FFFFFFFF</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
                       <widget class="QPushButton" name="subsColorPick">
                        <property name="styleSheet">
                         <string notr="true">background: #FFFFFF;</string>
                        </property>
                        <property name="text">
                         <string/>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="subsColorValue">
+                       <property name="inputMask">
+                        <string notr="true">HHHHHHHH</string>
+                       </property>
+                       <property name="text">
+                        <string notr="true">FFFFFFFF</string>
                        </property>
                       </widget>
                      </item>
@@ -7155,22 +7155,22 @@ media file played</string>
                    <item row="1" column="1">
                     <layout class="QHBoxLayout" name="subsBorderColorLayout">
                      <item>
-                      <widget class="QLineEdit" name="subsBorderColorValue">
-                       <property name="inputMask">
-                        <string notr="true">HHHHHHHH</string>
-                       </property>
-                       <property name="text">
-                        <string notr="true">FF000000</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
                       <widget class="QPushButton" name="subsBorderColorPick">
                        <property name="styleSheet">
                         <string notr="true">background: #000000;</string>
                        </property>
                        <property name="text">
                         <string/>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="subsBorderColorValue">
+                       <property name="inputMask">
+                        <string notr="true">HHHHHHHH</string>
+                       </property>
+                       <property name="text">
+                        <string notr="true">FF000000</string>
                        </property>
                       </widget>
                      </item>
@@ -7208,19 +7208,6 @@ media file played</string>
                    <item row="2" column="1">
                     <layout class="QHBoxLayout" name="subsShadowColorLayout">
                      <item>
-                      <widget class="QLineEdit" name="subsShadowColorValue">
-                       <property name="enabled">
-                        <bool>false</bool>
-                       </property>
-                       <property name="inputMask">
-                        <string notr="true">HHHHHHHH</string>
-                       </property>
-                       <property name="text">
-                        <string notr="true">AF000000</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
                       <widget class="QPushButton" name="subsShadowColorPick">
                        <property name="enabled">
                         <bool>false</bool>
@@ -7230,6 +7217,19 @@ media file played</string>
                        </property>
                        <property name="text">
                         <string/>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="subsShadowColorValue">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
+                       <property name="inputMask">
+                        <string notr="true">HHHHHHHH</string>
+                       </property>
+                       <property name="text">
+                        <string notr="true">AF000000</string>
                        </property>
                       </widget>
                      </item>
