@@ -249,6 +249,11 @@ void MpcQtServer::ipc_stop()
     playbackManager->stopPlayer();
 }
 
+void MpcQtServer::ipc_exit()
+{
+    mainWindow->httpExit();
+}
+
 void MpcQtServer::ipc_next(const QVariantMap &map)
 {
     if (playbackManager->playbackState() != PlaybackManager::StoppedState)

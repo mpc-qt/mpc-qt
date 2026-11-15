@@ -66,6 +66,7 @@ private slots:
     void ipc_unpause();
     void ipc_start();
     void ipc_stop();
+    void ipc_exit();
     void ipc_next(const QVariantMap &map);
     void ipc_previous(const QVariantMap &map);
     void ipc_repeat();

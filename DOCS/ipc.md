@@ -40,6 +40,8 @@ mouse, double click it.
 
 The *stop* command stops the player.
 
+The *exit* command closes MPC-QT (in single instance mode) or the main window.
+
 The *repeat* command repeats the currently played file.  If nothing is being
 played, nothing happens.
 

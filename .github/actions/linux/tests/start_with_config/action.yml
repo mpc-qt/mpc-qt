@@ -17,8 +17,8 @@ runs:
     with:
       number: "1"
       description: "config_and_translation"
-  - name: Kill mpc-q
-    uses: ./.github/actions/linux/commands/kill_mpc-qt
+  - name: Close mpc-qt
+    uses: ./.github/actions/linux/commands/close_mpc-qt
   - name: ls ~/.config/mpc-qt/
     run:  ls ~/.config/mpc-qt/
     shell: bash

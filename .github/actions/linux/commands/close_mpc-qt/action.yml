@@ -1,5 +1,5 @@
-name: Kill mpc-qt
-description: "Kill mpc-qt and wait for it to start then check that it's not running"
+name: Close mpc-qt
+description: "Close mpc-qt and wait for it to start then check that it's not running"
 
 runs:
   using: "composite"
@@ -8,8 +8,9 @@ runs:
   - name: Wait 10 seconds
     run:  sleep 10
     shell: bash
-  - name: Kill mpc-qt
-    run:  killall mpc-qt
+  - name: Close mpc-qt
+    run: |
+      echo '{ "command": "exit" }' | socat - /tmp/cmdrkotori.mpc-qt
     shell: bash
   - name: Wait 10 seconds
     run:  sleep 10
