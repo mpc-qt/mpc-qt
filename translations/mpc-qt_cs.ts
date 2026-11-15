@@ -2352,7 +2352,7 @@ No action will be triggered.</source>
         <translation type="vanished">Clear</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>Zkopírovat do schránky</translation>
     </message>
     <message>
@@ -2398,6 +2398,10 @@ Do you want to replace it?</source>
 Chcete ho nahradit?</translation>
     </message>
     <message>
+        <source>Copy Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open Containing Folder</source>
         <translation>Otevřít umístění souboru</translation>
     </message>
@@ -2416,6 +2420,10 @@ Chcete ho nahradit?</translation>
     <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>&amp;Duplikovat playlist</translation>
+    </message>
+    <message>
+        <source>Copy Location</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>

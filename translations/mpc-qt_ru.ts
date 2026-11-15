@@ -2308,7 +2308,7 @@ No action will be triggered.</source>
         <translation type="vanished">Очистить</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>Копировать в буфер обмена</translation>
     </message>
     <message>
@@ -2354,6 +2354,10 @@ Do you want to replace it?</source>
 Заменить его?</translation>
     </message>
     <message>
+        <source>Copy Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open Containing Folder</source>
         <translation>Открыть содержащую папку</translation>
     </message>
@@ -2372,6 +2376,10 @@ Do you want to replace it?</source>
     <message>
         <source>&amp;Duplicate Playlist</source>
         <translation>&amp;Дублировать список воспроизведения</translation>
+    </message>
+    <message>
+        <source>Copy Location</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>

@@ -2046,7 +2046,7 @@ No action will be triggered.</source>
         <translation type="vanished">Tøm</translation>
     </message>
     <message>
-        <source>Copy To clipboard</source>
+        <source>Copy to Clipboard</source>
         <translation>Kopier til utklippstavle</translation>
     </message>
     <message>
@@ -2084,6 +2084,10 @@ No action will be triggered.</source>
     <message>
         <source>File &quot;%1&quot; already exists.
 Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy Location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2144,6 +2148,10 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Add Folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
