@@ -2423,7 +2423,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Copy Name</source>
-        <translation type="unfinished"></translation>
+        <translation>名前をコピー</translation>
     </message>
     <message>
         <source>Open Containing Folder</source>
@@ -2447,7 +2447,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Copy Location</source>
-        <translation type="unfinished"></translation>
+        <translation>場所をコピー</translation>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>
