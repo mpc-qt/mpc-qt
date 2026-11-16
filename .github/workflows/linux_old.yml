@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: Linux Old Qt
 
 on:
   [workflow_call]
