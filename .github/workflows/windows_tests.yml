@@ -1,4 +1,4 @@
-name: Msys2 CI Tests
+name: Windows CI Tests
 
 on:
   workflow_call:
@@ -105,3 +105,5 @@ jobs:
     - name: Upload screenshots
       if: ${{ !cancelled() }}
       uses: ./.github/actions/commands/upload_screenshots
+      with:
+        prefix: windows_${{ inputs.arch }}

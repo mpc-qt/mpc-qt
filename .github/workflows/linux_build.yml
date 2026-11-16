@@ -1,8 +1,7 @@
-name: C/C++ CI
+name: Linux CI
 
 on:
-  push:
-  pull_request:
+  [workflow_call]
 
 env:
   DEVBUILD: continuous
@@ -58,35 +57,3 @@ jobs:
       with:
         name: "mpc-qt-linux-x64-debug_symbols-${{ env.VERSION }}"
         path: bin/mpc-qt.dbg
-
-  build_old:
-    name: Linux Old Qt
-    uses: ./.github/workflows/linux_old.yml
-
-  tests:
-    name: Linux
-    needs: build
-    uses: ./.github/workflows/linux_tests.yml
-
-  appimage:
-    name: AppImage
-    needs: tests
-    uses: ./.github/workflows/appimage.yml
-
-  flatpak:
-    name: Flatpak
-    needs: tests
-    uses: ./.github/workflows/flatpak.yml
-
-  pre-release:
-    name: Pre-release
-    if: ${{ github.ref_name == 'master' && github.repository_owner == 'mpc-qt' }}
-    runs-on: ubuntu-latest
-    needs: [appimage, flatpak]
-    env:
-      GH_TOKEN: ${{ secrets.API_TOKEN_GITHUB_DEV_BUILDS }}
-
-    steps:
-    - name: Trigger dev-builds release workflow
-      run: |
-        gh workflow run --repo mpc-qt/dev-builds "Release maker"

@@ -1,8 +1,7 @@
-name: Msys2 CI (ARM64)
+name: Windows ARM64 CI
 
 on:
-  push:
-  pull_request:
+  [workflow_call]
 
 env:
   DEVBUILD: continuous
@@ -14,7 +13,7 @@ env:
 
 jobs:
   build:
-    name: Build (Windows ARM64)
+    name: Build
     runs-on: windows-11-arm
     defaults:
       run:
@@ -92,9 +91,3 @@ jobs:
         name: "mpc-qt-win-arm64-installer"
         path: build/mpc-qt-win-arm64-*-installer.exe
 
-  tests:
-    name: Windows ARM64
-    needs: build
-    uses: ./.github/workflows/windows_tests.yml
-    with:
-      arch: arm64

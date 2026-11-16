@@ -1,8 +1,7 @@
 name: macOS CI
 
 on:
-  push:
-  pull_request:
+  [workflow_call]
 
 env:
   DEVBUILD: continuous
@@ -31,8 +30,3 @@ jobs:
         name: "mpc-qt-macos-arm64-${{ env.VERSION }}"
         path: mpc-qt-macos-arm64.zip
         if-no-files-found: error
-
-  tests:
-    name: macOS
-    needs: build
-    uses: ./.github/workflows/macos_tests.yml

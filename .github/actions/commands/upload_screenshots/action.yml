@@ -1,6 +1,11 @@
 name: Upload screenshots
 description: 'Upload all screenshots'
 
+inputs:
+  prefix:
+    description: 'Prefix to add to screenshots artifact name'
+    required: true
+
 runs:
   using: "composite"
 
@@ -8,5 +13,5 @@ runs:
   - name: Upload screenshots
     uses: actions/upload-artifact@v7
     with:
-      name: screenshots
+      name: screenshots_${{ inputs.prefix }}
       path: screenshot*.png
