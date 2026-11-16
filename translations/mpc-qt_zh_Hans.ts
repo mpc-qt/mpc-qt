@@ -409,11 +409,11 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Remove All</source>
-        <translation type="unfinished"></translation>
+        <translation>全部移除</translation>
     </message>
     <message>
         <source>Remove all playlists backups?</source>
-        <translation type="unfinished"></translation>
+        <translation>移除所有播放列表备份？</translation>
     </message>
 </context>
 <context>
@@ -1952,27 +1952,27 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Load Subtitles File...</source>
-        <translation type="unfinished"></translation>
+        <translation>加载字幕文件(&amp;L)…</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
-        <translation type="unfinished">新建播放列表(&amp;N)</translation>
+        <translation>新建播放列表(&amp;N)</translation>
     </message>
     <message>
         <source>C&amp;lose Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭播放列表(&amp;L)</translation>
     </message>
     <message>
         <source>Close Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭播放列表</translation>
     </message>
     <message>
         <source>&amp;Duplicate Playlist</source>
-        <translation type="unfinished">复制播放列表(&amp;D)</translation>
+        <translation>复制播放列表(&amp;D)</translation>
     </message>
     <message>
         <source>Res&amp;tore Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>恢复播放列表(&amp;T)</translation>
     </message>
 </context>
 <context>
@@ -2379,7 +2379,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Copy Name</source>
-        <translation type="unfinished"></translation>
+        <translation>复制名称</translation>
     </message>
     <message>
         <source>Open Containing Folder</source>
@@ -2403,11 +2403,11 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Copy Location</source>
-        <translation type="unfinished"></translation>
+        <translation>复制位置</translation>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>恢复播放列表(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Rename Playlist</source>
@@ -2459,7 +2459,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Duplicate Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>复制播放列表</translation>
     </message>
 </context>
 <context>
@@ -4904,31 +4904,31 @@ media file played</source>
     </message>
     <message>
         <source>Resample audio to match video (audio may become desynchronized)</source>
-        <translation type="unfinished"></translation>
+        <translation>重采样音频以匹配视频（音频可能会出现不同步）</translation>
     </message>
     <message>
         <source>Time video frames to audio</source>
-        <translation type="unfinished"></translation>
+        <translation>将视频帧与音频对齐</translation>
     </message>
     <message>
         <source>Video Output (recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation>视频输出（推荐）</translation>
     </message>
     <message>
         <source>Decoder + Video Output</source>
-        <translation type="unfinished"></translation>
+        <translation>解码器 + 视频输出</translation>
     </message>
     <message>
         <source>Logo background</source>
-        <translation type="unfinished"></translation>
+        <translation>标志背景</translation>
     </message>
     <message>
         <source>Blend on color</source>
-        <translation type="unfinished"></translation>
+        <translation>基于颜色混合</translation>
     </message>
     <message>
         <source>Checkerboard pattern</source>
-        <translation type="unfinished"></translation>
+        <translation>棋盘格图案</translation>
     </message>
 </context>
 <context>
