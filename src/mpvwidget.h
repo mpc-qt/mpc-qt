@@ -261,6 +261,10 @@ public:
     explicit MpvGlWidget(MpvObject *object, QWidget *parent = nullptr);
     ~MpvGlWidget();
 
+    // Checks that a usable OpenGL context can be created, logging the OpenGL
+    // renderer and version, and optionally returning them.
+    static bool checkOpenGL(QString *renderer = nullptr, QString *version = nullptr);
+
     QWidget *self() override;
     void initMpv() override;
     void setLogoUrl(const QString &filename) override;

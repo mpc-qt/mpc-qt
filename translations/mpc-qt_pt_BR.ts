@@ -350,6 +350,31 @@ Você quer usá-lo para &quot;%3&quot; em vez disso?</translation>
         <translation>Não carregue nenhum arquivo de configuração.</translation>
     </message>
     <message>
+        <source>OpenGL renderer: %1
+OpenGL version: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MPC-QT can&apos;t play video because OpenGL isn&apos;t available.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Windows on ARM devices need Microsoft&apos;s free OpenCL, OpenGL, and Vulkan Compatibility Pack for OpenGL. Install it from the Microsoft Store, then start MPC-QT again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Microsoft Store</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your graphics driver doesn&apos;t provide a usable version of OpenGL. Installing or updating the graphics driver usually fixes this.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Do not load file history, playlists, or favorites.</source>
         <translation>Não carregue histórico de arquivos, listas de reprodução ou favoritos.</translation>
     </message>
@@ -1956,6 +1981,13 @@ Nenhuma ação será executada.</translation>
     <message>
         <source>Twice</source>
         <translation>Duplo</translation>
+    </message>
+</context>
+<context>
+    <name>MpvGlWidget</name>
+    <message>
+        <source>unknown</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -8,6 +8,9 @@
 #include <QThread>
 #include <QTimer>
 #include <QOpenGLContext>
+#include <QOpenGLFunctions>
+#include <QOffscreenSurface>
+#include <QSurfaceFormat>
 #include <QMouseEvent>
 #include <QMetaObject>
 #include <QDir>
@@ -1096,6 +1099,45 @@ void MpvGlWidget::setDrawLogo(bool yes)
 {
     drawLogo = yes;
     update();
+}
+
+static QString glString(QOpenGLContext *context, GLenum name)
+{
+    const GLubyte *value = context->functions()->glGetString(name);
+    return value ? QString::fromLatin1(reinterpret_cast<const char *>(value))
+                 : MpvGlWidget::tr("unknown");
+}
+
+bool MpvGlWidget::checkOpenGL(QString *renderer, QString *version)
+{
+    // Without a usable OpenGL driver, Qt can't create a context for the video
+    // widget and the main window stays blank, so this is checked before
+    // creating it. mpv needs OpenGL 2.1 or OpenGL ES 2.0.
+    QOffscreenSurface surface;
+    surface.create();
+    QOpenGLContext context;
+    if (!context.create() || !context.makeCurrent(&surface)) {
+        Logger::log(logModule, "Could not create an OpenGL context");
+        return false;
+    }
+
+    QString glRenderer = glString(&context, GL_RENDERER);
+    QString glVersion = glString(&context, GL_VERSION);
+    Logger::log(logModule, QString("OpenGL vendor: %1, renderer: %2, version: %3")
+                               .arg(glString(&context, GL_VENDOR), glRenderer, glVersion));
+    if (renderer)
+        *renderer = glRenderer;
+    if (version)
+        *version = glVersion;
+
+    QSurfaceFormat format = context.format();
+    bool usable = context.isOpenGLES()
+        ? format.majorVersion() >= 2
+        : format.version() >= qMakePair(2, 1);
+    context.doneCurrent();
+    if (!usable)
+        Logger::log(logModule, "OpenGL version is too old for mpv");
+    return usable;
 }
 
 void MpvGlWidget::initializeGL()
