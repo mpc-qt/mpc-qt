@@ -22,9 +22,12 @@
   ;Make sure text isn't blurry
   ManifestDPIAware true
 
+  ;Target architecture of the packaged build (x64 or arm64), set by CMake
+  !define ARCH "@MPCQT_INSTALLER_ARCH@"
+
   ;Name and file
   Name "MPC-QT"
-  OutFile "mpc-qt-win-x64-installer.exe"
+  OutFile "mpc-qt-win-${ARCH}-installer.exe"
   BrandingText " "
 
   ;Default installation folder
@@ -196,7 +199,7 @@ Section "Install"
   RMDir "$INSTDIR\styles"
 
   File "..\LICENSE"
-  File /r "..\mpc-qt-win-x64\*.*"
+  File /r "..\mpc-qt-win-${ARCH}\*.*"
   File /r "..\packaging\nsis\mpc-qt-assoc"
 
   ;Store installation folder
