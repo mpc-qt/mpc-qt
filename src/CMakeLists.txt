@@ -108,6 +108,9 @@ if(WIN32)
 
     # Convert version string to comma-separated format for RC file
     string(REPLACE "." "," VERSTR_WIN_COMMA "${VERSTR_WIN}")
+    # llvm-rc reads numbers with a leading zero as octal, so a date-based
+    # version such as 2026.11.08 would fail to compile. Strip leading zeros.
+    string(REGEX REPLACE "(^|,)0+([0-9])" "\\1\\2" VERSTR_WIN_COMMA "${VERSTR_WIN_COMMA}")
 
     # Configure the RC file with version information
     configure_file(
