@@ -2383,7 +2383,7 @@ Voulez-vous le remplacer&#x202f;?</translation>
     </message>
     <message>
         <source>Copy Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Copier le nom</translation>
     </message>
     <message>
         <source>Open Containing Folder</source>
@@ -2407,7 +2407,7 @@ Voulez-vous le remplacer&#x202f;?</translation>
     </message>
     <message>
         <source>Copy Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Copier l&apos;emplacement</translation>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>
