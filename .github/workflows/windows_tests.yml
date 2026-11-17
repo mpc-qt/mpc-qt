@@ -1,12 +1,17 @@
 name: Msys2 CI Tests
 
 on:
-  [workflow_call]
+  workflow_call:
+    inputs:
+      arch:
+        description: "Architecture of the build to test: x64 or arm64"
+        type: string
+        default: x64
 
 jobs:
   tests:
     name: Tests
-    runs-on: windows-2025
+    runs-on: ${{ inputs.arch == 'arm64' && 'windows-11-arm' || 'windows-2025' }}
     defaults:
       run:
         shell: msys2 {0}
@@ -19,7 +24,7 @@ jobs:
     - name: Install packages
       uses: msys2/setup-msys2@v2
       with:
-        msystem: ucrt64
+        msystem: ${{ inputs.arch == 'arm64' && 'clangarm64' || 'ucrt64' }}
         update: true
         install: >-
           coreutils
@@ -34,6 +39,7 @@ jobs:
       run: echo "CONFIGDIR=$(cygpath -u $USERPROFILE)/AppData/Roaming/mpc-qt/mpc-qt" >> $GITHUB_ENV
 
     - name: Cache dep
+      if: inputs.arch != 'arm64'
       id: cache
       uses: actions/cache@v5.0.4
       with:
@@ -44,7 +50,7 @@ jobs:
 
     # The mingw mesa package doesn't include libglapi.dll, so we need to download a build
     - name: Download Mesa DLLs
-      if: steps.cache.outputs.cache-hit != 'true'
+      if: inputs.arch != 'arm64' && steps.cache.outputs.cache-hit != 'true'
       shell: cmd
       run: |
         curl.exe -L --output mesa.7z --url https://github.com/pal1000/mesa-dist-win/releases/download/20.3.2/mesa3d-20.3.2-release-msvc.7z
@@ -52,11 +58,43 @@ jobs:
       working-directory: ${{ env.EXEDIR }}
 
     - name: Configure Mesa DLLs
+      if: inputs.arch != 'arm64'
       shell: cmd
       run: |
         mklink opengl32.dll "x64\opengl32.dll"
         mklink libglapi.dll "x64\libglapi.dll"
       working-directory: ${{ env.EXEDIR }}
+
+    # There's no ARM64 build of the Mesa release used above, so use the mingw
+    # one with its llvmpipe driver. Mesa's default driver on Windows is d3d12,
+    # which didn't work with mpc-qt on the ARM64 runner.
+    - name: Install Mesa (ARM64)
+      if: inputs.arch == 'arm64'
+      run: |
+        pacman -S --noconfirm --needed mingw-w64-clang-aarch64-mesa
+        for dll in opengl32.dll libgallium_wgl.dll; do
+          cp "$MINGW_PREFIX/bin/$dll" "$EXEDIR"
+          ldd "$MINGW_PREFIX/bin/$dll" | awk '/=>/ {print $3}' | while read -r dep; do
+            if [[ "$dep" == "$MINGW_PREFIX"* ]]; then
+              cp -n "$dep" "$EXEDIR"
+            fi
+          done
+        done
+        echo "GALLIUM_DRIVER=llvmpipe" >> $GITHUB_ENV
+
+    # The ARM64 runner starts with Windows' "Choose privacy settings for your
+    # device" screen open, and the Start menu open behind it, both covering
+    # mpc-qt in the screenshots. Close them, and turn the setup screen off for
+    # later sign-ins. Windows restarts the Start menu process in the
+    # background, closed.
+    - name: Close the Windows setup screen and Start menu (ARM64)
+      if: inputs.arch == 'arm64'
+      shell: pwsh
+      run: |
+        reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE" /v DisablePrivacyExperience /t REG_DWORD /d 1 /f
+        Get-Process -Name WWAHost -ErrorAction SilentlyContinue | Stop-Process -Force
+        Start-Sleep 2
+        Get-Process -Name StartMenuExperienceHost -ErrorAction SilentlyContinue | Stop-Process -Force
 
     - name: Start with config and video
       uses: ./.github/actions/windows/tests/start_with_config_video
