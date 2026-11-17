@@ -68,10 +68,11 @@ cp "$PLUGDIR/platforms/qwindows.dll"            "$DEST/platforms"
 cp "$PLUGDIR/styles/qmodernwindowsstyle.dll"    "$DEST/styles"
 
 
-# Use ldd to find dependencies and copy them
+# Use ntldd to find dependencies and copy them
 echo Finding dependencies and copying them
-ldd "$EXECUTABLE" | awk '/=>/ {print $3}' | while read -r dll; do
+ntldd -R "$EXECUTABLE" | awk '/=>/ {print $3}' | while read -r dll; do
   if [[ -n "$dll" && -f "$dll" ]]; then
+    dll=$(cygpath -u "$dll")
     # Check if the DLL is in /ucrt64/bin before copying
     if [[ "$dll" == "$MINGW_BINDIR"* ]]; then
       echo "Copying $dll to $DEST"
@@ -81,30 +82,6 @@ ldd "$EXECUTABLE" | awk '/=>/ {print $3}' | while read -r dll; do
     fi
   fi
 done
-
-DLLS=("Qt6Core.dll" "Qt6Gui.dll" "Qt6Network.dll" "Qt6OpenGLWidgets.dll")
-
-for dll in "${DLLS[@]}"; do
-  echo " "
-  echo "Checking dependencies for $dll"
-  ldd "$MINGW_BINDIR/$dll" | awk '/=>/ {print $3}' | while read -r dep; do
-    if [[ -n "$dep" && -f "$dep" ]]; then
-      # Check if the DLL is in /ucrt64/bin before copying
-      if [[ "$dep" == "$MINGW_BINDIR"* ]]; then
-        echo "Copying $dep to $DEST"
-        cp -u "$dep" "$DEST"
-      else
-        echo "Skipping $dep (not in $MINGW_BINDIR)"
-      fi
-    fi
-  done
-done
-
-# Manually copy other dlls as needed
-echo "Copying other dlls to $DEST"
-cp $MINGW_BINDIR/libjpeg-*.dll                "$DEST"
-cp $MINGW_BINDIR/libcrypto-*.dll              "$DEST"
-cp $MINGW_BINDIR/vulkan-*.dll                 "$DEST"
 
 echo "All required DLLs from $MINGW_BINDIR have been copied to $DEST."
 

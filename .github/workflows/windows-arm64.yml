@@ -40,6 +40,7 @@ jobs:
           mingw-w64-clang-aarch64-vulkan-loader
           mingw-w64-clang-aarch64-quickjs
           mingw-w64-ucrt-x86_64-nsis
+          mingw-w64-clang-aarch64-ntldd
     - name: Check that libmpv has OpenGL support
       # mpc-qt draws video through mpv's OpenGL render API. MSYS2's ARM64
       # mpv package was built without OpenGL before 0.42.0-2
