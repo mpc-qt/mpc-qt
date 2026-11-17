@@ -336,6 +336,7 @@ void PlaybackManager::stopPlayer()
     nowPlayingItem = QUuid();
     nowPlaying_ = QUrl();
     mpvObject_->stopPlayback();
+    emit stateChanged(playbackState_ = StoppedState, false);
 }
 
 void PlaybackManager::stepBackward()
@@ -1092,7 +1093,7 @@ void PlaybackManager::mpvw_pausedChanged(bool yes)
         return;
 
     isPlaybackPaused = yes;
-    emit stateChanged(playbackState_, isPlaybackPaused, isPlaybackPaused);
+    emit stateChanged(playbackState_, isPlaybackPaused);
 }
 
 void PlaybackManager::mpvw_playbackIdling(bool yes)
