@@ -354,6 +354,31 @@ Vill du använda den till &quot;%3&quot; istället?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>OpenGL renderer: %1
+OpenGL version: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MPC-QT can&apos;t play video because OpenGL isn&apos;t available.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Windows on ARM devices need Microsoft&apos;s free OpenCL, OpenGL, and Vulkan Compatibility Pack for OpenGL. Install it from the Microsoft Store, then start MPC-QT again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Microsoft Store</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your graphics driver doesn&apos;t provide a usable version of OpenGL. Installing or updating the graphics driver usually fixes this.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Do not load file history, playlists, or favorites.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2162,6 +2187,13 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Twice</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MpvGlWidget</name>
+    <message>
+        <source>unknown</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

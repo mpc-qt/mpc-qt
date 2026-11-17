@@ -84,6 +84,23 @@ ScreenSaver *Platform::screenSaver()
     return ss;
 }
 
+bool Platform::isWindowsOnArm()
+{
+#if defined(Q_OS_WIN)
+    // An x64 build running under emulation on an ARM device is told it's on
+    // an x64 CPU by GetNativeSystemInfo (and so by QSysInfo), but
+    // IsWow64Process2 reports the real host architecture.
+    USHORT processMachine = 0;
+    USHORT nativeMachine = 0;
+    if (!IsWow64Process2(GetCurrentProcess(), &processMachine, &nativeMachine))
+        return false;
+    return nativeMachine == IMAGE_FILE_MACHINE_ARM64
+        || nativeMachine == IMAGE_FILE_MACHINE_ARMNT;
+#else
+    return false;
+#endif
+}
+
 QString Platform::resourcesPath()
 {
     if (Platform::isWindows)

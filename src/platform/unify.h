@@ -20,6 +20,7 @@ namespace Platform {
     QString sanitizedFilename(QString fileName);
     bool tiledDesktopsExist();
     bool tilingDesktopActive();
+    bool isWindowsOnArm();
 }
 
 #endif // PLATFORM_ALL_H

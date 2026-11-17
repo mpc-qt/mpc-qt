@@ -14,6 +14,10 @@
 #include <QStyleFactory>
 #include <QLockFile>
 #include <QThread>
+#include <QMessageBox>
+#include <QPushButton>
+#include <QDesktopServices>
+#include <QUrl>
 #ifdef HAVE_BOOST
 #include <boost/stacktrace.hpp>
 #endif
@@ -49,6 +53,46 @@ static constexpr char optConsoleLog[] = "log-to-console";
 static constexpr char optConsoleLogEx[] = "--log-to-console";
 
 //---------------------------------------------------------------------------
+
+// Explains that OpenGL isn't usable, which otherwise leaves an empty window.
+// The usual cause is that only Windows' built-in OpenGL 1.1 fallback is
+// available, e.g. on Windows on ARM devices without Microsoft's OpenCL,
+// OpenGL, and Vulkan Compatibility Pack.
+static void showOpenGLError(const QString &glRenderer, const QString &glVersion)
+{
+    QString details = Flow::tr("OpenGL renderer: %1\nOpenGL version: %2")
+                          .arg(glRenderer, glVersion);
+    QMessageBox box;
+    box.setIcon(QMessageBox::Critical);
+    box.setWindowTitle("MPC-QT");
+    box.setText(Flow::tr("MPC-QT can't play video because OpenGL isn't available."));
+
+    // The Compatibility Pack only helps on ARM devices, so only offer it there
+    QPushButton *storeButton = nullptr;
+    if (Platform::isWindowsOnArm()) {
+        box.setInformativeText(
+            Flow::tr("Windows on ARM devices need Microsoft's free OpenCL, OpenGL, and "
+                     "Vulkan Compatibility Pack for OpenGL. Install it from the "
+                     "Microsoft Store, then start MPC-QT again.") + "\n\n" + details);
+        storeButton = box.addButton(Flow::tr("Open Microsoft Store"), QMessageBox::AcceptRole);
+        box.addButton(QMessageBox::Close);
+        box.setDefaultButton(storeButton);
+    } else {
+        box.setInformativeText(
+            Flow::tr("Your graphics driver doesn't provide a usable version of OpenGL. "
+                     "Installing or updating the graphics driver usually fixes "
+                     "this.") + "\n\n" + details);
+        box.addButton(QMessageBox::Close);
+    }
+
+    box.exec();
+
+    if (storeButton && box.clickedButton() == storeButton) {
+        // Open the Store app directly, falling back to the Store website
+        if (!QDesktopServices::openUrl(QUrl("ms-windows-store://pdp/?ProductId=9NQPSL29BFFF")))
+            QDesktopServices::openUrl(QUrl("https://apps.microsoft.com/detail/9nqpsl29bfff"));
+    }
+}
 
 int main(int argc, char *argv[])
 {
@@ -100,6 +144,16 @@ int main(int argc, char *argv[])
     f.detectMode();
     if (f.earlyQuit())
         return 0;
+    // Only checked on Windows for now, where a missing OpenGL driver is a known
+    // problem (e.g. Windows on ARM without the Compatibility Pack).
+    if (Platform::isWindows) {
+        QString renderer = Flow::tr("none");
+        QString version = Flow::tr("none");
+        if (!MpvGlWidget::checkOpenGL(&renderer, &version)) {
+            showOpenGLError(renderer, version);
+            return EXIT_FAILURE;
+        }
+    }
     f.init();
     try {
         return f.run();
