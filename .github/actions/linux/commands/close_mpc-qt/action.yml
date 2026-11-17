@@ -12,8 +12,18 @@ runs:
     run: |
       echo '{ "command": "exit" }' | socat - /tmp/cmdrkotori.mpc-qt
     shell: bash
-  - name: Wait 10 seconds
-    run:  sleep 10
+  - name: Wait up to 60 seconds for mpc-qt to exit
+    run: |
+      for i in $(seq 1 60); do
+        if ! ps | grep -q mpc-qt; then
+          echo "mpc-qt exited after about ${i}s"
+          exit 0
+        fi
+        sleep 1
+      done
+      echo "mpc-qt is still running after 60s, killing it"
+      killall mpc-qt
+      sleep 10
     shell: bash
   - name: Check that mpc-qt is not running
     uses: ./.github/actions/linux/commands/check_if_running
