@@ -1,0 +1,99 @@
+name: Msys2 CI (ARM64)
+
+on:
+  push:
+  pull_request:
+
+env:
+  DEVBUILD: continuous
+  MPCQT_SUFFIX: win-arm64
+  # MSYS2 has no ARM64 NSIS package. The x64 one runs under emulation on the
+  # ARM runner and produces an x64 installer, which Windows on ARM also runs
+  # under emulation; it installs the native ARM64 files.
+  MAKENSIS: /ucrt64/bin/makensis.exe
+
+jobs:
+  build:
+    name: Build (Windows ARM64)
+    runs-on: windows-11-arm
+    defaults:
+      run:
+        shell: msys2 {0}
+
+    steps:
+    - name: Install packages
+      uses: msys2/setup-msys2@v2
+      with:
+        msystem: clangarm64
+        update: true
+        install: >-
+          git
+          base-devel
+          wget
+          p7zip
+          mingw-w64-clang-aarch64-cmake
+          mingw-w64-clang-aarch64-ninja
+          mingw-w64-clang-aarch64-toolchain
+          mingw-w64-clang-aarch64-qt6
+          mingw-w64-clang-aarch64-boost
+          mingw-w64-clang-aarch64-mpv
+          mingw-w64-clang-aarch64-vulkan-loader
+          mingw-w64-clang-aarch64-quickjs
+          mingw-w64-ucrt-x86_64-nsis
+    - name: Check that libmpv has OpenGL support
+      # mpc-qt draws video through mpv's OpenGL render API. MSYS2's ARM64
+      # mpv package was built without OpenGL before 0.42.0-2
+      # (msys2/MINGW-packages#33484), which made mpc-qt exit on launch.
+      run: |
+        pacman -Q mingw-w64-clang-aarch64-mpv
+        if ! llvm-objdump -p "$MINGW_PREFIX/bin/libmpv-2.dll" | grep -qi "opengl32.dll"; then
+          echo "libmpv-2.dll was built without OpenGL"
+          exit 1
+        fi
+        echo "libmpv-2.dll links against opengl32.dll"
+    - name: Avoid line ending issues on Windows
+      run: git config --global core.autocrlf input
+    - name: Download mpc-qt source
+      uses: actions/checkout@v6.0.2
+    - name: Download yt-dlp
+      uses: robinraju/release-downloader@v1.13
+      with:
+        repository: "yt-dlp/yt-dlp"
+        latest: true
+        fileName: "yt-dlp_arm64.exe"
+    - name: Use the ARM64 yt-dlp under the usual name
+      run: mv yt-dlp_arm64.exe yt-dlp.exe
+    - name: Set version
+      run: |
+        FORCE_VERSION=$( cat .github/actions/data/VERSION )
+        echo "FORCE_VERSION=$( echo $FORCE_VERSION )" >> $GITHUB_ENV
+    - name: Build
+      run: |
+        chmod +x scripts/*.sh
+        bash scripts/make-release-msys2.sh
+    - name: Check that the bundled programs are ARM64
+      run: |
+        cd mpc-qt-win-arm64
+        file mpc-qt.exe yt-dlp.exe qjs.exe
+        for exe in mpc-qt.exe yt-dlp.exe qjs.exe; do
+          if ! file "$exe" | grep -qiE "arm64|aarch64"; then echo "$exe is not ARM64"; exit 1; fi
+        done
+    - name: Upload
+      uses: actions/upload-artifact@v7
+      with:
+        name: "mpc-qt-win-arm64-${{ env.FORCE_VERSION }}"
+        path: mpc-qt-*/
+    - name: Rename installer
+      run: mv build/mpc-qt-win-arm64-installer.exe build/mpc-qt-win-arm64-${{ env.FORCE_VERSION }}-installer.exe
+    - name: Upload installer
+      uses: actions/upload-artifact@v7
+      with:
+        name: "mpc-qt-win-arm64-installer"
+        path: build/mpc-qt-win-arm64-*-installer.exe
+
+  tests:
+    name: Windows ARM64
+    needs: build
+    uses: ./.github/workflows/windows_tests.yml
+    with:
+      arch: arm64

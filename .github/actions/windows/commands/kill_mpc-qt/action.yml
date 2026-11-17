@@ -11,9 +11,19 @@ runs:
   - name: Kill mpc-qt
     run:  taskkill /im mpc-qt.exe
     shell: pwsh
-  - name: Wait 10 seconds
-    run:  sleep 10
-    shell: bash
+  # Closing can take longer than a few seconds on a busy runner, especially
+  # with software OpenGL, so poll instead of waiting a fixed time.
+  - name: Wait up to 60 seconds for mpc-qt to exit
+    run: |
+      for i in $(seq 1 60); do
+        if ! ps | grep -q mpc-qt; then
+          echo "mpc-qt exited after about ${i}s"
+          exit 0
+        fi
+        sleep 1
+      done
+      echo "mpc-qt is still running after 60s"
+    shell: msys2 {0}
   - name: Check that mpc-qt is not running
     uses: ./.github/actions/windows/commands/check_if_running
     with:

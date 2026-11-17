@@ -26,14 +26,18 @@ VERSION_WIN="${VERSION_WIN}.0"
 BINDIR=bin
 BUILDDIR=build
 EXECUTABLE="$BINDIR/mpc-qt.exe"
-MINGW_BINDIR="/ucrt64/bin"
-SUFFIX="win-x64"
+# MSYS2 sets MINGW_PREFIX for the active environment (/ucrt64 on x64, /clangarm64 on ARM64)
+MSYS_PREFIX="${MINGW_PREFIX:-/ucrt64}"
+MINGW_BINDIR="$MSYS_PREFIX/bin"
+SUFFIX="${MPCQT_SUFFIX:-win-x64}"
+INSTALLER_ARCH="${SUFFIX#win-}"
+MAKENSIS="${MAKENSIS:-makensis}"
 DEST="mpc-qt-$SUFFIX"
 
 mkdir -p translations/qt
-cp /ucrt64/share/qt6/translations/qtbase_*.qm translations/qt
+cp $MSYS_PREFIX/share/qt6/translations/qtbase_*.qm translations/qt
 
-cmake -DMPCQT_VERSION=$VERSION -DMPCQT_VERSION_WIN=$VERSION_WIN -G Ninja -B build
+cmake -DMPCQT_VERSION=$VERSION -DMPCQT_VERSION_WIN=$VERSION_WIN -DMPCQT_INSTALLER_ARCH=$INSTALLER_ARCH -G Ninja -B build
 ninja -C build
 
 if [ ! -f "$EXECUTABLE" ]; then
@@ -53,7 +57,7 @@ echo Copying documents
 cp DOCS/ipc.md  "$DEST/doc"
 
 echo Copying plugins
-PLUGDIR=/ucrt64/share/qt6/plugins
+PLUGDIR=$MSYS_PREFIX/share/qt6/plugins
 cp "$PLUGDIR/iconengines/qsvgicon.dll"          "$DEST/iconengines"
 cp "$PLUGDIR/imageformats/qjpeg.dll"            "$DEST/imageformats"
 cp "$PLUGDIR/imageformats/qsvg.dll"             "$DEST/imageformats"
@@ -113,14 +117,26 @@ cp $MINGW_BINDIR/libmpv-2.dll "$DEST"
 echo Copying yt-dlp
 cp "yt-dlp.exe" "$DEST"
 
-echo Downloading QuickJS
-LATEST_QUICKJS_VERSION=$(curl -s https://bellard.org/quickjs/binary_releases/ | grep -oP 'quickjs-win-x86_64-\d{4}-\d{2}-\d{2}\.zip' | sort | tail -n 1)
-LATEST_QUICKJS_URL="https://bellard.org/quickjs/binary_releases/$LATEST_QUICKJS_VERSION"
-curl $LATEST_QUICKJS_URL -o quickjs-win-x86_64.zip
-echo Extracting QuickJS
-7z e quickjs-win-x86_64.zip
-echo Copying QuickJS
-cp "qjs.exe" "$DEST"
+if [ -f "$MINGW_BINDIR/qjs.exe" ]; then
+    # Use the MSYS2 quickjs package when it is installed (native for the
+    # target architecture), together with any DLLs it needs
+    echo "Copying QuickJS from $MINGW_BINDIR"
+    cp "$MINGW_BINDIR/qjs.exe" "$DEST"
+    ldd "$MINGW_BINDIR/qjs.exe" | awk '/=>/ {print $3}' | while read -r dep; do
+      if [[ -n "$dep" && "$dep" == "$MINGW_BINDIR"* ]]; then
+        cp -u "$dep" "$DEST"
+      fi
+    done
+else
+    echo Downloading QuickJS
+    LATEST_QUICKJS_VERSION=$(curl -s https://bellard.org/quickjs/binary_releases/ | grep -oP 'quickjs-win-x86_64-\d{4}-\d{2}-\d{2}\.zip' | sort | tail -n 1)
+    LATEST_QUICKJS_URL="https://bellard.org/quickjs/binary_releases/$LATEST_QUICKJS_VERSION"
+    curl $LATEST_QUICKJS_URL -o quickjs-win-x86_64.zip
+    echo Extracting QuickJS
+    7z e quickjs-win-x86_64.zip
+    echo Copying QuickJS
+    cp "qjs.exe" "$DEST"
+fi
 
 echo Creating NSIS installer
-makensis "$BUILDDIR/mpc-qt.nsi"
+"$MAKENSIS" "$BUILDDIR/mpc-qt.nsi"

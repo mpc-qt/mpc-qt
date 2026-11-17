@@ -110,6 +110,8 @@ endif()
 
 message(STATUS "The version appears to be ${VERSTR}, and the Windows manifest would say this is ${VERSTR_WIN}.")
 
+set(MPCQT_INSTALLER_ARCH "x64" CACHE STRING "Architecture name used for the Windows installer (x64 or arm64)")
+
 configure_file(
     ${PROJECT_SOURCE_DIR}/packaging/nsis/mpc-qt.nsi.in
     ${CMAKE_BINARY_DIR}/mpc-qt.nsi
