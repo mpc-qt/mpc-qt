@@ -14,7 +14,7 @@ DirectShow.
 
 * [Releases](#releases)
 * [Features and improvements over MPC-HC](#features-and-improvements-over-mpc-hc)
-* [Contributing and translation](#contributing-code-and-translations)
+* [Contributing code, translations and more](#contributing-code-translations-and-more)
 * [Compiling](#compiling)
 * [Compiling on Windows](#compiling-on-windows)
 * [Compiling on macOS](#compiling-on-macos)
@@ -73,7 +73,8 @@ writing an encoder-orientated backend.
 
 Suggestions welcome.
 
-## Contributing code and translations
+## Contributing code, translations and more
+See [Contributing] on the wiki for various ways to contribute.
 
 If you are a coder, try to follow the conventions in the code and make a PR (pull request).<br />
 If you are a translator, we will be using [Weblate] to [translate][Translating].<br />
@@ -223,6 +224,7 @@ See the [Wiki Q&A] and the other pages of the wiki.
 [development builds]:https://mpc-qt.github.io/downloads#dev-builds
 [yt-dlp]:https://github.com/yt-dlp/yt-dlp
 [weblate]:https://hosted.weblate.org/engage/mpc-qt/
+[Contributing]:https://github.com/mpc-qt/mpc-qt/wiki/Contributing
 [Translating]:https://github.com/mpc-qt/mpc-qt/wiki/Translating
 [Translation status]:https://hosted.weblate.org/widget/mpc-qt/multi-auto.svg
 [C/C++ CI]:https://github.com/mpc-qt/mpc-qt/actions/workflows/linux.yml/badge.svg
