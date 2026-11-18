@@ -4,6 +4,15 @@ on:
   push:
   pull_request:
 
+concurrency:
+  # Cancel superseded runs on PRs and forks 
+  group: >-
+    ${{ github.workflow }}-${{ github.ref }}-${{
+      (github.event_name == 'pull_request' || github.repository_owner != 'mpc-qt')
+      && 'cancelable' || github.run_id
+    }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' || github.repository_owner != 'mpc-qt'}}
+
 jobs:
   linux_build:
     name: Linux
