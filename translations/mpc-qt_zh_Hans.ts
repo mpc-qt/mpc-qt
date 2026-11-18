@@ -356,27 +356,28 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <message>
         <source>OpenGL renderer: %1
 OpenGL version: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>OpenGL 渲染器：%1
+OpenGL 版本：%2</translation>
     </message>
     <message>
         <source>MPC-QT can&apos;t play video because OpenGL isn&apos;t available.</source>
-        <translation type="unfinished"></translation>
+        <translation>MPC-QT 无法播放视频，因为 OpenGL 不可用。</translation>
     </message>
     <message>
         <source>Windows on ARM devices need Microsoft&apos;s free OpenCL, OpenGL, and Vulkan Compatibility Pack for OpenGL. Install it from the Microsoft Store, then start MPC-QT again.</source>
-        <translation type="unfinished"></translation>
+        <translation>ARM 设备上的 Windows 需要 Microsoft 免费的 OpenCL、OpenGL 和 Vulkan 兼容包用于 OpenGL。请从 Microsoft Store 安装它，然后再次启动 MPC-QT。</translation>
     </message>
     <message>
         <source>Open Microsoft Store</source>
-        <translation type="unfinished"></translation>
+        <translation>打开 Microsoft Store</translation>
     </message>
     <message>
         <source>Your graphics driver doesn&apos;t provide a usable version of OpenGL. Installing or updating the graphics driver usually fixes this.</source>
-        <translation type="unfinished"></translation>
+        <translation>您的图形驱动程序不提供可用的 OpenGL 版本。安装或更新显卡驱动程序通常可以解决此问题。</translation>
     </message>
     <message>
         <source>none</source>
-        <translation type="unfinished"></translation>
+        <translation>无</translation>
     </message>
     <message>
         <source>Do not load file history, playlists, or favorites.</source>
@@ -2151,7 +2152,7 @@ No action will be triggered.</source>
     <name>MpvGlWidget</name>
     <message>
         <source>unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>未知</translation>
     </message>
 </context>
 <context>
