@@ -356,27 +356,28 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <message>
         <source>OpenGL renderer: %1
 OpenGL version: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>OpenGL レンダラー : %1
+OpenGL バージョン : %2</translation>
     </message>
     <message>
         <source>MPC-QT can&apos;t play video because OpenGL isn&apos;t available.</source>
-        <translation type="unfinished"></translation>
+        <translation>OpenGL が利用できないため、MPC-QT で動画を再生できません。</translation>
     </message>
     <message>
         <source>Windows on ARM devices need Microsoft&apos;s free OpenCL, OpenGL, and Vulkan Compatibility Pack for OpenGL. Install it from the Microsoft Store, then start MPC-QT again.</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows on ARM デバイスでは、Microsoft が提供する無料の OpenCL、OpenGL、および Vulkan 互換パックが必要です。Microsoft Store からこれをインストールしたうえで、MPC-QT を再起動してください。</translation>
     </message>
     <message>
         <source>Open Microsoft Store</source>
-        <translation type="unfinished"></translation>
+        <translation>Microsoft Store を開く</translation>
     </message>
     <message>
         <source>Your graphics driver doesn&apos;t provide a usable version of OpenGL. Installing or updating the graphics driver usually fixes this.</source>
-        <translation type="unfinished"></translation>
+        <translation>お使いのグラフィックスドライバーが、利用可能なバージョンの OpenGL を提供していません。グラフィックスドライバーをインストールまたは更新することで、通常はこの問題が解決します。</translation>
     </message>
     <message>
         <source>none</source>
-        <translation type="unfinished"></translation>
+        <translation>なし</translation>
     </message>
     <message>
         <source>Do not load file history, playlists, or favorites.</source>
@@ -2195,7 +2196,7 @@ No action will be triggered.</source>
     <name>MpvGlWidget</name>
     <message>
         <source>unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>不明</translation>
     </message>
 </context>
 <context>
