@@ -352,27 +352,28 @@ Chcete ji přiřadit namísto k &quot;%3&quot;?</translation>
     <message>
         <source>OpenGL renderer: %1
 OpenGL version: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>OpenGL renderer: %1
+OpenGL verze: %2</translation>
     </message>
     <message>
         <source>MPC-QT can&apos;t play video because OpenGL isn&apos;t available.</source>
-        <translation type="unfinished"></translation>
+        <translation>MPC-QT nemůže přehrát video, jelikož OpenGL není dostupné.</translation>
     </message>
     <message>
         <source>Windows on ARM devices need Microsoft&apos;s free OpenCL, OpenGL, and Vulkan Compatibility Pack for OpenGL. Install it from the Microsoft Store, then start MPC-QT again.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zařízení Windows na ARM potřebují bezplatný OpenCL, OpenGL, and Vulkan Compatibility Pack pro OpenGL od Microsoftu. Nainstalujte jej z Microsoft Store, a poté znovu spusťte MPC-QT.</translation>
     </message>
     <message>
         <source>Open Microsoft Store</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít Microsoft Store</translation>
     </message>
     <message>
         <source>Your graphics driver doesn&apos;t provide a usable version of OpenGL. Installing or updating the graphics driver usually fixes this.</source>
-        <translation type="unfinished"></translation>
+        <translation>Váš grafický ovladač neposkytuje použitelnou verzi OpenGL. Instalace nebo aktualizace grafického ovladače tento problém obvykle opraví.</translation>
     </message>
     <message>
         <source>none</source>
-        <translation type="unfinished"></translation>
+        <translation>žádný</translation>
     </message>
     <message>
         <source>Do not load file history, playlists, or favorites.</source>
@@ -445,7 +446,7 @@ OpenGL version: %2</source>
     </message>
     <message>
         <source>Copy</source>
-        <translation>Kopírovat</translation>
+        <translation>Zkopírovat</translation>
     </message>
     <message>
         <source>Save</source>
@@ -1305,7 +1306,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Copy Selection</source>
-        <translation>&amp;Kopírovat výběr</translation>
+        <translation>Z&amp;kopírovat výběr</translation>
     </message>
     <message>
         <source>Ctrl+Shift+C</source>
@@ -1593,7 +1594,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>&amp;Copy Subtitle</source>
-        <translation>&amp;Kopírovat titulky</translation>
+        <translation>Z&amp;kopírovat titulky</translation>
     </message>
     <message>
         <source>Controls in Fullscreen</source>
@@ -2171,7 +2172,7 @@ No action will be triggered.</source>
     <name>MpvGlWidget</name>
     <message>
         <source>unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>neznámý</translation>
     </message>
 </context>
 <context>
@@ -2431,7 +2432,7 @@ Chcete ho nahradit?</translation>
     </message>
     <message>
         <source>Copy Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Zkopírovat název</translation>
     </message>
     <message>
         <source>Open Containing Folder</source>
@@ -2455,7 +2456,7 @@ Chcete ho nahradit?</translation>
     </message>
     <message>
         <source>Copy Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Zkopírovat cestu</translation>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>
