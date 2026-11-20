@@ -43,7 +43,7 @@ void About::showAbout(QWidget *parent, QString mpvVersion, QString ffmpegVersion
       "<h2>" + tr("Media Player Classic Qute Theater") + "</h2>" +
       "<p>" +  tr("A clone of Media Player Classic written in Qt") +
       "<br>" + tr("Based on Qt %1 and %2").arg(QT_VERSION_STR, mpvVersion) +
-      "<br>" + QString("ffmpeg %1").arg(ffmpegVersion) +
+      "<br>" + QString("FFmpeg %1").arg(ffmpegVersion) +
       (Platform::isUnix ? "<br>" + tr("Running on %1").arg(displayMode) : "") +
       "<p>" +  BUILD_VERSION_STR + (Platform::isUnix ? packageLine : "") +
       dateLine +
