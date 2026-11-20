@@ -29,3 +29,5 @@ jobs:
     - name: Upload screenshots
       if: ${{ !cancelled() }}
       uses: ./.github/actions/commands/upload_screenshots
+      with:
+        prefix: "macos"

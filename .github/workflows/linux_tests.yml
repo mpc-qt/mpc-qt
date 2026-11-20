@@ -1,4 +1,4 @@
-name: C/C++ CI Tests
+name: Linux CI Tests
 
 on:
   [workflow_call]
@@ -47,3 +47,5 @@ jobs:
     - name: Upload screenshots
       if: ${{ !cancelled() }}
       uses: ./.github/actions/commands/upload_screenshots
+      with:
+        prefix: "linux"

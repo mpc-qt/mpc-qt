@@ -56,6 +56,8 @@ jobs:
     - name: Install MPC-QT
       run: sudo cmake --install build
     - name: Install debloated packages
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         EXTRA_PACKAGES="https://raw.githubusercontent.com/pkgforge-dev/Anylinux-AppImages/refs/heads/main/useful-tools/get-debloated-pkgs.sh"
         wget "$EXTRA_PACKAGES" -O ./get-debloated-pkgs.sh

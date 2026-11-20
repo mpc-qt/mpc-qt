@@ -1,8 +1,7 @@
-name: Msys2 CI
+name: Windows x64 CI
 
 on:
-  push:
-  pull_request:
+  [workflow_call]
 
 env:
   DEVBUILD: continuous
@@ -66,9 +65,5 @@ jobs:
     - name: Upload
       uses: actions/upload-artifact@v7
       with:
-        name: "mpc-qt-win-installer"
+        name: "mpc-qt-win-x64-installer"
         path: build/mpc-qt-win-x64-*-installer.exe
-  tests:
-    name: Windows
-    needs: build
-    uses: ./.github/workflows/windows_tests.yml

@@ -1,0 +1,83 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+concurrency:
+  # Cancel superseded runs on PRs and forks 
+  group: >-
+    ${{ github.workflow }}-${{ github.ref }}-${{
+      (github.event_name == 'pull_request' || github.repository_owner != 'mpc-qt')
+      && 'cancelable' || github.run_id
+    }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' || github.repository_owner != 'mpc-qt'}}
+
+jobs:
+  linux_build:
+    name: Linux
+    uses: ./.github/workflows/linux_build.yml
+
+  linux_build_old:
+    name: Linux Old Qt
+    uses: ./.github/workflows/linux_old_qt.yml
+
+  linux_tests:
+    name: Linux
+    needs: linux_build
+    uses: ./.github/workflows/linux_tests.yml
+
+  appimage:
+    name: AppImage
+    uses: ./.github/workflows/appimage.yml
+
+  flatpak:
+    name: Flatpak
+    uses: ./.github/workflows/flatpak.yml
+
+# Windows
+
+  windows_x64_build:
+    name: Windows x64
+    uses: ./.github/workflows/windows-x64_build.yml
+
+  windows_tests:
+    name: Windows x64
+    needs: windows_x64_build
+    uses: ./.github/workflows/windows_tests.yml
+
+  windows_arm64_build:
+    name: Windows ARM64
+    uses: ./.github/workflows/windows-arm64_build.yml
+
+  windows_arm64_tests:
+    name: Windows ARM64
+    needs: windows_arm64_build
+    uses: ./.github/workflows/windows_tests.yml
+    with:
+      arch: arm64
+
+# macOS
+
+  macos_build:
+    name: macOS
+    uses: ./.github/workflows/macos_build.yml
+
+  macos_tests:
+    name: macOS
+    needs: macos_build
+    uses: ./.github/workflows/macos_tests.yml
+    
+    
+  pre-release:
+    name: Pre-release
+    if: ${{ github.ref_name == 'master' && github.repository_owner == 'mpc-qt' }}
+    runs-on: ubuntu-latest
+    needs: [linux_build, appimage, flatpak, windows_x64_build, windows_arm64_build, macos_build]
+    env:
+      GH_TOKEN: ${{ secrets.API_TOKEN_GITHUB_DEV_BUILDS }}
+
+    steps:
+    - name: Trigger dev-builds release workflow
+      run: |
+        gh workflow run --repo mpc-qt/dev-builds "Release maker"
