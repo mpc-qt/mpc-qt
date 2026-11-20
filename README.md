@@ -84,7 +84,7 @@ Alternatively, you can submit the translations as a PR.
 
 ## Compiling
 
-[![C/C++ CI]][C/C++ CI link]
+[![CI]][CI link]
 
 The best version is git master, and everyone is encouraged to increase their
 computer-fu by compiling from source (see sections below).  Compiling from
@@ -171,7 +171,7 @@ libmpv by following the instructions at the [mpv-build repo].
 
 ## Compiling on Windows
 
-[![Msys2 CI]][Msys2 CI link]
+[![CI]][CI link]
 
 While this program is meant for Unix, it is possible to compile it on Windows
 with MSYS2.  MSVC is not supported due to the nature of the build process, but
@@ -210,7 +210,7 @@ Congratulations, you have now built MPC-QT!
 
 ## Compiling on macOS
 
-[![macOS CI]][macOS CI link]
+[![CI]][CI link]
 
 ## Questions and answers
 See the [Wiki Q&A] and the other pages of the wiki.
@@ -227,12 +227,8 @@ See the [Wiki Q&A] and the other pages of the wiki.
 [Contributing]:https://github.com/mpc-qt/mpc-qt/wiki/Contributing
 [Translating]:https://github.com/mpc-qt/mpc-qt/wiki/Translating
 [Translation status]:https://hosted.weblate.org/widget/mpc-qt/multi-auto.svg
-[C/C++ CI]:https://github.com/mpc-qt/mpc-qt/actions/workflows/linux.yml/badge.svg
-[C/C++ CI link]:https://github.com/mpc-qt/mpc-qt/actions/workflows/linux.yml
-[Msys2 CI]:https://github.com/mpc-qt/mpc-qt/actions/workflows/windows-msys2.yml/badge.svg
-[Msys2 CI link]:https://github.com/mpc-qt/mpc-qt/actions/workflows/windows-msys2.yml
-[macOS CI]:https://github.com/mpc-qt/mpc-qt/actions/workflows/macos.yml/badge.svg
-[macOS CI link]:https://github.com/mpc-qt/mpc-qt/actions/workflows/macos.yml
+[CI]:https://github.com/mpc-qt/mpc-qt/actions/workflows/ci.yml/badge.svg
+[CI link]:https://github.com/mpc-qt/mpc-qt/actions/workflows/ci.yml
 [aur]:https://aur.archlinux.org/packages/mpc-qt-git/
 [ports]:https://www.freshports.org/multimedia/mpc-qt
 [mpv-build repo]:https://github.com/mpv-player/mpv-build
