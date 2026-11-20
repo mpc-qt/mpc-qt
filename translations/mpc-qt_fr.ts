@@ -5019,6 +5019,14 @@ fichier média lu</translation>
         <source>Checkerboard pattern</source>
         <translation>Damier</translation>
     </message>
+    <message>
+        <source>Hold-to-speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>x</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>
