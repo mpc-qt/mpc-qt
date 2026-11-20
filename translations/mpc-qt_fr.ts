@@ -5021,11 +5021,11 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Hold-to-speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Maintenir pour accélérer</translation>
     </message>
     <message>
         <source>x</source>
-        <translation type="unfinished"></translation>
+        <translation>x</translation>
     </message>
 </context>
 <context>
