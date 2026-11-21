@@ -1382,8 +1382,8 @@ void Flow::showVersionInfo()
     logMessages += (QString) spaces + "OS: " + QSysInfo::productType() + " " + QSysInfo::productVersion() + "\n";
     logMessages += (QString) spaces + "Qt: " + (QString) QT_VERSION_STR + "\n";
     logMessages += (QString) spaces + mainWindow->mpvObject()->mpvVersion() + "\n";
-    logMessages += (QString) spaces + "ffmpeg " + mainWindow->mpvObject()->ffmpegVersion() + "\n";
-    logMessages += (QString) spaces + "mpc-qt: " + About::version();
+    logMessages += (QString) spaces + "FFmpeg " + mainWindow->mpvObject()->ffmpegVersion() + "\n";
+    logMessages += (QString) spaces + "MPC-QT: " + About::version();
     logMessages += " " + About::buildTime();
     QString packageType = About::packageType();
     logMessages += packageType.isEmpty() ? "" : "\n" + (QString) spaces + "Package: " + packageType;
