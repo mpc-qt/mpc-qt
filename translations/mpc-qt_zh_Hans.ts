@@ -4965,11 +4965,11 @@ media file played</source>
     </message>
     <message>
         <source>Hold-to-speed</source>
-        <translation type="unfinished"></translation>
+        <translation>按住加速</translation>
     </message>
     <message>
         <source>x</source>
-        <translation type="unfinished"></translation>
+        <translation>x</translation>
     </message>
 </context>
 <context>
