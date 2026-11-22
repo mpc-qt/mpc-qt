@@ -620,7 +620,8 @@ void MpvObject::setSpeed(double speed)
 
 void MpvObject::setStartTime(double position)
 {
-    setMpvPropertyVariant("start", QString::number(position));
+    QString startPos = position > 0 ? QString::number(position) : "none";
+    setMpvPropertyVariant("start", startPos);
 }
 
 void MpvObject::setTime(double position)
