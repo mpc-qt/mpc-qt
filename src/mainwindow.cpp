@@ -3708,7 +3708,7 @@ void MainWindow::mpvw_customContextMenuRequested(const QPoint &pos)
     updateMouseHideTime();
 }
 
-void MainWindow::position_sliderMoved(int position)
+void MainWindow::position_sliderMoved(double position)
 {
     emit timeSelected(position);
 }

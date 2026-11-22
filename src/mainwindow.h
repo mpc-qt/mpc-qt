@@ -493,7 +493,7 @@ private slots:
     void on_actionPlaylistFinishSearching_triggered();
 
     void mpvw_customContextMenuRequested(const QPoint &pos);
-    void position_sliderMoved(int position);
+    void position_sliderMoved(double position);
     void position_hoverValue(double value, QString text, double mouseX, bool isDragging);
     void position_hoverEnd();
     void on_play_clicked();
