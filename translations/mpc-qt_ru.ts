@@ -344,27 +344,28 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <message>
         <source>OpenGL renderer: %1
 OpenGL version: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Рендерер OpenGL: %1
+Версия OpenGL: %2</translation>
     </message>
     <message>
         <source>MPC-QT can&apos;t play video because OpenGL isn&apos;t available.</source>
-        <translation type="unfinished"></translation>
+        <translation>MPC-QT не может воспроизвести видео, поскольку OpenGL недоступен.</translation>
     </message>
     <message>
         <source>Windows on ARM devices need Microsoft&apos;s free OpenCL, OpenGL, and Vulkan Compatibility Pack for OpenGL. Install it from the Microsoft Store, then start MPC-QT again.</source>
-        <translation type="unfinished"></translation>
+        <translation>В Windows на устройствах ARM для OpenGL необходим бесплатный пакет совместимости OpenCL, OpenGL и Vulkan от Microsoft. Установите его из Microsoft Store, а затем снова запустите MPC-QT.</translation>
     </message>
     <message>
         <source>Open Microsoft Store</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть Microsoft Store</translation>
     </message>
     <message>
         <source>Your graphics driver doesn&apos;t provide a usable version of OpenGL. Installing or updating the graphics driver usually fixes this.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ваш графический драйвер не предоставляет подходящую версию OpenGL. Обычно проблему можно решить, установив или обновив графический драйвер.</translation>
     </message>
     <message>
         <source>none</source>
-        <translation type="unfinished"></translation>
+        <translation>нет</translation>
     </message>
     <message>
         <source>Do not load file history, playlists, or favorites.</source>
@@ -2131,7 +2132,7 @@ No action will be triggered.</source>
     <name>MpvGlWidget</name>
     <message>
         <source>unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>неизвестно</translation>
     </message>
 </context>
 <context>
@@ -2387,7 +2388,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Copy Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать имя</translation>
     </message>
     <message>
         <source>Open Containing Folder</source>
@@ -2411,7 +2412,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Copy Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать расположение</translation>
     </message>
     <message>
         <source>&amp;Restore Playlist</source>
@@ -3071,7 +3072,7 @@ media file played</source>
     </message>
     <message>
         <source>Video Renderer</source>
-        <translation>Видео рендер</translation>
+        <translation>Рендерер видео</translation>
     </message>
     <message>
         <source>Dumb mode</source>
@@ -3611,7 +3612,7 @@ media file played</source>
     </message>
     <message>
         <source>Audio Renderer</source>
-        <translation>Аудио рендерер</translation>
+        <translation>Рендерер аудио</translation>
     </message>
     <message>
         <source>Device</source>
@@ -4996,11 +4997,11 @@ media file played</source>
     </message>
     <message>
         <source>Hold-to-speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ускорение при удержании</translation>
     </message>
     <message>
         <source>x</source>
-        <translation type="unfinished"></translation>
+        <translation>x</translation>
     </message>
 </context>
 <context>
