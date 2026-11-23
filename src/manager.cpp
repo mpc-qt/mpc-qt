@@ -874,7 +874,7 @@ void PlaybackManager::updateSubtitleTrack()
 void PlaybackManager::restoreAudioTrack(int64_t id)
 {
     audioTrackSelected = id;
-    if (id > -1)
+    if (id > 0)
         audioTrackIsUserSelected = true;
 }
 
@@ -888,7 +888,7 @@ void PlaybackManager::restoreSubtitleTrack(int64_t id)
 void PlaybackManager::restoreVideoTrack(int64_t id)
 {
     videoTrackSelected = id;
-    if (id > -1)
+    if (id > 0)
         videoTrackIsUserSelected = true;
 }
 
