@@ -249,6 +249,11 @@ void MpcQtServer::ipc_stop()
     playbackManager->stopPlayer();
 }
 
+void MpcQtServer::ipc_raiseWindow()
+{
+    mainWindow->raiseWindow();
+}
+
 void MpcQtServer::ipc_exit()
 {
     mainWindow->httpExit();
