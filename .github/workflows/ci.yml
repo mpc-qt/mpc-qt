@@ -61,10 +61,12 @@ jobs:
 
   macos_build:
     name: macOS
+    if: ${{ github.repository_owner == 'mpc-qt' }}
     uses: ./.github/workflows/macos_build.yml
 
   macos_tests:
     name: macOS
+    if: ${{ github.repository_owner == 'mpc-qt' }}
     needs: macos_build
     uses: ./.github/workflows/macos_tests.yml
     
