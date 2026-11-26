@@ -5045,11 +5045,11 @@ přehrávaný mediální soubor</translation>
     </message>
     <message>
         <source>Hold-to-speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Držet pro zrychlení</translation>
     </message>
     <message>
         <source>x</source>
-        <translation type="unfinished"></translation>
+        <translation>x</translation>
     </message>
 </context>
 <context>
