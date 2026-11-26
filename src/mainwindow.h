@@ -48,6 +48,7 @@ public:
     QSize chromeSize() const;
     QSize noVideoSize() const;
     void unfreezeWindow();
+    void raiseWindow();
     void fixMpvwSize();
     void setActionPlayLoopUse();
     void setRemoveFileNotRecycle();
@@ -128,7 +129,6 @@ private:
     QList<QUrl> doQuickOpenFileDialog();
     void showStepAndSubsButtons(bool show);
     void addRecentDocumentsEntries(const QList<TrackInfo> &tracks, QMenu *menu, int start, int end);
-    void raiseWindow();
     void createAlwaysOnTopWindow();
     void showAlwaysOnTopWindow(bool show);
     void armAbLoop();

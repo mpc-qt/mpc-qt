@@ -94,6 +94,13 @@ static void showOpenGLError(const QString &glRenderer, const QString &glVersion)
     }
 }
 
+void raiseWindow()
+{
+    QByteArray pay = QJsonDocument::fromVariant(QVariantMap{{keyCommand, "raiseWindow"}})
+                        .toJson(QJsonDocument::Compact);
+    JsonServer::sendPayload(pay, MpcQtServer::defaultSocketName());
+}
+
 int main(int argc, char *argv[])
 {
     QCoreApplication::setApplicationName("MPC-QT");
@@ -142,8 +149,10 @@ int main(int argc, char *argv[])
     f.parseArgs();
     f.setTranslation(false);
     f.detectMode();
-    if (f.earlyQuit())
+    if (f.earlyQuit()) {
+        raiseWindow();
         return 0;
+    }
     // Only checked on Windows for now, where a missing OpenGL driver is a known
     // problem (e.g. Windows on ARM without the Compatibility Pack).
     if (Platform::isWindows) {
