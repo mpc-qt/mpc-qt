@@ -141,7 +141,8 @@ qt_add_translations(mpc-qt
     TS_FILES ${TS_FILES}
     RESOURCE_PREFIX "/i18n/"
     TS_FILE_DIR translations
-    LUPDATE_OPTIONS -locations none -no-ui-lines
+    LUPDATE_OPTIONS -locations none -no-ui-lines -silent
+    LRELEASE_OPTIONS -silent
 )
 
 if(WIN32) # Add the Qt interface translations on Windows
