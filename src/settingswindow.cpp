@@ -762,12 +762,13 @@ void SettingsWindow::sendSignals()
     bool useDarkColors = WIDGET_LOOKUP(ui->interfaceWidgetDark).toBool();
     // REMOVEME: Apply a dark palette manually because Qt doesn't propagate it
     bool darkColorScheme = false;
+    bool isFusion = QApplication::style()->name() == "fusion";
 #if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
     darkColorScheme = QGuiApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark;
 #endif
     if (useCustomColors)
         emit applicationPalette(paletteEditor->variantToPalette(WIDGET_LOOKUP(paletteEditor)));
-    else if (useDarkColors || darkColorScheme)
+    else if (useDarkColors || (darkColorScheme && isFusion))
         emit applicationPalette(paletteEditor->darkPalette());
     else
         emit applicationPalette(paletteEditor->systemPalette());
